@@ -27,6 +27,13 @@ Style blocks load in the same order (`studyStyle`, `semesterStyle`, `civilStyle`
 - `dklaUI`: the overview lists the courses in reading order in a three-column grid; "Proposed" is no longer shown on relationship cards (only "Reviewed ✓" and "Disputed" are marked); the connection lens no longer repeats the reading panel; case entries open with a "Rule in one line" callout; the coverage dialog carries one scope note per course from `seedData.scopeNotes`.
 - Subject geometry (`studyMap.regions`, `districts`, `homes`) is unchanged, so saved map homes still resolve. Sizing regions by entry count would need a relayout of every home.
 
+### Revision 9b (same day)
+
+- `tools/r9_polish.py` removed the sentences about the entries themselves ("this account", "this notebook", citator and current-law caveats, "the excerpt does not supply") and added `seedData.timelines`: 21 doctrine timelines (personal jurisdiction, Erie, pleading, nondelegation, removal, deference, damages, and so on) with 152 steps, each a case id, a year and a one-line note on what changed. The reading panel shows a timeline on every case that is a step and on every concept that at least three steps link to (`timelinesFor` in `dklaUI`).
+- `tools/r9_apply_verification.py` applied `tools/verification-2026-09.json`, the output of a check of 223 case entries against Quimbee, Studicata, Casebriefs, Oyez and Justia snippets (the other 156 could not be checked in that session): 21 fields corrected, 301 additions appended to entry notes (votes, opinion authors, citations, facts, rule statements), and 440 case-to-concept links added as topics on the case plus `r9v-` connections. Re-run the check on the unchecked cases when a session with web-search budget is available.
+- The cross-course "bridges" section is no longer rendered on the overview; the data (`seedData.dklaBridges`) is still there.
+- Interface copy was rewritten in plain words; `help()` is overridden in `dklaUI`. Motion lives in the `dklaR9bStyles` block (panel slide-in, staggered sections, petal and timeline entrances, hover lift, press feedback) plus the selection pulse and ribbon draw-in inside `draw()`. Taps on buttons trigger a 6 ms `navigator.vibrate` on touch devices. `prefers-reduced-motion` disables all of it.
+
 ## Rules
 
 - Do not convert source paths back into base64 or `data:` URIs inside `DKLA-r8.html`; that would recreate the 363 MB file.
