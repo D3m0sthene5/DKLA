@@ -34,6 +34,15 @@ Style blocks load in the same order (`studyStyle`, `semesterStyle`, `civilStyle`
 - The cross-course "bridges" section is no longer rendered on the overview; the data (`seedData.dklaBridges`) is still there.
 - Interface copy was rewritten in plain words; `help()` is overridden in `dklaUI`. Motion lives in the `dklaR9bStyles` block (panel slide-in, staggered sections, petal and timeline entrances, hover lift, press feedback) plus the selection pulse and ribbon draw-in inside `draw()`. Taps on buttons trigger a 6 ms `navigator.vibrate` on touch devices. `prefers-reduced-motion` disables all of it.
 
+## Revision 10 (24 September 2026)
+
+- `added-sources/` holds the readings that were missing: the class 1–6 LRS opinions, the Parrillo–Shane supplement, the Slaughter supplement (Word), Mead, Berk v. Choy, Cross v. United States, the Civil Procedure supplement (354 pages) and the Contracts Selections (713 pages). `safeURL` and `sourceHTML` accept relative `added-sources/…` and `DKLA-sources/…` links (spaces allowed, `encodeURI` on output); the 23 former gap notes now link to the files with status `Source received`, and the 31 Civil Procedure provision guides link to the supplement.
+- Thirteen new briefs were written from those files and merged by `tools/r10_merge_briefs.py` (ids `lrs-k-rucho`, `lrs-k-riggs`, `lrs-k-cargill`, `lrs-k-vanderstok`, `lrs-k-train`, `lrs-k-mcboyle`, `lrs-k-gustafson`, `lrs-k-people-smith`, `lrs-k-public-citizen`, `lrs-k-epic`, `lrs-k-trump-illinois`, `cp-berk`, `cp-cross`); Mead (`lrs-i-mead-note`) became a full brief and Trump v. Slaughter carries the supplement digest. Map homes came from the app's own `r6Place`, driven headlessly, so the LRS cases sit in a continuation area of "Katzmann and interpretive methods" and Berk in an Erie extension. A new timeline, "Statutory interpretation: text, purpose and the canons", threads them.
+- The overview is a galaxy (`galaxyLayout`/`galaxySVG` in `dklaUI`): three spiral arms, one per course, every entry a star (cases bright, concepts mid, notes faint), seven cross-course theme hubs between the arms (`GALAXY_THEMES`, matched by concept-title regex plus the old bridge edges) and the 59 real cross-course connections as threads. Hover shows a name, click opens the entry or the hub's member list, wheel-in over an arm opens that course. The course cards sit beneath.
+- Connection ribbons no longer need both endpoint cards on screen: they draw from the selected entry to every connected home, with a labelled marker (`.ribbon-end`) where the far card is not drawn, so they survive panning and zooming out.
+- District headers place the question below however many lines the title needs; short cards get one-line labels.
+- Icons: `tools/r10_icons.py` holds a 289-glyph library and one hand-picked `(motif, modifier)` per case, asserted unique; `dklaIcons.modifiers` holds the badge glyphs and `symbol()`/`decorateMap()` draw them at the bottom-right. The caption under a case title comes from `icons.records[id].label`.
+
 ## Rules
 
 - Do not convert source paths back into base64 or `data:` URIs inside `DKLA-r8.html`; that would recreate the 363 MB file.
