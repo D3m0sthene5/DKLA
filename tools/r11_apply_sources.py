@@ -45,6 +45,12 @@ if 'id="dklaR11SourceStyles"' not in html:
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
 html = html.replace('Source coverage and gaps →', 'Sources on file →')
+# r11b: the atlas always opens on the universe; the last camera view is kept for Back but not restored on load
+for a, b in [("if(data.studyMap.view)restoreView(data.studyMap.view);else home('Atlas',false,false);", "home('Atlas',false,false);S.history=[];"),
+             ("if(goodView)restoreView(cachedView);else{home('Atlas',false,false);S.history=[];}", "home('Atlas',false,false);S.history=[];"),
+             ("document.title='DKLA — Danny Kind Legal Atlas';", "document.title='DKLA — Danny Kind Legal Atlas · r11b';")]:
+    assert html.count(a) == 1, a[:60]
+    html = html.replace(a, b)
 cond = "if(cached&&cached.dklaRelease?.contentBuild===base.dklaRelease?.contentBuild&&data.revision===r7InitialRevision"
 assert html.count(cond) == 1
 html = html.replace(cond, "if(cached&&cached.dklaRelease?.contentBuild===base.dklaRelease?.contentBuild&&cached.studyMap?.layoutId===base.studyMap?.layoutId&&data.revision===r7InitialRevision").replace('Source coverage & gaps', 'Sources and coverage')
