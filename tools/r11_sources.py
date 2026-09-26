@@ -139,11 +139,29 @@ for n in data['nodes']:
     n['updatedAt'] = TODAY
     linked += 1
 
+# the Restatement of the Law, Consumer Contracts (uploaded 26 Sept.), if its index exists
+RLCC_PDF = 'added-sources/Complete Restatement.pdf'
+rlcc_path = os.path.join(ROOT, 'added-sources/index/complete-restatement.json')
+rlcc = json.load(open(rlcc_path, encoding='utf-8')) if os.path.exists(rlcc_path) else None
+if rlcc:
+    rl_idx = {e['key']: e for e in rlcc['index']}
+    for n in data['nodes']:
+        t = (n.get('title') or '') + ' ' + (n.get('summary') or '')
+        if not re.search(r'consumer contracts|\bRLCC\b', t, re.I):
+            continue
+        secs = re.findall(r'§\s?(\d+)', n.get('title') or '')
+        e = next((rl_idx.get('RLCC § ' + x) for x in secs if rl_idx.get('RLCC § ' + x)), None) or rl_idx['Restatement of Consumer Contracts']
+        src = {'label': f"{e['label'][:90]} · Restatement of the Law, Consumer Contracts (2024), PDF page {e['page']} of {rlcc['pages']}", 'url': f"{RLCC_PDF}#page={e['page']}"}
+        n['sources'] = [src] + [s for s in n.get('sources', []) if s.get('url') and not s['url'].startswith(RLCC_PDF)]
+        if n['id'] == 'gap-rlcc':
+            n.update({'status': 'Source received', 'summary': 'On file: the Restatement of the Law, Consumer Contracts, Official Text (2024), complete (197 pages), uploaded 26 September 2026. Sections 1–10 open by page.', 'updatedAt': TODAY})
+        linked += 1
+
 # a compact index: every heading with its page, plus the first 220 characters of each page for search snippets
 def compact(book):
     return {'file': book['file'], 'pages': book['pages'], 'index': [{'key': e['key'], 'label': e['label'][:120], 'page': e['page']} for e in book['index']],
             'snippets': {str(i + 1): re.sub(r'\s+', ' ', (t or ''))[:220] for i, t in enumerate(book['pageText'])}}
-source_index = {'civ': compact(civ), 'sel': compact(sel),
+source_index = {'civ': compact(civ), 'sel': compact(sel), 'rlcc': compact(rlcc) if rlcc else None,
                 'opinions': [{'id': n['id'], 'title': n['title'], 'citation': n.get('citation', ''), 'file': f"added-sources/opinions/{n['id']}.txt"}
                              for n in data['nodes'] if 'r11-full' in n.get('tags', [])],
                 'files': sorted({s['url'].split('#')[0] for n in data['nodes'] for s in n.get('sources', []) if (s.get('url') or '').startswith('added-sources/')})}
@@ -271,6 +289,8 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'added-sources', 'text', '*.txt')))
             texts['added-sources/' + stem + ext] = {'kind': 'text', 'text': open(f, encoding='utf-8', errors='replace').read()}
 texts[CIV_PDF] = {'kind': 'pages', 'pages': [re.sub(r'[ \t]+', ' ', t or '') for t in civ['pageText']]}
 texts[SEL_PDF] = {'kind': 'pages', 'pages': [re.sub(r'[ \t]+', ' ', t or '') for t in sel['pageText']]}
+if rlcc:
+    texts[RLCC_PDF] = {'kind': 'pages', 'pages': [re.sub(r'[ \t]+', ' ', t or '') for t in rlcc['pageText']]}
 st = json.dumps(texts, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
 tblock = f'<script id="sourceTexts" type="application/json">{st}</script>\n'
 if 'id="sourceTexts"' in html:

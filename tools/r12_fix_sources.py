@@ -161,10 +161,11 @@ received('gap-peevyhouse-contract', 'Agreement in Peevyhouse (Selections)',
          'Open the file from the source button; it is stored beside the atlas in added-sources. The casebook reproduces and describes the remedial provisions; the lease shows the whole bargain.',
          [('Contract in Peevyhouse v. Garland Coal · Contracts Selections (Farnsworth et al., 2021), PDF page 699 of 713 (retyped at page 703)', f'{SEL_PDF}#page=699')],
          review='On file: the lease is reprinted in the Contracts Selections (PDF page 699).')
-received('gap-rlcc', 'Restatement of Consumer Contracts (Selections)',
-         'On file: the Restatement of the Law, Consumer Contracts (Tentative Draft, April 2019) is reprinted in the Contracts Selections from PDF page 474 (§ 1 at page 480, § 2 at page 484).',
-         'Open the file from the source button; it is stored beside the atlas in added-sources.',
-         [('Restatement of the Law, Consumer Contracts, Tentative Draft (2019) · Contracts Selections, PDF page 474 of 713', f'{SEL_PDF}#page=474')])
+received('gap-rlcc', 'Restatement of the Law, Consumer Contracts',
+         'On file: the complete Official Text (2024) of the Restatement of the Law, Consumer Contracts (197 pages, "Complete Restatement.pdf", §§ 1–10 with comments and reporters\' notes), and the 2019 Tentative Draft reprinted in the Contracts Selections from PDF page 474 (§ 1 at page 480, § 2 at page 484).',
+         'Open either file from the source buttons; both are stored beside the atlas in added-sources. The 2024 official text supersedes the draft.',
+         [('Restatement of the Law, Consumer Contracts, Official Text (2024), complete · PDF page 1 of 197', 'added-sources/Complete Restatement.pdf#page=1'),
+          ('Restatement of the Law, Consumer Contracts, Tentative Draft (2019) · Contracts Selections, PDF page 474 of 713', f'{SEL_PDF}#page=474')])
 drop_source(nodes['gap-rlcc'], lambda s: 'check whether' in (s.get('label') or ''), 'nodes[gap-rlcc]')
 sub(nodes['gap-balfour'], 'notes', 'The earlier source-gap notice is retained in provenance.', 'The earlier notice that the opinion had not arrived is kept in provenance.', 'nodes[gap-balfour]')
 swap_tag(nodes['gap-balfour'], 'source-gap', 'source-on-file'); swap_tag(nodes['gap-sel'], 'source-gap', 'source-on-file')
