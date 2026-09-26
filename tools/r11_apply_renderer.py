@@ -37,7 +37,7 @@ t0 = sc.index('function text(t,x,y,width,fs,'); t1 = sc.index('\n', t0)
 sc = sc[:t0] + '// r11: text() is redefined next to the renderer, with measured wrapping.' + sc[t1:]
 # 2. Scope helpers read the course from the region instead of its column.
 sc = sub(sc, "function scopeRegions(scope=S.scope){return mapData().regions.filter(r=>scope==='Atlas'||scope==='Contracts'&&r.col<3||scope==='Civil Procedure'&&(r.id==='civil-region'||r.course==='Civil Procedure'||r.id.startsWith('cp-'))||scope==='Study notes'&&['workbench-region','semester-workbench'].includes(r.id));}",
-         "function scopeRegions(scope=S.scope){return mapData().regions.filter(r=>scope==='Atlas'||regionCourse(r)===scope&&r.id!=='workbench-region'||scope==='Study notes'&&['workbench-region','semester-workbench'].includes(r.id));}")
+         "function scopeRegions(scope=S.scope){return mapData().regions.filter(r=>scope==='Atlas'||regionCourse(r)===scope&&r.id!=='workbench-region'||scope==='Study notes'&&r.id==='workbench-region');}")
 sc = sub(sc, "function scopeBox(){return bounds(scopeRegions());}", "function scopeBox(){return S.scope==='Atlas'?galaxy().box:bounds(scopeRegions());}")
 sc = sub(sc, "function setScopeFor(n){const r=regionFor(homeFor(n.id)?.region);S.scope=r?(r.col<3?'Contracts':(r.id==='civil-region'||r.course==='Civil Procedure'||r.id.startsWith('cp-'))?'Civil Procedure':'Study notes'):",
          "function setScopeFor(n){const r=regionFor(homeFor(n.id)?.region);S.scope=r?(r.id==='workbench-region'?'Study notes':regionCourse(r)):")
