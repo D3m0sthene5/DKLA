@@ -30,6 +30,12 @@ CSS = """<style id="dklaR11SourceStyles">
 #fileDialog .file-page{font-size:12.5px;color:#aeb9c6;display:flex;align-items:center;gap:6px}#fileDialog .file-page input{width:64px;background:#0f171e;color:#e4ebf1;border:1px solid #435466;border-radius:6px;padding:5px 6px;font-size:13px}
 #fileDialog #fileFind{background:#0f171e;color:#e4ebf1;border:1px solid #435466;border-radius:16px;padding:6px 12px;font-size:12.5px;min-width:220px}
 #fileDialog iframe{flex:1;width:100%;border:0;background:#fff}#fileDialog iframe.is-text{background:#fbfaf7}
+#fileDialog .file-object{display:block;flex:1;width:100%;min-height:0;background:#fbfaf7}
+#fileDialog .file-fallback,#fileDialog .file-scroll{height:100%;overflow:auto;background:#fbfaf7;color:#1c2128}
+#fileDialog .file-notice{margin:0;padding:14px 22px;background:#f1e9d6;color:#4a3d22;font-size:14px;line-height:1.5;border-bottom:1px solid #e0d3b4}#fileDialog .file-notice code{font-size:13px}#fileDialog .file-notice button{background:none;border:0;color:#7a4b12;text-decoration:underline;cursor:pointer;font:inherit}
+#fileDialog .file-gh{display:inline-block;margin:6px 10px 0 0;background:#1f2a35;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12.5px;padding:5px 12px;text-decoration:none}
+#fileDialog .file-text,#fileDialog .file-pagetext{max-width:780px;margin:0 auto;padding:28px 24px 80px;font:17px/1.6 Georgia,serif}#fileDialog .file-text p,#fileDialog .file-pagetext p{margin:0 0 1em}#fileDialog .file-pagetext h4{margin:0 0 14px;font:600 13px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#7a6b4e;letter-spacing:.06em;text-transform:uppercase}#fileDialog .file-empty{padding:28px 24px;color:#5b6570}
+.dkla-missing-image{padding:18px 20px;margin:8px 0;background:#f1e9d6;color:#4a3d22;border-radius:8px;font-size:14px;line-height:1.5;max-width:640px}.dkla-missing-image code{font-size:13px}
 #fileDialog #fileFindResults{position:absolute;top:58px;right:14px;z-index:2;background:#141e27;border:1px solid #3a4a58;border-radius:10px;max-width:420px;max-height:50vh;overflow:auto;box-shadow:0 10px 30px #0009}
 #fileDialog #fileFindResults button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #26333f;color:#e4ebf1;padding:8px 12px;cursor:pointer}#fileDialog #fileFindResults button:hover{background:#1f2a35}#fileDialog #fileFindResults small{display:block;color:#93a7b7;font-size:11.5px}
 #fileDialog .file-note{padding:24px;font-size:15px}#fileDialog .file-note button{background:none;border:0;color:#dabd94;text-decoration:underline;cursor:pointer;font:inherit}
@@ -45,6 +51,9 @@ if 'id="dklaR11SourceStyles"' not in html:
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
 html = html.replace('Source coverage and gaps →', 'Sources on file →')
+h1 = "help=function(){modal('Explore, read, and keep your place',`<div class=\"modal-copy\">"
+assert html.count(h1) == 1
+html = html.replace(h1, h1 + "<h3>Original files</h3><p>The atlas reads its sources from two folders beside <code>DKLA-r8.html</code>: <code>added-sources/</code> (opinions, the Civil Procedure supplement, the Contracts Selections) and <code>DKLA-sources/</code> (the scanned casebook and packet pages). Download the repository as a ZIP and open the HTML from inside it. When a folder is missing, every source still opens as text inside the atlas, with a link to the original on GitHub.</p>")
 # r11b: the atlas always opens on the universe; the last camera view is kept for Back but not restored on load
 for a, b in [("if(data.studyMap.view)restoreView(data.studyMap.view);else home('Atlas',false,false);", "home('Atlas',false,false);S.history=[];"),
              ("if(goodView)restoreView(cachedView);else{home('Atlas',false,false);S.history=[];}", "home('Atlas',false,false);S.history=[];"),

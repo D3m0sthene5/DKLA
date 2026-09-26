@@ -260,6 +260,24 @@ data['history'].append({'at': TODAY, 'action': f'Revision 11: {merged} entries r
 out = json.dumps(data, ensure_ascii=False, separators=(',', ':')); assert '</' not in out
 html = html[:s0] + out + html[e0:]
 si = json.dumps(source_index, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+# ---- the text of every added source, embedded so it opens even when the folder is not beside the file
+texts = {}
+for f in sorted(glob.glob(os.path.join(ROOT, 'added-sources', 'opinions', '*.txt'))):
+    texts['added-sources/opinions/' + os.path.basename(f)] = {'kind': 'text', 'text': open(f, encoding='utf-8', errors='replace').read()}
+for f in sorted(glob.glob(os.path.join(ROOT, 'added-sources', 'text', '*.txt'))):
+    stem = os.path.basename(f)[:-4]
+    for ext in ('.pdf', '.docx', '.html'):
+        if os.path.exists(os.path.join(ROOT, 'added-sources', stem + ext)):
+            texts['added-sources/' + stem + ext] = {'kind': 'text', 'text': open(f, encoding='utf-8', errors='replace').read()}
+texts[CIV_PDF] = {'kind': 'pages', 'pages': [re.sub(r'[ \t]+', ' ', t or '') for t in civ['pageText']]}
+texts[SEL_PDF] = {'kind': 'pages', 'pages': [re.sub(r'[ \t]+', ' ', t or '') for t in sel['pageText']]}
+st = json.dumps(texts, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+tblock = f'<script id="sourceTexts" type="application/json">{st}</script>\n'
+if 'id="sourceTexts"' in html:
+    html = re.sub(r'<script id="sourceTexts" type="application/json">.*?</script>\n', lambda _: tblock, html, count=1, flags=re.S)
+else:
+    html = html.replace('<script id="dklaIcons"', tblock + '<script id="dklaIcons"', 1)
+print(f'sourceTexts: {len(texts)} files, {len(st)//1024} KB')
 block = f'<script id="sourceIndex" type="application/json">{si}</script>\n'
 if 'id="sourceIndex"' in html:
     html = re.sub(r'<script id="sourceIndex" type="application/json">.*?</script>\n', lambda _: block, html, count=1, flags=re.S)
