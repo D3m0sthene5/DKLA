@@ -8,26 +8,18 @@ const ARM_COLORS={Contracts:'#daba83','Civil Procedure':'#88badd','Legislation a
 const ARM_BASE={Contracts:Math.PI,'Civil Procedure':Math.PI/3,'Legislation and the Regulatory State':-Math.PI/3};
 function regionCourse(r){if(!r)return null;if(r.courseKey)return r.courseKey;if(r.col<3)return 'Contracts';if(r.course)return r.course;return r.id.startsWith('cp-')||r.id==='civil-region'?'Civil Procedure':'Study notes';}
 function courseBlocks(){const M=mapData();if(M.courseBlocks)return M.courseBlocks;const out={};for(const r of M.regions){const k=regionCourse(r);if(k==='Study notes')continue;const b=out[k]||(out[k]={x:r.x,y:r.y,x2:r.x+r.w,y2:r.y+r.h});b.x=Math.min(b.x,r.x);b.y=Math.min(b.y,r.y);b.x2=Math.max(b.x2,r.x+r.w);b.y2=Math.max(b.y2,r.y+r.h);}for(const b of Object.values(out)){b.w=b.x2-b.x;b.h=b.y2-b.y;}return M.courseBlocks=out;}
-function galaxy(){const M=mapData(),key=data.nodes.length+':'+M.layoutId+':'+Object.keys(M.homes).length;if(R11.galaxyKey===key&&R11.galaxy)return R11.galaxy;R11.galaxyKey=key;
- const blocks=courseBlocks(),names=Object.keys(blocks),all=bounds(Object.values(blocks));const cx=all.x+all.w/2,cy=all.y+all.h/2,R1=all.w*1.35,R0=R1*.13,TWIST=1.9;
- const hash=s=>{let h=2166136261;for(const ch of s){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return ((h>>>0)%1000)/1000;};
- const stepOf=new Map(M.regions.map((r,i)=>[r.id,r.step??(50+i)]));
- const byCourse={};for(const c of names)byCourse[c]=[];const loose=[];
- for(const n of data.nodes){const h=M.homes[n.id];if(!h)continue;const c=regionCourse(regionFor(h.region));if(byCourse[c])byCourse[c].push(n);else loose.push(n);}
- const pts=new Map(),regionLabels=[],courseLabels=[],centroid={};
- for(const c of names){const list=byCourse[c];list.sort((a,b)=>{const ha=M.homes[a.id],hb=M.homes[b.id];const ra=stepOf.get(ha.region)??99,rb=stepOf.get(hb.region)??99;if(ra!==rb)return ra-rb;if(ha.district!==hb.district)return String(ha.district).localeCompare(String(hb.district));const ka=a.kind==='Case'?0:a.kind==='Concept'||a.kind==='Rule'?1:2,kb=b.kind==='Case'?0:b.kind==='Concept'||b.kind==='Rule'?1:2;return ka-kb;});
-  const n=list.length,base=ARM_BASE[c]??0;let sx=0,sy=0,segStart=0;
-  list.forEach((node,i)=>{const t=i/Math.max(1,n-1),h1=hash(node.id),h2=hash(node.id+'y');const r=R0+t*(R1-R0)+(h1-.5)*R1*.1,ang=base+t*TWIST+(h2-.5)*.22;const x=cx+r*Math.cos(ang),y=cy+r*Math.sin(ang);pts.set(node.id,{x,y,c});sx+=x;sy+=y;
-   const reg=M.homes[node.id].region,next=list[i+1],nreg=next?M.homes[next.id].region:null;
-   if(reg!==nreg||!next){const count=i-segStart+1;if(count>=8){const mid=(segStart+i)/2/Math.max(1,n-1),rm=R0+mid*(R1-R0),am=base+mid*TWIST;regionLabels.push({id:reg,x:cx+(rm+R1*.075)*Math.cos(am),y:cy+(rm+R1*.075)*Math.sin(am),count});}segStart=i+1;}});
-  centroid[c]={x:sx/Math.max(1,n),y:sy/Math.max(1,n)};const a=base+TWIST+.1,tip=R1*1.1;courseLabels.push({course:c,x:cx+tip*Math.cos(a),y:cy+tip*Math.sin(a),count:n});}
- loose.forEach(node=>{const h1=hash(node.id),h2=hash(node.id+'y');const r=R0*.8*Math.sqrt(h1),ang=h2*Math.PI*2;pts.set(node.id,{x:cx+r*Math.cos(ang),y:cy+r*Math.sin(ang),c:'Study notes'});});
- const cross=data.edges.filter(e=>{const a=pts.get(e.source),b=pts.get(e.target);return a&&b&&a.c!==b.c&&a.c!=='Study notes'&&b.c!=='Study notes';});
- const dust=[];for(let i=0;i<160;i++){const h=(i*7919%1000)/1000,k=(i*104729%1000)/1000;dust.push({x:cx+(h-.5)*R1*2.6,y:cy+(k-.5)*R1*2.3,r:.6+((i*31)%3)*.4,o:.1+((i*17)%5)*.05});}
- return R11.galaxy={cx,cy,R0,R1,pts,regionLabels,courseLabels,centroid,cross,dust,blocks,box:{x:cx-R1*1.28,y:cy-R1*1.22,w:R1*2.56,h:R1*2.44}};}
+function galaxy(){const M=mapData(),key=data.nodes.length+':'+M.layoutId+':'+M.regions.length;if(R11.galaxyKey===key&&R11.galaxy)return R11.galaxy;R11.galaxyKey=key;
+ const blocks=courseBlocks(),all=bounds(M.regions.filter(r=>regionCourse(r)!=='Study notes')),cx=all.x+all.w/2,cy=all.y+all.h/2;
+ const arms={},courseLabels=[],centroid={};
+ for(const c of Object.keys(blocks)){const list=M.regions.filter(r=>regionCourse(r)===c&&r.arm).sort((a,b)=>a.arm.order-b.arm.order);arms[c]=list;if(!list.length)continue;
+  const tip=[...list].reverse().find(r=>r.step)||list[list.length-1];const tx=tip.x+tip.w/2,ty=tip.y+tip.h/2,ang=Math.atan2(ty-cy,tx-cx),reach=Math.hypot(tip.w,tip.h)/2+700;
+  courseLabels.push({course:c,x:tx+Math.cos(ang)*reach,y:ty+Math.sin(ang)*reach,anchor:Math.cos(ang)>.25?'start':Math.cos(ang)<-.25?'end':'middle',count:data.nodes.filter(n=>regionCourse(regionFor(M.homes[n.id]?.region))===c).length});
+  centroid[c]={x:blocks[c].x+blocks[c].w/2,y:blocks[c].y+blocks[c].h/2};}
+ const pad=Math.max(all.w,all.h)*.06;
+ return R11.galaxy={cx,cy,R0:0,R1:all.w/2,pts:new Map(),regionLabels:[],courseLabels,centroid,cross:[],dust:[],blocks,arms,box:{x:all.x-pad,y:all.y-pad*1.4,w:all.w+pad*2,h:all.h+pad*2.4}};}
 // The morph band: below z0 the scene is the galaxy, above z1 it is the map. z0 fits the galaxy; z1 fits the smallest course block.
-function morphBand(){const g=galaxy(),a=safeArea();const z0=Math.min(a.w/g.box.w,a.h/g.box.h);let z1=Infinity;for(const b of Object.values(g.blocks))z1=Math.min(z1,Math.min((a.w-40)/b.w,(a.h-40)/b.h));z1=Math.min(z1*.92,.7);if(!(z1>z0*2.2))z1=z0*2.2;return {z0,z1};}
-function morphT(z,band=morphBand()){const u=Math.min(1,Math.max(0,(Math.log(z)-Math.log(band.z0))/(Math.log(band.z1)-Math.log(band.z0))));return u*u*(3-2*u);}
+function morphBand(){const g=galaxy(),a=safeArea();const z0=Math.min(a.w/g.box.w,a.h/g.box.h);let z1=Infinity;for(const b of Object.values(g.blocks))z1=Math.min(z1,Math.min((a.w-40)/b.w,(a.h-40)/b.h));return {z0,z1:z0*1.15};}
+function morphT(){return 1;}
 function nodePos(id,t){const h=homeFor(id);if(!h)return null;const hx=h.x+h.w/2,hy=h.y+h.h/2,c=regionCourse(regionFor(h.region));if(t>=1)return {x:hx,y:hy,c};const g=galaxy().pts.get(id);if(!g)return {x:hx,y:hy,c};return {x:g.x+(hx-g.x)*t,y:g.y+(hy-g.y)*t,c:g.c};}
 function headroom(r){const M=mapData(),key=M.layoutId+':'+r.id;let v=R11.headroom.get(key);if(v===undefined){v=Infinity;for(const id of r.districtIds||[]){const d=M.districts[id];if(d)v=Math.min(v,d.y-r.y);}R11.headroom.set(key,v);}return v;}
 function coursePoint(c,t){const g=galaxy(),b=g.blocks[c],a=g.centroid[c];if(!b||!a)return null;return {x:a.x+(b.x+b.w/2-a.x)*t,y:a.y+(b.y+b.h/2-a.y)*t};}
@@ -38,10 +30,10 @@ function morphFollow(t){const prev=R11.lastT;R11.lastT=t;if(prev===null||prev===
  if(!R11.focus)R11.focus=nearestEntryAt(S.zoomAnchor||mapCenterVisible(),prev);if(!R11.focus)return;
  const a=nodePos(R11.focus,prev),b=nodePos(R11.focus,t);if(a&&b){S.x+=b.x-a.x;S.y+=b.y-a.y;}
  if(t<=0||t>=1)R11.focus=null;}
-function autoScope(t){if(R11.anim)return;if(t<1){if(S.scope!=='Atlas'){S.scope='Atlas';S.region=null;S.district=null;renderHeading();}}else if(S.scope==='Atlas'){const c=mapCenterVisible();let best=null,bd=Infinity;for(const [name,b] of Object.entries(galaxy().blocks)){const d=Math.hypot(Math.max(b.x-c.x,0,c.x-b.x-b.w),Math.max(b.y-c.y,0,c.y-b.y-b.h));if(d<bd){bd=d;best=name;}}if(best){S.scope=best;renderHeading();}}}
+function autoScope(){if(R11.anim)return;const band=morphBand();if(S.z<band.z1){if(S.scope!=='Atlas'){S.scope='Atlas';S.region=null;S.district=null;renderHeading();}}else if(S.scope==='Atlas'){const c=mapCenterVisible();let best=null,bd=Infinity;for(const [name,b] of Object.entries(galaxy().blocks)){const d=Math.hypot(Math.max(b.x-c.x,0,c.x-b.x-b.w),Math.max(b.y-c.y,0,c.y-b.y-b.h));if(d<bd){bd=d;best=name;}}if(best){S.scope=best;renderHeading();}}}
 function zoomFloor(){return morphBand().z0;}
 function clampCamera(active){if(!data.studyMap)return;const band=morphBand();if(S.z<band.z0)S.z=band.z0;const t=morphT(S.z,band);const a=safeArea(),aw=a.w/S.z,ah=a.h/S.z,c=mapCenterVisible();
- let b;if(t<1)b=galaxy().box;else{if(S.scope==='Atlas')return;b=bounds([...scopeRegions(),...[...(active||[])].map(id=>homeFor(id))]);}
+ let b;if(t<1||S.scope==='Atlas')b=galaxy().box;else b=bounds([...scopeRegions(),...[...(active||[])].map(id=>homeFor(id))]);
  let lo=b.x+aw/2-aw*.3,hi=b.x+b.w-aw/2+aw*.3;const cx=lo>hi?b.x+b.w/2:Math.min(hi,Math.max(lo,c.x));lo=b.y+ah/2-ah*.3;hi=b.y+b.h-ah/2+ah*.3;const cy=lo>hi?b.y+b.h/2:Math.min(hi,Math.max(lo,c.y));S.x+=cx-c.x;S.y+=cy-c.y;}
 // ---- Measured text. Widths come from a canvas at 100 px and scale linearly, so wrapping never overflows its box.
 function fam(cls){return /region-title|serif/.test(cls||'')?R11_FAMILY.serif:R11_FAMILY.sans;}
@@ -76,27 +68,28 @@ function nearestStar(clientX,clientY,maxPx=9){const v=rect(),x=S.x+(clientX-v.x-
 function draw(){
  if(!data.studyMap)return;const now=performance.now();R11.dt=reducedMotion?1e9:Math.min(100,Math.max(1,now-(R11.lastFrame||now-16)));R11.lastFrame=now;R11.frame++;
  const activeEdges=shownEdges(),active=new Set();for(const e of activeEdges){active.add(e.source);active.add(e.target);}if(selected?.type==='node')active.add(selected.id);
- const band=morphBand();if(S.z<band.z0)S.z=band.z0;const t=morphT(S.z,band);morphFollow(t);autoScope(t);clampCamera(active);
+ const band=morphBand();if(S.z<band.z0)S.z=band.z0;const t=1;autoScope();clampCamera(active);
  const B=visibleBox(),z=S.z,V=rect();frameB=B;frameZ=z;svg.setAttribute('viewBox',`${B.x} ${B.y} ${B.w} ${B.h}`);settling=false;appearSeq=0;seenNow=new Set();
  const G=galaxy(),M=mapData(),regions=M.regions,inScope=new Set(scopeRegions().map(r=>r.id)),wasVisible=new Set(S.paintNodes||[]);const activeRegions=new Set([...active].map(id=>homeFor(id)?.region));
  const parts=[],starParts=[],cardParts=[],edgeParts=[],visible=new Set(),cardO=new Map();let anyClose=false;
  const defs=`<defs><pattern id="mapDots" width="${26/z}" height="${26/z}" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="${.7/z}" fill="#879cab" opacity=".07"/></pattern><radialGradient id="galaxyCore"><stop offset="0" stop-color="#e8d9b8" stop-opacity=".5"/><stop offset=".35" stop-color="#7a6a4a" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><marker id="arrowHead" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#b9bec0" stroke-width="1.3"/></marker></defs>`;
  if(t<1){parts.push(`<g opacity="${(1-t).toFixed(3)}" pointer-events="none"><circle cx="${G.cx}" cy="${G.cy}" r="${G.R1*.42}" fill="url(#galaxyCore)"/>`);for(const d of G.dust)parts.push(`<circle cx="${d.x.toFixed(0)}" cy="${d.y.toFixed(0)}" r="${(d.r/z).toFixed(1)}" fill="#9fb3c4" opacity="${d.o}"/>`);
   for(const e of G.cross){const a=nodePos(e.source,t),b=nodePos(e.target,t);if(!a||!b)continue;parts.push(`<path d="M${a.x.toFixed(0)},${a.y.toFixed(0)} Q${G.cx.toFixed(0)},${G.cy.toFixed(0)} ${b.x.toFixed(0)},${b.y.toFixed(0)}" fill="none" stroke="#c9d3dc" stroke-opacity=".1" stroke-width="${1/z}"/>`);}parts.push('</g>');}
- if(t>0)for(const [c,b] of Object.entries(G.blocks)){const col=ARM_COLORS[c]||'#9fb3c4';parts.push(`<rect x="${b.x-90}" y="${b.y-90}" width="${b.w+180}" height="${b.h+180}" rx="140" fill="${col}" fill-opacity="${(.016*t).toFixed(3)}" stroke="${col}" stroke-opacity="${(.2*t).toFixed(3)}" stroke-width="${1.2/z}" pointer-events="none"/>`);}
- for(const cl of G.courseLabels){const b=G.blocks[cl.course],col=ARM_COLORS[cl.course]||'#dce4eb';const fs=Math.min(34,(t<1?20:18+b.w*z*.012))/z;const mx=b.x+40,my=b.y-40/z;const x=cl.x+(mx-cl.x)*t,y=cl.y+(my-cl.y)*t;const subjects=regions.filter(r=>regionCourse(r)===cl.course&&r.step).length;
-  putLabel({key:'course:'+cl.course,pri:0,x,y,fs,text:V.w<760&&cl.course.length>20?'Legislation & Reg. State':cl.course,fill:col,weight:500,cls:'region-title course-label',clickable:true,attrs:`data-study-scope="${E(cl.course)}" role="button" tabindex="0"`});
-  putLabel({key:'coursen:'+cl.course,pri:.5,x,y:y+fs*1.05,fs:fs*.46,text:`${cl.count} entries · ${subjects||regions.filter(r=>regionCourse(r)===cl.course).length} subjects`,fill:'#93a7b7',weight:500});}
+ for(const [c,list] of Object.entries(G.arms)){if(list.length<2)continue;const col=ARM_COLORS[c]||'#9fb3c4',pts=list.map(r=>[r.x+r.w/2,r.y+r.h/2]);let d=`M${pts[0][0]},${pts[0][1]}`;for(let i=1;i<pts.length;i++){const [x0,y0]=pts[i-1],[x1,y1]=pts[i],mx=(x0+x1)/2,my=(y0+y1)/2;d+=i===1?` L${mx},${my}`:` Q${x0},${y0} ${mx},${my}`;if(i===pts.length-1)d+=` L${x1},${y1}`;}const dimArm=S.scope!=='Atlas'&&S.scope!==c?.4:1;parts.push(`<path d="${d}" fill="none" stroke="${col}" stroke-opacity="${(.16*dimArm).toFixed(3)}" stroke-width="${Math.min(120,3/z)}" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>`);}
+ for(const cl of G.courseLabels){const col=ARM_COLORS[cl.course]||'#dce4eb';const fs=Math.min(30,Math.max(19,14+G.box.w*z*.004))/z,x=cl.x,y=cl.y;const subjects=regions.filter(r=>regionCourse(r)===cl.course&&r.step).length,dimc=S.scope!=='Atlas'&&S.scope!==cl.course?.5:1;
+  putLabel({key:'course:'+cl.course,pri:0,x,y,fs,anchor:cl.anchor,text:V.w<760&&cl.course.length>20?'Legislation & Reg. State':cl.course,fill:col,weight:500,cls:'region-title course-label',op:dimc,clickable:true,attrs:`data-study-scope="${E(cl.course)}" role="button" tabindex="0"`});
+  putLabel({key:'coursen:'+cl.course,pri:.5,x,y:y+fs*1.05,fs:fs*.46,anchor:cl.anchor,text:`${cl.count} entries · ${subjects} subjects`,fill:'#93a7b7',weight:500,op:dimc});}
  const armLabel=new Map(G.regionLabels.map(l=>[l.id,l]));
  for(const r of regions){const course=regionCourse(r),isCourse=course!=='Study notes',scoped=inScope.has(r.id)||activeRegions.has(r.id);const pw=r.w*z,mode=pw<200?'star':pw<470?'mid':'full',focusHere=S.region===r.id,weight=isCourse?regionWeight(r.id):.5,col=r.color;
   const al=armLabel.get(r.id),near=intersects(r,B,200);if(!al&&!near)continue;
-  const dim=(selected&&S.region&&S.region!==r.id&&!activeRegions.has(r.id)?.54:1)*(scoped?1:.45);
+  const dim=(selected&&S.region&&S.region!==r.id&&!activeRegions.has(r.id)?.54:1)*(scoped?1:.3);const armCol=ARM_COLORS[course]||col;
   let tpx=Math.min(30,9+5*weight+pw*.022);const hr=headroom(r);if(isFinite(hr)){const cap=Math.max(11,(hr*z-12)/1.2),u=Math.min(1,Math.max(0,(pw-220)/250)),w2=u*u*(3-2*u);tpx+=(Math.min(tpx,cap)-tpx)*w2;}const tfs=tpx/z,tx0=r.x+40+(r.step?30/z:0),ty0=isFinite(hr)&&mode==='full'?Math.min(r.y+22/z+tfs,r.y+hr-6/z-tfs*.35):r.y+22/z+tfs;const lx=al?al.x+(tx0-al.x)*t:tx0,ly=al?al.y+(ty0-al.y)*t:ty0;
-  if(t>0&&intersects(r,B,80)){parts.push(`<g class="map-region" opacity="${dim.toFixed(3)}"><path d="${regionPath(r)}" fill="${col}" fill-opacity="${((focusHere?.09:.028+.075*weight)*t).toFixed(3)}" stroke="${col}" stroke-opacity="${((focusHere?.5:.18+.3*weight)*t).toFixed(3)}" stroke-width="${1/z}" data-map-region="${E(r.id)}" class="territory-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"${t<.5?' pointer-events="none"':''}><title>${E(shortRegionTitle(r))}</title></path>`);
-   if(r.step&&t>=.5)parts.push(`<g opacity="${((t-.5)*2).toFixed(3)}" pointer-events="none"><circle cx="${r.x+40+9.5/z}" cy="${ty0-tfs*.34}" r="${9.5/z}" fill="${col}" fill-opacity=".92"/><text x="${r.x+40+9.5/z}" y="${ty0-tfs*.34+3.7/z}" font-size="${10.5/z}" font-weight="600" fill="#101820" text-anchor="middle">${r.step}</text></g>`);
+  const tile=Math.min(1,Math.max(0,(pw-36)/300)),fillO=focusHere?.09:(.34+(.028+.075*weight-.34)*tile),strokeO=focusHere?.5:(.7+(.18+.3*weight-.7)*tile),showTitle=pw>=64;
+  if(intersects(r,B,80)){parts.push(`<g class="map-region" opacity="${dim.toFixed(3)}"><path d="${regionPath(r)}" fill="${armCol}" fill-opacity="${fillO.toFixed(3)}" stroke="${tile<.5?armCol:col}" stroke-opacity="${strokeO.toFixed(3)}" stroke-width="${Math.max(1/z,tile<1?60*(1-tile):0)}" data-map-region="${E(r.id)}" class="territory-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"${t<.5?' pointer-events="none"':''}><title>${E(shortRegionTitle(r))}</title></path>`);
+   if(r.step&&showTitle)parts.push(`<g opacity="${Math.min(1,(pw-64)/40).toFixed(3)}" pointer-events="none"><circle cx="${r.x+40+9.5/z}" cy="${ty0-tfs*.34}" r="${9.5/z}" fill="${col}" fill-opacity=".92"/><text x="${r.x+40+9.5/z}" y="${ty0-tfs*.34+3.7/z}" font-size="${10.5/z}" font-weight="600" fill="#101820" text-anchor="middle">${r.step}</text></g>`);
    parts.push('</g>');}
   const badgeW=r.step?30/z:0,titleW=t<1?210/z:mode==='star'?Math.max(r.w-80-badgeW,90/z):r.w-120-badgeW,titleLines=t<1||mode==='star'&&r.h*z<48?1:mode==='star'&&r.h*z>=76?3:2,titleRows=wrapM(shortRegionTitle(r),titleW,tfs,500,titleLines,'region-title');
-  const labelOp=(al?1:t)*dim;if(labelOp>.02)putLabel({key:'rt:'+r.id,pri:1+(1-weight)*.5,x:lx,y:ly,fs:tfs,rows:titleRows,fill:'#e6e3dc',weight:500,cls:'region-title',op:labelOp,clickable:t>=.5,attrs:`data-map-region="${E(r.id)}" role="button" tabindex="0"`});
+  const labelOp=showTitle?Math.min(1,(pw-64)/40)*dim:0;if(labelOp>.02)putLabel({key:'rt:'+r.id,pri:1+(1-weight)*.5,x:lx,y:ly,fs:tfs,rows:titleRows,fill:'#e6e3dc',weight:500,cls:'region-title',op:labelOp,clickable:t>=.5,attrs:`data-map-region="${E(r.id)}" role="button" tabindex="0"`});
   if(t<1||!near)continue;
   let yy=ty0+(titleRows.length-1)*tfs*1.23+tfs*1.55;const bottom=r.y+r.h-12/z;
   if(mode==='full'&&r.routeLabel){const tw=Math.max(...titleRows.map(l=>measure(l,tfs,500,'region-title')));const room=r.x+r.w-40-(tx0+tw+18/z);if(room>120/z)putLabel({key:'rk:'+r.id,pri:3,x:tx0+tw+18/z,y:ty0,fs:11/z,text:r.routeLabel,fill:col,weight:550,width:room,lines:1,op:dim});}
@@ -151,7 +144,7 @@ function draw(){
  for(const k of appear.keys())if(!seenNow.has(k))appear.delete(k);for(const k of edgeAppear.keys())if(!painted.includes(k))edgeAppear.delete(k);if(settling)schedule();
  const center=mapCenterVisible(),nr=nearestRegion(center.x,center.y);const zoomOverview=(!nr||nr.w*z<470)&&!selected&&t>=1;if(!S.region&&S.scope==='Contracts'&&!selected)$('mapWelcome').hidden=!zoomOverview;if(t<1)$('mapWelcome').hidden=true;
  if(!mapTip.hidden&&!R11.starIndex.some(s=>s.id===mapTip.dataset.id))mapTip.hidden=true;
- $('mapHint').textContent=t<1?'Scroll in on a course to open it · Click a star to read':selected?.type==='node'?'Drag an entry to save a new map position':anyClose?'All nearby notes are visible · Click to read':'Scroll to explore · Drag the map to pan';
+ $('mapHint').textContent=S.scope==='Atlas'?'Three courses, one arm each · Scroll in on an arm or click a subject':selected?.type==='node'?'Drag an entry to save a new map position':anyClose?'All nearby notes are visible · Click to read':'Scroll to explore · Drag the map to pan';
 }
 // Hover names for stars, and a forgiving click target: the nearest star within nine pixels.
 const mapTip=document.createElement('div');mapTip.id='mapTip';mapTip.hidden=true;svg.parentElement.appendChild(mapTip);

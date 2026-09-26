@@ -74,7 +74,8 @@ listed = {rid for rs in ROUTES.values() for rid, _ in rs}
 missing = [r['id'] for r in M['regions'] if r['id'] not in listed and r['id'] != 'workbench-region']
 assert not missing, f'regions not in a route: {missing}'
 
-GAP_X, GAP_Y, COLS, BLOCK_GAP = 240, 240, 3, 3200
+import math
+
 homes_by_region = {}
 for hid, h in M['homes'].items():
     homes_by_region.setdefault(h['region'], []).append(h)
@@ -91,34 +92,73 @@ def move(r, nx, ny):
         if 'supportStart' in d: d['supportStart'] += dy
     for h in homes_by_region.get(r['id'], []):
         h['x'] += dx; h['y'] += dy
-    return dx, dy
 
 
-x0 = 0
+def overlaps(a, b, gap):
+    return a['x'] - gap < b['x'] + b['w'] and a['x'] + a['w'] + gap > b['x'] and a['y'] - gap < b['y'] + b['h'] and a['y'] + a['h'] + gap > b['y']
+
+
+# Three spiral arms, one per course. Each arm is an Archimedean spiral r = A + B*theta; the subjects sit along it in
+# route order, innermost first, as axis-aligned boxes spaced by their half-diagonals and checked against every box
+# already placed (all arms), so nothing overlaps. The spiral itself is what the reader sees at the floor zoom.
+CX, CY = 0, 0
+A, PITCH, GAP = 5200, 15600, 420
+B = PITCH / (2 * math.pi)
+
+
+def spiral_point(theta, base):
+    r = A + B * theta
+    return CX + r * math.cos(theta + base), CY + r * math.sin(theta + base)
+
+
+def theta_at_arc(s):
+    # numeric inverse of arc length along r = A + B*theta
+    th, acc, step = 0.0, 0.0, 0.002
+    while acc < s:
+        r = A + B * th
+        acc += math.hypot(B, r) * step
+        th += step
+    return th
+
+
+placed = []
 blocks = {}
 for bi, (course, route) in enumerate(ROUTES.items()):
-    step = 0; y = 0; col = 0; row_h = 0; block_w = 0; row = 0
-    for rid, label in route:
+    base = bi * 2 * math.pi / 3 - math.pi / 2
+    step = 0; s = 0.0; prev = None
+    for k, (rid, label) in enumerate(route):
         r = R[rid]
         if label:
             step += 1; r['step'] = step; r['routeLabel'] = label
         else:
             r['step'] = None; r['routeLabel'] = ''
         r['courseKey'] = course
-        if col == COLS:
-            col = 0; y += row_h + GAP_Y; row_h = 0; row += 1
-        move(r, x0 + col * (2400 + GAP_X), y)
-        # `col` keeps its old meaning for the scope tests: 0-2 Contracts, 4-6 Civil Procedure, 8-10 LRS, 3 workbench
-        r['col'] = bi * 4 + col; r['row'] = row
-        row_h = max(row_h, r['h']); block_w = max(block_w, (col + 1) * 2400 + col * GAP_X)
-        col += 1
-    blocks[course] = {'x': x0, 'y': 0, 'w': block_w, 'h': y + row_h}
-    x0 += block_w + BLOCK_GAP
-wb = R['workbench-region']; move(wb, x0, 0); wb['col'] = 3; wb['row'] = 0; wb['courseKey'] = 'Study notes'; wb['step'] = None; wb['routeLabel'] = ''
+        half = math.hypot(r['w'], r['h']) / 2
+        if prev is not None:
+            s += math.hypot(prev['w'], prev['h']) / 2 + half + GAP
+        while True:
+            th = theta_at_arc(s)
+            px, py = spiral_point(th, base)
+            nx, ny = round(px - r['w'] / 2), round(py - r['h'] / 2)
+            cand = {'x': nx, 'y': ny, 'w': r['w'], 'h': r['h']}
+            if not any(overlaps(cand, q, GAP) for q in placed):
+                break
+            s += 150
+        move(r, nx, ny)
+        r['col'] = bi * 4 + k % 3; r['row'] = k // 3; r['arm'] = {'theta': round(th, 4), 'order': k}
+        placed.append(cand); prev = r
+    xs = [R[rid]['x'] for rid, _ in route]; ys = [R[rid]['y'] for rid, _ in route]
+    x2 = [R[rid]['x'] + R[rid]['w'] for rid, _ in route]; y2 = [R[rid]['y'] + R[rid]['h'] for rid, _ in route]
+    blocks[course] = {'x': min(xs), 'y': min(ys), 'w': max(x2) - min(xs), 'h': max(y2) - min(ys), 'base': round(base, 4)}
+allx = min(b['x'] for b in blocks.values()); ally = min(b['y'] for b in blocks.values())
+allx2 = max(b['x'] + b['w'] for b in blocks.values())
+wb = R['workbench-region']; move(wb, allx2 + 2600, ally); wb['col'] = 3; wb['row'] = 0; wb['courseKey'] = 'Study notes'; wb['step'] = None; wb['routeLabel'] = ''
+for r in M['regions']:
+    assert not any(overlaps(r, q, 0) for q in M['regions'] if q is not r), f"overlap at {r['id']}"
 M['courseBlocks'] = blocks
-M['layoutId'] = 'r11-route-order'
+M['layoutId'] = 'r11-spiral-arms'
 M['view'] = None
-data['history'].append({'at': '2026-09-26T00:00:00Z', 'action': 'Revision 11: subject regions laid out in course order with numbered routes', 'revision': 11})
+data['history'].append({'at': '2026-09-26T00:00:00Z', 'action': 'Revision 11: subject regions laid along three spiral arms in course order with numbered routes', 'revision': 11})
 out = json.dumps(data, ensure_ascii=False, separators=(',', ':')); assert '</' not in out
 open(HTML, 'w', encoding='utf-8').write(html[:s0] + out + html[e0:])
 for c, b in blocks.items():
