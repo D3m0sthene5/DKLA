@@ -58,7 +58,7 @@ for course, fn in FILES.items():
     designs[course] = d
 
 # place the three clusters as a tight triangle: Civil Procedure and LRS side by side, Contracts centred above them
-GAP = 2600
+GAP = 4000
 bc, bcp, bl = designs['Contracts']['_box'], designs['Civil Procedure']['_box'], designs['Legislation and the Regulatory State']['_box']
 row_w = bcp['w'] + GAP + bl['w']
 boxes = {'Civil Procedure': {'x': -row_w / 2, 'y': 0, 'w': bcp['w'], 'h': bcp['h']},
@@ -73,7 +73,8 @@ for course, d in designs.items():
         r = R[x['id']]; move(r, round(x['x'] + ox), round(x['y'] + oy)); r['why'] = x.get('why', ''); r.pop('arm', None)
     M['courseDesign'][course] = {
         'concept': d.get('concept', ''),
-        'zones': [{**z, 'x': round(z['x'] + ox), 'y': round(z['y'] + oy)} for z in d.get('zones', [])],
+        # zones get 420 units of headroom above their first row of boxes so the zone title and subtitle never sit on a box
+        'zones': [{**z, 'x': round(z['x'] + ox), 'y': round(z['y'] + oy) - 420, 'h': z['h'] + 420} for z in d.get('zones', [])],
         'spine': d.get('spine', []),
         'labels': [{**l, 'x': round(l['x'] + ox), 'y': round(l['y'] + oy)} for l in d.get('labels', [])],
     }
