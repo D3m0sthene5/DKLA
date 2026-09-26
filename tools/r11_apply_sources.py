@@ -44,7 +44,10 @@ if 'id="dklaR11SourceStyles"' not in html:
     anchor = '</head><body class="study-mode">'
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
-html = html.replace('Source coverage and gaps →', 'Sources on file →').replace('Source coverage & gaps', 'Sources and coverage')
+html = html.replace('Source coverage and gaps →', 'Sources on file →')
+cond = "if(cached&&cached.dklaRelease?.contentBuild===base.dklaRelease?.contentBuild&&data.revision===r7InitialRevision"
+assert html.count(cond) == 1
+html = html.replace(cond, "if(cached&&cached.dklaRelease?.contentBuild===base.dklaRelease?.contentBuild&&cached.studyMap?.layoutId===base.studyMap?.layoutId&&data.revision===r7InitialRevision").replace('Source coverage & gaps', 'Sources and coverage')
 html = html.replace("'relationshipLens','lrsSourceDialog','dklaOverview']", "'relationshipLens','lrsSourceDialog','dklaOverview','fileDialog','mapTip']").replace("'rawPageText','civilSourceDialog','relationshipLens']", "'rawPageText','civilSourceDialog','relationshipLens','fileDialog','mapTip']")
 open(HTML, 'w', encoding='utf-8').write(html)
 print('r11 sources applied')

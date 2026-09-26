@@ -252,7 +252,7 @@ for pid, pl in (data.get('geography', {}).get('placements') or {}).items():
 
 # ---- bookkeeping
 data['revision'] = 11
-data.setdefault('dklaRelease', {})['contentBuild'] = 'r11-2026-09-26'
+data.setdefault('dklaRelease', {})['contentBuild'] = 'r11b-2026-09-26'
 data['updatedAt'] = TODAY
 if data['history'] and data['history'][-1].get('revision') == 11 and 'Revision 11:' in data['history'][-1].get('action', '') and 'entries rewritten' in data['history'][-1]['action']:
     data['history'].pop()
