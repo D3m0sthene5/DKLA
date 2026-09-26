@@ -551,7 +551,12 @@ function storeView(){const openDetails=[...$('inspector').querySelectorAll('deta
 function deferPersist(){clearTimeout(persistTimer);persistTimer=setTimeout(()=>{storeView();saveCache();},500);}
 function remember(){storeView();S.history.push(clone(mapData().view));if(S.history.length>70)S.history.shift();$('studyBack').disabled=false;}
 function setCamera(x,y,z,animate=true){cancelAnimationFrame(S.animation);z=Math.min(3,Math.max(zoomFloor(),z));const from={x:S.x,y:S.y,z:S.z},start=performance.now();if(!animate||reducedMotion){R11.anim=false;Object.assign(S,{x,y,z});schedule();deferPersist();return;}
- const span=Math.abs(Math.log(z)-Math.log(from.z)),dur=340+Math.min(520,span*140);function step(t){const f=Math.min(1,(t-start)/dur),u=1-Math.pow(1-f,3);S.x=from.x+(x-from.x)*u;S.y=from.y+(y-from.y)*u;S.z=Math.exp(Math.log(from.z)+(Math.log(z)-Math.log(from.z))*u);schedule();if(f<1)S.animation=requestAnimationFrame(step);else{R11.anim=false;deferPersist();}}R11.anim=true;S.animation=requestAnimationFrame(step);
+ // r11: van Wijk and Nuij (2003) smooth zoom-and-pan: one path through (position, width) space, rho = 1.42, so a long flight zooms out, crosses, and zooms back in instead of sliding.
+ const rho=1.42,rho2=rho*rho,W=Math.max(1,safeArea().w),w0=W/from.z,w1=W/z,dx=x-from.x,dy=y-from.y,d=Math.hypot(dx,dy);let Sp,at;
+ if(d<1e-6){Sp=Math.abs(Math.log(w1/w0))/rho;const k=w1>w0?1:-1;at=s=>({x:from.x,y:from.y,w:w0*Math.exp(k*rho*s)});}
+ else{const b0=(w1*w1-w0*w0+rho2*rho2*d*d)/(2*w0*rho2*d),b1=(w1*w1-w0*w0-rho2*rho2*d*d)/(2*w1*rho2*d),r0=Math.log(Math.sqrt(b0*b0+1)-b0),r1=Math.log(Math.sqrt(b1*b1+1)-b1);Sp=(r1-r0)/rho;const ch0=Math.cosh(r0),sh0=Math.sinh(r0);at=s=>{const u=w0/(rho2*d)*(ch0*Math.tanh(rho*s+r0)-sh0);return {x:from.x+u*dx,y:from.y+u*dy,w:w0*ch0/Math.cosh(rho*s+r0)};};}
+ const dur=Math.min(1200,Math.max(340,Math.abs(Sp)*260));
+ function step(t){const f=Math.min(1,(t-start)/dur),u=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;if(f<1){const p=at(Sp*u);if(Number.isFinite(p.x)&&Number.isFinite(p.w)&&p.w>0){S.x=p.x;S.y=p.y;S.z=Math.min(3,Math.max(zoomFloor(),W/p.w));}schedule();S.animation=requestAnimationFrame(step);}else{Object.assign(S,{x,y,z});schedule();R11.anim=false;deferPersist();}}R11.anim=true;S.animation=requestAnimationFrame(step);
 }
 function fitBox(b,animate=true,pad=16,maxZoom=1.4){const v=rect(),a=safeArea(),z=Math.min((a.w-pad*2)/Math.max(1,b.w),(a.h-pad*2)/Math.max(1,b.h),maxZoom);setCamera(b.x+b.w/2-(a.x+a.w/2-v.w/2)/z,b.y+b.h/2-(a.y+a.h/2-v.h/2)/z,z,animate);}
 function scopeRegions(scope=S.scope){return mapData().regions.filter(r=>scope==='Atlas'||regionCourse(r)===scope&&r.id!=='workbench-region'||scope==='Study notes'&&['workbench-region','semester-workbench'].includes(r.id));}
