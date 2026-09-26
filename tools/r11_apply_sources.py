@@ -36,6 +36,7 @@ CSS = """<style id="dklaR11SourceStyles">
 .search-sources{border-top:1px solid #26333f;margin-top:4px}
 .dkla-file-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}.dkla-file-chips button{background:#1f2a35b8;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12px;padding:5px 11px;cursor:pointer}.dkla-file-chips button:hover{background:#26333f}
 .source-link.file-link small::after{content:" · opens inside the atlas"}
+@media(min-width:760px){body.study-mode #mapWelcome h1,body.study-mode #mapWelcome p{display:none}#mapWelcome{top:66px}}
 @media(max-width:700px){#fileDialog{width:100vw;height:100vh;border-radius:0}#fileDialog .file-title span{max-width:90vw}}
 </style>
 """
@@ -43,5 +44,6 @@ if 'id="dklaR11SourceStyles"' not in html:
     anchor = '</head><body class="study-mode">'
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
+html = html.replace('Source coverage and gaps →', 'Sources on file →')
 open(HTML, 'w', encoding='utf-8').write(html)
 print('r11 sources applied')

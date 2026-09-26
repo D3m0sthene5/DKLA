@@ -24,7 +24,7 @@ function galaxy(){const M=mapData(),key=data.nodes.length+':'+M.layoutId+':'+Obj
  loose.forEach(node=>{const h1=hash(node.id),h2=hash(node.id+'y');const r=R0*.8*Math.sqrt(h1),ang=h2*Math.PI*2;pts.set(node.id,{x:cx+r*Math.cos(ang),y:cy+r*Math.sin(ang),c:'Study notes'});});
  const cross=data.edges.filter(e=>{const a=pts.get(e.source),b=pts.get(e.target);return a&&b&&a.c!==b.c&&a.c!=='Study notes'&&b.c!=='Study notes';});
  const dust=[];for(let i=0;i<160;i++){const h=(i*7919%1000)/1000,k=(i*104729%1000)/1000;dust.push({x:cx+(h-.5)*R1*2.6,y:cy+(k-.5)*R1*2.3,r:.6+((i*31)%3)*.4,o:.1+((i*17)%5)*.05});}
- return R11.galaxy={cx,cy,R0,R1,pts,regionLabels,courseLabels,centroid,cross,dust,blocks,box:{x:cx-R1*1.32,y:cy-R1*1.3,w:R1*2.64,h:R1*2.6}};}
+ return R11.galaxy={cx,cy,R0,R1,pts,regionLabels,courseLabels,centroid,cross,dust,blocks,box:{x:cx-R1*1.28,y:cy-R1*1.22,w:R1*2.56,h:R1*2.44}};}
 // The morph band: below z0 the scene is the galaxy, above z1 it is the map. z0 fits the galaxy; z1 fits the smallest course block.
 function morphBand(){const g=galaxy(),a=safeArea();const z0=Math.min(a.w/g.box.w,a.h/g.box.h);let z1=Infinity;for(const b of Object.values(g.blocks))z1=Math.min(z1,Math.min((a.w-40)/b.w,(a.h-40)/b.h));z1=Math.min(z1*.92,.7);if(!(z1>z0*2.2))z1=z0*2.2;return {z0,z1};}
 function morphT(z,band=morphBand()){const u=Math.min(1,Math.max(0,(Math.log(z)-Math.log(band.z0))/(Math.log(band.z1)-Math.log(band.z0))));return u*u*(3-2*u);}

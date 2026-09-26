@@ -238,6 +238,13 @@ for n in data['nodes']:
     if n.get('status') == 'Source-limited account':
         n['status'] = 'Brief from the assigned excerpt' if n.get('kind') == 'Case' else 'Source-grounded study account'
 
+for r in data['studyMap']['regions']:
+    if r['id'] == 'lrs-region-reading-plans-and-source-gaps':
+        r['title'] = 'Reading plans and sources on file'
+for r in data.get('geography', {}).get('regions', []) or []:
+    if r.get('id') == 'lrs-region-reading-plans-and-source-gaps':
+        r['title'] = 'Reading plans and sources on file'
+
 # ---- bookkeeping
 data['revision'] = 11
 data.setdefault('dklaRelease', {})['contentBuild'] = 'r11-2026-09-26'
