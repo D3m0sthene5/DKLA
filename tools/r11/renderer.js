@@ -86,7 +86,7 @@ function draw(){
  if(t>0)for(const [c,b] of Object.entries(G.blocks)){const col=ARM_COLORS[c]||'#9fb3c4';parts.push(`<rect x="${b.x-90}" y="${b.y-90}" width="${b.w+180}" height="${b.h+180}" rx="140" fill="${col}" fill-opacity="${(.016*t).toFixed(3)}" stroke="${col}" stroke-opacity="${(.2*t).toFixed(3)}" stroke-width="${1.2/z}" pointer-events="none"/>`);}
  for(const cl of G.courseLabels){const b=G.blocks[cl.course],col=ARM_COLORS[cl.course]||'#dce4eb';const fs=Math.min(34,(t<1?20:18+b.w*z*.012))/z;const mx=b.x+40,my=b.y-40/z;const x=cl.x+(mx-cl.x)*t,y=cl.y+(my-cl.y)*t;const subjects=regions.filter(r=>regionCourse(r)===cl.course&&r.step).length;
   putLabel({key:'course:'+cl.course,pri:0,x,y,fs,text:V.w<760&&cl.course.length>20?'Legislation & Reg. State':cl.course,fill:col,weight:500,cls:'region-title course-label',clickable:true,attrs:`data-study-scope="${E(cl.course)}" role="button" tabindex="0"`});
-  putLabel({key:'coursen:'+cl.course,pri:.5,x,y:y+fs*.7,fs:fs*.46,text:`${cl.count} entries · ${subjects||regions.filter(r=>regionCourse(r)===cl.course).length} subjects`,fill:'#93a7b7',weight:500});}
+  putLabel({key:'coursen:'+cl.course,pri:.5,x,y:y+fs*1.05,fs:fs*.46,text:`${cl.count} entries · ${subjects||regions.filter(r=>regionCourse(r)===cl.course).length} subjects`,fill:'#93a7b7',weight:500});}
  const armLabel=new Map(G.regionLabels.map(l=>[l.id,l]));
  for(const r of regions){const course=regionCourse(r),isCourse=course!=='Study notes',scoped=inScope.has(r.id)||activeRegions.has(r.id);const pw=r.w*z,mode=pw<200?'star':pw<470?'mid':'full',focusHere=S.region===r.id,weight=isCourse?regionWeight(r.id):.5,col=r.color;
   const al=armLabel.get(r.id),near=intersects(r,B,200);if(!al&&!near)continue;
@@ -95,7 +95,7 @@ function draw(){
   if(t>0&&intersects(r,B,80)){parts.push(`<g class="map-region" opacity="${dim.toFixed(3)}"><path d="${regionPath(r)}" fill="${col}" fill-opacity="${((focusHere?.09:.028+.075*weight)*t).toFixed(3)}" stroke="${col}" stroke-opacity="${((focusHere?.5:.18+.3*weight)*t).toFixed(3)}" stroke-width="${1/z}" data-map-region="${E(r.id)}" class="territory-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"${t<.5?' pointer-events="none"':''}><title>${E(shortRegionTitle(r))}</title></path>`);
    if(r.step&&t>=.5)parts.push(`<g opacity="${((t-.5)*2).toFixed(3)}" pointer-events="none"><circle cx="${r.x+40+9.5/z}" cy="${ty0-tfs*.34}" r="${9.5/z}" fill="${col}" fill-opacity=".92"/><text x="${r.x+40+9.5/z}" y="${ty0-tfs*.34+3.7/z}" font-size="${10.5/z}" font-weight="600" fill="#101820" text-anchor="middle">${r.step}</text></g>`);
    parts.push('</g>');}
-  const titleW=t<1?210/z:mode==='star'?Math.max(r.w-70,110/z):r.w-120,titleLines=t<1||mode==='star'&&r.h*z<48?1:2,titleRows=wrapM(shortRegionTitle(r),titleW,tfs,500,titleLines,'region-title');
+  const badgeW=r.step?30/z:0,titleW=t<1?210/z:mode==='star'?Math.max(r.w-80-badgeW,90/z):r.w-120-badgeW,titleLines=t<1||mode==='star'&&r.h*z<48?1:mode==='star'&&r.h*z>=76?3:2,titleRows=wrapM(shortRegionTitle(r),titleW,tfs,500,titleLines,'region-title');
   const labelOp=(al?1:t)*dim;if(labelOp>.02)putLabel({key:'rt:'+r.id,pri:1+(1-weight)*.5,x:lx,y:ly,fs:tfs,rows:titleRows,fill:'#e6e3dc',weight:500,cls:'region-title',op:labelOp,clickable:t>=.5,attrs:`data-map-region="${E(r.id)}" role="button" tabindex="0"`});
   if(t<1||!near)continue;
   let yy=ty0+(titleRows.length-1)*tfs*1.23+tfs*1.55;const bottom=r.y+r.h-12/z;
