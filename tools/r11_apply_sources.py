@@ -45,5 +45,6 @@ if 'id="dklaR11SourceStyles"' not in html:
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
 html = html.replace('Source coverage and gaps →', 'Sources on file →')
+html = html.replace("'relationshipLens','lrsSourceDialog','dklaOverview']", "'relationshipLens','lrsSourceDialog','dklaOverview','fileDialog','mapTip']").replace("'rawPageText','civilSourceDialog','relationshipLens']", "'rawPageText','civilSourceDialog','relationshipLens','fileDialog','mapTip']")
 open(HTML, 'w', encoding='utf-8').write(html)
 print('r11 sources applied')
