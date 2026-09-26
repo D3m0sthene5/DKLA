@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DKLA · Restore the scanned pages</title>
+<style>
+:root{color-scheme:dark}
+body{margin:0;background:#101821;color:#e4ebf1;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 22px 80px}
+h1{font:400 32px/1.2 Georgia,serif;margin:0 0 6px}
+.sub{color:#93a7b7;margin:0 0 28px}
+.step{background:#141e27;border:1px solid #26333f;border-radius:12px;padding:18px 20px;margin:0 0 14px}
+.step h2{margin:0 0 8px;font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#dabd94}
+.step p{margin:0 0 10px;color:#c9d3dc}
+button,label.pick{display:inline-block;background:#1f2a35;color:#dabd94;border:1px solid #435466;border-radius:18px;font-size:14px;padding:8px 16px;cursor:pointer}
+button:disabled{opacity:.45;cursor:default}
+button.primary{background:#dabd94;color:#101821;border-color:#dabd94;font-weight:600}
+input[type=file]{display:none}
+.ok{color:#9fc8ae}.bad{color:#e0a0a8}.muted{color:#93a7b7;font-size:13px}
+#bar{height:10px;background:#0f171e;border:1px solid #26333f;border-radius:6px;overflow:hidden;margin:12px 0 6px}#bar i{display:block;height:100%;width:0;background:#9fc8ae;transition:width .2s}
+#log{font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#93a7b7;max-height:260px;overflow:auto;background:#0f171e;border:1px solid #26333f;border-radius:8px;padding:10px 12px;white-space:pre-wrap}
+code{font-size:14px;background:#0f171e;padding:1px 5px;border-radius:4px}
+details{margin-top:18px;color:#93a7b7}summary{cursor:pointer;color:#c9d3dc}
+</style>
+</head>
+<body>
+<main>
+<h1>Restore the scanned pages</h1>
+<p class="sub">The atlas shows each casebook and packet page as a scanned image kept in the <code>DKLA-sources/</code> folder beside <code>DKLA-r8.html</code>. Those 1,643 images and PDFs (about 250 MB) were never in the download; they live inside your original self-contained file <code>DKLA-r8-rebuilt.html</code> (363 MB). This page copies them out of that file into the folder. Nothing is uploaded anywhere; everything happens in your browser.</p>
+
+<section class="step"><h2>Step 1 · The original file</h2><p>Pick <code>DKLA-r8-rebuilt.html</code> (or any complete DKLA file that still has the pages inside it, such as <code>DKLA-standalone.html</code>).</p>
+<label class="pick">Choose the original file… <input id="orig" type="file" accept=".html,text/html"></label> <span id="origName" class="muted"></span></section>
+
+<section class="step"><h2>Step 2 · The atlas folder</h2><p>Pick the folder that holds <code>DKLA-r8.html</code>. The pages are written into <code>DKLA-sources/</code> inside it. Chrome and Edge ask you to allow the page to save files there.</p>
+<button id="pickDir">Choose the atlas folder…</button> <span id="dirName" class="muted"></span>
+<p id="noFS" class="muted" hidden>This browser cannot write into folders. The pages will be offered as a ZIP file instead: unzip it beside <code>DKLA-r8.html</code> so that the folder <code>DKLA-sources/</code> sits next to it.</p></section>
+
+<section class="step"><h2>Step 3 · Restore</h2><p>Every file is checked against its stored checksum before it is written. Files already present and matching are skipped, so the page can be run again safely.</p>
+<button id="run" class="primary" disabled>Restore the pages</button>
+<div id="bar"><i></i></div><div id="status" class="muted"></div>
+<div id="log" hidden></div></section>
+
+<details><summary>What this does, in plain words</summary><p>The manifest embedded in this page lists every image and PDF, where it sits inside the original file's data blocks, and its SHA-256 checksum. The page reads the original file, finds each block, decodes the file, verifies the checksum and saves it under the path the atlas expects. It only reads the original; it never changes it. Run it once; afterwards open <code>DKLA-r8.html</code> and the pages appear.</p></details>
+</main>
+<script id="manifest" type="application/json">__MANIFEST__</script>
+<script>
+const MAN=JSON.parse(document.getElementById('manifest').textContent);
+const $=id=>document.getElementById(id);
+let origFile=null,dirHandle=null;
+const hasFS='showDirectoryPicker' in window;
+if(!hasFS){$('pickDir').hidden=true;$('noFS').hidden=false;}
+$('orig').onchange=e=>{origFile=e.target.files[0]||null;$('origName').textContent=origFile?`${origFile.name} · ${(origFile.size/1048576).toFixed(0)} MB`:'';ready();};
+$('pickDir').onclick=async()=>{try{dirHandle=await window.showDirectoryPicker({mode:'readwrite'});$('dirName').textContent=dirHandle.name+'/';}catch(e){}ready();};
+function ready(){$('run').disabled=!origFile||(hasFS&&!dirHandle);}
+const log=s=>{const l=$('log');l.hidden=false;l.textContent+=s+'\n';l.scrollTop=l.scrollHeight;};
+const hex=b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+function b64(s){const bin=atob(s);const out=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)out[i]=bin.charCodeAt(i);return out;}
+async function getDir(root,parts){let d=root;for(const p of parts)d=await d.getDirectoryHandle(p,{create:true});return d;}
+async function existing(root,path){try{const parts=path.split('/');const d=await getDir(root,parts.slice(0,-1));const f=await d.getFileHandle(parts[parts.length-1]);return (await f.getFile()).size;}catch{return -1;}}
+// A minimal ZIP writer (stored, no compression: the pages are already compressed) for browsers without folder access.
+function zipBuild(entries){const enc=new TextEncoder();const parts=[],central=[];let off=0;const crcT=new Int32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;crcT[n]=c;}const crc=b=>{let c=-1;for(let i=0;i<b.length;i++)c=crcT[(c^b[i])&255]^(c>>>8);return (c^-1)>>>0;};
+ for(const [name,data] of entries){const n=enc.encode(name),c=crc(data);const h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x800,true);h.setUint16(8,0,true);h.setUint32(14,c,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);h.setUint16(26,n.length,true);parts.push(h.buffer,n,data);
+  const cd=new DataView(new ArrayBuffer(46));cd.setUint32(0,0x02014b50,true);cd.setUint16(4,20,true);cd.setUint16(6,20,true);cd.setUint16(8,0x800,true);cd.setUint16(10,0,true);cd.setUint32(16,c,true);cd.setUint32(20,data.length,true);cd.setUint32(24,data.length,true);cd.setUint16(28,n.length,true);cd.setUint32(42,off,true);central.push(cd.buffer,n);off+=30+n.length+data.length;}
+ const cdSize=central.reduce((s,b)=>s+(b.byteLength||b.length),0);const end=new DataView(new ArrayBuffer(22));end.setUint32(0,0x06054b50,true);end.setUint16(8,entries.length,true);end.setUint16(10,entries.length,true);end.setUint32(12,cdSize,true);end.setUint32(16,off,true);return new Blob([...parts,...central,end.buffer],{type:'application/zip'});}
+$('run').onclick=async()=>{$('run').disabled=true;const status=$('status'),bar=$('bar').firstElementChild;const files=MAN.files;const total=files.length;let written=0,skipped=0,bad=0;const zipEntries=[];
+ try{status.textContent='Reading the original file…';const text=await origFile.text();
+  const blocks={};for(const name of [...new Set(files.map(f=>f.archive))]){const m=text.match(new RegExp('<script id="'+name+'"[^>]*>'));if(!m)throw new Error(`The block "${name}" was not found. This does not look like the complete DKLA file.`);const s=m.index+m[0].length,e=text.indexOf('<\/script>',s);status.textContent=`Reading ${name}…`;await new Promise(r=>setTimeout(r,20));blocks[name]=JSON.parse(text.slice(s,e));}
+  for(let i=0;i<total;i++){const f=files[i];if(i%10===0){status.textContent=`${i} of ${total} · ${f.path}`;bar.style.width=(i/total*100).toFixed(1)+'%';await new Promise(r=>setTimeout(r,0));}
+   const rel=f.path.replace(/^DKLA-sources\//,'');
+   if(dirHandle&&await existing(dirHandle,'DKLA-sources/'+rel)===f.bytes){skipped++;continue;}
+   let v=blocks[f.archive];for(const k of f.jsonPath)v=v?.[k];if(typeof v!=='string'){bad++;log('missing in file: '+f.path);continue;}
+   if(f.encoding==='datauri')v=v.split(';base64,',2)[1]||'';const bytes=b64(v);
+   const digest=hex(await crypto.subtle.digest('SHA-256',bytes));if(digest!==f.sha256){bad++;log('checksum mismatch: '+f.path);continue;}
+   if(dirHandle){const parts=('DKLA-sources/'+rel).split('/');const d=await getDir(dirHandle,parts.slice(0,-1));const fh=await d.getFileHandle(parts[parts.length-1],{create:true});const w=await fh.createWritable();await w.write(bytes);await w.close();}
+   else zipEntries.push(['DKLA-sources/'+rel,bytes]);
+   written++;}
+  bar.style.width='100%';
+  if(!dirHandle&&zipEntries.length){status.textContent='Building the ZIP…';const blob=zipBuild(zipEntries);const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='DKLA-sources.zip';a.click();}
+  status.innerHTML=`<span class="${bad?'bad':'ok'}">${written} files written${skipped?`, ${skipped} already present`:''}${bad?`, ${bad} could not be restored (see the log)`:''}.</span> ${dirHandle?'Now open <code>DKLA-r8.html</code>; the pages will appear.':'Unzip the download beside <code>DKLA-r8.html</code>.'}`;
+ }catch(err){status.innerHTML=`<span class="bad">${String(err.message||err).replace(/</g,'&lt;')}</span>`;log(String(err.stack||err));}
+ $('run').disabled=false;};
+</script>
+</body>
+</html>
