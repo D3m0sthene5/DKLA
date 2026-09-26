@@ -61,6 +61,15 @@ Style blocks load in the same order (`studyStyle`, `semesterStyle`, `civilStyle`
 - The scanned pages (`DKLA-sources/`, 1,643 images and PDFs, 247 MB) exist only inside the owner's original `DKLA-r8-rebuilt.html`; they were never in the repository or the zip. `restore-page-images.html` (repo root, built by `tools/build_restore_page.py` from `tools/restore_page_template.html` with the manifest embedded) is a browser-side port of `tools/extract_sources.py`: the reader picks the original file and the atlas folder, and the page decodes every file, checks its SHA-256 and writes it into `DKLA-sources/` with the File System Access API (ZIP download where that API is missing). Until then the page viewers hide the missing image and show the page text with a link to the restorer (`missingNote` in `tools/r11/sources.js`).
 - Rebuild order: `r11_route_layout.py`, `r12_layout.py`, `r11_apply_renderer.py`, `r11_sources.py`, `r11_apply_sources.py`, `r12_fix_sources.py`, `r12_glossary.py`, `r12_apply.py`, all from the revision-10 file.
 
+## Revision 13 (26 September 2026)
+
+- Chosen from a survey of what other people have published (`tools/r13/integrations-research.md`: pdf.js, MiniSearch, FlexSearch, lunr, fuse, ts-fsrs, eyecite, docx, ninja-keys, layout engines, reporters-db; three taken, the rest declined with reasons). `tools/r13_apply.py` adds three blocks after `dklaR12Glossary`:
+  - `dklaMiniSearch` (MiniSearch 7.2.0, MIT, `tools/r13/minisearch.umd.js`, 86 KB) and `dklaR13Search` (`tools/r13/search.js`): `searchEntries` is reassigned to a ranked, prefix and typo-tolerant search over title, short title, summary, notes, sections and tags (index built on idle after load, rebuilt after edits); subjects and subtopics still match by substring; matched terms are marked in the result rows and painted in the opened entry with the CSS Custom Highlight API; Ctrl/Cmd+K focuses the bar. The dictionary and "Sources on file" rows still attach through their observers (dictionary rows capped at three, after the first entries).
+  - `dklaR13Cite` (`tools/r13/cite.js`): reporter citations in the reading panel (U.S., S. Ct., L. Ed., F.2d/3d/4th, F. Supp., regional and state reporters) become links: to the full opinion on file when `sourceIndex.opinions` carries that citation (74 of them, opened in the in-app viewer), otherwise to Justia (U.S. Reports) or CourtListener.
+  - `dklaR13Styles` and `dklaR13Print`: a print stylesheet that prints only the open entry, black on white, serif, collapsed sections opened for printing, link targets printed.
+- Declined for now, with notes in the research file: spaced repetition with ts-fsrs (needs the owner's choice of card fields), a Cornell Wex capture bookmarklet plus glossary merge, offline case metadata from CourtListener or CAP (unreachable from the sandbox), pdf.js (cannot read files beside a file:// page).
+- Rebuild order: as revision 12, then `r13_apply.py`.
+
 ## Rules
 
 - Do not convert source paths back into base64 or `data:` URIs inside `DKLA-r8.html`; that would recreate the 363 MB file.
