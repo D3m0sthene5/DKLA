@@ -245,6 +245,11 @@ for r in data.get('geography', {}).get('regions', []) or []:
     if r.get('id') == 'lrs-region-reading-plans-and-source-gaps':
         r['title'] = 'Reading plans and sources on file'
 
+for pid, pl in (data.get('geography', {}).get('placements') or {}).items():
+    if isinstance(pl, dict) and 'still missing' in (pl.get('reviewNote') or ''):
+        on_file = nodes.get(pid, {}).get('status') == 'Source received'
+        pl['reviewNote'] = 'The file is on hand and opens from the entry.' if on_file else 'Not among the supplied files; a tracking record, not an account of the material.'
+
 # ---- bookkeeping
 data['revision'] = 11
 data.setdefault('dklaRelease', {})['contentBuild'] = 'r11-2026-09-26'
