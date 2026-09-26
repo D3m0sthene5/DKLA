@@ -678,7 +678,6 @@ function draw(){
  const G=galaxy(),M=mapData(),regions=M.regions,inScope=new Set(scopeRegions().map(r=>r.id)),wasVisible=new Set(S.paintNodes||[]);const activeRegions=new Set([...active].map(id=>homeFor(id)?.region));
  const parts=[],starParts=[],cardParts=[],edgeParts=[],visible=new Set(),cardO=new Map();let anyClose=false;
  const defs=`<defs><pattern id="mapDots" width="${26/z}" height="${26/z}" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="${.7/z}" fill="#879cab" opacity=".07"/></pattern><radialGradient id="galaxyCore"><stop offset="0" stop-color="#e8d9b8" stop-opacity=".5"/><stop offset=".35" stop-color="#7a6a4a" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient><marker id="arrowHead" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1 L8 4.5 L1 8" fill="none" stroke="#b9bec0" stroke-width="1.3"/></marker></defs>`;
- parts.push(`<rect x="${B.x}" y="${B.y}" width="${B.w}" height="${B.h}" fill="url(#mapDots)" opacity="${t.toFixed(3)}"/>`);
  if(t<1){parts.push(`<g opacity="${(1-t).toFixed(3)}" pointer-events="none"><circle cx="${G.cx}" cy="${G.cy}" r="${G.R1*.42}" fill="url(#galaxyCore)"/>`);for(const d of G.dust)parts.push(`<circle cx="${d.x.toFixed(0)}" cy="${d.y.toFixed(0)}" r="${(d.r/z).toFixed(1)}" fill="#9fb3c4" opacity="${d.o}"/>`);
   for(const e of G.cross){const a=nodePos(e.source,t),b=nodePos(e.target,t);if(!a||!b)continue;parts.push(`<path d="M${a.x.toFixed(0)},${a.y.toFixed(0)} Q${G.cx.toFixed(0)},${G.cy.toFixed(0)} ${b.x.toFixed(0)},${b.y.toFixed(0)}" fill="none" stroke="#c9d3dc" stroke-opacity=".1" stroke-width="${1/z}"/>`);}parts.push('</g>');}
  if(t>0)for(const [c,b] of Object.entries(G.blocks)){const col=ARM_COLORS[c]||'#9fb3c4';parts.push(`<rect x="${b.x-90}" y="${b.y-90}" width="${b.w+180}" height="${b.h+180}" rx="140" fill="${col}" fill-opacity="${(.016*t).toFixed(3)}" stroke="${col}" stroke-opacity="${(.2*t).toFixed(3)}" stroke-width="${1.2/z}" pointer-events="none"/>`);}
@@ -693,7 +692,7 @@ function draw(){
   if(t>0&&intersects(r,B,80)){parts.push(`<g class="map-region" opacity="${dim.toFixed(3)}"><path d="${regionPath(r)}" fill="${col}" fill-opacity="${((focusHere?.09:.028+.075*weight)*t).toFixed(3)}" stroke="${col}" stroke-opacity="${((focusHere?.5:.18+.3*weight)*t).toFixed(3)}" stroke-width="${1/z}" data-map-region="${E(r.id)}" class="territory-hit" role="button" tabindex="0" aria-label="Explore ${E(shortRegionTitle(r))}"${t<.5?' pointer-events="none"':''}><title>${E(shortRegionTitle(r))}</title></path>`);
    if(r.step&&t>=.5)parts.push(`<g opacity="${((t-.5)*2).toFixed(3)}" pointer-events="none"><circle cx="${r.x+40+9.5/z}" cy="${ty0-tfs*.34}" r="${9.5/z}" fill="${col}" fill-opacity=".92"/><text x="${r.x+40+9.5/z}" y="${ty0-tfs*.34+3.7/z}" font-size="${10.5/z}" font-weight="600" fill="#101820" text-anchor="middle">${r.step}</text></g>`);
    parts.push('</g>');}
-  const titleW=t<1?210/z:mode==='star'?Math.max(r.w-80,150/z):r.w-120,titleLines=t<1||mode==='star'&&r.h*z<48?1:2,titleRows=wrapM(shortRegionTitle(r),titleW,tfs,500,titleLines,'region-title');
+  const titleW=t<1?210/z:mode==='star'?Math.max(r.w-70,110/z):r.w-120,titleLines=t<1||mode==='star'&&r.h*z<48?1:2,titleRows=wrapM(shortRegionTitle(r),titleW,tfs,500,titleLines,'region-title');
   const labelOp=(al?1:t)*dim;if(labelOp>.02)putLabel({key:'rt:'+r.id,pri:1+(1-weight)*.5,x:lx,y:ly,fs:tfs,rows:titleRows,fill:'#e6e3dc',weight:500,cls:'region-title',op:labelOp,clickable:t>=.5,attrs:`data-map-region="${E(r.id)}" role="button" tabindex="0"`});
   if(t<1||!near)continue;
   let yy=ty0+(titleRows.length-1)*tfs*1.23+tfs*1.55;const bottom=r.y+r.h-12/z;
@@ -727,11 +726,11 @@ function draw(){
   card+=textLines(rows,x,titleY,fs,chosen?'#f7e7cb':c.core?'#dce5ec':'#abbccb',c.core?500:400,'')+'</g>';
   const f=fadeIn('n:'+id,card);cardO.set(id,f.o);cardParts.push(f.html);
  }
- // Stars: every entry that is not a readable card. They are the galaxy at the floor and the texture of each subject above it.
- R11.starIndex=[];const pad=60/z,selDim=selected&&active.size,regionById=new Map(regions.map(r=>[r.id,r]));
+ // Stars: the galaxy at the floor and the entries in flight through the band; once the map is in place only selected or connected entries keep a star.
+ R11.starIndex=[];const pad=60/z,selDim=selected&&active.size;
  for(const [id] of G.pts){const n=nodesById.get(id);if(!n)continue;const co=cardO.get(id)||0;if(co>=.98)continue;const p=nodePos(id,t);if(!p||p.x<B.x-pad||p.x>B.x+B.w+pad||p.y<B.y-pad||p.y>B.y+B.h+pad)continue;
   const isCase=n.kind==='Case',isConcept=n.kind==='Concept'||n.kind==='Rule',isActive=active.has(id),chosen=selected?.type==='node'&&selected.id===id;
-  let op=(isCase?.95:isConcept?.7:.3)*(1-co);if(selDim&&!isActive)op*=.4;const hr0=homeFor(id);if(t>=1&&!isActive){if(!inScope.has(hr0.region))op*=.5;const rpw=(regionById.get(hr0.region)?.w||2400)*z;op*=rpw<200?.62:Math.max(.35,1-(rpw-200)/400);}if(op<.02)continue;
+  if(t>=1&&!isActive)continue;let op=(isCase?.95:isConcept?.7:.3)*(1-co);if(selDim&&!isActive)op*=.4;if(!isActive)op*=Math.min(1,(1-t)*4);if(op<.02)continue;
   const rad=((isCase?2.1:isConcept?1.5:.9)*(1+.35*(1-t))+(isActive?1.6:0))/z,col=chosen?'#f4dfb8':isActive?'#eed6b4':ARM_COLORS[p.c]||'#9fb3c4';R11.starIndex.push({id,x:p.x,y:p.y});
   if(chosen&&!reducedMotion)starParts.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(rad*2.2).toFixed(2)}" fill="none" stroke="#eed6b4" stroke-width="${1.2/z}" class="star-pulse" pointer-events="none"/>`);
   starParts.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${rad.toFixed(2)}" fill="${col}" opacity="${op.toFixed(3)}" class="dkla-star${isCase?' is-case':''}" data-map-node="${E(id)}" data-star="1"/>`);}
