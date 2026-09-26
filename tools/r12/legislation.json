@@ -1,0 +1,224 @@
+{
+ "course": "Legislation and the Regulatory State",
+ "concept": "The map is the separation-of-powers frame with the agencies caught inside it. Two tall pillars bound the course: on the left Congress (the statute is made at the top, read through Katzmann's methods beneath, and handed over to agencies at the foot), on the right the courts (how they read statutes at the top, judicial review in the middle level with the agencies it polices, standing as the foundation). Between the pillars sits the executive as two stacked rows: the President and the officers above (appointments nearest Congress, presidential control nearest the courts, removal in the middle where the two political branches fight over independence), and directly beneath them the agencies doing their work (adjudication under the appointments cases about its judges, rulemaking in the centre, notice-and-comment against the courts), so the vertical axis inside the executive literally reads as control from above. The horizontal axis is the life of a statute, statute to agency to court, and the syllabus survives as a reading path (steps 1-2 down the left pillar, 3-5 across the top row, the agencies row, 9-11 down the right pillar). Heavily connected pairs are adjacent: the interpretation continuation under its parent (44 ribbons), judicial review level with the agencies row and touching notice-and-comment rulemaking (10), presidential control against judicial review, appointments against removal. Spine lines mark the three inter-branch tensions (Congress vs President over delegation and removal, President vs courts, courts reading statutes with Congress's tools) and the flows down and across. The bookkeeping region sits alone in the bottom margin under the agencies, outside every zone.",
+ "canvas": {
+  "x": -650,
+  "y": -650,
+  "w": 15740,
+  "h": 8910
+ },
+ "regions": [
+  {
+   "id": "lrs-region-legislative-process-and-statutory-interpretation",
+   "x": 0,
+   "y": 0,
+   "why": "Top of the Congress pillar: the course starts where statutes start, and the 44 ribbons to the Katzmann continuation stay a single vertical step."
+  },
+  {
+   "id": "extension-cjl74v-1",
+   "x": 0,
+   "y": 2320,
+   "why": "Directly beneath its parent topic so the interpretive-methods cases read as one stack with it."
+  },
+  {
+   "id": "lrs-region-delegation-and-statutory-authority",
+   "x": 0,
+   "y": 3690,
+   "why": "Foot of the Congress pillar, level with the agencies row: the hand-off from Congress to agencies is the arrow that leaves this box to the right."
+  },
+  {
+   "id": "lrs-region-appointments-and-executive-structure",
+   "x": 3300,
+   "y": 0,
+   "why": "Left end of the President row, nearest Congress, because Buckley, Freytag and Arthrex are fights over which branch staffs the executive."
+  },
+  {
+   "id": "lrs-region-removal-and-agency-independence",
+   "x": 6020,
+   "y": 0,
+   "why": "Beside appointments (4 ribbons) and above rulemaking; the delegation-to-removal diagonal is the Congress-versus-President contrast."
+  },
+  {
+   "id": "lrs-region-presidential-control",
+   "x": 8740,
+   "y": 0,
+   "why": "Right end of the President row, touching the courts column and above notice-and-comment rulemaking: Youngstown and executive-order review sit where presidential power meets judicial review (3 ribbons)."
+  },
+  {
+   "id": "lrs-region-administrative-adjudication",
+   "x": 3300,
+   "y": 2320,
+   "why": "Left of the agencies row, under appointments: ALJs are the officers of Lucia, Arthrex and Jarkesy, and the rule-or-order contrast with rulemaking is one step right."
+  },
+  {
+   "id": "lrs-region-rulemaking",
+   "x": 6020,
+   "y": 2320,
+   "why": "Centre of the agencies row, where delegated power arrives and where the row's ribbons to judicial review and deference are balanced."
+  },
+  {
+   "id": "lrs-region-administrative-rulemaking",
+   "x": 8740,
+   "y": 2320,
+   "why": "Right end of the agencies row, touching judicial review (10 ribbons, the course's densest cross-region link) and beneath presidential control's regulatory review."
+  },
+  {
+   "id": "lrs-region-judicial-review-of-agency-interpretation",
+   "x": 12040,
+   "y": 0,
+   "why": "Top of the courts pillar, level with the statutory-interpretation region across the map: Chevron, Loper Bright and Skidmore are interpretation seen from the bench."
+  },
+  {
+   "id": "lrs-region-judicial-review",
+   "x": 12040,
+   "y": 2440,
+   "why": "Middle of the courts pillar, level with the agencies row and touching administrative rulemaking, so its ribbons to the agency regions, standing and deference stay short."
+  },
+  {
+   "id": "lrs-region-judicial-review-and-standing",
+   "x": 12040,
+   "y": 4990,
+   "why": "Base of the courts pillar: the threshold question sits at the foundation of judicial review, adjacent to it (6 ribbons)."
+  },
+  {
+   "id": "lrs-region-reading-plans-and-source-gaps",
+   "x": 8740,
+   "y": 6050,
+   "why": "Bookkeeping, tucked in the empty bottom margin beneath the agencies block, right-aligned to the courts base and outside every zone."
+  }
+ ],
+ "zones": [
+  {
+   "id": "z-congress",
+   "title": "Congress",
+   "subtitle": "Makes the statute, reads it, hands power over",
+   "x": -250,
+   "y": -250,
+   "w": 2900,
+   "h": 6770,
+   "regionIds": [
+    "lrs-region-legislative-process-and-statutory-interpretation",
+    "extension-cjl74v-1",
+    "lrs-region-delegation-and-statutory-authority"
+   ]
+  },
+  {
+   "id": "z-president",
+   "title": "The President and the officers",
+   "subtitle": "Who may serve, who can be fired, who gives the orders",
+   "x": 3050,
+   "y": -250,
+   "w": 8340,
+   "h": 2020,
+   "regionIds": [
+    "lrs-region-appointments-and-executive-structure",
+    "lrs-region-removal-and-agency-independence",
+    "lrs-region-presidential-control"
+   ]
+  },
+  {
+   "id": "z-agencies",
+   "title": "The agencies",
+   "subtitle": "Make rules and decide cases under delegated power",
+   "x": 3050,
+   "y": 2070,
+   "w": 8340,
+   "h": 3130,
+   "regionIds": [
+    "lrs-region-rulemaking",
+    "lrs-region-administrative-rulemaking",
+    "lrs-region-administrative-adjudication"
+   ]
+  },
+  {
+   "id": "z-courts",
+   "title": "The courts",
+   "subtitle": "Who may sue, how hard they look, whose reading wins",
+   "x": 11790,
+   "y": -250,
+   "w": 2900,
+   "h": 8110,
+   "regionIds": [
+    "lrs-region-judicial-review-of-agency-interpretation",
+    "lrs-region-judicial-review",
+    "lrs-region-judicial-review-and-standing"
+   ]
+  }
+ ],
+ "spine": [
+  {
+   "a": "lrs-region-delegation-and-statutory-authority",
+   "b": "lrs-region-rulemaking",
+   "kind": "flow",
+   "label": "delegated power"
+  },
+  {
+   "a": "lrs-region-delegation-and-statutory-authority",
+   "b": "lrs-region-removal-and-agency-independence",
+   "kind": "contrast",
+   "label": "Congress vs President"
+  },
+  {
+   "a": "extension-cjl74v-1",
+   "b": "lrs-region-judicial-review-of-agency-interpretation",
+   "kind": "depends",
+   "label": "same tools"
+  },
+  {
+   "a": "lrs-region-presidential-control",
+   "b": "lrs-region-administrative-rulemaking",
+   "kind": "flow",
+   "label": "regulatory review"
+  },
+  {
+   "a": "lrs-region-presidential-control",
+   "b": "lrs-region-judicial-review",
+   "kind": "contrast",
+   "label": "politics vs law"
+  },
+  {
+   "a": "lrs-region-administrative-adjudication",
+   "b": "lrs-region-rulemaking",
+   "kind": "contrast",
+   "label": "rule or order"
+  },
+  {
+   "a": "lrs-region-administrative-rulemaking",
+   "b": "lrs-region-judicial-review",
+   "kind": "flow",
+   "label": "on the record"
+  },
+  {
+   "a": "lrs-region-administrative-adjudication",
+   "b": "lrs-region-judicial-review",
+   "kind": "flow",
+   "label": "substantial evidence"
+  },
+  {
+   "a": "lrs-region-judicial-review-and-standing",
+   "b": "lrs-region-judicial-review",
+   "kind": "depends",
+   "label": "who may sue"
+  },
+  {
+   "a": "lrs-region-judicial-review",
+   "b": "lrs-region-judicial-review-of-agency-interpretation",
+   "kind": "depends",
+   "label": "whose reading"
+  }
+ ],
+ "labels": [
+  {
+   "text": "Statute → agency → court",
+   "x": 5860,
+   "y": 6350,
+   "size": "large"
+  },
+  {
+   "text": "Power flows down and right",
+   "x": 5860,
+   "y": 6900,
+   "size": "small"
+  }
+ ]
+}

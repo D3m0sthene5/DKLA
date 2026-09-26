@@ -51,6 +51,11 @@ if 'id="dklaR11SourceStyles"' not in html:
     assert html.count(anchor) == 1
     html = html.replace(anchor, CSS + anchor)
 html = html.replace('Source coverage and gaps →', 'Sources on file →')
+for a, b in [("The assigned Berk and Cross readings and full 2026–2027 Civil Procedure supplement remain source gaps.", "Berk v. Choy, Cross v. United States and the full 2026–2027 Civil Procedure supplement are on file in added-sources/."),
+             ("Remaining separate-source gaps", "Separately assigned sources"),
+             ("complete assigned chapters and source gaps", "complete assigned chapters and separately supplied sources"),
+             ("Separate missing readings remain visible", "Separately supplied readings open from their files")]:
+    html = html.replace(a, b)
 h1 = "help=function(){modal('Explore, read, and keep your place',`<div class=\"modal-copy\">"
 assert html.count(h1) == 1
 html = html.replace(h1, h1 + "<h3>Original files</h3><p>The atlas reads its sources from two folders beside <code>DKLA-r8.html</code>: <code>added-sources/</code> (opinions, the Civil Procedure supplement, the Contracts Selections) and <code>DKLA-sources/</code> (the scanned casebook and packet pages). Download the repository as a ZIP and open the HTML from inside it. When a folder is missing, every source still opens as text inside the atlas, with a link to the original on GitHub.</p>")

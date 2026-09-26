@@ -1,0 +1,213 @@
+{
+ "course": "Civil Procedure",
+ "concept": "Civil Procedure is drawn as two horizontal bands facing each other across a gutter. The upper band, 'Can this court hear it?', is a skyline of four gates (authority over the defendant, notice, federal subject-matter jurisdiction, venue) standing left to right on one straight threshold line; each gate's height is its doctrinal depth, so personal jurisdiction towers at the left. The framework region sits at the top-left corner as the entry point, outside both bands. Hanging from the threshold line directly beneath personal jurisdiction, in the gutter, are the earlier jurisdiction landmarks: the historical root (Pennoyer to Shoe) from which the tallest gate grew, deliberately un-zoned so it reads as origin rather than as a stage. The lower band, 'The life of the suit', hangs from a single top line and flows left to right toward judgment: governing law (with the Berk v. Choy extension attached beneath it) under the framework, then pleading, joinder, class actions, and summary judgment as the terminus at the right edge. Columns align vertically where doctrine connects: the framework over Erie, subject-matter jurisdiction over joinder and class actions (supplemental jurisdiction, CAFA), so the ribbons between bands are short and mostly vertical. Two 'depends' spines from subject-matter jurisdiction down to Erie and to joinder show that the chamber rests on the gates; the flow spines trace the plaintiff's route.",
+ "canvas": {
+  "x": -650,
+  "y": -650,
+  "w": 14740,
+  "h": 9750
+ },
+ "regions": [
+  {
+   "id": "cp-orientation-region",
+   "x": 0,
+   "y": 0,
+   "why": "Entry point at the top-left corner, where reading begins; it sits above governing law (14 links) and beside personal jurisdiction (15 links)."
+  },
+  {
+   "id": "cp-personal-region",
+   "x": 2760,
+   "y": 0,
+   "why": "First and tallest gate of the threshold band, standing on the threshold line; the landmarks hang directly beneath it (61 links)."
+  },
+  {
+   "id": "cp-notice-region",
+   "x": 5520,
+   "y": 1510,
+   "why": "Second gate, right of personal jurisdiction (14 links): once the court can reach the defendant, it must tell him."
+  },
+  {
+   "id": "cp-subject-region",
+   "x": 8280,
+   "y": 540,
+   "why": "Third gate: which kind of court; placed above joinder and class actions so supplemental jurisdiction and CAFA ribbons stay short."
+  },
+  {
+   "id": "cp-venue-region",
+   "x": 11040,
+   "y": 1710,
+   "why": "Last and smallest gate at the right end of the band: which district, and whether the case can move."
+  },
+  {
+   "id": "civil-region",
+   "x": 2760,
+   "y": 3190,
+   "why": "Hangs from the threshold line beneath personal jurisdiction as its historical root, in the gutter between the two bands, un-zoned so it reads as origin rather than as a stage."
+  },
+  {
+   "id": "cp-governing-region",
+   "x": 0,
+   "y": 4850,
+   "why": "First stage of the chamber, directly beneath the framework: the suit is in federal court, so whose law applies comes first."
+  },
+  {
+   "id": "extension-iekfaa-1",
+   "x": 0,
+   "y": 7400,
+   "why": "Continuation of governing law (Berk v. Choy), attached directly beneath it at the same column."
+  },
+  {
+   "id": "cp-pleading-region",
+   "x": 2760,
+   "y": 4850,
+   "why": "Second stage: what the complaint and answer say; sits beneath the root and beside governing law."
+  },
+  {
+   "id": "cp-joinder-region",
+   "x": 5520,
+   "y": 4850,
+   "why": "Third stage: who and what is in the action; diagonal from subject-matter jurisdiction for the supplemental-jurisdiction links (8)."
+  },
+  {
+   "id": "cp-class-region",
+   "x": 8280,
+   "y": 4850,
+   "why": "Fourth stage, joinder scaled up; directly beneath subject-matter jurisdiction (7 links) and beside joinder (5 links)."
+  },
+  {
+   "id": "cp-summary-region",
+   "x": 11040,
+   "y": 4850,
+   "why": "Terminus at the right end of the chamber: the suit flows left to right toward judgment."
+  }
+ ],
+ "zones": [
+  {
+   "id": "z-threshold",
+   "title": "Can this court hear it?",
+   "subtitle": "Four gates the plaintiff must pass: reach the defendant, tell him, be the right kind of court, sit in the right district.",
+   "x": 2510,
+   "y": -250,
+   "w": 11180,
+   "h": 3330,
+   "regionIds": [
+    "cp-personal-region",
+    "cp-notice-region",
+    "cp-subject-region",
+    "cp-venue-region"
+   ]
+  },
+  {
+   "id": "z-suit",
+   "title": "The life of the suit",
+   "subtitle": "Once inside: whose law governs, what is pleaded, who is joined, whether it ends before trial.",
+   "x": -250,
+   "y": 4600,
+   "w": 13940,
+   "h": 4100,
+   "regionIds": [
+    "cp-governing-region",
+    "extension-iekfaa-1",
+    "cp-pleading-region",
+    "cp-joinder-region",
+    "cp-class-region",
+    "cp-summary-region"
+   ]
+  }
+ ],
+ "spine": [
+  {
+   "a": "cp-orientation-region",
+   "b": "cp-personal-region",
+   "kind": "flow",
+   "label": "first question"
+  },
+  {
+   "a": "cp-personal-region",
+   "b": "cp-notice-region",
+   "kind": "flow"
+  },
+  {
+   "a": "cp-notice-region",
+   "b": "cp-subject-region",
+   "kind": "flow"
+  },
+  {
+   "a": "cp-subject-region",
+   "b": "cp-venue-region",
+   "kind": "flow"
+  },
+  {
+   "a": "civil-region",
+   "b": "cp-personal-region",
+   "kind": "depends",
+   "label": "grew from"
+  },
+  {
+   "a": "cp-subject-region",
+   "b": "cp-governing-region",
+   "kind": "depends",
+   "label": "diversity"
+  },
+  {
+   "a": "cp-subject-region",
+   "b": "cp-joinder-region",
+   "kind": "depends",
+   "label": "§ 1367"
+  },
+  {
+   "a": "cp-governing-region",
+   "b": "cp-pleading-region",
+   "kind": "flow"
+  },
+  {
+   "a": "cp-pleading-region",
+   "b": "cp-joinder-region",
+   "kind": "flow"
+  },
+  {
+   "a": "cp-joinder-region",
+   "b": "cp-class-region",
+   "kind": "flow",
+   "label": "scaled up"
+  },
+  {
+   "a": "cp-class-region",
+   "b": "cp-summary-region",
+   "kind": "flow",
+   "label": "to judgment"
+  },
+  {
+   "a": "cp-governing-region",
+   "b": "extension-iekfaa-1",
+   "kind": "flow",
+   "label": "continued"
+  }
+ ],
+ "labels": [
+  {
+   "text": "Start here",
+   "x": 1200,
+   "y": 1980,
+   "size": "large"
+  },
+  {
+   "text": "The root: Pennoyer to Shoe",
+   "x": 1200,
+   "y": 3840,
+   "size": "small"
+  },
+  {
+   "text": "The threshold line",
+   "x": 9480,
+   "y": 3400,
+   "size": "small"
+  },
+  {
+   "text": "Toward judgment",
+   "x": 12240,
+   "y": 6900,
+   "size": "large"
+  }
+ ]
+}

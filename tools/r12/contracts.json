@@ -1,0 +1,314 @@
+{
+ "course": "Contracts",
+ "concept": "Contracts is organised around one question, what makes a promise a contract, so the map is built as a core with an orbit. The four formation subjects (offer, acceptance, consideration, assent) form a tight 2x2 block at the centre, entered from 'Start here' (Commitments & governing law) directly above it. Everything else is placed by its relation to that core and by the ribbons it shares with it. West of the core, level with consideration, sit the two substitutes for a bargain (reliance and restitution; formalities), read as 'or' alternatives. East of the core, level with assent, sits the content of the bargain (terms, interpretation), and beyond it, at the eastern edge, the boundary of the bargain (unfinished deals; terms the law refuses). Third parties float alone in the top-right corner, literally beyond the parties. A horizontal moat of empty space separates 'forming' above from 'the contract in force' below: performance, modification and policing, and excuses run under the core, and the costs of breach (remedies, measuring relief) close the loop at the bottom-left under reliance, whose protected-interest cases they share. Reading order is a clockwise loop, start to core to content to force to cost; the heaviest connection pairs (interpretation-negotiation 17, assent-interpretation 16, assent-terms 15, offer-acceptance 12, remedies-depth 11) are all adjacent. The semester workbench is tucked in the top-left margin outside every zone.",
+ "canvas": {
+  "x": -650,
+  "y": -650,
+  "w": 15540,
+  "h": 10204
+ },
+ "regions": [
+  {
+   "id": "foundations",
+   "x": 4400,
+   "y": 0,
+   "why": "The entrance: centred above the formation core so the reader starts with \"what was promised, and which law applies\" before the four formation questions below."
+  },
+  {
+   "id": "consideration",
+   "x": 3040,
+   "y": 3620,
+   "why": "Bottom-left of the core, on the west side so its two substitutes (reliance, formalities) sit right beside it as alternatives."
+  },
+  {
+   "id": "reliance-region",
+   "x": 0,
+   "y": 3620,
+   "why": "West column, level with consideration (6 shared connections): the other route when no bargain exists; remedies sits directly below it (9 connections on protected interests)."
+  },
+  {
+   "id": "assent-region",
+   "x": 5760,
+   "y": 3620,
+   "why": "Bottom-right of the core and the hub of the map: interpretation (16), terms (15), bargaining (10) and limits (10) all sit within one step of it."
+  },
+  {
+   "id": "offer-region",
+   "x": 3040,
+   "y": 2000,
+   "why": "Top-left of the formation core; the first of the two mutual-assent questions, read left to right into acceptance (12 shared connections)."
+  },
+  {
+   "id": "acceptance-region",
+   "x": 5760,
+   "y": 2000,
+   "why": "Top-right of the core, beside offer and directly above assent; flows on to Terms & battle of forms, the formation-by-forms sequel to acceptance."
+  },
+  {
+   "id": "formalities-region",
+   "x": 0,
+   "y": 2000,
+   "why": "West column, level with the offer row: a seal or writing as a stand-in for consideration, so it faces the core from outside it."
+  },
+  {
+   "id": "terms-region",
+   "x": 8800,
+   "y": 2000,
+   "why": "East of the core, level with acceptance: which terms made it in is the last formation question and the first content question."
+  },
+  {
+   "id": "remedies-region",
+   "x": 0,
+   "y": 6560,
+   "why": "Bottom-left, under reliance (9 connections on the protected interests) and beside its own detail region."
+  },
+  {
+   "id": "negotiation-region",
+   "x": 11840,
+   "y": 2000,
+   "why": "Eastern edge, top: unfinished deals mark the boundary of the bargain; adjacent to interpretation (17) and above limits (10)."
+  },
+  {
+   "id": "bargaining-region",
+   "x": 8480,
+   "y": 6560,
+   "why": "Lower band, directly beneath interpretation and diagonal to assent: modification and defective consent police a bargain that already exists."
+  },
+  {
+   "id": "interpretation-region",
+   "x": 8800,
+   "y": 3620,
+   "why": "East of assent (16 connections), the centre of the content zone; negotiation (17) is next door and performance sits diagonally below."
+  },
+  {
+   "id": "limits-region",
+   "x": 11840,
+   "y": 3911,
+   "why": "Eastern edge, below negotiation: terms the law refuses to enforce belong at the boundary, one step from assent and interpretation."
+  },
+  {
+   "id": "performance-region",
+   "x": 5760,
+   "y": 6560,
+   "why": "Lower band under the core, next to the costs zone: \"did they perform?\" is the hinge between the contract in force and what breach costs."
+  },
+  {
+   "id": "remedy-depth-region",
+   "x": 2720,
+   "y": 6560,
+   "why": "Bottom-left beside remedies (11) and one gap from performance (6): measurement and limits of relief are the terminus of the flow."
+  },
+  {
+   "id": "excuses-region",
+   "x": 11200,
+   "y": 6560,
+   "why": "Lower band, eastern end under limits: mistake and changed circumstances are the last escape before liability."
+  },
+  {
+   "id": "third-parties-region",
+   "x": 11840,
+   "y": 0,
+   "why": "Top-right corner, outside every zone: people beyond the original parties sit literally beyond the bargain, above the boundary column."
+  },
+  {
+   "id": "semester-workbench",
+   "x": 0,
+   "y": 0,
+   "why": "Top-left corner margin, outside every zone: reading records are bookkeeping, kept next to \"Start here\" but out of the subject structure."
+  }
+ ],
+ "zones": [
+  {
+   "id": "z-start",
+   "title": "Start here",
+   "subtitle": "What was promised, and which law governs it",
+   "x": 4150,
+   "y": -250,
+   "w": 2900,
+   "h": 1800,
+   "regionIds": [
+    "foundations"
+   ]
+  },
+  {
+   "id": "z-formation",
+   "title": "Forming the bargain",
+   "subtitle": "Offer, acceptance, consideration and real assent: what turns a promise into a contract",
+   "x": 2790,
+   "y": 1750,
+   "w": 5620,
+   "h": 3420,
+   "regionIds": [
+    "offer-region",
+    "acceptance-region",
+    "consideration",
+    "assent-region"
+   ]
+  },
+  {
+   "id": "z-substitutes",
+   "title": "Other routes to enforcement",
+   "subtitle": "When the bargain is missing: reliance, restitution, a seal or a writing",
+   "x": -250,
+   "y": 1750,
+   "w": 2900,
+   "h": 3420,
+   "regionIds": [
+    "formalities-region",
+    "reliance-region"
+   ]
+  },
+  {
+   "id": "z-content",
+   "title": "What the bargain contains",
+   "subtitle": "Which terms made it in, and what the words mean",
+   "x": 8550,
+   "y": 1750,
+   "w": 2900,
+   "h": 4191,
+   "regionIds": [
+    "terms-region",
+    "interpretation-region"
+   ]
+  },
+  {
+   "id": "z-edge",
+   "title": "At the edge of the bargain",
+   "subtitle": "Unfinished deals, and terms the law refuses to enforce",
+   "x": 11590,
+   "y": 1750,
+   "w": 2900,
+   "h": 4395,
+   "regionIds": [
+    "negotiation-region",
+    "limits-region"
+   ]
+  },
+  {
+   "id": "z-inforce",
+   "title": "The contract in force",
+   "subtitle": "Performing it, changing or challenging it, and being excused from it",
+   "x": 5510,
+   "y": 6310,
+   "w": 8340,
+   "h": 2364,
+   "regionIds": [
+    "performance-region",
+    "bargaining-region",
+    "excuses-region"
+   ]
+  },
+  {
+   "id": "z-cost",
+   "title": "What breach costs",
+   "subtitle": "Which interest is protected, how it is measured, and where it stops",
+   "x": -250,
+   "y": 6310,
+   "w": 5620,
+   "h": 2844,
+   "regionIds": [
+    "remedies-region",
+    "remedy-depth-region"
+   ]
+  }
+ ],
+ "spine": [
+  {
+   "a": "foundations",
+   "b": "offer-region",
+   "kind": "flow",
+   "label": "start"
+  },
+  {
+   "a": "offer-region",
+   "b": "acceptance-region",
+   "kind": "flow"
+  },
+  {
+   "a": "acceptance-region",
+   "b": "terms-region",
+   "kind": "flow",
+   "label": "which terms"
+  },
+  {
+   "a": "consideration",
+   "b": "reliance-region",
+   "kind": "contrast",
+   "label": "or reliance"
+  },
+  {
+   "a": "consideration",
+   "b": "formalities-region",
+   "kind": "contrast",
+   "label": "or a form"
+  },
+  {
+   "a": "assent-region",
+   "b": "interpretation-region",
+   "kind": "depends",
+   "label": "meaning"
+  },
+  {
+   "a": "interpretation-region",
+   "b": "negotiation-region",
+   "kind": "depends",
+   "label": "gap filling"
+  },
+  {
+   "a": "assent-region",
+   "b": "bargaining-region",
+   "kind": "depends",
+   "label": "real consent"
+  },
+  {
+   "a": "interpretation-region",
+   "b": "performance-region",
+   "kind": "depends",
+   "label": "what is owed"
+  },
+  {
+   "a": "performance-region",
+   "b": "excuses-region",
+   "kind": "contrast",
+   "label": "or excused"
+  },
+  {
+   "a": "performance-region",
+   "b": "remedy-depth-region",
+   "kind": "flow",
+   "label": "if it breaks"
+  },
+  {
+   "a": "remedies-region",
+   "b": "remedy-depth-region",
+   "kind": "flow",
+   "label": "how much"
+  },
+  {
+   "a": "reliance-region",
+   "b": "remedies-region",
+   "kind": "depends",
+   "label": "protected interests"
+  }
+ ],
+ "labels": [
+  {
+   "text": "Once the deal is made",
+   "x": 9680,
+   "y": 6100,
+   "size": "small"
+  },
+  {
+   "text": "If it breaks",
+   "x": 2560,
+   "y": 6100,
+   "size": "small"
+  },
+  {
+   "text": "Beyond the original parties",
+   "x": 13040,
+   "y": 1560,
+   "size": "small"
+  }
+ ]
+}
