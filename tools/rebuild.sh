@@ -10,6 +10,7 @@ python3 tools/r11_route_layout.py >/dev/null
 python3 tools/r12_layout.py >/dev/null
 python3 tools/r11_apply_renderer.py && python3 tools/r11_sources.py >/dev/null && python3 tools/r11_apply_sources.py
 python3 tools/r12_fix_sources.py | tail -1
+python3 tools/r14_briefs.py
 python3 tools/r14_wex_cases.py
 python3 tools/r12_glossary.py && python3 tools/r12_apply.py
 python3 tools/r13_apply.py
