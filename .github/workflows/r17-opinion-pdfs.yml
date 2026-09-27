@@ -1,0 +1,40 @@
+name: DKLA r17 original opinion PDFs
+on:
+  push:
+    branches: [feature/dkla-r17]
+    paths: ['.github/workflows/r17-opinion-pdfs.yml']
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 rapidfuzz pymupdf
+      - run: python -u r17/collect_opinion_pdfs.py
+      - name: Save archival PDFs to the feature branch
+        run: |
+          git config user.name 'DKLA source builder'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add added-sources/opinion-pdfs r17/opinion-pdf-catalog.json
+          git commit -m 'Retain original archival PDFs with source and checksum records' || true
+          git pull --rebase origin feature/dkla-r17
+          git push origin HEAD:feature/dkla-r17
+          mkdir -p output
+          python - <<'PY'
+          import zipfile,pathlib
+          with zipfile.ZipFile('output/opinion-pdfs.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in pathlib.Path('added-sources/opinion-pdfs').glob('*.pdf'):z.write(p)
+            z.write('r17/opinion-pdf-catalog.json')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: r17-opinion-pdfs
+          path: output/
+          retention-days: 14
