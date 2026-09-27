@@ -1,0 +1,44 @@
+name: DKLA r17 source audit
+on:
+  push:
+    branches: [feature/dkla-r17]
+    paths: ['.github/workflows/r17-source-audit.yml']
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pymupdf
+      - name: Inspect original PDFs and package bounded verification material
+        run: |
+          mkdir -p output
+          python - <<'PY'
+          import fitz,json,hashlib,subprocess,zipfile
+          from pathlib import Path
+          out=Path('output'); meta=[]; texts={}
+          files=sorted(Path('added-sources').rglob('*.pdf'))
+          with zipfile.ZipFile(out/'source-verification.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for path in files:
+              try:
+                doc=fitz.open(path); item={'path':str(path),'bytes':path.stat().st_size,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'pages':len(doc),'labels':doc.get_page_labels(),'metadata':doc.metadata};meta.append(item)
+                if path.parent==Path('added-sources'):
+                  texts[str(path)]=[page.get_text() for page in doc]
+                  for n in sorted(set([0,min(1,len(doc)-1),len(doc)-1])):
+                    pix=doc[n].get_pixmap(matrix=fitz.Matrix(1,1),alpha=False); z.writestr('samples/'+path.stem+'--'+str(n+1)+'.jpg',pix.tobytes('jpeg',jpg_quality=85))
+                  if path.stat().st_size<13000000:z.write(path,str(path))
+                doc.close()
+              except Exception as e:meta.append({'path':str(path),'error':str(e)})
+            z.writestr('pdf-inventory.json',json.dumps(meta,indent=2));z.writestr('pdf-page-texts.json',json.dumps(texts));z.writestr('repo-tree.json',subprocess.check_output(['git','ls-tree','-rl','HEAD']).decode());z.write('AGENTS.md')
+          print(json.dumps([{k:v for k,v in i.items() if k not in ['metadata','sha256','labels']} for i in meta],indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: r17-source-verification
+          path: output/
+          retention-days: 14
