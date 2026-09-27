@@ -1,0 +1,42 @@
+name: Build DKLA r17
+on:
+  push:
+    branches: [feature/dkla-r17-completion-20260927]
+    paths:
+      - .github/workflows/dkla-r17.yml
+      - tools/r17/**
+      - r17/opinion-pdf-catalog.json
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the owner's original Mallory PDF
+        run: |
+          cat tools/r17/transport/Mallory.pdf.part-* > added-sources/Mallory.pdf
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+          file = Path('added-sources/Mallory.pdf')
+          assert file.stat().st_size == 19052108
+          assert hashlib.sha256(file.read_bytes()).hexdigest() == 'c356a5927b544312735c166e12870cc5b7ffe3781de2aa39100fff3a3afbbb51'
+          PY
+          git rm -q tools/r17/transport/Mallory.pdf.part-*
+      - name: Assemble and validate offline artifact
+        run: |
+          python3 tools/r17/pdf-routes.py --check
+          python3 tools/r17/assemble.py
+          python3 tools/r17/check.py
+      - name: Publish generated artifact on this branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add DKLA-r17.html tools/r17/integrity.json added-sources/Mallory.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m 'Publish checked DKLA r17 offline atlas'
+            git push origin HEAD:feature/dkla-r17-completion-20260927
+          fi

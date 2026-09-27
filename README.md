@@ -1,0 +1,7 @@
+# Danny Kind Legal Atlas
+
+**Open `DKLA-r17.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html` and `DKLA-r16.html` remain available for comparison.
+
+In r17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
+
+The exact previous default revision is preserved at [`archive/pre-r17-default-a73d9df-2026-09-27`](https://github.com/D3m0sthene5/DKLA/tree/archive/pre-r17-default-a73d9df-2026-09-27). Source data and build checks for r17 live in `tools/r17/`. `python3 tools/r17/pdf-routes.py --check`, `python3 tools/r17/assemble.py`, and `python3 tools/r17/check.py` validate and reproduce the release.
