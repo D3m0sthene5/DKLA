@@ -1,0 +1,46 @@
+name: SCOTUS Source Checks
+on:
+  push:
+    branches: [feature/scotus-history-r16]
+    paths: ['.github/workflows/scotus-source-checks.yml']
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 pymupdf
+      - name: Retrieve specific missing records
+        run: |
+          mkdir -p output
+          python - <<'PY'
+          import requests,json,concurrent.futures,re,pathlib
+          from bs4 import BeautifulSoup
+          from urllib.parse import urljoin
+          import fitz
+          O=pathlib.Path('output');links={}
+          ids=['1977/77-293','1975/75-436','1977/76-419','2006/05-1120','1985/84-1777','1940-1955/326us310','2023/23a349','2021/21a244','2021/21a23']
+          for x in ids:links[x.replace('/','__')]='https://api.oyez.org/cases/'+x
+          links.update({'shoe-primary':'https://supreme.justia.com/cases/federal/us/326/310/','ohio-primary':'https://supreme.justia.com/cases/federal/us/603/23a349/','osha-primary':'https://supreme.justia.com/cases/federal/us/595/21a244/','slaughter-primary':'https://www.supremecourt.gov/opinions/25pdf/609us2r62_g314.pdf','berk-primary':'https://www.supremecourt.gov/opinions/25pdf/607us1r10_5hek.pdf','illinois-docket':'https://www.supremecourt.gov/docket/docketfiles/html/public/25a443.html','realtors-primary':'https://www.supremecourt.gov/opinions/20pdf/21a23_ap6c.pdf'})
+          def grab(pair):
+            k,u=pair
+            try:
+              r=requests.get(u,timeout=45);r.raise_for_status()
+              if r.content[:4]==b'%PDF':
+                d=fitz.open(stream=r.content,filetype='pdf');(O/(k+'.txt')).write_text('\n'.join(p.get_text() for p in d));(O/(k+'.pdf')).write_bytes(r.content)
+              else:
+                try:(O/(k+'.json')).write_text(json.dumps(r.json()))
+                except:(O/(k+'.txt')).write_text(BeautifulSoup(r.text,'html.parser').get_text(' ',strip=True))
+              return {'key':k,'url':u,'status':r.status_code,'bytes':len(r.content)}
+            except Exception as e:return {'key':k,'url':u,'error':str(e)}
+          rows=list(concurrent.futures.ThreadPoolExecutor(6).map(grab,links.items()));(O/'sources.json').write_text(json.dumps(rows,indent=2));print(rows)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scotus-source-checks
+          path: output/
+          retention-days: 14

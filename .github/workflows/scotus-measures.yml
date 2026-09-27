@@ -1,0 +1,31 @@
+name: SCOTUS Published Measures
+on:
+  push:
+    branches: [feature/scotus-history-r16]
+    paths: ['.github/workflows/scotus-measures.yml']
+permissions:
+  contents: read
+jobs:
+  measures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Fetch original dataset and documentation
+        run: |
+          mkdir -p output
+          python - <<'PY'
+          import requests,pathlib,json,hashlib
+          O=pathlib.Path('output');out=[]
+          for f,u in [('mq.csv','https://mqscores.wustl.edu/media/2024/justices.csv'),('mq-measures.html','https://mqscores.wustl.edu/measures.php')]:
+            r=requests.get(u,timeout=45);r.raise_for_status();(O/f).write_bytes(r.content);out.append({'file':f,'url':u,'sha256':hashlib.sha256(r.content).hexdigest()})
+          (O/'sources.json').write_text(json.dumps(out,indent=2));print(out)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: scotus-published-measures
+          path: output/
+          retention-days: 14
