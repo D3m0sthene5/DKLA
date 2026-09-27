@@ -1,0 +1,62 @@
+name: SCOTUS Color Source Supplements
+on:
+  push:
+    branches: [assets/scotus-authentic-portraits-2026-09-27]
+    paths: ['.github/workflows/scotus-color-sources.yml']
+permissions:
+  contents: read
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 pillow
+      - name: Retrieve named institutional images
+        run: |
+          python - <<'PY'
+          import requests,json,re,hashlib,concurrent.futures
+          from bs4 import BeautifulSoup
+          from pathlib import Path
+          from urllib.parse import urljoin
+          from PIL import Image
+          from io import BytesIO
+          out=Path('output');out.mkdir(exist_ok=True);records=[]
+          urls=['https://www.supremecourt.gov/visiting/exhibitions/GroupPhotoExhibit/Section4.aspx','https://www.supremecourt.gov/visiting/exhibitions/GroupPhotoExhibit/Section5.aspx','https://supremecourthistory.org/history-of-the-courts/warren-court-1953-1969/','https://www.loc.gov/resource/ds.11820/?fo=json']
+          for i,u in enumerate(urls):
+            try:
+              r=requests.get(u,timeout=25);r.raise_for_status();(out/('page-'+str(i)+'.txt')).write_text(r.text)
+              soup=BeautifulSoup(r.content,'html.parser');ims=[]
+              for img in soup.find_all('img'):
+                alt=img.get('alt','');src=img.get('src','');a=img.find_parent('a')
+                if not any(w in (src+' '+alt).lower() for w in ['warren','1965','1967','pressphoto1941','stonecourt','marshall']):continue
+                variants=[urljoin(u,src)]
+                if a and a.get('href') and re.search(r'\.(jpg|png|jpeg)$',a['href'],re.I):variants.insert(0,urljoin(u,a['href']))
+                ims.append((alt,variants))
+              if '?fo=json' in u:
+                def walk(x):
+                  if isinstance(x,dict):
+                    if x.get('url') and x.get('mimetype','').startswith('image/'):ims.append(('Thurgood Marshall, official 1976 photograph',[x['url']]))
+                    for v in x.values():walk(v)
+                  elif isinstance(x,list):
+                    for v in x:walk(v)
+                walk(r.json())
+              for alt,vs in ims:
+                for v in list(dict.fromkeys(vs)):
+                  try:
+                    b=requests.get(v,timeout=25);b.raise_for_status();im=Image.open(BytesIO(b.content));im.load()
+                    if im.width<200:continue
+                    file='color-source-'+str(len(records))+('.png' if im.format=='PNG' else '.jpg');(out/file).write_bytes(b.content)
+                    records.append({'file':file,'source_page':u,'image_url':v,'alt':alt,'width':im.width,'height':im.height,'sha256':hashlib.sha256(b.content).hexdigest()});print(records[-1],flush=True)
+                  except Exception as e:print('IMAGE ERROR',v,str(e),flush=True)
+            except Exception as e:print('PAGE ERROR',u,str(e),flush=True)
+          (out/'sources.json').write_text(json.dumps(records,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scotus-color-sources
+          path: output/
+          retention-days: 14
