@@ -58,12 +58,13 @@ for course, fn in FILES.items():
     designs[course] = d
 
 # place the three clusters as a tight triangle: Civil Procedure and LRS side by side, Contracts centred above them
-GAP = 4000
+GAP = 4000  # between Civil Procedure and LRS; the workbench and dictionary sit in it
+GAP_Y = 3600  # between Contracts and the row beneath: room for a course name at the phone floor zoom
 bc, bcp, bl = designs['Contracts']['_box'], designs['Civil Procedure']['_box'], designs['Legislation and the Regulatory State']['_box']
 row_w = bcp['w'] + GAP + bl['w']
 boxes = {'Civil Procedure': {'x': -row_w / 2, 'y': 0, 'w': bcp['w'], 'h': bcp['h']},
          'Legislation and the Regulatory State': {'x': -row_w / 2 + bcp['w'] + GAP, 'y': 0, 'w': bl['w'], 'h': bl['h']},
-         'Contracts': {'x': -bc['w'] / 2, 'y': -bc['h'] - GAP, 'w': bc['w'], 'h': bc['h']}}
+         'Contracts': {'x': -bc['w'] / 2, 'y': -bc['h'] - GAP_Y, 'w': bc['w'], 'h': bc['h']}}
 radius = 0
 M['courseDesign'] = {}
 for course, d in designs.items():
@@ -73,18 +74,48 @@ for course, d in designs.items():
         r = R[x['id']]; move(r, round(x['x'] + ox), round(x['y'] + oy)); r['why'] = x.get('why', ''); r.pop('arm', None)
     M['courseDesign'][course] = {
         'concept': d.get('concept', ''),
-        # zones get 420 units of headroom above their first row of boxes so the zone title and subtitle never sit on a box
-        'zones': [{**z, 'x': round(z['x'] + ox), 'y': round(z['y'] + oy) - 420, 'h': z['h'] + 420} for z in d.get('zones', [])],
+        # zones get 360 units of headroom above their first row of boxes so the zone title and subtitle never sit on a box
+        'zones': [{**z, 'x': round(z['x'] + ox), 'y': round(z['y'] + oy) - 360, 'h': z['h'] + 360} for z in d.get('zones', [])],
         'spine': d.get('spine', []),
         'labels': [{**l, 'x': round(l['x'] + ox), 'y': round(l['y'] + oy)} for l in d.get('labels', [])],
     }
-# the study workbench and the legal dictionary sit to the right of everything, apart from the courses
-allx2 = max(t['x'] + t['w'] for t in boxes.values()); ally = min(t['y'] for t in boxes.values())
-wb = R['workbench-region']; move(wb, round(allx2 + 4200), round(ally + 1200)); wb['courseKey'] = 'Study notes'
+# the study workbench and the legal dictionary sit at the centre of the triangle, in the gap between Civil Procedure and LRS
+gap_x = (boxes['Civil Procedure']['x'] + bcp['w'] + boxes['Legislation and the Regulatory State']['x']) / 2
+wb = R['workbench-region']; move(wb, round(gap_x - wb['w'] / 2), round(boxes['Civil Procedure']['y'] + 900)); wb['courseKey'] = 'Study notes'
 if 'dictionary-region' not in R:
     M['regions'].append({'id': 'dictionary-region', 'title': 'Legal dictionary', 'kicker': 'Reference', 'description': 'Every legal term with a definition. Search a term from the search bar, or open the box to browse.',
-                         'x': wb['x'], 'y': wb['y'] + wb['h'] + 700, 'w': 2400, 'h': 1300, 'col': 3, 'row': 1, 'color': '#b7a6d6', 'courseKey': 'Study notes', 'special': 'glossary', 'districtIds': [], 'step': None, 'routeLabel': ''})
+                         'x': wb['x'], 'y': wb['y'] + wb['h'] + 500, 'w': 2400, 'h': 1300, 'col': 3, 'row': 1, 'color': '#b7a6d6', 'courseKey': 'Study notes', 'special': 'glossary', 'districtIds': [], 'step': None, 'routeLabel': ''})
     R['dictionary-region'] = M['regions'][-1]
+CP_HUES = {'cp-orientation-region': '#8fb4d8', 'civil-region': '#a899ee', 'cp-personal-region': '#6f9fd2', 'cp-notice-region': '#7fb8c9', 'cp-subject-region': '#8aa6dc', 'cp-venue-region': '#9ec2cf',
+           'cp-governing-region': '#7c93cc', 'extension-iekfaa-1': '#93a8d4', 'cp-pleading-region': '#6fb0c0', 'cp-joinder-region': '#89a9e0', 'cp-class-region': '#9db6d1', 'cp-summary-region': '#7a9fc4'}
+for r in M['regions']:
+    if r['id'] in CP_HUES:
+        r['color'] = CP_HUES[r['id']]
+# boxes shrink to their contents: a subtopic ends a little under its last card, a subject a little under its last subtopic,
+# a zone a little under its last subject. Nothing grows, so the designed positions and the no-overlap guarantee hold.
+homes_by_district = {}
+for h in M['homes'].values():
+    homes_by_district.setdefault(h['district'], []).append(h)
+for d in M['districts'].values():
+    hh = homes_by_district.get(d['id'], [])
+    if hh:
+        bottom = max(h['y'] + h['h'] for h in hh) + 36 - d['y']
+        d['h'] = max(d.get('headerH', 91) + 150, min(d['h'], bottom))
+for r in M['regions']:
+    ds = districts_by_region.get(r['id'], [])
+    if ds:
+        r['h'] = max(1000, min(r['h'], max(d['y'] + d['h'] for d in ds) + 48 - r['y']))
+for course, cd in M['courseDesign'].items():
+    for z in cd['zones']:
+        inside = [r for r in M['regions'] if r.get('courseKey') == course and z['x'] <= r['x'] + r['w'] / 2 <= z['x'] + z['w'] and z['y'] <= r['y'] + r['h'] / 2 <= z['y'] + z['h']]
+        if inside:
+            z['h'] = max(300, min(z['h'], max(r['y'] + r['h'] for r in inside) + 70 - z['y']))
+for course in boxes:
+    rs = [r for r in M['regions'] if r.get('courseKey') == course]
+    zs = M['courseDesign'][course]['zones']
+    x1 = min([r['x'] for r in rs] + [z['x'] for z in zs]); y1 = min([r['y'] for r in rs] + [z['y'] for z in zs])
+    x2 = max([r['x'] + r['w'] for r in rs] + [z['x'] + z['w'] for z in zs]); y2 = max([r['y'] + r['h'] for r in rs] + [z['y'] + z['h'] for z in zs])
+    boxes[course] = {'x': x1, 'y': y1, 'w': x2 - x1, 'h': y2 - y1}
 for r in M['regions']:
     assert not any(overlaps(r, q) for q in M['regions'] if q is not r), f"overlap at {r['id']}"
 M['courseBlocks'] = {c: {k: round(v) for k, v in t.items()} for c, t in boxes.items()}
