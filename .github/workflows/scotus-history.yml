@@ -1,0 +1,46 @@
+name: SCOTUS History Build
+on:
+  push:
+    branches: [feature/scotus-history-r16]
+    paths: ['.github/workflows/scotus-history.yml', 'tools/scotus/**']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4 pillow rapidfuzz
+      - name: Collect, integrate and check
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p output
+          if test -f tools/scotus/collect.py; then python -u tools/scotus/collect.py; fi
+          if test -f tools/scotus/build.py; then python -u tools/scotus/build.py; fi
+          python - <<'PY'
+          import json,re,pathlib,zipfile,requests
+          html=pathlib.Path('DKLA-r8.html').read_text()
+          m=re.search(r'<script[^>]*id="seedData"[^>]*>(.*?)</script>',html,re.S)
+          d=json.loads(m[1]);pathlib.Path('output/seedData.json').write_text(json.dumps(d))
+          with zipfile.ZipFile('output/dkla-source.zip','w',zipfile.ZIP_DEFLATED) as z:
+            for p in [pathlib.Path('DKLA-r8.html'),pathlib.Path('AGENTS.md'),*pathlib.Path('tools').rglob('*')]:
+              if p.is_file():z.write(p,str(p))
+          print('ATLAS NODES',len(d['nodes']),'EDGES',len(d['edges']))
+          if not pathlib.Path('tools/scotus/collect.py').exists():
+            for key,url in {'sample-case':'https://api.oyez.org/cases/1940-1955/323us214','case-index-sample':'https://api.oyez.org/cases?per_page=2&page=0','official-service':'https://www.supremecourt.gov/about/members_text.aspx'}.items():
+              try:
+                r=requests.get(url,timeout=25);print(key,r.status_code,len(r.content));pathlib.Path('output/'+key+'.txt').write_text(r.text)
+              except Exception as e: print(key,str(e))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scotus-history-build
+          path: output/
+          retention-days: 14
