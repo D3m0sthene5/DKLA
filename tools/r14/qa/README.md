@@ -12,3 +12,4 @@ and a Chromium; set `CHROME` to the browser path if it is not the sandbox defaul
 | `flick.js [K|CP|LRS]` | Same sweep, but reads the label engine (`R11.labelState`, `R11.blockedBy`) and names the label that blocked each flickering one. |
 | `probe.js WxH node:<id>|scope:<name> <ticks> <key regex>` | One state: prints label keys, opacities, blockers and screen boxes, the number of cards, and the mode of each subject; saves a screenshot. |
 | `look.js [out] [WxH]` | Screenshots of the floor, each course at its fit and after 3, 6, 9 and 12 ticks, and a selected entry. |
+| `steps.js` | Stepped zoom: wheel notches, a trackpad flick, zoom-out, the + button and Alt+wheel should land on the four levels (atlas, course, subject, subtopic) and nowhere else. |

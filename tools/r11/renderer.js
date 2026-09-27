@@ -174,6 +174,25 @@ function draw(){
  $('mapHint').textContent=S.scope==='Atlas'?'Three courses · Scroll in on one, or click a subject':selected?.type==='node'?'Drag an entry to save a new map position':anyClose?'All nearby notes are visible · Click to read':'Scroll to explore · Drag the map to pan';
 }
 // Hover names for stars, and a forgiving click target: the nearest star within nine pixels.
+// Stepped zoom (revision 14c): the camera stops only at four levels, atlas, course, subject, subtopic, so every view is
+// one of the four the renderer is designed for. Wheel, pinch and the +/- buttons move one level toward what is under the pointer;
+// clicking a subject or a subtopic goes straight to its level; panning stays free; Alt + wheel still zooms continuously.
+function levelTargets(p){const a=safeArea(),fit=(b,pad,mx)=>Math.min((a.w-pad*2)/Math.max(1,b.w),(a.h-pad*2)/Math.max(1,b.h),mx);
+ const M=mapData(),G=galaxy(),inside=(b,q)=>q.x>=b.x&&q.x<=b.x+b.w&&q.y>=b.y&&q.y<=b.y+b.h,near=(list,q)=>list.reduce((best,b)=>{const d=Math.hypot(b.x+b.w/2-q.x,b.y+b.h/2-q.y);return d<best.d?{d,b}:best;},{d:Infinity,b:null}).b;
+ const courses=Object.entries(G.blocks).map(([c,b])=>({c,...b}));let course=courses.find(b=>inside(b,p))||near(courses,p);
+ let subject=M.regions.find(r=>inside(r,p))||near(M.regions.filter(r=>regionCourse(r)===course.c),p);
+ if(subject&&regionCourse(subject)!==course.c&&courses.some(b=>b.c===regionCourse(subject)))course=courses.find(b=>b.c===regionCourse(subject));
+ const districts=(subject?.districtIds||[]).map(districtFor).filter(Boolean),district=districts.find(d=>inside(d,p))||near(districts,p);
+ const prev=S.scope;S.scope=course.c;const cb=scopeBox();S.scope=prev;
+ const zA=fit(G.box,20,.7),zC=fit(cb,20,.7),zS=subject?fit(subject,25,.95):zC*3,zD=district?fit(district,16,1.05):zS*1.5;
+ return {course,subject,district,z:[zA,zC,zS,zD]};}
+R11.level=function(p){const t=levelTargets(p||mapCenterVisible());let lvl=0,bd=Infinity;t.z.forEach((z,i)=>{const d=Math.abs(Math.log(S.z/z));if(d<bd){bd=d;lvl=i;}});return {lvl,...t};};
+R11.step=function(dir,p){if(R11.stepping)return false;p=p||mapCenterVisible();const t=R11.level(p),target=Math.max(0,Math.min(3,t.lvl+dir));if(target===t.lvl)return false;
+ R11.stepping=true;setTimeout(()=>{R11.stepping=false;},650);
+ if(target===0)home('Atlas');else if(target===1)home(t.course.c);else if(target===2&&t.subject)goRegion(t.subject.id);else if(target===3&&t.district)goDistrict(t.district.id);else if(target===3&&t.subject)goRegion(t.subject.id);else{R11.stepping=false;return false;}return true;};
+let wheelAcc=0,wheelAt=0,wheelLock=false;
+// One gesture, one level: after a step the wheel must fall silent for 250 ms (inertial trackpad scrolling keeps the lock) before it can step again.
+R11.wheel=function(e){const now=Date.now(),gap=now-wheelAt;wheelAt=now;if(wheelLock){if(gap<250)return;wheelLock=false;wheelAcc=0;}if(gap>300)wheelAcc=0;if(R11.stepping){wheelLock=true;return;}wheelAcc+=e.deltaMode===1?e.deltaY*40:e.deltaMode===2?e.deltaY*400:e.deltaY;if(Math.abs(wheelAcc)<40)return;const dir=wheelAcc<0?1:-1;wheelAcc=0;wheelLock=true;R11.step(dir,screenToWorld(e.clientX,e.clientY));};
 const mapTip=document.createElement('div');mapTip.id='mapTip';mapTip.hidden=true;svg.parentElement.appendChild(mapTip);
 svg.addEventListener('pointermove',e=>{if(S.pointers.size||e.pointerType==='touch'){mapTip.hidden=true;return;}const rg=e.target.closest?.('[data-map-region]');if(rg&&!e.target.closest('.node-card,.map-district')){const r=regionFor(rg.dataset.mapRegion);if(r&&r.w*S.z<200){const tl=regionTally(r.id);mapTip.hidden=false;mapTip.dataset.id='region:'+r.id;mapTip.innerHTML=`<strong>${E(shortRegionTitle(r))}</strong><span>${E(r.routeLabel||r.kicker||'')}${tl.total?' · '+tl.cases+' cases · '+tl.concepts+' concepts':''}</span>`;const w=svg.parentElement.getBoundingClientRect();mapTip.style.left=Math.min(w.width-270,e.clientX-w.left+14)+'px';mapTip.style.top=(e.clientY-w.top+16)+'px';return;}}const id=e.target.dataset?.star?e.target.dataset.mapNode:nearestStar(e.clientX,e.clientY,9);const n=id&&nodesById.get(id);if(!n){mapTip.hidden=true;return;}const h=mapData().homes[n.id],d=h&&districtFor(h.district),r=h&&regionFor(h.region);mapTip.hidden=false;mapTip.dataset.id=n.id;mapTip.innerHTML=`<strong>${E(n.title)}</strong><span>${E(n.kind)}${d?' · '+E(d.title):r?' · '+E(shortRegionTitle(r)):''}</span>`;const w=svg.parentElement.getBoundingClientRect();mapTip.style.left=Math.min(w.width-270,e.clientX-w.left+14)+'px';mapTip.style.top=(e.clientY-w.top+16)+'px';});
 svg.addEventListener('pointerleave',()=>{mapTip.hidden=true;});svg.addEventListener('pointerdown',()=>{mapTip.hidden=true;},{capture:true});
