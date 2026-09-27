@@ -1,84 +1,81 @@
-"""Download named archival portraits; never synthesize or recolor faces."""
-import os,json,re,time,hashlib,concurrent.futures,unicodedata
+"""Authentic named portraits from Oyez; segmentation changes alpha only."""
+import os
+os.environ['OMP_NUM_THREADS']='2'
+import requests,json,re,hashlib,concurrent.futures,time
 from pathlib import Path
-from urllib.parse import urljoin,urlparse,unquote
 from io import BytesIO
-import requests
-from bs4 import BeautifulSoup
-from PIL import Image
+from PIL import Image,ImageOps
+import numpy as np
 OUT=Path('output');OUT.mkdir(exist_ok=True)
-(OUT/'originals').mkdir(exist_ok=True)
-HEAD={'User-Agent':'SCOTUSPortraitReference/1.0 (personal educational portrait index; respectful low-concurrency archival retrieval)'}
+for f in ['originals','cutouts','metadata']: (OUT/f).mkdir(exist_ok=True)
+HEAD={'User-Agent':'SCOTUSPortraitReference/1.0 (educational archive retrieval; no synthesis)'}
 def get(u):
- r=requests.get(u,headers=HEAD,timeout=(12,40));r.raise_for_status();return r
-
-def slug(t):return re.sub('[^a-z0-9]+','-',unicodedata.normalize('NFKD',t).encode('ascii','ignore').decode().lower()).strip('-')
-
-def process(u):
+ r=requests.get(u,headers=HEAD,timeout=(12,35));r.raise_for_status();return r
+people={}
+for page in range(8):
  try:
-  soup=BeautifulSoup(get(u).content,'html.parser')
-  h=soup.find('h1');title=h.get_text(' ',strip=True) if h else ''
-  ims=[]
-  for im in soup.find_all('img'):
-   alt=im.get('alt','');src=im.get('data-src') or im.get('src','')
-   if not src:continue
-   if 'justice' in alt.lower() and not any(s in alt.lower() for s in ['rosette','logo','society','court history']):
-    variants=[urljoin(u,src)]
-    for v in im.get('srcset','').split(','):
-     if v.strip():variants.append(urljoin(u,v.strip().split()[0]))
-    clean=re.sub(r'-\d+x\d+(?=\.[A-Za-z]+(?:\?|$))','',variants[0]);variants.append(clean)
-    ims.append({'alt':alt,'variants':list(dict.fromkeys(variants))})
-  out=[]
-  for j,im in enumerate(ims):
-   best=None
-   for v in im['variants']:
-    try:
-     r=get(v);image=Image.open(BytesIO(r.content));image.load()
-     if image.width<60 or image.height<60:continue
-     if best is None or image.width*image.height>best[0]:best=(image.width*image.height,image,r.content,v,r.headers.get('content-type'))
-    except Exception:pass
-   if best:
-    _,image,raw,v,mime=best
-    sid=slug(title or im['alt'])+('-'+str(j) if j else '')
-    ext={'JPEG':'.jpg','PNG':'.png','WEBP':'.webp','GIF':'.gif'}.get(image.format,'.jpg')
-    path='originals/'+sid+ext;(OUT/path).write_bytes(raw)
-    out.append({'source_page':u,'source_title':title,'alt':im['alt'],'image_url':v,'file':path,'width':image.width,'height':image.height,'sha256':hashlib.sha256(raw).hexdigest(),'provider':'Supreme Court Historical Society'})
-  print('FETCH',title,len(out),flush=True)
-  return out
- except Exception as e:print('ERROR',u,str(e),flush=True);return [{'source_page':u,'error':str(e)}]
+  a=get('https://api.oyez.org/justices?page='+str(page)).json()
+  if isinstance(a,dict):a=list(a.values())
+  before=len(people)
+  for p in a:
+   if isinstance(p,dict) and p.get('identifier'):people[p['identifier']]=p
+  print('ROSTER PAGE',page,'new',len(people)-before,flush=True)
+  if len(people)==before:break
+ except Exception as e:print('PAGE ERROR',page,str(e),flush=True);break
+(OUT/'oyez-roster.json').write_text(json.dumps(list(people.values()),indent=2))
+print('ROSTER',len(people),flush=True)
+def hrefs(x,path=''):
+ out=[]
+ if isinstance(x,dict):
+  if str(x.get('mime','')).startswith('image/') and x.get('href'):out.append((x['href'],path,x))
+  for k,v in x.items():out.extend(hrefs(v,path+'/'+k))
+ elif isinstance(x,list):
+  for i,v in enumerate(x):out.extend(hrefs(v,path+'/'+str(i)))
+ return out
 
-links=set()
-for root in ['https://supremecourthistory.org/chief-justices/','https://supremecourthistory.org/associate-justices/']:
- soup=BeautifulSoup(get(root).content,'html.parser')
- for a in soup.find_all('a',href=True):
-  u=urljoin(root,a['href']).split('#')[0]
-  if re.search(r'/(?:chief|associate)-justices/[^/?]+/?$',u):links.add(u)
-print('BIOGRAPHY PAGES',len(links),flush=True)
+def fetch_person(p):
+ sid=p['identifier'];results=[]
+ try:
+  detail=get(p['href']).json();(OUT/'metadata'/(sid+'.json')).write_text(json.dumps(detail,indent=2))
+  candidates=hrefs(detail)
+  if p.get('thumbnail'):candidates+=hrefs(p['thumbnail'],'thumbnail')
+  # Each media item's metadata, not a generated likeness, establishes its subject.
+  seen=set()
+  for u,field,meta in candidates:
+   if u in seen:continue
+   seen.add(u)
+   try:
+    r=get(u);im=ImageOps.exif_transpose(Image.open(BytesIO(r.content)));im.load()
+    if im.width<90 or im.height<90:continue
+    name=sid+'-'+str(len(results));ext='.png' if im.format=='PNG' or 'png' in r.headers.get('content-type','') else '.jpg'
+    path='originals/'+name+ext;(OUT/path).write_bytes(r.content)
+    results.append({'id':sid,'name':p['name'],'image_url':u,'source_page':'https://www.oyez.org/justices/'+sid,'source_api':p['href'],'metadata_field':field,'media_metadata':meta,'file':path,'width':im.width,'height':im.height,'sha256':hashlib.sha256(r.content).hexdigest(),'provider':'Oyez'})
+   except Exception as e:print('IMAGE ERROR',sid,u,str(e),flush=True)
+  print('PORTRAIT',sid,[(r['width'],r['height'],r['metadata_field']) for r in results],flush=True)
+ except Exception as e:print('PERSON ERROR',sid,str(e),flush=True)
+ return results
 records=[]
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
- for part in ex.map(process,sorted(links)):records.extend(part)
-# The Court itself supplies current and retired members' genuine color portraits.
-u='https://www.supremecourt.gov/about/biographies.aspx'
-soup=BeautifulSoup(get(u).content,'html.parser')
-for im in soup.find_all('img'):
- alt=im.get('alt','');src=im.get('src','')
- if 'Justice' not in alt or not src:continue
- try:
-  v=urljoin(u,src);r=get(v);image=Image.open(BytesIO(r.content));image.load()
-  path='originals/official-'+slug(alt)+('.png' if image.format=='PNG' else '.jpg');(OUT/path).write_bytes(r.content)
-  records.append({'source_page':u,'source_title':alt,'alt':alt,'image_url':v,'file':path,'width':image.width,'height':image.height,'sha256':hashlib.sha256(r.content).hexdigest(),'provider':'Supreme Court of the United States','preferred_color_photo':True})
-  print('OFFICIAL',alt,image.size,flush=True)
- except Exception as e:print('OFFICIAL ERROR',alt,str(e),flush=True)
-# Transfer the verified roster page along with archival image metadata.
-try:
- u='https://www.fjc.gov/history/courts/supreme-court-united-states-justices';r=get(u)
- (OUT/'fjc-roster.html').write_bytes(r.content)
-except Exception as e:print('FJC ERROR',str(e))
-# Test image-CDN access separately from Wikipedia's API, which rejected the first test.
-probes=[]
-for u in ['https://upload.wikimedia.org/wikipedia/commons/4/43/Official_roberts_CJ.jpg','https://www.oyez.org/justices','https://api.oyez.org/justices']:
- try:r=get(u);probes.append({'url':u,'status':r.status_code,'bytes':len(r.content),'type':r.headers.get('content-type')});(OUT/('probe-'+str(len(probes))+'.bin')).write_bytes(r.content)
- except Exception as e:probes.append({'url':u,'error':str(e)})
+ for a in ex.map(fetch_person,people.values()):records.extend(a)
 (OUT/'sources.json').write_text(json.dumps(records,indent=2))
-(OUT/'network-tests.json').write_text(json.dumps(probes,indent=2))
-print('DONE',len(records),'records',len(list((OUT/'originals').glob('*'))),'downloaded portrait files',flush=True)
+# Retain every original separately. Only segmentation/cropping affects cutout derivatives.
+from rembg import new_session,remove
+session=new_session('u2net')
+chosen=[]
+for sid,p in people.items():
+ a=[r for r in records if r['id']==sid]
+ if not a:continue
+ a.sort(key=lambda r:r['width']*r['height'],reverse=True)
+ r=a[0];im=ImageOps.exif_transpose(Image.open(OUT/r['file'])).convert('RGBA');im.thumbnail((1050,1400),Image.Resampling.LANCZOS)
+ try:
+  if np.asarray(im.getchannel('A')).min()<10:result=im;method='existing source alpha'
+  else:result=remove(im,session=session,post_process_mask=True);method='u2net alpha segmentation; original RGB retained'
+  # Crop to the actual alpha bounding box, but never repaint or invent pixels.
+  box=result.getchannel('A').getbbox()
+  if box:result=result.crop(box)
+  path='cutouts/'+sid+'.png';result.save(OUT/path)
+  r.update({'cutout_file':path,'mask_method':method,'cutout_width':result.width,'cutout_height':result.height})
+  chosen.append(r);print('CUTOUT',sid,result.size,flush=True)
+ except Exception as e:print('MASK ERROR',sid,str(e),flush=True)
+(OUT/'chosen.json').write_text(json.dumps(chosen,indent=2))
+print('DONE',len(people),'people',len(records),'originals',len(chosen),'cutouts',flush=True)
