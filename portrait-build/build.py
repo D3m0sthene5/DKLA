@@ -1,81 +1,58 @@
-"""Authentic named portraits from Oyez; segmentation changes alpha only."""
 import os
 os.environ['OMP_NUM_THREADS']='2'
-import requests,json,re,hashlib,concurrent.futures,time
+import requests,json,re,hashlib
 from pathlib import Path
 from io import BytesIO
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
 from PIL import Image,ImageOps
-import numpy as np
-OUT=Path('output');OUT.mkdir(exist_ok=True)
-for f in ['originals','cutouts','metadata']: (OUT/f).mkdir(exist_ok=True)
-HEAD={'User-Agent':'SCOTUSPortraitReference/1.0 (educational archive retrieval; no synthesis)'}
-def get(u):
- r=requests.get(u,headers=HEAD,timeout=(12,35));r.raise_for_status();return r
-people={}
-for page in range(8):
- try:
-  a=get('https://api.oyez.org/justices?page='+str(page)).json()
-  if isinstance(a,dict):a=list(a.values())
-  before=len(people)
-  for p in a:
-   if isinstance(p,dict) and p.get('identifier'):people[p['identifier']]=p
-  print('ROSTER PAGE',page,'new',len(people)-before,flush=True)
-  if len(people)==before:break
- except Exception as e:print('PAGE ERROR',page,str(e),flush=True);break
-(OUT/'oyez-roster.json').write_text(json.dumps(list(people.values()),indent=2))
-print('ROSTER',len(people),flush=True)
-def hrefs(x,path=''):
- out=[]
- if isinstance(x,dict):
-  if str(x.get('mime','')).startswith('image/') and x.get('href'):out.append((x['href'],path,x))
-  for k,v in x.items():out.extend(hrefs(v,path+'/'+k))
- elif isinstance(x,list):
-  for i,v in enumerate(x):out.extend(hrefs(v,path+'/'+str(i)))
- return out
-
-def fetch_person(p):
- sid=p['identifier'];results=[]
- try:
-  detail=get(p['href']).json();(OUT/'metadata'/(sid+'.json')).write_text(json.dumps(detail,indent=2))
-  candidates=hrefs(detail)
-  if p.get('thumbnail'):candidates+=hrefs(p['thumbnail'],'thumbnail')
-  # Each media item's metadata, not a generated likeness, establishes its subject.
-  seen=set()
-  for u,field,meta in candidates:
-   if u in seen:continue
-   seen.add(u)
-   try:
-    r=get(u);im=ImageOps.exif_transpose(Image.open(BytesIO(r.content)));im.load()
-    if im.width<90 or im.height<90:continue
-    name=sid+'-'+str(len(results));ext='.png' if im.format=='PNG' or 'png' in r.headers.get('content-type','') else '.jpg'
-    path='originals/'+name+ext;(OUT/path).write_bytes(r.content)
-    results.append({'id':sid,'name':p['name'],'image_url':u,'source_page':'https://www.oyez.org/justices/'+sid,'source_api':p['href'],'metadata_field':field,'media_metadata':meta,'file':path,'width':im.width,'height':im.height,'sha256':hashlib.sha256(r.content).hexdigest(),'provider':'Oyez'})
-   except Exception as e:print('IMAGE ERROR',sid,u,str(e),flush=True)
-  print('PORTRAIT',sid,[(r['width'],r['height'],r['metadata_field']) for r in results],flush=True)
- except Exception as e:print('PERSON ERROR',sid,str(e),flush=True)
- return results
-records=[]
-with concurrent.futures.ThreadPoolExecutor(max_workers=5) as ex:
- for a in ex.map(fetch_person,people.values()):records.extend(a)
-(OUT/'sources.json').write_text(json.dumps(records,indent=2))
-# Retain every original separately. Only segmentation/cropping affects cutout derivatives.
 from rembg import new_session,remove
-session=new_session('u2net')
-chosen=[]
-for sid,p in people.items():
- a=[r for r in records if r['id']==sid]
- if not a:continue
- a.sort(key=lambda r:r['width']*r['height'],reverse=True)
- r=a[0];im=ImageOps.exif_transpose(Image.open(OUT/r['file'])).convert('RGBA');im.thumbnail((1050,1400),Image.Resampling.LANCZOS)
+O=Path('output');O.mkdir(exist_ok=True)
+for d in ['originals','cutouts','metadata']:(O/d).mkdir(exist_ok=True)
+S=requests.Session();S.headers['User-Agent']='SCOTUSPortraitReference/1.0 (source-linked educational research)'
+def get(u):r=S.get(u,timeout=25);r.raise_for_status();return r
+jobs=[('joseph-story','Joseph Story','https://www.loc.gov/item/2004664058/?fo=json'),('john-mclean','John McLean','https://www.loc.gov/item/2004663957/?fo=json'),('john-catron','John Catron','https://www.loc.gov/resource/cwpbh.01590/?fo=json'),('salmon-portland-chase','Salmon Portland Chase','https://www.loc.gov/item/2018666381/?fo=json'),('peter-vivian-daniel','Peter Vivian Daniel','https://hd.housedivided.dickinson.edu/node/36556'),('benjamin-robbins-curtis','Benjamin Robbins Curtis','https://commons.wikimedia.org/wiki/File:Benjamin_Robbins_Curtis_-_photo.png')]
+records=[]
+for sid,name,u in jobs:
  try:
-  if np.asarray(im.getchannel('A')).min()<10:result=im;method='existing source alpha'
-  else:result=remove(im,session=session,post_process_mask=True);method='u2net alpha segmentation; original RGB retained'
-  # Crop to the actual alpha bounding box, but never repaint or invent pixels.
-  box=result.getchannel('A').getbbox()
-  if box:result=result.crop(box)
-  path='cutouts/'+sid+'.png';result.save(OUT/path)
-  r.update({'cutout_file':path,'mask_method':method,'cutout_width':result.width,'cutout_height':result.height})
-  chosen.append(r);print('CUTOUT',sid,result.size,flush=True)
- except Exception as e:print('MASK ERROR',sid,str(e),flush=True)
-(OUT/'chosen.json').write_text(json.dumps(chosen,indent=2))
-print('DONE',len(people),'people',len(records),'originals',len(chosen),'cutouts',flush=True)
+  urls=[];meta={}
+  if sid=='benjamin-robbins-curtis':
+   urls=['https://upload.wikimedia.org/wikipedia/commons/e/ea/Benjamin_Robbins_Curtis_-_photo.png','https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Benjamin_Robbins_Curtis_-_photo.png/500px-Benjamin_Robbins_Curtis_-_photo.png']
+   meta={'title':name,'description':'Undated photographic postcard portrait, before 1875; Commons file metadata verified separately.'}
+  elif '?fo=json' in u:
+   meta=get(u).json();(O/'metadata'/(sid+'.json')).write_text(json.dumps(meta))
+   urls=meta.get('item',{}).get('image_url',[])
+   if not urls:urls=meta.get('image_url',[])
+   urls=[x for x in urls if isinstance(x,str) and not '.gif' in x]
+   # LOC image_url belongs to this named item, not its related-search results.
+   print('CANDIDATES',sid,urls,flush=True)
+  else:
+   r=get(u);(O/'metadata'/(sid+'.html')).write_text(r.text);s=BeautifulSoup(r.content,'html.parser')
+   for a in s.find_all('a',href=True):
+    if 'Download image' in a.get_text() or re.search(r'\.(jpg|png|jpeg)(\?|$)',a['href'],re.I):urls.append(urljoin(u,a['href']))
+   for im in s.find_all('img'):
+    if 'Daniel' in im.get('alt',''):urls.append(urljoin(u,im.get('src','')))
+  best=None
+  for v in list(dict.fromkeys(urls)):
+   try:
+    b=get(v);im=ImageOps.exif_transpose(Image.open(BytesIO(b.content)));im.load()
+    if im.width<100 or im.height<100:continue
+    if best is None or im.width*im.height>best[0]:best=(im.width*im.height,im,b.content,v)
+   except Exception as e:print('IMAGE ERROR',sid,v,str(e),flush=True)
+  if best:
+   _,im,raw,v=best;ext='.png' if im.format=='PNG' else '.jpg';file='originals/'+sid+ext;(O/file).write_bytes(raw)
+   records.append({'id':sid,'name':name,'file':file,'image_url':v,'source_page':u.replace('?fo=json',''),'provider':'Library of Congress' if 'loc.gov' in u else ('Dickinson College / Supreme Court collection' if 'dickinson' in u else 'Wikimedia Commons / historical postcard'),'width':im.width,'height':im.height,'sha256':hashlib.sha256(raw).hexdigest(),'media_type':'bw_photograph'})
+   print('OK',sid,im.size,flush=True)
+  else:print('NO IMAGE',sid,flush=True)
+ except Exception as e:print('ERROR',sid,str(e),flush=True)
+(O/'sources.json').write_text(json.dumps(records,indent=2))
+session=new_session('u2net')
+for r in records:
+ im=ImageOps.exif_transpose(Image.open(O/r['file'])).convert('RGBA');im.thumbnail((1200,1600),Image.Resampling.LANCZOS)
+ try:
+  # Large original darkroom/mat borders may be discarded before alpha masking.
+  result=remove(im,session=session,post_process_mask=True)
+  result.save(O/'cutouts'/(r['id']+'.png'));r['cutout_file']='cutouts/'+r['id']+'.png'
+  print('MASKED',r['id'],flush=True)
+ except Exception as e:print('MASK ERROR',r['id'],str(e),flush=True)
+(O/'chosen.json').write_text(json.dumps(records,indent=2))
