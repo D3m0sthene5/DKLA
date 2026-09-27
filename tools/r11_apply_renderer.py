@@ -88,13 +88,20 @@ CSS = """<style id="dklaR11Styles">
 #geoCanvas .map-label{pointer-events:none}
 #geoCanvas .map-label[data-map-region],#geoCanvas .map-label[data-study-scope],#geoCanvas .map-label[data-map-district]{pointer-events:auto;cursor:pointer}
 #geoCanvas .map-label[data-map-region]:hover,#geoCanvas .map-label[data-study-scope]:hover,#geoCanvas .map-label[data-map-district]:hover{fill:#fff}
-#geoCanvas .course-label{letter-spacing:.01em}
+#geoCanvas .course-label{letter-spacing:-.005em}
+/* r15: one typeface everywhere (the map, the reading panel, the dialogs) and the three course accents from the renderer's scales. */
+html body,#geoCanvas text,#geoCanvas .region-title,#geoCanvas .course-label{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+html .course-options strong,html #inspector h2,html #mapWelcome h1,html #modalTitle,html #glossaryDialog .gl-detail h2{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-.012em}
+html #inspector .takeaway.dkla-rule,html #glossaryDialog .gl-detail,html #fileDialog .file-text,html #fileDialog .file-pagetext{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+html #inspector .takeaway.dkla-rule{font-weight:500}
+:root{--dkla-civil:#67acf7;--dkla-lrs:#5ebc7b}
+body[data-dkla-course="contracts"]{--dkla-course:#ee9138}body[data-dkla-course="civil"]{--dkla-course:#67acf7}body[data-dkla-course="lrs"]{--dkla-course:#5ebc7b}
 #geoCanvas .dkla-star{cursor:pointer}
 #geoCanvas .dkla-star.is-case{filter:drop-shadow(0 0 1.5px currentColor)}
 #geoCanvas .star-pulse{transform-box:fill-box;transform-origin:center;animation:dklaStarPulse 1.6s ease-out infinite}
 @keyframes dklaStarPulse{0%{transform:scale(.55);opacity:.95}100%{transform:scale(2.4);opacity:0}}
 #geoCanvas .node-card{transition:none}
-#mapTip{position:absolute;z-index:6;pointer-events:none;background:#141e27ee;border:1px solid #3a4a58;border-radius:8px;padding:7px 10px;max-width:260px;color:#e4ebf1;font-size:12.5px;line-height:1.35;box-shadow:0 6px 24px #0008}
+#mapTip{position:absolute;z-index:6;pointer-events:none;background:#141e27ee;border:1px solid #3a4a58;border-left:3px solid var(--tip,#3a4a58);border-radius:8px;padding:7px 10px;max-width:260px;color:#e4ebf1;font-size:12.5px;line-height:1.35;box-shadow:0 6px 24px #0008}
 #mapTip[hidden]{display:none}#mapTip strong{display:block;font-size:13px;font-weight:600}#mapTip span{color:#93a7b7;font-size:11.5px}
 #dklaOverview{display:none!important}
 @media(prefers-reduced-motion:reduce){#geoCanvas .star-pulse{animation:none}}
