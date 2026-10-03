@@ -1,0 +1,30 @@
+{
+  "r17_sha256": "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30",
+  "r18_sha256": "42c035860eb5609c9ac7bde3dcb64a2f92e82ddf1259e9901153d1194211c092",
+  "build": "r18-f5ccaa75b0",
+  "preserved_script_blocks": 30,
+  "patched_blocks": {
+    "studyCode": [
+      "course names: one world-proportional size on every screen, long name on two lines",
+      "course names: draw the wrapped rows",
+      "subjects show their subtopics as tiles as soon as a subtopic title is legible",
+      "subject title fits the shallower headroom",
+      "subject title line budget for the shallower headroom",
+      "course-level tiles fall back to the short subject name instead of an ellipsis",
+      "no bulleted subtopic list in the in-between summary: a single count line",
+      "subtopic tiles list every main entry that fits, in reading order, and drop boilerplate questions",
+      "the camera is held to the same course frame the course view fits (subjects, zones, name)",
+      "a subject fills a narrow screen edge to edge, so its subtopic tiles stay legible on a phone",
+      "level inference uses the same subject fit"
+    ]
+  },
+  "nodes": 1069,
+  "edges": 2537,
+  "components": [
+    "pre.js",
+    "study.css",
+    "map.js",
+    "study.js"
+  ],
+  "distribution": "Open DKLA-r18.html beside added-sources/ and DKLA-sources/, or serve the repository (Vercel) for offline install and sync"
+}

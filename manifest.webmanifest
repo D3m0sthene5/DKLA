@@ -1,0 +1,16 @@
+{
+  "name": "DKLA — Danny Kind Legal Atlas",
+  "short_name": "DKLA",
+  "description": "A connected 1L law notebook: Contracts, Civil Procedure, and Legislation and the Regulatory State.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1219",
+  "theme_color": "#101820",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
