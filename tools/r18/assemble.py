@@ -48,7 +48,7 @@ PATCHES = [
     (
         "subject title line budget for the shallower headroom",
         "const availPx=(mode==='full'&&isFinite(hr)?hr:r.h)*z-(mode==='full'?16:22);",
-        "const availPx=(mode==='full'&&isFinite(hr)?hr:r.h)*z-(mode==='full'?5:22);",
+        "const availPx=(mode==='full'&&isFinite(hr)?hr:r.h)*z-(mode==='full'?4:22);",
     ),
     (
         "course-level tiles fall back to the short subject name instead of an ellipsis",
@@ -79,6 +79,21 @@ PATCHES = [
         "level inference uses the same subject fit",
         "zS=subject?fit(subject,25,.95):zC*3",
         "zS=subject?fit(subject,R18.subjectPad(),.95):zC*3",
+    ),
+    (
+        "a subtopic tile always carries its title: at least 10.5 px even where the header band is shallow",
+        "const tfs2=Math.min((d.headerH||91)*.9,14/z),",
+        "const tfs2=Math.min(Math.max((d.headerH||91)*.9,10.5/z),14/z),",
+    ),
+    (
+        "ribbons end at a card only once cards are readable; below that they keep the grouped pill at the subject edge",
+        "const fullA=R11.modes.get(a0.region)==='full'||visible.has(e.source),fullB=R11.modes.get(b0.region)==='full'||visible.has(e.target);",
+        "const fullA=R11.modes.get(a0.region)==='full'&&a0.w*z>=70||visible.has(e.source),fullB=R11.modes.get(b0.region)==='full'&&b0.w*z>=70||visible.has(e.target);",
+    ),
+    (
+        "no step badge while the headroom is too shallow to hold it",
+        "const badgeOn=!!r.step&&pw>=120,",
+        "const badgeOn=!!r.step&&pw>=120&&!(mode==='full'&&isFinite(hr)&&hr*z<26),",
     ),
 ]
 

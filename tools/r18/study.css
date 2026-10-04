@@ -165,3 +165,5 @@
  body.r18-print .r18-sheet tr{break-inside:avoid}
  body.r18-print .r18-m3,body.r18-print .r18-m2,body.r18-print .r18-m1{color:#000}
 }
+/* On a phone the header has no room for another button without squeezing the search box; Study is in the More menu there. */
+@media (max-width:520px){.study-header>.r18-launcher{display:none}}

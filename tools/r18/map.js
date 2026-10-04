@@ -42,7 +42,7 @@
   // screen to screen, which left a cropped half-mark over some course views. It now belongs to the
   // three-course view only and is gone by the time a course has opened.
   function settleMark() {
-    const mark = document.querySelector('#geoCanvas .dkla-map-monogram');
+    const mark = document.querySelector('#geoCanvas .dkla-map-monogram, #geoCanvas svg[viewBox="0 0 244 78"]');
     if (!mark || !mark.parentNode) return;
     const floor = zoomFloor();
     const o = Math.min(1, Math.max(0, (floor * 1.7 - S.z) / (floor * .5)));
@@ -51,6 +51,7 @@
 
   function install() {
     if (!window.SCOTUSHistory || typeof draw !== 'function' || !document.getElementById('dklaR17Logo')) { setTimeout(install, 80); return; }
+    document.title = 'DKLA · ' + R18.version; // r16 sets its own title during boot, which has finished by now
     const previousDraw = draw;
     draw = function (...args) {
       const result = previousDraw.apply(this, args);
@@ -66,6 +67,7 @@
   // Keep the current level framed when the window or the device orientation changes.
   let last = null, timer = 0;
   function refit() {
+    if (window.SCOTUSHistory && window.SCOTUSHistory.state().open) return;
     if (R11.anim || S.drag || (S.pointers && S.pointers.size)) return;
     if (selected || S.district) return;
     if (S.scope !== 'Atlas' && S.region) { const r = regionFor(S.region); if (r) fitBox(r, false, R18.subjectPad(), .95); return; }

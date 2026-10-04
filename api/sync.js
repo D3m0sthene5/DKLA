@@ -50,11 +50,21 @@ async function withAccess(run) {
   }
 }
 
+// A blob that list() returned but that cannot be read or parsed is an error, never "no ratings":
+// treating it as empty would let the next upload overwrite and prune real data.
 async function read(blob) {
-  const found = await withAccess(mode => get(blob.pathname, { access: mode, useCache: false }));
-  if (!found?.stream) return {};
-  const json = await new Response(found.stream).json().catch(() => null);
+  const found = await get(blob.url, { access: blob.url.includes('.private.') ? 'private' : 'public', useCache: false });
+  if (!found?.stream) throw new Error('stored ratings unreadable');
+  const json = await new Response(found.stream).json();
   return cleanRatings(json?.ratings);
+}
+
+// Two devices can upload at the same moment, each from the same older blob; merging every retained
+// blob (not just the newest) keeps both sets.
+async function readAll(blobs) {
+  let base = {};
+  for (const blob of blobs.slice(0, KEEP + 2)) base = merge(base, await read(blob));
+  return base;
 }
 
 export default async function handler(req, res) {
@@ -65,7 +75,7 @@ export default async function handler(req, res) {
       if (!CODE.test(code)) return send(res, 400, { error: 'bad-code' });
       const blobs = await stored('sync/' + createHash('sha256').update(code).digest('hex') + '/');
       if (!blobs.length) return send(res, 404, { error: 'unknown-code' });
-      return send(res, 200, { data: { ratings: await read(blobs[0]) }, updatedAt: blobs[0].uploadedAt });
+      return send(res, 200, { data: { ratings: await readAll(blobs) }, updatedAt: blobs[0].uploadedAt });
     }
     if (req.method === 'POST') {
       let body = req.body;
@@ -76,7 +86,7 @@ export default async function handler(req, res) {
       const incoming = cleanRatings(body.data?.ratings);
       const prefix = 'sync/' + createHash('sha256').update(code).digest('hex') + '/';
       const blobs = await stored(prefix);
-      const merged = blobs.length ? merge(await read(blobs[0]), incoming) : incoming;
+      const merged = merge(await readAll(blobs), incoming);
       const text = JSON.stringify({ v: 1, ratings: merged });
       if (Buffer.byteLength(text) > MAX_BYTES) return send(res, 413, { error: 'too-large' });
       const saved = await withAccess(mode => put(prefix + Date.now() + '.json', text, { access: mode, contentType: 'application/json', addRandomSuffix: true }));

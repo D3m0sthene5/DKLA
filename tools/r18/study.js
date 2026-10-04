@@ -21,6 +21,7 @@
     storeRev++;
     try { localStorage.setItem(KEY, JSON.stringify(store)); } catch { /* storage unavailable */ }
     schedule();
+    paintReader();
     if (push) queueSync();
   }
   const prefs = () => store.prefs;
@@ -80,16 +81,22 @@
   /* ---------- dialog shell ---------- */
   const TABS = [['drill', 'Drill'], ['pairs', 'Pairs'], ['sheets', 'Sheets'], ['progress', 'Progress']];
   let tab = 'drill';
+  // A copy made with Save -> export serialises the live page, so drop anything r18 injected into it.
+  { const t = el('toast'); if (t && t.closest('#r18Dialog')) document.body.appendChild(t); }
+  document.querySelectorAll('#r18Launch,#r18Dialog,#r18Update,#r18PrintRoot,.r18-recall').forEach(n => n.remove());
   const dialog = document.createElement('dialog');
   dialog.id = 'r18Dialog';
   dialog.setAttribute('aria-label', 'Study');
   dialog.innerHTML = `<div class="r18-head"><div class="r18-tabs" role="tablist">${TABS.map(([k, t]) => `<button role="tab" data-r18-tab="${k}">${t}</button>`).join('')}</div><button class="r18-close" data-r18-close aria-label="Close study">×</button></div><div class="r18-body" id="r18Body" tabindex="-1"></div>`;
   document.body.appendChild(dialog);
   const body = dialog.querySelector('#r18Body');
+  // A modal dialog sits above every z-index, so the atlas toast rides inside it while it is open.
+  function show() { if (!dialog.open) dialog.showModal(); const t = el('toast'); if (t && t.parentNode !== dialog) dialog.appendChild(t); }
+  dialog.addEventListener('close', () => { const t = el('toast'); if (t && t.parentNode === dialog) document.body.appendChild(t); body.innerHTML = ''; });
   function open(which) {
     if (which) tab = which;
     if (typeof dismissMenu === 'function') dismissMenu();
-    if (!dialog.open) dialog.showModal();
+    show();
     render();
   }
   function close() { if (dialog.open) dialog.close(); }
@@ -98,6 +105,8 @@
     dialog.dataset.tab = tab;
     body.innerHTML = tab === 'drill' ? drillHTML() : tab === 'pairs' ? pairsHTML() : tab === 'sheets' ? sheetsHTML() : progressHTML();
     body.scrollTop = 0;
+    // Each render replaces the controls, so park focus on the panel: session keys then work without a pointer.
+    if (dialog.open && !body.contains(document.activeElement)) body.focus({ preventScroll: true });
     if (tab === 'progress') refreshDiagnostics();
   }
   const pill = (group, value, text, on, extra = '') => `<button class="r18-pill" data-r18-set="${group}" data-value="${esc(value)}" aria-pressed="${on}"${extra}>${text}</button>`;
@@ -120,11 +129,11 @@
   function startSession(only = null, title = '') {
     const p = dp(), list = pool(p, only), cap = only || !p.length ? list.length : p.length;
     const queue = list.slice(0, cap).map(n => n.id);
-    if (!queue.length) { toast('No entries match those choices.'); return; }
+    if (!queue.length) { if (dialog.open) render(); toast('No entries match those choices.'); return; }
     store.session = { queue, i: 0, total: queue.length, tally: { 3: 0, 2: 0, 1: 0 }, missed: [], cram: !!p.cram, staged: p.staged !== false, title };
     D.view = 'card'; D.revealed = store.session.staged ? 0 : 99; D.hint = false;
     save(false); tab = 'drill';
-    if (!dialog.open) dialog.showModal();
+    show();
     render();
   }
   function current() { const s = store.session; return s && nodesById.get(s.queue[s.i]); }
@@ -255,15 +264,16 @@
     <div class="r18-actions"><button class="r18-primary" data-r18-do="print">Print / Save PDF</button></div>
     <div id="r18Sheet">${s.html}</div>`;
   }
-  function printSheet() {
+  function preparePrint() {
     let root = el('r18PrintRoot');
     if (!root) { root = document.createElement('div'); root.id = 'r18PrintRoot'; document.body.appendChild(root); }
     root.innerHTML = sheetHTML().html;
     document.body.classList.add('r18-print');
-    const done = () => { document.body.classList.remove('r18-print'); root.innerHTML = ''; removeEventListener('afterprint', done); };
-    addEventListener('afterprint', done);
-    window.print();
   }
+  // Ctrl/Cmd + P on the Sheets tab prints the sheet too, not the page underneath.
+  addEventListener('beforeprint', () => { if (dialog.open && tab === 'sheets') preparePrint(); });
+  addEventListener('afterprint', () => { document.body.classList.remove('r18-print'); const root = el('r18PrintRoot'); if (root) root.innerHTML = ''; });
+  function printSheet() { preparePrint(); window.print(); }
 
   /* ---------- progress ---------- */
   function tallyOf(list) { const t = { 3: 0, 2: 0, 1: 0, 0: 0 }; for (const n of list) t[ratingOf(n.id)]++; t.total = list.length; return t; }
@@ -290,6 +300,7 @@
     <h3>This app</h3>
     <p class="r18-lead">${hosted ? 'Install it and it opens in its own window and loads without a connection; the atlas file is kept on the device. It checks for a new version when opened and offers a reload rather than swapping mid-session. Source PDFs still load from the network when you open them.' : 'Opened as a file. Offline install is available from the hosted atlas.'}</p>
     <div class="r18-actions"><button data-r18-do="install" id="r18Install"${installEvent ? '' : ' disabled'}>Install app</button><button data-r18-do="update"${hosted ? '' : ' disabled'}>Check for updates</button></div>
+    ${hosted && !installEvent ? `<p class="r18-muted" id="r18InstallHint">${matchMedia('(display-mode: standalone)').matches ? 'Installed.' : 'If Install is unavailable: on iPhone or iPad use Share, then Add to Home Screen; in other browsers use the browser menu’s Install or Add to Dock / Home Screen.'}</p>` : ''}
     <dl class="r18-diag" id="r18Diag"></dl>
     <h3>What’s changed</h3>
     <div class="r18-log">${log.map(x => `<div><b>${esc(x.v)}</b><time>${esc(x.date)}</time><p>${esc(x.text)}</p></div>`).join('')}</div>`;
@@ -309,7 +320,7 @@
   }
 
   /* ---------- sync ---------- */
-  let syncTimer = 0, syncBusy = false, syncNote = '';
+  let syncTimer = 0, syncBusy = false, syncAgain = false, syncNote = '';
   function syncStatusText() {
     if (!hosted) return '';
     if (syncNote) return syncNote;
@@ -341,21 +352,29 @@
   function syncProblem(err) {
     if (err.code === 'not-configured') return 'Sync storage is not set up on the server yet.';
     if (err.status === 404 && err.code === 'unknown-code') return 'No ratings are stored under that code.';
-    if (err.status === 404 || err.status === 405) return 'This address has no sync service.';
+    if ([404, 405, 501].includes(err.status)) return 'This address has no sync service.';
     if (!navigator.onLine) return 'Offline. Ratings are saved here and will sync when you are back online.';
     return 'Sync did not go through (' + err.message + '). Ratings are still saved in this browser.';
   }
   async function syncNow(quiet = true) {
-    const code = store.sync?.code; if (!hosted || !code || syncBusy) return false;
+    const code = store.sync?.code; if (!hosted || !code) return false;
+    if (syncBusy) { syncAgain = true; return false; }
     syncBusy = true; if (!quiet) setSyncNote('Syncing…');
     try {
       const out = await api('POST', code, { ratings: store.ratings });
+      if (store.sync?.code !== code) return false; // unlinked or relinked while the request was out
       const changed = mergeRatings(out.data?.ratings);
       store.sync = { code, at: Date.now() };
       save(false); setSyncNote('');
       if (changed && dialog.open && tab === 'progress') render();
       return true;
-    } catch (err) { setSyncNote(syncProblem(err)); return false; } finally { syncBusy = false; }
+    } catch (err) { setSyncNote(syncProblem(err)); return false; } finally { syncBusy = false; if (syncAgain) { syncAgain = false; queueSync(); } }
+  }
+  async function clearAll() {
+    // Pull first so ratings made on other linked devices are cleared too, not just the ones this device has seen.
+    if (hosted && store.sync?.code) { try { const out = await api('GET', store.sync.code); mergeRatings(out.data?.ratings); } catch { /* offline: clear what is here */ } }
+    const t = Date.now(); for (const id of Object.keys(store.ratings)) store.ratings[id] = { r: 0, t, n: 0 };
+    store.session = null; D.view = 'setup'; save(); render();
   }
   function queueSync() { if (!hosted || !store.sync?.code) return; clearTimeout(syncTimer); syncTimer = setTimeout(() => syncNow(true), 4000); }
   async function createCode() {
@@ -373,7 +392,7 @@
 
   /* ---------- offline install and updates ---------- */
   let installEvent = null, swReg = null;
-  addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvent = e; const b = el('r18Install'); if (b) b.disabled = false; });
+  addEventListener('beforeinstallprompt', e => { e.preventDefault(); installEvent = e; const b = el('r18Install'); if (b) b.disabled = false; el('r18InstallHint')?.remove(); });
   addEventListener('appinstalled', () => { installEvent = null; });
   function offerReload(reg) {
     if (el('r18Update')) return;
@@ -399,7 +418,7 @@
     try {
       const v = await (await fetch('version.json', { cache: 'no-store' })).json();
       if (v.build === R18.build) { toast('This is the current version (' + R18.build + ').'); return; }
-      if (swReg) { await swReg.update(); toast('A newer version exists. It is downloading; a reload prompt will appear when it is ready.'); }
+      if (swReg) { await swReg.update(); if (swReg.installing) toast('A newer version exists. It is downloading; a reload prompt will appear when it is ready.'); else { close(); offerReload(swReg); } }
       else if (confirm('A newer version exists. Reload now?')) location.reload();
     } catch { toast('Could not check for updates while offline.'); }
   }
@@ -443,7 +462,7 @@
     else if (name === 'copycode') navigator.clipboard?.writeText(store.sync.code).then(() => toast('Sync code copied.'), () => toast(store.sync.code));
     else if (name === 'export') { const blob = new Blob([JSON.stringify({ format: 'dkla-ratings', version: 1, exportedAt: new Date().toISOString(), ratings: store.ratings }, null, 1)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'dkla-ratings-' + new Date().toISOString().slice(0, 10) + '.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }
     else if (name === 'import') el('r18Import').click();
-    else if (name === 'clear') { if (confirm('Clear every rating on this device' + (store.sync?.code ? ' and on linked devices' : '') + '? This cannot be undone.')) { const t = Date.now(); for (const id of Object.keys(store.ratings)) store.ratings[id] = { r: 0, t, n: 0 }; store.session = null; save(); render(); } }
+    else if (name === 'clear') { if (confirm('Clear every rating on this device' + (store.sync?.code ? ' and on linked devices' : '') + '? This cannot be undone.')) clearAll(); }
     else if (name === 'install') { if (installEvent) { installEvent.prompt(); installEvent = null; } }
     else if (name === 'update') checkUpdates();
     else if (name === 'reload') { window.__r18Reload = true; if (swReg?.waiting) swReg.waiting.postMessage('skip-waiting'); else location.reload(); }
@@ -455,7 +474,7 @@
     const d = t.dataset;
     if (d.r18Open) { e.stopPropagation(); open(d.r18Open); }
     else if ('r18Close' in d) close();
-    else if (d.r18Tab) { tab = d.r18Tab; if (tab === 'drill' && D.view === 'summary') D.view = 'setup'; render(); }
+    else if (d.r18Tab) { tab = d.r18Tab; if (tab === 'drill' && D.view === 'summary') D.view = 'setup'; render(); body.focus({ preventScroll: true }); }
     else if (d.r18Set) setPref(d.r18Set, d.value);
     else if (d.r18Do) act(d.r18Do);
     else if (d.r18Reveal) reveal(Number(d.r18Reveal));
@@ -468,7 +487,20 @@
   document.addEventListener('change', e => {
     if (e.target.dataset?.r18Select === 'sheetRegion') { sp().region = e.target.value; save(false); render(); }
     if (e.target.id === 'r18Import' && e.target.files[0]) {
-      e.target.files[0].text().then(text => { const j = JSON.parse(text); if (j.format !== 'dkla-ratings' || typeof j.ratings !== 'object') throw new Error('not a ratings file'); mergeRatings(j.ratings); save(); render(); toast('Ratings imported.'); }).catch(() => toast('That file is not a DKLA ratings export.'));
+      const file = e.target.files[0]; e.target.value = '';
+      file.text().then(text => {
+        const j = JSON.parse(text); if (j.format !== 'dkla-ratings' || !j.ratings || typeof j.ratings !== 'object') throw new Error('not a ratings file');
+        // An import is a deliberate restore: a rating in the file wins over a newer "cleared" marker here,
+        // and is re-stamped so it also wins on linked devices.
+        let n = 0; const now = Date.now();
+        for (const [id, r] of Object.entries(j.ratings)) {
+          if (!r || typeof r.t !== 'number') continue;
+          const mine = store.ratings[id], val = r.r | 0;
+          if (!mine || r.t > mine.t) { store.ratings[id] = { r: val, t: r.t, n: r.n | 0 }; n++; }
+          else if (!mine.r && val) { store.ratings[id] = { r: val, t: now, n: r.n | 0 }; n++; }
+        }
+        save(); render(); toast(n ? n + ' rating' + (n === 1 ? '' : 's') + ' imported.' : 'Nothing to import: this device already has newer ratings.');
+      }).catch(() => toast('That file is not a DKLA ratings export.'));
     }
   });
   dialog.addEventListener('click', e => { if (e.target === dialog) close(); });
@@ -489,7 +521,7 @@
       return;
     }
     const n = current(), max = stagesFor(n).length;
-    if (k === ' ' || k === 'Enter') { stop(); if (D.revealed < max) reveal(D.revealed + 1); }
+    if (k === ' ' || k === 'Enter') { const c = e.target.closest?.('button,select,a,summary,input'); if (c && !c.matches('[data-r18-reveal]')) return; stop(); if (D.revealed < max) reveal(D.revealed + 1); }
     else if (k === 'i' || k === '8') { stop(); reveal(1); }
     else if (k === 'o' || k === '9') { stop(); reveal(2); }
     else if (k === 'p' || k === '0') { stop(); reveal(3); }
@@ -513,6 +545,7 @@
       if (menu && !menu.hidden && !menu.querySelector('[data-r18-open]')) menu.insertAdjacentHTML('afterbegin', '<small>Study</small><button role="menuitem" data-r18-open="drill">Recall drill</button><button role="menuitem" data-r18-open="pairs">Confusable pairs</button><button role="menuitem" data-r18-open="sheets">Reference sheets</button><button role="menuitem" data-r18-open="progress">Progress, sync and version</button><hr>');
       return out;
     };
+    const more = el('moreBtn'); if (more) more.onclick = () => moreMenu();
   }
 
   /* ---------- rating control in the reading panel ---------- */
@@ -557,12 +590,17 @@
       const rad = Math.min(h.h * .17, 6.5 / z);
       parts.push(`<circle cx="${h.x + h.w - rad * .3}" cy="${h.y + rad * .3}" r="${rad}" fill="${COLORS[r]}" stroke="#0b1219" stroke-width="${rad * .28}"/>`);
     }
+    for (const row of svg.querySelectorAll('text[data-map-jump]')) {
+      const r = ratingOf(row.dataset.mapJump); if (!r) continue;
+      const x = +row.getAttribute('x'), y = +row.getAttribute('y'), fs = +row.getAttribute('font-size');
+      if (!isFinite(x) || !isFinite(y) || !isFinite(fs)) continue;
+      parts.push(`<circle cx="${x - 4.5 / z}" cy="${y - fs * .33}" r="${3 / z}" fill="${COLORS[r]}"/>`);
+    }
     if (parts.length) svg.insertAdjacentHTML('beforeend', `<g class="r18-marks" pointer-events="none">${parts.join('')}</g>`);
   });
 
   /* ---------- start ---------- */
   document.title = 'DKLA · ' + R18.version;
-  setTimeout(() => { document.title = 'DKLA · ' + R18.version; }, 1500);
-  if (hosted && store.sync?.code) { setTimeout(() => syncNow(true), 2500); document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow(true); }); addEventListener('online', () => syncNow(true)); }
+  if (hosted) { if (store.sync?.code) setTimeout(() => syncNow(true), 2500); document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncNow(true); }); addEventListener('online', () => syncNow(true)); }
   window.DKLAStudy = { open, close, pairs, entries: allEntries, ratings: () => store.ratings, rate, sync: syncNow, startSession, state: () => ({ tab, view: D.view, revealed: D.revealed, session: store.session }) };
 })();
