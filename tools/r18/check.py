@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(PARTS))
-from assemble import PATCHES, EXPECTED_R17  # noqa: E402
+from assemble import PATCHES, EXPECTED_R17, patch_icons  # noqa: E402
 
 errors: list[str] = []
 
@@ -45,7 +45,8 @@ r18_list = blocks(r18_html)
 r18 = {i: c for i, _, c in r18_list}
 
 changed = sorted(k for k, v in r17.items() if r18.get(k) != v)
-require(changed == ['studyCode'], f'only studyCode may differ from r17, found {changed}')
+require(changed == ['dklaIcons', 'studyCode'], f'only dklaIcons and studyCode may differ from r17, found {changed}')
+require(r18.get('dklaIcons') == patch_icons(r17['dklaIcons']), 'dklaIcons is not r17 plus tools/r18/icons.json')
 expected = r17['studyCode']
 for description, before, after in PATCHES:
     require(expected.count(before) == 1, f'patch no longer matches once: {description}')
@@ -84,6 +85,17 @@ else:
 version = json.loads((ROOT / 'version.json').read_text(encoding='utf-8'))
 build = version.get('build', '')
 require(re.fullmatch(r'r18-[0-9a-f]{10}', build) is not None, 'version.json build id is malformed')
+
+# every case has its own glyph, none shared, none borrowed from the r10 library
+graph = json.loads(r17['seedData'])
+icon_data = json.loads(r18['dklaIcons'])
+case_ids = [n['id'] for n in graph['nodes'] if n['kind'] == 'Case']
+motifs = [icon_data['records'].get(i, {}).get('motif') for i in case_ids]
+require(all(m == 'r18-' + i for m, i in zip(motifs, case_ids)), 'a case is missing its own r18 glyph')
+glyphs = [icon_data['paths'].get(m, '') for m in motifs]
+require(len(set(glyphs)) == len(glyphs), 'two cases share identical glyph markup')
+require(all(icon_data['records'][i].get('modifier') is None for i in case_ids), 'a case glyph still carries a modifier badge')
+require(all(0 < len(icon_data['records'][i].get('label', '')) <= 48 for i in case_ids), 'a case caption is missing or too long')
 require(f"build: '{build}'" in r18['dklaR18Pre'], 'the atlas and version.json disagree on the build id')
 require(f"const BUILD = '{build}';" in (ROOT / 'sw.js').read_text(encoding='utf-8'), 'sw.js and version.json disagree on the build id')
 require('__DKLA_BUILD__' not in r18_html, 'unstamped build placeholder in the atlas')
@@ -102,4 +114,4 @@ require(integrity.get('r18_sha256') == hashlib.sha256((ROOT / 'DKLA-r18.html').r
 if errors:
     print('\n'.join('FAIL: ' + e for e in errors))
     sys.exit(1)
-print(f'r18 ok: build {build}, {len(r17) - 1} blocks preserved, studyCode carries {len(PATCHES)} patches')
+print(f'r18 ok: build {build}, {len(r17) - 2} blocks preserved, studyCode carries {len(PATCHES)} patches, {len(case_ids)} case glyphs')

@@ -64,6 +64,15 @@
   // r17's logo wrapper installs itself on a timer; wait a beat so this wrapper sits outside it.
   setTimeout(install, 200);
 
+  // Case and concept glyphs on the cards take the course's accent (orange, blue, green) rather than the
+  // darker tile shade r10 used, so the drawings read clearly against the card.
+  R18.afterDraw.push(() => {
+    for (const mark of svg.querySelectorAll('.node-card[data-map-node] > g[stroke][transform]')) {
+      const home = homeFor(mark.parentNode.dataset.mapNode), region = home && regionFor(home.region);
+      if (region) mark.setAttribute('stroke', regionAccent(region));
+    }
+  });
+
   // Keep the current level framed when the window or the device orientation changes.
   let last = null, timer = 0;
   function refit() {

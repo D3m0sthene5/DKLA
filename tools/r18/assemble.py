@@ -22,6 +22,7 @@ SOURCE = ROOT / "DKLA-r17.html"
 TARGET = ROOT / "DKLA-r18.html"
 EXPECTED_R17 = "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30"
 VERSION = "r18"
+LABEL = "r18.1"
 
 # (description, old, new). Each ``old`` must occur exactly once inside studyCode.
 PATCHES = [
@@ -124,12 +125,31 @@ def script_blocks(html: str) -> dict[str, str]:
 
 
 def embed(kind: str, block_id: str, filename: str, build: str) -> str:
-    content = (PARTS / filename).read_text(encoding="utf-8").replace("__DKLA_BUILD__", build)
+    content = (PARTS / filename).read_text(encoding="utf-8").replace("__DKLA_BUILD__", build).replace("__DKLA_LABEL__", LABEL)
     if kind == "css":
         return f'<style id="{block_id}">' + content + "</style>\n"
     if "</script" in content.lower():
         raise ValueError(f"{filename} would prematurely close its script tag")
     return f'<script id="{block_id}">' + content + "</script>\n"
+
+
+def patch_icons(block: str) -> str:
+    """Give every case its own glyph (tools/r18/icons.json), keyed r18-<case id>.
+
+    The r10 library and every non-case record are left as they were; a case record keeps its
+    sources and gains the new motif, caption and rationale, with no modifier badge.
+    """
+    icons = json.loads(block)
+    designs = json.loads((PARTS / "icons.json").read_text(encoding="utf-8"))
+    for case_id, design in sorted(designs.items()):
+        if case_id not in icons["records"]:
+            raise ValueError(f"icons.json names an entry with no icon record: {case_id}")
+        key = "r18-" + case_id
+        icons["paths"][key] = design["svg"]
+        record = icons["records"][case_id]
+        record.update({"motif": key, "modifier": None, "label": design["hook"], "rationale": design["hook"],
+                       "object": design["object"], "basis": "hand-drawn", "status": "unique"})
+    return json.dumps(icons, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
 def main() -> None:
@@ -143,7 +163,7 @@ def main() -> None:
     inputs = [EXPECTED_R17, json.dumps(PATCHES), HEAD]
     for _, _, name in PRE + COMPONENTS:
         inputs.append((PARTS / name).read_text(encoding="utf-8"))
-    for name in ("sw.template.js", "changelog.json"):
+    for name in ("sw.template.js", "changelog.json", "icons.json"):
         inputs.append((PARTS / name).read_text(encoding="utf-8"))
     build = VERSION + "-" + digest("\n".join(inputs).encode("utf-8"))[:10]
 
@@ -158,6 +178,11 @@ def main() -> None:
         raise ValueError("studyCode text is not unique in the file")
     output = source[:start] + patched + source[start + len(study):]
 
+    icon_block = old["dklaIcons"]
+    if output.count(icon_block) != 1:
+        raise ValueError("dklaIcons text is not unique in the file")
+    output = output.replace(icon_block, patch_icons(icon_block))
+
     marker = '<script id="studyCode">'
     if output.count(marker) != 1:
         raise ValueError("cannot place the pre-renderer block")
@@ -170,7 +195,7 @@ def main() -> None:
     title = "<title>DKLA — Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
         raise ValueError("expected the r17 <title>")
-    output = output.replace(title, "<title>DKLA · r18 · Danny Kind Legal Atlas</title>")
+    output = output.replace(title, "<title>DKLA · " + LABEL + " · Danny Kind Legal Atlas</title>")
 
     changelog = json.loads((PARTS / "changelog.json").read_text(encoding="utf-8"))
     addition = "\n<!-- DKLA r18: recall drill, ratings, confusable pairs, reference sheets, offline install, sync, consistent map scaling. -->\n"
@@ -184,21 +209,21 @@ def main() -> None:
 
     new = script_blocks(output)
     changed = [key for key, value in old.items() if new.get(key) != value]
-    if changed != ["studyCode"]:
+    if sorted(changed) != ["dklaIcons", "studyCode"]:
         raise ValueError(f"unexpected block changes: {changed}")
     graph = json.loads(old["seedData"])
     TARGET.write_text(output, encoding="utf-8")
 
     sw = (PARTS / "sw.template.js").read_text(encoding="utf-8").replace("__DKLA_BUILD__", build)
     (ROOT / "sw.js").write_text(sw, encoding="utf-8")
-    (ROOT / "version.json").write_text(json.dumps({"version": VERSION, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
+    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
 
     audit = {
         "r17_sha256": digest(source_bytes),
         "r18_sha256": digest(TARGET.read_bytes()),
         "build": build,
-        "preserved_script_blocks": len(old) - 1,
-        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES]},
+        "preserved_script_blocks": len(old) - 2,
+        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json"},
         "nodes": len(graph["nodes"]),
         "edges": len(graph["edges"]),
         "components": [f for _, _, f in PRE + COMPONENTS],

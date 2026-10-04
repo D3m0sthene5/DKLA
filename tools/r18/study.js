@@ -74,8 +74,20 @@
     if (!out.length) out.push({ label: 'Entry', html: paras(n.notes || 'No summary yet.') });
     return out.slice(0, 3);
   }
-  function hookFor(n) { return n.mnemonic?.rationale || ''; }
-  function iconFor(n) { try { return typeof symbol === 'function' ? symbol(n) : ''; } catch { return ''; } }
+  // The caption that goes with the entry's icon (the icon record wins over the older copy stored on the node).
+  function hookFor(n) { return window.DKLA?.iconFor?.(n.id)?.label || n.mnemonic?.rationale || ''; }
+  // The atlas keeps its icon renderer private, so draw from the same data block: glyph paths in a
+  // 24-unit box, stroked in the current colour, with the small modifier badge where an entry has one.
+  let iconData = null;
+  function iconFor(n) {
+    try {
+      iconData ||= JSON.parse(el('dklaIcons').textContent);
+      const rec = iconData.records?.[n.id], path = iconData.paths?.[rec?.motif];
+      if (!path) return '';
+      const mod = rec.modifier && iconData.modifiers?.[rec.modifier];
+      return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}${mod ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="#141c24" stroke="none"/>${mod}</g>` : ''}</svg>`;
+    } catch { return ''; }
+  }
   function dot(r, title) { return `<span class="r18-dot r18-r${r || 0}" title="${esc(title || (r ? labels()[3 - r] : 'Unrated'))}"></span>`; }
 
   /* ---------- dialog shell ---------- */

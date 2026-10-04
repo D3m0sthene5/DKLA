@@ -56,8 +56,9 @@
 .r18-meta{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;color:#93a7b7;margin-bottom:10px}
 .r18-title{display:flex;gap:14px;align-items:flex-start}
 .r18-title h2{margin:0 0 4px;font-size:23px}
-.r18-icon{flex:none;width:40px;height:40px;color:#d6b78e;display:grid;place-items:center}
-.r18-icon svg{width:36px;height:36px}
+.r18-icon{flex:none;width:44px;height:44px;color:#b6c3cc;display:grid;place-items:center}
+.r18-card[data-course="Contracts"] .r18-icon{color:#ebad79}.r18-card[data-course="Civil Procedure"] .r18-icon{color:#90bfef}.r18-card[data-course="Legislation and the Regulatory State"] .r18-icon{color:#a4d3b8}
+.r18-icon svg{width:40px;height:40px}
 .r18-icon:empty{display:none}
 .r18-kind{color:#93a7b7;font-size:13.5px}
 .r18-prompt{margin:14px 0 10px!important;color:#b4c1cd}

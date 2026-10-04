@@ -1,6 +1,6 @@
 /* DKLA r18: helpers the patched map renderer (studyCode) calls while drawing. Loaded just before studyCode. */
 var R18 = {
-  version: 'r18',
+  version: '__DKLA_LABEL__',
   build: '__DKLA_BUILD__',
   // Course names are sized in map units, so the names, the course clusters and the centre mark keep the
   // same proportions on every screen. The pixel clamps only guard legibility on very small screens and

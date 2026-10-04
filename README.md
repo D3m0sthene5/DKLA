@@ -21,5 +21,7 @@ On the map, course names and the centre mark now keep the same proportions on ev
 
 When the repository is served (Vercel), the atlas installs as an app and loads without a connection, and ratings sync across devices by a code. Sync needs a Vercel Blob store connected to the project (it provides `BLOB_READ_WRITE_TOKEN`); without one the Progress tab says so and ratings stay in the browser. Opened as a local file, everything except install and sync works as before.
 
+**r18.1** gives every case its own icon: 392 hand-drawn glyphs, one per case, each a concrete object from the facts (the dice for Hamer v. Sidway set the standard), no two alike, drawn in the course colour. The designs live in `tools/r18/icons.json`.
+
 `python3 tools/r18/assemble.py` builds `DKLA-r18.html`, `sw.js` and `version.json` from `DKLA-r17.html`; `python3 tools/r18/check.py` validates the result.
 
