@@ -1,0 +1,50 @@
+/* DKLA r19: audited briefs in the reading panel and the supporting-cases list. Follows the r18 panel styles. */
+.r19-status{display:inline-flex;align-items:center;gap:6px;font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid #3a4856;color:#a9e6c2;white-space:nowrap}
+.r19-status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.r19-status.r19-repaired{color:#a9cdf0}.r19-status.r19-limited{color:#f5b3b3}.r19-status.r19-pending{color:#f3d491}
+.r19-brief{margin:22px 0 8px;padding-top:16px;border-top:1px solid #2a3541}
+.r19-line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:12px;color:#93a7b7;font-size:13px}
+.r19-line button,.r19-related button,.r19-more{font:inherit;font-size:13px;color:#e1e5e9;background:transparent;border:1px solid #3a4856;border-radius:7px;padding:6px 10px;cursor:pointer}
+.r19-line button:hover,.r19-related button:hover,.r19-more:hover{border-color:#6a7c8d;background:#212c37}
+.r19-full{border:1px solid #303c48;border-radius:9px;background:#141c24}
+.r19-full>summary{cursor:pointer;padding:11px 14px;font-weight:600;color:#ecd3ac;list-style-position:inside}
+.r19-full>summary small{font-weight:400;color:#93a7b7;margin-left:8px;font-size:12.5px}
+.r19-text{padding:2px 16px 14px;font-size:14.5px;line-height:1.6;color:#d7e0e8;overflow-wrap:anywhere}
+.r19-full .r19-text{border-top:1px solid #2a3541;padding-top:10px}
+.r19-text h3{font-size:17px;margin:14px 0 6px;color:#f1f3f5;letter-spacing:0;text-transform:none}
+.r19-text h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#d6b78e;margin:18px 0 6px}
+.r19-text p{margin:0 0 10px}.r19-text ul{margin:0 0 10px;padding-left:20px}.r19-text li{margin-bottom:5px}
+.r19-related{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+.r19-related>span{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;color:#93a7b7;flex-basis:100%}
+#r19Dialog{width:min(820px,calc(100vw - 24px));max-width:none;height:min(860px,calc(100dvh - 24px));max-height:none;padding:0;border:1px solid #556575;border-radius:10px;background:#19232d;color:#d7e0e8;box-shadow:0 28px 100px rgba(0,0,0,.6);font:15px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;overflow:hidden}
+#r19Dialog[open]{display:flex;flex-direction:column}
+#r19Dialog::backdrop{background:rgba(5,9,13,.66)}
+.r19-head{display:flex;align-items:flex-start;gap:10px;padding:16px 12px 12px 24px;border-bottom:1px solid #303c48;flex:none}
+.r19-head>div{flex:1;min-width:0}
+.r19-head h2{font-size:22px;line-height:1.25;margin:3px 0 0;font-weight:650;color:#f1f3f5;overflow-wrap:anywhere}
+.r19-close{background:none;border:0;color:#9fb0bf;font-size:24px;line-height:1;padding:2px 10px 6px;cursor:pointer;border-radius:7px}
+.r19-close:hover{color:#fff;background:#24303c}
+.r19-body{flex:1;overflow:auto;padding:16px 24px 28px;outline:none;overscroll-behavior:contain}
+.r19-lead{color:#b4c1cd;max-width:68ch;margin:0 0 14px}
+.r19-tabs,.r19-filter{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.r19-tabs button,.r19-filter button{font:inherit;font-size:14px;border-radius:999px;border:1px solid #3a4856;background:transparent;color:#c9d4de;padding:7px 14px;cursor:pointer}
+.r19-tabs button small{opacity:.6;margin-left:4px}
+.r19-tabs button[aria-pressed="true"],.r19-filter button[aria-pressed="true"]{background:#2c3946;border-color:#8ea3b6;color:#fff}
+.r19-filter{margin:10px 0 6px}.r19-filter button{font-size:13px;padding:5px 11px}
+.r19-filter span{margin-left:auto;font:12px ui-monospace,SFMono-Regular,Consolas,monospace;color:#93a7b7;letter-spacing:.04em}
+#r19Search{width:100%;margin-top:12px;font:16px inherit;font-family:inherit;padding:10px 12px;border-radius:9px;border:1px solid #3a4856;background:#141c24;color:#e1e5e9}
+.r19-list{display:flex;flex-direction:column}
+.r19-row{display:flex;gap:10px;align-items:baseline;text-align:left;font:inherit;color:#e7ecf0;background:none;border:0;border-bottom:1px solid #232e39;padding:10px 2px;cursor:pointer}
+.r19-row:hover span{text-decoration:underline}
+.r19-row span{min-width:0;overflow-wrap:anywhere}
+.r19-dot{flex:none;width:8px;height:8px;border-radius:50%;background:#7fd6a2;transform:translateY(-1px)}
+.r19-dot.r19-repaired{background:#8fc0e8}.r19-dot.r19-limited{background:#ef8f8f}.r19-dot.r19-pending{background:#f0c36a}
+.r19-more{width:100%;margin-top:14px;padding:10px}
+.r19-rule{border-left:3px solid #d6b78e;padding:2px 0 2px 14px;margin:6px 0 14px}
+.r19-rule span,.r19-sec h3{font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:#93a7b7;margin:0}
+.r19-rule p{margin:4px 0 0;font-size:16px;color:#f1f3f5}
+.r19-sec{margin:0 0 14px}.r19-sec h3{margin:0 0 5px;color:#d6b78e}.r19-sec p{margin:0 0 9px}
+.r19-search{border-top:1px solid #2a3541;margin-top:6px;padding-top:4px}
+#r19Dialog button:focus-visible,#r19Search:focus-visible,.r19-brief button:focus-visible,.r19-full>summary:focus-visible{outline:2px solid #d6b78e;outline-offset:2px}
+@media (max-width:640px){.r19-body{padding:14px 14px 24px}.r19-head{padding-left:14px}.r19-head h2{font-size:19px}}
+@media print{.r19-brief .r19-line button,.r19-related{display:none!important}}

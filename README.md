@@ -1,6 +1,6 @@
 # Danny Kind Legal Atlas
 
-**Open `DKLA-r18.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html` and `DKLA-r17.html` remain available for comparison.
+**Open `DKLA-r19.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
 
 In r17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
 
@@ -21,7 +21,16 @@ On the map, course names and the centre mark now keep the same proportions on ev
 
 When the repository is served (Vercel), the atlas installs as an app and loads without a connection, and ratings sync across devices by a code. Sync needs a Vercel Blob store connected to the project (it provides `BLOB_READ_WRITE_TOKEN`); without one the Progress tab says so and ratings stay in the browser. Opened as a local file, everything except install and sync works as before.
 
-**r18.1** gives every case its own icon: 392 hand-drawn glyphs, one per case, each a concrete object from the facts (the dice for Hamer v. Sidway set the standard), no two alike, drawn in the course colour. The designs live in `tools/r18/icons.json`.
-
 `python3 tools/r18/assemble.py` builds `DKLA-r18.html`, `sw.js` and `version.json` from `DKLA-r17.html`; `python3 tools/r18/check.py` validates the result.
+
+## r19 (5 October 2026)
+
+r19 brings Codex's audited briefs into the atlas. Codex wrote and independently reviewed a brief for every case in the readings (1,467 so far, each checked against the full opinion); r19 uses a snapshot of that work.
+
+- **Cases on the map (391 of 392).** Each takes its six sections, in the order Parties, Procedural History, Material Facts, Issue, Holding, Reasoning, and its rule line from the audited brief. The conversion was done by agents working only from the brief's text and then re-checked sentence by sentence by a second, independent set of agents (79 corrections across 70 entries). The complete audited brief sits under each case as a collapsed **Full brief**, with its review status. The one case without a brief is the Swiss contractual-penalty decision.
+- **Your edits are kept.** A case you have edited in your browser keeps your text; its panel offers a "Use the audited brief" button instead.
+- **Supporting cases (1,076).** Cases the readings mention without assigning (note cases, cases cited in passing, other stages of an assigned case) are kept off the main route. Each course has a **Supporting cases** tile that opens one searchable list; they also appear in the search bar and the More menu. They show Codex's full brief; they do not have custom icons.
+- **Review status is visible.** 79 briefs were still awaiting independent review and 44 passed with a source limitation when the snapshot was taken; both are marked.
+
+`tools/r19/snapshot.py` takes a new snapshot from Codex's working folders, `tools/r19/merge_conv.py` merges converted batches, and `python3 tools/r19/assemble.py` then `python3 tools/r19/check.py` build and validate. The step is re-runnable: only briefs whose text has changed need converting again.
 

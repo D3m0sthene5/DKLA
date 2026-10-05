@@ -1,0 +1,56 @@
+# FDA v. Brown & Williamson Tobacco Corp.
+529 U.S. 120 (2000) | Legislation and the Regulatory State
+
+## Decision and procedural posture
+
+On March 21, 2000, the Supreme Court held that the Food, Drug, and Cosmetic Act, read together with Congress’s tobacco-specific legislation, did not authorize the FDA to regulate tobacco products as customarily marketed, meaning without manufacturers’ claims of therapeutic benefit. The Court affirmed the Fourth Circuit, which had rejected the agency’s jurisdiction. O’Connor wrote for a five-Justice majority joined by Rehnquist, Scalia, Kennedy, and Thomas. Breyer dissented, joined by Stevens, Souter, and Ginsburg. The result concerned the statutory framework then before the Court; it is not a statement of present FDA tobacco authority. (123, 125–126, 161.)
+
+## Regulatory background and facts
+
+The FDCA authorized regulation of drugs and devices. Its drug definition included nonfood articles intended to affect the body’s structure or functions; the device definition included instruments and related articles intended to have such effects. The FDA also possessed authority over combination products and construed that provision to permit regulation through drug powers, device powers, or both. The agency had historically disclaimed authority over tobacco without therapeutic claims. In 1995 it proposed a different approach, and in August 1996 it issued the challenged final rule. (125–127.)
+
+The FDA concluded that nicotine was a drug and cigarettes and smokeless tobacco were delivery devices. Nicotine’s physiological effects included addiction, stimulation, tranquilization, and weight control. The agency found those effects intended because manufacturers could foresee them, consumers predominantly sought them, and industry research and product design demonstrated the deliberate delivery of active doses. The rulemaking record documented more than 400,000 annual tobacco-related deaths and found that most adult smokers had begun before age 18. The agency sought to reduce initiation among children and adolescents and thus lessen addiction and disease in future generations. Those figures were findings in this historical record. (127–128.)
+
+The rule prohibited sales to people under 18, required photographic age verification for purchasers under 27, restricted package sizes, free samples, and self-service sales, and limited vending machines to adult-only locations. It also restricted advertising formats and locations, branded promotional items, and sponsorships, and required a nicotine-delivery-device label. The FDA chose its more flexible restricted-device authority, § 360j(e), as the basis for these measures. It contended that regulating access and promotion supplied a reasonable assurance of safety while avoiding the harms of an outright ban. (128–129.)
+
+## Litigation and parties’ positions
+
+Manufacturers, retailers, and advertisers challenged the rules in the Middle District of North Carolina. They disputed the FDA’s tobacco jurisdiction, argued that the restrictions exceeded its device powers, and raised a First Amendment challenge. The district court upheld jurisdiction and the access and labeling rules but held the advertising and promotion restrictions outside § 360j(e). It stayed the upheld rules except the ban on sales to minors and certified the order for interlocutory appeal. The Fourth Circuit reversed on jurisdiction and consequently did not decide the alternative device-power and constitutional questions. The Supreme Court granted certiorari on the FDA’s authority over tobacco as customarily marketed. (129–131.)
+
+The FDA relied on the broad definitions and its findings of intended physiological effects. Respondents argued, among other things, that statutory intent required an express therapeutic claim. The majority assumed for argument that products could satisfy the intended-effects definition without such a claim, and therefore did not decide that interpretive disagreement. It instead concluded that the statutory scheme as a whole excluded the asserted tobacco jurisdiction. (131–132.)
+
+## Majority’s interpretive framework
+
+The majority applied the then-governing *Chevron* framework. It asked first whether Congress had answered the precise question and treated a clear congressional answer as dispositive. That inquiry included the whole statute’s structure, the interaction of subsequent and more specific enactments, and the economic and political significance of the authority claimed. It did not classify the broad definition of drug in isolation as conclusively resolving the case. The majority ultimately found the asserted jurisdiction inconsistent with Congress’s clear intent, rather than rejecting it as an unreasonable choice within a delegated statutory gap. (132–133, 160–161.)
+
+## Safety requirements and the conflict with a tobacco ban
+
+The majority reasoned that the FDCA required drugs and devices remaining on the market to be safe and effective for their intended use. Given the FDA’s own findings, tobacco would be misbranded because it was dangerous as used and could not bear directions making its intended use safe. The device-classification provisions likewise would require a safety determination the agency could not make. The result, if tobacco fell within this scheme, would be removal from the market. (133–137.)
+
+Congress’s tobacco legislation, however, contemplated continued sales. It imposed warnings and advertising restrictions while expressly seeking to protect commerce consistently with informing consumers of the hazards. The majority therefore found a contradiction: tobacco could not meet the FDCA’s requirements, yet an agency ban would defeat the policy of the more specific laws. (137–139.)
+
+The FDA answered that a ban might cause withdrawal problems, strain treatment resources, and create a market for more dangerous illicit products. The majority distinguished that comparison of regulatory alternatives from the statutory inquiry into whether use of the product offered therapeutic benefits outweighing its risks to the consumer. Dangerous cancer treatments could qualify because their benefits justified their risks for particular patients; the FDA had made no comparable finding for tobacco. The Court did not hold that every dangerous product must be banned. Its conclusion concerned a product unsafe for any therapeutic purpose under the agency’s own findings. (139–143.)
+
+## Subsequent legislation and historical agency practice
+
+The majority examined the six tobacco-and-health enactments since 1965, including cigarette and smokeless-tobacco warnings, broadcast-advertising prohibitions, research reports, and federal incentives for state restrictions on sales to minors. Congress adopted these measures against repeated FDA disclaimers of tobacco authority and considered proposals expressly to grant that authority. The Court also examined Congress’s responses to regulatory efforts by the FTC, FCC, and Consumer Product Safety Commission. It found a specific legislative scheme that reserved central tobacco-policy decisions to Congress and prohibited additional agency-imposed health-related labeling. (143–155.)
+
+The Court expressly denied relying merely on failed bills or congressional inaction. Its inference rested on affirmative legislation, the regulatory scheme those laws established, their conflict with central FDCA requirements, and the context supplied by the FDA’s longstanding representations. Nor did it hold that an agency could never change an interpretation. The agency’s consistency mattered because Congress legislated against that understood allocation of authority. The majority regarded the earlier disclaimers as unconditional apart from the established exception for therapeutic claims. (155–159.)
+
+## Extraordinary delegation and judgment
+
+The assigned passage comes from the final part of the majority’s analysis. *Chevron* ordinarily treated ambiguity as an implicit delegation to fill statutory gaps, but the Court cautioned that extraordinary cases could warrant hesitation before finding such a delegation. The FDA asserted power over a significant part of the economy, including potential power to ban tobacco entirely. Given that breadth and tobacco’s specific legislative history, the Court found it unlikely that Congress delegated the decision through the claimed combination of general definitions and safety provisions. (159–160.)
+
+This consideration supported the full statutory analysis; the judgment did not rest solely on labeling tobacco an important industry. The majority stressed that a serious public-health problem could not supply authority Congress had withheld. It affirmed the Fourth Circuit’s judgment at 161 without deciding the alternative First Amendment challenge. (160–161; procedural reservation 131.)
+
+## Breyer’s dissent
+
+Breyer regarded the statutory text, public-health purpose, and 1938 history as supporting jurisdiction. Congress deliberately added a broad definition reaching nontherapeutic products affecting bodily functions. Nicotine’s chemical action distinguished it from ordinary articles such as clothing, and the agency could prove intended effects through objective circumstances rather than manufacturers’ express claims. Newly available industry documents demonstrated that tobacco companies deliberately designed their products to deliver nicotine’s effects. (161–174.)
+
+He also rejected the premise that jurisdiction compelled a ban. Device provisions supplied remedial discretion and permitted safety assessment in light of available alternatives. When an immediate ban would drive addicted consumers toward more dangerous substitutes, the agency could reasonably choose a less harmful regulated market. He disputed the majority’s separation of individual product risk from aggregate risk caused by different remedies and argued that its interpretation impaired the statute’s health-protective purpose. (174–181.)
+
+Breyer found the later laws ambivalent rather than an implicit tobacco exemption. Failed proposals ran in both directions; prohibitions on particular labels did not bar other regulation; and the 1997 modernization law expressly left the jurisdictional question unaffected. He read prior FDA disclaimers principally as reflecting an inability to establish manufacturer intent, overcome by new evidence, scientific developments, and a changed administration. Finally, the importance and publicity of executive action could increase political accountability rather than require Congress to make every implementation decision itself. He would sustain the agency’s asserted statutory jurisdiction. These are dissenting positions, not the Court’s holding. (181–192.)
+
+## Assigned scope and limits
+
+The assigned account is the short Brown & Williamson quotation on November-a PDF 157, printed 937, in the paragraph beginning “Third,” before the distinct *King v. Burwell* account. The complete 73-page official report, including the full majority and dissent, was read. Neither judicial writing contains footnotes; the reporter’s counsel footnote is separate. This brief preserves the historical statutory and deference framework and supplies no present-law or current citator certification.

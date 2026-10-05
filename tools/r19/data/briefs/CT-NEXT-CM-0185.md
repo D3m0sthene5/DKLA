@@ -1,0 +1,30 @@
+# Sisney v. Reisch
+2008 S.D. 72, 754 N.W.2d 813 (S.D. July 23, 2008) | Contracts
+
+## Settlement, alleged breach, and proceedings
+In 1998 inmate Heftel sued the Department of Corrections under 42 U.S.C. § 1983 for interference with free exercise of Judaism. A February 2000 settlement, signed by Heftel and then-secretary Bloomberg, promised a kosher diet to all Jewish inmates requesting it, including prepackaged certified kosher meals at noon and evening. Further provisions extended the diet regardless of custody status and specified meals before and after fast days. (¶¶ 2–3, 10.)
+
+Sisney alleged he was Jewish and requested that diet. In February 2007 CBM stopped providing prepackaged meals and served a new diet including rice and beans prepared in the prison kitchen. He alleged violation of the settlement and his religious requirements. When he grieved the change, Weber responded that he was not a party to the settlement. Sisney sued current corrections secretary Reisch and prison-operations director Weber in official and individual capacities. The circuit court dismissed for immunity and insufficient allegations that these officials were responsible for carrying out the settlement, without reaching beneficiary status. Sisney appealed the dismissal and the absence of an opportunity to amend. (¶¶ 4–5.)
+
+## Pleading rule and officials' responsibility
+The Supreme Court reviewed dismissal de novo, requiring alleged circumstances that supported more than speculative relief while viewing the factual assertions favorably to the pleader. The allegations sufficed to infer responsibility. Reisch occupied the office of the secretary who had signed for DOC, and governing statutes placed the penitentiary under DOC's direction and its secretary's administration. Weber's alleged position likewise supported an inference that he was responsible at the penitentiary. At this stage, the complaint need not conclusively establish their eventual liability to survive dismissal. (¶¶ 6–8 & n. 1.)
+
+## Identifiable-class beneficiary holding
+Under SDCL 53-2-6, a contract expressly benefiting a third person can be enforced before rescission. The intended person need not have furnished consideration or have been owed a preexisting duty by the promisee. The agreement itself can supply the necessary privity where the contracting parties clearly intended the qualifying benefit. That intention may identify a class rather than name every beneficiary. (¶ 9.)
+
+The settlement expressly addressed all Jewish inmates who requested kosher meals. Its additional provisions on custody status and fast-day meals confirmed an intention to benefit all members of that identifiable class, beyond an incidental effect of general administration. Sisney alleged that he belonged to the class. The court therefore held that his complaint stated a third-party beneficiary claim. It did not require him to have signed the settlement or participated in Heftel's litigation. This was a pleading-stage recognition of enforceable contractual status, not an award of damages or a final finding that the supplied food breached the agreement. (¶ 10.)
+
+## Immunity analysis and declaratory relief
+Defendants invoked statutes protecting against liability for insufficient prison services and injuries arising from prison-administered services or programs. The court acknowledged official-capacity actions are effectively actions against the State and that individual immunity can depend on whether a function is discretionary or ministerial. It assumed possible general immunity without deciding those distinctions. The dispositive point was that entering a contract waives immunity to the extent a party or beneficiary sues to enforce the State's undertaking. Under the cited South Dakota decisions, immunity did not bar contractual liability arising from governmental or proprietary operations. At the pleading stage, that principle permitted this beneficiary action to proceed. (¶¶ 11–13 & nn. 2–4.)
+
+Defendants also argued that Sisney had waived immunity by failing to brief it. Original note 3 rejected that contention: his brief argued that the mandatory meal undertaking was ministerial and not immunized. The court's contract-waiver ground made it unnecessary to adjudicate that proposed ministerial characterization. (nn. 3–4.)
+
+The complaint separately sought a declaration. The cited statutory immunities concerned imposition of liability and did not generally preclude declaratory relief from an invalid act or abuse of official authority. The court held Sisney entitled to pursue that form of relief as well. It did not erase immunity for unrelated tort claims or establish that every request styled declaratory necessarily avoids it. (¶ 14.)
+
+## Exact judgment and comparison
+The Supreme Court reversed and remanded. Because the existing complaint stated contractual and declaratory claims, it did not reach the argument about leave to amend. Zinter wrote; Gilbertson C.J., Sabers, Konenkamp, and Meierhenry concurred, making a five-to-zero decision with no separate writing. (¶¶ 15–17.)
+
+This outcome differs from the separate same-day Sisney v. State decision because the contract differed. State concerned CBM's general food-service agreement with the State; Reisch concerned a settlement expressly promising performance to the defined class that included Sisney. The distinction turns on the particular undertaking and pleading posture, not a general rule that inmates always can or never can enforce government agreements.
+
+## Source scope
+The complete judicial opinion and all four footnotes were read with the assigned principal on textbook pages 1203–1206, scans 197–200. The textbook omits the developed immunity and declaratory-relief analysis before reproducing the remand. Its following comparative Note is editorial and not another holding. This brief describes the historical pleading decision and does not certify ultimate post-remand liability, later proceedings, or current statutory law.

@@ -1,0 +1,24 @@
+# Fairchild v. Hughes
+258 U.S. 126 (1922) | Legislation and the Regulatory State
+
+## The attempted pre-ratification challenge
+
+On July 7, 1920, Charles Fairchild sued the Secretary of State and Attorney General in the Supreme Court of the District of Columbia. He sought a declaration that the proposed Nineteenth Amendment was void, an injunction against a proclamation of ratification, and an injunction against enforcement, with general and interlocutory relief also requested. He and those he purported to represent were citizens, taxpayers, and members of the American Constitutional League, which advocated state control of voter qualifications. (127.)
+
+The complaint alleged that thirty-four state legislatures had adopted purported ratification resolutions and another state had supplied a certificate; it challenged the amendment’s susceptibility to legislative ratification and the validity of particular states’ actions. According to the complaint, the Secretary planned to proclaim adoption upon receiving one further customary certificate because he lacked authority to investigate the ratifications’ validity. Fairchild also attacked a proposed federal enforcement bill, predicting prosecution of officials who excluded women from voting. He alleged that a proclamation would mislead state officials into allowing women to vote, distort elections otherwise limited to male voters, dilute lawful votes, and nearly double election expenses. These were allegations supporting his requested relief, not constitutional defects found by the Court. (127–128.)
+
+## Proceedings and exact disposition
+
+The local trial court issued a rule to show cause concerning interlocutory relief. After the defendants responded and moved to dismiss, it discharged the rule and dismissed the bill on July 14, 1920. While Fairchild’s appeal was pending, the Secretary received a thirty-sixth ratification certificate and proclaimed adoption on August 26. The D.C. Court of Appeals affirmed by relying on its earlier Colby decision concerning the Eighteenth Amendment. That rationale treated ratification, rather than the Secretary’s proclamation, as the source of constitutional validity and the proclamation as required upon proper official notices. (128–129.)
+
+On February 27, 1922, Justice Brandeis’s opinion for the Supreme Court **affirmed the decree**. The report contains no separate opinion or participation qualification. The Court expressly found no occasion to examine the appellate court’s proclamation rationale. Its own decision was that the plaintiff’s asserted interest did not supply an Article III case. It neither adjudicated the Nineteenth Amendment’s ratification validity nor approved every proposition from Colby. (129–130.)
+
+## Why the asserted citizen interest was insufficient
+
+The form of a bill in equity could not turn a demand for a declaration that an amendment was void into a constitutional case. Article III judicial power concerns regular proceedings to protect or enforce rights and prevent or redress wrongs. The threatened proclamation, which Fairchild himself said was legally ineffectual, would supposedly mislead election officials; the Attorney General’s threatened action depended on an enforcement bill not yet enacted and would operate against election officials. Fairchild was not such an official. His home state, New York, had already extended suffrage to women through its own constitution and had ratified the federal amendment. Those circumstances exposed the absence of a personal right requiring this preventive intervention. (129.)
+
+What remained was the citizen’s general interest in lawful administration and avoidance of wasted public money. That interest did not authorize an individual to secure, indirectly through injunctions against officials, a federal judicial ruling on the validity of a prospective statute or an amendment being adopted. The Court therefore resolved the suit at the threshold rather than deciding constitutional validity. The decision does not hold that the suffrage amendment could never be adjudicated in litigation involving proper parties and an actual affected right. (129–130.)
+
+## Assigned account and source limits
+
+November-b PDF 113, printed 1170, begins with a developed editorial account and a condensed quotation from Brandeis before comparing Mellon and Levitt. The whole native page and original scan were read; no judicial footnotes are retained in the account. The complete Fairchild judicial text is on report pages 127–130 and contains no notes or separate writings. The official five-page extract also contains the end of an unrelated prior tax case and the opening of Leser v. Garnett; those portions were distinguished from Fairchild rather than treated as its holdings. This is a brief of Fairchild’s 1922 judgment, not a separate full-source certification of Colby or Leser, and no current citator check is claimed.

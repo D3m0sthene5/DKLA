@@ -1,0 +1,74 @@
+{
+ "cp-berk": {
+  "checked": true,
+  "fixes": []
+ },
+ "cp-cross": {
+  "checked": true,
+  "fixes": []
+ },
+ "cp-mallory": {
+  "checked": true,
+  "fixes": []
+ },
+ "cp-gray": {
+  "checked": true,
+  "fixes": []
+ },
+ "wwvw": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "rule",
+    "kind": "unsupported",
+    "was": "a consumer's unilateral act of taking a product into the forum, and the mere foreseeability that it might travel there, do not suffice.",
+    "now": "a consumer's post-sale travel with the product into the forum does not supply it, and the relevant foreseeability is anticipating suit from the defendant's own conduct."
+   }
+  ]
+ },
+ "burger": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "Reasoning",
+    "kind": "unsupported",
+    "was": "A contract with a forum resident is only the starting fact.",
+    "now": "A contract with a forum resident is the starting fact."
+   }
+  ]
+ },
+ "cp-asahi": {
+  "checked": true,
+  "fixes": []
+ },
+ "cp-nicastro": {
+  "checked": true,
+  "fixes": []
+ },
+ "cp-goodyear": {
+  "checked": true,
+  "fixes": []
+ },
+ "ford": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "Procedural History",
+    "kind": "distorted",
+    "was": "and on May 21, 2019, that court accepted review and upheld jurisdiction",
+    "now": "which accepted supervisory control and, on May 21, 2019, upheld jurisdiction"
+   }
+  ]
+ },
+ "cp-shaffer": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "rule",
+    "kind": "distorted",
+    "was": "All assertions of state-court jurisdiction, including in rem and quasi in rem jurisdiction over property, must be evaluated under the minimum-contacts standards of International Shoe and its progeny.",
+    "now": "Assertions of state-court jurisdiction over property, whether labeled in rem or quasi in rem, must be evaluated under International Shoe and its progeny; the mere statutory presence of property unrelated to the claim does not supply sufficient contacts."
+   }
+  ]
+ }
+}

@@ -1,0 +1,78 @@
+# Epic Systems Corporation v. Lewis
+Nos. 16-285, 16-300, 16-307, 584 U.S. ___ (2018); assigned citation 138 S. Ct. 1612 | Supreme Court of the United States | May 21, 2018 | LRS-SUP-0006A
+
+## Facts and consolidated disputes
+
+Three consolidated cases involved employment agreements requiring disputes to be resolved in individual arbitration rather than class or collective proceedings. Employees sought to pursue Fair Labor Standards Act wage claims and related state-law claims together. The dispute concerned the enforceability of that procedural arrangement, not a finding that the wage claims lacked merit. The captioned cases were Epic Systems Corporation v. Jacob Lewis, Ernst & Young LLP v. Stephen Morris and others, and National Labor Relations Board v. Murphy Oil USA, Inc. Court opinion, slip pp.1-4, 25.
+
+The majority develops Morris's facts as its principal example. Morris was a junior accountant at Ernst & Young. The agreement permitted him to choose the arbitration provider and authorized the arbitrator to grant relief available in the relevant court, but required different employees' claims to be heard separately. After employment ended, Morris sued, alleging that the firm had misclassified junior accountants as professional employees and paid salaries without required overtime. He sought a nationwide FLSA collective proceeding under 29 U.S.C. §216(b) and a Rule 23 class proceeding for California claims. Id. at 2-3.
+
+Ginsburg's dissent supplies an important qualification to the majority's description of agreement. Epic and Ernst & Young emailed arbitration terms to employees and treated continued employment as acceptance. The dissent characterized the employees' choice as accepting employer-dictated terms or losing their jobs. That bears on the competing accounts of statutory purpose and bargaining power. It does not mean the Court found these particular agreements procured by legally cognizable fraud, duress, or unconscionability; those were not the asserted contract defenses on which the employees relied. Ginsburg dissent, slip pp.6-8 & n.2; Court opinion, slip p.7.
+
+## Procedure, parties' arguments, and legal setting
+
+In Morris, the district court granted the employer's motion to compel arbitration. The Ninth Circuit reversed, 834 F.3d 975 (2016), reasoning that the Federal Arbitration Act's saving clause preserved a federal illegality defense because the NLRA protected concerted legal action. Judge Ikuta dissented. The Seventh Circuit likewise accepted the employees' position in Epic, 823 F.3d 1147 (2016). The Fifth Circuit reached the contrary result in Murphy Oil, 808 F.3d 1013 (2015). The Supreme Court granted certiorari to resolve the disagreement. Court opinion, slip pp.3-4; syllabus, pp.1, 4.
+
+The FAA dates from 1925 and generally directs enforcement of arbitration agreements and their chosen procedures. Section 2's saving clause preserves grounds for revocation of any contract. The NLRA, enacted in 1935, protects organization, union participation, collective bargaining, and other concerted activities for collective bargaining or mutual aid or protection. Section 8(a)(1) makes interference with §7 rights an unfair labor practice. The Norris-LaGuardia Act supplies related protections against enforcement of promises conflicting with its concerted-activity policy. Court opinion, slip pp.5-7, 10-16; Ginsburg dissent, slip pp.5-6.
+
+Employees argued that collective pursuit of workplace claims was protected concerted activity, that employers could not compel a prospective waiver, and that illegality therefore brought the waiver within the FAA's saving clause. Alternatively, the later labor statutes should control any conflict. They did not demand a judicial forum in every case: their position also allowed collective arbitral procedures. Employers maintained that the FAA required enforcement, its saving clause did not permit an attack on arbitration's individual character, and the NLRA supplied no contrary command. Ginsburg dissent, slip pp.7-8; Court opinion, slip pp.6-7, 9-11.
+
+The Board's 2012 D.R. Horton ruling accepted the labor-law argument; some circuits agreed or deferred. The majority contrasted that ruling with earlier judicial practice and a 2010 general-counsel memorandum. Ginsburg disputed the characterization of the Board's position as novel, distinguishing the nonbinding general-counsel memorandum from longstanding decisions protecting collective litigation. In the Supreme Court, the Solicitor General and the Board submitted opposing interpretations. Court opinion, slip pp.3-4, 19-21; Ginsburg dissent, slip pp.10-11 nn.5-6.
+
+## Issues, holding, and governing rule
+
+Does the NLRA invalidate agreements requiring individual arbitration of these employment claims, either through the FAA's saving clause or as a conflicting federal command? The five-Justice majority held no. The agreements must be enforced according to their terms. The NLRA does not provide the clear contrary direction necessary to displace the FAA in these circumstances. Court opinion, slip pp.5-21, 25.
+
+The saving clause preserves generally applicable defenses, but under the majority's precedent it does not preserve a defense that attacks an arbitration agreement because it requires individual proceedings, even if the defense is phrased as federal illegality. The statutes should be construed to give effect to both; displacement requires a clear and manifest congressional intention. This holding does not establish that every arbitration agreement is immune to ordinary formation defenses, that parties cannot choose class arbitration, or that an employer may forbid union organizing. Id. at 7-11, 21-22.
+
+## FAA saving-clause reasoning
+
+Sections 2, 3, and 4 require respect for arbitration agreements and the procedures the parties selected. The majority treated individual arbitration as a fundamental attribute protected by its prior decisions. Concepcion had rejected a state unconscionability rule conditioning enforcement on availability of class proceedings, because imposing those proceedings would undermine arbitration's informality, speed, and simplicity and introduce notice, representation, discovery, and certification questions. Id. at 5-8.
+
+The employees did not claim a defect that would invalidate any contract because of how it was obtained. They objected to the individual nature of the proceedings. The majority therefore considered the defense incompatible with the FAA even if labelled illegality rather than unconscionability, and even though the underlying rule nominally applied beyond arbitration. The opinion left aside whether the saving clause generally includes federal statutory defenses and what revocation means; Thomas separately addressed the latter. Parties remained free to agree on collective procedures, but courts could not impose them through this defense. Id. at 6-9.
+
+## NLRA text, context, and harmonization
+
+The majority applied the strong presumption against implied repeal. Courts must attempt to reconcile enacted statutes rather than choose a preferred policy. Section 7 specifically concerns organization and collective bargaining, does not mention class procedures or arbitration, and does not clearly displace the FAA. Modern Rule 23 and class arbitration postdated the NLRA, although the majority acknowledged earlier forms of group litigation. Id. at 10-12.
+
+Ejusdem generis narrowed the catchall about other concerted activities by reference to the preceding organizational and bargaining activities. The majority understood it to protect workplace association rather than mandate procedures in highly regulated courts or arbitral forums. The broader NLRA specified rules for representation, bargaining, strikes, and other matters, but gave no procedural guidance for class certification, notice, opt-in or opt-out treatment, or similar litigation questions. That silence supported its conclusion that §7 did not establish the procedural entitlement asserted. Id. at 12-13.
+
+The Court also noted that Congress knows how to prescribe litigation procedures or expressly restrict arbitration, and had not done so in §7. Even if the statute permitted employees to use existing procedures, those procedures could be displaced by an enforceable arbitration agreement. The underlying wage claims arose under the FLSA, whose collective provision was more naturally relevant. Gilmer's treatment of the analogous ADEA scheme and other arbitration decisions reinforced the view that availability of collective litigation alone does not prohibit agreement to individual arbitration. Id. at 13-17.
+
+The employees' proposed reading also located a large change to dispute resolution in an ancillary catchall of a different regulatory statute. The majority invoked the principle against hiding major regulatory changes in vague or ancillary provisions. It read Norris-LaGuardia's concerted-activity policy the same way and distinguished §7 decisions about organizational efforts and access to forums from an entitlement to particular collective procedures. Even Eastex's language about administrative and judicial resort had not decided what constitutes concerted activity in that litigation setting. Id. at 15-19.
+
+## Agency interpretation in the full opinion
+
+The full opinion rejects Chevron deference on three grounds: the Board's construction would limit a separate statute it did not administer; the Board and Solicitor General offered competing executive positions, weakening the asserted political-accountability rationale; and traditional interpretive tools, including the canon against statutory conflict, supplied an answer rather than leaving unresolved ambiguity. Court opinion, slip pp.19-21. This is a description of the Court's 2018 analysis; the brief does not present Chevron as a statement of present law or add an unperformed current-law review.
+
+## Thomas's concurrence
+
+Thomas joined the majority in full but added a narrower textual reading of the saving clause. He understood grounds for revocation to concern formation of the arbitration agreement. Public-policy illegality does not show that an agreement was improperly made, so it falls outside that clause on his reading regardless of the majority's additional rationale. Thomas concurrence, slip pp.1-2. His formation-only theory is a separate rationale, not a limitation the majority resolved in this case.
+
+## Ginsburg's dissent, joined by Breyer, Sotomayor, and Kagan
+
+Ginsburg viewed collective litigation as an ordinary instance of activity planned or accomplished together for mutual aid. The NLRA sought to address unequal bargaining power, not merely protect the enumerated forms of union activity. She traced the labor statutes' response to yellow-dog contracts and earlier liberty-of-contract decisions, and cited longstanding Board and court protection of shared employment litigation and appeals to public institutions. In her account, D.R. Horton applied those principles to a new contractual obstacle rather than inventing a new §7 right. Ginsburg dissent, slip pp.1-11.
+
+She rejected the majority's use of ejusdem generis as too cramped for deliberately encompassing language. Joint litigation itself was something workers could do together for protection. She disputed the structural inference because many detailed rules invoked by the majority were later additions and because §7 had long protected conduct lacking its own procedural code. The employees sought freedom to use existing procedures without employer interference, not a new NLRA litigation code. Nor should broad enacted protection be frozen to mechanisms familiar in 1935; representative and joined suits also had substantial earlier history. Id. at 11-17.
+
+Under §8(a)(1), a required prospective surrender of that collective right was unlawful. The FAA should make arbitration agreements as enforceable as other contracts, not superior to them. Illegality is generally applicable, and the labor rule would prohibit such waivers in any forum. She distinguished Concepcion's state-law arbitration discrimination from a federal statutory prohibition against waiving protected concerted action. The saving clause therefore could harmonize the statutes while leaving arbitration available. Id. at 17-18, 23-25 & n.9.
+
+Alternatively, the later and more specific labor statute should prevail to the extent of real conflict. The recent express arbitration overrides cited by the majority did not prove that the 1935 Congress knew it had to use similarly explicit language. The majority responded that the FAA was more specifically directed to enforcement of arbitration agreements, but ultimately rested on its reconciliation rather than choosing which statute was more specific. Ginsburg dissent, slip pp.25-26 & nn.13-14; Court opinion, slip pp.23-24.
+
+Her review of FAA history argued that Congress originally focused on negotiated commercial agreements and excluded employment contracts, while subsequent decisions expanded the statute. She criticized that expansion but also argued that accepting those precedents did not compel the present result. Her enforcement concern was concrete: small wage claims could be uneconomical individually, employees could fear retaliation, government enforcement resources were limited, and confidential individual awards could produce unchecked inconsistencies. She discussed group-based discrimination claims as a concern and interpretive limit, not as a majority adjudication of all such future cases. Ginsburg dissent, slip pp.19-23, 26-30.
+
+The majority answered that policy choices about collective litigation and arbitration belonged to Congress; its decision preserved organizing and bargaining rights and followed arbitration precedent. Each side thus claimed fidelity to legislative choice while identifying a different statutory entitlement and relevant level of specificity. Court opinion, slip pp.21-25.
+
+## Judgment and alignment
+
+Gorsuch wrote for Roberts, Kennedy, Thomas, and Alito, a five-Justice majority. Thomas also concurred. Ginsburg dissented with Breyer, Sotomayor, and Kagan. The Court reversed and remanded the Seventh Circuit judgment in Epic and Ninth Circuit judgment in Ernst & Young, and affirmed the Fifth Circuit judgment in Murphy Oil. The dissent would do the opposite. Court opinion, slip p.25; Ginsburg dissent, slip p.30.
+
+The result requires enforcement of the individual-arbitration agreements against the labor-law theory presented. It does not decide whether the employees were correctly paid or award the employers judgment on the underlying wage merits. For interpretation, the useful comparison is how the opinions choose the genus for a catchall, distinguish breadth from silence, identify a statute's specificity, and use the saving clause to claim harmonization.
+
+## Assigned excerpt and full-opinion comparison
+
+The Class 6 Epic Systems reading, PDF pages 1-24, reproduces edited majority, concurrence, and dissent. The full official PDF has four syllabus pages, twenty-five majority pages, two concurrence pages, and thirty dissent pages. Both sources were read. The full opinion adds the majority's omitted agency-deference discussion and expands precedent, footnotes, FAA history, and enforcement analysis. Pinpoints above refer to the separately numbered slip pages of the specified judicial opinion; the syllabus is identified separately and is not treated as judicial reasoning.
+
+Full judicial source: https://www.supremecourt.gov/opinions/17pdf/16-285_q8l1.pdf
+
+Opinion lookup: https://supreme.justia.com/cases/federal/us/584/16-285/

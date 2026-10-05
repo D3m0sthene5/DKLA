@@ -1,0 +1,28 @@
+# X.L.O. Concrete Corp. v. Rivergate Corp.
+83 N.Y.2d 513, 634 N.E.2d 158, 611 N.Y.S.2d 786 (1994) | Contracts
+
+## Completed construction and the Club
+
+X.L.O., the concrete subcontractor, contracted with general contractor Rivergate on May 12, 1983 to construct a Manhattan project’s concrete superstructure and fills. The price was initially $16.3 million, later adjusted to $16,544,125.07. X.L.O. completed the work and sought an unpaid $844,125.07. Rivergate resisted payment because the project was connected to an organized-crime extortion and bid-rigging arrangement called the Club. 83 N.Y.2d at 515–516.
+
+The Club joined concrete firms, a cement-and-concrete union council, and the Commission of organized-crime family leaders. It allocated New York construction work exceeding $2 million, rigged bidding so the selected contractor would submit the lowest bid, and exacted two percent for labor peace, enforcing compliance through labor unrest or violence. X.L.O. joined in 1981. The Commission allocated this project on an assumption that it would not exceed $15 million. After the negotiated price exceeded that figure, its representative Ralph Scopo demanded withdrawal; X.L.O.’s principal Costigan refused, and the Commission ultimately allowed the job. Costigan then gave Scopo $50,000 for advocating his position. The opinion reports that Rivergate negotiated with full knowledge of the Club and its rules. Id. at 516.
+
+## Procedural posture
+
+X.L.O. sued for breach of contract, account stated, and unjust enrichment. Rivergate asserted a Donnelly Act antitrust defense and counterclaim, a Sherman Act damages counterclaim, and contractual fees and costs. X.L.O. sought dismissal of the first two counterclaims as untimely; Rivergate cross-moved to dismiss the complaint. Supreme Court dismissed the complaint on illegality grounds, the first two counterclaims as time barred, and the fee counterclaim because the contract was void. The Appellate Division reinstated the complaint and reinstated counterclaims to the extent of the complaint’s demand. Rivergate then sought Court of Appeals review of that adverse modification. Id. at 517. The assigned summary’s earlier statement that Rivergate appealed the trial court’s dismissal compresses the sequence incorrectly; Rivergate had prevailed on dismissal at trial.
+
+## Antitrust illegality and the payment promise
+
+The Court of Appeals rejected automatic nonenforcement merely because the transaction resulted from an antitrust conspiracy. The Donnelly Act was modeled on the Sherman Act and ordinarily followed federal interpretation unless state policy, wording, or history justified departure. Kelly and related cases warned that antitrust defenses could give buyers completed performance for nothing. The relevant boundary was whether the requested judgment would enforce the precise conduct antitrust law prohibited, rather than merely a lawful obligation collateral to an unlawful scheme. Id. at 517–518.
+
+On its face this contract called for lawful construction, not an antitrust violation. But facial legality did not conclusively establish enforceability either. A trial had to determine whether the payment promise was an indivisible component effectuating the conspiracy, such that the judgment itself would consummate the forbidden restraint. The record did not resolve that connection. In particular, an inflated, discriminatory price attributable to unlawfully suppressed competition could make enforcement implement rather than merely follow the restraint. The court identified market value at the contract date, price inflation, and anticompetitive effects as matters for factual development; it did not find the agreed price inflated as a matter of law. Id. at 518–519.
+
+## Equities, available remedies, and result
+
+The trial also had to assess forfeiture and unjust enrichment, including the parties’ relative culpability, knowledge, and bargaining power. Another relevant question was whether rejection of the contract would preclude all recovery or still allow quantum meruit. Those were issues to consider, not a present award of reasonable value or a declaration that both parties were necessarily equally blameworthy. The policy against schemes such as the Club remained substantial, but statutory remedies and the Attorney General’s direct enforcement powers reduced the need to turn every related collection suit into a complete forfeiture. Id. at 519.
+
+Judge Ciparick’s March 24, 1994 opinion was joined by Chief Judge Kaye and Judges Simons, Bellacosa, Smith, and Levine; Titone did not participate. With no separate writing, the six participating judges affirmed the Appellate Division order with costs and answered the certified question affirmatively. The complaint and limited counterclaims remained for further proceedings; X.L.O. did not receive final judgment for the unpaid balance, and Rivergate’s defense was not conclusively defeated. The holding was that material factual questions precluded its requested summary dismissal and that the contract was not per se unlawful. Id. at 515, 517, 519.
+
+## Source and scope
+
+The assigned principal occupies C&M 701–1050, PDF pages 97–99, printed pages 754–756. The complete reporter reproduction, including the court’s entire opinion at 515–519, counsel’s separately labeled contentions, participation statement, and final order, was read. No judicial footnotes or separate writing appears. The direct archive was recovered after correcting its reporter slug to “ny-2d.” The distinction between an interlocutory reinstatement and an ultimate recovery is essential to this 1994 decision. Separate source review is recorded in the accompanying register.

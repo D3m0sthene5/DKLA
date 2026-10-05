@@ -1,0 +1,28 @@
+# Dunn v. Retail Clerks International Association
+307 F.2d 285 (6th Cir. 1962) | Legislation and the Regulatory State
+
+## Decision and procedural posture
+
+On August 22, 1962, the Sixth Circuit affirmed dismissal of Memphis grocery employers’ action seeking damages, union-related injunctive relief, and an order compelling an NLRB regional director to act. Cecil wrote for the unanimous panel of Cecil, Weick, and O’Sullivan. The complaint did not state a claim within the district court’s jurisdiction. The court distinguished the gravity of the alleged misconduct from its authority to displace the administrative enforcement arrangements Congress established. (285–286, 289.)
+
+## Alleged facts and requested relief
+
+Maurice and William Dunn owned four corporations operating grocery stores. An October 4, 1961 representation election produced only 19 votes for the Retail Clerks union out of 90 valid votes. The employers alleged that union representatives electioneered inside the stores before and during voting, interfered with employees’ work, gathered around the voting area, and refused requests to leave. An NLRB agent allegedly declined to order them out. The employers hired a commercial photographer to document the representatives’ conduct. The union then objected that the photographer intimidated employees at one store. These were complaint allegations accepted for the dismissal motion, not facts established at trial. (286–287.)
+
+The complaint further alleged that an NLRB employee and a union employee threatened three school-age part-time workers into signing intimidation affidavits. All 24 employees at that store had voted; 21 subsequently signed a statement denying intimidation, and the three workers allegedly told the regional director that their affidavits were coerced and inaccurate. Regional Director Reynolds nonetheless set aside the election on November 16. The employers alleged that he knowingly relied on false information. They also alleged improper recognition picketing, employee coercion, threatened violence, obstruction, and concerted action causing irreparable harm. (287.)
+
+The defendants included the unions and their representatives, Reynolds, and two other Board employees. The employers sought $500,000, protection of their asserted rights, injunctions against the union, or an order requiring Reynolds to perform his duties. They invoked civil-rights jurisdiction and conspiracy provisions, the APA, and federal labor law. The district court dismissed for failure to state a cause of action; the Sixth Circuit expedited the appeal because of the requested emergency relief. (285–287.)
+
+## Enforcement discretion and statutory review arrangements
+
+The Sixth Circuit agreed that the complaint stated no damages claim under § 1985(3), without developing a separate extended civil-rights analysis. It regarded the remainder principally as an attempt to compel the regional director to act. Under § 153(d), the NLRB General Counsel had final authority concerning investigation, issuance, and prosecution of unfair-labor-practice complaints. Regulations delegated complaint issuance to regional directors and permitted an administrative appeal of a refusal to the General Counsel. The employers had not alleged taking that appeal. (287–288.)
+
+The court described the General Counsel’s discretion as comparable to a United States Attorney’s decision whether to bring a criminal charge. The statute provided no appeal from the General Counsel’s enforcement decision. Congress instead supplied the Board as the administrative adjudicator and allowed appellate review of its final orders. That scheme did not grant an employer a separate district-court route to compel prosecution. The Norris-LaGuardia Act likewise restricted injunctions in labor disputes, and the complaint did not allege the circumstances necessary for its exception. (288.)
+
+The court separately addressed the election. The regulation gave the regional director discretion to dispose of objections and direct appropriate action, which the court considered unavailable for review through this district-court suit. He could have conducted a new election, and the employers could have requested one, but they sought to stand on the original result. The court found no district-court mechanism to reinstate that election. It also distinguished recognition from informational picketing and observed that state-court process could address mass picketing and obstructed access. These possibilities were not orders granting the requested federal relief. (288–289.)
+
+## Judgment, institutional concern, and scope
+
+The court condemned the alleged behavior if true and urged responsible union leaders and Board officials to ensure fair treatment. It expected the General Counsel to use available powers to correct any demonstrated abuses. Yet possible serious and irreparable harm from withholding or abusing administrative powers did not supply judicial jurisdiction absent the prescribed statutory route. The dismissal was affirmed; the court did not determine the underlying unfair-labor-practice charges or restore the election. (287–289.)
+
+The assigned illustration is November-b PDF 60, printed 1043. The actual case names the regional director and Board employees as defendants; its discussion of the General Counsel explains supervisory and final enforcement authority rather than a separately adjudicated claim against that official. The complete reported opinion has no judicial footnotes, separate writings, or appendix. This brief covers the historical suit and does not supply a current citator determination or resolve later limits on review of enforcement discretion.

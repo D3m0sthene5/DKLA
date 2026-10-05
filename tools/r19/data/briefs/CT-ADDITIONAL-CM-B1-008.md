@@ -1,0 +1,37 @@
+# Marine Contractors Co., Inc. v. Hurley
+365 Mass. 280, 310 N.E.2d 915 (1974) | Contracts
+
+## Court, stage, and result
+The Massachusetts Supreme Judicial Court affirmed both the interlocutory decree confirming a master’s report and the final decree enjoining Thomas Hurley from competing with his former employer through March 31, 1976, within one hundred miles of Boston. Chief Justice Tauro wrote for the panel with Justices Quirico, Braucher, Hennessey, and Kaplan; no separate writing or dissent is recorded. The court found genuine consideration in receiving vested retirement funds five years early and upheld the restraint under the circumstances of this employment and injunction. (281–282, 285–290.)
+
+## Facts and chronology
+Marine performed specialized marine repairs, mainly near Boston but also in Newport and Portland, approximately one hundred miles away. It retained only two or three permanent supervisors and assembled temporary crews for particular jobs. Its supervisors’ ability to recruit appropriate workers and prepare bids was central to the business. Hurley worked there from 1963 until April 1, 1971, becoming general superintendent, field supervisor, estimator, and bidder. (282–283.)
+
+Marine had created a retirement plan and trust in 1958. Its sole trustee, Norman Thomas, was also Marine’s president, treasurer, sole stockholder, and a director. Marine contributed annually according to its net income; trust funds belonged exclusively to participants and could never revert to the company. When employees departed before disability retirement or age sixty-five, their vested shares ordinarily had to remain in separate savings accounts for five years before distribution with interest. Hurley’s share was approximately $12,000. (282–283.)
+
+In March 1971, Hurley announced that he would leave to return to his New Hampshire hometown. Thomas offered immediate payment of the vested share in return for a noncompetition promise. On April 1, Hurley signed the agreement with Marine and received his full share, $12,074.64. The writing restricted direct or indirect competition within one hundred miles of Boston for five years and recited that the parties had set their hands and seals. (283, 285; n.2.)
+
+By August, Hurley was doing competing marine work within the restricted area, including work for Marine’s customers. After notice from Marine’s counsel, he said he did not intend to comply. He formed his own corporation in January 1972; Marine’s other two key supervisors also joined him. The departures prevented Marine from bidding on or accepting much work until April 1972. Between August 1971 and the master’s June 1972 hearing, Hurley earned more than $24,000 from work violating the covenant. Marine sued in September 1971, and the injunction issued in June 1973, more than two years after the covenant began. (284.)
+
+## Procedure and arguments
+The trial court referred the case to a master and once recommitted it for evidence summaries and the trust agreement. It denied a second recommittal request, confirmed the report, and entered the injunction. Although Hurley appealed the procedural rulings too, he did not argue them in his brief and expressly waived challenges to the report and evidence summaries at oral argument. The appellate court therefore accepted the master’s subsidiary findings unless plainly wrong or inconsistent and tested whether they supported the decrees. (281–282; n.1.)
+
+Hurley argued that there was no consideration, that equity should look beyond a seal, and that the agreement was an unreasonable restraint of trade. He maintained that acceleration cost Marine nothing because the separate trust owned the funds. He also contended that a covenant negotiated upon departure was not ancillary to employment, tended toward monopoly, and imposed undue hardship. (284–289.)
+
+## Consideration and the trust issue
+The seal supplied one answer under the Massachusetts law then applied. The court rejected Hurley’s reliance on a Restatement rule declining specific enforcement of obligations supported solely by seal or nominal consideration. Massachusetts authorities permitted the seal rule in equity as well as at law. Footnote 3, however, expressly cautioned that the court was not declaring a seal alone sufficient to make a purely gratuitous promise specifically enforceable. The decision also rested on substantial actual consideration. (285; nn.2–3.)
+
+Five-year acceleration conferred a real benefit on Hurley: immediate use of more than $12,000, particularly valuable given his planned new business. Consideration did not have to originate exclusively with the promisee. The court therefore rejected the claim that payment by the trust rather than Marine defeated the bargain. Hurley had received the requested benefit in exchange for his promise, despite already owning a vested interest payable at a later time. (285–286.)
+
+Footnote 4 addressed Hurley’s related contention that acceleration breached Thomas’s fiduciary obligations because it served Marine’s interest in obtaining the covenant. The court did not decide whether a breach occurred. It concluded that Hurley was aware of and benefited from the transaction and could not use it to defeat enforcement, citing the rule concerning a fully informed beneficiary’s consent. This is not a general holding authorizing trustees to advance benefits for an employer’s purposes. (286; n.4.)
+
+## Reasonableness and remedy
+The employer could protect customer goodwill, confidential information, and similar legitimate interests, but not freedom from ordinary competition alone. Hurley’s long employment and subsequent work for Marine’s customers demonstrated the goodwill risk. Negotiating at the end of the employment did not make the agreement unrelated to that relationship. The Restatement’s concern about a stranger paying a potential rival simply to stay out of a market was therefore inapposite. (287–288.)
+
+The findings also did not require a monopoly conclusion: shipyards supplied competition despite Marine being one of few specialized firms. Hurley showed no extraordinary hardship or later unforeseen change. He remained free to do other work or marine repairs beyond the limited area. The geographic restriction corresponded to Marine’s ordinary territory and protected its goodwill. (288–289; n.5.)
+
+The court was more cautious about duration. It described the original five-year term as potentially troublesome. But over two years had elapsed before the injunction, during which Hurley actively competed. The actual judicial restraint would therefore run for less than three years, a period the court considered reasonable in these circumstances. It affirmed the decrees rather than announcing that every five-year employment covenant is valid. (289–290.)
+
+## Assigned significance and source scope
+The “Discounting Retirement” problem at printed pages 60–61 asks whether early payment by a legally separate trust can supply consideration to the company. The actual decision answers through the employee’s accelerated benefit and the principle that consideration may come from a third person. The entire judicial text through the final disposition, all five notes, and both assigned scans were read. Its seal doctrine and restraint analysis are described as historical Massachusetts holdings; this brief does not certify present employment-covenant statutes or standards. Separate source review is tracked in the accompanying register.
+

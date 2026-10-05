@@ -1,0 +1,76 @@
+# Texas v. United States
+
+**Course:** Legislation, Regulation & the State  
+**Citation:** 809 F.3d 134 (5th Cir. 2015)  
+**Court and date:** United States Court of Appeals for the Fifth Circuit, November 9, 2015; revised November 25, 2015  
+**Opinion:** Judge Jerry E. Smith, joined by Judge Elrod; Judge King dissented.  
+**Assigned source:** LRS November pages 1–165 scan, PDF pages 63–73, printed pages 638–648; majority and dissent selections, ending before Notes.  
+**Brief ID:** LRS-MAX-TEXAS
+
+## Case orientation
+
+The Fifth Circuit affirmed a nationwide preliminary injunction against DHS's 2014 deferred-action memorandum. The majority found Texas had standing, the challenged program was reviewable, and the states were substantially likely to prevail on both their notice-and-comment claim and their separate claim that the program exceeded statutory authority. Judge King disputed reviewability, the evidence of binding practice, and the statutory analysis. This was an appeal from preliminary relief, not a final trial judgment. It is the November merits appeal, not the earlier decision denying a stay reported at 787 F.3d 733.
+
+## Facts and challenged program
+
+DHS's 2012 Deferred Action for Childhood Arrivals program, DACA, permitted qualifying people brought to the United States as children to request deferred action. It contemplated individual discretion and did not confer citizenship or an enforceable right to remain. In November 2014, Secretary Jeh Johnson issued a memorandum expanding DACA and announcing Deferred Action for Parents of Americans and Lawful Permanent Residents, DAPA. The opinion uses DAPA to include both the parental program and the three DACA expansions: removing the age cap, extending deferred action from two to three years, and moving the arrival cutoff to January 1, 2010. The original 2012 DACA program was not itself the subject of the injunction. (Slip opinion at 3–5; note 11; Appendix A.)
+
+The parental program potentially covered about 4.3 million people. Applicants needed a citizen or lawful-permanent-resident child, continuous residence since before January 1, 2010, physical presence at specified times, no lawful status, no applicable enforcement priority, and no other factor making deferred action inappropriate in the officer's discretion. Applicants would submit biometrics and pay work-authorization and biometrics fees. The memorandum repeatedly described individual, revocable discretion and denied creating substantive rights, immigration status, or a path to citizenship.
+
+Deferred action permitted lawful presence for specified purposes while leaving recipients removable. Existing statutes and regulations made that designation consequential: recipients could apply for work authorization and, if other conditions were met, obtain Social Security numbers and certain federal or state benefits. The majority and dissent disagreed about whether this represented affirmative agency action conferred through DAPA or collateral consequences of otherwise unreviewable nonenforcement under preexisting law. Eligibility was not an automatic award of every benefit. (At 5–7, 35–40, 86–90; notes 99, 108, 20–26 of the dissent.)
+
+## Proceedings and review standard
+
+The states alleged a procedural APA violation, a substantive APA violation, and a Take Care Clause violation. The district court issued a preliminary injunction based on the procedural claim alone, leaving the other claims unresolved. A prior Fifth Circuit panel denied a stay. This panel reviewed the injunction for abuse of discretion, factual findings for clear error, and legal conclusions broadly for correctness. The movants had to establish substantial likelihood of success, threatened irreparable injury, a favorable balance of harms, and consistency with the public interest. (At 7–9.)
+
+The majority added the substantive APA claim as an alternative ground because it had been briefed and the parties agreed no further factual development was necessary. It treated alternative holdings as binding circuit precedent. King considered the legal briefing inadequate and would have avoided the question. Neither the majority nor the district court's preliminary ruling resolved the Take Care claim. (At 2, note 3; 54, notes 157–158; 116–117.)
+
+## Texas's standing and statutory reviewability
+
+The majority relied on Texas's anticipated costs of issuing subsidized driver's licenses to a substantial number of newly eligible applicants. Texas's evidence supported at least 500,000 potential beneficiaries and a loss of at least $130.89 per license. Increased tax payments or insurance benefits were distinct transactions, rather than offsets to the particular license expenditure. Texas had adopted its relevant eligibility policy before DACA and DAPA; the court did not consider the injury manufactured for litigation. The possibility of changing fees or abandoning an existing permissible policy did not eliminate it. (At 16–26.)
+
+The majority also applied Massachusetts v. EPA's special solicitude to Texas, citing the APA procedural right and the state's interest in its legal code under a federal immigration framework. It stressed the particular circumstances and did not decide whether excluding DAPA recipients from licenses would violate preemption or equal protection. Procedural redressability required a possibility of reconsideration; preventing implementation would also prevent the identified costs. The court did not need to reach other asserted standing theories. (At 9–16, 26–28; note 46.)
+
+The states fell arguably within the INA's zone of interests, including provisions allowing states to withhold specified public benefits from unauthorized aliens. The government did not contest that DAPA constituted final agency action. INA § 1252(g) did not bar this suit: it concerned specified removal decisions and claims by or on behalf of aliens, whereas the states asserted their own challenge to the program. (At 29–34; note 82.)
+
+Under APA § 701(a)(2), the majority distinguished presumptively unreviewable nonenforcement from DAPA's affirmative grant of lawful presence and associated eligibility. Detailed immigration classifications and employment provisions supplied meaningful legal standards. The injunction did not compel any removal or disturb DHS's separate prioritization of enforcement. The majority reserved whether the ordinary nonenforcement presumption could be rebutted because it found the challenged action outside that category. (At 34–42; note 108.)
+
+## Notice and comment: practical discretion mattered
+
+The Fifth Circuit distinguished a policy statement from a substantive rule by asking whether it imposed rights or obligations and genuinely left agency decisionmakers free to exercise discretion. Agency terminology was relevant but not controlling. A pronouncement could bind through its text or its practical application. Here, the majority acknowledged that DAPA's text purported to preserve discretion. Its conclusion rested principally on the district court's predictive finding about administration. (At 43–50; assigned printed pages 640–644.)
+
+The majority upheld that finding under clear-error review. Evidence included DACA's high approval rate; the lack of quantified denials involving otherwise qualified applicants; union president Kenneth Palinkas's declaration; detailed standard operating procedures, evidentiary instructions, and mandatory requests for evidence; language directing implementation; and presidential statements about compliance with the policy. DAPA was to use a process similar to DACA.
+
+The majority recognized reasons for caution. Applicants could self-select, the programs covered different populations, and DAPA contained additional discretionary criteria. USCIS official Donald Neufeld described case-specific review, additional-evidence requests, interview referrals, and discretionary denials. The majority nevertheless found the contrary evidence insufficient to establish clear error. It characterized identified denial grounds as falling within eligibility or enforcement criteria and emphasized missing counts distinguishing residual discretion from those criteria. This was disputed evidence, not an agreed finding that all qualifying applications necessarily had been approved. (At 44–50; notes 130, 133–142.)
+
+Note 130 acknowledged that the district court incorrectly called administratively defective applications denials when USCIS had called them rejections. The majority considered the distinction insufficient to change the result; King considered it central. The lack of an evidentiary hearing also divided the panel: the majority emphasized that the government neither requested one nor asserted appellate error on that basis, while King considered unresolved factual conflicts to warrant one.
+
+The majority further rejected the procedural-rule exception. Under the Fifth Circuit's substantial-impact approach, DAPA altered substantive interests. It also changed substantive standards for evaluating benefit applications under the D.C. Circuit's different procedural-rule approach. The public-benefits exception was construed narrowly and did not cover this immigration program merely because deferred action could lead to benefits; USCIS did not itself manage those benefit programs. The majority cautioned that ordinary nonenforcement policies did not thereby become subject to notice and comment. (At 50–54; notes 146, 156.)
+
+## Independent statutory-authority ground
+
+The majority assumed without deciding that Chevron deference applied. It found Congress had directly addressed lawful presence and employment authorization through the INA's detailed scheme. Existing family-sponsored immigration routes, cancellation requirements, and specified deferred-action and work-authorization categories did not authorize this broad parental program. DAPA bypassed requirements Congress had imposed for obtaining more substantial immigration classifications through a child's status. The majority recognized that lawful presence and permanent residence were different, but considered the broader statutory structure controlling. (At 54–60; notes 160–174.)
+
+General enforcement grants and the definitional provision referring to employment authorized by the Attorney General did not, in the majority's view, delegate a decision of this economic and political magnitude. Even if the statute left a gap, the court considered DAPA manifestly contrary to the statutory scheme at Chevron's second step. Previous deferred-action programs were distinguished as limited, country-specific, or bridges connected to statutory legalization rather than authority for this program. The court expressly reserved the validity of individual, genuinely case-specific deferred-action grants. (At 60–66; notes 185–202.)
+
+## King dissent
+
+King would dismiss the case as nonjusticiable. She viewed DAPA as a guideline for prosecutorial discretion and its collateral eligibility effects as products of unchallenged, preexisting statutes and notice-and-comment regulations. Lawful presence did not equal legal immigration status, and revocable nonremoval did not become reviewable simply because other law attached benefits to it. She also expressed serious concerns about broad state standing based on indirect costs Texas had chosen to bear and about expanding special solicitude from Massachusetts. (At 71–94; dissent notes 13–31.)
+
+On procedure, she would find a policy statement. The memorandum's flexible enforcement criteria and open-ended last factor required judgment. Instructing employees to use discretion was not the same as eliminating it, and detailed guidance could channel discretion without fixing outcomes. At the relevant district-court stage there was no actual implementation record for the parental program. Inferring its operation from DACA was unsupported, particularly because the programs' substantive criteria differed. (At 94–108.)
+
+King criticized reliance on low denial rates, selected public statements, the conflation of rejections with denials, and an improper transfer of the preliminary-injunction burden to DHS. Neufeld's detailed declaration supported genuine discretion and explained the agency's inability to produce the requested historical breakdown. In her view, Palinkas's conclusions and standardized reporting forms did not establish mechanical decisions; at minimum, the conflicting declarations required an evidentiary hearing. (At 108–116.)
+
+King would avoid the substantive APA issue but also rejected the majority's analysis. Permanent-residence requirements did not precisely resolve revocable lawful presence; permissive statutory recognition of selected deferred-action categories did not prohibit other established discretion. Existing practice, broad delegations, and longstanding work-authorization regulations supported DHS's authority. DHS's immigration expertise also distinguished King v. Burwell's concern about assigning health-insurance policy to the IRS. Scale alone did not turn permissible individual discretion into forbidden action. (At 116–124; dissent notes 56–62.)
+
+## Injunction and judgment
+
+The majority found irreparable state losses because retracting licenses and benefits after implementation would be difficult, and held the balance of harms and public interest favored preserving the status quo. DHS retained its enforcement priorities. Nationwide relief was upheld because federal immigration administration was intended to be uniform and beneficiaries could move across state lines, undermining geographically limited relief. The court affirmed the preliminary injunction by a 2–1 vote. It did not order deportation, grant final merits relief after trial, decide the Take Care claim, or invalidate every form of deferred action. (At 66–70.)
+
+## Exam use
+
+Separate standing, reviewability, rule classification, statutory authority, and the remaining injunction factors. A document expressly preserving discretion can still raise a binding-practice question, but the evidentiary dispute and standard of review must be stated. Compare the document-focused analysis in General Electric with the contested prediction about implementation here. Completing notice and comment would not by itself answer the majority's independent statutory-authority objection.
+
+## Source and reading scope
+
+The complete [court-hosted revised opinion](https://www.ca5.uscourts.gov/opinions/pub/15/15-40238-CV0.pdf) was read through all 135 PDF pages: the majority and all 211 notes, King's entire dissent and all 62 notes, and both attached DHS memoranda with their retained notes. The full assigned majority/dissent excerpt and retained judicial footnotes were read in extraction. Bracketed summaries and the later editorial Notes are identified as editorial material rather than additional judicial holdings. In particular, the source's shorthand about no DAPA grants is not extended to all 2014 DACA changes: the full opinion defines DAPA broadly and reports disputed early implementation in note 141. This brief addresses the historical November 2015 decision without certifying current immigration-law validity. Separate source review is recorded in the accompanying register.

@@ -1,0 +1,44 @@
+# In re Core Communications, Inc.
+531 F.3d 849 (D.C. Cir. 2008) | Legislation and the Regulatory State
+
+## Court, question, and enforceable deadline
+
+On July 8, 2008, Garland wrote for a unanimous D.C. Circuit panel with Tatel and Griffith in No. 07-1446. Griffith joined and separately concurred. Six years after remanding FCC's interim compensation rules for a valid legal explanation, the court found the unexplained delay egregious and granted Core's second mandamus petition. FCC had to issue a final, appealable order explaining its legal authority by November 5, 2008. There would be no extensions. The rules would be vacated November 6 unless the court received notice of compliance; the panel retained jurisdiction. This was a conditional future vacatur, not immediate invalidation or a direction to choose particular compensation rates. (850, 855–862.)
+
+## Carrier economics and the unexplained rules
+
+A dial-up user usually called through an incumbent local exchange carrier to a competing carrier serving an internet service provider. The competing carrier then delivered the call to the ISP. Core was such a competitive carrier. Section 251(b)(5) generally required reciprocal compensation for transporting and terminating telecommunications, under which the originating carrier paid the terminating carrier for using its facilities. For ISP-bound calls the flow tended to be one-way. FCC believed the existing system encouraged arbitrage and distorted competitive entry. (850–852 & n. 1.)
+
+FCC's 1999 declaratory ruling treated ISP traffic as nonlocal, interstate traffic outside the reciprocal-compensation provision. In Bell Atlantic in 2000, the court rejected the insufficient explanation, vacated, and remanded. FCC's 2001 response instead relied on § 251(g) to exclude ISP traffic and adopted an interim regime while pursuing broader reform. Declining rate caps limited what terminating carriers could collect. A mirroring requirement applied those caps only if the incumbent offered the competitive carrier the same capped rate for local traffic. Growth caps restricted compensated minutes, and a new-markets rule excluded traffic without preexisting qualifying agreements. FCC described the arrangement as a three-year interim solution. (851–853 & nn. 1–2.)
+
+WorldCom in May 2002 held that § 251(g) was a transitional provision, not the asserted authority for these new rules. This time the court remanded without vacatur because another lawful basis might exist. That left interim rules operating while FCC was supposed to explain its authority. In separate forbearance proceedings, FCC later stopped applying growth caps and the new-markets rule but retained rate caps and mirroring; the court upheld that decision in 2006. Those proceedings were not an answer to WorldCom's legal-authority question. (853–854 & n. 3.)
+
+## Repeated promises did not produce a reviewable answer
+
+Core first sought mandamus in 2004. FCC represented that staff had forwarded a draft remand order to the chairman, leading the court to defer and require ninety-day reports. A 2005 further rulemaking notice prompted denial without prejudice to renewed relief after significant additional delay. Yet no remand explanation followed. Core filed another forbearance petition in 2006, unsuccessfully, and this second mandamus petition in October 2007. It sought an explanation within sixty days, followed by vacatur if FCC failed. (854–855 & n. 4.)
+
+FCC urged patience for comprehensive intercarrier-compensation reform. The court examined the record behind successive promises: an old proposed reform, the 2004 draft, a later notice with only a footnote hoping to address ISP traffic, and a press release concerning universal-service support rather than the needed authority explanation. On the day of oral argument, counsel said the chairman intended to do everything possible to respond within six months. The court welcomed that representation but found an enforceable order necessary; a chairman's intentions did not assure action by the Commission. (858–859.)
+
+## Mandamus protected the court's mandate and future review
+
+The All Writs Act and APA § 706(1) supported relief for unlawfully withheld or unreasonably delayed action. Mandamus was extraordinary and required a clear duty and egregious delay, but FCC's duty to respond to the remand was undisputed. TRAC supplied six guiding factors: a rule of reason; statutory indications of speed; heightened concern for health and welfare; effects on competing priorities; interests prejudiced; and no need to establish improper motive. No fixed number of years automatically controlled. (855 & n. 5; 856 n. 6.)
+
+This posture differed from ordinary delay in finishing an agency's own proceeding. By leaving rules in place without explaining them, FCC effectively nullified the court's prior determination and prevented Core from challenging a new final explanation. Mandamus could prevent frustration of an earlier order and protect the appellate court's future jurisdiction. Timeliness was implicit in remand even without an express deadline. PEPCO and Radio-Television showed the court could enforce remands after repeated unfulfilled assurances, including by ordering final action or repeal. (855–857 & n. 7.)
+
+The rule-of-reason factor was decisive. Interim rules intended for three years had operated for seven, and the legal explanation had been missing for six years after WorldCom. Core was prejudiced by capped compensation, which it estimated was three to four hundred percent lower than other reciprocal-compensation rates. That was Core's estimate, not a court-determined damages calculation. Declining use of dial-up did not erase its interest, especially in past compensation. The court respected FCC's choice to pursue comprehensive reform but found no technical reason why a statement of existing legal authority required years more. It did not prescribe a regulatory policy or second-guess the larger reform project's merits. (857–859 & n. 8.)
+
+## Forbearance review was not an adequate alternative
+
+FCC argued that Core's pending appeal concerning denied forbearance might furnish another remedy and therefore defeated mandamus. Core sought prospective relief but also possible compensation under preexisting contracts for the period after the 2001 rate caps. Forbearance only addressed future application. An explanation, followed if appropriate by vacatur, might permit a challenge to the asserted lawful basis of past caps. Counsel did not supply a basis to rule out that distinction. The court therefore could not conclude the forbearance appeal adequately supplied all requested relief. It did not decide that Core was already entitled to retroactive payment. (859–860.)
+
+Forbearance also involved different statutory questions about necessity, consumers, and public interest. A potential claim that the petition was deemed granted because FCC missed a deadline likewise did not establish the agency's authority to maintain the interim compensation scheme or vindicate the court's remand. (860–861 & n. 9.)
+
+## Exact order and Griffith's concurrence
+
+The court gave FCC the six months from oral argument that its chairman had promised, rather than Core's requested sixty days. The resulting date was November 5, 2008. Compliance required a final, appealable explanation of legal authority; another tentative step or promise would not suffice. Failure meant automatic vacatur on November 6, with no extension and retained panel jurisdiction. The court had discretion to vacate when it first rejected the explanation, and six unsuccessful years exhausted its confidence in an open-ended remand. (861–862.)
+
+Griffith joined completely but questioned the prudence of open-ended remands without vacatur. Leaving unsupported rules operating could invite agency indifference and force later resort to extraordinary mandamus. He expressly did not decide the disputed legality of remand without vacatur under the APA. Instead he urged considering deadlines with automatic vacatur, bounded completion periods, or vacatur coupled with an opportunity to seek delayed effectiveness. These were his suggestions for future panels, not a new categorical rule adopted by the court. (862–863.)
+
+## Assigned scope and limits
+
+November-a PDF 47–48, printed 621–622, recounts the six-year delay and Griffith's concern, then separately notes the 2010 review of FCC's eventual explanation. The account's shorthand that vacatur would occur three months hence should yield to this judgment's exact November 5 and November 6 dates, measured from the May 5 oral argument. The complete 2008 opinion, all nine majority notes, and full concurrence are covered; the later merits judgment is a distinct decision. This brief does not certify later compensation claims or current citator status.

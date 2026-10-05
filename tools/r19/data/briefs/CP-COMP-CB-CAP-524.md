@@ -1,0 +1,53 @@
+# Partmar Corp. v. Paramount Pictures Theatres Corp.
+
+**347 U.S. 89 (1954) — Supreme Court of the United States, February 8, 1954.** Justice Reed wrote the majority opinion. Chief Justice Warren dissented, joined by Justice Black. Justices Jackson and Clark did not participate; the participating Court divided 5–2. Civil Procedure: issue preclusion, separate trials, and appellate review by a party that prevailed on the original claim. Assigned source: *CivPro.pdf*, physical page 629, Note 2, printed 1244–1245.
+
+## Facts and the antitrust backdrop
+
+Paramount leased its Los Angeles Downtown Theatre to Partmar, a corporation owned by Fanchon & Marco. The 1939 lease and accompanying film franchise initially ran for ten years; a 1942 amendment extended the lease to March 1952. The franchise licensed first-run Paramount films, required their exhibition for at least 46 weeks each year, and established fees. The lease permitted Paramount to terminate it if the franchise was canceled or terminated for any reason. (92.)
+
+A separate government antitrust action against Paramount and other film companies produced a 1946 decree prohibiting performance of existing film franchises. Paramount then notified Partmar that it was canceling the franchise because of that decree and terminating the lease because the franchise had ended. Partmar refused to surrender the theatre. Paramount sued in federal district court in California for possession and a declaration that the lease had properly ended. The complaint invoked diversity jurisdiction. (92–93.)
+
+Partmar and its parent defended and counterclaimed for treble antitrust damages. They alleged that Paramount’s industry conspiracy enabled it to impose excessive franchise charges and lease terms, including a provision requiring payment of half the theatre’s net receipts. The district court ordered separate trials, with Paramount’s possession and declaratory claims first. Before that trial, the Supreme Court reversed the franchise-related portion of the government decree: franchises were not necessarily illegal per se for every theatre regardless of size. Paramount’s original justification had therefore changed, but its eviction action continued without amended pleadings. (93–95, n.4.)
+
+## The first trial and the disputed significance of its findings
+
+According to the majority, the first trial presented whether the New York decree justified termination and whether the agreements themselves were illegal under federal antitrust law. Paramount sought to show that its own agreements were unlawful, which would support recovering possession under California law. Partmar vigorously argued that the franchise remained valid, including that no conspiracy had been alleged or proved. The parties’ trial positions thus placed the agreements’ connection to conspiracy in issue, in the majority’s account. (95–96.)
+
+After an 18-day trial, the district court held that the lease’s termination clause required a legal or substantial reason and that the government decree supplied none. It found no substantial conspiracy evidence and held that the single franchise was not itself unlawful. The court also announced that Partmar could not recover on its counterclaims. At a later hearing on proposed findings and conclusions, Partmar expressly objected to those dismissals; argument was heard, but the judge adhered to the result. (96–98.)
+
+The final judgment sustained Partmar’s lease and franchise rights and rejected Paramount’s unlawful-detainer claims. It simultaneously dismissed Partmar’s treble-damage counterclaims **with prejudice**, without their promised separate trial. Partmar appealed the dismissal, but did not appeal the portions sustaining its contractual and possessory rights. The Ninth Circuit affirmed. Supreme Court review was limited to the counterclaims. (98–100.)
+
+## Holding: the majority’s issue-preclusion analysis
+
+The Court affirmed dismissal. It distinguished claim preclusion from issue preclusion: the counterclaims asserted a personal right not previously adjudicated as a cause of action, so a blanket claim-preclusion theory did not supply the answer. But a matter actually litigated and essential to final judgment could bind the parties in a different cause of action. The Court considered the finding that the agreements were not products of an illegal conspiracy both actually contested and necessary to Partmar’s successful defense. That same issue was indispensable to Partmar’s damages theory. (90–92, 100–101.)
+
+The majority rejected the argument that the separate-trial order guaranteed a second chance to prove conspiracy. Before final judgment, a trial court could modify an earlier separate-trial order for appropriate reasons. Here, Partmar had an opportunity to present evidence and contest the conspiracy finding, including argument before the findings were adopted. Once the principal action conclusively determined the necessary issue, a second trial on that issue would defeat preclusion rather than supply a required procedural protection. The dismissal therefore did not deny due process under the majority’s account of what had occurred. (100–101.)
+
+This reasoning depends on necessity and actual determination. The opinion expressly says that an immaterial finding would not have preclusive effect. It does not hold that merely having had an opportunity to litigate every possible issue is sufficient in a different cause of action. That distinction was the center of Warren’s disagreement. (91, 100–101; 104, 108.)
+
+## The majority’s appeal analysis
+
+Note 6 addresses the unusual circumstance that the party who won the eviction claim was harmed by an essential finding used to dismiss its counterclaims. The majority said Partmar **could have appealed** the relevant determination. It distinguished findings unnecessary to a decree, which neither support an appeal by a prevailing party nor establish issue preclusion. In its view, the no-conspiracy determination was necessary to defeating Paramount’s possession claim, so inability to appeal an immaterial or moot issue was not this case. Partmar’s failure to challenge the favorable contractual portion left that judgment binding. (99, n.6.)
+
+The assigned account summarizes this as a winner on the original claim but a loser on the counterclaim who could appeal an issue directly affecting the latter. The actual note’s emphasis is more particular: necessity of the finding to the decree and the resulting exceptional need to challenge a determination essential to a favorable judgment. The case should not be converted into a general authorization for winners to appeal every unfavorable statement in an opinion. (Assigned printed 1245; actual 99, n.6.)
+
+## Why the government judgment did not supply the missing proof
+
+Partmar also argued that a counterclaim trial would permit use of the earlier government antitrust judgment as prima facie conspiracy evidence under §5 of the Clayton Act. The majority found no prejudicial exclusion supporting another trial. The Supreme Court had reversed the earlier franchise-specific finding, and the final Paramount decree contained no finding that these particular agreements resulted from the industry conspiracy. Government antitrust judgments could supply evidence of matters actually determined, not of an additional link they had never established. The prior decree could show a conspiracy generally without proving that Partmar’s lease was produced by it. (100–103, n.8.)
+
+Note 9 also distinguishes a general legal proposition from an adjudicated fact, question, or right. Preclusion does not freeze every abstract statement of law for all future demands. Here the majority treated the specific conclusion about these agreements as binding in the related controversy whether characterized as factual or legal. (103, n.9.)
+
+## Warren’s dissent, joined by Black
+
+Warren agreed with the doctrine’s requirement of actual litigation, but disputed its application. He described Paramount’s revised eviction theory as the agreements’ unlawful provisions apart from conspiracy. Partmar’s conspiracy defense had been stricken, and the court rejected Partmar’s effort to introduce the government decree in full as conspiracy evidence. The parties had consented to separate trials, and the judge expressly acknowledged that no evidence had been offered on the counterclaims. In Warren’s view, absence of proof in Paramount’s possession case was not a fair adjudication against Partmar of the affirmative damages case reserved for later trial. (104–108, dissent nn.1–7.)
+
+The dissent rejected converting Partmar’s argument that Paramount failed to prove conspiracy into proof that Partmar actually litigated its own conspiracy claim. For distinct causes of action, a neglected opportunity alone was insufficient; here, Warren additionally considered the opportunity affirmatively denied. The majority’s result penalized Partmar for not helping Paramount establish illegality and win eviction. Warren would reverse and instruct the district court to hear the counterclaims. (106–109, dissent n.3.)
+
+His final note disputed the asserted right to appeal. Partmar had prevailed on possession, and the adverse finding was not inserted into the decree in the manner that could justify appellate correction. Warren read *Lindheimer*, *New York Telephone*, and *Electrical Fittings* as inconsistent with the majority’s materiality-based distinction. If Partmar could not appeal the finding, it should not be bound by it in a different claim. This is the dissent’s competing legal and procedural account, not a second holding of the Court. (109, dissent n.8.)
+
+## Judgment and source scope
+
+The Court **affirmed the Ninth Circuit’s judgment sustaining dismissal of the counterclaims with prejudice**. Its certiorari review did not reopen the unappealed judgment preserving the lease and franchise. The assigned Note 2 develops the appellate-right disagreement and accurately attributes the contrary view to Warren; the full dissent provides additional reasons concerning separate trials and actual litigation. Neighboring accounts and questions were read as context, not as complete judicial-source coverage of those other matters. (100, 103; assigned physical 629.)
+
+All 21 official physical pages, all nine majority notes, all eight dissent notes, and the complete dissent were read before drafting. The entire assigned page was read in native text and original scan. This is the historical decision; no current-law or citator conclusion is asserted. Sources: [complete official report](https://www.govinfo.gov/content/pkg/USREPORTS-347/pdf/USREPORTS-347-89.pdf); source hashes and reading scope accompany this brief.

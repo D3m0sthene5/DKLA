@@ -1,0 +1,39 @@
+# Ferens v. John Deere Co.
+
+**494 U.S. 516 (1990) — March 5, 1990.** Justice Kennedy wrote for a five-Justice majority joined by Chief Justice Rehnquist and Justices White, Stevens, and O’Connor. Justice Scalia dissented, joined by Justices Brennan, Marshall, and Blackmun. CivPro assigns the developed account on physical page 230, printed pages 416–417, before Note 4’s discussion of federal-question transfers.
+
+## Facts and the two lawsuits
+
+Albert Ferens lost his right hand in Pennsylvania when, according to the allegation, it became caught in a combine harvester manufactured by Deere. He did not sue in tort before Pennsylvania’s two-year limitations period expired; the record did not explain the delay. In the third year, Ferens and his wife filed a diversity action in the Western District of Pennsylvania asserting contract and warranty claims whose limitations periods had not expired. They were Pennsylvania residents, while Deere was incorporated in Delaware with its principal place of business in Illinois. **519.**
+
+They also filed negligence and products-liability claims in the Southern District of Mississippi, where both diversity jurisdiction and venue were proper. Under Klaxon, the federal diversity court would use Mississippi’s choice-of-law rules. Those rules selected Pennsylvania substantive law for the injury but Mississippi’s six-year tort limitations period. Mississippi’s borrowing statute did not displace that period because, as the parties agreed, Deere was already a corporate resident there before the claim accrued. Thus the strategy changed the applicable limitations rule, rather than replacing the injury’s substantive liability law wholesale. **519–520.**
+
+The Ferenses next moved under §1404(a) to transfer the tort case to Pennsylvania. Their home, the accident, witnesses, documents, and pending warranty action all supported Pennsylvania’s convenience, while the tort claim had no connection to Mississippi. Deere did not oppose transfer. The Mississippi court granted it, and the Pennsylvania court consolidated the tort case with the warranty case. **520–521.**
+
+The Pennsylvania court nevertheless applied Pennsylvania’s limitations period and dismissed the tort claims. It treated Van Dusen’s preservation of transferor choice-of-law rules as limited to defendant-initiated transfers. The Third Circuit initially affirmed on a due-process theory concerning Mississippi’s lack of interest. The Supreme Court vacated that judgment in light of Sun Oil, and on remand the Third Circuit again affirmed, this time squarely holding that plaintiff-initiated transfer did not preserve the transferor rules. **521.**
+
+## Issue, statute, and holding
+
+Does a plaintiff’s §1404(a) convenience transfer carry the transferor forum’s choice-of-law rules into the receiving federal court? The Court held that it does. In a diversity case, transfer under that provision does not change the governing law merely because the plaintiff, rather than the defendant, requested it. Mississippi’s limitations rule therefore continued to govern these tort claims. **518–519, 523, 532–533.**
+
+The statutory text authorized transfer for parties’ and witnesses’ convenience and in the interest of justice; it did not itself specify choice-of-law consequences or distinguish plaintiffs from defendants. Van Dusen had preserved the transferor rules after defendant-initiated transfer, understanding §1404(a) as changing courtrooms without defeating the original permissible forum’s state-law advantages. Ferens extended that approach to the previously reserved plaintiff-transfer question. **521–523.**
+
+## Majority’s reasons
+
+First, the majority saw preservation of the transferor law as consistent with Erie. A plaintiff could already litigate in the favorable state forum or its federal diversity counterpart. Transfer removed inconvenience without taking away the legal advantages of that permissible initial selection. The defendant lost the practical advantage of forcing litigation in a distant forum, but not a legal rule that would otherwise govern in that forum. Section 1404(a) did not protect the ability to discourage a proper suit through inconvenience. **524–527.**
+
+Second, the Court distinguished acquiring favorable law through transfer from preserving favorable law already available through initial forum selection. Van Dusen prevented defendants from using transfer to obtain a change of law. The Ferenses had already selected a forum with a favorable limitations rule; transfer made that existing selection more convenient. The majority acknowledged forum shopping but did not regard §1404(a) as a mechanism for punishing every permissible choice among states with different laws. **527–528.**
+
+Third, keeping the governing law stable separated convenience decisions from predictions about legal prejudice. If transfer changed substantive advantages, courts might need extensive comparison of limitations periods, burdens, and presumptions before deciding whether transfer unfairly harmed a party. Plaintiffs might also refuse useful transfers to preserve favorable law. Convenience mattered to witnesses, courts, and the justice system, not only the moving party; leaving related lawsuits in distant courts imposed systemic costs. **528–531.**
+
+Finally, one rule avoided complications concerning joint transfer requests, court-initiated transfers, multiple plaintiffs, and changed circumstances. The Court acknowledged that the result could appear generous to these plaintiffs. But forcing them to keep separate Mississippi tort and Pennsylvania warranty suits would preserve avoidable expense. It also rejected letting plaintiffs simply file in Pennsylvania and request a distant state’s law: an actual §1404(a) transfer still required a convenience and interest-of-justice determination, not an automatic entitlement. **530–532.**
+
+## Scalia’s dissent
+
+Scalia began with the Rules of Decision Act and Klaxon’s principle of uniformity between state and federal courts within a state. Van Dusen protected a plaintiff’s initial forum selection from a defendant’s attempt to change the governing law. That justification did not support a plaintiff choosing a distant forum only as a temporary stop to bring its law home. The Pennsylvania federal court would now apply law unavailable in the Pennsylvania state court where plaintiffs wanted to litigate, encouraging precisely that state-versus-federal forum shopping. **533–536.**
+
+He also disputed the majority’s accounting of efficiency. The rule could generate additional distant filings, transfer proceedings, and work applying other states’ conflicts rules. Court-initiated transfer could still alleviate serious inconvenience under his approach; his first note explained why he would not extend Van Dusen to such transfers, and his second described the diversity of state choice-of-law approaches. The basic disagreement was which statute supplied the starting point: the majority emphasized §1404(a)’s convenience policies, while Scalia emphasized the Rules of Decision Act and intrastate uniformity. **536–540 & nn.1–2.**
+
+## Exact result and boundaries
+
+The Court **reversed and remanded** the Third Circuit judgment, concluding that Mississippi’s statute of limitations should govern. **532–533.** It did not decide that the harvester was defective, award damages, or guarantee that the Ferenses would prevail on the revived tort claims. The source contains the complete majority and dissent, the counsel/amicus starred note at 518, and both dissent notes; the majority has no numbered judicial footnotes or appendix. The assigned account accurately presents the transfer rule but abbreviates the two plaintiffs and earlier appellate sequence. This brief concerns the historical proper-venue diversity transfer at issue. Independent-review status appears in the accompanying register.

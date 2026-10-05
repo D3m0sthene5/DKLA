@@ -1,0 +1,40 @@
+# Akers v. J. B. Sedberry, Inc.
+39 Tenn. App. 633, 286 S.W.2d 617 (Sept. 9, 1955) | Contracts
+
+## Decision and review posture
+
+The Tennessee Court of Appeals affirmed decrees awarding damages to two employees whose employer purported to accept resignation offers that no longer existed. Their face-to-face offers did not remain open beyond the meeting, and the employer’s conduct had already rejected them earlier in the conversation. Felts J. wrote the sole opinion, with Hickerson and Shriver JJ. concurring. The employer and its president sought review by writ of error of the consolidated chancery causes; the employees also challenged denial of interest. All assignments were overruled, appellate decrees were directed for the amounts below with interest, costs were charged against defendants and their cost-bond sureties, and the causes were remanded for further proceedings. (635, 641–646.) All pinpoints below refer to the Tennessee Appeals report.
+
+## Employment and financial difficulties
+
+J. B. Sedberry, Inc., a Tennessee distributor of hammer mills, employed Charles William Akers as chief engineer under a five-year written contract beginning July 1, 1947. He received $12,000 annually, payable monthly, plus a profit percentage increasing from one percent in the first year to five percent in the fifth. William Gambill Whitsitt became assistant chief engineer under a parallel five-year contract beginning August 1, 1947, at $7,200 annually and the same percentage progression. Mrs. M. B. Sedberry, the corporation’s president and principal shareholder, guaranteed both contracts. At her direction they moved to Tyler, Texas, to supervise manufacturing by the separate Jay Bee Manufacturing Company. (635–636.)
+
+When these contracts were made, Mrs. Sedberry held no stock in the manufacturer. She later acquired shares in 1948 and 1949. After the former manager’s departure, friction developed between the engineers and replacement manager A. M. Sorenson. The manufacturer also owed substantial sums to a Tyler bank whose officers questioned Sorenson’s management. Following a bank officer’s visit, Mrs. Sedberry asked the officers to discuss refinancing and operating plans with the engineers. (636–637.)
+
+## The meeting and attempted acceptance
+
+Akers and Whitsitt visited Mrs. Sedberry without advance notice on Friday, September 29, 1950. Their conference lasted from 9:30 a.m. to 4:30 p.m. Concerned that the unannounced visit might appear disloyal, they offered to resign at its outset as evidence of good faith. They testified that the offer required ninety days’ notice and payment under their contracts; she disputed the notice condition. Their accounts agreed that she did not accept then. She testified that she privately wanted to consult Sorenson and consider the proposal, but she communicated no reservation of the offers for later decision. (637–639.)
+
+Instead, she continued the business discussion, gave the engineers instructions, and had them return to Texas to carry those instructions out. Nothing further was said about resignations during the conference. Akers reported the bank’s suit against the companies on Friday evening and discussed refinancing developments with her after another bank conference on Saturday. On Monday, October 2, she sent telegrams purporting to accept the resignations immediately and directing cessation of engineering-department work and expenses. (638–640.)
+
+The engineers’ October 16 letters disputed any outstanding offer. Akers had delayed sending his earlier letter at her brother’s request; both employees asserted continuing rights under their contracts and claimed the loss of compensation, allowing for replacement earnings. Mrs. Sedberry’s November 10 response maintained that their offers had been unconditional. Her expression of a wish for settlement produced no agreement. (640–641.)
+
+## Termination required an existing offer and timely acceptance
+
+The court treated a proposed resignation from fixed-term employment as an offer to change or end the contractual relationship by mutual assent. It was not self-executing simply because the employees tendered it. Like other offers, it had to be accepted on its terms while still effective; rejection or lapse ended the power to accept. Where no time was specified, reasonable duration depended on the proposed transaction, business usage, and surrounding circumstances. Ordinarily, a face-to-face offer without contrary words or circumstances remained open only through the conversation. (641–642.)
+
+Here, the engineers expected an immediate response. Nothing showed an intention to preserve their offers after the meeting. They therefore could not be accepted by the Monday telegrams. The court also found a more immediate ground: Mrs. Sedberry’s conduct during the meeting justified the engineers in understanding that she had rejected the offers. She brushed them aside and resumed plans for their future work. An unexpressed intent to deliberate did not outweigh that objective conduct. Thus, even before the ordinary conversational lapse, the offers had been rejected. (642–643.)
+
+With no resignation offer remaining, the employer’s attempt to terminate the fixed-term contracts breached them. The court did not impose a universal rule that every conversational offer expires instantly, and did not treat the ninety-day notice period as an agreement that the offers themselves remained open for ninety days. It addressed these offers in the context of this meeting and the employer’s response. (641–644.)
+
+## Damages, profits, and interest
+
+The recovery measure was contractual salary and profit percentages during the remaining terms, less what each employee could earn elsewhere through due diligence. The chancellor allowed Akers $17,927.75 and Whitsitt $4,200 in salary recovery after earnings offsets, plus their contractual shares of the distributor’s net profits before taxes: four percent for the stated fourth-year period and five percent through their respective expiration dates. Because the profit amounts were not established, their determination was referred to a special master. The opinion therefore did not finally quantify the entire recovery by reporting the salary figures alone. (644.)
+
+The defendants argued that losses of the manufacturing company should reduce the distributor’s profits as parent and subsidiary. The contracts, read at formation, did not contemplate that offset: the distributor then had no ownership interest in the manufacturer. The record also did not satisfactorily establish the asserted later parent-subsidiary ownership, domination, or control. The court accordingly rejected the proposed deduction. (644–645.)
+
+Nor could recovery be limited to ninety days by the terms of an unaccepted resignation offer. That offer had terminated and never became a modification of the employment contracts. The employees’ own interest challenge also failed: their damages were not liquidated and settled accounts drawing statutory interest from the claimed maturity dates, and the chancellor had not abused discretion in denying such interest. This rejection is distinct from the final direction to enter appellate decrees for the amounts below with interest. (645–646.)
+
+## Assigned scope and complete reading
+
+The assigned account is the Akers paragraph in C&M Textbook 1–350 physical PDF page 284, printed 239, introducing conversational lapse and the affirmed employee recovery. The complete original Tennessee report, 633–646, was read in transcription and all fourteen original scans. Its judicial opinion begins on 635; there are no judicial footnotes or separate writings. The reporter’s later notation records denial of certiorari on February 3, 1956, which is distinct from this September 9, 1955 appellate decision. The Tennessee pagination was used for verified pinpoints rather than guessing parallel Southwestern page locations. This is a historical account; separate source review is tracked in the accompanying register.

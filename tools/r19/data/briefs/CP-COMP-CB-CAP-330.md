@@ -1,0 +1,45 @@
+# Treinies v. Sunshine Mining Co.
+
+**308 U.S. 66 (1939). Decided November 6, 1939. No. 4.** Justice Reed delivered the Court’s opinion; Justice Butler did not participate. The complete report contains no separate opinion. Assigned account: Civil Procedure casebook, physical PDF page 407, printed page 782, Note 1 following State Farm v. Tashire.
+
+## Facts and competing claims
+
+Amelia Pelkes died in Washington in 1922. Her husband, John Pelkes, and her daughter from an earlier marriage, Katherine Mason, were beneficiaries. Her community estate included 30,598 Sunshine Mining shares then considered worthless; the shares were neither inventoried nor appraised. The distribution order’s omnibus provision assigned three-fourths to Pelkes and one-fourth to Mason, but they divided the inventoried property by their own arrangement instead of following that order. Pelkes and his assignee, Evelyn Treinies, later contended that Mason had surrendered all her stock interest in exchange for that partition. Mason claimed that Pelkes instead agreed to hold half the shares, 15,299, in trust for her. **308 U.S. at 68–69.**
+
+These competing accounts generated conflicting judgments. Mason sued in Idaho in August 1934 to establish the trust and recover the shares and dividends, alleging that Treinies took the shares from Pelkes knowing Mason’s rights. Meanwhile, Mason sought Pelkes’s removal as executor in the Washington probate proceeding. Pelkes asserted ownership there. The Washington Supreme Court refused Mason’s request to prohibit further probate proceedings for lack of jurisdiction; on May 31, 1935, the Washington Superior Court awarded ownership to Pelkes. The Idaho litigation nevertheless culminated, after an Idaho Supreme Court appeal, in an August 18, 1936 decree awarding the disputed shares and dividends to Mason. **Id. at 69–70.**
+
+Pelkes and Treinies then brought a Washington quiet-title action attacking Idaho’s jurisdiction and seeking recognition of their ownership by Sunshine. Sunshine, a Washington corporation exposed to competing claims, filed federal statutory interpleader in Idaho. Treinies’s group were Washington citizens; Mason’s group were Idaho citizens. Sunshine deposited the disputed property, and the federal district court enjoined further prosecution of the Washington quiet-title action. The Ninth Circuit affirmed the federal decree, and the Supreme Court reviewed it. **Id. at 67–70.**
+
+## Issues and positions
+
+The Court first raised federal jurisdiction on its own initiative because a defect below would also affect its jurisdiction. Could statutory interpleader proceed when the stakeholder shared Washington citizenship with one claimant group? The Court then addressed objections involving the Eleventh Amendment, federal injunctions against state litigation, and the competing state judgments. Treinies argued that the Washington probate court had exclusive jurisdiction and that its previously litigated jurisdictional ruling and ownership judgment deserved full faith and credit. The Idaho decree was invoked as conclusively resolving those questions against her. **Id. at 70, 73–76.**
+
+## Interpleader jurisdiction
+
+The 1936 Interpleader Act required diversity between adverse claimants. Sunshine’s shared citizenship with the Washington claimants therefore did not defeat the statutory grant. Article III also permitted this case. Crucially, the Court did **not** need to decide whether Article III generally allowed less than complete diversity. Even assuming constitutional complete diversity was required, this controversy satisfied it because the real contestants were the opposing Washington and Idaho claimants. **Id. at 70–72.**
+
+Deposit and discharge mattered to that characterization. The stakeholder placed the disputed property in the court’s registry, and the Act provided for its discharge from further liability. Those features demonstrated its lack of a stake in which adverse claimant won. It remained a proper party for resolving their controversy without becoming another substantive contestant whose citizenship defeated jurisdiction. The Court supported this reasoning with precedents treating stakeholders or separable controversies according to the actual dispute rather than every party’s formal presence. **Id. at 72–73.**
+
+This reasoning had express limits. Footnote 11 distinguished a debtor contesting diverse claimants’ demands while seeking equity jurisdiction to avoid multiple suits. Footnote 17 did not decide whether the holding conflicted with cases that rested jurisdiction on diversity between the applicant and claimants who were themselves cocitizens. The decision concerns the particular alignment and disinterested stakeholder before the Court; it should not be expanded into an answer to every possible interpleader citizenship problem. **Id. at 72 n.11, 73 n.17.**
+
+## State officials and protection of the proceeding
+
+Including a Washington judge and receiver as defendants did not violate the Eleventh Amendment. Neither was enjoined by the final decree, Washington had no interest in the property controversy, and the injunction operated against the private parties whose ownership rights were resolved. **Id. at 73–74.**
+
+The earlier Judicial Code § 265 generally barred federal stays of state proceedings, but the later Interpleader Act expressly authorized injunctions against parties prosecuting other suits concerning the interpleaded property. Congress could adjust that statutory limitation on general equity powers. Protecting this interpleader proceeding through the authorized injunction was therefore valid. This was a holding under the statutes then before the Court, rather than a claim that federal courts possess unrestricted power to stop state litigation. **Id. at 74.**
+
+## Why the Idaho decree controlled
+
+Treinies’s substantive challenge depended on the premise that the Washington probate court retained exclusive authority over the shares. That premise already had been contested in Idaho. The Idaho court, a court of general jurisdiction with all relevant parties before it, considered the Washington judgment and concluded that Washington lacked jurisdiction over the post-distribution stock arrangement. It sustained Mason’s trust claim and awarded her the disputed property and dividends. Its rejection of Washington’s claimed exclusive jurisdiction necessarily resolved Treinies’s corresponding challenge to Idaho’s jurisdiction. **Id. at 75–78.**
+
+The federal interpleader proceeding was not another opportunity to retry that jurisdictional issue. A second court could examine the first court’s jurisdiction; even an erroneous conclusion in that examination was an exercise of judicial power to be challenged through direct review. Jurisdictional issues, including subject-matter and personal jurisdiction, could themselves become precluded. The Court noted that Treinies sought unsuccessful certiorari review of the Idaho Supreme Court decision but did not seek review of the final Idaho district decree on remittitur. **Id. at 77–78.**
+
+Footnote 21 preserves an important qualification. The Court did not determine whether Idaho’s examination of Washington jurisdiction was substantively correct. It discussed Idaho’s treatment of foreign-state law, including the parties’ stipulation, the Idaho presumption that unproved foreign law matched Idaho law, and the different consequence proper proof would have required. Those questions belonged in direct review of the Idaho proceedings, not collateral relitigation in interpleader. Footnote 26 also explained the Court’s conclusion that the stated preclusion principle applied under Idaho law. **Id. at 77 n.21, 78 n.26.**
+
+## Judgment and assigned significance
+
+The Supreme Court **affirmed the decree**. The federal jurisdiction, property-related injunction, and recognition of the Idaho determination survived Treinies’s challenges. Butler’s nonparticipation is expressly recorded; no numerical vote tally or separate writing is supplied. **Id. at 78.**
+
+The assigned note focuses on the stakeholder’s deposit and discharge and asks whether treating it as nominal for diversity was realistic. The complete decision supports that inquiry while adding the express constitutional reservation and the independent preclusion analysis. It demonstrates both why the stakeholder’s citizenship did not destroy this statutory interpleader case and why interpleader did not reopen an ownership and jurisdiction controversy already conclusively adjudicated between the actual claimants.
+
+**Sources:** Entire official [United States Reports reproduction](https://www.govinfo.gov/content/pkg/USREPORTS-308/pdf/USREPORTS-308-66.pdf), including all 26 judicial footnotes. The 13-page file begins with the end of a different decision on page 66; the Treinies caption follows there, and its complete judicial opinion occupies pages 67–78. The entire assigned physical page 407 was read in native extraction and the original scan; its own Note 1 ends before Note 2.

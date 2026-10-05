@@ -1,0 +1,28 @@
+# By-Lo Oil Co. v. ParTech, Inc.
+11 F. App’x 538 (6th Cir. 2001) | Contracts
+
+## Software support and the approaching year 2000
+By-Lo used ParTech’s ProfiMax and PetroMax software for fuel, convenience-store, and accounting operations. One contract provision required requested modifications at ParTech’s normal charges; another provided continuing support for a monthly fee. For summary judgment, the parties assumed the support provision required Y2K compliance. They did not make the same agreement about the separate modification clause. 11 F. App’x at 540.
+
+After an unanswered September 1997 inquiry, By-Lo’s controller wrote January 7, 1998 demanding a commitment by January 31 that the software would function after December 31, 1999. He invoked the $625 monthly maintenance fee and threatened suit and replacement at ParTech’s expense. His later affidavit identified concern about an April 1999 fiscal-year start, but the letter did not disclose that concern. ParTech’s response explained that upper management would decide after gathering appropriate data and would notify him. A visit to its headquarters produced the same answer. Id. at 540–41.
+
+By-Lo sued a different ParTech company in May 1998, obtained a default, and purchased over $175,000 in replacement software and necessary hardware in June. Unaware of those steps, the actual contracting company promised free compliant software November 20 and delivered it with instructions December 18. Its date-check-plus-one system required installation before January 1, 1999; By-Lo had not known that feature when replacing its system. It did not install the update because it had switched equipment. Id. at 541.
+
+## Correct defendant, claims, and review posture
+By-Lo sued the actual contracting party in Michigan state court in May 1999; ParTech removed on diversity grounds. Consumer-protection and product-liability claims were dropped. Contract and warranty claims remained below, but warranty claims were not raised on appeal. By-Lo claimed anticipatory breach under Michigan’s Code sections 2-609 and 2-610 and failure to honor the separate modification provision. The district court granted ParTech summary judgment. Review was de novo, with favorable inferences for By-Lo but a need for evidence permitting a reasonable jury verdict. Id. at 541–42 & n.1.
+
+## No request activated the modification clause
+The district court apparently omitted separate analysis of the modification claim. The appellate court nevertheless found remand unnecessary. Modification under Schedule F required a customer request and separate charges. The January letter instead demanded assurance that the monthly support obligation would be fulfilled; it was not a request to make a paid modification. No qualifying request appeared in the correspondence before the court, so that clause supplied no independent breach basis. Id. at 542–43 & n.2. The assigned excerpt omits this first appellate issue entirely; it is restored from the full opinion.
+
+## Adequate assurance ordinarily raises factual questions
+Michigan section 440.2609 allowed a written assurance demand when reasonable grounds for insecurity arose, measured merchants’ conduct by commercial standards, and treated failure to provide adequate assurance within a reasonable period of at most thirty days after a justified demand as repudiation. Both reasonable insecurity and adequacy ordinarily present factual questions. Yet summary judgment remained possible where no reasonable jury could find for the claimant. The parties agreed that Michigan law and the Code controlled. Id. at 543 & n.3.
+
+The court separately resolved both requirements. Due performance was nearly two years away at the January demand, and the ordinary prospect of costly future nonperformance was insufficient by itself. External circumstances could create insecurity, and the Y2K issue combined with unanswered contacts might justify concern at some later point. But there was no evidence of a current shortage of time to obtain alternatives, a long necessary installation period, prior unreliable service, or likely inability to perform. Id. at 543–45.
+
+The controller’s uncommunicated fiscal-year concern did not alter the letter’s stated deadline; the ledger already accepted four-digit years. The affidavit By-Lo relied on for scarce installation personnel concerned a thirteen-day period in December 1998, not May or June, and could not establish the asserted January insecurity. The court found that no reasonable jury could identify justified insecurity at that early date. Id. at 540, 544–45.
+
+## Assurance assessed in its actual setting
+The response promising consideration and notification was less than the definitive commitment demanded. That difference did not automatically make it inadequate. The court considered the weak grounds for insecurity, the remote date, the absence of adverse performance history or reputation, and the assurance then available. Under those circumstances it found the response adequate as a matter of law, independently supporting rejection of the claimed anticipatory breach. It did not approve a noncommittal response in every commercial setting. Id. at 545.
+
+## Judgment and scope
+The Sixth Circuit affirmed. Kennedy wrote for a panel including Daughtrey and District Judge McKeague sitting by designation; no separate opinion appears. The full report’s three numbered judicial notes and its designation note were read. The assigned principal occupies PDF pages 262–267, with an editorial replacement for parts of the facts and omission of the modification analysis. This is a Federal Appendix decision; no claim about its current precedential weight or citator treatment is represented.

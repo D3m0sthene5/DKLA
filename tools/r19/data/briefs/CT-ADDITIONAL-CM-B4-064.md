@@ -1,0 +1,20 @@
+# Angus v. Scully
+176 Mass. 357, 57 N.E. 674 (1900) | Contracts
+
+## Court, verdict, and exception review
+The Massachusetts Supreme Judicial Court decided the case June 20, 1900, following argument November 23, 1899. Justice Hammond wrote with Chief Justice Holmes and Justices Morton, Barker, Hammond, and Loring listed as present; there was no separate writing. The owner challenged a jury verdict for the building movers through exceptions to the trial judge's refusal to bar recovery and his jury instructions. The court overruled the exceptions, preserving recovery for the fair value of services performed before the building's destruction. The report states the agreed $840 contract price but does not state the jury's award. (176 Mass. at 357–359.)
+
+## Partial moving work and destruction by fire
+The movers agreed to relocate the owner's large building from Third Street to First Street and change the positions of two other buildings, one on each lot, for $840. They first moved the house on Third Street, then moved the large building across open lots toward First Street. After it had reached about halfway, fire entirely destroyed it during the night. With the owner's assent, no further moving work was performed. (Id. at 357–358.)
+
+The movers sued on an account annexed for the fair value of services rendered through the fire. The owner's answer alleged nonperformance and attributed the fire to the movers' negligence. The trial judge refused the requested ruling that no recovery was possible and instructed the jury to allow recovery if the fire was not attributable to plaintiffs' negligence. The plaintiffs prevailed. The negligence allegation therefore must not be presented as an established cause; absence of their negligence was the condition on which the verdict was authorized. (Id.)
+
+## Continued existence was an implied condition
+The contract necessarily presupposed the continued existence of the building on which the work was to be performed. Destruction made completion of the contemplated undertaking impossible. Massachusetts precedent supplied an implied obligation to pay for what either party had properly done before failure of that condition, treating the work as done at the other's request. Its value could be determined from the contract price, or another method if that price could not appropriately be applied. Excuse from completing the moving did not erase liability for the already rendered services. (Id. at 358.)
+
+The court framed the specific rule as permitting recovery where a person contracted to repair or perform other work on another's house and, without the worker's fault, the house's destruction made further performance impossible. The movers' situation fell within that rule. This is compensation for proper partial work following failure of an implied condition, rather than an award of lost profits for the owner's breach or an order to pay the full stipulated price notwithstanding incomplete performance. The owner's exceptions were overruled. (Id. at 358–359.)
+
+## Assigned accounts and complete-source scope
+The complete assigned House Halfway account appears on C&M Textbook 1051–1313, physical PDF page 148, printed page 1154, note 2. It adapts the participants as Owner and Mover, omits the other building work and $840 price, and describes the surviving verdict as affirmed without specifying its amount. A further reference on physical page 150, printed page 1156, identifies Angus as supporting the related reliance analysis in Albre Marble. Both assigned passages and their original scans were read.
+
+The complete original three-page report was read in native text, including the caption, procedural account, all of Hammond's judicial text, and the final exception ruling; there are no judicial footnotes or separate writings. The complete CAP opinion was also compared, and original pages 357 and 359 were visually read, distinguishing neighboring decisions from this one. The original identifies Loring, where native OCR misreads Boring. This is the June 1900 decision without current-law certification; separate source review is tracked in the accompanying register.

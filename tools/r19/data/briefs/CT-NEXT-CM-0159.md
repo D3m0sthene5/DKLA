@@ -1,0 +1,28 @@
+# Newsome v. Western Union Telegraph Co.
+153 N.C. 153, 69 S.E. 10 (1910) | Contracts
+
+## Court, posture, and result
+Justice Brown delivered the North Carolina Supreme Court's opinion on Western Union's appeal from a $524.10 judgment. The jury had found negligent transmission and awarded that sum. The trial court refused Western Union's request to instruct that only nominal damages could be recovered. The Supreme Court declared that refusal error and ordered that Newsome was entitled to nominal damages only. The report contains no separate opinion, numbered judicial footnote, or numerical voting statement. 153 N.C. at 154–156.
+
+## Facts and claim
+Newsome sent a telegram to Royal in Benson ordering four gallons of corn whiskey to be shipped by express to Mintz Siding in Sampson County. Western Union transcribed the sender's signature as T. J. Sessons rather than T. J. Newsome. Newsome alleged that he had agreed to supply whiskey to raft workers who were preparing to transport his timber and rosin to Wilmington during a February 1902 freshet, a period of high water suitable for their transport. The workers allegedly refused to enter the water without the whiskey. He therefore claimed to have lost the opportunity to use the freshet and suffered resulting financial harm. These allegations explain the asserted causal chain; the opinion's recital does not establish that every link occurred as Newsome predicted. Id. at 154–155.
+
+The opinion refers to earlier reported proceedings for fuller facts. In the judgment under review, the jury answered yes to negligent transmission and fixed damages at $524.10. Western Union challenged the availability of compensatory damages through its requested nominal-damages instruction. The Supreme Court's ruling addressed remoteness and speculation rather than declaring that miscopying the message was proper. Id. at 154–156.
+
+## Rule and parties' positions
+The court applied Hadley's contract-damages principle but also required that damages be proximate rather than remote and supported by something more than conjectural possibilities. The loss must flow directly and naturally from the breach and be sufficiently certain both in its nature and in its causal source. Newsome's notice to the operator that the whiskey was needed for rafting did not, in the court's view, establish liability for the entire proposed enterprise's results. Id. at 155–156.
+
+Western Union's requested instruction asserted that under no view of the evidence could Newsome recover more than nominal damages. Newsome relied on the relationship between the promised whiskey, workers' participation, the seasonal river conditions, and eventual sale of the products, as well as his communication of the whiskey's purpose to the operator. The opinion does not set out an independent appellate brief from Newsome or provide the detailed earlier trial record; these positions follow the arguments and allegations it actually recounts. Id. at 154–155.
+
+## Reasoning
+The court first emphasized the nature of the telegraph service. Western Union, treated as a public agency, had to accept the telegram for a charge fixed by the Corporation Commission. Unlike an ordinary individual contractor who could decline the transaction, it could not simply avoid an extraordinary risk by refusing to transmit. Notice of Newsome's purpose therefore did not establish that the company contracted with reference to all of the claimed consequences. The court did not exempt telegraph companies altogether from Hadley; it expressly applied that rule while refusing remote and speculative liability. Id. at 155.
+
+The claimed causal chain was too attenuated. Even if nondelivery of the whiskey explained why workers would not enter the water, its arrival did not establish that the raft would be constructed. Construction and loading would not establish safe passage through a heavy freshet to Wilmington, and arrival would not establish profitable marketing. The court required evidence of more than the possibility that each event would have followed the preceding one. It refused to treat four gallons of whiskey as an assurance of the venture's complete success. Id. at 156.
+
+The opinion also observed that sale of the whiskey was prohibited in the relevant county. That observation reinforced its criticism of the claimed consequences, but the court did not separately adjudicate an illegality defense to the transmission contract or hold that no contractual wrong existed. Its express disposition limited recovery to nominal damages. Id.
+
+## Holding and significance
+The refusal of the requested instruction was error because the claimed substantial loss was speculative and remote; only nominal damages were recoverable. The case connects foreseeability with causation and certainty: information about a project's purpose does not itself prove that a breach caused every hoped-for downstream gain. Its discussion of a regulated public-service contractor also bears on the inference that notice constitutes assumption of unusual damages. The opinion does not supply a general modern rule about all telegraph contracts or all new businesses.
+
+## Source scope
+The assigned principal excerpt appears on C&M 1051–1313 PDF pages 34–35, printed pages 1041–1042, ending before the editorial notes on PDF 35. The complete reported decision and its preceding procedural recital were read at 153 N.C. 154–156. The full source supplies the jury's exact $524.10 verdict omitted from the excerpt. Surrounding editorial material was distinguished from the court's reasoning; no current-law or later-treatment certification is claimed.

@@ -1,0 +1,30 @@
+# Williams v. Walker-Thomas Furniture Co.
+350 F.2d 445 (D.C. Cir. 1965) | Contracts
+
+## Purchases, payment allocation, and repossession
+
+Walker-Thomas sold household goods on installment contracts that called the transactions leases, reserved title until the stated price was paid, and allowed repossession after a missed payment. A further printed provision allocated each payment proportionally across every outstanding purchase. This kept a small balance owing on each older item until the customer paid off the entire account. Each new purchase therefore exposed previously acquired household goods to repossession, while the new item also secured prior indebtedness. The court described this effect as obscured by the contractual wording. 350 F.2d at 447.
+
+Two customers challenged its operation. William Thorne purchased a Daveno, three tables, and two lamps for $391.10 in May 1962, defaulted soon afterward, and faced replevin of goods acquired since 1958. Ora Lee Williams bought a $514.95 stereo in April 1962, soon defaulted, and faced replevin of goods bought since December 1957. At the stereo purchase, her older balance was $164. The opinion’s first footnote reports approximately $1,800 in aggregate purchases and $1,400 in payments. The quoted lower-court account says the seller knew that Williams supported herself and seven children on a $218 monthly government stipend; the contract identified her social worker and income. These facts made the allocation clause’s practical consequences important, but the reviewing court did not itself make a final unconscionability finding. Id. at 447–448 & n.1.
+
+## Procedure and common-law authority
+
+The Court of General Sessions entered judgment for the seller. The District of Columbia Court of Appeals affirmed because it believed existing District law supplied no authority to refuse enforcement on unconscionability grounds. It criticized the transaction and called for legislation. On August 11, 1965, the federal circuit court, having granted leave to appeal, considered whether the absence of a prior District decision actually foreclosed a common-law defense. Judge J. Skelly Wright wrote for the majority, joined by Chief Judge Bazelon; Judge Danaher dissented. Id. at 447–448, 450–451.
+
+The majority held that courts had authority to withhold enforcement of a contract unconscionable when made. Decisions from other jurisdictions and the Supreme Court’s treatment of unconscionable bargains showed that this principle was not a novel legislative invention. The District had neither adopted nor rejected it; the case was one of first impression. Congress’s subsequent enactment of UCC § 2-302 did not establish that earlier common law required enforcement. Although the enactment postdated these purchases, the majority treated its rationale as persuasive support for developing District common law. It did not simply apply the new statute retroactively. Id. at 448–449 & nn.2–5.
+
+## Meaningful choice and unfair terms
+
+The majority described unconscionability as the absence of meaningful choice together with terms unreasonably favorable to the other party. Choice must be assessed from all the circumstances, including bargaining power, the buyer’s education, a reasonable opportunity to understand the writing, fine print, and deceptive presentation. A signature ordinarily exposes a party to unfavorable terms, but that ordinary rule loses force when a party with little bargaining power and little real choice accepts commercially unreasonable terms without meaningful knowledge of them. The inquiry concerns consent to the oppressive terms and the conditions under which apparent consent was obtained. Id. at 449–450 & nn.6–10.
+
+Fairness likewise must be judged at formation against the trade’s commercial background and the business practices of the time and place. The court adopted an assessment of whether the terms were extreme in that setting, rather than a mechanical test or a rule that every unequal exchange is invalid. Footnote 7 explains that substantive one-sidedness can itself shed light on bargaining inequality; the two inquiries are related, although neither poverty nor inequality alone was announced as an automatic defense. Id. at 449–450 & nn.7, 11–12.
+
+## Remand and dissent
+
+The majority remanded both cases for further proceedings. Because the courts below thought themselves powerless to refuse enforcement, they had made no findings on unconscionability, and the appellate record did not permit deciding that issue as a matter of law. The holding therefore established an available defense and a framework for examining it; it did not finally invalidate the contracts, discharge all debt, or prescribe a new payment-allocation schedule. Id. at 450.
+
+Danaher would have retained the lower court’s disposition. He thought Williams appeared to understand her position and emphasized the risks of judicial intervention in consumer credit. A supposed luxury could be a necessity to its buyer; relief recipients might need credit, and sellers taking unusual credit risks might price accordingly. He questioned public oversight of welfare recipients’ spending and stressed the uncertain effects on thousands of installment transactions. Legislation or existing loan-shark law might supply a remedy, but he favored caution before altering established contractual latitude. His footnote stressed that the new UCC provision did not take effect until January 1, 1965. Id. at 450–451 & dissenting n.1.
+
+## Source and scope
+
+The assigned passage occupies C&M 701–1050, PDF pages 26–30, printed pages 683–687, including Danaher’s dissent and its footnote below the editorial notes. The complete reporter reproduction was read, including twelve majority footnotes and the dissent’s footnote. The reporter reproduction contains apparent transcription errors in some statutory references; the explanation identifies the relevant unconscionability provision as § 2-302, as the assigned text does. This is an account of the 1965 common-law decision, not a present-law certification. Separate source review is recorded in the accompanying register.

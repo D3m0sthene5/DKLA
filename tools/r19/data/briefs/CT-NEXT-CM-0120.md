@@ -1,0 +1,28 @@
+# Peacock Construction Co. v. Modern Air Conditioning, Inc.
+353 So. 2d 840 (Fla. 1977) | Decided December 15, 1977 | Contracts
+
+## Completed subcontracts and an unpaid owner
+Peacock was the general contractor on a condominium project. Modern Air Conditioning undertook the heating and air conditioning work, while Overly Manufacturing undertook the rooftop swimming pool work. Each written subcontract placed final payment within thirty days after completion, written architectural acceptance, and full payment by the owner. The subcontractors completed their work and requested payment. No deficiencies had been found; in Modern’s case the architect testified under oath that the equipment, though not yet operated, was complete according to the plans and specifications. Peacock had not received full payment from the owner, a corporation that entered bankruptcy proceedings. 353 So. 2d at 841 & nn.2–4.
+
+The owner’s failure to pay made the clause’s interpretation decisive. If owner payment was a condition of Peacock’s duty, the subcontractors bore the owner’s nonpayment risk even after completing their work. If it instead specified timing for an unconditional payment promise, the subcontractors could recover after a reasonable period. The case involved that allocation of risk, not a dispute over defective subcontractor performance.
+
+## Two judgments and conflicting appellate approaches
+Modern and Overly brought separate breach actions in the Lee County Circuit Court. The trial judges granted summary judgment to each, implicitly rejecting owner payment as a condition precedent. The Second District affirmed Modern’s judgment, following the prevailing approach that clauses of this kind constitute absolute promises to pay and identify a reasonable payment time. It then affirmed Overly on Modern’s authority. Id. at 841–42 & nn.5–7.
+
+The Florida Supreme Court accepted conflict certiorari and consolidated the two causes for appellate purposes. In Gerrits, the Third District had reversed a subcontractor’s summary judgment under similar payment language because intent should be resolved by a jury once the general contractor raised it. Peacock asked the Supreme Court to adopt that approach. It conceded the weight of contrary authority but argued that the parties first deserved an opportunity to offer evidence on intent. Only if no evidence supported a condition should the judge direct a verdict for the subcontractors. Id. at 841 n.1, 842.
+
+## Judicial interpretation of the ambiguous payment language
+The court acknowledged that the provisions could be read either as conditions precedent or as a means of fixing a reasonable payment time. Its choice did not depend on declaring the text incapable of the contractor’s proposed reading. Instead, the court treated interpretation as a question of law when the transaction’s familiar nature permitted the parties’ ordinary intent to be determined judicially. It recognized that the meaning of language has a factual dimension, but rejected Peacock’s contention that this ambiguity necessarily required a jury trial. Id. at 842.
+
+Small subcontractors on large projects ordinarily need payment to stay in business and do not intend to accept the risk that the owner will fail to pay the general contractor. That recurring commercial relationship supported construing ambiguous owner-payment provisions as unconditional promises with payment due within a reasonable time. The court joined the majority approach, whose supporting and contrary authorities appear in footnote 6. Id. at 841–42 & nn.6, 8. This avoided converting ordinary timing language into an insolvency-risk transfer merely because the owner’s receipt of funds was listed in the clause.
+
+## Express risk shifting remains possible
+The court expressly preserved the parties’ ability to allocate owner nonpayment risk to a subcontractor. Such a transfer must be unambiguously expressed, and the general contractor bears the burden of clear expression. The opinion therefore does not invalidate every agreement making payment conditional or guarantee recovery regardless of contractual language. It decides the treatment of ambiguous final-payment provisions in this construction relationship. Id. at 842–43.
+
+Neither a precise new due date nor a general test for every kind of contractual ambiguity was announced. The important distinction is between an agreed condition shifting the risk of permanent nonpayment and language regulating the time for an otherwise absolute debt. Because these subcontracts did not clearly make the subcontractors bear the risk, the judgments did not depend on the bankrupt owner eventually paying Peacock.
+
+## Judgment and participation
+The Supreme Court adopted the Second District’s two decisions as controlling Florida law and overruled Gerrits to the extent inconsistent. It discharged the orders allowing certiorari, leaving both favorable summary judgments undisturbed. Boyd, acting chief justice, wrote; England, Sundberg, Hatchett, and Karl concurred. Five judges participated as listed, and no separate writing is reported. Id. at 843.
+
+## Reading scope and limits
+The complete judicial text, all eight footnotes, and the entire assigned principal excerpt were read. The casebook retains the owner-bankruptcy note but renumbers it as footnote 1; it corresponds to the complete opinion’s footnote 4. Later editorial discussion following NOTES is not part of the judgment. The accompanying author record archives the reporter reproduction and checked page markers. This brief states the 1977 holding; subsequent statutory or judicial treatment was not assessed with a citator.

@@ -1,0 +1,44 @@
+# Bachowski v. Brennan
+502 F.2d 79 (3d Cir. 1974) | Legislation and the Regulatory State
+
+## Facts, claims, and district-court disposition
+
+Walter Bachowski lost the February 13, 1973 election for District Director of District 20 of the United Steelworkers by 907 votes out of approximately 24,000 cast. After exhausting internal union remedies, he complained to the Labor Department on June 21, alleging election irregularities and violations of the union constitution and § 401 of the Labor-Management Reporting and Disclosure Act. The Secretary investigated, then advised Bachowski and the union that he would not sue to set aside the election. (82.)
+
+Bachowski sued the Secretary and the union. His complaint alleged that the investigation had substantiated violations affecting the result, yet the Secretary refused to sue or supply his reasons. These were allegations, not appellate findings that violations or a changed electoral outcome had been proved. He requested the investigative evidence, an agreement extending the period for the Secretary to sue, and an order requiring that suit. The district court dismissed for lack of subject-matter jurisdiction; although it issued no accompanying opinion, its hearing discussion reflected a conclusion that it could not review the refusal or order litigation. (82–83 & n. 5.)
+
+Judge Van Dusen wrote for the unanimous Seitz–Van Dusen–Gibbons panel on July 26, 1974; the reported opinion was amended September 3. The appellate issue was reviewability of the Secretary's refusal, not whether the election was actually invalid or whether Bachowski was entitled to the office. (79–82.)
+
+## Jurisdiction distinguished from reviewability
+
+The complaint invoked LMRDA § 402 and APA § 702. Under circuit precedent, the APA supplied no independent jurisdictional grant; § 402 conferred jurisdiction over the Secretary's own election suit, not directly over this member's challenge. Nevertheless, 28 U.S.C. § 1337 supplied jurisdiction because the LMRDA regulated commerce and the asserted right arose under it. Failing to identify that section in the complaint did not defeat jurisdiction when the pleaded facts supported it; no jurisdictional amount was required. The court did not have to decide possible mandamus jurisdiction under § 1361. (82–83 & nn. 2–4.)
+
+That conclusion did not resolve whether a legally cognizable claim existed. Because the dismissal rested substantively on nonreviewability, the court addressed that issue rather than remanding only for correction of the jurisdictional label. APA review remained available unless the statute precluded it or committed the action to discretion by law. The defendants bore the burden of establishing an exception against the presumption favoring review. The Secretary's argument that his decision was not an adjudication did not dispose of the APA's separate coverage of final agency action lacking another adequate judicial remedy. (83–84 & n. 6.)
+
+## Exclusivity and timing did not preclude limited review
+
+The Secretary and union pointed to two features of the Act: only the Secretary could bring a post-election challenge, and the statute called for suit within sixty days after the member's complaint. The court found neither sufficient to establish congressional preclusion. Exclusivity screened out frivolous litigation, protected unions from unnecessary interference, and centralized meritorious challenges in one election suit. Narrow arbitrary-and-capricious review of the Secretary would not allow an individual member to litigate an independent election-invalidity action against the union. The Secretary would primarily defend the review proceeding, and successful review would still lead to the centralized statutory suit. Indeed, exclusivity made oversight more important because a wrongful refusal otherwise deprived the individual of a remedy. (84–86 & nn. 7–8.)
+
+The sixty-day requirement reflected an interest in prompt resolution of incumbent officers' titles, but the court concluded that this could yield to an effective remedy for election violations. Other cases had allowed delayed filing where unions agreed to extensions or impeded investigation. The court reasoned that a successful challenge to a wrongful Secretarial refusal could likewise justify proceedings after the original period. It did not establish that every disappointed candidate automatically received an unlimited extension. (86.)
+
+## Discretion had statutory boundaries
+
+The court recognized considerable Secretarial discretion and Congress's preference for union autonomy and administrative settlement before court intervention. But discretion did not necessarily mean absolute, unreviewable authority. The question was whether the task, absence of standards, or lack of a useful reviewing function placed the decision wholly beyond judicial supervision. (86–87.)
+
+The opinion distinguished a criminal prosecutor's vindication of governmental or societal interests from civil enforcement protecting individual rights. In the LMRDA scheme, the Secretary acted for the public and the union members whose rights Congress protected. Refusal without oversight would leave those individuals remediless. The opinion's limitation of prosecutorial-discretion reasoning is this court's historical analysis, not a freestanding declaration that every civil statute protecting an individual mandates judicial review. (87–88 & nn. 9–11.)
+
+There was also law to apply. The Secretary had to determine probable cause that violations occurred and affected the election's outcome. If the complaint was meritorious and no settlement remedied the violations, statutory language and purpose directed suit. The relevant assessment was more focused than the many considerations influencing a criminal prosecution. A violation alone did not mandate suit: probable effect on the outcome also mattered. Judicial review could address those determinations without treating every refusal as unlawful. (88–89 & nn. 12–13.)
+
+## Reasons, factual scrutiny, and the remand
+
+At a minimum, the Secretary had to explain his refusal adequately. Reasons permitted review and encouraged careful administrative consideration; APA § 555(e) also called for a brief statement of grounds for denial. The court relied on a prior case requiring fuller reasons where acknowledged irregularities had not been connected to an assessment of electoral effect. (88–89 & n. 14.)
+
+The Third Circuit went further. It rejected complete immunity for the factual determination that no violation occurred or that violations did not affect the result. Ignoring overwhelming evidence could frustrate the Act just as surely as relying on an impermissible reason for nonenforcement. Applying Overton Park, review should examine relevant factors and clear errors of judgment, searchingly but under a narrow ultimate standard that forbade substituting the court's judgment for the Secretary's. On remand Bachowski was entitled to a sufficiently specific statement of the factors supporting the decision. This was permission for bounded scrutiny, not an appellate resolution of his allegations or an immediate command to file the election suit. (89–90 & nn. 15–16.)
+
+The court also recognized possible privilege and confidentiality in investigative files. Whether the government's confidentiality interest outweighed the member's production interest was for the trial court on discovery motions, to secure fair determination of the issues; the opinion did not order indiscriminate release of all evidence. The distinction between APA review and narrower mandamus review likewise mattered: the panel did not rely on mandamus as authority to reweigh investigative findings. (83 n. 4; 90 n. 17.)
+
+The judgment **vacated the dismissal for lack of subject-matter jurisdiction and remanded for proceedings consistent with the opinion**. There was no separate opinion or appendix. The court did not itself set aside the union election, award Bachowski office, or direct immediate prosecution. (90.)
+
+## Assigned scope and historical limit
+
+The assigned November-b PDF 76, printed 1059, gives a developed account of this appellate decision's individual-rights and statutory-standards reasoning within its discussion of the later Dunlop v. Bachowski decision. Those are distinct judicial stages. This brief covers the complete amended 1974 Third Circuit opinion and all seventeen notes; it does not replace the separately covered Supreme Court decision or imply that the circuit's scope of factual review is the final governing rule. The whole assigned page's native text and original scan were read, with appellate reasoning separated from the following Supreme Court account. Exact sources and author claim checks are recorded separately; there is no current citator certification.

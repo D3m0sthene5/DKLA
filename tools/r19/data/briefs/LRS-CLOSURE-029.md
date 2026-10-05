@@ -1,0 +1,42 @@
+# Dobson v. Commissioner of Internal Revenue
+320 U.S. 489 (1943) | Legislation and the Regulatory State
+
+## Decision and procedural posture
+
+On December 20, 1943, the Supreme Court resolved four consolidated tax cases by restoring the Tax Court’s determinations in each. It affirmed the Eighth Circuit in No. 47, *Harwick*, where that court had upheld the Tax Court, and reversed in Nos. 44 and 45, *Dobson*, and No. 46, *Estate of Collins*, where it had displaced the Tax Court’s decisions. Justice Jackson wrote the sole reported opinion. The opinion distinguished a judicially reviewable, identifiable mistake of law from tax-accounting determinations entrusted to the specialized tribunal. No separate opinion or numerical vote is recorded. (489–490, 507.)
+
+## Transactions and litigation
+
+Jackson used Collins’s transactions to explain the issue shared by the cases. Collins purchased 300 shares of National City Bank stock in 1929, carrying beneficial interests in National City Company stock. The Company sold the stock in Minnesota. He sold 100 shares in 1930 at a loss of $41,600.80 and another 100 in 1931 at a loss of $28,163.78, retaining the final 100 shares. He claimed and received deductions for the losses, initially regarding the purchases and sales as completed transactions. (491.)
+
+In 1936, Collins learned that the stock had not been registered under Minnesota’s Blue Sky Laws and obtained information indicating fraudulent inducement. He sued the seller for rescission, offering to return the stock-sale proceeds or equivalent shares and the interest and dividends received. A 1939 settlement produced a net recovery of $45,150.63. Of that amount, $23,296.45 was allocated to the stock sold in 1930 and $6,454.18 to the stock sold in 1931. He reported no part as 1939 income. Limitations already barred adjustment of his 1930 and 1931 tax liabilities. (491.)
+
+The Commissioner added the settlement proceeds attributable to the sold shares to Collins’s 1939 income as ordinary gain, leaving the portion attributable to retained shares untouched. Even with the settlement recovery, Collins had not regained his investment in the sold stock. Moreover, disallowing the original deductions entirely would still have left him with net losses in the earlier years. The deductions therefore had not reduced his tax. (491–492.)
+
+Collins asked the Board of Tax Appeals, since renamed the Tax Court, to redetermine the deficiency. He argued that the recovery returned capital rather than producing economic gain and that the prior deductions had yielded no tax benefit. Alternatively, he sought capital-gain rather than ordinary-income treatment. The Tax Court accepted his principal position. The Eighth Circuit rejected its tax-benefit reasoning as an equitable principle lacking a statutory or regulatory foundation and held the recovery taxable as ordinary income. The Supreme Court granted certiorari amid disagreement over the proper treatment of these recoveries. (492 & nn. 1–3.)
+
+## Reviewable law and delegated accounting judgment
+
+Jackson first acknowledged that whether statutes or regulations prohibited the Tax Court’s method was a clear legal question for the courts. The Court found no such prohibition. Consulting facts from earlier years did not revise liabilities barred by limitations, offset a previous year’s deficit against current income, or improperly reopen a closed transaction. It helped identify the character of the present recovery. The governing statute expressly authorized consideration of facts concerning other taxable years when necessary to redetermine a deficiency correctly. (492–493 & nn. 4–6.)
+
+The more difficult question was whether an appellate court could replace the Tax Court’s judgment about the necessary inquiry merely because it disagreed. Since 1926, Congress had authorized modification or reversal when a Tax Court decision was not in accordance with law. Jackson considered that instruction a limit on review, not an invitation to decide the entire controversy afresh. He explained why courts had given tax determinations less finality than other administrative decisions: earlier refund litigation had accustomed them to unrestricted merits review before Congress created and strengthened the specialized tribunal. The resulting habits and diverse routes of tax litigation obscured the later statutory division of responsibility. (494–498 & nn. 7–22.)
+
+Jackson emphasized the Tax Court’s independent adjudicative role, fair procedures, specialized personnel, and sustained exposure to complex tax administration. It did not prosecute the cases or defend its own prior administrative handling. Permitting appellate courts to label accounting disagreements legal questions multiplied inconsistency among circuits and delayed authoritative answers. The extended discussion and accompanying notes supported respecting the tribunal’s expertise while retaining review of genuine legal errors. (498–501 & nn. 23–28.)
+
+The Tax Court’s decision still required support in the record and a reasonable legal basis. But when an appellate court could not separate the elements of its determination to identify a clear mistake of law, that determination had to stand. The Tax Court also bore responsibility for explaining its factual findings and legal conclusions distinctly. In deciding genuine legal questions, reviewing courts could give weight to its specialized judgment without making its decisions binding precedents. The Court expressly put constitutional questions outside the scope of the discussion. (501–502.)
+
+## Application and rejection of the Commissioner’s alternatives
+
+The annual accounting principle did not answer whether a connected series of events should be integrated or divided for tax purposes. In the absence of a controlling statute or regulation, that accounting choice belonged to the Tax Court. It had considered the underlying rescission claim, the absence of economic gain, and the absence of tax benefit from reporting the losses separately, and classified Collins’s recovery as capital returned. No statute required a contrary classification; administrative rulings then in effect tended to support it. (502–503 & nn. 29–30.)
+
+The Commissioner alternatively argued that the prior deductions reduced Collins’s basis to zero, making even a return of capital taxable. The basis-adjustment statute required adjustments properly chargeable to capital account but did not prescribe that automatic result. The Court treated the appropriate adjustment in these circumstances as another accounting question supported by substantial evidence. It distinguished precedent concerning operating expenditures from capital investment and rejected the proposal to import an inflexible rule from disputed bad-debt recovery cases. Congressional relief from the inequities produced by those cases did not imply that courts should impose the same result here. (503–506 & nn. 31–36.)
+
+The Court expressly declined to adopt a general tax-benefit rule. Its narrower holding was that no controlling statute, regulation, or legal principle compelled taxable-income treatment where the Tax Court found neither economic gain nor tax benefit. The appellate court’s error was treating the accounting question as a fixed legal rule. (506–507.)
+
+## Distinct taxpayers and exact disposition
+
+The Court did not equate all four taxpayers’ results. In two cases, the Tax Court had sustained deficiencies because earlier deductions reduced gross income. Those taxpayers argued that available exemptions and credits meant the deductions still saved no tax. The Court held that the Tax Court could determine the significance of a reduction in taxable income as distinguished from a reduction in actual tax; the statute did not prescribe a contrary answer. Applying the same division of functions therefore sustained those determinations as well. The final decree affirmed No. 47 and reversed Nos. 44, 45, and 46. (507 & n. 37.)
+
+## Assigned scope and historical limits
+
+The assigned quotation appears on November-a PDF 149, printed 929, within the historical comparison of *Gray*, *Dobson*, and *Hearst*. The complete 19-page official report includes Jackson’s full opinion and all 37 judicial footnotes. Material from a preceding railroad case at the start of the same scan is excluded from this decision. This brief describes the historical statutory framework and does not certify that its review standard governs modern Tax Court appeals or supply a current citator determination.

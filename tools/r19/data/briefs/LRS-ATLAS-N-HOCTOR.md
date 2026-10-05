@@ -1,0 +1,40 @@
+# Hoctor v. United States Department of Agriculture
+82 F.3d 165 (7th Cir. 1996) | Legislation and the Regulatory State
+
+## Court, stage, and result
+
+The Seventh Circuit vacated a Department of Agriculture order insofar as the challenged sanction rested on an eight-foot perimeter-fence requirement issued without notice and comment. Chief Judge Posner wrote for the panel with Judges Diane P. Wood and Evans; no separate opinion appears. Hoctor limited judicial review to the fence issue even though the Department had sanctioned him for other alleged violations. The court decided the procedural validity of the particular rule, while expressly reserving USDA’s ultimate statutory authority to require such a fence and possible enforcement based on actual unsafe containment rather than the numerical memorandum. 82 F.3d at 166–169, 171–172.
+
+## Facts and administrative chronology
+
+The Animal Welfare Act authorized USDA to establish standards for humane handling, housing, and related treatment of animals and to sanction licensed dealers who violated applicable requirements. Through notice and comment, USDA adopted a structural-strength regulation requiring housing facilities to be appropriately constructed, structurally sound, and maintained to protect and contain the animals. The validity of that regulation was conceded. Id. at 167–168.
+
+Hoctor began dealing in exotic animals near Terre Haute in 1982. His twenty-five-acre compound contained individual animal pens, a separate containment fence around the area with the pens, and a perimeter fence around the whole compound. His inventory included lions, tigers, ligers, cougars, and snow leopards. A Department veterinarian inspecting the operation at its inception suggested a six-foot perimeter fence, which Hoctor erected. The three layers of containment matter: the disputed perimeter fence was a backup, not the animals’ ordinary enclosure. Id. at 168.
+
+In 1983, USDA circulated an internal inspectors’ memorandum requiring dangerous animals to be within a perimeter fence at least eight feet high. It treated that requirement as an interpretation of the structural-strength regulation. Inspectors began citing Hoctor for his six-foot fence in 1990, and USDA eventually imposed a sanction. Replacing it would cost the small dealer many thousands of dollars. Counsel reported at argument that, pending the dispute, he had stopped dealing in big cats. The parties agreed that the fence sanction could stand only if the memorandum was a valid interpretive rule. Id. at 168.
+
+Two lions had escaped a pen, and Hoctor shot them because they were dangerously close to an employee. They had remained inside the containment fence. The court recognized possible reasons for fail-safe containment, including protection of the animals themselves, but did not treat that incident as establishing the necessity of an additional eight-foot perimeter fence. It reserved whether a case-specific finding of unsafe containment could justify a different enforcement theory. USDA defended this sanction solely as enforcement of its purported interpretation. Id. at 168–169.
+
+## The legal distinction and competing arguments
+
+APA notice and comment generally applies to legislative rules but exempts interpretative rules and general policy statements. Agencies must interpret unclear law as part of enforcement; requiring years of rulemaking whenever an agency encounters a new interpretive question could obstruct that work and discourage useful advance notice of agency views. The exemption therefore has a practical purpose. Conversely, when an agency chooses a new binding standard under delegated legislative power, participation and a statement of basis and purpose are required. Id. at 166–167, 169–170.
+
+USDA invoked deference to its interpretation of its own regulation. It argued that secure containment included height and that a six-foot fence had no structural strength in the missing two feet. The court doubted whether a regulation about sound construction and repair naturally addressed jumping over fences. More importantly, even consistency with the regulation did not establish interpretive status. The requirement had to be derivable by a process reasonably described as interpretation. The historical opinion’s reference to regulatory deference did not resolve that separate APA classification question. Id. at 169–170.
+
+USDA could not avoid the issue by treating the memorandum as directly implementing the statute’s authorization to establish minimum standards. When Congress delegates the creation of duties rather than prescribing the duties itself, an agency’s new binding standard is legislative. Assuming the statute allowed an eight-foot requirement would therefore support authority to legislate, not eliminate required procedures. Id. at 169–170.
+
+## Why eight feet required rulemaking
+
+The court distinguished deriving meaning from an existing norm from selecting among reasonable ways to implement it. Eight feet was not latent in the general idea of secure containment. Seven-and-a-half, nine, or ten feet might also serve that purpose, and the memorandum’s additional three-foot distance from animal pens presented the same unexplained numerical choice. Calling such choices arbitrary meant that the number was selected among possible alternatives; it did not mean that the resulting rule was necessarily arbitrary or capricious on the merits. Id. at 170.
+
+Notice and comment was valuable precisely because a reasonable standard could take different forms with materially different burdens. Numerous dealers might need expensive fence replacements. Their concerns deserved systematic consideration before USDA selected a binding dimension and justified it. The possibility of many comments reinforced the case for participation instead of excusing its omission. The court compared that policymaking process with legislative consideration of a bill and hearings. Id. at 170–171.
+
+## Important limits
+
+A numerical component did not automatically make every rule legislative. Established scientific criteria could translate a general norm into a number through interpretation. A rebuttable rule of thumb also could remain linked to the underlying standard: USDA would have been on stronger ground had it presumed a lower fence unsafe but allowed a dealer to prove adequate containment. The challenged rule instead operated as a flat, self-contained requirement. Counsel’s suggestions that a moat or an electrified six-foot fence might suffice could not amend the agency’s actual rule during appellate argument. Id. at 171.
+
+The court declined to rely on USDA’s use of notice and comment for fencing rules concerning other animals. Agencies may voluntarily use those procedures even where not required, and the court did not want to penalize partial procedural compliance. It also regarded agency intent as weak evidence of the legal classification: courts must decide whether a pronouncement requires rulemaking based on its nature, not merely how the agency labels or wishes to characterize it. The order rested on a rule that could not be derived through interpretation and had not been promulgated by the required process; it was vacated on that basis. Id. at 171–172.
+
+## Assigned scope and significance
+
+The assigned material is commentary with selected passages from the interpretive-rule analysis, not the complete procedural and factual account. The full opinion supplies the distinct fences, the earlier inspector’s advice, the escape incident, the reserved enforcement questions, and the qualifications concerning scientific numbers, rebuttable presumptions, litigation counsel, and voluntary procedures. It demonstrates that a plausible implementation of a regulation can still require legislative rulemaking when the agency selects a new inflexible policy standard. This brief describes the 1996 decision without certifying later regulatory requirements or current deference doctrine. Full-source author checks are recorded in the accompanying register.

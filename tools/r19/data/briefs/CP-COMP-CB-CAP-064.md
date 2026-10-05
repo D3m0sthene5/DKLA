@@ -1,0 +1,43 @@
+# Harris v. Balk
+
+**198 U.S. 215 (1905) · Supreme Court of the United States · May 8, 1905 · Civil Procedure**
+
+Justice Peckham delivered the Court’s opinion. Justices Harlan and Day dissented; the report supplies no written dissent. The Court reversed the Supreme Court of North Carolina and remanded for proceedings consistent with its opinion. This brief explains the historical decision, rather than certifying its rule as current law. The assigned account appears in *CivPro.pdf*, physical page 129, printed pages 208–209, followed by two editorial questions.
+
+## Facts and procedural sequence
+
+Harris and Balk lived in North Carolina. Harris had borrowed $180 from Balk in 1896 and had verbally promised to repay it; there was no written instrument. Jacob Epstein, a Baltimore resident, claimed that Balk owed him more than $300. When Harris traveled to Baltimore to purchase merchandise, Epstein sought to collect from Balk by attaching the money Harris owed him. The target was an obligation to pay, rather than cash belonging to Balk physically held in Maryland. (216–217.)
+
+On August 6, 1896, Harris was personally served in Baltimore with a Maryland foreign-attachment writ and a summons. The sheriff also posted the summons and short declaration against Balk at the courthouse door as Maryland law required. Harris returned to North Carolina before the writ’s return day. He subsequently acknowledged his $180 debt in an August 11 affidavit, and his counsel consented to condemnation of that debt in the Maryland proceeding. Judgment was entered thereafter, and Harris paid Epstein’s North Carolina attorney after its entry. (216–217.)
+
+Balk brought his own North Carolina action against Harris on August 11. Harris defended by pointing to the Maryland judgment and his payment of it: having discharged the attached debt, he should not have to pay the same $180 again. North Carolina nevertheless awarded Balk $180 with interest. Its Supreme Court treated the debt as situated in North Carolina and regarded Harris’s temporary Maryland presence as insufficient to give the Maryland court jurisdiction over it. The United States Supreme Court reviewed that refusal to recognize the Maryland judgment under the Full Faith and Credit Clause. (216–217, 221.)
+
+The assigned narrative compresses the sequence into attachment, payment, and a later suit. The report’s statement instead dates Balk’s suit and Harris’s affidavit on August 11 and places entry and payment of the condemnation judgment thereafter. Its concluding discussion also describes Balk as learning of the judgment promptly through his suit. The report does not supply a precise Maryland judgment date; these passages should not be converted into an invented day-by-day chronology. (217, 228; assigned physical 129.)
+
+## Issue and opposing arguments
+
+Could Maryland validly garnish an ordinary debt owed between two North Carolina residents when the garnishee was personally served during a temporary Maryland visit, so that North Carolina had to recognize the resulting judgment? The question depended on Maryland’s jurisdiction, because an invalid judgment would not acquire binding force merely through an appeal to full faith and credit. (221.)
+
+Balk maintained that the debt had remained in North Carolina. Harris’s temporary trip did not transport Balk’s property into Maryland, and consenting to condemnation could not supply missing jurisdiction. His counsel also challenged payment as voluntary and invoked authorities restricting garnishment of nonresidents and foreign corporations. Harris argued that Maryland law authorized attachment and that Balk himself could have sued him there after personal service. If the original creditor could enforce the debt there, the attaching creditor could reach it through garnishment. The opinion acknowledges conflicting state authorities rather than claiming a previously uniform rule. (217–222.)
+
+## Rule, reasoning, and application
+
+The Court accepted Harris’s account. Attachment depended on local law: a state could not garnish a debt without a statute permitting that remedy. When local law did permit it, personal service upon a garnishee found within the state gave the court power to condemn the debt, provided that the garnishee’s own creditor could sue him there. Temporary presence did not defeat that power. (222.)
+
+The Court rejected an attempt to make an ordinary debt’s original location decisive. An obligation to pay was enforceable against the debtor wherever he could be sued; it did not become unenforceable simply because he had crossed a state boundary for a short visit. Unlike a tangible object, a debt could not be physically seized. Garnishment arrested the obligation through notice to the debtor and a direction not to pay his original creditor. This reasoning was expressly directed to ordinary debts such as the one before the Court, rather than every conceivable obligation with special payment restrictions. (222–223, 225–226.)
+
+Maryland satisfied both parts of the Court’s test. Balk could have sued Harris there despite their shared North Carolina residence; the Court connected that access to the privileges and immunities of citizens of the several states. Maryland’s attachment provisions covered credits in another person’s hands, including credits not yet due, and its law allowed the condemnation judgment or its payment to be pleaded against the original creditor’s later action. Personal service supplied power over Harris. Consequently, Maryland’s condemnation of the $180 was jurisdictionally valid. The Court treated the attaching creditor as representing the garnishee’s creditor for purposes of reaching an obligation that the latter could himself enforce in Maryland. (223–226.)
+
+Harris’s consent did not make payment merely voluntary in the relevant sense. He admittedly owed the attached debt and had no defense to condemnation after jurisdiction had been acquired. Consenting to the judgment that Epstein was legally entitled to obtain therefore did not strip the payment of its protective effect. The Court did not announce that every consensual payment, or payment under an invalid judgment, discharged the original obligation. (226–227.)
+
+## Notice qualification and exact result
+
+The opinion separated the judgment’s jurisdictional validity from Harris’s right to use it as a defense against Balk. A garnishee owed his own creditor notice so that the creditor could contest the attaching claimant’s demand. Negligently failing to give that notice could prevent the garnishee from relying on the judgment and payment, even though proper publication meant that the judgment itself remained valid. This qualification addressed fair dealing and the risk of requiring an uninformed creditor to absorb another person’s claim without a chance to defend. (227–228.)
+
+The Maryland procedure required restitution security before execution where the parties did not appear and allowed the defendant a year and a day to challenge the attaching creditor’s claim. Balk learned of the attachment and judgment promptly enough to exercise that opportunity, yet the record showed no such challenge. He also admitted in the North Carolina case that he had owed Epstein approximately $344 at the time of attachment. The Court therefore saw no basis on this record to deny Harris the judgment’s protective effect because of notice. The assigned text calls the notice discussion dictum; the actual opinion develops the qualification and applies the opportunity-to-defend facts rather than treating notification as irrelevant. (227–228; assigned physical 129.)
+
+The Court **reversed and remanded**, directing further proceedings consistent with its opinion. It did not itself enter a new state-court money judgment. Harlan and Day’s dissent is recorded without reasons; neither a reconstructed dissent nor an unsupported numerical vote is supplied here. (228.)
+
+## Source scope
+
+The complete official 14-page report extract was read, including the statement, both sides’ reported arguments, and Peckham’s entire opinion through the dissent notation. Harris occupies the own-caption passage on report pages 215–228; the prior case’s closing passage at the top of 215 is separate, including its nonparticipation notation. No judicial footnotes, appendix, or written separate opinion accompany Harris. The entire assigned page was read in native text and original scan, including both following editorial questions before *Shaffer*. Reporter pinpoints refer to the official report. The accompanying records preserve source hashes and the author’s claim checks; the independent audit register records any subsequent separate review.

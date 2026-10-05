@@ -1,0 +1,43 @@
+# Davis v. Piper Aircraft Corp.
+
+**615 F.2d 606 (4th Cir. 1980) · Fourth Circuit · January 2, 1980 · Civil Procedure**
+
+**Assigned account:** CivPro.pdf, physical page 366, printed page 699, Supplemental Pleadings Note 2, ending before section G. The assignment concentrates on the majority's explanation in 609 n.3.
+
+**Decision in one sentence.** The majority allowed a wrongful-death plaintiff's later North Carolina qualification as ancillary administrator to be pleaded and to relate back to his timely federal complaint, holding that federal amendment rules controlled the conflict with state law and that refusing leave on this record abused discretion.
+
+## Facts and procedural history
+
+Dallas Hardy, his wife Betty, and Toni Sellars died when a Piper aircraft crashed during takeoff in North Carolina on October 13, 1974. In separate Alabama proceedings, representatives of the passengers' estates sued Hardy's estate and Piper. The Sellars action produced a judgment against both defendants; the Betty Hardy action settled. Jimmy Davis, appointed executor of Dallas Hardy's estate in Alabama, then sued Piper for wrongful death in federal court in North Carolina on October 7, 1976, before the applicable two-year limitations period expired. 615 F.2d at 609.
+
+An Alabama appointment did not give Davis the representative capacity required by North Carolina law. Piper's March 7, 1977 answer sought dismissal or summary judgment on that ground. Davis obtained appointment as North Carolina ancillary administrator on July 6 and sought leave to amend the next day, approximately nine months after the complaint. The district court accepted that federal rules governed amendment and relation back but refused leave as a discretionary matter and dismissed for lack of capacity. Id. at 609–610.
+
+Its reasons combined delay and anticipated merits difficulties: Davis had not asserted this claim in either Alabama case, waited four months after Piper identified the capacity defect, could not obtain the same relief in state court, and faced evidence of Hardy's negligence from the Alabama proceedings. The appeal tested both whether federal rules permitted the cure and whether those reasons justified denying it. Id. at 612–614.
+
+## Governing law and competing positions
+
+The majority did not dispense with North Carolina's representative-capacity requirement. Rule 17(b) made state law govern that issue; a foreign executor generally had to qualify locally before prosecuting the action. The separate question was whether federal pleading rules could give the later qualification relation-back effect. Id. at 610.
+
+Piper argued that state law treated an unqualified representative's original action as a nullity, so no pleading amendment could save it after limitations expired. Under Ragan and the outcome-determinative approach, it urged, a federal court could not give a state-created claim a life it lacked in state court. Davis relied on Hanna and Federal Rule 15. The majority assumed for decision that North Carolina law would prevent this particular amendment, while recognizing uncertainty about how its newer procedural rules affected older decisions. Id. at 610–612 & n.4. It did not conclusively pronounce North Carolina's entire contemporary law of relation back.
+
+## Why the majority permitted the cure
+
+**A directly applicable federal rule controlled.** The majority viewed Rule 15(c) as broad enough to address the same problem as the contrary state rule. Under Hanna, that rule controlled unless invalid under the Rules Enabling Act or Constitution; no such invalidity had been suggested here. Ragan differed because the federal commencement rule there did not itself supply an answer about the state tolling requirement. Rule 15(c), by contrast, supplied a mechanism to cure the initial defect through relation back. Id. at 611–612 & nn.5–9.
+
+**The alternative Erie analysis also favored federal practice.** Even if Rule 15(c) did not completely cover the issue, the majority reasoned that the need for a later capacity amendment was not ordinarily a factor driving the original choice of forum. Uniform federal procedure and disposition on the merits outweighed the discernible state interest in forbidding this curative appointment. Piper already had practical notice of the occurrence and claim, protecting the limitations policy against stale claims; Davis's eventual qualification also supplied state oversight of the representative. Id. at 612. This was the majority's additional reasoning, not a general declaration that federal rules override every state limitation.
+
+**Discretion had to serve the amendment rule's purposes.** Rule 15(a)'s liberal approach did not leave a judge free to deny amendment arbitrarily. Foman identified such concerns as prejudice, bad faith, undue delay, and futility. Here no prejudice was found or supported: Piper knew the events underlying the claim from the outset, and the amendment did not impair preparation of its defense. Mere delay without prejudice or an evident intent to harass was insufficient. Piper itself had taken approximately five months to answer, and Davis needed to obtain local qualification before proposing the cure. Id. at 613.
+
+The state-court bar was not a proper discretionary reason after the court had already selected federal law. Nor could conjecture about an eventual negligence defeat substitute for a clear futility determination. Failure to assert permissive crossclaims in Alabama added only another delay consideration. Id. at 613–614. In note 10, the majority carefully separated these discretionary concerns from preclusion: the district court had rejected Piper's substantive preclusion defenses, Piper had not challenged that ruling as an alternative ground for affirmance, and the appellate court did not resolve it. The majority flagged, rather than decided, a possible error in the district court's choice of law for issue preclusion. Id. at 613–614 n.10.
+
+**Relation back was satisfied on these facts.** The proposed pleading addressed the same occurrence as the original claim. Piper's timely knowledge of that claim eliminated the relevant defensive prejudice. The amendment was therefore not futile on the premise that it could not relate back. Id. at 614.
+
+## Supplemental pleading, judgment, and dissent
+
+The assignment highlights an important qualification. Because Davis's local appointment occurred **after** filing, the majority said the proposed pleading was technically supplemental under Rule 15(d), although presented as an amendment. For relation-back purposes, it considered that distinction noncritical: a supplement ordinarily should receive the same treatment when Rule 15(c)'s test is satisfied. Id. at 609 n.3. That conditional proposition does not answer the textbook's separate hypothetical about adding an entirely different transaction.
+
+The court **reversed and remanded**, expressly allowed the proposed pleading, and gave it relation-back effect to commencement of the action. Id. at 614. This restored the action for further proceedings; it did not establish Piper's liability or award wrongful-death damages. Judge James Dickson Phillips wrote the majority, with Judge Widener participating in the two-judge majority; Judge K. K. Hall dissented. No separate concurrence or appendix is reproduced.
+
+Hall would affirm. He regarded qualification and filing as separate substantive tolling requirements under state law, not a federal housekeeping problem. North Carolina's cases allowed an initial qualification effort made before filing to be completed later, but Davis had not made that effort. Hall considered Ragan controlling and Hanna distinguishable because the latter regulated how a marshal served process. He also viewed Rule 15(d)'s silence about relation back as significant and Rule 17(b)'s reference to state law as decisive. Finally, he thought the district court's delay, litigation history, and futility concerns justified its exercise of discretion. Id. at 614–617. These objections explain the dispute over characterizing the defect; they are not the court's holding.
+
+**Sources and verification:** The complete CAP judicial reproduction, majority and dissent, including all ten majority footnotes, was read before drafting. The preserved HTML supplies reporter page markers and note numbering; the original reporter-image route was unavailable, so no actual-opinion scan reading is claimed. The whole assigned native page and original scan were read. This brief describes the 1980 decision and its then-applicable rules; the accompanying reading record preserves sources, checked pinpoints, limitations, and separate-review status.

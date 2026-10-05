@@ -1,0 +1,31 @@
+# Van Wagner Advertising Corp. v. S & M Enterprises
+67 N.Y.2d 186, 492 N.E.2d 756 (1986) | Contracts
+
+## Billboard lease and the purchaser’s attempted cancellation
+In December 1981, Michaels leased Van Wagner the eastern exterior wall of a Manhattan building facing the Midtown Tunnel exit. The term was three years with options adding seven more. Van Wagner erected an illuminated billboard and subleased it to Asch for three years beginning March 1, 1982. Michaels agreed in January to sell the building to S & M. In August S & M purported to cancel the billboard lease effective October 18 under a clause permitting the lessor or its successor to terminate on sixty days’ notice in the event of a bona fide sale to an unrelated third party. Van Wagner left under protest and sued in November for declarations, specific performance, and damages. 67 N.Y.2d at 189–90.
+
+Van Wagner interpreted the cancellation right as belonging to an owner making a sale, enabling an unencumbered conveyance; S & M interpreted its acquisition as giving the new owner a cancellation right. A preliminary injunction was denied on the latter interpretation. At a nonjury trial, both sides offered negotiation evidence. S & M also proved plans to demolish existing buildings and develop a mixed residential-commercial project when another lease expired in 1987, or sooner. Id. at 190.
+
+## Breach established through the affirmed factual finding
+Trial Term found Van Wagner’s interpretation correct, either from the text or from the parties’ negotiations. It declared the lease valid but denied specific performance, finding damages adequate and compelled performance disproportionately harmful to S & M. It awarded lost revenues only through trial, permitting later suits for continuing exclusion. Both parties appealed; the Appellate Division affirmed without opinion and both obtained leave to appeal. Id. at 190–91.
+
+The Court of Appeals held the provision ambiguous as a legal matter because reasonable readers could differ about whether a purchaser could cancel merely upon acquiring the building. Nevertheless, the alternative finding from parol evidence was factual, supported by the record, and affirmed below; it was outside the court’s review. S & M’s cancellation was consequently a breach. Footnote 1 rejects the claim that denial of the preliminary injunction fixed the law of the case or adjudicated the merits. Id. at 190–91 & n.1.
+
+## Physical uniqueness does not automatically compel performance
+Specific performance lay in sound judicial discretion. The traditional treatment of real-property sales did not make every real-property lease specifically enforceable as a matter of course. Nor did the trial court’s finding that the billboard location was unique dictate relief. Every parcel may differ physically; what matters to adequacy of damages is the ability to value the promised interest reliably. Id. at 192–93 & n.3.
+
+The court explained uniqueness through information about substitutes. Sparse or unreliable information creates a substantial risk of undercompensation that is costly to reduce, favoring performance. Abundant dependable comparisons can support a sufficiently certain money award even for a physically singular object. Conversely, saying every object could theoretically command a price would empty the uniqueness principle of meaning. The billboard’s special location therefore required an actual valuation inquiry. Id. at 192–94.
+
+The Asch contract fixed value for its own term, and comparisons with similar commercial billboard leases could establish later value; Van Wagner itself held more than four hundred leases. Projecting damages beyond Asch’s February 1985 expiration through Van Wagner’s 1992 term was not inherently speculative. S & M could not successfully resist performance by claiming an adequate damages remedy and simultaneously insist that damages beyond sixty days were too conjectural to award. Id. at 194.
+
+Potential termination upon a future sale or a new tenant’s need for the wall did not change that result. The building had been sold only once in forty years and was bought for S & M’s development plan. The asserted contingencies were outside Van Wagner’s control and served S & M’s interests; uncertainty attributable to them should not favor the contract violator. Id. at 194–95.
+
+## Disproportionate hardship and correction of the damages period
+The supported development plans also justified denial of performance on the independent ground of disproportionate harm to S & M relative to benefit to Van Wagner. Equitable relief should not itself create inequity or undue hardship, although discretion is reviewable rather than absolute. There was no abuse here. Id. at 195.
+
+Both parties’ attempts to revise the Asch-period valuation were rejected. Van Wagner sought incidental sign costs; S & M sought expense offsets. The trial was not limited to liability, yet neither offered the additional proof. On the Asch contract’s revenues and the lease expenses, the trial court properly calculated lost profits. It erred, however, by stopping the award on November 23, 1983 rather than covering the whole Asch term, and by requiring successive suits for the remaining lease years. Damages should address the entire Van Wagner term in this action. Id. at 195–96.
+
+## Disposition, participation, and assigned scope
+The Court of Appeals modified, with costs to Van Wagner, remitted to Supreme Court, New York County for further damages proceedings, and otherwise affirmed. Denial of specific performance and the finding of breach remained intact. Kaye wrote; Wachtler, Meyer, Simons, Titone, and Hancock concurred; Alexander took no part. Six judges participated without dissent. Id. at 196.
+
+The complete report and all three judicial footnotes were read, including the scholarly-remedy discussion retained as body text in the assigned excerpt. The principal begins on PDF page 277 and continues through the opening paragraph of 282, where the casebook cuts off before the full judgment and damages correction. NOTE then begins; Snow Phipps is a separate principal below it. The omitted disposition and analysis are restored from the complete report. No current citator review is represented.

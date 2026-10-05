@@ -1,0 +1,47 @@
+# Gjellum v. City of Birmingham
+
+**829 F.2d 1056 (11th Cir. 1987), decided October 13, 1987.** Judge Kravitch wrote for a panel comprising Judges Kravitch, Edmondson, and Tuttle. No separate opinion is reported. The assigned account appears in CivPro PDF page 695, printed page 1381, Note 2. It concerns claim preclusion from administrative proceedings; the complete opinion also distinguishes the intervening state-court judgment and addresses the district court’s alternative constitutional rulings.
+
+## Facts and procedural history
+
+Birmingham police officer John A. Gjellum was suspended without pay for forty-five days. Police Chief Arthur V. Deutcsh charged him with secretly recording or attempting to record conversations with superior officers concerning police business and conveying official information without authority. Mayor Richard Arrington publicly approved the suspension through newspaper editorials, television, and press releases. Gjellum obeyed an order to surrender the cassette. His subsequent complaint alleged that officials failed to return it. These charges and allegations should not be confused with adjudicated findings that the recording violated a valid departmental rule. (1057–1058.)
+
+The Jefferson County Personnel Board held a hearing at which the parties were represented by counsel. It reversed the suspension and ordered reinstatement with backpay, finding no oral or written departmental policy against recording peers or supervisors at the time of the September 29, 1983 incident. The City appealed. A three-judge Alabama circuit-court panel reviewed questions of law and whether substantial and legal evidence supported the Board’s decision, then affirmed. Gjellum sought to intervene in that appeal, but his motion was denied. Thus the administrative determination actually received judicial review, although Gjellum was not a party to that judicial proceeding. (1058.)
+
+Gjellum then sued the City, Chief, and Mayor under § 1983. His claims included inadequate notice of prohibited conduct and of the charges, suspension beyond the officials’ asserted state-law authority, injury to his liberty interest, intimidation of officers appearing before the Board, deprivation of his cassette, selective enforcement, retaliation connected to his Fraternal Order of Police activity, and municipal policy or training failures. Note 2 identifies his allegations about conversations concerning a consent decree and the allegedly erased earlier recording; note 31 preserves an alternative vagueness and overbreadth theory. Those allegations were not resolved by the appellate court. (1071; nn. 2, 31.)
+
+The federal district court granted the defendants summary judgment, invoking both claim and issue preclusion. Alternatively, it briefly concluded that secret recording was not protected speech, the defendants had not deprived Gjellum of a constitutional liberty interest, and the favorable post-suspension hearing cured any procedural deficiencies. Gjellum appealed. (1058, 1071.)
+
+## Questions and holdings
+
+The Eleventh Circuit held that neither the state-court judgment nor the Board’s determination justified barring this § 1983 action by claim preclusion. Alabama’s party-identity requirement defeated preclusion from the judicial judgment. Separately, federal common law did not require applying state claim-preclusion rules to an unreviewed administrative decision in this § 1983 context. The court did not eliminate administrative issue preclusion: qualifying factual findings can remain binding under *University of Tennessee v. Elliott*. Here, however, issue preclusion could not support dismissal against the officer who had prevailed on the relevant findings. Whether it would operate against the defendants remained undecided. (1059–1070; n. 32.)
+
+## Why the state-court judgment did not bar the action
+
+Section 1738 requires federal courts, including in § 1983 litigation, to give state judicial judgments the preclusive effect afforded by the rendering State. The panel accordingly examined Alabama law before turning to federal common law. Alabama required a competent court, a judgment on the merits, substantially identical parties, and the same cause of action. The first two requirements were met. The court did not decide the same-cause requirement because substantial party identity was absent. (1060; nn. 6–8.)
+
+Gjellum was neither an actual party to the appeal nor in the requisite relationship with the Personnel Board. Alabama’s privity and representation principles did not treat the Board’s interest in defending its administrative determination as substantially identical to his interest in vindicating constitutional rights. Denial of intervention was especially important: a nonparty who was prevented from participating could not simply be treated as represented by the existing litigants. Note 12 compares *Sykes*, where even an officer permitted to intervene was not treated as substantially identical to the Board for Alabama claim-preclusion purposes. The panel did not decide whether Gjellum could have litigated his federal claims in the state circuit court. (1060–1061; nn. 8–13.)
+
+## Why the Board’s decision did not extinguish the federal claims
+
+Section 1738 applies to state courts, not administrative agencies. Once the state judicial judgment proved nonpreclusive against Gjellum, the panel considered the Board’s decision as though it had not received judicial review. This analytical step explains the opinion’s discussion of “unreviewed” agency decisions; it does not erase the actual state appeal. (1061–1062.)
+
+*Elliott* had required appropriate respect for administrative factfinding when an agency acted judicially, resolved factual disputes properly before it, and afforded an adequate opportunity to litigate. That rule concerns issues actually adjudicated. Claim preclusion goes further, potentially barring claims or issues never adjudicated because they should supposedly have been raised earlier. The panel refused automatically to extend *Elliott* from the first category to the second. It expressly left open whether this Board’s proceeding met the administrative-adjudication prerequisites and whether Alabama would give its findings issue-preclusive effect. (1062; nn. 15, 32.)
+
+The distinction also limited the force of *Allen* and *Migra*. Those decisions involved the congressional command of § 1738 for state judicial judgments. Outside that command, the court weighed the preservation of a federal forum for federal rights, agencies’ limited capacity to adjudicate those rights, and the danger of forcing claimants to bypass available administrative remedies and sue federally at once. Factfinding preclusion could prevent incompatible factual resolutions without extinguishing additional constitutional claims never heard by the agency. The panel’s extended discussion of *Patsy*, *McDonald*, the workers’ compensation opinions in *Thomas*, and bankruptcy preclusion in *Brown* develops that difference rather than announcing a universal rule against administrative finality. (1062–1070; nn. 17–30.)
+
+The holding was specifically that unreviewed state agency decisions do not receive claim-preclusive effect in a § 1983 action merely because the State would bar the claim. The decision preserves the separate inquiry into factual issue preclusion and relevant federal safeguards. It does not hold that all administrative findings must be relitigated. (1064–1065, 1070.)
+
+## Alternative merits rulings and judgment
+
+The panel also declined to affirm on the district court’s abbreviated merits analysis. The record left apparent disputes about the Chief’s suspension authority, retaliation in confiscating the cassette, and intimidation of potential Board witnesses. Those disputes required renewed consideration of summary judgment on remand. The court did not decide that Gjellum had proved a constitutional violation. (1071.)
+
+Nor did reinstatement with backpay necessarily answer what process was constitutionally due. The district court appeared to equate an absence of compensable loss with an absence of a procedural violation. Under *Carey v. Piphus*, a proved procedural due-process violation could support nominal damages even without entitlement to compensatory damages. Finally, the defendants might themselves be bound by adverse findings from the prior proceedings; that issue could affect the renewed merits analysis but was not decided on this appeal. (1071–1072; n. 32.)
+
+The judgment was **reversed and remanded for further proceedings**, not judgment awarding Gjellum constitutional damages. (1072.)
+
+## Assigned-source qualification
+
+The textbook says the administrative determination “was not subject to judicial review.” The complete opinion instead reports an actual state-court affirmance and denial of Gjellum’s intervention, then analyzes administrative preclusion as though the Board’s decision were unreviewed because the judicial judgment did not bind him. The assigned quotation at 1064–1065 accurately conveys the separate claim-preclusion rationale, but that procedural distinction is essential to understanding its application.
+
+The preserved complete reporter reproduction includes the caption, counsel, entire judicial opinion, and all thirty-two footnotes. Reporter-page images were not independently collated for this draft. This brief describes the historical decision; it does not certify later treatment or present-day law.

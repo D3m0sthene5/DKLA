@@ -3,7 +3,7 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/DKLA-r18.html" }
+    { "source": "/", "destination": "/DKLA-r19.html" }
   ],
   "headers": [
     { "source": "/(.*)\\.html", "headers": [ { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" } ] },

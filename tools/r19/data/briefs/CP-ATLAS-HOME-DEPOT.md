@@ -1,0 +1,51 @@
+# Home Depot U.S.A., Inc. v. Jackson
+
+**Civil Procedure · 139 S. Ct. 1743 (2019), 587 U.S. ___ (official slip opinion) · Supreme Court of the United States · May 28, 2019**
+
+Justice Thomas wrote for a **5–4 Court**, joined by Justices Ginsburg, Breyer, Sotomayor, and Kagan. Justice Alito dissented, joined by Chief Justice Roberts and Justices Gorsuch and Kavanaugh. Neither the general removal statute, § 1441(a), nor CAFA’s removal provision, § 1453(b), permitted Home Depot to remove as a third-party counterclaim defendant. The Court affirmed the Fourth Circuit’s judgment upholding remand. Pinpoints below use the separate printed page numbering of the Court’s official slip opinion and Alito’s dissent.
+
+## Facts and procedural history
+
+Citibank sued George Jackson in North Carolina state court in June 2016 to collect charges on a Home Depot credit card. Jackson answered in August, asserting an individual counterclaim against Citibank and third-party class-action claims against Home Depot and Carolina Water Systems. He alleged that Home Depot and Carolina Water Systems induced homeowners to purchase water treatment systems at inflated prices through unlawful referral sales and deceptive and unfair trade practices. Jackson also alleged Citibank’s joint liability and sought to have his obligations under the sale declared void. Those assertions were allegations underlying the lawsuit, not findings of unlawful conduct by the Supreme Court. **Court slip op. 3–4.**
+
+Citibank dismissed its claims against Jackson in September. Home Depot removed the case one month later, invoking diversity jurisdiction, general removal, removal procedure, and CAFA. Jackson moved to remand because Home Depot had entered the proceeding as an additional defendant to a counterclaim rather than as a defendant to the original complaint. He subsequently amended his claims to eliminate references to Citibank. The district court remanded, and the Fourth Circuit accepted the permitted CAFA appeal and affirmed. The Supreme Court considered both CAFA eligibility and whether the restriction recognized in *Shamrock Oil* for an original plaintiff facing a counterclaim extended to a newly added counterclaim defendant. **Court slip op. 4–5 & n.1.**
+
+The distinction matters because Home Depot had never selected the state forum. In *Shamrock Oil*, the party seeking removal had itself initiated the state action. Home Depot argued that preventing an involuntarily joined party from removing could not be justified simply by requiring an original plaintiff to abide by its own choice.
+
+## Issues and holdings
+
+Can a party first added through the original defendant’s counterclaim remove under § 1441(a)? No. In that statutory setting, the defendant means the defendant to the original plaintiff’s complaint. The Court’s term third-party counterclaim defendant refers specifically to a party first added as an additional defendant to a counterclaim against the original plaintiff. **Court slip op. 1, 5 & nn.1–2.**
+
+Does CAFA’s authorization using any defendant produce a different answer for a qualifying class-action counterclaim? No. The Court read that language as altering specified restrictions on removal while retaining the same limitation on the kinds of parties eligible to remove. **Court slip op. 9–11 & n.4.**
+
+## The majority’s reasoning
+
+Thomas began with the statutory setting rather than the ordinary meaning of defendant standing alone. Section 1441(a) addresses removal of a civil action over which a federal district court would have original jurisdiction. Determining original jurisdiction requires examining the action defined by the plaintiff’s operative complaint. Counterclaims do not establish the original jurisdiction contemplated by that provision. The majority reasoned that the defendant to that civil action accordingly means the defendant to that complaint, rather than any party later sued through a counterclaim. **Court slip op. 5–7 & nn.2–3.**
+
+Related legal provisions supported this reading. The Federal Rules distinguish a defendant from a third-party defendant and separately describe obligations to answer a complaint and a counterclaim. Congress also used broader language in other removal statutes: the bankruptcy provision allows a party to remove a claim, and the patent and copyright provision allows any party to remove an action containing specified claims. Those formulations showed that Congress could expressly authorize removal by parties beyond the original defendant when it intended that result. **Court slip op. 7.**
+
+The majority acknowledged that *Shamrock Oil* did not specifically decide the situation of a party that had never been the original plaintiff. It also recognized Home Depot’s lack of participation in selecting the state forum. Nevertheless, it found no textual basis for treating different counterclaim defendants differently under § 1441(a). *Shamrock Oil* treated the original plaintiff as remaining the plaintiff after a counterclaim; a counterclaim did not initiate a new civil action with a newly rearranged plaintiff and defendant. Adding Home Depot through class-action allegations likewise did not create a new action for these purposes. **Court slip op. 7–8.**
+
+Removal’s protective purposes did not establish an unlimited entitlement for every involuntarily sued party. Congress imposed other restrictions, including the forum-defendant limitation for ordinary diversity removal. Home Depot’s broader reading also raised questions about which parties would have to consent under § 1446 and when an original defendant would become a plaintiff under related provisions. Reading the statutory terms consistently avoided those complications. **Court slip op. 8–9.**
+
+CAFA required a separate analysis because its language differs. Home Depot relied on the authorization for removal by any defendant. Jackson responded that the provision relaxed particular restrictions while preserving the underlying category of eligible defendants. Thomas called this a closer question but agreed with Jackson. One clause disregards whether any defendant is a citizen of the forum state; another permits removal by any defendant without all defendants’ consent. In context, the first eliminates the forum-defendant restriction and the second eliminates unanimity. The majority found neither clause changed who qualifies as a defendant. **Court slip op. 9–10 & n.4.**
+
+Both CAFA and the general removal statute also refer to § 1446’s removal procedures. Giving defendant conflicting meanings across those provisions would make the scheme incoherent. The possibility that litigants might structure class claims as counterclaims to avoid removal did not authorize the Court to change Congress’s chosen language. Congress could amend the statute if it regarded that consequence as undesirable. **Court slip op. 10–11.**
+
+## Alito’s dissent
+
+Alito disputed the majority’s textual analysis as well as its treatment of statutory purposes. He emphasized CAFA’s response to perceived state-court abuses in interstate class litigation. Congress relaxed the ordinary requirements of complete diversity, defendant unanimity, forum citizenship, and the one-year removal period to make a federal forum more accessible. A newly joined defendant, like an original defendant, had not voluntarily chosen state court. Excluding it solely because the claim appeared in a later filing frustrated that objective. **Alito dissent 1–8.**
+
+For the dissent, ordinary usage treated Home Depot as a defendant: it was being sued and was not a plaintiff. Third-party described a subset of defendants rather than a different category altogether, and any ordinarily broadened the coverage of the noun it modified. Alito distinguished original plaintiffs facing counterclaims because they had chosen the forum and remained plaintiffs; his argument did not require overruling *Shamrock Oil*. **Alito dissent 9–12 & n.2.**
+
+He also argued that CAFA could authorize broader removal even if § 1441 were narrower. Unlike ordinary removal, CAFA carried no antiremoval presumption. The asserted pre-CAFA consensus excluding third-party defendants was incomplete, and congressional silence supplied little reason to assume adoption of that position. Broader bankruptcy and patent provisions covered original plaintiffs too, so their use of party did not prove that CAFA excluded newly sued defendants. CAFA’s own operative authorization and its connection to the jurisdictional requirements of § 1332(d) answered Jackson’s argument that it merely implemented § 1441. **Alito dissent 13–18 & n.3.**
+
+Finally, Alito argued that *Shamrock Oil* and the well-pleaded complaint rule did not resolve the question in the majority’s favor. The former concerned an original plaintiff’s voluntary forum choice. The latter determines whether a case has federal jurisdiction, which is distinct from deciding which defendants may seek removal of a case that already satisfies the jurisdictional requirements. His reading of § 1441 would preserve those requirements. It could also matter for consent and for separately removable federal claims under § 1441(c). **Alito dissent 19–26 & nn.4–5.**
+
+## Judgment and assigned significance
+
+The Court **affirmed** the Fourth Circuit, leaving the remand order in place. It did not decide whether the alleged water-system sales scheme violated North Carolina law, whether Jackson owed the debt, or whether a class should be certified. **Court slip op. 11.**
+
+The developed assigned account occupies CivPro physical page 214, printed pages 382–383, after the end of Shamrock. It retains the majority’s explanation and a short dissent quotation; the complete official opinion supplies the chronology, statutory reasoning, and extensive dissent analyzed here. The neighboring background and subsequent removal notes were read as context. This brief explains the 2019 decision and does not claim a comprehensive later-law or citator review.
+
+**Source:** [Complete official opinion, including all four Court footnotes and all five dissent footnotes](https://www.supremecourt.gov/opinions/18pdf/17-1471_e2p3.pdf); original CivPro assigned pages 213–214. The accompanying source and review records preserve the complete files and claim checks.

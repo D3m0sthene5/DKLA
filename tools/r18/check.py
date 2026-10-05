@@ -82,10 +82,6 @@ if node:
 else:
     print('note: node not found, JavaScript syntax not checked')
 
-version = json.loads((ROOT / 'version.json').read_text(encoding='utf-8'))
-build = version.get('build', '')
-require(re.fullmatch(r'r18-[0-9a-f]{10}', build) is not None, 'version.json build id is malformed')
-
 # every case has its own glyph, none shared, none borrowed from the r10 library
 graph = json.loads(r17['seedData'])
 icon_data = json.loads(r18['dklaIcons'])
@@ -96,22 +92,31 @@ glyphs = [icon_data['paths'].get(m, '') for m in motifs]
 require(len(set(glyphs)) == len(glyphs), 'two cases share identical glyph markup')
 require(all(icon_data['records'][i].get('modifier') is None for i in case_ids), 'a case glyph still carries a modifier badge')
 require(all(0 < len(icon_data['records'][i].get('label', '')) <= 48 for i in case_ids), 'a case caption is missing or too long')
-require(f"build: '{build}'" in r18['dklaR18Pre'], 'the atlas and version.json disagree on the build id')
-require(f"const BUILD = '{build}';" in (ROOT / 'sw.js').read_text(encoding='utf-8'), 'sw.js and version.json disagree on the build id')
-require('__DKLA_BUILD__' not in r18_html, 'unstamped build placeholder in the atlas')
 
-manifest = json.loads((ROOT / 'manifest.webmanifest').read_text(encoding='utf-8'))
-for icon in manifest['icons']:
-    require((ROOT / icon['src']).is_file(), f"manifest icon missing: {icon['src']}")
-for name in ('icons/icon-180.png', 'index.html', 'vercel.json', 'package.json'):
-    require((ROOT / name).is_file(), f'missing {name}')
-require('DKLA-r18.html' in (ROOT / 'index.html').read_text(encoding='utf-8'), 'index.html does not open r18')
-vercel = json.loads((ROOT / 'vercel.json').read_text(encoding='utf-8'))
-require(any(r.get('destination') == '/DKLA-r18.html' for r in vercel.get('rewrites', [])), 'vercel.json does not serve r18 at the root')
+# The site-level files (version.json, sw.js, index.html, vercel.json) follow the newest release; they are
+# checked here only while r18 is that release. tools/r19/check.py checks them afterwards.
+version = json.loads((ROOT / 'version.json').read_text(encoding='utf-8'))
+if str(version.get('build', '')).startswith('r18-'):
+    build = version.get('build', '')
+    require(re.fullmatch(r'r18-[0-9a-f]{10}', build) is not None, 'version.json build id is malformed')
+
+    require(f"build: '{build}'" in r18['dklaR18Pre'], 'the atlas and version.json disagree on the build id')
+    require(f"const BUILD = '{build}';" in (ROOT / 'sw.js').read_text(encoding='utf-8'), 'sw.js and version.json disagree on the build id')
+    require('__DKLA_BUILD__' not in r18_html, 'unstamped build placeholder in the atlas')
+
+    manifest = json.loads((ROOT / 'manifest.webmanifest').read_text(encoding='utf-8'))
+    for icon in manifest['icons']:
+        require((ROOT / icon['src']).is_file(), f"manifest icon missing: {icon['src']}")
+    for name in ('icons/icon-180.png', 'index.html', 'vercel.json', 'package.json'):
+        require((ROOT / name).is_file(), f'missing {name}')
+    require('DKLA-r18.html' in (ROOT / 'index.html').read_text(encoding='utf-8'), 'index.html does not open r18')
+    vercel = json.loads((ROOT / 'vercel.json').read_text(encoding='utf-8'))
+    require(any(r.get('destination') == '/DKLA-r18.html' for r in vercel.get('rewrites', [])), 'vercel.json does not serve r18 at the root')
 integrity = json.loads((PARTS / 'integrity.json').read_text(encoding='utf-8'))
 require(integrity.get('r18_sha256') == hashlib.sha256((ROOT / 'DKLA-r18.html').read_bytes()).hexdigest(), 'integrity.json does not describe this DKLA-r18.html')
 
 if errors:
     print('\n'.join('FAIL: ' + e for e in errors))
     sys.exit(1)
+build = json.loads((PARTS / 'integrity.json').read_text(encoding='utf-8')).get('build')
 print(f'r18 ok: build {build}, {len(r17) - 2} blocks preserved, studyCode carries {len(PATCHES)} patches, {len(case_ids)} case glyphs')

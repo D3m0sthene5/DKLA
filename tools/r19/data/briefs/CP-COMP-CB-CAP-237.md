@@ -1,0 +1,49 @@
+# American Electric Power Co., Inc. v. Connecticut
+
+**564 U.S. 410 (2011). Supreme Court of the United States, June 20, 2011. Civil Procedure.** Assigned: CivPro.pdf, physical PDF pages 287–288, printed pages 539–540, Boyle Note 4 through the displacement quotation and editorial question before Note 5.
+
+## What the plaintiffs wanted
+
+Two groups sued the same five major electric-power producers in the Southern District of New York in July 2004. One group comprised eight States and New York City; another comprised three nonprofit land trusts. Two States, New Jersey and Wisconsin, were no longer participating by Supreme Court review. Defendants were four private power companies and the federally owned Tennessee Valley Authority. According to the complaints, their combined annual emissions were 650 million tons of carbon dioxide, approximately 25% of the domestic power sector’s emissions and 10% of domestic human-generated emissions. Those figures were pleaded assertions, not adjudicated findings of liability. (418 and notes 3–5.)
+
+The States and City alleged threats to public lands, infrastructure, and health from climate change; the land trusts alleged threats to habitats on their conserved properties. They asserted federal common-law interstate public nuisance and, alternatively, state tort claims. They sought injunctions requiring initial emissions caps and annual reductions for at least a decade. The suit asked courts to determine permissible emissions directly, rather than simply review an EPA rule. (415, 418–419.)
+
+The district court dismissed both suits as presenting nonjusticiable political questions. The Second Circuit reversed, holding that the plaintiffs adequately alleged standing, that the political-question doctrine did not bar the suits, and that federal common law supplied a nuisance claim. It concluded that the Clean Air Act had not displaced that claim because EPA had not yet completed greenhouse-gas rulemaking. (419–420.)
+
+## Regulatory context and the issue
+
+The Supreme Court’s earlier Massachusetts v. EPA decision had recognized authority under the Clean Air Act to regulate greenhouse gases and rejected EPA’s stated justification for denying a motor-vehicle rulemaking petition. Afterward, EPA made an endangerment finding, issued vehicle regulations, phased in requirements for certain major emitting facilities, and began work on standards for fossil-fuel powerplants. A March 2011 settlement committed the agency to proposed and final rulemaking deadlines. These were the regulatory circumstances described in this 2011 opinion, not a representation of today’s regulations. The Court’s second note expressly disclaimed endorsing a particular scientific view on the complicated climate issues while recounting EPA’s findings. (416–418 and notes 1–2.)
+
+The key merits question was whether a federal common-law nuisance remedy survived Congress’s delegation to EPA of authority to decide whether and how to regulate the same powerplant emissions. Plaintiffs argued that federal common law remained available until EPA actually set emissions limits. Defendants argued that the statutory allocation of authority itself removed the judicial common-law route.
+
+## Threshold jurisdiction and the disposition
+
+On standing, the eight participating justices divided **4–4**. Four would find at least some plaintiffs had standing under Massachusetts and no other threshold obstacle; four would find no plaintiff had standing. The Court therefore affirmed the Second Circuit’s exercise of jurisdiction by an equally divided Court and proceeded to the merits. This was not a majority Supreme Court resolution that all plaintiffs had standing. Footnote 6 identifies the political-question argument and the additional claimed prudential bar to generalized grievances. (420.)
+
+On the merits, the Court held that **the Clean Air Act and the EPA action it authorizes displaced any federal common-law right to seek abatement of carbon-dioxide emissions from fossil-fuel powerplants**. It **reversed the Second Circuit’s judgment and remanded**. State-law claims remained open for consideration; the decision did not impose emissions caps, award damages, or decide state-law preemption. (424–425, 429.)
+
+## Why federal common law was displaced
+
+Justice Ginsburg explained that Erie’s rejection of general federal common law coexisted with specialized federal decisional law in areas of national concern. Interstate air and water pollution had supported federal nuisance decisions. But a subject’s suitability for federal governance did not automatically confer legislative power on judges, nor guarantee the particular claim these plaintiffs proposed. The Court had not decided whether private landowners or political subdivisions could use that federal nuisance doctrine against out-of-state pollution, or whether its earlier cases extended to climate change’s global scale. It reserved those questions because any otherwise available claim would be displaced here. (420–423.)
+
+Displacement of federal common law is distinct from preemption of state law. The former does not demand the same clear congressional-purpose showing used to displace state law. It asks whether legislation speaks directly to the question previously left to federal judicial lawmaking. Congress, rather than federal courts, ordinarily sets national policy in areas of special federal interest. (423–424.)
+
+Section 111 addressed the same emissions the plaintiffs wanted judicially controlled. It directed EPA to identify relevant categories of stationary sources, establish standards for new or modified sources, and provide a framework for existing sources, with state implementation and federal oversight. Note 7 identified statutory exceptions involving pollutants already addressed under specified other programs; the Court did not describe subsection 111(d) as an unlimited authorization for every source and pollutant. The Act also contained monitoring, enforcement, private-action, rulemaking-petition, and judicial-review mechanisms. That structure provided a route to seek the same kind of emissions limitation and left no parallel federal common-law track. (424–425 and note 7.)
+
+Crucially, displacement did not wait for a completed rule. Congress selected an agency-centered process, including discretion about whether and how to act. Even a final EPA decision against regulation could not be overridden by a district judge’s federal nuisance injunction. The statutory decision remained judicially reviewable for compliance with the Act, including protection against arbitrary or unlawful refusal to regulate. Plaintiffs’ federal-law recourse was review of agency action, not an independent common-law judicial emissions regime. (425–427.)
+
+The Court also explained the institutional fit. Emissions limits require balancing environmental protection, energy needs, costs, technology, and potential economic disruption. The statutory scheme gave that initial task to an expert agency working with state regulators. Agencies could obtain scientific advice and broader input in ways that a judge confined to the parties’ record could not. A district judge’s ad hoc decree also would not bind other district judges faced with similar suits against other emitters. Plaintiffs’ proposed direct judicial standard-setting therefore conflicted with the decisionmaking sequence Congress chose. (427–429.)
+
+## State law, the separate opinion, and vote
+
+The plaintiffs alternatively invoked nuisance law of the States where the plants operated. The Second Circuit had not reached those claims, and the parties had not briefed preemption or otherwise addressed their availability. The Supreme Court therefore left those issues for remand. Removing federal common law did not itself establish that a state nuisance remedy either survived or was barred. (429.)
+
+Ginsburg’s opinion was joined by Chief Justice Roberts and Justices Scalia, Kennedy, Breyer, and Kagan. Justice Alito, joined by Justice Thomas, concurred in part and in the judgment. He agreed with displacement while assuming, solely for argument because no party contended otherwise, that Massachusetts’s interpretation of the Clean Air Act was correct. He did not independently adopt that earlier interpretation. Justice Sotomayor did not participate. Thus the merits judgment was **8–0**, with a six-justice main opinion and Alito’s two-justice qualified concurrence; jurisdiction was separately affirmed **4–4**. (413, 420, 429–430.)
+
+## Reading the assigned account
+
+The assigned Note 4 highlights why delegation can displace common law even before an agency acts. Its first short quotation is referenced to report page 412, which is the syllabus; the judicial treatment of that contention appears at 425–426. The longer quoted discussion begins at 426 and continues onto 427, including the agency-first, judicial-review-second sequence. Those source distinctions prevent treating an editorial or syllabus condensation as a separate holding.
+
+The editorial question asks whether agency inaction should displace judicial common-law power. The Court’s answer concerns the governing statutory structure: congressional delegation does the displacing, while statutory review remains available to challenge unlawful agency action or inaction. It does not say every agency’s silence automatically eliminates every otherwise available remedy. This brief states the historical decision without certifying current regulatory law or later case treatment.
+
+**Sources:** Entire [official report, 564 U.S. 410–430](https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-410.pdf), including the complete Court opinion, all seven judicial notes, counsel/amicus continuation, and Alito’s full joined concurrence; complete assigned pages 287–288 and both original scans. Source hashes and independent-review state are preserved in the accompanying register.

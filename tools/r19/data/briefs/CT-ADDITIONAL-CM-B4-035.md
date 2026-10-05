@@ -1,0 +1,36 @@
+# Kelly v. Marx
+428 Mass. 877, 705 N.E.2d 1114 (1999) | Contracts
+
+## Court, appellate course, and result
+Justice Ireland delivered the Massachusetts Supreme Judicial Court’s February 10, 1999 opinion upholding the sellers’ right to retain a $17,750 deposit as liquidated damages. John and Pamela Kelly had sued Steven and Merrill Marx in November 1994 to recover the deposit. On cross-motions for summary judgment, the Superior Court ruled for the sellers. A divided Appeals Court reversed and directed repayment because the sellers had suffered no actual damage. On further appellate review, the Supreme Judicial Court rejected that retrospective approach and affirmed the Superior Court judgment. This was not affirmance of the Appeals Court’s opposite disposition. (877–878, 882 & nn.1–2.)
+
+The reported panel comprised Chief Justice Wilkins and Justices Abrams, Lynch, Greaney, Fried, Marshall, and Ireland. No separate writing or numerical division is recorded in the Supreme Judicial Court opinion. Its references to a dissent by Justice Spina concern the earlier Appeals Court stage, not a dissent accompanying this judgment. (877–878, 880.)
+
+## Purchase agreement and resale after the breach
+On March 18, 1994, the buyers offered $355,000 for the sellers’ Worcester residential property, with a September 1 closing. The sellers accepted, and the buyers paid a $1,000 initial deposit. By early May they executed a purchase-and-sale agreement under which the seller could retain all deposits as liquidated damages if the buyer failed to fulfill the agreement. The buyers then paid another $16,750, bringing the deposit to $17,750, or five percent of the price. (878.)
+
+The buyers never purchased the house. On August 9 they notified the sellers to put it back on the market because they could not sell their current home. The sellers accepted another offer August 24, executed a new agreement September 8, and sold for $360,000 on September 20. Thus, the subsequent price was $5,000 above the Kellys’ agreed price. The earlier Appeals Court reasoned that retaining the deposit despite an absence of actual damage would punish the buyers rather than compensate the sellers. The Supreme Judicial Court accepted neither that rationale nor the resulting refund. (878–879.)
+
+## Formation-stage inquiry rather than a second look
+The Court held that enforceability should be assessed from circumstances at contract formation: potential breach damages must be difficult to determine, and the stipulated sum must reasonably forecast expected damage. A grossly disproportionate estimate remained invalid. Rejecting the “second look” did not eliminate review for penalties; it changed the temporal focus of that review. (878, 880, 882 & n.6.)
+
+Earlier language in A-Z Servicenter had created uncertainty. Some courts had used it to examine both anticipated loss and actual postbreach consequences. The Appeals Court applied a three-step formulation derived from Shapiro: ascertain actual damage, assess the forecast, and test the stipulated amount against actual loss, with actual damages awarded if the clause failed. Note 3 reproduces that analysis to explain what was being displaced; it is not the Supreme Judicial Court’s adopted test. (879–880 & n.3.)
+
+The Court agreed with the earlier dissent’s formation-stage approach. The parties selected an amount based on their particular circumstances and estimates at the time of bargaining. A later comparison showed nothing about what they had anticipated that was unavailable at formation. Requiring proof of actual breach loss would increase uncertainty, delay, and expense, making the parties litigate precisely the issue their agreement sought to resolve. (880–881.)
+
+The buyers argued that retrospective review prevented a windfall where, as here, the sellers had no loss. The Court answered that this would undo a valid agreement for stipulated compensation in favor of a court’s postbreach assessment. Freedom to agree did not authorize unreasonable figures, but reasonable prospective liquidation was not contingent on demonstrating an equal actual loss afterward. (881–882 & n.6.)
+
+## Restatement illustration and limits on the holding
+Note 4 expressly disagreed with the Restatement illustration invoked by the Appeals Court. The illustration treated a contractor’s delay payment as a penalty when the owner suffered no actual lost operating revenue because the venue could not legally operate during the delay. The Supreme Judicial Court read section 356’s reference to anticipated or actual loss as permitting an otherwise reasonable anticipated-loss provision despite the later absence of injury. It did not silently adopt the illustration and then overlook its implications. Note 5 acknowledged division among other courts over the competing approaches. (880 & nn.4–5.)
+
+The Court continued to reject unreasonably large liquidated damages on public-policy grounds. It contrasted the five-percent deposit with a cited decision finding a one-third-of-price provision unreasonable. The opinion therefore does not establish universal validity for every real-estate deposit or make the parties’ chosen label dispositive. It requires a reasonable forecast under the formation circumstances. (882 & n.6.)
+
+## Application to this agreement
+At formation the parties could not know how long resale might take, how the real-estate market would develop, or how failure of this sale might disturb the sellers’ plans. Locating a substitute buyer and waiting for a sale exposed the sellers to uncertainty and expense. A five-percent deposit reasonably forecast that risk and was neither grossly disproportionate to anticipated damages nor unconscionably excessive. Even the Appeals Court had conceded that a formation-only inquiry would permit retention. The more favorable eventual resale did not defeat the provision. (881–882.)
+
+The final judgment affirmed the Superior Court’s ruling for the sellers, so the buyers were not entitled to return of the deposit. No new trial or further computation of actual loss was ordered. The case concerned a real-estate purchase agreement, not a holding about every consumer charge or every category of stipulated remedy. (882.)
+
+## Assigned passage and reading scope
+C&M Book 4 physical pages 55–56, printed pages 1062–1063, place Kelly in a developed note contrasting retrospective and prospective review. The quoted litigation-efficiency reasoning begins on 55 and continues on 56, which also supplies the rejection of the windfall argument. Both entire native pages and original scans were read; the difficult OCR on 55 was checked against its original image.
+
+The complete original opinion at 877–882, including all six notes, the court and party identifications, and the final judgment, was read in native text. Original page 882 was fully visually inspected for the application, mandate, and note 6. The complete CAP source is archived as corroboration, without claiming a second entire rereading. A publisher pagination note following the judgment is separate from the opinion. This brief states the 1999 rule and preserves its public-policy limits rather than certifying present law. Separate source review is tracked in the accompanying register.

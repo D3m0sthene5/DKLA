@@ -1,0 +1,36 @@
+# Shea-S&M Ball v. Massman-Kiewit-Early
+606 F.2d 1245 (D.C. Cir. 1979) | Contracts
+
+## Court, project, and procedural setting
+
+The D.C. Circuit decided this appeal on August 2, 1979; rehearing was denied September 6. Senior Third Circuit Judge Van Dusen, sitting by designation, wrote for a panel with Judges Bazelon and Robinson. No separate judicial writing is reproduced. The court reversed a December 2, 1977 bench-trial judgment and remanded for further proceedings concerning flooding between adjoining subway construction sites. (606 F.2d 1245, 1247–1248 & designation note.)
+
+Shea and MKE were separate joint ventures contracting with WMATA for neighboring segments. Shea’s C-4 project comprised the tunnel south of Foggy Bottom station; MKE’s C-3 work included the station and tunnel to its north. Their projects met at the station’s south end. On seven occasions, water from MKE’s overflowing corrugated-steel sewer flooded Shea’s area. The first was June 21, 1973. MKE’s contract required it to control groundwater and protect facilities from damage caused by dewatering operations; detailed provisions in note 2 also regulated handling existing sewer flows. Shea was a third-party beneficiary of that contract. (1247–1249 & nn. 1–2.)
+
+The district court found MKE breached but awarded only $14,000, characterized in note 3 as the cost of erecting and removing a dike. It treated the first flood as an act of God and restricted recovery for subsequent floods because Shea failed to mitigate by constructing a dike at the interface. The court also rejected the negligence claim on contributory-negligence grounds without determining whether MKE was negligent. It rejected liability against WMATA, concluding the authority had no obligation to enforce its proposed solution. Shea appealed these limitations. (1247–1248 & nn. 3–5.)
+
+## The unsupported act-of-God defense
+
+A rainfall could qualify only if unprecedented and extraordinary, of unusual proportions, and not reasonably foreseeable. Heavy rain alone did not meet that standard. The record contained neither the ordinary rainfall range for Washington nor evidence of the amount actually falling during the relevant periods. The defendants therefore supplied no basis for treating the first flood as extraordinary; the defense failed on this record. The court did not establish that no storm could ever excuse performance. (1248–1249.)
+
+Note 6 supplied an additional problem: an act of God must arise exclusively and directly from natural causes. Human intervention or neglect contributing to the event removes the premise of that defense. The district court had not determined whether MKE’s negligence contributed. Because MKE’s breach and Shea’s beneficiary status were otherwise accepted, first-flood damages required determination on remand. Note 9 identified potentially relevant questions, including a failure to warn of accumulating water and whether the suspended substitute sewer substantially caused its accumulation. (1249 & n. 6; 1251 n. 9.)
+
+## Equal opportunity to prevent contract damages
+
+The appellate court recognized the usual prohibition against passively accumulating harm when obvious, reasonable precautions would greatly reduce it. It nevertheless held that this contract situation fell outside the mitigation deduction. Following S. J. Groves, a defendant cannot complain about the plaintiff’s omission of the same preventive act when both had equal opportunity and the defendant could as reasonably be expected to act. The doctrine does not apply when the defendant has the primary contractual performance obligation, equal opportunity to perform, and equal knowledge of the consequences. (1249–1250.)
+
+Those conditions were satisfied: MKE bore primary responsibility for its runoff, knew the consequences of failing to control it, and could construct the same dike. The district court could not transfer the cost of that default to Shea through a mitigation limitation. This rationale addresses the allocated contractual duty and shared opportunity; it does not announce that an injured party never needs to mitigate merely because the defendant breached. Damages could be recalculated only if Shea supplied sufficient supporting evidence. Whether to take additional damages testimony remained within the trial judge’s discretion under note 7. (1250 & n. 7.)
+
+The negligence theory must remain distinct. Note 4 affirmed the district court’s contributory-negligence conclusion concerning failure to take obvious protective steps, while directing examination of whether the first flood’s danger was sufficiently obvious and foreseeable to support the same conclusion. Reversal of the contractual mitigation limitation therefore did not amount to a blanket reversal of every contributory-negligence finding or an appellate finding that MKE was negligent. (1248 & n. 4.)
+
+## WMATA’s cooperation obligation
+
+At a February 1974 conference after the third flood, WMATA proposed that Shea build a dike and MKE pump the accumulating water. WMATA maintained that it could only suggest, rather than compel, this solution. Section 1.14 of the contracts, however, required contractors to cooperate with other project contractors, fit their work as directed, and avoid interference. The appellate court applied Hoffman, which treated comparable contractual provisions as obligating the contracting authority to secure cooperation for the affected contractor’s benefit. Note 8 reproduces the analogous Hoffman clause. (1248 n. 5; 1250–1251 & n. 8.)
+
+Shea was entitled to expect both MKE’s cooperation and WMATA’s exercise of its supervisory power to enforce that obligation. Arranging one unsuccessful meeting did not discharge that duty. WMATA’s failure to compel cooperation breached a contractual obligation owed to Shea. The district court’s conclusion that the authority owed no enforceable supervisory duty was therefore erroneous. This was a conclusion about these contracts, rather than a general guarantee against all project damage. (1251.)
+
+## Judgment and assigned context
+
+The court reversed the December 1977 judgment and remanded for proceedings consistent with its opinion. It did not set a new dollar recovery. The remand required reassessment of first-flood damages, recalculation without the improper contract mitigation deduction if adequately proved, and treatment of WMATA’s contractual breach, while preserving the negligence distinctions in note 4. (1248, 1250–1251 & nn. 4, 7, 9.)
+
+The assigned note presents the equal-opportunity reasoning and its later criticism in Cates; that criticism is editorial course context, not a separate holding of Shea or a certification of current law. Its linked footnote on physical 8 identifies Shea’s intended-beneficiary relationship to MKE’s WMATA contract. The complete assignment on C&M physical 7–8, printed 1014–1015, including that linked footnote, was read in native text and both original images. The complete actual majority, nine numbered notes, and designation note were read in CAP and the entire original reporter native extraction. Original 1248 and 1251 were visually checked, including the preserved contributory-negligence ruling and precise remand. Separate source review is tracked in the accompanying register.

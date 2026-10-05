@@ -1,0 +1,39 @@
+# Kramer v. Caribbean Mills, Inc.
+
+**394 U.S. 823 (1969) — Supreme Court of the United States, May 5, 1969.** Justice Harlan wrote the Court’s opinion; Justice Fortas did not participate. The report contains no separate opinion or dissent. Assigned account: *CivPro.pdf*, physical page 182, printed page 318, under “The Problem of Collusive Joinder and the Real Party in Interest.”
+
+## Transaction and procedural history
+
+Caribbean Mills was a Haitian corporation. In May 1959, it contracted with Kelly and the Panama and Venezuela Finance Company, a Panamanian corporation, to purchase 125 shares from Panama. Caribbean was to pay $85,000 down and another $165,000 in twelve annual installments. It made none of the installment payments despite Panama’s demands. In 1964, Panama assigned its entire contractual interest to Kramer, an attorney in Wichita Falls, Texas, for a stated consideration of $1. A separate agreement executed that same day required Kramer to return 95 percent of any net recovery to Panama, described as a “Bonus.” Net recovery meant the proceeds left after attorneys’ fees and litigation expenses; Kramer would keep the other five percent. **824 & n.1.**
+
+Panama could not sue Caribbean in federal court on alienage diversity alone: both were foreign corporations. Kramer’s Texas citizenship appeared to change the alignment to a citizen of a state against a foreign corporation. He sued Caribbean in the Northern District of Texas for $165,000 under the then-existing diversity statute, which required more than $10,000 in controversy. The district court denied Caribbean’s jurisdictional motion, and a jury awarded Kramer the full $165,000. The Fifth Circuit reversed because Kramer had been improperly or collusively made a party to obtain federal jurisdiction under 28 U.S.C. § 1359. The Supreme Court granted certiorari to decide that jurisdictional question, not whether Caribbean owed the installments. **824–825 & n.2.**
+
+## Issue and holding
+
+Could this assignment create federal alienage jurisdiction when the foreign assignor retained 95 percent of the net recovery and the nominal Texas assignee paid only $1? No. Section 1359 withdraws district-court jurisdiction when a party has been improperly or collusively made or joined, by assignment or otherwise, to invoke federal jurisdiction. This transaction fell within the statute’s core prohibition against manufacturing a federal forum. **824, 827–830.**
+
+## Why the assignment was jurisdictionally improper
+
+The Court first examined the statute’s history. Before the 1948 Judicial Code revision, an “assignee clause” generally prevented an assignee from suing federally on a chose in action unless the assignor could have done so, subject to specified exceptions. Another statute required dismissal when parties had been improperly or collusively arranged to create jurisdiction. Congress repealed the broad assignee clause and adopted the present § 1359, restricting the prohibition to improper or collusive arrangements while retaining the objective of preventing manufactured jurisdiction. Thus, the Court did not treat every assignment as disqualifying. **825–826 & nn.3–7.**
+
+Precedent applying the predecessor collusion statute supplied the closer analogy. In *Farmington v. Pillsbury*, local bondholders transferred coupons to an out-of-state plaintiff for a nonnegotiable note and a share of collections. The transfer principally paid the new plaintiff for using his name and collecting the money, rather than transferring the real economic controversy. Kramer’s arrangement worked similarly. He had no previous connection to the dispute, paid a nominal dollar, and immediately committed almost the entire net recovery back to Panama. The Court described the agreement’s economic effect as a simultaneous reassignment of a 95 percent interest. If the suit failed, Kramer would lose only $1 plus costs. He also conceded that obtaining diversity jurisdiction substantially motivated the assignment. Those combined circumstances made him a collection intermediary whose citizenship supplied the desired forum. **827–828 & nn.8–10.**
+
+The practical consequence reinforced the precedent. These assignments were easy to arrange and imposed few disadvantages on the original claimant. If they sufficed, one party could channel vast amounts of ordinary contract and tort litigation into federal court by selecting an assignee with suitable citizenship. Section 1359 prevented that unilateral expansion of the federal docket. **828–829.**
+
+## Kramer’s objections and the limits of the holding
+
+Kramer argued that the assignment was admittedly lawful under Texas law and therefore could not be improper. The Court distinguished enforceability from federal jurisdiction. A transaction may bind the parties under state law while failing a federal statute governing access to federal court. Earlier collusion decisions made precisely that distinction, and § 1359’s text and history did not change it. Letting state-law validity establish jurisdiction would defeat the statute because jurisdiction-producing assignments could readily satisfy ordinary state assignment requirements. **829 & n.11.**
+
+He also argued that precedent concerning citizens of different states did not govern alienage jurisdiction. Section 1359 contains no such distinction. Its prohibition applies equally to ordinary diversity and citizen-versus-foreign-party diversity. **829–830.**
+
+Footnote 9 preserves substantial boundaries. Because Panama retained nearly all the economic interest, the Court did not reconsider earlier decisions permitting absolute transfers in which the transferor retained no interest, regardless of motive. It also did not resolve whether appointing an out-of-state guardian or administrator to obtain diversity violated § 1359. Representatives differ from voluntary assignees: a representative may be necessary before suit, possesses powers defined by state law, and receives appointment through a state-court decree. The Court expressly left whether those differences changed the statutory result undecided. **828 n.9.**
+
+## Judgment and practical result
+
+The Court **affirmed the Fifth Circuit**, holding that the district court lacked jurisdiction and that Kramer must pursue a state-court remedy. The federal jury verdict therefore did not establish an enforceable final recovery through this action. **830.**
+
+Kramer requested prospective-only application because Texas’s four-year contract limitation might bar some installments. The Court pointed to a Texas saving statute excluding time spent in a jurisdictionally defective action if the claimant timely refiled in a proper court, subject to an intentional-disregard exception. Given Kramer’s allegation that the first installment accrued July 1, 1962, the statute appeared to preserve a full state remedy. The Court therefore found further discussion of prospectivity unnecessary; it did not itself adjudicate a later Texas limitations defense. **830 n.12.**
+
+## Assigned account and source scope
+
+The assigned page accurately supplies the essential assignment, retained recovery, appellate reversal, and Supreme Court affirmance. Its question about motive versus retained financial interest is an editorial invitation to analyze the decision. The full opinion relies on their combination and expressly reserves the absolute-transfer cases; the question should not become a holding that motive alone always defeats jurisdiction. The complete eight-page official report, including all twelve judicial footnotes and the nonparticipation notation, and the complete assigned page’s native text and original scan were read. This brief describes the 1969 decision; current statutory amendments or later doctrine are not independently certified here. Independent-review status is recorded in the accompanying register.

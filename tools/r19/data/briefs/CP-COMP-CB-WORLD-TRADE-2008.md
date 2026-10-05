@@ -1,0 +1,61 @@
+# In re World Trade Center Disaster Site Litigation
+
+**521 F.3d 169 (2d Cir. 2008) · March 26, 2008 · Civil Procedure**
+
+Judge Wesley wrote for a unanimous panel with Judges Newman and Sotomayor. The court dismissed the interlocutory appeal concerning state-law immunity and affirmed denial of summary judgment concerning derivative federal immunity. That mixed result left the workers’ suits pending; it did not decide negligence, causation, damages, or the eventual settlement. The assigned editorial account is CivPro physical PDF 514, printed 1007, Note 4, with the final sentence continuing after the 1007 marker.
+
+## The workers’ claims and the attempted immunity appeal
+
+Workers involved in rescue, recovery, and cleanup after September 11 alleged that exposure to toxic substances caused respiratory injuries. Their complaints challenged failures to monitor conditions, supply protection, and warn of dangers. Defendants included New York City and its Department of Design and Construction, contractors, the Port Authority, and World Trade Center property owners. The asserted duties came from negligence law and New York labor and municipal statutes. These were allegations; this appeal did not establish that any defendant breached a duty or caused an injury. (173–174.)
+
+The actions came into federal court under the Air Transportation Safety and System Stabilization Act. Earlier proceedings had addressed which recovery activities fell within its exclusive federal cause of action and jurisdiction. Its substantive-law provision generally borrowed state law unless inconsistent with or preempted by federal law. Those jurisdictional proceedings supplied the background to this appeal, rather than a fresh determination of every claim’s federal character. (174–175, 194 n.27.)
+
+Judge Hellerstein rejected state-law immunity on the pleadings and federal immunity on summary judgment. Defendants described a federally coordinated emergency response, including the Army Corps’ work at Fresh Kills, OSHA’s respiratory-protection role, and EPA’s environmental activities. They argued that immediate suit would undermine governmental discretion in responding to disasters. The workers disputed that federal agencies had directed the particular allegedly negligent conduct. The dispute therefore concerned both the legal availability of immunity and the evidence connecting challenged acts to federal decisions. (175–177.)
+
+After the district court declined certification under 28 U.S.C. § 1292(b), defendants pursued a collateral-order appeal. An earlier appellate decision had lifted a stay and restored the district court’s ability to continue pretrial and trial proceedings. The present opinion addressed whether the asserted immunities were immediately appealable and whether federal derivative immunity justified judgment on this record. (177–178.)
+
+## Immediate review depends on the kind of immunity
+
+The collateral-order doctrine requires a conclusive resolution of an important issue separate from the merits that would be effectively unreviewable after final judgment. The cost and inconvenience of trial ordinarily do not qualify. An immunity from suit can be lost by having to proceed through litigation; a defense against liability ordinarily survives for review after judgment. Merely labeling a defense immunity does not establish immediate appellate jurisdiction. (178–180.)
+
+The court could review a legal claim to immunity on the workers’ accepted version of the facts, but could not use interlocutory review to resolve genuine disputes about what the defendants actually did. This limit mattered because federal collaboration alone did not settle whether federal officials had controlled the challenged safety decisions. (180–181, 180 n.7.)
+
+State law defined the state immunity asserted, while federal law governed finality and appellate jurisdiction. New York’s permissive appeal rules did not convert every appealable state defense into a federal collateral order. State procedure could sometimes help illuminate the substantive right, but the relevant New York authorities here established a protection against liability rather than against the process of suit. (181–183, 182 n.10.)
+
+## Why the state-law appeal was dismissed
+
+The New York State Defense Emergency Act and Disaster Act said that qualifying actors would not be liable for specified emergency conduct. Other New York statutes used express language protecting against both liability and action. That difference, together with the state’s construction of governmental immunity in Brown, persuaded the panel that these defenses did not create a right to avoid trial. The policy favoring discretionary emergency decisions could not supply a broader immunity than the statutes and state decisions provided. (183–185.)
+
+The Port Authority could not invoke a general sovereign immunity from suit in these actions. Its broad statutory consent to suit and the governing interstate-agency authorities defeated that proposition. Whether it possessed a residual governmental-function defense against particular liability was a different question, which the panel did not conclusively reject. Such a defense still would not support this collateral appeal. The court therefore dismissed the state-law portion for lack of appellate jurisdiction; it did not affirm the district court’s substantive state-immunity analysis. (186–187.)
+
+## Stafford Act immunity and its possible derivative extension
+
+Section 305 of the Stafford Act, 42 U.S.C. § 5148, protects the federal government from liability for claims based on the exercise or nonexercise of discretionary functions in disaster assistance. Although the statutory wording initially resembled the New York provisions, federal sovereign-immunity history, the legislative background, and the separation-of-powers concerns associated with discretionary decisions showed that this provision protected the federal government against suit. That federal construction did not override New York’s different construction of its own laws. (188–193, 192 n.26.)
+
+The defendants were not federal agencies or employees, so the statutory text did not directly immunize them. They instead sought immunity derived from the federal government’s own protected decisions. Drawing on Yearsley and Boyle, the court held that such protection could exist when imposing state liability would significantly conflict with a protected federal decision. To the extent the district court treated derivative Stafford Act immunity as categorically unavailable, that legal premise was mistaken. The mistake did not require summary judgment for defendants. (193–198.)
+
+The first inquiry was whether a federal agency itself would have discretionary-function immunity for the particular challenged activity. The agency had to act within the Stafford Act’s scope; the relevant conduct had to involve permissible judgment rather than violation of a mandatory requirement; and the judgment had to be of the public-policy kind that the statute protects. Not every discretionary practical act meets that last condition. The parties had not adequately briefed this threshold application, which the district court would have to examine in the first instance. (195–196.)
+
+The adapted Boyle inquiry then required reasonably precise specifications approved through federal discretion, federal supervision and control of implementation, and disclosure of dangers known to the implementer but not to the federal agency. Substantive federal approval mattered. General cooperation, participation in meetings, or a federal official’s rubber stamp did not establish that a local actor’s allegedly negligent choice implemented a protected federal decision. A significant conflict between federal policy and state liability remained necessary. (197, nn.31–32.)
+
+The court illustrated the distinction with respiratory protection. If OSHA adopted a sufficiently precise protected policy, supervised its implementation, and received the required warnings, those implementing the policy could potentially invoke derivative immunity. If local defendants chose their own policy and merely obtained nominal federal approval, the rationale would fail. Failure to implement the federal requirements also would not receive protection for obeying them. These were explanatory examples, not findings that the record satisfied the test. (198.)
+
+## Why federal summary judgment still failed
+
+The submitted evidence established collaboration but did not adequately separate federally directed conduct from defendants’ independent decisions. That uncertainty prevented judgment granting immunity. The court affirmed denial of federal summary judgment, while explaining the correct legal framework for further proceedings. It did not decide disputed evidentiary sufficiency through a collateral appeal or categorically foreclose a properly supported defense later. (198, n.34.)
+
+The Port Authority’s reliance on Pani and Murray did not establish broader protection. Those cases concerned immunity associated with particular governmental functions or delegations, not an unlimited transfer of federal sovereign immunity to everyone assisting the government. There was no equivalent demonstrated compulsory delegation of the conduct challenged here. Property ownership and vicarious-liability claims also did not become protected governmental acts simply because the Port Authority participated in recovery. (199–200.)
+
+A regulation governing disaster-assistance payments likewise did not make the United States the real party in interest for all claims against recipients. Assistance was conditional, and the regulation excluded expenses resulting from the recipient’s own negligence. Possible federal reimbursement therefore did not automatically eliminate liability or establish immunity from suit. (200.)
+
+The defendants’ concern that future emergency responders would hesitate was substantial policy advocacy, but could not justify blanket judicial immunity. Contractors could address risks through compensation, insurance, and indemnification; Congress could choose additional protection. The court declined to create it on policy grounds alone. (201.)
+
+## The retained notes and the precise limits of the judgment
+
+The complete judicial text contains thirty-seven numbered notes. Important reservations prevent overreading the result. Note 21 expressly leaves open whether Stafford Act immunity covers an abuse of discretion, because its language differs from the Federal Tort Claims Act. Note 33 rejects the premise that federal or state emergency declarations simply suspended the labor laws; only an actual conflicting requirement could be displaced. Note 36 reserves constitutional questions concerning possible new legislation. Note 37 leaves unresolved the appellate-jurisdiction question concerning the contention that the ATSSSA preempted the immunity defenses. These are reservations, not additional holdings granting protection. (189 n.21; 198 n.33; 201 n.36; 201–202 n.37.)
+
+The court denied the motion to dismiss the federal-immunity appeal, affirmed denial of federal summary judgment, and dismissed the state-immunity appeal. Its mandate was **dismissed in part and affirmed in part**. An amicus was permitted to file a brief, with further participation denied. (201–202.)
+
+The textbook uses the litigation to discuss special masters, selected bellwether trials, thousands of plaintiffs and hundreds of defendants, and an eventual settlement, citing later commentary. Those procedural descriptions belong to the assigned editorial account. This March 2008 opinion neither decides a Rule 53 special-master issue nor establishes the later settlement chronology. The separately mentioned September 11 compensation fund is also distinguished from these tort suits and their court-appointed masters.
+
+The complete actual judicial text and all thirty-seven notes were read before drafting; there is one unanimous opinion, with no separate writing or appendix. Twelve selected original report images were checked against the reproduction. The entire assigned physical 514 was read in native text and the original scan. This brief preserves the historical decision and does not certify current-law or citator treatment.

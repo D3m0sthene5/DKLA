@@ -1,0 +1,44 @@
+# Carlill v. Carbolic Smoke Ball Company
+[1893] 1 Q.B. 256 (C.A., decided Dec. 7, 1892) | Contracts
+
+## Decision and posture
+
+The Court of Appeal unanimously dismissed the company’s appeal from Hawkins J.’s judgment entitling Carlill to the advertised £100 reward. Lindley, Bowen, and A. L. Smith L.JJ. each delivered reasons. They agreed that the advertisement was an enforceable offer, that the stipulated use supplied consideration and acceptance without advance notice, and that Carlill satisfied the conditions for payment. Their interpretations of the duration of protection were not identical. The appellate decision is reported in the 1893 volume, although the hearing occurred December 6–7, 1892. (256–257, 261–275.)
+
+## Facts and chronology
+
+The company advertised in the Pall Mall Gazette on November 13, 1891 and in other newspapers that it would pay £100 to a person who contracted influenza, a cold, or a disease caused by taking cold after using its smoke ball three times daily for two weeks according to the directions. The advertisement stated that £1,000 had been deposited with Alliance Bank to demonstrate the company’s sincerity. It also asserted that no ascertained disease case had occurred among users during the previous epidemic, described the product’s price and refill cost, and promoted its usefulness to a family over several months. (256–257.)
+
+Carlill bought a ball from a chemist in reliance on the advertisement. She used it as directed from November 20, 1891 until January 17, 1892, when she contracted influenza while still using it. Hawkins J. held that she could recover the promised £100. The company appealed, disputing the existence and enforceability of a contract rather than identifying a factual failure to use the product as directed. (257.)
+
+## The parties’ arguments
+
+The company contended that the advertisement expressed confidence or an intention to pay rather than a legal promise, was addressed to no identified contracting person, and was indefinite about when influenza had to occur. It emphasized the difficulty of checking private use and argued that acceptance required communication or an overt act. It also denied consideration: purchasing might benefit the company, but using an already obtained ball supposedly did not. Counsel suggested the wording could reach persons who stole balls, bought through intermediaries, or had used one before publication. Finally, the company characterized any resulting bargain as an unlawful wager or an insurance policy failing the statutory conditions. (257–258, 260–261.)
+
+Carlill’s counsel answered that the advertisement invited performance by members of the public, that performing its conditions accepted the offer, and that no advance notification or company supervision had been required. Public use would encourage sales even where the product was acquired from a chemist. Counsel proposed reasonable temporal constructions and distinguished the pleading and party-identity problems in Gerhard v. Bates. The court indicated that it needed no respondent argument on the wagering and insurance objections. (258–260.)
+
+## A promise addressed to the public
+
+Lindley began with the express promise to pay the reward. The statement that money had been deposited to show sincerity contradicted the suggestion that the advertisement was merely promotional exaggeration. Reward advertisements can constitute offers to anyone who performs their conditions; the absence of a named offeree does not prevent the performer from becoming a contracting party. (261–262.)
+
+Bowen emphasized the distinction between an offer to the public and a contract with everyone. The advertisement became a contract only with the portion of the public who performed on its faith before withdrawal. It was unlike an advertisement of houses or books that merely invites bargaining. Its meaning was to be assessed as ordinary members of the public would understand it, and the company could not escape an extravagant promise simply because enforcing it was commercially inconvenient. A. L. Smith likewise found an offer intended to be acted upon, supported by the bank-deposit statement, rather than an unenforceable expression of confidence or a promise merely in honor. (266–269, 272–274.)
+
+## Performance, notice, and consideration
+
+The judges acknowledged the ordinary requirement that acceptance be notified. But the offeror can indicate expressly or by the character of the transaction that performance is sufficient. Bowen explained that advance letters of acceptance would make little sense in a public reward transaction, using a lost-dog reward as an illustration. The invitation to perform thus dispensed with advance notification. Lindley regarded notice separate from performance as unnecessary here; alternatively, he reasoned that notification accompanying the fact of performance before withdrawal would suffice. A. L. Smith refused to read a supervision or advance-notice condition into an advertisement that contained none. These reasons do not abolish notice requirements for every offer of a unilateral bargain; they construe what this offer invited. (262–263, 269–270, 274.)
+
+Using the smoke ball as requested involved inconvenience sufficient to support the promise. The judges also recognized the commercial benefit expected from public use, which could stimulate further sales. Bowen explained that the law did not require an appraisal of the adequacy of that inconvenience; A. L. Smith considered enhanced sales the more important of the two considerations. Acquisition directly from the company was not essential to Carlill’s claim. Contractual performance was the stipulated use in reliance on the offer; contracting influenza was the event triggering payment, not a requested service the plaintiff had to supply to the company. (264–265, 266–267, 271–273, 275.)
+
+Gerhard v. Bates did not establish a contrary rule applicable to these facts. Lindley treated its difficulty as involving the plaintiff’s relation to the promised class and the allegations required to connect him to the promise. Bowen similarly understood the unsuccessful pleading as failing to establish the contractual relationship; once the proper promisee and bargain were established here, the requested use furnished consideration. (265, 271–272.)
+
+## Certainty and the individual judges’ interpretations
+
+The advertisement did not reasonably promise lifelong immunity after one fortnight of use. Lindley considered several possible time limitations and preferred protection for a reasonable time after the prescribed use. He suggested that medical evidence about the ingredients’ expected protective effect could provide a standard for determining such a period. He also recognized that a construction covering continuing use supported this plaintiff, who continued until she became ill. (263–264.)
+
+Bowen preferred protection while the ball remained in use, drawing support from the advertisement’s references to users during the previous epidemic, the ball’s useful life, and refilling it. He expressed difficulty with Lindley’s reasonable-period interpretation, but no need to resolve that difference because Carlill fell ill during continued use. A. L. Smith identified three possible limits—the epidemic’s duration, continued use, or a reasonable period after the initial fortnight—and declined to choose among them because each was sufficiently definite and the choice did not affect this action. The result therefore does not establish a unanimous rule fixing how long a former user would remain protected. (266–268, 274.)
+
+## Result and reading scope
+
+The company’s insurance and wagering arguments were rejected, and the appeal was dismissed, leaving the £100 judgment in place. Lindley agreed with Hawkins J. that the transaction had nothing in common with a bet; A. L. Smith expressly rejected both objections at the end of his reasons. (261, 275.)
+
+The assigned account occupies C&M Textbook 1–350 physical PDF page 273, printed 228, with the linked questions on physical 274, printed 229. The complete report reproduced by Uniset was read from 256 through the final dismissal at 275, including factual and procedural headmatter, counsel’s arguments, all three judgments, and all reporter citation notes. BAILII access was denied, so the preserved complete actual report reproduction supplies the full source. The separate reviewer subsequently recovered and read all twenty original report pages, 256–275, from the University of Trier’s archived scan, including every citation note and all three judgments, and confirmed the account and pinpoints. The original author’s reading used the complete Uniset reproduction. No subsequent-treatment or current-law certification is asserted. Separate source review is tracked in the accompanying register.

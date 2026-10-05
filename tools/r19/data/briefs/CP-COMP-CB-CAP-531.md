@@ -1,0 +1,53 @@
+# Bose Corp. v. Consumers Union of United States, Inc.
+
+**466 U.S. 485 (1984) · Supreme Court of the United States · April 30, 1984 · Civil Procedure**
+
+**Assigned account:** CivPro, physical PDF page 635, printed pages 1257–1258, the own-caption account before Notes and Questions. Justice Stevens wrote for Justices Brennan, Marshall, Blackmun, and Powell. Chief Justice Burger concurred in the judgment without a written explanation. White dissented separately; Rehnquist dissented with O'Connor. The judgment was **6–3**, with five Justices joining the Court's reasoning. 466 U.S. at 487, 515–520.
+
+## Facts and trial findings
+
+Consumers Union's May 1970 *Consumer Reports* evaluated medium-priced loudspeakers and devoted particular attention to the unconventional Bose 901. Its review described apparent enlargement and movement of instrumental sound, saying individual instruments seemed exceptionally large and wandered about the room. It advised potential buyers to listen for themselves and delay a substantial investment until satisfied that the novelty would not wear off. Bose sought a retraction and, when Consumers Union declined, sued for product disparagement in federal court under diversity jurisdiction. The parties regarded the relevant New York and Massachusetts law as consistent. 487–489 and n.2.
+
+The District Court conducted a nineteen-day liability trial. It rejected most of Bose's challenges, including the claim that the overall sound-quality rating was provably false. It also found that apparent enlargement and some movement of sound were accurately reported. The decisive disagreement concerned the location of that movement: the review suggested movement about the room, while engineer Arnold Seligson's account and demonstration described lateral movement along the wall between the speakers. The court treated that difference as a false and disparaging factual assertion. 489–495, nn.3–5, 9–10.
+
+Seligson supervised the listening test and wrote the internal report from which the published account was prepared. Editors changed his wording from movement around the room to movement about the room; there was no evidence they knew of an inaccuracy. The actual-malice question therefore turned on his state of mind when writing the report or checking the article. He was deposed and testified for almost six days at trial. When questioned about the wording, he maintained that it conveyed the lateral movement he had drawn and described. 494–497, nn.11–12.
+
+The judge disbelieved that explanation. Seligson was educated and understood ordinary English; the judge considered it impossible that he understood the disputed phrase differently from ordinary readers. From that disbelief and the mismatch between wording and perception, the court inferred that Seligson knew the statement was inaccurate at publication. It found actual malice by clear and convincing evidence. It did not rely on an alleged competing-speaker interest as a proven motive, and rejected that proposed explanation for deliberate distortion. 497–498 and n.14.
+
+A separate damages trial before another judge attributed lost sales of 824 units to the statement, at $129 profit each, yielding $106,296; the court also awarded $9,000 in mitigation expenses, plus interest. These were District Court awards, not damages sustained by the Supreme Court. 491 n.7.
+
+## Procedure, issue, and parties' arguments
+
+The First Circuit reversed. It assumed, without deciding, that the statement was a false statement of fact rather than opinion, accepted its disparaging character, and independently examined the actual-malice evidence. It declined to reassess witness demeanor but concluded that imprecise wording did not establish knowing falsity or reckless disregard with the necessary clarity. Bose did not contest the District Court's public-figure determination or application of the *New York Times v. Sullivan* standard. 491–493 and n.8.
+
+The Supreme Court granted review to decide whether Rule 52(a)'s clearly erroneous standard governed appellate review of the actual-malice determination. Bose argued that knowledge at a particular time is a factual question, and that the trial judge's express credibility determination particularly required deference. Consumers Union relied on the constitutional duty to examine the record independently before allowing a judgment to invade protected expression. The dispute thus concerned the relationship between ordinary deference to trial findings and appellate responsibility for a constitutional threshold. 493, 498–501.
+
+## Rule and constitutional reasoning
+
+The Court held that, in a case governed by *Sullivan*, appellate judges must independently determine whether the record establishes actual malice with convincing clarity. Actual malice here means knowledge of falsity or subjective serious doubt about truth, not merely hostility, negligence, or an incorrect statement. The issue is whether proof constitutionally permits taking expression outside First Amendment protection. 511 n.30, 514.
+
+Rule 52(a) and independent review are compatible in important respects. Both allow examination of the record, and independent constitutional review permits due regard for the trial judge's advantage in observing demeanor. Ordinary facts remain facts even if they affect the outcome; labeling something an ultimate fact does not automatically remove deference. But Rule 52(a) does not prevent correction of legal error, including error embedded in a mixed determination. A constitutional sufficiency judgment cannot simply be delegated to a trial judge or jury. 498–502 and nn.15–17.
+
+Stevens explained that the actual-malice rule derives meaning from case-by-case adjudication, rather than from a self-applying formula. Judges must maintain its boundaries, just as courts independently examine whether particular expression falls within other categories of unprotected speech. The opinion's extended comparisons to obscenity, fighting words, and incitement illustrate this constitutional role. The constitutional value at stake also requires consistent scrutiny of state and federal judgments; the Supreme Court should not protect expression less carefully when the originating trial was federal. 499, 502–511 and nn.18–29.
+
+The important qualification appears in **514 n.31**. Independent review is not an original appraisal of every item of evidence to decide whether the plaintiff should win. It independently assesses the portions relevant to actual malice. Findings unrelated to that constitutional standard remain subject to clear-error review. If actual malice is established, the trial judgment cannot be reversed without another legal error or clearly erroneous factual finding. The decision therefore does not create general appellate retrials whenever litigation mentions the First Amendment.
+
+## Application and exact judgment
+
+The Court accepted that falsity and actual malice are different. Even accepting the trial court's factual findings and its rejection of Seligson's explanation, the evidence did not show with convincing clarity that he knew the inaccuracy when publishing or seriously doubted the statement. Disbelieving his later rationalization allowed the judge to disregard it; that disbelief did not itself supply affirmative proof of the opposite state of mind at the earlier publication date. 511–512.
+
+The description concerned an unusual auditory experience with ambiguous descriptive possibilities. An intelligent writer can select an inaccurate word without recognizing the error at the time. Treating ordinary understanding of the word plus later refusal to concede error as sufficient proof would expose mistaken expression to liability without the culpability required by *Sullivan*. The Court regarded the mismatch as within the protected space for inevitable error in debate, while accepting the factual findings for purposes of decision. 512–513.
+
+The Court **affirmed the First Circuit's judgment reversing Bose's recovery**. It did not adjudicate Bose's public-figure status or establish that every product-disparagement claim requires the *Sullivan* standard. Those propositions were accepted for this case, not independently resolved. Nor did it finally settle the disputed language's classification as fact or opinion. Its holding concerns review of actual malice in cases governed by *Sullivan*. 492–493 n.8, 513–514.
+
+## Separate opinions
+
+White agreed with Rehnquist that actual knowledge of falsity is historical fact, although he did not classify the reckless-disregard component the same way. Because the District Court had found actual knowledge, he would have returned the case to the First Circuit for review under the proper deferential standard. This is a narrower objection than an unqualified rejection of independent review for every actual-malice component. 515.
+
+Rehnquist, joined by O'Connor, would reverse and remand for clear-error review. The legal definition, burden, and quantum of proof were undisputed; the disputed issue was what this author actually knew. Appellate judges with a paper record were less equipped than the judge who heard extensive testimony to determine his state of mind. Rehnquist distinguished evaluation of a work's content or likely effect from finding a particular person's historical knowledge. His two notes also distinguished written bench findings from a general jury verdict and explained why the latter might provide stronger justification for independent review. He feared more fact-bound appeals and less confidence in trial judgments rather than materially better protection for speech. 515–520, particularly 517–518 n.1 and 518 n.2.
+
+## Assignment and source comparison
+
+The assigned account accurately presents the trial/appellate outcomes, independent review, and dissenting lineup. The complete report adds qualifications essential to using that account: the public-figure and product-disparagement premises were not decided anew; credibility deference was acknowledged; and independent review of actual malice does not replace clear-error review for all other facts. The following *Anderson* excerpt and the casebook's 1985 Rule 52 amendment discussion are separate assigned context, not events or holdings in this 1984 judgment.
+
+Source: [complete official report](https://tile.loc.gov/storage-services/service/ll/usrep/usrep466/usrep466485/usrep466485.pdf), 466 U.S. 485–520. All judicial text, all 31 Court notes, both complete dissents and Rehnquist's two notes were read. The entire assigned page and selected original report pages were visually checked. Historical review standards and express reservations are preserved without a later-law certification.

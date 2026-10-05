@@ -1,0 +1,41 @@
+# Owen Equipment & Erection Co. v. Kroger
+
+**Civil Procedure · CP-ATLAS-KROGER · 437 U.S. 365 (1978) · June 21, 1978**
+
+Kroger held that ancillary jurisdiction did not authorize a diversity plaintiff's direct state-law claim against an impleaded defendant sharing her citizenship. The defendant's presence in the action and the claims' shared facts did not overcome § 1332's requirement of complete diversity for this claim and alignment. The Court **reversed the Eighth Circuit**, holding that the district court lacked power to adjudicate the widow's claim against Owen. It did not decide that Owen was free of tort liability. Justice Stewart wrote for seven Justices; Justice White dissented with Justice Brennan. (437 U.S. at 366–377.)
+
+## The accident and the changing parties
+
+James Kroger was electrocuted on January 18, 1972, when the boom of a steel crane near which he was walking came too close to a high-voltage power line. His widow, an Iowa citizen acting as estate administratrix, brought a wrongful-death action against Omaha Public Power District in federal court in Nebraska. She alleged negligent construction, maintenance, and operation of the line. OPPD was a Nebraska corporation, making the original citizenship alignment diverse. (Id. at 367.)
+
+OPPD impleaded Owen, which owned and operated the crane, under Rule 14(a). The third-party complaint alleged that Owen's negligence caused the death. Note 3 explains a necessary qualification: impleader requires possible liability to the defending party for the plaintiff's claim, not merely liability directly to the plaintiff. Although the pleading did not specify that derivative basis, the Court understood OPPD apparently to rely on contribution and noted that Owen had not challenged the impleader itself. (Id. at 367–368 & nn.2–3.)
+
+While OPPD's summary-judgment motion was pending, the widow amended her complaint to assert a direct claim against Owen. OPPD then won summary judgment, a separate disposition later affirmed on appeal. The trial proceeded between the widow and Owen alone. Her amendment alleged that Owen was incorporated and principally based in Nebraska. Owen admitted Nebraska incorporation and denied the other allegations. On the third day of trial, its principal place of business was revealed to be Iowa. Corporate citizenship included that location as well as incorporation, so both remaining litigants were Iowa citizens. Note 5 explains Carter Lake's unusual geography west of the Missouri River, adjacent to Omaha, although within Iowa. (Id. at 368–369 & nn.4–6.)
+
+Owen moved to dismiss for lack of jurisdiction. The district court reserved its ruling, the jury found for the widow, and the court then denied the motion. The Eighth Circuit sustained ancillary jurisdiction based on the shared operative facts and approved retaining the claim because it found Owen had concealed its Iowa citizenship. Rehearing en banc was denied by an equally divided court. The Supreme Court reviewed jurisdictional power, not whether the jury correctly resolved negligence. (Id. at 369.)
+
+## Why Rule 14 and Gibbs were insufficient
+
+Rule 14 allowed the plaintiff to assert a transactionally related claim against an impleaded party, but it could not supply subject-matter jurisdiction. Procedural permission to join a claim had to be separated from federal power to hear it. Likewise, the common-nucleus test associated with Gibbs delineated constitutional capacity; it did not end the statutory inquiry. The Court assumed without deciding that Article III permitted this particular extension in a diversity action, then asked whether Congress authorized it. (Id. at 370–373 & nn.7–11.)
+
+The Court used Aldinger and Zahn to illustrate that a related claim could remain outside a statutory grant despite constitutional room for adjudication. Note 12 acknowledges Monell's intervening change to Aldinger's premise that municipalities were never covered by § 1983, while preserving Aldinger's requirement to examine both statutory and constitutional limits. The discussion does not make every historically described limit a statement of current supplemental-jurisdiction law. (Id. at 372–373 & n.12.)
+
+Section 1332 required complete diversity under its settled construction. Congress had repeatedly reenacted or amended the statute without changing that requirement. The widow could not originally have sued Owen and OPPD together in federal court because she and Owen shared Iowa citizenship. Adding a direct claim after impleader produced the same forbidden alignment. If shared facts alone authorized it, a plaintiff could sue diverse tortfeasors and wait for them to implead nondiverse ones, bypassing the statutory limitation without necessarily engaging in collusion. Note 17 therefore rejects the suggestion that a rule against collusive jurisdiction creation would sufficiently address the problem. (Id. at 373–375 & nn.13–17.)
+
+## The claim's dependence and the plaintiff's choice
+
+The majority distinguished accepted ancillary claims by their procedural context. OPPD's contribution claim depended at least partly on the original suit: its function was to shift responsibility for liability OPPD might incur to the widow. Her direct negligence claim against Owen did not depend on OPPD's liability at all. It could succeed even if OPPD owed her nothing. Shared factual origin was consequently different from the logical dependence typical of impleader. (Id. at 375–376 & n.18.)
+
+The plaintiff also had voluntarily selected a federal forum for her state-law cause of action. The Court contrasted her position with a defendant involuntarily brought into court or a claimant whose rights might be lost unless asserted in a proceeding controlling property. Those settings could justify ancillary adjudication without an independent jurisdictional basis. Convenience and economy did not justify this plaintiff's circumvention of complete diversity. Whether Iowa's limitations law still allowed a new state action was left as a state-law question, not resolved in the widow's favor. (Id. at 376–377 & nn.19–20.)
+
+The result concerned absent power, not a poor discretionary decision. Therefore the claimed unfairness of Owen's concealment could not restore jurisdiction; party conduct or consent did not supply missing federal judicial authority. The reversal displaced the federal judgment on the widow's direct claim without adjudicating Owen's responsibility for the accident. (Id. at 377 & n.21.)
+
+## White's dissent
+
+White agreed that statutes could restrict Article III jurisdiction but found no prohibition here. He read complete diversity as applying to the parties the plaintiff herself brought into the action, rather than as barring a related claim against someone a defendant had already impleaded. Unlike Aldinger's additional defendant, Owen was already a party. Its responsibility for the death was already at issue through OPPD's claim, making another proceeding duplicative. (Id. at 377–382 & nn.1–4.)
+
+The plaintiff could not compel a defendant to implead a particular party. White found no evidence of collusion here, observed that the widow originally believed Owen diverse, and would address actual collusive joinder through § 1359. More generally, Gibbs's discretion would allow dismissal when fairness, convenience, or judicial economy did not support retention. Although OPPD had left the action before trial, the late disclosure of Owen's true citizenship made retention fair in these unusual circumstances. White would recognize jurisdiction over the related claim, rather than impose the majority's categorical prohibition. (Id. at 382–384 & nn.4–7.)
+
+## Assigned context
+
+The assigned account is Note 2 on CivPro PDF page 203, printed pages 360–361, ending before Finley's separately numbered account. Its linked note i on PDF page 219 explains the Carter Lake geography. Both were read against the complete twenty-page official report, 365–384, including all twenty-one Court notes and all seven White notes. The holding concerns the historical diversity statute and this plaintiff's claim; the distinct statutes and questions in the adjacent Aldinger and Finley accounts receive their own briefs.

@@ -1,0 +1,26 @@
+# McCloskey & Co. v. Minweld Steel Co.
+220 F.2d 101 (3d Cir. 1955) | Contracts
+
+## Three hospital subcontracts and a request for help
+McCloskey, general contractor for two Hollidaysburg State Hospital buildings, contracted with steel fabricator and erector Minweld under two May 1, 1950 agreements and a May 26 agreement. Minweld was to provide structural steel and long-span joists. Travelers bonded two contracts and was a codefendant in one action. Article V allowed material supply or termination on two days’ written notice for specified performance defaults. Article VI required prompt submittals and materials at times directed by McCloskey, avoiding delay in final completion, but the contracts supplied no fixed performance date. 220 F.2d at 102 & n.1.
+
+After receiving drawings in May, Minweld answered a June inquiry with estimates of September 1 initial delivery and approximately November 15 completion. On July 20, McCloskey threatened termination unless Minweld provided unqualified assurance of definite procurement, fabrication, and delivery arrangements within thirty days. Minweld’s July 24 response described unsuccessful attempts to obtain steel from Bethlehem, U.S. Steel, and Carnegie-Illinois. It could not positively promise supply or dates under the tightened market and governmental directives, but asked McCloskey and the General State Authority for help inducing a supplier to furnish steel. It emphasized its desire to avoid delay and complete its undertaking. Id. at 103 & n.2.
+
+McCloskey treated the letter as an admission of inability and cancelled July 26. It then obtained structural steel from Bethlehem without apparent difficulty, accepted new proposals August 7, and hired substitute performers; joists came from Frederick Grundy Iron Works. Bethlehem had originally competed with Minweld. Id. at 104 & nn.3, 6.
+
+## Failure of the contractor’s prima facie case
+McCloskey sued for anticipatory breach of each agreement. At the close of its case, the district judge granted defense motions for judgment. The appeal challenged that result and the July 14, 1954 order denying requested findings, vacation of judgments, and new trials. Diversity supported federal jurisdiction; the contracts appeared executed in Pennsylvania, whose law the court applied. Id. at 102, 104–05.
+
+Under Pennsylvania law, anticipatory renunciation required an absolute and unequivocal refusal to perform or a distinct, positive statement of inability. Minweld’s description of procurement trouble and request for assistance did not meet that test. A desperate present situation was not an abandonment of every possibility of obtaining steel and completing the contracts. A producer could reconsider or another supplier could emerge. The court rejected speculation that earlier attempts necessarily would have secured materials; no evidence showed the producers would have supplied them sooner. Id. at 103–04.
+
+The complete letter supplied more than a bare refusal: it described completed engineering, an order held for two weeks and then refused, other producers booked for roughly a year, and possible assistance through the public project’s owning agency. The court viewed the request as realistically confronting difficulty, with cooperation that the general contractor should have been willing to provide. McCloskey instead ended the remaining opportunity and procured replacement materials. Id. at 103–04 n.2.
+
+## Preparations and assurance were not promised performances
+The court distinguished a failure to act when performance is due from failing to prepare before the promised time. It invoked the First Restatement’s rule that inadequate preparatory action does not itself establish anticipatory breach, even if it threatens eventual performance. The claimed breach here was the letter, not a proved missed final performance date. Id. at 104.
+
+McCloskey argued that its July 20 letter fixed a thirty-day delivery date under Article VI. Even assuming it did, Minweld did not repudiate that date; it could not give the requested assurance about preparatory arrangements. Nothing in these contracts authorized demanding that assurance. The court therefore did not need to decide the date-fixing question against McCloskey to reject its suit. Id. at 104–05. This historical reasoning predates any asserted modern statutory adequate-assurance entitlement and should not be read as deciding such a right.
+
+## Disposition, procedural note, and reading scope
+The Third Circuit affirmed the district court’s order because McCloskey had not established a prima facie anticipatory-breach case. Footnote 7 also found the trial judge’s memorandum sufficiently supplied findings and conclusions under Rule 52. McLaughlin wrote for a panel with Goodrich and Hastie; no separate opinion appears. Id. at 105 & n.7.
+
+The complete opinion and all seven judicial notes were read, including the entire letter, bond context, cancellation date, replacement arrangements, and Rule 52 issue. The assigned extract retains the letter across PDF pages 256–257, with other notes renumbered, and ends on 259 before NOTES. The source’s note about the Korean War onset was read but is unnecessary to the holding; no independently verified historical date is invented. No current citator review is represented.

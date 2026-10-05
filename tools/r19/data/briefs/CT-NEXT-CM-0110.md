@@ -1,0 +1,26 @@
+# Blossom Farm Products Co. v. Kasson Cheese Co., Inc.
+133 Wis. 2d 386, 395 N.W.2d 619 (Ct. App. 1986) | Contracts
+
+## Supply relationship and misleading labeling
+
+Blossom sought $138,306 on an open account for its final shipment of Isokappacase to Kasson. The powder could lawfully serve as a starter medium, a bacteriophage preventive, or a yield enhancer. Its proper use as a starter required relatively little protein; as a yield enhancer it was added directly to cheese milk and increased output. Because Isokappacase contained more than seventy-five percent protein or caseins, that latter use produced an imitation or analog product that required corresponding labeling and an accurate ingredient statement. Use of the enhancer was not itself prohibited if those requirements were observed. Kasson instead sold the finished product as real mozzarella and provolone. 133 Wis. 2d at 387–392 & nn.1–2.
+
+Blossom salesman Julian Podell was the manufacturer’s sole American distributor. Blossom supplied Kasson from August 1981 through February 1984, ultimately grossing more than $5 million from the relationship. Kasson’s quantity purchases were around one hundred times what use as a starter would require; its milk volume was insufficient to explain those purchases through starter use. Podell knew the figures. When Kasson stopped using the enhancer after a regulatory warning, the manufacturer stopped producing it. Id. at 389–393 & nn.3–5, 7.
+
+## Findings and appeal
+
+The trial court refused enforcement because both parties knew of and benefited from the improper use. Blossom appealed, arguing that a contract to supply a lawful enhancer should remain enforceable despite knowledge that Kasson mislabeled its output. Kasson cross-appealed, emphasizing Blossom’s participation and benefit. The appellate court accepted the finding of knowledgeable involvement as supported by evidence and therefore not clearly erroneous. It reviewed enforceability as a legal question but narrowed the holding to public-policy nonenforcement, rather than labeling the supply contract itself illegal. Id. at 388–391, 394.
+
+Evidence established more than a remote connection. Manufacturer Marvin Silverman helped resolve Kasson’s clotting problem by recommending a pump, warned its president that direct addition produced something outside real-cheese standards, inferred mislabeling from the economics, and informed Podell of that conclusion. Kasson’s consultant testified that Podell’s figures concerned yield and costs. Kasson’s president acknowledged continuing to label the product as real cheese while considering the practice a legal gray area, although he had not explicitly told Podell how the product was labeled. That lack of an express admission to Podell did not eliminate circumstantial evidence of knowledge and deliberate facilitation. Id. at 392–394.
+
+## Public-policy rule and application
+
+Under Restatement § 182, a seller who substantially performs does not ordinarily lose payment merely because the buyer plans an improper use. But a seller acting to further that use may be barred. Specific facilitating acts and a continuing course of dealing can establish the relevant purpose. Restatement § 178 supplies a balance between enforcing the promise and the public policy opposed to it, considering the policy’s legislative strength, whether nonenforcement advances it, the seriousness and deliberateness of misconduct, and its direct connection to the contractual term. Id. at 390–391, 394–395.
+
+Wisconsin legislation adopted federal standards distinguishing real from imitation cheese. Those standards supplied a concrete public policy protecting accurate food labeling. The economics reinforced the knowledge finding: correctly labeled analog cheese would have brought approximately seventy cents per pound rather than the $1.40 obtained by presenting it as real cheese. Continued high-volume shipments despite knowledge of that business model facilitated, and profited from, the misbranding. The court therefore refused to enforce the payment promise, even though a properly conducted supply transaction would have been legal and Blossom had delivered the final shipment. Id. at 392–396 & n.6.
+
+## Exact result and source scope
+
+Chief Judge Scott wrote on September 17, 1986 for a panel with Presiding Judge Brown and Judge Nettesheim; no separate opinion appears. The judgment dismissing Blossom’s collection suit was affirmed. Footnote 8 says that conclusion mooted Kasson’s cross-appeal. The decision did not impose a criminal sanction, award restitution to either party, or declare every sale of this powder unlawful. Id. at 396 & n.8.
+
+The assigned principal spans C&M 701–1050, PDF pages 91–96, printed pages 748–753. The complete reporter judicial text at 387–396 and all eight notes were read, including the technical distinction among powder uses and the cross-appeal disposition omitted from the excerpt. The reporter marks a review petition pending when the volume went to press; that historical notice does not establish later treatment. The actual preserved parallel citation is 395 N.W.2d 619. This account describes the 1986 public-policy ruling; Separate source review is recorded in the accompanying register.

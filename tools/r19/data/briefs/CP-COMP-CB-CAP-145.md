@@ -1,0 +1,37 @@
+# Moore v. Chesapeake & Ohio Railway Co.
+
+**291 U.S. 205 (1934) — Supreme Court of the United States, February 5, 1934.** Chief Justice Hughes wrote the Court’s opinion. The report contains no separate opinion, dissent, or numerical voting notation. Assigned account: *CivPro.pdf*, physical page 193, printed page 341, Note 5 following *T. B. Harms* and before *Merrell Dow*.
+
+## Injury, alternative counts, and the venue dispute
+
+Moore was injured November 29, 1930, while working as a switchman in the railroad’s yard at Russell, Kentucky. He alleged that a defective uncoupling lever caused his injuries while he tried to uncouple freight cars. He sued the interstate railroad in the Northern District of Indiana, Fort Wayne Division, using two alternative counts for the same injury. The first alleged employment in interstate commerce and invoked the Federal Employers’ Liability Act, the federal Safety Appliance Acts, and related Interstate Commerce Commission rules. The second alleged intrastate employment and invoked Kentucky’s Employers’ Liability Act together with the federal safety requirements. **207–208 & nn.1–4.**
+
+The railroad contested the selected federal district. Under the historical general venue statute, it argued that a federal-law action had to proceed in its home district, the Eastern District of Virginia. Moore relied, for the first count, on FELA’s broader authorization of suit where a carrier did business. For the second, he alleged Indiana citizenship and residence against the railroad’s Virginia citizenship, making the plaintiff’s home district available under the then-applicable diversity venue rule. The district court heard evidence, found Moore an Indiana citizen residing in Fort Wayne, and rejected the objections. A general verdict and judgment followed. **208–209, 211–212.**
+
+The Seventh Circuit reversed on jurisdictional grounds. It treated the Safety Appliance allegations as requiring suit in the railroad’s home district and directed that Moore be allowed to amend each count to rely exclusively on FELA or Kentucky law. The Supreme Court considered the two counts separately. Its analysis uses the historical jurisdiction-and-venue framework described in the opinion; the district-selection rules should not be transplanted uncritically into current statutes. **209–212.**
+
+## First count: federal liability and incorporated federal safety duties
+
+The first count adequately pleaded a FELA cause of action. Jurisdiction turned on those allegations, which included interstate employment and the carrier’s business in the chosen district. The railroad’s denial that Moore actually worked in interstate commerce went to the merits of that pleaded claim. **209–210.**
+
+Nor did reliance on the Safety Appliance Acts require Moore to abandon FELA. FELA itself provided that a carrier’s violation of a statute enacted for employee safety, when contributing to injury, prevented reliance on contributory negligence or assumption of risk. That reference embraced the Safety Appliance Acts. The statutes worked together: violating a prescribed safety duty supplied negligence per se within a FELA action. Because FELA allowed suit where the railroad did business when the action began, the complaint properly invoked the Northern District of Indiana. **210–211 & n.5.**
+
+## Second count: federal duty incorporated into a state cause of action
+
+The second count presented a different jurisdictional source. Kentucky law governed liability for the alleged intrastate employment injury. Its statute largely reproduced FELA’s framework for local employment, including denial of contributory-negligence and assumption-of-risk defenses when a state or federal employee-safety violation contributed to the injury. Kentucky thereby incorporated the federal equipment requirements into the state cause of action. Referring to those duties did not place Moore’s claim outside the Kentucky statute. **212–213.**
+
+The court of appeals thought the federal requirements covered only interstate activity, so using them for a state-law intrastate injury would anomalously expand federal protections. Hughes rejected that premise. The original 1893 Safety Appliance Act had been narrower, but the 1903 amendment extended the requirements to vehicles used on any railroad engaged in interstate commerce. The equipment duty could therefore protect a worker and vehicle engaged in intrastate activity at the moment of injury. Kentucky could incorporate that applicable federal duty without changing its reach. **213–214.**
+
+That applicability did not automatically make the state action arise under federal law. The Safety Appliance Acts prescribed absolute equipment duties but did not establish a comprehensive remedial system for employee suits: they did not specify the place of suit, time limit, or death-recovery beneficiaries. The Acts addressed assumption of risk while generally leaving contributory-negligence questions to applicable state law. Recovery for breach of the prescribed duty operated through common-law principles or the relevant state statute. **214–216 & nn.6–7.**
+
+FELA had drawn interstate-employment injury actions into its own system, including injuries involving Safety Appliance violations. Intrastate injuries remained governed by the applicable state liability law, which could adopt the federal duty as part of its content. The second count therefore arose under Kentucky law, even though establishing liability involved a federal requirement. Diversity and Moore’s Indiana residence supported suit in the selected district. **216–217.**
+
+## Supreme Court review versus original federal jurisdiction
+
+The Court expressly distinguished its authority to review federal questions arising in state litigation from district courts’ original jurisdiction. A state-court dispute about the meaning or scope of the Safety Appliance Acts could present a federal question reviewable by the Supreme Court. That did not establish that every state-created suit incorporating those Acts belonged initially in federal district court without diversity. Footnote 7 illustrates the distinction through an earlier death-action case: the governing nonfederal law created the action, while interpretation of the federal safety statute remained reviewable. **214–216 & n.7.**
+
+## Judgment and assigned account
+
+The Court **reversed and remanded to the Seventh Circuit**, directing it to consider the other questions presented by the appeal. Because that court had addressed only district-court jurisdiction, the Supreme Court’s ruling did not finally approve every aspect of the verdict or award. **217.**
+
+The assignment quotes the second count’s federal-question conclusion and asks whether it can be reconciled with *Smith*. It omits the first count’s federal basis and the second count’s diversity basis. Consequently, “no federal question” must not become “no federal jurisdiction”: the Court sustained the chosen federal court for both counts through different routes. The complete own-caption report from page 205 through its concluding reversal on page 217, all seven judicial notes, the introductory counsel argument, and the full assigned native page and original scan were read. The retrieved thirteen-page file also contains a prior decision’s conclusion at its opening and the next case’s syllabus at its end; neither is part of this decision’s coverage. Independent-review status appears in the accompanying register.

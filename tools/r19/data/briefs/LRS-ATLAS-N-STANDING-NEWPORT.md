@@ -1,0 +1,43 @@
+# Director, Office of Workers' Compensation Programs v. Newport News Shipbuilding & Dry Dock Co.
+
+**514 U.S. 122 (1995) — Supreme Court of the United States — March 21, 1995.** Justice Scalia wrote for eight Justices; Justice Ginsburg concurred in the judgment. The result was unanimous. Assigned account: November second casebook, physical PDF pages 126–127, printed pages 1183–1184.
+
+The Labor Department's benefits-program administrator could not invoke the Longshore and Harbor Workers' Compensation Act's general judicial-review provision simply because she considered a worker's award inadequate. An agency's regulatory or policy interest did not ordinarily make it a person adversely affected or aggrieved. The decision concerned statutory authorization, rather than an Article III prohibition on Congress authorizing agency appeals. (514 U.S. at 125–136.)
+
+## Injury, administrative proceedings, and appeal
+
+On October 24, 1984, metal grating fell on Newport News employee Jackie Harcum while he worked in a steam barge's bilge, injuring his lower back. Surgery removed a herniated disc, and the employer paid benefits until he returned to light duty in April 1987. He returned to his regular department under medical restrictions that November but could not perform essential tasks. The company terminated his employment in May 1988. He obtained other work beginning February 1989. (124.)
+
+Harcum sought additional compensation for the interval between jobs. An administrative law judge found partial rather than total disability. The Benefits Review Board affirmed and also held that the company could stop payments after 104 weeks, when a statutory special fund would assume responsibility. The OWCP Director petitioned the Fourth Circuit to review both rulings. Harcum did not seek review himself and, though not opposing her petition, expressly declined the court's invitation to intervene. (124–125.)
+
+The Fourth Circuit raised standing on its own initiative. It held that the Director was not adversely affected or aggrieved by denial of Harcum's full-disability claim. It separately permitted her challenge concerning the special fund that she administered. The Supreme Court reviewed only the former holding, expressly leaving the fund-related ruling unresolved. The two aspects of the appeal therefore must not be combined into a blanket conclusion that the Director could never appeal any Board decision. (125 & n.1; 128 n.3.)
+
+## Statutory issue and arguments
+
+Section 21(c), 33 U.S.C. §921(c), allowed a person adversely affected or aggrieved by a Board order to petition for court-of-appeals review. Claims first went to an OWCP district director for possible informal resolution, then to an ALJ and the Board. The statute did not expressly make the Director a party or authorize her appeals through this process. She argued that an erroneous benefits determination frustrated her responsibilities to secure proper compensation, administer the Act uniformly, and promote effective informal settlements. (125–126, 131–135.)
+
+The Court distinguished private or market interests from governmental policy interests. The United States could qualify as an injured shipper contesting an unlawful railroad rate, just like another shipper. But an administrator's disagreement with an agency decision because it frustrated governmental policy was a different matter. Recognizing that interest generally would put courts into the recurring resolution of intrabranch and intraagency policy disputes. (127–129.)
+
+The statutory phrase had an established history in administrative review. The APA's definition of person excluded agencies, and statutes granting an administrator authority to seek judicial review commonly said so expressly. OSHA provided an especially close comparison: one subsection used the same general aggrieved-person language and another separately authorized the Secretary to petition. The Black Lung Benefits Act likewise expressly made the Secretary a party to benefits proceedings. These examples supported reading the Longshore Act's silence as withholding authority, unless the particular statutory scheme supplied an extraordinary basis for a different interpretation. (126–130.)
+
+## Why the Director's interests were insufficient
+
+The Court rejected the premise that the statute simply guaranteed the greatest possible compensation to employees. It embodied a compromise between employers and injured workers. The Director facilitated settlements and provided information to both sides. Discretionary legal assistance requested by a claimant did not establish a duty to contest an award independently when the claimant accepted it. General commitment to a statute's purposes did not automatically give an agency authority to sue over private injuries. (131–132.)
+
+The precedents the Director invoked did not supply the missing authorization. Cases concerning federal representation of Indians relied on a distinctive guardianship relationship. Other civil-rights decisions rested on express congressional grants of litigating power. Those cases showed that Congress **could** authorize the Director to litigate without violating Article III; they did not show that this statute **did** authorize it. (132–133.)
+
+Nor did the Director identify an actual interference with a specified administrative duty. An erroneous adjudication would not prevent her from processing claims, providing assistance, or enforcing final awards uniformly. Congress had deliberately separated administration from adjudication through the 1972 amendments. Treating correct adjudication as a necessary component of her duties conflicted with that structure. She retained rulemaking power; the Court invoked the then-existing administrative-law framework in observing that disagreement with a Board rule of law could be addressed through that power rather than judicial review of a particular award. (133–134.)
+
+The suggestion that lack of appeal authority would undermine settlement negotiations was speculative. Those negotiations appeared designed to facilitate agreement rather than impose authoritative resolutions. Finally, liberal construction to promote remedial purposes could help resolve ambiguity about an essential statutory element, but could not add powers simply because they might advance the statute's goals more effectively. Legislative selection of means, including withholding authority, mattered alongside its desired ends. (135–136.)
+
+## Judgment and Ginsburg's concurrence
+
+The Supreme Court **affirmed the Fourth Circuit**. Scalia's opinion was joined by Rehnquist, Stevens, O'Connor, Kennedy, Souter, Thomas, and Breyer. Ginsburg joined only the judgment. The Court did not resolve the merits of Harcum's disability classification, fund-related standing, or whether the Director was the proper respondent to someone else's appeal. Respondent status and power to initiate an appeal were distinct. (123, 127–128 & nn.2–3, 136.)
+
+Ginsburg accepted the statutory result but considered it an unintended consequence of the 1972 restructuring. Before those amendments, deputy commissioners adjudicated claims and could defend their orders in district court and appeal adverse judgments. Transferring adjudication to ALJs and review to the Board removed that route without an express legislative discussion of administrator appeals. The later Black Lung amendments explicitly authorized participation, apparently reflecting Congress's intention that the two programs operate similarly. Prior Supreme Court litigation had generally overlooked the altered standing issue. (136–141 & nn.1–5.)
+
+Her full concurrence also identified four other federal compensation schemes incorporating Longshore procedures. The same administrative actors could consequently face identical issues across several programs while having appeal authority only under the Black Lung statute. She regarded that disparity as an apparent congressional oversight. It exceeded the correction of a scrivener's error: Congress, rather than the Court, had to decide whether and how to repair it. (141–142 & n.6.)
+
+The assigned discussion accurately emphasizes governmental capacity and congressional authorization, but its reference to the claimant as “herself” differs from the actual report's identification of Harcum as a man. Its quoted description of “inter-branch” disputes also differs from the actual Court's **intrabranch** formulation on 129. The brief follows the complete historical decision, including its express reservations, without turning its 1995 rulemaking discussion into a current-law certification.
+
+Independent-review status appears in the accompanying register.

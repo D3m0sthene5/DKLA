@@ -1,0 +1,89 @@
+{
+ "klar": {
+  "checked": true,
+  "fixes": []
+ },
+ "tolosa": {
+  "checked": true,
+  "fixes": []
+ },
+ "hawkins": {
+  "checked": true,
+  "fixes": []
+ },
+ "bayliner": {
+  "checked": true,
+  "fixes": []
+ },
+ "sullivan": {
+  "checked": true,
+  "fixes": []
+ },
+ "naval-institute": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "rule",
+    "kind": "distorted",
+    "was": "Contract damages ordinarily compensate the injured party's own loss; the breaching party's gains are not recoverable in an ordinary contract action unless they correspond to and help measure that loss, though a reasonable estimate of the loss suffices despite uncertainty.",
+    "now": "Contract damages ordinarily compensate the injured party's own loss; the breaching party's gains can sometimes help measure that loss, but gains that do not correspond to it are not automatically recoverable in an ordinary contract action, and a supported estimate of the loss suffices despite uncertainty."
+   },
+   {
+    "section": "Reasoning",
+    "kind": "distorted",
+    "was": "those sales enriched Berkley without depriving Naval of anything, and awarding them",
+    "now": "those sales enriched Berkley without depriving Naval of corresponding hardcover sales, and awarding them"
+   }
+  ]
+ },
+ "morris-sparrow": {
+  "checked": true,
+  "fixes": []
+ },
+ "white-benkowski": {
+  "checked": true,
+  "fixes": []
+ },
+ "cohen-cowles": {
+  "checked": true,
+  "fixes": []
+ },
+ "bayway": {
+  "checked": true,
+  "fixes": []
+ },
+ "northrop": {
+  "checked": true,
+  "fixes": []
+ },
+ "hill-gateway": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "Reasoning",
+    "kind": "distorted",
+    "was": "A shipping carton, unlike retail packaging, addresses handlers, so the lack of outside notice did not matter.",
+    "now": "A shipping carton, unlike retail packaging, generally addresses handlers after the order has been placed, so the lack of outside notice did not by itself distinguish the case; the court relied on the Hills' prior awareness that important terms would accompany the product."
+   }
+  ]
+ },
+ "klocek": {
+  "checked": true,
+  "fixes": []
+ },
+ "dixon": {
+  "checked": true,
+  "fixes": [
+   {
+    "section": "rule",
+    "kind": "distorted",
+    "was": "A promise to consider a borrower for a loan modification, which induces the borrower to default in reliance on it, may be enforced under promissory estoppel despite the lack of definite modification terms, with relief limited to restoring the position lost through the reliance.",
+    "now": "As a federal court predicted Massachusetts law, a lender's promise to consider a borrower for a loan modification that induces the borrower to default can support a promissory-estoppel claim despite indefinite modification terms, with relief aimed at restoring the position lost through reliance."
+   }
+  ]
+ },
+ "cyberchron": {
+  "checked": true,
+  "fixes": []
+ }
+}

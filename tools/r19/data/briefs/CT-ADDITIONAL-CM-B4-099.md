@@ -1,0 +1,40 @@
+# Baker v. Coombs
+219 S.W.3d 204 (Ky. App. 2007) | Contracts
+
+## Court, posture, and result
+
+The Kentucky Court of Appeals decided the case on March 23, 2007. Chief Judge Combs wrote for a panel with Judge Moore and Senior Judge Michael L. Henry, who sat by special assignment as explained in the report’s sole note. All concurred. The court affirmed summary judgment for Ronald Coombs on Janice Baker’s professional-negligence claim because the asserted duty to her did not arise under these facts. Summary judgment and contract interpretation were reviewed de novo, with the record viewed favorably to the opposing party; the appeal did not adjudicate the separate estate judgment or award new damages. (204–207 & 205 n. 1; 210.)
+
+## Divorce settlement, security, and nonperformance
+
+Baker filed for dissolution of her marriage to James Collins in 1989. The divorce decree entered December 11, 1990, incorporated a property settlement filed the day before. Collins agreed to pay $500,000: a $300,000 balloon payment due January 1, 2002, and $200,000 through ten annual $20,000 installments ending January 1, 2001. Early payment of the balloon would forgive remaining installments. The original report prints $300,000, correcting the OCR’s erroneous $800,000 in its first statement of that payment. (205.)
+
+The agreement gave Baker liens on Collins’s holdings in closely held corporations. Collins was to execute the necessary documents, and the certificates were to be held by Coombs, Collins’s attorney in the divorce and other matters. Coombs testified that he requested the certificates during negotiation and after signing, but Collins never delivered them before his death on September 30, 1999. Shortly before the death, Baker discovered that Collins apparently had sold his interest in Advanced Care Medicine in 1992 without perfecting the lien and making the agreed transfer. She lacked documents showing perfected liens and could not recall inquiries about them or the certificates before Collins died. These deposition statements explain the absence of delivery; they do not establish that the lawyer deliberately assisted fraud. (205.)
+
+## Litigation and asserted duties
+
+Baker filed a claim against the estate on November 30, 1999. After the estate objected, she sued the estate, Collins’s surviving widow, and Coombs on December 22. She alleged deliberate transfers to frustrate her payment and reduce a minor child’s inheritance and charged that Coombs failed to hold the certificates or ensure payment when businesses were sold. Baker obtained a judgment against the estate on August 6, 2003. Following cross-motions, the circuit court entered summary judgment for Coombs on August 26, 2005. It held that he signed as counsel, not as a contracting party, and that the agreement did not obligate him to compel delivery or notify Baker that delivery had not occurred. (205–206.)
+
+On appeal, Baker advanced two related theories: Coombs became a fiduciary by agreeing to hold the security, and she was an intended third-party beneficiary of his agreement to provide legal services to Collins. Under both, she asserted a duty to obtain the certificates, force Collins to provide them, or advise her of their absence. The appellate court separately examined the limited custodial undertaking and the purpose of the attorney–client retainer. (206–209.)
+
+## Custodial promise and contingent escrow duty
+
+An attorney’s required signature on a filed paper did not alone create the claimed fiduciary duty. The designated-holder clause presented a more serious issue: even while acting for Collins, Coombs had pledged a potential escrow role and created the appearance that duties to Baker might arise. Nevertheless, the court found the agreement unambiguous. It obligated Collins to deliver the certificates and obligated Coombs to hold and secure them if and when he received them. No clause required Coombs affirmatively to acquire the documents, coerce his client into delivery, or notify another party of nondelivery. The custodial duty was contingent on Collins first performing his delivery obligation. (206–207.)
+
+The court adopted the reasoning of Muscara v. Lamberti, where a designated attorney never received the escrow funds and therefore never acquired the asserted escrow duty. Kentucky precedent likewise required conditional delivery to the depositary to create an escrow. Because the certificates never reached Coombs, his arguable fiduciary duty remained inchoate and unenforceable. The court expressly recognized that actual receipt would have imposed the voluntarily assumed custodial duties to Baker; it did not hold that a lawyer for one party can never owe an opposing party a separate escrow duty. Baker had her own counsel, who also made no inquiry or compelled compliance. (207–208.)
+
+## Intended beneficiary and adversarial representation
+
+The record did not establish whether Baker had preserved the third-party-beneficiary argument below, but the court elected to consider this consequential legal question rather than reject it solely on preservation. It distinguished ordinary client malpractice claims from possible liability to nonclients for fraudulent or tortious acts, including negligent injury to an intended beneficiary. The relevant question was whether the lawyer’s representation created a duty to this claimant. (208–209.)
+
+Collins retained Coombs to represent him against Baker in adversarial divorce litigation. Their conflicting interests meant that the retainer was not primarily and directly intended to benefit Baker. Imposing an ordinary negligence duty to the adverse party would chill representation and the pursuit of meritorious claims. The court qualified its discussion by recognizing willful and wanton conduct, fraud, or malice; it did not grant immunity for those acts. Although Baker called the conduct deliberate, she identified no facts supporting willfulness or fraud, and unsubstantiated belief could not defeat summary judgment. Even assuming beneficiary status for argument’s sake, the representation’s purpose did not establish the direct-benefit duty she asserted. (208–209.)
+
+## Conflict warning, holding, and significance
+
+The opinion closed with an express warning about the potential divided loyalties created when adversarial counsel also accepts an escrow role. A person may serve both sides of an escrow where the acts are compatible, but an adverse-client relationship and responsibilities to a third person can create foreseeable conflicts. The court reproduced the applicable professional-conduct provisions and suggested that clear consent could have prevented this litigation. That warning did not become a disciplinary finding or a damages award against Coombs. Having given it, the court affirmed summary judgment. (209–210.)
+
+The assigned comparison with CalPERS illustrates why another party’s economic interest does not automatically make that party an intended beneficiary of a legal retainer. Baker adds a distinct contract point: a specifically contemplated custodial role can carry duties to a nonclient, yet the triggering delivery and the actual scope of the promise still matter. The court enforced the difference between an undertaking to hold delivered security and a claimed undertaking to ensure its delivery. (207–210.)
+
+## Source and reading scope
+
+The complete opinion and sole judicial designation note were read in the preserved CAP reproduction and the entire original reporter’s native text, with original page 205 visually checked to confirm the $300,000 amount and the panel note. The original report ends the decision on page 210 before the next case. The complete assigned CalPERS–Baker comparative paragraph on C&M PDF page 201 (printed 1207), with surrounding discussion, was read in native text and the original scan. This is a historical account of the 2007 decision and reproduced professional rules, without certifying current law. The accompanying register records the separate independent source review.

@@ -1,0 +1,24 @@
+# Firma B. v. Firma A. — Published Contractual-Penalty Extract
+BGE 114 II 264–265 (Swiss Federal Supreme Court, First Civil Division, June 22, 1988) | Contracts
+
+## Available facts and procedural posture
+
+The official published report identifies a civil appeal between anonymized firms B. and A. It says the defendant challenged only the amount of a contractual penalty and maintained that, contrary to the Commercial Court's position, the penalty should be substantially reduced under article 163(3) of the Swiss Code of Obligations. The report does not supply the transaction, contractual sum, breach, loss evidence, lower-court amount, or underlying case number. Its title expressly describes an extract from the judgment, and its judicial text contains only reasoning 1(a)–(b). These missing facts cannot responsibly be reconstructed from the general doctrinal examples. BGE 114 II 264, reasoning 1.
+
+## Issue and principles stated
+
+The published passage explains when a judge must reduce an excessive contractual penalty, how damages inform excessiveness, and which party bears the pleading and proof burden. Article 163(3) requires reduction of an excessively high penalty in the judge's discretion, while article 163(1) generally permits parties to choose its amount. Respect for contractual freedom and fidelity therefore requires restraint. Judicial intervention is justified only when the stipulated sum exceeds what is reasonable and still compatible with law and equity. The court distinguishes this post-breach assessment from articles 19–20, which address the limits of contractual freedom in the circumstances existing when the agreement was made. BGE 114 II 264, reasoning 1(a).
+
+A particularly important basis for reduction is a gross disproportion between the agreed sum and the creditor's interest in full enforcement. The inquiry depends on the case's circumstances, including the nature and duration of the contract, seriousness of fault and breach, creditor's interest in compliance, and parties' economic positions, especially the debtor's. Dependency and business experience also matter. An employee's usually weaker economic position can support reduction more readily than an agreement between economic equals with business experience. This is a general example in the reasoning; the extract does not establish that this particular defendant was an employee or economically weak. BGE 114 II 264–265, reasoning 1(a).
+
+## Why damages do not determine the penalty automatically
+
+Damage provides a natural reference for assessing the creditor's interest and seriousness of fault, but a penalty is not excessive simply because it exceeds compensatory damages available for the breach. The court identifies the highest possible damage, rather than only the loss actually sustained, as an indicator of excessiveness. The penalty is a separate obligation from damages liability: under article 161(1), it can mature even when the creditor suffers no loss. Reading the damages comparison as an automatic cap would erase that statutory distinction. BGE 114 II 265, reasoning 1(b).
+
+The court also places the burden on the debtor to assert and prove the conditions for reduction. The creditor does not have to establish the penalty's proportionality at the outset merely to enforce it. Together, these principles require a supported, contextual challenge to the stipulated amount, rather than an assumption that zero proved damages means zero penalty. They do not show whether this defendant met that burden, because the report omits the court's application to the particular evidence. BGE 114 II 265, reasoning 1(b).
+
+## Result, authorship, and limits of the source
+
+The published extract states the governing principles but omits the final judgment. It therefore does not establish whether the appeal was granted, dismissed, or partly allowed, or what amount remained payable. It identifies the First Civil Division but gives no individual author, panel, numerical vote, or separate writings. None of those omissions supports an inference of unanimity or a particular disposition.
+
+The entire German published report was read, including all inline authorities, and compared with its assigned DeepL translation on supplement PDF129 and the first part of PDF130. The translation uses good faith in discussing Vertragstreue and reverses the relation of the two principles in one sentence; the original links honoring contracts to contractual fidelity and freedom to fixing the penalty's amount. This brief follows the German text. The subsequent September 2024 material beginning midway through PDF130 belongs to a distinct decision and supplies no missing facts or result for this one. The complete underlying 1988 judgment has not been recovered; this is an expressly limited account of the published judicial extract, not a certified full-opinion brief or current-law survey.

@@ -1,0 +1,37 @@
+# Hughes v. Fetter
+
+**341 U.S. 609 (1951), decided June 4, 1951. Civil Procedure.** Justice Black wrote the Court’s opinion. Frankfurter dissented with Reed, Jackson, and Minton, producing a 5–4 judgment. The assigned account is CivPro physical pages 174–175, printed 302, Note 2, ending before Note 3. It illustrates that a state cannot necessarily avoid a federal constitutional obligation merely by labeling its refusal to hear a claim jurisdictional.
+
+## The accident and Wisconsin’s refusal to hear the suit
+
+Harold Hughes suffered fatal injuries in an Illinois automobile accident. The administrator of his estate sued the allegedly negligent driver and an insurance company in Wisconsin, basing the claim on Illinois’s wrongful-death statute. The administrator, decedent, and individual defendant were Wisconsin residents. The administrator’s appointment and the corporate defendant’s creation also occurred under Wisconsin law. The accident’s location supplied the foreign-law feature; this was not litigation without meaningful local connections. 341 U.S. at 610, 613.
+
+Wisconsin’s wrongful-death statute created an action for deaths caused in Wisconsin. Its highest court construed that provision as a policy barring actions under other states’ wrongful-death statutes for deaths caused elsewhere. On defendants’ motion, the trial court entered summary judgment dismissing the complaint on the merits, and the Wisconsin Supreme Court affirmed. The administrator asserted that the exclusion violated the Full Faith and Credit Clause. The United States Supreme Court reviewed the state judgment on appeal under § 1257. Id. at 610 & nn.1–3.
+
+The constitutional issue concerned access to a competent forum for this Illinois statutory claim. The Court did not decide negligence, damages, or the defendants’ liability. Nor did it decide the different choice-of-law question whether Wisconsin, after accepting the lawsuit, could apply its own substantive statute instead of Illinois’s. Note 10 expressly distinguishes that situation. Id. at 611–612 & n.10.
+
+## The rule and the competing interests
+
+The Illinois statute was a “public act” within Article IV, § 1. Prior decisions established that a state cannot evade its obligation to respect rights and duties validly created by another state merely by withdrawing jurisdiction from otherwise competent courts. The parties also conceded that an already-entered judgment on the same cause would require enforcement in Wisconsin. But the Court did not equate every foreign statute with a judgment or hold that every foreign policy invariably overrides local law. It acknowledged that conflicting statutory policies sometimes require a choice between the competing interests. Id. at 611 & nn.4–7.
+
+The majority framed this case as a conflict between Wisconsin’s exclusion and the national unifying principle favoring enforcement of sister-state rights. Wisconsin did not oppose wrongful-death actions generally: it routinely provided a forum for them when the death was caused locally. The exclusion therefore singled out the external origin of the cause rather than a category Wisconsin’s courts lacked the ability or willingness to adjudicate. Possible differences in recovery limits or distribution of proceeds did not justify the categorical bar here. Id. at 612 & nn.9–12.
+
+The local connections reinforced the constitutional problem. Even assuming that forum non conveniens could sometimes justify declining foreign controversies, this action involved Wisconsin residents, a Wisconsin administrator, and a Wisconsin insurer. It could not fairly be treated as a controversy lacking a close relationship to the forum. The Court reserved the broader constitutional effect of forum non conveniens rather than disabling that doctrine in all interstate cases. Id. at 613 & n.13.
+
+The Court also noted that Wisconsin might be the only jurisdiction where original service could be obtained on the insurer. It treated that possibility as relevant but not crucial. Illinois apparently allowed substituted service on the individual defendant, so the majority did not establish that this plaintiff had no alternative forum whatsoever. It warned that the categorical Wisconsin rule could leave other valid claims without any forum. Keeping those qualifications intact avoids turning a possibility about this insurer into a conclusive finding about all defendants. Id. at 613 & nn.14–15.
+
+## Frankfurter’s dissent
+
+Frankfurter accepted the strong interstate obligation to honor judgments but thought the constitutional treatment of unadjudicated statutory rights less rigid. He surveyed commercial and workers’ compensation decisions to argue that certainty, pre-existing relationships, and local interests shape the required credit. A tort arising from an accident lacks the same transactional need for predetermined interstate rules. Those historical authorities supplied his argument; the dissent did not announce the law adopted by the Court. Id. at 614–618.
+
+For the dissent, Wisconsin had rational administrative reasons to send an out-of-state accident claim to the place of injury: witnesses could be more readily available there, and local judges would know their own wrongful-death statute. Such statutes varied in beneficiaries, permissible plaintiffs, liability limits, negligence standards, damages, and the relationship to surviving personal-injury claims. A jurisdictional refusal left the substantive right available elsewhere rather than necessarily extinguishing it. Id. at 618–619.
+
+Frankfurter also objected to the majority’s balancing from the national perspective. He considered court administration a dominant local concern and found no demonstrated superiority of Illinois’s interest over Wisconsin’s in litigation among Wisconsin parties. He pointed out that the case did not present a claim of discrimination against other states’ citizens, a due-process challenge to lack of a forum, or defiance of a federal statute. Finally, Illinois itself restricted suits for some out-of-state deaths when a remedy and service were available where the death occurred. In the converse factual situation, its courts apparently would refuse the Wisconsin claim. That reciprocity argument appears in the dissent, not in the majority’s holding. Id. at 619–621.
+
+## Judgment and limits
+
+The Supreme Court **reversed and remanded to the Wisconsin Supreme Court for proceedings consistent with its opinion**. Wisconsin’s categorical exclusion of this Illinois wrongful-death action violated the Full Faith and Credit Clause in the circumstances presented. Id. at 613–614.
+
+Note 16 discusses the revised wording of § 1738 regarding interstate recognition of public acts and judicial proceedings, but expressly says the Court found it unnecessary to rely on any change produced by that revision. The decision therefore should not be restated as a definitive statutory holding equating all legislation with judgments. Id. at 613–614 n.16.
+
+The assigned passage accurately stresses that a jurisdictional label cannot bypass the constitutional obligation. The complete report supplies the close Wisconsin connections, the distinction between closing the courthouse and choosing governing law, the reserved forum-non-conveniens question, and the substantial dissent about state autonomy. This brief states the 1951 decision and does not certify subsequent conflicts doctrine or current wrongful-death statutes.

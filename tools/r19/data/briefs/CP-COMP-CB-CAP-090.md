@@ -1,0 +1,37 @@
+# Miedreich v. Lauenstein
+
+**232 U.S. 236 (1914) — February 2, 1914. Civil Procedure.** Justice Day delivered the Court’s opinion. No separate opinion, judicial footnote, or numerical vote statement appears in this case’s report. Assigned account: CivPro, physical page 159, printed pages 269–270. The dissent and nonparticipation statements preceding this case’s caption on official page 236 belong to the prior case and must not be attributed to Miedreich.
+
+## Facts and the later challenge to foreclosure
+
+Miedreich sought to vacate an earlier mortgage-foreclosure judgment and redeem the property sold under it. Her later complaint alleged that she owned the property, had been a minor when foreclosure occurred, and lived in Indiana’s Gibson County rather than Vanderburgh County, where the foreclosure action was brought. She alleged that she had not been served, had no knowledge of the action, and neither waived service nor appeared. Despite the absence of service, the Vanderburgh County sheriff allegedly made a return representing that she had been summoned. The court relied on the facially regular return, appointed a guardian ad litem who answered for her, and entered a foreclosure decree. The property was sold to the predecessor in title of the defendant in the later action. [241–242.]
+
+One paragraph of Miedreich’s complaint attacked the judgment on these allegations of a false sheriff’s return. The trial court sustained a demurrer to that paragraph. Other paragraphs alleged fraud by the foreclosure plaintiff or her attorneys; the trial court found against Miedreich on that separate charge. The Indiana Supreme Court affirmed and held that evidence supported the finding of no plaintiff-side fraud. These procedural distinctions matter: the case did not assume that all participants colluded to fabricate service, nor did the Supreme Court conclude that Miedreich actually received a summons. [242–244.]
+
+## Federal review and the accepted factual record
+
+The opposing party argued that the United States Supreme Court should dismiss the writ of error because the record did not adequately show preservation of a federal question. Although the record was meager on that point, the Indiana Supreme Court expressly treated the suit as raising Fourteenth Amendment due process and resolved the relevant contentions. The Supreme Court therefore regarded the federal question as duly presented under the state court’s own treatment. [242–243.]
+
+Miedreich also asked the Supreme Court to reconsider the state findings rejecting fraud by the foreclosure plaintiff or her attorneys. The Court declined. It ordinarily accepted duly made state factual findings and found this case outside exceptions involving purported factual determinations inseparable from federal legal questions or an entire lack of supporting evidence. The accepted record consequently contained a false return without established participation, knowledge, deception, or collusion by the foreclosure plaintiff or her lawyers. [243–245.]
+
+The issue was whether Indiana’s refusal to undo the foreclosure on that record denied Miedreich federal due process, given its treatment of the sheriff’s return and the remedy available for falsity. It was not simply whether failure to serve an original defendant is desirable or whether a private litigant may knowingly procure a fabricated affidavit.
+
+## Indiana’s rule and competing interests
+
+The Indiana Supreme Court treated a return regular on its face as a statement the court and innocent litigants could rely upon. The sheriff assumed responsibility for correct service and return by taking office. Where the party seeking judgment did what the law required, neither misled the sheriff nor knew that service had not occurred, presenting the apparently regular return did not itself constitute that party’s fraud on the court. Indiana instead allowed an action against the sheriff for making a false return. [244–245.]
+
+Miedreich’s claim thus put two interests in conflict. She alleged loss of property without actual service or participation. The foreclosure purchaser, however, had relied on a court record that appeared regular, without established fraud. Indiana emphasized finality and protection of rights acquired through apparently valid judicial proceedings. If the sheriff’s facially regular return could always be defeated in later litigation by an unserved party, titles might remain vulnerable long after an innocent purchaser paid value. The Supreme Court assessed the system as a whole, including the sheriff’s responsibility and the damages remedy. [245–247.]
+
+## Holding and reasoning
+
+The Court held that this application of Indiana law did not deprive Miedreich of Fourteenth Amendment due process. It described due process through the regular administration of law and established safeguards for the relevant class of proceedings, rather than announcing a single formula resolving every service defect. Indiana had provided a lawful service mechanism; the original foreclosure party had complied with requirements for issuing process and attempting service; and an official entrusted with service returned a facially proper record. In the absence of fraud or collusion and an attack on the return when the original court acted upon it, the court could rely on that official record. [245–246.]
+
+The sheriff-bond remedy was central to the Court’s assessment. If the return was false, Miedreich could seek recovery against the sheriff on his bond. She objected that the bond might not compensate the whole loss. The Court acknowledged that this could leave an inadequate recovery in the particular case, but accepted the legislative arrangement as part of a system protecting both injured defendants and those who derived rights from judgments. It did not require the legislature to provide a bond sufficient to cover every possible loss before allowing innocent purchasers to rely on judicial records. [245–247.]
+
+The holding remained expressly confined to the circumstances described. The Court did not decide how the result would change if the foreclosure plaintiff participated in fraud, if a different form of challenge was brought, or if other facts altered the jurisdictional analysis. The textbook’s questions about an out-of-state resident and a noncollateral challenge are questions for analysis, not answers supplied by this opinion. [247; assigned printed 270.]
+
+## Judgment and assignment
+
+The Supreme Court **affirmed the Indiana Supreme Court’s judgment**, leaving the denial of the requested foreclosure-vacatur relief intact. It did not award damages against the sheriff or decide the amount recoverable on his bond. [247.]
+
+The assignment accurately identifies the false return, lack of notice, later foreclosure challenge, and bond-remedy rationale. The full opinion adds Miedreich’s minority, the guardian appointment, the separate unsuccessful fraud allegations, the federal-question preservation issue, and the Court’s limits on reconsidering state factual findings. Its description of a conclusive return must be read with those qualifications and the Court’s narrow concluding language. The entire official source—including counsel’s arguments, the complete Day opinion at 241–247, and the original assigned page—was read. This brief reports the 1914 holding without certifying present-day service law. The accompanying review register records source scope and separate verification.

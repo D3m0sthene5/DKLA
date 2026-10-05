@@ -1,0 +1,45 @@
+# Securities and Exchange Commission v. Monarch Funding Corp.
+
+**192 F.3d 295 (2d Cir. 1999) — September 20, 1999.** Second Circuit; District Judge Sand’s civil judgment reviewed by Circuit Judges Kearse, McLaughlin, and Calabresi. Judge McLaughlin wrote the sole reported opinion. The assigned account is CivPro physical page 661, printed pages 1310–1311, Note 3.
+
+## Facts and the two proceedings
+
+The SEC sued Richard O. Bertoli and others in 1985 over alleged securities fraud involving Monarch, a New York brokerage. It sought disgorgement and an injunction against violations of §10(b) of the 1934 Act, Rule 10b-5, and §17(a) of the 1933 Act. Judge Sand placed the civil case on a suspense calendar while related federal criminal proceedings went forward in New Jersey. The prosecutors and SEC coordinated closely. (298–299.)
+
+The criminal jury convicted Bertoli of conspiracy to obstruct justice and obstruction through transferring proceeds abroad. It acquitted him of the other charges, including RICO charges whose predicate acts included the alleged securities fraud. That distinction mattered: the SEC did not seek to preclude fraud litigation through a fraud conviction. It relied on the sentencing judge’s findings despite the acquittals. (299.)
+
+Judge Lechner initially calculated the sentence using an obstruction guideline’s cross-reference to the criminal activity under investigation. He found that Bertoli orchestrated stock manipulation through three initial public offerings: controlled trades inflated prices, outsiders bought the shares, and the participants sold before prices collapsed. Those were the sentencing judge’s findings, not findings affirmed as civil fraud liability in this appeal. Lechner found fraud by at least a preponderance and imposed concurrent 100-month terms, supervised release, and a prohibition on associating with persons in the securities industry. (299–300.)
+
+The Third Circuit affirmed the conviction but vacated the sentence because applying the 1993 Guidelines instead of the applicable 1989 version imposed impermissible retroactive punishment. At resentencing, Lechner incorporated the earlier factual findings and used a different enhancement for substantially interfering with the administration of justice. He found concealed assets, induced witness evasion and lies, false affidavits, and shredded documents. The revised sentence was 78 months; the unexplained industry-association restriction was imposed again. The Third Circuit affirmed the resentencing by summary order. (300–301.)
+
+## Civil procedure and the parties’ arguments
+
+The SEC obtained civil summary judgment in June 1996 based on the sentencing findings. After an appellate remand to allow consideration of the resentencing opinion—which the SEC had not originally submitted—Sand again granted summary judgment in October 1997. He recognized potential fairness problems but thought this unusually extensive sentencing process afforded a sufficient opportunity to contest the evidence. He also thought the obstruction findings necessarily presupposed fraud or independently established its elements. The injunction prohibited future securities fraud. Estoppel did not resolve disgorgement, and the SEC abandoned that request before final judgment. (301–303.)
+
+Bertoli and defense-lawyer amici argued that sentencing findings should never preclude later civil litigation; alternatively, these findings did not qualify. The SEC supported preclusion under the usual safeguards. The appellate court reviewed the summary judgment de novo, taking favorable inferences for Bertoli. It rejected both an absolute prohibition and the SEC’s ordinary presumption of availability. (303, 305–306.)
+
+Bertoli also challenged Article III jurisdiction after disgorgement was dropped, arguing the injunction merely duplicated earlier relief. The court rejected that factual premise. Earlier measures addressed recordkeeping, broker-dealer association, or industry association; this injunction targeted different antifraud provisions. A live controversy therefore remained. (303.)
+
+## Rule: sentencing findings require exceptional care
+
+Offensive issue preclusion generally requires identical issues, actual litigation and decision, a full and fair opportunity to litigate, and necessity to a valid final merits judgment. Efficiency explains why courts sometimes accept the risk of preserving an erroneous result, but fairness limits that tradeoff. Additional procedural opportunities and inadequate incentive to contest the original issue can make offensive preclusion inappropriate. The Seventh Amendment does not independently prohibit preclusion of an issue already fully and fairly resolved. (303–305.)
+
+Sentencing raises especially serious problems. Discovery can be limited; defendants lack an absolute right to present witnesses or receive a full evidentiary hearing; and judges can consider reliable information that would not pass civil evidentiary rules. A defendant may avoid contesting facts to seek leniency, avoid provoking additional inquiry, or avoid an increased sentence if his testimony is disbelieved. These are reasons to examine actual incentives and procedures, rather than equating a lengthy hearing with a civil trial. (305.)
+
+Preclusion can also undermine its own economy rationale. Anticipated civil consequences may turn sentencing into sprawling litigation over peripheral matters. Later courts must then undertake searching examinations of that process. Nevertheless, these dangers do not justify a universal ban: district judges can assess individual cases, and avoiding inconsistent findings can preserve judicial integrity. The resulting rule is a **presumption against preclusion from sentencing findings**, overcome only when the civil plaintiff proves its use is clearly fair and efficient. (305–306.)
+
+## Why the SEC failed here
+
+**Legal necessity was missing.** For sentencing findings, the court required strict necessity to the final sentence, rather than findings inferred from other necessary determinations. Fraud findings incorporated from the original sentence did not become necessary merely through incorporation. A person can obstruct an investigation without committing the conduct investigated. Bertoli might also have concealed assets to evade creditors or hidden his brokerage involvement to avoid an existing association ban. Whether fraud motivated him differed from whether finding fraud was legally necessary to the obstruction enhancement. (307–308.)
+
+**Obstruction did not establish every fraud element.** Concealing assets did not itself prove a material misrepresentation, fraudulent device, or securities transaction connection. Directing lies about brokerage involvement did not establish all fraud elements. Supervising a research report did not establish that the report was materially misleading. The court separately recognized that scienter is unnecessary for the SEC’s injunction under §17(a)(2) and (3), while the other identified fraud provisions require it. The district court’s inference from obstruction to the entire collection of securities-law elements therefore failed. (308.)
+
+**The association restriction supplied no alternative basis.** The SEC had not raised that argument below, and the court saw no reason to depart from the normal preservation rule. It additionally explained why the argument would fail: Lechner gave no specific reasons for the restriction, and the record did not establish that fraud was actually litigated and decided as its foundation. Obstruction alone might have supported the occupational restriction. The court consequently did not decide the potentially broader question whether a fraud finding was legally necessary to impose that condition. (308–309.)
+
+**Efficiency independently failed.** The extensive civil inquiry into the sentencing process probably required more effort than ordinary summary judgment or trial. The court did not conclusively find that the SEC had engineered excessive criminal litigation; it said the close cooperation prevented ruling that possibility out. More importantly, the actual civil savings were absent. Courts should first assess efficiency and may refuse sentencing-based preclusion on that ground alone. (309–310.)
+
+## Judgment, notes, and assignment
+
+The Second Circuit **vacated the summary judgment and remanded for further proceedings**. Bertoli could contest civil fraud liability afresh; this was not a judgment finding that he committed no fraud. No separate opinion or numerical vote is reported. The sole judicial footnote identifies sources for fuller prior-proceeding histories; it does not alter the holding. (298 n.1, 310.)
+
+The assigned quotation accurately captures strict necessity and efficiency. Its concluding locator, “307–11,” extends beyond this report’s opinion ending at **310**. Its later *Lamberts* parenthetical is editorial comparison, not a holding or later-law conclusion of this 1999 decision. The brief reports the historical sentencing framework and preclusion holding without certifying their present application.

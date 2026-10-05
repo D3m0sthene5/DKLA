@@ -1,0 +1,35 @@
+# Harry Rubin & Sons, Inc. v. Consolidated Pipe Company of America, Inc.
+396 Pa. 506, 153 A.2d 472 (1959) | Contracts
+
+## Court and procedural result
+Justice Benjamin R. Jones delivered the Pennsylvania Supreme Court’s opinion on July 24, 1959. The court modified the order sustaining preliminary objections: the merchant confirmations were sufficient to defeat the statute-of-frauds defense to two alleged oral sales, but the goodwill-damages claim remained excluded. It affirmed the order as modified and remanded for further proceedings. Contract formation, breach, and recoverable damages still required proof; the decision did not award the buyer damages or direct judgment establishing the oral agreements. (507–508, 511–514.)
+
+The panel listed Chief Justice Jones and Justices Bell, Musmanno, Jones, Cohen, Bok, and McBride. No separate writing belongs to this decision. The Bell dissent appearing above the Rubin caption on page 506 concerns the preceding case, not Rubin. The report does not state a separate numerical vote. (506–507.)
+
+## Alleged transactions and objections
+The buyers were Harry Rubin & Sons and Leonard and Robert Rubin trading as Arandell Products. The defendants included Consolidated Pipe, Lustro Plastic Tile, and Lustro Tile Products, collectively called Consolidated-Lustro. The complaint alleged three oral agreements on August 22, 25, and 28, 1958, each for goods costing more than $500, made through Carl Pearl as the sellers’ officer and agent. The goods were plastic hoops and materials for assembling them. The buyers alleged that substantial quantities were not delivered and that their consequent inability to supply customers damaged goodwill. (508–509 & nn.1–2.)
+
+The Court of Common Pleas No. 1 of Philadelphia County sustained the sellers’ preliminary objections in part. It held two oral agreements unenforceable under the Uniform Commercial Code statute of frauds and rejected the goodwill claim. The third agreement had already survived that defense. The buyers relied on writings attached to the complaint to confirm the first two agreements and appealed both adverse conclusions. (507–509, 511 n.6.)
+
+## Merchant confirmation without the recipient’s signature
+Section 2-201 generally required a signed writing indicating a sale, with enforceability bounded by the quantity stated. Between merchants, however, a writing received within a reasonable time, confirming the contract and sufficient against its sender, also satisfied the requirement against a recipient with reason to know its contents unless that recipient objected in writing within ten days. The recipient’s signature was therefore unnecessary under this exception. The loss of a statute-of-frauds defense did not itself prove that a contract had been made. (509–510, 512.)
+
+The first purchase order, on a Lustro form and signed by Rubin, specified 30,000 hoops, their description, size, and price. The original footnote reproduces a price of 36½ cents, colors, and nested tubing dimensions. The August 25 letter requested another 60,000 hoops at 39 cents each following the day’s telephone conversation and stated an understanding that production would follow completion of the existing 30,000-hoop order. These details are in the original reproduced documents; portions of that footnote are missing from the native extraction and CAP text and were read directly from the images. (508–510 & n.4.)
+
+The sellers argued that calling the transaction an order instead of a contract made the writings mere offers awaiting acceptance. The court rejected that formal distinction. The letter referred to the existing order as an accomplished transaction and contemplated an additional binding agreement, sufficiently indicating confirmation to a recipient. The August 28 communication reinforced that usage: it referred to the telephone conversation and the seller’s agreement to ship its entire production of the specified material. In the absence of timely rejection, the August 25 writing confirmed both contested oral contracts. (510–512.)
+
+The Code required a basis for believing the offered oral evidence concerned a real transaction, rather than insistence on the previous formalities. The buyers still bore the burden of persuading the factfinder that the contracts had actually been made orally before confirmation. Footnote 8 also allowed oral evidence that the addressee acted as agent for unnamed defendant entities; that proof did not violate the statute of frauds. The ruling therefore permitted litigation of the agreements, rather than making failure to object an admission resolving every element. (512 & nn.7–8.)
+
+## Historical rejection of goodwill damages
+The buyers separately invoked section 2-715’s provision for consequential loss arising from requirements or needs of which the seller had reason to know at formation and which could not reasonably be prevented through cover or otherwise. They argued that loss of customers’ goodwill from unavailable hoops fit that provision. (512.)
+
+The court found no Pennsylvania Sales Act authority sustaining such recovery for nondelivery or defective delivery. Michelin had rejected expected profits from customers allegedly lost because delivered tires were less durable than represented. The court saw no indication that the Code expanded damages to include goodwill and considered that category too speculative absent a specific declaration. It also endorsed concern that allowing it could impose limits difficult to define and damages the parties had not contemplated in sales contracts. (512–513.)
+
+Sarfert Hosiery did not resolve the matter: that case considered whether goodwill loss was pleaded specifically enough and simply assumed its recoverability without supporting discussion. The Rubin court did not adopt that assumption. It acknowledged contrary authorities through an annotation, but retained the categorical exclusion in this historical ruling. (513 & nn.10–11.)
+
+The resulting remand reinstated the buyers’ opportunity to prove the oral sales while maintaining rejection of goodwill damages. It did not hold all consequential damages unavailable or foreclose proof of other legally recoverable loss. (514.)
+
+## Assigned account and source scope
+C&M Book 4 physical page 33, printed page 1040, uses the hula-hoop transaction to illustrate Pennsylvania’s former exclusion of goodwill loss. The same editorial discussion identifies the later AM/PM decision as overruling the categorical prohibition. This brief describes Rubin’s 1959 stage; the historical goodwill rule is not presented as a current Pennsylvania rule.
+
+The complete original judicial text at 507–514 and all eleven notes were read, alongside the entire CAP opinion reproduction. The reproduced purchase order and letter in note 4 span 508–509; both original images were read because native and CAP versions omit document text. The full assigned native page and original image were also read. No separate opinion appears for Rubin. Separate source review is tracked in the accompanying register.
