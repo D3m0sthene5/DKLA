@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
 VERSION = "r19"
-LABEL = "r19.3"
+LABEL = "r19.4"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R194 = {
+    "v": "r19.4",
+    "date": "2026-10-06",
+    "text": "The Restatement of Consumer Contracts is now on the Contracts map. RLCC §§ 4, 6, 8 and 9 have their own rule entries in the subtopics whose assignments list them (good faith, unconscionability, standard forms, parol evidence), each opening the official 2024 text at its page. The old study-note entry is now a §§ 1–10 hub with § 2 and § 3 summarised, and Assignments 6, 9, 11, 13, 16, 17 and 18 link to their sections.",
+}
 CHANGELOG_R193 = {
     "v": "r19.3",
     "date": "2026-10-06",
@@ -128,7 +133,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -161,7 +166,25 @@ def main() -> None:
         raise ValueError(f"mapped atlas ids not in the graph: {missing[:5]}")
     data["seedUpdated"] = {a: nodes[a].get("updatedAt") for a in data["map"]}
     data["tiles"] = tiles(graph)
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8")
+    rlcc = json.loads((DATA / "rlcc.json").read_text(encoding="utf-8"))
+    homes, taken = graph["studyMap"]["homes"], {}
+    for r in rlcc["rules"]:
+        h = r["home"]
+        if r["id"] in nodes or h["district"] not in graph["studyMap"]["districts"]:
+            raise ValueError(f"{r['id']}: id already in the graph, or unknown subtopic")
+        clash = [o["id"] for o in list(homes.values()) + list(taken.values()) if o["x"] < h["x"] + h["w"] and h["x"] < o["x"] + o["w"] and o["y"] < h["y"] + h["h"] and h["y"] < o["y"] + o["h"]]
+        if clash:
+            raise ValueError(f"{r['id']}: card slot overlaps {clash}")
+        taken[r["id"]] = dict(h, id=r["id"])
+        missing_links = [t for t, *_ in r["links"] if t not in nodes and t not in {x["id"] for x in rlcc["rules"]}]
+        if missing_links:
+            raise ValueError(f"{r['id']}: links to unknown entries {missing_links}")
+    unknown = [k for k in rlcc["cite"] if k not in nodes]
+    if unknown:
+        raise ValueError(f"rlcc cite targets not in the graph: {unknown}")
+    rlcc["hubSeedUpdated"] = nodes[rlcc["hub"]["id"]].get("updatedAt")
+    data["rlcc"] = rlcc
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8")
     css = (PARTS / "briefs.css").read_text(encoding="utf-8")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
