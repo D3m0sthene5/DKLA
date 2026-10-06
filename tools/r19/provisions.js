@@ -27,6 +27,13 @@
       <p class="r19-prov-src">${note} ${open}</p></details>`;
     if (anchor) anchor.after(box); else body.prepend(box);
   }
-  new MutationObserver(paint).observe(panel, { childList: true, subtree: true });
+  // The icon caption is written once per render by an earlier layer; keep it matched to the open entry.
+  function caption() {
+    const cap = panel.querySelector('.dkla-icon-caption'); if (!cap) return;
+    const id = typeof selected !== 'undefined' && selected && selected.type === 'node' ? selected.id : null;
+    const meta = id && window.DKLA && window.DKLA.iconFor ? window.DKLA.iconFor(id) : null;
+    if (!meta || meta.status !== 'unique' || !meta.label) cap.remove(); else if (cap.textContent !== meta.label) cap.textContent = meta.label;
+  }
+  new MutationObserver(() => { paint(); caption(); }).observe(panel, { childList: true, subtree: true });
   paint();
 })();

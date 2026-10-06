@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "57a2b92c4b5e1d0de17dd56f84e72217dedeb04dd4ad77ae7e70c3edeb0d1783"
+EXPECTED_R18 = "c3c635279a3ddf0c5ddb1a396283f0caf83c275525a005fa635afedd858db48e"
 VERSION = "r19"
-LABEL = "r19.6"
+LABEL = "r19.7"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R197 = {
+    "v": "r19.7",
+    "date": "2026-10-06",
+    "text": "The 19 cases that took a state outline have their own captions back (for example, Biden v. Nebraska again reads \"$430 billion in student debt not waived\"); r19.6 had replaced them with \"<State>, named in the case\".",
+}
 CHANGELOG_R196 = {
     "v": "r19.6",
     "date": "2026-10-06",
@@ -143,7 +148,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
