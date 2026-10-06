@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "f032e66219f86c647afd90d5c8c3cdf4b9cd3a60959cb50a6fc4341b26e2eb68"
+EXPECTED_R18 = "c33e036d266434e2b5783330d3e48fa16f9c15268b089d699654d0df9ee6cacf"
 VERSION = "r19"
-LABEL = "r19.10"
+LABEL = "r19.11"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R1911 = {
+    "v": "r19.11",
+    "date": "2026-10-06",
+    "text": "Burger King v. Rudzewicz now uses the classic round mark: tilted buns with BK inside a crescent swoosh.",
+}
 CHANGELOG_R1910 = {
     "v": "r19.10",
     "date": "2026-10-06",
@@ -163,7 +168,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
