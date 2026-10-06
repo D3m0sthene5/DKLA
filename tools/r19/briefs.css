@@ -53,3 +53,6 @@
 
 .r19-chiprow{margin:0 0 10px}
 .r19-chiprow .r19-pdfchip{font:inherit;font-size:13px;color:#d7e0e8;background:#1e2a35;border:1px solid #3a4856;border-radius:999px;padding:5px 12px;cursor:pointer}
+
+/* r19.3: the header's dropdowns (search results, the menu) open over the Supreme Court view, which sits at 35 */
+.study-header{z-index:45}

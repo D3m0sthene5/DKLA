@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
 VERSION = "r19"
-LABEL = "r19.2"
+LABEL = "r19.3"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R193 = {
+    "v": "r19.3",
+    "date": "2026-10-06",
+    "text": "Search results now open over the Supreme Court view instead of being hidden behind it, and choosing one leaves that view for the map. Zooming out from a course always returns to the full atlas, including when the course view was sitting slightly zoomed out.",
+}
 CHANGELOG_R192 = {
     "v": "r19.2",
     "date": "2026-10-06",
@@ -123,7 +128,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:

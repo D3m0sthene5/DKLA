@@ -197,6 +197,22 @@
     results.querySelector('.search-empty')?.remove(); results.appendChild(box);
   }).observe(results, { childList: true });
 
+  /* ---------- r19.3: zooming out of a course, and search over the Supreme Court view ---------- */
+  // The stepped zoom reads the level off the camera scale. A course view sitting a little small (a restored
+  // camera, a zoom cut short by a tap) read as "already at the atlas", so zooming out did nothing.
+  const step0 = R11.step;
+  R11.step = function (dir, p) {
+    if (dir < 0 && !R11.stepping && S.scope !== 'Atlas' && !(window.SCOTUSHistory && window.SCOTUSHistory.state().open)) {
+      let lvl = -1; try { lvl = R11.level(p || mapCenterVisible()).lvl; } catch { /* fall through to the renderer's own step */ }
+      if (lvl === 0) { R11.stepping = true; setTimeout(() => { R11.stepping = false; }, 650); home('Atlas'); return true; }
+    }
+    return step0.call(this, dir, p);
+  };
+  // Results chosen while the Supreme Court view is open belong to the map, so that view steps aside first.
+  results.addEventListener('click', e => {
+    if (e.target.closest('button') && window.SCOTUSHistory && window.SCOTUSHistory.state().open) window.SCOTUSHistory.close();
+  }, true);
+
   /* ---------- version ---------- */
   R18.version = D.version;
   document.title = 'DKLA · ' + D.version;
