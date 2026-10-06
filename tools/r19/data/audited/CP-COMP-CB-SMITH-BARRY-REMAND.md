@@ -1,0 +1,41 @@
+# Smith v. Barry — Fourth Circuit decision on remand
+
+**985 F.2d 180 (4th Cir. 1993) — United States Court of Appeals for the Fourth Circuit, February 8, 1993. Civil Procedure.** District Judge Smith, sitting by designation, wrote for the panel of Judges Russell, Widener, and Smith. No separate writing is reproduced. The panel accepted appellate jurisdiction concerning six guards, affirmed their judgment, and dismissed the appeal concerning a private physician.
+
+## Facts and procedural course
+
+William Smith, an inmate at the Maryland State Penitentiary, suffered from a painful psychogenic disorder preventing him from walking. He sued correctional administrators, seven officers, two staff psychologists, and Dr. Wayne Barry under 42 U.S.C. § 1983. He alleged deliberate indifference to his medical needs through denial of a wheelchair and separately alleged excessive force. The latter claim was not pursued in this appeal. Opinion Part I; nn. 2, 4.
+
+Barry was a private physician employed by a private medical group. The district court dismissed him on December 26, 1984, reasoning under then-governing circuit precedent that he had not acted under color of state law. Footnote 3 explains that the Supreme Court subsequently overruled that precedent in West v. Atkins, establishing that a private contract physician treating state inmates may act under color of state law. The opinion does not treat this later development in the substantive law as bearing on appellate jurisdiction over Barry’s dismissal. Part I & n. 3.
+
+The remaining claims went to trial. At the close of Smith’s evidence, the district court directed verdicts for the administrators, Commander Carpenter, and the six remaining guards on the deliberate-indifference claim. The jury found the two psychologists deliberately indifferent and awarded Smith $15,000. The judgment order was entered February 29, 1988. The psychologists moved for judgment notwithstanding the verdict on March 4; Smith filed a pro se notice on March 22 while that motion was pending. The remand opinion dates denial of the motion April 14. It then identifies May 4 as the date Smith submitted an informal brief requesting a new trial on all jury-triable issues. Part I.
+
+The March notice was ineffective under the version of Rule 4(a)(4) then applicable. It also identified a March 15 order extending time to request attorney’s fees, rather than the judgments now challenged. The panel expressly declined to base jurisdiction on that earlier notice. Its inquiry concerned the timely informal brief instead. Part I & nn. 5–6, 8–9.
+
+The Fourth Circuit had previously dismissed the appeal because it believed an informal brief could not substitute for a notice. The Supreme Court reversed that categorical ruling in Smith v. Barry, 502 U.S. 244 (1992), and directed examination of whether this brief supplied Rule 3(c)’s required information. On remand, Smith sought review of Barry’s dismissal and the directed verdict for six guards: Victor, Turner, Hall, Brown, Jackson, and Wilkins. A requested caption amendment removed other defendants against whom he no longer proceeded. Part I & n. 1.
+
+## Issues and holdings
+
+Did the informal brief provide sufficient notice for each challenged judgment? The request for a new trial on jury-triable issues was sufficient concerning the six guards, although it did not name them or identify their judgment directly. It did not reach Barry’s dismissal, which occurred as a matter of law years before trial and was neither named nor indirectly mentioned.
+
+Once jurisdiction over the guards was established, did the trial evidence require submission of deliberate indifference to the jury? No. Even viewed favorably to Smith, the evidence did not provide a legally sufficient basis for finding that those guards were in a position to act meaningfully concerning his medical needs. The directed verdict for them was affirmed. Part II.
+
+## Notice analysis and its limits
+
+Rule 3(c), as applied in the opinion, required specification of the appealing party, designation of the judgment or order challenged, and identification of the appellate court. The Supreme Court’s mandate required liberal construction of papers supplying the functional equivalent of those requirements, but did not authorize ignoring actual noncompliance. Timeliness of the informal brief was established if its contents qualified; the mistaken filing in the appellate court was addressed by the rule deeming receipt there a district-court filing. Part II & n. 8.
+
+The appellees argued that a request for a new trial on jury issues did not designate the appealed judgment. The panel disagreed as to the guards. Their deliberate-indifference claim had been tried before a jury and ended through a directed verdict. Reading the request in that procedural setting supplied the necessary designation, even without their names or a direct reference to the February 29 order. The holding is therefore contextual substantial compliance, rather than a rule that a general new-trial request always gives adequate notice. Part II.
+
+Barry’s position differed. His dismissal occurred more than three years before trial, on a legal motion. The informal brief neither mentioned him nor identified that order; requesting a new jury trial did not communicate a challenge to a pretrial legal dismissal. Liberal reading could not turn the paper into notice of that different appeal. Footnote 9 confirms that the defective March notice, addressing a fee-related order, could not fill the gap. Footnote 10 records Barry’s suggestion that Smith never mailed him a copy of the premature notice, but frames the supporting inference conditionally; the panel did not establish failure to mail as a proven fact. Part II & nn. 9–10.
+
+## Merits review and disposition
+
+Accepting the informal brief did not entitle Smith to a new trial. Reviewing the directed verdict, the panel asked whether the evidence warranted jury submission, viewing the evidence and reasonable inferences in Smith’s favor. It concluded that he offered no evidence that the six guards could meaningfully address his medical needs. Medical staff handled those needs, and the jury had found two members of that staff liable. The panel distinguished the guards’ evidentiary position from the psychologists’ verdict rather than treating the success against medical staff as proof against every prison employee. Part II.
+
+The exact disposition was **affirmed in part and dismissed in part**: affirmation of the judgment for the six guards on deliberate indifference, and dismissal of the appeal concerning Barry for inadequate notice. It did not affirm Barry’s dismissal on its substantive state-action rationale, decide the unappealed excessive-force judgments, or overturn the psychologists’ verdict. Part II; nn. 1–4.
+
+## Assigned discrepancy and source scope
+
+CivPro PDF page 627, printed page 1241, correctly distinguishes the later remand from the 1992 Supreme Court stage and recounts the contextual notice ruling. It incorrectly calls the excluded appellee a prison psychologist. The full remand opinion identifies him as Dr. Barry, a private physician; the two staff psychologists were separately identified verdict defendants. The textbook also omits the panel’s merits affirmance concerning the guards, which is essential to the complete outcome.
+
+The complete judicial reproduction, including all ten footnotes and the final mandate, and the entire assigned page in native text and original scan were read before drafting. Locators above use the reproduced opinion’s numbered notes and its Part I heading because a complete original reporter-page map was not recovered; no internal reporter pinpoint is invented. The saved reproduction shows only a “I.” heading and no “II.” heading, so “Part II” above means the analysis that begins with the Rule 3(c) discussion, not a heading visible in that reproduction. The remand opinion dates denial of the post-trial motion April 14, while the Supreme Court’s account is said to have used April 13 (that opinion is not among the saved sources, so the comparison is not verified here). Those source variants do not alter the stated May 4 filing’s timeliness and are preserved rather than silently harmonized. This is a historical case brief, without current-law certification.

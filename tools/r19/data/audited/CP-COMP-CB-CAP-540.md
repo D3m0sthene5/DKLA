@@ -1,0 +1,47 @@
+# Federated Department Stores, Inc. v. Moitie
+
+**452 U.S. 394 (1981) — Supreme Court of the United States — June 15, 1981.** Justice Rehnquist wrote for Chief Justice Burger and Justices Stewart, White, Powell, and Stevens. Justice Blackmun, joined by Justice Marshall, concurred in the judgment; Justice Brennan dissented. The judgment was 8–1, with six justices joining the Court's opinion. The assigned Civil Procedure account spans printed pages 1273–1274, physical PDF page 643, followed by three editorial notes.
+
+## Litigation chronology and the parties' choices
+
+In 1976 the United States brought an antitrust action accusing department-store owners of agreeing to fix retail prices of women's clothing in northern California. Seven private actions followed, seeking treble damages for proposed classes of retail purchasers. Moitie initially sued in state court; Brown initially sued in the Northern District of California. Their complaints closely followed the Government's allegations, although Moitie's first complaint referred solely to state law. Moitie's case was removed on diversity and federal-question grounds, and the actions were consolidated before one federal judge. 452 U.S. at 395–396.
+
+The District Court dismissed all seven actions for failing to allege injury to business or property within Clayton Act § 4. Five plaintiffs appealed. Counsel representing Moitie and Brown deliberately chose a different route: rather than appeal, he refiled their actions in state court as *Moitie II* and *Brown II*. These complaints purported to assert only state claims but repeated similar allegations. The defendants removed them to federal court. Id. at 396.
+
+On July 8, 1977, the District Court denied remand, describing the claims as essentially federal despite their state-law wording. It then dismissed on res judicata grounds because the cases involved the same parties, alleged offenses, and time periods as the first actions. Moitie and Brown appealed those second dismissals. In the meantime, *Reiter v. Sonotone Corp.* established that retail purchasers could suffer injury to business or property under § 4. The Ninth Circuit consequently reversed the first dismissals in the five cases whose plaintiffs had appealed and remanded for reconsideration. Id. at 396–397.
+
+When the second Moitie and Brown suits reached the Ninth Circuit, it acknowledged that ordinary claim-preclusion rules would bar them. Nevertheless, it created an exception because the nonappealing plaintiffs' positions were closely interwoven with those of the successful appellants and the earlier dismissal rested on a principle effectively overruled. It invoked public policy and simple justice. By the Supreme Court proceedings, *Moitie II* had been voluntarily dismissed, leaving *Brown II* as the subject of the petition. Id. at 396 n.1, 397–398.
+
+## Issue, rule, and the majority's reasoning
+
+The principal issue was whether successful appeals by other plaintiffs justified allowing parties who had not appealed their own adverse judgments to relitigate. The Court held that the Ninth Circuit's exception was unwarranted. A final judgment on the merits binds parties and their privies as to matters raised or that could have been raised. A final, unappealed judgment does not lose its preclusive consequences merely because it was erroneous or depended on a legal principle later rejected elsewhere. An erroneous judgment is ordinarily corrected through direct review, not a new lawsuit on the same claim. Id. at 398–399.
+
+The Court took the Ninth Circuit's acknowledgment of the preclusion bar to mean that the technical requirements—same claims and parties, with a final merits judgment—were satisfied. Footnote 3 identifies the Rule 12(b)(6) dismissal as a judgment on the merits. It therefore considered the proposed fairness exception rather than reexamining the original Clayton Act interpretation or deciding whether the stores had actually fixed prices. Id. at 399 & nn.3–4.
+
+*Reed v. Allen* supplied a particularly forceful comparison. There, one judgment remained binding even though a related judgment supporting it was later reversed, producing inconsistent practical consequences. An appeal from one independent judgment did not confer authority to reverse another judgment that had not been appealed. *Moitie* presented stronger reasons for preclusion: these plaintiffs sought a benefit from other parties' appeals, and their own failure to appeal reflected a calculated choice rather than an unexplained omission. Id. at 399–401.
+
+The majority also rejected ad hoc reliance on simple justice or public policy. Preclusion itself serves substantial public interests in ending litigation, promoting private peace, and applying settled rules evenhandedly. An individual hardship did not authorize the Ninth Circuit to discard that doctrine. The Court's argument was not that the District Court's original antitrust dismissal had been correct; the point was that a final judgment's stability does not depend on a later court's agreement with its legal reasoning. Id. at 401–402.
+
+## Removal and the expressly unfinished state-claim question
+
+Footnote 2 accepted the lower courts' conclusion that at least some claims had enough federal character to support removal, describing the recast claims as artfully pleaded. That was part of this decision's historical reasoning. It should not be read as establishing that any federal preclusion defense supplies removal jurisdiction. The separately assigned *Rivet* decision, whose complete report was also checked for this comparison, later confined this footnote to its specific context and expressly rejected that broader interpretation. *Moitie*, 452 U.S. at 397 n.2; *Rivet*, 522 U.S. 470, 477–478 (1998).
+
+Brown sought dismissal of certiorari as improvidently granted or, alternatively, remand to state court, arguing that the second action added state claims not decided in the first. The majority expressly declined to decide the preclusive effect on those additional state-law claims. It considered preclusion of the federal-law claims sufficient for its disposition. That reservation matters: the Court's general discussion of matters that could have been raised should not be converted into a claim that the majority expressly resolved every added state theory here. 452 U.S. at 402.
+
+## Separate opinions
+
+Blackmun and Marshall agreed with the result but would leave room for exceptional equitable qualification of preclusion. They thought this case did not warrant one because the plaintiffs made a tactical decision, complex multiparty litigation particularly required discouraging breakaway suits, and the appealing and nonappealing parties' rights were not truly interdependent. Blackmun's starred note distinguished authorities involving a single piece of property, unjustly remaining liability, or a lost cross-claim. Id. at 402–403 & n.*.
+
+Blackmun would also hold the state claims precluded. He relied on the lower courts' disguised-federal-claim characterization and absence of a cross-petition, and independently reasoned that the state claims could have been asserted in the first action. Nothing showed at the outset that pendent jurisdiction would have been declined. This went further than the majority's express reservation. Id. at 404.
+
+Brennan's dissent primarily challenged removal jurisdiction. Brown's complaint pleaded fraud, unfair business practices, conspiracy, and restitution under California law. A plaintiff may select a state-law claim where federal law has not exclusively displaced state law; the opportunity to assert a federal theory does not itself permit removal. Brennan rejected treating the lower courts' legal characterization as a factual finding insulated from review. His notes addressed the historical diversity amount, legitimate state-law pleading, the inapplicability of the cited removal examples, and the relevant preclusion authorities. Id. at 404–410 & nn.1–6.
+
+Brennan also criticized the majority's refusal to address the state claims. Assuming federal jurisdiction, he agreed with Blackmun that an unconditional merits dismissal would bar theories that could have been presented. But because jurisdiction was lacking in his view, he would vacate and direct remand through the District Court to state court. His dissent was not an endorsement of the Ninth Circuit's general fairness exception. Id. at 410–411 & n.7.
+
+## Judgment and assigned scope
+
+The Court **reversed the Ninth Circuit and remanded for proceedings consistent with its opinion**. It did not adjudicate the price-fixing allegations or award antitrust damages. Id. at 402.
+
+The textbook accurately presents the refusal of a general fairness exception. Its attached notes discuss fraud, fundamental jurisdictional defects, preclusion during pending appeals, and *Rivet*; those are editorial additions rather than further holdings of *Moitie*. The entire supplied page and original scan were read, along with the complete eighteen-page official report, 394–411, all four majority notes, Blackmun's starred note, and Brennan's seven notes. Historical jurisdictional statutes are described as applied then; no current-law certification is asserted.
+
+**Primary sources:** [Official Moitie report](https://www.govinfo.gov/content/pkg/USREPORTS-452/pdf/USREPORTS-452-394.pdf); [official Rivet clarification](https://www.govinfo.gov/content/pkg/USREPORTS-522/pdf/USREPORTS-522-470.pdf).

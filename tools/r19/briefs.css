@@ -2,6 +2,8 @@
 .r19-status{display:inline-flex;align-items:center;gap:6px;font:11px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:999px;border:1px solid #3a4856;color:#a9e6c2;white-space:nowrap}
 .r19-status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .r19-status.r19-repaired{color:#a9cdf0}.r19-status.r19-limited{color:#f5b3b3}.r19-status.r19-pending{color:#f3d491}
+.r19-status.r19-audit-clean{color:#a9e6c2;border-style:dashed}.r19-status.r19-audit-corrected{color:#a9cdf0;border-style:dashed}.r19-status.r19-audit-none{color:#f5b3b3;border-style:dashed}
+.r19-auditbox{margin-top:10px}.r19-auditbox li{margin-bottom:8px}
 .r19-brief{margin:22px 0 8px;padding-top:16px;border-top:1px solid #2a3541}
 .r19-line{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:12px;color:#93a7b7;font-size:13px}
 .r19-line button,.r19-related button,.r19-more{font:inherit;font-size:13px;color:#e1e5e9;background:transparent;border:1px solid #3a4856;border-radius:7px;padding:6px 10px;cursor:pointer}

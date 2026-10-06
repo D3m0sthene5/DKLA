@@ -1,11 +1,11 @@
 {
   "r18_sha256": "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509",
-  "r19_sha256": "12a4a5eab7a21bbf0a38b98be14400c141a21a5cce41984f7c8a7337cf1c754e",
-  "build": "r19-9282223bff",
+  "r19_sha256": "246ddf706442878841a0c0fde3d55b8067a3136360331ac2517f5587e5ae752d",
+  "build": "r19-e109dfbc75",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1467,
   "mapped_cases": 391,
-  "converted": 391,
+  "converted": 1463,
   "mapped_without_conversion": [],
   "supporting": 1076,
   "review": {
@@ -13,6 +13,12 @@
     "repaired": 300,
     "limited": 44,
     "pending": 79
+  },
+  "supporting_with_sections": 1072,
+  "audited_by_claude": {
+    "clean": 19,
+    "corrected": 60,
+    "could-not-audit": 0
   },
   "preserved_script_blocks": 35
 }

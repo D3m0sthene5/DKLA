@@ -28,13 +28,14 @@
     for (const [atlasId, codexId] of Object.entries(D.map)) {
       const n = nodesById.get(atlasId), conv = D.sections[codexId], meta = byId.get(codexId);
       if (!n || !conv || !meta) continue;
-      if (n.codex?.sha === meta.sha && n.codex?.id === codexId) continue;
+      const stamp = meta.sha + (conv.rev || '');
+      if (n.codex?.sha === stamp && n.codex?.id === codexId) continue;
       // An entry the owner has edited keeps the owner's text; the audited version is offered in the panel.
       if (force !== atlasId && n.updatedAt !== D.seedUpdated[atlasId]) { skipped.add(atlasId); continue; }
       const old = n.summary;
       n.sections = Object.fromEntries(KEYS.map(k => [k, conv.sections[k] || '']));
       n.summary = conv.rule;
-      n.codex = { id: codexId, sha: meta.sha, k: meta.k };
+      n.codex = { id: codexId, sha: stamp, k: meta.k };
       if (guides[atlasId] && guides[atlasId].sourceSummary === old) guides[atlasId].sourceSummary = conv.rule;
       skipped.delete(atlasId); changed++;
     }
@@ -63,7 +64,14 @@
     }
     flush(); return out.join('');
   }
-  const chip = e => `<span class="r19-status r19-${e.k}" title="${esc(e.status.replace(/_/g, ' ').toLowerCase())}">${STATUS[e.k]}</span>`;
+  // A brief Codex left unreviewed may have been audited here against the saved opinion; say so, and say what was found.
+  const AUDIT = D.audit || {};
+  const AUDIT_LABEL = a => a.v === 'clean' ? 'Audited by Claude: no errors found' : a.v === 'corrected' ? `Audited by Claude: ${a.f.length} correction${a.f.length === 1 ? '' : 's'} made` : 'Claude could not audit this from the saved sources';
+  const chip = e => { const a = AUDIT[e.id]; return `<span class="r19-status r19-${e.k}" title="${esc(e.status.replace(/_/g, ' ').toLowerCase())}">${STATUS[e.k]}</span>` + (a ? `<span class="r19-status r19-audit-${a.v === 'could-not-audit' ? 'none' : a.v}">${AUDIT_LABEL(a)}</span>` : ''); };
+  function auditHTML(id) {
+    const a = AUDIT[id]; if (!a) return '';
+    return `<details class="r19-full r19-auditbox"><summary>Claude's audit <small>${esc(AUDIT_LABEL(a).replace(/^Audited by Claude: /, ''))}</small></summary><div class="r19-text"><p>${esc(a.c)}</p>${a.f.length ? '<ul>' + a.f.map(f => `<li><strong>${esc(f[1])}</strong> (${esc(f[0])}): ${f[3] === 'removed' ? `removed “${esc(f[2])}”` : `“${esc(f[2])}” now reads “${esc(f[3])}”`}</li>`).join('') + '</ul>' : ''}${a.n ? `<p>${esc(a.n)}</p>` : ''}</div></details>`;
+  }
 
   /* ---------- reading panel: status and full brief under a mainline case ---------- */
   function paintReader() {
@@ -71,14 +79,15 @@
     const n = selected?.type === 'node' ? nodesById.get(selected.id) : null;
     const codexId = n && D.map[n.id], e = codexId && byId.get(codexId), old = panel.querySelector('.r19-brief');
     if (!e) { old?.remove(); return; }
-    const state = (n.codex?.sha === e.sha ? 'a' : skipped.has(n.id) ? 's' : 'w') + ':' + n.id;
+    const state = (n.codex?.sha === e.sha + (D.sections[codexId]?.rev || '') ? 'a' : skipped.has(n.id) ? 's' : 'w') + ':' + n.id;
     if (old && old.dataset.state === state) return;
     old?.remove();
     const bodyEl = panel.querySelector('.reader-body'); if (!bodyEl) return;
     const box = document.createElement('section'); box.className = 'r19-brief'; box.dataset.state = state;
     const others = D.related[n.id] || [];
-    box.innerHTML = `<div class="r19-line">${chip(e)}<span>${n.codex?.sha === e.sha ? 'Sections and rule line are from the audited brief.' : skipped.has(n.id) ? 'You have edited this entry, so your text is kept.' : ''}</span>${skipped.has(n.id) ? `<button type="button" data-r19-apply="${esc(n.id)}">Use the audited brief</button>` : ''}</div>
+    box.innerHTML = `<div class="r19-line">${chip(e)}<span>${n.codex?.id === codexId && !skipped.has(n.id) ? 'Sections and rule line are from the audited brief.' : skipped.has(n.id) ? 'You have edited this entry, so your text is kept.' : ''}</span>${skipped.has(n.id) ? `<button type="button" data-r19-apply="${esc(n.id)}">Use the audited brief</button>` : ''}</div>
       <details class="r19-full"><summary>Full brief <small>the complete audited account</small></summary><div class="r19-text" data-r19-fill="${esc(codexId)}"></div></details>
+      ${auditHTML(codexId)}
       ${others.length ? `<div class="r19-related"><span>Other stages and related briefs</span>${others.map(id => byId.get(id)).filter(Boolean).map(o => `<button type="button" data-r19-open="${esc(o.id)}">${esc(o.title)}</button>`).join('')}</div>` : ''}`;
     bodyEl.appendChild(box);
   }
@@ -97,7 +106,7 @@
     const q = V.q.trim().toLowerCase();
     const rows = supporting.filter(e => e.course === V.course && (V.k === 'all' || e.k === V.k) && (!q || e.title.toLowerCase().includes(q) || e.id.toLowerCase().includes(q)));
     el('r19Title').innerHTML = '<span class="r18-kicker">NOT ON THE SYLLABUS</span><h2>Supporting cases</h2>';
-    return `<p class="r19-lead">Cases the readings mention without assigning: note cases, cases cited in passing, and other stages of an assigned case. Each has an audited brief. They are kept off the main route of the map.</p>
+    return `<p class="r19-lead">Cases the readings mention without assigning: note cases, cases cited in passing, and other stages of an assigned case. Each has the six sections and its full audited brief. They are kept off the main route of the map.</p>
       <div class="r19-tabs">${COURSES.map((c, i) => `<button data-r19-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]} <small>${counts[i]}</small></button>`).join('')}</div>
       <input id="r19Search" type="search" placeholder="Search ${counts[V.course]} supporting cases in ${esc(SHORT[V.course])}" value="${esc(V.q)}" autocomplete="off" aria-label="Search supporting cases">
       <div class="r19-filter">${[['all', 'All'], ['pending', 'Awaiting review'], ['limited', 'Source limitation']].map(([k, t]) => `<button data-r19-k="${k}" aria-pressed="${V.k === k}">${t}</button>`).join('')}<span>${rows.length} case${rows.length === 1 ? '' : 's'}</span></div>
@@ -108,8 +117,8 @@
     const conv = D.sections[e.id], main = e.main && nodesById.get(e.main);
     el('r19Title').innerHTML = `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
     return `<div class="r19-line">${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}</div>
-      ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief <small>the complete audited account</small></summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>`
-        : `<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
+      ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief <small>the complete audited account</small></summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>${auditHTML(e.id)}`
+        : `${auditHTML(e.id)}<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
   }
   function render() { const e = V.open && byId.get(V.open); body.innerHTML = e ? entryHTML(e) : listHTML(); if (e) body.scrollTop = 0; }
   function open(course, id) {
@@ -172,6 +181,6 @@
   /* ---------- version ---------- */
   R18.version = D.version;
   document.title = 'DKLA · ' + D.version;
-  try { const log = el('dklaR18Changelog'); if (log) log.textContent = JSON.stringify([D.changelog].concat(JSON.parse(log.textContent))); } catch { /* changelog stays as it was */ }
+  try { const log = el('dklaR18Changelog'); if (log) log.textContent = JSON.stringify([].concat(D.changelog, JSON.parse(log.textContent))); } catch { /* changelog stays as it was */ }
   window.DKLABriefs = { open, apply: applyBriefs, entries: () => D.entries.length, supporting: () => supporting.length, skipped: () => [...skipped], data: D };
 })();

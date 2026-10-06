@@ -34,3 +34,5 @@ r19 brings Codex's audited briefs into the atlas. Codex wrote and independently 
 
 `tools/r19/snapshot.py` takes a new snapshot from Codex's working folders, `tools/r19/merge_conv.py` merges converted batches, and `python3 tools/r19/assemble.py` then `python3 tools/r19/check.py` build and validate. The step is re-runnable: only briefs whose text has changed need converting again.
 
+**r19.1 (same day).** Supporting cases now carry the six sections as well (1,072 of 1,076; four entries are casebook problems or editorial accounts, not decisions, and stay as full briefs). The 79 briefs Codex had not yet reviewed were audited against the opinion text and casebook pages Codex saved: 19 needed nothing and 60 were corrected (138 corrections, mostly pinpoint pages and printed casebook page numbers, with a smaller number of factual and attribution fixes). An audited brief shows a second status chip and a "Claude's audit" section listing what was checked and every change; Codex's own status stays beside it. Two of the 58 supporting batches (about 36 entries) were converted but not put through the second verification pass.
+

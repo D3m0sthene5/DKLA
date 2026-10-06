@@ -24,8 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
 VERSION = "r19"
+LABEL = "r19.1"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R191 = {
+    "v": "r19.1",
+    "date": "2026-10-05",
+    "text": "Supporting cases now have the six sections too (1,072 of 1,076; four entries are not decisions and stay as full briefs). The 79 briefs Codex had not yet reviewed were audited here against the saved opinions and casebook pages: 19 needed nothing, 60 were corrected (138 corrections, mostly pinpoint pages and casebook page numbers), and each lists what changed.",
+}
 CHANGELOG = {
     "v": "r19",
     "date": "2026-10-05",
@@ -84,20 +90,34 @@ def build_data() -> tuple[dict, dict]:
     conv = json.loads((DATA / "sections.json").read_text(encoding="utf-8")) if (DATA / "sections.json").is_file() else {}
     main_of = {codex: atlas for atlas, codex in mapping.items()}
     entries, full, sections = [], {}, {}
+    audit_raw = json.loads((DATA / "audit.json").read_text(encoding="utf-8")) if (DATA / "audit.json").is_file() else {}
+    audit, skips = {}, {}
     for m in meta["entries"]:
-        text = (DATA / "briefs" / (m["id"] + ".md")).read_text(encoding="utf-8")
-        if m["fmt"] == "pdf":
+        corrected = DATA / "audited" / (m["id"] + ".md")
+        a = audit_raw.get(m["id"])
+        # A brief Claude audited and corrected is shown in its corrected form; the corrections are listed beside it.
+        use_corrected = bool(a) and a.get("verdict") == "corrected" and corrected.is_file()
+        text = (corrected if use_corrected else DATA / "briefs" / (m["id"] + ".md")).read_text(encoding="utf-8")
+        if m["fmt"] == "pdf" and not use_corrected:
             text = tidy_pdf_text(text)
+        if a:
+            audit[m["id"]] = {"v": a["verdict"] if (a["verdict"] != "corrected" or use_corrected) else "clean", "c": a.get("coverage", ""), "n": a.get("notes", ""),
+                              "f": [[f.get("kind", ""), f.get("where", ""), f.get("was", ""), f.get("now", "")] for f in a.get("findings", [])]}
         full[m["id"]] = text.strip()
         entries.append([m["id"], m["title"], COURSES.index(m["course"]), m["k"], m["status"], m["sha"], main_of.get(m["id"])])
     known = {m["id"]: m for m in meta["entries"]}
     for codex_id, item in conv.items():
         if codex_id not in known or item.get("sha") != known[codex_id]["sha"]:
             continue  # converted from an older version of the brief: wait for a fresh conversion
+        if "skip" in item:
+            skips[codex_id] = item["skip"]
+            continue
         if sorted(item["sections"].keys()) != sorted(KEYS):
             raise ValueError(f"unexpected sections for {codex_id}")
         sections[codex_id] = {"rule": item["rule"], "sections": {k: item["sections"][k] for k in KEYS}}
-    return dict(version=VERSION, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, changelog=CHANGELOG), full
+        if item.get("rev"):
+            sections[codex_id]["rev"] = item["rev"]
+    return dict(version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -152,7 +172,7 @@ def main() -> None:
         raise ValueError("an r18 block changed during the r19 build")
     TARGET.write_text(output, encoding="utf-8")
     (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build), encoding="utf-8")
-    (ROOT / "version.json").write_text(json.dumps({"version": VERSION, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
+    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
     kinds = {}
     for e in data["entries"]:
         kinds[e[3]] = kinds.get(e[3], 0) + 1
@@ -161,6 +181,8 @@ def main() -> None:
         "briefs": len(data["entries"]), "mapped_cases": len(data["map"]), "converted": len(data["sections"]),
         "mapped_without_conversion": sorted(a for a, c in data["map"].items() if c not in data["sections"]),
         "supporting": sum(1 for e in data["entries"] if not e[6]), "review": kinds,
+        "supporting_with_sections": sum(1 for e in data["entries"] if not e[6] and e[0] in data["sections"]),
+        "audited_by_claude": {v: sum(1 for a in data["audit"].values() if a["v"] == v) for v in ("clean", "corrected", "could-not-audit")},
         "preserved_script_blocks": len(old),
     }
     (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
