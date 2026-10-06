@@ -39,6 +39,8 @@
       if (guides[atlasId] && guides[atlasId].sourceSummary === old) guides[atlasId].sourceSummary = conv.rule;
       skipped.delete(atlasId); changed++;
     }
+    // (An earlier build stored the combined-PDF link in each node's sources, which crowded out the casebook chips.)
+    if (D.pdf) for (const atlasId of Object.keys(D.map)) { const n = nodesById.get(atlasId); if (n && Array.isArray(n.sources)) { const k = n.sources.length; n.sources = n.sources.filter(x => !String(x?.url || '').startsWith(D.pdf)); if (n.sources.length !== k) changed++; } }
     if (changed) {
       try { if (typeof rebuildIndex === 'function') rebuildIndex(); } catch { /* the search index rebuilds on the next edit */ }
       try { if (typeof saveCache === 'function') saveCache(); } catch { /* storage unavailable */ }
@@ -74,10 +76,27 @@
   }
 
   /* ---------- reading panel: status and full brief under a mainline case ---------- */
+  // The case's own pages in the combined PDF of briefs, as a chip beside the casebook's source chips.
+  // The casebook row is built by an earlier layer, sometimes a moment later; until it exists the chip
+  // sits in a row of its own (with a different class, so that layer still builds its row).
+  function pdfChip(panel, codexId) {
+    const pg = codexId && D.pdf && D.pages[codexId]; let chip = panel.querySelector('.r19-pdfchip');
+    if (!pg) { chip?.remove(); panel.querySelector('.r19-chiprow')?.remove(); return; }
+    const file = D.pdf + '#page=' + pg[0], row = panel.querySelector('.dkla-file-chips');
+    if (chip && chip.dataset.dklaFile === file && (!row || chip.parentNode === row)) return;
+    chip?.remove(); panel.querySelector('.r19-chiprow')?.remove();
+    chip = document.createElement('button'); chip.type = 'button'; chip.className = 'r19-pdfchip'; chip.dataset.dklaFile = file;
+    chip.title = 'This case in the combined PDF of briefs, ' + (pg[1] > pg[0] ? `pages ${pg[0]}–${pg[1]}` : `page ${pg[0]}`);
+    chip.textContent = 'DKLA Case Briefs p. ' + pg[0] + ' ↗';
+    if (row) { row.appendChild(chip); return; }
+    const head = panel.querySelector('.dkla-rule-label') || panel.querySelector('.takeaway') || panel.querySelector('h1'); if (!head) return;
+    const own = document.createElement('div'); own.className = 'r19-chiprow'; own.appendChild(chip); head.before(own);
+  }
   function paintReader() {
     const panel = el('inspector'); if (!panel || panel.hidden) return;
     const n = selected?.type === 'node' ? nodesById.get(selected.id) : null;
     const codexId = n && D.map[n.id], e = codexId && byId.get(codexId), old = panel.querySelector('.r19-brief');
+    pdfChip(panel, codexId);
     if (!e) { old?.remove(); return; }
     const state = (n.codex?.sha === e.sha + (D.sections[codexId]?.rev || '') ? 'a' : skipped.has(n.id) ? 's' : 'w') + ':' + n.id;
     if (old && old.dataset.state === state) return;
@@ -116,7 +135,7 @@
   function entryHTML(e) {
     const conv = D.sections[e.id], main = e.main && nodesById.get(e.main);
     el('r19Title').innerHTML = `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
-    return `<div class="r19-line">${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}</div>
+    return `<div class="r19-line">${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Open this brief in the combined PDF">DKLA Case Briefs, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
       ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief <small>the complete audited account</small></summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>${auditHTML(e.id)}`
         : `${auditHTML(e.id)}<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
   }

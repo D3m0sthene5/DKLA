@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
 VERSION = "r19"
-LABEL = "r19.1"
+LABEL = "r19.2"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R192 = {
+    "v": "r19.2",
+    "date": "2026-10-06",
+    "text": "The combined PDF of all 1,467 briefs is in added-sources, and every case links to its own pages in it: a source chip beside the casebook chip on cases on the map, and a button on each supporting case.",
+}
 CHANGELOG_R191 = {
     "v": "r19.1",
     "date": "2026-10-05",
@@ -117,7 +122,8 @@ def build_data() -> tuple[dict, dict]:
         sections[codex_id] = {"rule": item["rule"], "sections": {k: item["sections"][k] for k in KEYS}}
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
-    return dict(version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R191, CHANGELOG]), full
+    pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:

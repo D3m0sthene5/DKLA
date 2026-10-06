@@ -50,3 +50,6 @@
 #r19Dialog button:focus-visible,#r19Search:focus-visible,.r19-brief button:focus-visible,.r19-full>summary:focus-visible{outline:2px solid #d6b78e;outline-offset:2px}
 @media (max-width:640px){.r19-body{padding:14px 14px 24px}.r19-head{padding-left:14px}.r19-head h2{font-size:19px}}
 @media print{.r19-brief .r19-line button,.r19-related{display:none!important}}
+
+.r19-chiprow{margin:0 0 10px}
+.r19-chiprow .r19-pdfchip{font:inherit;font-size:13px;color:#d7e0e8;background:#1e2a35;border:1px solid #3a4856;border-radius:999px;padding:5px 12px;cursor:pointer}
