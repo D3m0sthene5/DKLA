@@ -56,3 +56,14 @@
 
 /* r19.3: the header's dropdowns (search results, the menu) open over the Supreme Court view, which sits at 35 */
 .study-header{z-index:45}
+
+/* r19.5: provision text in rule entries */
+.r19-prov{margin:14px 0 20px;border:1px solid #2f3c49;border-radius:10px;background:#141d26}
+.r19-prov summary{cursor:pointer;padding:11px 14px;font-weight:600;color:#e6edf3;list-style-position:inside}
+.r19-prov summary small{font-weight:400;color:#9fb0bf;margin-left:8px}
+.r19-prov summary:focus-visible{outline:2px solid #d6b78e;outline-offset:2px}
+.r19-prov-text{padding:2px 16px 4px;font-family:Georgia,'Times New Roman',serif;font-size:15.5px;line-height:1.55;color:#dfe7ee}
+.r19-prov-text p{margin:0 0 8px}
+.r19-prov-src{margin:0;padding:10px 16px 12px;border-top:1px solid #26323d;font-size:12.5px;color:#9fb0bf}
+.r19-prov-src a,.r19-prov-src button{font:inherit;color:#d6b78e;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline}
+@media print{.r19-prov details>*{display:block!important}.r19-prov-src a,.r19-prov-src button{display:none}}

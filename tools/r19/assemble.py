@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
 VERSION = "r19"
-LABEL = "r19.4"
+LABEL = "r19.5"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R195 = {
+    "v": "r19.5",
+    "date": "2026-10-06",
+    "text": "Rule entries now show the text of the provision itself, at the top of the entry. The 28 U.S.C. sections (1331, 1332, 1367, 1441 and the rest), the Federal Rules, and the APA and other statutes in Legislation carry the current text from the Legal Information Institute; Restatement, UCC and Consumer Contracts sections carry the black letter from the supplements on file; the constitutional clauses come from the Constitution on file. 59 of 69 rule entries have text.",
+}
 CHANGELOG_R194 = {
     "v": "r19.4",
     "date": "2026-10-06",
@@ -133,7 +138,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -184,7 +189,13 @@ def main() -> None:
         raise ValueError(f"rlcc cite targets not in the graph: {unknown}")
     rlcc["hubSeedUpdated"] = nodes[rlcc["hub"]["id"]].get("updatedAt")
     data["rlcc"] = rlcc
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8")
+    provisions = json.loads((DATA / "provisions.json").read_text(encoding="utf-8"))
+    known = set(nodes) | {r["id"] for r in rlcc["rules"]}
+    stray = [k for k in provisions if k not in known]
+    if stray:
+        raise ValueError(f"provision text for unknown entries: {stray}")
+    data["provisions"] = provisions
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8")
     css = (PARTS / "briefs.css").read_text(encoding="utf-8")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
