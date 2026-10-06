@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/DKLA-r17.html", "destination": "/DKLA-r19.html", "permanent": false },
+    { "source": "/DKLA-r18.html", "destination": "/DKLA-r19.html", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/DKLA-r19.html" }
   ],
