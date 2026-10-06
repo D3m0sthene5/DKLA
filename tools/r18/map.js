@@ -69,7 +69,8 @@
   R18.afterDraw.push(() => {
     for (const mark of svg.querySelectorAll('.node-card[data-map-node] > g[stroke][transform]')) {
       const home = homeFor(mark.parentNode.dataset.mapNode), region = home && regionFor(home.region);
-      if (region) mark.setAttribute('stroke', regionAccent(region));
+      // color as well, so shapes filled with currentColor match the outline
+      if (region) { mark.setAttribute('stroke', regionAccent(region)); mark.style.color = regionAccent(region); }
     }
   });
 

@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "bd225b889b6d5b5edc9fd71646d78f6a3f9bbaf77e7066beafb9ace214fa1211"
+EXPECTED_R18 = "f032e66219f86c647afd90d5c8c3cdf4b9cd3a60959cb50a6fc4341b26e2eb68"
 VERSION = "r19"
-LABEL = "r19.9"
+LABEL = "r19.10"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R1910 = {
+    "v": "r19.10",
+    "date": "2026-10-06",
+    "text": "The brand icons are redrawn as bold solid marks: Chevron, Ford, Burger King, Daimler, Wal-Mart, AT&T, Shell, Exxon, Pepsi, State Farm, Bell Atlantic, Binance, HSBC, CBS (now a solid disc with the eye cut out), Citibank, General Motors and Phillips 66, plus new ones for Gateway, Goodyear and Home Depot. Captions are unchanged.",
+}
 CHANGELOG_R199 = {
     "v": "r19.9",
     "date": "2026-10-06",
@@ -158,7 +163,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
