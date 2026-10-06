@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "e7eef411223e0184c0dabff5ff57cf6854baba92e4992b701e085aaf00c94509"
+EXPECTED_R18 = "57a2b92c4b5e1d0de17dd56f84e72217dedeb04dd4ad77ae7e70c3edeb0d1783"
 VERSION = "r19"
-LABEL = "r19.5"
+LABEL = "r19.6"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R196 = {
+    "v": "r19.6",
+    "date": "2026-10-06",
+    "text": "Cases named for a state now carry that state's outline as their icon: Alabama, Alaska, California, Colorado, Connecticut, Florida, Illinois, Massachusetts, Missouri, Montana, Nebraska, New York, Ohio, Pennsylvania, Texas, Utah, Vermont, Washington and West Virginia. One case per state, so every icon is still unique.",
+}
 CHANGELOG_R195 = {
     "v": "r19.5",
     "date": "2026-10-06",
@@ -138,7 +143,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
