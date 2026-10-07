@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "e37d9bcb2783b4e093a461c819686e59ec177d00fffefc8384dcbdba8bbd3cb4"
+EXPECTED_R18 = "334ea1ed18f708cb80515a2abf384ca4788991444057ccced6b674e87eadb86b"
 VERSION = "r19"
-LABEL = "r19.15"
+LABEL = "r19.16"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R1916 = {
+    "v": "r19.16",
+    "date": "2026-10-07",
+    "text": "39 case icons redrawn from scratch to a higher standard, including the Greyhound running dog, the Goodyear wingfoot, the Mercedes star, the B-2, Exxon, the classic Burger King mark, the TransUnion, Hilton and Walgreens marks, a Piper Cub, Borat for Psenicska, the hairy hand, and clearer subjects where the old drawing could not be read (Sniadach, Standard Fire, Gray v. Powell, Loper Bright, Swierkiewicz). Captions are unchanged.",
+}
 CHANGELOG_R1915 = {
     "v": "r19.15",
     "date": "2026-10-07",
@@ -188,7 +193,7 @@ def build_data() -> tuple[dict, dict]:
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
