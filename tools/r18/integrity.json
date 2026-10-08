@@ -1,8 +1,8 @@
 {
   "r17_sha256": "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30",
-  "r18_sha256": "2efa84beb5cdd111dcb8e53f838fab21f3713ed12a7c823c91dceba96a9f1628",
+  "r18_sha256": "af725ca0d371ca3f96efbefd522b5dae96d195bd6f978bd4509a469691f7aecc",
   "build": "r18-d812e4c48b",
-  "preserved_script_blocks": 28,
+  "preserved_script_blocks": 27,
   "patched_blocks": {
     "studyCode": [
       "course names: one world-proportional size on every screen, long name on two lines",
@@ -21,7 +21,8 @@
       "no step badge while the headroom is too shallow to hold it"
     ],
     "dklaIcons": "one glyph per case from tools/r18/icons.json",
-    "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json"
+    "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json",
+    "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox"
   },
   "nodes": 1069,
   "edges": 2537,

@@ -55,10 +55,12 @@
   function hideTinyText() {
     if (!svg) return;
     const z = S.z;
-    for (const t of svg.querySelectorAll('text.map-label:not([data-r20]):not(.r20-tile), .map-region text')) {
+    for (const t of svg.querySelectorAll('text:not([data-r20]):not(.r20-tile)')) {
       const fs = parseFloat(t.getAttribute('font-size')); if (!fs) continue;
-      const px = fs * z; if (px >= 7.6) continue;
-      const o = Math.max(0, (px - 6.6) / 1), had = t.style.opacity === '' ? 1 : parseFloat(t.style.opacity);
+      // a count line never lists a zero ("0 cases · 0 concepts · 22 notes" reads as "22 notes")
+      if (!t.children.length && /(^|· )0 [a-z]+/.test(t.textContent)) { const kept = t.textContent.split(' · ').filter(part => !/^0 [a-z]+$/.test(part.trim())); t.textContent = kept.join(' · '); }
+      const px = fs * z; if (px >= 8) continue;
+      const o = Math.max(0, (px - 7.2) / .8), had = t.style.opacity === '' ? 1 : parseFloat(t.style.opacity);
       t.style.opacity = String(Math.min(had, o));
     }
   }
@@ -111,6 +113,49 @@
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
   }
 
+  /* ---------- 2b'. subtopic tiles between the course view and the card view ----------
+     Rule: a tile shows either content you can read or a clean summary, never a partial one. While a
+     subtopic is under 190 px wide its entry names cannot fit on a line, so the renderer's rows (which came
+     out as unreadable specks, or were dropped one by one where they collided) are replaced by the subtopic's
+     name at one size for the whole subject and a count line. From 190 px the rows return as cards. */
+  function districtTiles() {
+    if (!svg || typeof R18 === 'undefined' || !R18.districtRows) return;
+    const z = S.z, M = mapData(), V = visibleBox(), carded = new Set();
+    for (const c of svg.querySelectorAll('.node-card[data-map-node]')) { const h = homeFor(c.dataset.mapNode); if (h && h.district) carded.add(h.district); }
+    const byRegion = new Map();
+    for (const d of Object.values(M.districts)) {
+      const dw = d.w * z, dh = d.h * z; if (dw < 54 || dw >= 190 || dh < 26 || carded.has(d.id)) continue;
+      if (d.x > V.x + V.w || d.x + d.w < V.x || d.y > V.y + V.h || d.y + d.h < V.y) continue;
+      const titles = [...svg.querySelectorAll('text[data-map-district="' + d.id + '"]')], rows = [...svg.querySelectorAll('text[data-map-jump]')].filter(t => { const h = homeFor(t.getAttribute('data-map-jump')); return h && h.district === d.id; });
+      const drawn = titles.find(t => !/^\+ \d/.test(t.textContent.trim()));
+      // every tile the renderer has drawn, including those whose name and rows its label engine dropped
+      const any = drawn || rows[0] || titles[0] || svg.querySelector('[data-map-district="' + d.id + '"]'); if (!any) continue;
+      (byRegion.get(d.region) || byRegion.set(d.region, []).get(d.region)).push({ d, dw, dh, titles, rows, op: any.getAttribute('opacity') || 1 });
+    }
+    const parts = [];
+    for (const [rid, list] of byRegion) {
+      const region = regionFor(rid), acc = region ? regionAccent(region) : '#93a7b7';
+      const fit = (t, px) => { const rows = wrapPlain(t.d.title || '', (t.dw - 16) / z, px / z, 600); return rows && rows.length * px * 1.2 <= t.dh - 10 && rows.length <= 3 ? rows : null; };
+      // two sizes only across the whole view, so neighbouring subjects match
+      const px = list.every(t => fit(t, 12)) ? 12 : 10;
+      for (const t of list) {
+        let size = px, rows = fit(t, size); while (!rows && size > 8.5) { size -= .5; rows = fit(t, size); }
+        for (const old of t.titles) old.remove();
+        for (const old of t.rows) { const pv = old.previousElementSibling; if (pv && pv.classList.contains('r20-mini')) pv.remove(); old.remove(); }
+        // last resort for a very long name in a very small tile: set it at 9 px and condense it to the tile
+        let squeeze = false; if (!rows) { size = 9; rows = wrapPlain(t.d.title || '', (t.dw - 16) / z * 1.3, size / z, 600); squeeze = true; }
+        if (!rows || rows.length * size * 1.2 > t.dh - 6) continue;
+        const d = t.d, fs = size / z, lh = fs * 1.2, x = d.x + 8 / z, y0 = d.y + 7 / z + fs * .82;
+        parts.push(`<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}"${squeeze && measure(row, fs, 600) > d.w - 16 / z ? ` textLength="${d.w - 16 / z}" lengthAdjust="spacingAndGlyphs"` : ''}>${esc(row)}</tspan>`).join('')}</text>`);
+        const ns = R18.districtRows(d.id, d) || [], cases = ns.filter(n => n.kind === 'Case').length, rest = ns.length - cases;
+        const note = [cases ? cases + (cases === 1 ? ' case' : ' cases') : '', rest ? rest + (rest === 1 ? ' concept' : ' concepts') : ''].filter(Boolean).join(' · ');
+        const ny = y0 + (rows.length - 1) * lh + 15 / z;
+        if (note && t.dw >= 96 && ny + 6 / z <= d.y + d.h && measure(note, 10 / z, 400, 'region-title') <= d.w - 16 / z) parts.push(`<text class="map-label r20-tile" x="${x}" y="${ny}" font-size="${10 / z}" font-weight="400" fill="#9fb0bf" opacity="${t.op}" pointer-events="none">${esc(note)}</text>`);
+      }
+    }
+    if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
+  }
+
   /* ---------- 2c. one design for entries: cards with icons ----------
      When a subject is too small on screen for full cards, its entries were listed as bare lines of text.
      Each line is now a compact card with the entry's icon, so a subject looks the same kind of thing at
@@ -124,7 +169,8 @@
     for (const t of rows) {
       if (t.dataset.r20) continue;
       const id = t.getAttribute('data-map-jump'), h = homeFor(id), d = h && districtFor(h.district); if (!d) continue;
-      const fs = parseFloat(t.getAttribute('font-size')), base = parseFloat(t.getAttribute('y')); if (!fs || !isFinite(base)) continue;
+      // every row card is built on the renderer's 12 px row size, whatever the text was shrunk to
+      const fs = 12 / z, base = parseFloat(t.getAttribute('y')); if (!isFinite(base)) continue;
       const x0 = d.x + 24, w = d.w - 48, ch = fs * 1.62, cy = base - fs * .34, top = cy - ch / 2;
       const region = regionFor(d.region), acc = region ? regionAccent(region) : '#93a7b7', n = nodesById.get(id);
       const rec = I.records && I.records[id], path = I.paths && I.paths[(rec && rec.motif) || (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')] || (I.paths && I.paths.case) || '';
@@ -139,12 +185,18 @@
       t.setAttribute('x', tx); for (const sp of t.querySelectorAll('tspan')) sp.setAttribute('x', tx);
       t.setAttribute('fill', '#dce5ec'); t.dataset.r20 = '1';
       // a long name is set slightly smaller, then condensed, so the whole name stays on its card
+      for (const sp of [t, ...t.querySelectorAll('tspan')]) { sp.removeAttribute('textLength'); sp.removeAttribute('lengthAdjust'); }
+      t.setAttribute('font-size', fs);
       let len = 0; try { len = t.getComputedTextLength(); } catch { /* not laid out */ }
       const room = x0 + w - fs * .5 - tx;
       if (len > room && room > 0) {
-        const k = Math.max(.84, room / len); t.setAttribute('font-size', fs * k);
-        if (len * k > room) { t.setAttribute('textLength', room); t.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
+        // one smaller step only, so a view never mixes a dozen type sizes
+        const k = .88; t.setAttribute('font-size', fs * k);
+        if (len * k > room) for (const sp of t.querySelectorAll('tspan').length ? t.querySelectorAll('tspan') : [t]) { sp.setAttribute('textLength', room); sp.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
       }
+      // a name too small to read is not drawn; the card and its icon stay
+      const shown = parseFloat(t.getAttribute('font-size')) * z;
+      if (shown < 8.2) t.style.opacity = shown < 7.4 ? 0 : ((shown - 7.4) / .8).toFixed(2);
     }
   }
 
@@ -174,7 +226,7 @@
         rows = best.r;
       }
       const longest = Math.max(...rows.map(r => wide(r, px)));
-      if (longest > room) px = Math.max(px * .82, px * room / longest);
+      if (longest > room) px *= .88;
       const fs = px / z, cy = c.y + c.h / 2, y0 = rows.length === 1 ? cy + fs * .35 : cy - fs * .22;
       t.setAttribute('font-size', fs); t.setAttribute('x', tx); t.removeAttribute('textLength'); t.textContent = '';
       rows.forEach((row, i) => {
@@ -182,12 +234,12 @@
         let len = 0; try { len = sp.getComputedTextLength(); } catch { /* not laid out */ }
         if (len > room && room > 0) { sp.setAttribute('textLength', room); sp.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
       });
-      t.style.opacity = '';
+      t.style.opacity = px < 7.4 ? 0 : px < 8.2 ? ((px - 7.4) / .8).toFixed(2) : '';
     }
   }
 
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
-  const tidy = () => { try { tileLabels(); miniCards(); smallCards(); fadeOthers(); hideTinyText(); } catch (e) { console.error('DKLA r20 map', e); } };
+  const tidy = () => { try { tileLabels(); districtTiles(); miniCards(); smallCards(); fadeOthers(); hideTinyText(); } catch (e) { console.error('DKLA r20 map', e); } };
   if (window.R18 && Array.isArray(R18.afterDraw)) R18.afterDraw.push(tidy);
   else if (typeof draw === 'function') { const draw0 = draw; draw = function () { const v = draw0.apply(this, arguments); tidy(); return v; }; }
 
@@ -201,7 +253,7 @@
       if (w && !w.hidden && a.x > 36 && v.w >= 760) { const b = w.getBoundingClientRect(); if (b.height && b.height <= 190) a = { x: 35, y: a.y, w: Math.max(230, a.w + (a.x - 35)), h: a.h }; }
       // On a wide, short window the map is limited by height. The breadcrumb and the zoom box sit in the
       // corners, clear of a centred course or subject, so the map may use the rows they are in.
-      if (wideScreen() && !S.district && !(typeof selected !== 'undefined' && selected) && a.y <= 80) { const top = 58, cut = a.y - top; a = { x: a.x, y: top, w: a.w, h: a.h + cut + 34 }; }
+      if (wideScreen() && !S.region && !S.district && !(typeof selected !== 'undefined' && selected) && a.y <= 80) { const top = 58, cut = a.y - top; a = { x: a.x, y: top, w: a.w, h: a.h + cut + 34 }; }
       return a;
     };
   }
@@ -223,7 +275,7 @@
   const LRS = 'Legislation and the Regulatory State';
   const ARR = {
     tall: { 'Contracts': [-7370, -13364], 'Civil Procedure': [-16440, -360], [LRS]: [1500, -360], 'workbench-region': [-1700, 900], 'dictionary-region': [-1700, 2700] },
-    wide: { 'Contracts': [-7370, 700], 'Civil Procedure': [-23310, 700], [LRS]: [8370, 700], 'workbench-region': [12700, 10900], 'dictionary-region': [15500, 10900] },
+    wide: { 'Contracts': [-7370, 700], 'Civil Procedure': [-23310, 700], [LRS]: [8370, 700], 'workbench-region': [12700, 13500], 'dictionary-region': [15500, 13500] },
   };
   let arranged = null;
   function arrange(mode) {
@@ -244,6 +296,8 @@
       for (const lb of design.labels || []) { lb.x += dx; lb.y += dy; }
       moved = true;
     }
+    // SCOTUS History stands clear below the courses and their supporting-cases tiles
+    if (window.DKLAScotusBox) { const y = mode === 'wide' ? 12300 : 11200; if (window.DKLAScotusBox.y !== y) { window.DKLAScotusBox.y = y; moved = true; } }
     for (const id of ['workbench-region', 'dictionary-region']) {
       const r = M.regions.find(x => x.id === id), t = T[id]; if (!r || !t) continue;
       const dx = t[0] - r.x, dy = t[1] - r.y; if (dx || dy) { shift([id], dx, dy); moved = true; }

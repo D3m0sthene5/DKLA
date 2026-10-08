@@ -157,3 +157,11 @@ All in `tools/r19/r20.js`.
 - `tileLabels()` redraws subject names centred, one size per view, for blocks in 'star' mode (and 'mid' mode under 130 px). A name may get small but is never dropped.
 - `miniCards()` turns the renderer's entry rows (`text[data-map-jump]`) into cards with icons; `smallCards()` gives an icon and a wrapped name to node cards below the r18 icon threshold. Entries are cards with icons at every size.
 - Known limit: one course is about 1.66:1, so on a wider window it fills the height and leaves side margins. Filling the width would mean re-laying out the subjects inside each course.
+
+## r20.3 (2026-10-08): SCOTUS clear of the courses; in-between zoom frames cleaned up
+
+- `tools/r18/assemble.py` now patches a fourth block, `dklaR16HistoryCode`, by one exact replacement that exposes the SCOTUS frame as `window.DKLAScotusBox`. `arrange()` in `tools/r19/r20.js` sets its `y` (12300 wide, 11200 tall); the study-notes blocks moved with it. Keep at least about 1,500 map units between the lowest supporting-cases tile and the frame.
+- Root cause of the ragged mid-zoom frames was `tools/r19/fit.js` (r19.15): it shrank text to as little as a third, and the label engine measured each label's collision box at the unshrunk, unwrapped width, so long names knocked out labels in the next subtopic. Now: never below 88%; then more lines; then condensed to the width. `putLabel` is wrapped so the collision box matches what is drawn. Do not reintroduce continuous shrink factors.
+- Rule for every zoom level: a container shows content you can read or a clean summary, never a partial state. `districtTiles()` applies it to subtopics under 190 px wide (name at 12 or 10 px for the whole subject, plus a count line). Map text under 8 px on screen is not drawn.
+- On a wide window `safeArea` gives the map the breadcrumb row only at course and atlas level. With a subject open it must not, or the subject title lands under the breadcrumb and the label engine drops it.
+- Test harness (not shipped) has `audit:` (overlapping labels, labels under chrome, text under 8.5 px, text outside its card, count of type sizes per view) and `titles` (every subject shows its title). Run both, plus `sweep` and `navsweep`, at 1333x796 before shipping layout changes. Judge in-between zoom frames, not only the fitted views.

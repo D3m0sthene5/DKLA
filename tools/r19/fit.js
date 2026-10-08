@@ -27,19 +27,43 @@
     // does not fit it swaps in the subject's short name ("Limits", "Readings") at the same size. Shrinking or
     // adding lines here made sizes uneven and pushed titles out of their blocks.
     if (cls === 'region-title') return wrap0(t, maxW, fs, weight, maxLines, cls);
-    const tryAt = (scale, lines) => { const rows = greedy(t, maxW, fs * scale, weight, cls); return rows && rows.length <= lines ? rows : null; };
+    // r20.3: text is never set below 88% of its size. The earlier version went down to a third, which put
+    // 5 px specks on the map and a dozen type sizes in one view. Order: full size; 94%; 88%; more lines at
+    // 88% (not for one-line rows, which would run into the row below); last, 88% condensed to the width.
+    const tryAt = (scale, lines, w = maxW) => { const rows = greedy(t, scale < 1 ? w * .97 : w, fs * scale, weight, cls); return rows && rows.length <= lines ? rows : null; };
     let rows = tryAt(1, maxLines); if (rows) return rows;
-    for (let s = .95; s >= .78; s -= .05) { rows = tryAt(s, maxLines); if (rows) { rows.scale = s; return rows; } }
-    // one more line, sized so the block is no taller than maxLines lines were
-    const cap = maxLines / (maxLines + 1);
-    for (let s = Math.min(.95, cap); s >= .5; s -= .04) { rows = tryAt(s, maxLines + 1); if (rows) { rows.scale = s; return rows; } }
-    for (let s = .76; s >= .5; s -= .04) { rows = tryAt(s, maxLines); if (rows) { rows.scale = s; return rows; } }
-    for (let extra = 2; extra <= 4; extra++) { const top = maxLines / (maxLines + extra); for (let s = top; s >= .32; s -= .04) { rows = tryAt(s, maxLines + extra); if (rows) { rows.scale = s; return rows; } } }
+    for (const s of [.94, .88]) { rows = tryAt(s, maxLines); if (rows) { rows.scale = s; return rows; } }
+    if (maxLines > 1) for (let extra = 1; extra <= 6; extra++) { rows = tryAt(.88, maxLines + extra); if (rows) { rows.scale = .88; return rows; } }
+    for (const k of maxLines > 1 ? [1.18, 1.4] : [1.18, 1.4, 1.8, 2.6, 6]) { rows = tryAt(.88, maxLines, maxW * k); if (rows) { rows.scale = .88; rows.squeeze = maxW; return rows; } }
     return wrap0(t, maxW, fs, weight, maxLines, cls);   // nothing reasonable fits: the old behaviour
   };
   textLines = function (rows, x, y, fs, ...rest) {
-    return lines0(rows, x, y, rows && rows.scale ? fs * rows.scale : fs, ...rest);
+    const size = rows && rows.scale ? fs * rows.scale : fs; let html = lines0(rows, x, y, size, ...rest);
+    if (rows && rows.squeeze) {
+      let i = 0;
+      html = html.replace(/<tspan /g, m => { const row = rows[i++]; return row != null && measure(row, size, rest[1] || 400, rest[2] || '') > rows.squeeze ? `<tspan textLength="${rows.squeeze}" lengthAdjust="spacingAndGlyphs" ` : m; });
+    }
+    return html;
   };
+  // The label engine drops a label whose box hits another. It measured the box at the unshrunk size and
+  // unwrapped width, so a long name reached into the next subtopic and knocked labels out there: rows went
+  // missing one by one and some tiles lost their titles. The box now matches what is drawn.
+  if (typeof putLabel === 'function') {
+    const put0 = putLabel;
+    putLabel = function (o) {
+      const r = put0.apply(this, arguments);
+      try {
+        const l = frameLabels[frameLabels.length - 1];
+        if (l && l.box && o && o.html == null) {
+          const rows = l.rows || o.rows, sc = rows && rows.scale || 1;
+          if (sc !== 1) { l.box.w *= sc; l.box.h *= sc; }
+          const lim = rows && rows.squeeze ? rows.squeeze : (o.width != null && o.width < 1e8 ? o.width : null);
+          if (lim && l.box.w > lim * frameZ) l.box.w = lim * frameZ;
+        }
+      } catch { /* the engine's own box stands */ }
+      return r;
+    };
+  }
   // Some short titles and map labels were stored already cut ("…and pensio…"). Put the full title back.
   const cut = v => typeof v === 'string' && /(…|\.\.\.)\s*$/.test(v);
   function mend() {

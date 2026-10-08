@@ -45,7 +45,8 @@ r18_list = blocks(r18_html)
 r18 = {i: c for i, _, c in r18_list}
 
 changed = sorted(k for k, v in r17.items() if r18.get(k) != v)
-require(changed == ['dklaGlossary', 'dklaIcons', 'studyCode'], f'only dklaGlossary, dklaIcons and studyCode may differ from r17, found {changed}')
+require(changed == ['dklaGlossary', 'dklaIcons', 'dklaR16HistoryCode', 'studyCode'], f'only dklaGlossary, dklaIcons, dklaR16HistoryCode and studyCode may differ from r17, found {changed}')
+require(r18['dklaR16HistoryCode'] == r17['dklaR16HistoryCode'].replace('BOX={x:-11400,y:10400,w:22800,h:4200}', 'BOX=(window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200})'), 'SCOTUS code differs by more than the exposed frame')
 require(r18.get('dklaIcons') == patch_icons(r17['dklaIcons']), 'dklaIcons is not r17 plus tools/r18/icons.json')
 expected = r17['studyCode']
 for description, before, after in PATCHES:
@@ -119,4 +120,4 @@ if errors:
     print('\n'.join('FAIL: ' + e for e in errors))
     sys.exit(1)
 build = json.loads((PARTS / 'integrity.json').read_text(encoding='utf-8')).get('build')
-print(f'r18 ok: build {build}, {len(r17) - 3} blocks preserved, studyCode carries {len(PATCHES)} patches, {len(case_ids)} case glyphs')
+print(f'r18 ok: build {build}, {len(r17) - 4} blocks preserved, studyCode carries {len(PATCHES)} patches, {len(case_ids)} case glyphs')

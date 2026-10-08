@@ -211,6 +211,12 @@ def main() -> None:
     if output.count(glossary_block) != 1:
         raise ValueError("dklaGlossary text is not unique in the file")
     output = output.replace(glossary_block, patch_glossary(glossary_block))
+    # r20.3: the SCOTUS block's frame is exposed so the layout layer can move it clear of the courses
+    history_block = old["dklaR16HistoryCode"]
+    box_old, box_new = "BOX={x:-11400,y:10400,w:22800,h:4200}", "BOX=(window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200})"
+    if history_block.count(box_old) != 1 or output.count(history_block) != 1:
+        raise ValueError("SCOTUS frame text is not unique")
+    output = output.replace(history_block, history_block.replace(box_old, box_new))
 
     marker = '<script id="studyCode">'
     if output.count(marker) != 1:
@@ -238,7 +244,7 @@ def main() -> None:
 
     new = script_blocks(output)
     changed = [key for key, value in old.items() if new.get(key) != value]
-    if sorted(changed) != ["dklaGlossary", "dklaIcons", "studyCode"]:
+    if sorted(changed) != ["dklaGlossary", "dklaIcons", "dklaR16HistoryCode", "studyCode"]:
         raise ValueError(f"unexpected block changes: {changed}")
     graph = json.loads(old["seedData"])
     TARGET.write_text(output, encoding="utf-8")
@@ -251,8 +257,8 @@ def main() -> None:
         "r17_sha256": digest(source_bytes),
         "r18_sha256": digest(TARGET.read_bytes()),
         "build": build,
-        "preserved_script_blocks": len(old) - 3,
-        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json", "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json"},
+        "preserved_script_blocks": len(old) - 4,
+        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json", "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json", "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox"},
         "nodes": len(graph["nodes"]),
         "edges": len(graph["edges"]),
         "components": [f for _, _, f in PRE + COMPONENTS],

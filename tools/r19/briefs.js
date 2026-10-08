@@ -173,9 +173,11 @@
     const z = S.z, B = visibleBox(), parts = [];
     COURSES.forEach((c, i) => {
       const t = TILES[c]; if (!t || !intersects(t, B, 0)) return;
-      const col = TILE_COL[c], dim = S.scope !== 'Atlas' && S.scope !== c ? .35 : 1, px = t.h * z;
-      parts.push(`<g class="r19-tile" data-r19-list="${i}" role="button" tabindex="0" aria-label="Supporting cases in ${esc(c)}: ${counts[i]}" opacity="${dim}" style="cursor:pointer"><rect x="${t.x}" y="${t.y}" width="${t.w}" height="${t.h}" rx="${Math.min(260, t.h / 3)}" fill="${col}" fill-opacity=".08" stroke="${col}" stroke-opacity=".7" stroke-width="${1.3 / z}" stroke-dasharray="${7 / z} ${5 / z}"/>`);
-      if (px >= 15) { const fs = Math.min(t.h * .36, 15 / z, Math.max(10.5 / z, t.h * .3)); parts.push(`<text x="${t.x + t.w / 2}" y="${t.y + t.h / 2 + fs * .35}" font-size="${fs}" font-weight="600" fill="${col}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif">Supporting cases · ${counts[i]}</text>`); }
+      const col = TILE_COL[c], dim = S.scope !== 'Atlas' && S.scope !== c ? .35 : 1, label = 'Supporting cases · ' + counts[i];
+      // the label is never smaller than 9.5 px on screen; when the map is far out the tile grows to hold it
+      const small = rect().w < 520, fs = Math.max(small ? 0 : 9.5 / z, Math.min(t.h * .36, 15 / z)), h = Math.max(t.h, fs * 2.2), w = Math.max(t.w, measure(label, fs, 600, 'region-title') + fs * 2.4);
+      parts.push(`<g class="r19-tile" data-r19-list="${i}" role="button" tabindex="0" aria-label="Supporting cases in ${esc(c)}: ${counts[i]}" opacity="${dim}" style="cursor:pointer"><rect x="${t.x}" y="${t.y}" width="${w}" height="${h}" rx="${Math.min(260, h / 3)}" fill="${col}" fill-opacity=".08" stroke="${col}" stroke-opacity=".7" stroke-width="${1.3 / z}" stroke-dasharray="${7 / z} ${5 / z}"/>`);
+      if (fs * z >= 8) parts.push(`<text x="${t.x + w / 2}" y="${t.y + h / 2 + fs * .35}" font-size="${fs}" font-weight="600" fill="${col}" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Inter,Roboto,Helvetica,Arial,sans-serif">${label}</text>`);
       parts.push('</g>');
     });
     if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
