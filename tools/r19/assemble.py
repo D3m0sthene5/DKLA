@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
 EXPECTED_R18 = "334ea1ed18f708cb80515a2abf384ca4788991444057ccced6b674e87eadb86b"
 VERSION = "r19"
-LABEL = "r19.16"
+LABEL = "r19.17"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R1917 = {
+    "v": "r19.17",
+    "date": "2026-10-08",
+    "text": "Plain text throughout. Labels about how an entry was written are gone (\"Detailed account of the assigned reading\", \"Source-grounded editorial classification\", \"Passed independent review\", \"Sections and rule line are from the audited brief\"), and so are the disclaimers (\"not legal authority or independent proof\", \"inspect the cases for qualifications\"). In the briefs and entries, about 660 sentences that talked about the brief, the excerpt or what was on file were cut or rewritten to state the fact directly; 411 connection explanations that were boilerplate now say what the connection is. The reading panel still warns when a source is missing or only part of a case was assigned, and still flags briefs awaiting review or limited by their source.",
+}
 CHANGELOG_R1916 = {
     "v": "r19.16",
     "date": "2026-10-07",
@@ -167,6 +172,7 @@ def build_data() -> tuple[dict, dict]:
     entries, full, sections = [], {}, {}
     audit_raw = json.loads((DATA / "audit.json").read_text(encoding="utf-8")) if (DATA / "audit.json").is_file() else {}
     audit, skips = {}, {}
+    plain = json.loads((DATA / "plain-sections.json").read_text(encoding="utf-8")) if (DATA / "plain-sections.json").is_file() else {}
     for m in meta["entries"]:
         corrected = DATA / "audited" / (m["id"] + ".md")
         a = audit_raw.get(m["id"])
@@ -192,8 +198,21 @@ def build_data() -> tuple[dict, dict]:
         sections[codex_id] = {"rule": item["rule"], "sections": {k: item["sections"][k] for k in KEYS}}
         if item.get("rev"):
             sections[codex_id]["rev"] = item["rev"]
+        if codex_id in plain:
+            # r19.17 plain-text edits (plain.py); the rev tag makes the atlas re-apply an entry it already holds.
+            conv_now = sections[codex_id]
+            for field, old, new in plain[codex_id]:
+                key = field.split(".", 1)[1] if field.startswith("sections.") else None
+                cur = conv_now["sections"][key] if key else conv_now["rule"]
+                if cur != old:
+                    raise ValueError(f"{codex_id} {field}: plain-text edit was made against different text; re-run plain.py")
+                if key:
+                    conv_now["sections"][key] = new
+                else:
+                    conv_now["rule"] = new
+            conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -250,18 +269,23 @@ def main() -> None:
     if stray:
         raise ValueError(f"provision text for unknown entries: {stray}")
     data["provisions"] = provisions
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8")
+    plain = json.loads((DATA / "plain.json").read_text(encoding="utf-8"))
+    edge_ids = {e["id"] for e in graph["edges"]}
+    stray = [k for k in plain["nodes"] if k not in nodes] + [k for k in plain["edges"] if k not in edge_ids]
+    if stray:
+        raise ValueError(f"plain-text edits for unknown entries: {stray[:5]}")
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8")
     css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(full, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(full, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
-    addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Full", full)
+    addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR19Full", full)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]

@@ -21,7 +21,7 @@
     const size = p.lines.reduce((n, l) => n + l[1].length, 0);
     const box = document.createElement('section'); box.className = 'r19-prov'; box.dataset.id = id;
     const open = p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">Open at LII ↗</a>` : `<button type="button" data-dkla-file="${esc(p.file)}">Open the page ↗</button>`;
-    const note = p.kind === 'lii' ? `Current text from the ${esc(p.source)}, read ${esc(p.fetched)}. Your supplement may print an edited version.` : `From ${esc(p.source)}. Black letter only, taken from the file's text layer; check the page for exact wording.`;
+    const note = p.kind === 'lii' ? `${esc(p.source)}, read ${esc(p.fetched)}.` : `${esc(p.source.replace(/, on file\)/, ')'))}.`;
     box.innerHTML = `<details${size < 2600 ? ' open' : ''}><summary>Text of the provision <small>${esc(p.cite)}</small></summary>
       <div class="r19-prov-text">${p.lines.map(l => `<p style="margin-left:${Math.min(l[0], 5) * 1.25}em">${esc(l[1])}</p>`).join('')}</div>
       <p class="r19-prov-src">${note} ${open}</p></details>`;
