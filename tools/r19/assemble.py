@@ -24,9 +24,14 @@ SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r20.html"
 EXPECTED_R18 = "af725ca0d371ca3f96efbefd522b5dae96d195bd6f978bd4509a469691f7aecc"
 VERSION = "r20"
-LABEL = "r20.3"
+LABEL = "r20.4"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R204 = {
+    "v": "r20.4",
+    "date": "2026-10-08",
+    "text": "Every dictionary term now lists the cases that use it. Before, each case was linked only to its 14 most distinctive terms and ordinary single words were left out, so most Wex entries showed no cases. Now every term is checked against every brief, map cases and supporting cases alike: 2,868 terms list their cases, the cases that use the term most come first, and a term used by more than 40 shows the 40 and the total. A term no brief uses says so.",
+}
 CHANGELOG_R203 = {
     "v": "r20.3",
     "date": "2026-10-08",
@@ -242,7 +247,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -296,6 +301,8 @@ def main() -> None:
     term_links = json.loads((DATA / "term-links.json").read_text(encoding="utf-8"))
     known_ids = {e[0] for e in data["entries"]}
     data["terms"] = dict(supporting={k: v for k, v in term_links["supporting"].items() if k in known_ids})
+    # term -> [number of briefs that use it, the 40 that use it most] (tools/r19/terms.py)
+    data["terms"]["index"] = {slug: [n, [c for c in ids if c in known_ids]] for slug, (n, ids) in term_links.get("index", {}).items()}
     provisions = json.loads((DATA / "provisions.json").read_text(encoding="utf-8"))
     known = set(nodes) | {r["id"] for r in rlcc["rules"]}
     stray = [k for k in provisions if k not in known]

@@ -51,6 +51,8 @@ ALIASES = {
     "major_questions_doctrine": ["major questions"],
 }
 STOP = set("a an the of to in on at by for and or as is be".split())
+# ordinary words that are Wex headwords but say nothing about a case
+SKIP = set("may shall will see people can also use used one two day year time way make made give given take taken part place thing person".split())
 
 
 def norm(s):
@@ -156,7 +158,30 @@ def main():
     supporting = {k: v for k, v in supporting.items() if v}
 
     (ROOT / "tools" / "r18" / "glossary-extra.json").write_text(json.dumps(dict(newTerms=new_terms, nodeLinks=node_links), ensure_ascii=False, indent=0), encoding="utf-8")
-    (DATA / "term-links.json").write_text(json.dumps(dict(supporting=supporting), ensure_ascii=False, indent=0), encoding="utf-8")
+    # r20.4: the full index, term -> every brief that uses it. The lists above are each case's most distinctive
+    # terms (capped at 14, single ordinary words left out), which left most dictionary entries with no cases at
+    # all. Here every term is matched against every brief (overlapping phrases all count, so "motion to dismiss"
+    # also counts for "dismiss" and "motion"), cases are ranked by how often they use the term, and the 40 that
+    # use it most are kept with the total.
+    all_forms = dict(forms)
+    for t in gloss["terms"] + new_terms:
+        if t.get("kind") == "case" or re.match(r'^[(\s]|"', t["term"]): continue
+        words = norm(re.sub(r"\([^)]*\)", " ", t["term"])).split()
+        if not words or all(w in STOP for w in words) or (len(words) == 1 and (len(words[0]) < 3 or words[0] in SKIP)): continue
+        toks = tuple(single(w) for w in words)
+        all_forms.setdefault(toks, t["slug"])
+    first = defaultdict(list)
+    for toks, slug in all_forms.items(): first[toks[0]].append((toks, slug))
+    index = defaultdict(Counter)
+    for cid, text in text_of.items():
+        toks = [single(w) for w in norm(text).split()]
+        for i, w in enumerate(toks):
+            for form, slug in first.get(w, ()):
+                if len(form) == 1 or tuple(toks[i:i + len(form)]) == form: index[slug][cid] += 1
+    title = {cid: meta[cid].get("title", cid) for cid in meta}
+    full = {slug: [len(c), [cid for cid, _ in sorted(c.items(), key=lambda kv: (-kv[1], title[kv[0]]))[:40]]] for slug, c in index.items()}
+    (DATA / "term-links.json").write_text(json.dumps(dict(supporting=supporting, index=full), ensure_ascii=False, indent=0), encoding="utf-8")
+    print(f"index: {len(full)} of {len(gloss['terms']) + len(new_terms)} terms are used by at least one brief; {sum(v[0] for v in full.values())} term-brief links")
     inv = Counter(s for v in node_links.values() for s in v); inv_s = Counter(s for v in supporting.values() for s in v)
     print(f"{len(new_terms)} new terms; {sum(map(len, node_links.values()))} new links on {len(node_links)} map entries; {sum(map(len, supporting.values()))} links on {len(supporting)} supporting cases")
     for s in ("ejusdem_generis", "contra_proferentem", "noscitur_a_sociis", "expressio_unius_est_exclusio_alterius", "rule_of_lenity", "in_pari_materia", "skidmore_deference", "well_pleaded_complaint_rule", "promissory_estoppel"):

@@ -367,6 +367,8 @@
     const bySlug = new Map();
     for (const [cid, slugs] of Object.entries(TL.supporting)) for (const s of slugs) { if (!bySlug.has(s)) bySlug.set(s, []); bySlug.get(s).push(cid); }
     for (const list of bySlug.values()) list.sort((a, b) => String(title.get(a)).localeCompare(String(title.get(b))));
+    const nodeOf = new Map(Object.entries(D.map || {}).map(([nid, cid]) => [cid, nid]));
+    document.addEventListener('click', e => { const b = e.target.closest('[data-r20-node]'); if (!b) return; const dlg = document.getElementById('glossaryDialog'); try { dlg && dlg.close && dlg.close(); } catch { /* not a dialog */ } try { goNode(b.dataset.r20Node, true); } catch { /* entry gone */ } });
     let names = null;
     const termName = slug => { if (!names) { names = new Map(); try { for (const t of JSON.parse(document.getElementById('dklaGlossary').textContent).terms) names.set(t.slug, t.term); } catch { /* slugs are shown */ } } return names.get(slug) || slug.replace(/_/g, ' '); };
     const COURSES = ['Contracts', 'Civil Procedure', 'Legislation'];
@@ -379,10 +381,13 @@
       if (!slug) { old && old.remove(); return; }
       if (old && old.dataset.slug === slug) return;
       old && old.remove();
-      const ids = bySlug.get(slug) || []; if (!ids.length) return;
+      // every brief that uses the term, map cases and supporting cases together, most use first
+      const full = TL.index && TL.index[slug], ids = full ? full[1] : (bySlug.get(slug) || []), total = full ? full[0] : ids.length;
       const box = document.createElement('div'); box.className = 'gl-group r20-sup'; box.dataset.slug = slug;
-      const many = ids.length > 30;
-      box.innerHTML = `<h3>Supporting cases that use this term <span class="gl-count">${ids.length}</span></h3><div class="gl-used">${ids.map((id, i) => `<button type="button" data-r19-open="${esc(id)}"${many && i >= 30 ? ' hidden' : ''}>${esc(title.get(id))}<small> ${esc(COURSES[course.get(id)] || '')}</small></button>`).join('')}</div>${many ? `<button class="gl-showall" type="button" data-r20-all>Show all ${ids.length}</button>` : ''}`;
+      if (!ids.length) { box.innerHTML = '<h3>Cases that use this term <span class="gl-count">0</span></h3><p class="gl-empty">No brief in the atlas uses this term.</p>'; det.appendChild(box); return; }
+      const many = ids.length > 24;
+      const btn = (id, i) => { const nid = nodeOf.get(id), hide = many && i >= 24 ? ' hidden' : ''; return nid && typeof nodesById !== 'undefined' && nodesById.has(nid) ? `<button type="button" class="r20-on-map" data-r20-node="${esc(nid)}"${hide}>${esc(title.get(id))}<small> ${esc(COURSES[course.get(id)] || '')} · on the map</small></button>` : `<button type="button" data-r19-open="${esc(id)}"${hide}>${esc(title.get(id))}<small> ${esc(COURSES[course.get(id)] || '')}</small></button>`; };
+      box.innerHTML = `<h3>Cases that use this term <span class="gl-count">${total}</span></h3>${total > ids.length ? `<p class="gl-empty">${total} briefs use it. These are the ${ids.length} that use it most.</p>` : ''}<div class="gl-used">${ids.map(btn).join('')}</div>${many ? `<button class="gl-showall" type="button" data-r20-all>Show all ${ids.length}</button>` : ''}`;
       det.appendChild(box);
     }
     const hook = () => { const dlg = gloss(); if (!dlg || dlg.dataset.r20) return !!dlg; dlg.dataset.r20 = '1'; new MutationObserver(paintGlossary).observe(dlg, { childList: true, subtree: true }); paintGlossary(); return true; };

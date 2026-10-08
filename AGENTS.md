@@ -165,3 +165,9 @@ All in `tools/r19/r20.js`.
 - Rule for every zoom level: a container shows content you can read or a clean summary, never a partial state. `districtTiles()` applies it to subtopics under 190 px wide (name at 12 or 10 px for the whole subject, plus a count line). Map text under 8 px on screen is not drawn.
 - On a wide window `safeArea` gives the map the breadcrumb row only at course and atlas level. With a subject open it must not, or the subject title lands under the breadcrumb and the label engine drops it.
 - Test harness (not shipped) has `audit:` (overlapping labels, labels under chrome, text under 8.5 px, text outside its card, count of type sizes per view) and `titles` (every subject shows its title). Run both, plus `sweep` and `navsweep`, at 1333x796 before shipping layout changes. Judge in-between zoom frames, not only the fitted views.
+
+## r20.4 (2026-10-08): every dictionary term lists its cases
+
+- `tools/r19/terms.py` now also writes a full index to `tools/r19/data/term-links.json` (`index`: slug -> [number of briefs using the term, the 40 that use it most]). Every Wex term is matched against every brief, overlapping phrases all count, and nothing is capped per case. The earlier lists (each case's 14 most distinctive terms) remain and still drive the term chips on entries and briefs; they must not be used as the term's case list, which is what left most terms empty.
+- `r20.js` `paintGlossary()` shows "Cases that use this term" from the index: map cases open the entry (`data-r20-node`), supporting cases open the brief. A term no brief uses says so.
+- Re-run `python3 tools/r19/terms.py` after briefs or the dictionary change, then rebuild r18 and r19 and update `EXPECTED_R18`.
