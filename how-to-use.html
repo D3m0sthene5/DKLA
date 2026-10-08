@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to use the atlas · DKLA</title>
-<meta name="description" content="How to use the Danny Kind Legal Atlas: the map, the reading panel, search, connections, sources and the study tools.">
+<meta name="description" content="How to use the Danny Kind Legal Atlas.">
 <meta name="color-scheme" content="dark light">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <style>
@@ -35,7 +35,7 @@
   header.top .back:hover{border-color:var(--gold)}
 
   main{max-width:700px;margin:0 auto;padding:36px 20px 80px}
-  h1{font-size:34px;line-height:1.2;margin:0 0 10px;font-weight:600}
+  h1{font-size:34px;line-height:1.2;margin:0 0 22px;font-weight:600}
   .lead{font-size:20px;color:var(--muted);margin:0 0 28px}
 
   nav.steps ol{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
@@ -43,7 +43,9 @@
   nav.steps a:hover{border-color:var(--gold)}
   .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--orange);color:var(--on-orange);font-weight:700;display:grid;place-items:center;font-size:15px}
 
-  section.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:24px 24px 20px;margin:0 0 22px;scroll-margin-top:16px}
+  section.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px 8px;margin:0 0 18px;scroll-margin-top:16px}
+  section.step p{margin:0 0 14px}
+  section.step b{font-weight:600}
   section.step .count{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
   section.step h2{display:flex;align-items:center;gap:14px;font-size:26px;line-height:1.25;margin:0 0 16px;font-weight:600}
   section.step h2 .num{width:34px;height:34px;font-size:16px}
@@ -91,102 +93,70 @@
 
 <main id="main">
   <h1>How to use the atlas</h1>
-  <p class="lead">The map, the reading panel, search, connections, sources and the study tools, in six steps.</p>
 
   <nav class="steps" aria-label="Steps">
     <ol>
-      <li><a href="#s1"><span class="num" aria-hidden="true">1</span>Look at the map</a></li>
-      <li><a href="#s2"><span class="num" aria-hidden="true">2</span>Open a case</a></li>
-      <li><a href="#s3"><span class="num" aria-hidden="true">3</span>Search for anything</a></li>
-      <li><a href="#s4"><span class="num" aria-hidden="true">4</span>Follow a connection</a></li>
-      <li><a href="#s5"><span class="num" aria-hidden="true">5</span>Read the source</a></li>
-      <li><a href="#s6"><span class="num" aria-hidden="true">6</span>Test yourself</a></li>
+      <li><a href="#s1"><span class="num" aria-hidden="true">1</span>The map</a></li>
+      <li><a href="#s2"><span class="num" aria-hidden="true">2</span>A case</a></li>
+      <li><a href="#s3"><span class="num" aria-hidden="true">3</span>Search</a></li>
+      <li><a href="#s4"><span class="num" aria-hidden="true">4</span>Connections</a></li>
+      <li><a href="#s5"><span class="num" aria-hidden="true">5</span>Sources</a></li>
+      <li><a href="#s6"><span class="num" aria-hidden="true">6</span>Study</a></li>
     </ol>
   </nav>
 
   <section class="step" id="s1" aria-labelledby="h1s">
-    <p class="count">Step 1 of 6</p>
-    <h2 id="h1s"><span class="num" aria-hidden="true">1</span>Look at the map</h2>
-    <p class="do"><strong>Do this:</strong> open the atlas and click any coloured block.</p>
-    <p class="see">You will see three courses: <b>Contracts</b> (orange), <b>Civil Procedure</b> (blue) and <b>Legislation and the Regulatory State</b> (green). Each block is one subject. Clicking it zooms in, and its topics and cases appear.</p>
-    <p class="tip"><b>Tip.</b> Scroll to zoom and drag to move. The <span class="ui">⌂</span> button at the bottom fits whatever you are looking at back on screen. The <span class="ui">←</span> button at the top left goes back one view.</p>
-    <div class="actions"><a class="try" href="DKLA-r20.html">Try it: open the atlas</a><a class="next" href="#s2">Next step ↓</a></div>
+    <h2 id="h1s"><span class="num" aria-hidden="true">1</span>The map</h2>
+    <p>Three courses: <b>Contracts</b> (orange), <b>Civil Procedure</b> (blue), <b>Legislation and the Regulatory State</b> (green). Each block is a subject. Click one to open it; its topics and cases appear.</p>
+    <p>Scroll to zoom, drag to move. <span class="ui">⌂</span> fits the current area on screen. <span class="ui">←</span> goes back one view.</p>
   </section>
 
   <section class="step" id="s2" aria-labelledby="h2s">
-    <p class="count">Step 2 of 6</p>
-    <h2 id="h2s"><span class="num" aria-hidden="true">2</span>Open a case</h2>
-    <p class="do"><strong>Do this:</strong> click one of the small cards inside a subject.</p>
-    <p class="see">A reading panel opens on the right. It starts with the <b>rule in one line</b>, then <b>Parties</b>, <b>Procedural History</b>, <b>Material Facts</b>, <b>Issue</b>, <b>Holding</b> and <b>Reasoning</b>. The complete brief is folded at the bottom under <span class="ui">Full brief</span>.</p>
-    <p class="tip"><b>Tip.</b> The small picture beside the title is a memory hook drawn from the facts of that case (the dice on Hamer v. Sidway, for example). Press <kbd>Esc</kbd> to close the panel.</p>
-    <div class="actions"><a class="next" href="#s3">Next step ↓</a></div>
+    <h2 id="h2s"><span class="num" aria-hidden="true">2</span>A case</h2>
+    <p>Click a card. The panel opens with the rule in one line, then Parties, Procedural History, Material Facts, Issue, Holding and Reasoning. The complete brief is under <span class="ui">Full brief</span>. <kbd>Esc</kbd> closes the panel.</p>
+    <p>The drawing beside the title is taken from the facts of the case.</p>
   </section>
 
   <section class="step" id="s3" aria-labelledby="h3s">
-    <p class="count">Step 3 of 6</p>
-    <h2 id="h3s"><span class="num" aria-hidden="true">3</span>Search for anything</h2>
-    <p class="do"><strong>Do this:</strong> press <kbd>/</kbd> and type a case name, a rule or a word.</p>
-    <p class="see">The search box forgives typos and word order, so “promisory estopel” still finds Promissory estoppel. Results are grouped: entries, subjects, dictionary terms and sources on file (Rule 12, UCC 2-207, a case name). Choose one to jump there.</p>
-    <p class="tip"><b>Tip.</b> <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> on a Mac) also opens search. It reaches every entry from any view.</p>
-    <div class="actions"><a class="next" href="#s4">Next step ↓</a></div>
+    <h2 id="h3s"><span class="num" aria-hidden="true">3</span>Search</h2>
+    <p>Press <kbd>/</kbd> and type. Typos and word order do not matter. Results cover entries, subjects, dictionary terms and sources on file (Rule 12, UCC 2-207, a case name). <kbd>Ctrl</kbd>+<kbd>K</kbd> also opens it, from any view.</p>
   </section>
 
   <section class="step" id="s4" aria-labelledby="h4s">
-    <p class="count">Step 4 of 6</p>
-    <h2 id="h4s"><span class="num" aria-hidden="true">4</span>Follow a connection</h2>
-    <p class="do"><strong>Do this:</strong> with a case open, look at the ribbons drawn from its card.</p>
-    <p class="see">Each ribbon runs to a related entry: a concept the case carries, a case it distinguishes, a rule it applies. The panel lists the same connections with a sentence saying why. A small pill at the far end names entries whose cards are off screen; click it to go there.</p>
-    <p class="tip"><b>Tip.</b> Many cases also show a <b>timeline</b>: the cases that changed the doctrine, in order, with one line each on what changed.</p>
-    <div class="actions"><a class="next" href="#s5">Next step ↓</a></div>
+    <h2 id="h4s"><span class="num" aria-hidden="true">4</span>Connections</h2>
+    <p>With a case open, ribbons run to its related entries, and the panel lists them with a sentence each. A pill at the far end of a ribbon names entries that are off screen; click it to go there. Many cases carry a timeline of the doctrine, one line per case.</p>
   </section>
 
   <section class="step" id="s5" aria-labelledby="h5s">
-    <p class="count">Step 5 of 6</p>
-    <h2 id="h5s"><span class="num" aria-hidden="true">5</span>Read the source</h2>
-    <p class="do"><strong>Do this:</strong> click a chip under the entry title. Each chip names a source and a page, such as “DKLA Case Briefs p. 456”.</p>
-    <p class="see">The original page, opinion or brief opens inside the atlas at the right page. Close it and you are back where you were. Legal terms in the text are chips too: click one and the dictionary opens with the definition and every entry that uses the term.</p>
-    <p class="tip"><b>Tip.</b> Reporter citations such as “304 U.S. 64” are links to the opinion. Press <kbd>Ctrl</kbd>+<kbd>P</kbd> with an entry open to print just that entry as a clean handout.</p>
-    <div class="actions"><a class="try" href="DKLA-r20.html#term=consideration">Try it: open “consideration” in the dictionary</a><a class="next" href="#s6">Next step ↓</a></div>
+    <h2 id="h5s"><span class="num" aria-hidden="true">5</span>Sources</h2>
+    <p>The chips under a title open the casebook page, the opinion or the brief at the right page, inside the atlas. Terms in the text open the dictionary with the definition and every entry that uses the term. Reporter citations are links to the opinion. <kbd>Ctrl</kbd>+<kbd>P</kbd> prints the open entry on its own.</p>
+    <p><a href="DKLA-r20.html#term=consideration">Example: “consideration” in the dictionary</a></p>
   </section>
 
   <section class="step" id="s6" aria-labelledby="h6s">
-    <p class="count">Step 6 of 6</p>
-    <h2 id="h6s"><span class="num" aria-hidden="true">6</span>Test yourself</h2>
-    <p class="do"><strong>Do this:</strong> click <span class="ui">STUDY</span> in the top bar, or press <kbd>Shift</kbd>+<kbd>D</kbd>.</p>
-    <p class="see">The <b>Drill</b> shows a case name and hides the rest. Reveal the issue, then the holding, then the reasoning, and rate how well you remembered it. <b>Pairs</b> puts two easily confused cases side by side. <b>Sheets</b> prints every rule in a subject on one page. <b>Progress</b> shows what you have rated.</p>
-    <p class="tip"><b>Tip.</b> In a drill, <kbd>Space</kbd> reveals the next part and <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> rate it. Ratings are kept in this browser. A sync code under Progress copies them to another device.</p>
-    <div class="actions"><a class="next" href="#lost">If you get lost ↓</a></div>
+    <h2 id="h6s"><span class="num" aria-hidden="true">6</span>Study</h2>
+    <p><span class="ui">STUDY</span> in the top bar, or <kbd>Shift</kbd>+<kbd>D</kbd>. <b>Drill</b> shows a case name and hides the rest; reveal the issue, the holding, the reasoning, and rate yourself. <b>Pairs</b> puts two confusable cases side by side. <b>Sheets</b> prints every rule in a subject on one page. <b>Progress</b> shows what you have rated. Ratings are kept in this browser; a sync code under Progress copies them to another device.</p>
   </section>
 
-  <aside class="lost" id="lost" aria-labelledby="lostH">
-    <h2 id="lostH">If you get lost</h2>
-    <ul>
-      <li>Press <span class="ui">⌂</span> (bottom right) to fit the current area on screen. Zoom out past the courses to see the whole atlas.</li>
-      <li>Press <kbd>Esc</kbd> to close any panel or dialog.</li>
-      <li>Press <kbd>/</kbd> and search.</li>
-      <li>The <span class="ui">More</span> menu holds the rest: choose a course, browse subjects, reading assignments, supporting cases, save, and this guide.</li>
-    </ul>
-  </aside>
-
-  <details class="keys">
-    <summary>Keyboard shortcuts</summary>
+  <details class="keys" open>
+    <summary>Keys</summary>
     <table>
-      <thead><tr><th scope="col">Key</th><th scope="col">What it does</th></tr></thead>
+      <thead><tr><th scope="col">Key</th><th scope="col">Action</th></tr></thead>
       <tbody>
-        <tr><td><kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Go to search</td></tr>
+        <tr><td><kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Search</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Close the panel, dialog or menu</td></tr>
-        <tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>Back to the previous view</td></tr>
-        <tr><td><kbd>Shift</kbd>+<kbd>D</kbd></td><td>Open the recall drill</td></tr>
-        <tr><td><kbd>Space</kbd> or <kbd>Enter</kbd></td><td>In a drill: reveal the next part</td></tr>
-        <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>In a drill: rate the card (clean, patchy, blank)</td></tr>
-        <tr><td><kbd>H</kbd> / <kbd>S</kbd> / <kbd>A</kbd></td><td>In a drill: hint, skip, open the card on the atlas</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>Previous view</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>D</kbd></td><td>Recall drill</td></tr>
+        <tr><td><kbd>Space</kbd> or <kbd>Enter</kbd></td><td>Drill: reveal the next part</td></tr>
+        <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>Drill: rate the card</td></tr>
+        <tr><td><kbd>H</kbd> / <kbd>S</kbd> / <kbd>A</kbd></td><td>Drill: hint, skip, open on the atlas</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print the open entry</td></tr>
       </tbody>
     </table>
   </details>
 
   <footer>
-    <p>Edits are saved in this browser. <span class="ui">Save</span> in the top bar downloads a copy. The atlas works offline after its first load.</p>
+    <p>Edits are saved in this browser. <span class="ui">Save</span> downloads a copy. The atlas works offline after its first load. The <span class="ui">More</span> menu holds the rest: courses, subjects, reading assignments, supporting cases, and this page.</p>
     <p><a href="DKLA-r20.html">Open the atlas →</a></p>
   </footer>
 </main>

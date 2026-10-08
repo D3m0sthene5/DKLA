@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r20.html"
-EXPECTED_R18 = "4d7da5b3568a6b5840f06b7ce20c1f629270478cff221bc12cd8b7085c18d90b"
+EXPECTED_R18 = "61741e3abf1cb7623eccf9939450b3345ae4a6315e74666c9c9e016b79d8b851"
 VERSION = "r20"
-LABEL = "r20.5"
+LABEL = "r20.6"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R206 = {
+    "v": "r20.6",
+    "date": "2026-10-08",
+    "text": "The old atlas no longer shows for the first half-second of loading: the page stays dark with a small DKLA label until the current code has arranged the map. The DKLA mark, on the map and in the header, has the A turned on its side: its crossbar is the vertical line joining the K's two arm tips and its legs meet at the inside of the D, so the letters read as one figure. The browser-tab icon matches. Greenfield's portrait is cropped to the head, so the face fills the icon. The first-visit note is one line, and the guide page is shorter: numbered steps with no labels, and a key table.",
+}
 CHANGELOG_R205 = {
     "v": "r20.5",
     "date": "2026-10-08",
@@ -252,7 +257,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -334,10 +339,16 @@ def main() -> None:
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
-    # r20.5: the atlas boots from studyCode while the browser is still parsing the r19 blocks at the end of the file,
-    # so for about half a second it ran without any r19/r20 code or style: the Contracts welcome block showed and the
-    # map carried the old centre mark. These head rules hide both until r20.js has settled the body and reshaped the mark.
-    boot = ('<style id="dklaR20Boot">#mapWelcome{visibility:hidden}body.r20-settled #mapWelcome{visibility:visible}'
+    # r20.6: the atlas boots from studyCode while the browser is still parsing the r19 blocks at the end of the file,
+    # so for about half a second it ran as the old atlas (the "Legal Atlas" header, the triangle layout, no SCOTUS
+    # block, the old centre mark, the Contracts welcome block). A head rule keeps everything invisible behind a dark
+    # page with a small DKLA label until r20.js has arranged the map (html.r20-ready), and keeps the welcome block
+    # and the unreshaped mark hidden after that.
+    boot = ('<style id="dklaR20Boot">html{background:#101820}'
+            'html:not(.r20-ready) body>*{visibility:hidden!important}'
+            'html:not(.r20-ready) body::before{content:"DKLA";position:fixed;inset:0;display:grid;place-items:center;'
+            'font:600 20px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.35em;color:#6f8294}'
+            '#mapWelcome{visibility:hidden}body.r20-settled #mapWelcome{visibility:visible}'
             '#geoCanvas svg[viewBox="0 0 244 78"],#geoCanvas .dkla-map-monogram:not([data-r20]){visibility:hidden}</style>')
     if output.count("</head>") != 1:
         raise ValueError("expected one </head>")

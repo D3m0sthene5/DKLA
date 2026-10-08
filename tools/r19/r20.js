@@ -320,7 +320,8 @@
     if (moved || refit) { try { if (S.scope === 'Atlas' || !S.region) home(S.scope, false, false); else if (window.R18 && R18.refit) R18.refit(); } catch { /* next draw */ } }
     try { schedule(); } catch { /* next frame */ }
   }
-  (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 100); return; } applyArrangement(true); })();
+  (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 100); return; } applyArrangement(true); requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('r20-ready'))); })();
+  setTimeout(() => document.documentElement.classList.add('r20-ready'), 6000); // the curtain never stays down
   // On a wide window a course is fitted to its subjects and tile; its name sits in the top margin above them
   // (it is centred, the breadcrumb is in the corner), so the name no longer costs the map a sixth of its height.
   if (typeof scopeBox === 'function') {
@@ -425,8 +426,8 @@
     if (seen() || location.hash || document.getElementById('r20Guide')) return;
     const host = document.getElementById('studyMain') || document.body;
     const box = document.createElement('section');
-    box.id = 'r20Guide'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-labelledby', 'r20GuideH'); box.setAttribute('aria-describedby', 'r20GuideP');
-    box.innerHTML = '<h2 id="r20GuideH">New here? Start with the guide.</h2><p id="r20GuideP">Six steps: move around the map, open a case, search, follow connections, read the sources, test yourself.</p>' +
+    box.id = 'r20Guide'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-labelledby', 'r20GuideH');
+    box.innerHTML = '<h2 id="r20GuideH">New here? There is a short guide.</h2>' +
       '<div class="r20-guide-actions"><a class="r20-guide-go" href="' + PAGE + '">Open the guide</a><button type="button" data-r20-guide-close>Not now</button></div>';
     host.appendChild(box);
     const close = () => { markSeen(); box.remove(); document.removeEventListener('keydown', onKey, true); };
@@ -453,10 +454,18 @@
     document.addEventListener('click', e => { if (e.target.closest('[data-r20-guide]')) { markSeen(); location.href = PAGE; } }, true);
   }
 
-  /* Centre mark: the A stands inside the D like the K and the L (it used to run past the bowl and over the
-     K's lower arm), the K's arms stop short of the bowl, and the mark is drawn larger on the three-course
-     view. r17 redraws the mark on every draw, so this runs after each one. */
-  const K = 'M22 52 52 21M22 52 52 83', L = 'M22 85H54', A = 'M56 74 66 24 76 74M59.5 60H72.5';
+  /* The mark: the A is turned on its side. Its crossbar is the vertical line joining the two points where the
+     K's arms meet the D, and its legs run from those points to an apex on the inside of the bowl, so K, bar
+     and A read as one figure inside the D. The same letterforms go into the header mark; the map mark is
+     drawn larger on the three-course view. r17 redraws the map mark on every draw, so this runs after each. */
+  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 85H54', A = 'M57 17V86M57 17 83 51.5 57 86';
+  function fixHeader() {
+    const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
+    const k = h.querySelector('.dkla-letter-k'), l = h.querySelector('.dkla-letter-l'), a = h.querySelector('.dkla-letter-a');
+    if (k) k.setAttribute('d', K); if (l) l.setAttribute('d', L); if (a) a.setAttribute('d', A);
+    return true;
+  }
+  (function headerSoon(n) { if (!fixHeader() && n < 100) setTimeout(() => headerSoon(n + 1), 100); })(0);
   /* Nothing from the first half-second of boot is shown: the Contracts welcome block (the atlas's HTML starts
      with it visible, in Contracts scope, and the floor fit hides it only once the camera lands), r16's wordmark
      and r17's mark before this painter has reshaped it. r20.css keeps them invisible until `r20-settled` is on
