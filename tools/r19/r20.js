@@ -454,11 +454,12 @@
     document.addEventListener('click', e => { if (e.target.closest('[data-r20-guide]')) { markSeen(); location.href = PAGE; } }, true);
   }
 
-  /* The mark: the A is turned on its side. Its crossbar is the vertical line joining the two points where the
-     K's arms meet the D, and its legs run from those points to an apex on the inside of the bowl, so K, bar
-     and A read as one figure inside the D. The same letterforms go into the header mark; the map mark is
-     drawn larger on the three-course view. r17 redraws the map mark on every draw, so this runs after each. */
-  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 85H54', A = 'M57 17V86M57 17 83 51.5 57 86';
+  /* The mark: the A is rotated a quarter turn counter-clockwise and inscribed in the D. Its apex points at
+     the K's vertex, its legs open to the right inside the K's arms, its feet stand on the inside of the bowl,
+     and its crossbar is vertical at six-tenths of the way from apex to feet. The same letterforms go into the
+     header mark; the map mark is drawn larger on the three-course view. r17 redraws the map mark on every
+     draw, so this runs after each. */
+  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
   function fixHeader() {
     const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
     const k = h.querySelector('.dkla-letter-k'), l = h.querySelector('.dkla-letter-l'), a = h.querySelector('.dkla-letter-a');
