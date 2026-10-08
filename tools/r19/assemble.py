@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "334ea1ed18f708cb80515a2abf384ca4788991444057ccced6b674e87eadb86b"
+EXPECTED_R18 = "21b08238b4bbfcbcb131772d8da942339a4e8b04e3c33ee9f2d4eea422caa72b"
 VERSION = "r19"
-LABEL = "r19.18"
+LABEL = "r19.19"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R1919 = {
+    "v": "r19.19",
+    "date": "2026-10-08",
+    "text": "130 more case icons redrawn as bold solid drawings in place of the older thin outlines, for the cases an audit scored lowest. Several take a clearer subject (a crocodile for Lujan, a slot machine for Patchak, a broken heart for Lacks, a steam locomotive for Erie). Captions are unchanged.",
+}
 CHANGELOG_R1918 = {
     "v": "r19.18",
     "date": "2026-10-08",
@@ -217,7 +222,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:

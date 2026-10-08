@@ -5,9 +5,9 @@
   "svg": "<path d=\"M2.5 9.4L4.4 8.5L4.8 8.5L4.7 9L6.1 8.8L5.2 8.2L5.8 8.6L5.8 8.1L4.7 8L4.5 7.5L3.1 6.8L3.5 6.3L4.8 6.1L5.6 5L8.3 4L8.8 4.2L8.6 4.5L9 4.2L9.5 4.6L10.4 4.5L10.6 4.9L11.8 4.8L14 5.3L14.9 5.1L16 5.6L16 14.4L17 14.4L17.7 15.7L18.3 15.1L18.9 15L20.6 17.9L21.4 18.4L21.4 19.4L21 19.6L20.9 18.5L20.9 19.2L20.6 19L20.6 18.6L20.4 18.9L20.5 18.3L20.3 18.6L20.4 18L19.7 17.4L19.7 16.9L19.9 17L19.5 16.2L19.2 16.4L18.7 15.3L19 16.4L18.5 16.2L18.4 15.7L18 15.7L18.5 16.2L18.2 16.4L16.6 15.1L16.7 14.7L16.4 15L15.7 14.5L14.2 14.9L14.5 14.7L14.1 14.3L13.6 14.1L13.2 14.5L13.6 14.1L13.1 13.9L13.4 13.6L12.5 14L12.7 13.5L12.3 14L12.6 14.7L11.8 14.9L11.8 14.6L11.3 15.3L11.4 15.1L10.7 15.5L11 14.9L10.6 15L10.8 14L11.3 13.7L12 13.9L11.5 13.6L11.7 13.3L10.6 13.9L9.5 15.3L9.5 15.6L9.9 15.8L9.4 16.5L7.3 18L7.3 18.5L5.9 19.1L5.8 18.8L5.5 19.3L5 19.3L5 19.7L4.1 20L4.3 19.5L4.9 19.5L5.6 18.6L6.4 18.7L6.4 18.2L7.8 17.1L8.1 15.7L7.5 16L7.3 15.7L7.1 16.2L6.4 15.6L5.7 16.1L5.4 14.5L4.6 14.9L3.9 14.2L4.1 13.7L3.8 13.7L3.5 13L4.3 11.7L5 11.8L5.4 11.4L6 11.4L6.2 11.1L5.8 10.5L6.2 10.3L6 10.1L5.2 10.6L5 10.3L5 10.6L3.4 10.4L3.1 9.9L3.4 9.7Z\"/>"
  },
  "algernon-blair": {
-  "object": "tower construction crane",
+  "object": "tower crane with lattice mast and load",
   "hook": "Cranes the contractor would not pay for",
-  "svg": "<rect x=\"7\" y=\"7\" width=\"3.5\" height=\"14\"/><path d=\"M2.5 7h19\"/><path d=\"M8.75 3v4M8.75 3L21 7\"/><rect x=\"2.8\" y=\"8.5\" width=\"3\" height=\"3\" fill=\"currentColor\" stroke-width=\"0.8\"/><path d=\"M17.5 7v6.500a1.6 1.6 0 1 1-1.6 1.6\"/><path d=\"M4.5 21h9\"/>"
+  "svg": "<path fill=\"none\" stroke-width=\"0.8\" stroke-linecap=\"butt\" d=\"M3.2 6.2L9.7 2.2L20.8 6.2M18.25 8v3.6\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 5.8h21v1.6h-2.9v.8h-2.7v-.8h-2.7V10H7.45V7.4H5.6v3.4H1.5zM8.7 1.5h2v4.3h-2zM5 21h9.4v1.5H5zM16.4 11.4h3.7v3.2h-3.7zM11.6 7.9h1.7v1.2h-1.7z\"/><path fill=\"none\" stroke-width=\"1.1\" stroke-linecap=\"butt\" d=\"M8 10v11M11.4 10v11\"/><path fill=\"none\" stroke-width=\"0.75\" stroke-linecap=\"butt\" stroke-linejoin=\"bevel\" d=\"M8.3 10.2L11.1 12.9L8.3 15.6L11.1 18.3L8.3 21\"/>"
  },
  "anderson-binance": {
   "object": "diamond of solid chevrons and three squares",
@@ -25,14 +25,14 @@
   "svg": "<circle cx=\"8.500\" cy=\"14\" r=\"6\"/><circle cx=\"15.500\" cy=\"14\" r=\"6\"/><polygon points=\"6.500,5.500 8.500,3 10.500,5.500 8.500,8\" fill=\"currentColor\"/>"
  },
  "bayliner": {
-  "object": "boat propeller",
+  "object": "solid three-blade marine boat propeller",
   "hook": "Thirty promised, with other propellers",
-  "svg": "<path d=\"M12 10C9 8 9 3 13 2.500c3 1 2.500 5.500-1 7.500Z\"/><path d=\"M12 10C9 8 9 3 13 2.500c3 1 2.500 5.500-1 7.500Z\" transform=\"rotate(120 12 12)\"/><path d=\"M12 10C9 8 9 3 13 2.500c3 1 2.500 5.500-1 7.500Z\" transform=\"rotate(240 12 12)\"/><circle cx=\"12\" cy=\"12\" r=\"2.200\"/><circle cx=\"12\" cy=\"12\" r=\".7\" fill=\"currentColor\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M13.2 9.2C15.4 7.6 17 5 16.4 2.4C12.6 0 5.8 1.6 5.4 6.2C5.2 8.8 8.4 10.4 10.8 9.8Z\"/><path fill-rule=\"evenodd\" d=\"M13.2 9.2C15.4 7.6 17 5 16.4 2.4C12.6 0 5.8 1.6 5.4 6.2C5.2 8.8 8.4 10.4 10.8 9.8Z\" transform=\"rotate(120 12 12)\"/><path fill-rule=\"evenodd\" d=\"M13.2 9.2C15.4 7.6 17 5 16.4 2.4C12.6 0 5.8 1.6 5.4 6.2C5.2 8.8 8.4 10.4 10.8 9.8Z\" transform=\"rotate(240 12 12)\"/><path fill-rule=\"evenodd\" d=\"M12 8.8a3.2 3.2 0 1 0 0 6.4a3.2 3.2 0 1 0 0-6.4zM12 10.8a1.2 1.2 0 1 1 0 2.4a1.2 1.2 0 1 1 0-2.4z\"/></g>"
  },
  "bayway": {
-  "object": "refinery flare stack",
+  "object": "solid oil barrel with cut-out drop",
   "hook": "60,000 barrels of MTBE and a tax bill",
-  "svg": "<path d=\"M6.5 2.5c2.500 2 3 4 1.500 6H5C3.500 6.500 4.500 4.500 6.500 2.500Z\" fill=\"currentColor\"/><path d=\"M5 21V11.500h3V21M2.500 21h19\"/><rect x=\"12.500\" y=\"11\" width=\"8.500\" height=\"10\" rx=\"2\"/><path d=\"M12.500 14.500H21M12.500 17.500H21M8 18h4.500\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><rect x=\"4.3\" y=\"2.5\" width=\"15.4\" height=\"2.4\" rx=\".9\"/><rect x=\"4.3\" y=\"19.1\" width=\"15.4\" height=\"2.4\" rx=\".9\"/><rect x=\"4.3\" y=\"6.8\" width=\"15.4\" height=\"1.8\" rx=\".9\"/><rect x=\"4.3\" y=\"15.4\" width=\"15.4\" height=\"1.8\" rx=\".9\"/><path fill-rule=\"evenodd\" d=\"M12 9C12 9 14.3 11.3 14.3 12.8a2.3 2.3 0 0 1-4.6 0C9.7 11.3 12 9 12 9zM5.7 3.5h12.6v17H5.7z\"/></g>"
  },
  "bloor": {
   "object": "three bold interlocked Borromean rings",
@@ -45,9 +45,9 @@
   "svg": "<path d=\"M3 12L17 5c2.5 1 4 3.5 4 7v8H3Z\"/><path d=\"M3 12h18\"/><circle cx=\"8\" cy=\"16\" r=\"1.5\"/><circle cx=\"15.5\" cy=\"15.5\" r=\"1.1\" fill=\"currentColor\"/><circle cx=\"13\" cy=\"9\" r=\"1\" fill=\"currentColor\"/>"
  },
  "bollinger": {
-  "object": "shovel in a soil mound",
+  "object": "d-handle spade planted in soil mound",
   "hook": "Topsoil the contractor never put back",
-  "svg": "<g transform=\"rotate(15 8 12)\"><path d=\"M5.5 3h5M8 3v8\"/><path d=\"M5 11h6v4c0 2-1.5 3.5-3 4.5-1.5-1-3-2.5-3-4.5Z\"/></g><path d=\"M12.5 21c1-3 2.5-4.5 4.5-4.5s3.5 1.5 4.5 4.5Z\"/>"
+  "svg": "<path d=\"M9.1 2.2H14.9V3.3Q14.9 5.7 12 6.1Q9.1 5.7 9.1 3.3Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.4\"/><rect x=\"11.1\" y=\"6\" width=\"1.8\" height=\"4.6\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M8.2 10.9L10.6 10H13.4L15.8 10.9V15C15.8 17.6 13.5 18.8 12 19.5C10.5 18.8 8.2 17.6 8.2 15Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M1.5 22.5C2.8 19.8 5 17.6 7.3 16.8C7.6 19 10 20 12 20.6C14 20 16.4 19 16.7 16.8C19 17.6 21.2 19.8 22.5 22.5Z\"/>"
  },
  "burger": {
   "object": "1999 Burger King bun-and-crescent logo",
@@ -60,19 +60,19 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.2 1.6C5.4 1.5 9.2 2.7 12 5c2.8-2.3 6.6-3.5 10.8-3.4-3.3 2-5.6 4.6-6.7 7.8l.8 5.6H7.1l.8-5.6C6.8 6.2 4.5 3.6 1.2 1.6zM9.5 9.6l-.35 2.5h5.7l-.35-2.5z\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.6 15h14.8v2.3H23l-2.9 5.2H3.9L1 17.3h3.6zM7.2 18.5a1.15 1.15 0 1 0 .01 0zM12 18.5a1.15 1.15 0 1 0 .01 0zM16.8 18.5a1.15 1.15 0 1 0 .01 0z\"/>"
  },
  "channel-home": {
-  "object": "tape measure",
+  "object": "solid tape measure with extended ticked blade",
   "hook": "A store lease lost to Mr. Good Buys",
-  "svg": "<rect x=\"2.500\" y=\"3\" width=\"13.500\" height=\"14\" rx=\"3.500\"/><circle cx=\"9.200\" cy=\"10\" r=\"3\"/><circle cx=\"9.200\" cy=\"10\" r=\"0.800\" fill=\"currentColor\"/><path d=\"M6 17v3.500h15.500V17M10 20.500V19M13.500 20.500V19M17 20.500V19\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.5 3h4a5 5 0 0 1 5 5v6h7.6v-1.2h1.5v8.7h-1.5v-2h-16.6a3 3 0 0 1-3-3v-10.5a3 3 0 0 1 3-3zM7.5 6.9a4 4 0 1 0 .01 0zM7.5 9.4a1.5 1.5 0 1 1-.01 0zM14.5 14v3.1h1v-3.1zM16.4 14v1.8h1v-1.8zM18.3 14v3.1h1v-3.1z\"/>"
  },
  "citoh": {
-  "object": "coil of sheet steel",
+  "object": "solid steel sheet coil on cradle",
   "hook": "Steel coils, delivered without a deal",
-  "svg": "<ellipse cx=\"8\" cy=\"11\" rx=\"5\" ry=\"8\"/><ellipse cx=\"8\" cy=\"11\" rx=\"1.8\" ry=\"3\"/><path d=\"M8 3h8a5 8 0 0 1 0 16H8\"/><path d=\"M12.5 3.3a5 8 0 0 1 0 15.4\"/><path d=\"M16 19h6\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M8 2.5H22.5V3.6H17.9A5.5 8.4 0 0 1 15 19.3H8A5.5 8.4 0 0 1 8 2.5ZM9 2.5A5.5 8.4 0 0 1 9 19.3H8A5.5 8.4 0 0 0 8 2.5ZM8 7.2A2.4 3.7 0 0 0 8 14.6A2.4 3.7 0 0 0 8 7.2ZM8 4.6A4.1 6.3 0 0 1 8 17.2A4.1 6.3 0 0 1 8 4.6ZM8 5.4A3.6 5.5 0 0 0 8 16.4A3.6 5.5 0 0 0 8 5.4ZM12 2.5A5.5 8.4 0 0 1 12 19.3H12.9A5.5 8.4 0 0 0 12.9 2.5Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M1.5 16.8H2.7L4.9 19.3H19.1L21.3 16.8H22.5V21.5H1.5Z\"/>"
  },
  "cohen-cowles": {
-  "object": "reporter's spiral notepad",
+  "object": "solid top-spiral reporter's notebook with pencil",
   "hook": "The papers named their secret source",
-  "svg": "<rect x=\"5\" y=\"5.500\" width=\"14\" height=\"15.500\" rx=\"1.500\"/><path d=\"M8 3v4.500M12 3v4.500M16 3v4.500\"/><path d=\"M8 11.500h8M8 14.500h8M8 17.500h4.500\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.7 4.8h11.6a1.2 1.2 0 0 1 1.2 1.2v15.3a1.2 1.2 0 0 1-1.2 1.2H3.7a1.2 1.2 0 0 1-1.2-1.2V6a1.2 1.2 0 0 1 1.2-1.2zM4.6 10.4v1.7h9.8v-1.7zM4.6 14v1.7h7v-1.7zM4.6 17.6v1.7h8.6v-1.7zM4.5 6.3v1.4h1.4V6.3zM7.3 6.3v1.4h1.4V6.3zM10.3 6.3v1.4h1.4V6.3zM13.1 6.3v1.4h1.4V6.3z\"/><path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.3\" d=\"M5.2 6.6V2.2M8 6.6V2.2M11 6.6V2.2M13.8 6.6V2.2\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18.3 6h3.4v11.2l-1.7 5.1-1.7-5.1zM18.3 2.9a1.4 1.4 0 0 1 1.4-1.4h.6a1.4 1.4 0 0 1 1.4 1.4v2.1h-3.4z\"/>"
  },
  "columbia-nitrogen": {
   "object": "fertilizer sack",
@@ -80,14 +80,14 @@
   "svg": "<path d=\"M6.5 6.5C5 11 4.5 16 5.5 21h13c1-5 .5-10-1-14.5Z\"/><path d=\"M6.5 6.5L5 3h14l-1.5 3.5\"/><path d=\"M12 18v-5M12 14c-3 0-3.5-1.5-3.5-3 2 0 3.5 1 3.5 3ZM12 13c0-2 1.5-3 3.5-3 0 2-1 3-3.5 3Z\"/>"
  },
  "cosby": {
-  "object": "cluster of press microphones",
+  "object": "tilted handheld news microphone with flag cube",
   "hook": "A press release that became immunity",
-  "svg": "<path d=\"M9.2 5.300a2.8 2.8 0 0 1 5.6 0v2.500a2.8 2.8 0 0 1-5.6 0ZM9.2 6.600h5.6\"/><path d=\"M10.7 12.500h2.600l-.4 8.500h-1.800Z\" fill=\"currentColor\"/><g transform=\"rotate(-10 7 21)\"><path d=\"M4.8 11.700a2.2 2.2 0 0 1 4.4 0v1.600a2.2 2.2 0 0 1-4.4 0Z\"/><path d=\"M6 17.200h2l-.2 3.300h-1.600Z\" fill=\"currentColor\"/></g><g transform=\"rotate(10 17 21)\"><path d=\"M14.8 11.700a2.2 2.2 0 0 1 4.4 0v1.600a2.2 2.2 0 0 1-4.4 0Z\"/><path d=\"M16 17.200h2l-.2 3.300h-1.600Z\" fill=\"currentColor\"/></g>"
+  "svg": "<g transform=\"rotate(40 12 12)\"><path fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\".4\" fill-rule=\"evenodd\" d=\"M7.8 3.6a4.2 4.2 0 0 1 8.4 0zM7.8 4.8h8.4v1.5h-8.4zM7.8 7.5h8.4v1.5h-8.4zM6.8 10.2h10.4v6.6h-10.4zM12 11.7a1.8 1.8 0 1 0 0 3.6a1.8 1.8 0 1 0 0-3.6zM10.2 17.7h3.6l-.6 7.2h-2.4z\"/></g>"
  },
  "cp-adickes": {
-  "object": "lunch counter stool",
+  "object": "solid diner lunch-counter stool, side view",
   "hook": "Six students served, the teacher refused",
-  "svg": "<path d=\"M5 8a7 4 0 0 1 14 0Z\"/><rect x=\"5\" y=\"8\" width=\"14\" height=\"2.5\" rx=\"1\"/><path d=\"M12 10.5V18\"/><path d=\"M8 15h8\" stroke-width=\"2\"/><path d=\"M6.5 21c3 0 5.5-1 5.5-3 0 2 2.5 3 5.5 3Z\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M6.2 1.4h11.6a2.7 2.7 0 0 1 0 5.4H6.2a2.7 2.7 0 0 1 0-5.4Z\"/><rect x=\"5.4\" y=\"7.5\" width=\"13.2\" height=\"1.5\" rx=\".4\"/><path d=\"M10.4 9h3.2v8.3c0 2.5 2.7 3.4 5.9 4.1a.6.6 0 0 1-.1 1.2H4.6a.6.6 0 0 1-.1-1.2c3.2-.7 5.9-1.6 5.9-4.1Z\"/><path fill-rule=\"evenodd\" d=\"M12 11.8c3.7 0 6.7 1 6.7 2.3s-3 2.3-6.7 2.3-6.7-1-6.7-2.3 3-2.3 6.7-2.3Zm0 1.5c-2.6 0-4.5.4-4.5.8s1.9.8 4.5.8 4.5-.4 4.5-.8-1.9-.8-4.5-.8Z\"/></g>"
  },
  "cp-afa": {
   "object": "solid map silhouette of Australia with Tasmania",
@@ -100,14 +100,14 @@
   "svg": "<polygon points=\"12,4 14.2,9.4 20.1,9.9 15.6,13.7 17,19.4 12,16.3 7,19.4 8.4,13.7 3.9,9.9 9.8,9.4\"/><circle cx=\"12\" cy=\"3.6\" r=\"1\" fill=\"currentColor\"/><circle cx=\"20.4\" cy=\"9.8\" r=\"1\" fill=\"currentColor\"/><circle cx=\"17.2\" cy=\"19.8\" r=\"1\" fill=\"currentColor\"/><circle cx=\"6.8\" cy=\"19.8\" r=\"1\" fill=\"currentColor\"/><circle cx=\"3.6\" cy=\"9.8\" r=\"1\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"12.2\" r=\"1.7\"/>"
  },
  "cp-amchem": {
-  "object": "twin-filter respirator mask",
+  "object": "pair of lungs, one solid, one hollow",
   "hook": "Sick now or sick later, all in one class",
-  "svg": "<path d=\"M6 10.5V9a6 6 0 0 1 12 0v1.5\"/><circle cx=\"9.5\" cy=\"8\" r=\"1\" fill=\"currentColor\"/><circle cx=\"14.5\" cy=\"8\" r=\"1\" fill=\"currentColor\"/><path d=\"M7.5 11.5h9v4.5a4.5 4.5 0 0 1-9 0Z\"/><circle cx=\"4.9\" cy=\"16\" r=\"2.6\"/><circle cx=\"19.1\" cy=\"16\" r=\"2.6\"/><path d=\"M10.5 15h3M10.5 17.5h3\"/>"
+  "svg": "<path d=\"M12 2.6V9.2M12 9.2L9.4 11.6M12 9.2L14.6 11.6\" stroke-width=\"2\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M8.5 5.6C6.4 5.6 2 12 2 17.6C2 20.2 3.4 21.4 5.3 21.4C7.6 21.4 10 20 10 17.8V7.6C10 6.4 9.5 5.6 8.5 5.6Z\"/><path stroke-width=\"1.7\" d=\"M15.4 6.6C16.9 6.6 21.15 12.6 21.15 17.6C21.15 19.7 20.2 20.55 18.7 20.55C16.9 20.55 14.85 19.5 14.85 17.8V7.6C14.85 6.9 15 6.6 15.4 6.6Z\"/>"
  },
  "cp-american-well": {
-  "object": "hand water pump",
+  "object": "solid hand water pump with drip",
   "hook": "A pump maker's business talked down",
-  "svg": "<rect x=\"10\" y=\"8\" width=\"4.500\" height=\"12.500\"/><path d=\"M7.500 20.500h9.500\"/><path d=\"M10 12H6.500a2 2 0 0 0-2 2v1.500\"/><circle cx=\"4.500\" cy=\"19\" r=\"1.100\" fill=\"currentColor\"/><path d=\"M12.200 8V4\"/><path d=\"M12.200 4c5 0 8.300 3.500 8.300 10\" stroke-width=\"1.800\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M7 22.5V21H10V10.5H9V8.5H16.5V10.5H15.5V11.5H18.5Q21.5 11.5 21.5 14.5V16H18.9V14.9Q18.9 14.1 18.1 14.1H15.5V21H18.5V22.5Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M20.2 17.2C21.1 18.5 21.5 19.1 21.5 19.8a1.3 1.3 0 0 1-2.6 0C18.9 19.1 19.3 18.5 20.2 17.2Z\"/><path d=\"M12.75 8.5V5\" stroke-width=\"2.2\"/><path d=\"M15.5 3.2L9.5 5C5.5 6.2 3.2 9.5 3.2 17\" stroke-width=\"2.1\"/>"
  },
  "cp-anderson-liberty": {
   "object": "liberty torch with flame held in fist",
@@ -120,9 +120,9 @@
   "svg": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><path d=\"M6.6 13v6M10.2 13v6M13.8 5v14M17.4 13v6\"/><rect x=\"5.6\" y=\"5\" width=\"2\" height=\"8\" fill=\"currentColor\"/><rect x=\"9.2\" y=\"5\" width=\"2\" height=\"8\" fill=\"currentColor\"/><rect x=\"16.4\" y=\"5\" width=\"2\" height=\"8\" fill=\"currentColor\"/>"
  },
  "cp-asahi": {
-  "object": "motorcycle",
+  "object": "solid side-profile motorcycle with tank and fork",
   "hook": "A Japanese valve in a Taiwanese tube",
-  "svg": "<circle cx=\"5.8\" cy=\"16\" r=\"3.5\"/><circle cx=\"18.2\" cy=\"16\" r=\"3.5\"/><path d=\"M18.2 16l-2.7-8.5h-2.5\"/><path d=\"M5.8 16l3-5.5h7.6\"/><path d=\"M9 11h6.5l-2 4.5h-3.5Z\" fill=\"currentColor\"/><path d=\"M6 9.5h5\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M5 12.6a3.9 3.9 0 1 0 0 7.8a3.9 3.9 0 1 0 0-7.8zM5 14.7a1.8 1.8 0 1 1 0 3.6a1.8 1.8 0 1 1 0-3.6zM19 12.6a3.9 3.9 0 1 0 0 7.8a3.9 3.9 0 1 0 0-7.8zM19 14.7a1.8 1.8 0 1 1 0 3.6a1.8 1.8 0 1 1 0-3.6z\"/><circle cx=\"5\" cy=\"16.5\" r=\".8\"/><circle cx=\"19\" cy=\"16.5\" r=\".8\"/><path d=\"M2.2 9.4H9.2C9.8 7.6 11.2 6.9 12.8 6.9C14.4 6.9 15.5 7.8 15.9 9.6L14.6 11.8H4.8Q2.6 11.6 2.2 9.4Z\"/><path d=\"M9.8 12.6H14.3L14.1 17.2Q14.1 18.2 13.1 18.2H10.8Q9.8 18.2 9.8 17.2Z\"/><circle cx=\"17.7\" cy=\"8.1\" r=\"1.5\"/></g><path d=\"M18.1 13.6L15.6 5.4H13.4\" stroke-width=\"1.7\"/>"
  },
  "cp-atlantic-marine": {
   "object": "brick wall with trowel",
@@ -140,9 +140,9 @@
   "svg": "<rect x=\"3\" y=\"3\" width=\"15\" height=\"10.5\" rx=\"1.5\"/><path d=\"M3.5 4l7 5.5 7-5.5\"/><path d=\"M7 18h13.5M17.3 15l3.4 3-3.4 3\" stroke-width=\"1.8\"/>"
  },
  "cp-bechtel": {
-  "object": "paycheck with corner torn off",
+  "object": "solid paycheck with dollar sign, corner torn off",
   "hook": "Wage withholding dressed as contract",
-  "svg": "<path d=\"M3 6.5h10.5l1 2.5 2-.5.5 2.5 2.5.5 1.5 1.5v5.5H3Z\"/><path d=\"M6 10.5h4.5M6 15h6\"/><rect x=\"14.5\" y=\"14\" width=\"3.5\" height=\"2\" fill=\"currentColor\"/><path d=\"M17.5 3h3.5v3.5Z\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 8H14.5l1.5 2.2 1.3-.6 1.5 2.2 1.3-.6 2.4 2.3V21H1.5ZM11 13.2h4.5v1.7H11ZM11 16.6h9v1.7h-9ZM5.7 10.3h1.4v0.98c1.4 0.14 2.38 0.98 2.52 2.24h-1.68c-0.14 -0.56 -0.56 -0.84 -1.26 -0.84 -0.7 0 -1.12 0.28 -1.12 0.7 0 1.26 4.2 0.42 4.2 3.08 0 1.26 -0.98 2.1 -2.66 2.24v0.98h-1.4v-0.98c-1.54 -0.14 -2.66 -1.12 -2.66 -2.52h1.68c0.14 0.7 0.7 1.12 1.54 1.12 0.84 0 1.26 -0.28 1.26 -0.84 0 -1.4 -4.06 -0.42 -4.06 -3.08 0 -1.12 0.98 -1.96 2.24 -2.1Z\"/><path fill=\"currentColor\" stroke=\"none\" transform=\"translate(.3 -3.6) rotate(10 19 9)\" d=\"M14.5 8h8v5.5l-2.4-2.3-1.3.6-1.5-2.2-1.3.6Z\"/>"
  },
  "cp-beeck": {
   "object": "water slide",
@@ -150,9 +150,9 @@
   "svg": "<path d=\"M3.5 21V4M8 21V4\"/><path d=\"M3.5 8.500H8M3.5 12.500H8M3.5 16.500H8\"/><path d=\"M8 5c7 0 5 12 13 12.5\" stroke-width=\"2.2\"/><path d=\"M11.5 21c1.2-1.2 2.3-1.2 3.5 0s2.3 1.2 3.5 0 2.3-1.2 3.5 0\"/>"
  },
  "cp-berk": {
-  "object": "medical walking boot",
+  "object": "solid medical walking boot with cross",
   "hook": "A broken ankle twisted into a boot",
-  "svg": "<path d=\"M7.5 2.5H14v11l6 2.5c.8.4 1.2 1 1.2 2v1H7.5Z\"/><rect x=\"6.5\" y=\"19\" width=\"15.5\" height=\"2.5\" rx=\"1.2\"/><path d=\"M6 6.5h8M6 10.5h8M16.5 14.5l-1 4.5\" stroke-width=\"2\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M5.6 1.5H11.4Q12.4 1.5 12.4 2.5V4.6H4.6V2.5Q4.6 1.5 5.6 1.5ZM4.6 5.8H12.4V8.6H4.6ZM4.6 9.8H12.4V11.4Q12.4 12.7 13.7 13L15.4 13.4V18.6H4.6ZM7.75 11.95h1.5v1.5h1.5v1.5h-1.5v1.5h-1.5v-1.5h-1.5v-1.5h1.5zM16.6 13.7L19.4 14.3Q21.6 14.9 21.6 17V18.6H16.6ZM4.2 19.6H22.2Q22 21.6 19.6 22.5H6.8Q4.4 21.6 4.2 19.6Z\"/>"
  },
  "cp-bnsf": {
   "object": "railroad track",
@@ -165,9 +165,9 @@
   "svg": "<g transform=\"translate(1.5 1.3) rotate(-32 12 10)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3 11.2C3 8.4 5.2 6.8 8 6.8h2.6c1.8 0 3.1.9 3.8 2.2l5.4.3 1-3.2h1.9l-.5 5-7.4.6c-.4 2-2 3.1-4.4 3.1H7c-2.4 0-4-1.5-4-3.6zM4.8 10.6c.3-1.4 1.5-2.2 3.2-2.2h1.2v2.8H5.1c-.2 0-.3-.2-.3-.6z\"/><rect x=\"2.6\" y=\"3\" width=\"15.4\" height=\"1.9\" rx=\".95\" fill=\"currentColor\" stroke=\"none\"/><rect x=\"8.8\" y=\"4\" width=\"2\" height=\"3.4\" fill=\"currentColor\" stroke=\"none\"/></g><path d=\"M1.9 18.9q2.52-2.3 5.05 0t5.05 0 5.05 0 5.05 0M1.9 21.9q2.52-2.3 5.05 0t5.05 0 5.05 0 5.05 0\" stroke-width=\"1.8\"/>"
  },
  "cp-bremen": {
-  "object": "tugboat",
+  "object": "tilted offshore drilling rig listing in waves",
   "hook": "A drilling rig wrecked under tow",
-  "svg": "<path d=\"M2.500 13.500h10.500l8.500-2.500-2 8.500H5Z\"/><rect x=\"6.500\" y=\"8\" width=\"6.500\" height=\"5.500\"/><path d=\"M14.500 13V6h3v6\"/><circle cx=\"17.500\" cy=\"3.200\" r=\"1\" fill=\"currentColor\"/><circle cx=\"8\" cy=\"16.500\" r=\"1.300\"/><circle cx=\"12\" cy=\"16.500\" r=\"1.300\"/><circle cx=\"16\" cy=\"16.500\" r=\"1.300\"/>"
+  "svg": "<g stroke=\"none\" fill=\"currentColor\"><g transform=\"rotate(12 12 11)\"><path d=\"M4.2 5.5h2.2v16H4.2zM17.6 5.5h2.2v14h-2.2zM2.8 11.3h18.4v3.6H2.8z\"/><path fill-rule=\"evenodd\" d=\"M10.5 1.4h3v1.1h-.5L15.6 11.5H8.4L11 2.5h-.5zM11.5 3.5l-.4 1.5h1.8l-.4-1.5zM10.8 6l-.5 1.7h3.4L13.2 6zM10 8.7l-.5 1.9h5L14 8.7z\"/></g><path d=\"M1 19.6c1.8-1.2 3.7-1.2 5.5 0s3.7 1.2 5.5 0 3.7-1.2 5.5 0 3.7 1.2 5.5 0v2c-1.8 1.2-3.7 1.2-5.5 0s-3.7-1.2-5.5 0-3.7 1.2-5.5 0-3.7-1.2-5.5 0z\"/></g>"
  },
  "cp-briseno": {
   "object": "tilted oil jug pouring one large drop",
@@ -180,9 +180,9 @@
   "svg": "<g transform=\"rotate(-45 12 12)\"><rect x=\"2.5\" y=\"7.5\" width=\"19\" height=\"9\" rx=\"4.5\"/><path d=\"M12 7.5h5a4.5 4.5 0 0 1 0 9h-5Z\" fill=\"currentColor\"/></g>"
  },
  "cp-burnham": {
-  "object": "Golden Gate Bridge",
+  "object": "golden Gate suspension bridge over water",
   "hook": "Served after a San Francisco weekend",
-  "svg": "<path d=\"M7 3.5V21M17 3.5V21\" stroke-width=\"2\"/><path d=\"M2.5 15h19\"/><path d=\"M2.5 12Q5 10 7 4.5Q12 17 17 4.5Q19 10 21.5 12\"/><path d=\"M10 11v4M12 12.5V15M14 11v4\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4 1.8h3.4v18.4h-3.4zM5 4v2.2h1.4V4zM5 7.4v2.2h1.4V7.4zM5 10.8v2.2h1.4v-2.2zM5 16.8v2.2h1.4v-2.2zM16.6 1.8h3.4v18.4h-3.4zM17.6 4v2.2h1.4V4zM17.6 7.4v2.2h1.4V7.4zM17.6 10.8v2.2h1.4v-2.2zM17.6 16.8v2.2h1.4v-2.2z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M1 13.8h22v2H1z\"/><path stroke-width=\"1.5\" d=\"M1.6 21.6q1.73-1.5 3.47 0t3.47 0 3.46 0 3.47 0 3.47 0 3.46 0\"/><path stroke-width=\"1.5\" d=\"M7 3Q12 22.4 17 3M4.4 3Q3.2 9 1.6 12.8M19.6 3Q20.8 9 22.4 12.8\"/>"
  },
  "cp-byrd": {
   "object": "bird perched on a sagging power line",
@@ -195,9 +195,9 @@
   "svg": "<path fill-rule=\"evenodd\" fill=\"currentColor\" stroke=\"none\" d=\"M1.5 2.5h16v19h-16zM3.5 4.5h12v3.2h-12zM9.5 8.6l1.12 3.06 3.26.12-2.56 2.02.89 3.14-2.71-1.82-2.71 1.82.89-3.14-2.56-2.02 3.26-.12zM3.5 18.3h12v1.4h-12z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18.7 6h3.8v13a2.5 2.5 0 0 1-2.5 2.5h-1.3z\"/>"
  },
  "cp-capron": {
-  "object": "quill pen in inkwell",
+  "object": "solid feather quill standing in squat inkwell",
   "hook": "The loser who threw out his own lawsuit",
-  "svg": "<path d=\"M4 15h10v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z\"/><path d=\"M9 15l3.5-6C12.5 5.5 16 3 21 3c0 5-2.5 8.5-6 8.5L11.5 15\"/><path d=\"M12.5 11.5l5-5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M21.8 1.5C17 1.6 13 3.6 11.3 6.6L13.6 7.6 10.5 8.3C9.7 10 9.4 11.6 9.6 13.2L7.4 15.5 8.6 16.6 10.9 14.3C12.4 14.5 13.8 14.2 15.2 13.5L15.3 11.2 16.9 12.4C18.2 11.4 19.3 10.2 20.1 8.8L18.3 7.9 20.8 7.3C21.6 5.5 22 3.6 21.8 1.5ZM20.5 3.1L11.6 11.6 12.3 12.3Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M4.8 15.6h5.6v1.5h-.8v1c2.3.4 4 1.3 4 2.8V21a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1.6 21v-.1c0-1.5 1.7-2.4 4-2.8v-1h-.8z\"/>"
  },
  "cp-celotex": {
   "object": "empty witness chair",
@@ -210,9 +210,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3 4.5h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2zM3.5 7.1v2h9.3v-2zM4.6 17.18L5.65 14.1L7.38 17.9L9.17 14.4L10.57 17.56L13.87 15.65L13.13 14.35L11.23 15.44L9.23 11.4L7.42 14.9L5.55 11.1L3.2 16.62zM15 9.9h2c0-.6.5-1 1.1-1 .6 0 1.1.4 1.1 1 0 .5-.3.8-.9 1.3-.8.6-1.4 1.3-1.4 2.6h2c0-.6.3-.9.9-1.4.8-.6 1.4-1.3 1.4-2.6 0-1.6-1.3-2.8-3.1-2.8S15 8.2 15 9.9zM18.2 15a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z\"/>"
  },
  "cp-cohen-beneficial": {
-  "object": "pie with one thin slice",
+  "object": "solid pie chart, thin slice pulled out",
   "hook": "A tiny shareholder told to post security",
-  "svg": "<path d=\"M3 13a9 6.5 0 0 1 18 0\"/><path d=\"M2.5 13h19l-2 5.5h-15Z\"/><path d=\"M4.5 13q1.2 2.2 2.5 0q1.2 2.2 2.5 0q1.2 2.2 2.5 0q1.2 2.2 2.5 0q1.2 2.2 2.5 0q1.2 2.2 2.5 0\"/><polygon points=\"12,6.5 10.8,13 13.2,13\" fill=\"currentColor\"/><path d=\"M7.5 9.5l1 1.2M16.5 9.5l-1 1.2\"/>"
+  "svg": "<path d=\"M10.8 13.2 L18.95 7.7 A9 9 0 1 1 16.3 5.05 Z M13.95 10.05 L18.98 2.59 A9 9 0 0 1 21.41 5.02 Z\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\"/>"
  },
  "cp-concepcion": {
   "object": "solid globe with four tapering stripes",
@@ -225,14 +225,14 @@
   "svg": "<path d=\"M7 9V7.5a5 5 0 0 1 10 0V9\"/><path d=\"M7.5 9h9M9 9c-2.5 3-2.5 6 0 9M15 9c2.5 3 2.5 6 0 9\"/><path d=\"M7 18h10v3H7Z\"/><path d=\"M12 11c1.800 1.800 1.800 3.800 0 4.5-1.800-.7-1.800-2.700 0-4.5Z\" fill=\"currentColor\"/>"
  },
  "cp-cooper": {
-  "object": "ladder with broken rung",
+  "object": "solid tapered ladder with snapped drooping rung",
   "hook": "A class loss that left promotions open",
-  "svg": "<path d=\"M7 3v18M17 3v18\"/><path d=\"M7 6.5h10M7 16h10M7 20h10\"/><path d=\"M7 10.5l3.5 2.5M17 10.5l-3 1\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M6.6 1.5H9L7.9 22.5H5.5zM15 1.5h2.4l1.1 21h-2.4z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M8 3.4h8v2H8zM7.5 14.8h9v2h-9zM7.2 19h9.6v2H7.2z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M8 7.9l3.1 1.9-.9.6.8.7-.7.9L7.9 10.2zM16 7.9l-3.1 1.9.9.6-.8.7.7.9 2.4-1.8z\"/>"
  },
  "cp-cross": {
-  "object": "pet dog on leash",
+  "object": "solid show-clipped poodle on a leash",
   "hook": "A professor and his dog deduct Paris",
-  "svg": "<path d=\"M5.5 21v-6.5a2 2 0 0 1 2-2h7V8a2 2 0 0 1 2-2h2l3 3v1.5H18V21h-2.5v-4h-7v4Z\"/><path d=\"M5.7 13L3.5 10\"/><path d=\"M15.5 6.8l-1.3 2.7\" stroke-width=\"2.2\"/><circle cx=\"18.3\" cy=\"8.4\" r=\".8\" fill=\"currentColor\"/><path d=\"M14 11.5C11 10 9.5 8 8.6 5.6\"/><circle cx=\"7.8\" cy=\"4\" r=\"1.7\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><circle cx=\"17.4\" cy=\"4.3\" r=\"2.6\"/><path d=\"M15.6 4.5 22.2 6.9Q22.9 8.2 21.6 8.6L15.6 9.4Z\"/><ellipse cx=\"14.7\" cy=\"8\" rx=\"1.6\" ry=\"3\"/><circle cx=\"13.2\" cy=\"14.2\" r=\"3.4\"/><circle cx=\"6.3\" cy=\"14.4\" r=\"2.4\"/><circle cx=\"3.4\" cy=\"7.2\" r=\"1.8\"/><circle cx=\"13.6\" cy=\"19.7\" r=\"1.8\"/><circle cx=\"6\" cy=\"19.7\" r=\"1.8\"/></g><path d=\"M13 14.2H6.5\" stroke-width=\"2.8\"/><path d=\"M16.2 9 14.2 12.5\" stroke-width=\"2.4\"/><path d=\"M5.6 13 3.7 8\" stroke-width=\"1.3\"/><path d=\"M12.4 11.6 6.9 2\" stroke-width=\"1.1\"/><path d=\"M13.6 16v5.9M6 15v6.9\" stroke-width=\"1.7\"/>"
  },
  "cp-daimler": {
   "object": "mercedes-Benz three-pointed star in ring",
@@ -265,9 +265,9 @@
   "svg": "<path d=\"M2.5 11.5c3-4 5-5.5 7-5.5 1.3 0 2.5 1.2 2.5 1.2S13.2 6 14.5 6c2 0 4 1.5 7 5.5-3 4.5-6 6.5-9.5 6.5s-6.5-2-9.5-6.5Z\"/><path d=\"M5 11.5h11\"/><path d=\"M6.5 10v3M9 10v3M11.5 10v3M14 10v3\"/><rect x=\"15.5\" y=\"9.8\" width=\"3.4\" height=\"3.4\" rx=\".8\" fill=\"currentColor\"/><rect x=\"15.9\" y=\"14.5\" width=\"2.6\" height=\"6\" rx=\"1.3\"/>"
  },
  "cp-eisen": {
-  "object": "stock ticker tape machine",
+  "object": "stack of three mailed envelopes",
   "hook": "Two million notices, one small stake",
-  "svg": "<path d=\"M3.500 16V9.500a4.500 4.500 0 0 1 9 0V16\"/><rect x=\"2\" y=\"16\" width=\"12\" height=\"4.500\" rx=\"1\"/><circle cx=\"8\" cy=\"10\" r=\"1.800\"/><path d=\"M12.500 8h5a4 4 0 0 1 4 4v9l-1.750-1.500L18 21v-9a.5.5 0 0 0-.5-.5h-5\"/><path d=\"M19.750 13.500v.01M19.750 16.500v.01\" stroke-width=\"1.700\"/>"
+  "svg": "<g transform=\"translate(-.1 -1.15)\" fill=\"currentColor\" stroke=\"none\"><path d=\"M7.5 4.3h13.7a1.5 1.5 0 0 1 1.5 1.5V16h-2V6.3H7.5zM4.5 7.4h13.6a1.5 1.5 0 0 1 1.5 1.5V19h-2V9.4H4.5z\"/><path fill-rule=\"evenodd\" d=\"M3 10.5h12a1.5 1.5 0 0 1 1.5 1.5v8.5A1.5 1.5 0 0 1 15 22H3a1.5 1.5 0 0 1-1.5-1.5V12A1.5 1.5 0 0 1 3 10.5zM2.9 11.9v1.9L9 18.7l6.1-4.9v-1.9L9 16.8z\"/></g>"
  },
  "cp-ellis-canning": {
   "object": "tractor on fire",
@@ -275,9 +275,9 @@
   "svg": "<circle cx=\"7.5\" cy=\"16.5\" r=\"4.5\"/><circle cx=\"7.5\" cy=\"16.5\" r=\"1\" fill=\"currentColor\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/><path d=\"M4.5 12.5V6.5h6V12\"/><path d=\"M11 11.5h9.5v4.5M12.5 17.5H16\"/><path d=\"M16.5 9c-2.2 0-3.2-1.8-2-3.5.5.8 1.1.7 1.3 0 .3-1.1.5-2 1.7-3 .2 1.7 2.5 2.5 2.5 4.3 0 1.3-1.5 2.2-3.5 2.2z\"/>"
  },
  "cp-erie-decision": {
-  "object": "steam locomotive",
+  "object": "solid side-profile steam locomotive with smoke",
   "hook": "A walker by the tracks hit by a train",
-  "svg": "<rect x=\"3\" y=\"5.5\" width=\"6.5\" height=\"10.5\"/><rect x=\"5\" y=\"7.8\" width=\"2.6\" height=\"2.8\"/><path d=\"M9.5 10h9v6h-9\"/><path d=\"M13.5 10V6.5h3.5V10\"/><path d=\"M18.5 16l3 3.5h-3\"/><circle cx=\"6.3\" cy=\"18.2\" r=\"2.8\"/><circle cx=\"12.3\" cy=\"19\" r=\"2\"/><circle cx=\"16.8\" cy=\"19\" r=\"2\"/><circle cx=\"19\" cy=\"3.8\" r=\"1.3\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\"><path d=\"M1.5 6h7.6v1.5h-.6V9h2.1v-.6a1.3 1.3 0 0 1 2.6 0V9h2.2V5.6h-.6V4h4v1.6h-.6V9h.3a2.7 2.7 0 0 1 2.7 2.7v2.6l1.8 5.6h-3.8v-5.6H2.2V7.5h-.7zM3.6 8.5v3h3.2v-3z\"/><path d=\"M5.4 15a2.8 2.8 0 1 0 .01 0zm0 1.8a1 1 0 1 1-.01 0zM11.8 15a2.8 2.8 0 1 0 .01 0zm0 1.8a1 1 0 1 1-.01 0zM16.9 17.4a1.6 1.6 0 1 0 .01 0z\"/><rect x=\"1\" y=\"20.6\" width=\"22\" height=\"1.1\"/><circle cx=\"12.5\" cy=\"3.2\" r=\"1.7\"/><circle cx=\"9.9\" cy=\"2.9\" r=\"1.3\"/><circle cx=\"7.8\" cy=\"3.1\" r=\".9\"/></g>"
  },
  "cp-exxon": {
   "object": "exxon sign with interlocked double-x wordmark",
@@ -290,9 +290,9 @@
   "svg": "<path d=\"M21.2 1.4V22.6\" stroke-width=\"1.9\"/><path d=\"M19.3 2.5H22.4M19.3 8.2H22.4\" stroke-width=\"1.6\"/><path d=\"M1.3 1.5 Q10 4.5 19.6 2.5 M1.3 5.2 Q5.4 7.5 9.6 8.1 M16.4 8.5 Q18 8.7 19.6 8.2\" stroke-width=\"1.5\"/><g transform=\"translate(10.4 12.0) rotate(36) scale(0.88)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M0 0C1.1 0 1.6 .8 1.6 1.7V3.1L7.5 3.7C8.1 3.76 8.4 4.1 8.4 4.6V5.2C8.4 5.7 8.1 6 7.5 6.05L1.5 6.7 .75 10.5 3 10.75C3.4 10.8 3.6 11.05 3.6 11.45V11.9C3.6 12.3 3.4 12.5 3 12.5H-3C-3.4 12.5-3.6 12.3-3.6 11.9V11.45C-3.6 11.05-3.4 10.8-3 10.75L-.75 10.5-1.5 6.7-7.5 6.05C-8.1 6-8.4 5.7-8.4 5.2V4.6C-8.4 4.1-8.1 3.76-7.5 3.7L-1.6 3.1V1.7C-1.6 .8-1.1 0 0 0ZM0 3.1C.7 3.1 1.05 3.5 1.05 4.1V5.3H-1.05V4.1C-1.05 3.5-.7 3.1 0 3.1Z\"/><rect x=\"-3.2\" y=\"-1.25\" width=\"6.4\" height=\"1.2\" rx=\".6\"/></g><path fill=\"currentColor\" stroke=\"none\" d=\"M13.68 5.48L13.71 7.33L15.47 6.78L14.19 8.11L15.82 8.98L13.97 9.01L14.52 10.77L13.19 9.49L12.32 11.12L12.29 9.27L10.53 9.82L11.81 8.49L10.18 7.62L12.03 7.59L11.48 5.83L12.81 7.11Z\"/>"
  },
  "cp-fuentes": {
-  "object": "gas stove",
+  "object": "solid gas range with two burner flames",
   "hook": "A stove seized before any hearing",
-  "svg": "<rect x=\"4\" y=\"8.5\" width=\"16\" height=\"13\" rx=\"1\"/><rect x=\"7\" y=\"13.5\" width=\"10\" height=\"5.5\" rx=\".8\"/><circle cx=\"7.5\" cy=\"11\" r=\".8\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"11\" r=\".8\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"11\" r=\".8\" fill=\"currentColor\"/><path d=\"M8 6.5c-1.5-1.5 0-2.5 0-4 1.5 1.5 1.5 2.5 0 4ZM16 6.5c-1.5-1.5 0-2.5 0-4 1.5 1.5 1.5 2.5 0 4Z\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2.5 7.2h2V6h6v1.2h3V6h6v1.2h2v1.5h-1V22h-2.2v1h-2.6v-1H8.3v1H5.7v-1H3.5V8.7h-1zM8 12.8h8v1H8zM6.5 15.3h11a.5.5 0 0 1 .5.5v3.9a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-3.9a.5.5 0 0 1 .5-.5zM6.05 10.5a.85.85 0 1 0 1.7 0a.85.85 0 1 0-1.7 0zM9.75 10.5a.85.85 0 1 0 1.7 0a.85.85 0 1 0-1.7 0zM13.45 10.5a.85.85 0 1 0 1.7 0a.85.85 0 1 0-1.7 0zM17.15 10.5a.85.85 0 1 0 1.7 0a.85.85 0 1 0-1.7 0z\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M7.5 1c1.6 1.5 2.2 2.4 2.2 3.3a2.2 2.2 0 0 1-4.4 0c0-.9.6-1.8 2.2-3.3zM7.5 3.3c-.7.7-.9 1.1-.9 1.5a.9.9 0 0 0 1.8 0c0-.4-.2-.8-.9-1.5zM16.5 1c1.6 1.5 2.2 2.4 2.2 3.3a2.2 2.2 0 0 1-4.4 0c0-.9.6-1.8 2.2-3.3zM16.5 3.3c-.7.7-.9 1.1-.9 1.5a.9.9 0 0 0 1.8 0c0-.4-.2-.8-.9-1.5z\"/>"
  },
  "cp-garcia": {
   "object": "hilton swirl-H emblem in open ring",
@@ -300,9 +300,9 @@
   "svg": "<path fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"butt\" d=\"M6.28 12.2A3.1 3.1 0 0 0 3.6 16.85A9.7 9.7 0 1 0 8.68 2.88\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M5.88 11.4H6.28C10.78 11.4 14.6 9.55 19.6 9.55L19.6 10.65C14.6 10.65 10.78 13 6.28 13H5.88ZM9.28 1.86A10.5 10.5 0 0 0 1.66 10.18A12.38 12.38 0 0 1 9.7 3.4ZM7.3 5.5H10.7V18.5H7.3ZM13.3 5.5H16.7V18.5H13.3Z\"/>"
  },
  "cp-gasperini": {
-  "object": "35mm photo slide",
+  "object": "solid 35mm slide mount with landscape window",
   "hook": "Lost slides and a generous jury",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2.5\"/><rect x=\"6.5\" y=\"8\" width=\"11\" height=\"8\" rx=\"0.5\"/><path d=\"M6.5 15l3-3 2 2 2.5-3 3.5 4\"/><circle cx=\"12\" cy=\"5.5\" r=\"0.9\" fill=\"currentColor\"/><path d=\"M8 18.700h8\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.5 2h15A2.5 2.5 0 0 1 22 4.5v15a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 19.5v-15A2.5 2.5 0 0 1 4.5 2ZM5 7.9v8.2a.6.6 0 0 0 .6.6h12.8a.6.6 0 0 0 .6-.6V7.9a.6.6 0 0 0-.6-.6H5.6a.6.6 0 0 0-.6.6ZM5 3.9v1.3h7v-1.3ZM4.6 19.4a1 1 0 1 0 2 0a1 1 0 1 0-2 0Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M5.3 16.7l4.2-5.5 2.9 3.6 2-2.3 3.6 4.2Z\"/><circle cx=\"15.6\" cy=\"9.7\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "cp-gibbs": {
   "object": "round union seal with crossed pick and shovel",
@@ -325,9 +325,9 @@
   "svg": "<path d=\"M2.5 6.5H21V10h-3.5c-1.5 0-2.5 1.5-2.5 3v2h2.5l1.5 4.5H6.5L8 15h2.5v-2c0-2-2-3-4.500-3.500C4.500 9.200 3 8 2.500 6.500Z\"/>"
  },
  "cp-gray": {
-  "object": "exploding water heater",
+  "object": "water heater tank bursting at the side",
   "hook": "A water heater that exploded in Illinois",
-  "svg": "<rect x=\"4\" y=\"6\" width=\"10\" height=\"14\" rx=\"2.5\"/><path d=\"M7 6V2.5M11 6V2.5M6 20v2M12 20v2M4 10h10\"/><circle cx=\"9\" cy=\"15\" r=\"1.6\"/><path d=\"M14 13.5l3.5-.5-1-3 3 1.5 1.5-2.5.5 3.5 1 2-2.5 1 .5 3-3-1.5-1 1.5-.5-2.5Z\" fill=\"currentColor\" stroke-width=\"0.8\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2.6 8.5C2.6 5.6 4.2 4.6 7.6 4.6S12.6 5.6 12.6 8.5L11 9.2L12.2 10.4L9.6 11.6L12.2 13L11 14.2L12.6 15.2V19.5Q12.6 20.6 11.5 20.6V22.5H10.0V20.6H5.2V22.5H3.7V20.6Q2.6 20.6 2.6 19.5ZM4.8 15.6H9V18.8H4.8Z\"/><path fill=\"none\" stroke-width=\"1.5\" stroke-linecap=\"butt\" d=\"M5.4 5V1.8M9.8 5V2.6H13.6\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M11.20 11.60L14.66 10.47L13.38 7.07L16.42 9.07L18.29 5.95L18.62 9.57L22.23 9.08L19.60 11.60L22.23 14.12L18.62 13.63L18.29 17.25L16.42 14.13L13.38 16.13L14.66 12.73Z\"/><circle cx=\"6.9\" cy=\"17.2\" r=\".8\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M20.5 3.2l2 .3-1.3 1.6zM20.6 19l1.9 1-2.1.7zM15.2 19.4l1.3 1.6-1.9.2z\"/>"
  },
  "cp-gunn": {
   "object": "light bulb",
@@ -370,9 +370,9 @@
   "svg": "<path d=\"M5.5 20.5C1.5 14 4 3.5 12 3.5s10.5 10.5 6.5 17h-4c3-5 2-12-2.5-12s-5.5 7-2.5 12Z\"/><circle cx=\"5.800\" cy=\"13.5\" r=\".9\" fill=\"currentColor\"/><circle cx=\"7.600\" cy=\"8\" r=\".9\" fill=\"currentColor\"/><circle cx=\"16.400\" cy=\"8\" r=\".9\" fill=\"currentColor\"/><circle cx=\"18.200\" cy=\"13.5\" r=\".9\" fill=\"currentColor\"/>"
  },
  "cp-helicopteros": {
-  "object": "helicopter",
+  "object": "solid side-on helicopter with skids",
   "hook": "A Texas-bought helicopter down in Peru",
-  "svg": "<path d=\"M4 4.500h17M12.500 4.500V8\"/><path d=\"M9 8h4a5 5 0 0 1 5 5v1a2 2 0 0 1-2 2h-4a3 3 0 0 1-3-3Z\"/><path d=\"M9 10.500H3M3 7.500v5.500\"/><path d=\"M13.500 8v4H18\"/><path d=\"M7 20h12M10.500 16v4M15 16v4\"/>"
+  "svg": "<rect x=\"1.4\" y=\"3.6\" width=\"19.6\" height=\"1.4\" rx=\".7\" fill=\"currentColor\" stroke=\"none\"/><rect x=\"10.2\" y=\"4.3\" width=\"2\" height=\"3.6\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M9 7.4H13.2C15.2 7.4 16.2 8.7 17.8 9.1L21 9.5L21.3 6H22.6V13.4H21.7L20.9 11.6L16.9 12.5C16.4 15.3 14.7 17.2 12 17.2H6.2C3.6 17.2 2 15.6 2 13.5C2 10.1 5.2 7.4 9 7.4ZM3.8 12.8C4.2 10.6 6.4 9 9.4 9H11.6V12.8Z\"/><path stroke-width=\"1.4\" d=\"M2.8 19.6Q3.4 20.8 4.8 20.8H16.4M7.4 17.2L6.8 20.8M11.4 17.2L12 20.8\"/>"
  },
  "cp-hess": {
   "object": "steering wheel",
@@ -380,9 +380,9 @@
   "svg": "<circle cx=\"12\" cy=\"12\" r=\"9.5\"/><circle cx=\"12\" cy=\"12\" r=\"2.6\"/><path d=\"M9.5 11.3L2.8 10M14.5 11.3L21.2 10M12 14.6v6.9\"/>"
  },
  "cp-heyward": {
-  "object": "excavator digger",
+  "object": "solid tracked excavator with toothed bucket",
   "hook": "One excavator, two tangled job sites",
-  "svg": "<rect x=\"2.5\" y=\"17\" width=\"12\" height=\"4\" rx=\"2\"/><path d=\"M4.5 17v-6h4l2.5 3v3\"/><path d=\"M10 12l6-8.5 4.5 7\"/><path d=\"M21.5 10.5v5h-5l2-2.5Z\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.75 18h9.5a2.25 2.25 0 0 1 0 4.5h-9.5a2.25 2.25 0 0 1 0-4.5zM4 19.3a.95.95 0 1 0 0 1.9a.95.95 0 1 0 0-1.9zM8.5 19.3a.95.95 0 1 0 0 1.9a.95.95 0 1 0 0-1.9zM13 19.3a.95.95 0 1 0 0 1.9a.95.95 0 1 0 0-1.9zM1.5 16.2V12.7a1 1 0 0 1 1-1H5.6V8.6a1 1 0 0 1 1-1h3a1 1 0 0 1 .93.63L12 11.7h1a1 1 0 0 1 1 1v3.5a.8.8 0 0 1-.8.8H2.3a.8.8 0 0 1-.8-.8zM7.2 9.2v2.9h3.3L9.4 9.2z\"/><path d=\"M12.6 13.6L13.4 7 17.2 3.4\" stroke-width=\"2.8\"/><path d=\"M17.2 3.4l3.4 7\" stroke-width=\"2.1\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18.6 9.6l4 .8q1 5.4-3.6 6.6l-.5-1.3-1.2.9-.3-1.4-1.6.4q3.4-1.6 3.2-6z\"/>"
  },
  "cp-hoffman": {
   "object": "striped road barricade",
@@ -420,14 +420,14 @@
   "svg": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"17\" rx=\"2\"/><rect x=\"9\" y=\"2.5\" width=\"6\" height=\"3.5\" rx=\"1\" fill=\"currentColor\"/><path d=\"M8 10.5l1.2 1.2 2-2.2M14 10.5h2.5M8 16l1.2 1.2 2-2.2M14 16h2.5\"/>"
  },
  "cp-keeton": {
-  "object": "glossy magazine",
+  "object": "tilted magazine cover with curling page corner",
   "hook": "A libel suit filed where time remained",
-  "svg": "<rect x=\"3.500\" y=\"2.500\" width=\"14\" height=\"18\" rx=\"1\"/><path d=\"M20.500 5.500v16H7\"/><path d=\"M6.500 6h8\" stroke-width=\"2.200\"/><circle cx=\"10.500\" cy=\"11.500\" r=\"2.200\"/><path d=\"M6.500 20.500v-1a4 4 0 0 1 8 0v1\"/>"
+  "svg": "<g transform=\"translate(-.7 -.3) rotate(-6 12 12)\"><path d=\"M21.2 5v17H7.5\" stroke-width=\"1.3\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.5 2h13a1 1 0 0 1 1 1V13.6Q13.4 13 12.3 14.1Q11.2 15.2 11.8 21H4.5a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM5.4 3.8v3.5h11.2V3.8zM5.4 9.3v1.6h7V9.3zM5.4 12.1v1.6h4.6v-1.6zM5.4 16.6v2.4h1.1v-2.4zM7.2 16.6v2.4h.6v-2.4zM8.5 16.6v2.4h1.1v-2.4z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18.3 14.8L13 20.4Q12.5 16.4 13.2 15.4Q14.2 14.4 18.3 14.8z\"/></g>"
  },
  "cp-kegerise": {
-  "object": "chalkboard",
+  "object": "solid chalkboard with ABC, chalk tray",
   "hook": "A fired superintendent, an evasive answer",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"12.5\" rx=\"1.5\"/><path d=\"M6 7.500c1.5-2 3 2 4.500 0s3 2 4.500 0\"/><path d=\"M6 11.500h4\"/><path d=\"M7.5 15.500l-2 6M16.5 15.500l2 6\"/><rect x=\"13.5\" y=\"10.8\" width=\"4.5\" height=\"2\" fill=\"currentColor\"/>"
+  "svg": "<g transform=\"translate(0 .7)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M1.6 3h20.8a.6.6 0 0 1 .6.6v11.3a.6.6 0 0 1-.6.6H1.6a.6.6 0 0 1-.6-.6V3.6a.6.6 0 0 1 .6-.6zM2.8 12.75L5.2 5.75H7l2.4 7H7.8l-.45-1.5h-2.5l-.45 1.5zM5.45 9.9h1.3L6.1 7.7zM10.2 5.75h2.4a1.75 1.75 0 0 1 1.1 3.3a2 2 0 0 1-1.1 3.7h-2.4zM11.7 7.05v1.5h.7a.75.75 0 0 0 0-1.5zM11.7 9.85v1.6h.8a.8.8 0 0 0 0-1.6zM20.97 6.78A3.5 3.5 0 1 0 20.97 11.72L19.98 10.73A2.1 2.1 0 1 1 19.98 7.77z\"/><path d=\"M1 18.7h3.2v-1.6a.4.4 0 0 1 .4-.4h5a.4.4 0 0 1 .4.4v1.6h4.4v-.5a.4.4 0 0 1 .4-.4h4.6a.4.4 0 0 1 .4.4v.5H23v1.1a.5.5 0 0 1-.5.5h-21a.5.5 0 0 1-.5-.5z\"/></g>"
  },
  "cp-kroger": {
   "object": "truck crane boom touching power line",
@@ -440,14 +440,14 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.6 1.5h10.2l2 10.3H5.4zM13.6 3.7a4 4 0 1 0 0 5.7l-1.5-1.5a1.9 1.9 0 1 1 0-2.7z\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2.6 12.9h16.6l-1.3 2.5H23l-3.6 5.6a2.4 2.4 0 0 1-2 1.1H4.4a2 2 0 0 1-1.9-1.3L1 15.4h1.6zM4.3 16.5v2.3h2.5v-2.3zM8.5 16.5v2.3H11v-2.3zM12.7 16.5v2.3h2.5v-2.3z\"/>"
  },
  "cp-kulko": {
-  "object": "teddy bear",
+  "object": "solid seated teddy bear, front view",
   "hook": "A father let his children go west",
-  "svg": "<circle cx=\"12\" cy=\"8.5\" r=\"4.5\"/><circle cx=\"7.3\" cy=\"4.5\" r=\"1.8\"/><circle cx=\"16.7\" cy=\"4.5\" r=\"1.8\"/><ellipse cx=\"12\" cy=\"17.3\" rx=\"5\" ry=\"4.3\"/><path d=\"M7.5 15l-3.5-2M16.5 15l3.5-2\"/><circle cx=\"10.3\" cy=\"7.8\" r=\".8\" fill=\"currentColor\"/><circle cx=\"13.7\" cy=\"7.8\" r=\".8\" fill=\"currentColor\"/><path d=\"M11.2 10.3h1.6\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.9a5.8 5.8 0 0 1 3.3 1 2.6 2.6 0 1 1 3.1 3.9 5.8 5.8 0 0 1-1.6 5 6 6 0 0 1 1.3 1.7l2.1-1.2a2 2 0 0 1 2 3.5l-3.4 1.9a2.8 2.8 0 1 1-4.4 3.1 6 6 0 0 1-4.8 0 2.8 2.8 0 1 1-4.4-3.1l-3.4-1.9a2 2 0 0 1 2-3.5l2.1 1.2a6 6 0 0 1 1.3-1.7 5.8 5.8 0 0 1-1.6-5 2.6 2.6 0 1 1 3.1-3.9 5.8 5.8 0 0 1 3.3-1zM12 7.5a2.6 2.1 0 1 0 0 4.2 2.6 2.1 0 1 0 0-4.2zM9.6 5.5a.9.9 0 1 0 0 1.8.9.9 0 1 0 0-1.8zM14.4 5.5a.9.9 0 1 0 0 1.8.9.9 0 1 0 0-1.8zM6.96 18.6a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 1 0 0-2.5zM17.04 18.6a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 1 0 0-2.5z\"/><ellipse cx=\"12\" cy=\"9\" rx=\"1.15\" ry=\".8\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "cp-lacks": {
-  "object": "wedding cake topper",
+  "object": "solid heart split by jagged crack",
   "hook": "A divorce attacked after it was final",
-  "svg": "<circle cx=\"8\" cy=\"5\" r=\"2\"/><circle cx=\"16\" cy=\"5\" r=\"2\"/><path d=\"M6 15v-4.5a2 2 0 0 1 4 0V15\"/><path d=\"M16 8.5l3 6.5h-6Z\"/><rect x=\"3\" y=\"15\" width=\"18\" height=\"6\" rx=\"1.5\"/><path d=\"M3 16.5a2.25 2 0 0 0 4.5 0a2.25 2 0 0 0 4.5 0a2.25 2 0 0 0 4.5 0a2.25 2 0 0 0 4.5 0\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\" transform=\"translate(1.2 1.3) scale(.9)\"><path transform=\"rotate(-7 12 21) translate(-.3 0)\" d=\"M12 6L10.3 9.5L13 12.5L10.8 16L12 21C5.5 16 2 11.5 2 7.5A5 5 0 0 1 12 6Z\"/><path transform=\"rotate(7 12 21) translate(.3 0)\" d=\"M12 6A5 5 0 0 1 22 7.5C22 11.5 18.5 16 12 21L10.8 16L13 12.5L10.3 9.5Z\"/></g>"
  },
  "cp-lasa": {
   "object": "marble column",
@@ -455,9 +455,9 @@
   "svg": "<circle cx=\"5.5\" cy=\"6\" r=\"2.300\"/><circle cx=\"18.5\" cy=\"6\" r=\"2.300\"/><path d=\"M5.5 3.700h13M8 9h8\"/><path d=\"M8.5 9v9M12 9v9M15.5 9v9\"/><path d=\"M5 18h14v3H5Z\"/>"
  },
  "cp-lexecon": {
-  "object": "boomerang",
+  "object": "solid striped boomerang with curved return arrow",
   "hook": "An MDL case must fly back home for trial",
-  "svg": "<path d=\"M10.600 4.200a2 2 0 0 1 2.800 0l7.800 8.600a2.300 2.300 0 0 1-3.200 3.200L12 10.500 6 16a2.300 2.300 0 0 1-3.200-3.200z\"/><path d=\"M7.500 9.200l2 2M16.500 9.200l-2 2\"/><path d=\"M6.500 19a9 9 0 0 0 11 0\"/><path d=\"M17.500 19l-2.500-.1M17.500 19l-.6 2.400\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path transform=\"translate(8.4,4) rotate(8)\" d=\"M0,-2.4 L8.2,-1.75 L8.2,1.75 L0,2.4 A2.4 2.4 0 0 1 0,-2.4Z M9.4,-1.65 L11.4,-1.5 A1.5 1.5 0 0 1 11.4,1.5 L9.4,1.65Z\"/><path transform=\"translate(8.4,4) rotate(118)\" d=\"M0,-2.4 L8.2,-1.75 L8.2,1.75 L0,2.4 A2.4 2.4 0 0 1 0,-2.4Z M9.4,-1.65 L11.4,-1.5 A1.5 1.5 0 0 1 11.4,1.5 L9.4,1.65Z\"/><polygon points=\"8.8,19.6 12.8,16.7 12.8,22.5\"/></g><path d=\"M20.8,11 A8.6 8.6 0 0 1 12.4,19.6\" stroke-width=\"2.1\"/>"
  },
  "cp-livingston": {
   "object": "monticello: low dome over four-column pedimented portico",
@@ -470,9 +470,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12.2 5.1L11.6 1.5l2.6 2.1 1-2.3 1.7 3.7c1.4.8 2.5 2 3.2 3.5l2.6 5c.6 1.2 0 2.6-1.3 2.9l-1.6.4c-.8.2-1.6-.1-2.1-.8l-1.9-2.7c-1 .5-2.1.6-3.1.3.6 3.4 2 6.2 4.3 9H6.6c-.2-1-.3-1.9-.3-2.9H1.6l.7-2.3h4.2c.1-.6.3-1.2.5-1.8H1.2l.8-2.3h5.9c.3-.6.6-1.2 1-1.8H2.6l1-2.3h6.9c.5-.7 1.1-1.3 1.7-1.8H5.4l1.3-2.3zM16.4 7.5a1.1 1.1 0 100 2.2 1.1 1.1 0 000-2.2zM20.3 13.4a.7.7 0 100 1.4.7.7 0 000-1.4z\"/>"
  },
  "cp-mas-perry": {
-  "object": "wall mirror with eye",
+  "object": "hanging framed wall mirror with peering eye",
   "hook": "A landlord's two-way mirror",
-  "svg": "<rect x=\"4\" y=\"2.5\" width=\"16\" height=\"19\" rx=\"8\"/><path d=\"M7 12c2.5-4 7.5-4 10 0-2.5 4-7.5 4-10 0Z\"/><circle cx=\"12\" cy=\"12\" r=\"1.4\" fill=\"currentColor\"/><path d=\"M8 6.5l1.5-1.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.5 5.6H20.5A1.4 1.4 0 0 1 21.9 7V21.2A1.4 1.4 0 0 1 20.5 22.6H3.5A1.4 1.4 0 0 1 2.1 21.2V7A1.4 1.4 0 0 1 3.5 5.6ZM4.6 8.1V20.1H19.4V8.1Z\"/><path d=\"M7.6 5.6L12 2.1L16.4 5.6\" stroke-width=\"1.3\"/><circle cx=\"12\" cy=\"2.1\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M6 15Q12 8.6 18 15Q12 21.4 6 15ZM12 12.8a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Z\"/><circle cx=\"12\" cy=\"15\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M6.3 11.4L8.6 9.3M9.3 11L10.9 9.5\" stroke-width=\"1.1\"/>"
  },
  "cp-matsushita": {
   "object": "heavy Z with lightning-bolt diagonal",
@@ -510,14 +510,14 @@
   "svg": "<rect x=\"2.5\" y=\"9.5\" width=\"19\" height=\"10.5\" rx=\"1.5\"/><path d=\"M11 9.5V3.5h8v6\"/><path d=\"M13.5 6.5h3\"/><rect x=\"4.5\" y=\"7\" width=\"3.5\" height=\"10.5\" rx=\"1.5\" fill=\"currentColor\"/><path d=\"M11.5 13.5h.01M15 13.5h.01M18.5 13.5h.01M11.5 17h.01M15 17h.01M18.5 17h.01\" stroke-width=\"1.8\"/>"
  },
  "cp-nicastro": {
-  "object": "guillotine metal shear",
+  "object": "open hand with four fingers sliced off",
   "hook": "An English shear that took four fingers",
-  "svg": "<path d=\"M4.5 3v18M19.5 3v18M2.5 21h4M17.5 21h4M4.5 3h15\"/><path d=\"M4.5 5h15v9L4.5 9Z\" fill=\"currentColor\"/><path d=\"M2.5 17.5h19\" stroke-width=\"2\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M8.4 8.6V4.6a1.2 1.2 0 0 1 2.4 0V9.08ZM8.4 11.2L10.8 11.68V14H8.4ZM11.45 9.21V3.2a1.2 1.2 0 0 1 2.4 0V9.69ZM11.45 11.81L13.85 12.29V14H11.45ZM14.5 9.82V4.2a1.2 1.2 0 0 1 2.4 0V10.3ZM14.5 12.42L16.9 12.9V14H14.5ZM17.55 10.43V6.6a1.2 1.2 0 0 1 2.4 0V10.91ZM17.55 13.03L19.95 13.51V14H17.55ZM8.4 13.6H19.95V18a4 4 0 0 1-4 4H12.4a4 4 0 0 1-4-4Z\"/><path d=\"M9.6 17.6L5 12.4\" stroke-width=\"2.8\"/>"
  },
  "cp-ortiz": {
-  "object": "capped jar of coins",
+  "object": "lidded jar holding a dollar coin",
   "hook": "A limited fund the parties made up",
-  "svg": "<rect x=\"7\" y=\"2.5\" width=\"10\" height=\"3.5\" rx=\"1\"/><path d=\"M8 6c-2 1-3 2.5-3 4.5V18a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-7.5C19 8.5 18 7 16 6\"/><circle cx=\"9.5\" cy=\"17\" r=\"1.9\"/><circle cx=\"14.5\" cy=\"17\" r=\"1.9\"/><circle cx=\"12\" cy=\"12.6\" r=\"1.9\"/>"
+  "svg": "<rect x=\"6\" y=\"1.5\" width=\"12\" height=\"3.6\" rx=\"1\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M7 6h10v1.1c2.6.9 4 2.7 4 5.1v7.3a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7.3c0-2.4 1.4-4.2 4-5.1zM8.7 7.6v.7c-2.6.7-4 2-4 3.9v7.3c0 .7.6 1.3 1.3 1.3h12c.7 0 1.3-.6 1.3-1.3v-7.3c0-1.9-1.4-3.2-4-3.9v-.7z\"/><circle cx=\"12\" cy=\"14.7\" r=\"4.7\" stroke-width=\"1.4\"/><path stroke-width=\"1.2\" d=\"M13.7 13.4c-.3-.7-.9-1-1.7-1-1 0-1.7.5-1.7 1.2 0 1.8 3.5.8 3.5 2.6 0 .7-.8 1.2-1.8 1.2-.8 0-1.5-.4-1.8-1M12 11.5v6.4\"/>"
  },
  "cp-panamerican": {
   "object": "colonial lantern with ring handle and flame",
@@ -525,9 +525,9 @@
   "svg": "<circle cx=\"12\" cy=\"3.4\" r=\"1.9\" stroke-width=\"1.7\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M10.5 5.1h3v1.2l7.7 3.6v1.9h-1.5l-.8 8.6h1.4v2.4H3.7v-2.4h1.4l-.8-8.6H2.8V9.9l7.7-3.6zM6.5 11.8l.8 8.6h9.4l.8-8.6zM12.4 12.4c2.1 1.9 2.8 3.1 2.8 4.4a3.2 3.2 0 0 1-6.4 0c0-1.1.5-2 1.4-2.8.2.6.6 1 1.1 1 .4-.9.5-1.7 1.1-2.6z\"/>"
  },
  "cp-pennoyer": {
-  "object": "surveyor's stake with flag",
+  "object": "solid Oregon outline with cut-out claim flag",
   "hook": "Notice by newspaper, then the land sold",
-  "svg": "<path d=\"M9.5 3h3.5v15l-1.75 3.5L9.5 18Z\"/><path d=\"M13 4.5c3-1.5 5 1.5 8 0v6c-3 1.5-5-1.5-8 0\" fill=\"currentColor\"/><path d=\"M3 18.5h4M15.5 18.5h5.5\"/>"
+  "svg": "<path fill=\"currentColor\" fill-rule=\"evenodd\" stroke-width=\".4\" d=\"M2.43 19.7H21.03V13.13L21.29 12.16 20.54 11.26 20.98 9.83 21.68 8.57 22.5 6.78 22.14 6.06 21.31 5.34H15.95L15.15 5.59 13.34 6.24 12.04 6.42 10.23 6.74 8.42 6.49 7.38 6.96 6.19 6.6 6.08 5.81 5.57 4.8 4.53 4.62 3.08 4.55 3.05 7.14 2.8 10.37 2.59 12.88 1.99 15.03 1.53 16.68 1.94 18.26ZM8.6 8.3H10.8V9.2L17.4 11.4 10.8 13.6V18H8.6Z\"/>"
  },
  "cp-perkins": {
   "object": "stack of gold bars",
@@ -560,19 +560,19 @@
   "svg": "<path d=\"M4 5h16v11l-5 5H4Z\"/><path d=\"M20 16h-5v5\"/><path d=\"M4 9h16\"/><path d=\"M8 3v3.5M16 3v3.5\" stroke-width=\"1.8\"/><path d=\"M8.5 12l4 4M12.5 12l-4 4\"/>"
  },
  "cp-reasor": {
-  "object": "cotton boll",
+  "object": "open cotton boll in bur with leaf",
   "hook": "Arkansas chemicals on Missouri crops",
-  "svg": "<path d=\"M6 13a3.6 3.6 0 0 1 .8-7a5.4 5.4 0 0 1 10.4 0a3.6 3.6 0 0 1 .8 7\"/><path d=\"M9.5 7.5l2.5 5 2.5-5\"/><polygon points=\"3.5,11.5 8.5,14 12,12.5 15.5,14 20.5,11.5 17,18 12,19.5 7,18\" fill=\"currentColor\"/><path d=\"M12 19.5c0 1.5-1 2-3 2\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><circle cx=\"12\" cy=\"3.9\" r=\"2.6\"/><circle cx=\"10.6\" cy=\"6.2\" r=\"2.6\"/><circle cx=\"13.4\" cy=\"6.2\" r=\"2.6\"/><circle cx=\"6\" cy=\"10.1\" r=\"2.6\"/><circle cx=\"4.6\" cy=\"12.4\" r=\"2.6\"/><circle cx=\"7.4\" cy=\"12.4\" r=\"2.6\"/><circle cx=\"18\" cy=\"10.1\" r=\"2.6\"/><circle cx=\"16.6\" cy=\"12.4\" r=\"2.6\"/><circle cx=\"19.4\" cy=\"12.4\" r=\"2.6\"/><path d=\"M12 9.9L10.7 12.3A4.7 4.7 0 0 1 1.5 12.9L1.1 11.2Q1.6 18.4 10.9 19.8L13.1 19.8Q22.4 18.4 22.9 11.2L22.5 12.9A4.7 4.7 0 0 1 13.3 12.3Z\"/><path d=\"M10.9 19.5h2.2v1.6Q17.5 18.4 21 20.6Q17.5 23.8 13 22.3a1.1 1.1 0 0 1-2.1-.4Z\"/></g>"
  },
  "cp-scott": {
-  "object": "dashboard video camera",
+  "object": "police car on recording video screen",
   "hook": "The chase tape that settled the facts",
-  "svg": "<path d=\"M7 3h10\"/><path d=\"M8.5 3a3.5 3.5 0 0 0 7 0\"/><path d=\"M12 6.5V11\"/><rect x=\"3.5\" y=\"11\" width=\"17\" height=\"10\" rx=\"2\"/><circle cx=\"9.5\" cy=\"16\" r=\"3\"/><circle cx=\"9.5\" cy=\"16\" r=\"1\" fill=\"currentColor\"/><circle cx=\"17\" cy=\"14\" r=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.5 1.5H20.5A2 2 0 0 1 22.5 3.5V20.5A2 2 0 0 1 20.5 22.5H3.5A2 2 0 0 1 1.5 20.5V3.5A2 2 0 0 1 3.5 1.5ZM9.3 5.9A0.8 0.8 0 0 0 8.5 6.7V7.7H10.8V8.9H8.2A1 1 0 0 0 7.3 9.5L5.7 13.1H5.4A1 1 0 0 0 4.4 14.1V19.8H7.1V18.1H16.9V19.8H19.6V14.1A1 1 0 0 0 18.6 13.1H18.3L16.7 9.5A1 1 0 0 0 15.8 8.9H13.2V7.7H15.5V6.7A0.8 0.8 0 0 0 14.7 5.9ZM18.9 3.4A1.6 1.6 0 1 0 18.91 3.4Z\"/>\n<path fill=\"currentColor\" stroke=\"none\" d=\"M9.1 10.6H14.9L16 13.1H8ZM6.2 14.6H8.9V16.2H6.2ZM15.1 14.6H17.8V16.2H15.1Z\"/>"
  },
  "cp-shady-grove": {
-  "object": "knee joint bones",
+  "object": "solid diagonal bone with medical cross",
   "hook": "A clinic's tiny interest claim, class-wide",
-  "svg": "<path d=\"M9 2.500v5.500a3.2 3.2 0 1 0 3 3.5 3.2 3.2 0 1 0 3-3.500V2.5\"/><path d=\"M6.5 16.500h11\"/><path d=\"M9 21.500v-3l-2.5-2M15 21.500v-3l2.5-2\"/>"
+  "svg": "<g transform=\"rotate(-45 12 12)\"><path fill=\"currentColor\" stroke=\"none\" d=\"M5.6 9.7a2.9 2.9 0 1 0-3.9 2.3a2.9 2.9 0 1 0 3.9 2.3h12.8a2.9 2.9 0 1 0 3.9-2.3a2.9 2.9 0 1 0-3.9-2.3z\"/></g><path fill=\"currentColor\" stroke=\"none\" d=\"M4.9 2h3.2v2.9H11v3.2H8.1V11H4.9V8.1H2V4.9h2.9z\"/>"
  },
  "cp-shaffer": {
   "object": "solid greyhound silhouette at full gallop",
@@ -600,14 +600,14 @@
   "svg": "<path d=\"M3 20v-8l3-4h12l3 4v8Z\"/><path d=\"M3 12h18\"/><path d=\"M9 8V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V8\"/><path d=\"M12 13.500v5M9.5 16h5\" stroke-width=\"1.8\"/>"
  },
  "cp-smith": {
-  "object": "bond certificate with coupons",
+  "object": "solid bond certificate with seal and coupons",
   "hook": "Federal bonds a shareholder challenged",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"10.500\" rx=\"1\"/><circle cx=\"16.500\" cy=\"8.200\" r=\"1.900\" fill=\"currentColor\"/><path d=\"M6 6.800h6M6 9.800h4\"/><path d=\"M3 13.500V20h11v-6.500\"/><path d=\"M8.500 13.500V20\" stroke-dasharray=\"1.5 2\"/><rect x=\"16.500\" y=\"16.500\" width=\"4.500\" height=\"4.500\" transform=\"rotate(14 18.75 18.75)\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2 2.5h20v12.2H2zM3.4 3.9v9.4h17.2V3.9zM4.4 4.9h15.2v7.4H4.4zM6 5.9h12v1.2H6zM6 8.4h5.4v1.1H6zM6 10.3h5.4v1.1H6zM15.7 7.55L16.32 8.16L17.18 8.09L17.26 8.95L17.97 9.45L17.47 10.16L17.69 11L16.86 11.23L16.49 12.01L15.7 11.65L14.91 12.01L14.54 11.23L13.71 11L13.93 10.16L13.43 9.45L14.14 8.95L14.22 8.09L15.08 8.16zM15.7 8.95a0.9 0.9 0 1 0 0 1.8a0.9 0.9 0 1 0 0 -1.8z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M2 15.6h4.3v5.9H2zM7.2 15.6h4.3v5.9H7.2zM12.4 15.6h4.3v5.9h-4.3z\"/><path fill=\"currentColor\" stroke=\"none\" transform=\"rotate(20 20.2 19.2)\" d=\"M18.05 16.25h4.3v5.9h-4.3z\"/>"
  },
  "cp-smuck": {
-  "object": "school desk",
+  "object": "solid schoolhouse with bell cupola, front view",
   "hook": "The board would not appeal; parents did",
-  "svg": "<path d=\"M11 8h10.5v3.5H13\"/><path d=\"M17 11.5V20\"/><path d=\"M4.5 20h15\"/><path d=\"M3.5 4.5V14h6.5M7 14v6\"/>"
+  "svg": "<g stroke=\"none\" fill=\"currentColor\" fill-rule=\"evenodd\"><path d=\"M9.8 8V4.4L12 1.8 14.2 4.4V8zM12 4.3a1 1 0 1 0 .01 0z\"/><path d=\"M12 6.4 22.4 12.3V13.8H21V21.6H3V13.8H1.6V12.3zM10.2 21.6V17a1.8 1.8 0 0 1 3.6 0V21.6zM5.2 15H8.2V18.4H5.2zM15.8 15H18.8V18.4H15.8zM12 9.3a1.5 1.5 0 1 0 .01 0z\"/></g>"
  },
  "cp-sniadach": {
   "object": "solid padlock with dollar sign cut out",
@@ -620,14 +620,14 @@
   "svg": "<g transform=\"translate(-.15 .4)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M1.3 19.3C.6 9.4 4.8 4.9 9.8 4.9c5 0 8.4 3.4 8.7 8.6 2.4.5 4 2.1 4.5 4.4.2.9-.6 1.6-1.5 1.2-3.1-1.4-6.6-1.3-10 .2Q6.4 19.7 1.3 19.3ZM17.9 14.9c-2.6.2-4.7 1.3-6 3.1 3-1.1 6-1.3 8.8-.6-.6-1.3-1.5-2.1-2.8-2.5ZM13.1 6.2C15.4 8.1 16.6 10.9 16.6 14.2 15.5 11.3 14.4 8.6 13.1 6.2ZM10.91 9.15A3.25 2.5 0 1 0 8.1 12.9A1.85 1.1 0 1 1 6.5 14.55L5.29 15.25A3.25 2.5 0 1 0 8.1 11.5A1.85 1.1 0 1 1 9.7 9.85ZM7.6 6.9H8.6V7.93A3.25 2.5 0 0 0 7.6 7.93ZM7.6 9.34A1.85 1.1 0 0 1 8.6 9.34V11.53A3.25 2.5 0 0 0 8.1 11.5A1.85 1.1 0 0 1 7.6 11.46ZM8.6 17.5H7.6V16.47A3.25 2.5 0 0 0 8.6 16.47ZM8.6 15.06A1.85 1.1 0 0 1 7.6 15.06V12.87A3.25 2.5 0 0 0 8.1 12.9A1.85 1.1 0 0 1 8.6 12.94Z\"/><circle cx=\"9.8\" cy=\"4.5\" r=\"1.05\"/></g>"
  },
  "cp-stewart": {
-  "object": "photocopier",
+  "object": "office photocopier with open lid and output sheet",
   "hook": "A copier dealer and a Manhattan forum",
-  "svg": "<rect x=\"4\" y=\"9.5\" width=\"13\" height=\"12.5\" rx=\"1\"/><path d=\"M4 7.500L15.5 2.500\" stroke-width=\"2.4\"/><path d=\"M4 14h13M4 18h13\"/><path d=\"M9 16h3M9 20h3\"/><path d=\"M17 12.500h5v-4\"/><circle cx=\"14\" cy=\"11.7\" r=\"0.8\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 9.4h15.5v2.9h5.5v1.9h-5.9V22H2.1v-9.8h-.6zM4 14.3h10.7v2.6H4zM4 18h10.7v2.6H4zM10.8 10.6v1.6h4.2v-1.6z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M7 15.1h4.7v1H7zM7 18.8h4.7v1H7zM1.5 9.4V6.4L14.6 1.5l.9 2.3L3.6 8.3v1.1zM17.6 11.4V9.9l4.3-1.6.5 1.4z\"/>"
  },
  "cp-strawbridge": {
-  "object": "bicorne hat",
+  "object": "bust of man wearing bicorne hat with cockade",
   "hook": "An 1806 rule of complete diversity",
-  "svg": "<path d=\"M2.5 17C4.5 16 6 13 7.5 10 8.5 7.5 10 6 12 6s3.5 1.5 4.5 4c1.5 3 3 6 5 7-3-2.5-6-3.5-9.5-3.5S5.5 14.5 2.5 17Z\"/><circle cx=\"12\" cy=\"9.8\" r=\"1.4\" fill=\"currentColor\"/><path d=\"M4.5 19.5c5-2 10-2 15 0\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.2 12.6C2.2 11.4 3 9.6 4.4 7.6C6 5.2 8.8 2.4 12 2.4C15.2 2.4 18 5.2 19.6 7.6C21 9.6 21.8 11.4 22.8 12.6C19.8 10.6 16.4 9.6 12 9.6C7.6 9.6 4.2 10.6 1.2 12.6ZM12 4.6a1.6 1.6 0 1 0 0 3.2a1.6 1.6 0 1 0 0-3.2Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M7.8 11.2C10.5 10.7 13.5 10.7 16.2 11.2L16.2 13.4C16.2 15.9 14.4 17.5 12 17.5C9.6 17.5 7.8 15.9 7.8 13.4Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M3.6 22.8C3.6 20.2 6.4 18.8 9.4 18.5L12 20.7L14.6 18.5C17.6 18.8 20.4 20.2 20.4 22.8Z\"/>"
  },
  "cp-surowitz": {
   "object": "hotel desk bell",
@@ -675,9 +675,9 @@
   "svg": "<g transform=\"translate(12 12) rotate(-40)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M-12.2 0C-11.01 -1.26 -9.85 -2.34 -8.7 -3.24Q-9.6 0 -8.7 3.24C-9.85 2.34 -11.01 1.26 -12.2 0ZM12.2 0C11.01 -1.26 9.85 -2.34 8.7 -3.24Q9.6 0 8.7 3.24C9.85 2.34 11.01 1.26 12.2 0ZM-7 -4.46C-2.26 -7.51 2.26 -7.51 7 -4.46Q7.9 0 7 4.46C2.26 7.51 -2.26 7.51 -7 4.46Q-7.9 0 -7 -4.46ZM-5.3 -.62H-4.75V-2.7H-3.5V-.62H-2V-2.7H-.75V-.62H0.75V-2.7H2V-.62H3.5V-2.7H4.75V-.62H5.3V0.62H4.75V2.7H3.5V0.62H2V2.7H0.75V0.62H-.75V2.7H-2V0.62H-3.5V2.7H-4.75V0.62H-5.3Z\"/></g>"
  },
  "cp-tolan": {
-  "object": "porch light",
+  "object": "bare bulb under porch gable, half-dimmed rays",
   "hook": "Even the lighting was in dispute",
-  "svg": "<path d=\"M3.5 2.5v7\"/><path d=\"M3.5 3.5H13v2\"/><path d=\"M7.5 9.5l5.5-4 5.5 4Z\"/><path d=\"M8.5 9.5l1.5 8h6l1.5-8\"/><circle cx=\"13\" cy=\"13\" r=\"1.6\" fill=\"currentColor\"/><path d=\"M6.5 19L5 20.5M19.5 19l1.5 1.5M13 20v1.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M12 1.2l10.8 6.3-1.1 1.9-9.7-5.65-9.7 5.65-1.1-1.9z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M11.4 3.5h1.2v2h-1.2zM10.3 5.4h3.4v2h-3.4zM10.3 8.1h3.4c0 1.3 2.9 2.2 2.9 4.9a4.6 4.6 0 0 1-9.2 0c0-2.7 2.9-3.6 2.9-4.9z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M11 19.3h2v3.5h-2zM15.2 17.6l1.6-1.2 2.3 3-1.6 1.2zM18 12h4v2h-4z\"/><path fill=\"currentColor\" stroke=\"none\" fill-opacity=\".3\" d=\"M8.8 17.6l-1.6-1.2-2.3 3 1.6 1.2zM6 12h-4v2h4z\"/>"
  },
  "cp-transunion": {
   "object": "solid disc with joined lowercase \"tu\" cut out",
@@ -690,14 +690,14 @@
   "svg": "<circle cx=\"12\" cy=\"12\" r=\"10.1\" stroke-width=\"1.8\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M12 3.8C9.2 3.8 7.8 5.7 7.6 8.4C7.4 10.8 6.9 12.1 5.2 13.3H18.8C17.1 12.1 16.6 10.8 16.4 8.4C16.2 5.7 14.8 3.8 12 3.8ZM4.6 14.4H19.4V16.6H4.6ZM9.7 17.7H14.3A2.3 2.3 0 0 1 9.7 17.7Z\"/>"
  },
  "cp-walden": {
-  "object": "roller suitcase of cash",
+  "object": "solid roller suitcase with cut-out dollar sign",
   "hook": "Cash seized at the Atlanta airport",
-  "svg": "<rect x=\"5.500\" y=\"7\" width=\"13\" height=\"11.500\" rx=\"2\"/><path d=\"M9 7V2.800h6V7\"/><circle cx=\"8.500\" cy=\"20.200\" r=\"1.100\"/><circle cx=\"15.500\" cy=\"20.200\" r=\"1.100\"/><rect x=\"8\" y=\"10\" width=\"8\" height=\"5.500\" rx=\".8\"/><circle cx=\"12\" cy=\"12.750\" r=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M9.5 1.5h5a1 1 0 0 1 1 1V7h2A1.5 1.5 0 0 1 19 8.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19.5v-11A1.5 1.5 0 0 1 6.5 7h2V2.5a1 1 0 0 1 1-1zM10 3v4h4V3zM11.4 8.6v.9c-1.5.2-2.5 1.1-2.5 2.4 0 1.5 1.1 2.1 2.5 2.5v2.3c-.7-.1-1.3-.5-1.8-1l-1 1.2c.7.7 1.7 1.2 2.8 1.3v1h1.2v-1c1.6-.2 2.6-1.2 2.6-2.6 0-1.6-1.2-2.2-2.6-2.6V11c.5.1 1 .4 1.4.7l.9-1.2c-.6-.5-1.4-.9-2.3-1v-.9zM11.4 11c-.5.1-.8.4-.8.8s.3.7.8.9zM12.6 14.9v1.8c.6-.1.9-.4.9-.9 0-.4-.3-.7-.9-.9z\"/><circle cx=\"7.5\" cy=\"21.6\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"16.5\" cy=\"21.6\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "cp-walker": {
-  "object": "bent nail",
+  "object": "diagonal nail snapped in two with shards",
   "hook": "A shattered nail, served too late",
-  "svg": "<path d=\"M4.5 8.500l5-5\" stroke-width=\"2.8\"/><path d=\"M7 6l7 7v6\" stroke-width=\"2.4\"/><polygon points=\"12.3,18.5 15.7,18.5 14,22\" fill=\"currentColor\"/><path d=\"M17.5 9.500l2.500-2.500M18.5 13h3\"/>"
+  "svg": "<g transform=\"translate(10.4 13.6) rotate(45) scale(1.05)\" fill=\"currentColor\" stroke=\"none\"><rect x=\"-5.2\" y=\"-11\" width=\"10.4\" height=\"2.8\" rx=\"1.1\"/><path d=\"M-1.8-8.5h3.6v8.3l-1.2-1.6-1.2 2.6-1.2-2.2z\"/><path d=\"M-1.8 1.3l1.2 1.9 1.2-2.8 1.2 1.8v4.3L0 11.6l-1.8-5.1z\"/><path d=\"M3.8-.6l3.6-1.4-.8 3.6zM-3.8 1l-3.4-1.8.2 3.8z\"/></g>"
  },
  "cp-walmart": {
   "object": "six tapered rounded rays, Walmart spark",
@@ -705,29 +705,29 @@
   "svg": "<g fill=\"currentColor\" stroke=\"none\"><path transform=\"rotate(0 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/><path transform=\"rotate(60 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/><path transform=\"rotate(120 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/><path transform=\"rotate(180 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/><path transform=\"rotate(240 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/><path transform=\"rotate(300 12 12)\" d=\"M9.8 3.4A2.2 2.2 0 0 1 14.2 3.4L13.4 8.1A1.4 1.4 0 0 1 10.6 8.1Z\"/></g>"
  },
  "cp-wild-oats": {
-  "object": "sprig of oats",
+  "object": "drooping oat panicle with five hanging spikelets",
   "hook": "A grocer sued at home, objection too late",
-  "svg": "<path d=\"M9 21.5C9 14 11 8 15 3\"/><path d=\"M14 4.5h4.5M12.4 6.8L7.5 6M11 10l4.5.5M10 13l-5-.5M9.3 16l4.2.7\"/><ellipse cx=\"18.5\" cy=\"7.5\" rx=\"1\" ry=\"1.9\" fill=\"currentColor\"/><ellipse cx=\"7.5\" cy=\"9\" rx=\"1\" ry=\"1.9\" fill=\"currentColor\"/><ellipse cx=\"15.5\" cy=\"13.5\" rx=\"1\" ry=\"1.9\" fill=\"currentColor\"/><ellipse cx=\"5\" cy=\"15.5\" rx=\"1\" ry=\"1.9\" fill=\"currentColor\"/><ellipse cx=\"13.5\" cy=\"19.2\" rx=\"1\" ry=\"1.9\" fill=\"currentColor\"/>"
+  "svg": "<path stroke-width=\"1.5\" d=\"M10 22.5C10 14 10.5 7 13 4C14.3 2.4 16.6 2.2 17 4\"/><path stroke-width=\"0.85\" d=\"M10.7 9.5C10 6 7.5 4.3 6.5 6.5M10.4 12C14 10 19 9.3 20.3 11.5M10.2 15.5C12 12.5 14 12 14.6 13.5M10.1 17.5C8.5 14 6 13 5 14.5\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M17 3.8C19.1 5.39 18.8 7.51 18.12 9.1L17 7.09L15.88 9.1C15.2 7.51 14.9 5.39 17 3.8ZM6.5 6.3C8.6 8.16 8.3 10.64 7.62 12.5L6.5 10.14L5.38 12.5C4.7 10.64 4.4 8.16 6.5 6.3ZM20.3 11.3C22.4 13.22 22.1 15.78 21.43 17.7L20.3 15.27L19.18 17.7C18.5 15.78 18.2 13.22 20.3 11.3ZM14.6 13.3C16.7 15.16 16.4 17.64 15.72 19.5L14.6 17.14L13.47 19.5C12.8 17.64 12.5 15.16 14.6 13.3ZM5 14.3C7.1 16.22 6.8 18.78 6.12 20.7L5 18.27L3.88 20.7C3.2 18.78 2.9 16.22 5 14.3Z\"/>"
  },
  "cp-woods": {
-  "object": "chain and padlock",
+  "object": "solid padlock hung on two chains",
   "hook": "A realty company shut out of Mississippi",
-  "svg": "<rect x=\"6.5\" y=\"12\" width=\"11\" height=\"9.5\" rx=\"2\"/><path d=\"M9.5 12V7.5a2.5 2.5 0 0 1 5 0V12\"/><circle cx=\"12\" cy=\"16.7\" r=\"1.3\" fill=\"currentColor\"/><ellipse cx=\"4.8\" cy=\"5.5\" rx=\"2.5\" ry=\"2\"/><ellipse cx=\"19.2\" cy=\"5.5\" rx=\"2.5\" ry=\"2\"/><path d=\"M6.8 5.500h3.200M14 5.500h3.2\" stroke-width=\"2.2\"/>"
+  "svg": "<g stroke=\"none\" fill=\"currentColor\" transform=\"translate(0 .5)\"><path fill-rule=\"evenodd\" d=\"M7.5 13v-2.5a4.5 4.5 0 0 1 9 0V13h-2.5v-2.5a2 2 0 0 0-4 0V13z\"/><path fill-rule=\"evenodd\" d=\"M6 12.5h12a1.5 1.5 0 0 1 1.5 1.5v7a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 21v-7A1.5 1.5 0 0 1 6 12.5zM12 14.8a1.7 1.7 0 0 0-.85 3.17l-.45 2.43h2.6l-.45-2.43A1.7 1.7 0 0 0 12 14.8z\"/></g><g fill=\"none\" stroke-width=\"1.8\"><rect x=\"1.7\" y=\"2.7\" width=\"5.6\" height=\"3.4\" rx=\"1.7\" transform=\"rotate(42 4.5 4.4)\"/><rect x=\"4.8\" y=\"5.5\" width=\"5.6\" height=\"3.4\" rx=\"1.7\" transform=\"rotate(42 7.6 7.2)\"/><rect x=\"16.7\" y=\"2.7\" width=\"5.6\" height=\"3.4\" rx=\"1.7\" transform=\"rotate(-42 19.5 4.4)\"/><rect x=\"13.6\" y=\"5.5\" width=\"5.6\" height=\"3.4\" rx=\"1.7\" transform=\"rotate(-42 16.4 7.2)\"/></g>"
  },
  "cp-wyman": {
-  "object": "heart-sealed envelope dangling a fishhook",
+  "object": "heart-sealed envelope dangling a barbed fishhook",
   "hook": "A lover's telegram that led to a summons",
-  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3 1.2h18a2 2 0 0 1 2 2v9.6a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.2a2 2 0 0 1 2-2zM2.5 3.6 6.2 6.6 7.2 5.4 3.5 2.4zM21.5 3.6 17.8 6.6 16.8 5.4 20.5 2.4zM12 13.6c-3.4-2.4-5.1-4.2-5.1-6.4a2.75 2.75 0 0 1 5.1-1.4 2.75 2.75 0 0 1 5.1 1.4c0 2.2-1.7 4-5.1 6.4z\"/><path d=\"M12 14.6v4.6a2.6 2.6 0 0 0 5.2 0v-.6\" stroke-width=\"2\" stroke-linecap=\"butt\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18.2 15.7v3.4h-4.4z\"/>"
+  "svg": "<path transform=\"translate(0 .3) scale(1 .88)\" d=\"M4.03 1.5H19.97L14.82 5.31A2.1 2.1 0 0 0 12 6.31A2.1 2.1 0 0 0 9.18 5.31ZM2 1.9L8.14 6.44A2.1 2.1 0 0 0 8.65 8.72L12 11.9L15.35 8.72A2.1 2.1 0 0 0 15.86 6.44L22 1.9V13.2H2Z\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"13.3\" r=\"1.2\" stroke-width=\"1.1\"/><path d=\"M9 14.5V18.9a3 3 0 0 0 6 0V16.8\" stroke-width=\"2.1\" stroke-linecap=\"butt\"/><path d=\"M16.05 13.7V17.5H12.3Z\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "cp-york": {
-  "object": "bond coupon with scissors",
+  "object": "solid hourglass with sand run out",
   "hook": "A bondholder who waited too long",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"8\" rx=\"1\"/><path d=\"M15 3v8\" stroke-dasharray=\"1.5 1.8\"/><circle cx=\"8.5\" cy=\"7\" r=\"1.8\"/><circle cx=\"5\" cy=\"15.2\" r=\"1.9\"/><circle cx=\"5\" cy=\"20\" r=\"1.9\"/><path d=\"M6.7 16.200L21 21M6.7 19L21 14.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4 1.5h16a.8.8 0 0 1 .8.8v1.6a.8.8 0 0 1-.8.8h-.8V6C19.2 9.6 13.8 10.6 13.8 12C13.8 13.4 19.2 14.4 19.2 18v1.3h.8a.8.8 0 0 1 .8.8v1.6a.8.8 0 0 1-.8.8H4a.8.8 0 0 1-.8-.8v-1.6a.8.8 0 0 1 .8-.8h.8V18C4.8 14.4 10.2 13.4 10.2 12C10.2 10.6 4.8 9.6 4.8 6V4.7H4a.8.8 0 0 1-.8-.8V2.3a.8.8 0 0 1 .8-.8zM6.8 5.5h10.4V6C17.2 8.3 13 9.5 12 10.8C11 9.5 6.8 8.3 6.8 6zM12 13.2C13 14.5 17.2 15.7 17.2 18Q14.3 15.5 12 15.3Q9.7 15.5 6.8 18C6.8 15.7 11 14.5 12 13.2z\"/>"
  },
  "cp-ziervogel": {
-  "object": "blood pressure cuff",
+  "object": "blood pressure cuff with gauge and bulb",
   "hook": "Blood pressure the petition never pleaded",
-  "svg": "<circle cx=\"12\" cy=\"9.500\" r=\"7\"/><path d=\"M12 9.500l3-3.500M7.500 9.500h1M12 5v1\"/><circle cx=\"12\" cy=\"9.500\" r=\"1.100\" fill=\"currentColor\"/><path d=\"M12 16.500v2.500h-4\"/><ellipse cx=\"5.500\" cy=\"19\" rx=\"3\" ry=\"2.300\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.5 1.2H19.5A3 4.8 0 0 1 19.5 10.8H4.5A3 4.8 0 0 1 4.5 1.2ZM4.6 3A1.6 3 0 0 0 4.6 9A1.6 3 0 0 0 4.6 3ZM14 1.2A3 4.8 0 0 1 14 10.8H15.4A3 4.8 0 0 0 15.4 1.2Z\"/><path fill=\"none\" stroke-width=\"1.8\" d=\"M8.2 10.8C8.2 13.2 5.4 12.6 5.4 15M11.6 10.8C11.6 12.6 12.8 13 13.8 13.6\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M5.4 13.8C7.7 13.8 9 16.3 9 18.6C9 20.7 7.9 22.1 6.3 22.5V23H4.5V22.5C2.9 22.1 1.8 20.7 1.8 18.6C1.8 16.3 3.1 13.8 5.4 13.8Z\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M17.2 11.9A5.55 5.55 0 1 1 17.2 23A5.55 5.55 0 0 1 17.2 11.9ZM17.2 13.7A3.75 3.75 0 1 0 17.2 21.2A3.75 3.75 0 0 0 17.2 13.7Z\"/><path fill=\"none\" stroke-width=\"1.6\" d=\"M17.2 17.45L19.2 15.3\"/><circle cx=\"17.2\" cy=\"17.45\" r=\"1.15\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "cp-zippo": {
   "object": "open Zippo lighter with flame",
@@ -735,9 +735,9 @@
   "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M11 12.6h10.8V21.3a1.4 1.4 0 0 1-1.4 1.4H12.4a1.4 1.4 0 0 1-1.4-1.4z\"/><path fill-rule=\"evenodd\" transform=\"rotate(-112 11 12.25)\" d=\"M11 12.25v-4.1a1.4 1.4 0 0 1 1.4-1.4h8a1.4 1.4 0 0 1 1.4 1.4v4.1zM12.1 11.3h8.6v-.6h-8.6z\"/><circle cx=\"11\" cy=\"12.5\" r=\".7\"/><path fill-rule=\"evenodd\" d=\"M12.1 12.2V8.9a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1V12.2zM13.3 8.33a.52 .52 0 1 0 .01 0zM14.9 8.33a.52 .52 0 1 0 .01 0zM16.5 8.33a.52 .52 0 1 0 .01 0zM14.1 9.58a.52 .52 0 1 0 .01 0zM15.7 9.58a.52 .52 0 1 0 .01 0zM13.3 10.83a.52 .52 0 1 0 .01 0zM14.9 10.83a.52 .52 0 1 0 .01 0zM16.5 10.83a.52 .52 0 1 0 .01 0z\"/><path fill-rule=\"evenodd\" d=\"M19.75 8L20.15 8.35L20.66 8.21L20.87 8.69L21.39 8.79L21.37 9.32L21.8 9.63L21.55 10.1L21.8 10.57L21.37 10.88L21.39 11.41L20.87 11.51L20.66 11.99L20.15 11.85L19.75 12.2L19.35 11.85L18.84 11.99L18.63 11.51L18.11 11.41L18.13 10.88L17.7 10.57L17.95 10.1L17.7 9.63L18.13 9.32L18.11 8.79L18.63 8.69L18.84 8.21L19.35 8.35zM19.75 9.65a.45 .45 0 1 0 .01 0z\"/><path d=\"M18.8 11.3h1.9v.9h-1.9z\"/><path d=\"M11.1 12.2v-.9a.6 .6 0 0 1 .6-.6h.5v1.5z\"/><path d=\"M15 1.15c2.9 2.2 3.3 6.3 0 6.3c-2.9 0-2.9-2.9-1.3-4.2c.2.7.5 1 .95 1.1c0-1.3.55-2.2.35-3.2z\"/></g>"
  },
  "cyberchron": {
-  "object": "kettlebell weight",
+  "object": "solid kettlebell weight marked 145",
   "hook": "Rugged gear and a 145-pound weight limit",
-  "svg": "<circle cx=\"12\" cy=\"15\" r=\"6.5\"/><path d=\"M8.2 9.7C6 6 7.5 3 12 3s6 3 3.8 6.7\"/><path d=\"M9.5 15h5\"/>"
+  "svg": "<path stroke=\"none\" fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M5.8 11L6.4 4.6a3.2 3.2 0 0 1 3.2-3.2h4.8a3.2 3.2 0 0 1 3.2 3.2L18.2 11zM8.8 10V5.2a1.4 1.4 0 0 1 1.4-1.4h3.6a1.4 1.4 0 0 1 1.4 1.4V10z\"/><path stroke=\"none\" fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M8.23 21.6A7.6 7.6 0 1 1 15.77 21.6zM6.6 12.6h1.3v5.4h-1.3zM9.1 12.6h1.3v2.4h.9v-2.4h1.3v2.4h.4v1.3h-.4v1.7h-1.3v-1.7h-2.2zM14.1 12.6h3.4v1.2h-2.1v.9h2.1v3.3h-3.4v-1.2h2.1v-.9h-2.1z\"/>"
  },
  "dalton": {
   "object": "number two pencil",
@@ -780,9 +780,9 @@
   "svg": "<g fill=\"currentColor\" stroke=\"none\" transform=\"translate(7.11 1.11) scale(0.93) rotate(10)\"><path d=\"M2.81 12.82C1.9 11.71 0.57 10.6 0.3 8.6C0 6.2 1.9 5.2 4.3 5.3C7.23 5.39 9.97 6.83 10.69 9.51ZM10.29 15.68C10.11 17.05 10.29 18.22 10 19.4C9.5 21.4 8.1 22.2 6.6 22.2C4.6 22.2 3.1 20.8 3.1 18.8C3.1 18.77 3.1 18.73 3.1 18.7Z\"/><path stroke=\"currentColor\" stroke-width=\"1\" d=\"M2.9 14.48L11.4 10.91L11.4 13.51L2.9 17.08Z\"/><ellipse cx=\"2.3\" cy=\"2.5\" rx=\"2\" ry=\"2.45\" transform=\"rotate(-6 2.3 2.5)\"/><ellipse cx=\"6\" cy=\"1.9\" rx=\"1.3\" ry=\"1.7\" transform=\"rotate(4 6 1.9)\"/><ellipse cx=\"8.6\" cy=\"2.9\" rx=\"1.15\" ry=\"1.5\" transform=\"rotate(14 8.6 2.9)\"/><ellipse cx=\"10.6\" cy=\"4.5\" rx=\"1.05\" ry=\"1.35\" transform=\"rotate(24 10.6 4.5)\"/><ellipse cx=\"12\" cy=\"6.6\" rx=\"0.95\" ry=\"1.2\" transform=\"rotate(34 12 6.6)\"/></g>"
  },
  "feinberg": {
-  "object": "rocking chair",
+  "object": "side-profile rocking chair, heavy strokes",
   "hook": "Retired on a promised $200 a month",
-  "svg": "<path d=\"M3 18.500q9 5 18 0\"/><path d=\"M8 20.400V14L5.500 3M8 14h9v6.400\"/><path d=\"M11.500 14L10 3.500l-4.500-.500\"/><path d=\"M6.800 9.500H17V14\"/>"
+  "svg": "<g stroke-width=\"2.2\"><path d=\"M2.4 18Q12 24.2 21.6 18\"/><path d=\"M5 2.4L8.4 13.2H18.2\"/><path d=\"M8.4 13.2L6.9 19.6\"/><path d=\"M17 13.2L17.5 19.7\"/><path d=\"M6.6 7.5H18.6\"/><path d=\"M17.2 7.5V13.2\"/></g>"
  },
  "fera": {
   "object": "stack of books",
@@ -800,9 +800,9 @@
   "svg": "<ellipse cx=\"12\" cy=\"12\" rx=\"10.6\" ry=\"6.5\" stroke-width=\".8\"/><path stroke=\"none\" fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M2.4 12a9.6 5.5 0 1 0 19.2 0a9.6 5.5 0 1 0-19.2 0zM3.95 10.52Q3.85 8.93 5.33 8.93H9.36Q9.99 8.93 10.31 8.61L10.1 9.56Q9.78 10.2 9.04 10.2H6.71L6.45 11.47H8.19L7.98 12.64H6.22L5.97 13.8Q5.75 14.97 4.48 14.86H3.95L4.06 13.8Q4.69 13.91 4.8 13.38L5.5 10.2H5.33Q5.01 10.2 5.01 10.52zM8.56 12.95a1.64 1.96 15 1 0 3.29 0a1.64 1.96 15 1 0 -3.29 0zM9.68 12.95a0.53 0.9 15 1 0 1.06 0a0.53 0.9 15 1 0 -1.06 0zM12.9 11.36H14.02L13.97 11.68Q14.45 11.26 15.19 11.36L14.98 12.64Q14.02 12.53 13.86 13.17L13.49 14.76H12.22zM18.31 11.89a1.59 1.91 15 1 0 -0.51 2.54L17.73 14.76H19.01L20.15 9.03H18.88zM16.41 13.06a0.53 0.9 15 1 0 1.06 0a0.53 0.9 15 1 0 -1.06 0z\"/>"
  },
  "frigaliment": {
-  "object": "chicken drumstick",
+  "object": "solid hen silhouette in side profile",
   "hook": "Stewing hens shipped as chicken",
-  "svg": "<path d=\"M14 3.5c4 0 6.5 3 6.5 6.5 0 4-4 6.5-8 5.5l-3-3c-1-4 1-9 4.5-9Z\"/><path d=\"M10.5 14.5l-3.5 3.5\" stroke-width=\"2.6\"/><circle cx=\"5\" cy=\"17.3\" r=\"1.7\"/><circle cx=\"7.2\" cy=\"19.5\" r=\"1.7\"/>"
+  "svg": "<g fill=\"currentColor\" stroke-width=\".6\"><path d=\"M14.9 5.2C14.2 3.4 15.6 2.3 16.3 3.6C16.6 1.8 18.3 1.8 18.3 3.6C19.3 2.6 20.4 3.8 19.5 5.4Z\"/><ellipse cx=\"20.2\" cy=\"10\" rx=\".9\" ry=\"1.4\"/><path fill-rule=\"evenodd\" d=\"M17 4.2C18.6 4.2 19.6 5.2 19.7 6.3L22 7.2L19.6 8.2C19.4 9.6 19.6 10.6 20.2 12C21 14.5 19.5 18.6 14.5 18.9C10 19.2 6.2 17 5 13.5C4.2 11 2 9.4 1.5 7C1.2 5.4 2.6 4.6 3.4 6C2.8 3.8 4.6 2.6 5.6 4.6C5.8 3.2 7.6 3.4 7.8 5.4C8 7 8.6 8.6 9.6 9.6C11 10.6 13 10 13.8 8.2C14.2 6 15 4.2 17 4.2ZM18.65 6.3a.75.75 0 1 0-1.5 0a.75.75 0 1 0 1.5 0ZM8.6 11.8C9.6 16.6 15.4 16.8 17 12.6C14.6 14.6 11 14.4 8.6 11.8Z\"/></g><path stroke-width=\"1.1\" d=\"M10.4 18.6V21l1.7 1.1M10.4 21l-1.1.9M14.7 18.6V21l1.7 1.1M14.7 21l-1.1.9\"/>"
  },
  "gianni": {
   "object": "soda glass with straw",
@@ -810,14 +810,14 @@
   "svg": "<path d=\"M6 8h12l-1.5 13h-9Z\"/><path d=\"M11 16l2.5-13h4.5\"/><circle cx=\"9.5\" cy=\"12.5\" r=\"1\" fill=\"currentColor\"/><circle cx=\"14.8\" cy=\"17\" r=\"1\" fill=\"currentColor\"/>"
  },
  "gibson": {
-  "object": "framed portrait",
+  "object": "hanging oval-matted framed portrait of girl",
   "hook": "A daughter's portrait he never liked",
-  "svg": "<rect x=\"4\" y=\"3\" width=\"16\" height=\"18\" rx=\"1\" stroke-width=\"2.2\"/><circle cx=\"12\" cy=\"9.5\" r=\"2.8\"/><path d=\"M7.5 18c0-3 2-4.5 4.5-4.5s4.5 1.5 4.5 4.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.5 5.2H19.5A1 1 0 0 1 20.5 6.2V22A1 1 0 0 1 19.5 23H4.5A1 1 0 0 1 3.5 22V6.2A1 1 0 0 1 4.5 5.2ZM12 7C8.5 7 5.7 10.2 5.7 14.1S8.5 21.2 12 21.2 18.3 18 18.3 14.1 15.5 7 12 7Z\"/><polyline points=\"7.2,5.2 12,1.9 16.8,5.2\" stroke-width=\"1.1\"/><circle cx=\"12\" cy=\"1.9\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M12 8.9C9.9 8.9 8.6 10.4 8.6 12.5C8.6 14 8.4 15.1 7.7 16.1C8.6 16.4 9.5 16.3 10.2 15.9C10.4 16.4 10.3 16.9 9.9 17.3C8.3 17.7 7.3 18.6 6.9 19.8L8 21.6H16L17.1 19.8C16.7 18.6 15.7 17.7 14.1 17.3C13.7 16.9 13.6 16.4 13.8 15.9C14.5 16.3 15.4 16.4 16.3 16.1C15.6 15.1 15.4 14 15.4 12.5C15.4 10.4 14.1 8.9 12 8.9Z\"/>"
  },
  "gill": {
-  "object": "logs floating on river",
+  "object": "solid ringed log floating above river waves",
   "hook": "Logs swept past the boom by a flood",
-  "svg": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"6.5\" rx=\"3.2\" transform=\"rotate(-10 12 7)\"/><ellipse cx=\"18.3\" cy=\"6.2\" rx=\"1.8\" ry=\"3.2\" transform=\"rotate(-10 12 7)\"/><path d=\"M2.5 16c2-2 4.3-2 6.3 0s4.3 2 6.3 0 4.400-2 6.400 0M2.5 20.5c2-2 4.3-2 6.3 0s4.3 2 6.3 0 4.400-2 6.400 0\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" transform=\"rotate(-8 12 8)\" d=\"M5.2 4.4H17.3A3.5 4.4 0 0 1 17.3 13.2H5.2A3.5 4.4 0 0 1 5.2 4.4ZM14.36 8.8a2.94 3.7 0 1 0 5.89 0a2.94 3.7 0 1 0 -5.89 0ZM14.99 8.8a2.31 2.9 0 1 0 4.61 0a2.31 2.9 0 1 0 -4.61 0ZM15.63 8.8a1.67 2.1 0 1 0 3.34 0a1.67 2.1 0 1 0 -3.34 0ZM16.27 8.8a1.03 1.3 0 1 0 2.07 0a1.03 1.3 0 1 0 -2.07 0ZM5.5 6.3h3.5v.9h-3.5ZM8 10.6h4v.9h-4ZM8.4 4.4l.5-1.7h1.7l.4 1.7Z\"/><path stroke-width=\"1.5\" d=\"M2 17.5q2.5-2 5 0t5 0 5 0 5 0M2 21.2q2.5-2 5 0t5 0 5 0 5 0\"/>"
  },
  "graham": {
   "object": "perched scissor-tailed flycatcher with forked tail",
@@ -830,14 +830,14 @@
   "svg": "<path transform=\"translate(.8 0)\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M18.9 12.3C20 9.4 19.6 5.8 17.6 3.5 16 1.7 13.8 1 11.4 1 7.4 1 4.4 4 4.4 7.9 4.4 10.7 5.8 12.7 5.8 15.4 5.8 17.6 4.7 19.4 2.4 20.3 5 21.4 8.3 21 9.8 19.4L9.5 23H15.2L15.3 21.5C16.6 21.7 17.7 21.3 17.9 20.3 18 19.8 17.7 19.5 17.9 19.1 18.1 18.8 18.4 18.7 18.3 18.3 18.2 18 17.9 17.9 18 17.6 18.1 17.2 19.5 17.1 19.6 16.6 19.7 16.1 18.5 15.4 18.1 14.5 17.9 14 17.8 13.4 17.6 12.9ZM17.6 16.2C17 15.2 15.7 15 14.8 15.6L12.6 14.6C13.1 16.1 14.2 17.1 15.6 17.2 16.5 17.2 17.2 16.8 17.6 16.2ZM17.6 12.9C14.2 11.6 10.6 12.8 9.8 15.6 9.5 16.7 9.7 17.7 10 18.6 10.2 15.6 12.8 13 17.6 12.9Z\"/>"
  },
  "groves": {
-  "object": "gravel screening sieve",
+  "object": "shovel stuck in a gravel pile",
   "hook": "Gravel land left rough and ungraded",
-  "svg": "<rect x=\"2.500\" y=\"9\" width=\"19\" height=\"4\" rx=\"1\"/><path d=\"M5 13h14\" stroke-dasharray=\"1.500 2\" stroke-width=\"2\"/><path d=\"M5 9l1.500-3.500 3 .5 1.500 3M13 9l1-2.500 3.500.5 1 2\"/><circle cx=\"7\" cy=\"16.500\" r=\"1\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"16.500\" r=\"1\" fill=\"currentColor\"/><circle cx=\"17\" cy=\"16.500\" r=\"1\" fill=\"currentColor\"/><circle cx=\"9.500\" cy=\"20\" r=\"1\" fill=\"currentColor\"/><circle cx=\"14.500\" cy=\"20\" r=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 21.5 L9.02 14.64 L9.32 13.82 Q7.85 17.86 10.68 19.74 Q14.05 20.11 15.52 16.07 L15.36 16.52 L22.5 21.5ZM4.05 19.7a0.85 0.85 0 1 0 1.7 0a0.85 0.85 0 1 0-1.7 0ZM6.65 17.6a0.75 0.75 0 1 0 1.5 0a0.75 0.75 0 1 0-1.5 0ZM14.4 20a0.8 0.8 0 1 0 1.6 0a0.8 0.8 0 1 0-1.6 0ZM17.35 19.6a0.85 0.85 0 1 0 1.7 0a0.85 0.85 0 1 0-1.7 0Z\"/><g transform=\"translate(11.6 17.2) rotate(20)\" fill=\"currentColor\" stroke=\"none\"><path d=\"M-.75-6.4L-.75-12.4H.75V-6.4Q2.6-6.4 2.6-4.6V-2.4Q2.6 1.2 0 2Q-2.6 1.2-2.6-2.4V-4.6Q-2.6-6.4-.75-6.4Z\"/><path fill-rule=\"evenodd\" d=\"M-2.3-15.6H2.3L1.2-12H-1.2ZM-1-14.5L-.5-13H.5L1-14.5Z\"/></g>"
  },
  "hadley": {
-  "object": "broken crankshaft",
+  "object": "mill gear cracked in two halves",
   "hook": "The broken crankshaft that stopped a mill",
-  "svg": "<path d=\"M2.500 12h2.500V6h4v6h1.500\" stroke-width=\"2.400\"/><path d=\"M13.500 12H15v6h4v-6h2.500\" stroke-width=\"2.400\"/><path d=\"M13 3.500l-2 4.500h2.500l-2 4.500h2.500l-2 4.500 1 3\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path transform=\"rotate(0 12 21)\" d=\"M12.75 4.24A7.8 7.8 0 0 1 13.42 4.33L14.75 1.76A10.6 10.6 0 0 1 17.29 2.82L16.42 5.57A7.8 7.8 0 0 1 18.43 7.58L21.18 6.71A10.6 10.6 0 0 1 22.24 9.25L19.67 10.58A7.8 7.8 0 0 1 19.67 13.42L22.24 14.75A10.6 10.6 0 0 1 21.18 17.29L18.43 16.42A7.8 7.8 0 0 1 16.42 18.43L17.29 21.18A10.6 10.6 0 0 1 14.75 22.24L13.42 19.67A7.8 7.8 0 0 1 12.75 19.76L11.85 17.94L13.35 16.84L12.75 15.11A3.2 3.2 0 0 0 12.75 8.89L12.15 7.16L13.65 6.06z\"/><path transform=\"rotate(0 12 21) rotate(180 12 12)\" d=\"M12.75 4.24A7.8 7.8 0 0 1 13.42 4.33L14.75 1.76A10.6 10.6 0 0 1 17.29 2.82L16.42 5.57A7.8 7.8 0 0 1 18.43 7.58L21.18 6.71A10.6 10.6 0 0 1 22.24 9.25L19.67 10.58A7.8 7.8 0 0 1 19.67 13.42L22.24 14.75A10.6 10.6 0 0 1 21.18 17.29L18.43 16.42A7.8 7.8 0 0 1 16.42 18.43L17.29 21.18A10.6 10.6 0 0 1 14.75 22.24L13.42 19.67A7.8 7.8 0 0 1 12.75 19.76L11.85 17.94L13.35 16.84L12.75 15.11A3.2 3.2 0 0 0 12.75 8.89L12.15 7.16L13.65 6.06z\"/></g>"
  },
  "hamer": {
   "object": "pair of dice",
@@ -865,9 +865,9 @@
   "svg": "<path d=\"M7.5 21c.5-4 2.5-6 1.5-9.5L5.5 13 3.5 10.5 9 5V2.5l3 2.5c5 .5 8 5 8 11.5V21Z\"/><circle cx=\"10\" cy=\"8.5\" r=\"1\" fill=\"currentColor\"/><path d=\"M15 9c1.2 2 2 4.5 2 7.5\"/>"
  },
  "international-filter": {
-  "object": "water filter tank with tap",
+  "object": "solid water tank with tap and drop",
   "hook": "A water softener for a Texas ice plant",
-  "svg": "<rect x=\"3\" y=\"2.5\" width=\"11\" height=\"16\" rx=\"4\"/><path d=\"M5.5 18.5v3M11.5 18.5v3M3 8h11M3 13h11\"/><path d=\"M14 10.5h4.5a2 2 0 0 1 2 2V14M17 10.5V8M15.5 8h3\"/><path d=\"M20.500 16.500c1.300 1.800 1.300 3.500 0 3.500s-1.300-1.700 0-3.500Z\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.5 7A5.25 4.5 0 0 1 14 7V17A5.25 3.5 0 0 1 3.5 17ZM8.75 9.2C10.3 11.2 11 12.2 11 13.2A2.25 2.25 0 0 1 6.5 13.2C6.5 12.2 7.2 11.2 8.75 9.2Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M4.5 19H7V22.5H4.5ZM10.5 19H13V22.5H10.5ZM13.5 9.8H18.3A3.2 3.2 0 0 1 21.5 13V14.8H18.7V13.2A.6.6 0 0 0 18.1 12.6H13.5ZM16.2 9.9V7.9H14.8V6.5H19.2V7.9H17.8V9.9ZM20.1 16.2C21.3 18 22.1 19.1 22.1 20.2A2 2 0 0 1 18.1 20.2C18.1 19.1 18.9 18 20.1 16.2Z\"/>"
  },
  "jacob-youngs": {
   "object": "pipe elbow",
@@ -875,24 +875,24 @@
   "svg": "<path d=\"M5.5 5H11a8 8 0 0 1 8 8v5.5\"/><path d=\"M5.5 11H11a2 2 0 0 1 2 2v5.5\"/><rect x=\"2.5\" y=\"3\" width=\"3\" height=\"10\" rx=\".8\"/><rect x=\"11\" y=\"18.5\" width=\"10\" height=\"3\" rx=\".8\"/>"
  },
  "kannavos": {
-  "object": "row of apartment mailboxes",
+  "object": "solid house with eight cut-out windows",
   "hook": "One house cut into eight illegal flats",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"1\"/><path d=\"M12 3v18M3 12h18\"/><path d=\"M5.5 6h4M14.5 6h4M5.5 15h4M14.5 15h4\" stroke-width=\"1.8\"/><circle cx=\"7.5\" cy=\"9\" r=\".9\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"9\" r=\".9\" fill=\"currentColor\"/><circle cx=\"7.5\" cy=\"18\" r=\".9\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"18\" r=\".9\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.5 15 4V2.5h2.6v3.67L22.5 10.25V11.5H21V22H3V11.5H1.5V10.25ZM4.52 12h2.6v3.3h-2.6ZM8.64 12h2.6v3.3h-2.6ZM12.76 12h2.6v3.3h-2.6ZM16.88 12h2.6v3.3h-2.6ZM4.52 17h2.6v3.3h-2.6ZM8.64 17h2.6v3.3h-2.6ZM12.76 17h2.6v3.3h-2.6ZM16.88 17h2.6v3.3h-2.6Z\"/>"
  },
  "kenford": {
-  "object": "domed stadium",
+  "object": "wide ribbed domed stadium with flag",
   "hook": "A domed stadium the county never built",
-  "svg": "<path d=\"M3 13.5C5 6.5 19 6.5 21 13.5\"/><rect x=\"2.5\" y=\"13.5\" width=\"19\" height=\"6\" rx=\"1\"/><path d=\"M12 8.3v5.2M7.5 9.5l-1 4M16.5 9.5l1 4\"/><path d=\"M10 19.5v-3h4v3\"/><path d=\"M5.5 16.5h1.5M17 16.5h1.5\" stroke-width=\"2\"/><path d=\"M12 8V4h3l-1 1.2 1 1.3h-3\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.6 13.2A10.4 5 0 0 1 22.4 13.2zM10.8 9.1Q7 10 5.4 13.2h1Q7.9 10.5 11.2 9.7zM13.2 9.1Q17 10 18.6 13.2h-1Q16.1 10.5 12.8 9.7zM11.6 9h.8v4.2h-.8z\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1 14.2H23L22.1 19H23V20.2H1V19H1.9zM3.35 19V16.95a1.05 1.05 0 0 1 2.1 0V19zM7.15 19V16.95a1.05 1.05 0 0 1 2.1 0V19zM10.95 19V16.95a1.05 1.05 0 0 1 2.1 0V19zM14.75 19V16.95a1.05 1.05 0 0 1 2.1 0V19zM18.55 19V16.95a1.05 1.05 0 0 1 2.1 0V19z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M11.6 8.8V4.4h.8L16.4 5.9 12.4 7.4V8.8z\"/>"
  },
  "kingston": {
-  "object": "bolt of silk fabric",
+  "object": "spool of thread with threaded needle",
   "hook": "A silk mercer's apprentice, no security",
-  "svg": "<rect x=\"3\" y=\"3\" width=\"18\" height=\"5.5\" rx=\"2.7\"/><path d=\"M6.5 8.500c0 5-3 7-4 12.500 2.500-1.500 4 1 6.500 0s4-1.500 6.500 0 4.500.5 6 0c-1-5.500-3.500-7.500-4-12.500\"/><path d=\"M10.500 8.500c0 3.500-1 6-2 9M14 8.500c0 3.500.5 6 1.500 9\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><rect x=\"2\" y=\"3\" width=\"12.5\" height=\"3.2\" rx=\"1.1\"/><rect x=\"2\" y=\"17.8\" width=\"12.5\" height=\"3.2\" rx=\"1.1\"/><path d=\"M4 6.2h8.5v2.6l-8.5 1.2zM4 11l8.5-1.2v2.8l-8.5 1.2zM4 14.8l8.5-1.2v4.4h-8.5z\"/><path fill-rule=\"evenodd\" transform=\"translate(18.6 12.2) rotate(13)\" d=\"M0 10.3L-1.5-7.5Q-1.5-10.3 0-10.3Q1.5-10.3 1.5-7.5ZM-.6-9.2v3.6h1.2v-3.6z\"/></g><path stroke-width=\"1.3\" d=\"M12.5 7.8C15.5 9.5 16.5 2.8 20.2 5c1.6 1 2.1 3.2 1.6 5.500\"/>"
  },
  "klar": {
-  "object": "paper parcel tied with string",
+  "object": "string-tied parcel with \"10\" claim tag",
   "hook": "Furs in a ten-cent checked parcel",
-  "svg": "<rect x=\"3\" y=\"6\" width=\"18\" height=\"15\" rx=\"1.5\"/><path d=\"M10 6v15M3 12h18\"/><circle cx=\"10\" cy=\"12\" r=\"1.6\" fill=\"currentColor\"/><path d=\"M10 12l3.5-3.5M10 12l4 2.5\"/><path d=\"M15 15.5h3.5v3H15Z\"/>"
+  "svg": "<path stroke-width=\"1.4\" d=\"M7.2 8.4C6.4 4.6 4.4 2.2 3.2 3.4C2 4.6 3.6 7.2 7.2 8.4C8 4.6 10 2.2 11.2 3.4C12.4 4.6 10.8 7.2 7.2 8.4\"/><circle cx=\"7.2\" cy=\"8.4\" r=\"1.3\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 9.4h4.9v3.2h-4.9zM8 9.4h14.5v3.2h-14.5zM1.5 14.2h4.9v8.3h-4.9zM8 14.2h14.5v8.3h-14.5zM10.6 15.5l-1.4 1.5v2.7l1.4 1.5h10.5v-5.7zM12.6 16.4h1.4v3.9h-1.4zM17.3 16.2a1.9 2.15 0 1 0 0 4.3a1.9 2.15 0 1 0 0-4.3zM17.3 17.45a.6 .9 0 1 1 0 1.8a.6 .9 0 1 1 0-1.8z\"/>"
  },
  "klein-pepsico": {
   "object": "solid globe split by a wave band",
@@ -910,9 +910,9 @@
   "svg": "<path d=\"M4 18L2.5 8l5 4L12 5l4.5 7 5-4L20 18Z\"/><path d=\"M4 21h16\"/><circle cx=\"12\" cy=\"3.2\" r=\"1\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"14\" r=\"1.3\" fill=\"currentColor\"/><circle cx=\"7.5\" cy=\"15\" r=\"0.8\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"15\" r=\"0.8\" fill=\"currentColor\"/>"
  },
  "lake-river": {
-  "object": "bagging hopper",
+  "object": "solid tied sack with blank label",
   "hook": "Abrasive powder bagged below the minimum",
-  "svg": "<path d=\"M4 2.500h16v3l-5.500 4.500h-5L4 5.500Z\"/><path d=\"M7 14l2 1.500c-2.500 1.500-3 4-2 6h10c1-2 .5-4.500-2-6l2-1.500\"/><path d=\"M12 12.500v1\" stroke-width=\"2.200\"/><circle cx=\"12\" cy=\"17.800\" r=\"1.100\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M5.4 1.8Q8.6 4 12 2.6Q15.4 4 18.6 1.8L14.6 6.2H9.4ZM9.2 7.4H14.8Q19.6 9.6 20.6 15Q21.6 22.4 16.6 22.4H7.4Q2.4 22.4 3.4 15Q4.4 9.6 9.2 7.4ZM7.6 13H16.4V18H7.6Z\"/>"
  },
  "lawrence-fox": {
   "object": "sitting fox in profile, white-tipped tail",
@@ -945,9 +945,9 @@
   "svg": "<path d=\"M2.5 7.6L14.6 7.6L15.6 8.3L16 8L17.4 8.1L19.1 9.1L20.3 12.9L20.2 14.3L21.5 16.4L6.8 16.4L6.8 13.5L2.5 13.5Z\"/>"
  },
  "lrs-i-brand-x": {
-  "object": "branding iron head-on with bold X",
+  "object": "solid disc with slab-serif X brand knocked out",
   "hook": "Cable modem service, reread by the FCC",
-  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M8.8 1a7.8 7.8 0 1 1 0 15.6A7.8 7.8 0 0 1 8.8 1zM6.1 4.2L4.2 6.1l2.7 2.7l-2.7 2.7l1.9 1.9l2.7-2.7l2.7 2.7l1.9-1.9l-2.7-2.7l2.7-2.7l-1.9-1.9l-2.7 2.7z\"/><path stroke-width=\"2.5\" stroke-linecap=\"butt\" d=\"M13.8 13.8l4.2 4.2\"/><circle cx=\"19.5\" cy=\"19.5\" r=\"2.3\" stroke-width=\"1.9\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1a11 11 0 1 0 0 22a11 11 0 1 0 0-22ZM5.4 5.4H10.7V7.4H9.8L12 10.06L14.2 7.4H13.3V5.4H18.6V7.4H17.4L13.6 12L17.4 16.6H18.6V18.6H13.3V16.6H14.2L12 13.94L9.8 16.6H10.7V18.6H5.4V16.6H6.6L10.4 12L6.6 7.4H5.4Z\"/>"
  },
  "lrs-i-chevron": {
   "object": "two stacked solid chevron bands, two-tone",
@@ -970,9 +970,9 @@
   "svg": "<path d=\"M5 3v7a5 5 0 0 0 10 0V3\"/><path d=\"M10 15v1.5a4.5 4.5 0 0 0 9 0V14\"/><circle cx=\"19\" cy=\"11.5\" r=\"2.5\"/><circle cx=\"5\" cy=\"3\" r=\"1\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"3\" r=\"1\" fill=\"currentColor\"/>"
  },
  "lrs-i-kisor": {
-  "object": "military dog tags",
+  "object": "two military dog tags on bead chain",
   "hook": "A veteran of Operation Harvest Moon",
-  "svg": "<rect x=\"4\" y=\"9.5\" width=\"7\" height=\"11.5\" rx=\"2.5\" transform=\"rotate(-8 7.5 15)\"/><rect x=\"13\" y=\"9.5\" width=\"7\" height=\"11.5\" rx=\"2.5\" transform=\"rotate(8 16.5 15)\"/><circle cx=\"7.2\" cy=\"12\" r=\".9\" fill=\"currentColor\"/><circle cx=\"16.8\" cy=\"12\" r=\".9\" fill=\"currentColor\"/><path d=\"M7.5 8.5Q8 3 12 3T16.5 8.5\" stroke-width=\"1.7\" stroke-dasharray=\"0.1 2.2\"/>"
+  "svg": "<path d=\"M9.85 8L5 1.8M10.55 8L15.4 1.8\" stroke-width=\"1.6\" stroke-dasharray=\"0.01 1.9\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" transform=\"translate(10.2 10.6) rotate(10)\" d=\"M-1.12 -2.88h2.24a2.88 2.88 0 0 1 2.88 2.88v8.24a2.88 2.88 0 0 1 -2.88 2.88h-2.24a2.88 2.88 0 0 1 -2.88 -2.88v-8.24a2.88 2.88 0 0 1 2.88 -2.88zM0 -1.2a1.2 1.2 0 1 0 0 2.4a1.2 1.2 0 1 0 0 -2.4zM-2.4 1.32v1.4h4.8v-1.4zM-2.4 3.98v1.4h4.8v-1.4zM-2.4 6.64v1.4h2.98v-1.4z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M15.05 10.47L18.28 14.92L18.56 15.4L18.75 15.94L18.83 16.49L18.79 17.06L18.65 17.6L18.41 18.11L18.06 18.56L17.64 18.94L15.83 20.25L15.34 20.54L14.81 20.73L14.25 20.8L13.69 20.77L13.25 20.66z\"/>"
  },
  "lrs-i-loper-bright": {
   "object": "outrigger fishing trawler with net over herring",
@@ -990,9 +990,9 @@
   "svg": "<path d=\"M6 7c4-2 8-2 12 0v10c-4 2-8 2-12 0Z\"/><path d=\"M6 9.5c-4.5 0-4.5 5.5 0 5.5M18 9.5c4.5 0 4.5 5.5 0 5.5\"/><path d=\"M9 10.5h6M9 13.5h6\"/>"
  },
  "lrs-i-skidmore": {
-  "object": "fire alarm bell",
+  "object": "solid bracket-mounted alarm bell with ringing arcs",
   "hook": "On call all night; the alarm rarely rang",
-  "svg": "<circle cx=\"12.5\" cy=\"13\" r=\"7.5\"/><circle cx=\"12.5\" cy=\"13\" r=\"2\" fill=\"currentColor\"/><path d=\"M17.5 7l2-2\"/><circle cx=\"20\" cy=\"4.5\" r=\"1.5\" fill=\"currentColor\"/><path d=\"M5.5 5.5a10.5 10.5 0 0 0-3 6M9.5 3a10 10 0 0 1 4-.5\"/>"
+  "svg": "<rect x=\"7\" y=\"1.2\" width=\"10\" height=\"1.9\" rx=\".6\" fill=\"currentColor\" stroke=\"none\"/><rect x=\"11\" y=\"2\" width=\"2\" height=\"3.4\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M12 4.4C8.4 4.4 6.9 7.2 6.9 10.2V12.8C6.9 15 5.6 16.2 4.2 17.2V19H19.8V17.2C18.4 16.2 17.1 15 17.1 12.8V10.2C17.1 7.2 15.6 4.4 12 4.4Z\"/><circle cx=\"12\" cy=\"20.8\" r=\"1.9\" fill=\"currentColor\" stroke=\"none\"/><path stroke-width=\"1.9\" d=\"M4.3 5.6Q2.2 8.2 2.2 11.8M19.7 5.6Q21.8 8.2 21.8 11.8\"/>"
  },
  "lrs-i-west-virginia": {
   "object": "outline of West Virginia",
@@ -1005,9 +1005,9 @@
   "svg": "<rect x=\"5\" y=\"7.5\" width=\"14\" height=\"14.5\" rx=\"4\"/><path d=\"M9.5 7.5V5.5a2.5 2.5 0 0 1 5 0v2\"/><rect x=\"8\" y=\"14.5\" width=\"8\" height=\"4.5\" rx=\"1\"/><path d=\"M5 11.5h14\"/>"
  },
  "lrs-k-cargill": {
-  "object": "bump stock",
+  "object": "aR-15 rifle with detached sliding stock",
   "hook": "A bump stock is not a machine gun",
-  "svg": "<path d=\"M5 7.500h12v2h5v2h-5v1.500h-2.500v4.500h-2.500v-4.500h-1l-1.500 6.500H6.500l1-6L5 16.500Z\"/><path d=\"M2.500 8v2.500M2.500 13.500V16\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\" transform=\"translate(0 -1.1)\"><path d=\"M1 7.4h4.6v3.4L3.4 14.4H1z\"/><path d=\"M6.2 8.4h1.6v1.8H6.2z\"/><path d=\"M7.6 7.6h1V6.3h2.6v1.3h2.6v.3H19v1h.7l.5-2.6h1l.5 2.6H23v1.3h-4v.9h-5.2v.5h-.6l1.4 6h-2.8l-1-4.3H9.9l-.5 3.3H7.2l.7-4.4-.3-.6z\"/><path d=\"M1 17.8l2.4-2.1V17h2.2v-1.3L8 17.8l-2.4 2.1v-1.3H3.4v1.3z\"/></g>"
  },
  "lrs-k-dolan": {
   "object": "uSPS eagle head in slanted parallelogram",
@@ -1020,9 +1020,9 @@
   "svg": "<rect x=\"4\" y=\"3.5\" width=\"16\" height=\"12\" rx=\"1.5\"/><path d=\"M2 19.5h20l-2-4H4Z\"/><rect x=\"7.5\" y=\"6.5\" width=\"9\" height=\"6\" rx=\".5\"/><path d=\"M7.5 7l4.5 3 4.5-3\"/>"
  },
  "lrs-k-gayle": {
-  "object": "maple leaf",
+  "object": "solid Canadian-flag eleven-point maple leaf",
   "hook": "A Canadian conviction, guns in a hotel",
-  "svg": "<polygon fill=\"currentColor\" points=\"12,2.5 13.8,6 15.8,5 15,10 17.8,7.6 18.6,9.6 21.5,9.2 20.3,12.6 21.5,13.6 16,17.5 16.6,19.4 12,18.6 7.4,19.4 8,17.5 2.5,13.6 3.7,12.6 2.5,9.2 5.4,9.6 6.2,7.6 9,10 8.2,5 10.2,6\"/><path d=\"M12 18v4\"/>"
+  "svg": "<polygon points=\"11.12,22.48 11.47,17.99 11.19,17.48 6.72,18.27 7.33,16.6 7.22,16.22 2.33,12.26 3.43,11.75 3.61,11.33 2.64,8.36 5.46,8.96 5.84,8.76 6.38,7.48 8.58,9.84 9.16,9.54 8.1,4.07 9.8,5.05 10.27,4.91 12,1.52 13.73,4.91 14.2,5.05 15.9,4.07 14.84,9.54 15.42,9.84 17.62,7.48 18.16,8.76 18.54,8.96 21.36,8.36 20.39,11.33 20.57,11.75 21.67,12.26 16.78,16.22 16.67,16.6 17.28,18.27 12.81,17.48 12.53,17.99 12.88,22.48\" fill=\"currentColor\" stroke-width=\"0.3\"/>"
  },
  "lrs-k-gustafson": {
   "object": "ledger book",
@@ -1030,19 +1030,19 @@
   "svg": "<path d=\"M12 6C9.5 4 6 4 2.5 5v14c3.5-1 7-1 9.5 1 2.5-2 6-2 9.5-1V5C18 4 14.5 4 12 6Z\"/><path d=\"M12 6v14\"/><path d=\"M5 8.5h4.5M5 11.5h4.5M5 14.5h4.5M14.5 8.5H19M14.5 11.5H19M14.5 14.5H19\" stroke-width=\"1.1\"/>"
  },
  "lrs-k-holy-trinity": {
-  "object": "church steeple with cross",
+  "object": "solid church front with steeple and cross",
   "hook": "A rector imported from England",
-  "svg": "<path d=\"M12 2v5M10 4h4\"/><path d=\"M7.5 14L12 7l4.5 7\"/><path d=\"M7.5 14v8h9v-8\"/><path d=\"M10.5 22v-3a1.5 1.5 0 0 1 3 0v3\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 6L16.2 12.4H15.5V14.2L21.8 17.8H20.6V23H3.4V17.8H2.2L8.5 14.2V12.4H7.8ZM10 23V19.4A2 2 0 0 1 14 19.4V23ZM10.4 14.6a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0-3.2 0Z\"/><path d=\"M12 1V7M9.5 3.1H14.5\" stroke-width=\"1.8\" stroke-linecap=\"butt\"/>"
  },
  "lrs-k-mcboyle": {
-  "object": "biplane",
+  "object": "side-view biplane with propeller, pilot, wheel",
   "hook": "A stolen airplane is not a motor vehicle",
-  "svg": "<path d=\"M2.500 7h19M2.500 14h19\" stroke-width=\"2\"/><path d=\"M5.500 7v7M18.500 7v7\"/><circle cx=\"12\" cy=\"11.500\" r=\"3\"/><path d=\"M12 3v3\" stroke-width=\"2\"/><path d=\"M9.500 16 8.500 19M14.500 16l1 3\"/><circle cx=\"8\" cy=\"20\" r=\"1.500\"/><circle cx=\"16\" cy=\"20\" r=\"1.500\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M2.2 5.2h1.4c.8 0 1.4.4 1.8 1.1l1.9 3.5 3.9-.5a1.9 1.9 0 0 1 3.6-.2h2.6c1.9 0 3.2 1.1 3.2 2.6s-1.3 2.6-3.2 2.6h-4.6c-3 0-6.4-.9-9.2-2.3-1.1-.5-1.6-1.2-1.7-2.1L1.4 6.1c-.05-.5.3-.9.8-.9z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M8.6 2.8h10.6a1.25 1.25 0 0 1 0 2.5H8.6a1.25 1.25 0 0 1 0-2.5zM9 15.5h9.4a1.15 1.15 0 0 1 0 2.3H9a1.15 1.15 0 0 1 0-2.3z\"/><path d=\"M10.2 5.2l-.5 10.4M17.8 5.2l-.5 10.4M3.6 12.6l-1.2 1.9\" stroke-width=\"1.2\"/><ellipse cx=\"21.6\" cy=\"11.7\" rx=\".8\" ry=\"5.4\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M11.8 17.6l2 1.6 2-1.6\" stroke-width=\"1.2\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M13.8 18.4a2.2 2.2 0 1 0 .01 0zM13.8 19.85a.75.75 0 1 1-.01 0z\"/>"
  },
  "lrs-k-people-smith": {
-  "object": "dagger",
+  "object": "solid diagonal dagger, point down-left",
   "hook": "A rifle in a van is not a dagger",
-  "svg": "<path d=\"M12 2.5 15 7.5V14H9V7.5Z\"/><path d=\"M12 7v7\" stroke-width=\".9\"/><path d=\"M5.5 14h13\"/><path d=\"M12 14v5\" stroke-width=\"2.4\"/><circle cx=\"12\" cy=\"20.3\" r=\"1.3\" fill=\"currentColor\"/>"
+  "svg": "<g transform=\"rotate(225 12 12)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M12 -2.3C14 2.5 15.4 7 15.4 11V14.5H8.6V11C8.6 7 10 2.5 12 -2.3ZM12 3.5L11.65 5V12.6H12.35V5Z\"/><rect x=\"5.8\" y=\"14\" width=\"12.4\" height=\"2.5\" rx=\"1.25\"/><path d=\"M10.2 16.3H13.8V18.5H10.2ZM10.2 19.1H13.8V20.6H10.2ZM10.2 21.2H13.8V23H10.2Z\"/><circle cx=\"12\" cy=\"24.5\" r=\"2\"/></g>"
  },
  "lrs-k-public-citizen": {
   "object": "keyhole",
@@ -1050,9 +1050,9 @@
   "svg": "<rect x=\"3.5\" y=\"2.5\" width=\"17\" height=\"19\" rx=\"3\"/><path d=\"M12 6.5a3 3 0 0 1 1.7 5.5L15 17.5H9l1.3-5.5A3 3 0 0 1 12 6.5Z\" fill=\"currentColor\"/>"
  },
  "lrs-k-raila": {
-  "object": "mail carrier's satchel",
+  "object": "taped parcel box below a doorstep",
   "hook": "A package left below her doorstep",
-  "svg": "<path d=\"M4 11C5 3 15 2 20 9\"/><rect x=\"3\" y=\"10\" width=\"18\" height=\"11.5\" rx=\"2\"/><path d=\"M3 11.5l9 6 9-6\"/><circle cx=\"12\" cy=\"17.5\" r=\"1.3\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M1 22.5V20.4H14.8V13H23V22.5Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M7.3 4 9.66 5.36 3.76 8.76 1.4 7.4ZM10.84 6.04 13.2 7.4 7.3 10.8 4.94 9.44ZM1.1 8.7 6.65 11.9V19.1L1.1 15.9ZM7.95 11.9 13.5 8.7V15.9L7.95 19.1Z\"/>"
  },
  "lrs-k-riggs": {
   "object": "poison vial with skull",
@@ -1060,9 +1060,9 @@
   "svg": "<path d=\"M9 2.5h6M10 2.5V6L5.5 9.5V19A2.5 2.5 0 0 0 8 21.5h8a2.5 2.5 0 0 0 2.5-2.5V9.5L14 6V2.5\"/><path d=\"M8.3 13.5a3.7 3.7 0 0 1 7.4 0c0 1.3-.7 2-1.4 2.5v2.5H9.7V16c-.7-.5-1.4-1.2-1.4-2.5Z\" stroke-width=\"1.1\"/><circle cx=\"10.5\" cy=\"13.7\" r=\".9\" fill=\"currentColor\"/><circle cx=\"13.5\" cy=\"13.7\" r=\".9\" fill=\"currentColor\"/>"
  },
  "lrs-k-rucho": {
-  "object": "salamander",
+  "object": "top-down salamander silhouette with curled tail",
   "hook": "A map drawn for ten Republicans, three Dems",
-  "svg": "<ellipse cx=\"12\" cy=\"4.6\" rx=\"2.3\" ry=\"2.6\" fill=\"currentColor\"/><path d=\"M12 6.5c0 3-1 4-1 7s4.5 3.5 5 6c.3 1.7-1 2.5-2.5 2\" stroke-width=\"2.6\"/><path d=\"M11.5 9L7.5 8.5 6 5.5M12.5 9l4 .5L18 6.5M10.5 13.5l-4 1-1 3M11.5 13.5l4.5-1.5 2.5 1.5\"/>"
+  "svg": "<g transform=\"translate(.4 .5)\"><path fill=\"currentColor\" stroke-width=\".5\" d=\"M18.6 2.2 18.2 2.2 17.7 2.2 17.3 2.4 16.8 2.6 16.4 3 15.9 3.3 15.5 3.7 15.2 4.3 14.9 4.8 14.5 5.3 13.9 5.7 13.2 6.1 12.6 6.7 12 7.3 11.4 7.9 10.9 8.6 10.4 9.5 10.1 10.4 10.1 11.6 10.4 12.5 10.8 13.3 11.2 13.9 11.6 14.7 12.1 15.4 12.6 16.1 12.9 16.6 13 17.2 13 17.9 12.8 18.7 12.5 19.4 12 19.9 11.2 20.5 10.2 20.9 9.2 21.2 8.2 21.1 7 20.9 5.9 20.5 5 19.9 4.4 19.1 3.8 18.2 3.2 17.2 3.2 17.2 3.6 18.3 4.1 19.3 4.7 20.3 5.6 21 6.8 21.5 8 21.9 9.3 22 10.5 21.9 11.7 21.4 12.7 20.9 13.5 20.1 14.1 19.2 14.4 18.2 14.6 17.2 14.6 16.2 14.3 15.2 13.9 14.4 13.6 13.7 13.3 13 13 12.2 12.8 11.6 12.7 11.2 12.7 10.9 12.8 10.6 13.1 10 13.5 9.5 13.9 8.9 14.3 8.4 14.7 8 15.2 7.6 15.8 7.1 16.5 6.8 17.2 6.5 17.9 6.2 18.3 5.7 18.7 5.2 19 4.8 19.3 4.3 19.4 3.9 19.4 3.4 19.4 3Z\"/><path stroke-width=\"1.15\" d=\"M14 7.1L12.2 4.3L13 2.6M13 2.6L12.5 1.2M13 2.6L13.7 1.3M13 2.6L14.4 2.2M14 7.1L16.2 9.5L18.1 9M18.1 9L19.4 9.8M18.1 9L19.6 8.7M18.1 9L18.9 7.8M12.2 13.5L9.4 15.1L9.4 17M9.4 17L10.4 18.1M9.4 17L9.4 18.5M9.4 17L8.3 18M12.2 13.5L14.6 11.5L16.1 12.4M16.1 12.4L16.5 13.9M16.1 12.4L17.4 13.2M16.1 12.4L17.6 12.1\"/></g>"
  },
  "lrs-k-small": {
   "object": "Japanese torii gate",
@@ -1080,9 +1080,9 @@
   "svg": "<path d=\"M6.9 9.8L7.1 9L7.7 8.8L8.1 7.9L8.2 7.3L7.7 6.9L7.9 6.2L9.5 5.9L10.2 4.9L10.3 3.8L9 2.5L16.5 2.6L16.4 3.2L17.3 5.2L17.2 13.3L16.9 14L17.3 15.4L16.4 17L16 17.1L16.2 17.5L15.6 19.1L15.8 19.6L14.7 20.1L14.8 21.1L13.4 20.6L13 21.5L12.3 21.3L12 20.4L12.2 20L12 19L9.7 17.2L10.4 15.1L9.6 14.7L9.1 15L8.8 13.7L7 12L6.7 10.5Z\"/>"
  },
  "lrs-k-vanderstok": {
-  "object": "power drill",
+  "object": "solid cordless power drill, side view",
   "hook": "A ghost gun built in twenty-one minutes",
-  "svg": "<path d=\"M3 5h10.5v6H9.5l1 6h-5L4.5 11H3Z\"/><path d=\"M13.5 6.5h2.5v3h-2.5M16 8h6\"/><rect x=\"4\" y=\"17\" width=\"8\" height=\"4\" rx=\"1\"/><path d=\"M8.5 11v2\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M3 3.6H11a1 1 0 0 1 1 1V9.6a1 1 0 0 1-1 1H9L9.8 16.4H3.9L3.4 10.6H3A1.5 1.5 0 0 1 1.5 9.1V5.1A1.5 1.5 0 0 1 3 3.6ZM3.6 5.5V8.7H4.4V5.5ZM5.3 5.5V8.7H6.1V5.5ZM7 5.5V8.7H7.8V5.5Z\"/><path d=\"M9.8 11.3H11.5Q11.7 13 11 14.1H10.15Z\"/><path d=\"M3.1 17.1H12.2a1.1 1.1 0 0 1 1.1 1.1V20a1.1 1.1 0 0 1-1.1 1.1H3.1A1.1 1.1 0 0 1 2 20V18.2a1.1 1.1 0 0 1 1.1-1.1Z\"/><rect x=\"12.6\" y=\"4.4\" width=\"1.6\" height=\"5.4\" rx=\".4\"/><path d=\"M14.8 4.6 17.4 5.9V8.3L14.8 9.6Z\"/><path fill-rule=\"evenodd\" d=\"M17.4 6.2H21.2L22.6 7.1 21.2 8H17.4Z\"/></g>"
  },
  "lrs-n-adapso-board": {
   "object": "floppy disk",
@@ -1095,14 +1095,14 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2.8 6Q3.4 3.6 6.4 3.6L8 4L9.6 2.6L10.4 4.8Q11.8 5.2 12.8 6.2Q16 7.8 19.6 7L21.6 5.2L22.8 6.2L21.6 8.8Q23 11.4 22 14L22.8 19.4H18.2L18.8 17.6L17.2 15Q14.6 13.8 12.4 15.4L12.6 19.4H6.2L6.8 16.4Q4.6 16 4.2 14L2.6 14.2Q1 13.4 1 11.3L4.9 11.5Q5.4 11.7 5.3 12.7L6.2 12.7Q6.5 10.9 5 10.7L2.2 10.6L1.5 9.2L2 7.4L2.8 7ZM5.3 6.5a.85.85 0 1 0 .01 0Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M3.4 20.4H23V22.8H3.4Z\"/>"
  },
  "lrs-n-american-horse-lyng": {
-  "object": "chain on horse's hoof",
+  "object": "horse head silhouette above a chain",
   "hook": "Chains that make a show horse step high",
-  "svg": "<path d=\"M11 2.5v6.5M17 2.5v6.5\"/><path d=\"M10.5 15L3.5 19v2.5h15V18l-1.5-3Z\" fill=\"currentColor\"/><ellipse cx=\"8.5\" cy=\"11.5\" rx=\"2.2\" ry=\"1.5\"/><ellipse cx=\"14\" cy=\"12.2\" rx=\"2.2\" ry=\"1.5\"/><ellipse cx=\"19.5\" cy=\"11.5\" rx=\"2\" ry=\"1.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M13.4 1L12.2 3.8C10.4 5.4 8.4 7.6 6.6 9.6L3.9 12.2C2.9 13.2 3.2 14.7 4.4 15.2C5.8 15.7 7.2 14.9 8.2 13.9C9.4 12.7 10.8 12.2 12 12.6C12.6 13.8 12.2 14.8 11.6 15.8H21C21 11 19 6 15.6 3.2L15.4 1L14.4 2.4ZM10.4 7.5a.9.9 0 1 0 1.8 0a.9.9 0 1 0-1.8 0ZM4.5 13.4a.55.55 0 1 0 1.1 0a.55.55 0 1 0-1.1 0Z\"/><g stroke-width=\"1.5\"><ellipse cx=\"4.8\" cy=\"20.2\" rx=\"2.6\" ry=\"1.9\"/><ellipse cx=\"12\" cy=\"20.2\" rx=\"2.6\" ry=\"1.9\"/><ellipse cx=\"19.2\" cy=\"20.2\" rx=\"2.6\" ry=\"1.9\"/><path d=\"M7 20.2H9.8M14.2 20.2H17\"/></g>"
  },
  "lrs-n-american-mining-congress": {
-  "object": "miner's helmet with lamp",
+  "object": "miner's hard hat with beaming headlamp",
   "hook": "Mine safety: interpreting or legislating?",
-  "svg": "<path d=\"M3.5 17v-1.5a7 7 0 0 1 14 0V17\"/><path d=\"M2.5 17.5H21\" stroke-width=\"2\"/><path d=\"M10.5 8.5V5.5\"/><rect x=\"13\" y=\"9.5\" width=\"4\" height=\"4.5\" rx=\"1\" fill=\"currentColor\"/><path d=\"M19.5 9.5L22 8M19.5 11.75H22M19.5 14l2.5 1.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M2.5 16A7.25 11 0 0 1 14.26 7.39A3.3 3.3 0 1 1 16.8 13.4A7.25 11 0 0 1 17 16ZM16 8A2.2 2.2 0 1 0 16 12.4A2.2 2.2 0 1 0 16 8ZM4.5 14.4A5.3 8.8 0 0 1 11.3 5.96L10.9 7.08A4.1 7.6 0 0 0 5.8 14.4Z\"/><circle cx=\"16\" cy=\"10.2\" r=\"1.1\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M2.6 17H18.5C20.6 17 22.4 18 22.4 19.1C22.4 19.6 22 19.9 21.5 19.9H2.6A1.45 1.45 0 0 1 2.6 17Z\"/><path stroke-width=\"1.7\" d=\"M20.6 8.1L21.9 7.35M20.9 10.2H22.1M20.6 12.3L21.9 13.05\"/>"
  },
  "lrs-n-automotive-parts-boyd": {
   "object": "car seat headrest",
@@ -1110,9 +1110,9 @@
   "svg": "<rect x=\"3.5\" y=\"2.5\" width=\"6\" height=\"5.5\" rx=\"2\" fill=\"currentColor\"/><path d=\"M5.5 8v3M8 8v3\"/><path d=\"M9.5 11l2 6.5h7a1.75 1.75 0 0 1 0 3.5H8L4.5 11Z\"/>"
  },
  "lrs-n-biestek": {
-  "object": "hand saw",
+  "object": "solid diagonal hand saw with teeth",
   "hook": "Job surveys the expert kept private",
-  "svg": "<path d=\"M9 8l13 6v3H9Z\"/><path d=\"M9 17l1.6 2 1.6-2 1.6 2 1.6-2 1.6 2 1.6-2 1.6 2L22 17\"/><path d=\"M9 6H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h5Z\"/><rect x=\"4.5\" y=\"9.5\" width=\"2\" height=\"5\" rx=\"1\"/>"
+  "svg": "<g transform=\"translate(11.7 11.4) rotate(-25) scale(.9)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M-5.5-6L-9-7Q-12.8-7-12.8-3V3.5Q-12.8 7.4-9.6 7.4L-6.3 6.2-4.5 2.5H-3L-1.75 5-.5 2.5.75 5 2 2.5 3.25 5 4.5 2.5 5.75 5 7 2.5 8.25 5 9.5 2.5 10.75 5 12 2.5V-2.5ZM-9.3-3.8A1.6 1.6 0 0 0-10.9-2.2V2.4A1.6 1.6 0 0 0-7.7 2.4V-2.2A1.6 1.6 0 0 0-9.3-3.8Z\"/></g>"
  },
  "lrs-n-commerce-new-york": {
   "object": "outline of New York",
@@ -1130,9 +1130,9 @@
   "svg": "<rect x=\"2.5\" y=\"3.5\" width=\"19\" height=\"13.5\" rx=\"1.5\"/><path d=\"M12 17v3.5M8 20.5h8\"/><rect x=\"9\" y=\"9.5\" width=\"6\" height=\"5\" rx=\"1\" fill=\"currentColor\"/><path d=\"M10.2 9.5V8a1.8 1.8 0 0 1 3.6 0v1.5\"/>"
  },
  "lrs-n-dunlop-bachowski": {
-  "object": "welder's mask",
+  "object": "solid front-view welding helmet with sparks",
   "hook": "A steelworker's lost union election",
-  "svg": "<path d=\"M5.5 5q6.5-3.5 13 0v10q0 4.5-6.5 6.5q-6.5-2-6.5-6.5Z\"/><rect x=\"8\" y=\"8.5\" width=\"8\" height=\"4.5\" rx=\"1\" fill=\"currentColor\"/><path d=\"M10 17h4\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M9.5 1.5C5 1.5 2.5 4 2.5 8v1H1v3.5h1.5V14l3 7h8l3-7v-1.5H18V9h-1.5V8c0-4-2.5-6.5-7-6.5zM5.2 6.8h8.6a.9.9 0 0 1 .9.9v3.6a.9.9 0 0 1-.9.9H5.2a.9.9 0 0 1-.9-.9V7.7a.9.9 0 0 1 .9-.9zM6.3 14.6h6.4v1.2H6.3zM7.3 17.5h4.4v1.2H7.3z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M19.8 15l1 2.5 2.2 1-2.2 1-1 2.5-1-2.5-2.2-1 2.2-1z\"/><circle cx=\"21\" cy=\"12.5\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "lrs-n-fcc-fox": {
   "object": "block FOX wordmark with crossed searchlight beams",
@@ -1145,14 +1145,14 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.2a10.8 10.8 0 1 0 0 21.6a10.8 10.8 0 1 0 0 -21.6zM11.64 7.46A4.35 4.35 0 1 0 12.91 11.49V9.57H8.79A0.96 0.96 0 0 0 8.79 11.49H10.79A2.43 2.43 0 1 1 10.28 8.81A0.96 0.96 0 0 0 11.64 7.46ZM18.22 9.54A2.82 2.82 0 1 0 13.78 13.02A2.82 2.82 0 1 0 18.22 16.5A0.96 0.96 0 0 0 16.65 15.4A0.9 0.9 0 1 1 15.91 13.98A0.96 0.96 0 0 0 15.91 12.06A0.9 0.9 0 1 1 16.65 10.63A0.96 0.96 0 0 0 18.22 9.54ZM15.34 2.82A9.78 9.78 0 0 1 20.79 7.72A0.73 0.73 0 1 1 18.7 7.49L18.69 6.38A8.74 8.74 0 0 0 14.98 3.79A0.52 0.52 0 0 1 15.34 2.82ZM21.18 15.34A9.78 9.78 0 0 1 16.28 20.79A0.73 0.73 0 1 1 16.51 18.7L17.62 18.69A8.74 8.74 0 0 0 20.21 14.98A0.52 0.52 0 0 1 21.18 15.34ZM8.66 21.18A9.78 9.78 0 0 1 3.21 16.28A0.73 0.73 0 1 1 5.3 16.51L5.31 17.62A8.74 8.74 0 0 0 9.02 20.21A0.52 0.52 0 0 1 8.66 21.18ZM2.82 8.66A9.78 9.78 0 0 1 7.72 3.21A0.73 0.73 0 1 1 7.49 5.3L6.38 5.31A8.74 8.74 0 0 0 3.79 9.02A0.52 0.52 0 0 1 2.82 8.66Z\"/>"
  },
  "lrs-n-heckler-chaney": {
-  "object": "gurney with straps",
+  "object": "solid diagonal syringe with falling drop",
   "hook": "Execution drugs the FDA would not police",
-  "svg": "<rect x=\"2.5\" y=\"7.5\" width=\"19\" height=\"4.5\" rx=\"1.5\"/><rect x=\"6.5\" y=\"7.5\" width=\"2.2\" height=\"4.5\" fill=\"currentColor\"/><rect x=\"15.3\" y=\"7.5\" width=\"2.2\" height=\"4.5\" fill=\"currentColor\"/><path d=\"M6 12l12 6.5M18 12L6 18.5\"/><circle cx=\"6\" cy=\"20\" r=\"1.5\"/><circle cx=\"18\" cy=\"20\" r=\"1.5\"/>"
+  "svg": "<g transform=\"rotate(-45 12 12)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M8 9.2a1 1 0 0 1 1-1h8.3V7.4a.8.8 0 0 1 1.6 0v3.5h2.9V9a.85.85 0 0 1 1.7 0v6a.85.85 0 0 1-1.7 0v-1.9h-2.9v3.5a.8.8 0 0 1-1.6 0v-.8H9a1 1 0 0 1-1-1v-1.1H6.4v-3.4H8zM10.3 8.2h1.3v3.9h-1.3zM13.3 8.2h1.3v3.9h-1.3z\"/><rect x=\"3.6\" y=\"11.25\" width=\"3.4\" height=\"1.5\" rx=\".7\"/></g><path fill=\"currentColor\" stroke=\"none\" d=\"M4.4 18.4c1 1.3 1.8 2.1 1.8 2.9a1.8 1.8 0 0 1-3.6 0c0-.8.8-1.6 1.8-2.9z\"/>"
  },
  "lrs-n-hoctor": {
-  "object": "tiger face",
+  "object": "snarling tiger head, front-on, with stripes",
   "hook": "Big cats and an eight-foot fence memo",
-  "svg": "<circle cx=\"12\" cy=\"13\" r=\"8\"/><path d=\"M6.5 7 5.5 3 10 5.5M17.5 7l1-4L14 5.5\"/><path d=\"M12 5.5v3.5M9 6.5l.5 2.5M15 6.5l-.5 2.5M4.5 13l3 .5M5.5 16.5l2.5-.5M19.5 13l-3 .5M18.5 16.5 16 16\" stroke-width=\"2\"/><circle cx=\"9\" cy=\"12\" r=\"1.1\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"12\" r=\"1.1\" fill=\"currentColor\"/><path d=\"M10.8 15h2.4L12 16.5Z\" fill=\"currentColor\"/><path d=\"M10 18.2c1 .6 3 .6 4 0\"/>"
+  "svg": "<circle cx=\"5.3\" cy=\"5.5\" r=\"2.1\" stroke-width=\"1.7\"/><circle cx=\"18.7\" cy=\"5.5\" r=\"2.1\" stroke-width=\"1.7\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 3.4C15.5 3.4 18.5 5 20 8C21 10 21.2 11.5 22.6 13.8L20.4 14.5L21.8 17.2L19 17.6C18.4 20.8 15.6 22.6 12 22.6C8.4 22.6 5.6 20.8 5 17.6L2.2 17.2L3.6 14.5L1.4 13.8C2.8 11.5 3 10 4 8C5.5 5 8.5 3.4 12 3.4ZM10.9 4.5L13.1 4.5L12 9.6ZM7.6 5.8L9.6 5L10.2 9ZM16.4 5.8L14.4 5L13.8 9ZM3.6 11.6L8 13.2L3.4 13.8ZM4.8 15.1L8.4 15.5L5.6 17ZM20.4 11.6L16 13.2L20.6 13.8ZM19.2 15.1L15.6 15.5L18.4 17ZM6.6 9.4L10.8 11.3C9.8 12.8 7.4 12.5 6.6 9.4ZM17.4 9.4L13.2 11.3C14.2 12.8 16.6 12.5 17.4 9.4ZM10.4 13.5L13.6 13.5L12 15.3ZM8.2 17.2L9.5 17.2L10.2 19.4L11 17L13 17L13.8 19.4L14.5 17.2L15.8 17.2L14.9 20.4Q12 21.6 9.1 20.4Z\"/>"
  },
  "lrs-n-little-sisters": {
   "object": "outline of Pennsylvania",
@@ -1170,9 +1170,9 @@
   "svg": "<path d=\"M3.5 11h14a7 7 0 0 1-14 0Z\"/><path d=\"M11 11V3.5A7.5 7.5 0 0 0 3.5 11\"/><path d=\"M17.5 11l3.5-5\"/><circle cx=\"7\" cy=\"20\" r=\"1.7\"/><circle cx=\"14.5\" cy=\"20\" r=\"1.7\"/>"
  },
  "lrs-n-national-tire-brinegar": {
-  "object": "tire with sidewall markings",
+  "object": "three-quarter view tire with tread blocks",
   "hook": "Labels molded into retreaded tires",
-  "svg": "<circle cx=\"12\" cy=\"12\" r=\"9.5\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><circle cx=\"12\" cy=\"12\" r=\"6.2\" stroke-width=\"2\" stroke-linecap=\"butt\" stroke-dasharray=\"1.6 2.3\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M11.58 1.66A7.4 10.5 0 0 1 13.55 2.57L17.05 2.57A7.4 10.5 0 0 0 15.08 1.66ZM14.06 2.96A7.4 10.5 0 0 1 15.68 4.79L19.18 4.79A7.4 10.5 0 0 0 17.56 2.96ZM16.06 5.41A7.4 10.5 0 0 1 17.12 7.93L20.62 7.93A7.4 10.5 0 0 0 19.56 5.41ZM17.33 8.7A7.4 10.5 0 0 1 17.69 11.59L21.19 11.59A7.4 10.5 0 0 0 20.83 8.7ZM17.69 12.41A7.4 10.5 0 0 1 17.33 15.3L20.83 15.3A7.4 10.5 0 0 0 21.19 12.41ZM17.12 16.07A7.4 10.5 0 0 1 16.06 18.59L19.56 18.59A7.4 10.5 0 0 0 20.62 16.07ZM15.68 19.21A7.4 10.5 0 0 1 14.06 21.04L17.56 21.04A7.4 10.5 0 0 0 19.18 19.21ZM13.55 21.43A7.4 10.5 0 0 1 11.58 22.34L15.08 22.34A7.4 10.5 0 0 0 17.05 21.43Z\"/><path fill-rule=\"evenodd\" d=\"M16.8 12A7.4 10.5 0 1 0 2 12A7.4 10.5 0 1 0 16.8 12ZM13.5 12A4.1 5.8 0 1 0 5.3 12A4.1 5.8 0 1 0 13.5 12ZM12.4 12A3 4.1 0 1 0 6.4 12A3 4.1 0 1 0 12.4 12ZM9.95 9.62A0.55 0.6 0 1 0 8.85 9.62A0.55 0.6 0 1 0 9.95 9.62ZM11.6 11.27A0.55 0.6 0 1 0 10.51 11.27A0.55 0.6 0 1 0 11.6 11.27ZM10.97 13.92A0.55 0.6 0 1 0 9.87 13.92A0.55 0.6 0 1 0 10.97 13.92ZM8.93 13.92A0.55 0.6 0 1 0 7.83 13.92A0.55 0.6 0 1 0 8.93 13.92ZM8.29 11.27A0.55 0.6 0 1 0 7.2 11.27A0.55 0.6 0 1 0 8.29 11.27Z\"/></g>"
  },
  "lrs-n-norton-suwa": {
   "object": "outline of Utah",
@@ -1180,9 +1180,9 @@
   "svg": "<path d=\"M4.7 2.5L13.5 2.5L13.5 6.3L19.3 6.3L19.3 21.5L4.7 21.5Z\"/>"
  },
  "lrs-n-nrdc-epa-1981": {
-  "object": "tailpipe puffing soot",
+  "object": "exhaust tailpipe tip billowing soot cloud",
   "hook": "A diesel soot trap not yet perfected",
-  "svg": "<path d=\"M9.5 14.5H2.5M2.5 20h7\"/><ellipse cx=\"9.5\" cy=\"17.25\" rx=\"1.7\" ry=\"2.75\"/><circle cx=\"14\" cy=\"14\" r=\"1.3\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"10\" r=\"2\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"5\" r=\"2.8\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1 16.1h5.6V15h4.3a2.1 3.5 0 0 1 0 7H6.6v-1.1H1zM10.9 16.2a1.15 2.3 0 0 0 0 4.6a1.15 2.3 0 0 0 0-4.6z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M14.4 17.6a1.7 1.7 0 0 1 .2-3.2a3 3 0 0 1-1.6-5.2a3.6 3.6 0 0 1 2.6-6a4.2 4.2 0 0 1 7 1.4a3.7 3.7 0 0 1 .2 6.4a3.4 3.4 0 0 1-3 4.8a3 3 0 0 1-4 1.2a1.7 1.7 0 0 1-1.4.6z\"/>"
  },
  "lrs-n-ohio-epa": {
   "object": "outline of Ohio",
@@ -1190,24 +1190,24 @@
   "svg": "<path d=\"M3.3 4L8.8 3.8L10.9 5L11.3 4.6L12.8 5.7L14.7 5L15.8 5.1L17.6 3.7L20.8 2.5L20.8 9.6L20.2 10L20.4 11.3L19.5 14.5L18 16.2L17.2 16.5L16.9 16.2L16.5 16.9L16 16.9L15.5 17.9L15.6 18.7L15.2 19L14.6 18.2L13.8 19.4L14 20.4L13.5 20.6L13.4 21.3L12.3 21.4L11.3 20.5L11.1 19.6L9.4 20.5L8.5 19.9L7.9 20.3L7.5 20.2L6.8 19.5L5.7 19.4L4.8 17.7L3.2 17.8Z\"/>"
  },
  "lrs-n-overton-park": {
-  "object": "bulldozer",
+  "object": "solid bulldozer side silhouette with curved blade",
   "hook": "Six lanes of interstate through a park",
-  "svg": "<rect x=\"7\" y=\"15\" width=\"14.5\" height=\"5.5\" rx=\"2.75\"/><path d=\"M9 15v-4h11v4\"/><path d=\"M13 11V5.5h6V11\"/><path d=\"M4.5 10.5q-2.5 5 0 10M4 16h3\"/><circle cx=\"10.5\" cy=\"17.75\" r=\".9\" fill=\"currentColor\"/><circle cx=\"18\" cy=\"17.75\" r=\".9\" fill=\"currentColor\"/>"
+  "svg": "<g fill=\"currentColor\" stroke-width=\".4\" transform=\"translate(0 -.5)\"><path fill-rule=\"evenodd\" d=\"M1.8 9.4H4.3Q7.4 15 4.6 20.6H1.4Q4.6 15 1.8 9.4ZM10.2 15.2H19.8A2.7 2.7 0 0 1 19.8 20.6H10.2A2.7 2.7 0 0 1 10.2 15.2ZM11.25 17.9A1.05 1.05 0 1 0 9.15 17.9A1.05 1.05 0 1 0 11.25 17.9ZM14.45 17.9A1.05 1.05 0 1 0 12.35 17.9A1.05 1.05 0 1 0 14.45 17.9ZM17.65 17.9A1.05 1.05 0 1 0 15.55 17.9A1.05 1.05 0 1 0 17.65 17.9ZM20.85 17.9A1.05 1.05 0 1 0 18.75 17.9A1.05 1.05 0 1 0 20.85 17.9ZM8.5 10.6H15V6.6H14.6V5.4H21.9V6.6H21.5V14.4H8.5ZM16.2 7.6H20.3V10.6H16.2ZM10.4 7H11.9V10.6H10.4Z\"/><path stroke-width=\"1.7\" d=\"M5.6 14.4 8.6 16.5\"/></g>"
  },
  "lrs-n-pacific-gas-policy": {
-  "object": "gas burner flame ring",
+  "object": "solid gas flame over burner bar",
   "hook": "A gas policy statement that binds no one",
-  "svg": "<rect x=\"4\" y=\"15.5\" width=\"16\" height=\"3\" rx=\"1.5\"/><path d=\"M12 18.5v3M8 21.5h8\"/><path d=\"M12 13c-2.5-2.5-1.5-6 0-9.5 1.5 3.5 2.5 7 0 9.5Z\"/><path d=\"M6.5 13c-2-2-1-4.5 0-7 1 2.5 2 5 0 7ZM17.5 13c-2-2-1-4.5 0-7 1 2.5 2 5 0 7Z\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12.7 1.3C13 5 19 7.4 19 12.2A7 7 0 0 1 5 12.2C5 10 6 8.2 7.4 7C7.6 8.8 8.5 9.7 9.6 9.7C9 6.4 10.2 3.2 12.7 1.3ZM12 10.4C13.3 12.2 14.8 13.2 14.8 15.1A2.8 2.8 0 0 1 9.2 15.1C9.2 13.2 10.7 12.2 12 10.4Z\"/><rect x=\"2.5\" y=\"20.2\" width=\"19\" height=\"2.6\" rx=\"1.3\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "lrs-n-paralyzed-veterans": {
-  "object": "wheelchair",
+  "object": "bold wheelchair-user accessibility pictogram",
   "hook": "Sightlines over standing spectators",
-  "svg": "<circle cx=\"10.5\" cy=\"15.5\" r=\"6\"/><circle cx=\"10.5\" cy=\"15.5\" r=\"1\" fill=\"currentColor\"/><path d=\"M8 3v9.5h8l2.5 6H21\"/><path d=\"M8 4.5H5\"/>"
+  "svg": "<circle cx=\"9.4\" cy=\"3.6\" r=\"2.4\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M9.6 7.8L10.4 13.4H16.2L18.6 19.4L21.2 18.4M10 10.3H15.4\" stroke-width=\"2.8\"/><path d=\"M5.2 10.9A6 6 0 1 0 15 17.35\" stroke-width=\"2.8\"/>"
  },
  "lrs-n-perez-mortgage-bankers": {
-  "object": "punch time clock",
+  "object": "time card entering punch time clock",
   "hook": "Mortgage loan officers and overtime flips",
-  "svg": "<rect x=\"4.5\" y=\"2.5\" width=\"15\" height=\"13\" rx=\"2\"/><circle cx=\"12\" cy=\"9\" r=\"4\"/><path d=\"M12 6.7V9l1.7 1\"/><path d=\"M8.5 15.5v6h7v-6\"/><circle cx=\"12\" cy=\"18.7\" r=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M7.5 1.5h6.5l2.5 2.5v4.6h-9zM9.1 3.4h4.2v1.2H9.1zM9.1 5.8h5.8V7H9.1zM4 9.8h16a2 2 0 0 1 2 2v8.7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8.7a2 2 0 0 1 2-2zM12 11.4a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5zM11.3 12.9h1.4v2.9l2.1 1.4-.78 1.16-2.72-1.82z\"/>"
  },
  "lrs-n-regents": {
   "object": "seal disc: star shedding rays over open book",
@@ -1215,9 +1215,9 @@
   "svg": "<path fill-rule=\"evenodd\" fill=\"currentColor\" stroke=\"none\" d=\"M12 1.2A10.8 10.8 0 1 0 12 22.8A10.8 10.8 0 1 0 12 1.2ZM12 2.8 12.82 5.17 15.33 5.22 13.33 6.73 14.06 9.13 12 7.7 9.94 9.13 10.67 6.73 8.67 5.22 11.18 5.17ZM15.35 9.49 17.37 11.77 18.6 10.19 15.9 8.78ZM8.1 8.78 5.4 10.19 6.63 11.77 8.65 9.49ZM13.06 10.38 13.4 12.49 14.91 11.95 13.81 10.11ZM10.19 10.11 9.09 11.95 10.6 12.49 10.94 10.38ZM11.45 15.2C9.85 13.8 6.8 13.8 5.3 14.3V19.4C6.8 18.9 9.85 18.9 11.45 20.3ZM12.55 15.2C14.15 13.8 17.2 13.8 18.7 14.3V19.4C17.2 18.9 14.15 18.9 12.55 20.3Z\"/>"
  },
  "lrs-n-safe-extensions": {
-  "object": "runway light",
+  "object": "runway in perspective with edge lights",
   "hook": "Runway light bases under a torque test",
-  "svg": "<path d=\"M8 13a4 4 0 0 1 8 0v2H8Z\" fill=\"currentColor\"/><path d=\"M5 15h14v2.5H5Z\"/><path d=\"M8 17.5v3.5h8v-3.5\"/><path d=\"M12 6.5V3M6.5 8.5L4 6M17.5 8.5L20 6M3 12h2M19 12h2\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M9.5 2h5L19 22H5zM11.6 3.8h.8l.05 2.2h-.9zM11.5 8h1l.08 3h-1.16zM11.35 13h1.3l.07 3h-1.44zM11.27 18H9.56l-.27 3h1.9zM12.73 18h1.71l.27 3h-1.9zM8.64 18h-1.7l-.57 3h1.9zM15.36 18h1.7l.57 3h-1.9z\"/><g fill=\"currentColor\" stroke=\"none\"><circle cx=\"7.1\" cy=\"5\" r=\".9\"/><circle cx=\"16.9\" cy=\"5\" r=\".9\"/><circle cx=\"5.15\" cy=\"12\" r=\"1.2\"/><circle cx=\"18.85\" cy=\"12\" r=\"1.2\"/><circle cx=\"3.15\" cy=\"19.5\" r=\"1.5\"/><circle cx=\"20.85\" cy=\"19.5\" r=\"1.5\"/></g>"
  },
  "lrs-n-standing-adapso": {
   "object": "reel of magnetic tape",
@@ -1225,9 +1225,9 @@
   "svg": "<circle cx=\"11\" cy=\"11\" r=\"8.5\"/><circle cx=\"11\" cy=\"11\" r=\"1.5\" fill=\"currentColor\"/><circle cx=\"11\" cy=\"6\" r=\"1.7\"/><circle cx=\"6.7\" cy=\"13.5\" r=\"1.7\"/><circle cx=\"15.3\" cy=\"13.5\" r=\"1.7\"/><path d=\"M11 19.5h10.5v-3\"/>"
  },
  "lrs-n-standing-air-courier": {
-  "object": "winged airmail envelope",
+  "object": "solid envelope with two feathered wings",
   "hook": "Couriers fly letters to foreign post offices",
-  "svg": "<rect x=\"9\" y=\"7.5\" width=\"13\" height=\"10\" rx=\"1.5\"/><path d=\"M9.5 9l6 4.5 6-4.5\"/><path d=\"M9 9.5C7 7 4.5 6 2 6M9 12.5c-2-1.5-3.5-2-5.5-2M9 15.5c-1.500-1-2.5-1.5-4-1.5\"/>"
+  "svg": "<g transform=\"translate(0 .5)\" fill=\"currentColor\" stroke=\"none\"><path d=\"M8.6 10h6.8L12 13zM7 10.4l5 4.4 5-4.4v8.1H7z\"/><path d=\"M6.2 10.5C5 7.5 3.2 5.3 1 4.5c-.1 1.9.7 3.6 2.2 4.7l-1.3 1.1c.5 1 1.3 1.8 2.4 2.3l-1.2 1.1c.8 1.2 1.9 1.9 3.1 2.1zM17.8 10.5c1.2-3 3-5.2 5.2-6 .1 1.9-.7 3.6-2.2 4.7l1.3 1.1c-.5 1-1.3 1.8-2.4 2.3l1.2 1.1c-.8 1.2-1.9 1.9-3.1 2.1z\"/></g>"
  },
  "lrs-n-standing-akins": {
   "object": "megaphone",
@@ -1245,9 +1245,9 @@
   "svg": "<rect x=\"2.500\" y=\"10\" width=\"19\" height=\"11\" rx=\"0.800\"/><path d=\"M6 13v5M9.500 13v5M13 13v5M16.500 13v5\"/><path d=\"M4.500 10l7.500-5 7.500 5\"/><path d=\"M12 5V2.500\"/><path d=\"M19 14.500v2\"/>"
  },
  "lrs-n-standing-brown-group": {
-  "object": "work boot",
+  "object": "solid lace-up work boot in profile",
   "hook": "A shoe plant closed without 60 days' notice",
-  "svg": "<path d=\"M6 3h7v7.5l5.5 2a3.5 3.5 0 0 1 2.5 3.3V17H6Z\"/><path d=\"M6 17v3.5h5l1-1.5h9V17\"/><path d=\"M10 6.5h3M10 9.5h3\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M4.8 4H12.4L12.5 5.2H9.2V6.3H12.6L12.7 7.5H9.2V8.6H12.8L12.9 9.8H9.2V10.9H13.2C14.5 11.6 16 11.8 17.5 12.1C16.6 13.8 16.3 15.6 16.4 17.6H4C4 13 4.4 8 4.8 4Z\"/><path d=\"M18.5 12.3C21.3 13 22.6 14.8 22.6 17.6H17.4C17.3 15.6 17.6 13.9 18.5 12.3Z\"/><path d=\"M3.2 18.4H22.8V19.6C22.8 20.7 22.1 21.5 21 21.5H19.8V20.5H18.6V21.5H16.8V20.5H15.6V21.5H13.8V20.5H12.6V21.5H11V20H8.6V21.5H3.2Z\"/></g><path d=\"M5.5 4V3.1C5.5 2 7.7 2 7.7 3.1V4\" stroke-width=\"1.1\"/>"
  },
  "lrs-n-standing-california-texas": {
   "object": "outline of California",
@@ -1255,9 +1255,9 @@
   "svg": "<path d=\"M4 2.5L10.8 2.5L10.8 8.5L19.5 16.6L20.3 18L19.8 18.4L19.4 19.8L19.7 21.1L15.5 21.5L14.9 19.9L13.9 19.1L13.4 19.1L13.2 18.5L12.2 18.4L11.5 17.7L9.8 17.5L9.8 16.3L7.8 14L7.8 12.7L6.9 12.2L6.7 11L7.5 11.6L6.9 10.6L7.1 10.3L6.8 10.3L6.7 10.9L5.9 10.5L6 10L4.8 8.6L4.6 6.9L3.7 5.7L4.2 4.5Z\"/>"
  },
  "lrs-n-standing-havens": {
-  "object": "no vacancy sign",
+  "object": "solid house with bold cut-out \"NO\"",
   "hook": "Told no vacancy, the same day there was one",
-  "svg": "<path d=\"M4 21.5V2.5M4 5h16.5\"/><path d=\"M9 5v3.5M18 5v3.5\"/><rect x=\"7\" y=\"8.5\" width=\"13\" height=\"9.5\" rx=\"1\"/><path d=\"M9.5 16l8-5.5\" stroke-width=\"1.8\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.5L23 9.8H21.2V22.5H2.8V9.8H1ZM4.8 20L4.8 11L7.21 11L8.8 16.22L8.8 11L10.9 11L10.9 20L8.48 20L6.9 14.78L6.9 20ZM15.95 11H15.95A3.25 3.25 0 0 1 19.2 14.25V16.75A3.25 3.25 0 0 1 15.95 20H15.95A3.25 3.25 0 0 1 12.7 16.75V14.25A3.25 3.25 0 0 1 15.95 11ZM15.95 13.1H15.95A1.15 1.15 0 0 1 17.1 14.25V16.75A1.15 1.15 0 0 1 15.95 17.9H15.95A1.15 1.15 0 0 1 14.8 16.75V14.25A1.15 1.15 0 0 1 15.95 13.1Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M16.5 2.2H19.3V7H16.5Z\"/>"
  },
  "lrs-n-standing-laidlaw": {
   "object": "mercury thermometer",
@@ -1265,14 +1265,14 @@
   "svg": "<path d=\"M9.5 14.5V5.5a2.5 2.5 0 0 1 5 0v9a3.54 3.54 0 1 1-5 0Z\"/><circle cx=\"12\" cy=\"17\" r=\"1.8\" fill=\"currentColor\"/><path d=\"M12 16V8.5\" stroke-width=\"2\"/><path d=\"M17.5 6h2.5M17.5 9h2.5M17.5 12h2.5\"/>"
  },
  "lrs-n-standing-lujan": {
-  "object": "Nile crocodile",
+  "object": "solid side-profile crocodile, jaws open, tail up",
   "hook": "Nile crocodiles and no plans to return",
-  "svg": "<path d=\"M3 11V9l8-1.5c1-2.5 4-3 5-1c3 .5 5 3 5 6.5v5H10l-6-2.5\"/><path d=\"M3 11h2l1.2 1.8 1.2-1.8 1.2 1.8 1.2-1.8 1.2 1.8 1.2-1.8 2 2\"/><path d=\"M4 16.5l1.5-1.5 1.2 1.5 1.2-1.5 1.2 1.5 1.2-1.5 1.2 1.5 2.5-3.5\"/><circle cx=\"14.5\" cy=\"8.5\" r=\"0.9\" fill=\"currentColor\"/>"
+  "svg": "<path transform=\"translate(0 .8)\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.1 9Q.9 7.5 2.2 7.6L7.4 9Q8 7.2 9.4 7.2Q10.7 7.3 11 8.9L12 7.9 12.9 9 14 8 14.9 9.1 16 8.3 16.8 9.5 17.8 9.2C19.8 10.2 21.3 9.2 21.3 7.4C21.3 6 20.7 4.9 19.6 4.2C21.8 4.2 23 5.8 23 7.8C23 12 20.6 14.6 17.6 15.6L18.3 16.8H19.8V18.2H16.2L15.2 15.9H11.6L11.9 16.8H13.3V18.2H9.6L9.2 15.9Q7 15.8 2.2 15.3Q1.2 15.1 1.5 14L1.7 14.1 2.6 12.8 3.5 14.1 4.4 12.8 5.3 14.1 9.8 12.3 6.4 11.1 5.6 12.1 4.8 10.5 4 11.55 3.2 9.95 2.4 11 1.6 9.5ZM9.3 8.3A.75.75 0 1 0 9.31 8.3Z\"/>"
  },
  "lrs-n-standing-maritime": {
-  "object": "sextant",
+  "object": "solid ship's anchor with ring and stock",
   "hook": "Twelve oceanographic ships put out to bid",
-  "svg": "<path d=\"M11 3.5L3 14.5a13.6 13.6 0 0 0 16 0Z\"/><path d=\"M4 18.5a17 17 0 0 0 14 0\" stroke-width=\"2.6\" stroke-dasharray=\"1.2 2\"/><path d=\"M11 3.5l4 17.5\" stroke-width=\"1.9\"/><circle cx=\"11\" cy=\"3.5\" r=\"1.7\" fill=\"currentColor\"/><rect x=\"14.5\" y=\"7\" width=\"7\" height=\"3.2\" rx=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.2a2.9 2.9 0 0 1 1.3 5.49V8H16.4a1.2 1.2 0 0 1 0 2.4H13.3V19.5C15.6 19 17.7 17 18.3 14.4L16.6 13.5L21.3 10.4L22.6 15.9L20.9 14.9C20.4 19.2 16.6 22.6 12 22.6C7.4 22.6 3.6 19.2 3.1 14.9L1.4 15.9L2.7 10.4L7.4 13.5L5.7 14.4C6.3 17 8.4 19 10.7 19.5V10.4H7.6a1.2 1.2 0 0 1 0-2.4H10.7V6.69A2.9 2.9 0 0 1 12 1.2ZM12 2.8a1.3 1.3 0 1 0 0 2.6a1.3 1.3 0 0 0 0-2.6Z\"/>"
  },
  "lrs-n-standing-ncua": {
   "object": "knotted rope",
@@ -1280,14 +1280,14 @@
   "svg": "<path d=\"M3 19.5c4-1 6.5-4 8-7.5 1.2-2.8 3-5.5 5.5-5.5a3.2 3.2 0 0 1 0 6.4c-3.5 0-6.5-2.5-9-2.5a3 3 0 0 0 0 6c3 0 4.5-3 6-5.5\" stroke-width=\"2.1\"/><path d=\"M16 14.5c1.5 2.5 3 4 5.5 5\" stroke-width=\"2.1\"/>"
  },
  "lrs-n-standing-newport": {
-  "object": "steel floor grating",
+  "object": "thick steel grating slab falling, motion lines",
   "hook": "Grating fell on a worker in a barge bilge",
-  "svg": "<g transform=\"rotate(12 12 12)\"><rect x=\"4.5\" y=\"4.5\" width=\"15\" height=\"15\" rx=\"1\"/><path d=\"M8.25 4.5v15M12 4.5v15M15.75 4.5v15M4.5 9.5h15M4.5 14.5h15\"/></g>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.8 13.9L12 9.1L22.2 13.9L22.2 16.9L12 21.7L1.8 16.9ZM2.96 13.9L5.2 12.84L7.44 13.9L5.2 14.96ZM6.36 15.5L8.6 14.44L10.84 15.5L8.6 16.56ZM9.76 17.1L12 16.04L14.24 17.1L12 18.16ZM6.36 12.3L8.6 11.24L10.84 12.3L8.6 13.36ZM9.76 13.9L12 12.84L14.24 13.9L12 14.96ZM13.16 15.5L15.4 14.44L17.64 15.5L15.4 16.56ZM9.76 10.7L12 9.64L14.24 10.7L12 11.76ZM13.16 12.3L15.4 11.24L17.64 12.3L15.4 13.36ZM16.56 13.9L18.8 12.84L21.04 13.9L18.8 14.96Z\"/><path stroke-width=\"1.7\" d=\"M5.5 3.2v5.2M12 2.2v3.6M18.5 3.2v5.2\"/>"
  },
  "lrs-n-standing-patchak": {
-  "object": "slot machine",
+  "object": "solid slot machine showing 777 with lever",
   "hook": "A neighbor against a planned tribal casino",
-  "svg": "<rect x=\"3\" y=\"5\" width=\"14\" height=\"15.5\" rx=\"2\"/><rect x=\"5.5\" y=\"8.5\" width=\"9\" height=\"5\"/><path d=\"M8.5 8.5v5M11.5 8.5v5\"/><path d=\"M17 14h2.5V7\"/><circle cx=\"19.5\" cy=\"5\" r=\"1.8\" fill=\"currentColor\"/><path d=\"M7.5 17h5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 22.5V20H2.5V6.5A5 5 0 0 1 7.5 1.5H12.5A5 5 0 0 1 17.5 6.5V20H18.5V22.5ZM3.6 7.7V15H16.4V7.7ZM5.5 16.9V19H14.5V16.9Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M4.3 8.6H7.6V9.9L6.4 14.1H4.8L6.05 10.15H4.3ZM8.35 8.6H11.65V9.9L10.45 14.1H8.85L10.1 10.15H8.35ZM12.4 8.6H15.7V9.9L14.5 14.1H12.9L14.15 10.15H12.4Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M17.5 12H19.6V6H21.5V14.2H17.5Z\"/><circle cx=\"20.55\" cy=\"4.4\" r=\"2.4\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "lrs-n-standing-raines": {
   "object": "pen striking out middle of three bars",
@@ -1330,9 +1330,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M13.44 13.31A6.6 4.84 0 0 1 10.56 13.31A6.6 4.84 0 0 1 12 11.88A6.6 4.84 0 0 1 13.44 13.31ZM9.55 13.09A6.6 4.84 0 0 1 6.05 10.69A6.6 4.84 0 0 1 11.06 11.34A7.59 5.83 0 0 0 9.55 13.09ZM17.95 10.69A6.6 4.84 0 0 1 14.45 13.09A7.59 5.83 0 0 0 12.94 11.34A6.6 4.84 0 0 1 17.95 10.69ZM5.6 9.77A6.6 4.84 0 1 1 18.4 9.77A7.59 5.83 0 0 0 12 10.72A7.59 5.83 0 0 0 5.6 9.77ZM13.89 14.23A7.59 5.83 0 0 1 10.11 14.23A6.6 4.84 0 0 0 12 18.94A6.6 4.84 0 0 0 13.89 14.23ZM9.15 13.99A7.59 5.83 0 0 1 5.04 10.91A6.6 4.84 0 1 0 11.06 19.48A7.59 5.83 0 0 1 9.15 13.99ZM18.96 10.91A7.59 5.83 0 0 1 14.85 13.99A7.59 5.83 0 0 1 12.94 19.48A6.6 4.84 0 1 0 18.96 10.91Z\"/>"
  },
  "lrs-n-state-farm-dole": {
-  "object": "seat belt buckle",
+  "object": "diagonal seat belt buckle with tongue and webbing",
   "hook": "Belt up in enough states, the rule dies",
-  "svg": "<rect x=\"12\" y=\"6.5\" width=\"9.5\" height=\"11\" rx=\"2\"/><rect x=\"15\" y=\"10\" width=\"4\" height=\"4\" rx=\"1\" fill=\"currentColor\"/><path d=\"M12 9.5H8.5L6 8v8l2.5-1.5H12\"/><path d=\"M6 9.5H2.5M6 14.5H2.5\"/><path d=\"M8.5 11.5v1\" stroke-width=\"1.8\"/>"
+  "svg": "<g transform=\"rotate(-35 12 12)\" fill=\"currentColor\" stroke=\"none\"><rect x=\"0.9\" y=\"8.8\" width=\"3.6\" height=\"6.4\"/><path fill-rule=\"evenodd\" d=\"M4.5 7h3.5a1 1 0 0 1 1 1v1.3h4.2v5.4h-4.2v1.3a1 1 0 0 1-1 1h-3.5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1zM4.9 8.8v6.4h1.7v-6.4zM10.2 10.9v2.2h1.9v-2.2z\"/><path fill-rule=\"evenodd\" d=\"M15.6 6.2h4.3a1.4 1.4 0 0 1 1.4 1.4v8.8a1.4 1.4 0 0 1-1.4 1.4h-4.3a1.4 1.4 0 0 1-1.4-1.4v-8.8a1.4 1.4 0 0 1 1.4-1.4zM15.5 9.2v5.6h3.2v-5.6z\"/><rect x=\"20.8\" y=\"8.8\" width=\"2.3\" height=\"6.4\"/></g>"
  },
  "lrs-n-texas-united-states-dapa": {
   "object": "outline of Texas",
@@ -1340,9 +1340,9 @@
   "svg": "<path d=\"M7.8 3.1L12.1 3.1L12.1 6.3L13 6.5L13.3 6.9L14.9 7L15.1 7.5L16.2 7.4L16.3 7.7L16.6 7.3L17.4 7.8L19 7.3L20.7 8L20.7 10.6L21.5 12.2L21 14.5L19.7 15L20.1 14.8L19.7 14.7L19.7 14.3L19.4 14.5L19.5 15.1L19.1 15.4L19.7 15.1L16.5 17.5L15.9 18.7L16.2 20.5L15.9 18.4L16.3 17.4L17.3 16.6L16.2 17.1L16.2 17.6L15.7 17.5L16.1 17.8L15.5 18.5L15.8 18.5L15.8 19.6L16.2 20.7L15.9 20.9L13.4 20L12.8 18L10.1 14.4L8.3 14.4L7.9 15.3L7.4 15.7L5.6 14.6L5 12.9L2.5 10.8L2.5 10.6L7.7 10.6Z\"/>"
  },
  "lrs-n-universal-camera": {
-  "object": "folding bellows camera",
+  "object": "solid front-on camera with big lens ring",
   "hook": "A fired supervisor and the whole record",
-  "svg": "<rect x=\"14.500\" y=\"3\" width=\"5\" height=\"11\" rx=\"1\"/><path d=\"M14.500 4.500l-7 2v4l7 2\"/><path d=\"M12.200 5.200v6.600M9.800 5.900v5.200\"/><rect x=\"3.500\" y=\"6.500\" width=\"4\" height=\"4\" fill=\"currentColor\"/><path d=\"M5 14.500h16\"/><path d=\"M12.500 14.500l-5 7M12.500 14.500v7M12.500 14.500l5 7\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.5 6.5H7L8.2 4H15.8L17 6.5H20.5A2 2 0 0 1 22.5 8.5V18A2 2 0 0 1 20.5 20H3.5A2 2 0 0 1 1.5 18V8.5A2 2 0 0 1 3.5 6.5ZM12 8.2A4.9 4.9 0 1 0 12 18 4.9 4.9 0 0 0 12 8.2ZM17.8 8.6H20.2V10.2H17.8Z\"/><circle cx=\"12\" cy=\"13.1\" r=\"2.7\" fill=\"currentColor\" stroke=\"none\"/>"
  },
  "lrs-o-american-radio": {
   "object": "ham radio handset",
@@ -1375,9 +1375,9 @@
   "svg": "<path d=\"M12 2.5c3 3 4 7.5 4 12.5H8c0-5 1-9.5 4-12.5Z\"/><path d=\"M8 11l-3 3.5V18l3-3M16 11l3 3.5V18l-3-3\"/><circle cx=\"12\" cy=\"9\" r=\"1.7\"/><path d=\"M10 17.5c0 1.5 1 3 2 4 1-1 2-2.5 2-4\"/>"
  },
  "lrs-o-bi-metallic": {
-  "object": "two-metal coin",
+  "object": "two-tone bimetallic coin with dollar sign",
   "hook": "Every Denver property valued up 40 percent",
-  "svg": "<ellipse cx=\"12\" cy=\"10.500\" rx=\"9.500\" ry=\"7.500\"/><path d=\"M2.500 10.500v2.500c0 4.100 4.300 7.500 9.500 7.500s9.500-3.400 9.500-7.500v-2.500\"/><ellipse cx=\"12\" cy=\"10.500\" rx=\"5.500\" ry=\"4.200\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.1999999999999993a10.8 10.8 0 1 0 0 21.6a10.8 10.8 0 1 0 0 -21.6zM12 4.4a7.6 7.6 0 1 0 0 15.2a7.6 7.6 0 1 0 0 -15.2z\"/><circle cx=\"12\" cy=\"12\" r=\"6.6\" fill=\"currentColor\" fill-opacity=\".28\" stroke=\"none\"/><path stroke-width=\"1.7\" d=\"M14.5 9.7C14.5 8.4 13.4 7.7 12 7.7S9.5 8.5 9.5 9.8C9.5 12.5 14.6 11.4 14.6 14.3C14.6 15.6 13.4 16.3 12 16.3S9.4 15.6 9.4 14.3M12 6.2V17.8\"/>"
  },
  "lrs-o-brock": {
   "object": "truck headlight",
@@ -1400,9 +1400,9 @@
   "svg": "<path d=\"M2.5 8h11a5.5 5.5 0 0 1 5.5 5.5V15h-4.5v-1.5a1 1 0 0 0-1-1h-11Z\"/><path d=\"M8 8V4M4.5 4h7\"/><path d=\"M16.8 17.5c1.1 1.4 1.7 2.2 1.7 3a1.7 1.7 0 0 1-3.4 0c0-.8.6-1.6 1.7-3Z\" fill=\"currentColor\"/>"
  },
  "lrs-o-chenery-ii": {
-  "object": "water tower",
+  "object": "solid water tower with conical roof, braced legs",
   "hook": "Chenery comes back, same result again",
-  "svg": "<path d=\"M5.5 8 12 2.5 18.5 8\"/><rect x=\"5.5\" y=\"8\" width=\"13\" height=\"6\" rx=\"1\"/><path d=\"M8 14 6 21.5M16 14l2 7.5M12 14v7.5M7 18h10\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M12 1 20.4 5.2v1H3.6v-1zM4.6 7h14.8v3c0 2.4-3.3 4-7.4 4s-7.4-1.6-7.4-4z\"/><path stroke-width=\"1.5\" d=\"M6 11.5 3.7 22.2M18 11.5l2.3 10.7M5.4 14.2l14.9 8M18.6 14.2l-14.9 8\"/><path stroke-width=\"2.2\" stroke-linecap=\"butt\" d=\"M12 13v9.9\"/>"
  },
  "lrs-o-church-christ": {
   "object": "broadcast tower topped with cross, signal arcs",
@@ -1410,14 +1410,14 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M10.85 1.3h2.3v2.9h2.1v2.3h-2.1v3.7L18 22.8h-2.5l-.6-1.7H9.1l-.6 1.7H6L10.85 10.2V6.5H8.75V4.2h2.1zM12 12.6l-1 2.7h2zM10.2 17.4l-.5 1.6h4.6l-.5-1.6z\"/><path stroke-width=\"1.9\" d=\"M7.11 10.22a6.2 6.2 0 0 1 0-7.64M16.89 10.22a6.2 6.2 0 0 0 0-7.64M3.36 10.8a9.7 9.7 0 0 1 0-8.8M20.64 10.8a9.7 9.7 0 0 0 0-8.8\"/>"
  },
  "lrs-o-dames-moore": {
-  "object": "blindfold",
+  "object": "blindfolded head in profile, knot tails",
   "hook": "Frozen Iranian assets, freed for hostages",
-  "svg": "<circle cx=\"11\" cy=\"12\" r=\"8\"/><path d=\"M3.3 9.3h15.4v3.4H3.3z\" fill=\"currentColor\"/><path d=\"M19 10l2.5-2.5M19 12l2.5 2.5\"/><path d=\"M8.5 16.5h5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M11.6 1.5C7.6 1.5 5.1 4 5.1 7.2L5.1 10.4L2.7 13L4.6 13.5L4.4 14.7L5.1 15.1L4.8 16.2C4.9 17.6 6 18.1 7.6 17.9L9.2 17.6L9.2 19C5.5 19.6 2.8 20.6 2.2 22.5L20.3 22.5C20 20.7 18.3 19.5 15.8 18.8L15.8 16.2C17.6 14.6 18.6 12.3 18.6 9.3C18.6 4.8 15.9 1.5 11.6 1.5ZM5.1 6.8L18.6 6.8L18.6 10.4L5.1 10.4Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M18 6.7C20 6.4 21.6 5.4 22.7 3.6L23 6.6C22.2 7.6 21.4 8.2 20.4 8.6C21.6 9.6 22.4 11 22.8 12.8L20.6 13.8C20.2 12.2 19.3 11 18 10.5Z\"/>"
  },
  "lrs-o-debs": {
-  "object": "Pullman sleeping car",
+  "object": "clerestory-roof Pullman railcar on a rail",
   "hook": "A boycott of Pullman cars, enjoined",
-  "svg": "<rect x=\"2.5\" y=\"6.5\" width=\"19\" height=\"9\" rx=\"1.2\"/><path d=\"M4.5 6.5V4h15v2.5\"/><path d=\"M5 9.5h2.5v2.5H5zM9 9.5h2.5v2.5H9zM13 9.5h2.5v2.5H13zM17 9.5h2v2.5h-2z\" fill=\"currentColor\" stroke-width=\"0.8\"/><circle cx=\"5.2\" cy=\"19\" r=\"1\" fill=\"currentColor\"/><circle cx=\"9\" cy=\"19\" r=\"1\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"19\" r=\"1\" fill=\"currentColor\"/><circle cx=\"18.8\" cy=\"19\" r=\"1\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 9.2a1.2 1.2 0 0 1 1.2-1.2h1.6q.5-1.7 2.2-1.7h11q1.7 0 2.2 1.7h1.6a1.2 1.2 0 0 1 1.2 1.2V15.2H1.5ZM3.90 13.5V11.5a.85.85 0 0 1 1.7 0v2ZM6.80 13.5V11.5a.85.85 0 0 1 1.7 0v2ZM9.70 13.5V11.5a.85.85 0 0 1 1.7 0v2ZM12.60 13.5V11.5a.85.85 0 0 1 1.7 0v2ZM15.50 13.5V11.5a.85.85 0 0 1 1.7 0v2ZM18.40 13.5V11.5a.85.85 0 0 1 1.7 0v2Z\"/>\n<path fill=\"currentColor\" stroke=\"none\" d=\"M3.2 15.2h4.6l.6.9h7.2l.6-.9h4.6v1.3H3.2Z\"/>\n<circle cx=\"4.5\" cy=\"17.2\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"7.7\" cy=\"17.2\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"16.3\" cy=\"17.2\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"19.5\" cy=\"17.2\" r=\"1.4\" fill=\"currentColor\" stroke=\"none\"/>\n<path fill=\"currentColor\" stroke=\"none\" d=\"M1 18.9h22v1.2H1Z\"/>"
  },
  "lrs-o-florida-east-coast": {
   "object": "outline of Florida",
@@ -1425,9 +1425,9 @@
   "svg": "<path d=\"M9.1 3.4L9.4 4.2L16 4.6L16.2 5.2L16.5 5.2L16.7 3.9L18 4.2L18.4 6.7L20.1 10.2L20.2 11.6L21.5 15.3L21.3 18.2L20.7 19.5L21.1 19L19.9 20.6L20.5 19.8L18.7 19.9L18.4 18.4L17.4 17.9L16.9 16.4L16.3 16.1L16.1 15.6L16.4 15.6L16.4 14.8L15.9 15.5L14.7 13.2L15.6 12.1L15.2 12.3L14.9 11.8L15.1 12.4L14.8 13L14.5 12.2L14.9 9.3L14.6 8.6L13.9 8.7L12.5 6.5L11.5 5.9L10.9 5.9L10.7 6.5L8.8 7L9.1 7.3L9.9 6.9L9 7.4L8.2 7.2L8 6.3L5.8 5.2L2.8 5.4L3.2 5L2.6 3.4Z\"/>"
  },
  "lrs-o-gg-fire": {
-  "object": "ceiling fire sprinkler head",
+  "object": "pendant fire sprinkler head spraying droplets",
   "hook": "A sprinkler installer left unpaid",
-  "svg": "<rect x=\"9\" y=\"2.500\" width=\"6\" height=\"3.500\"/><path d=\"M9.500 6c-3 3-2.500 7 2.500 9.500c5-2.500 5.500-6.500 2.500-9.500\"/><path d=\"M12 8.500v4\" stroke-width=\"2\"/><path d=\"M5.500 16.500h13\" stroke-width=\"2.200\"/><path d=\"M6 19.500l-1.500 2M12 19.500v2M18 19.500l1.500 2\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M9.8 1H14.2V3H16.4V4.6C18.9 6.6 18.3 9.9 14.9 11.9H20.5V14.7H17.9V13.3H15.9V14.7H13V13.3H11V14.7H8.1V13.3H6.1V14.7H3.5V11.9H9.1C5.7 9.9 5.1 6.6 7.6 4.6V3H9.8ZM8.6 6.1H10.9V11C8.2 9.8 7.3 7.7 8.6 6.1ZM13.1 6.1H15.4C16.7 7.7 15.8 9.8 13.1 11Z\"/><path transform=\"translate(12 20.2)\" d=\"M0 -2.6C1.5 -.5 1.8 .3 1.8 1A1.8 1.8 0 0 1 -1.8 1C-1.8 .3 -1.5 -.5 0 -2.6Z\"/><path transform=\"translate(7.3 19.3) rotate(30)\" d=\"M0 -2.6C1.5 -.5 1.8 .3 1.8 1A1.8 1.8 0 0 1 -1.8 1C-1.8 .3 -1.5 -.5 0 -2.6Z\"/><path transform=\"translate(16.7 19.3) rotate(-30)\" d=\"M0 -2.6C1.5 -.5 1.8 .3 1.8 1A1.8 1.8 0 0 1 -1.8 1C-1.8 .3 -1.5 -.5 0 -2.6Z\"/><path transform=\"translate(3.7 17.1) rotate(58)\" d=\"M0 -2.6C1.5 -.5 1.8 .3 1.8 1A1.8 1.8 0 0 1 -1.8 1C-1.8 .3 -1.5 -.5 0 -2.6Z\"/><path transform=\"translate(20.3 17.1) rotate(-58)\" d=\"M0 -2.6C1.5 -.5 1.8 .3 1.8 1A1.8 1.8 0 0 1 -1.8 1C-1.8 .3 -1.5 -.5 0 -2.6Z\"/></g>"
  },
  "lrs-o-goldberg": {
   "object": "empty grocery basket",
@@ -1440,9 +1440,9 @@
   "svg": "<circle cx=\"12\" cy=\"6\" r=\"3.500\"/><path d=\"M10.500 9.500l-1 5h5l-1-5\"/><rect x=\"4\" y=\"14.500\" width=\"16\" height=\"4\" rx=\"1\"/><path d=\"M5 21.500h14\"/>"
  },
  "lrs-o-ingraham": {
-  "object": "wooden paddle",
+  "object": "solid diagonal wooden school paddle with holes",
   "hook": "Twenty licks with a wooden paddle",
-  "svg": "<g transform=\"rotate(45 12 12)\"><path d=\"M9.500 2h5a1.500 1.500 0 0 1 1.500 1.500V13l-2.500 2.500v6.500h-3v-6.500L8 13V3.500A1.500 1.500 0 0 1 9.500 2Z\"/><circle cx=\"12\" cy=\"5\" r=\"0.900\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"8.500\" r=\"0.900\" fill=\"currentColor\"/><circle cx=\"12\" cy=\"12\" r=\"0.900\" fill=\"currentColor\"/></g>"
+  "svg": "<g transform=\"rotate(45 12 12)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M10.3 .2h3.4a2.6 2.6 0 0 1 2.6 2.6v10.4c0 1.6-2.4 2-2.4 3.8v5a1.9 1.9 0 0 1-3.8 0v-5c0-1.8-2.4-2.2-2.4-3.8v-10.4a2.6 2.6 0 0 1 2.6-2.6zM11.1 21.9a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0zM9.35 3.2a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0zM9.35 7a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0zM9.35 10.8a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0zM12.75 3.2a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0zM12.75 7a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0zM12.75 10.8a0.95 0.95 0 1 0 1.9 0a0.95 0.95 0 1 0 -1.9 0z\"/></g>"
  },
  "lrs-o-jarkesy": {
   "object": "empty jury box",
@@ -1450,9 +1450,9 @@
   "svg": "<rect x=\"2.500\" y=\"15\" width=\"19\" height=\"6.500\"/><path d=\"M2.500 12.500h19\" stroke-width=\"2\"/><path d=\"M5 12.500v2.500M12 12.500v2.500M19 12.500v2.500\"/><path d=\"M4.500 9.500V6a2 2 0 0 1 4 0v3.500M10 9.500V6a2 2 0 0 1 4 0v3.500M15.500 9.500V6a2 2 0 0 1 4 0v3.500\"/><path d=\"M8.500 18.250h7\"/>"
  },
  "lrs-o-kendall": {
-  "object": "mail stagecoach",
+  "object": "mail stagecoach with envelope on its side",
   "hook": "Mail contractors the Postmaster shorted",
-  "svg": "<path d=\"M5 5.5h12v5c0 3-2.5 4.5-6 4.5s-6-1.500-6-4.500Z\"/><path d=\"M3.500 5.500h15M17 11h4.500\"/><rect x=\"7\" y=\"7.500\" width=\"3\" height=\"3\"/><rect x=\"12\" y=\"7.500\" width=\"3\" height=\"3\"/><circle cx=\"6.500\" cy=\"17.500\" r=\"4\"/><circle cx=\"16.500\" cy=\"17.500\" r=\"4\"/><path d=\"M6.500 13.500v8M2.500 17.500h8M16.500 13.500v8M12.500 17.500h8\" stroke-width=\"1\"/><path d=\"M8 3h6\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3 5a.8.8 0 0 1 .8-.8H6V3.4a.8.8 0 0 1 .8-.8h6.4a.8.8 0 0 1 .8.8V4.2H16.2a.8.8 0 0 1 .8.8v.6H16V7.6h2.8v3h1.5l1.3-3.2 1 .4L21 12H16v1.79A4.6 4.6 0 0 0 13.88 15.4H11.51A5.3 5.3 0 0 0 4 12.78V12.2H1.8v-1L4 8.2V5.6H3zM5.3 6.8h2.7v3h-2.7zM9 6.8h6v4.2h-6z\"/><path d=\"M9 6.8l3.0 2.31l3.0 -2.31\" stroke-width=\"1.1\" stroke-linejoin=\"miter\"/><circle cx=\"6.6\" cy=\"17.4\" r=\"3.9\" stroke-width=\"1.4\"/><circle cx=\"6.6\" cy=\"17.4\" r=\"1.1\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M6.6 13.5L6.6 21.3M9.98 15.45L3.22 19.35M9.98 19.35L3.22 15.45\" stroke-width=\"1.0\" stroke-linecap=\"butt\"/><circle cx=\"17.6\" cy=\"18.1\" r=\"3.25\" stroke-width=\"1.3\"/><circle cx=\"17.6\" cy=\"18.1\" r=\"0.95\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M17.6 14.85L17.6 21.35M20.41 16.48L14.79 19.73M20.41 19.73L14.79 16.48\" stroke-width=\"0.9\" stroke-linecap=\"butt\"/>"
  },
  "lrs-o-little": {
   "object": "flying fish",
@@ -1470,9 +1470,9 @@
   "svg": "<path d=\"M3 11c0-4 4-7 9-7s9 3 9 7l-2 3H5Z\"/><path d=\"M5 14h14v2.5H5Z\"/><path d=\"M5 16.5c0 2 3 3.5 7 3.5s7-1.500 7-3.500\" fill=\"currentColor\"/><path d=\"M12 7l1.800 1.200-.6 2.300h-2.400l-.6-2.300Z\" fill=\"currentColor\"/>"
  },
  "lrs-o-marathon-oil": {
-  "object": "offshore oil platform",
+  "object": "solid offshore oil platform with derrick and flare",
   "hook": "Offshore platforms in Cook Inlet",
-  "svg": "<path d=\"M4 12h16v3H4Z\"/><path d=\"M7 15v6M17 15v6M7 15l10 5\"/><path d=\"M9 12l2.5-9.5L14 12M10 8h3\"/><path d=\"M15 9h5M17.5 9v3\"/><path d=\"M2.5 21c1.5-1.5 3-1.5 4.5 0s3 1.5 4.5 0 3-1.5 4.5 0 3 1.5 4.5 0\" stroke-width=\"1\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M6.4 1h3.2v1.2H9.3l2.1 7.3H4.6l2.1-7.3H6.4zM7.36 3.4h1.28l.57 2H6.79zM6.47 6.5h3.06l.55 1.9H5.92z\"/><path d=\"M2.5 9.5h17V12h-17z\"/><path d=\"M12.6 7.2h3.2v2.3h-3.2z\"/><path d=\"M16.9 9.5l2.75-3.7 1 .8-2.15 2.9z\"/><path d=\"M20.9 1c1.3 1.4 1.7 2.3 1.7 3.1a1.8 1.8 0 0 1-3.6 0c0-.7.4-1.2.8-1.7.2.4.4.6.7.7 0-.7.1-1.4.4-2.1z\"/><path d=\"M4.2 12h2.2v8H4.2zM15.6 12h2.2v8h-2.2z\"/><path d=\"M6.4 12h1.3l7.9 4.7v.9h-1.3l-7.9-4.7zM15.6 12h-1.3l-7.9 4.7v.9h1.3l7.9-4.7z\"/><path d=\"M1 20c.9 0 1.85-1.4 2.75-1.4S5.6 20 6.5 20s1.85-1.4 2.75-1.4S11.1 20 12 20s1.85-1.4 2.75-1.4S16.6 20 17.5 20s1.85-1.4 2.75-1.4S22.1 20 23 20v3H1z\"/></g>"
  },
  "lrs-o-marbury": {
   "object": "wax seal with ribbon",
@@ -1485,9 +1485,9 @@
   "svg": "<g transform=\"rotate(20 12 12)\"><path d=\"M7.500 3h9\" stroke-width=\"2.600\"/><path d=\"M9 3.500l2 11.500M15 3.500l-2 11.500\"/><path d=\"M10 9.500h4\" stroke-width=\"2\"/><path d=\"M12 15v6.500\" stroke-width=\"2.400\"/></g>"
  },
  "lrs-o-memphis-light": {
-  "object": "electric meter",
+  "object": "solid dome electric meter with lightning bolt",
   "hook": "Two meters, double bills, five cutoffs",
-  "svg": "<circle cx=\"12\" cy=\"10\" r=\"7.500\"/><rect x=\"8\" y=\"6\" width=\"8\" height=\"3\"/><path d=\"M7 12.500h10\"/><circle cx=\"12\" cy=\"12.500\" r=\"1\" fill=\"currentColor\"/><path d=\"M9 17.500v4h6v-4\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1a9 9 0 0 1 7.94 13.24H20.6a1.2 1.2 0 0 1 1.2 1.2v6.36a1.2 1.2 0 0 1-1.2 1.2H3.4a1.2 1.2 0 0 1-1.2-1.2v-6.36a1.2 1.2 0 0 1 1.2-1.2h.66A9 9 0 0 1 12 1zM5.9 4.7h2.4v3.1H5.9zM9.17 4.7h2.4v3.1h-2.4zM12.43 4.7h2.4v3.1h-2.4zM15.7 4.7h2.4v3.1h-2.4zM4.6 9.4h14.8v1.4H4.6zM13.6 12l-5 5h2.9l-1.5 4.6 5.4-5.9h-2.9l1.9-3.7z\"/>"
  },
  "lrs-o-midwest-oil": {
   "object": "lattice oil derrick with gusher plume",
@@ -1500,9 +1500,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M18.2 1.1L18.9 3.3C20.6 4.6 22 6.3 22.9 8.4L21.5 10L18.6 7.6C17.9 8.6 17.9 10 18.6 11.2L22.4 13L21.8 17L19.6 16.7L19.9 14.4L17.4 13.6L18.4 16.4L16.4 20L14.4 18.9L15.9 16.3L14.8 15.2C13.4 16.4 11.8 17 10.4 17L10.8 20L8.2 22.9L6.3 21.4L8.2 19.2L7.6 17L6.6 17.6L3.8 22.7L1.5 21.5L4 17.4L4.8 15.4C2.8 16 1.2 14.4 1.1 11.4C2.4 12.9 3.9 13 5 12.2C5.8 11.2 7 10.8 8.6 10.8L4.4 9.2L7.4 8.5L2.4 6L6.6 5.6L1.5 1.1C8.8 1.5 12.2 4.6 13.6 8.8L14.6 8.4C14.6 6 15.4 3.8 16.8 2.6L17.2 3.2Z\"/>"
  },
  "lrs-o-mock": {
-  "object": "pistol with stabilizing brace",
+  "object": "solid AR-style pistol with rear fin brace",
   "hook": "A forearm brace strapped to a pistol",
-  "svg": "<path d=\"M2.500 7h12v4h-12Z\"/><path d=\"M8.500 11l-1 7.500h4l1.500-7.500\"/><path d=\"M12.500 13.500c2 0 2.500-1 2.500-2.500\"/><path d=\"M14.500 9h3\" stroke-width=\"2\"/><path d=\"M17.500 5.500h4v9h-1.500l-2.500-3.500Z\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M22.5 8V10H21.3V9.6H18.4V11.2H13.2L14.2 18 11.9 18.4 10.9 12.2H9.5L7.8 16.4H5.4L7.3 11V10H6.1L4.7 15.6H1.5V6.2H6.1V7.8H7.3V6H12.9V6.8H18.4V8.4H21.3V8ZM2.9 9.8V14.2H3.6L4.7 9.8ZM9.1 7.6V9H11.9V7.6ZM14.1 8.5V9.5H15.4V8.5ZM16.2 8.5V9.5H17.5V8.5Z\"/><path d=\"M9.2 13Q9.3 14.3 10.8 14.1\" stroke-width=\"0.8\"/>"
  },
  "lrs-o-national-petroleum": {
   "object": "gas pump with big 87 octane sticker",
@@ -1520,14 +1520,14 @@
   "svg": "<path fill=\"currentColor\" stroke-width=\"0.8\" fill-rule=\"evenodd\" d=\"M12 1.4L13.74 3.27L16.06 2.21L16.94 4.6L19.5 4.5L19.4 7.06L21.79 7.94L20.73 10.26L22.6 12L20.73 13.74L21.79 16.06L19.4 16.94L19.5 19.5L16.94 19.4L16.06 21.79L13.74 20.73L12 22.6L10.26 20.73L7.94 21.79L7.06 19.4L4.5 19.5L4.6 16.94L2.21 16.06L3.27 13.74L1.4 12L3.27 10.26L2.21 7.94L4.6 7.06L4.5 4.5L7.06 4.6L7.94 2.21L10.26 3.27ZM4.1 12a7.9 7.9 0 1 0 15.8 0a7.9 7.9 0 1 0 -15.8 0Z\"/><g fill=\"currentColor\" stroke=\"none\"><path d=\"M5.69 10.05A6.6 6.6 0 0 1 18.6 12C16.9 13.25 14.14 11.62 12 9.99 9.86 8.35 7.22 8.04 5.69 10.05 Z\"/><path transform=\"rotate(180 12 12)\" d=\"M5.69 10.05A6.6 6.6 0 0 1 18.6 12C16.9 13.25 14.14 11.62 12 9.99 9.86 8.35 7.22 8.04 5.69 10.05 Z\"/></g>"
  },
  "lrs-o-nova-scotia": {
-  "object": "smoked whitefish on hook",
+  "object": "solid fish with three smoke wisps above",
   "hook": "Smoked whitefish and the botulism rule",
-  "svg": "<path d=\"M12 6.500V5.500a1.500 1.500 0 1 0-1.500-1.500\"/><path d=\"M12 6.500c-7 3.500-7 8.500 0 11.500c7-3 7-8 0-11.500Z\"/><path d=\"M12 18l-4.500 4h9Z\" fill=\"currentColor\"/><circle cx=\"14\" cy=\"10.500\" r=\"1.100\" fill=\"currentColor\"/><path d=\"M8.500 13.500c2.200 1.300 4.800 1.300 7 0\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 15.2C3.4 11.8 6.8 10.2 9.6 10.2C10.6 9.2 11.8 8.4 13.2 8L14 11.3C15.6 12 16.8 13 17.8 13.9L22.5 9.8C21.2 12.2 20.2 13.9 20.2 15.2C20.2 16.5 21.2 18.2 22.5 20.6L17.8 16.5C16.8 17.6 15.4 18.7 13.6 19.5L12.8 22.2C11.6 21.8 10.6 21.1 9.8 20.2C6.8 20.3 3.4 18.6 1.5 15.2ZM5.5 13a1.05 1.05 0 1 0 .01 0ZM8 11.4C10.2 13.6 10.2 17 8 19.2C8.9 16.8 8.9 13.8 8 11.4Z\"/><path stroke-width=\"1.5\" d=\"M5.5 6.8c-1.6-1.3 1.6-3 0-5M11 6.2c-1.6-1.3 1.6-3 0-4.7M16.5 6.8c-1.6-1.3 1.6-3 0-5\"/>"
  },
  "lrs-o-perales": {
-  "object": "human spine",
+  "object": "side-view lumbar spine with sacrum",
   "hook": "A bad back and absent doctors' reports",
-  "svg": "<rect x=\"7\" y=\"2.500\" width=\"8\" height=\"3.400\" rx=\"1.200\"/><rect x=\"9\" y=\"7.600\" width=\"8\" height=\"3.400\" rx=\"1.200\"/><rect x=\"9\" y=\"12.700\" width=\"8\" height=\"3.400\" rx=\"1.200\"/><rect x=\"6.500\" y=\"17.800\" width=\"8\" height=\"3.400\" rx=\"1.200\"/><path d=\"M17.500 4.200l2.500-1M19.500 9.300l2.500-1M19.500 14.400l2.500 1M17 19.500l2.500 1.500\"/>"
+  "svg": "<path fill=\"currentColor\" stroke-width=\".4\" d=\"M8.33 1.78 12.51 1.43 12.53 1.67 15.14 2.81 15.09 3.42 12.65 3.02 12.68 3.42 8.5 3.77Q8.91 2.73 8.33 1.78ZM9.77 4.88 14.37 4.82 14.37 5.08 17.04 6.51 16.95 7.16 14.39 6.54 14.4 6.97 9.8 7.03Q10.28 5.95 9.77 4.88ZM8.48 8.05 13.47 8.45 13.44 8.73 16.11 10.51 15.95 11.19 13.32 10.29 13.28 10.75 8.3 10.35Q8.89 9.24 8.48 8.05ZM6.15 11.72 11.55 11.88 11.54 12.18 14.44 13.93 14.32 14.66 11.49 13.84 11.48 14.33 6.08 14.17Q6.62 12.96 6.15 11.72ZM6.76 15.73 12.54 15.28 12.57 15.59 15.8 17.11 15.76 17.9 12.71 17.35 12.75 17.87 6.96 18.32Q7.36 16.99 6.76 15.73ZM8.54 19.54 L14.33 19.16 Q15.84 20.81 13.96 22.69 Q12.05 21.06 8.54 19.54Z\"/>"
  },
  "lrs-o-perry": {
   "object": "lectern with microphone",
@@ -1540,9 +1540,9 @@
   "svg": "<path d=\"M6 3h12M6 21h12\"/><path d=\"M7 3v3c0 3 5 4 5 6s-5 3-5 6v3M17 3v3c0 3-5 4-5 6s5 3 5 6v3\"/><path d=\"M9.5 20.5c0-2 1.5-3 2.5-3s2.5 1 2.5 3Z\" fill=\"currentColor\"/><path d=\"M12 13.5v1.5\"/>"
  },
  "lrs-o-tyson": {
-  "object": "gas cylinder",
+  "object": "gas cylinder with twin regulator gauges",
   "hook": "The gas that sterilizes hospital tools",
-  "svg": "<path d=\"M6.5 21.5V12a5.5 5.5 0 0 1 11 0v9.5Z\"/><path d=\"M10.5 6.5V4h3v2.5\"/><path d=\"M8 3.2h8\" stroke-width=\"2.2\"/><path d=\"M6.5 13.5h11M6.5 18h11\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><rect x=\"10.7\" y=\"2.2\" width=\"2.6\" height=\"3.6\" rx=\".3\"/><path fill-rule=\"evenodd\" d=\"M13 3.7h1.6a2.3 2.3 0 1 1 0 1.2H13zM16.8 3.2a1.1 1.1 0 1 0 .01 0z\"/><g transform=\"matrix(-1 0 0 1 24 0)\"><path fill-rule=\"evenodd\" d=\"M13 3.7h1.6a2.3 2.3 0 1 1 0 1.2H13zM16.8 3.2a1.1 1.1 0 1 0 .01 0z\"/></g><path fill-rule=\"evenodd\" d=\"M10.4 5.6h3.2v1.1c1.8.5 2.9 2 2.9 4.1v10.7a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1V10.8c0-2.1 1.1-3.6 2.9-4.1zM12 12.4l2.9 3.2-2.9 3.2-2.9-3.2zM7.5 10.2h9v.9h-9z\"/></g>"
  },
  "lrs-o-vermont-yankee": {
   "object": "outline of Vermont",
@@ -1550,9 +1550,9 @@
   "svg": "<path d=\"M6.8 2.5L17.8 2.5L17.5 2.7L17.8 3.4L17 4.7L17.5 5.7L17.3 6.8L15.9 8L14.6 8.3L14.6 10.2L13.6 12.8L12.5 14.5L12.1 19.1L11.7 19.5L11.5 20.5L12 21.5L7.2 21.3L7.1 20.9L7.3 14.6L7 14L6.6 14L6.5 14.5L6.2 14.3L6.7 12.8L6.2 10.6L7 8.7L7.1 7.3L6.5 5.7L6.8 4.4L6.6 4Z\"/>"
  },
  "lrs-o-west-covina": {
-  "object": "shotgun",
+  "object": "solid pump-action shotgun silhouette on a diagonal",
   "hook": "A shotgun and $2,629 seized by police",
-  "svg": "<g transform=\"rotate(-30 12 12)\"><path d=\"M2.500 10h9.500\" stroke-width=\"2.200\"/><rect x=\"4.500\" y=\"12.300\" width=\"5\" height=\"1.800\" fill=\"currentColor\"/><path d=\"M12 9h3.500l6 1.300v4.200l-6-2H12Z\"/><path d=\"M13 12.500c0 2.500 2.500 2.500 2.500 0\"/></g>"
+  "svg": "<g transform=\"translate(.5 -.2) rotate(-16 12 12)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1 11.2L4.2 9.8Q5.4 9 6.4 8.9H23.8V10.5H19.6V12.1H15.2V13.5H10.8V12.1H10.2V13.1H6.2Q5.2 12.5 4.4 13.1L1.3 15.6ZM11.6 11.3h.6v1.4h-.6zM12.75 11.3h.6v1.4h-.6zM13.9 11.3h.6v1.4h-.6zM15.7 10.3h3.9v.45h-3.9z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M7.2 12.9h.7q0 1.1.75 1.1t.75-1.1h.7q0 1.8-1.45 1.8T7.2 12.9z\"/></g>"
  },
  "lrs-o-weston": {
   "object": "baby bottle",
@@ -1560,9 +1560,9 @@
   "svg": "<rect x=\"7\" y=\"10\" width=\"10\" height=\"11.5\" rx=\"2.5\"/><path d=\"M6.5 7.5h11v2.5h-11Z\" fill=\"currentColor\"/><path d=\"M9.5 7.5c0-1.5 1-2 1.5-3 .3-1 .5-2 1-2s.7 1 1 2c.5 1 1.5 1.5 1.5 3\"/><path d=\"M7 13.5h3M7 17h3\"/>"
  },
  "lrs-o-wirtz": {
-  "object": "electric motor",
+  "object": "solid side-view finned industrial electric motor",
   "hook": "Motor makers and a secret wage survey",
-  "svg": "<rect x=\"3\" y=\"7\" width=\"14\" height=\"10\" rx=\"2\"/><path d=\"M7 7v10M10 7v10M13 7v10\"/><path d=\"M17 12h4.5\" stroke-width=\"2.2\"/><path d=\"M5 17v3.5h10V17\"/><rect x=\"7.5\" y=\"3.5\" width=\"5\" height=\"3.5\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M5.2 7H8V4.9a.7.7 0 0 1 .7-.7h3.8a.7.7 0 0 1 .7.7V7H15.6L18.6 9.6V10.7H22a.5.5 0 0 1 .5.5v1.6a.5.5 0 0 1-.5.5H18.6v1.1L15.6 17H5.2ZM6.7 8.6h8.2v1.3H6.7ZM6.7 11.35h8.2v1.3H6.7ZM6.7 14.1h8.2v1.3H6.7Z\"/><path d=\"M4.3 7.4H3.7Q1.5 7.4 1.5 9.6v4.8q0 2.2 2.2 2.2h.6Z\"/><path d=\"M6.4 17h9l1 1.4h.9v1.4H4.9v-1.4h.9ZM9.2 18.4h3.6V17.9H9.2Z\" fill-rule=\"evenodd\"/></g>"
  },
  "lrs-o-wyman-gordon": {
   "object": "pair of underpants",
@@ -1575,9 +1575,9 @@
   "svg": "<polygon points=\"3,10 11,10 11,12 8.2,12 8.2,19 11,19 11,21 3,21 3,19 5.8,19 5.8,12 3,12\"/><path d=\"M3 10l10-6h8v2l-10 6M11 10l10-6M11 19l10-6v2l-10 6\"/>"
  },
  "lrs-s-amalgamated": {
-  "object": "meat cleaver",
+  "object": "solid diagonal meat cleaver with hang hole",
   "hook": "Meat cutters' raise caught in a freeze",
-  "svg": "<path d=\"M2.5 5.5H15V18H6a3.5 3.5 0 0 1-3.5-3.5Z\"/><rect x=\"15\" y=\"6.5\" width=\"6.8\" height=\"3.4\" rx=\"1.7\" fill=\"currentColor\"/><circle cx=\"6\" cy=\"9\" r=\"1.2\"/>"
+  "svg": "<path transform=\"translate(12.6 12.1) rotate(-35)\" fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M-8.5-5H10.1a1.9 1.9 0 0 1 0 3.8H1.5V4a1 1 0 0 1-1 1H-10.5a1 1 0 0 1-1-1V-2ZM-7.8-3.3a1.5 1.5 0 1 0 0 3a1.5 1.5 0 1 0 0-3ZM5-3.95a.85.85 0 1 0 0 1.7a.85.85 0 1 0 0-1.7ZM9-3.95a.85.85 0 1 0 0 1.7a.85.85 0 1 0 0-1.7Z\"/>"
  },
  "lrs-s-arthrex": {
   "object": "bone screw anchor",
@@ -1590,9 +1590,9 @@
   "svg": "<path d=\"M16 3v18.5\" stroke-width=\"2.4\"/><path d=\"M16 6L8.5 3.5C3.5 7 3.5 13 8.5 16.5L16 14Z\" fill=\"currentColor\"/><path d=\"M17 7h3v5.5h-3\"/>"
  },
  "lrs-s-brig-aurora": {
-  "object": "two-masted sailing brig",
+  "object": "two-masted square-rigged brig on a wave",
   "hook": "A brig from Liverpool, cargo seized",
-  "svg": "<path d=\"M2.5 17h17L17 21.5H5Z\"/><path d=\"M7.5 2.5V17M15.5 2.5V17M19.5 17l2.5-2.5\"/><path d=\"M5 4.5h5v3.5H5ZM4.5 10h6v4.5h-6Z\" fill=\"currentColor\"/><path d=\"M13 4.5h5v3.5h-5ZM12.5 10h6v4.5h-6Z\" fill=\"currentColor\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M1.6 15.4 5.5 17.2H17.6L21 15.9C20.6 18.6 19 20.3 16.8 20.3H6.8C4.2 20.3 2.4 18.4 1.6 15.4Z\"/><path d=\"M7 3.6H11L11.4 8.5Q9 7.5 6.6 8.5ZM6.5 9.5H11.5L11.9 15.5Q9 14.3 6.1 15.5Z\"/><path d=\"M13 3.6H17L17.4 8.5Q15 7.5 12.6 8.5ZM12.5 9.5H17.5L17.9 15.5Q15 14.3 12.1 15.5Z\"/><path d=\"M18.7 3.2 22.7 13.6 18.9 14.8ZM5.3 8.6 1.6 7 1.5 14.2 5.3 14.6Z\"/><path d=\"M9 1.4 11.4 2.1 9 2.8ZM15 1.4 17.4 2.1 15 2.8Z\"/></g><path d=\"M9 1.4V17M15 1.4V17M18.5 16.4 22.7 14.4\" stroke-width=\"0.9\"/><path d=\"M2 22.4Q4.5 21.2 7 22.4T12 22.4 17 22.4 22 22.4\" stroke-width=\"1\"/>"
  },
  "lrs-s-buckley": {
   "object": "ballot box with ballot",
@@ -1635,9 +1635,9 @@
   "svg": "<path d=\"M9 2.8h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.3h12.4A1.5 1.5 0 0 0 19.5 19L14 9V3\"/><path d=\"M7.4 14.5h9.2\"/><circle cx=\"10.5\" cy=\"18\" r=\"1\" fill=\"currentColor\"/><circle cx=\"14\" cy=\"17.2\" r=\".8\" fill=\"currentColor\"/>"
  },
  "lrs-s-humphrey": {
-  "object": "long cigarette holder",
+  "object": "fDR profile, fedora, pince-nez, cigarette holder",
   "hook": "FDR fired him; his executor sued for pay",
-  "svg": "<path d=\"M2.5 21.5l1.8-1.8\" stroke-width=\"2.6\"/><path d=\"M4.3 19.7L12 12\"/><path d=\"M10.8 10.3l2.9 2.9\"/><path d=\"M13.2 10.8l4.3-4.3\" stroke-width=\"3\" stroke-linecap=\"butt\"/><circle cx=\"18.6\" cy=\"5.4\" r=\"1\" fill=\"currentColor\"/><path d=\"M20.5 4c1.5-1-1-1 0-2\"/>"
+  "svg": "<g transform=\"rotate(-7 8 14)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12.9 6.6C13.3 6.9 13.2 7.4 12.8 8.3C13.3 9.3 14 10.1 14.3 10.9C14.5 11.6 14 11.9 13.4 12C13.4 12.4 13.8 12.7 13.7 13.1L13 13.6C13.4 13.9 13.8 14.1 13.7 14.5C13.6 14.9 13.2 15 13.3 15.4C14.2 15.8 14.6 16.5 14.3 17.2C13.9 18.1 12.4 18.4 10.4 18C10.4 19.6 11.6 21.2 13.6 22.75L1.6 21.27C3.6 20.6 4.6 19.6 4.4 18.2C2.9 16.6 2.2 14 2.2 11.4C2.2 9.9 2.5 8.6 3 7.6ZM10.9 8a1.15 1.15 0 1 0 .01 0Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M3.4 7.2C2.9 3.8 4.3 1.6 6.4 1.6C7.5 1.6 7.9 2.3 8.7 2.3C9.5 2.3 10.2 1.5 11.2 1.9C12.4 2.4 12.7 4.3 12.9 6Z\"/><path d=\"M2.4 7.9C6.5 8.2 12 7.4 15.8 5.4\" stroke-width=\"1.4\"/></g><path d=\"M13.2 13.45L19.4 8.7\" stroke-width=\"1.1\"/><path d=\"M19 9L21.9 6.8\" stroke-width=\"2\" stroke-linecap=\"butt\"/><path d=\"M21.9 4.9c1.4-1.2-1.4-1.6-.1-3.2\" stroke-width=\"1.2\"/>"
  },
  "lrs-s-lucia": {
   "object": "dimensional pail of cash with dollar sign",
@@ -1670,9 +1670,9 @@
   "svg": "<rect x=\"3\" y=\"4.5\" width=\"18\" height=\"6.5\" rx=\"1.5\"/><path d=\"M3 7.7h18\" stroke-width=\"1\"/><path d=\"M2.5 15h19\" stroke-width=\"2.8\"/><path d=\"M6.5 11v4M17.5 11v4M5.5 15.5V21.5M18.5 15.5V21.5\"/><path d=\"M2.5 15v-3.5M21.5 15v-3.5\"/>"
  },
  "lrs-s-slaughter": {
-  "object": "toppled office chair",
+  "object": "swivel office chair tipping over backward",
   "hook": "A commissioner fired; Humphrey's overruled",
-  "svg": "<g transform=\"translate(0 -1) rotate(-30 12 13)\"><path d=\"M7.5 2.5V13H16\" stroke-width=\"2.8\"/><path d=\"M12 13v6M7.5 19.3h9\" stroke-width=\"1.8\"/><circle cx=\"7.5\" cy=\"21\" r=\"1.4\" fill=\"currentColor\"/><circle cx=\"16.5\" cy=\"21\" r=\"1.4\" fill=\"currentColor\"/></g><path d=\"M14.5 3.5l2 1.5M18.5 7.5l2.5 1\"/>"
+  "svg": "<path d=\"M1.7 22.2h20.6\" fill=\"none\" stroke-width=\"1.2\"/><g fill=\"currentColor\" stroke=\"none\" transform=\"translate(10.3 20.2) scale(.95) rotate(-25) translate(-4.5 -21)\"><path d=\"M3.6 3.5a2.1 2.1 0 0 1 4.2 0V11.8h7.9a1.9 1.9 0 0 1 0 3.8H5.5a1.9 1.9 0 0 1-1.9-1.9Z\"/><path d=\"M8.8 6.6h5.4a1 1 0 0 1 1 1v3.4h-2.3V8.9H8.8Z\"/><rect x=\"9.6\" y=\"15\" width=\"2.4\" height=\"4\"/><path d=\"M3.9 20.6q6.9-4.6 13.8 0l-1 1.5q-5.9-3.5-11.8 0Z\"/><circle cx=\"4.5\" cy=\"21\" r=\"1.5\"/><circle cx=\"10.8\" cy=\"21.2\" r=\"1.4\"/><circle cx=\"17.1\" cy=\"21\" r=\"1.5\"/></g>"
  },
  "lrs-s-weiss": {
   "object": "sergeant's chevron stripes",
@@ -1690,9 +1690,9 @@
   "svg": "<path d=\"M2.5 12q2.4-4 4.75 0t4.75 0 4.75 0 4.75 0\"/><path d=\"M2.5 12q2.4 4 4.75 0t4.75 0 4.75 0 4.75 0\"/><path d=\"M5.5 6.5l3.5 11M9 6.5l-3.5 11M15 6.5l3.5 11M18.5 6.5l-3.5 11\"/>"
  },
  "lrs-s-yakus": {
-  "object": "T-bone steak",
+  "object": "solid T-bone steak with outlined bone",
   "hook": "Beef sold above the wartime ceiling",
-  "svg": "<g transform=\"rotate(-20 12 12)\"><path d=\"M4 6.5c5-3.5 13-3.5 16 0 2 3.5-1.5 7.5-4.5 9.5-2.5 2-4.5 5-7.5 4.5C4.5 20 2 10.5 4 6.5Z\"/><path d=\"M6.5 8.5c4-1.5 7.5-1.5 11 0M12 8c0 3-.5 5.5-2 8\" stroke-width=\"2.2\"/></g>"
+  "svg": "<g transform=\"rotate(-14 12.4 11.6)\"><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M4.6 3.7C8 2.5 16 2.4 19.8 3.2C22.3 3.7 23.2 6 22.8 8.9C22.4 12.2 20.8 14.8 18.3 15.4C17 15.7 16.1 15.6 15.4 16.1C13.9 17.1 13.6 19.2 11.8 20.7C9.9 22.3 7 22 5 20C2.1 17.1 1 12 1.4 8.5C1.7 6.1 2.8 4.3 4.6 3.7ZM5 6.5C5 5.3 6 4.7 7.2 4.8C10 5.1 12 4.8 14.5 4.7C16.5 4.6 18.2 4.9 19.5 4.8C20.7 4.7 21.5 5.5 21.4 6.7C21.3 7.9 20.3 8.4 19.3 8.3C18.1 8.2 17.2 8.3 16.8 8.9C16.4 9.7 16.6 11.6 16.5 13.1C16.4 14.7 15.4 15.6 14.2 15.5C13 15.4 12.2 14.3 12.3 12.9C12.4 11.5 12.4 9.8 11.9 9C11.4 8.3 9 8.5 7 8.3C5.9 8.2 5 7.6 5 6.5ZM3.3 10.4C3.2 13.3 4.2 16.6 6.2 18.6C7.6 20 9.5 20.3 10.7 19.3C9.5 19.2 8.4 18.7 7.5 17.7C5.9 15.9 5 13 4.9 10.4C4.9 9.4 3.3 9.4 3.3 10.4Z\"/><path d=\"M7 6.55C11 6.8 15 6.5 19.4 6.6M14.45 6.7C14.5 9 14.5 11.5 14.3 13.5\" stroke-width=\"1.5\"/></g>"
  },
  "lucy": {
   "object": "restaurant receipt on spike",
@@ -1700,9 +1700,9 @@
   "svg": "<path d=\"M7.500 5h9v11.500l-1.500-1.200-1.500 1.200-1.500-1.200-1.500 1.200-1.500-1.200-1.500 1.200Z\" transform=\"rotate(-10 12 11)\"/><path d=\"M12 2.500V8\"/><path d=\"M12 17.500V19\"/><path d=\"M6.500 21.500a5.500 2.500 0 0 1 11 0Z\" fill=\"currentColor\"/><path d=\"M10 10.500h4.500M10.300 13h2.700\"/>"
  },
  "luttinger": {
-  "object": "house key with percent tag",
+  "object": "solid house with percent sign cut out",
   "hook": "A quarter point over the mortgage cap",
-  "svg": "<circle cx=\"5.500\" cy=\"5.500\" r=\"3\"/><path d=\"M8.500 5.500H21M17.500 5.500v3M21 5.500v3\"/><path d=\"M6.500 8.500l3 3.500\"/><path d=\"M6 15l6.500-3.500L19 15v7H6Z\"/><circle cx=\"10\" cy=\"16\" r=\"1.200\" fill=\"currentColor\"/><circle cx=\"15\" cy=\"19.500\" r=\"1.200\" fill=\"currentColor\"/><path d=\"M15 15.500l-5 4.500\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12 1.2L15.6 4.3V2.6H18.6V6.9L23 10.7V12.2H20.8V22.6H3.2V12.2H1V10.7ZM8.3 9.6a2.8 2.8 0 1 0 .01 0ZM8.3 11.3a1.1 1.1 0 1 1-.01 0ZM15.7 15.6a2.8 2.8 0 1 0 .01 0ZM15.7 17.3a1.1 1.1 0 1 1-.01 0ZM14.3 9.6H16.6L9.7 21.2H7.4Z\"/>"
  },
  "market-street": {
   "object": "filing cabinet",
@@ -1710,9 +1710,9 @@
   "svg": "<rect x=\"5\" y=\"2.5\" width=\"14\" height=\"19\" rx=\"1.5\"/><path d=\"M5 8.8h14M5 15.2h14\"/><path d=\"M10 5.6h4M10 12h4M10 18.4h4\" stroke-width=\"1.8\"/>"
  },
  "masterson": {
-  "object": "ranch gate arch",
+  "object": "ranch gate with longhorn skull and fences",
   "hook": "A ranch meant to stay in the family",
-  "svg": "<path d=\"M4 21V5M20 21V5\"/><path d=\"M4 7.5c4-5.5 12-5.5 16 0\"/><path d=\"M4 13h16M4 19h16M12 13v6M4 19l8-6M20 19l-8-6\"/>"
+  "svg": "<g fill=\"currentColor\" stroke=\"none\"><path d=\"M4.4 6.2H10V8.6H6.8V22H4.4ZM19.6 6.2H14V8.6H17.2V22H19.6Z\"/><path fill-rule=\"evenodd\" d=\"M4.5 1.2C4.9 4.8 7 6.3 9.4 6.3L10.3 9.5 10.9 14H13.1L13.7 9.5 14.6 6.3C17 6.3 19.1 4.8 19.5 1.2C18 3.2 16.2 3.9 14.2 3.9L13.5 3.3H10.5L9.8 3.9C7.8 3.9 6 3.2 4.5 1.2ZM10.15 7.4a.8.7 0 1 0 1.6 0a.8.7 0 1 0-1.6 0ZM12.25 7.4a.8.7 0 1 0 1.6 0a.8.7 0 1 0-1.6 0Z\"/><path d=\"M1 14.4H5V16H1ZM1 18H5V19.6H1ZM19 14.4H23V16H19ZM19 18H23V19.6H19ZM1.4 13H2.9V21H1.4ZM21.1 13H22.6V21H21.1Z\"/></g>"
  },
  "mattei": {
   "object": "storefront with awning",
@@ -1725,9 +1725,9 @@
   "svg": "<circle cx=\"6.5\" cy=\"6\" r=\"3.5\"/><circle cx=\"14\" cy=\"6.5\" r=\"3\"/><rect x=\"3\" y=\"10.5\" width=\"12\" height=\"7\" rx=\"1\"/><path d=\"M15 12.5h2.5v3H15\"/><path d=\"M19.5 12l2-1.5M19.5 16l2 1.5M20 14h1.5\"/><path d=\"M6.5 17.5l-2 4M11.5 17.5l2 4\"/><circle cx=\"6.5\" cy=\"6\" r=\"0.9\" fill=\"currentColor\"/><circle cx=\"14\" cy=\"6.5\" r=\"0.9\" fill=\"currentColor\"/>"
  },
  "morris-sparrow": {
-  "object": "lasso",
+  "object": "haltered horse head in profile with mane",
   "hook": "Keno, the horse a cowboy trained himself",
-  "svg": "<ellipse cx=\"12\" cy=\"8\" rx=\"9\" ry=\"5\"/><path d=\"M17.5 12c2 3.5-1.5 5-5 5s-6 2-3.5 4.5\"/><circle cx=\"17.3\" cy=\"12\" r=\"1.5\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M12.9 5.5 13.6 2C14.6 2.8 15.2 3.8 15.4 4.8L16.6 2.4C17.4 3.4 17.7 4.4 17.6 5.6L19.8 6.4 19.3 8 21.4 9.4 20.6 11 22.4 13 21.4 14.6 22.8 17.2 21.8 18.6 22.8 22.5H11C11.8 20 13 17.6 13.6 15.4C12.4 16.5 10.4 16.4 9 15.7L5.2 12.47 10 6.8C11 6 12 5.6 12.9 5.5ZM10.7 9a.9.9 0 1 0 1.8 0a.9.9 0 1 0-1.8 0ZM4.56 13.24 8.36 16.47 7.2 17.9C6.4 19 4.8 19.4 3.6 18.8C2.3 18.2 1.5 16.7 2.3 15.5C2.7 14.9 3.7 14.25 4.56 13.24ZM3.5 16.4a.6.6 0 1 0 1.2 0a.6.6 0 1 0-1.2 0Z\"/>"
  },
  "nanakuli": {
   "object": "solid seven-lobed scallop shell with flared base",
@@ -1785,9 +1785,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M23 23H1v-2.2h4.6v-2.4h4.6V16H23z\"/><rect x=\"12.4\" y=\"12.2\" width=\"10.4\" height=\"3\" rx=\"1.5\" fill=\"currentColor\" stroke=\"none\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M13.8 5.2h8.4v6.2h-8.4zM17.8 6.6v2.4h3V6.6z\"/><path stroke-width=\"2.6\" d=\"M15 8 8.6 2.6\"/><path stroke-width=\"2.2\" d=\"M8.6 2.6 5 9\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M1.4 8.4h7v4.8l-1.17 2.8-1.16-2.4-1.17 2.8-1.17-2.4-1.16 2.8-1.17-2.8z\"/>"
  },
  "plante": {
-  "object": "stud wall frame",
+  "object": "floor plan with interior wall shifted by arrow",
   "hook": "A living-room wall a foot out of place",
-  "svg": "<path d=\"M2.500 4h19M2.500 20.500h19\" stroke-width=\"2.200\"/><path d=\"M4.500 4v16.500M19.500 4v16.500M9.500 4v16.500\"/><path d=\"M14.500 4v4M14.500 15v5.500\"/><path d=\"M9.500 8h10M9.500 15h10\"/><path d=\"M4.500 12h5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 2.5H22.5V21.5H11.2V19.1H20.1V4.9H3.9V19.1H5.6V21.5H1.5ZM14.6 4.9H17.2V13.2H14.6Z\"/><path d=\"M10.5 20.6V15A5.6 5.6 0 0 0 4.9 20.6\" stroke-width=\"1.4\"/><path d=\"M7.6 6.7V12.3\" stroke-width=\"1.7\" stroke-dasharray=\"0.1 2.6\"/><path d=\"M9.8 9.4H13M11.5 7.7L13.2 9.4L11.5 11.1\" stroke-width=\"1.5\"/>"
  },
  "psenicska": {
   "object": "borat bust giving two thumbs up",
@@ -1805,9 +1805,9 @@
   "svg": "<path d=\"M8 3l4 7 4-7 3 1.500c-1 2.500-1 4.500 0 6.500v8l-3.500 2-3.500-2.500-3.500 2.500L5 19v-8c1-2 1-4 0-6.500Z\"/><path d=\"M12 10v8.500\"/><circle cx=\"14.300\" cy=\"12\" r=\".8\" fill=\"currentColor\"/><circle cx=\"14.300\" cy=\"15\" r=\".8\" fill=\"currentColor\"/><path d=\"M7 15.500h2.500\"/>"
  },
  "rockingham": {
-  "object": "arched bridge",
+  "object": "solid two-arch stone bridge over water",
   "hook": "A bridge finished in the forest anyway",
-  "svg": "<path d=\"M2.500 8h19v9.500H19a3.250 3.250 0 0 0-6.500 0h-1a3.250 3.250 0 0 0-6.500 0H2.500Z\"/><path d=\"M2.500 11h19\"/><path d=\"M3 4.500h18M6 4.500V8M12 4.500V8M18 4.500V8\"/><path d=\"M4 21.500c1.500-1 2.500 1 4 0s2.500 1 4 0 2.500 1 4 0 2.500 1 4 0\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M1 3.5H23V6H22.5V14.5H21V11.5A4 4 0 0 0 13 11.5V14.5H11V11.5A4 4 0 0 0 3 11.5V14.5H1.5V6H1Z\"/><path d=\"M2 18q2.5-2 5 0t5 0t5 0t5 0M2 21.5q2.5-2 5 0t5 0t5 0t5 0\" stroke-width=\"1.5\"/>"
  },
  "seaver": {
   "object": "four-poster deathbed",
@@ -1820,9 +1820,9 @@
   "svg": "<g transform=\"translate(0 -0.9)\" fill=\"currentColor\" stroke=\"none\"><path fill-rule=\"evenodd\" d=\"M1.5 9.8C1.5 8.3 3.1 7.9 4 8.8 5.3 10.1 6.9 9.9 7.9 8.2 8.5 7.2 9.8 7.1 10.5 8L12.7 10.8C15.4 12.4 19.3 12.1 21.4 13.5 22.2 14 22.5 14.7 22.5 15.6H1.5ZM8.4 10.3 10.3 9.2 11 10.2 9.1 11.3ZM9.9 12.2 11.8 11.1 12.5 12.1 10.6 13.2ZM11.5 14 13.4 12.9 14.1 13.9 12.2 15ZM17.55 12.3C16.8 13.3 16.5 14.4 16.6 15.6H18C17.9 14.5 18.2 13.5 18.95 12.57Z\"/><path d=\"M1.5 16.4H22.5C22.5 17.4 21.9 17.9 20.9 17.9H11C9.4 17.9 8.6 18.4 8.2 19.4L7.7 20.6H1.5Z\"/></g>"
  },
  "sisney-reisch": {
-  "object": "sealed meal tray",
+  "object": "compartment meal tray with Star of David and fork",
   "hook": "Prepackaged kosher meals, as settled",
-  "svg": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"/><path d=\"M12 5v14M12 12.5h9\"/><circle cx=\"7.5\" cy=\"12\" r=\"1.8\" fill=\"currentColor\"/><path d=\"M15.5 5l1.2 4.3 4.3 1.200Z\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M3.5 2H13.5A2.5 2.5 0 0 1 16 4.5V19.5A2.5 2.5 0 0 1 13.5 22H3.5A2.5 2.5 0 0 1 1 19.5V4.5A2.5 2.5 0 0 1 3.5 2ZM3.6 4H13.4A.6.6 0 0 1 14 4.6V12.9A.6.6 0 0 1 13.4 13.5H3.6A.6.6 0 0 1 3 12.9V4.6A.6.6 0 0 1 3.6 4ZM3.6 15.5H7A.6.6 0 0 1 7.6 16.1V19.4A.6.6 0 0 1 7 20H3.6A.6.6 0 0 1 3 19.4V16.1A.6.6 0 0 1 3.6 15.5ZM10 15.5H13.4A.6.6 0 0 1 14 16.1V19.4A.6.6 0 0 1 13.4 20H10A.6.6 0 0 1 9.4 19.4V16.1A.6.6 0 0 1 10 15.5Z\"/>\n<path fill=\"currentColor\" stroke=\"none\" d=\"M8.5 5.1L11.62 10.5H5.38ZM8.5 12.3L5.38 6.9H11.62Z\"/>\n<path fill=\"currentColor\" stroke=\"none\" d=\"M17.5 2.6V8A2.5 2.5 0 0 0 19 10.3V21A1 1 0 0 0 21 21V10.3A2.5 2.5 0 0 0 22.5 8V2.6A.5.5 0 0 0 21.5 2.6V7.4H20.5V2.6A.5.5 0 0 0 19.5 2.6V7.4H18.5V2.6A.5.5 0 0 0 17.5 2.6Z\"/>"
  },
  "sisney-state": {
   "object": "ladle dripping one drop into empty bowl",
@@ -1845,9 +1845,9 @@
   "svg": "<path d=\"M6 18.5L8.5 3.5l9.5 2-1.5 13\"/><path d=\"M2.5 19c2-1.5 3.5 1.5 5.5 0s3.5 1.5 5.500 0 3.500 1.500 5.500 0 2 .5 2.500 0\"/><path d=\"M11 8.5l.3-1.5M14.5 9.2l.3-1.5M10.3 13.5l.3-1.5M13.8 14.2l.3-1.5\" stroke-width=\"2\"/>"
  },
  "stoll": {
-  "object": "manure pile with stink lines",
+  "object": "solid hen standing on smelly litter heap",
   "hook": "Thirty years of chicken litter",
-  "svg": "<path d=\"M3 21c-1-3 1-4.5 3-4.5-.5-2.5 1.5-4 3.5-3.5 0-2 5-2 5 0 2-.5 4 1 3.5 3.5 2 0 4 1.5 3 4.5Z\"/><path d=\"M7 9c-1.5-1.5 1.5-2.5 0-4.5M12 8c-1.5-1.5 1.5-3 0-5M17 9c-1.5-1.5 1.5-2.5 0-4.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M14.6 5.6C14.6 3.8 15.9 2.8 17.3 2.8C18.8 2.8 19.8 3.8 19.9 5L22 5.9L19.9 6.9C19.9 7.8 20.2 8.6 20.2 10C20.2 13.6 17.4 15.8 13.4 15.8C9.2 15.8 6.4 13.2 5.8 9.4L3.4 3.4C6.4 4 8.6 5.8 9.8 8.2C11.8 9.2 14 8.6 14.6 5.6ZM9.4 10.4C10.8 13.2 14.2 13.6 15.9 11C14 11.9 11.4 11.6 9.4 10.4ZM18.6 4.9a.6.6 0 1 0-1.2 0a.6.6 0 1 0 1.2 0ZM1.5 22.7Q3.5 18.6 8 18.2Q12 16.8 16 18.2Q20.5 18.6 22.5 22.7Z\"/><circle cx=\"15.9\" cy=\"2.6\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"17.3\" cy=\"2.1\" r=\"1.1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"18.7\" cy=\"2.7\" r=\".9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"19.6\" cy=\"8\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M11.8 15V18.5M14.8 15V18.5\" stroke-width=\"1.2\"/><path d=\"M2.6 16.4q-1.1-1.3 0-2.6t0-2.6M21.9 17q1-1.1 0-2.2t0-2.2\" stroke-width=\"1.3\"/>"
  },
  "structural-polymer": {
   "object": "spool of fibre",
@@ -1855,9 +1855,9 @@
   "svg": "<rect x=\"5\" y=\"3\" width=\"14\" height=\"3\" rx=\"1.500\"/><rect x=\"5\" y=\"18\" width=\"14\" height=\"3\" rx=\"1.500\"/><path d=\"M7.500 6v12M16.500 6v12\"/><path d=\"M7.500 9h9M7.500 12h9M7.500 15h9\"/><path d=\"M16.500 15c3 0 2.500-4 5-4\"/>"
  },
  "sullivan": {
-  "object": "nose in profile",
+  "object": "face profile with bandaged prominent nose",
   "hook": "An entertainer's nose, three operations",
-  "svg": "<path d=\"M9.500 2.500v8c-2.500 1.500-5 3.500-5 6a3 3 0 0 0 5.500 1.500c1.200 1 2.800 1 4 0A3 3 0 0 0 19.500 16.500c0-2.500-2.500-4.500-5-6v-8\"/><path d=\"M8 16.500h.5M15.500 16.500h.5\" stroke-width=\"2.200\"/><path d=\"M6.500 5.500h11v3h-11Z\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M6 1.5H12.6C13.9 3 14.7 4.6 14.7 6C14.7 7.2 13.9 7.8 13.7 8.7L19.6 13.4C20.9 14.4 21 16.5 19 16.5H16.2C16.2 17 17.1 17.2 17 17.8C16.9 18.3 15.9 18.2 15.9 18.6C15.9 19 16.7 19 16.6 19.5C16.5 19.9 15.7 19.9 15.8 20.4C16 20.9 16.9 21 16.6 21.8C16.4 22.3 15.6 22.5 14.8 22.5H6Q3.5 22.5 3.5 20V4Q3.5 1.5 6 1.5ZM15.73 10.32L17.61 11.82L14.74 15.42L12.86 13.92ZM8.6 8.4Q10.5 10.2 12.4 8.4L11.8 7.5Q10.5 8.7 9.2 7.5Z\"/>"
  },
  "sun-printing": {
   "object": "half sun rising over folded newspaper",
@@ -1865,9 +1865,9 @@
   "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M6.6 10.2a5.4 5.4 0 0 1 10.8 0z\"/><path stroke-width=\"2.1\" d=\"M12 1.9v1.2M5.6 3.9l.9 1M18.4 3.9l-.9 1M2.6 8.6h1.6M19.8 8.6h1.6\"/><path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M6 11.4h15.3a1.2 1.2 0 0 1 1.2 1.2v8.4a1.2 1.2 0 0 1-1.2 1.2h-17a2.8 2.8 0 0 1-2.8-2.8v-5h3.3v-1.8a1.2 1.2 0 0 1 1.2-1.2zM3.5 16.4v3a.65.65 0 0 0 1.3 0v-3zM7.6 13.6v1.9h12.4v-1.9zM7.6 17.2v3h4.8v-3zM14.2 17.2v1.1h5.8v-1.1zM14.2 19.1v1.1h5.8v-1.1z\"/>"
  },
  "swinton": {
-  "object": "termite",
+  "object": "solid termite from above, striped abdomen",
   "hook": "Termites the bank never mentioned",
-  "svg": "<circle cx=\"12\" cy=\"6\" r=\"2.2\"/><ellipse cx=\"12\" cy=\"14.7\" rx=\"3.8\" ry=\"6.3\"/><path d=\"M8.6 12.5h6.8M8.6 16.5h6.8\"/><path d=\"M10.5 4.5L8 3M13.5 4.5L16 3\"/><path d=\"M8.6 11.5L4.5 9.5M8.2 14.5H3.5M8.6 18L5 20.5M15.4 11.5l4.1-2M15.8 14.5h4.7M15.4 18l3.6 2.5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M8.67 13.9Q9.6 11.6 12 11.6Q14.4 11.6 15.33 13.9ZM8.39 14.5H15.61Q16.05 15.5 16.08 16.6H7.92Q7.95 15.5 8.39 14.5ZM7.9 17.2H16.1Q16.1 18.3 15.76 19.3H8.24Q7.9 18.3 7.9 17.2ZM8.47 19.9H15.53Q14.5 22.6 12 22.6Q9.5 22.6 8.47 19.9Z\"/>\n<rect x=\"9.5\" y=\"8\" width=\"5\" height=\"3\" rx=\"1.2\" fill=\"currentColor\" stroke=\"none\"/>\n<circle cx=\"12\" cy=\"4.9\" r=\"2.6\" fill=\"currentColor\" stroke=\"none\"/>\n<path stroke-width=\"1.1\" d=\"M10.6 3.2Q9.6 1.6 8 1.6M13.4 3.2Q14.4 1.6 16 1.6\"/>\n<path stroke-width=\"1.5\" d=\"M9.8 8.8L6.6 7.6L5.4 5.6M14.2 8.8L17.4 7.6L18.6 5.6M9.6 9.6L5.8 10L4.2 11.8M14.4 9.6L18.2 10L19.8 11.8M9.8 10.4L6.6 12.6L5.6 15.6M14.2 10.4L17.4 12.6L18.4 15.6\"/>"
  },
  "swiss-2024": {
   "object": "Swiss cross shield",
@@ -1915,19 +1915,19 @@
   "svg": "<rect x=\"3.5\" y=\"14\" width=\"17\" height=\"7\" rx=\"1\"/><path d=\"M5.5 14l1.5-6h10l1.5 6\"/><rect x=\"12.5\" y=\"3\" width=\"6.5\" height=\"3.5\" rx=\".5\"/><path d=\"M15.75 6.5V8M10 17.5h4\"/><circle cx=\"9.5\" cy=\"11\" r=\".9\" fill=\"currentColor\"/><circle cx=\"12.5\" cy=\"11\" r=\".9\" fill=\"currentColor\"/><circle cx=\"15.5\" cy=\"11\" r=\".9\" fill=\"currentColor\"/>"
  },
  "watkins": {
-  "object": "wheelbarrow of rubble",
+  "object": "pickaxe striking and cracking a solid boulder",
   "hook": "Solid rock under the cellar",
-  "svg": "<path d=\"M5 11h14l-3 6H9Z\"/><path d=\"M19 11l3-2M15 17l2 4\"/><circle cx=\"8\" cy=\"19.5\" r=\"2\"/><path d=\"M6.5 11l1-3.5 3.5-.5 1.5 4M12.5 11l.5-6 3.5 1 1 5\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" fill-rule=\"evenodd\" d=\"M1.5 22.5 2.4 17.4 5.6 14 11.4 12.6 17.6 14.2 21.2 18 22.5 22.5ZM10.9 13.6 12.5 16.4 11.1 17.5 13.5 21 12.4 17.8 13.9 16.6Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M7.36 1.11Q3.6 8.4 10.9 12.7Q7.9 7.1 7.36 1.11Z\"/><path stroke-width=\"2.4\" d=\"M5.2 7.88 21.2 2.85\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M14.6 11.2 17.6 8.8 17 12ZM5.2 12.4 2.4 10.6 6 10.8Z\"/>"
  },
  "white-benkowski": {
-  "object": "stone well with bucket",
+  "object": "solid water tap with single drop",
   "hook": "Neighbours cut the water nine times",
-  "svg": "<path d=\"M4 8l8-5 8 5Z\"/><path d=\"M6.5 8v7.5M17.5 8v7.5\"/><ellipse cx=\"12\" cy=\"15.5\" rx=\"7.5\" ry=\"2\"/><path d=\"M4.5 15.5V19c0 1.2 3.3 2.2 7.5 2.2s7.5-1 7.5-2.2v-3.5\"/><path d=\"M12 8v1.5\"/><path d=\"M10.3 9.5h3.4l-.5 3h-2.4Z\" fill=\"currentColor\"/>"
+  "svg": "<g stroke=\"none\" fill=\"currentColor\"><rect x=\"4.6\" y=\"1.6\" width=\"9.8\" height=\"2.4\" rx=\"1.2\"/><rect x=\"8.4\" y=\"4\" width=\"2.2\" height=\"2\"/><rect x=\"7.2\" y=\"5.6\" width=\"4.6\" height=\"1.8\" rx=\".4\"/><rect x=\"1.4\" y=\"5.4\" width=\"2.4\" height=\"10\" rx=\".6\"/><path d=\"M3.8 7.2H15a5.6 5.6 0 0 1 5.6 5.6v1.2H15.4v-1.2a.6.6 0 0 0-.6-.6H3.8z\"/><rect x=\"14.6\" y=\"13.8\" width=\"6.8\" height=\"1.7\" rx=\".4\"/><path d=\"M18 16.6C19.7 18.8 20.5 19.9 20.5 20.9a2.5 2.5 0 0 1-5 0C15.5 19.9 16.3 18.8 18 16.6z\"/></g>"
  },
  "white-corlies": {
-  "object": "stack of lumber planks",
+  "object": "stack of lumber planks, 3/4 view",
   "hook": "Lumber bought before saying yes",
-  "svg": "<rect x=\"2.5\" y=\"5\" width=\"16\" height=\"4.3\"/><rect x=\"5.5\" y=\"9.3\" width=\"16\" height=\"4.3\"/><rect x=\"2.5\" y=\"13.6\" width=\"16\" height=\"4.3\"/><path d=\"M5 17.9v3h3v-3M14 17.9v3h3v-3\"/><ellipse cx=\"7\" cy=\"7.15\" rx=\"1.3\" ry=\".7\" fill=\"currentColor\"/><ellipse cx=\"16.5\" cy=\"11.45\" rx=\"1.3\" ry=\".7\" fill=\"currentColor\"/><ellipse cx=\"11\" cy=\"15.75\" rx=\"1.3\" ry=\".7\" fill=\"currentColor\"/>"
+  "svg": "<path fill=\"currentColor\" stroke=\"none\" d=\"M2.05 8.55L17.15 8.55L17.15 10.95L2.05 10.95ZM4.65 11.45L17.15 11.45L17.15 13.85L4.65 13.85ZM2.65 14.35L17.15 14.35L17.15 16.75L2.65 16.75ZM5.25 17.25L17.15 17.25L17.15 19.65L5.25 19.65Z\"/><path fill=\"currentColor\" stroke=\"none\" d=\"M2.47 8.05L4.29 6.45L19.13 6.45L17.31 8.05ZM4.87 5.95L6.69 4.35L21.53 4.35L19.71 5.95Z\"/><path fill=\"currentColor\" stroke=\"none\" fill-opacity=\"0.5\" d=\"M17.65 8.41L19.55 6.75L19.55 8.99L17.65 10.65ZM20.05 6.31L21.95 4.65L21.95 6.89L20.05 8.55ZM17.65 11.31L19.55 9.65L19.55 11.89L17.65 13.55ZM20.05 9.21L21.95 7.55L21.95 9.79L20.05 11.45ZM17.65 14.21L19.55 12.55L19.55 14.79L17.65 16.45ZM20.05 12.11L21.95 10.45L21.95 12.69L20.05 14.35ZM17.65 17.11L19.55 15.45L19.55 17.69L17.65 19.35ZM20.05 15.01L21.95 13.35L21.95 15.59L20.05 17.25Z\"/>"
  },
  "williams-walker-thomas": {
   "object": "stereo record player",
@@ -1955,8 +1955,8 @@
   "svg": "<path d=\"M6.5 21V3M4.5 6h15\"/><rect x=\"9.5\" y=\"9\" width=\"9.5\" height=\"7\" rx=\"1\"/><path d=\"M11.5 6v3M17 6v3M12 12.5h4.5\"/><path d=\"M3 21h18\"/>"
  },
  "xlo": {
-  "object": "cement mixer truck",
+  "object": "solid side-profile cement mixer truck",
   "hook": "Concrete poured for the mob's Club",
-  "svg": "<ellipse cx=\"9\" cy=\"9.5\" rx=\"7\" ry=\"4.5\" transform=\"rotate(-18 9 9.5)\"/><path d=\"M6.5 6l3 8.5M11 4.5l3 8\"/><path d=\"M16.5 17v-5.5h3l2 3V17\"/><path d=\"M2 17h20\"/><circle cx=\"6.5\" cy=\"19\" r=\"2\"/><circle cx=\"17.5\" cy=\"19\" r=\"2\"/>"
+  "svg": "<g stroke=\"none\" fill=\"currentColor\" fill-rule=\"evenodd\"><path d=\"M8.1 12.4C6.55 9.82 8.49 7.13 11.56 5.68L20.22 4.58L21.84 8.01L15.49 14C12.41 15.45 9.56 15.03 8.1 12.4ZM13.75 5.4L14.69 5.28L17.02 12.55L16.33 13.2ZM17.19 4.96L18.13 4.84L19.54 10.17L18.85 10.82Z\"/><path d=\"M1.3 15.2H21.8V17.5H1.3Z\"/><path d=\"M1.3 16V11.2L3.5 7.2H6.9V16ZM2.8 11.2L4.2 8.6H5.6V11.2Z\"/><path d=\"M2.45 19.3a2.35 2.35 0 1 0 4.7 0a2.35 2.35 0 1 0 -4.7 0ZM3.9 19.3a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0ZM11.85 19.3a2.35 2.35 0 1 0 4.7 0a2.35 2.35 0 1 0 -4.7 0ZM13.3 19.3a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0ZM16.95 19.3a2.35 2.35 0 1 0 4.7 0a2.35 2.35 0 1 0 -4.7 0ZM18.4 19.3a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0Z\"/><path d=\"M18 15.3L19 11H20.4V15.3Z\"/><path d=\"M20.5 10.3L21.9 9.7L22.9 13.2L21.5 13.8Z\"/></g>"
  }
 }
