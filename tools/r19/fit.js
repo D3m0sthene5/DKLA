@@ -49,3 +49,27 @@
   }
   (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 120); return; } mend(); setTimeout(mend, 3400); })();
 })();
+
+/* r19.18: a subject opens in its own course. The renderer hard-coded two region ids as "Study notes", but
+   "Semester source and reading records" sits in Contracts (its courseKey says so), so opening it, or either
+   of its subtopics, jumped the view to the Study workbench. The region's own courseKey now decides. */
+(function () {
+  'use strict';
+  if (typeof goRegion !== 'function' || typeof goDistrict !== 'function') return;
+  const region0 = goRegion, district0 = goDistrict;
+  const courseOf = regionId => { const r = regionFor(regionId), c = r && r.courseKey; return c && c !== 'Study notes' ? c : null; };
+  goRegion = function (id, animate = true) {
+    const v = region0.apply(this, arguments), c = courseOf(id), r = regionFor(id);
+    if (c && r && S.scope !== c && S.region === id) { S.scope = c; renderHeading(); fitBox(r, animate, R18.subjectPad(), .95); renderInspector(); }
+    return v;
+  };
+  goDistrict = function (id, animate = true) {
+    const v = district0.apply(this, arguments), d = districtFor(id), c = d && courseOf(d.region);
+    if (c && S.scope !== c && S.district === id) {
+      S.scope = c; renderHeading(); renderInspector();
+      const members = geoMembers(id).map(n => homeFor(n.id)), main = members.filter(m => m && m.core), b = bounds(main.length ? main : members);
+      fitBox({ x: d.x, y: d.y, w: d.w, h: Math.min(d.h, Math.max(330, b.y + b.h - d.y + 50)) }, animate, 16, 1.05);
+    }
+    return v;
+  };
+})();
