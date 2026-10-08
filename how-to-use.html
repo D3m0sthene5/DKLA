@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to use the atlas · DKLA</title>
+<meta name="description" content="How to use the Danny Kind Legal Atlas: the map, the reading panel, search, connections, sources and the study tools.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#101820; --panel:#19232d; --line:#2f3c49; --ink:#e4ebf1; --muted:#aebaca;
+    --orange:#ee9138; --gold:#d6b78e; --blue:#8fb8e8; --green:#7fd6a2;
+    --focus:#ffd37a; --kbd-bg:#10161d; --kbd-line:#35424d; --on-orange:#111;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f7f4ee; --panel:#ffffff; --line:#d9d2c6; --ink:#1b2129; --muted:#4f5a66;
+           --orange:#b85c0a; --gold:#8a6a3a; --blue:#2a5e9c; --green:#1f7a4a; --focus:#1b5fb3; --kbd-bg:#f1ede6; --kbd-line:#c9c1b3; --on-orange:#fff; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:18px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--blue)} a:hover{text-decoration-thickness:2px}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--panel);color:var(--ink);padding:10px 14px;border:2px solid var(--focus);z-index:9}
+  .skip:focus{left:8px}
+
+  header.top{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--panel)}
+  header.top img{width:34px;height:34px}
+  header.top .name{font-weight:600;font-size:17px}
+  header.top .name small{display:block;font-weight:400;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  header.top .back{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px}
+  header.top .back:hover{border-color:var(--gold)}
+
+  main{max-width:700px;margin:0 auto;padding:36px 20px 80px}
+  h1{font-size:34px;line-height:1.2;margin:0 0 10px;font-weight:600}
+  .lead{font-size:20px;color:var(--muted);margin:0 0 28px}
+
+  nav.steps ol{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  nav.steps a{display:flex;align-items:center;gap:12px;min-height:48px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);text-decoration:none;font-size:16px}
+  nav.steps a:hover{border-color:var(--gold)}
+  .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--orange);color:var(--on-orange);font-weight:700;display:grid;place-items:center;font-size:15px}
+
+  section.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:24px 24px 20px;margin:0 0 22px;scroll-margin-top:16px}
+  section.step .count{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+  section.step h2{display:flex;align-items:center;gap:14px;font-size:26px;line-height:1.25;margin:0 0 16px;font-weight:600}
+  section.step h2 .num{width:34px;height:34px;font-size:16px}
+  .do{font-size:19px;margin:0 0 12px}
+  .do strong{color:var(--gold);font-weight:600}
+  .see{margin:0 0 12px;color:var(--ink)}
+  .tip{margin:0;padding:12px 14px;border-left:4px solid var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border-radius:0 8px 8px 0;font-size:16px}
+  .tip b{color:var(--green);font-weight:600}
+  .try{display:inline-flex;align-items:center;min-height:44px;margin:14px 10px 0 0;padding:8px 18px;border-radius:999px;background:var(--orange);color:var(--on-orange);font-weight:600;text-decoration:none;font-size:16px}
+  .try:hover{filter:brightness(1.08)}
+  .next{display:inline-flex;align-items:center;min-height:44px;margin:14px 0 0;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:16px}
+  .next:hover{border-color:var(--gold)}
+  .actions{display:flex;flex-wrap:wrap;gap:6px 0}
+
+  kbd{font:15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);background:var(--kbd-bg);border:1px solid var(--kbd-line);border-bottom-width:2px;padding:1px 7px;border-radius:5px;white-space:nowrap}
+  .ui{font-weight:600;color:var(--gold)}
+
+  .lost{border:2px dashed var(--line);border-radius:14px;padding:20px 24px;margin:34px 0 22px}
+  .lost h2{font-size:22px;margin:0 0 10px}
+  .lost ul{margin:0;padding-left:22px}
+  .lost li{margin:6px 0}
+
+  details.keys{margin:0 0 30px}
+  details.keys summary{cursor:pointer;font-size:18px;font-weight:600;min-height:44px;line-height:44px;list-style:disclosure-closed}
+  details.keys[open] summary{list-style:disclosure-open}
+  table{border-collapse:collapse;width:100%;margin-top:8px;font-size:16px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600}
+
+  footer{color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+  @media (max-width:520px){
+    body{font-size:17px} h1{font-size:28px} section.step{padding:18px 16px} section.step h2{font-size:22px}
+    header.top .name small{display:none}
+  }
+  @media print{ body{background:#fff;color:#000} .try,.next,.back,.skip,nav.steps{display:none} section.step{break-inside:avoid;border-color:#999} }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the steps</a>
+<header class="top">
+  <img src="icons/icon.svg" alt="">
+  <div class="name">DKLA<small>Danny Kind Legal Atlas</small></div>
+  <a class="back" href="DKLA-r20.html">Open the atlas →</a>
+</header>
+
+<main id="main">
+  <h1>How to use the atlas</h1>
+  <p class="lead">The map, the reading panel, search, connections, sources and the study tools, in six steps.</p>
+
+  <nav class="steps" aria-label="Steps">
+    <ol>
+      <li><a href="#s1"><span class="num" aria-hidden="true">1</span>Look at the map</a></li>
+      <li><a href="#s2"><span class="num" aria-hidden="true">2</span>Open a case</a></li>
+      <li><a href="#s3"><span class="num" aria-hidden="true">3</span>Search for anything</a></li>
+      <li><a href="#s4"><span class="num" aria-hidden="true">4</span>Follow a connection</a></li>
+      <li><a href="#s5"><span class="num" aria-hidden="true">5</span>Read the source</a></li>
+      <li><a href="#s6"><span class="num" aria-hidden="true">6</span>Test yourself</a></li>
+    </ol>
+  </nav>
+
+  <section class="step" id="s1" aria-labelledby="h1s">
+    <p class="count">Step 1 of 6</p>
+    <h2 id="h1s"><span class="num" aria-hidden="true">1</span>Look at the map</h2>
+    <p class="do"><strong>Do this:</strong> open the atlas and click any coloured block.</p>
+    <p class="see">You will see three courses: <b>Contracts</b> (orange), <b>Civil Procedure</b> (blue) and <b>Legislation and the Regulatory State</b> (green). Each block is one subject. Clicking it zooms in, and its topics and cases appear.</p>
+    <p class="tip"><b>Tip.</b> Scroll to zoom and drag to move. The <span class="ui">⌂</span> button at the bottom fits whatever you are looking at back on screen. The <span class="ui">←</span> button at the top left goes back one view.</p>
+    <div class="actions"><a class="try" href="DKLA-r20.html">Try it: open the atlas</a><a class="next" href="#s2">Next step ↓</a></div>
+  </section>
+
+  <section class="step" id="s2" aria-labelledby="h2s">
+    <p class="count">Step 2 of 6</p>
+    <h2 id="h2s"><span class="num" aria-hidden="true">2</span>Open a case</h2>
+    <p class="do"><strong>Do this:</strong> click one of the small cards inside a subject.</p>
+    <p class="see">A reading panel opens on the right. It starts with the <b>rule in one line</b>, then <b>Parties</b>, <b>Procedural History</b>, <b>Material Facts</b>, <b>Issue</b>, <b>Holding</b> and <b>Reasoning</b>. The complete brief is folded at the bottom under <span class="ui">Full brief</span>.</p>
+    <p class="tip"><b>Tip.</b> The small picture beside the title is a memory hook drawn from the facts of that case (the dice on Hamer v. Sidway, for example). Press <kbd>Esc</kbd> to close the panel.</p>
+    <div class="actions"><a class="next" href="#s3">Next step ↓</a></div>
+  </section>
+
+  <section class="step" id="s3" aria-labelledby="h3s">
+    <p class="count">Step 3 of 6</p>
+    <h2 id="h3s"><span class="num" aria-hidden="true">3</span>Search for anything</h2>
+    <p class="do"><strong>Do this:</strong> press <kbd>/</kbd> and type a case name, a rule or a word.</p>
+    <p class="see">The search box forgives typos and word order, so “promisory estopel” still finds Promissory estoppel. Results are grouped: entries, subjects, dictionary terms and sources on file (Rule 12, UCC 2-207, a case name). Choose one to jump there.</p>
+    <p class="tip"><b>Tip.</b> <kbd>Ctrl</kbd>+<kbd>K</kbd> (<kbd>⌘</kbd>+<kbd>K</kbd> on a Mac) also opens search. It reaches every entry from any view.</p>
+    <div class="actions"><a class="next" href="#s4">Next step ↓</a></div>
+  </section>
+
+  <section class="step" id="s4" aria-labelledby="h4s">
+    <p class="count">Step 4 of 6</p>
+    <h2 id="h4s"><span class="num" aria-hidden="true">4</span>Follow a connection</h2>
+    <p class="do"><strong>Do this:</strong> with a case open, look at the ribbons drawn from its card.</p>
+    <p class="see">Each ribbon runs to a related entry: a concept the case carries, a case it distinguishes, a rule it applies. The panel lists the same connections with a sentence saying why. A small pill at the far end names entries whose cards are off screen; click it to go there.</p>
+    <p class="tip"><b>Tip.</b> Many cases also show a <b>timeline</b>: the cases that changed the doctrine, in order, with one line each on what changed.</p>
+    <div class="actions"><a class="next" href="#s5">Next step ↓</a></div>
+  </section>
+
+  <section class="step" id="s5" aria-labelledby="h5s">
+    <p class="count">Step 5 of 6</p>
+    <h2 id="h5s"><span class="num" aria-hidden="true">5</span>Read the source</h2>
+    <p class="do"><strong>Do this:</strong> click a chip under the entry title. Each chip names a source and a page, such as “DKLA Case Briefs p. 456”.</p>
+    <p class="see">The original page, opinion or brief opens inside the atlas at the right page. Close it and you are back where you were. Legal terms in the text are chips too: click one and the dictionary opens with the definition and every entry that uses the term.</p>
+    <p class="tip"><b>Tip.</b> Reporter citations such as “304 U.S. 64” are links to the opinion. Press <kbd>Ctrl</kbd>+<kbd>P</kbd> with an entry open to print just that entry as a clean handout.</p>
+    <div class="actions"><a class="try" href="DKLA-r20.html#term=consideration">Try it: open “consideration” in the dictionary</a><a class="next" href="#s6">Next step ↓</a></div>
+  </section>
+
+  <section class="step" id="s6" aria-labelledby="h6s">
+    <p class="count">Step 6 of 6</p>
+    <h2 id="h6s"><span class="num" aria-hidden="true">6</span>Test yourself</h2>
+    <p class="do"><strong>Do this:</strong> click <span class="ui">STUDY</span> in the top bar, or press <kbd>Shift</kbd>+<kbd>D</kbd>.</p>
+    <p class="see">The <b>Drill</b> shows a case name and hides the rest. Reveal the issue, then the holding, then the reasoning, and rate how well you remembered it. <b>Pairs</b> puts two easily confused cases side by side. <b>Sheets</b> prints every rule in a subject on one page. <b>Progress</b> shows what you have rated.</p>
+    <p class="tip"><b>Tip.</b> In a drill, <kbd>Space</kbd> reveals the next part and <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> rate it. Ratings are kept in this browser. A sync code under Progress copies them to another device.</p>
+    <div class="actions"><a class="next" href="#lost">If you get lost ↓</a></div>
+  </section>
+
+  <aside class="lost" id="lost" aria-labelledby="lostH">
+    <h2 id="lostH">If you get lost</h2>
+    <ul>
+      <li>Press <span class="ui">⌂</span> (bottom right) to fit the current area on screen. Zoom out past the courses to see the whole atlas.</li>
+      <li>Press <kbd>Esc</kbd> to close any panel or dialog.</li>
+      <li>Press <kbd>/</kbd> and search.</li>
+      <li>The <span class="ui">More</span> menu holds the rest: choose a course, browse subjects, reading assignments, supporting cases, save, and this guide.</li>
+    </ul>
+  </aside>
+
+  <details class="keys">
+    <summary>Keyboard shortcuts</summary>
+    <table>
+      <thead><tr><th scope="col">Key</th><th scope="col">What it does</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd></td><td>Go to search</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Close the panel, dialog or menu</td></tr>
+        <tr><td><kbd>Alt</kbd>+<kbd>←</kbd></td><td>Back to the previous view</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>D</kbd></td><td>Open the recall drill</td></tr>
+        <tr><td><kbd>Space</kbd> or <kbd>Enter</kbd></td><td>In a drill: reveal the next part</td></tr>
+        <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>In a drill: rate the card (clean, patchy, blank)</td></tr>
+        <tr><td><kbd>H</kbd> / <kbd>S</kbd> / <kbd>A</kbd></td><td>In a drill: hint, skip, open the card on the atlas</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print the open entry</td></tr>
+      </tbody>
+    </table>
+  </details>
+
+  <footer>
+    <p>Edits are saved in this browser. <span class="ui">Save</span> in the top bar downloads a copy. The atlas works offline after its first load.</p>
+    <p><a href="DKLA-r20.html">Open the atlas →</a></p>
+  </footer>
+</main>
+</body>
+</html>

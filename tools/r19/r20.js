@@ -411,3 +411,72 @@
   }
   try { schedule(); } catch { /* next frame */ }
 })();
+
+/* ===== r20.3: a first-visit note, the guided walkthrough in the More menu, and room in the centre mark ===== */
+(function () {
+  'use strict';
+  const KEY = 'dkla.guide.v1', PAGE = 'how-to-use.html';
+  const seen = () => { try { return localStorage.getItem(KEY) === 'seen'; } catch { return true; } };
+  const markSeen = () => { try { localStorage.setItem(KEY, 'seen'); } catch { /* storage unavailable */ } };
+
+  /* The note sits over the map on the three-course view the first time the atlas opens. It goes once either
+     button is pressed (or Esc), and is not shown when the atlas was opened at a term, file or page route. */
+  function showNote() {
+    if (seen() || location.hash || document.getElementById('r20Guide')) return;
+    const host = document.getElementById('studyMain') || document.body;
+    const box = document.createElement('section');
+    box.id = 'r20Guide'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-labelledby', 'r20GuideH'); box.setAttribute('aria-describedby', 'r20GuideP');
+    box.innerHTML = '<h2 id="r20GuideH">New here? Start with the guide.</h2><p id="r20GuideP">Six steps: move around the map, open a case, search, follow connections, read the sources, test yourself.</p>' +
+      '<div class="r20-guide-actions"><a class="r20-guide-go" href="' + PAGE + '">Open the guide</a><button type="button" data-r20-guide-close>Not now</button></div>';
+    host.appendChild(box);
+    const close = () => { markSeen(); box.remove(); document.removeEventListener('keydown', onKey, true); };
+    const onKey = e => { if (e.key === 'Escape') { close(); } };
+    box.querySelector('[data-r20-guide-close]').addEventListener('click', close);
+    box.querySelector('.r20-guide-go').addEventListener('click', markSeen);
+    document.addEventListener('keydown', onKey, true);
+  }
+  setTimeout(showNote, 900);
+
+  /* More menu: the walkthrough sits beside the existing "How to use this map" dialog. */
+  if (typeof moreMenu === 'function') {
+    const prior = moreMenu;
+    moreMenu = function (...a) {
+      const out = prior.apply(this, a), menu = document.getElementById('moreMenu');
+      if (menu && !menu.hidden && !menu.querySelector('[data-r20-guide]')) {
+        const help = [...menu.querySelectorAll('button')].find(b => b.dataset.action === 'help');
+        const b = document.createElement('button'); b.setAttribute('role', 'menuitem'); b.dataset.r20Guide = '1'; b.textContent = 'Guided walkthrough';
+        (help || menu.lastElementChild).after(b);
+      }
+      return out;
+    };
+    const more = document.getElementById('moreBtn'); if (more) more.onclick = () => moreMenu();
+    document.addEventListener('click', e => { if (e.target.closest('[data-r20-guide]')) { markSeen(); location.href = PAGE; } }, true);
+  }
+
+  /* Centre mark: the A stands inside the D like the K and the L (it used to run past the bowl and over the
+     K's lower arm), the K's arms stop short of the bowl, and the mark is drawn larger on the three-course
+     view. r17 redraws the mark on every draw, so this runs after each one. */
+  const K = 'M22 52 52 21M22 52 52 83', L = 'M22 85H54', A = 'M56 74 66 24 76 74M59.5 60H72.5';
+  /* Nothing from the first half-second of boot is shown: the Contracts welcome block (the atlas's HTML starts
+     with it visible, in Contracts scope, and the floor fit hides it only once the camera lands), r16's wordmark
+     and r17's mark before this painter has reshaped it. r20.css keeps them invisible until `r20-settled` is on
+     the body and the mark carries `data-r20`. */
+  const settle = () => document.body.classList.add('r20-settled');
+  setTimeout(settle, 3000);
+  function fixMark() {
+    const mark = document.querySelector('#geoCanvas .dkla-map-monogram');
+    if (!mark) return;
+    mark.setAttribute('x', '-3100'); mark.setAttribute('y', '-5300'); mark.setAttribute('width', '6200'); mark.setAttribute('height', '4300');
+    const k = mark.querySelector('.dkla-letter-k'), l = mark.querySelector('.dkla-letter-l'), a = mark.querySelector('.dkla-letter-a');
+    if (k) k.setAttribute('d', K); if (l) l.setAttribute('d', L); if (a) a.setAttribute('d', A);
+    mark.dataset.r20 = '1';
+  }
+  if (window.R18 && Array.isArray(R18.afterDraw)) R18.afterDraw.push(() => {
+    if (typeof S === 'object' && S && S.scope !== 'Contracts') settle();
+    fixMark();
+  });
+  // r17's wrapper installs on its own timer and can end up outside r18's, redrawing the old letterforms after
+  // this painter; the observer's callback runs after both, before the frame is painted.
+  const canvas = document.getElementById('geoCanvas');
+  if (canvas) new MutationObserver(fixMark).observe(canvas, { childList: true, subtree: true });
+})();

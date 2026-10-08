@@ -22,11 +22,16 @@ PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
 TARGET = ROOT / "DKLA-r20.html"
-EXPECTED_R18 = "af725ca0d371ca3f96efbefd522b5dae96d195bd6f978bd4509a469691f7aecc"
+EXPECTED_R18 = "4d7da5b3568a6b5840f06b7ce20c1f629270478cff221bc12cd8b7085c18d90b"
 VERSION = "r20"
-LABEL = "r20.4"
+LABEL = "r20.5"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R205 = {
+    "v": "r20.5",
+    "date": "2026-10-08",
+    "text": "A guide. how-to-use.html walks through the atlas in six steps (the map, a case, search, connections, sources, the study tools); a note on the three-course view points to it the first time the atlas opens, and the More menu lists it as Guided walkthrough. Greenfield v. Philles Records carries Ronnie Spector's portrait, traced from the owner's drawing. The DKLA mark on the three-course view is larger and its letters have room: the A stands wholly inside the D like the K and the L, its right foot joined to the bowl, and the K's arms stop short of the bowl. The old Contracts welcome block and the older marks no longer flash during the first half-second of loading.",
+}
 CHANGELOG_R204 = {
     "v": "r20.4",
     "date": "2026-10-08",
@@ -247,7 +252,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -329,6 +334,14 @@ def main() -> None:
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
+    # r20.5: the atlas boots from studyCode while the browser is still parsing the r19 blocks at the end of the file,
+    # so for about half a second it ran without any r19/r20 code or style: the Contracts welcome block showed and the
+    # map carried the old centre mark. These head rules hide both until r20.js has settled the body and reshaped the mark.
+    boot = ('<style id="dklaR20Boot">#mapWelcome{visibility:hidden}body.r20-settled #mapWelcome{visibility:visible}'
+            '#geoCanvas svg[viewBox="0 0 244 78"],#geoCanvas .dkla-map-monogram:not([data-r20]){visibility:hidden}</style>')
+    if output.count("</head>") != 1:
+        raise ValueError("expected one </head>")
+    output = output.replace("</head>", boot + "</head>")
     title = "<title>DKLA · r18.1 · Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
         raise ValueError("expected the r18.1 <title>")
