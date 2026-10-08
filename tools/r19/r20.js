@@ -57,8 +57,8 @@
     const z = S.z;
     for (const t of svg.querySelectorAll('text.map-label, .node-card text, .map-region text')) {
       const fs = parseFloat(t.getAttribute('font-size')); if (!fs) continue;
-      const px = fs * z; if (px >= 8.6) continue;
-      const o = Math.max(0, (px - 7) / 1.6), had = t.style.opacity === '' ? 1 : parseFloat(t.style.opacity);
+      const px = fs * z; if (px >= 7.6) continue;
+      const o = Math.max(0, (px - 6.6) / 1), had = t.style.opacity === '' ? 1 : parseFloat(t.style.opacity);
       t.style.opacity = String(Math.min(had, o));
     }
   }

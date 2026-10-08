@@ -23,6 +23,10 @@
   }
   wrapM = function (t, maxW, fs, weight = 400, maxLines = 3, cls = '') {
     if (!(maxW > 0) || !isFinite(maxW)) return wrap0(t, maxW, fs, weight, maxLines, cls);
+    // Subject titles keep the renderer's own rule: the caller sizes them to the block, and when the full title
+    // does not fit it swaps in the subject's short name ("Limits", "Readings") at the same size. Shrinking or
+    // adding lines here made sizes uneven and pushed titles out of their blocks.
+    if (cls === 'region-title') return wrap0(t, maxW, fs, weight, maxLines, cls);
     const tryAt = (scale, lines) => { const rows = greedy(t, maxW, fs * scale, weight, cls); return rows && rows.length <= lines ? rows : null; };
     let rows = tryAt(1, maxLines); if (rows) return rows;
     for (let s = .95; s >= .78; s -= .05) { rows = tryAt(s, maxLines); if (rows) { rows.scale = s; return rows; } }
