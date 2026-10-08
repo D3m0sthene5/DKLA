@@ -21,12 +21,17 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-r19.html"
-EXPECTED_R18 = "21b08238b4bbfcbcb131772d8da942339a4e8b04e3c33ee9f2d4eea422caa72b"
-VERSION = "r19"
-LABEL = "r19.19"
+TARGET = ROOT / "DKLA-r20.html"
+EXPECTED_R18 = "2efa84beb5cdd111dcb8e53f838fab21f3713ed12a7c823c91dceba96a9f1628"
+VERSION = "r20"
+LABEL = "r20"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R20 = {
+    "v": "r20",
+    "date": "2026-10-08",
+    "text": "Version 20. The dictionary and the briefs are linked both ways: 18 interpretive canons and doctrines Wex lacks are added (noscitur a sociis, expressio unius, in pari materia, the plain meaning rule, Skidmore and Auer deference, the well-pleaded complaint rule and others), every term lists the map entries and the supporting cases whose briefs use it, and every case and supporting brief lists its terms. On the map, a course view now shows only that course (other courses fade out as you zoom in), each course sits in the middle of the screen, and text too small to read fades until you zoom in. In the reading panel, repeated source chips are gone and chips, labels and the entry icon are consistent. Save and More match the other header buttons, and a chosen option in the Study dialog is plainly marked.",
+}
 CHANGELOG_R1919 = {
     "v": "r19.19",
     "date": "2026-10-08",
@@ -222,7 +227,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -273,6 +278,9 @@ def main() -> None:
         raise ValueError(f"rlcc cite targets not in the graph: {unknown}")
     rlcc["hubSeedUpdated"] = nodes[rlcc["hub"]["id"]].get("updatedAt")
     data["rlcc"] = rlcc
+    term_links = json.loads((DATA / "term-links.json").read_text(encoding="utf-8"))
+    known_ids = {e[0] for e in data["entries"]}
+    data["terms"] = dict(supporting={k: v for k, v in term_links["supporting"].items() if k in known_ids})
     provisions = json.loads((DATA / "provisions.json").read_text(encoding="utf-8"))
     known = set(nodes) | {r["id"] for r in rlcc["rules"]}
     stray = [k for k in provisions if k not in known]
@@ -284,8 +292,8 @@ def main() -> None:
     stray = [k for k in plain["nodes"] if k not in nodes] + [k for k in plain["edges"] if k not in edge_ids]
     if stray:
         raise ValueError(f"plain-text edits for unknown entries: {stray[:5]}")
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8")
-    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8")
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8")
+    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
@@ -302,7 +310,7 @@ def main() -> None:
     title = "<title>DKLA · r18.1 · Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
         raise ValueError("expected the r18.1 <title>")
-    output = output.replace(title, "<title>DKLA · r19 · Danny Kind Legal Atlas</title>")
+    output = output.replace(title, "<title>DKLA · r20 · Danny Kind Legal Atlas</title>")
     new = script_blocks(output)
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")

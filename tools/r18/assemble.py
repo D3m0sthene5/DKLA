@@ -152,6 +152,30 @@ def patch_icons(block: str) -> str:
     return json.dumps(icons, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 
+def patch_glossary(block: str) -> str:
+    """Add the terms and brief-derived links from tools/r19/terms.py (glossary-extra.json) to the dictionary.
+
+    New terms join the list in alphabetical order. Each extra link is added in both directions: to the entry's
+    ranked term list (byNode, capped at 32 as before) and to the term's list of entries (usedBy).
+    """
+    gloss = json.loads(block)
+    extra = json.loads((PARTS / "glossary-extra.json").read_text(encoding="utf-8"))
+    have = {t["slug"] for t in gloss["terms"]}
+    gloss["terms"] += [t for t in extra["newTerms"] if t["slug"] not in have]
+    gloss["terms"].sort(key=lambda t: t["term"].lower())
+    known = {t["slug"] for t in gloss["terms"]}
+    by_node, used_by = gloss.setdefault("byNode", {}), gloss.setdefault("usedBy", {})
+    for node_id, slugs in sorted(extra["nodeLinks"].items()):
+        if node_id not in gloss.get("titles", {}):
+            continue
+        mine = by_node.setdefault(node_id, [])
+        for slug in slugs:
+            if slug in known and slug not in mine and len(mine) < 32:
+                mine.append(slug)
+                used_by.setdefault(slug, []).append(node_id)
+    return json.dumps(gloss, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+
 def main() -> None:
     source_bytes = SOURCE.read_bytes()
     if digest(source_bytes) != EXPECTED_R17:
@@ -163,7 +187,7 @@ def main() -> None:
     inputs = [EXPECTED_R17, json.dumps(PATCHES), HEAD]
     for _, _, name in PRE + COMPONENTS:
         inputs.append((PARTS / name).read_text(encoding="utf-8"))
-    for name in ("sw.template.js", "changelog.json", "icons.json"):
+    for name in ("sw.template.js", "changelog.json", "icons.json", "glossary-extra.json"):
         inputs.append((PARTS / name).read_text(encoding="utf-8"))
     build = VERSION + "-" + digest("\n".join(inputs).encode("utf-8"))[:10]
 
@@ -182,6 +206,11 @@ def main() -> None:
     if output.count(icon_block) != 1:
         raise ValueError("dklaIcons text is not unique in the file")
     output = output.replace(icon_block, patch_icons(icon_block))
+
+    glossary_block = old["dklaGlossary"]
+    if output.count(glossary_block) != 1:
+        raise ValueError("dklaGlossary text is not unique in the file")
+    output = output.replace(glossary_block, patch_glossary(glossary_block))
 
     marker = '<script id="studyCode">'
     if output.count(marker) != 1:
@@ -209,7 +238,7 @@ def main() -> None:
 
     new = script_blocks(output)
     changed = [key for key, value in old.items() if new.get(key) != value]
-    if sorted(changed) != ["dklaIcons", "studyCode"]:
+    if sorted(changed) != ["dklaGlossary", "dklaIcons", "studyCode"]:
         raise ValueError(f"unexpected block changes: {changed}")
     graph = json.loads(old["seedData"])
     TARGET.write_text(output, encoding="utf-8")
@@ -222,8 +251,8 @@ def main() -> None:
         "r17_sha256": digest(source_bytes),
         "r18_sha256": digest(TARGET.read_bytes()),
         "build": build,
-        "preserved_script_blocks": len(old) - 2,
-        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json"},
+        "preserved_script_blocks": len(old) - 3,
+        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json", "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json"},
         "nodes": len(graph["nodes"]),
         "edges": len(graph["edges"]),
         "components": [f for _, _, f in PRE + COMPONENTS],

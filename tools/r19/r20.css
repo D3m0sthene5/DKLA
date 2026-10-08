@@ -1,0 +1,30 @@
+/* ===== r20 clean-ups (see the r20 review in AGENTS.md) ===== */
+/* one label face: "Rule in one line" was monospace beside sans small-caps labels */
+#inspector .dkla-rule-label{font-family:inherit!important;font-size:11px!important;letter-spacing:.12em!important}
+/* one chip shape in the panel: page-range tags were squared beside pill chips */
+#inspector .source-strip a,#inspector .source-strip button{border-radius:999px}
+/* the entry's icon carries more weight beside its title */
+#inspector .dkla-record-title .dkla-symbol{width:36px;height:36px;flex-basis:36px}
+#inspector .dkla-icon-caption{margin-left:46px!important;font-size:12px!important}
+/* the timeline fades at its edges, so it reads as scrollable */
+#inspector .reader-body .dkla-timeline-track{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22px,#000 calc(100% - 22px),transparent 100%)}
+/* Save and More match the two boxed buttons beside them */
+.study-header #saveBtn,.study-header #moreBtn{border:1px solid #2f3c49!important;border-radius:8px;padding:6px 12px}
+.study-header #saveBtn:hover,.study-header #moreBtn:hover{border-color:#455461!important;background:#1e2a35}
+/* the save note is a status line, not a control */
+#saveStatus{border-color:transparent!important;background:transparent!important;box-shadow:none!important;color:#7f93a4!important}
+/* a chosen option in the Study dialog is plainly chosen */
+.r18-body .r18-pill[aria-pressed="true"]{background:#3a3121;border-color:#d6b78e;color:#f3e2c4}
+/* supporting cases: rows with a hover surface and room to read */
+.r19-row{padding:11px 8px;border-radius:7px;font-size:14.5px}
+.r19-row:hover{background:#1e2a35}
+#r19Search:focus{outline:2px solid #d6b78e;outline-offset:2px;border-color:#d6b78e}
+/* dictionary: supporting cases and brief terms */
+#glossaryDialog .r20-sup h3{margin-top:18px}
+#glossaryDialog .r20-sup .gl-used button small{color:#8fa3b3;font-size:11px;margin-left:4px}
+.r20-terms{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 4px}
+.r20-terms>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8fa3b3;margin-right:4px}
+.r20-terms button{font:inherit;font-size:12.5px;color:#d7e0e8;background:#1e2a35;border:1px solid #3a4856;border-radius:999px;padding:4px 10px;cursor:pointer}
+.r20-terms button:hover{background:#26333f;color:#ecd3ac}
+/* phone: the course name is already in the breadcrumb and on the map */
+@media (max-width:640px){#mapWelcome h1{display:none}}

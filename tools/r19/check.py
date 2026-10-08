@@ -27,7 +27,7 @@ def require(condition: bool, message: str) -> None:
 r18_bytes = (ROOT / "DKLA-r18.html").read_bytes()
 require(hashlib.sha256(r18_bytes).hexdigest() == EXPECTED_R18, "DKLA-r18.html is not the build r19 was made from")
 r18 = script_blocks(r18_bytes.decode("utf-8"))
-html = (ROOT / "DKLA-r19.html").read_text(encoding="utf-8")
+html = (ROOT / "DKLA-r20.html").read_text(encoding="utf-8")
 r19 = script_blocks(html)
 require(all(r19.get(k) == v for k, v in r18.items()), "an r18 block differs in r19")
 for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs"):
@@ -68,14 +68,14 @@ if node:
             require(res.returncode == 0, f"{name} does not parse: {res.stderr.strip()[:200]}")
 
 version = json.loads((ROOT / "version.json").read_text(encoding="utf-8"))
-require(version.get("build") == data.get("build") and version.get("file") == "DKLA-r19.html", "version.json does not describe this build")
+require(version.get("build") == data.get("build") and version.get("file") == "DKLA-r20.html", "version.json does not describe this build")
 sw = (ROOT / "sw.js").read_text(encoding="utf-8")
-require(f"const BUILD = '{data['build']}';" in sw and "DKLA-r19.html" in sw, "sw.js does not serve this build")
-require("DKLA-r19.html" in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
+require(f"const BUILD = '{data['build']}';" in sw and "DKLA-r20.html" in sw, "sw.js does not serve this build")
+require("DKLA-r20.html" in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
 vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
-require(any(r.get("destination") == "/DKLA-r19.html" for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
+require(any(r.get("destination") == "/DKLA-r20.html" for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
-require(integrity.get("r19_sha256") == hashlib.sha256((ROOT / "DKLA-r19.html").read_bytes()).hexdigest(), "integrity.json does not describe this DKLA-r19.html")
+require(integrity.get("r19_sha256") == hashlib.sha256((ROOT / "DKLA-r20.html").read_bytes()).hexdigest(), "integrity.json does not describe this DKLA-r20.html")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))

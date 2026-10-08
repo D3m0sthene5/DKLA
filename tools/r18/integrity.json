@@ -1,8 +1,8 @@
 {
   "r17_sha256": "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30",
-  "r18_sha256": "21b08238b4bbfcbcb131772d8da942339a4e8b04e3c33ee9f2d4eea422caa72b",
-  "build": "r18-9f5160885b",
-  "preserved_script_blocks": 29,
+  "r18_sha256": "2efa84beb5cdd111dcb8e53f838fab21f3713ed12a7c823c91dceba96a9f1628",
+  "build": "r18-d812e4c48b",
+  "preserved_script_blocks": 28,
   "patched_blocks": {
     "studyCode": [
       "course names: one world-proportional size on every screen, long name on two lines",
@@ -20,7 +20,8 @@
       "ribbons end at a card only once cards are readable; below that they keep the grouped pill at the subject edge",
       "no step badge while the headroom is too shallow to hold it"
     ],
-    "dklaIcons": "one glyph per case from tools/r18/icons.json"
+    "dklaIcons": "one glyph per case from tools/r18/icons.json",
+    "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json"
   },
   "nodes": 1069,
   "edges": 2537,

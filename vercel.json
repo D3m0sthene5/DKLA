@@ -3,17 +3,81 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/DKLA-r17.html", "destination": "/DKLA-r19.html", "permanent": false },
-    { "source": "/DKLA-r18.html", "destination": "/DKLA-r19.html", "permanent": false }
+    {
+      "source": "/DKLA-r17.html",
+      "destination": "/DKLA-r20.html",
+      "permanent": false
+    },
+    {
+      "source": "/DKLA-r18.html",
+      "destination": "/DKLA-r20.html",
+      "permanent": false
+    },
+    {
+      "source": "/DKLA-r19.html",
+      "destination": "/DKLA-r20.html",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/DKLA-r19.html" }
+    {
+      "source": "/",
+      "destination": "/DKLA-r20.html"
+    }
   ],
   "headers": [
-    { "source": "/(.*)\\.html", "headers": [ { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" } ] },
-    { "source": "/sw.js", "headers": [ { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }, { "key": "Service-Worker-Allowed", "value": "/" } ] },
-    { "source": "/version.json", "headers": [ { "key": "Cache-Control", "value": "no-store" } ] },
-    { "source": "/manifest.webmanifest", "headers": [ { "key": "Content-Type", "value": "application/manifest+json" }, { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" } ] },
-    { "source": "/added-sources/(.*)", "headers": [ { "key": "Cache-Control", "value": "public, max-age=86400" } ] }
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "source": "/version.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/added-sources/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
   ]
 }
