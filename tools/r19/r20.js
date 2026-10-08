@@ -55,31 +55,234 @@
   function hideTinyText() {
     if (!svg) return;
     const z = S.z;
-    for (const t of svg.querySelectorAll('text.map-label, .node-card text, .map-region text')) {
+    for (const t of svg.querySelectorAll('text.map-label:not([data-r20]):not(.r20-tile), .map-region text')) {
       const fs = parseFloat(t.getAttribute('font-size')); if (!fs) continue;
       const px = fs * z; if (px >= 7.6) continue;
       const o = Math.max(0, (px - 6.6) / 1), had = t.style.opacity === '' ? 1 : parseFloat(t.style.opacity);
       t.style.opacity = String(Math.min(had, o));
     }
   }
+  /* ---------- 2b. subject tiles at course zoom: one size, centred ----------
+     While a subject is only a tile (no subtopics shown inside it yet) its name is drawn here: centred both
+     ways, the same size in every tile on screen, the full name if it fits and the short name if not. The
+     renderer drew these top-left beside a number badge, at sizes that varied tile to tile. */
+  function wrapPlain(text, maxW, fs, weight) {
+    const out = []; let line = '';
+    for (const w of String(text).split(/\s+/).filter(Boolean)) {
+      const cand = line ? line + ' ' + w : w;
+      if (line && measure(cand, fs, weight) > maxW) { out.push(line); line = w; } else line = cand;
+      if (measure(line, fs, weight) > maxW) return null;
+    }
+    if (line) out.push(line);
+    return out;
+  }
+  function tileLabels() {
+    if (!svg || typeof R11 === 'undefined' || !R11.modes) return;
+    const z = S.z, M = mapData(), tiles = [];
+    for (const g of svg.querySelectorAll('g.map-region')) {
+      const path = g.querySelector('path[data-map-region]'); if (!path) continue;
+      const id = path.getAttribute('data-map-region'), r = regionFor(id); if (!r) continue;
+      const mode = R11.modes.get(id), pw = r.w * z, ph = r.h * z; if (pw < 30 || ph < 14) continue;
+      // a block in the in-between mode is treated as a tile while it is still too small to show anything else
+      if (mode !== 'star' && !(mode === 'mid' && pw < 130)) continue;
+      tiles.push({ g, id, r, pw, ph });
+    }
+    if (!tiles.length) return;
+    const names = t => { const full = shortRegionTitle(t.r), short = (typeof SHORT_NAMES !== 'undefined' && SHORT_NAMES[t.id] || '').replace(/­/g, ''); return short && short !== full ? [full, short] : [full]; };
+    const fit = (t, px) => {
+      const fs = px / z, maxW = (t.pw - (t.pw < 70 ? 6 : 14)) / z, maxLines = Math.max(1, Math.min(3, Math.floor((t.ph - 8) / (px * 1.22))));
+      for (const name of names(t)) { const rows = wrapPlain(name, maxW, fs, 600); if (rows && rows.length <= maxLines) return rows; }
+      return null;
+    };
+    let px = 15; const smallest = Math.min(...tiles.map(t => t.pw));
+    px = Math.min(15, Math.max(9.5, smallest * 0.1));
+    for (; px >= 9.5; px -= .5) if (tiles.every(t => fit(t, px))) break;
+    px = Math.max(9.5, px);
+    const parts = [];
+    for (const t of tiles) {
+      let size = px, rows = fit(t, size);
+      while (!rows && size > 5.5) { size -= .5; rows = fit(t, size); }
+      if (!rows) continue;
+      for (const old of svg.querySelectorAll('text.region-title[data-map-region="' + t.id + '"]')) old.remove();
+      for (const badge of t.g.querySelectorAll(':scope > g')) badge.remove();
+      const fs = size / z, lh = fs * 1.22, cx = t.r.x + t.r.w / 2, y0 = t.r.y + t.r.h / 2 - (rows.length - 1) * lh / 2 + fs * .35;
+      parts.push(`<text class="map-label region-title r20-tile" x="${cx}" y="${y0}" font-size="${fs}" font-weight="600" fill="#f7f5f0" text-anchor="middle" opacity="${t.g.getAttribute('opacity') || 1}" data-map-region="${esc(t.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${cx}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`);
+    }
+    if (parts.length) svg.insertAdjacentHTML('beforeend', parts.join(''));
+  }
+
+  /* ---------- 2c. one design for entries: cards with icons ----------
+     When a subject is too small on screen for full cards, its entries were listed as bare lines of text.
+     Each line is now a compact card with the entry's icon, so a subject looks the same kind of thing at
+     every size. */
+  let ICONS = null;
+  const iconData = () => { if (!ICONS) { try { ICONS = JSON.parse(document.getElementById('dklaIcons').textContent); } catch { ICONS = { paths: {}, records: {} }; } } return ICONS; };
+  function miniCards() {
+    if (!svg) return;
+    const z = S.z, rows = svg.querySelectorAll('text[data-map-jump]'); if (!rows.length) return;
+    const I = iconData();
+    for (const t of rows) {
+      if (t.dataset.r20) continue;
+      const id = t.getAttribute('data-map-jump'), h = homeFor(id), d = h && districtFor(h.district); if (!d) continue;
+      const fs = parseFloat(t.getAttribute('font-size')), base = parseFloat(t.getAttribute('y')); if (!fs || !isFinite(base)) continue;
+      const x0 = d.x + 24, w = d.w - 48, ch = fs * 1.62, cy = base - fs * .34, top = cy - ch / 2;
+      const region = regionFor(d.region), acc = region ? regionAccent(region) : '#93a7b7', n = nodesById.get(id);
+      const rec = I.records && I.records[id], path = I.paths && I.paths[(rec && rec.motif) || (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')] || (I.paths && I.paths.case) || '';
+      const size = fs * 1.08, ix = x0 + fs * .5, op = t.getAttribute('opacity') || 1;
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('opacity', op); g.setAttribute('pointer-events', 'none'); g.setAttribute('class', 'r20-mini');
+      g.innerHTML = `<rect x="${x0}" y="${top}" width="${w}" height="${ch}" rx="${fs * .32}" fill="#1e2c37" stroke="${acc}" stroke-opacity=".3" stroke-width="${1 / z}"/>` +
+        (n && n.kind === 'Case' ? `<path d="M${x0 + fs * .22} ${top + ch * .2}V${top + ch * .8}" stroke="${acc}" stroke-width="${1.6 / z}" opacity=".8"/>` : '') +
+        (path ? `<g transform="translate(${ix},${cy - size / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:${acc}">${path}</g>` : '');
+      t.parentNode.insertBefore(g, t);
+      const tx = ix + size + fs * .5;
+      t.setAttribute('x', tx); for (const sp of t.querySelectorAll('tspan')) sp.setAttribute('x', tx);
+      t.setAttribute('fill', '#dce5ec'); t.dataset.r20 = '1';
+      // a long name is set slightly smaller, then condensed, so the whole name stays on its card
+      let len = 0; try { len = t.getComputedTextLength(); } catch { /* not laid out */ }
+      const room = x0 + w - fs * .5 - tx;
+      if (len > room && room > 0) {
+        const k = Math.max(.84, room / len); t.setAttribute('font-size', fs * k);
+        if (len * k > room) { t.setAttribute('textLength', room); t.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
+      }
+    }
+  }
+
+  /* ---------- 2d. small cards keep their icon and their whole name ----------
+     Below a certain size the icon layer left cards bare, and a long name could shrink to nothing. A small
+     card now carries a small icon, and its name is set slightly smaller or condensed to stay on the card. */
+  function smallCards() {
+    if (!svg) return;
+    const z = S.z, I = iconData();
+    for (const card of svg.querySelectorAll('.node-card[data-map-node]')) {
+      if (card.querySelector(':scope > g[transform]') || card.dataset.r20) continue;
+      const id = card.dataset.mapNode, c = homeFor(id), t = card.querySelector('text'); if (!c || !t) continue;
+      if (c.w * z < 70 || c.h * z < 13) continue;
+      card.dataset.r20 = '1';
+      const n = nodesById.get(id), region = regionFor(c.region), acc = region ? regionAccent(region) : '#93a7b7';
+      const rec = I.records && I.records[id], path = I.paths && I.paths[(rec && rec.motif) || (n && n.kind === 'Case' ? 'case' : n && n.kind === 'Rule' ? 'rule' : 'concept')] || '';
+      const size = Math.min(c.h * .6, 15 / z), ix = c.x + 9 / z + (n && n.kind === 'Case' ? 3 / z : 0), tx = ix + size + 5 / z, room = c.x + c.w - 6 / z - tx;
+      if (path) card.insertAdjacentHTML('beforeend', `<g transform="translate(${ix},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${acc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none" style="color:${acc}">${path}</g>`);
+      // the name, whole: one line if it fits, otherwise two; a slightly smaller size before any squeeze
+      const label = (n && (typeof displayName === 'function' ? displayName(n) : n.title)) || t.textContent, wt = t.getAttribute('font-weight') || 500;
+      const two = c.h * z >= 25, words = String(label).split(/\s+/);
+      let px = Math.min(12, c.h * z * (two ? .36 : .58)), rows = [label];
+      const wide = (row, p) => measure(row, p / z, wt, 'node-card');
+      if (wide(label, px) > room && two && words.length > 1) {
+        let best = null;
+        for (let i = 1; i < words.length; i++) { const r = [words.slice(0, i).join(' '), words.slice(i).join(' ')], m = Math.max(wide(r[0], px), wide(r[1], px)); if (!best || m < best.m) best = { r, m }; }
+        rows = best.r;
+      }
+      const longest = Math.max(...rows.map(r => wide(r, px)));
+      if (longest > room) px = Math.max(px * .82, px * room / longest);
+      const fs = px / z, cy = c.y + c.h / 2, y0 = rows.length === 1 ? cy + fs * .35 : cy - fs * .22;
+      t.setAttribute('font-size', fs); t.setAttribute('x', tx); t.removeAttribute('textLength'); t.textContent = '';
+      rows.forEach((row, i) => {
+        const sp = document.createElementNS('http://www.w3.org/2000/svg', 'tspan'); sp.setAttribute('x', tx); sp.setAttribute('y', y0 + i * fs * 1.16); sp.textContent = row; t.appendChild(sp);
+        let len = 0; try { len = sp.getComputedTextLength(); } catch { /* not laid out */ }
+        if (len > room && room > 0) { sp.setAttribute('textLength', room); sp.setAttribute('lengthAdjust', 'spacingAndGlyphs'); }
+      });
+      t.style.opacity = '';
+    }
+  }
+
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
-  const tidy = () => { try { fadeOthers(); hideTinyText(); } catch (e) { console.error('DKLA r20 map', e); } };
+  const tidy = () => { try { tileLabels(); miniCards(); smallCards(); fadeOthers(); hideTinyText(); } catch (e) { console.error('DKLA r20 map', e); } };
   if (window.R18 && Array.isArray(R18.afterDraw)) R18.afterDraw.push(tidy);
   else if (typeof draw === 'function') { const draw0 = draw; draw = function () { const v = draw0.apply(this, arguments); tidy(); return v; }; }
 
   /* ---------- 3. a course sits in the middle of the screen ----------
      The two small buttons at the top left reserved a whole column, pushing each course to the right. */
+  const wideScreen = () => { const v = rect(); return v.w >= 900 && v.w / Math.max(1, v.h) >= 1.7; };
   if (typeof safeArea === 'function') {
     const safe0 = safeArea;
     safeArea = function () {
-      const a = safe0.apply(this, arguments), w = document.getElementById('mapWelcome');
-      if (!w || w.hidden || a.x <= 36) return a;
-      const v = rect(), b = w.getBoundingClientRect();
-      if (v.w < 760 || !b.height || b.height > 190) return a;
-      const left = 35;
-      return { x: left, y: a.y, w: Math.max(230, a.w + (a.x - left)), h: a.h };
+      let a = safe0.apply(this, arguments); const w = document.getElementById('mapWelcome'), v = rect();
+      if (w && !w.hidden && a.x > 36 && v.w >= 760) { const b = w.getBoundingClientRect(); if (b.height && b.height <= 190) a = { x: 35, y: a.y, w: Math.max(230, a.w + (a.x - 35)), h: a.h }; }
+      // On a wide, short window the map is limited by height. The breadcrumb and the zoom box sit in the
+      // corners, clear of a centred course or subject, so the map may use the rows they are in.
+      if (wideScreen() && !S.district && !(typeof selected !== 'undefined' && selected) && a.y <= 80) { const top = 58, cut = a.y - top; a = { x: a.x, y: top, w: a.w, h: a.h + cut + 34 }; }
+      return a;
     };
   }
+
+  /* A subject opened from the map was capped at 95% zoom, which on a large window left it small in the
+     middle of the screen. It may now grow to fill the window. */
+  if (typeof fitBox === 'function') {
+    const fit0 = fitBox;
+    fitBox = function (b, animate, pad, maxZoom) { return fit0.call(this, b, animate, pad, maxZoom === .95 ? 1.7 : maxZoom); };
+  }
+
+  if (typeof R18 !== 'undefined' && R18.subjectPad) { const pad0 = R18.subjectPad; R18.subjectPad = function () { return wideScreen() ? 10 : pad0.apply(this, arguments); }; }
+
+  /* ---------- 3b. the three courses sit side by side on a wide window ----------
+     The atlas was laid out as a triangle (Contracts above, the other two below), which is about square and
+     left half of a wide window empty. On a wide window the courses now stand in a row. Each course is moved
+     as a whole (subjects, subtopics, cards, zones), so nothing inside a course changes. A tall or narrow
+     window keeps the triangle. Positions are set from fixed targets, so applying this twice changes nothing. */
+  const LRS = 'Legislation and the Regulatory State';
+  const ARR = {
+    tall: { 'Contracts': [-7370, -13364], 'Civil Procedure': [-16440, -360], [LRS]: [1500, -360], 'workbench-region': [-1700, 900], 'dictionary-region': [-1700, 2700] },
+    wide: { 'Contracts': [-7370, 700], 'Civil Procedure': [-23310, 700], [LRS]: [8370, 700], 'workbench-region': [12700, 10900], 'dictionary-region': [15500, 10900] },
+  };
+  let arranged = null;
+  function arrange(mode) {
+    const M = mapData(), T = ARR[mode]; let moved = false;
+    const shift = (regionIds, dx, dy) => {
+      const ids = new Set(regionIds);
+      for (const r of M.regions) if (ids.has(r.id)) { r.x += dx; r.y += dy; }
+      for (const d of Object.values(M.districts)) if (ids.has(d.region)) { d.x += dx; d.y += dy; if (typeof d.supportStart === 'number') d.supportStart += dy; }
+      for (const h of Object.values(M.homes)) if (ids.has(h.region)) { h.x += dx; h.y += dy; }
+    };
+    for (const [course, block] of Object.entries(M.courseBlocks || {})) {
+      const t = T[course]; if (!t) continue;
+      const dx = t[0] - block.x, dy = t[1] - block.y; if (!dx && !dy) continue;
+      shift(M.regions.filter(r => regionCourse(r) === course).map(r => r.id), dx, dy);
+      block.x += dx; block.y += dy;
+      const design = (M.courseDesign || {})[course] || {};
+      for (const zn of design.zones || []) { zn.x += dx; zn.y += dy; }
+      for (const lb of design.labels || []) { lb.x += dx; lb.y += dy; }
+      moved = true;
+    }
+    for (const id of ['workbench-region', 'dictionary-region']) {
+      const r = M.regions.find(x => x.id === id), t = T[id]; if (!r || !t) continue;
+      const dx = t[0] - r.x, dy = t[1] - r.y; if (dx || dy) { shift([id], dx, dy); moved = true; }
+    }
+    // each course's supporting-cases tile sits close under its bottom-left corner
+    if (D && D.tiles) for (const [course, block] of Object.entries(M.courseBlocks || {})) {
+      const t = D.tiles[course]; if (!t) continue;
+      const zones = ((M.courseDesign || {})[course] || {}).zones || [];
+      const bottom = Math.max(block.y + block.h, ...zones.map(zn => zn.y + zn.h)), left = Math.min(block.x, ...zones.map(zn => zn.x));
+      t.w = 4300; t.h = 620; t.x = left; t.y = bottom + 120;
+    }
+    if (typeof R11 !== 'undefined') { R11.galaxyKey = null; R11.galaxy = null; }
+    arranged = mode;
+    return moved;
+  }
+  function applyArrangement(refit) {
+    if (typeof mapData !== 'function' || !mapData() || !mapData().courseBlocks) return;
+    const mode = wideScreen() ? 'wide' : 'tall'; if (mode === arranged) return;
+    const moved = arrange(mode);
+    if (moved || refit) { try { if (S.scope === 'Atlas' || !S.region) home(S.scope, false, false); else if (window.R18 && R18.refit) R18.refit(); } catch { /* next draw */ } }
+    try { schedule(); } catch { /* next frame */ }
+  }
+  (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 100); return; } applyArrangement(true); })();
+  // On a wide window a course is fitted to its subjects and tile; its name sits in the top margin above them
+  // (it is centred, the breadcrumb is in the corner), so the name no longer costs the map a sixth of its height.
+  if (typeof scopeBox === 'function') {
+    const box0 = scopeBox;
+    scopeBox = function () {
+      const b = box0.apply(this, arguments);
+      try {
+        if (arranged !== 'wide' || S.scope === 'Atlas') return b;
+        const M = mapData(), block = (M.courseBlocks || {})[S.scope]; if (!block) return b;
+        const zones = ((M.courseDesign || {})[S.scope] || {}).zones || [], tile = D && D.tiles && D.tiles[S.scope];
+        return bounds([block, ...zones, ...(tile ? [tile] : [])]);
+      } catch { return b; }
+    };
+  }
+  let arrangeTimer = 0;
+  window.addEventListener('resize', () => { clearTimeout(arrangeTimer); arrangeTimer = setTimeout(() => applyArrangement(false), 260); });
 
   /* ---------- 4. no repeated source chips ---------- */
   const panel = document.getElementById('inspector');

@@ -148,3 +148,12 @@ The owner had Codex (another agent) write and audit a brief for every case in th
 - `python3 tools/build_standalone.py` builds `DKLA-standalone.html`, a single self-contained file with every source inlined. Built from the unedited `DKLA-r8.html`, it is byte-identical to the original `DKLA-r8-rebuilt.html`; run it after edits to confirm that every source path still resolves (it warns about missing paths or changed files).
 - If `DKLA-sources/` holds only `manifest.json`, recreate the images and PDFs with `python3 tools/extract_sources.py /path/to/DKLA-r8-rebuilt.html`, which reads them out of the original self-contained file and checks every checksum.
 - `DKLA-sources/manifest.json` records the SHA-256 checksum of every extracted file and the two code edits made for the folder version (a path check in `civilPDF` in `civilCode`, and the export confirmation message in `dklaCore`).
+
+## r20.2 (2026-10-08): the map fills the window; one card design
+
+All in `tools/r19/r20.js`.
+- Wide windows (map area at least 900 px wide and 1.7:1): `arrange('wide')` moves each course as a whole into a row (targets in `ARR`; Civil Procedure, Contracts, Legislation left to right, study-notes blocks beside SCOTUS). Tall and narrow windows keep the triangle (`ARR.tall` holds the original origins). Positions come from fixed targets, so re-applying is harmless. Do not edit course coordinates elsewhere without updating `ARR`.
+- `scopeBox` on a wide window fits a course to its block, zones and supporting-cases tile, with no title band; `safeArea` gives the map the breadcrumb and zoom-control rows; `R18.subjectPad` is 10 there; the 0.95 zoom cap on a subject is lifted.
+- `tileLabels()` redraws subject names centred, one size per view, for blocks in 'star' mode (and 'mid' mode under 130 px). A name may get small but is never dropped.
+- `miniCards()` turns the renderer's entry rows (`text[data-map-jump]`) into cards with icons; `smallCards()` gives an icon and a wrapped name to node cards below the r18 icon threshold. Entries are cards with icons at every size.
+- Known limit: one course is about 1.66:1, so on a wider window it fills the height and leaves side margins. Filling the width would mean re-laying out the subjects inside each course.
