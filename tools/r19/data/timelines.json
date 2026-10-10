@@ -62,7 +62,7 @@
    "course": "Contracts",
    "title": "Good faith, efforts and discretion in performance",
    "question": "What does a party owe when the contract leaves it discretion or calls for its efforts?",
-   "now": "Every contract carries a duty of good faith and fair dealing in performance (UCC § 1-304, Restatement (Second) § 205), and an efforts clause is read in its commercial setting. The duty polices discretion and deliberate opportunism but cannot override express terms; England and Singapore still refuse a general implied duty.",
+   "now": "Nearly every state implies a duty of good faith and fair dealing in every contract (Restatement (Second) § 205), and the UCC imposes one in every contract it governs (§ 1-304); Texas implies it at common law only in special relationships such as insurer and insured. An efforts clause is read in its commercial setting. The duty polices discretion and deliberate opportunism but cannot override express terms; England and Singapore still refuse a general implied duty.",
    "steps": [
     {
      "id": "wood-lucy",
@@ -125,7 +125,7 @@
    "course": "Contracts",
    "title": "Promissory estoppel: reliance as a ground for enforcing promises",
    "question": "When does reliance on a promise make it enforceable without consideration?",
-   "now": "Promissory estoppel is recognized almost everywhere (Virginia is a notable holdout), mostly in the Restatement (Second) § 90 form: a promise the promisor should expect to induce reliance, which does induce it, binds when injustice can be avoided only by enforcement, and the remedy may be limited to reliance losses. It does not reach expected profits from at-will dealings and, in states such as Texas, does not get around the statute of frauds.",
+   "now": "Promissory estoppel is recognized almost everywhere (Virginia is a notable holdout), mostly in the Restatement (Second) § 90 form: a promise the promisor should expect to induce reliance, which does induce it, binds when injustice can be avoided only by enforcement, and the remedy may be limited to reliance losses. It usually does not reach expected profits from at-will dealings, and in states such as Texas it overcomes the statute of frauds only where the promisor promised to sign a writing that would satisfy it.",
    "steps": [
     {
      "sup": "CT-CB-0081",
@@ -206,13 +206,19 @@
    "course": "Contracts",
    "title": "Irrevocable offers: firm offers and reliance",
    "question": "When can an offeror no longer revoke an offer before acceptance?",
-   "now": "An offer is revocable until accepted unless the offeree has paid for an option; the exceptions are a merchant's signed firm offer for goods (UCC § 2-205, three months at most), New York's signed irrevocable offers (GOL § 5-1109), and an offer that induces foreseeable substantial reliance (Restatement (Second) § 87(2), following Drennan, which most states accept).",
+   "now": "An offer is revocable until accepted unless the offeree has paid for an option; the exceptions are a merchant's signed firm offer for goods (UCC § 2-205, three months at most), New York's signed irrevocable offers (GOL § 5-1109), an offer inviting acceptance by performance once the offeree begins it (Restatement (Second) § 45), and an offer that induces foreseeable substantial reliance (§ 87(2), following Drennan, which most states accept).",
    "steps": [
     {
      "sup": "CT-CB-0242",
      "year": 1876,
      "turn": "origin",
      "note": "A promise to hold an offer open, given without consideration, does not bind; the offeror may revoke, and word from a third party is enough notice."
+    },
+    {
+     "id": "rest45",
+     "year": 1932,
+     "turn": "expands",
+     "note": "Restatement § 45 (1932, kept in 1981): once the offeree begins the invited performance, the offer becomes an option and cannot be revoked."
     },
     {
      "sup": "CT-ADDITIONAL-CM-B1-074",
@@ -501,7 +507,7 @@
      "year": 1971,
      "date": "1971-07-06",
      "turn": "refines",
-     "note": "Economic duress voids a coerced price increase: a threat to withhold needed goods when no timely substitute or adequate remedy exists (New York)."
+     "note": "Economic duress makes a coerced price increase voidable: a threat to withhold needed goods with no timely substitute or adequate remedy (New York)."
     }
    ]
   },
@@ -987,7 +993,7 @@
      "year": 1995,
      "date": "1995-06-30",
      "turn": "counterpoint",
-     "note": "Colorado allows disgorgement for a conscious, substantial breach where damages are inadequate, apportioned to the breacher's own contribution."
+     "note": "Colorado allows disgorgement for a conscious, substantial breach where damages are inadequate, less profits due to the breacher's own contribution."
     }
    ]
   },
@@ -1212,7 +1218,7 @@
      "year": 2025,
      "date": "2025-06-20",
      "turn": "expands",
-     "note": "Federal statutes stand apart: the Fifth Amendment does not carry the minimum-contacts test, and a narrow, reasonable federal link suffices."
+     "note": "Federal statutes stand apart: the Fifth Amendment has no minimum-contacts test, and a narrow statute tied to U.S. conduct is valid."
     }
    ]
   },
@@ -1330,7 +1336,7 @@
      "year": 1878,
      "date": "1878-01-21",
      "turn": "origin",
-     "note": "Jurisdiction rests on in-state service, voluntary appearance, or local property seized at the outset, with consent and status cases reserved."
+     "note": "Jurisdiction rests on in-state service, voluntary appearance, or local property seized at the outset; consent and status cases are reserved."
     },
     {
      "sup": "CP-COMP-CB-CAP-064",
@@ -1693,7 +1699,8 @@
      "year": 1963,
      "date": "1963-01-11",
      "turn": "counterpoint",
-     "note": "Code pleading holds out: North Carolina still demands the ultimate facts, not labels such as 'assault' and 'trespass'."
+     "note": "Code pleading holds out: North Carolina still demands the ultimate facts, not labels such as 'assault' and 'trespass'.",
+     "fate": "Superseded by North Carolina's Rules of Civil Procedure (effective 1970), which adopted notice pleading"
     },
     {
      "id": "cp-swierkiewicz",
@@ -1743,7 +1750,7 @@
    "course": "Civil Procedure",
    "title": "Amending the pleadings: from the theory of the pleadings to relation back",
    "question": "When may a party change its pleading, and when does a change reach back to the original filing?",
-   "now": "Leave to amend is freely given absent undue delay, bad faith, prejudice to the opponent or futility; an unpleaded issue is tried by consent only if the opponent knew it was being tried. An amendment changing the defendant relates back if, within the Rule 4(m) period, the new party had notice and knew or should have known it would have been sued but for a mistake (Krupski).",
+   "now": "Leave to amend is freely given unless the opponent shows real prejudice, bad faith or futility; an unpleaded issue is tried by consent only if the opponent knew it was being tried. An amendment changing the defendant relates back if it arises from the same conduct, transaction or occurrence and, within the Rule 4(m) period, the new party had notice and knew or should have known it would have been sued but for a mistake (Krupski).",
    "steps": [
     {
      "sup": "CP-062",
@@ -1957,7 +1964,8 @@
      "year": 1976,
      "date": "1976-06-24",
      "turn": "narrows",
-     "note": "Pendent parties: a court must ask whether Congress negated jurisdiction over them; a county excluded from § 1983 stays out."
+     "note": "Pendent parties: a court must ask whether Congress negated jurisdiction over them; a county excluded from § 1983 stays out.",
+     "fate": "Monell (1978) brought counties within § 1983; § 1367 (1990) now grants pendent-party jurisdiction"
     },
     {
      "id": "cp-kroger",
@@ -2002,7 +2010,7 @@
    "course": "Civil Procedure",
    "title": "Diversity jurisdiction: complete diversity and the amount in controversy",
    "question": "Who must be diverse, and how much must be at stake, for a federal court to hear a state-law claim?",
-   "now": "Under § 1332(a) no plaintiff may share citizenship with any defendant, an individual's citizenship being domicile at filing, and the amount claimed in good faith must exceed $75,000 unless it is legally certain the claim is smaller. Class actions under CAFA need only minimal diversity and more than $5 million in the aggregate.",
+   "now": "Under § 1332(a) no plaintiff may share citizenship with any defendant, an individual's citizenship being domicile at filing, and more than $75,000 must be in controversy; the amount claimed in good faith controls unless it is legally certain the claim is for less. Class actions under CAFA need only minimal diversity and more than $5 million in the aggregate.",
    "steps": [
     {
      "id": "cp-strawbridge",
@@ -2345,7 +2353,7 @@
      "year": 2017,
      "date": "2017-01-03",
      "turn": "refines",
-     "note": "No separate administrative-feasibility test: Rule 23's listed requirements already deal with how members will be identified."
+     "note": "The Ninth Circuit rejects a separate administrative-feasibility test: Rule 23's listed requirements already deal with identifying members."
     },
     {
      "id": "cp-mussat",
@@ -2570,7 +2578,7 @@
    "course": "Legislation and the Regulatory State",
    "title": "Nondelegation: from contingency to the intelligible principle",
    "question": "How much lawmaking power can Congress hand to the executive?",
-   "now": "A delegation is valid if Congress supplies an intelligible principle, and no statute has fallen on that ground since 1935. FCC v. Consumers' Research (2025) applied the same test, though several Justices want a stricter one.",
+   "now": "A delegation is valid if Congress supplies an intelligible principle; no statute has failed that test since 1935 (Carter Coal in 1936 struck down a delegation to private parties). FCC v. Consumers' Research (2025) applied the same test, though several Justices want a stricter one.",
    "steps": [
     {
      "id": "lrs-s-brig-aurora",
@@ -2765,6 +2773,13 @@
      "note": "A lone agency head wielding significant executive power may not be shielded; exceptions stay with multimember bodies and some inferior officers."
     },
     {
+     "sup": "LRS-COMP-SLAUGHTER-COLLINS",
+     "year": 2021,
+     "date": "2021-06-23",
+     "turn": "expands",
+     "note": "Seila reaches the FHFA's single Director too, but an invalid removal shield voids nothing unless it actually caused the harm."
+    },
+    {
      "id": "lrs-s-slaughter",
      "year": 2026,
      "date": "2026-06-29",
@@ -2940,7 +2955,8 @@
      "year": 1944,
      "date": "1944-04-24",
      "turn": "refines",
-     "note": "The Board's application of 'employee' is accepted if it has warrant in the record and a reasonable basis in law."
+     "note": "The Board's application of 'employee' is accepted if it has warrant in the record and a reasonable basis in law.",
+     "fate": "Its 'employee' ruling was overridden by the Taft-Hartley Act (1947), which excluded independent contractors"
     },
     {
      "id": "lrs-i-skidmore",
@@ -3504,7 +3520,7 @@
      "year": 1946,
      "date": "1946-06-11",
      "turn": "origin",
-     "note": "The APA sorts agency action into rules, statements of future effect, and orders, the products of adjudication, each with its own procedure."
+     "note": "The APA sorts agency action into two kinds, each with its own procedure: rules, which have future effect, and orders, the products of adjudication."
     },
     {
      "id": "lrs-o-chenery-ii",
@@ -3525,7 +3541,8 @@
      "year": 1973,
      "date": "1973-06-27",
      "turn": "expands",
-     "note": "A general grant of power to make rules lets the FTC issue binding substantive rules, a real alternative to case-by-case enforcement."
+     "note": "A general grant of power to make rules lets the FTC issue binding substantive rules, a real alternative to case-by-case enforcement.",
+     "fate": "Congress confirmed the power but imposed hybrid procedures in the Magnuson-Moss Act (1975)"
     },
     {
      "id": "lrs-o-bell-aerospace",
@@ -3950,7 +3967,8 @@
      "year": 1991,
      "date": "1991-03-19",
      "turn": "narrows",
-     "note": "Textualism gains ground: 'attorney's fee' does not include expert fees, and courts may not supplement clear text with purpose."
+     "note": "Textualism gains ground: 'attorney's fee' does not include expert fees, and courts may not supplement clear text with purpose.",
+     "fate": "Partly overridden by the Civil Rights Act of 1991, which allows expert fees in § 1981 and § 1981a suits"
     },
     {
      "id": "lrs-k-gayle",
