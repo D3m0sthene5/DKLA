@@ -1,0 +1,4135 @@
+{
+ "about": "Doctrine timelines (r20.9). Built by an audit of every case in the three courses; see AGENTS.md. Steps: id = map entry, sup = supporting case, event = dated statute or rule change.",
+ "timelines": [
+  {
+   "id": "consideration",
+   "course": "Contracts",
+   "title": "Consideration: from legal detriment to bargain and implied promises",
+   "question": "What must a promisee give for a promise to bind, and when is a promise too empty to count?",
+   "now": "Consideration is a bargained-for performance or return promise (Restatement (Second) § 71), and courts do not weigh its adequacy. They imply good-faith or reasonable-efforts duties to keep promises from being illusory, and count a surrendered claim that was doubtful or honestly believed (§ 74).",
+   "steps": [
+    {
+     "id": "hamer",
+     "year": 1891,
+     "date": "1891-04-14",
+     "turn": "origin",
+     "note": "Detriment, not benefit: giving up a lawful freedom at the promisor's request is consideration though the promisor gains nothing."
+    },
+    {
+     "id": "wood-lucy",
+     "year": 1917,
+     "date": "1917-12-04",
+     "turn": "expands",
+     "note": "An exclusive agent's implied promise of reasonable efforts keeps the deal from being illusory and supplies consideration (New York)."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B1-011",
+     "year": 1956,
+     "turn": "expands",
+     "note": "Giving up a claim that proves invalid is consideration if it was asserted with an honest and reasonable belief in its validity (Maryland)."
+    },
+    {
+     "id": "mattei",
+     "year": 1958,
+     "date": "1958-10-24",
+     "turn": "expands",
+     "note": "A purchase conditioned on the buyer's satisfaction is not illusory, because he must judge satisfaction honestly and in good faith (California)."
+    },
+    {
+     "id": "rest71",
+     "year": 1981,
+     "turn": "codifies",
+     "note": "Second Restatement: consideration is a bargained-for exchange (§ 71), and a surrendered claim counts if doubtful or honestly believed (§ 74)."
+    },
+    {
+     "id": "dyer",
+     "year": 1986,
+     "date": "1986-01-15",
+     "turn": "applies",
+     "note": "Iowa adopts § 74: a claim later shown invalid still supports a settlement if it was doubtful or the claimant honestly believed it might be valid."
+    },
+    {
+     "id": "structural-polymer",
+     "year": 2008,
+     "date": "2008-10-08",
+     "turn": "applies",
+     "note": "A requirements contract has consideration even before the buyer has any requirements: § 2-306 binds it to buy its good-faith needs (Missouri law)."
+    }
+   ]
+  },
+  {
+   "id": "good-faith",
+   "course": "Contracts",
+   "title": "Good faith, efforts and discretion in performance",
+   "question": "What does a party owe when the contract leaves it discretion or calls for its efforts?",
+   "now": "Nearly every state implies a duty of good faith and fair dealing in every contract (Restatement (Second) § 205), and the UCC imposes one in every contract it governs (§ 1-304); Texas implies it at common law only in special relationships such as insurer and insured. An efforts clause is read in its commercial setting. The duty polices discretion and deliberate opportunism but cannot override express terms; England and Singapore still refuse a general implied duty.",
+   "steps": [
+    {
+     "id": "wood-lucy",
+     "year": 1917,
+     "date": "1917-12-04",
+     "turn": "origin",
+     "note": "Cardozo reads a duty of reasonable efforts into an exclusive agency: courts supply the obligation the business arrangement implies."
+    },
+    {
+     "id": "ucc306",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "The Code writes Wood in: exclusive dealing implies best efforts, and output or requirements mean quantities produced or needed in good faith."
+    },
+    {
+     "id": "bloor",
+     "year": 1979,
+     "date": "1979-05-15",
+     "turn": "refines",
+     "note": "Best efforts does not demand ruinous losses, but a brewer may not neglect the brand it promised to promote to raise its overall profit (New York law)."
+    },
+    {
+     "event": "Restatement (Second) of Contracts § 205",
+     "year": 1981,
+     "turn": "codifies",
+     "note": "Every contract imposes on each party a duty of good faith and fair dealing in its performance and its enforcement."
+    },
+    {
+     "id": "market-street",
+     "year": 1991,
+     "date": "1991-08-27",
+     "turn": "refines",
+     "note": "Posner: good faith forbids deliberately exploiting the other side's oversight about its contract rights, though it does not require altruism."
+    },
+    {
+     "id": "dalton",
+     "year": 1995,
+     "date": "1995-12-07",
+     "turn": "refines",
+     "note": "A party must actually exercise a discretion it promised to exercise, and not arbitrarily, but good faith adds no duty the contract excludes (New York)."
+    },
+    {
+     "id": "ng-giap",
+     "year": 2009,
+     "date": "2009-04-29",
+     "turn": "counterpoint",
+     "note": "Singapore declines to imply a general duty of good faith in law; a term is implied in fact only where necessary."
+    },
+    {
+     "id": "northwest-ginsberg",
+     "year": 2014,
+     "date": "2014-04-02",
+     "turn": "narrows",
+     "note": "Where state law does not let parties contract out of the implied covenant, it is a state-imposed duty, so federal airline law preempts it."
+    }
+   ]
+  },
+  {
+   "id": "reliance",
+   "course": "Contracts",
+   "title": "Promissory estoppel: reliance as a ground for enforcing promises",
+   "question": "When does reliance on a promise make it enforceable without consideration?",
+   "now": "Promissory estoppel is recognized almost everywhere (Virginia is a notable holdout), mostly in the Restatement (Second) § 90 form: a promise the promisor should expect to induce reliance, which does induce it, binds when injustice can be avoided only by enforcement, and the remedy may be limited to reliance losses. It usually does not reach expected profits from at-will dealings, and in states such as Texas it overcomes the statute of frauds only where the promisor promised to sign a writing that would satisfy it.",
+   "steps": [
+    {
+     "sup": "CT-CB-0081",
+     "year": 1845,
+     "turn": "origin",
+     "note": "A promise of a home to a relative is a gratuity: her costly move in reliance on it does not make it enforceable (Alabama)."
+    },
+    {
+     "id": "ricketts",
+     "year": 1898,
+     "date": "1898-12-08",
+     "turn": "expands",
+     "note": "Equitable estoppel bars the no-consideration defense when the promisor induced the promisee to give up her job in reliance on his note (Nebraska)."
+    },
+    {
+     "id": "rest90",
+     "year": 1932,
+     "turn": "codifies",
+     "note": "First Restatement § 90: a promise one should expect to induce definite and substantial action, which does, binds if only enforcement avoids injustice."
+    },
+    {
+     "id": "drennan",
+     "year": 1958,
+     "date": "1958-12-31",
+     "turn": "expands",
+     "note": "Traynor carries § 90 into commerce: a subcontractor's bid becomes irrevocable once the general contractor relies on it in bidding (California)."
+    },
+    {
+     "id": "feinberg",
+     "year": 1959,
+     "date": "1959-03-17",
+     "turn": "applies",
+     "note": "A pension promise binds under § 90 because the employee retired in reliance on it, though her past service was no consideration (Missouri)."
+    },
+    {
+     "sup": "CT-CB-0328",
+     "year": 1965,
+     "turn": "expands",
+     "note": "Wisconsin applies § 90 to failed franchise negotiations: reliance losses are recoverable though the promises were too indefinite for a contract."
+    },
+    {
+     "event": "Restatement (Second) of Contracts § 90",
+     "year": 1981,
+     "turn": "codifies",
+     "note": "Second formulation: drops 'definite and substantial', allows a remedy limited as justice requires, and spares charitable pledges proof of reliance."
+    },
+    {
+     "id": "dg-stout",
+     "year": 1991,
+     "date": "1991-01-31",
+     "turn": "narrows",
+     "note": "Reliance on an at-will assurance earns reliance damages, such as a lost sale price, not the profits the relationship would have brought (Indiana law)."
+    },
+    {
+     "id": "cohen-cowles",
+     "year": 1992,
+     "date": "1992-01-24",
+     "turn": "applies",
+     "note": "After the Supreme Court held the First Amendment no bar, Minnesota enforces a reporter's promise of source confidentiality by promissory estoppel."
+    },
+    {
+     "id": "tolosa",
+     "year": 2011,
+     "turn": "narrows",
+     "note": "Texas: promissory estoppel avoids the statute of frauds for loan agreements only if the lender promised to sign a writing that satisfies it."
+    },
+    {
+     "id": "cosby",
+     "year": 2021,
+     "date": "2021-06-30",
+     "turn": "applies",
+     "note": "Reliance reasoning in public law: a prosecutor's unconditional decision not to charge, made to induce reliance, binds as a matter of due process."
+    }
+   ]
+  },
+  {
+   "id": "firm-offers",
+   "course": "Contracts",
+   "title": "Irrevocable offers: firm offers and reliance",
+   "question": "When can an offeror no longer revoke an offer before acceptance?",
+   "now": "An offer is revocable until accepted unless the offeree has paid for an option; the exceptions are a merchant's signed firm offer for goods (UCC § 2-205, three months at most), New York's signed irrevocable offers (GOL § 5-1109), an offer inviting acceptance by performance once the offeree begins it (Restatement (Second) § 45), and an offer that induces foreseeable substantial reliance (§ 87(2), following Drennan, which most states accept).",
+   "steps": [
+    {
+     "sup": "CT-CB-0242",
+     "year": 1876,
+     "turn": "origin",
+     "note": "A promise to hold an offer open, given without consideration, does not bind; the offeror may revoke, and word from a third party is enough notice."
+    },
+    {
+     "id": "rest45",
+     "year": 1932,
+     "turn": "expands",
+     "note": "Restatement § 45 (1932, kept in 1981): once the offeree begins the invited performance, the offer becomes an option and cannot be revoked."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B1-074",
+     "year": 1933,
+     "turn": "reaffirms",
+     "note": "Learned Hand: a supplier's bid used in a contractor's bid stays revocable, and promissory estoppel does not hold an offer that sought a bargain.",
+     "fate": "Rejected by Drennan (1958); Restatement (Second) § 87(2) follows Drennan"
+    },
+    {
+     "id": "ny51109",
+     "year": 1941,
+     "turn": "codifies",
+     "note": "New York: a signed written offer that states it is irrevocable binds for the stated period, or a reasonable time, without consideration."
+    },
+    {
+     "id": "ucc205",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "A merchant's signed written offer for goods that assures it will be held open is irrevocable without consideration, for no more than three months."
+    },
+    {
+     "id": "drennan",
+     "year": 1958,
+     "date": "1958-12-31",
+     "turn": "expands",
+     "note": "Reliance makes an offer irrevocable: a subcontractor's bid binds for a reasonable time once the general contractor used it in a winning bid."
+    },
+    {
+     "id": "rest87",
+     "year": 1981,
+     "turn": "codifies",
+     "note": "Restatement (Second) § 87(2) adopts Drennan: an offer that foreseeably induces substantial reliance before acceptance binds as an option."
+    }
+   ]
+  },
+  {
+   "id": "acceptance",
+   "course": "Contracts",
+   "title": "Offer and acceptance: assent judged from the outside",
+   "question": "What counts as an offer and an acceptance, and how must acceptance be made?",
+   "now": "Assent is judged objectively, by what a reasonable person in the other party's position would understand from words and conduct. An advertisement is usually an invitation, but one that is definite and leaves nothing to negotiate is an offer. Acceptance is an outward commitment to the offered terms, made in the manner the offer invites; unless the offer clearly says otherwise, any reasonable manner will do (UCC § 2-206, Restatement (Second) § 30). An acceptance by performance generally needs notice when the offeror would not otherwise learn of it.",
+   "steps": [
+    {
+     "id": "white-corlies",
+     "year": 1871,
+     "date": "1871-11-20",
+     "turn": "origin",
+     "note": "Acceptance needs an outward act put in the course of communication to the offeror; private preparations to perform are not enough (New York)."
+    },
+    {
+     "id": "international-filter",
+     "year": 1925,
+     "turn": "refines",
+     "note": "The offeror controls the manner: an order that makes home-office approval the acceptance needs no separate notice of that approval (Texas)."
+    },
+    {
+     "id": "ucc206",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "Unless the offer clearly says otherwise, acceptance may be made in any reasonable manner, including a prompt promise to ship or prompt shipment."
+    },
+    {
+     "id": "lucy",
+     "year": 1954,
+     "date": "1954-11-22",
+     "turn": "refines",
+     "note": "Assent is read from outward words and acts as a reasonable person would take them; a secret intent to joke does not undo a signed sale (Virginia)."
+    },
+    {
+     "id": "lefkowitz",
+     "year": 1957,
+     "date": "1957-12-20",
+     "turn": "expands",
+     "note": "An advertisement that is clear, definite and leaves nothing open is an offer; the store cannot add a 'women only' rule after acceptance (Minnesota)."
+    },
+    {
+     "id": "wucherpfennig",
+     "year": 1984,
+     "date": "1984-07-11",
+     "turn": "reaffirms",
+     "note": "An acceptance must be an unequivocal commitment; a reply showing readiness while asking for more information is not one (North Dakota)."
+    }
+   ]
+  },
+  {
+   "id": "forms",
+   "course": "Contracts",
+   "title": "Battle of the forms under § 2-207",
+   "question": "When the parties' forms do not match, is there a contract, and on whose terms?",
+   "now": "Section 2-207 still governs (the 2003 revision of Article 2 was withdrawn in 2011): a definite acceptance forms a contract unless expressly conditional, additional terms enter between merchants unless material or objected to, most courts knock out conflicting terms, and a contract formed by conduct takes the shared terms plus Code gap-fillers.",
+   "steps": [
+    {
+     "sup": "CT-ADDITIONAL-CM-B1-077",
+     "year": 1886,
+     "turn": "origin",
+     "note": "The mirror-image rule: a reply that varies the offer's terms is a counteroffer that rejects the offer, which cannot later be revived."
+    },
+    {
+     "id": "ucc207",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "For sales of goods the Code drops the mirror-image rule: an acceptance can form a contract though it adds or changes terms."
+    },
+    {
+     "id": "dorton",
+     "year": 1972,
+     "date": "1972-01-06",
+     "turn": "refines",
+     "note": "An acceptance is expressly conditional only if it clearly says the offeree will not proceed without assent to its terms; 'subject to' is not enough."
+    },
+    {
+     "id": "citoh",
+     "year": 1977,
+     "date": "1977-04-04",
+     "turn": "refines",
+     "note": "When forms do not form a contract but both sides perform, § 2-207(3) supplies the terms the writings share plus Code gap-fillers."
+    },
+    {
+     "id": "northrop",
+     "year": 1994,
+     "date": "1994-07-18",
+     "turn": "refines",
+     "note": "Different terms in offer and acceptance knock each other out and Code gap-fillers replace them: the majority rule, predicted for Illinois."
+    },
+    {
+     "id": "bayway",
+     "year": 2000,
+     "date": "2000-06-08",
+     "turn": "refines",
+     "note": "Between merchants an added term enters the contract unless the objecting party proves it materially alters the deal (New York law)."
+    }
+   ]
+  },
+  {
+   "id": "standard-terms",
+   "course": "Contracts",
+   "title": "Notice and assent to standard and online terms",
+   "question": "When is a party bound by printed or online terms it never read?",
+   "now": "Courts ask whether a reasonable person would have had notice of the terms and whether conduct unambiguously showed assent: clickwrap usually binds, browsewrap rarely does, and sign-up screens depend on their design. Terms shipped with goods bind in the Seventh Circuit and courts that follow Hill but not where courts follow Klocek, and unilateral amendments need notice.",
+   "steps": [
+    {
+     "id": "klar",
+     "year": 1946,
+     "date": "1946-04-05",
+     "turn": "origin",
+     "note": "A liability limit printed on a claim check binds only with reasonable notice and assent; taking the ticket is not assent as a matter of law (New York)."
+    },
+    {
+     "id": "carnival",
+     "year": 1991,
+     "date": "1991-04-17",
+     "turn": "expands",
+     "note": "A non-negotiated forum clause in a form ticket is enforceable if reasonable and fundamentally fair; notice of the clause was conceded."
+    },
+    {
+     "id": "hill-gateway",
+     "year": 1997,
+     "date": "1997-01-06",
+     "turn": "expands",
+     "note": "Terms in the box: following ProCD, a seller may invite acceptance by keeping the goods, so enclosed terms bind a buyer who does not return them."
+    },
+    {
+     "id": "klocek",
+     "year": 2000,
+     "date": "2000-06-15",
+     "turn": "counterpoint",
+     "note": "The buyer is the offeror, so terms shipped in the box are proposals under § 2-207 that bind a consumer only on express assent."
+    },
+    {
+     "id": "specht",
+     "year": 2002,
+     "date": "2002-10-01",
+     "turn": "narrows",
+     "note": "Online terms bind only if the screen reasonably shows they exist and that clicking means assent; terms hidden below a download button did not."
+    },
+    {
+     "sup": "CT-CB-0314",
+     "year": 2017,
+     "date": "2017-08-17",
+     "turn": "expands",
+     "note": "Inquiry notice suffices: a clear sign-up screen linking the terms binds a user who registers, without an 'I agree' box (California law)."
+    },
+    {
+     "id": "anderson-binance",
+     "year": 2026,
+     "date": "2026-02-26",
+     "turn": "narrows",
+     "note": "Posting amended terms online is not notice to existing users, and a change clause silent about accrued claims does not reach them."
+    }
+   ]
+  },
+  {
+   "id": "incomplete-bargains",
+   "course": "Contracts",
+   "title": "Incomplete bargains and liability in negotiations",
+   "question": "What happens when parties leave terms open or negotiate without reaching a final contract?",
+   "now": "Open terms no longer defeat a contract the parties meant to make if a court can fill them (UCC §§ 2-204(3), 2-305; Restatement (Second) § 33). An express agreement to negotiate in good faith is enforceable in many jurisdictions, and reliance during negotiations can support promissory estoppel, usually limited to reliance losses; French law imposes good faith in all negotiations.",
+   "steps": [
+    {
+     "id": "sun-printing",
+     "year": 1923,
+     "turn": "origin",
+     "note": "Leaving the price and how long it would run for later agreement makes an unenforceable agreement to agree; the court will not supply them (New York).",
+     "fate": "Displaced for sales of goods by UCC §§ 2-204(3) and 2-305"
+    },
+    {
+     "id": "ucc204",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "A sale of goods does not fail for open terms if the parties meant to contract and there is a reasonably certain basis for a remedy."
+    },
+    {
+     "sup": "CT-CB-0328",
+     "year": 1965,
+     "turn": "expands",
+     "note": "Reliance in negotiations: Wisconsin awards reliance losses on promises made during franchise talks that were too indefinite for a contract."
+    },
+    {
+     "id": "channel-home",
+     "year": 1986,
+     "turn": "expands",
+     "note": "A letter of intent with an express promise to negotiate in good faith can itself be an enforceable contract (Pennsylvania law predicted)."
+    },
+    {
+     "id": "oglebay",
+     "year": 1990,
+     "turn": "expands",
+     "note": "When parties meant to stay bound and their pricing mechanism fails, a court may set a reasonable price and supervise continued performance (Ohio)."
+    },
+    {
+     "id": "cyberchron",
+     "year": 1995,
+     "turn": "applies",
+     "note": "New York promissory estoppel yields reliance damages, including attributable overhead, when talks never produced the contemplated contract."
+    },
+    {
+     "id": "dixon",
+     "year": 2011,
+     "turn": "expands",
+     "note": "A lender's promise to consider a loan modification, inducing the borrower to default, can support promissory estoppel (Massachusetts law predicted)."
+    },
+    {
+     "id": "french-negotiations",
+     "year": 2016,
+     "turn": "counterpoint",
+     "note": "France codifies good faith in negotiations: fault in negotiating yields damages, but never the benefits expected from the unmade contract."
+    }
+   ]
+  },
+  {
+   "id": "modification",
+   "course": "Contracts",
+   "title": "Modification and the pre-existing duty rule",
+   "question": "When does a promise to pay more for the same performance bind?",
+   "now": "The pre-existing duty rule survives at common law but with wide exceptions: modifications of sales contracts need no consideration if made in good faith (UCC § 2-209), New York enforces signed written modifications (GOL § 5-1103), and Restatement (Second) § 89 allows fair modifications prompted by unanticipated circumstances. Economic duress is the main check on coerced modifications.",
+   "steps": [
+    {
+     "id": "alaska-packers",
+     "year": 1902,
+     "date": "1902-05-26",
+     "turn": "origin",
+     "note": "A promise of extra pay for work the promisees were already bound to do lacks consideration and does not bind.",
+     "fate": "Displaced for sales of goods by UCC § 2-209(1) (1952)"
+    },
+    {
+     "id": "ny51103",
+     "year": 1936,
+     "turn": "codifies",
+     "note": "New York: a signed written agreement to modify or discharge a contract does not fail for lack of consideration."
+    },
+    {
+     "id": "watkins",
+     "year": 1941,
+     "date": "1941-07-15",
+     "turn": "narrows",
+     "note": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock is bound (New Hampshire)."
+    },
+    {
+     "event": "UCC § 2-209",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "An agreement modifying a sales contract needs no consideration; the Code's comments police modifications by a test of good faith instead."
+    },
+    {
+     "id": "austin",
+     "year": 1971,
+     "date": "1971-07-06",
+     "turn": "refines",
+     "note": "Economic duress makes a coerced price increase voidable: a threat to withhold needed goods with no timely substitute or adequate remedy (New York)."
+    }
+   ]
+  },
+  {
+   "id": "unconscionability",
+   "course": "Contracts",
+   "title": "Unconscionability",
+   "question": "When will a court refuse to enforce an unfair bargain or term?",
+   "now": "Most states require both procedural unconscionability (no meaningful choice, surprise) and substantive unconscionability (one-sided terms), often weighed on a sliding scale as in California. Against arbitration clauses the defense survives only as a generally applicable rule that does not disfavor arbitration or demand class procedures (Concepcion).",
+   "steps": [
+    {
+     "event": "UCC § 2-302",
+     "year": 1952,
+     "turn": "origin",
+     "note": "The Code lets a court refuse to enforce a contract or clause it finds unconscionable when made, without defining the term."
+    },
+    {
+     "id": "williams-walker-thomas",
+     "year": 1965,
+     "date": "1965-08-11",
+     "turn": "expands",
+     "note": "Courts may refuse to enforce a contract unconscionable when made: absence of meaningful choice plus terms unreasonably favorable to the other side."
+    },
+    {
+     "id": "graham",
+     "year": 1981,
+     "date": "1981-02-05",
+     "turn": "refines",
+     "note": "California: adhesion terms bind unless outside reasonable expectations or unduly oppressive; one side's own ally cannot be sole arbitrator."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B3-019",
+     "year": 2000,
+     "date": "2000-08-24",
+     "turn": "expands",
+     "note": "California applies a sliding scale of procedural and substantive unconscionability and refuses a one-sided mandatory employment arbitration agreement."
+    },
+    {
+     "id": "stoll",
+     "year": 2010,
+     "date": "2010-09-17",
+     "turn": "applies",
+     "note": "Oklahoma applies the two-part test: a hidden, one-sided litter clause the buyers could not understand is unconscionable as a matter of law."
+    },
+    {
+     "id": "cp-concepcion",
+     "year": 2011,
+     "date": "2011-04-27",
+     "turn": "narrows",
+     "note": "The FAA preempts a state rule, framed as unconscionability, that conditions arbitration agreements on the availability of class procedures."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B3-022",
+     "year": 2012,
+     "date": "2012-04-05",
+     "turn": "reaffirms",
+     "note": "After Concepcion, unconscionability remains a general defense to arbitration, and several one-sided terms can defeat the whole agreement (California)."
+    }
+   ]
+  },
+  {
+   "id": "interpretation",
+   "course": "Contracts",
+   "title": "The parol evidence rule and plain meaning",
+   "question": "When may evidence outside a written contract add to it or explain it?",
+   "now": "Two approaches persist. California (Masterson, Pacific Gas) hears extrinsic evidence provisionally to show a reasonable alternative meaning or a collateral term; New York and Pennsylvania read a complete, clear writing within its four corners (W.W.W., Greenfield, Gianni). The CISG has no parol evidence rule.",
+   "steps": [
+    {
+     "id": "gianni",
+     "year": 1924,
+     "date": "1924-11-24",
+     "turn": "origin",
+     "note": "Where the writing is complete on a subject, an oral term the parties would naturally have put in it is barred, even as a separate deal (Pennsylvania)."
+    },
+    {
+     "sup": "CT-CB-0530",
+     "year": 1928,
+     "turn": "refines",
+     "note": "New York: a prior oral term is provable only if collateral in form, consistent with the writing, and not one the parties would ordinarily put in it."
+    },
+    {
+     "id": "bollinger",
+     "year": 1967,
+     "date": "1967-05-24",
+     "turn": "narrows",
+     "note": "The rule does not bar reformation: a term left out by mutual mistake may be proved and written back in (Pennsylvania)."
+    },
+    {
+     "id": "masterson",
+     "year": 1968,
+     "date": "1968-02-06",
+     "turn": "expands",
+     "note": "California admits a collateral oral term the parties might naturally have made separately, unless the writing was meant as the whole bargain."
+    },
+    {
+     "id": "pacific-gas",
+     "year": 1968,
+     "date": "1968-07-11",
+     "turn": "expands",
+     "note": "Extrinsic evidence is admissible whenever relevant to a meaning the words are reasonably susceptible to, however plain the writing looks (California)."
+    },
+    {
+     "id": "trident",
+     "year": 1988,
+     "date": "1988-05-24",
+     "turn": "applies",
+     "note": "Under Pacific Gas even an unambiguous clause must be opened to extrinsic evidence; the Ninth Circuit applies the rule while criticizing it."
+    },
+    {
+     "id": "www-associates",
+     "year": 1990,
+     "date": "1990-12-27",
+     "turn": "counterpoint",
+     "note": "New York's answer: extrinsic evidence may not be used to create an ambiguity in a complete, clear and unambiguous writing."
+    },
+    {
+     "id": "greenfield",
+     "year": 2002,
+     "date": "2002-10-17",
+     "turn": "reaffirms",
+     "note": "New York again reads the writing on its face: silence about a use does not make a clear, unconditional transfer of ownership ambiguous."
+    },
+    {
+     "id": "teevee-toons",
+     "year": 2006,
+     "date": "2006-08-23",
+     "turn": "counterpoint",
+     "note": "Under the CISG, which has no parol evidence rule, a merger clause binds only if both parties meant it to; negotiations count under Article 8."
+    }
+   ]
+  },
+  {
+   "id": "trade-usage",
+   "course": "Contracts",
+   "title": "Trade usage, course of dealing and course of performance",
+   "question": "When do the customs of a trade or the parties' own practice shape a written contract?",
+   "now": "Under UCC §§ 1-303 (formerly 1-205) and 2-202, usage of trade, course of dealing and course of performance explain or supplement a writing without any finding of ambiguity, but express terms prevail where the two cannot reasonably be read together. Whether a usage binds a party new to the trade remains a question of fact.",
+   "steps": [
+    {
+     "id": "hurst",
+     "year": 1932,
+     "date": "1932-12-06",
+     "turn": "origin",
+     "note": "Trade usage may give seemingly plain words or figures a special trade meaning, with no prior finding of ambiguity (Oregon)."
+    },
+    {
+     "event": "UCC §§ 1-205 and 2-202",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "Course of dealing and usage of trade explain or supplement even a final writing, unless they cannot be reconciled with its express terms."
+    },
+    {
+     "id": "frigaliment",
+     "year": 1960,
+     "date": "1960-12-27",
+     "turn": "refines",
+     "note": "The party claiming the narrower meaning of an ambiguous term must prove it, and a usage binds a newcomer only if known or so general as to be presumed."
+    },
+    {
+     "id": "columbia-nitrogen",
+     "year": 1971,
+     "date": "1971-10-26",
+     "turn": "expands",
+     "note": "Under the Code, usage and dealing come in without ambiguity unless irreconcilable with the express terms; a merger clause must expressly negate them."
+    },
+    {
+     "id": "nanakuli",
+     "year": 1981,
+     "date": "1981-12-21",
+     "turn": "expands",
+     "note": "Trade usage and course of performance can qualify an express posted-price term with price protection if reasonably consistent with it."
+    },
+    {
+     "id": "figgie",
+     "year": 1999,
+     "date": "1999-08-20",
+     "turn": "applies",
+     "note": "Usage can cut the other way: an unrebutted trade usage supplied an exclusive repair-or-refund remedy as part of the agreement."
+    }
+   ]
+  },
+  {
+   "id": "misrepresentation",
+   "course": "Contracts",
+   "title": "Misrepresentation and the duty to disclose",
+   "question": "When do silence, opinion or sales talk let a party escape a bargain?",
+   "now": "Silence in an arm's-length deal is still generally permitted, but half-truths, active concealment and, in many states by case law or statute, a home seller's silence about known latent defects are actionable. Opinions and puffery usually are not, and in New York a specific disclaimer of reliance ordinarily defeats a fraud claim about the matter disclaimed.",
+   "steps": [
+    {
+     "sup": "CT-ADDITIONAL-CM-B2-053",
+     "year": 1817,
+     "turn": "origin",
+     "note": "A buyer need not disclose market news equally open to both sides, but neither party may say or do anything to mislead the other."
+    },
+    {
+     "id": "swinton",
+     "year": 1942,
+     "turn": "reaffirms",
+     "note": "Caveat emptor: a seller's silence about a known hidden defect is not actionable without a false statement, half-truth or duty to speak (Massachusetts).",
+     "fate": "Not followed for home sales in Florida (Johnson v. Davis, 1985) and many other states"
+    },
+    {
+     "id": "vokes",
+     "year": 1968,
+     "turn": "expands",
+     "note": "Opinions can be actionable misrepresentations when the speaker has superior knowledge or the parties are unequal in judging the subject (Florida)."
+    },
+    {
+     "id": "kannavos",
+     "year": 1969,
+     "turn": "expands",
+     "note": "Half-truths: one who speaks on a subject must disclose what is needed to keep the statement from misleading; Swinton is distinguished (Massachusetts)."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B2-058",
+     "year": 1985,
+     "turn": "expands",
+     "note": "Florida abandons caveat emptor for home sales: a seller must disclose known facts, not readily observable, that materially affect value."
+    },
+    {
+     "id": "speakers-sport",
+     "year": 1999,
+     "date": "1999-05-13",
+     "turn": "narrows",
+     "note": "Aspirational sales talk is puffery, not fraud, and Illinois promissory fraud needs a scheme to defraud beyond one broken promise."
+    },
+    {
+     "id": "psenicska",
+     "year": 2009,
+     "date": "2009-11-17",
+     "turn": "narrows",
+     "note": "New York: a specific disclaimer of reliance on statements about the very matter at issue bars a claim of fraudulent inducement."
+    }
+   ]
+  },
+  {
+   "id": "conditions",
+   "course": "Contracts",
+   "title": "Conditions and the avoidance of forfeiture",
+   "question": "When does one side's failure excuse the other, and how do courts keep a small failure from forfeiting a large performance?",
+   "now": "Express conditions are enforced as written, but courts read doubtful language as a promise (Restatement (Second) § 227), may excuse a condition whose failure would cause disproportionate forfeiture (§ 229), and treat constructive conditions as met by substantial performance. Clear pay-if-paid clauses are enforced in most states but void in some, including New York and California.",
+   "steps": [
+    {
+     "id": "kingston",
+     "year": 1773,
+     "turn": "origin",
+     "note": "Mansfield: the order of performance follows the parties' evident sense; giving security was a condition precedent to the sale of the business."
+    },
+    {
+     "id": "gibson",
+     "year": 1878,
+     "date": "1878-06-11",
+     "turn": "refines",
+     "note": "An express condition of personal satisfaction is enforced: a buyer who reserved the right to reject a portrait he disliked need not pay (Michigan)."
+    },
+    {
+     "id": "gill",
+     "year": 1892,
+     "turn": "narrows",
+     "note": "Divisibility limits forfeiture: where the price is set per unit, the performer recovers for each unit fully delivered (Pennsylvania)."
+    },
+    {
+     "id": "mckenna",
+     "year": 1917,
+     "turn": "narrows",
+     "note": "Waiver: an owner who kept paying without asking for the architect's certificates cannot invoke their absence against final payment (Pennsylvania)."
+    },
+    {
+     "id": "jacob-youngs",
+     "year": 1921,
+     "turn": "narrows",
+     "note": "Substantial performance: an innocent, trivial deviation is not a failure of condition; the owner gets damages, not forfeiture of the price (New York)."
+    },
+    {
+     "id": "luttinger",
+     "year": 1972,
+     "turn": "reaffirms",
+     "note": "An express condition must occur as stated: a mortgage commitment above the agreed rate fails it, whatever substitute the seller offers (Connecticut)."
+    },
+    {
+     "id": "peacock",
+     "year": 1977,
+     "date": "1977-12-15",
+     "turn": "narrows",
+     "note": "An ambiguous pay-when-paid clause fixes a time for payment, not a condition; shifting the owner's credit risk needs clear words (Florida)."
+    }
+   ]
+  },
+  {
+   "id": "excuse",
+   "course": "Contracts",
+   "title": "Excuse: impossibility, frustration and mistake",
+   "question": "When does a failed assumption release a party from its promise?",
+   "now": "Modern law asks whether a basic assumption shared by both parties failed, without fault, in a way the contract did not allocate (Restatement (Second) §§ 152, 261, 265; UCC § 2-615). Courts apply it narrowly: added cost rarely suffices, and in the COVID-19 lease cases courts mostly refused to excuse rent unless a force majeure clause covered the closure.",
+   "steps": [
+    {
+     "id": "taylor-caldwell",
+     "year": 1863,
+     "date": "1863-05-06",
+     "turn": "origin",
+     "note": "Where performance depends on a particular thing, its destruction without fault excuses both sides: the law implies a condition."
+    },
+    {
+     "id": "stees",
+     "year": 1874,
+     "turn": "counterpoint",
+     "note": "A builder's absolute promise binds despite unforeseen soil; hardship short of impossibility is no excuse (Minnesota).",
+     "fate": "Confined where the owner supplies the design: United States v. Spearin (1918) implies a warranty that the plans are adequate"
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B4-039",
+     "year": 1887,
+     "turn": "expands",
+     "note": "Mistake at formation: a sale may be avoided when both parties erred about the substance of the thing, not merely its quality (Michigan).",
+     "fate": "Its substance-versus-quality test was abandoned in Lenawee County v. Messerly (Mich. 1982)"
+    },
+    {
+     "id": "krell",
+     "year": 1903,
+     "turn": "expands",
+     "note": "Frustration of purpose: when the shared foundation of the deal fails, the parties are discharged though performance is still possible."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B4-067",
+     "year": 1944,
+     "date": "1944-10-31",
+     "turn": "narrows",
+     "note": "California accepts frustration but confines it: the event must be unforeseeable and destroy nearly all the value of the return performance."
+    },
+    {
+     "id": "transatlantic",
+     "year": 1966,
+     "turn": "refines",
+     "note": "Impracticability needs an unexpected event, a risk not allocated by agreement or custom, and real impracticability; extra cost alone did not suffice."
+    },
+    {
+     "id": "renner",
+     "year": 1986,
+     "turn": "applies",
+     "note": "Arizona rescinds for a mutual mistake about a basic assumption (Restatement (Second) § 152) but limits the buyer to restitution, not reliance costs."
+    }
+   ]
+  },
+  {
+   "id": "damages",
+   "course": "Contracts",
+   "title": "Cost to complete or diminution in value",
+   "question": "When a builder or contractor falls short, does the owner get the cost of fixing it or the loss in value?",
+   "now": "Most courts award the cost of completion or repair unless it is clearly disproportionate to the value it would add, and then diminution in value (Restatement (Second) § 348(2)). Minnesota's Groves and Oklahoma's Peevyhouse (reaffirmed in 1994) mark the two poles; a wilful breach and the owner's personal purpose weigh in the choice.",
+   "steps": [
+    {
+     "id": "jacob-youngs",
+     "year": 1921,
+     "turn": "origin",
+     "note": "When replacing innocent defective work would cost far more than the value it adds, the measure is diminution in value (New York)."
+    },
+    {
+     "id": "groves",
+     "year": 1939,
+     "turn": "counterpoint",
+     "note": "Minnesota awards the cost of the promised grading for a deliberate breach, though it far exceeds the value the work would add to the land."
+    },
+    {
+     "id": "plante",
+     "year": 1960,
+     "turn": "refines",
+     "note": "Repair cost for defects reasonably fixable; diminution in value where the fix would mean tearing out work, as with the misplaced wall (Wisconsin)."
+    },
+    {
+     "id": "peevyhouse",
+     "year": 1962,
+     "date": "1962-12-11",
+     "turn": "narrows",
+     "note": "Oklahoma caps damages at diminution in value when the broken term was incidental and its cost grossly exceeds the value it would add."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B3-108",
+     "year": 1995,
+     "date": "1995-06-29",
+     "turn": "counterpoint",
+     "note": "England's middle course: rebuilding cost is out when unreasonable, but the owner may recover for loss of amenity rather than nothing."
+    }
+   ]
+  },
+  {
+   "id": "damages-limits",
+   "course": "Contracts",
+   "title": "Limits on damages: foreseeability, certainty and avoidable loss",
+   "question": "Which losses caused by a breach can the injured party not recover?",
+   "now": "Restatement (Second) §§ 350-352 and UCC § 2-715 state the limits: a loss must have been foreseeable as a probable result when the contract was made, proved with reasonable certainty, and not reasonably avoidable. New businesses may prove lost profits in most states, and New York adds a stricter test of whether liability was contemplated.",
+   "steps": [
+    {
+     "id": "hadley",
+     "year": 1854,
+     "turn": "origin",
+     "note": "Recoverable losses arise naturally from breach or were within both parties' contemplation when contracting; uncommunicated special losses are out."
+    },
+    {
+     "id": "rockingham",
+     "year": 1929,
+     "turn": "refines",
+     "note": "Avoidable loss: after a clear repudiation the other party may not keep performing and charge the cost; recovery is costs to date plus profit."
+    },
+    {
+     "id": "parker",
+     "year": 1970,
+     "turn": "refines",
+     "note": "Mitigation: an employee's damages are reduced only by earnings from comparable work; a different or inferior job may be refused (California)."
+    },
+    {
+     "id": "fera",
+     "year": 1976,
+     "turn": "expands",
+     "note": "Certainty: a new business is not barred from lost profits; a reasonable basis for estimating them suffices, though the jury may not guess (Michigan)."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B4-023",
+     "year": 1986,
+     "date": "1986-05-06",
+     "turn": "narrows",
+     "note": "New York: twenty years of projected stadium profits are too speculative, and the county never contemplated liability for them."
+    },
+    {
+     "id": "kenford",
+     "year": 1989,
+     "turn": "narrows",
+     "note": "New York requires that liability for an unusual loss was contemplated at contracting, stricter than mere foreseeability, and denies land appreciation."
+    }
+   ]
+  },
+  {
+   "id": "remedy-interests",
+   "course": "Contracts",
+   "title": "Expectation, reliance and restitution: which interest the remedy protects",
+   "question": "Beyond the value of the promised performance, what can a contract remedy give, and what can it take away?",
+   "now": "Expectation is the default; reliance is available when expectation is uncertain or unsuitable, and restitution after a material breach (and, net of damages, for a party in breach). Punitive damages need an independent tort, and the breacher's profit is disgorged only exceptionally (Restatement (Third) of Restitution § 39, 2011: deliberate, profitable breach).",
+   "steps": [
+    {
+     "id": "hawkins",
+     "year": 1929,
+     "date": "1929-06-04",
+     "turn": "origin",
+     "note": "Expectation: the value of the promised result minus the value of what was delivered; pain the operation would have caused anyway is not compensated."
+    },
+    {
+     "id": "nelson-hazel",
+     "year": 1967,
+     "date": "1967-10-25",
+     "turn": "expands",
+     "note": "Restitution for the party in breach: a builder short of substantial performance recovers the benefit conferred less the owner's damages (Idaho)."
+    },
+    {
+     "id": "white-benkowski",
+     "year": 1967,
+     "date": "1967-12-22",
+     "turn": "narrows",
+     "note": "Contract damages compensate: punitive damages are unavailable even for a malicious breach unless a tort is pleaded and proved (Wisconsin)."
+    },
+    {
+     "id": "sullivan",
+     "year": 1973,
+     "date": "1973-05-09",
+     "turn": "expands",
+     "note": "On a doctor's promise of a result, the patient recovers reliance damages: expenses, worsening, and pain and distress beyond what the treatment entailed."
+    },
+    {
+     "id": "algernon-blair",
+     "year": 1973,
+     "date": "1973-06-14",
+     "turn": "expands",
+     "note": "Restitution for the injured party: a subcontractor who quits after a material breach recovers the value conferred, not reduced by its losing bargain.",
+     "fate": "The Restatement (Third) of Restitution § 38 (2011) caps such recovery at the contract price"
+    },
+    {
+     "id": "naval-institute",
+     "year": 1991,
+     "date": "1991-06-18",
+     "turn": "narrows",
+     "note": "Ordinary contract damages measure the plaintiff's loss; the breacher's gains count only insofar as they track that loss."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B3-113",
+     "year": 1995,
+     "date": "1995-06-30",
+     "turn": "counterpoint",
+     "note": "Colorado allows disgorgement for a conscious, substantial breach where damages are inadequate, less profits due to the breacher's own contribution."
+    }
+   ]
+  },
+  {
+   "id": "specific-relief",
+   "course": "Contracts",
+   "title": "Specific performance and injunctions",
+   "question": "When will a court order performance instead of awarding damages?",
+   "now": "Damages remain the default; specific performance or an injunction issues when damages are inadequate (land, unique goods, or 'other proper circumstances' under UCC § 2-716), weighed against the burden of supervising it. Courts still will not order personal services, though they may enforce a reasonable promise not to work elsewhere.",
+   "steps": [
+    {
+     "sup": "CT-ADDITIONAL-CM-B1-004",
+     "year": 1852,
+     "turn": "origin",
+     "note": "Equity will not compel a singer to perform, but it will enjoin her breach of an express promise not to sing elsewhere during the engagement."
+    },
+    {
+     "event": "UCC § 2-716",
+     "year": 1952,
+     "turn": "codifies",
+     "note": "A buyer of goods may get specific performance where the goods are unique 'or in other proper circumstances', loosening the adequacy test."
+    },
+    {
+     "id": "morris-sparrow",
+     "year": 1956,
+     "date": "1956-02-20",
+     "turn": "applies",
+     "note": "A horse trained by the buyer has unique value to him, so equity orders its delivery despite the usual rule for chattels (Arkansas)."
+    },
+    {
+     "id": "klein-pepsico",
+     "year": 1988,
+     "date": "1988-04-25",
+     "turn": "narrows",
+     "note": "A used jet is not unique, and a higher replacement price does not make damages inadequate, so specific performance under § 2-716 fails."
+    },
+    {
+     "id": "walgreen",
+     "year": 1992,
+     "turn": "refines",
+     "note": "Posner: an injunction against breach of an exclusivity covenant is proper when damages are inadequate, judged by the costs and benefits of each remedy."
+    }
+   ]
+  },
+  {
+   "id": "liquidated-damages",
+   "course": "Contracts",
+   "title": "Liquidated damages and penalties",
+   "question": "When will a court enforce the sum the parties fixed for breach?",
+   "now": "American courts refuse to enforce penalties but uphold an agreed sum that is reasonable in light of the anticipated or actual loss (Restatement (Second) § 356, UCC § 2-718); several states, like New Jersey, presume negotiated commercial clauses reasonable. Civil-law systems such as Switzerland enforce penalty clauses but let a judge reduce an excessive one.",
+   "steps": [
+    {
+     "id": "dave-gustafson",
+     "year": 1968,
+     "date": "1968-02-13",
+     "turn": "origin",
+     "note": "A fixed sum is liquidated damages, not a penalty, if harm was hard to estimate at formation and the sum was a reasonable forecast (South Dakota)."
+    },
+    {
+     "id": "lake-river",
+     "year": 1985,
+     "turn": "applies",
+     "note": "A formula paying full revenue without deducting the costs the promisee saves is a penalty; Posner questions the rule but applies it (Illinois law)."
+    },
+    {
+     "id": "wassermans",
+     "year": 1994,
+     "turn": "refines",
+     "note": "New Jersey tests reasonableness in all the circumstances and presumes a clause between commercial equals valid; the challenger bears the burden."
+    },
+    {
+     "id": "swiss-2024",
+     "year": 2024,
+     "date": "2024-09-24",
+     "turn": "counterpoint",
+     "note": "Swiss law enforces a penalty without proof of loss but lets the judge reduce an excessive one; a reduction for a minor breach is upheld."
+    }
+   ]
+  },
+  {
+   "id": "third-party",
+   "course": "Contracts",
+   "title": "Third-party beneficiaries",
+   "question": "When can someone who is not a party enforce a contract?",
+   "now": "Most states follow Restatement (Second) § 302: a beneficiary may sue if giving it a right carries out the parties' intention and the performance pays the promisee's debt to it or the promisee meant to benefit it; others are incidental. Members of the public are presumed incidental to government contracts unless the contract clearly shows otherwise.",
+   "steps": [
+    {
+     "id": "lawrence-fox",
+     "year": 1859,
+     "turn": "origin",
+     "note": "New York lets a creditor of the promisee sue the promisor on a promise made for his benefit, though he was no party and gave no consideration."
+    },
+    {
+     "id": "seaver",
+     "year": 1918,
+     "turn": "expands",
+     "note": "Donee beneficiaries: a niece may enforce a promise made to her dying aunt for her benefit; closeness of kinship is not a strict limit (New York)."
+    },
+    {
+     "sup": "CT-ADDITIONAL-CM-B4-091",
+     "year": 1928,
+     "date": "1928-01-10",
+     "turn": "narrows",
+     "note": "A city's water-supply contract benefits the public only incidentally; a resident may sue only if it promised compensation to individuals (New York)."
+    },
+    {
+     "event": "Restatement (Second) of Contracts § 302",
+     "year": 1981,
+     "turn": "codifies",
+     "note": "The creditor and donee categories give way to one test: intended beneficiaries may enforce the contract, incidental ones may not."
+    },
+    {
+     "id": "sisney-state",
+     "year": 2008,
+     "date": "2008-07-23",
+     "turn": "applies",
+     "note": "South Dakota presumes against private enforcement of government contracts; an inmate is incidental to the State's food-service contract."
+    },
+    {
+     "id": "sisney-reisch",
+     "year": 2008,
+     "date": "2008-07-23",
+     "turn": "refines",
+     "note": "The same day: a settlement that expressly covers every Jewish inmate who asks for kosher meals is enforceable by a member of that class."
+    }
+   ]
+  },
+  {
+   "id": "pj",
+   "course": "Civil Procedure",
+   "title": "Specific personal jurisdiction: from territorial power to minimum contacts",
+   "question": "When may a court hear a claim against a defendant from outside the forum?",
+   "now": "The defendant must have purposefully reached into the forum, the claim must arise out of or relate to that conduct (Ford), and suit there must not be unreasonable (Burger King); the stream-of-commerce test still has no majority rule. Federal statutes answer to the Fifth Amendment, which does not carry the minimum-contacts test (Fuld).",
+   "steps": [
+    {
+     "id": "cp-pennoyer",
+     "year": 1878,
+     "date": "1878-01-21",
+     "turn": "origin",
+     "note": "Power runs with territory: a personal judgment needs in-state service or a voluntary appearance, so an absent nonresident is out of reach.",
+     "fate": "Its territorial test for absent defendants gave way to Shoe (1945)"
+    },
+    {
+     "id": "shoe",
+     "year": 1945,
+     "date": "1945-12-03",
+     "turn": "expands",
+     "note": "Minimum contacts replace physical presence: suit is allowed if it does not offend traditional notions of fair play and substantial justice."
+    },
+    {
+     "id": "cp-mcgee",
+     "year": 1957,
+     "date": "1957-12-16",
+     "turn": "expands",
+     "note": "A single contract with a substantial connection to the forum supports a suit on that contract."
+    },
+    {
+     "id": "cp-hanson",
+     "year": 1958,
+     "date": "1958-06-23",
+     "turn": "narrows",
+     "note": "Purposeful availment: the defendant must itself reach into the forum; the unilateral acts of others do not count."
+    },
+    {
+     "id": "cp-gray",
+     "year": 1961,
+     "date": "1961-06-14",
+     "turn": "expands",
+     "note": "Stream of commerce in a state court: a component maker can be sued where its product, sold through ordinary distribution, causes injury."
+    },
+    {
+     "id": "cp-kulko",
+     "year": 1978,
+     "date": "1978-05-15",
+     "turn": "narrows",
+     "note": "Acquiescing in a child's move to the forum is not purposeful availment, so the parent cannot be sued there for support."
+    },
+    {
+     "id": "wwvw",
+     "year": 1980,
+     "date": "1980-01-21",
+     "turn": "narrows",
+     "note": "Foreseeable travel of a product is not enough; the defendant's own conduct must make suit there foreseeable, as when it serves that market."
+    },
+    {
+     "id": "burger",
+     "year": 1985,
+     "date": "1985-05-20",
+     "turn": "refines",
+     "note": "Two steps, contacts then fairness: a long-term franchise deal aimed at a forum company is a contact even without physical entry."
+    },
+    {
+     "id": "cp-asahi",
+     "year": 1987,
+     "date": "1987-02-24",
+     "turn": "divided",
+     "note": "No majority on stream of commerce (awareness or something more), but eight Justices find suit unreasonable on fairness grounds alone."
+    },
+    {
+     "id": "cp-nicastro",
+     "year": 2011,
+     "date": "2011-06-27",
+     "turn": "divided",
+     "note": "Stream of commerce again without a majority: the plurality demands targeting of the forum; the concurrence holds one sale is not enough."
+    },
+    {
+     "id": "cp-bristol-myers",
+     "year": 2017,
+     "date": "2017-06-19",
+     "turn": "narrows",
+     "note": "Relatedness is claim by claim: nonresidents' claims need their own link to the forum, and the sliding-scale approach is rejected."
+    },
+    {
+     "id": "ford",
+     "year": 2021,
+     "date": "2021-03-25",
+     "turn": "expands",
+     "note": "'Arise out of or relate to' needs no strict causation: a maker that cultivates a market for a model can be sued where it injures."
+    },
+    {
+     "sup": "CP-SUP-FULD",
+     "year": 2025,
+     "date": "2025-06-20",
+     "turn": "expands",
+     "note": "Federal statutes stand apart: the Fifth Amendment has no minimum-contacts test, and a narrow statute tied to U.S. conduct is valid."
+    }
+   ]
+  },
+  {
+   "id": "pj-effects",
+   "course": "Civil Procedure",
+   "title": "Personal jurisdiction for conduct aimed at the forum: libel, torts and the Internet",
+   "question": "When does conduct aimed at a forum, in print or online, support jurisdiction there?",
+   "now": "Effects in the forum count only through the defendant's own conduct expressly aimed at the forum itself, not through the plaintiff's ties to it (Calder as read in Walden). A website's reach or interactivity is not enough unless the claim-related conduct was directed at the forum.",
+   "steps": [
+    {
+     "id": "cp-keeton",
+     "year": 1984,
+     "date": "1984-03-20",
+     "turn": "origin",
+     "note": "Regular magazine sales in a state support a libel suit there, even for nationwide damages and though the plaintiff has no ties to it."
+    },
+    {
+     "id": "cp-calder",
+     "year": 1984,
+     "date": "1984-03-20",
+     "turn": "expands",
+     "note": "Effects test: individuals whose alleged intentional tort was aimed at the forum, knowing the harm would be felt there, can be sued there."
+    },
+    {
+     "id": "cp-zippo",
+     "year": 1997,
+     "date": "1997-01-16",
+     "turn": "refines",
+     "note": "A sliding scale for websites: knowing online business with forum residents supports jurisdiction; a passive site does not."
+    },
+    {
+     "id": "cp-walden",
+     "year": 2014,
+     "date": "2014-02-25",
+     "turn": "narrows",
+     "note": "The defendant's own conduct must connect him to the forum itself; an injury the plaintiff feels there is not enough, even for torts."
+    },
+    {
+     "sup": "CP-COMP-CB-JOHNSON-HUFFPOST",
+     "year": 2021,
+     "date": "2021-12-23",
+     "turn": "applies",
+     "note": "After Walden, a website's reach and interactivity in a state do not support a libel suit unless the story or site was aimed there."
+    }
+   ]
+  },
+  {
+   "id": "pj-general",
+   "course": "Civil Procedure",
+   "title": "General personal jurisdiction: from continuous business to 'at home'",
+   "question": "Where can a defendant be sued on any claim, even one unrelated to the forum?",
+   "now": "A corporation can be sued on any claim only where it is essentially at home, ordinarily its state of incorporation and principal place of business (Daimler, BNSF). Consent is a separate route: registering under a statute that makes registration consent to general jurisdiction satisfies due process (Mallory).",
+   "steps": [
+    {
+     "id": "shoe",
+     "year": 1945,
+     "date": "1945-12-03",
+     "turn": "origin",
+     "note": "Continuous and substantial activity in a state may justify suit there even on claims unrelated to that activity."
+    },
+    {
+     "id": "cp-perkins",
+     "year": 1952,
+     "date": "1952-03-03",
+     "turn": "expands",
+     "note": "A foreign company run from an Ohio office during wartime may be sued there on unrelated claims; due process permits it."
+    },
+    {
+     "id": "cp-helicopteros",
+     "year": 1984,
+     "date": "1984-04-24",
+     "turn": "narrows",
+     "note": "Purchases, training trips and a single negotiating visit are not the continuous and systematic contacts needed for unrelated claims."
+    },
+    {
+     "id": "cp-goodyear",
+     "year": 2011,
+     "date": "2011-06-27",
+     "turn": "narrows",
+     "note": "General jurisdiction only where the corporation is essentially at home; products reaching the state through commerce do not count."
+    },
+    {
+     "id": "cp-daimler",
+     "year": 2014,
+     "date": "2014-01-14",
+     "turn": "narrows",
+     "note": "'At home' means place of incorporation and principal place of business, save an exceptional case; heavy in-state business is not enough."
+    },
+    {
+     "id": "cp-bnsf",
+     "year": 2017,
+     "date": "2017-05-30",
+     "turn": "reaffirms",
+     "note": "A railroad with extensive in-state track and workers is still not at home there, and FELA's venue clause confers no jurisdiction."
+    },
+    {
+     "id": "cp-mallory",
+     "year": 2023,
+     "date": "2023-06-27",
+     "turn": "expands",
+     "note": "A second road: a statute making registration consent to suit on any claim is valid under Pennsylvania Fire, which Shoe did not overrule."
+    }
+   ]
+  },
+  {
+   "id": "pj-traditional",
+   "course": "Civil Procedure",
+   "title": "Personal jurisdiction without contacts: presence, domicile, property and consent",
+   "question": "Which traditional bases of jurisdiction survive the minimum-contacts test?",
+   "now": "Property is no longer a basis of its own (Shaffer), but in-state service on an individual (Burnham), domicile, appearance or waiver, and consent, by contract or under a registration statute that says so (Mallory), still support jurisdiction without a contacts analysis; service obtained by fraud does not.",
+   "steps": [
+    {
+     "id": "cp-pennoyer",
+     "year": 1878,
+     "date": "1878-01-21",
+     "turn": "origin",
+     "note": "Jurisdiction rests on in-state service, voluntary appearance, or local property seized at the outset; consent and status cases are reserved."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-064",
+     "year": 1905,
+     "date": "1905-05-08",
+     "turn": "expands",
+     "note": "A debt follows the debtor: serving him on a brief visit lets the state seize what he owes an absent creditor.",
+     "fate": "Overruled by Shaffer (1977)"
+    },
+    {
+     "id": "cp-hess",
+     "year": 1927,
+     "date": "1927-05-16",
+     "turn": "expands",
+     "note": "Implied consent: driving on a state's roads appoints a state official to receive service in suits about the driving, with notice to the driver."
+    },
+    {
+     "id": "cp-wyman",
+     "year": 1937,
+     "date": "1937-12-06",
+     "turn": "narrows",
+     "note": "Presence obtained by fraud does not count: a defendant lured into the state and served can attack the judgment where it is enforced."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-020",
+     "year": 1940,
+     "date": "1940-12-23",
+     "turn": "expands",
+     "note": "Domicile suffices for a personal judgment against an absent resident given proper notice; 'fair play and substantial justice' starts here."
+    },
+    {
+     "id": "cp-tickle",
+     "year": 1956,
+     "turn": "refines",
+     "note": "Trickery by the party's lawyer that brings a nonresident into the state to be served also voids the service."
+    },
+    {
+     "id": "cp-szukhent",
+     "year": 1964,
+     "date": "1964-01-06",
+     "turn": "expands",
+     "note": "Consent by contract: parties may agree in advance to a court's jurisdiction and name an agent to receive process."
+    },
+    {
+     "id": "cp-shaffer",
+     "year": 1977,
+     "date": "1977-06-24",
+     "turn": "overrules",
+     "note": "Property is no longer a basis of its own: every assertion of jurisdiction, in rem or quasi in rem, must meet the Shoe standard."
+    },
+    {
+     "id": "cp-insurance-ireland",
+     "year": 1982,
+     "date": "1982-06-01",
+     "turn": "refines",
+     "note": "Personal jurisdiction is a waivable individual right, so a discovery sanction may establish the facts that support it."
+    },
+    {
+     "id": "cp-burnham",
+     "year": 1990,
+     "date": "1990-05-29",
+     "turn": "reaffirms",
+     "note": "Tag jurisdiction survives Shaffer: personal service on a visitor inside the state is enough, though no rationale won a majority."
+    },
+    {
+     "id": "cp-mallory",
+     "year": 2023,
+     "date": "2023-06-27",
+     "turn": "reaffirms",
+     "note": "Consent survives Shoe as presence did in Burnham: registering under a statute that makes registration consent to suit on any claim binds the company."
+    }
+   ]
+  },
+  {
+   "id": "prejudgment",
+   "course": "Civil Procedure",
+   "title": "Notice and hearing before property is taken",
+   "question": "What notice and hearing does due process require before property is seized pending suit?",
+   "now": "Notice must be reasonably calculated to reach those affected (Mullane). Whether a prejudgment seizure needs a prior hearing turns on the Mathews balance as Doehr adapted it: the owner's interest, the risk of error and the value of safeguards such as a judge, a bond and a prompt hearing, and the creditor's interest.",
+   "steps": [
+    {
+     "id": "cp-mullane",
+     "year": 1950,
+     "date": "1950-04-24",
+     "turn": "origin",
+     "note": "Notice must be reasonably calculated, under all the circumstances, to inform interested parties and let them be heard."
+    },
+    {
+     "id": "cp-sniadach",
+     "year": 1969,
+     "date": "1969-06-09",
+     "turn": "expands",
+     "note": "Freezing a worker's wages before judgment without notice and a prior hearing violates due process, even though it is temporary."
+    },
+    {
+     "id": "cp-fuentes",
+     "year": 1972,
+     "date": "1972-06-12",
+     "turn": "expands",
+     "note": "A hearing comes before the state helps seize household goods, even briefly and with title disputed, save extraordinary situations.",
+     "fate": "Narrowed by Mitchell v. W. T. Grant (1974)"
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-098",
+     "year": 1974,
+     "date": "1974-05-13",
+     "turn": "narrows",
+     "note": "Seizure without a prior hearing is valid when a judge issues the writ on sworn facts, the creditor posts bond and a prompt hearing follows."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-099",
+     "year": 1975,
+     "date": "1975-01-22",
+     "turn": "reaffirms",
+     "note": "Garnishment issued by a clerk on a conclusory affidavit, with no judge and no early hearing, still violates due process."
+    },
+    {
+     "id": "lrs-o-mathews",
+     "year": 1976,
+     "date": "1976-02-24",
+     "turn": "refines",
+     "note": "The process due is set by balancing the private interest, the risk of error and value of safeguards, and the government's interest."
+    },
+    {
+     "id": "cp-doehr",
+     "year": 1991,
+     "date": "1991-06-06",
+     "turn": "refines",
+     "note": "Mathews adapted for private remedies: attaching a home ex parte without exigency fails; the creditor's interest takes the state's place."
+    }
+   ]
+  },
+  {
+   "id": "erie",
+   "course": "Civil Procedure",
+   "title": "Erie: which law a federal court applies",
+   "question": "When a federal court hears a state-law claim, which questions must it decide under state law?",
+   "now": "Where no Federal Rule or statute covers the issue, a federal court applies the state rule if disregarding it would encourage forum shopping or produce inequitable administration of the laws (Hanna's twin aims), giving weight to strong federal interests such as the jury's role (Byrd) and accommodating both systems where it can (Gasperini).",
+   "steps": [
+    {
+     "id": "cp-swift",
+     "year": 1842,
+     "turn": "origin",
+     "note": "Federal courts decide questions of general commercial law for themselves; state decisions are respected but not binding.",
+     "fate": "Overruled by Erie (1938)"
+    },
+    {
+     "id": "cp-taxicab",
+     "year": 1928,
+     "date": "1928-04-09",
+     "turn": "expands",
+     "note": "Swift at its height: a company reincorporates to create diversity and escape a state rule, and the federal court lets it.",
+     "fate": "Its premise fell with Swift in Erie (1938)"
+    },
+    {
+     "id": "cp-erie-decision",
+     "year": 1938,
+     "date": "1938-04-25",
+     "turn": "overrules",
+     "note": "There is no federal general common law: in diversity cases state law, including state court decisions, supplies the rule of decision."
+    },
+    {
+     "id": "cp-york",
+     "year": 1945,
+     "date": "1945-06-18",
+     "turn": "expands",
+     "note": "Outcome determination: a state limitations bar applies because ignoring it would change the result of the suit.",
+     "fate": "Confined by Hanna (1965) to Erie's twin aims"
+    },
+    {
+     "id": "cp-ragan",
+     "year": 1949,
+     "date": "1949-06-20",
+     "turn": "expands",
+     "note": "A state rule that only service stops the limitations clock governs a diversity suit, though Rule 3 dates commencement from filing."
+    },
+    {
+     "id": "cp-woods",
+     "year": 1949,
+     "date": "1949-06-20",
+     "turn": "expands",
+     "note": "A state statute closing its courts to an unqualified foreign corporation closes the federal court in that state too."
+    },
+    {
+     "id": "cp-cohen-beneficial",
+     "year": 1949,
+     "date": "1949-06-20",
+     "turn": "expands",
+     "note": "A state law requiring security for expenses applies in a federal derivative suit; the Federal Rule then in force did not conflict."
+    },
+    {
+     "id": "cp-byrd",
+     "year": 1958,
+     "date": "1958-05-19",
+     "turn": "narrows",
+     "note": "Outcome is not everything: a state practice not bound up with the right yields to strong federal interests such as the jury's role."
+    },
+    {
+     "id": "cp-hanna-decision",
+     "year": 1965,
+     "date": "1965-04-26",
+     "turn": "refines",
+     "note": "The outcome test is read through Erie's twin aims, discouraging forum shopping and inequitable administration of the laws."
+    },
+    {
+     "id": "cp-gasperini",
+     "year": 1996,
+     "date": "1996-06-24",
+     "turn": "refines",
+     "note": "Accommodation: a state limit on excessive verdicts applies, enforced by the federal trial judge and reviewed for abuse of discretion."
+    }
+   ]
+  },
+  {
+   "id": "erie-rules",
+   "course": "Civil Procedure",
+   "title": "Federal Rules and statutes against state law",
+   "question": "When a Federal Rule or federal statute covers the question, does it displace state law in a diversity case?",
+   "now": "If a Federal Rule or federal statute answers the question in dispute, it governs in federal court so long as it is valid; a Rule is valid if it really regulates procedure (Sibbach, Berk). If the Rule does not reach the issue, there is no collision and the ordinary Erie analysis applies (Walker).",
+   "steps": [
+    {
+     "id": "cp-usc-2072",
+     "year": 1934,
+     "date": "1934-06-19",
+     "turn": "origin",
+     "note": "The Rules Enabling Act lets the Supreme Court make procedural rules that do not abridge, enlarge or modify substantive rights."
+    },
+    {
+     "id": "cp-sibbach",
+     "year": 1941,
+     "date": "1941-01-13",
+     "turn": "refines",
+     "note": "A Rule is valid if it really regulates procedure; the importance of the interest it touches does not make it substantive."
+    },
+    {
+     "id": "cp-hanna-decision",
+     "year": 1965,
+     "date": "1965-04-26",
+     "turn": "expands",
+     "note": "A valid Federal Rule that covers the issue applies even if the outcome differs; Erie's twin-aims test does not decide Rules cases."
+    },
+    {
+     "id": "cp-walker",
+     "year": 1980,
+     "date": "1980-06-02",
+     "turn": "narrows",
+     "note": "No direct collision: Rule 3 does not govern state tolling, so Ragan stands and state service law applies."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-215",
+     "year": 1987,
+     "date": "1987-02-24",
+     "turn": "reaffirms",
+     "note": "A federal rule broad enough to collide with state law controls: an appellate sanctions rule displaces a mandatory state penalty."
+    },
+    {
+     "id": "cp-stewart",
+     "year": 1988,
+     "date": "1988-06-20",
+     "turn": "expands",
+     "note": "The same test for federal statutes: § 1404(a) covers a forum clause's effect on transfer, so state hostility to the clause yields."
+    },
+    {
+     "id": "cp-shady-grove",
+     "year": 2010,
+     "date": "2010-03-31",
+     "turn": "divided",
+     "note": "Rule 23 answers whether a class action may proceed and displaces a state bar, but no majority agrees on how to test a Rule's validity."
+    },
+    {
+     "id": "cp-berk",
+     "year": 2026,
+     "date": "2026-01-20",
+     "turn": "refines",
+     "note": "Rule 8 answers what a plaintiff must supply at the outset and really regulates procedure, so it displaces a state affidavit-of-merit law."
+    }
+   ]
+  },
+  {
+   "id": "fed-common-law",
+   "course": "Civil Procedure",
+   "title": "Federal common law after Erie",
+   "question": "If there is no federal general common law, when may federal courts still make federal rules of decision?",
+   "now": "Federal courts make federal common law only where needed to protect uniquely federal interests, such as the United States' own rights or federal procurement where state law significantly conflicts (Clearfield, Boyle, Rodriguez); otherwise state law governs. Federal statutory rights carry their own federal rules into state court (Dice).",
+   "steps": [
+    {
+     "id": "cp-erie-decision",
+     "year": 1938,
+     "date": "1938-04-25",
+     "turn": "origin",
+     "note": "No federal general common law: federal courts may not make their own rules for ordinary state-law disputes."
+    },
+    {
+     "id": "cp-clearfield",
+     "year": 1943,
+     "date": "1943-03-01",
+     "turn": "expands",
+     "note": "Federal law governs the United States' rights on its own commercial paper, and courts may fashion that law absent a statute."
+    },
+    {
+     "id": "cp-dice",
+     "year": 1952,
+     "date": "1952-02-04",
+     "turn": "expands",
+     "note": "Federal law decides whether a release of FELA rights is valid even in state court, and a state that uses juries cannot take the fraud issue from one."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-235",
+     "year": 1956,
+     "date": "1956-11-13",
+     "turn": "narrows",
+     "note": "Clearfield stops where the United States' rights are not at stake: private disputes over government paper follow state law."
+    },
+    {
+     "id": "cp-boyle",
+     "year": 1988,
+     "date": "1988-06-27",
+     "turn": "expands",
+     "note": "A uniquely federal interest plus a significant conflict displaces state tort law: the defense for military contractors."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-238",
+     "year": 2020,
+     "date": "2020-02-25",
+     "turn": "narrows",
+     "note": "Federal common law only where needed to protect uniquely federal interests; a judge-made rule for dividing tax refunds falls."
+    }
+   ]
+  },
+  {
+   "id": "pleading",
+   "course": "Civil Procedure",
+   "title": "What a complaint must say: from code facts to plausibility",
+   "question": "How much must a plaintiff plead to survive a motion to dismiss?",
+   "now": "Under Rule 8 a complaint must allege facts, not labels or conclusions, that make entitlement to relief plausible, which is more than possible but less than probable (Twombly, Iqbal, Swanson). Fraud must be pleaded with particularity under Rule 9(b), including claims that rest on a fraudulent course of conduct, and statutes such as the PSLRA demand more.",
+   "steps": [
+    {
+     "id": "cp-frcp-8",
+     "year": 1938,
+     "date": "1938-09-16",
+     "turn": "origin",
+     "note": "The Federal Rules replace the code's 'facts constituting a cause of action' with a short and plain statement showing a right to relief."
+    },
+    {
+     "id": "cp-dioguardi",
+     "year": 1944,
+     "turn": "expands",
+     "note": "An inartful, home-drawn complaint survives because it shows some claim; the old cause-of-action formula no longer governs."
+    },
+    {
+     "id": "cp-conley",
+     "year": 1957,
+     "date": "1957-11-18",
+     "turn": "expands",
+     "note": "Fair notice is enough: dismiss only if it appears beyond doubt that no set of facts could support relief.",
+     "fate": "Retired by Twombly (2007)"
+    },
+    {
+     "id": "cp-gillispie",
+     "year": 1963,
+     "date": "1963-01-11",
+     "turn": "counterpoint",
+     "note": "Code pleading holds out: North Carolina still demands the ultimate facts, not labels such as 'assault' and 'trespass'.",
+     "fate": "Superseded by North Carolina's Rules of Civil Procedure (effective 1970), which adopted notice pleading"
+    },
+    {
+     "id": "cp-swierkiewicz",
+     "year": 2002,
+     "date": "2002-02-26",
+     "turn": "reaffirms",
+     "note": "No heightened pleading outside Rule 9(b): a discrimination complaint need not plead the facts of a prima facie case."
+    },
+    {
+     "id": "cp-twombly",
+     "year": 2007,
+     "date": "2007-05-21",
+     "turn": "overrules",
+     "note": "Plausibility replaces 'no set of facts': parallel conduct plus a bare assertion of agreement does not state a conspiracy."
+    },
+    {
+     "id": "cp-tellabs",
+     "year": 2007,
+     "date": "2007-06-21",
+     "turn": "refines",
+     "note": "Under the PSLRA's heightened standard, the inference of scienter must be cogent and at least as compelling as any innocent one."
+    },
+    {
+     "id": "cp-iqbal",
+     "year": 2009,
+     "date": "2009-05-18",
+     "turn": "expands",
+     "note": "Plausibility governs every civil action: set aside legal conclusions, then ask whether the remaining facts plausibly show liability."
+    },
+    {
+     "id": "cp-kearns",
+     "year": 2009,
+     "date": "2009-06-08",
+     "turn": "expands",
+     "note": "Rule 9(b) reaches any claim that rests on a unified course of fraudulent conduct, even when fraud is not an element."
+    },
+    {
+     "id": "cp-swanson",
+     "year": 2010,
+     "turn": "refines",
+     "note": "Plausibility is not probability: a coherent, case-specific story of what happened, who did it and why it is unlawful suffices."
+    }
+   ]
+  },
+  {
+   "id": "amendment",
+   "course": "Civil Procedure",
+   "title": "Amending the pleadings: from the theory of the pleadings to relation back",
+   "question": "When may a party change its pleading, and when does a change reach back to the original filing?",
+   "now": "Leave to amend is freely given unless the opponent shows real prejudice, bad faith or futility; an unpleaded issue is tried by consent only if the opponent knew it was being tried. An amendment changing the defendant relates back if it arises from the same conduct, transaction or occurrence and, within the Rule 4(m) period, the new party had notice and knew or should have known it would have been sued but for a mistake (Krupski).",
+   "steps": [
+    {
+     "sup": "CP-062",
+     "year": 1908,
+     "turn": "origin",
+     "note": "Theory of the pleadings: a complaint framed as conversion fails as conversion and cannot be saved as a claim in contract."
+    },
+    {
+     "id": "cp-frcp-15",
+     "year": 1938,
+     "date": "1938-09-16",
+     "turn": "codifies",
+     "note": "Rule 15 lets parties amend freely, conform pleadings to the evidence tried, and relate amendments back to the original filing."
+    },
+    {
+     "id": "cp-beeck",
+     "year": 1977,
+     "turn": "refines",
+     "note": "Leave to amend is freely given; the opponent must show actual prejudice, which is not presumed when an admission is withdrawn."
+    },
+    {
+     "id": "cp-moore",
+     "year": 1978,
+     "date": "1978-08-29",
+     "turn": "refines",
+     "note": "Trial by consent of an unpleaded issue requires that the opponent knew it was being tried; evidence relevant to pleaded issues is not consent."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-294",
+     "year": 1986,
+     "date": "1986-06-18",
+     "turn": "narrows",
+     "note": "Relation back for a new defendant required notice within the limitations period itself, not the added time for service.",
+     "fate": "Superseded by the 1991 amendment to Rule 15(c)"
+    },
+    {
+     "event": "Rule 15(c) amended to reverse Schiavone",
+     "year": 1991,
+     "date": "1991-12-01",
+     "turn": "codifies",
+     "note": "Notice to the new defendant within the time allowed for service now suffices, so a misnamed party can be substituted after limitations runs."
+    },
+    {
+     "id": "cp-krupski",
+     "year": 2010,
+     "date": "2010-06-07",
+     "turn": "expands",
+     "note": "Relation back turns on what the new defendant knew or should have known, not on the plaintiff's knowledge or diligence."
+    }
+   ]
+  },
+  {
+   "id": "filings",
+   "course": "Civil Procedure",
+   "title": "Responsibility for filings: verification and Rule 11",
+   "question": "What does signing a court paper commit a party or lawyer to, and how is that enforced?",
+   "now": "A signature certifies, after an inquiry reasonable under the circumstances, that the paper has a proper purpose and that its legal contentions and factual claims have support (Rule 11(b)). Sanctions are discretionary and limited to what deters; a party's motion must allow a 21-day safe harbor, and a court acting on its own must first give notice and a chance to respond.",
+   "steps": [
+    {
+     "id": "cp-surowitz",
+     "year": 1966,
+     "date": "1966-03-07",
+     "turn": "origin",
+     "note": "A shareholder who verified a complaint in good faith, relying on her adviser's careful investigation, keeps her derivative suit."
+    },
+    {
+     "event": "Rule 11 amended (1983)",
+     "year": 1983,
+     "date": "1983-08-01",
+     "turn": "codifies",
+     "note": "Rule 11 gains teeth: signers owe an objective duty of reasonable inquiry, and courts must sanction violations."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-300",
+     "year": 1991,
+     "date": "1991-02-26",
+     "turn": "expands",
+     "note": "Under the 1983 rule a represented party who signs a paper owes an objective duty of inquiry; relying on counsel is no excuse."
+    },
+    {
+     "id": "cp-frcp-11",
+     "year": 1993,
+     "date": "1993-12-01",
+     "turn": "codifies",
+     "note": "The 1993 rule makes sanctions discretionary, aims them at deterrence, and gives a 21-day safe harbor to withdraw a challenged paper."
+    },
+    {
+     "id": "cp-hadges",
+     "year": 1995,
+     "turn": "applies",
+     "note": "A party's sanctions motion must honor the safe harbor, and a lawyer may rely on objectively reasonable information from the client."
+    },
+    {
+     "sup": "CP-SUP-MATA-SANCTIONS",
+     "year": 2023,
+     "date": "2023-06-22",
+     "turn": "applies",
+     "note": "Citing cases invented by ChatGPT and standing by them after warnings violates Rule 11(b)(2) and supports sanctions for bad faith."
+    }
+   ]
+  },
+  {
+   "id": "fedq",
+   "course": "Civil Procedure",
+   "title": "Federal-question jurisdiction: arising under",
+   "question": "When does a case arise under federal law for § 1331?",
+   "now": "A case arises under federal law when federal law creates the claim and the federal question appears in the well-pleaded complaint, not in a defense (American Well, Mottley). A state claim qualifies only if it necessarily raises a federal issue that is disputed, substantial to the federal system, and fit for federal decision without upsetting the federal-state balance (Grable, Gunn).",
+   "steps": [
+    {
+     "sup": "CP-COMP-CB-CAP-133",
+     "year": 1824,
+     "date": "1824-03-19",
+     "turn": "origin",
+     "note": "Article III reaches any case in which a federal question forms an ingredient, the broad constitutional ceiling."
+    },
+    {
+     "id": "cp-usc-1331",
+     "year": 1875,
+     "date": "1875-03-03",
+     "turn": "codifies",
+     "note": "Congress grants general federal-question jurisdiction in words like Article III's, later read far more narrowly."
+    },
+    {
+     "id": "cp-shoshone",
+     "year": 1900,
+     "date": "1900-04-30",
+     "turn": "narrows",
+     "note": "A suit Congress authorizes is not for that reason one arising under federal law when local rules and custom decide it."
+    },
+    {
+     "id": "cp-mottley",
+     "year": 1908,
+     "date": "1908-11-16",
+     "turn": "narrows",
+     "note": "Well-pleaded complaint rule: the federal question must appear in the plaintiff's own claim, not in an anticipated defense."
+    },
+    {
+     "id": "cp-american-well",
+     "year": 1916,
+     "date": "1916-05-22",
+     "turn": "refines",
+     "note": "Holmes's creation test: a suit arises under the law that creates the cause of action."
+    },
+    {
+     "id": "cp-smith",
+     "year": 1921,
+     "date": "1921-02-28",
+     "turn": "expands",
+     "note": "A state-law claim can arise under federal law when it necessarily turns on a substantial federal question."
+    },
+    {
+     "id": "cp-bechtel",
+     "year": 1986,
+     "date": "1986-01-10",
+     "turn": "refines",
+     "note": "Artful pleading: a plaintiff cannot defeat removal by dressing a claim that is really federal in state-law words."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-146",
+     "year": 1986,
+     "date": "1986-07-07",
+     "turn": "narrows",
+     "note": "A federal standard embedded in a state tort claim is not substantial enough when Congress gave no private federal remedy.",
+     "fate": "Confined by Grable (2005)"
+    },
+    {
+     "id": "cp-grable",
+     "year": 2005,
+     "date": "2005-06-13",
+     "turn": "refines",
+     "note": "No federal cause of action is required: the federal issue must be necessarily raised, disputed, substantial, and fit the federal-state balance."
+    },
+    {
+     "id": "cp-gunn",
+     "year": 2013,
+     "date": "2013-02-20",
+     "turn": "narrows",
+     "note": "Substantial means important to the federal system as a whole; a malpractice claim about a patent case stays in state court."
+    }
+   ]
+  },
+  {
+   "id": "supp",
+   "course": "Civil Procedure",
+   "title": "Supplemental jurisdiction: from pendent and ancillary claims to § 1367",
+   "question": "When can a federal court hear related claims that lack their own basis of jurisdiction?",
+   "now": "Under § 1367 a court with an anchor claim may hear related claims in the same case or controversy, including claims involving added parties, but not plaintiffs' claims that would break complete diversity in a diversity-only case (Kroger, Exxon). It may decline under § 1367(c), and jurisdiction ends if the anchor claim is amended away (Royal Canin).",
+   "steps": [
+    {
+     "sup": "CP-DKLA-HURN",
+     "year": 1933,
+     "turn": "origin",
+     "note": "Pendent jurisdiction begins narrow: a court may decide a second ground for the same cause of action, not a separate state claim.",
+     "fate": "Replaced by Gibbs (1966)"
+    },
+    {
+     "id": "cp-gibbs",
+     "year": 1966,
+     "date": "1966-03-28",
+     "turn": "expands",
+     "note": "Common nucleus of operative fact: related state claims may be heard with a substantial federal claim, at the court's discretion."
+    },
+    {
+     "id": "cp-heyward",
+     "year": 1970,
+     "turn": "expands",
+     "note": "Compulsory counterclaims, read by logical relationship, fall within ancillary jurisdiction without a basis of their own."
+    },
+    {
+     "id": "cp-aldinger",
+     "year": 1976,
+     "date": "1976-06-24",
+     "turn": "narrows",
+     "note": "Pendent parties: a court must ask whether Congress negated jurisdiction over them; a county excluded from § 1983 stays out.",
+     "fate": "Monell (1978) brought counties within § 1983; § 1367 (1990) now grants pendent-party jurisdiction"
+    },
+    {
+     "id": "cp-kroger",
+     "year": 1978,
+     "date": "1978-06-21",
+     "turn": "narrows",
+     "note": "A plaintiff cannot use ancillary jurisdiction to sue a nondiverse third-party defendant; complete diversity would be evaded."
+    },
+    {
+     "id": "cp-finley",
+     "year": 1989,
+     "date": "1989-05-22",
+     "turn": "narrows",
+     "note": "No pendent-party jurisdiction without express authorization from Congress, which prompted § 1367.",
+     "fate": "Superseded by § 1367 (1990)"
+    },
+    {
+     "id": "cp-usc-1367",
+     "year": 1990,
+     "date": "1990-12-01",
+     "turn": "codifies",
+     "note": "Congress codifies supplemental jurisdiction over the whole case or controversy, with limits in diversity cases and room to decline."
+    },
+    {
+     "id": "cp-exxon",
+     "year": 2005,
+     "date": "2005-06-23",
+     "turn": "expands",
+     "note": "In diversity, one plaintiff's qualifying claim carries co-plaintiffs and class members below the amount, but not nondiverse parties."
+    },
+    {
+     "sup": "CP-SUP-ROYALCANIN",
+     "year": 2025,
+     "date": "2025-01-15",
+     "turn": "narrows",
+     "note": "When a plaintiff amends away every federal claim after removal, supplemental jurisdiction ends with it and the case is remanded."
+    }
+   ]
+  },
+  {
+   "id": "diversity",
+   "course": "Civil Procedure",
+   "title": "Diversity jurisdiction: complete diversity and the amount in controversy",
+   "question": "Who must be diverse, and how much must be at stake, for a federal court to hear a state-law claim?",
+   "now": "Under § 1332(a) no plaintiff may share citizenship with any defendant, an individual's citizenship being domicile at filing, and more than $75,000 must be in controversy; the amount claimed in good faith controls unless it is legally certain the claim is for less. Class actions under CAFA need only minimal diversity and more than $5 million in the aggregate.",
+   "steps": [
+    {
+     "id": "cp-strawbridge",
+     "year": 1806,
+     "turn": "origin",
+     "note": "Each holder of a joint interest must be able to sue or be sued in federal court, the root of the complete-diversity rule."
+    },
+    {
+     "id": "cp-tashire",
+     "year": 1967,
+     "date": "1967-04-10",
+     "turn": "refines",
+     "note": "Complete diversity is a reading of the statute: Article III needs only minimal diversity, so Congress may use it, as in interpleader."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-157",
+     "year": 1973,
+     "date": "1973-12-17",
+     "turn": "narrows",
+     "note": "Each class member with a separate claim must meet the amount in controversy; one qualifying claim cannot carry the rest.",
+     "fate": "Superseded by § 1367, as Exxon (2005) held"
+    },
+    {
+     "id": "cp-mas-perry",
+     "year": 1974,
+     "turn": "applies",
+     "note": "Citizenship means domicile, which persists until a new home is taken with intent to remain, and is tested when suit is filed."
+    },
+    {
+     "id": "cp-afa",
+     "year": 1991,
+     "turn": "applies",
+     "note": "The amount claimed in good faith controls unless it is legally certain the claim is smaller, and the plaintiff gets a chance to show it."
+    },
+    {
+     "id": "cp-usc-1332",
+     "year": 2005,
+     "date": "2005-02-18",
+     "turn": "codifies",
+     "note": "The Class Action Fairness Act lets class actions over $5 million in the aggregate proceed on minimal diversity."
+    },
+    {
+     "id": "cp-exxon",
+     "year": 2005,
+     "date": "2005-06-23",
+     "turn": "expands",
+     "note": "Through § 1367 one plaintiff's qualifying claim carries others below the amount, but a single nondiverse plaintiff still defeats jurisdiction."
+    },
+    {
+     "sup": "CP-SUP-HAIN",
+     "year": 2026,
+     "turn": "reaffirms",
+     "note": "Complete diversity missing at removal is not cured by wrongly dismissing the nondiverse defendant; the merits judgment is vacated."
+    }
+   ]
+  },
+  {
+   "id": "cp-removal",
+   "course": "Civil Procedure",
+   "title": "Removal: who may move a case to federal court",
+   "question": "Who may remove a case from state court, and what must the notice of removal show?",
+   "now": "Only a defendant to the original plaintiff's claim may remove (§ 1441(a), § 1453(b)). CAFA lets any such defendant remove a qualifying class action without the others' consent, and a notice of removal needs only a plausible allegation of the amount in controversy, with proof required only if it is contested.",
+   "steps": [
+    {
+     "id": "cp-shamrock",
+     "year": 1941,
+     "date": "1941-04-28",
+     "turn": "origin",
+     "note": "Removal statutes are read strictly: a plaintiff who faces a counterclaim is still a plaintiff and cannot remove."
+    },
+    {
+     "id": "cp-usc-1453",
+     "year": 2005,
+     "date": "2005-02-18",
+     "turn": "codifies",
+     "note": "CAFA lets any defendant remove a class action without the others' consent, even a forum citizen, and drops the one-year limit."
+    },
+    {
+     "id": "cp-standard-fire",
+     "year": 2013,
+     "date": "2013-03-19",
+     "turn": "expands",
+     "note": "A named plaintiff's stipulation cannot hold a class below CAFA's amount, because before certification it does not bind the class."
+    },
+    {
+     "id": "cp-dart",
+     "year": 2014,
+     "date": "2014-12-15",
+     "turn": "expands",
+     "note": "A notice of removal needs only a plausible allegation of the amount, with evidence only if challenged; no presumption against CAFA removal."
+    },
+    {
+     "id": "cp-home-depot",
+     "year": 2019,
+     "date": "2019-05-28",
+     "turn": "narrows",
+     "note": "Only the original defendant may remove: a third-party counterclaim defendant cannot, under § 1441(a) or CAFA."
+    }
+   ]
+  },
+  {
+   "id": "jurisdictional",
+   "course": "Civil Procedure",
+   "title": "Jurisdictional or not: why the label matters",
+   "question": "Which limits go to subject-matter jurisdiction, so that no party can waive them and the court must raise them itself?",
+   "now": "A defect in subject-matter jurisdiction can be raised by any party at any time, even by the party who chose the court, but a requirement is jurisdictional only if Congress clearly says so (Arbaugh). Other limits, such as removal procedure and deadlines, can be waived or forfeited, yet may still be mandatory and closed to equitable tolling (Lively, Enbridge).",
+   "steps": [
+    {
+     "id": "cp-capron",
+     "year": 1804,
+     "turn": "origin",
+     "note": "Jurisdiction cannot be conferred by choice: even the plaintiff who picked federal court wins reversal when the record fails to show it."
+    },
+    {
+     "id": "cp-lacks",
+     "year": 1976,
+     "turn": "narrows",
+     "note": "A state high court holds that a missed statutory element, here divorce residency, does not strip the court of power or void its judgment."
+    },
+    {
+     "sup": "CP-COMP-CB-REF-010",
+     "year": 2006,
+     "date": "2006-02-22",
+     "turn": "narrows",
+     "note": "Clear-statement rule: a limit is jurisdictional only if Congress says so; Title VII's employee count is an element of the claim."
+    },
+    {
+     "id": "cp-wild-oats",
+     "year": 2006,
+     "date": "2006-07-27",
+     "turn": "applies",
+     "note": "Removal in breach of the forum-defendant rule is a waivable defect: the plaintiff must object within 30 days, and the court cannot remand on its own."
+    },
+    {
+     "sup": "CP-COMP-SUP-ENBRIDGE",
+     "year": 2026,
+     "date": "2026-04-22",
+     "turn": "refines",
+     "note": "Nonjurisdictional is not the same as flexible: the 30-day removal deadline cannot be equitably tolled."
+    }
+   ]
+  },
+  {
+   "id": "venue",
+   "course": "Civil Procedure",
+   "title": "Venue: from local actions to where the events happened",
+   "question": "In which district may a suit be brought?",
+   "now": "Federal venue lies in a district where any defendant resides if all reside in the same state, or where a substantial part of the events or of the property at issue is located, with a fallback district if neither exists (§ 1391(b)); since 2011 it is decided without regard to whether the action is local or transitory.",
+   "steps": [
+    {
+     "id": "cp-livingston",
+     "year": 1811,
+     "date": "1811-12-05",
+     "turn": "origin",
+     "note": "Local actions: a trespass to land must be sued where the land lies, even if the defendant can be found elsewhere.",
+     "fate": "Abolished for federal venue in 2011 (§ 1391(a)(2))"
+    },
+    {
+     "id": "cp-reasor",
+     "year": 1952,
+     "turn": "counterpoint",
+     "note": "A state court rejects the local-action rule so that a wrongdoer cannot escape every court for harm to land in another state."
+    },
+    {
+     "id": "cp-bates",
+     "year": 1992,
+     "turn": "expands",
+     "note": "After the 1990 amendment venue lies wherever a substantial part of the events occurred, as where a collection notice was received."
+    },
+    {
+     "id": "cp-usc-1391",
+     "year": 2011,
+     "date": "2011-12-07",
+     "turn": "codifies",
+     "note": "Congress restates § 1391 and provides that venue is set without regard to whether an action is local or transitory."
+    }
+   ]
+  },
+  {
+   "id": "transfer",
+   "course": "Civil Procedure",
+   "title": "Transfer and forum non conveniens",
+   "question": "When may a court send a case to a more convenient forum, or dismiss it in favor of one?",
+   "now": "Section 1404(a) moves a case between federal districts for convenience to any district where it might have been brought or to which all parties consent, and a valid forum clause controls in all but unusual cases (Atlantic Marine). Dismissal for forum non conveniens remains for foreign or state forums, with less deference to a foreign plaintiff (Piper).",
+   "steps": [
+    {
+     "id": "cp-usc-1404",
+     "year": 1948,
+     "date": "1948-06-25",
+     "turn": "origin",
+     "note": "Section 1404(a) lets a federal court transfer a case for convenience instead of dismissing it for forum non conveniens."
+    },
+    {
+     "id": "cp-hoffman",
+     "year": 1960,
+     "date": "1960-06-13",
+     "turn": "narrows",
+     "note": "Transfer only to a district where the plaintiff could have sued when the case began; the defendant's consent cannot add one.",
+     "fate": "Superseded in part in 2011, when transfer by consent was allowed"
+    },
+    {
+     "id": "cp-piper",
+     "year": 1981,
+     "date": "1981-12-08",
+     "turn": "refines",
+     "note": "Forum non conveniens: a foreign plaintiff's choice gets less deference, and less favorable foreign law is ordinarily not decisive."
+    },
+    {
+     "id": "cp-lexecon",
+     "year": 1998,
+     "date": "1998-03-03",
+     "turn": "narrows",
+     "note": "A multidistrict pretrial court must return each case for trial; it cannot use § 1404(a) to keep cases for itself."
+    },
+    {
+     "event": "Venue Clarification Act allows transfer by consent",
+     "year": 2011,
+     "date": "2011-12-07",
+     "turn": "codifies",
+     "note": "The 2011 venue act lets courts transfer to any district all parties consent to, undoing Hoffman's limit."
+    },
+    {
+     "id": "cp-atlantic-marine",
+     "year": 2013,
+     "date": "2013-12-03",
+     "turn": "refines",
+     "note": "A valid forum clause is enforced by § 1404(a) transfer, or by forum non conveniens for a non-federal forum, not by dismissal for improper venue."
+    }
+   ]
+  },
+  {
+   "id": "forum-clauses",
+   "course": "Civil Procedure",
+   "title": "Forum-selection clauses",
+   "question": "When will a court enforce a contract term choosing where suits must be brought?",
+   "now": "A forum-selection clause is presumptively valid, even in a non-negotiated form, unless shown unreasonable or unjust or procured by fraud or overreaching (Bremen, Carnival). In federal court it is enforced through § 1404(a) or forum non conveniens, and only public-interest factors can defeat it (Atlantic Marine).",
+   "steps": [
+    {
+     "id": "cp-bremen",
+     "year": 1972,
+     "date": "1972-06-12",
+     "turn": "origin",
+     "note": "A freely negotiated forum clause is prima facie valid in admiralty, enforced unless unreasonable or unjust, or tainted by fraud or overreaching."
+    },
+    {
+     "id": "cp-stewart",
+     "year": 1988,
+     "date": "1988-06-20",
+     "turn": "refines",
+     "note": "In a diversity case § 1404(a), not state law, governs a clause's effect on transfer; the clause is a significant factor in the balance."
+    },
+    {
+     "id": "carnival",
+     "year": 1991,
+     "date": "1991-04-17",
+     "turn": "expands",
+     "note": "A clause in a non-negotiated form ticket is enforceable if reasonable and fundamentally fair; lack of bargaining does not void it."
+    },
+    {
+     "id": "cp-atlantic-marine",
+     "year": 2013,
+     "date": "2013-12-03",
+     "turn": "expands",
+     "note": "A valid clause controls transfer in all but unusual cases: the plaintiff's choice and private interests get no weight."
+    }
+   ]
+  },
+  {
+   "id": "class",
+   "course": "Civil Procedure",
+   "title": "Class actions: binding the absent members",
+   "question": "When can one suit bind people who are not before the court?",
+   "now": "A class binds absentees only if Rule 23(a) and a 23(b) category are met on rigorous analysis (Amchem, Wal-Mart) and representation is adequate, with notice and opt-out for damages classes (Hansberry, Shutts). Every member who recovers damages needs standing (TransUnion), and an arbitration agreement may waive class procedures (Concepcion).",
+   "steps": [
+    {
+     "id": "cp-hansberry",
+     "year": 1940,
+     "date": "1940-11-12",
+     "turn": "origin",
+     "note": "Absent members are bound by a class judgment only if the parties to the suit adequately represented their interests."
+    },
+    {
+     "id": "cp-frcp-23",
+     "year": 1966,
+     "date": "1966-07-01",
+     "turn": "codifies",
+     "note": "The rewritten Rule 23 sets the 23(a) prerequisites and the 23(b) categories, with notice and opt-out for damages classes."
+    },
+    {
+     "id": "cp-eisen",
+     "year": 1974,
+     "date": "1974-05-28",
+     "turn": "narrows",
+     "note": "Individual notice to every reasonably identifiable (b)(3) member, at the plaintiff's cost, with no merits preview to shift that cost."
+    },
+    {
+     "id": "cp-cooper",
+     "year": 1984,
+     "date": "1984-06-25",
+     "turn": "narrows",
+     "note": "A class judgment precludes only what it decided: losing a pattern-or-practice claim does not bar members' individual claims."
+    },
+    {
+     "id": "cp-shutts",
+     "year": 1985,
+     "date": "1985-06-26",
+     "turn": "expands",
+     "note": "Absent plaintiffs can be bound without minimum contacts if they get notice, a chance to opt out and adequate representation."
+    },
+    {
+     "id": "cp-amchem",
+     "year": 1997,
+     "date": "1997-06-25",
+     "turn": "narrows",
+     "note": "A settlement class must still satisfy Rule 23(a) and (b); a fair deal cannot replace predominance and adequate representation."
+    },
+    {
+     "id": "cp-ortiz",
+     "year": 1999,
+     "date": "1999-06-23",
+     "turn": "narrows",
+     "note": "A mandatory limited-fund class needs a fund shown to be truly limited, all of it devoted to the claims, and equitable treatment."
+    },
+    {
+     "id": "cp-concepcion",
+     "year": 2011,
+     "date": "2011-04-27",
+     "turn": "narrows",
+     "note": "The Federal Arbitration Act preempts state rules that condition arbitration on class procedures, so class waivers stand."
+    },
+    {
+     "id": "cp-walmart",
+     "year": 2011,
+     "date": "2011-06-20",
+     "turn": "narrows",
+     "note": "Commonality needs a common question whose answer drives the case; individual backpay claims cannot proceed in a (b)(2) class."
+    },
+    {
+     "id": "cp-briseno",
+     "year": 2017,
+     "date": "2017-01-03",
+     "turn": "refines",
+     "note": "The Ninth Circuit rejects a separate administrative-feasibility test: Rule 23's listed requirements already deal with identifying members."
+    },
+    {
+     "id": "cp-mussat",
+     "year": 2020,
+     "date": "2020-03-11",
+     "turn": "refines",
+     "note": "After Bristol-Myers, absent class members' claims need no separate showing of specific jurisdiction; the named plaintiff's claims must."
+    },
+    {
+     "id": "cp-transunion",
+     "year": 2021,
+     "date": "2021-06-25",
+     "turn": "narrows",
+     "note": "Every class member who seeks damages must have standing; a statutory violation without concrete harm is not enough."
+    }
+   ]
+  },
+  {
+   "id": "sj",
+   "course": "Civil Procedure",
+   "title": "Summary judgment: from 'slightest doubt' to the 1986 trilogy",
+   "question": "When is there no genuine dispute of material fact for a jury to decide?",
+   "now": "Summary judgment is proper when, viewing the evidence for the nonmovant, no reasonable jury could find for that party under the trial burden of proof (Anderson); a movant without the burden may point to missing evidence (Celotex). Courts may not resolve genuine disputes for the movant (Tolan) unless the record blatantly contradicts one side (Scott).",
+   "steps": [
+    {
+     "id": "cp-arnstein",
+     "year": 1946,
+     "date": "1946-02-11",
+     "turn": "origin",
+     "note": "Summary judgment is improper if there is the slightest doubt about the facts, especially when a witness's credibility is at stake.",
+     "fate": "Its 'slightest doubt' standard was later abandoned"
+    },
+    {
+     "id": "cp-dyer-macdougall",
+     "year": 1952,
+     "date": "1952-12-31",
+     "turn": "narrows",
+     "note": "The hope that a jury will disbelieve the other side's witnesses is not evidence; a party with the burden needs proof of its own."
+    },
+    {
+     "id": "cp-poller",
+     "year": 1962,
+     "date": "1962-02-19",
+     "turn": "reaffirms",
+     "note": "Summary judgment should be used sparingly in complex antitrust cases where motive and intent matter and the proof lies with the other side."
+    },
+    {
+     "id": "cp-cross",
+     "year": 1964,
+     "turn": "applies",
+     "note": "When the facts turn on the motive and credibility of the movant's own witnesses, the opponent may test them by cross-examination at trial."
+    },
+    {
+     "id": "cp-adickes",
+     "year": 1970,
+     "date": "1970-06-01",
+     "turn": "narrows",
+     "note": "The movant must foreclose any genuine issue; if its own showing leaves a gap, the motion fails even without a response.",
+     "fate": "Narrowed by Celotex (1986)"
+    },
+    {
+     "id": "cp-matsushita",
+     "year": 1986,
+     "date": "1986-03-26",
+     "turn": "expands",
+     "note": "Evidence as consistent with lawful competition as with conspiracy cannot carry an implausible conspiracy claim to a jury."
+    },
+    {
+     "id": "cp-anderson-liberty",
+     "year": 1986,
+     "date": "1986-06-25",
+     "turn": "refines",
+     "note": "A dispute is genuine only if a reasonable jury could find for the nonmovant under the burden of proof that applies at trial."
+    },
+    {
+     "id": "cp-celotex",
+     "year": 1986,
+     "date": "1986-06-25",
+     "turn": "expands",
+     "note": "A movant without the trial burden need not negate the claim; it may point to the absence of evidence, and the opponent must respond."
+    },
+    {
+     "id": "cp-scott",
+     "year": 2007,
+     "date": "2007-04-30",
+     "turn": "expands",
+     "note": "A court need not accept a version of events that the record, such as a video, so blatantly contradicts that no jury could believe it."
+    },
+    {
+     "id": "cp-tolan",
+     "year": 2014,
+     "date": "2014-05-05",
+     "turn": "reaffirms",
+     "note": "Courts must still credit the nonmovant's evidence and may not resolve genuine disputes for the movant, even in qualified-immunity cases."
+    }
+   ]
+  },
+  {
+   "id": "joinder",
+   "course": "Civil Procedure",
+   "title": "Joinder: the same transaction or occurrence",
+   "question": "When do claims and parties belong together in one suit?",
+   "now": "The Federal Rules join counterclaims, crossclaims and parties whose claims arise from the same transaction or occurrence, read as a logical relationship rather than identical facts (Rules 13 and 20), and leave the court to sever or order separate trials when joinder proves unwieldy (Rules 20(b), 21, 42(b)).",
+   "steps": [
+    {
+     "id": "cp-harris-avery",
+     "year": 1869,
+     "turn": "origin",
+     "note": "Under the code, claims arising from one transaction may be joined though they fall in different categories, such as false imprisonment and slander."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-311",
+     "year": 1926,
+     "date": "1926-04-12",
+     "turn": "expands",
+     "note": "'Transaction' is a flexible word: a counterclaim arises from it when logically related to the claim, though the facts differ."
+    },
+    {
+     "id": "cp-lasa",
+     "year": 1969,
+     "turn": "expands",
+     "note": "Crossclaims and claims against added parties arise from the same transaction when logically related, with separate trials to manage them."
+    },
+    {
+     "id": "cp-heyward",
+     "year": 1970,
+     "turn": "expands",
+     "note": "A counterclaim logically related to the claim is compulsory under Rule 13(a), and it comes within ancillary jurisdiction."
+    },
+    {
+     "id": "cp-mosley",
+     "year": 1974,
+     "date": "1974-05-31",
+     "turn": "expands",
+     "note": "Plaintiffs may join when their claims arise from a series of logically related events and share a common question, as with a company-wide policy."
+    }
+   ]
+  },
+  {
+   "id": "required-parties",
+   "course": "Civil Procedure",
+   "title": "Required parties: from indispensability to equity and good conscience",
+   "question": "When must an absent person be joined, and what happens if that cannot be done?",
+   "now": "Rule 19(a) first asks whether an absentee is required; if joinder is not feasible, Rule 19(b) weighs prejudice, ways to lessen it, the adequacy of a judgment without the absentee and the plaintiff's alternatives to decide whether the case goes on. Joint tortfeasors are not required parties (Temple), and an immune sovereign with a real stake can compel dismissal (Pimentel).",
+   "steps": [
+    {
+     "id": "cp-bank-california",
+     "year": 1940,
+     "date": "1940-11-07",
+     "turn": "origin",
+     "note": "An absentee is indispensable only if any decree would inevitably affect its interest; separable interests let the court proceed."
+    },
+    {
+     "id": "cp-frcp-19",
+     "year": 1966,
+     "date": "1966-07-01",
+     "turn": "codifies",
+     "note": "The rewritten Rule 19 drops fixed labels for a two-step test: who should be joined, then whether to go on without them."
+    },
+    {
+     "id": "cp-provident",
+     "year": 1968,
+     "date": "1968-01-29",
+     "turn": "refines",
+     "note": "Indispensability is the conclusion of a practical weighing of everyone's interests in equity and good conscience, not a label applied first."
+    },
+    {
+     "sup": "CP-004",
+     "year": 1990,
+     "date": "1990-11-05",
+     "turn": "narrows",
+     "note": "Joint tortfeasors are permissive parties, not required ones, so Rule 19(b) is never reached for them."
+    },
+    {
+     "id": "cp-pimentel",
+     "year": 2008,
+     "date": "2008-06-12",
+     "turn": "refines",
+     "note": "Where an immune sovereign with a nonfrivolous claim cannot be joined and could be harmed, the action must ordinarily be dismissed."
+    }
+   ]
+  },
+  {
+   "id": "interpleader",
+   "course": "Civil Procedure",
+   "title": "Interpleader: from the strict bill to minimal diversity",
+   "question": "When can a stakeholder facing competing claims make the claimants contest them in one suit?",
+   "now": "A stakeholder facing competing claims to one fund may interplead under Rule 22, with ordinary jurisdiction, or under § 1335, with minimal diversity among claimants and nationwide service, even when the claims are unliquidated and not yet reduced to judgment. Interpleader protects the fund; it does not force every related claim into one court (Tashire).",
+   "steps": [
+    {
+     "id": "cp-usc-1335",
+     "year": 1936,
+     "date": "1936-01-20",
+     "turn": "origin",
+     "note": "The 1936 Interpleader Act, now § 1335, opens federal court to a stakeholder whenever two or more adverse claimants are of diverse citizenship."
+    },
+    {
+     "id": "cp-hancock",
+     "year": 1944,
+     "date": "1944-07-13",
+     "turn": "expands",
+     "note": "A disinterested tenant may interplead its landlord and a rival claimant despite the rule that a tenant may not deny the landlord's title."
+    },
+    {
+     "id": "cp-panamerican",
+     "year": 1960,
+     "date": "1960-09-30",
+     "turn": "expands",
+     "note": "An insurer may interplead tort claimants whose claims may exceed its policy limit, though it denies liability and the claims are unliquidated."
+    },
+    {
+     "id": "cp-tashire",
+     "year": 1967,
+     "date": "1967-04-10",
+     "turn": "refines",
+     "note": "Minimal diversity suffices and interpleader may come before judgment, but it protects only the fund and cannot force all claims into one court."
+    }
+   ]
+  },
+  {
+   "id": "nondelegation",
+   "course": "Legislation and the Regulatory State",
+   "title": "Nondelegation: from contingency to the intelligible principle",
+   "question": "How much lawmaking power can Congress hand to the executive?",
+   "now": "A delegation is valid if Congress supplies an intelligible principle; no statute has failed that test since 1935 (Carter Coal in 1936 struck down a delegation to private parties). FCC v. Consumers' Research (2025) applied the same test, though several Justices want a stricter one.",
+   "steps": [
+    {
+     "id": "lrs-s-brig-aurora",
+     "year": 1813,
+     "turn": "origin",
+     "note": "Congress may make a law's revival turn on a fact the President finds and proclaims; that is not a transfer of lawmaking."
+    },
+    {
+     "id": "lrs-s-field",
+     "year": 1892,
+     "date": "1892-02-29",
+     "turn": "refines",
+     "note": "When Congress names the contingency and its consequence, the President who finds the fact acts as its agent, not as a lawmaker."
+    },
+    {
+     "id": "lrs-s-grimaud",
+     "year": 1911,
+     "date": "1911-05-03",
+     "turn": "expands",
+     "note": "Congress may let an administrator fill in details by rule and make breaking those rules a crime that Congress itself defines and punishes."
+    },
+    {
+     "id": "lrs-s-hampton",
+     "year": 1928,
+     "date": "1928-04-09",
+     "turn": "refines",
+     "note": "The test is named: a delegation is valid if Congress lays down an intelligible principle to which the delegate must conform."
+    },
+    {
+     "sup": "LRS-CLOSURE-002",
+     "year": 1935,
+     "date": "1935-01-07",
+     "turn": "narrows",
+     "note": "First invalidation: Congress let the President ban hot-oil shipments without stating a policy, a standard or the findings required."
+    },
+    {
+     "id": "lrs-s-schechter",
+     "year": 1935,
+     "date": "1935-05-27",
+     "turn": "narrows",
+     "note": "Power to write binding codes for whole industries, guided only by general recovery aims, is an unconstitutional transfer of lawmaking."
+    },
+    {
+     "id": "lrs-s-yakus",
+     "year": 1944,
+     "date": "1944-03-27",
+     "turn": "reaffirms",
+     "note": "Wartime price control stands: standards need only be definite enough for a court to tell whether Congress's will was obeyed."
+    },
+    {
+     "id": "lrs-s-amalgamated",
+     "year": 1971,
+     "date": "1971-10-22",
+     "turn": "applies",
+     "note": "A three-judge court upholds the wage-price freeze: text, purpose, history and implied limits can supply the standard; breadth alone is no defect."
+    },
+    {
+     "id": "lrs-i-benzene",
+     "year": 1980,
+     "date": "1980-07-02",
+     "turn": "divided",
+     "note": "A plurality reads the OSH Act narrowly to avoid a sweeping delegation; Justice Rehnquist alone would hold the delegation unconstitutional."
+    },
+    {
+     "id": "lrs-s-mistretta",
+     "year": 1989,
+     "date": "1989-01-18",
+     "turn": "reaffirms",
+     "note": "The Sentencing Commission passes the intelligible-principle test; only Scalia objects to lawmaking by a body with no other power to exercise."
+    },
+    {
+     "id": "lrs-s-whitman",
+     "year": 2001,
+     "date": "2001-02-27",
+     "turn": "refines",
+     "note": "An agency cannot cure a standardless delegation by limiting itself; 'requisite to protect the public health' is a sufficient principle."
+    },
+    {
+     "id": "lrs-s-gundy",
+     "year": 2019,
+     "date": "2019-06-20",
+     "turn": "divided",
+     "note": "A plurality upholds SORNA's delegation as construed; three dissenters would replace the intelligible-principle test, and Alito would reconsider it."
+    }
+   ]
+  },
+  {
+   "id": "legislative-control",
+   "course": "Legislation and the Regulatory State",
+   "title": "Congress after it legislates: no veto, no officers of its own",
+   "question": "Once Congress delegates, may it keep a hand in executing the law?",
+   "now": "Congress controls execution by passing laws through both Houses and presentment, by funding and oversight, and through the Senate's roles in confirmation and impeachment; it may not veto by resolution or appoint or remove (other than by impeachment) officers who execute the law.",
+   "steps": [
+    {
+     "id": "lrs-s-myers",
+     "year": 1926,
+     "date": "1926-10-25",
+     "turn": "origin",
+     "note": "The Senate may not share in removing an executive officer; a statute making removal depend on its consent is invalid."
+    },
+    {
+     "id": "lrs-s-buckley",
+     "year": 1976,
+     "date": "1976-01-30",
+     "turn": "expands",
+     "note": "Congress may not appoint officers who enforce the law; officials it names may only gather information and investigate, as a committee could."
+    },
+    {
+     "id": "lrs-s-chadha",
+     "year": 1983,
+     "date": "1983-06-23",
+     "turn": "expands",
+     "note": "A one-House veto is lawmaking: once it delegates, Congress may alter the delegate's power only by bicameral passage and presentment."
+    },
+    {
+     "id": "lrs-s-bowsher",
+     "year": 1986,
+     "date": "1986-07-07",
+     "turn": "expands",
+     "note": "Congress may not keep removal power, short of impeachment, over an officer who executes the law, because removal brings control."
+    },
+    {
+     "sup": "LRS-CLOSURE-001",
+     "year": 1993,
+     "turn": "applies",
+     "note": "The D.C. Circuit holds that Congress's own agents may not sit on an enforcement agency, even as nonvoting members."
+    }
+   ]
+  },
+  {
+   "id": "removal",
+   "course": "Legislation and the Regulatory State",
+   "title": "Presidential removal power",
+   "question": "Can Congress protect officers from removal by the President?",
+   "now": "Officers who exercise executive power must be removable at will by the President (Trump v. Slaughter, 2026). For-cause protection survives for some inferior officers with limited duties, the Federal Reserve is treated as a distinct case, and protection for non-Article III judges was left open.",
+   "steps": [
+    {
+     "sup": "LRS-CLOSURE-066",
+     "year": 1886,
+     "turn": "origin",
+     "note": "When Congress vests an inferior officer's appointment in a department head, it may also restrict that officer's removal."
+    },
+    {
+     "id": "lrs-s-myers",
+     "year": 1926,
+     "date": "1926-10-25",
+     "turn": "expands",
+     "note": "The President's power to remove officers he appoints with Senate consent is his alone; Congress may not make it depend on the Senate."
+    },
+    {
+     "id": "lrs-s-humphrey",
+     "year": 1935,
+     "date": "1935-05-27",
+     "turn": "narrows",
+     "note": "Congress may protect members of a quasi-legislative, quasi-judicial commission such as the FTC from removal except for cause.",
+     "fate": "Overruled by Trump v. Slaughter (2026)"
+    },
+    {
+     "id": "lrs-s-wiener",
+     "year": 1958,
+     "date": "1958-06-30",
+     "turn": "expands",
+     "note": "For-cause protection is implied for members of a body that decides claims on evidence and law, even when the statute is silent."
+    },
+    {
+     "id": "lrs-s-bowsher",
+     "year": 1986,
+     "date": "1986-07-07",
+     "turn": "refines",
+     "note": "Congress may not keep for itself the power to remove an officer who executes the law; impeachment is its only removal tool."
+    },
+    {
+     "id": "lrs-s-morrison",
+     "year": 1988,
+     "date": "1988-06-29",
+     "turn": "expands",
+     "note": "The test turns functional: a good-cause limit on an inferior officer is valid unless it impedes the President's constitutional duties.",
+     "fate": "Confined by Seila Law (2020) to inferior officers with limited duties"
+    },
+    {
+     "sup": "LRS-COMP-SLAUGHTER-FREEENTERPRISE",
+     "year": 2010,
+     "date": "2010-06-28",
+     "turn": "narrows",
+     "note": "Two layers of for-cause protection between the President and officers who exercise executive power violate Article II."
+    },
+    {
+     "sup": "LRS-COMP-SLAUGHTER-SEILA",
+     "year": 2020,
+     "date": "2020-06-29",
+     "turn": "narrows",
+     "note": "A lone agency head wielding significant executive power may not be shielded; exceptions stay with multimember bodies and some inferior officers."
+    },
+    {
+     "sup": "LRS-COMP-SLAUGHTER-COLLINS",
+     "year": 2021,
+     "date": "2021-06-23",
+     "turn": "expands",
+     "note": "Seila reaches the FHFA's single Director too, but an invalid removal shield voids nothing unless it actually caused the harm."
+    },
+    {
+     "id": "lrs-s-slaughter",
+     "year": 2026,
+     "date": "2026-06-29",
+     "turn": "overrules",
+     "note": "Humphrey's Executor overruled: FTC commissioners exercise executive power and must be removable at will; the Federal Reserve is reserved."
+    },
+    {
+     "sup": "LRS-COMP-SLAUGHTER-COOK",
+     "year": 2026,
+     "date": "2026-06-29",
+     "turn": "narrows",
+     "note": "The same day the Federal Reserve is set apart: its structure stands, and removing a governor for cause requires notice and a chance to respond."
+    }
+   ]
+  },
+  {
+   "id": "appointments",
+   "course": "Legislation and the Regulatory State",
+   "title": "Appointments: who is an officer, and who appoints whom",
+   "question": "Who is an officer, and who may appoint whom?",
+   "now": "An official in a continuing position who exercises significant authority under federal law is an officer. Principal officers need Senate confirmation; inferior officers, directed and supervised by principal officers who can review their final decisions, may be appointed by the President, a court of law or a department head.",
+   "steps": [
+    {
+     "id": "lrs-s-shoemaker",
+     "year": 1893,
+     "turn": "origin",
+     "note": "Congress may add duties germane to an existing office without requiring a fresh appointment of the officer who holds it."
+    },
+    {
+     "id": "lrs-s-buckley",
+     "year": 1976,
+     "date": "1976-01-30",
+     "turn": "expands",
+     "note": "Anyone exercising significant authority under federal law is an officer, appointed only as Article II allows; Congress may not appoint."
+    },
+    {
+     "id": "lrs-s-morrison",
+     "year": 1988,
+     "date": "1988-06-29",
+     "turn": "refines",
+     "note": "An independent counsel, removable for cause and limited in duties, jurisdiction and tenure, is an inferior officer whom a court may appoint."
+    },
+    {
+     "id": "lrs-s-freytag",
+     "year": 1991,
+     "date": "1991-06-27",
+     "turn": "expands",
+     "note": "Tax Court special trial judges are officers, not employees, and the Tax Court is a 'Court of Law' that may appoint them."
+    },
+    {
+     "id": "lrs-s-weiss",
+     "year": 1994,
+     "date": "1994-01-19",
+     "turn": "reaffirms",
+     "note": "Shoemaker applied: commissioned officers need no second appointment to serve as military judges, a duty germane to their office."
+    },
+    {
+     "id": "lrs-s-edmond",
+     "year": 1997,
+     "date": "1997-05-19",
+     "turn": "refines",
+     "note": "Inferior officers are those directed and supervised by Senate-confirmed officers; significant authority marks an officer, not a principal one."
+    },
+    {
+     "id": "lrs-o-noel-canning",
+     "year": 2014,
+     "date": "2014-06-26",
+     "turn": "narrows",
+     "note": "The recess route is bounded: the Senate is in session when it says it is, and a break of under ten days is presumptively too short."
+    },
+    {
+     "id": "lrs-s-lucia",
+     "year": 2018,
+     "date": "2018-06-21",
+     "turn": "expands",
+     "note": "SEC administrative law judges are officers under Freytag, so appointment by staff was invalid; the cure is a new hearing before another official."
+    },
+    {
+     "id": "lrs-s-arthrex",
+     "year": 2021,
+     "date": "2021-06-21",
+     "turn": "refines",
+     "note": "An inferior officer may not issue final decisions that no principal officer can review; the PTO Director must be able to review the Board."
+    }
+   ]
+  },
+  {
+   "id": "presidential-power",
+   "course": "Legislation and the Regulatory State",
+   "title": "Presidential power: with, without and against Congress",
+   "question": "Where does the President's power to act come from, and what limits it?",
+   "now": "Courts sort presidential action by Justice Jackson's Youngstown framework: power is greatest with Congress's authorization, uncertain where Congress is silent (where long acquiescence can count), and weakest against its will. Statutes granting emergency powers are read for their stated predicates.",
+   "steps": [
+    {
+     "id": "lrs-o-marbury",
+     "year": 1803,
+     "date": "1803-02-24",
+     "turn": "origin",
+     "note": "Political discretion belongs to the executive, but a specific legal duty on which a person's rights depend can be enforced in court."
+    },
+    {
+     "id": "lrs-o-little",
+     "year": 1804,
+     "turn": "narrows",
+     "note": "Where Congress has said how a law is to be executed, executive instructions cannot authorize more or shield the officer who obeys them."
+    },
+    {
+     "id": "lrs-o-kendall",
+     "year": 1838,
+     "turn": "narrows",
+     "note": "The duty to execute the laws implies no power to dispense with them; a court may compel an officer's ministerial duty by mandamus."
+    },
+    {
+     "id": "lrs-o-neagle",
+     "year": 1890,
+     "date": "1890-04-14",
+     "turn": "expands",
+     "note": "Executive duties may be implied from the Constitution and general statutes, such as protecting a federal judge, not only from express laws."
+    },
+    {
+     "id": "lrs-o-debs",
+     "year": 1895,
+     "date": "1895-05-27",
+     "turn": "expands",
+     "note": "Without a specific statute, the national government may sue in equity to stop forcible obstruction of interstate commerce and the mails."
+    },
+    {
+     "id": "lrs-o-midwest-oil",
+     "year": 1915,
+     "date": "1915-02-23",
+     "turn": "expands",
+     "note": "Long executive practice known to Congress and left undisturbed implies its consent, here to the President's withdrawal of public lands."
+    },
+    {
+     "id": "lrs-o-youngstown",
+     "year": 1952,
+     "date": "1952-06-02",
+     "turn": "narrows",
+     "note": "The steel seizure fails: power must come from statute or the Constitution; Jackson's concurrence sorts action by Congress's will."
+    },
+    {
+     "id": "lrs-o-dames-moore",
+     "year": 1981,
+     "date": "1981-07-02",
+     "turn": "refines",
+     "note": "Jackson's categories become a spectrum: congressional acquiescence supports suspending claims, though the President has no plenary settlement power."
+    },
+    {
+     "id": "lrs-k-trump-illinois",
+     "year": 2025,
+     "date": "2025-12-23",
+     "turn": "applies",
+     "note": "At the stay stage, the Guard statute likely requires lawful authority to use the regular military, which an asserted protective power did not supply."
+    }
+   ]
+  },
+  {
+   "id": "deference",
+   "course": "Legislation and the Regulatory State",
+   "title": "Deference to agency interpretation, from Gray v. Powell to Loper Bright",
+   "question": "How much weight does an agency's reading of a statute get in court?",
+   "now": "Courts decide what a statute means for themselves (Loper Bright), giving an agency's view the weight its reasoning earns and policing any discretion Congress expressly delegated; earlier Chevron-based holdings keep their stare decisis effect, and Kisor's narrowed Auer deference still governs an agency's reading of its own regulations.",
+   "steps": [
+    {
+     "id": "lrs-i-gray-powell",
+     "year": 1941,
+     "date": "1941-12-15",
+     "turn": "origin",
+     "note": "When Congress leaves an agency to apply a term like 'producer' to particular facts, a reasoned application after a fair hearing stands."
+    },
+    {
+     "id": "lrs-i-hearst",
+     "year": 1944,
+     "date": "1944-04-24",
+     "turn": "refines",
+     "note": "The Board's application of 'employee' is accepted if it has warrant in the record and a reasonable basis in law.",
+     "fate": "Its 'employee' ruling was overridden by the Taft-Hartley Act (1947), which excluded independent contractors"
+    },
+    {
+     "id": "lrs-i-skidmore",
+     "year": 1944,
+     "date": "1944-12-04",
+     "turn": "refines",
+     "note": "Agency interpretations do not bind courts but carry weight from their care, reasoning, consistency and power to persuade."
+    },
+    {
+     "id": "lrs-i-chevron",
+     "year": 1984,
+     "date": "1984-06-25",
+     "turn": "expands",
+     "note": "Two steps: if Congress spoke to the precise question, that controls; if the statute is silent or ambiguous, a permissible agency reading wins.",
+     "fate": "Overruled by Loper Bright (2024)"
+    },
+    {
+     "id": "lrs-i-mead-note",
+     "year": 2001,
+     "date": "2001-06-18",
+     "turn": "narrows",
+     "note": "Step zero: Chevron applies only where Congress gave power to act with the force of law and the agency used it; otherwise Skidmore.",
+     "fate": "Its Chevron threshold lapsed with Loper Bright (2024); Skidmore respect remains"
+    },
+    {
+     "id": "lrs-i-brand-x",
+     "year": 2005,
+     "date": "2005-06-27",
+     "turn": "expands",
+     "note": "A court's earlier reading yields to a later reasonable agency reading unless the court held that the statute was unambiguous.",
+     "fate": "Fell with Chevron in Loper Bright (2024)"
+    },
+    {
+     "sup": "LRS-CLOSURE-031",
+     "year": 2013,
+     "date": "2013-05-20",
+     "turn": "expands",
+     "note": "Chevron applies even when the ambiguity concerns the scope of the agency's own authority.",
+     "fate": "Fell with Chevron in Loper Bright (2024)"
+    },
+    {
+     "id": "lrs-i-king-burwell",
+     "year": 2015,
+     "date": "2015-06-25",
+     "turn": "narrows",
+     "note": "A question of deep economic and political significance is not implicitly left to the agency; the Court reads the statute itself."
+    },
+    {
+     "id": "lrs-i-kisor",
+     "year": 2019,
+     "date": "2019-06-26",
+     "turn": "narrows",
+     "note": "Auer (Seminole Rock) deference to an agency's reading of its own rule survives, but only for genuine ambiguity and an authoritative, expert reading."
+    },
+    {
+     "id": "lrs-i-loper-bright",
+     "year": 2024,
+     "date": "2024-06-28",
+     "turn": "overrules",
+     "note": "Chevron overruled: under APA § 706 courts decide what statutes mean independently, honoring real delegations and giving agency views Skidmore weight."
+    }
+   ]
+  },
+  {
+   "id": "mqd",
+   "course": "Legislation and the Regulatory State",
+   "title": "Major questions: clear authorization for vast power",
+   "question": "When does an agency need clear congressional authorization?",
+   "now": "When an agency claims power of vast economic and political significance, it must point to clear congressional authorization, not merely a plausible reading of general words. Justices still differ on whether the doctrine is a substantive clear-statement rule or, as Justice Barrett puts it, ordinary reading of text in context.",
+   "steps": [
+    {
+     "id": "lrs-i-benzene",
+     "year": 1980,
+     "date": "1980-07-02",
+     "turn": "origin",
+     "note": "Absent a clear mandate, the plurality will not read the OSH Act to give the agency unprecedented power over American industry."
+    },
+    {
+     "sup": "LRS-CLOSURE-030",
+     "year": 2000,
+     "date": "2000-03-21",
+     "turn": "expands",
+     "note": "In extraordinary cases courts hesitate to find an implicit delegation over a large part of the economy; the FDA cannot regulate tobacco."
+    },
+    {
+     "id": "lrs-i-king-burwell",
+     "year": 2015,
+     "date": "2015-06-25",
+     "turn": "refines",
+     "note": "A question of deep economic and political significance was not left to the IRS; the Court decides it by reading the whole statute."
+    },
+    {
+     "id": "lrs-i-alabama-realtors",
+     "year": 2021,
+     "date": "2021-08-26",
+     "turn": "expands",
+     "note": "A nationwide eviction moratorium needs clear authorization; a general disease-control power read with its narrow examples does not give it."
+    },
+    {
+     "id": "lrs-i-nfib-osha",
+     "year": 2022,
+     "date": "2022-01-13",
+     "turn": "expands",
+     "note": "A vaccine-or-test mandate for large employers is a general public-health measure, not an occupational standard Congress clearly authorized."
+    },
+    {
+     "id": "lrs-i-biden-missouri",
+     "year": 2022,
+     "date": "2022-01-13",
+     "turn": "counterpoint",
+     "note": "The same day, a vaccination rule for health-care staff stands: it falls within express power to protect patients' health and safety."
+    },
+    {
+     "id": "lrs-i-west-virginia",
+     "year": 2022,
+     "date": "2022-06-30",
+     "turn": "expands",
+     "note": "The doctrine is named: in extraordinary cases the agency must point to clear congressional authorization; a merely plausible reading is not enough."
+    },
+    {
+     "id": "lrs-i-biden-nebraska",
+     "year": 2023,
+     "date": "2023-06-30",
+     "turn": "applies",
+     "note": "Power to 'waive or modify' allows modest changes, not mass loan cancellation; Barrett recasts the doctrine as reading text in context."
+    }
+   ]
+  },
+  {
+   "id": "protected-interests",
+   "course": "Legislation and the Regulatory State",
+   "title": "Protected interests: from privilege to entitlement",
+   "question": "When is a government job or benefit liberty or property that due process protects?",
+   "now": "Due process protects a legitimate claim of entitlement defined by law or mutual understanding (Roth), whatever the privilege label; once the interest exists, the Constitution, not the statute that created it, sets the minimum process (Loudermill), and unrestricted official discretion can defeat the entitlement.",
+   "steps": [
+    {
+     "id": "lrs-o-bailey",
+     "year": 1950,
+     "turn": "origin",
+     "note": "Government employment is a privilege, not property, so dismissal needs no due process; an equally divided Court affirmed in 1951.",
+     "fate": "Its right/privilege premise was rejected in Roth (1972)"
+    },
+    {
+     "id": "lrs-o-greene",
+     "year": 1959,
+     "date": "1959-06-29",
+     "turn": "expands",
+     "note": "Officials may not cost a person a private job through a clearance hearing without confrontation unless Congress or the President expressly allows it."
+    },
+    {
+     "id": "lrs-o-cafeteria-workers",
+     "year": 1961,
+     "date": "1961-06-19",
+     "turn": "narrows",
+     "note": "No hearing was due to bar a cook from a naval base: the process due depends on the government function and the private interest at stake."
+    },
+    {
+     "id": "lrs-o-goldberg",
+     "year": 1970,
+     "date": "1970-03-23",
+     "turn": "expands",
+     "note": "Welfare benefits are a statutory entitlement, not a privilege, so ending them triggers due process and a prior hearing."
+    },
+    {
+     "id": "lrs-o-roth",
+     "year": 1972,
+     "date": "1972-06-29",
+     "turn": "refines",
+     "note": "Property means a legitimate claim of entitlement from an independent source such as state law; a one-year appointment gives none."
+    },
+    {
+     "id": "lrs-o-perry",
+     "year": 1972,
+     "date": "1972-06-29",
+     "turn": "expands",
+     "note": "Mutually explicit understandings, not only formal tenure, can create a property interest in continued public employment."
+    },
+    {
+     "id": "lrs-o-arnett",
+     "year": 1974,
+     "date": "1974-04-16",
+     "turn": "divided",
+     "note": "A three-Justice plurality says a statute granting a job may also limit its procedures, the 'bitter with the sweet'; six Justices disagree.",
+     "fate": "Rejected by the Court in Loudermill (1985)"
+    },
+    {
+     "id": "lrs-o-loudermill",
+     "year": 1985,
+     "date": "1985-03-19",
+     "turn": "refines",
+     "note": "State law creates the interest, but the Constitution sets the procedure for taking it away; the bitter-with-the-sweet idea is rejected."
+    },
+    {
+     "id": "lrs-o-barry-shelter",
+     "year": 1997,
+     "turn": "narrows",
+     "note": "Meeting eligibility criteria is no entitlement when supply is limited and officials have unrestricted discretion over who gets the benefit."
+    },
+    {
+     "id": "lrs-o-weston",
+     "year": 2001,
+     "turn": "counterpoint",
+     "note": "A Colorado court holds that a no-entitlement clause does not defeat a property interest where officials cannot deny funded benefits to the eligible."
+    }
+   ]
+  },
+  {
+   "id": "hearing",
+   "course": "Legislation and the Regulatory State",
+   "title": "What process is due, and when",
+   "question": "When is a hearing due, and what kind?",
+   "now": "Mathews balancing decides what process is due once a protected interest is at stake: a general rule needs no individual hearing (Bi-Metallic), and otherwise notice and a chance to respond scale with the interest, the risk of error and the government's burden; an informal chance to respond followed by a fuller hearing or an ordinary lawsuit often suffices.",
+   "steps": [
+    {
+     "id": "lrs-o-londoner",
+     "year": 1908,
+     "date": "1908-06-01",
+     "turn": "origin",
+     "note": "When a body assesses particular owners on individual grounds, each must get notice and a hearing with argument and proof."
+    },
+    {
+     "id": "lrs-o-bi-metallic",
+     "year": 1915,
+     "date": "1915-12-20",
+     "turn": "narrows",
+     "note": "A general rule applied to everyone alike needs no individual hearing; the check on it is political, not procedural."
+    },
+    {
+     "id": "lrs-o-goldberg",
+     "year": 1970,
+     "date": "1970-03-23",
+     "turn": "expands",
+     "note": "Welfare may not be cut off before an evidentiary hearing with oral presentation, confrontation and an impartial decisionmaker."
+    },
+    {
+     "id": "lrs-o-mathews",
+     "year": 1976,
+     "date": "1976-02-24",
+     "turn": "narrows",
+     "note": "Three-factor balancing of private interest, risk of error and government burden; no evidentiary hearing is needed before disability benefits stop."
+    },
+    {
+     "id": "lrs-o-ingraham",
+     "year": 1977,
+     "date": "1977-04-19",
+     "turn": "narrows",
+     "note": "School paddling implicates liberty, but common-law limits and later civil and criminal remedies supply the process due; no prior hearing."
+    },
+    {
+     "id": "lrs-o-memphis-light",
+     "year": 1978,
+     "date": "1978-05-01",
+     "turn": "applies",
+     "note": "A customer facing a utility shutoff must be told how to dispute the bill and get a chance to present it to someone able to fix it."
+    },
+    {
+     "id": "lrs-o-loudermill",
+     "year": 1985,
+     "date": "1985-03-19",
+     "turn": "refines",
+     "note": "Before firing a tenured employee: notice, an explanation of the evidence and a chance to respond, with a fuller hearing afterward."
+    },
+    {
+     "id": "lrs-o-brock",
+     "year": 1987,
+     "date": "1987-04-22",
+     "turn": "applies",
+     "note": "Before an order reinstating a whistleblower, the employer gets the substance of the evidence and a chance to respond, not a trial-type hearing."
+    },
+    {
+     "id": "cp-doehr",
+     "year": 1991,
+     "date": "1991-06-06",
+     "turn": "expands",
+     "note": "Mathews, modified to weigh the plaintiff's interest, governs private prejudgment attachment; attaching a home without notice or exigency fails."
+    },
+    {
+     "id": "lrs-o-west-covina",
+     "year": 1999,
+     "date": "1999-01-20",
+     "turn": "narrows",
+     "note": "After a lawful seizure the owner must be told of it, but not of return remedies set out in published statutes and cases."
+    },
+    {
+     "id": "lrs-o-gg-fire",
+     "year": 2001,
+     "date": "2001-04-17",
+     "turn": "narrows",
+     "note": "Where an ordinary contract suit can fully protect a disputed claim for payment, that suit is all the process due."
+    }
+   ]
+  },
+  {
+   "id": "public-rights",
+   "course": "Legislation and the Regulatory State",
+   "title": "Agency adjudication, public rights and the civil jury",
+   "question": "When may Congress send a claim to an agency instead of a jury in an Article III court?",
+   "now": "A statutory claim that is legal in nature, judged chiefly by its remedy (punitive civil penalties are legal), goes to a jury in an Article III court unless it falls within the public-rights exception, such as revenue, customs, immigration, public lands and public benefits.",
+   "steps": [
+    {
+     "sup": "LRS-CLOSURE-068",
+     "year": 1856,
+     "turn": "origin",
+     "note": "Matters of public right, like summary collection of a revenue officer's debt, may be settled by the executive without an Article III trial."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-416",
+     "year": 1977,
+     "date": "1977-03-23",
+     "turn": "expands",
+     "note": "When the Government enforces new statutory public rights, Congress may assign penalty cases to an agency forum with no jury.",
+     "fate": "Distinguished, not overruled, in Jarkesy (2024)"
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-415",
+     "year": 1987,
+     "date": "1987-04-28",
+     "turn": "expands",
+     "note": "A government suit for civil penalties is legal in nature, so the defendant gets a jury on liability, though the judge sets the amount."
+    },
+    {
+     "sup": "CP-COMP-CB-CAP-417",
+     "year": 1989,
+     "date": "1989-06-22",
+     "turn": "narrows",
+     "note": "Calling a claim a core proceeding cannot strip the jury right; a traditional legal claim against a stranger to the estate is no public right."
+    },
+    {
+     "id": "lrs-o-jarkesy",
+     "year": 2024,
+     "date": "2024-06-27",
+     "turn": "narrows",
+     "note": "SEC civil penalties for securities fraud are legal claims that need a jury in an Article III court; the public-rights exception does not reach them."
+    }
+   ]
+  },
+  {
+   "id": "arbitrary",
+   "course": "Legislation and the Regulatory State",
+   "title": "Reasoned decisionmaking: the agency's own reasons and the hard look",
+   "question": "How closely do courts review an agency's reasons?",
+   "now": "An agency must examine the relevant data and give a genuine, reasoned explanation that connects the facts found to the choice made, answers significant comments and accounts for reliance when it changes course; a court judges the action only on the reasons given and remands when they fail.",
+   "steps": [
+    {
+     "id": "lrs-o-chenery-i",
+     "year": 1943,
+     "date": "1943-02-01",
+     "turn": "origin",
+     "note": "A court judges an agency order only on the grounds the agency invoked; it may not supply a policy judgment the agency never made."
+    },
+    {
+     "id": "lrs-n-automotive-parts-boyd",
+     "year": 1968,
+     "turn": "expands",
+     "note": "The concise statement of basis and purpose need not answer every comment but must show the major issues and why the agency chose as it did."
+    },
+    {
+     "sup": "LRS-CLOSURE-078",
+     "year": 1970,
+     "turn": "refines",
+     "note": "Courts ask whether the agency took a 'hard look' and engaged in reasoned decisionmaking; if it did, they defer even if they would differ."
+    },
+    {
+     "id": "lrs-n-overton-park",
+     "year": 1971,
+     "date": "1971-03-02",
+     "turn": "expands",
+     "note": "Review is searching and careful, on the full administrative record: did the agency weigh the relevant factors, or make a clear error of judgment?"
+    },
+    {
+     "id": "lrs-n-national-tire-brinegar",
+     "year": 1974,
+     "turn": "applies",
+     "note": "A discretionary requirement fails when the agency does not tie it to the statute's goal or answer concrete objections in the record."
+    },
+    {
+     "id": "lrs-n-nrdc-epa-1981",
+     "year": 1981,
+     "turn": "applies",
+     "note": "An agency may base standards on predicted technology if it answers objections and gives plausible reasons each remaining step can be done in time."
+    },
+    {
+     "id": "lrs-n-state-farm",
+     "year": 1983,
+     "date": "1983-06-24",
+     "turn": "refines",
+     "note": "The core test: examine the data and connect facts to choice; rescinding a rule gets the same review, and counsel's later reasons do not count."
+    },
+    {
+     "id": "lrs-n-state-farm-dole",
+     "year": 1986,
+     "turn": "applies",
+     "note": "After State Farm's remand, the new passive-restraint rule's present choices survive as reasonably explained; its contingent parts are unripe."
+    },
+    {
+     "id": "lrs-n-fcc-fox",
+     "year": 2009,
+     "date": "2009-04-28",
+     "turn": "refines",
+     "note": "A policy change needs no better reasons than the old policy: acknowledge the change, give good reasons, and address reliance and prior findings."
+    },
+    {
+     "id": "lrs-n-commerce-new-york",
+     "year": 2019,
+     "date": "2019-06-27",
+     "turn": "expands",
+     "note": "The stated reason must be the real one: when the explanation does not match the record, the action goes back to the agency."
+    },
+    {
+     "id": "lrs-n-regents",
+     "year": 2020,
+     "date": "2020-06-18",
+     "turn": "expands",
+     "note": "Rescinding a program requires weighing reliance and alternatives within it; reasons offered later cannot save the original action."
+    },
+    {
+     "id": "lrs-o-calcutt",
+     "year": 2023,
+     "date": "2023-05-22",
+     "turn": "reaffirms",
+     "note": "When the agency's reasoning contains a legal error, the court must remand under Chenery, not affirm on its own corrected analysis."
+    },
+    {
+     "id": "lrs-n-ohio-epa",
+     "year": 2024,
+     "date": "2024-06-27",
+     "turn": "applies",
+     "note": "Failing to respond to a significant comment likely makes a rule arbitrary and capricious, and that defect can support a stay."
+    }
+   ]
+  },
+  {
+   "id": "substantial-evidence",
+   "course": "Legislation and the Regulatory State",
+   "title": "Substantial-evidence review of agency findings",
+   "question": "How much factual support must an agency finding have?",
+   "now": "An agency finding stands if a reasonable mind could accept the evidence as adequate on the whole record, including evidence that cuts against it; the same quantum of support applies to informal action under arbitrary-and-capricious review, and the bar is not high.",
+   "steps": [
+    {
+     "id": "lrs-n-universal-camera",
+     "year": 1951,
+     "date": "1951-02-26",
+     "turn": "origin",
+     "note": "Substantial evidence is judged on the whole record, including evidence that detracts from the finding and the examiner's contrary report."
+    },
+    {
+     "id": "lrs-o-perales",
+     "year": 1971,
+     "date": "1971-05-03",
+     "turn": "refines",
+     "note": "Examining physicians' written reports can be substantial evidence despite hearsay and contrary testimony when the claimant could have subpoenaed them."
+    },
+    {
+     "id": "lrs-n-adapso-board",
+     "year": 1984,
+     "turn": "refines",
+     "note": "Substantial-evidence and arbitrary-and-capricious review demand the same factual support; the former simply confines it to a formal record."
+    },
+    {
+     "id": "lrs-o-tyson",
+     "year": 1986,
+     "date": "1986-07-25",
+     "turn": "applies",
+     "note": "A health standard may rest on cumulative, imperfect science, but the agency must show with evidence why a feasible added protection is unneeded."
+    },
+    {
+     "id": "lrs-n-allentown-mack",
+     "year": 1998,
+     "date": "1998-01-26",
+     "turn": "refines",
+     "note": "An agency must apply the standard it announces; a finding that quietly demands more than that standard lacks substantial evidence."
+    },
+    {
+     "id": "lrs-n-dickinson-zurko",
+     "year": 1999,
+     "date": "1999-06-10",
+     "turn": "refines",
+     "note": "The APA's standards govern review of the patent office's fact findings; the stricter clear-error test courts apply to judges does not."
+    },
+    {
+     "id": "lrs-n-safe-extensions",
+     "year": 2007,
+     "turn": "applies",
+     "note": "Informal action needs the same evidentiary support as formal action, drawn from what the agency had before it when it acted."
+    },
+    {
+     "id": "lrs-n-biestek",
+     "year": 2019,
+     "date": "2019-04-01",
+     "turn": "refines",
+     "note": "The threshold is not high and is applied case by case; an expert's refusal to share underlying data does not automatically defeat it."
+    }
+   ]
+  },
+  {
+   "id": "inaction",
+   "course": "Legislation and the Regulatory State",
+   "title": "Reviewing agency inaction and enforcement choices",
+   "question": "When may a court review an agency's decision not to act?",
+   "now": "A refusal to enforce is presumptively unreviewable (Heckler), but denials of rulemaking petitions are reviewable with great deference, rescinding a program that confers benefits is reviewable, and a court can compel only a discrete action the law requires (Norton).",
+   "steps": [
+    {
+     "id": "lrs-n-overton-park",
+     "year": 1971,
+     "date": "1971-03-02",
+     "turn": "origin",
+     "note": "'Committed to agency discretion' is a narrow exception for cases with no law to apply; statutory standards make action reviewable."
+    },
+    {
+     "id": "lrs-n-dunlop-bachowski",
+     "year": 1975,
+     "date": "1975-06-02",
+     "turn": "expands",
+     "note": "A decision not to sue to set aside a union election is reviewable, but only for rationality, on the Secretary's statement of reasons."
+    },
+    {
+     "id": "lrs-n-heckler-chaney",
+     "year": 1985,
+     "date": "1985-03-20",
+     "turn": "narrows",
+     "note": "A refusal to enforce is presumptively unreviewable unless the statute supplies guidelines that limit the agency's enforcement discretion."
+    },
+    {
+     "id": "lrs-n-american-horse-lyng",
+     "year": 1987,
+     "turn": "refines",
+     "note": "A refusal to begin rulemaking is reviewable under a highly deferential standard but still needs a reasoned, record-supported explanation."
+    },
+    {
+     "id": "lrs-n-norton-suwa",
+     "year": 2004,
+     "date": "2004-06-14",
+     "turn": "narrows",
+     "note": "A court may compel only a discrete action the agency is legally required to take, not general compliance with a broad mandate."
+    },
+    {
+     "id": "lrs-n-massachusetts-epa",
+     "year": 2007,
+     "date": "2007-04-02",
+     "turn": "expands",
+     "note": "Denying a rulemaking petition is reviewable, and the agency's reasons must track the statute's criteria, not unrelated policy preferences."
+    },
+    {
+     "id": "lrs-n-regents",
+     "year": 2020,
+     "date": "2020-06-18",
+     "turn": "expands",
+     "note": "Ending a program that solicits applications and grants benefits is more than passive nonenforcement, so Heckler's presumption does not bar review."
+    }
+   ]
+  },
+  {
+   "id": "rule-or-order",
+   "course": "Legislation and the Regulatory State",
+   "title": "Rule or order: the agency's choice of procedure",
+   "question": "May an agency make policy case by case instead of by rule?",
+   "now": "An agency with both tools may make policy by rule or by adjudication, and courts disturb the choice only for abuse of discretion, chiefly where applying a new standard in adjudication would unfairly upset reliance; a general grant of rulemaking power can support binding legislative rules.",
+   "steps": [
+    {
+     "id": "lrs-o-apa-classification",
+     "year": 1946,
+     "date": "1946-06-11",
+     "turn": "origin",
+     "note": "The APA sorts agency action into two kinds, each with its own procedure: rules, which have future effect, and orders, the products of adjudication."
+    },
+    {
+     "id": "lrs-o-chenery-ii",
+     "year": 1947,
+     "date": "1947-06-23",
+     "turn": "expands",
+     "note": "The choice between a general rule and case-by-case adjudication is primarily the agency's; retroactive effect is weighed, not fatal."
+    },
+    {
+     "id": "lrs-o-wyman-gordon",
+     "year": 1969,
+     "date": "1969-04-23",
+     "turn": "divided",
+     "note": "No majority: a plurality says a purely prospective rule announced in adjudication evades the APA, but the order against the party is enforced."
+    },
+    {
+     "id": "lrs-o-national-petroleum",
+     "year": 1973,
+     "date": "1973-06-27",
+     "turn": "expands",
+     "note": "A general grant of power to make rules lets the FTC issue binding substantive rules, a real alternative to case-by-case enforcement.",
+     "fate": "Congress confirmed the power but imposed hybrid procedures in the Magnuson-Moss Act (1975)"
+    },
+    {
+     "id": "lrs-o-bell-aerospace",
+     "year": 1974,
+     "date": "1974-04-23",
+     "turn": "reaffirms",
+     "note": "The Board may announce new principles through adjudication; the choice is reviewed only for abuse, as where it would upset reliance."
+    }
+   ]
+  },
+  {
+   "id": "rulemaking",
+   "course": "Legislation and the Regulatory State",
+   "title": "Rulemaking procedure: formal hearings, notice and comment, and the limits on courts",
+   "question": "How much procedure must an agency use to make a rule, and may courts demand more?",
+   "now": "Most rules go through informal notice and comment, with trial-type procedure only where a statute requires rules made on the record; courts may not add procedures (Vermont Yankee), but they still require disclosure of the key data, answers to significant comments and a final rule that is a logical outgrowth of the proposal.",
+   "steps": [
+    {
+     "id": "lrs-o-section-553",
+     "year": 1946,
+     "date": "1946-06-11",
+     "turn": "origin",
+     "note": "The APA requires notice, written comment and a statement of basis and purpose; trial-type procedure only when rules must be made on the record."
+    },
+    {
+     "id": "lrs-o-wirtz",
+     "year": 1963,
+     "turn": "refines",
+     "note": "In on-the-record rulemaking, parties must be able to test the data behind the agency's summaries, or the findings lack support."
+    },
+    {
+     "id": "lrs-o-florida-east-coast",
+     "year": 1973,
+     "date": "1973-01-22",
+     "turn": "narrows",
+     "note": "Formal rulemaking applies only when a statute calls for rules 'on the record after opportunity for an agency hearing' or the like."
+    },
+    {
+     "id": "lrs-o-mobil-oil",
+     "year": 1973,
+     "date": "1973-07-11",
+     "turn": "expands",
+     "note": "Even short of formal procedure, a rule under substantial-evidence review needs a record whose factual premises parties could test."
+    },
+    {
+     "id": "lrs-o-marathon-oil",
+     "year": 1977,
+     "date": "1977-11-21",
+     "turn": "counterpoint",
+     "note": "For adjudication, a statutory 'public hearing' on disputed facts can trigger formal APA procedure without the words 'on the record'."
+    },
+    {
+     "id": "lrs-o-nova-scotia",
+     "year": 1977,
+     "date": "1977-12-15",
+     "turn": "expands",
+     "note": "Notice must disclose the scientific data behind a proposal, and the final statement must answer comments that go to the rule's core."
+    },
+    {
+     "id": "lrs-o-vermont-yankee",
+     "year": 1978,
+     "date": "1978-04-03",
+     "turn": "narrows",
+     "note": "Courts may not add procedures to informal rulemaking beyond those the Constitution, the APA and the governing statute require."
+    },
+    {
+     "id": "lrs-o-american-radio",
+     "year": 2008,
+     "turn": "reaffirms",
+     "note": "The disclosure rule survives Vermont Yankee: studies the agency relies on must be released for comment; Judge Kavanaugh questions it."
+    },
+    {
+     "id": "lrs-n-perez-mortgage-bankers",
+     "year": 2015,
+     "date": "2015-03-09",
+     "turn": "reaffirms",
+     "note": "Vermont Yankee applied: interpretive rules need no notice and comment, even when they change an earlier interpretation."
+    },
+    {
+     "id": "lrs-n-little-sisters",
+     "year": 2020,
+     "date": "2020-07-08",
+     "turn": "reaffirms",
+     "note": "Courts may not add an open-mindedness test to notice and comment; the APA's objective requirements, if met, are enough."
+    },
+    {
+     "id": "lrs-o-mock",
+     "year": 2023,
+     "date": "2023-08-01",
+     "turn": "applies",
+     "note": "A final rule must be a logical outgrowth of the proposal; a legislative rule that commenters could not have anticipated fails."
+    }
+   ]
+  },
+  {
+   "id": "guidance",
+   "course": "Legislation and the Regulatory State",
+   "title": "Guidance documents: legislative rule, interpretive rule or policy statement",
+   "question": "When must an agency use notice and comment for a document it calls guidance?",
+   "now": "A document that binds the agency or the public, in its text or in practice, or that makes new law rather than drawing out what a statute or regulation already requires, is a legislative rule needing notice and comment; genuine interpretations and nonbinding policy statements are exempt, even when they change (Perez).",
+   "steps": [
+    {
+     "id": "lrs-n-pacific-gas-policy",
+     "year": 1974,
+     "date": "1974-06-26",
+     "turn": "origin",
+     "note": "A policy statement only announces what the agency intends; not being a binding norm, it is exempt, but must be defended each time it is applied."
+    },
+    {
+     "id": "lrs-n-community-nutrition",
+     "year": 1987,
+     "turn": "refines",
+     "note": "A pronouncement with present binding effect that leaves the agency no real discretion is a legislative rule, whatever its label."
+    },
+    {
+     "id": "lrs-n-american-mining-congress",
+     "year": 1993,
+     "date": "1993-06-15",
+     "turn": "refines",
+     "note": "A rule is legislative if it supplies the basis for enforcement, appears in the CFR, invokes legislative authority or amends a legislative rule."
+    },
+    {
+     "id": "lrs-n-hoctor",
+     "year": 1996,
+     "turn": "refines",
+     "note": "A requirement that cannot be derived from a regulation by interpretation, such as a flat eight-foot fence height, is legislative."
+    },
+    {
+     "id": "lrs-n-paralyzed-veterans",
+     "year": 1997,
+     "turn": "expands",
+     "note": "Guidance explaining a duty within a regulation is interpretive, but a definitive interpretation may not be fundamentally revised without comment.",
+     "fate": "Its rule on revising interpretations was abrogated by Perez (2015)"
+    },
+    {
+     "sup": "LRS-CLOSURE-021",
+     "year": 2000,
+     "date": "2000-04-14",
+     "turn": "expands",
+     "note": "Guidance that states a settled position and binds in practice is reviewable final action and cannot expand a rule without rulemaking."
+    },
+    {
+     "id": "lrs-n-general-electric-epa",
+     "year": 2002,
+     "turn": "applies",
+     "note": "A document labeled guidance is a legislative rule when its text binds both the regulated parties and the agency itself."
+    },
+    {
+     "id": "lrs-n-perez-mortgage-bankers",
+     "year": 2015,
+     "date": "2015-03-09",
+     "turn": "overrules",
+     "note": "The Paralyzed Veterans revision rule is abrogated: interpretive rules are exempt from notice and comment whether new or changed."
+    },
+    {
+     "id": "lrs-n-texas-united-states-dapa",
+     "year": 2015,
+     "date": "2015-11-09",
+     "turn": "applies",
+     "note": "A deferred-action program that in practice leaves officials no real discretion is likely a substantive rule needing notice and comment."
+    },
+    {
+     "id": "lrs-n-national-council-adoption",
+     "year": 2021,
+     "turn": "refines",
+     "note": "A rule is interpretive only if the statute or rule it explains compels or logically justifies it; guidance that makes new law is legislative."
+    }
+   ]
+  },
+  {
+   "id": "standing",
+   "course": "Legislation and the Regulatory State",
+   "title": "Article III standing: injury, traceability, redress",
+   "question": "Who has a case or controversy to bring to federal court?",
+   "now": "A plaintiff must show a concrete, particularized and actual or imminent injury, fairly traceable to the defendant and likely redressed by the relief sought; a statutory violation counts only when it causes harm with a close historical analogue (TransUnion), and states' indirect costs do not let them force federal enforcement choices (United States v. Texas).",
+   "steps": [
+    {
+     "id": "lrs-n-standing-adapso",
+     "year": 1970,
+     "date": "1970-03-03",
+     "turn": "origin",
+     "note": "The threshold becomes injury in fact, economic or otherwise, replacing the older demand for an established legal interest."
+    },
+    {
+     "id": "lrs-n-standing-sierra",
+     "year": 1972,
+     "date": "1972-04-19",
+     "turn": "refines",
+     "note": "Aesthetic and environmental harm counts as injury, but the plaintiff or its members must suffer it; concern for a cause is not enough."
+    },
+    {
+     "id": "lrs-n-standing-lujan",
+     "year": 1992,
+     "date": "1992-06-12",
+     "turn": "narrows",
+     "note": "Injury must be concrete, particularized and imminent, traceable and redressable; a citizen-suit provision cannot dispense with it."
+    },
+    {
+     "id": "lrs-n-standing-raines",
+     "year": 1997,
+     "date": "1997-06-26",
+     "turn": "narrows",
+     "note": "Legislators lack standing for an abstract dilution of institutional power, and a statute authorizing their suit cannot supply the injury."
+    },
+    {
+     "id": "lrs-n-standing-akins",
+     "year": 1998,
+     "date": "1998-06-01",
+     "turn": "expands",
+     "note": "Denial of information a statute requires to be disclosed is a concrete injury, even though many voters share it."
+    },
+    {
+     "id": "lrs-n-standing-laidlaw",
+     "year": 2000,
+     "date": "2000-01-12",
+     "turn": "expands",
+     "note": "Reasonable concerns that curtail use of a river are injury, and civil penalties paid to the Treasury redress it by deterrence."
+    },
+    {
+     "id": "lrs-n-massachusetts-epa",
+     "year": 2007,
+     "date": "2007-04-02",
+     "turn": "expands",
+     "note": "States get special solicitude: a threatened coastline and a procedural right let Massachusetts challenge EPA's refusal to regulate."
+    },
+    {
+     "id": "lrs-n-standing-spokeo",
+     "year": 2016,
+     "date": "2016-05-16",
+     "turn": "narrows",
+     "note": "Injury must be concrete as well as particularized; a bare procedural violation of a statute is not automatically enough."
+    },
+    {
+     "id": "lrs-n-standing-california-texas",
+     "year": 2021,
+     "date": "2021-06-17",
+     "turn": "narrows",
+     "note": "A provision with no penalty and no enforcement causes no traceable injury, so the individual and state challengers lacked standing."
+    },
+    {
+     "id": "cp-transunion",
+     "year": 2021,
+     "date": "2021-06-25",
+     "turn": "narrows",
+     "note": "Concrete injury needs a close historical analogue; every class member seeking damages must have it, and unrealized risk is not enough."
+    },
+    {
+     "id": "lrs-n-standing-us-texas",
+     "year": 2023,
+     "date": "2023-06-23",
+     "turn": "narrows",
+     "note": "States' indirect costs give them no judicially cognizable interest in forcing the Executive to make more arrests."
+    }
+   ]
+  },
+  {
+   "id": "zone-of-interests",
+   "course": "Legislation and the Regulatory State",
+   "title": "Statutory standing: the zone of interests",
+   "question": "Whose interests let them sue to enforce a statute against an agency?",
+   "now": "Beyond Article III injury, a plaintiff must be arguably within the zone of interests protected or regulated by the provision it invokes. The test is lenient, is a question of statutory interpretation (Lexmark, 2014), and excludes only interests marginally or accidentally related to the statute's purposes.",
+   "steps": [
+    {
+     "id": "lrs-o-church-christ",
+     "year": 1966,
+     "date": "1966-03-25",
+     "turn": "origin",
+     "note": "Responsible representatives of the listening public, not only economic competitors, may intervene to contest a broadcast license renewal."
+    },
+    {
+     "id": "lrs-n-standing-adapso",
+     "year": 1970,
+     "date": "1970-03-03",
+     "turn": "expands",
+     "note": "Beyond injury, the plaintiff's interest need only be arguably within the zone of interests the statute protects or regulates."
+    },
+    {
+     "sup": "LRS-CLOSURE-081",
+     "year": 1987,
+     "date": "1987-01-14",
+     "turn": "expands",
+     "note": "The zone test is not demanding: it bars only interests so marginal to the statute that Congress cannot be assumed to have meant them to sue."
+    },
+    {
+     "id": "lrs-n-standing-air-courier",
+     "year": 1991,
+     "date": "1991-02-26",
+     "turn": "narrows",
+     "note": "The zone is set by the statute whose violation is claimed; postal workers' job interests fall outside the postal monopoly laws."
+    },
+    {
+     "id": "lrs-n-standing-newport",
+     "year": 1995,
+     "date": "1995-03-21",
+     "turn": "narrows",
+     "note": "An agency's policy interest does not make it 'adversely affected or aggrieved'; the Director could not appeal a worker's award."
+    },
+    {
+     "id": "lrs-n-standing-bennett",
+     "year": 1997,
+     "date": "1997-03-19",
+     "turn": "refines",
+     "note": "The zone is drawn from the particular provision invoked, and economic interests in avoiding needless regulation can fall within it."
+    },
+    {
+     "id": "lrs-n-standing-ncua",
+     "year": 1998,
+     "date": "1998-02-25",
+     "turn": "reaffirms",
+     "note": "A plaintiff need not show that Congress meant to benefit it; banks are arguably within the zone of a credit-union membership limit."
+    },
+    {
+     "id": "lrs-n-standing-thompson",
+     "year": 2011,
+     "date": "2011-01-24",
+     "turn": "expands",
+     "note": "Title VII's 'person aggrieved' means the zone of interests, which covers an employee fired to punish a co-worker's charge."
+    },
+    {
+     "id": "lrs-n-standing-patchak",
+     "year": 2012,
+     "date": "2012-06-18",
+     "turn": "reaffirms",
+     "note": "The test is lenient: a neighbor's economic, environmental and aesthetic interests are arguably within a land-acquisition statute."
+    },
+    {
+     "id": "lrs-n-standing-twin-rivers",
+     "year": 2019,
+     "turn": "applies",
+     "note": "Interests that align with a statute's beneficiaries only by accident, as paper sellers' do under securities law, fall outside the zone."
+    }
+   ]
+  },
+  {
+   "id": "associational-standing",
+   "course": "Legislation and the Regulatory State",
+   "title": "Organizations as plaintiffs",
+   "question": "When may an organization sue for its members, or for itself?",
+   "now": "An association may sue for its members if at least one identified member has standing, the interests are germane to its purpose and individual participation is not required (a prudential prong Congress may waive); an organization suing for itself needs its own concrete injury, and Havens is read narrowly (FDA v. Alliance for Hippocratic Medicine, 2024).",
+   "steps": [
+    {
+     "id": "lrs-n-standing-sierra",
+     "year": 1972,
+     "date": "1972-04-19",
+     "turn": "origin",
+     "note": "An organization may sue for members who are themselves injured; its long-standing interest in a cause does not give it standing."
+    },
+    {
+     "id": "lrs-n-standing-havens",
+     "year": 1982,
+     "date": "1982-02-24",
+     "turn": "expands",
+     "note": "An organization has standing in its own right when the defendant's practices perceptibly impair its services and drain its resources.",
+     "fate": "Held to its context by FDA v. Alliance for Hippocratic Medicine (2024)"
+    },
+    {
+     "id": "lrs-n-standing-brock",
+     "year": 1986,
+     "date": "1986-06-25",
+     "turn": "reaffirms",
+     "note": "Hunt's three-part test for associational standing is reaffirmed, and a class action is not a required substitute for it."
+    },
+    {
+     "id": "lrs-n-standing-maritime",
+     "year": 1987,
+     "turn": "refines",
+     "note": "Conflicts among members do not defeat associational standing, but the members represented must themselves have standing."
+    },
+    {
+     "id": "lrs-n-standing-brown-group",
+     "year": 1996,
+     "date": "1996-05-13",
+     "turn": "refines",
+     "note": "Hunt's third prong is prudential, not constitutional, so Congress may let a union sue for its members' damages."
+    },
+    {
+     "id": "lrs-n-standing-sffa",
+     "year": 2023,
+     "date": "2023-06-29",
+     "turn": "reaffirms",
+     "note": "A genuine voluntary membership organization that meets Hunt has standing; its members need not also control or fund it."
+    }
+   ]
+  },
+  {
+   "id": "interpretation-statutes",
+   "course": "Legislation and the Regulatory State",
+   "title": "Text, purpose and legislative history",
+   "question": "How far may a court look beyond the words of a statute?",
+   "now": "The Court begins, and usually ends, with ordinary meaning read in context, aided by structure, canons and presumptions; legislative history and purpose may confirm a reading but rarely override clear text, a sharp change from Holy Trinity.",
+   "steps": [
+    {
+     "id": "lrs-k-riggs",
+     "year": 1889,
+     "date": "1889-10-08",
+     "turn": "origin",
+     "note": "General words of a statute yield to its purpose and to the maxim that no one may profit from his own wrong: the murderer does not inherit."
+    },
+    {
+     "id": "lrs-k-holy-trinity",
+     "year": 1892,
+     "date": "1892-02-29",
+     "turn": "expands",
+     "note": "A case within the letter may fall outside the statute when its history, context and consequences show the legislature did not mean it."
+    },
+    {
+     "id": "lrs-k-train",
+     "year": 1976,
+     "date": "1976-06-01",
+     "turn": "expands",
+     "note": "Legislative history may be consulted even when the words of a statute seem clear on first reading."
+    },
+    {
+     "id": "lrs-k-public-citizen",
+     "year": 1989,
+     "date": "1989-06-21",
+     "turn": "reaffirms",
+     "note": "When a literal reading gives odd results and raises constitutional doubts, purpose and history support a narrower reading of 'utilized'."
+    },
+    {
+     "sup": "LRS-CLOSURE-087",
+     "year": 1991,
+     "date": "1991-03-19",
+     "turn": "narrows",
+     "note": "Textualism gains ground: 'attorney's fee' does not include expert fees, and courts may not supplement clear text with purpose.",
+     "fate": "Partly overridden by the Civil Rights Act of 1991, which allows expert fees in § 1981 and § 1981a suits"
+    },
+    {
+     "id": "lrs-k-gayle",
+     "year": 2003,
+     "turn": "applies",
+     "note": "The Second Circuit finds 'any court' ambiguous in context and, relying on legislative history, reads it to exclude foreign convictions."
+    },
+    {
+     "id": "lrs-k-small",
+     "year": 2005,
+     "date": "2005-04-26",
+     "turn": "refines",
+     "note": "The Court reaches the same result by presuming that Congress legislates with domestic concerns in mind; three Justices dissent on the text."
+    },
+    {
+     "id": "lrs-k-arlington-murphy",
+     "year": 2006,
+     "date": "2006-06-26",
+     "turn": "narrows",
+     "note": "Text controls over a conference report: a fee condition on federal funds needs clear notice, and legislative history cannot supply it."
+    },
+    {
+     "id": "lrs-k-cargill",
+     "year": 2024,
+     "date": "2024-06-14",
+     "turn": "applies",
+     "note": "Ordinary meaning and mechanics decide: a bump stock does not fire more than one shot by a single function of the trigger."
+    },
+    {
+     "id": "lrs-k-vanderstok",
+     "year": 2025,
+     "date": "2025-03-26",
+     "turn": "applies",
+     "note": "Ordinary meaning cuts both ways: some parts kits and unfinished frames are covered, so the agency's rule is not facially invalid."
+    }
+   ]
+  },
+  {
+   "id": "associated-words",
+   "course": "Legislation and the Regulatory State",
+   "title": "Words known by their company: ejusdem generis and noscitur a sociis",
+   "question": "How do the words around a term limit what it means?",
+   "now": "Courts read an ambiguous term in light of its neighbors (noscitur a sociis) and a catchall in light of the specific items before it (ejusdem generis), but these canons give way when text, structure or purpose points the other way.",
+   "steps": [
+    {
+     "id": "lrs-k-mcboyle",
+     "year": 1931,
+     "date": "1931-03-09",
+     "turn": "origin",
+     "note": "'Vehicle' after a list of land vehicles means things that move on land, and a criminal law must give fair warning; airplanes are out."
+    },
+    {
+     "id": "lrs-k-people-smith",
+     "year": 1975,
+     "turn": "applies",
+     "note": "Ejusdem generis: 'other dangerous weapon' after dagger, dirk and stiletto reaches stabbing weapons, not a rifle."
+    },
+    {
+     "id": "lrs-k-gustafson",
+     "year": 1995,
+     "date": "1995-02-28",
+     "turn": "expands",
+     "note": "Noscitur a sociis and consistent usage: 'communication' in the prospectus definition means public solicitations, not a private sale contract."
+    },
+    {
+     "id": "lrs-k-raila",
+     "year": 2004,
+     "turn": "applies",
+     "note": "The Second Circuit reads 'negligent transmission' with 'loss' and 'miscarriage': it covers harm to the mail, not injury from a misplaced package."
+    },
+    {
+     "id": "lrs-k-dolan",
+     "year": 2006,
+     "date": "2006-02-22",
+     "turn": "reaffirms",
+     "note": "The Court resolves the circuit split the same way: the postal exception covers mail lost, late, damaged or misdelivered, not every delivery mishap."
+    },
+    {
+     "id": "lrs-k-epic",
+     "year": 2018,
+     "date": "2018-05-21",
+     "turn": "applies",
+     "note": "Ejusdem generis limits the NLRA's 'other concerted activities' to things like organizing and bargaining, not class procedures."
+    }
+   ]
+  }
+ ],
+ "left_out": {
+  "contracts": [
+   {
+    "id": "bayliner",
+    "why": "The only express-warranty case on the map; it applies UCC § 2-313 to sales talk and brochure figures, with no line of cases in the course."
+   },
+   {
+    "id": "balfour",
+    "why": "States the settled presumption against legal intent in domestic arrangements; no other case on the map develops it."
+   },
+   {
+    "id": "doe-great-expectations",
+    "why": "A small-claims application of New York's dating-service statute (GBL § 394-c); statutory consumer protection, not a developing contract doctrine."
+   },
+   {
+    "id": "hassler",
+    "why": "The only noncompete case on the map; its own turn (Wyoming abandoning the blue pencil it adopted in 1993) is internal to one state."
+   },
+   {
+    "id": "blossom-farm",
+    "why": "Illegality defense applied to a seller who furthered the buyer's improper use; with X.L.O. it forms no line, as the two decide different points."
+   },
+   {
+    "id": "xlo",
+    "why": "Contract tainted by an antitrust conspiracy, enforced unless the judgment would enforce the unlawful conduct itself; a one-off public-policy point."
+   }
+  ],
+  "civpro": [
+   {
+    "id": "cp-ziervogel",
+    "why": "Applies a Missouri rule that special damages be specifically pleaded; the course has no line of cases on special damages."
+   },
+   {
+    "id": "cp-garcia",
+    "why": "Applies notice pleading and the rule that a conditional privilege is an affirmative defense; it adds no step to the pleading line."
+   },
+   {
+    "id": "cp-ingraham",
+    "why": "One-off point that a statutory damages cap is an affirmative defense under Rule 8(c), waived if not raised; no line among the course's cases."
+   },
+   {
+    "id": "cp-kegerise",
+    "why": "Applies Rule 8(b)'s requirements for answers; no development through a line of cases."
+   },
+   {
+    "id": "cp-jeub",
+    "why": "Applies Rule 14 to a contingent claim over; impleader has no line of development among the course's cases."
+   },
+   {
+    "id": "cp-smuck",
+    "why": "A plurality reading of the 1966 intervention rule; the rest of the intervention line runs only through supporting cases."
+   },
+   {
+    "id": "cp-ellis-canning",
+    "why": "Applies a Kansas real-party-in-interest statute to a subrogated insurer; no line of cases on Rule 17 in the course."
+   },
+   {
+    "id": "cp-hall",
+    "why": "Settles one point about appeals from consolidated cases; the finality and collateral-order line runs through supporting cases, not map cases."
+   }
+  ],
+  "lrs": [
+   {
+    "id": "lrs-k-rucho",
+    "why": "Political-question ruling on partisan gerrymandering; its line (Baker v. Carr, Vieth) is not among the course's cases, and it is not an administrative-law doctrine."
+   },
+   {
+    "id": "lrs-o-noel-canning",
+    "why": "The course's only Recess Appointments Clause decision; its sole companion is the Third Circuit's New Vista ruling, too thin for a line, and it does not concern who is an officer."
+   },
+   {
+    "id": "lrs-o-ashbacker",
+    "why": "Statutory comparative-hearing right for mutually exclusive license applicants; no line of development among the course's cases (Church of Christ is placed with statutory standing)."
+   }
+  ]
+ }
+}
