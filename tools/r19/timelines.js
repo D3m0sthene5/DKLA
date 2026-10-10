@@ -56,14 +56,28 @@
     }).join('');
     return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><div class="dkla-timeline-head"><span>How the doctrine developed</span><h3>${esc(t.title)}</h3><p>${esc(t.question)}</p></div><ol class="dkla-timeline-track">${steps}</ol>${t.now ? `<p class="r21-now"><b>Where it stands</b>${esc(t.now)}</p>` : ''}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">All doctrine timelines</button></section>`;
   }
+  // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
+  function uses(t, concept) {
+    const canon = id => { try { return typeof r6Canonical === 'function' ? r6Canonical(id) : id; } catch { return id; } };
+    const c = canon(concept);
+    return t.steps.filter(s => s.id && Object.keys(nodesById.get(s.id)?.learning?.topics || {}).some(k => canon(k) === c)).length;
+  }
   function paint() {
     const inspector = document.getElementById('inspector'); if (!inspector) return;
     const current = typeof selected !== 'undefined' && selected?.type === 'node' ? selected.id : null;
     let painted = false;
-    inspector.querySelectorAll('.dkla-timeline:not([data-r21])').forEach(sec => {
-      const t = byTitle.get(sec.getAttribute('aria-label')); if (!t) return;
-      sec.outerHTML = panelHTML(t, current); painted = true;
-    });
+    const fresh = [...inspector.querySelectorAll('.dkla-timeline:not([data-r21])')].map(sec => [sec, byTitle.get(sec.getAttribute('aria-label'))]).filter(x => x[1]);
+    // A concept that is not itself a step shows the timelines it runs through; with many, the two that use it
+    // most are drawn in full and the rest are named in one line.
+    const n = current && nodesById.get(current), direct = fresh.some(([, t]) => t.steps.some(s => s.id === current));
+    if (n && !direct && fresh.length > 2) {
+      fresh.sort((a, b) => uses(b[1], current) - uses(a[1], current));
+      const rest = fresh.splice(2);
+      rest.forEach(([sec]) => sec.remove());
+      const last = fresh[fresh.length - 1][0];
+      last.insertAdjacentHTML('afterend', `<p class="r21-also"><span>Also traced in</span>${rest.map(([, t]) => `<button type="button" data-r21-open="${esc(t.id)}">${esc(t.title)}</button>`).join('')}</p>`);
+    }
+    fresh.forEach(([sec, t]) => { sec.outerHTML = panelHTML(t, current); painted = true; });
     // bring the open case's step into view, as the panel did before
     if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21] li.is-current').forEach(li => { const track = li.parentElement; track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2); });
   }
@@ -103,7 +117,8 @@
     render(); body.focus({ preventScroll: true });
   }
   dialog.addEventListener('click', ev => { if (ev.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => { body.innerHTML = ''; });
+  // the close event arrives after the dialog has closed, possibly after it was opened again: clear only a closed one
+  dialog.addEventListener('close', () => { if (!dialog.open) body.innerHTML = ''; });
   document.addEventListener('click', ev => {
     const b = ev.target.closest('[data-r21-open],[data-r21-close],[data-r21-course],[data-r21-tl],[data-r21-back],[data-r21-node],[data-r21-menu]');
     if (!b) return; const d = b.dataset;
@@ -130,11 +145,17 @@
     };
     const more = document.getElementById('moreBtn'); if (more) more.onclick = () => moreMenu();
   }
-  // search rows: timelines whose title or question matches
+  // search rows: timelines whose title, question, summary or steps match
+  const hay = new Map();
+  const haystack = t => { if (!hay.has(t.id)) hay.set(t.id, [t.title, t.question, t.now, ...t.steps.map(name)].join(' ').toLowerCase()); return hay.get(t.id); };
   if (results && input) new MutationObserver(() => {
     if (results.hidden || results.dataset.r21 === input.value) return; results.dataset.r21 = input.value;
     const q = input.value.trim().toLowerCase(); if (q.length < 3) return;
-    const hits = TL.list.filter(t => (t.title + ' ' + t.question).toLowerCase().includes(q)).slice(0, 3); if (!hits.length) return;
+    // every word of the query must appear in the timeline's title, question, summary or the names of its steps
+    const words = q.split(/\s+/).filter(w => w.length > 1);
+    const hits = TL.list.filter(t => { const hay = haystack(t); return words.every(w => hay.includes(w)); })
+      .sort((a, b) => Number(b.title.toLowerCase().includes(q)) - Number(a.title.toLowerCase().includes(q))).slice(0, 3);
+    if (!hits.length) return;
     const box = document.createElement('div'); box.className = 'r19-search';
     box.innerHTML = '<div class="search-label">Doctrine timelines</div>' + hits.map(t => `<button data-r21-open="${esc(t.id)}"><strong>${esc(t.title)}</strong><small>${esc(SHORT[COURSES.indexOf(t.course)] || t.course)} · ${span(t)} · ${t.steps.length} steps</small></button>`).join('');
     results.querySelector('.search-empty')?.remove(); results.appendChild(box);
