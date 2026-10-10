@@ -320,8 +320,9 @@
     if (moved || refit) { try { if (S.scope === 'Atlas' || !S.region) home(S.scope, false, false); else if (window.R18 && R18.refit) R18.refit(); } catch { /* next draw */ } }
     try { schedule(); } catch { /* next frame */ }
   }
-  (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 100); return; } applyArrangement(true); requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('r20-ready'))); })();
-  setTimeout(() => document.documentElement.classList.add('r20-ready'), 6000); // the curtain never stays down
+  // r20.11: these wrappers are installed before the first fit below. The atlas is usually ready by the time
+  // this script runs, so whenReady fits the camera at once; a wrapper installed after it missed that first fit
+  // (the centre mark was cut off on every fresh load until the view was refitted).
   // On a wide window a course is fitted to its subjects and tile; its name sits in the top margin above them
   // (it is centred, the breadcrumb is in the corner), so the name no longer costs the map a sixth of its height.
   if (typeof scopeBox === 'function') {
@@ -339,6 +340,8 @@
       } catch { return b; }
     };
   }
+  (function whenReady() { if (!window.LegalAtlas?.ready || typeof nodesById === 'undefined') { setTimeout(whenReady, 100); return; } applyArrangement(true); requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add('r20-ready'))); })();
+  setTimeout(() => document.documentElement.classList.add('r20-ready'), 6000); // the curtain never stays down
   let arrangeTimer = 0;
   window.addEventListener('resize', () => { clearTimeout(arrangeTimer); arrangeTimer = setTimeout(() => applyArrangement(false), 260); });
 
