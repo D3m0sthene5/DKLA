@@ -21,12 +21,17 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-r20.html"
+TARGET = ROOT / "DKLA-r21.html"
 EXPECTED_R18 = "05b0d26a226229f3b4251c8b30c86ccf9101ec0a709d5dc86b06a6dc953c8d18"
-VERSION = "r20"
-LABEL = "r20.12"
+VERSION = "r21"
+LABEL = "r21"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R21 = {
+    "v": "r21",
+    "date": "2026-10-10",
+    "text": "Content audit. Every entry and connection was checked, and the corrections are applied over the saved graph without touching an entry the owner has edited: wrong votes, judges, dates, districts and citations fixed (Szukhent 5-4, Raila by Judge Katzmann, Chenery II line-up, Lujan Part IV, Hancock and Rule 22, Sun Printing 139 N.E. 470, Exxon in the Southern District of Florida, Iain Calder); the Byrd connection no longer inverts the rule; connections filed under the wrong doctrine are removed (Bristol-Myers and aggregation, Piper and supplemental jurisdiction, Krupski and Hadges and constitutional notice, Taylor v. Caldwell and promissory estoppel); missing connections are added (Peevyhouse and Groves, Klein and specific performance, Lucia and Freytag, Strawbridge and the diversity statute, Swierkiewicz and Twombly, the Katzmann notes, every LRS source record to its case); sentences about how an entry was written are gone; every subtopic has a real question; and entries filed under the wrong subtopic move where a slot was free (the disclosure cases, the preliminary-agreement notes, Cosby, the remedies overview, the stipulated-remedies notes).",
+}
 CHANGELOG_R2012 = {
     "v": "r20.12",
     "date": "2026-10-10",
@@ -287,7 +292,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -358,6 +363,56 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
     rev = "r20.9-" + digest(json.dumps(raw["timelines"], sort_keys=True).encode("utf-8"))[:10]
     return dict(rev=rev, list=raw["timelines"])
 
+def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
+    """The r21 content-audit corrections (data/r21-audit.json), checked: every edited entry, connection, subtopic and
+    subject exists; added connections join two entries and carry a label and explanation; removed connections exist;
+    each moved entry lands in a known subtopic on a card slot that overlaps no other card."""
+    a = json.loads((DATA / "r21-audit.json").read_text(encoding="utf-8"))
+    sm = graph["studyMap"]
+    districts, regions = sm["districts"], {r["id"]: r for r in sm["regions"]}
+    problems = []
+    problems += [f"node {k}" for k in a.get("nodes", {}) if k not in nodes]
+    problems += [f"edge {k}" for k in a.get("edges", {}) if k not in edge_ids]
+    problems += [f"district {k}" for k in a.get("districts", {}) if k not in districts]
+    problems += [f"region {k}" for k in a.get("regions", {}) if k not in regions]
+    problems += [f"remove {k}" for k in a.get("removeEdges", []) if k not in edge_ids]
+    pairs = {(e["source"], e["target"]) for e in graph["edges"] if e["id"] not in set(a.get("removeEdges", []))}
+    for e in a.get("addEdges", []):
+        if e["source"] not in nodes or e["target"] not in nodes or not e.get("label") or not e.get("explanation") or not e.get("id"):
+            problems.append(f"addEdge {e.get('id')}")
+        if (e["source"], e["target"]) in pairs:
+            problems.append(f"addEdge duplicates {e['source']} -> {e['target']}")
+        pairs.add((e["source"], e["target"]))
+    homes = dict(sm["homes"])
+    for k, g in a.get("districtGrow", {}).items():
+        d = districts.get(k)
+        if not d:
+            problems.append(f"grow {k}"); continue
+        r = regions[d["region"]]
+        box = dict(d, h=g["h"])
+        if box["y"] + box["h"] > r["y"] + r["h"]:
+            problems.append(f"grow {k} leaves its subject")
+        for o in districts.values():
+            if o["id"] != k and o["region"] == d["region"] and o["x"] < box["x"] + box["w"] and box["x"] < o["x"] + o["w"] and o["y"] < box["y"] + box["h"] and box["y"] < o["y"] + o["h"]:
+                problems.append(f"grow {k} overlaps {o['id']}")
+    for k, h in a.get("moves", {}).items():
+        if k not in nodes or h["district"] not in districts:
+            problems.append(f"move {k}"); continue
+        homes.pop(k, None)
+        d = districts[h["district"]]
+        h = dict(h, x=d["x"] + h["dx"], y=d["y"] + h["dy"])
+        grown = a.get("districtGrow", {}).get(d["id"], {}).get("h", d["h"])
+        if not (d["x"] <= h["x"] and h["x"] + h["w"] <= d["x"] + d["w"] and d["y"] <= h["y"] and h["y"] + h["h"] <= d["y"] + grown):
+            problems.append(f"move {k} lands outside {d['id']}")
+        clash = [o["id"] for o in homes.values() if o["x"] < h["x"] + h["w"] and h["x"] < o["x"] + o["w"] and o["y"] < h["y"] + h["h"] and h["y"] < o["y"] + o["h"]]
+        if clash:
+            problems.append(f"move {k} overlaps {clash}")
+        homes[k] = dict(h, id=k)
+    if problems:
+        raise ValueError("audit.json:\n  " + "\n  ".join(problems))
+    return a
+
+
 def main() -> None:
     source_bytes = SOURCE.read_bytes()
     if digest(source_bytes) != EXPECTED_R18:
@@ -407,18 +462,19 @@ def main() -> None:
     if stray:
         raise ValueError(f"plain-text edits for unknown entries: {stray[:5]}")
     data["timelines"] = load_timelines(nodes, {e[0] for e in data["entries"] if not e[6]})
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8")
+    audit21 = load_audit(graph, nodes, edge_ids)
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8") + "\n" + (PARTS / "audit.js").read_text(encoding="utf-8")
     css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(full, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
-    addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR19Full", full)
+    addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
@@ -439,7 +495,7 @@ def main() -> None:
     title = "<title>DKLA · r18.1 · Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
         raise ValueError("expected the r18.1 <title>")
-    output = output.replace(title, "<title>DKLA · r20 · Danny Kind Legal Atlas</title>")
+    output = output.replace(title, "<title>DKLA · r21 · Danny Kind Legal Atlas</title>")
     new = script_blocks(output)
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
