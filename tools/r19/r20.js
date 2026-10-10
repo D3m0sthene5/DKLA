@@ -466,7 +466,7 @@
      header mark; the map mark is drawn larger on the three-course view. r17 redraws the map mark on every
      draw, so this runs after each. */
   // r20.10: the L has its own stem, an orange sliver over the lower part of the D's bar, so it reads as an L.
-  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 64V85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
+  const K = 'M25.5 52 57 17M25.5 52 57 86', L = 'M22 13.5V85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
   function fixHeader() {
     const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
     const k = h.querySelector('.dkla-letter-k'), l = h.querySelector('.dkla-letter-l'), a = h.querySelector('.dkla-letter-a');
