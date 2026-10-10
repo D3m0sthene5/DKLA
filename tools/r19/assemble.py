@@ -286,6 +286,58 @@ def embed_json(block_id: str, value) -> str:
     return f'<script type="application/json" id="{block_id}">' + json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>\n"
 
 
+
+TURNS = {"origin", "expands", "narrows", "refines", "reaffirms", "overrules", "codifies", "divided", "counterpoint", "applies"}
+
+
+def load_timelines(nodes: dict, supporting: set) -> dict:
+    """The audited doctrine timelines (data/timelines.json), checked: every step is a map Case or Rule, a supporting
+    case or a dated event; steps run in date order; every field the panel shows is present."""
+    raw = json.loads((DATA / "timelines.json").read_text(encoding="utf-8"))
+    seen, problems = set(), []
+    for t in raw["timelines"]:
+        tid = t.get("id")
+        if not tid or tid in seen:
+            problems.append(f"timeline id missing or repeated: {tid}")
+        seen.add(tid)
+        for key in ("course", "title", "question", "now", "steps"):
+            if not t.get(key):
+                problems.append(f"{tid}: no {key}")
+        if t.get("course") not in ("Contracts", "Civil Procedure", "Legislation and the Regulatory State"):
+            problems.append(f"{tid}: unknown course {t.get('course')}")
+        if len(t.get("steps", [])) < 3:
+            problems.append(f"{tid}: fewer than three steps")
+        prev, keys = ("0000", 0), set()
+        for s in t.get("steps", []):
+            kinds = [k for k in ("id", "sup", "event") if s.get(k)]
+            if len(kinds) != 1:
+                problems.append(f"{tid}: a step needs exactly one of id, sup, event: {s}")
+                continue
+            key = s.get("id") or s.get("sup") or s.get("event")
+            if key in keys:
+                problems.append(f"{tid}: {key} appears twice")
+            keys.add(key)
+            if s.get("id") and (s["id"] not in nodes or nodes[s["id"]]["kind"] not in ("Case", "Rule")):
+                problems.append(f"{tid}: {s['id']} is not a case or rule on the map")
+            if s.get("sup") and s["sup"] not in supporting:
+                problems.append(f"{tid}: {s['sup']} is not a supporting case")
+            if s.get("turn") not in TURNS:
+                problems.append(f"{tid}: {key} has turn {s.get('turn')!r}")
+            if not s.get("note") or not isinstance(s.get("year"), int):
+                problems.append(f"{tid}: {key} lacks a note or a year")
+                continue
+            date = s.get("date") or ""
+            if date and not (re.fullmatch(r"\d{4}-\d{2}-\d{2}", date) and date[:4] == str(s["year"])):
+                problems.append(f"{tid}: {key} date {date} does not match its year")
+            order = (date or f"{s['year']:04d}", s["year"])
+            if (order[1], order[0]) < (prev[1], prev[0]):
+                problems.append(f"{tid}: {key} ({date or s['year']}) is out of order")
+            prev = order
+    if problems:
+        raise ValueError("timelines.json:\n  " + "\n  ".join(problems))
+    rev = "r20.9-" + digest(json.dumps(raw["timelines"], sort_keys=True).encode("utf-8"))[:10]
+    return dict(rev=rev, list=raw["timelines"])
+
 def main() -> None:
     source_bytes = SOURCE.read_bytes()
     if digest(source_bytes) != EXPECTED_R18:
@@ -334,8 +386,9 @@ def main() -> None:
     stray = [k for k in plain["nodes"] if k not in nodes] + [k for k in plain["edges"] if k not in edge_ids]
     if stray:
         raise ValueError(f"plain-text edits for unknown entries: {stray[:5]}")
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8")
-    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8")
+    data["timelines"] = load_timelines(nodes, {e[0] for e in data["entries"] if not e[6]})
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8")
+    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():

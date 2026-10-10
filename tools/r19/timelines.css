@@ -1,0 +1,50 @@
+/* r20.9: doctrine timelines (timelines.js). Builds on the r9b timeline and the r19.13 panel tune-up; existing
+   colours only. */
+#inspector .dkla-timeline[data-r21] .dkla-timeline-track li{flex-basis:212px}
+.dkla-timeline-track .r21-step{display:block;width:100%;text-align:left;border:0;background:transparent;padding:0;border-radius:8px;font:inherit;color:inherit}
+.dkla-timeline-track .r21-static{cursor:default}
+.dkla-timeline-track .r21-turn,#r21Timelines .r21-turn{display:inline-block;margin:0 0 5px;font:600 10px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#93a7b7}
+.r21-turn.r21-overrules,.r21-turn.r21-narrows{color:#f0c36a}
+.r21-turn.r21-origin,.r21-turn.r21-expands{color:#7fd6a2}
+.r21-turn.r21-codifies{color:#8fc0e8}
+.r21-turn.r21-divided,.r21-turn.r21-counterpoint{color:#d9a6c8}
+.dkla-timeline-track .r21-fate,#r21Timelines .r21-fate{display:block;margin-top:5px;padding-left:8px;border-left:2px solid #f0c36a;font-size:11px;line-height:1.4;color:#d8c39a}
+/* a supporting case (opens its brief) and a statute or rule change (no entry) read as different from map cases */
+.dkla-timeline-track li.r21-sup .dkla-tl-year{background:transparent;color:#c9d5de;box-shadow:inset 0 0 0 1.5px #8fa3b3}
+.dkla-timeline-track li.r21-event .dkla-tl-year{background:transparent;color:#8fc0e8;box-shadow:inset 0 0 0 1.5px #5d87a8}
+.dkla-timeline-track li.r21-event strong{color:#bcd3e6;font-weight:600}
+.dkla-timeline .r21-now,#r21Timelines .r21-now{margin:10px 0 2px!important;padding:8px 12px;border-radius:8px;background:#1c2731;font-size:13px!important;line-height:1.5;color:#d7e0e8!important}
+.r21-now b{display:block;margin-bottom:2px;font:600 10px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--dkla-course,#d6b78e)}
+#r21Timelines .r21-now b{color:#d6b78e}
+.dkla-timeline .r21-all{margin:8px 0 2px;padding:4px 0;border:0;background:none;font:inherit;font-size:12px;color:#93a7b7;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a4856}
+.dkla-timeline .r21-all:hover{color:#e3e8ec}
+/* the list of every timeline */
+#r21Timelines{width:min(860px,calc(100vw - 24px));max-width:none;height:min(880px,calc(100dvh - 24px));max-height:none;padding:0;border:1px solid #3a4856;border-radius:14px;background:#19232d;color:#d7e0e8;box-shadow:0 24px 70px rgba(0,0,0,.55);font:15px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;overflow:hidden}
+#r21Timelines[open]{display:flex;flex-direction:column}
+#r21Timelines::backdrop{background:rgba(5,9,13,.66)}
+#r21Timelines .r18-kicker{text-transform:uppercase}
+#r21Timelines .r19-body{scrollbar-width:thin;scrollbar-color:#3a4856 transparent}
+.r21-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:14px}
+.r21-card{display:flex;flex-direction:column;gap:4px;text-align:left;font:inherit;color:#e7ecf0;background:#1c2731;border:1px solid #2f3c49;border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .14s ease,background-color .14s ease}
+.r21-card:hover{border-color:#8ea3b6;background:#202d39}
+.r21-card strong{font-size:15px;line-height:1.3;font-weight:600}
+.r21-card span{font-size:13px;line-height:1.45;color:#b4c1cd}
+.r21-card small{margin-top:auto;padding-top:4px;font:12px ui-monospace,SFMono-Regular,Consolas,monospace;color:#93a7b7;letter-spacing:.04em}
+.r21-line{margin:0 0 8px}
+.r21-line button{font:inherit;font-size:13px;border-radius:999px;border:1px solid #3a4856;background:transparent;color:#c9d4de;padding:5px 12px;cursor:pointer}
+.r21-q{margin:0 0 14px;color:#b4c1cd;font-size:15px}
+.r21-v{list-style:none;margin:0;padding:0;position:relative}
+.r21-v::before{content:"";position:absolute;left:31px;top:8px;bottom:8px;width:2px;background:#33424e}
+.r21-v li{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:0 0 16px;position:relative}
+.r21-y{justify-self:center;align-self:start;position:relative;z-index:1;font:600 11px/1 system-ui;letter-spacing:.5px;color:#0f171e;background:#8fa3b3;padding:5px 8px;border-radius:12px}
+.r21-v li.r21-sup .r21-y{background:#19232d;color:#c9d5de;box-shadow:inset 0 0 0 1.5px #8fa3b3}
+.r21-v li.r21-event .r21-y{background:#19232d;color:#8fc0e8;box-shadow:inset 0 0 0 1.5px #5d87a8}
+.r21-v .r21-name{display:inline;font:inherit;font-size:15px;font-weight:600;color:#eef1f4;background:none;border:0;padding:0;margin:0 8px 2px 0;text-align:left;cursor:pointer}
+.r21-v button.r21-name:hover{text-decoration:underline}
+.r21-v li.r21-event .r21-name{color:#bcd3e6;cursor:default}
+.r21-v .r21-tag{font-style:normal;font-size:11px;color:#93a7b7;margin-right:8px}
+.r21-v .r21-turn{margin:0}
+.r21-v p{margin:3px 0 0;font-size:14px;line-height:1.5;color:#c9d4de}
+#r21Timelines button:focus-visible,.dkla-timeline .r21-all:focus-visible,.dkla-timeline-track .r21-step:focus-visible{outline:2px solid #d6b78e;outline-offset:2px}
+@media (max-width:640px){#r21Timelines .r19-body{padding:14px 14px 24px}.r21-cards{grid-template-columns:1fr}.r21-v li{grid-template-columns:52px 1fr;gap:8px}.r21-v::before{left:25px}}
+@media (prefers-reduced-motion:reduce){.r21-card{transition:none}}
