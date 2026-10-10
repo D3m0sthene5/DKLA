@@ -24,6 +24,15 @@ EXPECTED_R17 = "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30
 VERSION = "r18"
 LABEL = "r18.1"
 
+# r21 hotfix: decorative taglines removed from the interface copy. (block id, old, new, occurrences); each ``old``
+# must occur exactly ``occurrences`` times inside its block, and every occurrence is replaced.
+COPY_PATCHES = [
+    ("dklaR16HistoryCode", "<h1>SCOTUS History</h1><p>Follow the seats. Move through time. See who decided the cases.</p>", "<h1>SCOTUS History</h1>", 1),
+    ("dklaR16HistoryCode", '<div class="sh-kicker">Sources and conventions</div><h1>History, without changing the briefs.</h1>', "<h1>Sources and conventions</h1>", 1),
+    ("semesterCode", "<h1>Contracts</h1><p>From an enforceable commitment to performance and relief.</p>", "<h1>Contracts</h1>", 1),
+    ("civilCode", "<h1>Contracts</h1><p>From an enforceable commitment to performance and relief.</p>", "<h1>Contracts</h1>", 1),
+]
+
 # (description, old, new). Each ``old`` must occur exactly once inside studyCode.
 PATCHES = [
     (
@@ -218,6 +227,13 @@ def main() -> None:
         raise ValueError("SCOTUS frame text is not unique")
     output = output.replace(history_block, history_block.replace(box_old, box_new))
 
+    # r21 hotfix: interface taglines
+    for block_id, text_old, text_new, occurrences in COPY_PATCHES:
+        block = script_blocks(output)[block_id]  # the block as patched so far
+        if block.count(text_old) != occurrences or output.count(block) != 1:
+            raise ValueError(f"copy patch text is not unique in {block_id}: {text_old[:60]}")
+        output = output.replace(block, block.replace(text_old, text_new))
+
     marker = '<script id="studyCode">'
     if output.count(marker) != 1:
         raise ValueError("cannot place the pre-renderer block")
@@ -244,7 +260,7 @@ def main() -> None:
 
     new = script_blocks(output)
     changed = [key for key, value in old.items() if new.get(key) != value]
-    if sorted(changed) != ["dklaGlossary", "dklaIcons", "dklaR16HistoryCode", "studyCode"]:
+    if sorted(changed) != sorted({"dklaGlossary", "dklaIcons", "dklaR16HistoryCode", "studyCode", *(b for b, _, _, _ in COPY_PATCHES)}):
         raise ValueError(f"unexpected block changes: {changed}")
     graph = json.loads(old["seedData"])
     TARGET.write_text(output, encoding="utf-8")
@@ -258,7 +274,7 @@ def main() -> None:
         "r18_sha256": digest(TARGET.read_bytes()),
         "build": build,
         "preserved_script_blocks": len(old) - 4,
-        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json", "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json", "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox"},
+        "patched_blocks": {"studyCode": [d for d, _, _ in PATCHES], "dklaIcons": "one glyph per case from tools/r18/icons.json", "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json", "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox", "copy": [f"{b}: {o[:50]}" for b, o, _, _ in COPY_PATCHES]},
         "nodes": len(graph["nodes"]),
         "edges": len(graph["edges"]),
         "components": [f for _, _, f in PRE + COMPONENTS],
