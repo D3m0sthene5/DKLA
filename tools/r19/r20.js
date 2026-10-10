@@ -329,7 +329,10 @@
     scopeBox = function () {
       const b = box0.apply(this, arguments);
       try {
-        if (arranged !== 'wide' || S.scope === 'Atlas') return b;
+        // r20.10: the three-course view also holds the whole centre mark (drawn by fixMark below, 4,300 units
+        // square from y -5,300), which sits above the course names and had been cut off by the header.
+        if (S.scope === 'Atlas') return bounds([b, { x: -2150, y: -5450, w: 4300, h: 4450 }]);
+        if (arranged !== 'wide') return b;
         const M = mapData(), block = (M.courseBlocks || {})[S.scope]; if (!block) return b;
         const zones = ((M.courseDesign || {})[S.scope] || {}).zones || [], tile = D && D.tiles && D.tiles[S.scope];
         return bounds([block, ...zones, ...(tile ? [tile] : [])]);
@@ -459,7 +462,8 @@
      and its crossbar is vertical at six-tenths of the way from apex to feet. The same letterforms go into the
      header mark; the map mark is drawn larger on the three-course view. r17 redraws the map mark on every
      draw, so this runs after each. */
-  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
+  // r20.10: the L has its own stem, an orange sliver over the lower part of the D's bar, so it reads as an L.
+  const K = 'M22 52 57 17M22 52 57 86', L = 'M22 64V85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
   function fixHeader() {
     const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
     const k = h.querySelector('.dkla-letter-k'), l = h.querySelector('.dkla-letter-l'), a = h.querySelector('.dkla-letter-a');
