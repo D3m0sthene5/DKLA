@@ -1,7 +1,7 @@
 {
   "r17_sha256": "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30",
-  "r18_sha256": "51dc830c4937c6f21d3c1e6fa959e1a077caffd6ccdd35975dc83dd95b548aa2",
-  "build": "r18-6afabcfcac",
+  "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
+  "build": "v18-e560b3ca64",
   "preserved_script_blocks": 27,
   "patched_blocks": {
     "studyCode": [
@@ -27,7 +27,10 @@
       "dklaR16HistoryCode: <h1>SCOTUS History</h1><p>Follow the seats. Move t",
       "dklaR16HistoryCode: <div class=\"sh-kicker\">Sources and conventions</di",
       "semesterCode: <h1>Contracts</h1><p>From an enforceable commitmen",
-      "civilCode: <h1>Contracts</h1><p>From an enforceable commitmen"
+      "civilCode: <h1>Contracts</h1><p>From an enforceable commitmen",
+      "studyCode: ${guideText?`<div class=\"why\"><h3>Why it matters</",
+      "semesterCode: \n if(guide(n))body+=`<section class=\"why\"><h3>Why ",
+      "semesterCode: if(n.learning?.why)out+='\\n## Why it matters\\n\\n'+"
     ]
   },
   "nodes": 1069,

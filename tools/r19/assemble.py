@@ -21,12 +21,25 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-r22.html"
-EXPECTED_R18 = "51dc830c4937c6f21d3c1e6fa959e1a077caffd6ccdd35975dc83dd95b548aa2"
-VERSION = "r22"
-LABEL = "r22"
+TARGET = ROOT / "DKLA-v22.1.html"
+EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
+VERSION = "v22.1"
+LABEL = "v22.1"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+# v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
+VREF = re.compile(r"(?<![\w/#.-])r(\d{1,2}(?:\.\d+)?[a-z]?)(?![\w-]|\.(?:js|css|html|json|py)\b)")
+
+
+def vform_log(entries: list[dict]) -> list[dict]:
+    return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
+
+
+CHANGELOG_V221 = {
+    "v": "v22.1",
+    "date": "2026-10-11",
+    "text": "__V221_TEXT__",
+}
 CHANGELOG_R22 = {
     "v": "r22",
     "date": "2026-10-11",
@@ -297,7 +310,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -577,10 +590,10 @@ def main() -> None:
     if output.count("</head>") != 1:
         raise ValueError("expected one </head>")
     output = output.replace("</head>", boot + "</head>")
-    title = "<title>DKLA · r18.1 · Danny Kind Legal Atlas</title>"
+    title = "<title>DKLA · v18.1 · Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
-        raise ValueError("expected the r18.1 <title>")
-    output = output.replace(title, "<title>DKLA · r22 · Danny Kind Legal Atlas</title>")
+        raise ValueError("expected the v18.1 <title>")
+    output = output.replace(title, "<title>DKLA · " + LABEL + " · Danny Kind Legal Atlas</title>")
     new = script_blocks(output)
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")

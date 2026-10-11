@@ -54,7 +54,7 @@ def with_copy(block_id, text):
             text = text.replace(before, after)
     return text
 for block_id in copy_blocks:
-    if block_id != 'dklaR16HistoryCode':
+    if block_id not in ('dklaR16HistoryCode', 'studyCode'):
         require(r18[block_id] == with_copy(block_id, r17[block_id]), f'{block_id} differs by more than the copy patches')
 require(r18['dklaR16HistoryCode'] == with_copy('dklaR16HistoryCode', r17['dklaR16HistoryCode']).replace('BOX={x:-11400,y:10400,w:22800,h:4200}', 'BOX=(window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200})'), 'SCOTUS code differs by more than the exposed frame and the copy patches')
 require(r18.get('dklaIcons') == patch_icons(r17['dklaIcons']), 'dklaIcons is not r17 plus tools/r18/icons.json')
@@ -62,6 +62,7 @@ expected = r17['studyCode']
 for description, before, after in PATCHES:
     require(expected.count(before) == 1, f'patch no longer matches once: {description}')
     expected = expected.replace(before, after)
+expected = with_copy('studyCode', expected)
 require(r18.get('studyCode') == expected, 'studyCode is not r17 plus the listed patches')
 for ident in ('dklaR18Pre', 'dklaR18Map', 'dklaR18Study', 'dklaR18Changelog'):
     require(ident in r18, f'missing block {ident}')

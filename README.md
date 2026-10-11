@@ -1,14 +1,14 @@
 # Danny Kind Legal Atlas
 
-**Open `DKLA-r22.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
+**Open `DKLA-v22.1.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
 
-In r17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
+In v17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
 
-The exact previous default revision is preserved at [`archive/pre-r17-default-a73d9df-2026-09-27`](https://github.com/D3m0sthene5/DKLA/tree/archive/pre-r17-default-a73d9df-2026-09-27). Source data and build checks for r17 live in `tools/r17/`. `python3 tools/r17/pdf-routes.py --check`, `python3 tools/r17/assemble.py`, and `python3 tools/r17/check.py` validate and reproduce the release.
+The exact previous default revision is preserved at [`archive/pre-r17-default-a73d9df-2026-09-27`](https://github.com/D3m0sthene5/DKLA/tree/archive/pre-r17-default-a73d9df-2026-09-27). Source data and build checks for v17 live in `tools/r17/`. `python3 tools/r17/pdf-routes.py --check`, `python3 tools/r17/assemble.py`, and `python3 tools/r17/check.py` validate and reproduce the release.
 
-## r18 (3 October 2026)
+## v18 (3 October 2026)
 
-r18 adds a study layer on top of r17 without changing any of its content. The **Study** button in the header (or Shift + D) opens four tabs:
+v18 adds a study layer on top of v17 without changing any of its content. The **Study** button in the header (or Shift + D) opens four tabs:
 
 - **Drill**: say the answer aloud, reveal it in stages (issue, holding and rule, reasoning for a case; rule, full account, cases for a concept), and rate it Clean, Patchy or Blank. Sessions can be filtered to what needs work or is unrated, capped at 10/20/30, or run as cram to mastery. A whole session runs from the keyboard.
 - **Pairs**: confusable cases and doctrines with the distinguishing line first, drawn from the notebook's own Tension, Analogy and contrasting connections.
@@ -23,9 +23,9 @@ When the repository is served (Vercel), the atlas installs as an app and loads w
 
 `python3 tools/r18/assemble.py` builds `DKLA-r18.html`, `sw.js` and `version.json` from `DKLA-r17.html`; `python3 tools/r18/check.py` validates the result.
 
-## r19 (5 October 2026)
+## v19 (5 October 2026)
 
-r19 brings Codex's audited briefs into the atlas. Codex wrote and independently reviewed a brief for every case in the readings (1,467 so far, each checked against the full opinion); r19 uses a snapshot of that work.
+v19 brings Codex's audited briefs into the atlas. Codex wrote and independently reviewed a brief for every case in the readings (1,467 so far, each checked against the full opinion); v19 uses a snapshot of that work.
 
 - **Cases on the map (391 of 392).** Each takes its six sections, in the order Parties, Procedural History, Material Facts, Issue, Holding, Reasoning, and its rule line from the audited brief. The conversion was done by agents working only from the brief's text and then re-checked sentence by sentence by a second, independent set of agents (79 corrections across 70 entries). The complete audited brief sits under each case as a collapsed **Full brief**, with its review status. The one case without a brief is the Swiss contractual-penalty decision.
 - **Your edits are kept.** A case you have edited in your browser keeps your text; its panel offers a "Use the audited brief" button instead.
@@ -34,5 +34,5 @@ r19 brings Codex's audited briefs into the atlas. Codex wrote and independently 
 
 `tools/r19/snapshot.py` takes a new snapshot from Codex's working folders, `tools/r19/merge_conv.py` merges converted batches, and `python3 tools/r19/assemble.py` then `python3 tools/r19/check.py` build and validate. The step is re-runnable: only briefs whose text has changed need converting again.
 
-**r19.1 (same day).** Supporting cases now carry the six sections as well (1,072 of 1,076; four entries are casebook problems or editorial accounts, not decisions, and stay as full briefs). The 79 briefs Codex had not yet reviewed were audited against the opinion text and casebook pages Codex saved: 19 needed nothing and 60 were corrected (138 corrections, mostly pinpoint pages and printed casebook page numbers, with a smaller number of factual and attribution fixes). An audited brief shows a second status chip and a "Claude's audit" section listing what was checked and every change; Codex's own status stays beside it. Two of the 58 supporting batches (about 36 entries) were converted but not put through the second verification pass.
+**v19.1 (same day).** Supporting cases now carry the six sections as well (1,072 of 1,076; four entries are casebook problems or editorial accounts, not decisions, and stay as full briefs). The 79 briefs Codex had not yet reviewed were audited against the opinion text and casebook pages Codex saved: 19 needed nothing and 60 were corrected (138 corrections, mostly pinpoint pages and printed casebook page numbers, with a smaller number of factual and attribution fixes). An audited brief shows a second status chip and a "Claude's audit" section listing what was checked and every change; Codex's own status stays beside it. Two of the 58 supporting batches (about 36 entries) were converted but not put through the second verification pass.
 

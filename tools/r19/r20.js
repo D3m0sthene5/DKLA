@@ -469,8 +469,12 @@
   // r21 hotfix 2: the coloured strokes are circumscribed by the D. The K and the A are clipped to the D's
   // centreline and the D is drawn last, open on its left side, so every arm ends flush with the D's inner edge;
   // the K's lower arm ends under the L's foot, which sits inside the D; the L's stem is the D's left side.
-  const K = 'M25.5 52 62 11.4M25.5 52 52.5 81.1', L = 'M22.5 13.5V86.5M22.5 81H54', A = 'M92 22.6 36 52 92 81.4M60 42.5V61.5';
+  // v22.1: the L's foot runs on to the D's bowl, past the point where the K's lower leg meets the D. It is clipped
+  // by L_CLIP (everything left of the bowl's start, plus the inside of the bowl), so its end follows the curve and
+  // sits flush with the D's inner edge; the stem keeps its full width along the D's left side.
+  const K = 'M25.5 52 62 11.4M25.5 52 52.5 81.1', L = 'M22.5 13.5V86.5M22.5 81H84', A = 'M92 22.6 36 52 92 81.4M60 42.5V61.5';
   const D_OPEN = 'M22 13H44C71 13 86 29 86 50S71 87 44 87H22', D_CLOSED = 'M22 13H44C71 13 86 29 86 50S71 87 44 87H22V13Z';
+  const L_CLIP = 'M0 0H44V13C71 13 86 29 86 50S71 87 44 87V100H0Z';
   const SVG_NS = 'http://www.w3.org/2000/svg';
   function shapeMark(svg, clipId) {
     const d = svg.querySelector('.dkla-letter-d'), k = svg.querySelector('.dkla-letter-k'), l = svg.querySelector('.dkla-letter-l'), a = svg.querySelector('.dkla-letter-a');
@@ -481,9 +485,13 @@
       const defs = document.createElementNS(SVG_NS, 'defs'); clip = document.createElementNS(SVG_NS, 'clipPath'); clip.id = clipId;
       const cp = document.createElementNS(SVG_NS, 'path'); cp.setAttribute('d', D_CLOSED); clip.appendChild(cp); defs.appendChild(clip); svg.insertBefore(defs, svg.firstChild);
     }
+    if (!svg.querySelector('#' + clipId + 'L')) {
+      const lc = document.createElementNS(SVG_NS, 'clipPath'); lc.id = clipId + 'L';
+      const lp = document.createElementNS(SVG_NS, 'path'); lp.setAttribute('d', L_CLIP); lc.appendChild(lp); clip.parentNode.appendChild(lc);
+    }
     k.setAttribute('d', K); l.setAttribute('d', L); a.setAttribute('d', A); d.setAttribute('d', D_OPEN);
     for (const el of [k, a]) { el.setAttribute('clip-path', `url(#${clipId})`); el.style.strokeLinecap = 'butt'; }
-    d.style.strokeLinecap = 'butt'; l.style.strokeLinecap = 'square';
+    d.style.strokeLinecap = 'butt'; l.style.strokeLinecap = 'square'; l.setAttribute('clip-path', `url(#${clipId}L)`);
     svg.append(a, k, l, d);
   }
   function fixHeader() {

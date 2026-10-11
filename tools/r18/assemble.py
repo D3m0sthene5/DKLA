@@ -21,8 +21,8 @@ PARTS = Path(__file__).resolve().parent
 SOURCE = ROOT / "DKLA-r17.html"
 TARGET = ROOT / "DKLA-r18.html"
 EXPECTED_R17 = "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30"
-VERSION = "r18"
-LABEL = "r18.1"
+VERSION = "v18"
+LABEL = "v18.1"
 
 # r21 hotfix: decorative taglines removed from the interface copy. (block id, old, new, occurrences); each ``old``
 # must occur exactly ``occurrences`` times inside its block, and every occurrence is replaced.
@@ -31,6 +31,10 @@ COPY_PATCHES = [
     ("dklaR16HistoryCode", '<div class="sh-kicker">Sources and conventions</div><h1>History, without changing the briefs.</h1>', "<h1>Sources and conventions</h1>", 1),
     ("semesterCode", "<h1>Contracts</h1><p>From an enforceable commitment to performance and relief.</p>", "<h1>Contracts</h1>", 1),
     ("civilCode", "<h1>Contracts</h1><p>From an enforceable commitment to performance and relief.</p>", "<h1>Contracts</h1>", 1),
+    # v22.1: the "Why it matters" section is gone from every reading panel and from the Markdown export.
+    ("studyCode", "${guideText?`<div class=\"why\"><h3>Why it matters</h3><p>${E(guideText)}</p></div>`:''}", "", 1),
+    ("semesterCode", "\n if(guide(n))body+=`<section class=\"why\"><h3>Why it matters</h3>${r6Paragraphs(guide(n))}</section>`;", "", 1),
+    ("semesterCode", "if(n.learning?.why)out+='\\n## Why it matters\\n\\n'+n.learning.why+'\\n';", "", 1),
 ]
 
 # (description, old, new). Each ``old`` must occur exactly once inside studyCode.

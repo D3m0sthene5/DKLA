@@ -3,7 +3,7 @@
    accepts the reload prompt, so the page is never swapped mid-session. */
 const BUILD = '__DKLA_BUILD__';
 const CACHE = 'dkla-' + BUILD;
-const ATLAS = 'DKLA-r22.html';
+const ATLAS = 'DKLA-v22.1.html';
 const SHELL = [ATLAS, 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', event => {
