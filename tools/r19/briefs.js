@@ -217,6 +217,7 @@
 
   /* ---------- version ---------- */
   R18.version = D.version;
+  if (D.build) R18.build = D.build; // v22.1: the version panel and the update check compare the served build, not the v18 base build
   document.title = 'DKLA · ' + D.version;
   try { const log = el('dklaR18Changelog'); if (log) log.textContent = JSON.stringify([].concat(D.changelog, JSON.parse(log.textContent))); } catch { /* changelog stays as it was */ }
   window.DKLABriefs = { open, apply: applyBriefs, entries: () => D.entries.length, supporting: () => supporting.length, skipped: () => [...skipped], data: D };

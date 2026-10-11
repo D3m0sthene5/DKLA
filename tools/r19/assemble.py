@@ -38,7 +38,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 CHANGELOG_V221 = {
     "v": "v22.1",
     "date": "2026-10-11",
-    "text": "__V221_TEXT__",
+    "text": "placeholder",
 }
 CHANGELOG_R22 = {
     "v": "r22",
