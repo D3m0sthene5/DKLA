@@ -7,7 +7,7 @@ The normal atlas build embeds authorities.json; it does not make network request
 Raw fetched pages are cached in the workspace work/authorities-cache directory.
 """
 from __future__ import annotations
-import argparse, concurrent.futures, hashlib, html, io, json, re, subprocess, sys, time, urllib.error, urllib.request
+import argparse, concurrent.futures, hashlib, html, io, json, math, re, subprocess, sys, time, urllib.error, urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -193,23 +193,40 @@ def pdf_blackletter():
     import pypdf
     path='added-sources/Contracts- Selections.pdf'
     raw=(ROOT/path).read_bytes() if (ROOT/path).exists() else subprocess.check_output(['git','show','HEAD:'+path],cwd=ROOT)
-    digest=sha(raw); CACHE.mkdir(parents=True,exist_ok=True); cache=CACHE/('blackletter-v2-'+digest+'.json')
-    if cache.exists(): return json.loads(cache.read_text(encoding='utf8')),dict(file=path,sha256=digest)
-    reader=pypdf.PdfReader(io.BytesIO(raw)); found={}; active=None; mode=None
+    digest=sha(raw); CACHE.mkdir(parents=True,exist_ok=True); cache=CACHE/('blackletter-v3-'+digest+'.json')
+    audit_path=HERE/'authorities-extraction-audit.json'
+    if cache.exists():
+        cached=json.loads(cache.read_text(encoding='utf8'))
+        audit_path.write_text(json.dumps(cached['audit'],ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+        return cached['records'],dict(file=path,sha256=digest)
+    reader=pypdf.PdfReader(io.BytesIO(raw)); found={}; active=None; mode=None; excluded=[]
     for page in list(range(23,225))+list(range(308,434)):
         if page==308: active=None;mode=None
         chunks=[]
         def visitor(t,cm,tm,font,size):
             text=t.strip()
-            if text and 65<=tm[5]<631: chunks.append((text,str(font.get('/BaseFont','')) if font else ''))
+            # This PDF uses font size 1 with the actual type size in the text
+            # matrix. Main blackletter is 10 pt; editorial footnotes are 8 pt
+            # and their superscript letters 4.664 pt. A vertical cutoff alone
+            # lets a previous section's footnote leak into the next section.
+            points=size*math.hypot(tm[2],tm[3])*math.hypot(cm[2],cm[3])
+            if text and 65<=tm[5]<631: chunks.append((text,str(font.get('/BaseFont','')) if font else '',points,tm[5]))
         reader.pages[page].extract_text(visitor_text=visitor)
-        for text,font in chunks:
+        for text,font,points,y in chunks:
+            # Boundary headings can themselves use the smaller comment font.
+            # Recognize them before rejecting editorial-sized spans, or their
+            # following comments would still be associated with the body.
+            if re.match(r'^(?:Official Comments?|Comments?|Definitional Cross References?|Cross References?|Reporters[’\'] Notes?)\b',text):
+                mode='comment'
+                continue
+            if points<9.5:
+                if active and mode in ['heading','body']:
+                    excluded.append(dict(record=('ucc-' if '-' in active['number'] else 'restatement-')+active['number'],pdfPage=page+1,points=round(points,3),y=round(y,2),text=text))
+                continue
             m=re.match(r'^§\s*(\d+(?:[–-]\d+)?)\.\s*(.*)',text) if 'Bold' in font else None
             if m:
                 number=m[1].replace('–','-'); key=('ucc-' if '-' in number else 'restatement-')+number
                 active=dict(number=number,title=m[2],page=page+1,parts=[]);found[key]=active;mode='heading'
-            elif re.match(r'^(?:Official Comments?|Comments?|Definitional Cross References?|Cross References?|Reporters[’\'] Notes?)\b',text):
-                mode='comment'
             elif re.match(r'^(?:CHAPTER|TOPIC|PART)\s',text) and 'Bold' in font:
                 active=None;mode=None
             elif active and mode=='heading' and 'Bold' in font:
@@ -219,12 +236,21 @@ def pdf_blackletter():
     for id,r in found.items():
         r['title']=norm(r['title']);r['body']=norm(' '.join(r.pop('parts')))
         r['body']=re.sub(r'(?<=[a-z])\s*-\s+(?=[a-z])','',r['body'])
-    cache.write_text(json.dumps(found,ensure_ascii=False),encoding='utf8')
+    assert sum(k.startswith('restatement-') for k in found)==385
+    assert sum(k.startswith('ucc-') for k in found)==133
+    assert 'This section is deleted in the 2003' not in found['ucc-2-209']['body']
+    audit=dict(schema=1,checked=DATE,file=path,sourceSha256=digest,records=dict(restatement=385,ucc=133),
+               method='All 518 numbered headings and blackletter bodies were re-extracted from the assigned PDF. Bold section headings and explicit comment boundaries delimit each record. Page headers/numbers and text smaller than 9.5 effective points are excluded; main blackletter uses 10 points. This is an extraction audit, not a fresh legal audit of 518 provisions.',
+               excludedEditorialSpans=excluded,
+               recordBodyHashes={k:sha(r['body'].encode()) for k,r in found.items()})
+    cache.write_text(json.dumps(dict(records=found,audit=audit),ensure_ascii=False),encoding='utf8')
+    audit_path.write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     return found,dict(file=path,sha256=digest)
 
 def selections():
     d,h=assigned('added-sources/index/contracts-selections.json')
     verified,pdf_source=pdf_blackletter()
+    extraction_audit=json.loads((HERE/'authorities-extraction-audit.json').read_text(encoding='utf8'))
     out=[]; fixes={363:('Effect of Insecurity as to the Agreed Exchange',218),375:('Restitution When Contract Is Within Statute of Frauds',221)}
     idx=[dict(e) for e in d['index'] if re.fullmatch(r'(?:Restatement § \d+|UCC § [\d-]+)',e['key'])]
     for e in idx:
@@ -257,6 +283,11 @@ def selections():
         cite=f'Restatement (Second) § {num}' if rest else f'UCC § {num}'
         title=record['title'].rstrip('.')
         out.append(entry('restatement-'+num if rest else 'ucc-'+num,'restatement' if rest else 'ucc',cite,title,lines,dict(name='Assigned Contracts Selections · black letter',file=d['file']+'#page='+str(page),index='added-sources/index/contracts-selections.json',pdfPage=page,edition='2021 assigned selections',read=DATE)))
+        if not rest and num in ['1-201','2-103']:
+            # State-enactment qualifications are compiler notes, not blackletter.
+            pieces=[s['text'] for s in extraction_audit['excludedEditorialSpans'] if s['record']=='ucc-'+num and s['points']>=7.5]
+            note=re.sub(r'^[a-z]\s+','',norm(' '.join(pieces)))
+            out[-1]['annotations']=[dict(title='Compiler’s footnote · 2021 assigned Selections; state enactments vary',lines=[[0,note]])]
     return out,[dict(file='added-sources/index/contracts-selections.json',sha256=h),pdf_source],fixes
 
 def graph_records():
@@ -313,7 +344,7 @@ def link_entries(entries):
         if e['collection']=='uscode':
             tn=e.get('titleNumber'); section=e.get('section')
             if not tn or not section: continue
-            pat=rf'{re.escape(str(tn))}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*){re.escape(str(section))}(?![\dA-Za-z])'
+            pat=rf'(?:{re.escape(str(tn))}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*){re.escape(str(section))}(?![\dA-Za-z])|\bSection\s+{re.escape(str(section))}\s+of\s+title\s+{re.escape(str(tn))}\b)'
         elif id.startswith('consumer-'):
             n=id.split('-')[-1];pat=rf'(?:RLCC|Consumer Restatement|Restatement(?: of(?: the Law,)? Consumer Contracts)?)\s*§{{1,2}}\s*{n}(?!\d)'
         elif id.startswith('frcp-') and id[5:] not in ['71A','forms']:
@@ -354,6 +385,17 @@ def refresh():
     uscode=HERE/'uscode.json'
     if uscode.exists():
         code=json.loads(uscode.read_text(encoding='utf8'));entries+=code['entries'];src+=code.get('sources',[])
+        if not any(e['id']=='usc-3-301' for e in entries):
+            # This assigned atlas citation uses "Section 301 of title 3", so
+            # the older citation-only collector missed it. Reuse its pinned
+            # official extraction without changing the collector-owned dataset.
+            import uscode_build as usc
+            from collections import defaultdict
+            xml,source=usc.title_xml(3)
+            more,missing=usc.section_entries(3,xml,source,{'301'},defaultdict(set))
+            assert not missing and len(more)==1
+            for e in more:e.pop('relatedCitations',None)
+            entries+=more;src.append(source)
     for e in entries:
         e['textSha256']=sha(json.dumps(e['lines'],ensure_ascii=False).encode())
     reverse,links=link_entries(entries)
@@ -387,6 +429,12 @@ def check(d=None):
     assert by['const-amend-18']['status']=='repealed'
     assert 'initial management conference' in ' '.join(l[1] for l in by['frcp-16.1']['lines']).lower()
     assert 'entitle' in ' '.join(l[1] for l in by['restatement-375']['lines']).lower() or 'not barred' in ' '.join(l[1] for l in by['restatement-375']['lines']).lower()
+    assert 'This section is deleted in the 2003' not in ' '.join(l[1] for l in by['ucc-2-209']['lines'])
+    assert 'Now § 9–109' not in ' '.join(l[1] for l in by['restatement-344']['lines'])
+    for id in ['ucc-1-201','ucc-2-103']:
+        assert by[id].get('annotations') and '2021 assigned Selections' in by[id]['annotations'][0]['title']
+    if 'usc-3-301' in by:
+        assert any(l['id']=='lrs-o-ministerial-duties' for l in by['usc-3-301']['links'])
     print(json.dumps(dict(entries=len(entries),collections={c['id']:sum(e['collection']==c['id'] for e in entries) for c in d['collections']},links=sum(len(e['links']) for e in entries),sourceIndexCorrections=len(d['audit']['sourceIndexCorrections']))))
 
 if __name__=='__main__':

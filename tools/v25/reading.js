@@ -1,5 +1,6 @@
-/* v2.5 reading layout. Explicit DOM adapters retain original nodes, text and delegated handlers.
- * Case views only: rule/concept panels keep their provision-placement contract.
+/* v2.5 reading layout. Explicit DOM adapters retain original nodes and delegated handlers.
+ * The introduction is one explanation; legal analysis and source text remain farther down.
+ * Case headers only: rule/concept panels keep their provision-placement contract.
  * No source, graph, case prose, saved edits or map geometry is changed here.
  */
 (() => {
@@ -22,16 +23,62 @@
     return details;
   }
   function move(node, parent) { if (node && node.parentElement !== parent) parent.appendChild(node); }
-  function polishTakeaway(body) {
-    const rule = body.querySelector('.takeaway.r22-plain');
-    if (!rule) return;
-    const label = body.querySelector(':scope > .dkla-rule-label');
-    if (label && label.textContent !== 'At a glance') label.textContent = 'At a glance';
-    const formal = rule.querySelector('.r22-rule-sub');
-    if (!formal || formal.closest('.v25-legal-rule')) return;
-    const details = element('details', 'v25-legal-rule');
-    details.appendChild(element('summary', '', 'Legal rule'));
-    formal.before(details); details.appendChild(formal);
+  function sameText(a, b) {
+    const normalized = value => value.trim().replace(/\s+/g, ' ');
+    return normalized(a) === normalized(b);
+  }
+  function trimRepeatedDefinition(body, intro) {
+    // Only the opening definition in the native noncase reader can be redundant.
+    // Source provisions, case analysis and differently worded explanations are untouched.
+    if (body.querySelector(':scope > .case-box')) return;
+    const explanation = intro.querySelector('.r22-plain-text') || intro;
+    const text = explanation.textContent;
+    if (!text.trim()) return;
+    const sections = body.querySelector(':scope > .entry-sections');
+    const opening = sections?.children[0];
+    const heading = opening?.querySelector(':scope > h3');
+    const paragraph = opening?.querySelector(':scope > p');
+    if (heading && /^(Meaning|Explanation|Role in the course|Reading plan)$/i.test(heading.textContent.trim()) && paragraph && sameText(paragraph.textContent, text)) {
+      paragraph.remove();
+      if ([...opening.children].every(child => child === heading)) opening.remove();
+      if (!sections.children.length) sections.remove();
+    }
+    for (const label of body.querySelectorAll(':scope > h3')) {
+      if (!/^(Meaning|Explanation|Role in the course|Reading plan)$/i.test(label.textContent.trim())) continue;
+      const notes = label.nextElementSibling;
+      if (!notes?.classList.contains('note-text')) continue;
+      const first = notes.children[0];
+      if (first?.tagName !== 'P' || !sameText(first.textContent, text)) continue;
+      first.remove();
+      if (!notes.textContent.trim()) { notes.remove(); label.remove(); }
+    }
+  }
+  function polishIntro(body) {
+    // takeaways.js marks its own insertion, so removing the duplicate does not make it reinsert it.
+    // Nothing here changes the graph summary, case sections or the full source brief.
+    body.querySelectorAll(':scope > .dkla-rule-label').forEach(label => label.remove());
+    const intro = body.querySelector(':scope > .takeaway');
+    if (!intro) return;
+    intro.classList.add('v25-explanation');
+    if (intro.querySelector('.r22-plain-text')) intro.querySelectorAll('.r22-rule-sub,.v25-legal-rule').forEach(duplicate => duplicate.remove());
+    trimRepeatedDefinition(body, intro);
+  }
+  function unwrap(details) {
+    if (!details) return;
+    for (const child of [...details.children]) if (child.tagName !== 'SUMMARY') details.before(child);
+    details.remove();
+  }
+  function referenceFooter(body, sources, recall, terms) {
+    const footer = [sources, recall, terms].filter(Boolean);
+    const tail = [...body.children].slice(-footer.length);
+    // Keep this idempotent: observers also watch the original source and term controls.
+    if (footer.length && !footer.every((node, i) => tail[i] === node)) footer.forEach(node => moveToEnd(node, body));
+  }
+  function moveToEnd(node, parent) { parent.appendChild(node); }
+  function mainIntro() {
+    if (!inspector || inspector.hidden) return;
+    const body = inspector.querySelector('.reader-body');
+    if (body) polishIntro(body);
   }
   function mainCase() {
     if (!inspector || inspector.hidden) return;
@@ -53,47 +100,42 @@
       const button = element('button', 'v25-full-brief', 'Full brief');
       button.type = 'button'; button.dataset.v25FullBrief = ''; actions.appendChild(button);
     }
-    polishTakeaway(body);
-    const takeaway = body.querySelector(':scope > .takeaway');
+    polishIntro(body);
     const sourceRows = [...body.querySelectorAll(':scope > .dkla-file-chips,:scope > .source-strip,:scope > .r19-chiprow,:scope > .civil-source-scope:not(.source-caution)')];
+    let sources = body.querySelector(':scope > .v25-source-details');
     if (sourceRows.length) {
-      const sources = disclosure(body, 'v25-source-details', 'Sources and assigned reading', takeaway || header);
+      sources ||= disclosure(body, 'v25-source-details', 'Sources and assigned reading');
       sourceRows.forEach(row => move(row, sources));
     }
+    unwrap(body.querySelector(':scope > .v25-study-tools'));
+    unwrap(body.querySelector(':scope > .v25-term-details'));
     const recall = body.querySelector('.r18-recall');
-    if (recall) {
-      const study = disclosure(body, 'v25-study-tools', 'Study tools', body.querySelector('.v25-source-details') || takeaway || header);
-      move(recall, study);
-    }
     const terms = body.querySelector('.dkla-terms');
-    if (terms && !terms.closest('.v25-term-details')) {
-      const name = terms.querySelector('h3')?.textContent || 'Legal terms';
-      const details = element('details', 'v25-disclosure v25-term-details');
-      details.appendChild(element('summary', '', name.replace('Terms in this entry', 'Legal terms')));
-      terms.before(details); details.appendChild(terms);
-    }
+    referenceFooter(body, sources, recall, terms);
   }
   function supportingCase() {
     if (!supporting) return;
     const line = supporting.querySelector('.r19-line');
-    if (!line || !supporting.querySelector(':scope > .r19-rule,:scope > .r19-text')) {
+    if (!line || !supporting.querySelector(':scope > .r19-rule,:scope > .r19-sec,:scope > .r19-text')) {
       supporting.classList.remove('v25-support-reader'); return;
     }
     supporting.classList.add('v25-support-reader');
     let actions = supporting.querySelector(':scope > .v25-support-actions');
     if (!actions) { actions = element('div', 'v25-support-actions'); line.before(actions); }
     for (const button of line.querySelectorAll('[data-cold-call],[data-r19-back],[data-r19-node]')) move(button, actions);
+    let sources = supporting.querySelector(':scope > .v25-support-sources');
     if (line.children.length) {
-      const sources = disclosure(supporting, 'v25-support-sources', 'Sources and review', actions);
+      sources ||= disclosure(supporting, 'v25-support-sources', 'Sources and review');
       move(line, sources);
     }
+    // Supporting briefs already contain their holding and full legal account.
+    // The introductory one-line rule repeats that content without adding an explanation.
+    if (supporting.querySelector(':scope > .r19-sec')) supporting.querySelector(':scope > .r19-rule')?.remove();
+    unwrap(supporting.querySelector(':scope > .v25-term-details'));
     const terms = supporting.querySelector('.r20-terms');
-    if (terms && !terms.closest('.v25-term-details')) {
-      const details = disclosure(supporting, 'v25-term-details', 'Legal terms', supporting.querySelector(':scope > .r19-rule') || actions);
-      move(terms, details);
-    }
+    referenceFooter(supporting, sources, null, terms);
   }
-  function paint() { mainCase(); supportingCase(); }
+  function paint() { mainIntro(); mainCase(); supportingCase(); }
   let queued = false;
   function schedule() {
     if (queued) return;

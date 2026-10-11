@@ -2357,8 +2357,109 @@
   "archiveAliases": {
     "contracts": "bookArchive, printed-page keys",
     "contracts-supplement": "suppArchive, printed-page keys",
-    "civil": "civilArchive.pages, printed-page keys"
+    "civil": "civilArchive.pages, printed-page keys",
+    "katzmann-11-22": "lrsArchive.sources.katzmann-11-22, physical PDF-page keys; #lrs=katzmann-11-22:<page>",
+    "katzmann-29-49": "lrsArchive.sources.katzmann-29-49, physical PDF-page keys; #lrs=katzmann-29-49:<page>",
+    "katzmann-50-70": "lrsArchive.sources.katzmann-50-70, physical PDF-page keys; #lrs=katzmann-50-70:<page>",
+    "katzmann-70-103": "lrsArchive.sources.katzmann-70-103, physical PDF-page keys; #lrs=katzmann-70-103:<page>",
+    "lrs-november-a": "lrsArchive.sources.lrs-november-a, physical PDF-page keys; #lrs=lrs-november-a:<page>",
+    "lrs-november-b": "lrsArchive.sources.lrs-november-b, physical PDF-page keys; #lrs=lrs-november-b:<page>",
+    "lrs-october-a": "lrsArchive.sources.lrs-october-a, physical PDF-page keys; #lrs=lrs-october-a:<page>",
+    "lrs-october-b": "lrsArchive.sources.lrs-october-b, physical PDF-page keys; #lrs=lrs-october-b:<page>",
+    "lrs-september": "lrsArchive.sources.lrs-september, physical PDF-page keys; #lrs=lrs-september:<page>"
   },
+  "lrsArchives": [
+    {
+      "id": "katzmann-11-22",
+      "filename": "Katzmann 11-22(2).pdf",
+      "originalSourcePath": "sources/pdfs/Katzmann 11-22(2).pdf",
+      "sourceSha256": "ea98b01374bc52e26e51a5fb871add8109104eec2c887bbd491c90bd685305ed",
+      "pageCount": 13,
+      "textCharacters": 23859,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "katzmann-29-49",
+      "filename": "Katzmann 29-49(2).pdf",
+      "originalSourcePath": "sources/pdfs/Katzmann 29-49(2).pdf",
+      "sourceSha256": "d2c15d2aec33d57753c3afbbcd1a354ac883e8dd0db4f61551a53683c107a990",
+      "pageCount": 21,
+      "textCharacters": 41098,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "katzmann-50-70",
+      "filename": "Katzmann 50-70(2).pdf",
+      "originalSourcePath": "sources/pdfs/Katzmann 50-70(2).pdf",
+      "sourceSha256": "4b7446d2e7a18e34b50e9deb64fdb8664cec3145fd85a03b10ce389973cbeb9e",
+      "pageCount": 21,
+      "textCharacters": 39953,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "katzmann-70-103",
+      "filename": "Katzmann 70-103(2).pdf",
+      "originalSourcePath": "sources/pdfs/Katzmann 70-103(2).pdf",
+      "sourceSha256": "cba29bab3e41f79cb0504b3dd2b79db05cc347102a7cee5efc002652ebb01573",
+      "pageCount": 34,
+      "textCharacters": 64927,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "lrs-november-a",
+      "filename": "LRS-november-1-165(2).pdf",
+      "originalSourcePath": "sources/pdfs/LRS-november-1-165(2).pdf",
+      "sourceSha256": "c1c7c54824f7e1c97360cc28d97bc4d272ed601173fbe67312f9d79ff64f29b0",
+      "pageCount": 165,
+      "textCharacters": 501062,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "lrs-november-b",
+      "filename": "lrs-november-165-end(2).pdf",
+      "originalSourcePath": "sources/pdfs/lrs-november-165-end(2).pdf",
+      "sourceSha256": "1e314535bf8f9c68a910fd3a9c02a10cea99ba080ec64eb9db5ff7a7accadf61",
+      "pageCount": 169,
+      "textCharacters": 505596,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "lrs-october-a",
+      "filename": "lrs-october-1-100(2).pdf",
+      "originalSourcePath": "sources/pdfs/lrs-october-1-100(2).pdf",
+      "sourceSha256": "d3dff6d11e99458c06d1ceb0b6b8f5be3b0f3fbc6af16dd35ae6d2c63be2cfba",
+      "pageCount": 100,
+      "textCharacters": 293528,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "lrs-october-b",
+      "filename": "lrs-october-100-end(2).pdf",
+      "originalSourcePath": "sources/pdfs/lrs-october-100-end(2).pdf",
+      "sourceSha256": "2a4b8f534664726c46f052022dfe8fd75d380019ea11237cd54cee5f3e95ec34",
+      "pageCount": 128,
+      "textCharacters": 385868,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    },
+    {
+      "id": "lrs-september",
+      "filename": "lrs-september(2).pdf",
+      "originalSourcePath": "sources/pdfs/lrs-september(2).pdf",
+      "sourceSha256": "e60acb44653f2df435d868275da056c205cd7f059545291c1024965561695692",
+      "pageCount": 137,
+      "textCharacters": 405788,
+      "pageCoordinate": "physical PDF page",
+      "printedLabels": "separate printedPage/printedLabel metadata, sometimes absent"
+    }
+  ],
   "indexes": {
     "civ": {
       "file": "added-sources/Civ Pro Supplement FULL OCR 26-27.pdf",
@@ -2379,7 +2480,7 @@
     "narratives": 742,
     "timelines": 66,
     "timelineSteps": 505,
-    "authorities": 1618,
-    "authorityConnections": 934
+    "authorities": 1619,
+    "authorityConnections": 938
   }
 }

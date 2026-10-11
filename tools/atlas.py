@@ -41,6 +41,7 @@ class Atlas:
         self.entries = {e[0]: e for e in self.data['entries']}
         self.texts = json.loads(self.blocks['sourceTexts'])
         self.index = json.loads(self.blocks['sourceIndex'])
+        self.lrs = json.loads(self.blocks['lrsArchive'])['sources']
         self.timelines = json.loads((ROOT / 'tools/r19/data/timelines.json').read_text(encoding='utf-8'))['timelines']
         self.authorities = json.loads((ROOT / 'tools/v25/authorities.json').read_text(encoding='utf-8'))
 
@@ -63,13 +64,28 @@ class Atlas:
         if name in self.texts:
             source = self.texts[name]
             return source.get('pages', source)
-        raise ValueError('Unknown source; use sources to find its exact name or contracts/civil aliases.')
+        if name in self.lrs:
+            return self.lrs[name]['pages']
+        raise ValueError('Unknown source; use catalog to find its exact name, LRS source ID or contracts/civil alias.')
 
     def page(self, name, page, maximum):
+        reference = name
+        route = re.fullmatch(r'#lrs=([^:]+):(\d+)', name)
+        if route:
+            name, linked_page = route.group(1), int(route.group(2))
+            if page is not None and page != linked_page:
+                raise ValueError('The explicit page number conflicts with the LRS link\'s physical PDF page.')
+            page = linked_page
+        elif name.startswith('#lrs='):
+            raise ValueError('Use an exact LRS link such as #lrs=lrs-november-a:34, or a bare LRS source ID and page number.')
+        page = 1 if page is None else page
+        if page < 1:
+            raise ValueError('Page numbers begin at 1.')
         doc = self.document(name)
         if isinstance(doc, list):
-            item = next((p for p in doc if isinstance(p, dict) and str(p.get('page', p.get('pdfPage'))) == str(page)), None)
-            labelled = any(isinstance(p,dict) and ('page' in p or 'pdfPage' in p) for p in doc)
+            label = lambda p: p.get('physicalPage', p.get('page', p.get('pdfPage')))
+            item = next((p for p in doc if isinstance(p, dict) and str(label(p)) == str(page)), None)
+            labelled = any(isinstance(p,dict) and any(k in p for k in ('physicalPage','page','pdfPage')) for p in doc)
             if item is None and not labelled and 1 <= page <= len(doc):
                 item = doc[page - 1]
         elif isinstance(doc, dict) and 'text' not in doc:
@@ -82,7 +98,17 @@ class Atlas:
             raise ValueError('Source page absent from the embedded extraction.')
         if isinstance(item, str):
             item = dict(text=item)
-        return dict(source=name, requestedPage=page, **{k:v for k,v in item.items() if k != 'text'}, **bounded(item.get('text', ''), maximum))
+        metadata = {}
+        if name in self.lrs:
+            source = self.lrs[name]
+            metadata = dict(archive='lrsArchive', pageCoordinate='physical PDF page',
+                            filename=source['filename'], originalSourcePath=source.get('sourcePath'),
+                            sourceSha256=source.get('sha256'),
+                            pageMeaning='physicalPage is the PDF coordinate; printedPage/printedLabel are separate source labels and may be absent.')
+        elif name in ('contracts','contracts-supplement','civil'):
+            metadata = dict(pageCoordinate='printed page key')
+        return dict(source=name, reference=reference, requestedPage=page, **metadata,
+                    **{k:v for k,v in item.items() if k != 'text'}, **bounded(item.get('text', ''), maximum))
 
     def source_matches(self, query, limit, maximum):
         q = query.casefold()
@@ -167,19 +193,37 @@ class Atlas:
                     provenance='File hashes identify source bytes; text matches do not certify legal propositions. Original PDFs and OCR can differ.',
                     sourceFiles=[dict(path=path,gitBlob=sha,embeddedText=path in self.texts) for path,sha in sorted(tracked.items())],
                     embeddedDocuments=documents,
-                    archiveAliases={'contracts':'bookArchive, printed-page keys','contracts-supplement':'suppArchive, printed-page keys','civil':'civilArchive.pages, printed-page keys'},
+                    archiveAliases={'contracts':'bookArchive, printed-page keys','contracts-supplement':'suppArchive, printed-page keys','civil':'civilArchive.pages, printed-page keys',
+                                    **{key:'lrsArchive.sources.'+key+', physical PDF-page keys; #lrs='+key+':<page>' for key in sorted(self.lrs)}},
+                    lrsArchives=[dict(id=key, filename=source['filename'], originalSourcePath=source.get('sourcePath'),
+                                      sourceSha256=source.get('sha256'), pageCount=len(source['pages']),
+                                      textCharacters=sum(len(p.get('text','')) for p in source['pages']),
+                                      pageCoordinate='physical PDF page', printedLabels='separate printedPage/printedLabel metadata, sometimes absent')
+                                 for key,source in sorted(self.lrs.items())],
                     indexes={k:dict(file=v.get('file'), headings=len(v.get('index',[]))) for k,v in self.index.items() if isinstance(v,dict)},
                     counts=dict(mapCases=sum(n['kind']=='Case' for n in self.nodes.values()),briefs=len(self.full),
                                 narratives=len(list((ROOT/'tools/cold-call/narratives').glob('*.json')))+len(json.loads((ROOT/'tools/cold-call/cases.json').read_text(encoding='utf-8'))['cases']),
                                 timelines=len(self.timelines),timelineSteps=sum(len(t['steps']) for t in self.timelines),
                                 authorities=len(self.authorities['entries']),authorityConnections=sum(len(e.get('links',[])) for e in self.authorities['entries'])))
 
+    def catalog_matches(self, query, limit):
+        value = self.catalog()
+        records = [dict(kind='lrsArchive', **row) for row in value['lrsArchives']]
+        records += [dict(kind='sourceFile', **row) for row in value['sourceFiles']]
+        records += [dict(kind='embeddedDocument', **row) for row in value['embeddedDocuments']]
+        records += [dict(kind='archiveAlias', id=key, coordinate=description) for key,description in value['archiveAliases'].items()]
+        records += [dict(kind='headingIndex', id=key, **row) for key,row in value['indexes'].items()]
+        q = query.casefold()
+        matches = [row for row in records if q in json.dumps(row,ensure_ascii=False).casefold()]
+        return dict(query=query, results=matches[:limit], matchCount=len(matches), limit=limit,
+                    truncated=len(matches)>limit, counts=value['counts'], provenance=value['provenance'])
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['overview','search','entry','authority','sources','page','timeline','catalog'])
     parser.add_argument('query', nargs='?', default='')
-    parser.add_argument('page_number', nargs='?', type=int, default=1)
+    parser.add_argument('page_number', nargs='?', type=int, help='Source coordinate; LRS uses physical PDF pages, contracts/civil aliases use printed pages.')
     parser.add_argument('--limit',type=int,default=12)
     parser.add_argument('--chars',type=int,default=4000)
     parser.add_argument('--write',action='store_true',help='Only catalog: save tools/v25/source-catalog.json without copying source text.')
@@ -211,12 +255,12 @@ def main():
         else:
             raise ValueError('Timeline not found.')
     elif args.command=='catalog':
-        value=atlas.catalog()
         if args.write:
+            value=atlas.catalog()
             (ROOT/'tools/v25/source-catalog.json').write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
             emit(dict(saved='tools/v25/source-catalog.json',counts=value['counts'],files=len(value['sourceFiles'])))
         else:
-            emit(value)
+            emit(atlas.catalog_matches(args.query,args.limit))
 
 
 if __name__=='__main__':

@@ -43,7 +43,9 @@ jobs:
           python3 tools/v25/authorities_build.py --check
           python3 tools/v25/uscode_build.py --check
           python3 tools/v25/check_timeline_audit.py --json
+          python3 tools/v25/explanation_inventory.py --check
           node tools/v25/authorities_check.cjs
+          node tools/v25/reading_check.cjs
           node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
           python3 tools/cold-call/check_narratives.py --write

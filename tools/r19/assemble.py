@@ -38,7 +38,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 
 CHANGELOG_V25_READING = {
     "v": "v2.5", "date": "2026-10-11",
-    "text": "Case reading panels have a clearer title, one visible takeaway, and expandable legal detail, sources and study tools. Cold Call reads directly as a narrative without practice controls or a repeated introduction. The Rules & authorities library keeps the Constitution, Federal Rules and assigned Contracts authorities in ordered collections linked to relevant entries. Doctrine timelines have clearer explanations, scoped summaries and recorded review evidence. A bounded source lookup tool and an explicit runtime-module manifest support later audits without editing generated HTML.",
+    "text": "Case reading panels open with one plain-English explanation and retain their full legal analysis. Timelines are visible immediately, with one synthesis and no repeated synopsis, step-count caption or expand control. Cold Call reads directly as a narrative without practice controls or a repeated introduction. Rules & authorities uses nested atlas rectangles and ribbons for the Constitution, Federal Rules, U.S. Code and assigned Contracts authorities. Recorded source comparisons, bounded source lookups and an explicit runtime-module manifest support later audits without editing generated HTML.",
 }
 CHANGELOG_V24_NARRATIVE = {
     "v": "v2.4", "date": "2026-10-11",
@@ -548,7 +548,10 @@ def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
     districts, regions = sm["districts"], {r["id"]: r for r in sm["regions"]}
     problems = []
     problems += [f"node {k}" for k in a.get("nodes", {}) if k not in nodes]
-    problems += [f"edge {k}" for k in a.get("edges", {}) if k not in edge_ids]
+    # An added connection can have a guarded correction for saved older copies.
+    # Its endpoints and required fields are checked below like every addition.
+    known_edges = edge_ids | {e.get("id") for e in a.get("addEdges", [])}
+    problems += [f"edge {k}" for k in a.get("edges", {}) if k not in known_edges]
     problems += [f"district {k}" for k in a.get("districts", {}) if k not in districts]
     problems += [f"region {k}" for k in a.get("regions", {}) if k not in regions]
     problems += [f"remove {k}" for k in a.get("removeEdges", []) if k not in edge_ids]

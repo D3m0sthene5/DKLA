@@ -1,58 +1,58 @@
-/* Render every embedded authority through the real reader. This catches missing
- * source paragraphs, malformed source shapes and navigation exceptions. Browser
- * layout, focus and scroll QA remain separate. */
-const assert=require('node:assert/strict');
-const fs=require('node:fs');
-const path=require('node:path');
-const vm=require('node:vm');
+/* Offline tests exercise the real map adapter and every source-rule paragraph.
+ * Camera layout, real pointer activation and typography also need browser QA. */
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'../..');
 const file=process.argv[2]?path.resolve(process.argv[2]):path.join(root,JSON.parse(fs.readFileSync(path.join(root,'version.json'),'utf8')).file);
-const html=fs.readFileSync(file,'utf8');
-const embedded=html.match(/<script\b[^>]*\bid="dklaAuthoritiesData"[^>]*>([\s\S]*?)<\/script>/);
-assert.ok(embedded,'Authority data missing from release');
-const data=JSON.parse(embedded[1]);
+const html=fs.readFileSync(file,'utf8'),embedded=html.match(/<script\b[^>]*\bid="dklaAuthoritiesData"[^>]*>([\s\S]*?)<\/script>/);
+assert.ok(embedded,'Authority data missing from release');const data=JSON.parse(embedded[1]);
 class Element{
-  constructor(){this.dataset={};this.events={};this.children=new Map();this.innerHTML='';this.open=false;this.value='';this.scrollTop=0;}
-  setAttribute(){}
-  addEventListener(type,fn){this.events[type]=fn;}
-  querySelector(key){if(!this.children.has(key))this.children.set(key,new Element());return this.children.get(key);}
+  constructor(){this.dataset={};this.events={};this.children=new Map();this.innerHTML='';this.hidden=false;this.value='';this.scrollTop=0;this.attrs={};}
+  setAttribute(k,v){this.attrs[k]=v;}
+  addEventListener(t,f){this.events[t]=f;}
+  querySelector(k){if(!this.children.has(k))this.children.set(k,new Element());return this.children.get(k);}
   querySelectorAll(){return [];}
-  appendChild(el){this.children.set(el.id||String(this.children.size),el);}
-  focus(){}
-  showModal(){this.open=true;}
-  close(){this.open=false;}
+  appendChild(e){this.children.set(e.id||String(this.children.size),e);}
+  insertAdjacentHTML(_,s){this.innerHTML+=s;}
+  remove(){}
 }
-const els=[];
-const document={body:{appendChild(e){els.push(e);}},createElement(){return new Element();},getElementById(id){return id==='dklaAuthoritiesData'?{textContent:embedded[1]}:els.find(e=>e.id===id)||null;},addEventListener(){}};
-const media={matches:true,addEventListener(type,fn){this.listener=fn;}};
-const window={};
-const context={window,document,matchMedia(){return media;},MutationObserver:class{observe(){}},S:{scope:'Legislation and the Regulatory State'}};
+const ids=new Map(),created=[];for(const id of ['inspector','courseHome','geoBreadcrumb','studyBack','mapWelcome','studyFit','moreBtn','mapHint','search','searchResults','geoCanvas'])ids.set(id,new Element());
+ids.set('dklaAuthoritiesData',{textContent:embedded[1]});
+const document={events:{},getElementById(id){return ids.get(id)||null;},createElement(tag){created.push(tag);return new Element();},querySelectorAll(){return [];},addEventListener(t,f){this.events[t]=f;}};
+const S={scope:'Atlas',region:null,district:null,x:0,y:0,z:.2,panelOpen:false,history:[],paintNodes:[],paintEdges:[]};
+let viewport={w:1280,h:900},lastFit=null,nativeNodes=0;
+const context={window:{},document,S,selected:null,svg:ids.get('geoCanvas'),R18:{afterDraw:[]},R11:{level(){return {lvl:0};},step(){return false;}},
+  MutationObserver:class{observe(){}},ResizeObserver:class{observe(){}},setTimeout,clearTimeout,
+  rect(){return viewport;},regionFor(id){return id==='dictionary-region'?{x:-1700,y:2700,w:2400,h:1300}:null;},scopeBox(){return {x:0,y:0,w:100,h:100};},galaxy(){return {box:{x:-25000,y:-15000,w:50000,h:31000}};},
+  home(scope){this.selected=null;S.scope=scope;S.region=null;S.panelOpen=false;},goRegion(){},goNode(id){context.remember();nativeNodes++;S.scope='Civil Procedure';S.region='cp-subject-region';context.selected={type:'node',id};},
+  renderHeading(){},renderInspector(){ids.get('inspector').innerHTML='';},readerChrome(body,label){return `<div class="reader-top">${label}</div><div class="reader-body">${body}</div>`;},wireReader(){},
+  remember(){S.history.push({scope:S.scope,region:S.region,district:S.district,panelOpen:S.panelOpen,selected:context.selected?{...context.selected}:null,x:S.x,y:S.y,z:S.z});if(S.history.length>70)S.history.shift();},
+  back(){const v=S.history.pop();if(!v)return;Object.assign(S,v);context.selected=v.selected;context.renderInspector();context.renderHeading();context.draw();},
+  setReader(open){S.panelOpen=open;ids.get('inspector').hidden=!open;},closeSearch(){},dismissMenu(){},fit(){},
+  fitBox(b){lastFit=b;S.x=b.x+b.w/2;S.y=b.y+b.h/2;S.z=Math.min(viewport.w/b.w,viewport.h/b.h,.95);},
+  bounds(bs){const items=bs.filter(Boolean),x=Math.min(...items.map(b=>b.x)),y=Math.min(...items.map(b=>b.y));return{x,y,w:Math.max(...items.map(b=>b.x+b.w))-x,h:Math.max(...items.map(b=>b.y+b.h))-y};},
+  visibleBox(){return{x:-20000,y:-20000,w:60000,h:60000};},intersects(){return true;},homeFor(){return{x:0,y:0,w:100,h:100};},mapCenterVisible(){return{x:S.x,y:S.y};},
+  edgePoint(a){return{x:a.x+a.w/2,y:a.y+a.h/2};},taperedRibbon(){return'M0 0L1 1Z';},draw(){},schedule(){},
+};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'authorities.js'),'utf8'),context);
-const reader=document.getElementById('authorityLibrary');
-const main=reader.querySelector('.authority-reading');
-const index=reader.querySelector('.authority-index');
+const api=context.window.DKLAAuthorities,panel=ids.get('inspector');assert.ok(api,'Map adapter missing');assert.equal(created.includes('dialog'),false,'Separate authority dialog created');
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sourceIds=new Set();
+function walk(group){api.group(group,false);const snapshot=api.geography();for(const c of snapshot.children){if(c.provision){assert.ok(!sourceIds.has(c.provision),'Duplicated provision in hierarchy: '+c.provision);sourceIds.add(c.provision);}else walk(c.id);}}
+walk('authority-root');assert.equal(sourceIds.size,data.entries.length,'Hierarchy loses source entries');assert.equal(api.geography().provisionCount,data.entries.length);
 for(const e of data.entries){
-  window.DKLAAuthorities.open(e.id);
-  assert.equal(reader.open,true,e.id+': dialog failed to open');
-  assert.ok(main.innerHTML.includes(escape(e.cite)),e.id+': citation missing');
-  for(const line of e.lines)assert.ok(main.innerHTML.includes('>'+escape(line[1])+'<'),e.id+': missing or unescaped source paragraph');
-  assert.ok(main.innerHTML.includes(escape(e.source.name)),e.id+': provenance missing');
-  for(const a of e.annotations||[])if(typeof a==='object'){
-    assert.ok(main.innerHTML.includes(escape(a.title)),e.id+': statutory-note title missing');
-    for(const line of a.lines||[])assert.ok(main.innerHTML.includes('>'+escape(line[1])+'<'),e.id+': statutory-note paragraph missing');
-  }
-  assert.ok(!main.innerHTML.includes('&quot;lines&quot;:'),e.id+': raw annotation JSON reached reader');
+  api.open(e.id);assert.equal(S.scope,'Rules & authorities');assert.equal(context.selected.type,'authority');assert.ok(panel.innerHTML.includes(escape(e.cite)),e.id+': citation missing');
+  for(const l of e.lines)assert.ok(panel.innerHTML.includes('>'+escape(l[1])+'<'),e.id+': source paragraph missing');
+  assert.ok(panel.innerHTML.includes(escape(e.source.name)),e.id+': provenance missing');
+  for(const a of e.annotations||[])if(typeof a==='object'){assert.ok(panel.innerHTML.includes(escape(a.title)),e.id+': statutory-note title missing');for(const l of a.lines||[])assert.ok(panel.innerHTML.includes('>'+escape(l[1])+'<'),e.id+': statutory-note paragraph missing');}
+  assert.ok(!panel.innerHTML.includes('&quot;lines&quot;:'),e.id+': raw annotation JSON reached reader');
 }
-// The index must remain usable after switching a mobile reader into desktop size.
-window.DKLAAuthorities.open('frcp-16.1');
-assert.equal(index.open,false,'Mobile index should start collapsed');
-media.matches=false;media.listener();
-assert.equal(index.open,true,'Desktop resize did not reopen the index');
-reader.events.click({target:{closest(){return{dataset:{authorityId:'frcp-17'}};}}});
-assert.ok(main.innerHTML.includes('Rule 17'),'Next-rule navigation failed');
-let stopped=false;reader.events.keydown({stopPropagation(){stopped=true;}});
-assert.equal(stopped,true,'Reader keyboard events leaked to map');
-window.DKLAAuthorities.open(null,'constitution');
-assert.ok(main.innerHTML.includes('Preamble'),'Constitution shortcut did not open first provision');
-console.log(JSON.stringify({rendered:data.entries.length,sourceParagraphs:data.entries.reduce((n,e)=>n+e.lines.length,0),statutoryNotes:data.entries.reduce((n,e)=>n+(e.annotations||[]).length,0),desktopResize:true,navigation:true,keyboardIsolation:true}));
+api.open('frcp-16.1');context.draw();assert.ok(ids.get('geoCanvas').innerHTML.includes('data-map-jump="authority:frcp-16.1"'),'Provision not reachable through native map activation');
+assert.ok(panel.innerHTML.includes('data-authority-open="frcp-17"'),'Ordered navigation lost Rule 17');
+const oldRegion=S.region;api.open('frcp-17');context.back();assert.equal(context.selected.id,'frcp-16.1');assert.equal(S.region,oldRegion,'Back did not restore authority group');
+context.goNode('cp-gibbs');context.back();assert.equal(context.selected.id,'frcp-16.1');assert.equal(nativeNodes,1,'Case navigation failed');
+api.open('usc-28-1367');const route=api.geography().route;assert.ok(route.some(r=>r.title.startsWith('Title 28')),'Title hierarchy missing');assert.ok(route.some(r=>r.title.includes('CHAPTER')),'Official chapter missing');
+if(data.entries.find(e=>e.id==='usc-28-1367').links.length){document.events.click({preventDefault(){},stopPropagation(){},target:{closest(){return{dataset:{authorityConnections:''}};}}});context.draw();assert.equal(S.panelOpen,false);assert.ok(ids.get('geoCanvas').innerHTML.includes('authority-ribbon'),'Native ribbon missing');}
+viewport={w:390,h:844};api.group('authority:constitution');context.draw();assert.ok(ids.get('geoCanvas').innerHTML.includes('data-map-region="authority:constitution/articles"'),'Constitution nesting missing');assert.ok(lastFit.w<1500,'Phone hierarchy did not adapt');
+viewport={w:1280,h:900};api.group('authority-root');ids.get('studyFit').onclick();assert.ok(lastFit.w>1500,'Desktop Fit uses empty native membership instead of authority geometry');
+assert.equal(ids.get('geoBreadcrumb').innerHTML.includes('authority-shortcut'),false,'Redundant breadcrumb shortcut remains');
+console.log(JSON.stringify({rendered:data.entries.length,sourceParagraphs:data.entries.reduce((n,e)=>n+e.lines.length,0),statutoryNotes:data.entries.reduce((n,e)=>n+(e.annotations||[]).length,0),hierarchy:sourceIds.size,groups:api.geography().groupCount,nativeInspector:true,back:true,ribbons:true,responsiveGeometry:true}));

@@ -14,9 +14,6 @@
 .dkla-timeline-track li.r21-sup .dkla-tl-year{background:transparent;color:#c9d5de;box-shadow:inset 0 0 0 1.5px #8fa3b3}
 .dkla-timeline-track li.r21-event .dkla-tl-year{background:transparent;color:#8fc0e8;box-shadow:inset 0 0 0 1.5px #5d87a8}
 .dkla-timeline-track li.r21-event strong{color:#bcd3e6;font-weight:600}
-.dkla-timeline .r21-now,#r21Timelines .r21-now{margin:10px 0 2px!important;padding:8px 12px;border-radius:8px;background:#1c2731;font-size:13px!important;line-height:1.5;color:#d7e0e8!important}
-.r21-now b{display:block;margin-bottom:2px;font:600 10px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--dkla-course,#d6b78e)}
-#r21Timelines .r21-now b{color:#d6b78e}
 .dkla-timeline .r21-all{margin:8px 0 2px;padding:4px 0;border:0;background:none;font:inherit;font-size:12px;color:#93a7b7;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:#3a4856}
 .dkla-timeline .r21-all:hover{color:#e3e8ec}
 /* the list of every timeline */
@@ -62,20 +59,11 @@
 #inspector .reader-body .dkla-timeline-track{padding-left:22px;padding-right:0;scroll-padding-inline:22px}
 #inspector .reader-body .dkla-timeline-track::after{content:"";flex:0 0 22px}
 
-/* v2.5: the chronology is available on demand; the case remains the reading focus. */
-#inspector .dkla-timeline[data-r21]{margin:18px 0;padding:0;border:1px solid #34424d;border-radius:12px;background:rgba(21,31,40,.45);overflow:hidden}
-.r25-timeline-disclosure>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;list-style:none;cursor:pointer;padding:16px 18px;position:relative;padding-right:38px}
-.r25-timeline-disclosure>summary::-webkit-details-marker{display:none}
-.r25-timeline-disclosure>summary::after{content:'+';position:absolute;right:16px;top:24px;color:#95b6cf;font-size:20px;line-height:1}
-.r25-timeline-disclosure[open]>summary::after{content:'−'}
-.r25-timeline-label{font-size:11px;font-weight:650;line-height:1.4;color:#9cb1c1;grid-column:1/-1}
-.r25-timeline-disclosure>summary strong{font-size:15px;line-height:1.45;font-weight:600;color:#e4ebf0;overflow-wrap:anywhere}
-.r25-timeline-disclosure>summary small{font-size:11px;line-height:1.5;color:#99aab6;align-self:center;white-space:nowrap}
-.r25-timeline-disclosure>summary:focus-visible{outline:2px solid #9bc8ec;outline-offset:-4px}
-.r25-timeline-content{padding:0 16px 16px;border-top:1px solid #2f3b45}
-.r25-timeline-guide{font-size:14px!important;line-height:1.6!important;color:#bccbd5!important;margin:16px 0 22px!important;max-width:72ch}
+/* v2.5 correction: visible chronology, one title and one unboxed synthesis. */
+#inspector .dkla-timeline[data-r21]{margin:24px 0;padding:0;border:0;border-radius:0;background:transparent;overflow:hidden}
+.r25-timeline-title{margin:0 0 18px!important;font-size:15px!important;line-height:1.5!important;font-weight:600!important;color:#dce6ec!important;text-transform:none!important;letter-spacing:0!important}
+.r25-timeline-synthesis{font-size:14px!important;line-height:1.7!important;color:#bccbd5!important;margin:18px 0 8px!important;padding:0!important;background:none!important;border:0!important;border-radius:0!important;max-width:72ch}
 .r25-authority-kind{display:block;margin:5px 0;color:#9db7cb;font:500 10px/1.4 system-ui}
 .dkla-timeline-track .r21-turn,#r21Timelines .r21-turn{font-size:11px;line-height:1.45;text-transform:none;letter-spacing:0}
-.dkla-timeline .r21-now p,#r21Timelines .r21-now p{margin:3px 0!important;font-size:13px!important;line-height:1.6!important;color:inherit}
 .r21-v li.r21-event button.r21-name{cursor:pointer}
-@media(max-width:640px){.r25-timeline-disclosure>summary{grid-template-columns:1fr;padding:14px 36px 14px 14px}.r25-timeline-disclosure>summary small{white-space:normal}.r25-timeline-content{padding:0 12px 14px}.r25-timeline-guide{font-size:13px!important;line-height:1.6!important}}
+@media(max-width:640px){.r25-timeline-synthesis{font-size:13px!important;line-height:1.65!important}}

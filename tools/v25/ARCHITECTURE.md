@@ -38,6 +38,8 @@ python tools/atlas.py authority usc-28-1367 --chars 12000
 python tools/atlas.py sources "Rule 4" --limit 8
 python tools/atlas.py page civil 353 --chars 12000
 python tools/atlas.py page "added-sources/Contracts- Selections.pdf" 100
+python tools/atlas.py page "#lrs=lrs-november-a:34" --chars 4000
+python tools/atlas.py catalog november --limit 4
 python tools/atlas.py timeline supp
 python tools/atlas.py catalog --write
 ```
@@ -61,6 +63,11 @@ PDF uses its embedded extraction's PDF-page keys. Unpaginated opinion text does
 not establish a pinpoint. Always inspect the original opinion or assigned PDF
 when OCR, an antecedent, a quotation, or an opinion boundary is material.
 
+LRS source IDs and native `#lrs=source-id:page` links use physical PDF pages.
+Their results report the printed-page label separately; a missing label remains
+missing. Catalog search respects its global result limit, while `--write` saves
+the complete source catalog independent of display filters.
+
 `source-catalog.json` identifies the repository source files by Git blob hash,
 their embedded text availability and existing heading indexes. It does not
 duplicate textbook text or certify a legal proposition. Regenerate it after
@@ -79,6 +86,14 @@ source files are committed. Use the existing `added-sources/index/*.json` and
    fingerprint; preserve qualified or missing source facts.
 5. Build and run the relevant validators, then inspect the changed view in a
    browser. Check mobile wrapping and intermediate map zoom when affected.
+
+`explanation_inventory.py --pack` provides bounded effective prose for review.
+`--check` catches drift from the reviewed introduction text and its compared
+canonical sections. The inventory is navigation, not legal review; recorded
+review scope lives in `EXPLANATION_AUDIT.md` and its named JSON ledgers.
+`reading_check.cjs` exercises repeated repainting and content preservation,
+including the one-introduction rule and exact duplicate removal. Real browser
+inspection still verifies visible timelines, wrapping and map navigation.
 
 All main cases require authored narratives. Supplemental narratives remain
 optional and existing completed accounts are preserved. Cosmetic cleanup may

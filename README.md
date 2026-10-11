@@ -1,10 +1,14 @@
-## v2.5 · Clearer reading and an ordered rules library
+## v2.5 · Clearer reading and a rules map
 
-Case panels have a clear title, one visible takeaway, and expandable legal detail, sources and study tools. **Cold call** opens the individually authored chronological narrative directly, with section navigation and the original full brief. It preserves all 392 main-map accounts and 350 supporting narratives; further supporting Cold Calls are optional.
+Case panels open with a clear title and one plain-English explanation. Doctrine timelines are visible immediately, with one synthesis and no repeated summary or step-count caption. **Cold call** opens the individually authored chronological narrative directly, with section navigation and the original full brief. It preserves all 392 main-map accounts and 350 supporting narratives; further supporting Cold Calls are optional.
 
-**Rules & authorities** opens ordered collections of the Constitution, Federal Rules of Civil Procedure, full Title 28, Title 9 arbitration, key administrative-law statutes and the assigned Contracts authorities, with source text and relevant atlas links. The collections live in one reader rather than adding hundreds of map cards. Doctrine timelines explain their legal changes and keep the [v2.5 review scope](TIMELINE_AUDIT.md) explicit.
+**Rules & authorities** is a nested rectangle map of the Constitution, Federal Rules of Civil Procedure, full Title 28, Title 9 arbitration, key administrative-law statutes and the assigned Contracts authorities, with source text and ribbons to relevant atlas entries. Its private hierarchy keeps the main course layout intact. The [v2.5 review scope](TIMELINE_AUDIT.md) distinguishes source comparisons from structural checks.
 
 For contributors and AI audits, start with the [architecture and bounded source lookup guide](tools/v25/ARCHITECTURE.md), [runtime module manifest](tools/v25/runtime-manifest.json), and [source catalog](tools/v25/source-catalog.json). [Authored narrative inventory](tools/cold-call/coverage.json) and [inherited v2.4 accuracy scope](AUDIT_V2.4.md) remain available; structural tests are not a claim-by-claim legal certification.
+
+The [explanation review](EXPLANATION_AUDIT.md) records the current introduction, noncase and connection screening, with separate source-backed correction ledgers. Build checks detect reviewed-text drift; bounded effective inventories make later audits possible without reading the generated HTML.
+
+Use `python tools/atlas.py page "#lrs=lrs-november-a:34" --chars 4000` to follow an LRS source link, or `page lrs-november-a 34` with the source ID. The number is the physical PDF page; the result separately reports its printed-page label (608 in this example). `catalog november --limit 4` returns a bounded list of matching source records. `catalog --write` still saves the complete deterministic catalog regardless of search or display limits.
 
 # Danny Kind Legal Atlas
 

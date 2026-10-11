@@ -1,0 +1,4492 @@
+{
+  "reviewDate": "2026-10-11",
+  "reviewer": "reading_design subagent",
+  "scope": "354 noncase records: 176 Civil Procedure, 172 LRS, 6 other; summaries/notes/sections; also both LRS courseTreatments on interpretation and structure. Identical text values within a record read once.",
+  "method": "Read the effective prose packs produced by root from immutable seed plus plain/r21 overlays. Screen each unique assertion for overbreadth, omitted material limits, historical/current confusion and redundant presentation. Re-read supplied source excerpts and official primary materials for selected concerns. Most records did not receive a new independent proposition-by-proposition comparison against every original source; do not label this a fresh comprehensive primary-source verification.",
+  "packs": [
+    {
+      "path": "..\\noncase-civil.json",
+      "sha256": "da46781e373dd8b93e5f8e877db73be8886837dc6548018137f582c43b849bae",
+      "records": 176,
+      "uniqueTextCharacters": 104933,
+      "ids": [
+        "minimum-contacts",
+        "purposeful-availment",
+        "relatedness",
+        "fairness",
+        "specific-jurisdiction",
+        "general-jurisdiction",
+        "forum-selection",
+        "cp-framework",
+        "cp-subject-matter",
+        "cp-personal-jurisdiction",
+        "cp-statutory-constitutional",
+        "cp-procedure-merits",
+        "cp-waiver",
+        "cp-precedent",
+        "cp-federalism",
+        "cp-access",
+        "cp-judicial-discretion",
+        "cp-territorial",
+        "cp-domicile",
+        "cp-stream-commerce",
+        "cp-effects-test",
+        "cp-contractual-contacts",
+        "cp-long-arm",
+        "cp-consent-jurisdiction",
+        "cp-jurisdiction-discovery",
+        "cp-tag-jurisdiction",
+        "cp-property-jurisdiction",
+        "cp-internet-jurisdiction",
+        "cp-collateral",
+        "cp-finality",
+        "cp-notice",
+        "cp-service",
+        "cp-fraud-service",
+        "cp-due-process",
+        "cp-hearing",
+        "cp-prejudgment",
+        "cp-mathews",
+        "cp-diversity",
+        "cp-citizenship",
+        "cp-amount-in-controversy",
+        "cp-aggregation",
+        "cp-standing",
+        "cp-federal-question",
+        "cp-well-pleaded",
+        "cp-embedded-question",
+        "cp-supplemental",
+        "cp-supplemental-history",
+        "cp-pendent-parties",
+        "cp-supplemental-diversity",
+        "cp-supplemental-discretion",
+        "cp-removal",
+        "cp-forum-defendant",
+        "cp-venue",
+        "cp-local-actions",
+        "cp-transfer",
+        "cp-forum-non-conveniens",
+        "cp-erie",
+        "cp-erie-history",
+        "cp-erie-outcome",
+        "cp-erie-balancing",
+        "cp-rule-scope",
+        "cp-rules-enabling",
+        "cp-erie-accommodation",
+        "cp-choice-law",
+        "cp-federal-common-law",
+        "cp-government-contractor",
+        "cp-reverse-erie",
+        "cp-release",
+        "cp-pleading",
+        "cp-notice-pleading",
+        "cp-plausibility",
+        "cp-pleading-proof",
+        "cp-fraud-pleading",
+        "cp-securities-pleading",
+        "cp-special-damages",
+        "cp-pleading-motions",
+        "cp-privilege",
+        "cp-denials",
+        "cp-affirmative-defense",
+        "cp-amendment",
+        "cp-relation-back",
+        "cp-trial-consent",
+        "cp-certification",
+        "cp-safe-harbor",
+        "cp-joinder",
+        "cp-real-party",
+        "cp-claim-joinder",
+        "cp-counterclaim",
+        "cp-transaction",
+        "cp-crossclaim",
+        "cp-permissive-joinder",
+        "cp-required-joinder",
+        "cp-nonparty-protection",
+        "cp-impleader",
+        "cp-interpleader",
+        "cp-statutory-interpleader",
+        "cp-sovereign-immunity",
+        "cp-intervention",
+        "cp-separate-trials",
+        "cp-joinder-class-distinction",
+        "cp-party-status",
+        "cp-class-actions",
+        "cp-class-certification",
+        "cp-commonality",
+        "cp-predominance",
+        "cp-adequate-representation",
+        "cp-rule23b2",
+        "cp-ascertainability",
+        "cp-class-notice",
+        "cp-settlement-class",
+        "cp-limited-fund",
+        "cp-class-jurisdiction",
+        "cp-cafa",
+        "cp-absent-plaintiffs",
+        "cp-class-preclusion",
+        "cp-issue-preclusion",
+        "cp-class-waiver",
+        "cp-federal-preemption",
+        "cp-summary-judgment",
+        "cp-burden-production",
+        "cp-burden-persuasion",
+        "cp-inferences",
+        "cp-judge-jury",
+        "cp-summary-history",
+        "cp-limitations",
+        "cp-forum-shopping",
+        "cp-statute-interpretation",
+        "cp-mdl",
+        "cp-frcp-4",
+        "cp-frcp-8",
+        "cp-frcp-9",
+        "cp-frcp-11",
+        "cp-frcp-12",
+        "cp-frcp-13",
+        "cp-frcp-14",
+        "cp-frcp-15",
+        "cp-frcp-17",
+        "cp-frcp-18",
+        "cp-frcp-19",
+        "cp-frcp-20",
+        "cp-frcp-21",
+        "cp-frcp-22",
+        "cp-frcp-23",
+        "cp-frcp-24",
+        "cp-frcp-42",
+        "cp-frcp-56",
+        "cp-usc-1331",
+        "cp-usc-1332",
+        "cp-usc-1367",
+        "cp-usc-1441",
+        "cp-usc-1391",
+        "cp-usc-1404",
+        "cp-usc-1406",
+        "cp-usc-1407",
+        "cp-usc-1453",
+        "cp-usc-1335",
+        "cp-usc-1652",
+        "cp-usc-2072",
+        "cp-article-iii",
+        "cp-berk-gap",
+        "cp-cross-gap",
+        "cp-supplement-gap",
+        "cp-week-1",
+        "cp-week-2",
+        "cp-week-3",
+        "cp-week-4",
+        "cp-week-5",
+        "cp-week-6",
+        "cp-week-7",
+        "cp-week-8",
+        "cp-week-9",
+        "cp-week-10",
+        "cp-week-11",
+        "cp-week-12",
+        "cp-week-13",
+        "cp-week-14"
+      ]
+    },
+    {
+      "path": "..\\noncase-lrs.json",
+      "sha256": "cc14bdfe53098300131ee7c1f5ac47c94c70bd10fc659137f2ab7f18ecf99993",
+      "records": 172,
+      "uniqueTextCharacters": 197201,
+      "ids": [
+        "interpretation",
+        "structure",
+        "lrs-s-enabling-statute",
+        "lrs-s-conditional-legislation",
+        "lrs-s-details",
+        "lrs-s-intelligible-principle",
+        "lrs-s-delegation-dimensions",
+        "lrs-s-agency-self-limitation",
+        "lrs-s-avoidance",
+        "lrs-s-accountability",
+        "lrs-s-appointments-clause",
+        "lrs-s-officer-employee",
+        "lrs-s-inferior-officer",
+        "lrs-s-germaneness",
+        "lrs-s-removal",
+        "lrs-s-agency-independence",
+        "lrs-s-congressional-control",
+        "lrs-s-severability",
+        "lrs-s-statutory-context",
+        "lrs-s-jaffe",
+        "lrs-s-coglianese",
+        "lrs-s-originalism",
+        "lrs-s-delegation-democracy",
+        "lrs-s-reins-mqd",
+        "lrs-s-organization",
+        "lrs-s-removal-history",
+        "lrs-s-article-i-vesting",
+        "lrs-s-article-ii-appointments",
+        "lrs-s-caa-109",
+        "lrs-s-sorna-20913",
+        "lrs-s-forest-rule-45",
+        "lrs-s-ftc-tenure",
+        "lrs-k-congress",
+        "lrs-k-approaches",
+        "lrs-k-canons-reading",
+        "lrs-k-practical",
+        "lrs-k-understanding",
+        "lrs-k-purposivism",
+        "lrs-k-textualism",
+        "lrs-k-legislative-history",
+        "lrs-k-noscitur",
+        "lrs-k-statutory-structure",
+        "lrs-k-sovereign-immunity",
+        "lrs-k-absurdity",
+        "lrs-k-domestic-assumption",
+        "lrs-k-clear-statement",
+        "lrs-k-terms-of-art",
+        "lrs-k-lawmaking",
+        "lrs-k-canons",
+        "lrs-k-ejusdem",
+        "lrs-k-lenity",
+        "lrs-k-implied-repeal",
+        "lrs-k-ftca-postal",
+        "lrs-k-gun-predicate",
+        "lrs-k-idea-fees",
+        "lrs-k-raila-hypotheticals",
+        "lrs-o-fvra",
+        "lrs-o-civil-service",
+        "lrs-o-inherent-power",
+        "lrs-o-ministerial-duties",
+        "lrs-o-government-lawyering",
+        "lrs-o-executive-orders",
+        "lrs-o-olc-regulatory-review",
+        "lrs-o-midnight-rules",
+        "lrs-o-fragmented-execution",
+        "lrs-o-apa-classification",
+        "lrs-o-public-rights",
+        "lrs-o-legislative-facts",
+        "lrs-o-hearing-trigger",
+        "lrs-o-third-party-hearings",
+        "lrs-o-adjudication-stages",
+        "lrs-o-administrative-evidence",
+        "lrs-o-due-process-framework",
+        "lrs-o-mathews-critique",
+        "lrs-o-new-property",
+        "lrs-o-immigration-due-process",
+        "lrs-o-entitlement-disclaimers",
+        "lrs-o-chenery-reasons",
+        "lrs-o-retroactivity",
+        "lrs-o-rulemaking-authority",
+        "lrs-o-ftc-after-petroleum",
+        "lrs-o-section-553",
+        "lrs-o-formal-rulemaking",
+        "lrs-o-rulemaking-record",
+        "lrs-o-logical-outgrowth",
+        "lrs-o-participation-design",
+        "lrs-o-vermont-yankee-debate",
+        "lrs-o-detention-procedure",
+        "lrs-o-problem-supervision",
+        "lrs-o-problem-entitlement",
+        "lrs-o-problem-procedure-support",
+        "lrs-o-adjudication-landscape",
+        "lrs-n-hard-look",
+        "lrs-n-technology-forcing",
+        "lrs-n-politics-and-reasons",
+        "lrs-n-organic-statute-factors",
+        "lrs-n-remand-without-vacatur",
+        "lrs-n-guidance",
+        "lrs-n-guidance-line-personnel",
+        "lrs-n-interpretive-rules",
+        "lrs-n-guidance-participation",
+        "lrs-n-good-cause",
+        "lrs-n-review-framework",
+        "lrs-n-administrative-record",
+        "lrs-n-substantial-evidence",
+        "lrs-n-enforcement-priorities",
+        "lrs-n-nonreviewability",
+        "lrs-n-rulemaking-petitions",
+        "lrs-n-discrete-required-action",
+        "lrs-n-problem-safety-discretion",
+        "lrs-n-problem-guidance-binding",
+        "lrs-n-problem-review-history",
+        "lrs-n-policy-change-reliance",
+        "lrs-i-persuasive-weight",
+        "lrs-i-historical-chevron",
+        "lrs-i-independent-judgment",
+        "lrs-i-delegated-discretion",
+        "lrs-i-major-questions",
+        "lrs-i-major-questions-rationales",
+        "lrs-i-regulatory-deference",
+        "lrs-i-statutes-and-regulations",
+        "lrs-i-law-fact",
+        "lrs-i-statutory-stare-decisis",
+        "lrs-i-risk-assessment",
+        "lrs-i-empirical-chevron",
+        "lrs-i-pre-apa-history",
+        "lrs-i-decker-debate",
+        "lrs-i-express-regulatory-problem",
+        "lrs-n-standing-constitutional",
+        "lrs-n-standing-injury",
+        "lrs-n-standing-causation",
+        "lrs-n-standing-congress",
+        "lrs-n-standing-association",
+        "lrs-n-standing-state",
+        "lrs-n-standing-zone",
+        "lrs-n-standing-mootness",
+        "lrs-n-standing-procedure",
+        "lrs-n-standing-public-enforcement",
+        "lrs-n-standing-apa702",
+        "lrs-n-standing-scholar-adapso",
+        "lrs-n-standing-sunstein",
+        "lrs-n-standing-shane-bennett",
+        "lrs-n-standing-farber",
+        "lrs-n-standing-state-scholarship",
+        "lrs-n-standing-generalized",
+        "lrs-n-standing-third-party",
+        "lrs-n-standing-remedies",
+        "lrs-n-standing-problem-injury",
+        "lrs-n-standing-problem-state",
+        "lrs-n-standing-problem-zone",
+        "lrs-gap-01-02",
+        "lrs-gap-01-03",
+        "lrs-gap-01-05",
+        "lrs-gap-01-06",
+        "lrs-gap-02-01",
+        "lrs-gap-03-01",
+        "lrs-gap-03-03",
+        "lrs-gap-03-04",
+        "lrs-gap-03-05",
+        "lrs-gap-04-01",
+        "lrs-gap-04-03",
+        "lrs-gap-05-01",
+        "lrs-gap-05-03",
+        "lrs-gap-05-04",
+        "lrs-gap-05-05",
+        "lrs-gap-05-06",
+        "lrs-gap-06-01",
+        "lrs-gap-06-02",
+        "lrs-gap-07-01",
+        "lrs-gap-11-01",
+        "lrs-gap-22-02",
+        "lrs-framework"
+      ]
+    },
+    {
+      "path": "..\\noncase-other.json",
+      "sha256": "762845dd3c102553185304e2c0acd3d5e4c20cbb5f4a69877464dcd906b2a6db",
+      "records": 6,
+      "uniqueTextCharacters": 1365,
+      "ids": [
+        "foreseeability",
+        "reasonable-understanding",
+        "rules-standards",
+        "analogy",
+        "procedure",
+        "class-notes"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "id": "minimum-contacts",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "purposeful-availment",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "relatedness",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "fairness",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "specific-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "general-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "forum-selection",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-framework",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-subject-matter",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-personal-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-statutory-constitutional",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-procedure-merits",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-waiver",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-precedent",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-federalism",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-access",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-judicial-discretion",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-territorial",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-domicile",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-stream-commerce",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-effects-test",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-contractual-contacts",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-long-arm",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-consent-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-jurisdiction-discovery",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-tag-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-property-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-internet-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-collateral",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-finality",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-notice",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-service",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-fraud-service",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-due-process",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-hearing",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-prejudgment",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-mathews",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-diversity",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-citizenship",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-amount-in-controversy",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-aggregation",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-standing",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-federal-question",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-well-pleaded",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-embedded-question",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-supplemental",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-supplemental-history",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-pendent-parties",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-supplemental-diversity",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-supplemental-discretion",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-removal",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-forum-defendant",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-venue",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-local-actions",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-transfer",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-forum-non-conveniens",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-erie",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-erie-history",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-erie-outcome",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-erie-balancing",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-rule-scope",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-rules-enabling",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-erie-accommodation",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-choice-law",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-federal-common-law",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-government-contractor",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-reverse-erie",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-release",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-pleading",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-notice-pleading",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-plausibility",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-pleading-proof",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-fraud-pleading",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-securities-pleading",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-special-damages",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-pleading-motions",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-privilege",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-denials",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-affirmative-defense",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-amendment",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-relation-back",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-trial-consent",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-certification",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-safe-harbor",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-joinder",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-real-party",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-claim-joinder",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-counterclaim",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-transaction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-crossclaim",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-permissive-joinder",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-required-joinder",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-nonparty-protection",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-impleader",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-interpleader",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-statutory-interpleader",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-sovereign-immunity",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-intervention",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-separate-trials",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-joinder-class-distinction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-party-status",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-actions",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-certification",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-commonality",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-predominance",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-adequate-representation",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-rule23b2",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-ascertainability",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-notice",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-settlement-class",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-limited-fund",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-jurisdiction",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-cafa",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-absent-plaintiffs",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-preclusion",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-issue-preclusion",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-class-waiver",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-federal-preemption",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-summary-judgment",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-burden-production",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-burden-persuasion",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-inferences",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-judge-jury",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-summary-history",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-limitations",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-forum-shopping",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-statute-interpretation",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-mdl",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 3,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-4",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "cp-frcp-8",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-9",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-11",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-12",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-13",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-14",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-15",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-17",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-18",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-19",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-20",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-21",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-22",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-23",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-24",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-42",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-frcp-56",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1331",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1332",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "cp-usc-1367",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1441",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1391",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1404",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1406",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1407",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1453",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1335",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-1652",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-usc-2072",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-article-iii",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-berk-gap",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-cross-gap",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-supplement-gap",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-1",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-2",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-3",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-4",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-5",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-6",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-7",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-8",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-9",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-10",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-11",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-12",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-13",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "cp-week-14",
+      "coursePack": "civil",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 1,
+      "primaryRecheck": false
+    },
+    {
+      "id": "interpretation",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "structure",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-enabling-statute",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-conditional-legislation",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-details",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-intelligible-principle",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-s-delegation-dimensions",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-agency-self-limitation",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-avoidance",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-accountability",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-appointments-clause",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-officer-employee",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-inferior-officer",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-germaneness",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-removal",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-s-agency-independence",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-congressional-control",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-severability",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-statutory-context",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-jaffe",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-coglianese",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-originalism",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-delegation-democracy",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-reins-mqd",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-organization",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-removal-history",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-article-i-vesting",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-article-ii-appointments",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-caa-109",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-sorna-20913",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-forest-rule-45",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-s-ftc-tenure",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-congress",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-approaches",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-canons-reading",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-practical",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-understanding",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-purposivism",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-textualism",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-legislative-history",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-noscitur",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-statutory-structure",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-sovereign-immunity",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-absurdity",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-domestic-assumption",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-clear-statement",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-terms-of-art",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-lawmaking",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-canons",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-ejusdem",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-lenity",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-implied-repeal",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-ftca-postal",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-gun-predicate",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-idea-fees",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-k-raila-hypotheticals",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-fvra",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-civil-service",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-inherent-power",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-ministerial-duties",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-government-lawyering",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-executive-orders",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-olc-regulatory-review",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-midnight-rules",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-fragmented-execution",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-apa-classification",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-public-rights",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-legislative-facts",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-hearing-trigger",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-third-party-hearings",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-adjudication-stages",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-administrative-evidence",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-due-process-framework",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-mathews-critique",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-new-property",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-immigration-due-process",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-entitlement-disclaimers",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-chenery-reasons",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-retroactivity",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-rulemaking-authority",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-ftc-after-petroleum",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-o-section-553",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-formal-rulemaking",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-rulemaking-record",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-logical-outgrowth",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-participation-design",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-vermont-yankee-debate",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-detention-procedure",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-problem-supervision",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-problem-entitlement",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-problem-procedure-support",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-o-adjudication-landscape",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-hard-look",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-technology-forcing",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-politics-and-reasons",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-n-organic-statute-factors",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-remand-without-vacatur",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-guidance",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-guidance-line-personnel",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-interpretive-rules",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-guidance-participation",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-good-cause",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-review-framework",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-administrative-record",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-substantial-evidence",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-enforcement-priorities",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-nonreviewability",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-rulemaking-petitions",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-discrete-required-action",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-problem-safety-discretion",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-problem-guidance-binding",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-problem-review-history",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-policy-change-reliance",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-persuasive-weight",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-historical-chevron",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-independent-judgment",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-delegated-discretion",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-major-questions",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-major-questions-rationales",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-regulatory-deference",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-statutes-and-regulations",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-law-fact",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-statutory-stare-decisis",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-risk-assessment",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-empirical-chevron",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-pre-apa-history",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-decker-debate",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-i-express-regulatory-problem",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-constitutional",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-injury",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-causation",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-congress",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-association",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-n-standing-state",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-zone",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-mootness",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-procedure",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-public-enforcement",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-apa702",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-scholar-adapso",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-sunstein",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-shane-bennett",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-farber",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-state-scholarship",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-generalized",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-third-party",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-remedies",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": true
+    },
+    {
+      "id": "lrs-n-standing-problem-injury",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-problem-state",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-n-standing-problem-zone",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-01-02",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-01-03",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-01-05",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-01-06",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-02-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-03-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-03-03",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-03-04",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-03-05",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-04-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-04-03",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-05-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-05-03",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-05-04",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-05-05",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-05-06",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-06-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-06-02",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-07-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-11-01",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-gap-22-02",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "lrs-framework",
+      "coursePack": "lrs",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "foreseeability",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "reasonable-understanding",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "rules-standards",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "analogy",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "procedure",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    },
+    {
+      "id": "class-notes",
+      "coursePack": "other",
+      "reviewedFields": [
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "uniqueAssertionTexts": 2,
+      "primaryRecheck": false
+    }
+  ],
+  "courseTreatments": [
+    {
+      "id": "interpretation",
+      "course": "LRS",
+      "fields": [
+        "title",
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "finding": "text/context/purpose distinctions preserved; no correction proposed"
+    },
+    {
+      "id": "structure",
+      "course": "LRS",
+      "fields": [
+        "title",
+        "summary",
+        "notes",
+        "sections"
+      ],
+      "finding": "whole-statute analysis and limits on repairing anomalies preserved; no correction proposed"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "lrs-n-politics-and-reasons",
+      "field": "notes",
+      "old": "Rehnquist’s State Farm opinion treats an election as a legitimate reason to reassess priorities within the statute.",
+      "new": "Rehnquist’s separate opinion, concurring in part and dissenting in part in State Farm, treats a change in administration as a legitimate reason to reassess priorities within the statute.",
+      "reason": "Clarify opinion status so the election rationale is not mistaken for the majority holding.",
+      "sources": [
+        {
+          "type": "supplied assigned source comparison",
+          "sourceId": "lrs-november-a",
+          "physicalPage": 34,
+          "printedPage": 608
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-463/pdf/USREPORTS-463-29.pdf",
+          "pinpoint": "463 U.S. 29, 57–59; separate opinion heading at57 and election rationale at59"
+        }
+      ],
+      "optional": false,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "lrs-n-standing-association",
+      "field": "notes",
+      "old": "Havens recognizes an organizational claim where alleged discriminatory conduct made the organization’s housing-referral work more costly.",
+      "new": "Havens recognizes an organizational claim where alleged racial steering directly impaired the organization’s housing counseling and referral services. FDA v. Alliance for Hippocratic Medicine (2024) distinguishes that interference from an organization’s choice to spend money investigating or opposing a policy; those expenditures alone do not establish injury.",
+      "reason": "Prevent a simplified cost account from suggesting that voluntary advocacy-resource diversion itself establishes organizational standing.",
+      "sources": [
+        {
+          "type": "supplied assigned source comparison",
+          "sourceId": "lrs-november-b",
+          "physicalPage": 112,
+          "printedPage": 1169
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.supremecourt.gov/opinions/23pdf/23-235_n7ip.pdf",
+          "pinpoint": "majority slip opinion pp.21–23"
+        }
+      ],
+      "optional": false,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "cp-frcp-4",
+      "field": "summary",
+      "old": "Rule 4 governs the summons and its service in federal court: form and issuance (4(a)–(b)); service by any nonparty adult (4(c)); waiver of service and the cost consequences of refusing it (4(d)); methods for individuals (4(e)), persons abroad (4(f)), minors and incompetents (4(g)), corporations and associations (4(h)), and the United States and its officers (4(i)); the territorial limits of effective service, including the 100-mile bulge and the federal long-arm (4(k)); proof of service (4(l)); and the 90-day time limit, with extension for good cause (4(m)).",
+      "new": "Rule 4 governs the summons and its service in federal court: form and issuance (4(a)–(b)); service by any nonparty adult (4(c)); waiver of service and the cost consequences of refusing it (4(d)); methods for individuals (4(e)), persons abroad (4(f)), minors and incompetents (4(g)), corporations and associations (4(h)), the United States and its officers (4(i)), and foreign, state, and local governments (4(j)); the territorial limits of effective service, including the 100-mile bulge and the federal long-arm (4(k)); proof of service (4(l)); the ordinary 90-day time limit, mandatory extension for good cause and discretionary additional time, with specified foreign-service and condemnation-notice exceptions (4(m)); and jurisdiction over property or assets under federal or state law (4(n)).",
+      "reason": "The overview omits subdivisions(j) and(n); the deadline account should distinguish mandatory good-cause extension from discretionary additional time and its exceptions.",
+      "sources": [
+        {
+          "type": "supplied assigned source comparison",
+          "file": "added-sources/Civ Pro Supplement FULL OCR 26-27.pdf",
+          "physicalPages": [
+            15,
+            16
+          ]
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf",
+          "edition": "December 1, 2025",
+          "pinpoint": "Rule4(j)–(n), printedpp.5–6, physicalPDFpp.24–25"
+        }
+      ],
+      "optional": false,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "cp-frcp-4",
+      "field": "sections.Role in the course",
+      "old": "Rule 4 governs the summons and its service in federal court: form and issuance (4(a)–(b)); service by any nonparty adult (4(c)); waiver of service and the cost consequences of refusing it (4(d)); methods for individuals (4(e)), persons abroad (4(f)), minors and incompetents (4(g)), corporations and associations (4(h)), and the United States and its officers (4(i)); the territorial limits of effective service, including the 100-mile bulge and the federal long-arm (4(k)); proof of service (4(l)); and the 90-day time limit, with extension for good cause (4(m)).",
+      "new": "Rule 4 governs the summons and its service in federal court: form and issuance (4(a)–(b)); service by any nonparty adult (4(c)); waiver of service and the cost consequences of refusing it (4(d)); methods for individuals (4(e)), persons abroad (4(f)), minors and incompetents (4(g)), corporations and associations (4(h)), the United States and its officers (4(i)), and foreign, state, and local governments (4(j)); the territorial limits of effective service, including the 100-mile bulge and the federal long-arm (4(k)); proof of service (4(l)); the ordinary 90-day time limit, mandatory extension for good cause and discretionary additional time, with specified foreign-service and condemnation-notice exceptions (4(m)); and jurisdiction over property or assets under federal or state law (4(n)).",
+      "reason": "The overview omits subdivisions(j) and(n); the deadline account should distinguish mandatory good-cause extension from discretionary additional time and its exceptions.",
+      "sources": [
+        {
+          "type": "supplied assigned source comparison",
+          "file": "added-sources/Civ Pro Supplement FULL OCR 26-27.pdf",
+          "physicalPages": [
+            15,
+            16
+          ]
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.uscourts.gov/sites/default/files/document/federal-rules-of-civil-procedure.pdf",
+          "edition": "December 1, 2025",
+          "pinpoint": "Rule4(j)–(n), printedpp.5–6, physicalPDFpp.24–25"
+        }
+      ],
+      "optional": false,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "cp-usc-1332",
+      "field": "sections.What to examine",
+      "old": "A corporation is a citizen of its state of incorporation and of the state of its principal place of business (§ 1332(c)(1)).",
+      "new": "A corporation is a citizen of every State and foreign state in which it is incorporated and of the State or foreign state where it has its principal place of business (§ 1332(c)(1)).",
+      "reason": "Include all incorporating jurisdictions and foreign states instead of suggesting only a single domestic state.",
+      "sources": [
+        {
+          "type": "primary-source recheck",
+          "canonicalPath": "tools/v25/uscode.json",
+          "id": "usc-28-1332",
+          "url": "https://uscode.house.gov/download/releasepoints/us/pl/119/118/xml_usc28@119-118.zip",
+          "edition": "Current through Public Law 119-118, September 30, 2026",
+          "pinpoint": "§1332(c)(1)"
+        }
+      ],
+      "optional": false,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "lrs-o-ftc-after-petroleum",
+      "field": "notes",
+      "old": "The editors expressly describe their interpretation as contested and explain why an agency might seek more specific statutory support than National Petroleum alone supplies.",
+      "new": "The editors expressly describe their interpretation as contested and explain why an agency might seek more specific statutory support than National Petroleum alone supplies. The 2024 noncompete rule was later vacated, and the FTC moved to dismiss its appeals in September 2025; the rule is not in effect.",
+      "reason": "Optional short current-status context: preserve the assigned preamble as a historical legal argument without implying that the underlying rule remains enforceable.",
+      "sources": [
+        {
+          "type": "supplied assigned source comparison",
+          "sourceId": "lrs-october-b",
+          "physicalPages": [
+            91,
+            92,
+            93
+          ],
+          "printedPages": "567–569"
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.ftc.gov/legal-library/browse/rules/noncompete-rule",
+          "pinpoint": "Rule Summary"
+        },
+        {
+          "type": "primary-source recheck",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2025/09/federal-trade-commission-files-accede-vacatur-non-compete-clause-rule",
+          "date": "2025-09-05"
+        }
+      ],
+      "optional": true,
+      "status": "applied as exact-old-text guarded runtime correction"
+    },
+    {
+      "id": "contracts-class-22",
+      "field": "notes",
+      "old": "Klein v. PepsiCo, Inc.: The aircraft sale was binding, but available substitutes and adequate damages made specific performance inappropriate.\n\nWalgreen Co. v. Sara Creek Property Co.: An injunction enforcing a shopping-center pharmacy exclusivity clause was justified because projecting ten years of competitive losses would be costly and uncertain.\n\nCommonwealth v. Cosby: Fundamental fairness requires enforcement of an unconditional nonprosecution assurance when it induces detrimental surrender of the constitutional privilege against self-incrimination.\n\nAdditional assigned materials: French specific-enforcement reading; Economics of remedies video lecture.",
+      "new": "Klein v. PepsiCo, Inc.: The aircraft sale was binding, but available substitutes and adequate damages made specific performance inappropriate.\n\nWalgreen Co. v. Sara Creek Property Co.: An injunction enforcing a shopping-center pharmacy exclusivity clause was justified because projecting ten years of competitive losses would be costly and uncertain.\n\nIn Commonwealth v. Cosby (Pa. 2021), the majority enforced the former prosecutor’s unconditional nonprosecution decision because it intentionally induced reasonable, detrimental surrender of Cosby’s Fifth Amendment protection in civil depositions. The decision concerns that record and these charges; it does not make every prosecutorial assurance enforceable.\n\nAdditional assigned materials: French specific-enforcement reading; Economics of remedies video lecture.",
+      "reason": "Confine prosecutorial nonprosecution assurance to the actual Cosby record and detrimental constitutional reliance.",
+      "sources": [
+        {
+          "url": "https://www.pacourts.us/Storage/media/pdfs/20210630/163038-june302021opinionwecht.pdf",
+          "pinpoint": "majority opinion; canonical Cosby brief holding/reasoning"
+        }
+      ],
+      "status": "applied as exact-old-text guarded runtime correction; both baseline and effective plain-overlay forms supported",
+      "earlierBaselineGuardInput": "Klein v. PepsiCo, Inc.: The aircraft sale was binding, but available substitutes and adequate damages made specific performance inappropriate.\n\nWalgreen Co. v. Sara Creek Property Co.: An injunction enforcing a shopping-center pharmacy exclusivity clause was justified because projecting ten years of competitive losses would be costly and uncertain.\n\nCommonwealth v. Cosby: The excerpt holds that fundamental fairness requires enforcement of an unconditional nonprosecution assurance when it induces detrimental surrender of the constitutional privilege against self-incrimination.\n\nAdditional assigned materials: French specific-enforcement reading; Economics of remedies video lecture."
+    }
+  ],
+  "primaryChecksWithoutChanges": [
+    {
+      "id": "lrs-s-removal",
+      "url": "https://www.supremecourt.gov/opinions/25pdf/25-332_new_geil.pdf",
+      "finding": "Trump v. Slaughter, June 29, 2026 primary opinion confirms the current removal update already in existing prose."
+    },
+    {
+      "id": "lrs-s-intelligible-principle",
+      "url": "https://www.supremecourt.gov/opinions/24pdf/24-354_0861.pdf",
+      "finding": "FCC v. Consumers’ Research retains intelligible-principle approach; existing historical description does not contradict it."
+    },
+    {
+      "id": "lrs-n-standing-remedies",
+      "url": "https://www.supremecourt.gov/opinions/24pdf/24a884_8n59.pdf",
+      "pinpoint": "majority footnote 10, slip opinion p. 11",
+      "finding": "Trump v. CASA expressly reserves APA vacatur; existing distinction remains appropriate."
+    }
+  ],
+  "presentationFinding": "Civil127Meaning,31Role in the course,14Reading plan sections exactly repeat the effective summary. Reading DOM cleanup removes exact opening Meaning, Explanation, Role in the course or Reading plan paragraphs only, preserving all substantively different text and source blackletter.",
+  "deferredNavigationFinding": "lrs-o-ministerial-duties discusses Section 301 of title 3; authority library currently misses 3 U.S.C. § 301 because mapping favors explicit USC citation syntax. Reported to root/authority agent.",
+  "limitations": [
+    "No data files mutated by this audit; root integrates accepted old/new proposals.",
+    "No claim that all case briefs or all legal assertions were independently internet-verified in this pass.",
+    "Supplied OCR is source evidence, not a substitute for checking the original page when exact quotations or disputed text matter."
+  ]
+}

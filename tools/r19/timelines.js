@@ -59,10 +59,9 @@
     return String(label).replace(/\s*\(\d{4}\)\s*/, ' ').replace(/\s+[—–]\s+.*$/, '').trim();
   }
   const live = s => s.event || s.sup || nodesById.get(s.id);
-  const span = t => { const y = t.steps.map(s => s.year); return y[0] === y[y.length - 1] ? String(y[0]) : `${y[0]}–${y[y.length - 1]}`; };
   const turnTag = (s, t) => s.turn && TURN[s.turn] ? `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(MEANS[s.turn])}${['widens', 'limits'].includes(s.turn) ? ' Reference: ' + esc(t.anchor) + '.' : ''}">${esc(label(s, t))}</em>` : '';
   const authority = s => s.authorityKind && s.authorityKind !== 'Court decision' ? `<span class="r25-authority-kind">${esc(s.authorityKind)}</span>` : '';
-  const synthesis = t => t.now ? `<div class="r21-now"><b>${esc(t.summaryLabel || 'What these sources establish')}</b><p>${esc(t.now)}</p></div>` : '';
+  const synthesis = t => t.now ? `<p class="r25-timeline-synthesis">${esc(t.now)}</p>` : '';
   const fate = s => s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '';
   // the button a step opens with: an entry on the map, a supporting brief, or nothing for a statute or rule change
   function opener(s, inner, cls) {
@@ -78,7 +77,7 @@
       const kind = s.event ? ' r21-event' : s.sup ? ' r21-sup' : '';
       return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${esc(s.year)}</span>${authority(s)}<strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}</li>`;
     }).join('');
-    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><details class="r25-timeline-disclosure"><summary><span class="r25-timeline-label">How the doctrine developed</span><strong>${esc(t.title)}</strong><small>${t.steps.length} steps · ${span(t)}</small></summary><div class="r25-timeline-content">${t.guide ? `<p class="r25-timeline-guide">${esc(t.guide)}</p>` : ''}<ol class="dkla-timeline-track">${steps}</ol>${synthesis(t)}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Open full timeline</button></div></details></section>`;
+    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><ol class="dkla-timeline-track">${steps}</ol>${synthesis(t)}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Open full timeline</button></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {
@@ -103,14 +102,11 @@
     }
     fresh.forEach(([sec, t]) => { sec.outerHTML = panelHTML(t, current); painted = true; });
     // bring the open case's step into view, as the panel did before
-    if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21] details[open]').forEach(positionCurrent);
+    if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21]').forEach(positionCurrent);
   }
   function positionCurrent(disclosure) {
     disclosure.querySelectorAll('li.is-current').forEach(li => { const track = li.parentElement; track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2); });
   }
-  document.addEventListener('toggle', ev => {
-    if (ev.target.matches?.('.r25-timeline-disclosure') && ev.target.open) positionCurrent(ev.target);
-  }, true);
   if (typeof renderInspector === 'function') {
     const prior = renderInspector;
     renderInspector = function (...a) { apply(); const v = prior.apply(this, a); try { paint(); } catch { /* the plain timeline stays */ } return v; };
@@ -126,13 +122,13 @@
   const results = document.getElementById('searchResults'), input = document.getElementById('search');
   const inCourse = i => TL.list.filter(t => t.course === COURSES[i]);
   function listHTML() {
-    title.innerHTML = '<span class="r18-kicker">DOCTRINE TIMELINES</span><h2>How the doctrines developed</h2>';
-    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]} <small>${inCourse(i).length}</small></button>`).join('')}</div>
-      <div class="r21-cards">${inCourse(V.course).map(t => `<button type="button" class="r21-card" data-r21-tl="${esc(t.id)}"><strong>${esc(t.title)}</strong><span>${esc(t.question)}</span><small>${span(t)} · ${t.steps.length} steps</small></button>`).join('')}</div>`;
+    title.innerHTML = '<h2>Doctrine timelines</h2>';
+    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]}</button>`).join('')}</div>
+      <div class="r21-cards">${inCourse(V.course).map(t => `<button type="button" class="r21-card" data-r21-tl="${esc(t.id)}"><strong>${esc(t.title)}</strong></button>`).join('')}</div>`;
   }
   function detailHTML(t) {
-    title.innerHTML = `<span class="r18-kicker">${esc(t.course.toUpperCase())} · ${span(t)}</span><h2>${esc(t.title)}</h2>`;
-    return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div><p class="r25-timeline-guide">${esc(t.guide || t.question)}</p>
+    title.innerHTML = `<h2>${esc(t.title)}</h2>`;
+    return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div>
       <ol class="r21-v">${t.steps.filter(live).map(s => `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`).join('')}</ol>
       ${synthesis(t)}`;
   }
@@ -187,7 +183,7 @@
       .sort((a, b) => Number(b.title.toLowerCase().includes(q)) - Number(a.title.toLowerCase().includes(q))).slice(0, 3);
     if (!hits.length) return;
     const box = document.createElement('div'); box.className = 'r19-search';
-    box.innerHTML = '<div class="search-label">Doctrine timelines</div>' + hits.map(t => `<button data-r21-open="${esc(t.id)}"><strong>${esc(t.title)}</strong><small>${esc(SHORT[COURSES.indexOf(t.course)] || t.course)} · ${span(t)} · ${t.steps.length} steps</small></button>`).join('');
+    box.innerHTML = '<div class="search-label">Doctrine timelines</div>' + hits.map(t => `<button data-r21-open="${esc(t.id)}"><strong>${esc(t.title)}</strong><small>${esc(SHORT[COURSES.indexOf(t.course)] || t.course)}</small></button>`).join('');
     results.querySelector('.search-empty')?.remove(); results.appendChild(box);
   }).observe(results, { childList: true });
 

@@ -6,7 +6,9 @@ This is a contextual clarity and consistency review with targeted primary-source
 
 ## What changed
 
-Every timeline now has an individually authored guide explaining how its authorities relate. Thirty-seven syntheses were rewritten and 60 steps received substantive changes to dates, notes, treatment, objects or effect labels. The selected-source synthesis is labeled **“What these sources establish”**. The inspector initially shows the timeline as a compact disclosure; opening it reveals the guide, steps and synthesis. The full timeline remains available, and every step still opens its mapped authority or supporting brief.
+Every timeline has an individually authored context guide in its audit data. Thirty-seven syntheses were rewritten and 61 steps received substantive changes to dates, notes, treatment, objects or effect labels. Following the owner's later presentation correction, the inspector shows the steps immediately and one unlabeled, unboxed synthesis. It does not repeat the older synopsis or guide above the steps, show a step/year-count caption, or require an expand/collapse control. The full timeline remains available, and every step still opens its mapped authority or supporting brief.
+
+Five later rule-account corrections were deliberately compared with their affected timeline steps. Trade usage now retains the waiver/modification qualification; specific relief retains uniqueness or other proper circumstances and equitable limits. The good-faith, modification and intended-beneficiary notes already fit the corrected accounts. `followupRuleAccountComparisons` in the ledger records those comparisons and source changes; it does not treat a fingerprint refresh as a new independent source audit.
 
 The principal corrections are:
 
@@ -56,3 +58,5 @@ node --check tools/r19/timelines.js
 The checker verifies complete recorded coverage, source drift, chronology, origin positions, required label objects and clickable destinations. It does not establish legal truth. After an authority or timeline changes, review that change and update the affected record deliberately; do not silently refresh hashes to make a failing review check pass.
 
 No full briefs, authored cold-call narratives or narrative fingerprints were changed by this timeline pass. The baseline atlas was read for provenance and provision accounts; its separate ownership and build constraints are unchanged.
+
+The subsequent plain-English explanation pass read every main case's complete canonical Holding in addition to its rule. Its separate scope, source records and 108 rewritten existing introductions plus the new Swiss comparison are documented in `EXPLANATION_AUDIT.md` and `tools/v25/explanation-audit.json`. That larger section-reading pass is not retroactively described as a fresh full-opinion timeline audit.

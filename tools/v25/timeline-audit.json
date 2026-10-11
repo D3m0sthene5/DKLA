@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-10-11",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "8662079fb0361faf78b21effe917c0317c2d1bf49892c70cb7374fa124d6b881",
+  "timelinesSha256": "a5b4cf13a342e7b34379ee15ba934616c57e6e0a10ab645c7d5badb733ad957b",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "Every timeline and step was read in context and compared with available saved canonical rules/accounts. Selected doubts and recent holdings were checked against primary passages. This is not a fresh complete-opinion review of all authorities or a certification of all current law.",
   "limitations": [
@@ -26,7 +26,7 @@
     "stepsWithFreshPrimaryComparison": 19,
     "rewrittenGuides": 66,
     "rewrittenSyntheses": 37,
-    "changedSteps": 60,
+    "changedSteps": 61,
     "courseTimelineCounts": {
       "Contracts": 21,
       "Civil Procedure": 24,
@@ -1535,7 +1535,7 @@
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "rest205",
         "sourceLocator": "tools/r19/data/provisions.json :: rest205; rules22.json or baseline seed node",
-        "savedAccountSha256": "d9dff3a6191cca0fe6700b56a2f310538eadcde3acd85e5f4d48654f03ef38e0",
+        "savedAccountSha256": "86f9885ab7b17bff1d1eb594c88da5795225d8efb92959be6e375e1e5aec852a",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 110",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       }
@@ -3717,7 +3717,7 @@
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "ucc2209",
         "sourceLocator": "tools/r19/data/provisions.json :: ucc2209; rules22.json or baseline seed node",
-        "savedAccountSha256": "1cd58979014bab05d7c19ed500e3f21132a3da4d39ae557c164ab7060d16d246",
+        "savedAccountSha256": "2f3bd4c5e6bb4787ffc4acc215f073c3fea66a12a507e7fd9c7bd9cc57897aa5",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 344",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       }
@@ -4539,7 +4539,7 @@
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "ucc1303",
         "sourceLocator": "tools/r19/data/provisions.json :: ucc1303; rules22.json or baseline seed node",
-        "savedAccountSha256": "9b52b208bd9a4a23c490d164f23edaf3504867fd6ea3e18426b3bd9ecf3dbf8f",
+        "savedAccountSha256": "389918d6718e8425c1d149b57da3e398aa4769dd1a8d14ed2ec9cdaca9d64d9f",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 320",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       }
@@ -6489,14 +6489,16 @@
         "links",
         "authority type"
       ],
-      "changedFields": [],
+      "changedFields": [
+        "note"
+      ],
       "independentPrimaryChecks": [],
       "freshCompleteOpinionReview": false,
       "basis": {
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "ucc2716",
         "sourceLocator": "tools/r19/data/provisions.json :: ucc2716; rules22.json or baseline seed node",
-        "savedAccountSha256": "211e57eecbb5602491ce72b8ab12d93a8c958d16a20e1cf706dc1ff9bf05509e",
+        "savedAccountSha256": "3cc6249ef927c9d2b8e69221f213ecb73534d97c82a6ef61fcbef5f1b75209fc",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 412",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       }
@@ -6954,7 +6956,7 @@
         "kind": "Saved atlas provision or assigned comparative account comparison",
         "nodeId": "rest302",
         "sourceLocator": "tools/r19/data/provisions.json :: rest302; rules22.json or baseline seed node",
-        "savedAccountSha256": "3288fc0aab9e24d724a8015ac5f1ba94af3b93d35060d8e0fdbe469f864938c2",
+        "savedAccountSha256": "4b8a2e57519ab7a811114522ee01c071e239356a260896a424467efcc8e752d9",
         "inheritedSource": "Contracts- Selections.pdf, PDF page 178",
         "scope": "Saved text/account was consulted. This does not certify a model text’s enactment in any jurisdiction or all current foreign law."
       }
@@ -23137,7 +23139,7 @@
       },
       "after": {
         "object": "the UCC context provisions",
-        "note": "The 1952 Code’s §§ 1-205 and 2-202 admit dealing and trade usage to explain or supplement a writing. Revised Article 1 later places the combined context rules in § 1-303; irreconcilable express terms prevail.",
+        "note": "The 1952 Code’s §§ 1-205 and 2-202 admit dealing and trade usage to explain or supplement a writing. Revised Article 1 combines context rules in § 1-303: express terms generally prevail, but course of performance can show waiver or modification under §§ 1-303(f) and 2-209.",
         "effect": "States the Code’s context rules"
       }
     },
@@ -23793,6 +23795,87 @@
       "after": {
         "note": "Every member recovering damages needs concrete injury. For intangible injury the Court asks for a close historical analogue; an unmaterialized risk alone does not support retrospective damages, though prospective relief is a separate inquiry."
       }
+    },
+    {
+      "timelineId": "specific-relief",
+      "step": 2,
+      "key": "ucc2716",
+      "fields": [
+        "note"
+      ],
+      "before": {
+        "note": "A buyer of goods may get specific performance where the goods are unique 'or in other proper circumstances', loosening the adequacy test."
+      },
+      "after": {
+        "note": "A buyer of goods may obtain specific performance for unique goods or other proper circumstances. Inability to obtain substitutes can support relief beyond a uniqueness label; damages’ adequacy and equitable discretion still matter."
+      }
+    }
+  ],
+  "followupRuleAccountComparisons": [
+    {
+      "timelineId": "good-faith",
+      "step": 4,
+      "key": "rest205",
+      "reviewedAt": "2026-10-11",
+      "basis": "Complete corrected rule account reread after root’s assigned-source review; original timeline note remains consistent.",
+      "correctionSource": "tools/v25/contracts-explanation-corrections.json; root compared the cited assigned provisions",
+      "previousSavedAccountSha256": "d9dff3a6191cca0fe6700b56a2f310538eadcde3acd85e5f4d48654f03ef38e0",
+      "newSavedAccountSha256": "86f9885ab7b17bff1d1eb594c88da5795225d8efb92959be6e375e1e5aec852a",
+      "beforeNote": "The Second Restatement states a duty of good faith in performance and enforcement. It is persuasive common-law authority; a jurisdiction must adopt or apply the proposition.",
+      "afterNote": "The Second Restatement states a duty of good faith in performance and enforcement. It is persuasive common-law authority; a jurisdiction must adopt or apply the proposition.",
+      "freshIndependentSourceReview": false
+    },
+    {
+      "timelineId": "modification",
+      "step": 4,
+      "key": "ucc2209",
+      "reviewedAt": "2026-10-11",
+      "basis": "Complete corrected rule account reread after root’s assigned-source review; original timeline note remains consistent.",
+      "correctionSource": "tools/v25/contracts-explanation-corrections.json; root compared the cited assigned provisions",
+      "previousSavedAccountSha256": "1cd58979014bab05d7c19ed500e3f21132a3da4d39ae557c164ab7060d16d246",
+      "newSavedAccountSha256": "2f3bd4c5e6bb4787ffc4acc215f073c3fea66a12a507e7fd9c7bd9cc57897aa5",
+      "beforeNote": "An agreement modifying a sales contract needs no consideration; the Code's comments police modifications by a test of good faith instead.",
+      "afterNote": "An agreement modifying a sales contract needs no consideration; the Code's comments police modifications by a test of good faith instead.",
+      "freshIndependentSourceReview": false
+    },
+    {
+      "timelineId": "trade-usage",
+      "step": 2,
+      "key": "ucc1303",
+      "reviewedAt": "2026-10-11",
+      "basis": "Complete corrected §§ 1-303/2-202 account reread; timeline note now preserves § 1-303(f) waiver/modification qualification to the hierarchy.",
+      "correctionSource": "tools/v25/contracts-explanation-corrections.json; root compared the cited assigned provisions",
+      "previousSavedAccountSha256": "9b52b208bd9a4a23c490d164f23edaf3504867fd6ea3e18426b3bd9ecf3dbf8f",
+      "newSavedAccountSha256": "389918d6718e8425c1d149b57da3e398aa4769dd1a8d14ed2ec9cdaca9d64d9f",
+      "beforeNote": "The 1952 Code’s §§ 1-205 and 2-202 admit dealing and trade usage to explain or supplement a writing. Revised Article 1 later places the combined context rules in § 1-303; irreconcilable express terms prevail.",
+      "afterNote": "The 1952 Code’s §§ 1-205 and 2-202 admit dealing and trade usage to explain or supplement a writing. Revised Article 1 combines context rules in § 1-303: express terms generally prevail, but course of performance can show waiver or modification under §§ 1-303(f) and 2-209.",
+      "freshIndependentSourceReview": false
+    },
+    {
+      "timelineId": "specific-relief",
+      "step": 2,
+      "key": "ucc2716",
+      "reviewedAt": "2026-10-11",
+      "basis": "Complete corrected § 2-716 account reread; timeline note no longer implies other proper circumstances dispenses with adequate-remedy/equitable considerations.",
+      "correctionSource": "tools/v25/contracts-explanation-corrections.json; root compared the cited assigned provisions",
+      "previousSavedAccountSha256": "211e57eecbb5602491ce72b8ab12d93a8c958d16a20e1cf706dc1ff9bf05509e",
+      "newSavedAccountSha256": "3cc6249ef927c9d2b8e69221f213ecb73534d97c82a6ef61fcbef5f1b75209fc",
+      "beforeNote": "A buyer of goods may get specific performance where the goods are unique 'or in other proper circumstances', loosening the adequacy test.",
+      "afterNote": "A buyer of goods may obtain specific performance for unique goods or other proper circumstances. Inability to obtain substitutes can support relief beyond a uniqueness label; damages’ adequacy and equitable discretion still matter.",
+      "freshIndependentSourceReview": false
+    },
+    {
+      "timelineId": "third-party",
+      "step": 4,
+      "key": "rest302",
+      "reviewedAt": "2026-10-11",
+      "basis": "Complete corrected rule account reread after root’s assigned-source review; original timeline note remains consistent.",
+      "correctionSource": "tools/v25/contracts-explanation-corrections.json; root compared the cited assigned provisions",
+      "previousSavedAccountSha256": "3288fc0aab9e24d724a8015ac5f1ba94af3b93d35060d8e0fdbe469f864938c2",
+      "newSavedAccountSha256": "4b8a2e57519ab7a811114522ee01c071e239356a260896a424467efcc8e752d9",
+      "beforeNote": "The Second Restatement replaces its creditor/donee terminology with intended and incidental beneficiaries, conditioned on the contracting parties’ intention. It proposes a framework; it does not enact a uniform state rule.",
+      "afterNote": "The Second Restatement replaces its creditor/donee terminology with intended and incidental beneficiaries, conditioned on the contracting parties’ intention. It proposes a framework; it does not enact a uniform state rule.",
+      "freshIndependentSourceReview": false
     }
   ]
 }
