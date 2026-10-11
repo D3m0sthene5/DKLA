@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "40f4b99800ac867fc1450c5c785750295abdf3800674900063f6c5ce011a6b82",
-  "build": "v2.5-c0683eae1c",
+  "r19_sha256": "8bb14062b58a5d22c0730b54f53e2b743932540b64342cdf6b68b9fae73f45c7",
+  "build": "v2.5-39dfb56815",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -110,52 +110,60 @@
       "endLine": 1569
     },
     {
+      "path": "tools/cold-call/frost.js",
+      "kind": "javascript",
+      "sha256": "055fb5ba190cd7b3b90690490e247d093ec919108cc9634ea9d75e5dffb4859a",
+      "startLine": 1570,
+      "sourceStartLine": 1571,
+      "endLine": 1683
+    },
+    {
       "path": "tools/v25/authorities.js",
       "kind": "javascript",
       "sha256": "6fd8896e9f2ef328d37febe800ff240b4872741d0432b8b789802e3072e2664c",
-      "startLine": 1570,
-      "sourceStartLine": 1571,
-      "endLine": 1904
+      "startLine": 1684,
+      "sourceStartLine": 1685,
+      "endLine": 2018
     },
     {
       "path": "tools/v25/reading.js",
       "kind": "javascript",
       "sha256": "475cadf69e5d145fddd486ab0bfc59949e0d583ef0532e5fa8807679d8dc3437",
-      "startLine": 1905,
-      "sourceStartLine": 1906,
-      "endLine": 2065
+      "startLine": 2019,
+      "sourceStartLine": 2020,
+      "endLine": 2179
     },
     {
       "path": "tools/v25/practice-filter.js",
       "kind": "javascript",
       "sha256": "2ba2fb91749a7928b746cf2a4cd3e7ebe1d0d2cc7ab2694cfe1e18e84dfcdb50",
-      "startLine": 2066,
-      "sourceStartLine": 2067,
-      "endLine": 2193
+      "startLine": 2180,
+      "sourceStartLine": 2181,
+      "endLine": 2307
     },
     {
       "path": "tools/v25/geography.js",
       "kind": "javascript",
       "sha256": "97b67cdb2cce70d4e3ac2b7c0d24130fb3a59144c3943dafdf478295d03a395a",
-      "startLine": 2194,
-      "sourceStartLine": 2195,
-      "endLine": 2423
+      "startLine": 2308,
+      "sourceStartLine": 2309,
+      "endLine": 2537
     },
     {
       "path": "tools/analytics/attention.js",
       "kind": "javascript",
       "sha256": "851402c272238e255c2b440683fbeaae129578933dc36b92c4e55a2b6607391f",
-      "startLine": 2424,
-      "sourceStartLine": 2425,
-      "endLine": 2443
+      "startLine": 2538,
+      "sourceStartLine": 2539,
+      "endLine": 2557
     },
     {
       "path": "tools/analytics/tracker.js",
       "kind": "javascript",
       "sha256": "cce608c5a7194a5fe99760b3274191278a8dce51948589abc452c9e01dd24953",
-      "startLine": 2444,
-      "sourceStartLine": 2445,
-      "endLine": 2647
+      "startLine": 2558,
+      "sourceStartLine": 2559,
+      "endLine": 2761
     },
     {
       "path": "tools/r19/briefs.css",
@@ -224,7 +232,7 @@
     {
       "path": "tools/cold-call/frost.css",
       "kind": "stylesheets",
-      "sha256": "510ca0e1618b35c4cc86cdce184bf359af41ecb289a0dd3821ef5dfd07650abb",
+      "sha256": "0e595d8c8c3988abfb99aeb342b69898b21185c320f5645e759173cefef4aa64",
       "startLine": 1182,
       "sourceStartLine": 1183,
       "endLine": 1241
