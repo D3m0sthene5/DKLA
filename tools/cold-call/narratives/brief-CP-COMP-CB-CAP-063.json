@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-063",
+  "briefId": "CP-COMP-CB-CAP-063",
+  "title": "Pennington v. Fourth National Bank",
+  "course": "Civil Procedure",
+  "citation": "243 U.S. 269 (1917)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An opening injunction freezes a nonresident husband’s Ohio deposit for alimony, and the bank defeats his later demand to pay that same money to him.",
+  "actors": [
+    {
+      "name": "Mrs. Pennington",
+      "role": "Divorce plaintiff seeking alimony from property in Ohio."
+    },
+    {
+      "name": "Mr. Pennington",
+      "role": "Nonresident depositor notified only by publication, who later sued the bank."
+    },
+    {
+      "name": "Fourth National Bank of Cincinnati",
+      "role": "Bank restrained from paying the husband and directed to pay his wife."
+    }
+  ],
+  "proceedings": [
+    "The Ohio divorce court immobilized the deposit at filing and later ordered payments to the wife.",
+    "The husband lost his separate action against the bank; the U.S. Supreme Court affirmed on March 6, 1917."
+  ],
+  "limits": "This is the 1917 property-jurisdiction rationale. The judgment reaches the seized deposit, not the absent husband’s other assets through personal jurisdiction; the validity of the divorce was admitted.",
+  "briefSha256": "d9cee60686f4ce8baa4245b9bec2bb10f1cd229c6e7bf68e5ea68a710ab77d52",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-063"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The wife freezes an Ohio bank deposit when filing for divorce and alimony",
+      "cue": "What property was brought under the court’s control?",
+      "paragraphs": [
+        "Mrs. Pennington sought divorce and alimony in an Ohio state court and joined the Fourth National Bank of Cincinnati, which held her husband’s deposit. At filing, the court enjoined the bank from paying out any of that money. Later orders directed payments to the wife and ultimately required the remaining balance to be paid to her while permanently forbidding payment to the husband. The bank complied.",
+        "Mr. Pennington was not an Ohio resident, had not been personally served within Ohio and did not appear voluntarily. Notice to him was by publication alone. The later dispute did not contest the validity of the divorce itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "243 U.S. 270; divorce proceeding and opening restraint"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The husband demands his original deposit from the bank",
+      "cue": "What jurisdictional objection supported his separate suit?",
+      "paragraphs": [
+        "After the ordered payments, the husband presented a check for the full original deposit. He argued that the alimony orders deprived him of property without Fourteenth Amendment due process and that the bank knew the jurisdictional circumstances. The bank refused payment.",
+        "He then sued the bank separately in Ohio. Judgment went to the bank, and the Hamilton County appellate court and Ohio Supreme Court affirmed. The U.S. Supreme Court reviewed that judgment, rather than an unresolved request to attach funds in the divorce action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "270–271; demand, independent action and appeals"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brandeis distinguishes the seized property from personal jurisdiction",
+      "cue": "Why could an inchoate alimony claim reach the deposit?",
+      "paragraphs": [
+        "Justice Brandeis explained the historical rule allowing jurisdiction over property within the state despite its owner’s absence. The resident bank’s debt to its nonresident depositor counted as such property. Publication did not confer personal jurisdiction, but attachment or garnishment could apply seized property to an obligation.",
+        "The husband argued that ordinary garnishment concerned an existing debt, whereas alimony arose only through the proceeding. The Court found that distinction immaterial. A claim could be contested, unliquidated or inchoate and still be determined as part of the property proceeding. The opinion’s first note reinforced this treatment of alimony and related creditor interests."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "271–272 and note 1; property jurisdiction and inchoate claim"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The opening injunction satisfies the seizure requirement",
+      "cue": "What conditions bounded the affirmance?",
+      "paragraphs": [
+        "The Court required property within the state, seizure at the proceeding’s commencement and an opportunity for the owner to be heard. The opening injunction immobilized the deposit as effectively as conventional garnishment or trustee process; equity could reach property not available to legal attachment. The second note collected authority supporting that form of seizure.",
+        "On March 6, 1917, the Court affirmed the Ohio judgment for the bank, with no separate writing or numerical vote statement. The alimony decree validly charged the deposit but did not create a publication-based personal judgment collectible from the husband’s other assets. No further attachment on remand was ordered."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "272 and notes 1–2; three conditions, sufficient seizure and affirmance"
+        }
+      ]
+    }
+  ]
+}

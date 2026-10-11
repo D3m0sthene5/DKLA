@@ -1,0 +1,132 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-009",
+  "briefId": "CT-ADDITIONAL-CM-B1-009",
+  "title": "King County v. Taxpayers of King County",
+  "course": "Contracts",
+  "citation": "133 Wash. 2d 584, 949 P.2d 1260 (1997), as amended",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "King County sought judicial validation of $336 million in bonds for a new Seattle Mariners stadium while taxpayers argued that the lease gave away public value and that voters should decide the financing. The Washington Supreme Court upheld the bonds, with two dissenters arguing that the gift question required a trial.",
+  "actors": [
+    {
+      "name": "King County and the public facilities district",
+      "role": "Public entities seeking validation of stadium financing."
+    },
+    {
+      "name": "Seattle Mariners",
+      "role": "Private baseball team whose stadium obligations supplied consideration."
+    },
+    {
+      "name": "Representative taxpayers",
+      "role": "Defendants challenging the bonds, lease, taxes, and voting restrictions."
+    },
+    {
+      "name": "Justice Talmadge",
+      "role": "Author for the seven-Justice majority."
+    },
+    {
+      "name": "Justice Sanders",
+      "role": "Dissenter joined by Justice Madsen."
+    }
+  ],
+  "proceedings": "Trial court granted county summary judgment in a statutory bond-validation action. Washington Supreme Court accepted direct review and affirmed 7–2. The reported opinion incorporates 1997 amendments.",
+  "limits": "This was bond validation, not rent collection. The dissent’s economic predictions were not majority findings. The brief preserves the amended historical judgment without resolving source discrepancies about commencement dates.",
+  "briefSha256": "da5a218cbc9002df396cd756144a5f00d674058fb72af260cc8aed8775e8acc1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-009"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The county assembles stadium financing",
+      "cue": "Bonds are sold while their proceeds await the litigation’s outcome.",
+      "paragraphs": [
+        "The Seattle Mariners’ owners acquired the baseball team in 1992 to keep it in Seattle. Discussions with King County led to plans for a new stadium. In an October 1995 special session, Washington’s legislature enacted the Stadium Act, allowing a county with at least one million residents to use specified taxes for stadium financing. King County adopted Ordinance 12000, created a public facilities district, and imposed the authorized taxes. A special .017 percent sales-and-use tax was credited against the existing statewide rate rather than added to it.",
+        "In January 1997 the district requested $336 million for construction. The county council authorized bonds through Ordinance 12593 and later provided for their sale through Ordinance 12686. By the time the Supreme Court decided the dispute, the bonds had been sold, but proceeds remained in escrow for release or refund depending on the result.",
+        "Opponents pursued litigation and proposed voting measures. Initiative 16 would require voter approval for county facility debt over $50 million and operate from January 1, 1997, potentially reaching the stadium bonds retroactively. A proposed referendum separately sought a vote on the bond ordinance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "949 P.2d at 1263–1264"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The county asks the courts to validate the transaction",
+      "cue": "The lease’s private benefits remain open to a gift challenge.",
+      "paragraphs": [
+        "King County brought an action under Revised Code of Washington 7.25 against representative taxpayers. It sought validation of the bonds, a declaration that Initiative 16 would not apply, and a determination that the bond ordinance was not subject to referendum. On cross-motions the trial court granted county summary judgment, denied the taxpayers’ motion, and entered declaratory judgment. After reconsideration failed, the taxpayers appealed directly to the Washington Supreme Court.",
+        "Justice Talmadge wrote for Chief Justice Durham and Justices Dolliver, Smith, Guy, Johnson, and Alexander. The majority asked whether legislative or constitutional authority supported the bonds, whether the authorizing statute was constitutional, and whether the financed purpose was public. The county and district bore the burden of establishing validity. Because validation conclusively settled matters within its scope, the court addressed the lease, tax collection, delegation, and voting measures. Earlier litigation had established the stadium’s public purpose, but the particular lease still faced a constitutional gift challenge.",
+        "The taxpayers argued that the return was grossly inadequate and violated article VIII, sections 5 and 7 by transferring public value to a private team. They also challenged tax uniformity and disposition, delegation to the district, and exclusion of voter approval."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "949 P.2d at 1264–1267, 1269–1274 & majority n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds enforceable obligations and no prohibited gift",
+      "cue": "Economic doubts do not make the team’s promises optional.",
+      "paragraphs": [
+        "The majority considered consideration and donative intent. Ordinarily courts assess legal sufficiency rather than compare market values; routine judicial appraisal would intrude on governmental contracting. The opinion recognized qualifications involving donative intent or grossly inadequate return but concluded that neither was shown. It distinguished incidental private benefits from unconstitutional gifts by examining the actual exchange.",
+        "The Mariners promised to play at least ninety percent of their games at the stadium throughout the bonds’ term, contribute $45 million toward construction-related costs, and share profits after specified losses. They also owed $700,000 annual rent, construction overruns, parking-funding deficiencies, first-class operation and maintenance, major repairs and capital improvements, and insurance protecting the district.",
+        "Those obligations were not illusory. The $45 million remained meaningful even if paid from revenues the team otherwise would receive. Profit sharing used generally accepted accounting principles and audit rights; possible breach did not make performance optional. Termination depended on unmet district obligations rather than an unrestricted right to leave. Other lease provisions imposed substantial repairs, and insurance protected the district as an additional insured. The majority distinguished enforceable commitments from disagreement over the bargain’s economic wisdom."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "949 P.2d at 1266–1269"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Tax, delegation, and voting objections also fail",
+      "cue": "State authorization controls the local bond decision.",
+      "paragraphs": [
+        "The .017 percent credit did not raise the state sales-tax rate above 6.5 percent. It did not excuse county residents from state-purpose taxation because the stadium itself served a state purpose. Revenue entered a state-treasury account, and statutory distribution directions answered the objection to discretionary spending without appropriation. The legislature could delegate local choices about site and scope to a municipal entity under appropriate standards.",
+        "The majority held that Initiative 16 could not retroactively invalidate the bond contract or contradict state authority to incur debt below 1.5 percent of taxable property value without voter approval. The taxpayers did not dispute that the bonds fell within that limit. State law preempted the field, leaving the authorized decision outside the proposed initiative and referendum. The initiative’s prospective effect was ripe for resolution in comprehensive validation even though it had not passed.",
+        "The majority also rejected renewed efforts to obtain a referendum on the earlier policy ordinance, relying on delay and prior litigation. It did not find that such a petition had actually been circulated and defeated in an election."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "949 P.2d at 1269–1275 & majority nn.8–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent sees a factual constitutional question despite legal consideration",
+      "cue": "Two justices would require at least a trial on the alleged gift.",
+      "paragraphs": [
+        "Justice Sanders dissented, joined by Justice Madsen. He agreed that consideration existed but argued that enforceability did not answer whether the public had made a forbidden gift. A peppercorn could support a private promise despite a profound public loss. Constitutional text, history, and precedent required scrutiny of adequacy when evidence showed donative intent or grossly inadequate return. He emphasized the alternatives in that formulation and believed the majority’s sufficiency analysis displaced the necessary factual inquiry.",
+        "Viewed favorably to the taxpayers at summary judgment, Sanders found evidence warranting trial. Communications emphasized saving the team and improving profitability. A former district board member criticized the allocation of control and risk. Economists questioned rent, expected little or no profit sharing, and doubted residual stadium value. Sanders considered maintenance, insurance, and similar costs predominantly expenses of operating a private business at a publicly provided site. His subsidy estimates and predictions were arguments supported by the taxpayers’ evidence, not findings adopted by the majority.",
+        "Sanders also disputed laches and the suggestion of a prior day in court concerning the earlier ordinance. He argued that the county had blocked a timely referendum, had neither pleaded nor proved laches in its proper defensive role, and could not benefit from its own conduct. Litigation by particular taxpayers did not necessarily extinguish the whole defendant class’s rights. Although criticizing expedited proceedings and curtailed discovery, he would not reverse for discovery alone because the existing record sufficed under his substantive standard. He would at least require trial on the gift claim. The seven-Justice majority instead affirmed summary judgment validating the bonds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "949 P.2d at 1275–1291 & dissent nn.2–14"
+        }
+      ]
+    }
+  ]
+}

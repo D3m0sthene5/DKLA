@@ -7,6 +7,8 @@
   // Only genuinely authored prose is eligible for Cold Call. There is no brief-index fallback.
   const cases = new Map(dataset.cases.filter(c => c.origin === 'narrative').map(c => [c.id, c]));
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // Authors can supply one orientation paragraph or several separate stages.
+  const lines = value => Array.isArray(value) ? value : [value];
   const key = 'dkla.coldCall.v1', grades = ['Clean', 'Patchy', 'Blank'];
   const memory = new Map(), wide = matchMedia('(min-width: 800px)');
   let current = null, active = 0, practice = false, readingTop = 0, bookmark = null, returnTo = null, frame = 0;
@@ -55,9 +57,9 @@
         <p class="cc-small">${c.sections.length} sections · Read in order, or jump to a question.</p></div></details>
       <div id="ccScroll" tabindex="0" role="region" aria-label="Cold call reading area">
         <article id="ccNarrative"><div class="cc-intro">${c.notice ? `<p class="cc-notice">${esc(c.notice)}</p>` : ''}${c.lead ? `<p class="cc-lead">${esc(c.lead)}</p>` : ''}
-          ${c.actors.length ? `<details class="cc-orientation"><summary>People &amp; path through the courts</summary><dl>${c.actors.map(a=>`<dt>${esc(a.name)}</dt><dd>${esc(a.role)}</dd>`).join('')}</dl><ol>${c.proceedings.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details>` : ''}</div>
+          ${c.actors.length ? `<details class="cc-orientation"><summary>People &amp; path through the courts</summary><dl>${c.actors.map(a=>`<dt>${esc(a.name)}</dt><dd>${esc(a.role)}</dd>`).join('')}</dl><ol>${lines(c.proceedings).map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details>` : ''}</div>
           ${c.sections.map((s,i)=>`<section class="cc-section" id="cc-section-${s.id}" data-cc-section="${i}" aria-labelledby="cc-heading-${s.id}"><p class="cc-kicker">${String(i+1).padStart(2,'0')} / ${c.sections.length}</p><h3 id="cc-heading-${s.id}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s)}${citations(s.sources)}</section>`).join('')}
-          <footer class="cc-end">${c.limits ? `<h3>At the edge of the record</h3><p>${esc(c.limits)}</p>` : '<h3>Sources</h3>'}${c.sources.map(s => sourceLink(s,s.label)).join(' ')}<p class="cc-small">The account and full brief work offline with your saved atlas. External source links need a connection.</p></footer>
+          <footer class="cc-end">${c.limits ? `<h3>At the edge of the record</h3>${lines(c.limits).map(p=>`<p>${esc(p)}</p>`).join('')}` : '<h3>Sources</h3>'}${c.sources.map(s => sourceLink(s,s.label)).join(' ')}<p class="cc-small">The account and full brief work offline with your saved atlas. External source links need a connection.</p></footer>
         </article><section id="ccRehearsal" hidden aria-label="Oral practice"></section>
       </div></div><div id="ccStatus" class="cc-sr" role="status"></div>`;
     $('ccClose').onclick = close;

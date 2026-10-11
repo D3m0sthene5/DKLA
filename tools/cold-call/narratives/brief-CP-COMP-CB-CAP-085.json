@@ -1,0 +1,114 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-085",
+  "briefId": "CP-COMP-CB-CAP-085",
+  "title": "Fashion Page, Ltd. v. Zurich Insurance Co.",
+  "course": "Civil Procedure",
+  "citation": "50 N.Y.2d 265 (1980)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A process server followed an insurer’s office directions and delivered papers to the executive secretary who routinely handled them. New York’s highest court upheld service, with one judge preferring a narrower agency rationale.",
+  "actors": [
+    {
+      "name": "Fashion Page",
+      "role": "Insured bringing a fire-policy claim"
+    },
+    {
+      "name": "Zurich Insurance",
+      "role": "Insurer challenging service at its Manhattan office"
+    },
+    {
+      "name": "Ann Robertson",
+      "role": "Executive secretary who accepted process"
+    },
+    {
+      "name": "Joseph Scanlon",
+      "role": "Director and vice-president responsible for the New York office"
+    }
+  ],
+  "proceedings": [
+    "Special Referee credited server and found service adequate; trial court denied dismissal.",
+    "Appellate Division affirmed on appointment rationale.",
+    "Court of Appeals affirmed with costs and answered certified question affirmatively; Gabrielli concurred in result."
+  ],
+  "limits": "No coverage decision or policy award. Six judges joined reasonable-reliance reasoning; all seven affirmed. Actual notice did not universally cure delivery to an improper recipient.",
+  "briefSha256": "ecf4bd0a9cb0dc02955e38e6ca94ea58b7975e2d231e8fbde51b782122c8bd55",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-085"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A fire claim leads to the insurer’s office",
+      "cue": "The papers are delivered",
+      "paragraphs": [
+        "Fashion Page alleged a building insured by Zurich burned December 30, 1975 and that Zurich failed or refused to pay more than $225,000. Zurich was a foreign corporation authorized to do business in New York. The eventual appeal concerned commencing the action, not whether coverage or that sum was owed.",
+        "On December 13, 1976 a process server went to Zurich’s William Street office in Manhattan, told the receptionist he carried its summons and complaint, and asked who handled them. She directed him down a corridor to Ann Robertson. He explained his purpose; Robertson examined and accepted the papers. Asked expressly whether she was authorized, she said she could take them. Zurich moved to dismiss later that month because she was only a vice-president’s secretary rather than a statutory service recipient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "269–270"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The evidence reveals an established routing practice",
+      "cue": "Different courts describe her authority differently",
+      "paragraphs": [
+        "Robertson was executive secretary to Joseph Scanlon, a director and vice-president responsible for an office exceeding one hundred employees. She was its only executive secretary. Although she denied officer or managing-agent status and express appointment, for at least five years she regularly accepted summonses when Scanlon was absent, taking about half those delivered to his office. She told him about these papers after lunch and sent them to the legal department at his direction. He confirmed the established practice; the receptionist testified that directing visitors was her role.",
+        "A Special Referee credited the server despite disputed testimony, found diligence and fair notice, and viewed Robertson’s actual duties as managing or general agency. New York Supreme Court, the trial court, confirmed the report and denied dismissal. The Appellate Division affirmed because she was appointed to receive process and certified an appeal. Zurich argued she lacked managing-agent discretion and that appointment required express authorization plus the formal written filing specified in another statutory provision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "270–272"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Corporate arrangements can authorize reception without a formal filing",
+      "cue": "Wachtler’s majority",
+      "paragraphs": [
+        "Judge Wachtler’s six-judge majority read the corporate-service statute to fulfill its notice purpose and its history of expanding permissible recipients. A corporation could select its process recipient without regard to rank. Appointment under the general corporate-service provision differed from optional formal designation under the separate provision, which carried additional legal consequences.",
+        "An office could route process through a receptionist to a secretary for internal forwarding. A corporation could not use that arrangement yet avoid consequences by invoking titles or absent filings. Servers could not know private assignments and could reasonably ask responsible office employees and follow their directions.",
+        "The rule remained qualified. Giving papers without inquiry to a building receptionist not employed by the defendant would not become valid merely because she forwarded them. Neither would every employee’s claim of authority suffice, especially where circumstances or experience showed impropriety. Here, visiting Zurich’s own office, explaining the purpose, asking its receptionist, and confirming Robertson’s authority objectively supported reliance. Both employees were longstanding staff of an insurer regularly involved in litigation. Any mistaken internal direction in those circumstances belonged to Zurich."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "271–274"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The concurrence insists on the statutory recipient",
+      "cue": "Service stands, insurance merits remain",
+      "paragraphs": [
+        "Judge Gabrielli agreed Robertson was impliedly appointed by years of accepted practice and that service therefore complied with the statute. He objected to broader suggestions that a server’s diligence could replace delivery to an eligible person. Such expansion, he warned, risked sloppy practice and more litigation and should come from the legislature.",
+        "He allowed that obstruction or misleading conduct by an agent with actual or apparent authority could estop a company from demanding perfect compliance. That would rest on the company’s conduct, not merely the server’s good faith. Here implied appointment resolved the case without a broader rule.",
+        "All seven judges affirmed the Appellate Division’s order with costs and answered the certified question affirmatively, while six joined the majority reasoning. Zurich’s service challenge failed; the court awarded no policy proceeds and decided no coverage question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "274–276"
+        }
+      ]
+    }
+  ]
+}

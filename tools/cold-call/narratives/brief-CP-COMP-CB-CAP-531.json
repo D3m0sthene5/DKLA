@@ -1,0 +1,146 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-531",
+  "briefId": "CP-COMP-CB-CAP-531",
+  "title": "Bose Corp. v. Consumers Union of United States, Inc.",
+  "course": "Civil Procedure",
+  "citation": "466 U.S. 485 (1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Bose recovered damages after a trial judge found that Consumer Reports knowingly misdescribed how sound moved from Bose speakers. The Supreme Court affirmed reversal of that recovery because appellate judges had to independently examine whether the record proved actual malice with convincing clarity.",
+  "actors": [
+    {
+      "name": "Bose Corporation",
+      "role": "Manufacturer suing over a review of its Bose 901 loudspeakers."
+    },
+    {
+      "name": "Consumers Union",
+      "role": "Publisher of Consumer Reports and defendant in the disparagement action."
+    },
+    {
+      "name": "Arnold Seligson",
+      "role": "Engineer who supervised listening tests and prepared the internal report."
+    },
+    {
+      "name": "Justice Stevens",
+      "role": "Author of the five-Justice majority opinion."
+    },
+    {
+      "name": "Justices White and Rehnquist",
+      "role": "Authors of dissenting opinions."
+    }
+  ],
+  "proceedings": "District court found liability and awarded damages after separate trials. First Circuit independently reviewed actual malice and reversed. Supreme Court affirmed 6–3; five Justices joined Stevens and Chief Justice Burger concurred in the judgment without an opinion.",
+  "limits": "Public-figure status and application of New York Times v. Sullivan were accepted premises, not newly decided. The Court did not resolve fact versus opinion or make independent review govern all trial facts.",
+  "briefSha256": "8b8c0fcda43c5e4c020b9e5d5de12689807e8710c70d1b7e2982c61bf35adfc2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-531"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A speaker review becomes a disparagement suit",
+      "cue": "The disagreement narrows to where the sound seemed to move.",
+      "paragraphs": [
+        "Consumers Union’s May 1970 Consumer Reports reviewed medium-priced loudspeakers, paying particular attention to the unconventional Bose 901. The account described instruments as exceptionally large and moving about the room. It advised prospective buyers to listen and postpone a substantial investment until satisfied that the novelty would last. Bose Corporation sought a retraction. When Consumers Union refused, Bose sued for product disparagement in federal court under diversity jurisdiction. The parties regarded relevant New York and Massachusetts law as consistent.",
+        "A nineteen-day liability trial rejected most of Bose’s challenges, including its claim that the overall sound-quality rating was provably false. The district judge also found that apparent enlargement and some sound movement were accurately described. The decisive discrepancy concerned location: the published review suggested movement about the room, while engineer Arnold Seligson’s description and demonstration showed lateral movement along the wall between the speakers. The judge treated that discrepancy as a false, disparaging factual assertion.",
+        "Seligson had supervised the listening test and written the internal report used to prepare the article. Editors changed his phrase from movement around the room to movement about the room, but no evidence showed that they knew of an inaccuracy. The question of culpability therefore centered on Seligson’s state of mind when he wrote the report or checked the article."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 487–497 & nn.2–5, 9–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial judge infers knowing falsity",
+      "cue": "Disbelief of a later explanation becomes the basis for liability.",
+      "paragraphs": [
+        "Seligson was deposed and testified for almost six days at trial. He maintained that the disputed wording conveyed the lateral movement he had drawn and described. The trial judge did not believe him. Seligson was educated and understood ordinary English; the judge considered it impossible that he understood the phrase differently from ordinary readers. From that disbelief and the mismatch between words and perception, the court inferred that Seligson knew the statement was inaccurate when published.",
+        "The court found actual malice by clear and convincing evidence. It rejected a suggested competing-speaker interest as a proven motive for deliberate distortion. At a separate damages trial before another judge, the court attributed 824 lost sales to the statement at $129 profit each, awarding $106,296 plus $9,000 in mitigation expenses and interest.",
+        "The First Circuit reversed. It assumed without deciding that the words were false factual statements rather than opinion and accepted their disparaging character. It did not reassess demeanor, but independently examined actual malice and concluded that imprecise wording did not clearly establish knowing falsity or reckless disregard. Bose did not contest the determination that it was a public figure or the use of the New York Times v. Sullivan standard, which protects expression absent the constitutionally required level of fault."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 491–498 & nn.7–8, 14"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court decides who must assess constitutional sufficiency",
+      "cue": "Independent review coexists with deference to ordinary factual findings.",
+      "paragraphs": [
+        "The Supreme Court took the case to determine whether Federal Rule of Civil Procedure 52(a), which governs clearly erroneous review of bench-trial findings, controlled the actual-malice determination. Bose argued that knowledge at a particular time was a historical fact, especially deserving deference when based on credibility. Consumers Union invoked appellate responsibility to examine the record before a judgment placed expression outside First Amendment protection.",
+        "Justice Stevens, joined by Justices Brennan, Marshall, Blackmun, and Powell, held that appellate judges must independently determine whether evidence establishes actual malice with convincing clarity in a case governed by Sullivan. Actual malice means knowledge of falsity or subjective serious doubt about truth, not hostility, negligence, or mere inaccuracy.",
+        "The Court did not regard Rule 52(a) and independent review as wholly incompatible. Both permit examination of the record, and constitutional review allows due regard for the trial judge’s advantage in observing demeanor. An ordinary fact does not lose deferential review merely because it affects the outcome or is called an ultimate fact. But the rule does not insulate legal error embedded in a mixed determination, and constitutional sufficiency cannot simply be delegated to the trial judge or jury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 493, 498–502 & nn.15–17; 511 n.30; 514"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Maintaining a constitutional boundary requires appellate judgment",
+      "cue": "The duty reaches actual malice, not every evidentiary dispute.",
+      "paragraphs": [
+        "Stevens explained that Sullivan’s standard develops through case-by-case adjudication rather than a self-applying formula. Judges must maintain its constitutional boundaries, just as they independently examine whether expression falls within categories such as obscenity, fighting words, or incitement. Speech should receive consistent scrutiny whether the original judgment came from a state or federal trial court; federal origins should not reduce constitutional protection.",
+        "The Court carefully limited the task. Independent review does not authorize a fresh appraisal of every piece of evidence to decide whether the plaintiff should win. It concerns the portions bearing on actual malice. Unrelated factual findings remain governed by clear-error review. If actual malice is established, reversal still requires another legal error or a clearly erroneous factual finding. Litigation involving the First Amendment does not therefore become a general appellate retrial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 499, 502–511 & nn.18–29; 514 n.31"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The evidence does not prove the required state of mind",
+      "cue": "Falsity and disbelief do not themselves establish knowing publication.",
+      "paragraphs": [
+        "Accepting the trial court’s findings and its rejection of Seligson’s explanation, the Court still found no convincing proof that he knew the description was inaccurate when published or seriously doubted it. Rejecting a later rationalization permitted the judge to disregard that explanation; it did not itself affirmatively prove the opposite state of mind at the earlier publication date.",
+        "The article described an unusual auditory experience that admitted ambiguous descriptions. An intelligent writer could choose an inaccurate word without recognizing the error at the time. Ordinary understanding of the phrase, combined with a later refusal to concede error, did not establish the fault Sullivan requires. The mismatch remained within the protection afforded inevitable error in discussion.",
+        "The Supreme Court affirmed the First Circuit’s reversal of Bose’s recovery. It neither independently decided Bose’s public-figure status nor held that every product-disparagement claim requires Sullivan’s standard. It also left unresolved whether the disputed language was fact or opinion. Chief Justice Burger concurred in the judgment without explaining his reasoning, making the judgment 6–3 but leaving five Justices in the majority opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 492–493 n.8, 511–515"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissenters would defer on historical knowledge",
+      "cue": "Their disagreement focuses on the trial judge’s ability to assess the author.",
+      "paragraphs": [
+        "Justice White agreed with Justice Rehnquist that actual knowledge of falsity was a historical fact, although White did not characterize reckless disregard the same way. Because the district judge had found actual knowledge, White would have returned the case to the First Circuit for review under the proper deferential standard.",
+        "Rehnquist, joined by Justice O’Connor, would reverse and remand for clear-error review. The legal definition, burden, and quantum of proof were undisputed; the contested question was what Seligson actually knew. A judge who heard extensive testimony was better positioned than appellate judges reading a paper record to answer it. Rehnquist distinguished judgments about expression’s content or likely effect from findings about a particular person’s historical knowledge. He also distinguished detailed bench findings from a general jury verdict, which might present a stronger reason for independent review. He anticipated more fact-bound appeals and less confidence in trial judgments without materially better protection for speech."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "466 U.S. at 515–520 & Rehnquist nn.1–2"
+        }
+      ]
+    }
+  ]
+}

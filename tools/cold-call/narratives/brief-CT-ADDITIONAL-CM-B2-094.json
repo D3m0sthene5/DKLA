@@ -1,0 +1,134 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B2-094",
+  "briefId": "CT-ADDITIONAL-CM-B2-094",
+  "title": "United States ex rel. DRC, Inc. v. Custer Battles, LLC",
+  "course": "Contracts",
+  "citation": "562 F.3d 295 (4th Cir. 2009)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A contractor’s forgotten spreadsheet exposed inflated currency-exchange invoices in Iraq. The appeal distinguished those cost-plus demands from a separate fixed-price security contract and left important trial questions unresolved.",
+  "actors": [
+    {
+      "name": "DRC, Inc. and Robert Isakson",
+      "role": "Subcontractor and managing director suing as private False Claims Act relators"
+    },
+    {
+      "name": "Custer Battles, LLC",
+      "role": "Contractor providing currency-exchange logistics and airport security"
+    },
+    {
+      "name": "Coalition Provisional Authority",
+      "role": "Multinational authority governing Iraq during the contracts"
+    },
+    {
+      "name": "William Baldwin",
+      "role": "Former employee asserting retaliation"
+    }
+  ],
+  "proceedings": [
+    "District court limited currency claims to a $3 million advance, then granted a reserved Rule 50(a) motion after the jury’s fraud verdict.",
+    "Fourth Circuit reversed those rulings, affirmed separate airport-contract summary judgment, and remanded with an election of a new currency trial."
+  ],
+  "limits": [
+    "The decision applies the then-existing False Claims Act provisions. It does not finally award currency-contract damages.",
+    "Private relators appealed; the United States declined intervention and supported them as amicus. Approximately $15 million in payments is distinct from the assignment’s $20 million description."
+  ],
+  "briefSha256": "36313ce707359fcf95e248ec5022c26fb7126a15637d00521105c973c5497e2d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B2-094"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Iraq’s new currency requires a logistical operation",
+      "cue": "Introduce the contracts, money, and alleged fraud.",
+      "paragraphs": [
+        "The Coalition Provisional Authority governed Iraq from May 2003 to June 28, 2004, staffed largely by Americans but also by personnel from other coalition countries. Administrator Paul Bremer announced in July 2003 that currency bearing Saddam Hussein’s portrait would be replaced. On August 27, the Authority hired Custer Battles, LLC to build, equip and service exchange hubs at Baghdad, Mosul and Basra. The price was actual costs plus twenty-five percent for overhead and profit.",
+        "The Authority advanced $3 million by a United States Treasury check drawn on seized Iraqi assets, then paid roughly $12 million from the Development Fund for Iraq. That Fund combined non-American sources with $210 million in Iraqi bank funds confiscated by the United States and transferred to it. The parties agreed that no appropriated funds financed this particular contract. Invoices generally went to American contracting officers detailed to the Authority, through American-retained consultants or military personnel for approval, and finally to the Authority’s finance office.",
+        "After an October 18, 2003 meeting about performance problems, Michael Battles accidentally left behind a spreadsheet comparing actual and billed costs. Two trucks costing $18,000 were billed at $80,000; generators costing $74,000 at $400,000; and laundry facilities costing $4,000 at $12,000. Inflated costs also increased the twenty-five-percent addition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 F.3d at 298–299, 302–303"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The relators win a verdict that the judge sets aside",
+      "cue": "Distinguish the trial motion from the separate summary judgment.",
+      "paragraphs": [
+        "Subcontractor DRC, Inc. and its managing director Robert Isakson sued on the United States’ behalf as private relators under the False Claims Act. The government declined to intervene but participated as amicus. Former employee William Baldwin separately alleged whistleblower retaliation.",
+        "The district court dismissed a conspiracy count under an intracorporate-conspiracy rationale, confined the currency fraud claims to the $3 million Treasury advance, and severed a claim concerning airport security. A jury found liability under the then-existing 31 U.S.C. §§ 3729(a)(1) and (a)(2), awarded the permitted maximum of $3 million in fraud damages, and awarded Baldwin $165,000 for retaliation. Before entering judgment on fraud, the judge granted a previously reserved Rule 50(a) motion for judgment as a matter of law, reasoning that presentment to the Authority did not satisfy the statute.",
+        "The relators appealed that post-verdict ruling and the limitation on currency claims, as well as summary judgment on the separate airport contract. The government supported their appeal as amicus. Judge Niemeyer wrote for a unanimous Fourth Circuit panel with Judges Shedd and Duncan."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 F.3d at 295, 297–301"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Federal contributions can support claims through a recipient",
+      "cue": "Separate statutory coverage from government loss.",
+      "paragraphs": [
+        "The district court had treated only the initial advance as American property and funds transferred into the Development Fund as outside the Act. The Fourth Circuit rejected that ownership limitation. The applicable § 3729(c) covered demands to a grantee or other recipient if the United States provided any portion of the requested money or would reimburse any portion. Mixed recipient funds could therefore support a qualifying claim in full. Coverage of grantees also refuted any requirement that the government retain title or control after transfer.",
+        "The contract’s statement that no coalition country’s appropriated or other funds would be obligated did not answer whether the United States had provided funds. Its $210 million contribution supplied that connection. Nor was contractual privity required: statutory coverage of indirect recipients and subcontractors contradicted that restriction.",
+        "Qualifying claims did not establish recoverable damages. Damages remained limited to loss sustained by the United States. The original $3 million restriction might even prove harmless if actual federal loss did not exceed that amount. The appellate court could not determine the loss, so it allowed the relators to elect a new trial; it did not award all approximately $15 million paid under the contract."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 F.3d at 302–305"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "American officials do not shed their official roles on detail",
+      "cue": "Explain why the jury could find presentment.",
+      "paragraphs": [
+        "Reviewing the Rule 50 ruling de novo without weighing credibility, the court found sufficient evidence of presentment to American officials acting officially under § 3729(a)(1). Contracting officer Patricia Logsdon worked for and was paid by the Army Contracting Agency, held a government contracting warrant, reported to an American colonel, and administered performance and funding. Her successor described similar authority. American military personnel and consultants retained by the United States Agency for International Development also approved or paid claims. A jury could find that they were doing the work for which the United States hired and paid them.",
+        "That conclusion did not require deciding whether the Authority itself was an American instrumentality. Section (a)(1) identified who received a claim; the court could not import the distinct language about government payment or approval from (a)(2). Nor did payment of the advance before invoicing defeat presentment: later invoices were required for approval, and the statute covered demands for approval as well as payment.",
+        "The district court also erroneously required presentment under (a)(2). The Supreme Court’s intervening Allison Engine decision had rejected that reading. Reversal still left other Rule 50 arguments unresolved, including material falsity, federal loss, and the individual defendants’ sufficient knowledge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 F.3d at 305–308"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A staffing estimate does not become a fixed-price promise",
+      "cue": "Conclude each contract separately.",
+      "paragraphs": [
+        "The airport-security arrangement began with a June 2003 proposal and temporary agreements, followed by a ten-month contract starting August 31 for a fixed $16,840,832. The relators alleged fraudulent inducement when staffing fell below roughly 138 personnel. But neither the proposal’s promises nor the operative agreements required that level. A figure of 138.5 appeared only in the cost estimate supporting the fixed price.",
+        "Custer Battles submitted no personnel-cost invoices under this contract. Staffing initially exceeded 138 and later fluctuated, and the responsible minister confirmed that payment did not require a particular headcount. The evidence therefore could not establish the alleged fraud, and summary judgment on the airport claim stood.",
+        "On April 10, 2009, the Fourth Circuit reversed the currency-claim restriction and judgment as a matter of law, affirmed airport summary judgment, and remanded. The relators could first choose a new currency trial. If they declined, the district court had to decide the remaining Rule 50 grounds; only if it rejected those grounds was it to enter judgment on the existing verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 F.3d at 299–300, 308–309"
+        }
+      ]
+    }
+  ]
+}

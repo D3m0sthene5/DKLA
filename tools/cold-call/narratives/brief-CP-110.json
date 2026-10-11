@@ -1,0 +1,121 @@
+{
+  "id": "brief-CP-110",
+  "briefId": "CP-110",
+  "title": "Curtis v. Loether",
+  "course": "Civil Procedure",
+  "citation": "415 U.S. 189 (1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Landlords accused of racial discrimination demanded a jury, but a judge decided liability and punitive damages instead. The Supreme Court held that this statutory damages action enforced legal rights in an ordinary federal court, preserving either party’s Seventh Amendment jury right.",
+  "actors": [
+    {
+      "name": "Curtis",
+      "role": "Black prospective tenant alleging discriminatory refusal to rent"
+    },
+    {
+      "name": "The Loethers",
+      "role": "White landlords demanding a jury"
+    },
+    {
+      "name": "Justice Marshall",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The district court denied a timely jury demand and awarded $250 punitive damages after a bench trial. The Seventh Circuit reversed, and the Supreme Court affirmed that reversal on February 20, 1974.",
+  "limits": "The Court did not uphold the punitive award or independently find discrimination. It reserved Title VII backpay and state-court jury questions and did not make every monetary remedy legal. Statutory limits described belong to the 1974 decision.",
+  "briefSha256": "1f873cb7bb592622f9608b84f11335527b788339378cbb06897bcfd6bbb1fbbe",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-110"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A denied rental led first to temporary protection of the apartment",
+      "cue": "Introduce the claims and changed circumstances.",
+      "paragraphs": [
+        "Curtis, a Black woman, alleged that white landlords, the Loethers, refused to rent her an apartment because of race. She sued under Title VIII of the Civil Rights Act of 1968. Section 812 then allowed private civil actions for injunctions, actual damages, and punitive damages up to $1,000. Her complaint requested injunction and punitive relief; compensatory damages later entered the trial issues without formal amendment.",
+        "After an evidentiary hearing, the district court temporarily barred renting the apartment to someone else. About five months later, Curtis found other housing and agreed to dissolve that injunction. Actual and punitive damages remained. The lower proceedings used Rogers v. Loether; the caption changed after her marriage during Supreme Court review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "189–191 & nn.1, 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The judge rejected the landlords’ jury demand",
+      "cue": "Trace the award and who challenged it.",
+      "paragraphs": [
+        "The Loethers timely demanded a jury in their answer. The Eastern District of Wisconsin held neither the statute nor Seventh Amendment required one and proceeded to a bench trial. It excluded Curtis’s actual-loss proof for failure to obey a pretrial discovery order, found discrimination without proved actual damages, and awarded $250 punitive damages. It denied her request for fees and costs.",
+        "The Seventh Circuit reversed, finding a constitutional jury right and construing the statute consistently. Curtis sought Supreme Court review to preserve the judge’s disposition. The jury demand thus came from defendants, not from a plaintiff seeking a first opportunity to present her case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "190–192 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A new statutory duty could still produce a legal action",
+      "cue": "Explain the constitutional classification.",
+      "paragraphs": [
+        "Justice Marshall’s unanimous opinion rejected confinement of the Seventh Amendment to causes bearing names recognized in 1791. The distinction was legal versus equitable rights. Legislation creating a duty did not categorically remove an ordinary court action enforcing it from the jury guarantee. Earlier statutory cases established that principle.",
+        "The housing duty resembled tort: unlawful discriminatory refusal caused compensable injury. Analogies to innkeeper obligations and dignitary wrongs helped classify it without demanding an identical eighteenth-century housing action. Actual damages compensated harm and punitive damages punished misconduct, both traditional legal remedies. Curtis sought compensation for discrimination rather than recovery of a particular fund or disgorgement of money belonging to her."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "192–197 & n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Administrative and equitable proceedings did not supply a contrary rule",
+      "cue": "Distinguish the precedents and the former injunction claim.",
+      "paragraphs": [
+        "Curtis invoked National Labor Relations Board backpay and bankruptcy preference recovery without juries. Those involved administrative enforcement or specialized equitable proceedings where jury participation could conflict with statutory structure. Congress instead authorized ordinary federal district-court litigation here.",
+        "Title VII backpay also required caution. Appellate courts had treated it as part of equitable reinstatement or restitution under different language. Marshall neither approved nor rejected those holdings; monetary relief’s nature and setting mattered.",
+        "The earlier injunction request changed nothing. The Court need not choose whether to assess the case at filing or trial: damages alone were legal, and Beacon Theatres and Dairy Queen, precedents protecting jury issues in mixed legal-equitable actions, preserved the right on legal claims and shared facts even if both forms remained. Calling damages incidental could not defeat it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "194–197 & n.11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Policy concerns could not remove the jury right",
+      "cue": "State the judgment and its restrained constitutional reach.",
+      "paragraphs": [
+        "The Court acknowledged concerns about delay and racial prejudice but held they could not override an established constitutional entitlement. Expedition requirements, preliminary relief, and judicial powers to direct verdicts, set aside unsupported verdicts, or order retrial provided safeguards without guaranteeing that prejudice could never occur.",
+        "It used the constitutional ground despite ordinary avoidance because existing decisions settled the requirement and no statute was invalidated. That route also limited the decision to federal-court procedure, leaving statutory effects on state-court jury practice undecided.",
+        "On February 20, 1974, the Supreme Court affirmed the Seventh Circuit. Either party could demand a jury in this federal damages action, and the landlords had been improperly denied one. The Court did not reinstate the $250 bench award or decide discrimination independently. No separate writing or nonparticipation was reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "192 n.6, 198"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-352",
+  "briefId": "CP-COMP-CB-CAP-352",
+  "title": "Microsoft Corp. v. Baker",
+  "course": "Civil Procedure",
+  "citation": "137 S. Ct. 1702 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Xbox owners voluntarily dismissed their individual claims after the Ninth Circuit refused immediate review of a class ruling, hoping the dismissal would let them appeal as of right and revive the claims if they won. All eight participating Supreme Court Justices rejected appellate jurisdiction, although they divided over why.",
+  "actors": [
+    {
+      "name": "The Xbox 360 owners",
+      "role": "Plaintiffs alleging that a console defect damaged game discs."
+    },
+    {
+      "name": "Microsoft Corporation",
+      "role": "Console maker defending the proposed class action."
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the five-Justice statutory-finality opinion."
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Author of the three-Justice concurrence relying on Article III."
+    }
+  ],
+  "proceedings": "District court struck class allegations; Ninth Circuit denied Rule 23(f) permission. After voluntary dismissal with prejudice, Ninth Circuit accepted a §1291 appeal and reversed the comity ruling. Supreme Court reversed and remanded.",
+  "limits": "The alleged defect, individual damages, and ultimate class certification were not decided. The majority reserved Article III; that rationale belonged to the concurrence. Justice Gorsuch did not participate.",
+  "briefSha256": "f29f4edd220ae264c8b7f986257032c186c1807772306b535e935e825d9cb3c3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-352"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A second Xbox suit follows an earlier failed class effort",
+      "cue": "The district court adheres to the earlier causation analysis.",
+      "paragraphs": [
+        "Owners of Microsoft’s Xbox 360 alleged that a design defect caused the consoles to scratch and destroy game discs during ordinary use. In an earlier proposed class suit involving that alleged problem, the district court denied certification because individual causation and damages issues predominated. The Ninth Circuit declined an immediate appeal under Federal Rule of Civil Procedure 23(f), and those plaintiffs eventually settled individually.",
+        "In 2011, new plaintiffs represented by some of the same lawyers filed a proposed nationwide Xbox-owner class action in the same district court. They argued that an intervening Ninth Circuit decision had changed certification law enough to displace the earlier result. The district court concluded that the new precedent had not undermined the causation analysis and that comity required adherence to the prior decision. It struck the class allegations.",
+        "Because striking those allegations had the relevant effect of denying certification, the plaintiffs sought the Ninth Circuit’s permission to appeal under Rule 23(f). They argued that their small individual claims made continued litigation economically irrational. The Ninth Circuit denied permission. The district court could still revise its ruling, and the plaintiffs could continue individually and later appeal, seek the separate certification route under 28 U.S.C. §1292(b), or settle."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip pp. 8–10 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The plaintiffs dismiss their own claims to reach the appellate court",
+      "cue": "They seek reversal only of the earlier class ruling.",
+      "paragraphs": [
+        "Instead, the plaintiffs voluntarily dismissed their individual claims with prejudice. They intended to appeal the class ruling and contended that success on that appeal would allow their claims to return on remand. Microsoft agreed to dismissal while expressly denying that it created an appeal right. The plaintiffs did not challenge the dismissal they requested.",
+        "The Ninth Circuit accepted jurisdiction under 28 U.S.C. §1291, reasoning that a dismissal without a settlement was sufficiently adverse and final. It then held that the district court had misread circuit precedent and incorrectly applied comity. It did not order certification; other objections to class treatment remained for the district court.",
+        "The Supreme Court considered whether this mechanism supported jurisdiction under §1291 and Article III. Justice Ginsburg’s opinion, joined by Justices Kennedy, Breyer, Sotomayor, and Kagan, resolved the statutory issue and expressly reserved the constitutional question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip pp. 10–11 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The statutory scheme makes immediate class appeals discretionary",
+      "cue": "The Court had already rejected economic pressure as a substitute for finality.",
+      "paragraphs": [
+        "Section 1291 ordinarily allows appeal from a final district-court decision. The final-judgment rule divides trial and appellate responsibilities while limiting interruption, expense, and delay. A certification ruling ordinarily remains interlocutory because it resolves no underlying claim and can be revised. After final merits judgment on an individual claim, denied class treatment can be reviewed.",
+        "In Coopers & Lybrand v. Livesay, the Supreme Court had rejected the death-knell approach, which treated class denial as final when individual litigation was economically impractical. That approach invited successive appeals from different certification grounds, bypassed §1292(b)’s screening, and favored plaintiffs without equivalent relief for defendants facing pressure from large class exposure. Practical economic consequences did not create finality, and the collateral-order doctrine did not apply.",
+        "Congress later authorized rulemaking concerning finality and interlocutory appeals. Rule 23(f), adopted in 1998 after consideration of competing proposals, allowed appellate courts discretion to review either grants or denials of certification without district-court certification. It did not create an appeal as of right or automatically stay trial proceedings. The chosen balance addressed improvident class rulings while avoiding routine delay."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip pp. 1–8 & nn.1–6; 9–12; 13 n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "An engineered dismissal cannot bypass that structure",
+      "cue": "Three related problems defeat statutory jurisdiction.",
+      "paragraphs": [
+        "The majority held that this voluntary dismissal did not qualify as a final decision permitting review of the class order. A document closing the case could not be considered apart from §1291’s function and the established appellate structure.",
+        "First, the device allowed plaintiffs alone to force repeated interlocutory review. Unlike even the rejected death-knell approach, it required no appellate assessment of whether individual litigation was economically feasible. A successful appeal followed by denial on another certification ground could produce another dismissal and appeal. The Ninth Circuit’s actual ruling illustrated the problem because it decided only comity and left other grounds open. Plaintiffs’ willingness to lose their claims permanently if the appeal failed did not cure it: weak claims could make the gamble attractive where class certification might prompt settlement. The Court did not find these particular merits claims weak.",
+        "Second, the device would defeat Rule 23(f). Congress selected rulemaking to identify appealable interlocutory decisions, and the rulemakers specifically addressed class orders. Plaintiffs who had been denied discretionary review could not transform that denial into mandatory review by requesting dismissal while hoping to revive the claims after a favorable class ruling.",
+        "Third, the tactic was one-sided. Plaintiffs could use it to force review of class denial, but defendants could not similarly compel review of a class grant, despite their own economic pressure to settle. It would displace the evenhanded discretionary system the rule created."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip pp. 12–17 & nn.9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The concurrence finds finality but no remaining controversy",
+      "cue": "The shared judgment leaves class eligibility and liability unresolved.",
+      "paragraphs": [
+        "Justice Thomas concurred in the judgment, joined by Chief Justice Roberts and Justice Alito. He regarded dismissal with prejudice as final under §1291 because it ended all individual claims and left only execution of judgment. Concern about circumventing Rule 23(f), he argued, should not change the statutory meaning.",
+        "Thomas instead found no Article III controversy. By requesting dismissal, the plaintiffs consented to judgment and disclaimed relief from Microsoft. Class allegations supplied a procedural means of litigating individual claims, not an independent substantive claim preserving adversity after those claims disappeared. A hope of reviving them following a favorable certification decision did not create a present controversy; in his view, a certification decision could not itself undo the merits consequences of voluntary dismissal.",
+        "The Court reversed the Ninth Circuit and remanded. All eight participating Justices agreed on that result, with five relying on statutory finality and three on Article III. Justice Gorsuch did not participate. The judgment resolved neither whether an Xbox class ultimately satisfied Rule 23 nor whether Microsoft was liable for the alleged defect."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas slip pp. 1–4; Court slip pp. 11, 17"
+        }
+      ]
+    }
+  ]
+}

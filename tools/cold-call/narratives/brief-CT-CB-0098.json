@@ -1,0 +1,124 @@
+{
+  "id": "brief-CT-CB-0098",
+  "briefId": "CT-CB-0098",
+  "title": "Strong v. Sheffield",
+  "course": "Contracts",
+  "citation": "144 N.Y. 392, 39 N.E. 330 (1895)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Louisa Sheffield endorsed her husband’s overdue debt while the creditor promised to keep the note until he wanted the money. Because that promise left immediate collection available, the court found no consideration in the exchange actually made, despite the creditor’s later two-year delay.",
+  "actors": [
+    {
+      "name": "Benjamin Strong",
+      "role": "Creditor suing on an endorsement"
+    },
+    {
+      "name": "Gerardus Sheffield",
+      "role": "Debtor issuing a demand note for an overdue obligation"
+    },
+    {
+      "name": "Louisa Sheffield",
+      "role": "Wife endorsing the note at her husband’s request"
+    },
+    {
+      "name": "Chief Judge Andrews",
+      "role": "Author of the New York Court of Appeals opinion"
+    }
+  ],
+  "proceedings": "Strong won at trial, the General Term reversed, and the Court of Appeals affirmed that reversal with judgment absolute for Louisa under Strong’s appellate stipulation, with costs in all courts.",
+  "limits": "The ruling did not erase Gerardus’s debt or reject actual-forbearance bargains generally. It applied historical consideration law between original parties; later commercial-paper statutes were not the court’s basis. Gray and Bartlett did not vote, and Haight did not sit.",
+  "briefSha256": "b48140eb9864ec74ffac51620bda887e36ded8b54d2b2ca2f60edfc95a302c4c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0098"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An overdue debt prompted a wife’s endorsement",
+      "cue": "Introduce the note and the creditor’s precise undertaking.",
+      "paragraphs": [
+        "Benjamin Strong held an overdue debt from Gerardus Sheffield. The accompanying account of the record identifies a business sale as its source and a family relationship between Strong and Gerardus’s wife, Louisa. Gerardus gave a promissory note payable on demand, and Louisa endorsed it at his request as security for the old debt.",
+        "The only asserted new consideration for her undertaking was Strong’s collection arrangement. He testified that he would neither transfer the note nor put it in a bank for collection, but would hold it until he wanted the money. Asked again about transfer, he repeated that reservation. He ultimately refrained from collection for about two years."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "394–396; casebook 98–99"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Strong won at trial but lost on the first appeal",
+      "cue": "Frame the consideration question between the original parties.",
+      "paragraphs": [
+        "Strong sued Louisa on the endorsement and obtained judgment. The General Term reversed. He appealed under a stipulation permitting judgment absolute against him if that reversal was affirmed.",
+        "Chief Judge Andrews explained that negotiable form did not supply the missing exchange between these original parties. Rules protecting a later bona fide holder for value before maturity were irrelevant. The old debt explained why security was requested, but the asserted new exchange supporting Louisa’s obligation depended on what Strong promised or performed in return."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "392–395"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Forbearance could count through either a promise or requested performance",
+      "cue": "State the recognized alternatives before the court’s application.",
+      "paragraphs": [
+        "A binding promise to delay collection of a presently due debt could support another person’s undertaking for it. Alternatively, a debtor’s request could invite actual forbearance: if a third party’s undertaking was exchanged for reasonable delay performed in reliance on it, consideration could exist without a binding advance promise by the creditor.",
+        "The court therefore did not require every delay bargain to have a fixed calendar date or contemporaneous mutual promises. The next question was which kind of bargain these parties actually made."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "394–395"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "This promise preserved unrestricted collection choice",
+      "cue": "Explain why subsequent indulgence did not change the bargain.",
+      "paragraphs": [
+        "The evidence established an intended exchange of promises. Strong expressly reserved collection whenever he wanted the money, leaving no room to imply even a reasonable waiting period. He could sue immediately without breach: that act would merely demonstrate that he wanted payment. Louisa received no enforceable period of repose.",
+        "The demand note did not extend maturity. Interest might indicate expected indulgence but barred no immediate suit on either note or original debt. The court distinguished an expectation of delay from a legal commitment.",
+        "Strong’s actual two-year wait did not convert this exchange into a different request-for-performance arrangement. Louisa had endorsed in reliance on the express undertaking described, not on an agreement that a defined or reasonable period of actual delay would complete the bargain. Consideration depended on their chosen agreement rather than Strong’s later discretionary restraint. The earlier recognition of performance bargains remained intact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "395–396"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The stipulated judgment ended Louisa’s endorsement liability",
+      "cue": "Give the disposition and historical boundaries.",
+      "paragraphs": [
+        "The Court of Appeals affirmed the reversal and directed judgment absolute for Louisa, with costs in all courts, under the stipulation. It did not remand for another trial or declare Gerardus’s antecedent debt nonexistent.",
+        "Participating judges concurred without dissent; Gray and Bartlett did not vote and Haight did not sit. The decision’s commercial-paper setting was governed by the historical law applied in 1895. Later Uniform Commercial Code treatment of antecedent debt was separate doctrinal development, not an authority Andrews applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "396; casebook 100 note 2"
+        }
+      ]
+    }
+  ]
+}

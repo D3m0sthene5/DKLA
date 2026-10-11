@@ -1,0 +1,112 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-030",
+  "briefId": "CT-ADDITIONAL-CM-B3-030",
+  "title": "Lucas v. Hamm",
+  "course": "Contracts",
+  "citation": "56 Cal. 2d 583, 364 P.2d 685 (1961)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Intended will beneficiaries could sue the drafting lawyer despite lack of privity, but their particular allegations did not establish deficient professional performance. The California Supreme Court therefore affirmed dismissal.",
+  "actors": [
+    {
+      "name": "Eugene H. Emmick",
+      "role": "Testator who retained the lawyer"
+    },
+    {
+      "name": "L. S. Hamm",
+      "role": "Lawyer drafting the will and codicils and later representing executors"
+    },
+    {
+      "name": "Lucas and other beneficiaries",
+      "role": "Intended recipients alleging settlement losses"
+    }
+  ],
+  "proceedings": [
+    "Trial court sustained general demurrer to second amended complaint without leave to amend and dismissed.",
+    "California Supreme Court affirmed unanimously September 5, 1961.",
+    "Rehearing denied October 4."
+  ],
+  "limits": "Allegations accepted for demurrer analysis, not established losses. Court did not decide actual trust invalidity or create immunity for every perpetuities error; neither alleged $75,000 nor $15,000 was awarded.",
+  "briefSha256": "6e7015f4483795ad59df3062f084ff64c3f191d603d2b387c5a0dc6799e2e9e7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-030"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A trust term and later settlements disappoint beneficiaries",
+      "cue": "The allegations against the drafting lawyer",
+      "paragraphs": [
+        "Eugene H. Emmick retained attorney L. S. Hamm for consideration to prepare a will and codicils. Some intended beneficiaries alleged they were to receive fifteen percent of the residue through a trust ending at noon five years after the probate distribution order. They contended that timing violated California’s then-existing perpetuity and alienation restrictions.",
+        "After probate admission, Hamm allegedly told executors and beneficiaries the trust was invalid and advised settlement with blood relatives. The beneficiaries claimed a $75,000 resulting loss. These first two counts challenged drafting, not a proven trial finding of either invalidity or damages.",
+        "A third count concerned Hamm’s later representation of executors in a testamentary-capacity contest. A tentative $10,000 settlement required appropriate releases and court approval. After releases went to escrow but before approval, other counsel allegedly warned about the trust issue and requested all-claims releases. Hamm allegedly refused revision or disclosure of those recommendations to the probate court. The approved compromise paid $10,000, but contestants later joined an attack on the trust. Beneficiaries alleged broader releases would have preserved another $15,000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "586–587 & n.1; 593–594"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Privity does not categorically exclude intended recipients",
+      "cue": "The court recognizes two routes to sue",
+      "paragraphs": [
+        "The trial court sustained a general demurrer to the second amended complaint without further leave and dismissed. On appeal, Hamm argued the beneficiaries were not parties to his employment contract. Chief Justice Gibson’s unanimous California Supreme Court opinion rejected that barrier and overruled Buckley v. Gray, the contrary will-beneficiary precedent.",
+        "The court assessed the transaction’s intended effect, foreseeable harm, certainty and causal connection of injury, prevention policy, and burden on lawyers. Carrying out a client’s testamentary directions foreseeably benefits intended recipients, while the estate ordinarily suffers no corresponding loss when they miss their gifts. Allowing their claims therefore served prevention without demanding more skill than the lawyer already owed the client.",
+        "Contract offered a separate route under Civil Code section 1559. A contract expressly for a third person’s benefit excluded incidental beneficiaries but required no formal recital naming them or direct delivery of services. The testator’s beneficial purpose and lawyer’s understanding sufficed. The court disapproved contrary language in earlier decisions requiring the promisor personally to intend the benefit. Neither route, however, eliminated the need to plead deficient performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "587–591 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The alleged drafting error does not meet that standard",
+      "cue": "The difficult legal question",
+      "paragraphs": [
+        "A lawyer owed the skill, prudence, and diligence ordinarily exercised in the profession, not insurance against every unfavorable opinion or result. Absent a special undertaking, an error on a question competent lawyers could reasonably consider doubtful did not establish liability. The same standard governed the contract and negligence counts.",
+        "The alleged defect involved the unusually difficult interaction of perpetuities and alienation restrictions, including 1951 legislation. Because the five years ran from a distribution order, invalidity depended on the remote possibility of distribution being delayed beyond a life in being plus sixteen years. Given that possibility and the legal setting, an ordinarily competent lawyer could overlook the danger without professional negligence. The first two counts could not state a claim on this alleged error, and further amendment was properly denied.",
+        "The court did not actually hold the trust invalid. It left unresolved whether necessary facts were missing, including contingent interests or beneficiaries’ ability jointly to terminate the trust within the statutory period."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "591–593 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A release cannot unilaterally enlarge a bargain",
+      "cue": "The third count and final dismissal",
+      "paragraphs": [
+        "The releases accomplished their admitted purpose of settling the capacity contest. No allegation said the contestants agreed, or were willing, to abandon all other attacks for the same $10,000. A broader waiver ordinarily required more consideration; their own lawyers could breach duties by accepting more extensive releases than their clients authorized. Hamm could not simply convert a negotiated limited settlement into a universal one through wording.",
+        "At most the allegations suggested a duty to request broader releases, but plaintiffs did not allege that Hamm failed to ask. Even after this defect was identified below and on appeal, they did not claim an ability to amend and show he could have obtained them. Denying further amendment was therefore within discretion.",
+        "The Supreme Court affirmed dismissal of all three counts. Recognition that intended beneficiaries could sue did not establish a breach on these allegations, and neither claimed loss was awarded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594–595"
+        }
+      ]
+    }
+  ]
+}

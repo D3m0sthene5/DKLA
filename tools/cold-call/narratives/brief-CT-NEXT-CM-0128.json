@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-NEXT-CM-0128",
+  "briefId": "CT-NEXT-CM-0128",
+  "title": "Walker & Co. v. Harrison",
+  "course": "Contracts",
+  "citation": "347 Mich. 630, 81 N.W.2d 352 (1957)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Dry cleaners stop paying for an advertising sign after delayed cleaning, but the maintenance lapse does not justify repudiation and the supplier recovers a reduced accelerated balance.",
+  "actors": [
+    {
+      "name": "Walker & Company",
+      "role": "Supplier that built, installed and agreed to maintain the sign."
+    },
+    {
+      "name": "The Harrisons",
+      "role": "Dry-cleaning operators who agreed to thirty-six monthly payments and eventual ownership."
+    }
+  ],
+  "proceedings": [
+    "After a bench trial, Walker recovered the accelerated balance less unperformed future maintenance costs.",
+    "The Michigan Supreme Court affirmed with costs."
+  ],
+  "limits": "The requested $5,197.50 is not the undisclosed reduced judgment. The court left sale-versus-lease characterization unresolved and did not eliminate every remedy for minor maintenance failures.",
+  "briefSha256": "a12459ad51918c538e9169a51754fa83f9d3ce58b0aa0d1e9fe7ece7a97c0b5d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0128"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A sign agreement combines monthly payments with eventual ownership",
+      "cue": "What performance did each side promise?",
+      "paragraphs": [
+        "Walker & Company built and installed a large neon sign with a clock and flashing lamps for the Harrisons’ dry-cleaning business. Their agreement called for thirty-six monthly payments of $148.50. Walker promised repairs and cleaning and repainting as often as it deemed necessary to keep the sign in first-class advertising condition.",
+        "The Harrisons had expressed interest in buying for cash, and an added clause transferred title at the term’s end. The specially constructed sign’s value depended on use at their premises. Installation occurred in late July 1953; the August 1 bill was paid September 3, the only payment ever made."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 Mich. 631–634 and note; agreement, installation and payment"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Complaints about the sign lead Harrison to declare the agreement void",
+      "cue": "What did the parties do before litigation?",
+      "paragraphs": [
+        "Someone splashed a tomato on the sign shortly after installation. Harrison also complained about rust on chrome, cobwebs and children’s writing. Repeated unanswered maintenance calls made him increasingly angry. On October 8 he telegraphed that Walker’s failures had voided the contract and that he would pay nothing further.",
+        "Walker requested specifics and invoked the default clause. It demanded September and October installments by October 25 and threatened acceleration. About a week after the telegram, a crew serviced the sign, but payments did not resume. The contract allowed acceleration, notice and possession remedies, made payment timing essential, preserved use after full accelerated payment and contained a nonwaiver term."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "632–634, 636 and sole note; complaints, notices and eventual service"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The customers defend nonpayment as a justified response to material breach",
+      "cue": "Why did the trial court reject that defense?",
+      "paragraphs": [
+        "Walker sued for the unpaid $5,197.50 balance. The Harrisons defended and sought recoupment, claiming Walker’s prior material breach justified termination and damages. Walker prevailed after a bench trial, and the customers appealed.",
+        "The Supreme Court accepted that a material breach can justify repudiation but stressed the risk of judging materiality incorrectly. It considered substantial benefit remaining, adequate compensation, performance already rendered, termination hardship, the character of misconduct and uncertainty of future performance. The trial court found cobwebs minor, doubted extensive rust so soon after installation and regarded the tomato stain as insufficient for rescission. The evidence did not preponderate against those findings, particularly after cleaning occurred. The customers’ refusal to pay was therefore the material breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "634–636; defense and multifactor materiality assessment"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The judgment excludes services that will no longer be performed",
+      "cue": "Why was the full pleaded balance not the final award?",
+      "paragraphs": [
+        "The parties debated whether eventual title made the transaction a sale or lease. The court left that label unresolved because the agreement itself supplied the acceleration remedy. The trial court deducted maintenance expenses Walker would have incurred during the unexpired term; Walker neither challenged that reduction nor cross-appealed.",
+        "The resulting judgment represented the sign’s cash price, services already provided and accepted, and interest on the defaulted amount. Its final number was not stated. Justice Smith’s opinion affirmed with costs; Dethmers, Sharpe, Edwards, Kelly, Carr and Black concurred, and Voelker did not participate. The court rejected termination on these facts, not every possible remedy for inadequate maintenance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "637; deduction, unresolved characterization, judgment and participation"
+        }
+      ]
+    }
+  ]
+}

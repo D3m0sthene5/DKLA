@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-585",
+  "briefId": "CP-COMP-CB-CAP-585",
+  "title": "Parsons Steel, Inc. v. First Alabama Bank",
+  "course": "Civil Procedure",
+  "citation": "474 U.S. 518 (1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After winning a federal judgment but losing its preclusion defense in state court, a bank obtained a federal injunction against the state case. The Supreme Court required examination of the state ruling’s own preclusive effect before that intervention.",
+  "actors": [
+    {
+      "name": "Parsons Steel and Jim and Melba Parsons",
+      "role": "Plaintiffs alleging wrongful transfer of subsidiary control"
+    },
+    {
+      "name": "First Alabama Bank and Edward Herbert",
+      "role": "Bank and officer defending parallel litigation"
+    },
+    {
+      "name": "Subsidiary’s bankruptcy trustee",
+      "role": "State plaintiff absent from the federal action"
+    }
+  ],
+  "proceedings": [
+    "Federal judgment notwithstanding verdict favored bank, affirmed on appeal.",
+    "State court rejected preclusion defense and jury awarded plaintiffs $4,000,001.",
+    "Federal injunction affirmed by divided Eleventh Circuit; Supreme Court reversed and remanded unanimously."
+  ],
+  "limits": "Supreme Court did not determine Alabama-law preclusion, fraud, sale reasonableness, trustee binding effect, or protection of claims never actually litigated. Further injunction was conditional, not automatic.",
+  "briefSha256": "0dfd666d54ed87250cf6004790965de546f53ccfa5ace1c98af619d41201e6f8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-585"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The same conduct produces state and federal lawsuits",
+      "cue": "The subsidiary’s change of control",
+      "paragraphs": [
+        "In February 1979 Parsons Steel and Jim and Melba Parsons sued First Alabama Bank of Montgomery and officer Edward Herbert in Alabama state court. They essentially alleged fraudulent inducement to let a third person control a subsidiary and ultimately obtain full ownership. The subsidiary entered involuntary bankruptcy in April, and its trustee joined the state suit.",
+        "The parent and Parsonses separately sued the bank federally in May under the Bank Holding Company Act amendments, alleging the same conduct. The trustee did not join that action. Discovery was conducted jointly, but the federal liability trial occurred first. A jury favored the plaintiffs; the district court entered judgment notwithstanding the verdict for the bank, and the Eleventh Circuit affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The state court rejects the federal judgment defense",
+      "cue": "A second jury result prompts an injunction",
+      "paragraphs": [
+        "The bank and other state defendants asserted res judicata and collateral estoppel. The Alabama trial court rejected the res judicata defense. The state complaint later added a Uniform Commercial Code claim that the foreclosure sale of subsidiary assets was commercially unreasonable. A general verdict awarded plaintiffs $4,000,001.",
+        "Defendants returned to federal court for an injunction against further prosecution of the state action. They also apparently filed timely state posttrial motions. The district court thought both suits arose from the same facts and substantially the same damages, and that the state claims should have accompanied the federal claims under pendent jurisdiction. It enjoined the state case to protect its earlier judgment.",
+        "A divided Eleventh Circuit affirmed in relevant part, reading the Anti-Injunction Act’s relitigation exception as allowing a final federal determination despite the intervening state ruling. It rejected waiver from waiting until after trial and separately remanded whether the nonparticipating trustee could pursue a factually distinct commercial-sale claim. Judge Hill dissented because the state court had already adjudicated preclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520–523 & nn.1,3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The second court’s ruling also matters",
+      "cue": "The unanimous statutory reconciliation",
+      "paragraphs": [
+        "Justice Rehnquist’s Supreme Court opinion held that the relitigation exception did not displace the Full Faith and Credit Act. That Act required the federal court to give the Alabama decision the effect Alabama courts would give it. The Anti-Injunction Act ordinarily forbade interference with state proceedings but permitted relief necessary to protect or effectuate federal judgments.",
+        "Both commands could operate together. Before a state court adjudicated a federal-judgment defense, appropriate protective relief might remain available. After a final state rejection, however, the federal court had to assess that ruling’s preclusive effect under state law rather than retry the issue under its preferred rule.",
+        "Congress’s earlier restoration of judgment-protecting injunctions did not establish a right to disregard an intervening state decision. The relevant earlier cases involved requests made before state courts resolved preclusion. Here the bank had chosen to litigate the defense in state court and returned federally only after losing. Parallel litigation’s inefficiency did not override statutory limits. Even an erroneous state ruling ordinarily required correction through state appeals and potential Supreme Court review, not a federal injunction merely because it was mistaken."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "523–525"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Alabama law must be applied first",
+      "cue": "Reversal and reserved questions",
+      "paragraphs": [
+        "The Court reversed the Eleventh Circuit and remanded for the district court initially to determine Alabama preclusion law and apply it to the state ruling. It did not hold that the ruling necessarily barred federal reconsideration under that law or that the state judge actually erred.",
+        "If the state decision lacked preclusive effect, the district court could then assess an injunction under equity, comity, and federalism. That circumstance would permit consideration, not compel an injunction. The Court also reserved whether the relitigation exception protected claims that could have been brought federally but were not actually litigated, and whether the absent trustee was bound by the first federal judgment.",
+        "The unanimous result therefore required the intervening state adjudication to be addressed before further federal restraint. It resolved no fraud or commercially unreasonable-sale merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "525–526 & n.4"
+        }
+      ]
+    }
+  ]
+}

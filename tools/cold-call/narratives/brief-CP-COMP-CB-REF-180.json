@@ -1,0 +1,131 @@
+{
+  "id": "brief-CP-COMP-CB-REF-180",
+  "briefId": "CP-COMP-CB-REF-180",
+  "title": "Larson v. AT&T Mobility LLC",
+  "course": "Civil Procedure",
+  "citation": "687 F.3d 109 (3d Cir. 2012)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Sprint customers challenged flat early-termination fees and then challenged the settlement intended to resolve those claims. The Third Circuit sent the settlement back because the district court had not adequately justified refusing to search billing records for people entitled to individual notice.",
+  "actors": [
+    {
+      "name": "Sprint",
+      "role": "Cellular-service provider whose early-termination fees and settlement were challenged."
+    },
+    {
+      "name": "The five representatives",
+      "role": "Former Sprint customers who represented the proposed settlement class."
+    },
+    {
+      "name": "The Galleguillos objectors",
+      "role": "Class members challenging notice and representation."
+    },
+    {
+      "name": "Jessica Hall",
+      "role": "Objector alleging a reverse auction and contesting notice costs."
+    },
+    {
+      "name": "Judge Jordan",
+      "role": "Author of the unanimous Third Circuit panel opinion."
+    }
+  ],
+  "proceedings": "District of New Jersey conditionally certified a settlement class, rejected an initial notice plan, then approved an amended plan and the settlement. Third Circuit vacated the January 15, 2010 certification-and-settlement order and remanded.",
+  "limits": "Pinpoints refer to the complete judicial PDF’s numbered pages. The court did not determine underlying fee liability, finally reject the settlement as unfair, or require a particular search; reasonable effort remained for the district court on a fuller record.",
+  "briefSha256": "07aaaf17be356cde8179e6e72ffe800c7ffd4eec48c95a0a7d690b915e877cb6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-REF-180"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A flat fee creates a group of claims",
+      "cue": "The settlement divides customers by what happened to their accounts.",
+      "paragraphs": [
+        "Until late 2008, cellular provider Sprint charged approximately $200 when customers terminated fixed-term service contracts early. Unlike a prorated fee, the flat charge did not diminish as a contract neared its end. Consumers alleged that these charges were unlawful penalties under federal communications law and state consumer-protection law. Although AT&T customers appeared in the original complaint and AT&T remained in the caption, the operative complaint’s five representatives had been charged Sprint fees. AT&T did not participate in this settlement or appeal.",
+        "Before Sprint’s dismissal motion was resolved, the parties spent five months negotiating under a retired district judge’s supervision. In December 2008 they agreed to settle this action and ten others for $17.5 million: $14 million in cash and $3.5 million in activation-fee waivers, additional minutes, and credit forgiveness. Specified claims in California’s Ayyad litigation were excluded, but the release otherwise covered a broad range of fee-related claims. Sprint also promised not to enter new fixed-term contracts containing flat fees for two years beginning January 1, 2009. Existing contracts could still produce fees.",
+        "Four benefit categories treated customers differently. Those who had paid could claim specified cash payments or alternative service benefits. Those charged but not paying could receive credits if Sprint still owned the debt, or service benefits. Category IV covered claims arising after notice but before January 1, 2011 and offered only noncash calling, activation, minute, or text benefits. Its deadline differed from those governing the earlier categories."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp. 10–19 & nn.1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The court changes course on individual notice",
+      "cue": "Accessible portions of the customer list become the central dispute.",
+      "paragraphs": [
+        "The District of New Jersey preliminarily approved the agreement and conditionally certified a Rule 23(b)(3) class in December 2008. After an initial fairness hearing, however, the court rejected the notice proposal. Producing a complete list for 1999–2008 might take six to twelve months and cost at least $1 million. The court explained that difficulty identifying everyone did not excuse failing to identify reasonably accessible subsets and ordered another plan.",
+        "Sprint and class counsel proposed compliant bill inserts for current customers, notice to 194,461 members of another California class, and notice to about 90,000 other identifiable subscribers. They declined to search billing records. Scott Rice’s declaration estimated that retrieving recent records would cost about $100,000: $20,000 for April–June 2009 and $80,000 for April 2007–March 2009. Sprint and counsel called that effort unreasonable, although they offered to do more if ordered and given extended deadlines. Twelve days later the district court approved the amended plan, accepting the declaration as sufficient justification.",
+        "Class members known as the Galleguillos objectors contested both notice and representation. Their initial estimate of 9.2 million discoverable customers mistakenly included corporate and governmental accounts outside the class; expert analysis of other Sprint data reduced it to 4.2 million. Sprint itself acknowledged that its records could identify millions of class members. Nevertheless, on January 15, 2010 the district court approved certification and settlement, described notice as robust, and found no antagonism between representatives and class."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp. 19–33 & nn.8–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appeal separates finding people from mailing notices",
+      "cue": "A costly class still requires reasonable identification efforts.",
+      "paragraphs": [
+        "Judge Jordan, joined by Chief Judge McKee and Judge Fuentes, explained that Rule 23(c)(2)(B) requires individual notice to every member identifiable through reasonable effort. Although certification and settlement approval receive abuse-of-discretion review, legal error, clearly erroneous findings, or improper application of law can constitute abuse. The panel assumed Rice’s declaration was admissible without deciding evidentiary objections or whether those objections had been waived. Even accepting the declaration, the district court’s explanation was inadequate.",
+        "The panel distinguished identifying recipients from delivering notice. The Supreme Court’s Eisen decision made individual notice mandatory for reasonably identifiable members; postage costs or the representative’s limited resources did not dispense with that duty. Oppenheimer addressed allocation of identification costs rather than eliminating the obligation to obtain available information. Nissan and Third Circuit precedent likewise required substantial efforts when records offered the best means of reaching absent members. Cost, likely results, and the amount involved inform reasonable effort, but a large class may reasonably require a large search.",
+        "Sprint relied on Domestic Air, where a proposed list’s relationship to actual class membership was uncertain. Here Sprint conceded that its records could identify millions of actual members. An accurate partial list remained useful even if a complete list was impracticable. The district court had initially recognized that distinction, then abandoned it with little explanation beyond a declaration describing time and expense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp. 33–47 & nn.24–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The numbers require a fuller explanation",
+      "cue": "The panel questions the refusal without prescribing the final search.",
+      "paragraphs": [
+        "If a $100,000 search located two million members, identification would cost about five cents per person, or about forty-three cents including estimated mailing costs. Using the objectors’ 4.2 million estimate reduced the identification cost further. These were illustrations, not findings that either number had actually been located. Sprint conceded that mailing would be required once people were identified.",
+        "The projected effort was not exceptionally burdensome compared with earlier cases, and the likely recipients mattered especially: people who had paid fees could receive much of the settlement but generally were no longer current customers reachable by bill inserts. The panel expressed strong skepticism that no billing-record search was warranted. It nonetheless left the final reasonable-effort determination to the district court on a fuller record and with a fuller explanation. Statistical sampling could improve estimates of likely identifications. Electronic-discovery proportionality supplied an analogy, not a substitute for Rule 23: the value of identifying absent members was already apparent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp. 47–53 & nn.30–33"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Former customers may not protect every remaining customer",
+      "cue": "Vacatur leaves representation and settlement fairness for renewed consideration.",
+      "paragraphs": [
+        "The panel also questioned representation under Rule 23(a)(4). Adequacy requires both freedom from conflicting interests and the ability and incentive to represent the class vigorously. The district court had emphasized lack of antagonism without adequately considering incentives. All five representatives were former customers when the settlement was reached. Their incentive to resist continued collection from current subscribers required examination. Qualified counsel did not answer that question; counsel’s own adequacy was separately governed by Rule 23(g).",
+        "One gap made the concern concrete. A customer terminating after the March 15, 2010 deadline for Categories I and II but before the end of 2010 could incur the same fee yet receive only Category IV’s noncash benefits. Counsel acknowledged that difference. The panel did not finally find the representatives inadequate: the objection had been less clearly developed below, and waiver was debatable. It urged renewed examination under the district court’s independent duty to protect absent members.",
+        "Another objector, Jessica Hall, alleged a reverse auction and challenged charging renewed notice expenses to the fund. The panel found no abuse in rejecting collusion, which the mediator’s account contradicted. It declined, however, to decide whether the settlement as a whole was fair, reasonable, and adequate or to resolve appeals over counsel-fee allocation. The January 15 certification-and-settlement order was vacated and the case remanded; neither Sprint’s underlying liability nor any individual payment was finally adjudicated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp. 11 n.1, 28–29 n.18, 54–62 & nn.34–44"
+        }
+      ]
+    }
+  ]
+}

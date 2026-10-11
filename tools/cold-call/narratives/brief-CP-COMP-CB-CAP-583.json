@@ -1,0 +1,150 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-583",
+  "briefId": "CP-COMP-CB-CAP-583",
+  "title": "Kremer v. Chemical Construction Corp.",
+  "course": "Civil Procedure",
+  "citation": "456 U.S. 461 (1982)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Rubin Kremer pursued an employment-discrimination grievance through New York’s agency and courts before filing a federal Title VII action. The Supreme Court held that the intervening state-court judgment barred renewed litigation, while distinguishing unreviewed administrative decisions and dividing sharply over what the state review had actually resolved.",
+  "actors": [
+    {
+      "name": "Rubin Kremer",
+      "role": "Engineer alleging discriminatory failure to rehire."
+    },
+    {
+      "name": "Chemical Construction Corporation",
+      "role": "Former employer defending the discrimination claims."
+    },
+    {
+      "name": "Equal Employment Opportunity Commission",
+      "role": "Federal agency receiving and referring the initial charge, abbreviated EEOC."
+    },
+    {
+      "name": "New York State Division of Human Rights",
+      "role": "State agency investigating and rejecting the complaint."
+    },
+    {
+      "name": "Justice White",
+      "role": "Author of the five-Justice majority opinion."
+    },
+    {
+      "name": "Justices Blackmun and Stevens",
+      "role": "Authors of separate dissents."
+    }
+  ],
+  "proceedings": "New York agency rejected the charge; administrative appeal and Appellate Division affirmed. Federal district court dismissed on preclusion grounds and Second Circuit affirmed. Supreme Court affirmed 5–4.",
+  "limits": "The decision concerns a state judicial judgment following agency action, not automatic preclusion from an unreviewed agency determination. The Court reserved the precise claim-versus-issue-preclusion label and exclusive federal Title VII jurisdiction.",
+  "briefSha256": "415150a7129a4cf19dc559e310e19e359ac9fb1c1499ffbf2dfd1d2a86b2db43",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-583"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Kremer seeks an explanation for not being rehired",
+      "cue": "State administrative and judicial review precede the federal suit.",
+      "paragraphs": [
+        "Rubin Kremer emigrated from Poland in 1970 and joined Chemical Construction Corporation as an engineer in 1973. The company laid him off with other employees in 1975. Some were later rehired, but his repeated applications failed. In May 1976 he charged discrimination based on national origin and his Jewish faith before the Equal Employment Opportunity Commission, or EEOC.",
+        "Title VII gave the competent state agency an initial opportunity to address the matter, so the EEOC referred it to New York’s Division of Human Rights. Kremer’s state complaint alleged age and religion rather than separately pleading national origin. The Division investigated and found no probable cause: one rehired employee had greater seniority, another accepted a lesser position, and discrimination did not explain Kremer’s exclusion. These were agency findings.",
+        "An administrative appeal sustained the determination as neither arbitrary nor capricious nor an abuse of discretion. Kremer sought judicial review in New York’s Appellate Division, which unanimously affirmed on February 27, 1978. He did not seek further review in the state Court of Appeals. The EEOC then found no reasonable cause, issued a right-to-sue letter, and denied reconsideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 463–465 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A federal action raises the effect of the state judgment",
+      "cue": "The dispute concerns relitigation rather than fresh discrimination findings.",
+      "paragraphs": [
+        "Kremer filed a federal Title VII suit alleging religion and national-origin discrimination. The district court initially distinguished existing circuit preclusion precedent because Title VII permitted federal de novo adjudication. After another circuit decision extended that precedent to Title VII, the district court dismissed. The Second Circuit affirmed, including rejection of Kremer’s retroactivity objection.",
+        "The Supreme Court considered whether Title VII displaced 28 U.S.C. §1738, which requires federal courts to give state judicial proceedings the preclusive effect they receive in the state’s own courts. New York law barred another action based on the same grievance after this completed proceeding. Kremer argued both that Title VII guaranteed a fresh federal determination and that the prior procedures or issues decided were insufficient for preclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 464–468 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds no repeal of the full-faith-and-credit command",
+      "cue": "Administrative action and a completed judicial judgment remain distinct.",
+      "paragraphs": [
+        "Justice White wrote for Chief Justice Burger and Justices Powell, Rehnquist, and O’Connor. Section 1738 supplied Congress’s established command, not a preclusion policy federal courts could replace with their own preferences. Title VII expressly repealed nothing. An implied repeal required clear legislative intent shown by irreconcilable conflict or a later comprehensive replacement, neither established here.",
+        "Title VII’s initial state-agency opportunity, subsequent EEOC review, and federal action could coexist with finality for an intervening state judgment. A claimant had to allow initial administrative processing but did not have to appeal an adverse agency decision to state court. Earlier recognition of federal de novo trials after administrative proceedings did not decide the effect of a completed judicial judgment.",
+        "The distinction was essential. An unreviewed state administrative determination did not bar a de novo Title VII suit, even if state law made that determination conclusive. An adverse EEOC decision likewise did not bar trial. Congress’s 1972 instruction to give state findings substantial weight during EEOC consideration increased respect for those findings rather than implicitly reducing every state judicial judgment to persuasive evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 468–471 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Legislative history and the nature of the prior issues support dismissal",
+      "cue": "The majority does not require choosing one preclusion label.",
+      "paragraphs": [
+        "The majority examined the 1964 and 1972 legislative history, acknowledging concern about inadequate state remedies but finding no clear intent to remove ordinary judicial preclusion. Cooperative enforcement and concerns about repetitive litigation supported finality. Allen v. McCurry, applying §1738 in federal civil-rights litigation, reinforced the conclusion. Alexander v. Gardner-Denver involved a private arbitrator’s contractual ruling outside §1738, with different institutional competence from state authorities applying discrimination law. Finality, the majority thought, encouraged serious participation in effective state adjudication.",
+        "Although the proceedings used different statutes, they attacked the same conduct under virtually identical substantive elements. The majority read the state affirmance as sustaining a finding that the discrimination grievance lacked merit. It left open whether claim or issue preclusion supplied the precise label: at least the same discrimination issue could not be retried. Kremer had not argued that national origin presented a distinct theory from religion, and omission of a matter within the earlier proceeding’s scope would not independently avoid preclusion. The Court also reserved whether federal courts had exclusive Title VII jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 465 n.4, 471–482 & nn.20–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Due process sets a minimum before a judgment can bind",
+      "cue": "The majority finds the combined opportunities adequate.",
+      "paragraphs": [
+        "A constitutionally defective judgment could not bind simply because state law called it final. But §1738 did not let federal courts demand their preferred procedures beyond constitutional minima. New York allowed evidence and exhibits, rebuttal of employer evidence, counsel, and requests for subpoenas. A warranted probable-cause finding led to a public hearing, while administrative and judicial review protected procedural rights. Summary rejection required sufficient investigation and a complaint lacking merit under state standards.",
+        "The majority found the combined process constitutionally adequate. Kremer’s failure to use all available procedures did not show that they were deficient. This did not mean he actually received a full trial or that every administrative system necessarily affords due process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 480–485 & nn.21–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissenters disagree about statutory design and the judgment’s reach",
+      "cue": "Five votes preserve dismissal, four would permit the federal case.",
+      "paragraphs": [
+        "Justice Blackmun, joined by Justices Brennan and Marshall, argued that Title VII’s state proceedings included agency processing and judicial review. Substantial weight preserved federal adjudication; conclusiveness after affirmance effectively gave an agency rejection the force the majority denied it on its own. Deferential review asked whether the agency acted rationally, not whether the employer discriminated. He read legislative history as preserving overlapping remedies, and minimum due process as less than the vigorous federal enforcement Congress intended.",
+        "Blackmun identified a practical trap: a claimant who skipped state judicial review could obtain a federal trial, while one who tried to correct agency error might lose it. He believed this discouraged review, weakened state adjudication, and endangered unrepresented claimants. He distinguished deferential agency review from a full state merits trial rather than demanding disregard of every state judgment.",
+        "Justice Stevens agreed that Title VII did not implicitly repeal §1738 but disputed the judgment’s scope. An equivalent state trial could preclude another case; arbitrary-and-capricious affirmance established only that a rational adjudicator could support the agency. Accepting that conclusion still left actual discrimination open. He also disputed the majority’s reading of New York law as converting every affirmed dismissal into a judicial merits determination.",
+        "The Court affirmed 5–4. Kremer’s federal case remained dismissed; the Supreme Court did not retry or independently find the employment facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 486–511; Blackmun nn.10, 18–23; Stevens starred note"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-004",
+  "briefId": "CT-ADDITIONAL-FA26-004",
+  "title": "Dental-practice transfer: Cour de cassation, July9,2003",
+  "course": "Contracts",
+  "citation": "Cour de cassation, 1re civ., July 9, 2003, no. 00-22.202; unpublished in the Bulletin",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An unpaid dental-practice seller seeks the contract price while the buyer attacks the transfer; the buyer loses that challenge and the seller obtains partial cassation of a damages substitute.",
+  "actors": [
+    {
+      "name": "M. X",
+      "role": "Anonymized seller of the dental practice, demanding the agreed price."
+    },
+    {
+      "name": "M. Y",
+      "role": "Anonymized buyer who did not pay and challenged the transfer’s validity."
+    }
+  ],
+  "proceedings": [
+    "The trial judgment awarded 225,000 francs; Pau substituted 20,000 francs on September 13, 2000.",
+    "The Court of Cassation rejected the incidental challenge and partially quashed on the principal appeal, remanding to Agen."
+  ],
+  "limits": "This decision concerns a dental practice, not the neighboring textbook’s unidentified correspondence-course example. Cassation did not itself enter a new 225,000-franc award.",
+  "briefSha256": "b26c5024d89ef31608094dbe44d19ba233800c3cc3c31cc3fd6359ea43dfcf9f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-004"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A dental practice is transferred but the buyer does not pay",
+      "cue": "What did the seller seek after the transaction?",
+      "paragraphs": [
+        "By an instrument and amendment dated December 30, 1994 and January 24, 1995, M. X transferred his dental practice to M. Y for 225,000 francs. M. Y did not pay, so M. X sued for that agreed sum.",
+        "The trial judgment awarded the full principal. On September 13, 2000, the Pau Court of Appeal instead awarded 20,000 francs, reasoning that neither party intended to perform the reciprocal commitments and that the seller’s compensable harm was only delay in transferring the practice. M. X sought confirmation of the price judgment rather than that damages substitute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opening recital and principal-appeal reasoning; contracts and lower judgments"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer attacks the transfer through the premises’ lease restriction",
+      "cue": "Why did the incidental appeal fail?",
+      "paragraphs": [
+        "M. Y argued that a mixed professional-and-residential lease could not be assigned without the landlord’s written consent. The Court of Cassation rejected the objection because written consent could be granted in advance.",
+        "The lower court had found that this lease already allowed assignment to a successor in dental surgery. A fresh consent at this particular transfer was therefore unnecessary on the buyer’s theory. Rejection of this incidental appeal was distinct from the seller’s successful challenge to the reduced recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Incidental appeal, both reasoning paragraphs"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The seller’s chosen price remedy survives while the agreement remains valid",
+      "cue": "Why could the appellate court not simply replace it with damages?",
+      "paragraphs": [
+        "On the second and third branches of the seller’s principal ground, the Court applied former Civil Code articles 1134, 1142 and 1184. An unpaid contractual creditor could prefer payment of the price to damages or dissolution. The appellate court had rejected every ground for undoing the agreement and recognized the seller’s demand for the price judgment.",
+        "Substituting damages failed to give those findings their legal consequence: it refused application of article 1134 and wrongly applied the other provisions. The court did not need to decide the first branch. Its reasoning depended on a valid, unextinguished contract and did not declare every price payable regardless of validity, termination or the creditor’s own duties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal appeal; statutory visa and responsive reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Partial cassation sends the seller’s claim to Agen",
+      "cue": "What did the operative orders decide?",
+      "paragraphs": [
+        "On July 9, 2003, the First Civil Chamber quashed the Pau judgment only insofar as it had dismissed M. X’s claim, restored the parties’ prior position on that part and remanded to the Agen Court of Appeal. It charged M. Y with costs, denied both article 700 requests and directed annotation of the partially quashed judgment.",
+        "The Court itself entered no new 225,000-franc award. Lemontey presided, and no numerical vote, separate opinion or judicial note appears. The nearby textbook example about student course fees involves a different, unidentified decision and supplies none of this dental transfer’s facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Complete disposition and identifying material; assigned-example distinction"
+        }
+      ]
+    }
+  ]
+}

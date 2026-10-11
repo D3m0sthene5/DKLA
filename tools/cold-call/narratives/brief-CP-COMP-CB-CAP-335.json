@@ -1,0 +1,110 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-335",
+  "briefId": "CP-COMP-CB-CAP-335",
+  "title": "Trbovich v. United Mine Workers of America",
+  "course": "Civil Procedure",
+  "citation": "404 U.S. 528 (1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A union member whose complaint triggered a government election challenge sought to join the suit. The Supreme Court permitted intervention supporting the Secretary’s pleaded grounds and proposed remedies, but barred new grounds to overturn the election.",
+  "actors": [
+    {
+      "name": "Trbovich",
+      "role": "Union member who initiated the complaint process"
+    },
+    {
+      "name": "Secretary of Labor",
+      "role": "Public official suing over the union election"
+    },
+    {
+      "name": "United Mine Workers of America",
+      "role": "Union defending the election"
+    }
+  ],
+  "proceedings": [
+    "District court denied intervention as barred by exclusive statutory remedy; D.C. Circuit affirmed.",
+    "Supreme Court reversed and remanded for limited intervention."
+  ],
+  "limits": "Election violations remained allegations. Six Justices supported limited intervention; Douglas wanted broader intervention, while Powell and Rehnquist did not participate. Proposed new-election safeguards were not categorically barred.",
+  "briefSha256": "83884481673c51e9a0d726737d012cdbc474673e0e80d90b03289b5540c35a74",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-335"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A union election triggers public enforcement",
+      "cue": "The allegations screened by the Secretary",
+      "paragraphs": [
+        "The United Mine Workers held an officers’ election December 9, 1969. Union member Trbovich complained to the Secretary of Labor, initiating the statutory enforcement process. Under Title IV of the Labor-Management Reporting and Disclosure Act, a member first exhausted internal remedies, then complained for investigation; probable cause required an authorized government suit. The statute made that route exclusive for completed elections while preserving existing pre-election remedies.",
+        "The Secretary sued to set this election aside and conduct a new one under supervision. His complaint alleged absent secret ballots, campaigning at polls, denied candidate observers, reprisals, omitted local elections, and union assets used for incumbents. None of those allegations was adjudicated in the intervention appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "529–531 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Trbovich asks to participate and expand the case",
+      "cue": "The lower courts deny any intervention",
+      "paragraphs": [
+        "Trbovich sought intervention under Federal Rule of Civil Procedure 24(a), offering evidence and argument in support of the Secretary while adding two grounds: pensioner locals allegedly constituted contrary to the union constitution and a pension increase allegedly arranged by the incumbent president to influence pensioners. He also proposed safeguards including dissolution of those locals, publication of a fiduciary-duty ruling, and comprehensive future-election rules.",
+        "The district court denied intervention because the Secretary’s post-election remedy was exclusive, and the D.C. Circuit affirmed. The Supreme Court expedited review because the underlying election litigation continued unstayed. The Secretary defended a complete bar, arguing Congress’s rejection of private member suits excluded direct judicial participation altogether."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "529–532 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Exclusivity protects screening and a single forum",
+      "cue": "Marshall allows support but not new invalidation grounds",
+      "paragraphs": [
+        "Justice Marshall’s six-Justice opinion distinguished initiating a competing private action from joining an existing authorized one. Statutory language prohibited the former but did not itself prohibit the latter. Legislative debates over competing public- and private-enforcement proposals showed concern for screening frivolous challenges and concentrating disputes over one election in one proceeding. They did not demonstrate rejection of a member’s assistance to screened public enforcement.",
+        "The union already had to defend the Secretary’s complaint in this forum. Supporting evidence and argument introduced neither another lawsuit nor an unscreened ground. But adding grounds the Secretary presumably considered meritless would bypass his assigned screening role, even if adding them here was less burdensome than a separate action. The Court did not itself decide whether those allegations were true.",
+        "Remedies were different. If the pleaded challenge succeeded, the court would have to fashion a lawful new election under the statute and union rules. It was not confined to safeguards proposed by the Secretary. Trbovich could help formulate that remedial order, so limited intervention did not automatically exclude his proposals for the replacement election."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "531–537 & nn.6,8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Public and individual interests may diverge",
+      "cue": "The intervention right and judgment",
+      "paragraphs": [
+        "The Secretary did not dispute Trbovich’s sufficient interest but maintained he represented it adequately. The lower courts had not reached adequacy. The Supreme Court found the member met the minimal burden of showing representation might be inadequate.",
+        "The Secretary served both individual statutory rights and the broader public interest in democratic union elections. Those related duties could point to different litigation choices, even with competent, faithful official performance. The member who had initiated enforcement therefore did not have to prove official dereliction to justify participating in protection of his own interest.",
+        "Justice Douglas agreed intervention was available but would also allow the additional grounds. In his view the Secretary had screened the election challenge as a whole, and all allegations about that election could be heard without multiplying forums. He considered the restriction inconsistent with the statutory purposes and liberalized intervention rule.",
+        "The Court reversed and remanded with directions to allow limited intervention. It neither invalidated the election nor ordered particular safeguards or found wrongdoing by the Secretary. Six Justices adopted the limit; Douglas sought broader participation, and Powell and Rehnquist did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "538–540 & nn.9–10, dissent n.*"
+        }
+      ]
+    }
+  ]
+}

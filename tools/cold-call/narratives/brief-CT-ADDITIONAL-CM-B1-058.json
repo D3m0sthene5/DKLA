@@ -1,0 +1,107 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-058",
+  "briefId": "CT-ADDITIONAL-CM-B1-058",
+  "title": "Hobbs v. Massasoit Whip Company",
+  "course": "Contracts",
+  "citation": "158 Mass. 194, 33 N.E. 495 (March 1, 1893)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Repeated paid shipments make silence and prolonged retention of conforming eel skins evidence of acceptance, despite the manufacturer’s claim that it never ordered that particular shipment.",
+  "actors": [
+    {
+      "name": "Hobbs",
+      "role": "Saugus supplier of eel skins who had been paid for earlier shipments."
+    },
+    {
+      "name": "Massasoit Whip Company",
+      "role": "Westfield manufacturer receiving the skins."
+    },
+    {
+      "name": "Harding",
+      "role": "Lynn intermediary whose agency and handling of rejection notice were disputed."
+    }
+  ],
+  "proceedings": [
+    "A jury found for Hobbs after instructions on quality, agency and silence in context.",
+    "The Supreme Judicial Court overruled the company’s exceptions, leaving that verdict intact."
+  ],
+  "limits": "The actual report supports 2,350 skins and retention for an unreasonable time. Destruction’s cause is unstated. The agency instructions were not challenged, and this was not an unsolicited shipment to a stranger.",
+  "briefSha256": "a02d7552f863ee158dfbe4bb80eecd44bf65062994245c3eef44c6b7dfcb5dfa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-058"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Earlier transactions establish a way of supplying suitable skins",
+      "cue": "What dealings preceded the disputed shipment?",
+      "paragraphs": [
+        "Hobbs, a supplier in Saugus, sent eel skins to Massasoit Whip Company in Westfield through Harding in Lynn. Four or five earlier shipments by the same route had been accepted and paid for. The manufacturer’s president acknowledged five cents for suitable skins over twenty-seven inches and two cents for those between twenty-two and twenty-seven inches.",
+        "Hobbs understood he should send skins in good condition and longer than twenty-two inches. On February 18, 1890, he delivered the disputed shipment to Harding, who forwarded it that day or the next. Its covering letter listed 2,050 skins at five cents and 300 at two cents: 2,350 skins totaling $108.50."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "158 Mass. 194–195; course of dealing, dimensions and shipment"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The parties disagree over conformity and rejection notice",
+      "cue": "What did the manufacturer do with the goods?",
+      "paragraphs": [
+        "Hobbs said the skins met the requirements. Company witnesses described a shipment received February 19 or 20 as short, badly conditioned and useless. The president denied ordering or buying these particular skins and said he promptly wrote Harding that they were unfit and held subject to Hobbs’s directions. Hobbs denied receiving a rejection.",
+        "Harding’s role was also disputed. Hobbs denied appointing him as agent, while Harding described forwarding goods, taking payments and relaying information for him. The company argued that notice to Harding was notice to Hobbs. The skins stayed at the factory for months and were later destroyed; the report does not give the cause."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "194–196; conflicting quality, notice and agency evidence"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The jury finds acceptance under instructions tied to the evidence",
+      "cue": "What objection did the company preserve?",
+      "paragraphs": [
+        "Justice Hammond instructed that Hobbs could not recover for skins below twenty-two inches or in the condition described by company witnesses. Agency went to the jury under unchallenged instructions. Another instruction allowed a plaintiff’s verdict if the company remained silent while having reason to believe the sender understood it was accepting the skins.",
+        "After a verdict for Hobbs, the company argued that the silence instruction let any sender force an unwanted purchase. Justice Holmes acknowledged that risk if the words were isolated, but read them in context. Given the verdict and the quality instruction, the appellate court treated the shipment as conforming and Hobbs as having received no rejection notice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "196–197; instructions, verdict and preserved exception"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Holmes gives silence its meaning through the established relationship",
+      "cue": "Why did the exceptions fail without a universal silence rule?",
+      "paragraphs": [
+        "The company’s own testimony supported a standing offer for suitable skins of the stated size. Even if sending alone did not complete the bargain, the prior transactions warranted a conforming shipment and called for action on receipt. Silence combined with retention for an unreasonable period permitted an inference of assent despite an undisclosed contrary intention.",
+        "On March 1, 1893, the Supreme Judicial Court overruled the exceptions and left Hobbs’s verdict in place. Holmes wrote; Chief Justice Field and Justices Allen, Knowlton and Barker were also listed present, without a numerical vote or separate writing. The court did not let a stranger impose a purchase simply by shipping goods, or decide an unpreserved challenge to the agency instructions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "197; contextual assent and disposition"
+        }
+      ]
+    }
+  ]
+}

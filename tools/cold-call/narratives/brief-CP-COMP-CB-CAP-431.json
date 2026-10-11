@@ -1,0 +1,142 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-431",
+  "briefId": "CP-COMP-CB-CAP-431",
+  "title": "Neely v. Martin K. Eby Construction Co., Inc.",
+  "course": "Civil Procedure",
+  "citation": "386 U.S. 317 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A daughter wins a jury verdict for her father’s fatal construction fall, then loses the case on appellate sufficiency review. She challenges the appellate court’s power to direct dismissal without returning new-trial questions to the trial judge.",
+  "actors": [
+    {
+      "name": "Neely",
+      "role": "Daughter bringing a diversity wrongful-death action."
+    },
+    {
+      "name": "Martin K. Eby Construction Company",
+      "role": "Defendant that preserved directed-verdict and postverdict motions."
+    },
+    {
+      "name": "Sverdrup & Parcel",
+      "role": "Engineering employer of the deceased Night Silo Captain."
+    }
+  ],
+  "proceedings": [
+    "The district court denied directed-verdict and postverdict motions and entered a $25,000 jury judgment.",
+    "The Tenth Circuit reversed for insufficient negligence and causation proof and directed dismissal.",
+    "The Supreme Court affirmed the appellate court’s authority and disposition, without deciding the underlying sufficiency merits."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or present Rule 50 deadline review. Historical Rule 50(c) and (d), including the ten-day period, are reported as construed in 1967. The majority expressly reserved evidentiary sufficiency; detailed platform evidence in Black’s dissent is not a majority finding.",
+  "briefSha256": "3e1e483d8a40c0faa93cbbf557ca6b19f9419253fb0bb56fb6c8606999ea5f9c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-431"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A fatal scaffold fall leads to a preserved sufficiency challenge",
+      "cue": "What did the jury award?",
+      "paragraphs": [
+        "Neely brought a diversity wrongful-death action in federal Colorado court after her father fell from a scaffold platform during missile-silo construction near Elizabeth, Colorado. He was Night Silo Captain for engineering firm Sverdrup & Parcel, working on the missile-launcher system. She alleged negligent construction, maintenance, and supervision by Martin K. Eby Construction caused his death.",
+        "Eby moved for a directed verdict after her evidence and again after all evidence. Both motions failed, and the jury awarded $25,000. Eby timely moved under Rule 50(b) for judgment notwithstanding the verdict or alternatively a new trial. The district judge denied both and entered judgment on the verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 318–319"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appellate court orders dismissal rather than another trial",
+      "cue": "What issue did Neely bring to the Supreme Court?",
+      "paragraphs": [
+        "The Tenth Circuit found insufficient evidence of negligence or proximate cause, reversed, and directed dismissal. Neely had defended her verdict without presenting alternative new-trial grounds. She sought no rehearing, instead obtaining Supreme Court review of appellate power to terminate the case.",
+        "She argued that the Seventh Amendment, the 1963 Rule 50 amendments, and precedents respecting trial-judge familiarity required an opportunity to seek a new trial below. Justice White’s majority limited review to authority and protection of the verdict winner, expressly declining to decide whether the evidence really was insufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 319–321 & n.3, 329"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court distinguishes appellate authority from the need to consider a new trial",
+      "cue": "Which historical subsection governed?",
+      "paragraphs": [
+        "The Constitution did not bar appellate judgment notwithstanding the verdict when the trial court could have granted the preserved motion. Baltimore & Carolina Line v. Redman’s conditional-verdict reasoning supported that conclusion, and 28 U.S.C. § 2106 broadly authorized appropriate judgment or further proceedings.",
+        "Historical Rule 50(c) addressed a trial court’s grant of such judgment and conditional new-trial rulings; subsection (c)(2) gave the former verdict winner ten days to request a new trial. But this judge denied judgment, making Rule 50(d) applicable after appellate jurisdiction attached. It allowed the prevailing appellee to urge alternative new-trial grounds and allowed the appellate court to grant or refer them. That protection did not categorically forbid judgment for the appellant.",
+        "Cone and Globe Liquor involved failure properly to seek postverdict judgment below; Johnson involved an inadequate Rule 50(b) motion. Those preservation defects barred appellate entry. Weade involved a proper motion but a possible alternative liability theory warranting further trial. These decisions protected remaining trial questions without establishing an absolute prohibition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 319–326 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Appropriate disposition depends on the record and alternative grounds",
+      "cue": "Why did the majority find dismissal permissible here?",
+      "paragraphs": [
+        "Dispositive law, such as jurisdiction or absolute privilege, might end a case. Insufficient-proof cases required attention to excluded evidence or an incorrectly demanding burden that could explain failure. Appellate courts usually decided such legal issues; voluntary nonsuit to cure a gap might instead require trial discretion and remand. Judgment should not displace properly presented issues better decided below.",
+        "An appellee could present alternatives when the postverdict motion was made, in appellate briefing, or through an appropriate rehearing petition. Even absent a request, the reviewing court could identify a new-trial reason itself and grant relief or refer it. Silence did not create automatic forfeiture in every case.",
+        "Neely offered no alternative below or on rehearing, described the trial as fair and instructions proper, and suggested no record obstacle to raising another theory. The majority would not presume the Tenth Circuit ignored possible retrial, though express discussion would have helped. Her Supreme Court brief first challenged exclusion of witness opinions about platform adequacy. Because that argument was neither raised below nor included in her certiorari petition, ordinary review policy foreclosed it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 325–330"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Three Justices would reverse for different reasons",
+      "cue": "How did the dissenting positions diverge?",
+      "paragraphs": [
+        "Justices Douglas and Fortas accepted White’s Rule 50 construction but found negligence and causation evidence sufficient for the jury. Their short statement did not adopt Justice Black’s procedural objections.",
+        "Black would review sufficiency and sustain the verdict. He described a platform 130 feet above the silo bottom, horizontally and vertically separated from concrete blocks, with railing requiring a diagonal jump or climb. Testimony, photographs, and possible kickboard and rough-board obstructions permitted negligence and causal inferences in his view.",
+        "He also read precedent to preserve the trial judge’s initial new-trial discretion, informed by seeing witnesses rather than only reading a transcript. General § 2106 authority did not answer the particular Rule 50 issue, and an appellee’s permission to present grounds did not make presentation compulsory on pain of losing trial-level consideration.",
+        "Even accepting appellate power, Black found its use unfair given reliance on prior cases. Uncalled witnesses, excluded opinions, and excluded photographs suggested possible new-trial grounds on the record itself. At least Neely should have been allowed to argue them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 330–344 & Black nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dismissal direction is affirmed without a majority finding about the scaffold",
+      "cue": "What did the judgment settle?",
+      "paragraphs": [
+        "On March 20, 1967, the Court affirmed the Tenth Circuit’s dismissal direction six to three. It neither restored the verdict nor ordered another trial.",
+        "The decision established that preserved postverdict motions could support appellate judgment subject to proper consideration of new-trial issues. The majority did not decide that the platform was safe or that its condition could not cause the fall; its express sufficiency reservation remained."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. 321 n.3, 330"
+        }
+      ]
+    }
+  ]
+}

@@ -30,6 +30,13 @@ def validate(data, graph, full, briefs=None):
             assert case.get('briefId') == mapped.get(cid), f'{cid}: narrative uses another case’s source brief'
         if origin == 'narrative':
             assert case['revision'] >= 1 and case['actors'] and case['proceedings'] and case['limits'], f'{cid}: incomplete orientation'
+            assert isinstance(case['actors'], list) and all(
+                isinstance(a, dict) and all(isinstance(a.get(k), str) and a[k].strip() for k in ('name', 'role'))
+                for a in case['actors']), f'{cid}: invalid actor list'
+            for field in ('proceedings', 'limits'):
+                value = case[field]
+                paragraphs = value if isinstance(value, list) else [value]
+                assert paragraphs and all(isinstance(p, str) and p.strip() for p in paragraphs), f'{cid}: invalid {field} paragraphs'
             if cid not in ('hamer', 'cp-pennoyer', 'lrs-s-chadha'):
                 review = case.get('review', {})
                 assert review.get('basis') and review.get('checkedOn'), f'{cid}: missing authoring review record'

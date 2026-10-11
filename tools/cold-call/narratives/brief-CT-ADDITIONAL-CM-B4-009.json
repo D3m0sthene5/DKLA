@@ -1,0 +1,131 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-009",
+  "briefId": "CT-ADDITIONAL-CM-B4-009",
+  "title": "Hendricks & Associates, Inc. v. Daewoo Corporation",
+  "course": "Contracts",
+  "citation": "923 F.2d 209 (1st Cir. 1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Defective Daewoo garments cost import consultant Hendricks its growing relationship with Champion Products. The First Circuit upheld a concrete withheld-credit loss and the foreseeability of lost future business, but required a large reduction in future-profit damages because the evidence supported only one year’s limited profit.",
+  "actors": [
+    {
+      "name": "James Hendricks and Hendricks & Associates",
+      "role": "Import consultant and firm that bought garments for resale to Champion."
+    },
+    {
+      "name": "Champion Products",
+      "role": "Hendricks’s customer, which ended the relationship after defective shipments."
+    },
+    {
+      "name": "Daewoo Corporation",
+      "role": "Manufacturer selling the garments to Hendricks."
+    },
+    {
+      "name": "Donald Sullivan",
+      "role": "Champion’s former purchasing manager and trial witness."
+    },
+    {
+      "name": "Judge Cyr",
+      "role": "Author of the unanimous First Circuit opinion."
+    }
+  ],
+  "proceedings": "Jury awarded debit-memorandum and future-profit damages. District court reduced only the former by accepted remittitur. First Circuit affirmed the reduced credit award and conditioned the future-profit award on reduction to $45,000, otherwise a new trial on amount.",
+  "limits": "Champion was not a party. The appellate judgment did not unconditionally substitute $45,000 or permit recovery of every contemplated future contract.",
+  "briefSha256": "71a6c874146b9f0e4a769bbdb4a22c552eaa4f0db376ebcabf82af44a20f0e83",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-009"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An import adviser becomes the buyer in the middle",
+      "cue": "The payment structure leaves Hendricks exposed to its customer.",
+      "paragraphs": [
+        "James Hendricks began his consulting business in 1979 and started advising Champion Products about overseas apparel production in December 1981. His firm, incorporated in Massachusetts in 1983, eventually served eleven other companies. Champion wanted competitively priced imports, and Hendricks supplied expertise about manufacturers, customs, tariffs, and quotas. Two early Daewoo orders had minor quality problems that Hendricks helped resolve.",
+        "For Champion’s 1984 Stripe Collection, Hendricks selected manufacturer Daewoo with Champion’s concurrence. This time the firm acted as an intervening buyer and seller rather than simply an import agent: Champion ordered from Hendricks, Hendricks ordered from Daewoo, and Hendricks resold at a five-percent markup. Champion and Daewoo had no direct contract. Champion funded irrevocable letters of credit negotiable free on board Korea, so Hendricks and Daewoo were fully paid before the quality dispute was resolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "923 F.2d at 211–212 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Three defective shipments break the relationship",
+      "cue": "Champion takes a credit and sends future work elsewhere.",
+      "paragraphs": [
+        "Daewoo shipped directly to Champion in three installments. The first had serious defects. Daewoo promised that later shipments would conform, and Hendricks reassured Champion. The second was also defective, and the entire third shipment ultimately proved unacceptable. Repeated washing revealed latent defects in the third shipment’s pants: seams opened and garments came apart. Inspectors also found Korean rejection stickers in all three shipments.",
+        "Champion issued debit memoranda totaling $213,486.61 for payments and inspection costs. It actually withheld a $21,614.73 credit owed to Hendricks, but the record did not establish that Hendricks became accountable for the remaining $191,871.88. Champion also stopped using Hendricks. Its former purchasing manager, Donald Sullivan, testified that their business had been increasing and would have continued to increase without the Stripe Collection failures. Other contemplated clothing lines went to different import agents.",
+        "Hendricks sued Daewoo for the full debit-memorandum amount and $150,000 in expected future profits. Champion was not a party. The jury awarded $275,000 on the debit memoranda and $375,000 in future profits. The district court denied judgment notwithstanding the verdict and conditionally denied a new trial on the debit damages if Hendricks accepted reduction to $21,614.73. Hendricks accepted; the future-profit award remained. Daewoo appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "923 F.2d at 211–212 & nn.2–3; 215–216 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court sustains foreseeable consequential liability",
+      "cue": "The scale of the defects and known dealings support causation.",
+      "paragraphs": [
+        "Judge Cyr wrote for Chief Judge Breyer and Senior Judge Bownes. Massachusetts law governed under the forum’s functional choice-of-law approach: incorporation, negotiations, communications, and payment through a Massachusetts bank outweighed the asserted New York delivery connection. Passage of title to Hendricks in Korea also complicated Daewoo’s delivery argument.",
+        "Massachusetts Uniform Commercial Code sections 2-714 and 2-715 permit appropriate incidental and consequential damages for an accepting buyer giving seasonable notice. Prospective profits must be a natural and probable consequence, reasonably foreseeable at contracting, and proven with fair certainty. Consequential recovery also considers needs the seller had reason to know and losses not reasonably preventable by cover or otherwise. Causation and certainty remained necessary.",
+        "Daewoo did not need express warning that breach could destroy the Champion relationship. A reasonably prudent seller could foresee that result from these dealings: Daewoo knew Champion was the ultimate customer, prior orders showed Champion’s insistence on specifications, and the defects were severe and pervasive. The coordinated collection mattered to Champion’s reputation and marketing; failures in its garments made virtually the whole collection too risky to sell. A jury could find lost investments in design, manufacture, promotion, and inspection, as well as lost expected sales. Sullivan’s testimony and transfer of later work supported causation under an instruction requiring a natural, primary, and probable connection. The holding rested on these circumstances, not every defective resale shipment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "923 F.2d at 212–216 & nn.3–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "One loss is fixed, but future net profits require more proof",
+      "cue": "Revenues and a continuing relationship do not establish the award’s size.",
+      "paragraphs": [
+        "The $21,614.73 credit was a concrete loss established by Hendricks’s records. Daewoo knew the resale, payment, and delivery arrangements and could foresee Champion seeking recovery from Hendricks. The remaining debit memoranda did not establish an incurred loss. The reduced credit award survived both challenges to legal sufficiency and the request for a new trial.",
+        "Review of denied judgment notwithstanding the verdict was de novo but strongly favored the verdict; the court could not resolve conflicts, assess credibility, or reweigh evidence. Denial of a new jury trial also received deference to the jury and trial judge, with reversal requiring an abuse of discretion amounting to a manifest miscarriage of justice. Neither standard permitted speculation about damages.",
+        "Hendricks’s financial presentation separated Champion revenues, expenses for all clients, and total firm profits. Champion generated $75,000 in fiscal 1983 and $170,000 in fiscal 1984, while firm expenses were $188,000 and $350,000. Hendricks allocated fifty to sixty percent of costs to Champion. Even a fifty-percent allocation left losses on that account in both years. The firm had never demonstrated a Champion profit, and its highest annual profit from all clients was only $20,000. Those results did not support a long-term profit stream worth $375,000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "923 F.2d at 214, 216–218 & nn.9, 12; 220"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A specific forecast supports a limited recovery",
+      "cue": "Remittitur or a new trial resolves the excessive future-profit award.",
+      "paragraphs": [
+        "A forecast prepared before the breach offered a narrower basis. For fiscal 1985, Hendricks expected to maintain existing Champion work and add $50,000 from a contemplated polo-shirt order. That would produce $220,000 in Champion revenue while total firm expenses stayed at $350,000. Allocating fifty to sixty percent of expenses produced possible profit of $10,000 to $45,000.",
+        "The forecast precariously assumed added revenue without added expenses. But Hendricks had priced and sampled the polo order, and Sullivan said the work had been done. The jury could infer that much of its cost had already been incurred in fiscal 1984. Although close, that showing supported up to $45,000 for fiscal 1985.",
+        "Nothing supplied revenue or expense projections beyond that year, a defined time horizon, or a rational method for calculating later net profits. General expectations of growing business could not fill those gaps. The court therefore affirmed the future-profit award only on condition that Hendricks remit everything above $45,000. Otherwise Daewoo was entitled to a new trial on the amount of those consequential damages. The court affirmed in all other respects, including the separate $21,614.73 credit award, and remanded for consistent proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "923 F.2d at 218–221 & nn.11, 13–17"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "brief-LRS-CLOSURE-034",
+  "briefId": "LRS-CLOSURE-034",
+  "title": "Southern California District Council of Laborers v. Ordman",
+  "course": "Legislation and the Regulatory State",
+  "citation": "318 F. Supp. 633 (C.D. Cal. 1970); September 22, corrected November 9",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Labor organizations challenge a limitations calculation that barred consideration before affected employees existed, obtaining removal of that barrier without an order to prosecute.",
+  "actors": [
+    {
+      "name": "Southern California District Council of Laborers and Local 1184",
+      "role": "Charging labor organizations seeking consideration of their allegations."
+    },
+    {
+      "name": "Christiana Western Structures",
+      "role": "Employer that signed a union-security agreement before hiring covered workers."
+    },
+    {
+      "name": "NLRB General Counsel Ordman",
+      "role": "Agency official sustaining dismissal on limitations grounds."
+    }
+  ],
+  "proceedings": [
+    "The regional director dismissed the charges and the General Counsel sustained that decision.",
+    "The district court declared the limitations period had not run, granting plaintiffs summary judgment but declining to compel a complaint."
+  ],
+  "limits": "The decision removes the stated legal bar in an extreme, undisputed setting; it does not decide the labor violations or authorize review of every discretionary refusal to prosecute.",
+  "briefSha256": "484aa49caa99ec66a73c047b8098b804caa41d88d4f9fde42a5847cf1f76f695",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-034"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A collective-bargaining agreement precedes the covered employees",
+      "cue": "Why did its timing matter?",
+      "paragraphs": [
+        "Christiana Western Structures signed a collective-bargaining agreement with United Furniture Workers Local 1010, a union that did not represent the workers covered by the arrangement. The agreement included a union-security clause. At execution, however, Christiana had no employees who would be subject to it; that absence was conceded.",
+        "Employees were hired later. On January 2, 1970, the Southern California District Council of Laborers and affiliated Local 1184 filed charges alleging violations of National Labor Relations Act §§ 8(a)(1), (2) and (3). Their charges came within six months of hiring, but more than six months after signing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 F. Supp. 634–636; agreement and charges"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The agency measures the six months from signing and refuses consideration",
+      "cue": "What did the charging organizations ask the district court to do?",
+      "paragraphs": [
+        "On January 27, the regional director dismissed because filing and service had not occurred within six months of execution. General Counsel Ordman sustained that determination. The labor organizations sought a declaration that the period began only when employees became subject to the arrangement, together with consideration of their charges on the merits.",
+        "They moved for judgment on the pleadings and summary judgment; Ordman sought summary judgment. District Judge Harry Pregerson heard argument August 24. Ordman invoked Local Lodge No. 1424, a Supreme Court decision rejecting use of continued maintenance to evade a time bar on attacking an agreement’s execution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "634–635; agency disposition, motions and invoked precedent"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The judge distinguishes existing workers from workers hired later",
+      "cue": "Why would the signing-date rule extinguish rights prematurely?",
+      "paragraphs": [
+        "In Local Lodge, covered employees existed at signing and immediately could use the full six-month complaint period. Here nobody had yet lost employee rights through the agreement, and its existence might be known only to its makers. Starting the clock then could insulate a handpicked-union arrangement simply by delaying hiring six months, or shorten the complaint period for workers hired earlier.",
+        "Pregerson therefore held that the period began when affected employees were hired. This did not permit unlimited continuing challenges to an agreement already governing workers; it prevented rights from expiring before anyone could exercise them. These charges were timely."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "635–636; distinction and limitations construction"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A limited judicial correction leaves enforcement discretion intact",
+      "cue": "What relief did the decree actually grant?",
+      "paragraphs": [
+        "Ordman also contested jurisdiction. Pregerson accepted that courts ordinarily could not direct issuance of a complaint or supervise the General Counsel’s daily enforcement discretion. But an erroneous legal interpretation had prevented any merits consideration. Correcting that threshold statutory error, in undisputed circumstances the judge called extreme, differed from reviewing an informed discretionary refusal. The sole note invoked the Switchmen’s Union line of limited judicial intervention to preserve statutory rights.",
+        "The court granted plaintiffs summary judgment, denied Ordman’s motion and denied the unnecessary pleadings motion. It declared that § 10(b) did not bar consideration here and stated no reason appeared why the merits should not be considered. It did not compel a complaint, find underlying violations or impose employer liability. The district opinion, issued September 22 and corrected November 9, 1970, contains no separate writing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "636–637 and note 1; jurisdiction, exact relief and preserved discretion"
+        }
+      ]
+    }
+  ]
+}

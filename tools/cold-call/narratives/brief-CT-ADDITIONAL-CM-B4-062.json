@@ -1,0 +1,128 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-062",
+  "briefId": "CT-ADDITIONAL-CM-B4-062",
+  "title": "Fibrosa Spolka Akcyjna v. Fairbairn Lawson Combe Barbour, Ltd.",
+  "course": "Contracts",
+  "citation": "[1943] A.C. 32 (H.L., decided June 15, 1942)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "War excused delivery of machinery to occupied Poland, but it did not entitle the seller to retain an advance for performance the buyer never received.",
+  "actors": [
+    {
+      "name": "Fibrosa Spolka Akcyjna",
+      "role": "Polish buyer of flax-hackling machinery"
+    },
+    {
+      "name": "Fairbairn Lawson Combe Barbour, Ltd.",
+      "role": "English machinery seller"
+    },
+    {
+      "name": "House of Lords",
+      "role": "Court unanimously allowing restitution"
+    }
+  ],
+  "proceedings": [
+    "Tucker J. dismissed the buyer’s action; Court of Appeal affirmed under Chandler v. Webster.",
+    "House of Lords allowed the appeal, recognizing repayment for total failure of consideration subject to enemy-payment restrictions."
+  ],
+  "limits": [
+    "The seven speeches are the historical common-law decision. The Law Reform (Frustrated Contracts) Act 1943 followed the judgment.",
+    "The assigned £800 expense figure is a classroom assumption, not a judicial finding. The canonical source used complete report text; an original judicial scan was not recovered."
+  ],
+  "briefSha256": "b9ab96abc56dcb0303d7e48f1c145b031cd52807642c0e389496696304dc93bf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-062"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Machinery is ordered before war closes its destination",
+      "cue": "Set out what the advance was buying.",
+      "paragraphs": [
+        "On July 12, 1939, English manufacturer Fairbairn Lawson Combe Barbour, Ltd. agreed to supply Polish buyer Fibrosa Spolka Akcyjna with flax-hackling machinery for £4,800, with cost, insurance and freight included to Gdynia. The order called for £1,600 up front and £3,200 against shipping documents. Delivery was expected three to four months after final details, and the price included a skilled installer. The machines were intended for Fibrosa’s Vilna factory, although the written agreement did not specify that erection location. Fibrosa paid £1,000 on July 18, less than the whole initial installment.",
+        "Clause 7 permitted reasonable extensions for delays beyond Fairbairn’s control, including war; other provisions addressed dispatch and storage. Germany invaded Poland on September 1, Britain entered the war on September 3, and German forces occupied Gdynia on September 23. Fibrosa’s agents had requested repayment on September 7. Fairbairn refused the next day, citing work already done and suggesting reconsideration after the war."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "A.C. at 33–36, 40–41"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer cannot keep the contract alive indefinitely",
+      "cue": "Follow the litigation into the frustration ruling.",
+      "paragraphs": [
+        "Fibrosa’s May 1, 1940 writ sought contractual relief, including damages or specific performance, or alternatively repayment with interest. Tucker J. dismissed the action on March 7, 1941; the Court of Appeal affirmed on May 15. They treated Chandler v. Webster, an earlier frustration decision, as preventing restitution of money paid before a valid contract was frustrated.",
+        "In the House of Lords, Fibrosa first argued that the express war-delay clause kept the contract alive. The Lords rejected that argument: a reasonable extension did not mean indefinite suspension throughout war. Occupation made British shipment to Gdynia unlawful. Manufacturing at Leeds would not fulfill an agreement for shipment to Gdynia, and the court would not substitute another destination. The contract had been valid when made, but supervening events discharged further performance.",
+        "By the appeal, Vilna too was enemy territory. A Board of Trade license obtained April 17, 1942 allowed the appeal to proceed. The Lords preserved applicable statutory restrictions on payment to an enemy; deciding Fibrosa’s entitlement did not itself authorize payment in defiance of those restrictions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "A.C. at 32–41, 50, 73, 83"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A valid promise does not necessarily earn an advance forever",
+      "cue": "Explain the common ground and different routes of the speeches.",
+      "paragraphs": [
+        "Fairbairn argued that Fibrosa had paid under a valid contract, that manufacturing work had already cost money, and that frustration left accrued payments where they stood. The Lords nevertheless recognized a separate restitutionary action for money had and received when the whole performance for which payment was made failed. Contractual damages were unavailable for an excused failure, but that did not dispose of repayment. Neither the seller’s fault nor original contractual invalidity was essential.",
+        "Lord Simon distinguished the promise supporting formation from the performance whose absence justified repayment. Fibrosa received neither machines nor shipping documents. Its advance was part of the performance price, not an independently final price for the promise itself. Work in Fairbairn’s factory had conferred none of the contracted benefit on Fibrosa. Lord Atkin reached the same conclusion while questioning the need to give consideration two different meanings: the delivery promised in a valid exchange had wholly failed.",
+        "Lord Russell of Killowen described a narrow total-failure exception, not a general redistribution of frustration losses; Lord Macmillan read Russell’s speech as well as delivering his own. Macmillan discussed historical and comparative restitution law but grounded the result in established English money-recovery doctrine. Lord Wright explained that restitution imposed an obligation distinct from contract and tort, without inventing an actual promise to repay. Abolition of old pleading forms had not abolished that obligation. His unjust-enrichment analysis remained subject to recognized conditions, not unrestricted judicial power to rearrange unfortunate bargains."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "A.C. at 41–68"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The payment’s purpose sets the boundary",
+      "cue": "Preserve the limits on total failure and loss sharing.",
+      "paragraphs": [
+        "The relevant consideration had to fail entirely. Failure of a wholly severable part could support return of the money attributable to that part, but partial performance of an entire exchange ordinarily defeated this common-law claim. Separately earned installments or completed-work payments could remain due. Atkin’s example of an animal purchase with earlier weekly upkeep charges illustrated the need to examine accrued obligations individually.",
+        "The contract could also make payment final for a chance or promise, and an established contrary custom could matter. Prepaid freight was the prominent exception. Lord Roche emphasized final versus provisional payment and reserved whether particular coronation-event contracts had made their payments final. Lord Porter likewise examined what this £1,000 bought. It was an advance on the lump machinery price; the goods remained at Fairbairn’s risk until shipping documents were presented and accepted. That had never happened. The installer provision did not change his view that shipment and documents would substantially perform the sale, leaving damages if installation assistance were omitted.",
+        "Restitution could impose harsh losses on an innocent manufacturer, even one nearly finished with buyer-specific goods. The common law provided no general deduction for those sunk costs. Simon and Wright looked to legislation for broader adjustment; Porter rejected inventing an unspecified equitable fraction. Roche observed that Fairbairn said it could realize its partly completed machines without loss, while acknowledging that other sellers might fare worse. The ruling was not a universal judgment that sellers deserved no expense protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "A.C. at 42–57, 65–83"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The advance is recoverable, under the law then available",
+      "cue": "End with the disposition and separate later reform.",
+      "paragraphs": [
+        "On June 15, 1942, Lord Simon and Lords Atkin, Russell, Macmillan, Wright, Roche and Porter unanimously supported allowing the appeal. Chandler’s rule could not bar repayment upon this total failure of consideration. Fibrosa could recover £1,000, subject to the preserved enemy-payment restrictions. This was restitution, not damages for breach. The report prints no separate quantified interest or costs order after allowing the appeal.",
+        "The later Law Reform (Frustrated Contracts) Act 1943 introduced statutory treatment of frustrated contracts, including discretionary allowance for expenses. That development followed this judgment; the House had not applied it. Likewise, the £800 expense figure used in the classroom problem is hypothetical, not an expense finding in Fibrosa."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "A.C. at 39–41, 49–50, 72–84; assigned discussion at 1152, 1157"
+        }
+      ]
+    }
+  ]
+}

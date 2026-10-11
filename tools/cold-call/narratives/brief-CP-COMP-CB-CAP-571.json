@@ -1,0 +1,139 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-571",
+  "briefId": "CP-COMP-CB-CAP-571",
+  "title": "Montana v. United States",
+  "course": "Civil Procedure",
+  "citation": "440 U.S. 147 (1979)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The United States directed a contractor’s unsuccessful state tax challenge and then tried the same constitutional issues in federal court. Its control of the first lawsuit made those issues binding.",
+  "actors": [
+    {
+      "name": "Montana",
+      "role": "State imposing a tax on public construction contractors"
+    },
+    {
+      "name": "United States",
+      "role": "Federal project sponsor that controlled the earlier state litigation"
+    },
+    {
+      "name": "Peter Kiewit Sons’ Co.",
+      "role": "Dam contractor that brought the state actions"
+    },
+    {
+      "name": "Justice Marshall",
+      "role": "Author of the eight-Justice majority"
+    },
+    {
+      "name": "Justice White",
+      "role": "Dissenter on preclusion and the tax merits"
+    }
+  ],
+  "proceedings": [
+    "Montana Supreme Court upheld the tax in Kiewit I and barred the second state challenge in Kiewit II.",
+    "Three-judge federal district court held the United States unbound and the tax unconstitutional.",
+    "Supreme Court reversed on issue preclusion without deciding constitutionality."
+  ],
+  "limits": [
+    "Nonparty preclusion rested on the government’s stipulated control, not mere interest, funding, or amicus participation alone.",
+    "White’s constitutional analysis is dissenting; the majority did not decide the tax’s validity."
+  ],
+  "briefSha256": "e0c32c6b30b0765afd8118d0fe0b9e2e8cecd4e8c4c8c6a5bd28652bcca8dbd4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-571"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A public-construction tax reaches a federal dam project",
+      "cue": "Introduce the tax and the first litigation.",
+      "paragraphs": [
+        "Montana taxed one percent of gross receipts from public construction contracts exceeding $1,000, including corresponding subcontracts, while leaving private construction untaxed. Contractors could credit specified personal-property and income-tax payments against the liability. Remaining tax was customarily passed on in higher construction costs to the government financing the project.",
+        "In 1971, federal dam contractor Peter Kiewit Sons’ Co. sued in state court, alleging discrimination against the United States and those doing business with it. The United States directed and financed the case. Less than a month later, it filed its own federal challenge; by agreement, that action was continued pending the state litigation.",
+        "The Montana Supreme Court unanimously upheld the tax in Kiewit I, rejecting Supremacy Clause and equal-protection objections. Kiewit filed notice seeking United States Supreme Court review, but abandoned the appeal at the Solicitor General’s direction. It then sued over different tax payments. In Kiewit II, the state supreme court found the legal challenge materially identical and affirmed dismissal under collateral estoppel and res judicata."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "440 U.S. at 149–152 & nn. 1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The federal court permits a second constitutional contest",
+      "cue": "Explain the decision that reached the Supreme Court.",
+      "paragraphs": [
+        "The federal action resumed before a three-judge district court. A majority held that the United States was not bound by Kiewit I and that taxing only public contractors violated the Supremacy Clause. It reasoned that Montana recovered offsetting revenue when its own contractors passed the tax back to the State, whereas the federal government did not. One district judge disagreed on both preclusion and the merits.",
+        "Justice Marshall’s Supreme Court opinion distinguished claim preclusion from issue preclusion, also called collateral estoppel. A final merits judgment bars further claims on the same cause of action; an issue actually and necessarily determined can bind a later action even on another cause of action. Because the United States had litigated through Kiewit and then asserted its own cause, issue preclusion was the relevant doctrine.",
+        "A nonparty controlling litigation for its own direct financial or proprietary benefit could be bound. The government stipulated that it required Kiewit’s suit, approved the complaint, paid counsel and expenses, directed the state appeal, appeared and briefed as amicus, directed the notice of Supreme Court appeal, and caused its abandonment. Together those actions established substantial control. The Court did not make every interested observer, funder, or amicus a bound party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "440 U.S. at 151–155 & n. 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds the same issue and no material change",
+      "cue": "Address the government’s renewed arguments.",
+      "paragraphs": [
+        "The Court then asked whether the issues were identical, whether controlling facts or legal principles had materially changed, and whether exceptional circumstances justified another opportunity. Comparison of the complaints and state judgment showed the same discrimination and federal-immunity challenge. The federal complaint repeated objections about disparate taxation, procurement choices and increased federal construction costs.",
+        "The government argued that a changed contracting policy altered the facts. Kiewit’s earlier contract forbade claiming the available credits; later federal policy required contractors to seek them, yet evidence showed net tax remained. The government maintained that Kiewit I had assumed credits could eliminate liability, making unavoidable revenue collection a different constitutional question.",
+        "The majority read the state decision differently. Its discussion of possible complete offset concerned enforcement history, while its constitutional reasoning concerned classifications and equal treatment of federal and other public contractors. That reasoning did not depend on complete offset. Kiewit II likewise found remaining liability insufficient to reopen the question. Moreover, the federal complaint included pre-1971 taxes, undermining the claim that all disputed contracts reflected the changed policy.",
+        "Sunnen, an earlier tax-preclusion decision, recognized that significant change in controlling law can justify relitigation, especially to avoid perpetuating unequal tax treatment. But the government identified no intervening doctrinal change. It had shown neither material factual change nor a new legal climate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "440 U.S. at 155–162 & nn. 6–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Voluntary state litigation carries consequences",
+      "cue": "Explain the rejected exceptions and the judgment.",
+      "paragraphs": [
+        "The Court distinguished Moser, which allowed fresh legal argument in successive actions with unrelated subject matter. Preclusion should not freeze every abstract legal proposition for recurring litigants, but these demands closely overlapped in time and subject.",
+        "The government also had not been forced into state adjudication while reserving its federal claims under the England abstention framework. Its federal action technically had been continued by agreement, and it had not been a named state party, but it had voluntarily submitted the constitutional objections through litigation it controlled. That differed from compelled state proceedings with a reservation.",
+        "Finally, the government alleged no unfairness or inadequacy in the earlier procedures. Doubts about a proceeding’s quality, extensiveness or fairness could warrant reconsideration, but none existed here. On February 22, 1979, eight Justices held the government estopped and reversed the district court without reaching the tax’s constitutionality. Justice Rehnquist joined with a brief concurrence clarifying that citations to scholarship and Restatement drafts did not commit the Court to propositions beyond this case’s facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "440 U.S. at 162–164 & nn. 10–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White would permit relitigation and invalidate the tax",
+      "cue": "Preserve both branches of the dissent.",
+      "paragraphs": [
+        "Justice White dissented. He considered the earlier court’s understanding of the tax as an enforcement device materially different from later proof of unavoidable positive taxation. In his view, the majority improperly dismissed that understanding as dictum. Kiewit II’s reference to a possible administrative remedy did not establish that Kiewit I had approved unmitigated revenue collection; testimony indicated that no such remedy existed. White also distinguished the state court’s equal-protection reasoning from its Supremacy Clause analysis.",
+        "On the merits, he would have upheld the federal district court. Taxing otherwise similarly situated public but not private contractors weakened political resistance to burdens on federal functions. Equal treatment of federal and state public contractors was insufficient because Montana recouped taxes passed through its contractors while federal agencies could not. Potential state aid to local governments could similarly weaken local resistance to increases. He rejected regulatory distinctions and the suggestion that private contracting was negligible. Those were his dissenting conclusions; the majority resolved only preclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "440 U.S. at 164–172 & White nn. 1–5"
+        }
+      ]
+    }
+  ]
+}

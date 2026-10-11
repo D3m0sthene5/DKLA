@@ -1,0 +1,141 @@
+{
+  "id": "brief-CT-NEXT-CM-0092",
+  "briefId": "CT-NEXT-CM-0092",
+  "title": "Koken v. Black & Veatch Construction, Inc.",
+  "course": "Contracts",
+  "citation": "426 F.3d 39 (1st Cir. 2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A welder extinguished a small fire without fire damage, but the extinguisher’s chemicals damaged a generator and produced a dispute over the fire blanket’s warnings and merchantability.",
+  "actors": [
+    {
+      "name": "Androscoggin Energy and Reliance Insurance",
+      "role": "Owner and insurer of the Maine project."
+    },
+    {
+      "name": "Black & Veatch",
+      "role": "General contractor pursuing supplier liability with Reliance."
+    },
+    {
+      "name": "Perry Austin",
+      "role": "Experienced Redco welder whose cutting operation started the fire."
+    },
+    {
+      "name": "Auburn Manufacturing and Inpro",
+      "role": "Alleged blanket manufacturer and distributor; product identity remained disputed."
+    }
+  ],
+  "proceedings": "The district court granted supplier summary judgment, denied monetary discovery sanctions, and refused later supplementation. The First Circuit affirmed on October 14, 2005.",
+  "limits": "The lost blanket’s manufacturer remained disputed. The estimated $9 million loss was not an award. The court reserved the learned-intermediary and bailee questions described in the story and did not certify fitness for all cutting operations.",
+  "briefSha256": "65c127650c891aee462c27b6065d8f8dd11f9dde7f793a8e967c5e5d13c2e63e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0092"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A cutting operation causes a fire and an unexpected loss",
+      "cue": "May 17, 1999",
+      "paragraphs": [
+        "Androscoggin Energy owned a Maine construction project insured by Reliance Insurance. Black & Veatch was the general contractor, and Redco and O’Connor were subcontractors. Perry Austin, a Redco welder with twenty-six years’ experience, stood on a ladder on a plywood platform above a generator and cut a steel lifting lug with a torch. A fire blanket covered the platform, but molten slag fell on it, melted through it, and started a fire.",
+        "A fire watch supplied a chemical extinguisher, and Austin put out the fire. The fire itself caused no damage. Corrosive extinguisher chemicals, however, damaged the generator, generating asserted repair and delay costs of about $9 million. That estimate later supported claims; it was not a damages award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The missing blanket leaves its identity and capabilities disputed",
+      "cue": "The supplier litigation",
+      "paragraphs": [
+        "The blanket was lost. Reliance and Black & Veatch alleged that Auburn Manufacturing made it and Inpro distributed it, but its identity remained disputed. Three rolls of Auburn’s medium-duty, 1000-degree blankets had reached the project without attached ratings or warnings. Catalogs and invoices supplied the rating, but the record did not establish that Austin had received them. Auburn also sold light- and heavy-duty blankets. Its literature distinguished their uses and warned against using medium-duty blankets horizontally to catch concentrated spatter or red-hot cut pieces.",
+        "Austin did not know blankets had temperature ratings and had not expected this one to melt. Reliance and Black & Veatch pursued product-liability and warranty claims against Auburn and Inpro; defenses and contribution claims also involved the suppliers and subcontractors. The district court granted supplier summary judgment. The First Circuit examined the evidence favorably to those asserting supplier liability, without treating product identification as established. Judge Timothy Dyk, sitting by designation from the Federal Circuit, wrote for a panel with Judges Selya and Howard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 4–10 & notes 1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Several proposed warnings fail for different evidentiary reasons",
+      "cue": "The warning claims on appeal",
+      "paragraphs": [
+        "Maine negligence and statutory strict liability required a warning duty, inadequate warning, and proximate causation. The panel disagreed with the district court’s broad suggestion that experienced welders’ general knowledge of fire dangers eliminated a duty to disclose a blanket’s less obvious limitations. It predicted that Maine would accept a sophisticated-user doctrine as a corollary of obvious danger, rather than reporting an express state supreme court adoption. Nevertheless, each proposed warning failed on this record.",
+        "A vertical-use-only warning applied to light-duty blankets, not the alleged medium-duty product. A proposed ban on cutting operations relied on expert Robert Waite. His experience qualified him to discuss molten slag’s danger to a 1000-degree blanket, but he offered no supporting methodology for that broader ban. Excluding that opinion was not an abuse of discretion, and the challenge had not come without notice.",
+        "A rating label might have been owed to ultimate users despite the catalogs and invoices. The panel reserved whether Maine would adopt a learned-intermediary exception and whether it would apply. Even assuming an inadequate warning, Austin said he would have asked his foreman; no evidence showed what the foreman would have done differently or what ordinary welders understood the rating to require. Prevention of this operation and loss therefore depended on speculation. A duty to disclose otherwise unknown dangers also did not itself require advice about a 3000-degree alternative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 11–36 & notes 4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A presumption of compliance cannot identify the actual hazard",
+      "cue": "The spatter warning",
+      "paragraphs": [
+        "For the warning against concentrated spatter, the court assumed a duty and failure to warn. Maine’s presumption that a warning would be read and heeded still did not establish that this cutting operation involved the prohibited condition. The record described molten slag without equating it to concentrated spatter or red-hot cut pieces; Auburn’s own materials distinguished slag from concentrated spatter.",
+        "The purchasing agent’s statement that he would not knowingly order the wrong product likewise did not establish that this warning would have changed his order. A presumption could link an identified hazard to compliance with a warning. It could not supply proof that the missing warning addressed the hazard actually encountered. The warning claims therefore could not reach a jury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 37–43 & notes 7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Austin’s surprise does not establish ordinary users’ expectations",
+      "cue": "The merchantability claim",
+      "paragraphs": [
+        "Maine’s Uniform Commercial Code implied merchantability when merchants sold goods of the relevant kind, and the suppliers did not dispute that status. Goods had to be fit for their ordinary purposes, identified by customary use rather than any application a buyer selected. The record did not clearly establish that horizontal torch cutting was an ordinary use. But the suppliers had represented below that they were not asserting Austin used the wrong blanket, apparently waiving that ground. The court therefore addressed fitness.",
+        "Fitness depended on reasonable expectations of ordinary users, not Austin’s personal surprise. An earlier ladder decision illustrated why an expert’s disagreement with an industry standard, unsupported by trade customs, literature, or reasonable consumer expectations, did not establish an objective deficiency. The panel made neither industry practice conclusive nor expert testimony universally necessary.",
+        "No evidence here showed that ordinary users reasonably expected this blanket to prevent this melting. Foreman Paul Gagnon expected containment of sparks and small fires, believed the blanket performed as expected, and said burn-through holes were not unusual. Austin’s subjective belief could not fill the gap. Maine allowed this warranty theory without contractual privity, so the absence of a direct sale did not defeat it. Black & Veatch’s cursory four-line warranty argument could independently justify rejection, but the panel also affirmed on the merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 44–52 & note 9"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court also leaves the procedural rulings intact",
+      "cue": "October 14, 2005",
+      "paragraphs": [
+        "Auburn sought monetary discovery sanctions, claiming missing expert-damages documents raised its review costs. The district court found eventual receipt and could not determine whether difficulties arose from deliberate obstruction or from a discovery stay Auburn itself requested. An expert’s belief that the documents would have been found if produced did not establish clear error without evidence of an exhaustive search or comparable support. Refusal of sanctions stood.",
+        "Black & Veatch sought to supplement the record after the magistrate judge recommended disposition. The district court reasonably found the supposedly new matters already subsumed in the evidence and arguments and concluded reopening would undo completed proceedings. The panel found no abuse of discretion and no error in treating the identified deposition portion as irrelevant.",
+        "The First Circuit affirmed the judgment and related rulings on October 14, 2005, with no separate opinion. Other issues, including whether a bailee could recover under the particular strict-liability statute, remained unnecessary to decide. This was an affirmance of supplier summary judgment on this evidence, not a finding that every blanket was suitable for every cutting operation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs 53–58 & notes 3, 10"
+        }
+      ]
+    }
+  ]
+}

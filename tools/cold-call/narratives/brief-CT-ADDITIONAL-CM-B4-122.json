@@ -1,0 +1,107 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-122",
+  "briefId": "CT-ADDITIONAL-CM-B4-122",
+  "title": "Herzog v. Irace",
+  "course": "Contracts",
+  "citation": "594 A.2d 1106 (Me. August 6, 1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A patient assigns future settlement proceeds to pay a surgeon, then tells his lawyers not to honor the assignment; distributing the funds elsewhere leaves the lawyers answerable to the doctor.",
+  "actors": [
+    {
+      "name": "Gary Jones",
+      "role": "Patient and motorcycle-injury claimant who assigned part of future proceeds for unrelated shoulder care."
+    },
+    {
+      "name": "Dr. Herzog",
+      "role": "Surgeon who treated Jones in reliance on the assignment."
+    },
+    {
+      "name": "Irace and Lowry",
+      "role": "Attorneys who received the settlement and followed Jones’s later contrary instruction."
+    }
+  ],
+  "proceedings": [
+    "The District Court enforced the assignment after trial on stipulated facts; the Superior Court affirmed as an intermediate appellate court.",
+    "The Maine Supreme Judicial Court unanimously affirmed."
+  ],
+  "limits": "The assignment covered proceeds, not the personal-injury cause of action. The $20,000 settlement and $10,027 payment to Jones are transaction amounts, not a stated appellate damages award.",
+  "briefSha256": "a22ffb5b99227e148872515866e1abd4ec302692e74e52dcfef05acb0714515a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-122"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Jones offers future proceeds in exchange for shoulder surgery",
+      "cue": "How did the doctor obtain notice-backed payment rights?",
+      "paragraphs": [
+        "Gary Jones retained Irace and Lowry for a motorcycle personal-injury claim. He later twice dislocated his shoulder in unrelated incidents. Dr. Herzog recommended surgery, but Jones could not pay.",
+        "On June 14, 1988, Jones signed a letter on the doctor’s letterhead requesting direct payment to Herzog from settlement of the pending unrelated claim. It identified shoulder treatment without a dollar amount. Herzog notified the firm, and an employee said the letter was sufficient to pay the bills when the case concluded. Herzog performed surgery and treated Jones for about a year."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 A.2d 1107–1108; treatment, letter and notice"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The attorneys distribute settlement funds after Jones changes his instruction",
+      "cue": "Why did the doctor remain unpaid?",
+      "paragraphs": [
+        "The motorcycle case settled for $20,000 in May 1989. Jones instructed his lawyers not to pay Herzog, saying he would pay personally. They told the doctor that Jones had revoked permission and that they would follow his wishes. They paid Jones $10,027 and distributed the rest to other creditors.",
+        "Jones’s later check to Herzog was dishonored for insufficient funds. Herzog sued the attorneys to enforce the assignment. On stipulated facts, the District Court found a valid transfer; the Superior Court affirmed. The attorneys then challenged validity and the effect of their professional obligations in the Maine Supreme Judicial Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1108; settlement, distribution and litigation"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The letter transfers rights despite its use of the word request",
+      "cue": "Why could Jones not revoke it afterward?",
+      "paragraphs": [
+        "The Supreme Judicial Court directly reviewed the District Court, applying clear-error review to factual findings even though the evidence was stipulated and documentary. An assignment required intent to transfer the right and surrender control and revocation power, but did not require the obligor’s acceptance. Maine recognized equitable assignments of future litigation proceeds, including partial transfers, separately from assignment of the injury claim itself.",
+        "Context supported the finding here: the letter reserved no control, surgery supplied consideration, and the needed services and reasonable charges were undisputed. No fixed sum was necessary on these facts. The lawyers had ample notice and sufficient funds for Herzog, other creditors and Jones. A bankruptcy-preference precedent did not displace that supported finding, and Jones’s later instruction could not revoke the completed transfer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1107 note 1; 1108–1109; review standard and assignment"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Professional duties do not require payment of funds already assigned away",
+      "cue": "What result followed for the attorneys?",
+      "paragraphs": [
+        "The then-applicable bar rules required prompt delivery of money a client was entitled to receive and generally barred lawyers from imposing third-party liens on a client’s file. Neither required ignoring Jones’s own assignment: he no longer owned the assigned portion, and he, not the lawyers, had created the encumbrance. No separate contractual duty to follow his contrary instruction appeared. The court also rejected conflicting Vermont authority in favor of Maine’s established approach.",
+        "On August 6, 1991, Justice Brody’s opinion affirmed Herzog’s judgment. Chief Justice McKusick and Justices Roberts, Wathen, Glassman, Clifford and Collins participated and all concurred. The opinion supplied no new damages figure; it enforced the doctor’s assigned right against attorneys who had notice and distributed the fund elsewhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1109–1110 and note 2; professional rules and final disposition"
+        }
+      ]
+    }
+  ]
+}

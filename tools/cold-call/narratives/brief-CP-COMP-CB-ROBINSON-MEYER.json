@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-ROBINSON-MEYER",
+  "briefId": "CP-COMP-CB-ROBINSON-MEYER",
+  "title": "Robinson v. Meyer",
+  "course": "Civil Procedure",
+  "citation": "135 Conn. 691, 68 A.2d 142 (1949)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A boundary dispute turns on a deed made after ouster: pleaded and contested possession facts permit the court to apply that statutory consequence even without naming it earlier.",
+  "actors": [
+    {
+      "name": "The Robinson plaintiffs",
+      "role": "Owners asserting a deed line that included part of their neighbors’ house and improvements."
+    },
+    {
+      "name": "The Meyer defendants and their predecessors",
+      "role": "Occupants claiming the disputed triangular tract."
+    },
+    {
+      "name": "Howard Hastings",
+      "role": "Grantor whose 1934 deed to Ruth Evelyn Robinson was invalidated as to the tract."
+    }
+  ],
+  "proceedings": [
+    "The trial court rejected the quiet-title claim based on statutory ouster affecting the plaintiffs’ deed.",
+    "The Connecticut Supreme Court of Errors found no error on August 2, 1949."
+  ],
+  "limits": "The mechanism was a deed voided by ouster, not a finding that the full fifteen-year adverse-possession period had necessarily elapsed. The possession facts were pleaded and actually contested.",
+  "briefSha256": "829bdd3ddaaabaed3365b248fca26198c05e0ea17ff17b4ded117f2c7f8c00c8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-ROBINSON-MEYER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Competing boundaries place buildings on the disputed triangle",
+      "cue": "How did the deed descriptions and occupation diverge?",
+      "paragraphs": [
+        "The Robinson plaintiffs and Meyer defendants disputed a triangle between their properties adjoining Bolton Road in Vernon, Connecticut, with its northern point at the road. The plaintiffs’ deeds repeated a western boundary perpendicular to Bolton Road, first used when their lot was carved from a larger property in 1932.",
+        "That claimed line included half the defendants’ house as well as their garage and driveway. Both houses were built in 1932; a defendants’ predecessor added the garage and driveway in 1944. The trial court found both properties’ owners had accepted the defendants’ boundary since 1933. Defendants relied on occupation, monuments and estoppel."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "135 Conn. 692–693; land, descriptions and improvements"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A conveyance after ouster undermines the plaintiffs’ chain of title",
+      "cue": "What did the trial court decide about the 1934 deed?",
+      "paragraphs": [
+        "On February 10, 1934, Howard Hastings conveyed the disputed land to Ruth Evelyn Robinson after a predecessor of the defendants had ousted him from possession. Under § 5020 of the 1930 General Statutes, later § 7105, that deed was void as to the tract.",
+        "The defendants’ occupation was open, visible and notorious, of the quality that could mature into adverse possession after fifteen uninterrupted years. The decisive consequence here did not require a finding that all fifteen years had elapsed. Ouster of the grantor had already disabled this intervening conveyance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "693–694; deed, statute and quality of possession"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The plaintiffs object that the legal theory appeared too late",
+      "cue": "Had its underlying facts already been tried?",
+      "paragraphs": [
+        "The plaintiffs filed to quiet title in February 1947. After losing, they asserted they first learned of the statutory theory in the trial court’s memorandum and would otherwise have offered evidence that Hastings had not been ousted when he conveyed.",
+        "The defendants’ amended answer had alleged the possession facts. Although the plaintiffs filed no formal reply, they denied those allegations in open court, and substantial use-and-occupation evidence was presented. The appellate court checked the record and found those facts actually litigated. Naming the resulting legal conclusion or statute would have been proper and useful, but was not essential where the necessary facts were already in issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "693–694; surprise objection, pleadings and trial record"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court supplies the statutory consequence and leaves the judgment intact",
+      "cue": "Why was no new trial required?",
+      "paragraphs": [
+        "Justice Jennings explained that the trial court had not invented an unpleaded factual defense; it applied law to facts pleaded and contested. Because the plaintiffs had joined issue on possession, applying the ouster statute caused no procedural injustice. The court’s view that the result was plainly just did not replace that procedural analysis.",
+        "On August 2, 1949, the Supreme Court of Errors found no error. Chief Justice Maltbie and Justices Brown, Ells and Dickenson concurred, with no separate writing, remand or new trial. The quiet-title claim therefore failed through the defective deed, without a blanket finding that the defendants had already completed the entire adverse-possession period."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "694; rationale, exact disposition and concurrence"
+        }
+      ]
+    }
+  ]
+}

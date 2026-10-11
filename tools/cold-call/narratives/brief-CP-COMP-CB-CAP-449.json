@@ -1,0 +1,130 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-449",
+  "briefId": "CP-COMP-CB-CAP-449",
+  "title": "Peña-Rodriguez v. Colorado",
+  "course": "Civil Procedure",
+  "citation": "580 U.S. 206 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After a Colorado jury convicted Miguel Angel Peña-Rodriguez of two sexual offenses, two jurors reported that another juror had expressly tied guilt to anti-Hispanic stereotypes. The Supreme Court held that the Sixth Amendment required an opportunity to consider that evidence despite the ordinary rule protecting jury deliberations.",
+  "actors": [
+    {
+      "name": "Miguel Angel Peña-Rodriguez",
+      "role": "Criminal defendant whose convictions were challenged."
+    },
+    {
+      "name": "H.C.",
+      "role": "Juror alleged to have used racial stereotypes to urge conviction."
+    },
+    {
+      "name": "Two reporting jurors",
+      "role": "Jurors who disclosed H.C.’s comments after discharge."
+    },
+    {
+      "name": "Justice Kennedy",
+      "role": "Author of the five-Justice majority opinion."
+    },
+    {
+      "name": "Justices Thomas and Alito",
+      "role": "Authors of separate dissents."
+    }
+  ],
+  "proceedings": "Trial court denied a new trial under Colorado Rule of Evidence 606(b); a divided appellate court and the Colorado Supreme Court affirmed. United States Supreme Court reversed 5–3 and remanded for further proceedings.",
+  "limits": "The decision removes an evidentiary barrier in an exceptional criminal case. It does not itself grant a new trial, settle the hearing procedure or ultimate relief standard, or decide a general civil-case exception.",
+  "briefSha256": "f7f5894ded33fdcfe9b0555ee839d5263f53da247dbe48ad8ceceac5a163f282",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-449"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The trial ends, then two jurors speak",
+      "cue": "The reported statements connect ethnicity directly to guilt.",
+      "paragraphs": [
+        "In 2007, two teenage sisters reported that a man had sexually assaulted them in a bathroom at a horse-racing facility. They identified Miguel Angel Peña-Rodriguez, whom Colorado prosecutors charged with harassment, unlawful sexual contact, and attempted sexual assault on a child. Prospective jurors completed an impartiality questionnaire, and the judge and counsel explored their ability to be fair. No selected juror expressed a reservation. After a three-day trial, the jury convicted Peña-Rodriguez of harassment and unlawful sexual contact but could not agree on attempted sexual assault.",
+        "After the jury was discharged, defense counsel entered the jury room to discuss the trial. Two jurors remained and reported anti-Hispanic statements by a fellow juror identified as H.C. With the trial court’s supervision, counsel obtained affidavits. The affidavits said H.C. invoked his former law-enforcement experience to claim that Mexican men were inclined toward sexual aggression and that nine out of ten were guilty in such cases. He linked his belief in Peña-Rodriguez’s guilt to the defendant’s being Mexican and discounted an alibi witness as supposedly unlawfully present in the country. That witness had testified that he was a legal resident. These were allegations about H.C.’s deliberative statements and reasoning."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "580 U.S. at 211–214"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Colorado courts close the inquiry",
+      "cue": "The evidentiary rule prevents consideration of deliberations.",
+      "paragraphs": [
+        "The trial judge recognized apparent bias but concluded that Colorado Rule of Evidence 606(b) barred the affidavits. The rule ordinarily excludes juror testimony about deliberative statements and mental processes, allowing exceptions for extraneous prejudicial information, outside influence, and a mistaken verdict-form entry. The judge denied a new trial and sentenced Peña-Rodriguez to two years’ probation with sex-offender registration.",
+        "A divided appellate court affirmed, followed by a 4–3 Colorado Supreme Court decision. The state supreme court relied on two United States Supreme Court precedents. Tanner had barred juror testimony about intoxication during trial, and Warger had barred deliberative statements offered to show that a civil juror concealed partiality during jury selection. Colorado treated those decisions as supporting application of the no-impeachment rule despite the asserted constitutional injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "580 U.S. at 213–215, 219–221"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court preserves the ordinary rule but identifies its limit",
+      "cue": "Racial animus creates a distinct constitutional problem.",
+      "paragraphs": [
+        "Justice Kennedy wrote for Justices Ginsburg, Breyer, Sotomayor, and Kagan. The majority began with the substantial reasons for protecting deliberations: candid discussion, protection against posttrial harassment, finality, and avoidance of routine litigation over jurors’ mental processes. The historical record nonetheless showed variation rather than one immutable and exceptionless rule. The Court traced the Mansfield rule, Iowa’s more flexible approach, and federal distinctions between internal deliberations and extraneous interference. Earlier decisions had left room for exceptional cases in which excluding evidence would itself violate basic principles of justice.",
+        "Tanner had identified other safeguards: jury selection, observation during trial, reports from jurors before a verdict, and posttrial evidence from nonjurors. Warger reinforced the general evidentiary protection. But neither decision resolved every conceivable constitutional problem. The majority considered racial animus distinctive because of its history in the administration of justice and its damage both to defendants and to public confidence in juries. The exception continued the constitutional effort to eliminate race-based discrimination from the jury system.",
+        "Ordinary safeguards could be compromised in this setting. General impartiality questions might miss racial prejudice; pointed questions might aggravate it; jurors might hesitate to call a colleague a bigot. The Court included nonjuror evidence among the usual protections but did not separately explain why that safeguard would fail. Its conclusion was that the protections could prove insufficient for this category, not that jury selection and observation were generally useless."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "580 U.S. at 215–225"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The reported bias crosses a demanding threshold",
+      "cue": "The Court opens the door to evidence without deciding the new-trial motion.",
+      "paragraphs": [
+        "The majority held that the Sixth Amendment requires the no-impeachment rule to yield when a juror makes an overt statement showing serious racial bias that casts serious doubt on the verdict’s fairness. Evidence must tend to establish that racial animus was a significant motivating factor in the vote to convict. Race need not be the sole cause, but an isolated offensive or offhand remark does not automatically justify inquiry. Trial judges retain substantial discretion to assess content, timing, and reliability. Consistent with the parties’ treatment and discrimination precedents, the Court analyzed the anti-Hispanic allegations as racial bias.",
+        "H.C.’s reported comments met that threshold because they linked stereotypes directly to guilt and urged other jurors to reason the same way. The record also involved two jurors reporting concerns and court-supervised affidavits confined to the alleged bias, rather than harassment of reluctant jurors. Professional rules and local restrictions on posttrial contact remained applicable; the holding did not authorize an unrestricted search through deliberations. Jury selection, instructions, and collective deliberation remained valuable safeguards. An appendix described jurisdictions with codified or judicially recognized exceptions, illustrating experience with the problem rather than adopting every listed rule.",
+        "The Court reversed the Colorado judgment and remanded. It expressly left open the procedures for investigating and hearing a resulting motion and the standard for deciding when evidence requires setting aside a verdict. Peña-Rodriguez therefore won access to consideration of the evidence, not an immediate new trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "580 U.S. at 225–230"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Three dissenters defend the evidentiary barrier",
+      "cue": "Their disagreement concerns constitutional authority and the costs of inquiry.",
+      "paragraphs": [
+        "Justice Thomas dissented separately and also joined Justice Alito’s dissent. Thomas argued that neither the Sixth Amendment’s original understanding nor the understanding associated with the Fourteenth Amendment included a right to impeach a verdict through juror testimony. He examined early jury practice and its limits and would leave changes to legislation and ordinary rulemaking.",
+        "Justice Alito, joined by Chief Justice Roberts and Thomas, condemned racial prejudice but disputed the conclusion that deliberative confidentiality must yield. Like other legal privileges that exclude relevant evidence to protect institutional relationships, jury secrecy protects candid discussion and durable verdicts. He emphasized the deliberate adoption of Rule 606(b), the safeguards recognized in Tanner and Warger, and uncertainty that those safeguards uniquely fail for racial bias.",
+        "Alito also doubted that a constitutional guarantee of impartiality could stably distinguish race from equally serious prejudice involving religion, sex, or national origin. Ambiguous comments and posttrial questioning might encourage harassment or coercion and chill deliberations. His questions about contact restrictions and other privileges identified unresolved difficulties, not additional rules adopted by the majority. The resulting judgment was 5–3, confined to the criminal-case Sixth Amendment question before the Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "580 U.S. at 230–255"
+        }
+      ]
+    }
+  ]
+}

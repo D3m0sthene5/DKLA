@@ -1,0 +1,137 @@
+{
+  "id": "brief-CP-COMP-CB-HOWMEDICA",
+  "briefId": "CP-COMP-CB-HOWMEDICA",
+  "title": "In re Howmedica Osteonics Corp.",
+  "course": "Civil Procedure",
+  "citation": "867 F.3d 390 (3d Cir. 2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A medical-device company sued departing sales representatives and two competitors in New Jersey. Because some defendants had promised to litigate there and others had not, the Third Circuit required separate transfer analyses and ultimately divided the claims between New Jersey and California.",
+  "actors": [
+    {
+      "name": "Howmedica Osteonics",
+      "role": "New Jersey medical-device company and Stryker subsidiary"
+    },
+    {
+      "name": "Freeman, Nordyke, Sarkisian, Smith, and Wyatt",
+      "role": "Former California sales representatives"
+    },
+    {
+      "name": "DePuy and Golden State",
+      "role": "Competitor and regional distributor accused of participating in diversion of business"
+    }
+  ],
+  "proceedings": "New Jersey district court transferred the whole action to California; Third Circuit granted mandamus, vacated that order, and directed severance and transfer of only the corporate-defendant claims.",
+  "limits": "Pinpoints follow the supplied court-issued slip opinion, not inferred reporter pagination. The narrative transforms the canonical full brief and does not certify present treatment or resolve the underlying misconduct allegations.",
+  "briefSha256": "b5ee59bed8f687519095dc883914da2277b61d1485339cfd5fb5f08cee535a3c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-HOWMEDICA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Representatives leave for a competing business",
+      "cue": "The employment dispute",
+      "paragraphs": [
+        "Howmedica Osteonics, a New Jersey medical-device company and Stryker subsidiary, employed five sales representatives in California: Keegan Freeman, Michael Nordyke, Brett Sarkisian, Taylor Smith, and Bryan Wyatt. Their agreements restricted competition and disclosure of confidential information. Four selected New Jersey for litigation; Nordyke’s selected Michigan.",
+        "After disagreements over management and compensation, the representatives resigned and became independent contractors working for competitor DePuy and its regional distributor, Golden State. Customers followed them. Howmedica alleged that the representatives and corporations had conspired before the resignations to divert business. Those accusations formed the contract and tort claims; they had not been adjudicated as misconduct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The entire action moves toward California",
+      "cue": "2015–2016",
+      "paragraphs": [
+        "Howmedica sued the representatives and DePuy in New Jersey and later joined Golden State as an allegedly necessary party. All defendants sought transfer to the Northern District of California. A magistrate judge granted transfer on April 20, 2015, also finding no New Jersey personal jurisdiction over Golden State. The district judge affirmed transfer on August 26, 2016, without resolving that jurisdictional issue.",
+        "Golden State meanwhile brought a California declaratory action challenging the noncompetition agreements. The California court related the actions and issued scheduling orders. Proceedings were later stayed while Howmedica sought mandamus from the Third Circuit to undo the transfer.",
+        "On appeal, defendants waived statutory-venue objections. The representatives waived personal-jurisdiction objections; four had contractually consented to New Jersey, and DePuy had never raised that defense below. Golden State preserved its objection. No one challenged the forum clauses’ validity, and objections to substantive noncompetition restrictions did not invalidate the separate forum terms. An earlier challenge to Howmedica’s standing to enforce Stryker contracts was not renewed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 4–8 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Third Circuit can still review the transfer",
+      "cue": "Mandamus jurisdiction",
+      "paragraphs": [
+        "Judge Krause’s opinion for Judges Scirica and Fuentes held that the All Writs Act permitted review in aid of possible eventual appellate jurisdiction. A transferor circuit does not retain that authority indefinitely after the receiving court begins litigation, but California’s related-case and scheduling orders had not advanced this case too far under circuit precedent. Howmedica filed twenty-seven days after the district judge’s order, within a period supported by a precedent allowing thirty-three days. The panel declined to identify the precise event that would ultimately end transferor jurisdiction.",
+        "Mandamus ordinarily requires clear and indisputable error, no adequate alternative remedy, and likely irreparable injury, while remaining discretionary. Circuit precedent treated transfer orders as satisfying the latter two requirements because eventual review in the new forum would not adequately repair the procedural injury. The central question was therefore clear legal error."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 8–12 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Different promises require different transfer analyses",
+      "cue": "The four-step approach",
+      "paragraphs": [
+        "Ordinary transfer analysis under 28 U.S.C. § 1404(a) weighs private interests—forum preferences, location of events, resources, witnesses, records, and practical trial burdens—and public interests such as enforceability, congestion, local interests, policy, governing law, and judicial economy. Practical burdens on parties could not simply be renamed public judicial-economy interests.",
+        "The Supreme Court’s Atlantic Marine decision changed that balance for parties agreeing to a valid forum clause: their private interests favor the chosen forum, and the resisting party’s contrary preference receives no weight. But nonsignatories have surrendered no private interests. Treating a clause as decisive for the whole lawsuit, or irrelevant to the whole lawsuit, would erase that difference.",
+        "The panel prescribed four steps. First, presume claims involving contracting parties belong in the agreed forum, subject to an unusual-case exception. Second, independently balance noncontracting parties’ private and public interests. If the two analyses point to different forums, examine jurisdiction, venue, joinder, and indispensable-party constraints on severance. Those constraints may require, forbid, or permit severance. Finally, if multiple lawful choices remain, compare efficiency, coordination, public interests, and prejudice to noncontracting parties. Countervailing interests must overwhelmingly outweigh the strong interest in contractual expectations before displacing them. Convenience-based sequencing was permissible under Sinochem, the Supreme Court precedent allowing such sequencing, but did not erase threshold defects."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 13–24 & nn.7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The corporate defendants must be considered independently",
+      "cue": "Applying the framework",
+      "paragraphs": [
+        "Freeman, Sarkisian, Smith, and Wyatt selected New Jersey. Neither Nordyke nor Howmedica sought enforcement of his Michigan clause, so Michigan was not considered. DePuy and Golden State signed no applicable clause. Howmedica’s effort to bind them as closely related parties failed under circuit precedent. A contrary California ruling had no preclusive force because it was not essential to a judgment and used another circuit’s doctrine. Even under foreseeability approaches, the record did not show corporate knowledge of or participation in the negotiations, and Nordyke’s Michigan clause did not make New Jersey foreseeable for his conduct.",
+        "The ordinary interests of DePuy, Golden State, and Nordyke favored California, where events, witnesses, and representatives were located. Golden State lacked sufficient New Jersey contacts. Alleged joint-tortfeasor status or the possibility of a persuasive judgment did not make it required under Rule 19(a), much less indispensable under Rule 19(b). Severance was permissible, and its claims had to be transferred or dismissed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 25–30 & nn.11–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The writ divides the action by defendant group",
+      "cue": "August 15, 2017",
+      "paragraphs": [
+        "The corporate claims belonged together in California because DePuy and Golden State faced the same alleged wrongdoing. Nordyke’s claims belonged with the other representatives because their alleged conduct was alike. Coordinated discovery, video depositions, stipulations, and appropriate joint proceedings could reduce duplication.",
+        "Comparable congestion and judgment-enforcement concerns did not overcome the clauses. California’s opposition to noncompetition agreements concerned substantive enforceability, while its local interest was offset by New Jersey’s interest in agreements prepared and executed there. Nordyke’s limited resources counted against New Jersey, but he had accepted similarly inconvenient Michigan and shared counsel with the others. His additional burden did not overwhelmingly outweigh their contractual expectations and the efficiency of keeping representative claims together.",
+        "On August 15, 2017, the panel issued a writ vacating the whole-case transfer. It directed severance under Rule 21 and transfer of the DePuy and Golden State claims to the Northern District of California under § 1404(a), while retaining all five representatives’ claims in New Jersey. The underlying contract and conspiracy merits remained undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 30–34 & nn.14–17"
+        }
+      ]
+    }
+  ]
+}

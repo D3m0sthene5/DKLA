@@ -1,0 +1,136 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-350",
+  "briefId": "CP-COMP-CB-CAP-350",
+  "title": "Oppenheimer Fund, Inc. v. Sanders",
+  "course": "Civil Procedure",
+  "citation": "437 U.S. 340 (1978)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Purchasers who wanted to notify a securities class could require access to the fund’s records, but could not make the fund finance the substantial work of identifying them.",
+  "actors": [
+    {
+      "name": "The representative plaintiffs",
+      "role": "Purchasers of Oppenheimer Fund shares in 1968 and 1969 seeking purchaser-class and derivative relief."
+    },
+    {
+      "name": "Oppenheimer Fund and its affiliates",
+      "role": "The investment fund, its portfolio manager, and the brokerage firm controlling that manager."
+    },
+    {
+      "name": "The transfer agent",
+      "role": "Holder of the records needed to identify class members."
+    }
+  ],
+  "proceedings": "The district court certified the class and put identification costs on defendants; a Second Circuit panel reversed that allocation, the en banc court restored it, and the Supreme Court reversed and remanded.",
+  "limits": "The securities allegations and class certification were not decided by the Supreme Court. The discovery rule discussed is its 1978 version.",
+  "briefSha256": "4daa6c75b984d4d60388d718cb72291b77b727d3f23c3ef003223834fba979fa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-350"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Share purchasers challenge the fund’s valuations",
+      "cue": "1968–1969",
+      "paragraphs": [
+        "Oppenheimer Fund was an open-end investment fund that sold shares at net asset value plus a sales charge. Oppenheimer Management managed the portfolio for a fee calculated partly from that value, and the brokerage firm Oppenheimer & Co. controlled the management corporation. Purchasers of Fund shares in 1968 and 1969 alleged that prospectuses and annual reports failed to disclose investments in restricted securities, their risks, and the method of valuing them. According to the purchasers, overvaluation inflated the prices they paid.",
+        "Three complaints filed in 1969 were consolidated. The proposed purchaser class sought the difference between purchase prices and actual share value; a separate derivative count sought excessive management fees on the Fund’s behalf. Defendants denied liability and asserted setoff and contingent-liability positions. Those allegations had not become findings of securities fraud when a practical problem about class notice reached the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "342–344 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The records do not yield a ready mailing list",
+      "cue": "1973",
+      "paragraphs": [
+        "In April 1973 the plaintiffs requested a Federal Rule of Civil Procedure 23(b)(3) class of buyers from March 28, 1968, through April 24, 1970. About 121,000 people fit that definition. Approximately 103,000 still owned Fund shares, while 18,000 no longer did. Another 68,000 current shareholders were outside the class. Mailing to all current shareholders would therefore omit former owners entitled to notice and reach many outsiders.",
+        "The Fund’s transfer agent held the necessary records, but identifying the correct people required extensive manual sorting, keypunching 150,000–300,000 cards, and writing eight computer programs using existing or new tapes. The estimated cost exceeded $16,000. To avoid that expense, plaintiffs proposed excluding former shareholders and using an ordinary Fund mailing. They offered about $5,000 for printing and insertion. Defendants objected that the narrower class arbitrarily sacrificed former shareholders’ interests and that notice to current shareholders outside the class might provoke harmful selling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "344–346 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial court assigns the identification bill to defendants",
+      "cue": "1975 and the Second Circuit appeals",
+      "paragraphs": [
+        "In May 1975 the district court certified the class but rejected the proposed exclusion of former shareholders. It initially rejected a general shareholder mailing as well. It ordered defendants to produce and pay for the list, reasoning that they had opposed the cheaper proposals and that the identification cost was relatively modest. Plaintiffs would prepare and mail the notices.",
+        "A modification permitted notice in periodic Fund mailings addressed only to class members. Plaintiffs had to pay the added mailing and segregation costs, but the Fund would initially pay identification costs, retaining the possibility of later reimbursement. A Second Circuit panel reversed that allocation while upholding certification. The en banc court, by seven votes to three, restored it, treating identification as discovery ordinarily performed at the responding party’s expense unless unduly burdensome. The Supreme Court accepted the cost order’s collateral-order appealability; certification itself was outside its review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "346–349 & nn.6–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court locates authority in the class-action rule",
+      "cue": "June 19, 1978",
+      "paragraphs": [
+        "Justice Powell wrote for a unanimous Supreme Court. Rule 23 required the best practicable notice, including individual notice to reasonably identifiable members of this kind of class. The earlier Eisen notice-cost decision required representative plaintiffs to pay for preparing and mailing notice, but had not settled what happened when defendants were ordered to identify recipients.",
+        "The Court first rejected discovery as the source of authority for this request. The then-existing Rule 26(b)(1) permitted discovery beyond admissible trial evidence and narrowly pleaded merits issues: information bearing on jurisdiction, venue, certification, or clarification of claims could qualify. But this list was wanted solely to send notice. Plaintiffs’ willingness to abandon the request if a cheaper notice arrangement were approved confirmed that purpose. A possible future dispute over whether notice had been sent could not make the information discoverable before it was obtained and used. Names and addresses could still be discoverable when genuinely relevant to certification or another issue, or when communication with members might produce relevant evidence.",
+        "Rule 23(d), which authorized management of class proceedings and notice, supplied the power to order cooperation. Courts could require defendants to help identify members or permit use of regular mailings. The existence of that power did not decide who should pay."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "349–356 & nn.12–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Efficiency can assign the work without assigning its cost",
+      "cue": "The Court’s allocation framework",
+      "paragraphs": [
+        "Ordinarily representatives seeking class treatment should perform the notice tasks. A defendant’s ability to perform a particular task with less difficulty or expense could justify assigning it that work. The Court compared the historical interrogatory rule allowing access to business records when either side could derive an answer with substantially equal effort: greater efficiency could instead justify having the responding party derive it. That analogy guided discretion; it did not turn this notice request into discovery.",
+        "Even when defendants appropriately performed the work, plaintiffs ordinarily had to pay substantial notice expenses. Genuine discovery might advance both parties’ litigation, whereas sending notice for an opposing class rarely advanced the defendant’s. The question was therefore whether notice expense was substantial, not whether it crossed discovery’s undue-burden threshold. Courts retained room to leave trivial costs where they fell when calculating reimbursement would be wasteful, or to leave defendants paying for work already required in their ordinary business."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356–359 & nn.24–28"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The transfer agent’s equal price resolves this dispute",
+      "cue": "Reversal and remand",
+      "paragraphs": [
+        "Neither side could produce this list itself. Both needed the transfer agent’s paid services, available to plaintiffs at the same price as to defendants. Defendants apparently controlled access to the records and could be required to provide it, but there was no cost advantage justifying making them pay. The identification work served plaintiffs’ notice obligation.",
+        "Defendants also did not have to purchase the right to make successful objections. An improper class definition should be rejected without conditioning that protection on payment, and protecting the Fund from notice to outsiders should not depend on its willingness to fund identification. Nor could an unwilling defendant be charged for supposed preclusion advantages from a larger class. The Fund’s assets exceeded $500 million, but a $16,000 expenditure for plaintiffs remained substantial. Electronic records deserved no penalty: no one alleged bad-faith concealment, paper records were not shown cheaper, and the Fund need not have anticipated future litigants’ preferred format. Alleging a fiduciary breach likewise did not establish liability or entitle claimants to litigation financed by the fiduciary and indirectly other beneficiaries.",
+        "The Court reversed the Second Circuit and remanded. The district court had abused its discretion by failing to require plaintiffs to pay the transfer agent’s identification charges. Class certification remained undisturbed by this decision, and the securities claims remained unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359–364 & nn.29–32"
+        }
+      ]
+    }
+  ]
+}

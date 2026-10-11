@@ -1,0 +1,157 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-524",
+  "briefId": "CP-COMP-CB-CAP-524",
+  "title": "Partmar Corp. v. Paramount Pictures Theatres Corp.",
+  "course": "Civil Procedure",
+  "citation": "347 U.S. 89 (1954)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A theatre operator defeats its landlord’s effort to terminate a film franchise and lease, but the same judgment dismisses its reserved antitrust counterclaims. The appeal asks whether the first trial actually and necessarily settled the conspiracy issue and whether the prevailing operator had to appeal that determination.",
+  "actors": [
+    {
+      "name": "Paramount Pictures Theatres",
+      "role": "Landlord and film franchisor seeking possession."
+    },
+    {
+      "name": "Partmar Corporation",
+      "role": "Downtown Theatre operator defending its agreements and claiming antitrust damages."
+    },
+    {
+      "name": "Fanchon & Marco",
+      "role": "Partmar’s owner, joining the defense and counterclaims."
+    }
+  ],
+  "proceedings": [
+    "The district court separately tried Paramount’s claims first, ruled for Partmar on possession and contract validity, but dismissed the antitrust counterclaims with prejudice.",
+    "The Ninth Circuit affirmed the counterclaim dismissal.",
+    "The Supreme Court affirmed five to two, with review limited to the counterclaims."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current preclusion-law certification. Majority and dissent differed on what was actually tried and necessary, so their procedural accounts remain distinct. The case does not permit every prevailing party to appeal every unfavorable statement or make mere litigation opportunity sufficient for issue preclusion.",
+  "briefSha256": "224253c1a23fe3f96849eaedf1201400c62e09df04e74ad22fbe09e15fe14d8e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-524"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Lease and franchise rights link operation of the Downtown Theatre",
+      "cue": "What event gave Paramount an asserted termination ground?",
+      "paragraphs": [
+        "Paramount leased its Los Angeles Downtown Theatre to Partmar Corporation, owned by Fanchon & Marco. A 1939 lease and film franchise initially ran ten years; a 1942 amendment extended the lease to March 1952. The franchise licensed first-run Paramount films for at least forty-six weeks annually and specified fees. The lease allowed termination if the franchise ended for any reason.",
+        "A separate government antitrust suit against Paramount and other film companies produced a 1946 decree prohibiting existing film-franchise performance. Paramount notified Partmar that the decree canceled the franchise and thereby ended the lease. Partmar refused to leave, and Paramount brought a diversity action in federal California court for possession and a declaration of valid termination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 92–93"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Separate trials are ordered before the government decree changes",
+      "cue": "Which positions did the parties take in the first trial?",
+      "paragraphs": [
+        "Partmar and its parent defended and counterclaimed for treble antitrust damages, alleging an industry conspiracy enabled excessive fees and lease terms, including payment of half the theatre’s net receipts. The district court ordered Paramount’s claims tried first.",
+        "Before that trial, the Supreme Court reversed the franchise-related portion of the government decree: franchises were not necessarily illegal for every theatre regardless of size. Paramount nevertheless continued without amended pleadings.",
+        "In the Supreme Court majority’s later account, the first trial addressed both the decree as a termination basis and whether these agreements themselves violated antitrust law. Paramount sought to prove illegality supporting possession under California law, while Partmar vigorously defended validity, including arguing that conspiracy was neither alleged nor proved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 93–96 & n.4; separate-trial sequence at 106"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Partmar wins possession but loses the counterclaims without their separate trial",
+      "cue": "What did it appeal?",
+      "paragraphs": [
+        "After eighteen trial days, the district court construed termination as requiring a legal or substantial reason and found none in the government decree. It found no substantial conspiracy evidence and no illegality in the single franchise. It also announced that Partmar could not recover on its counterclaims.",
+        "At a later findings-and-conclusions hearing, Partmar expressly objected to dismissal. The judge heard argument but retained the result. Final judgment preserved the lease and franchise and rejected unlawful detainer, while dismissing treble-damage counterclaims with prejudice without their promised separate trial.",
+        "Partmar appealed only the counterclaim dismissal, not the favorable contractual and possessory portions. The Ninth Circuit affirmed, and Supreme Court review was limited to that dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 96–100"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority treats the no-conspiracy determination as necessary and binding",
+      "cue": "Why did the separate-trial order not require another opportunity?",
+      "paragraphs": [
+        "Justice Reed distinguished claim preclusion from issue preclusion. The counterclaims asserted a cause of action not previously adjudicated as such, but a matter actually litigated and essential to final judgment could bind in another claim. The majority considered absence of a conspiracy producing these agreements both contested and necessary to Partmar’s successful defense and indispensable to its damages claim.",
+        "A judge could modify a separate-trial order before final judgment for appropriate reasons. Partmar had an opportunity to present evidence and contest findings, including before adoption. Once the principal action conclusively settled the necessary issue, repeating it would defeat preclusion; on that account, no due-process violation occurred. Immaterial findings, by contrast, would not bind, and mere opportunity to litigate every possible issue was not enough.",
+        "The unusual appellate position did not excuse Partmar. The majority said it could have appealed the necessary adverse determination despite prevailing on possession. Unnecessary findings neither supported a winner’s appeal nor created preclusion, but this one was essential in the majority’s view. Failure to challenge the favorable contractual judgment left its necessary determination binding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 90–92, 99 n.6, 100–101"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The government antitrust decree does not supply the missing transactional link",
+      "cue": "What could its prima facie effect establish?",
+      "paragraphs": [
+        "Partmar argued that a counterclaim trial would allow the government judgment as prima facie conspiracy evidence under Clayton Act § 5. The majority found no prejudicial exclusion warranting another trial. The earlier franchise-specific finding had been reversed, and the final Paramount decree did not determine that these particular agreements resulted from the industry conspiracy.",
+        "A general conspiracy finding did not establish that further link. The court also distinguished abstract legal propositions from adjudicated facts, questions, or rights: preclusion did not freeze every general statement of law, but the particular conclusion about these agreements bound this related dispute whether characterized as fact or law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 100–103 & nn.8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Warren disputes actual litigation, necessity, and appealability",
+      "cue": "Why would he require the reserved counterclaim trial?",
+      "paragraphs": [
+        "Chief Justice Warren, joined by Justice Black, accepted the doctrine but rejected its application. He understood Paramount’s revised theory as illegality of contractual provisions apart from conspiracy. Partmar’s conspiracy defense had been struck, its effort to introduce the whole government decree rejected, and the judge acknowledged no counterclaim evidence had been offered. Consented separate trials meant failure of proof in Paramount’s case was not fair adjudication of Partmar’s reserved affirmative claim.",
+        "Arguing that Paramount failed to prove conspiracy did not mean Partmar had tried its own conspiracy case. Opportunity alone was inadequate for distinct claims, and Warren thought opportunity was affirmatively denied. The result penalized Partmar for not helping Paramount prove illegality and win possession.",
+        "He also rejected the majority’s proposed appeal. Partmar won possession, and the adverse finding was not placed in the decree in the way permitting correction. He read Lindheimer and New York Telephone against the majority’s distinction and distinguished Electrical Fittings, where an adverse finding appeared in the decree. A finding unappealable by Partmar should not bind its separate claim. He would reverse and direct a counterclaim trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 104–109 & dissent nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Dismissal with prejudice is affirmed",
+      "cue": "What portion of the underlying judgment remained outside review?",
+      "paragraphs": [
+        "On February 8, 1954, the Court affirmed the Ninth Circuit’s judgment sustaining dismissal with prejudice. The unappealed judgment preserving Partmar’s lease and franchise was not reopened.",
+        "Five participating Justices supported Reed’s result, Warren and Black dissented, and Justices Jackson and Clark did not participate. The holding depended on the majority’s particular account of a necessary, actually determined issue, not a blanket bar on reserved counterclaims or unrestricted appeals by successful parties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "347 U.S. 89, 100, 103–109"
+        }
+      ]
+    }
+  ]
+}

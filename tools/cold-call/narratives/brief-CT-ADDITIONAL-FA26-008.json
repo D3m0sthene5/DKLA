@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-008",
+  "briefId": "CT-ADDITIONAL-FA26-008",
+  "title": "Air Alpes v. Chambre de commerce et d’industrie du Jura",
+  "course": "Contracts",
+  "citation": "Cour de cassation, chambre commerciale, May 31, 1976, no. 75-14.625; Bull. IV no. 186, p. 158",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An airline cuts a promised daily service during the fuel crisis, but an urgent order requires restoration through the contractual notice period.",
+  "actors": [
+    {
+      "name": "Air Alpes",
+      "role": "Airline operating the contracted Dole–Paris service."
+    },
+    {
+      "name": "Jura Chamber of Commerce and Industry",
+      "role": "Contracting body seeking restoration of the omitted frequency."
+    }
+  ],
+  "proceedings": [
+    "The Dole commercial court’s urgent judge ordered restoration with a daily astreinte; Besançon affirmed July 2, 1975.",
+    "The Court of Cassation rejected the airline’s challenge, leaving the notice-period measure in place."
+  ],
+  "limits": "The 2,000 francs per day is a coercive sanction, not calculated damages. The source inconsistently attributes termination to the Chamber and later to Air Alpes, but consistently uses July 15, 1975 as its effective date.",
+  "briefSha256": "efe65c261afa21cee4be2b21679c348884ce84d9bf0be83dcfcd4cd61e77c2cf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-008"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Air Alpes reduces the flight frequency promised to the Chamber",
+      "cue": "What part of the service was withdrawn?",
+      "paragraphs": [
+        "Under January 1972 agreements with the Jura Chamber of Commerce and Industry, Air Alpes promised to operate Dole–Paris flights for four years through April 10, 1976, with at least two daily flights in each direction. On February 17, 1975, it invoked economic conditions from the fuel crisis and removed one of the two services.",
+        "The dispute thus concerned reduced frequency, not total abandonment of the route. The Chamber invoked the contractual three-month termination notice and sought urgent restoration of the omitted service. The contractual obligations during that notice period became central."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Official factual recitals; agreements and unilateral reduction"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An urgent performance order survives an initial appeal",
+      "cue": "What objections did the airline bring to cassation?",
+      "paragraphs": [
+        "The Dole commercial court’s urgent judge ordered performance backed by an astreinte of 2,000 francs for each day of noncompliance. The Besançon Court of Appeal affirmed on July 2, 1975. Air Alpes then brought a five-part cassation challenge.",
+        "It argued that the judge had prejudged a force-majeure issue belonging to a merits court, inadequately established urgency, and ignored the Chamber’s April 5 termination letter. It also contended that article 9 allowed termination without a judicial decree and that the order failed to limit the sanction’s duration. Those were objections, not findings that the fuel crisis established an excuse."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Challenged order and sole cassation ground, five branches"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Price increases do not prevent urgent enforcement on these findings",
+      "cue": "Why was the dispute not a serious obstacle to the measure?",
+      "paragraphs": [
+        "The Court of Cassation applied article 73 of the September 9, 1971 decree, permitting urgent measures without serious contestation or justified by an existing dispute. The lower court had found that increased fuel costs did not make operation materially impossible. It could reject the asserted force majeure without the claimed serious contestation preventing relief.",
+        "The appellate court also had authority to assess the urgency of ending the unilateral reduction. The reasoning concerned this price increase and these findings; it did not announce a modern rule deciding every hardship claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "First and second answers to the cassation ground"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Both continued service and the daily sanction end with the notice period",
+      "cue": "What did rejection of the challenge preserve?",
+      "paragraphs": [
+        "Termination did not immediately erase outstanding duties. The adopted reasoning fixed July 15, 1975 as its effective date, so performance and the accompanying astreinte necessarily ended then. No judicial decree had been required to effect termination. Although the source shifts attribution of termination from the Chamber to Air Alpes, it supplies the same effective date; no explanation for that shift is given.",
+        "On May 31, 1976, the Court rejected the challenge: the first two branches were unfounded and the remaining three lacked factual basis in the decision. It neither ordered service through April 1976 despite termination nor calculated accrued sanctions or compensatory damages. Lancien presided, Larere was rapporteur and Toubas avocat général; no separate writing or numerical vote appears."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Third answer, final rejection and official metadata"
+        }
+      ]
+    }
+  ]
+}

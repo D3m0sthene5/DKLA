@@ -1,0 +1,144 @@
+{
+  "id": "brief-CP-COMP-CB-ERAMO",
+  "briefId": "CP-COMP-CB-ERAMO",
+  "title": "Eramo v. Rolling Stone LLC",
+  "course": "Civil Procedure",
+  "citation": "314 F.R.D. 205 (W.D. Va. 2016)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A university official suing a magazine and reporter seeks documents from their student source. The discovery court distinguishes material bearing on the journalists’ reporting from intimate details unrelated to the official’s defamation claim.",
+  "actors": [
+    {
+      "name": "Nicole Eramo",
+      "role": "University of Virginia associate dean and Sexual Misconduct Board head suing for defamation."
+    },
+    {
+      "name": "Rolling Stone, Sabrina Rubin Erdely, and Wenner Media",
+      "role": "Magazine, reporter, and publishing defendants."
+    },
+    {
+      "name": "Jackie",
+      "role": "Student source subpoenaed as a nonparty."
+    },
+    {
+      "name": "Judge Glen E. Conrad",
+      "role": "District judge resolving the narrowed production dispute."
+    }
+  ],
+  "proceedings": [
+    "The defamation action was removed from state court; a subpoena motion filed elsewhere was transferred to the Western District of Virginia.",
+    "After narrowing and a hearing, the court compelled specified communications subject to scope and confidentiality limits, denied other portions, and treated a withdrawn demand as moot."
+  ],
+  "limits": "This transforms the canonical January 2016 discovery brief without a fresh audit or later-merits review. Jackie was a nonparty, correcting the assigned text’s suggestion that she was sued. The court decided neither the assault account nor defamation liability or final admissibility. The earlier FERPA ruling is noted only as procedural background.",
+  "briefSha256": "bb35f52471e3b389420475a2d656035b2d5aa26f8a96ba46acd71f24bc0f7e93",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-ERAMO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A published assault account portrays Eramo’s response",
+      "cue": "What allegations created the reporting dispute?",
+      "paragraphs": [
+        "On November 19, 2014, Rolling Stone published reporter Sabrina Rubin Erdely’s account of an alleged gang rape reported by a University of Virginia student called Jackie. The article portrayed associate dean Nicole Eramo, who headed the Sexual Misconduct Board, as unsympathetic and attributed a remark about a “rape school” reputation.",
+        "Eramo denied the remark and discouraging police involvement. She alleged that she encouraged reporting, offered help, and arranged a police meeting. She claimed reputational injury, threats, and abusive messages after wide attention.",
+        "Later inquiries could not substantiate important aspects of the account. Rolling Stone acknowledged discrepancies December 5, and local police said the following March that they lacked a substantive factual basis for the described incident. Eramo alleged ignored warning signs; the magazine, Erdely, and Wenner Media denied negligence, actual malice, and advance knowledge that Jackie was unreliable. Those disputed positions made what the journalists knew and could corroborate central."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Eramo subpoenas the source, who is not a defendant",
+      "cue": "How was the request narrowed before decision?",
+      "paragraphs": [
+        "Eramo sued the publishing defendants and reporter in state court May 12, 2015; they removed May 29. She served Jackie with a Rule 45 subpoena July 27. After unsuccessful negotiations, Eramo moved to compel in the Eastern District of Virginia, and the motion transferred December 9 to the Western District.",
+        "Other production allowed narrowing. At the January 12, 2016 hearing, Eramo withdrew Demand 17. Remaining requests concerned communications with reporters, the magazine, Eramo and the university, communications involving the pseudonym Haven Monahan, and discussion of the article. Jackie invoked Federal Rule of Evidence 412, relevance, burden, and a patient-counselor privilege. A student-records confidentiality objection under FERPA had been rejected in a separate January 14 order in the underlying action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.4–6 & nn.1, 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The discovery rules incorporate privacy without importing trial exclusion wholesale",
+      "cue": "What showing did each side need to make?",
+      "paragraphs": [
+        "Chief Judge Glen Conrad applied amended Rule 26(b)(1), requiring relevant, nonprivileged, proportionate discovery without demanding trial admissibility. The December 1, 2015 amendment restored proportionality to the scope provision, emphasizing a consideration already present elsewhere. A prima facie discovery showing required a supported answer from the resisting person about relevance or harm; the requesting party did not have to address every proportionality factor automatically.",
+        "Rule 26 still limited cumulative, duplicative, excessive, or otherwise out-of-scope requests, and Rule 45 protected a nonparty against significant compliance expense. Those constraints required demand-by-demand treatment.",
+        "Rule 412 generally restricts evidence of an alleged victim’s other sexual behavior or predisposition, using a demanding civil admissibility balance. It did not replace discovery analysis. Its advisory notes nevertheless called for protective orders against unjustified inquiry and disclosure. Thus rejecting a categorical Rule 412 bar preserved privacy scrutiny rather than making all sexual detail discoverable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.5–9 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Direct communications about reporting can test both sides’ positions",
+      "cue": "Which demands were granted in full?",
+      "paragraphs": [
+        "Demands 1, 2, 6, 12, and 18 sought Jackie’s communications with defendants or with Eramo and the university. These bore on the journalists’ knowledge and corroboration opportunities and the accuracy of their portrayal of Eramo. They could support Eramo’s warning-sign theory or defendants’ diligence position.",
+        "Defendants’ production of their copies did not eliminate legitimate corroboration from Jackie’s records, just as Eramo could substantiate receipt of messages she possessed. The court found those requests relevant and proportionate and the opposing showing insufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Pseudonymous and article-related communications require tighter boundaries",
+      "cue": "What did the court expressly exclude?",
+      "paragraphs": [
+        "For Demand 15, communications involving Haven Monahan and Ryan Duffin, a person identified in the requested communications, were discoverable, as were those involving others Jackie identified to defendants before publication. The same boundary applied to her messages referring to the pseudonym. They could reveal what contacting disclosed people would have uncovered. Communications with unknown outsiders would not illuminate defendants’ assessment of available information, so the court refused an unlimited search.",
+        "Demand 16 was confined to communications Jackie initiated about the article on or before December 5, 2014, which the court understood as her last public statement supporting its account. Later messages and recipients’ views lacked the same connection to what journalists were told or should corroborate.",
+        "The court also excluded from this demand communications containing details of the alleged assault. Graphic particulars were irrelevant and disproportionate to the disputed portrayal of Eramo and Jackie’s university communications. The ruling therefore did not authorize unrestricted inquiry into sexual history or the alleged incident."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.10–12; accompanying order ¶3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The asserted counseling privilege fails, but confidentiality governs production",
+      "cue": "What precisely did the order require?",
+      "paragraphs": [
+        "Virginia Code § 63.2-104.1 required some sexual-assault service providers to preserve confidentiality but allowed court-mandated disclosure. The court found no authority making it the claimed evidentiary privilege and declined to recognize one. It added only conditionally that voluntary disclosure to defendants might waive such a privilege if it existed; it did not declare every possible privilege waived. Demands 6 and 12 therefore implicated no established privilege on this showing.",
+        "On January 25, 2016, the court granted Demands 1, 2, 6, 12, and 18, granted and denied portions of 15 and 16 within the stated limits, and denied withdrawn Demand 17 as moot. Every produced document had to be marked confidential and handled under the existing protective order. An accompanying order implemented those directions. No separate writing appeared, and the decision resolved production rather than the underlying merits or eventual evidence admissibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum pp.12–14; accompanying order ¶¶1–5"
+        }
+      ]
+    }
+  ]
+}

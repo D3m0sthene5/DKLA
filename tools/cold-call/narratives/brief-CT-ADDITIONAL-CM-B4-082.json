@@ -1,0 +1,142 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-082",
+  "briefId": "CT-ADDITIONAL-CM-B4-082",
+  "title": "In re TJX Companies Retail Security Breach Litigation",
+  "course": "Contracts",
+  "citation": "564 F.3d 489 (1st Cir. 2009)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Issuing banks sought their losses after hackers stole payment-card records from TJX. Express contract terms defeated third-party-beneficiary claims, but some misrepresentation and unfair-practices theories remained for further proceedings.",
+  "actors": [
+    {
+      "name": "TJX Companies",
+      "role": "Massachusetts discount-store operator whose card records were stolen"
+    },
+    {
+      "name": "Fifth Third",
+      "role": "Ohio processing bank and its parent"
+    },
+    {
+      "name": "AmeriFirst and SELCO",
+      "role": "Issuing-bank plaintiffs seeking recovery and class treatment"
+    },
+    {
+      "name": "Visa and MasterCard",
+      "role": "Payment networks imposing security requirements through participating banks"
+    }
+  ],
+  "proceedings": "District court dismissed several claims, denied amendment and certification, and purported to transfer surviving claims to state court; First Circuit affirmed in part, vacated in part, and remanded.",
+  "limits": "This account follows the published text amended on rehearing in part May 5, 2009, after the March 30 decision. It preserves complaint-stage allegations and transforms the full source brief without a new opinion audit.",
+  "briefSha256": "86520b9da9d31cd3e8948e79039a11ed12768d8fa556c7720f678af3442967dc",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-082"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Hackers take card records from a payment network participant",
+      "cue": "2005–2007",
+      "paragraphs": [
+        "TJX Companies operated discount stores in Massachusetts. Fifth Third, an Ohio processing bank and its parent, processed TJX transactions, transmitted payment information, and authorized transactions after verification with the banks issuing customers’ cards. Visa and MasterCard imposed security requirements through agreements with participating banks, and Fifth Third’s merchant agreement imposed requirements on TJX.",
+        "In January 2007, TJX announced the theft of millions of credit- and debit-card records. Issuing banks alleged reimbursement costs for fraudulent transactions, monitoring expenses, and cancellation and replacement costs. Their complaints described security breaches beginning in July 2005 and failures involving firewalls, data protection, encryption, access tracking, and later discovery and disclosure. Those remained allegations rather than trial findings.",
+        "AmeriFirst sued in May 2007 seeking an issuing-bank class. SELCO, an Oregon credit union, participated in another action against Fifth Third that was consolidated with the first."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "491–492 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court narrows the claims and orders a transfer",
+      "cue": "Appeals by both sides",
+      "paragraphs": [
+        "The district court dismissed negligence and contract claims but allowed negligent misrepresentation and a related theory under Massachusetts’s Chapter 93A unfair-practices law. It also dismissed negligence per se, which was not pursued on appeal. The banks sought to add conversion and further unfair-practices allegations; the court denied amendment, finally denied class certification, and ordered transfer to Massachusetts Superior Court, describing its earlier rulings as open to reconsideration there.",
+        "Defendants appealed the surviving claims and transfer. Plaintiffs cross-appealed dismissed claims and amendment rulings and disputed certification consequences. Federal jurisdiction had rested on the Class Action Fairness Act’s minimal-diversity provisions. The First Circuit recognized provisional authority to resolve merits questions bearing on a certifiable class. Defendants faced concrete injury from continued litigation, and the unauthorized transfer ended federal proceedings sufficiently to permit review. Calling rulings without prejudice was not an invitation to cure and refile in the same federal court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492–494"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contract and negligence claims remain dismissed",
+      "cue": "Limits on recovery for network losses",
+      "paragraphs": [
+        "Judge Boudin’s opinion for Judges Lipez and Howard applied Massachusetts’s Restatement-based beneficiary rule, which allows contracting parties to exclude third-party enforcement. The TJX–Fifth Third merchant agreement expressly limited benefit and enforcement to the bank and merchant and denied rights to third parties. Issuing banks, not parties to that agreement or the relevant network contracts, could not overcome that exclusion.",
+        "The banks argued that network regulations superseded conflicting merchant terms. There was no conflict: MasterCard reserved interpretation and enforcement to itself, while Visa expressly denied third-party-beneficiary status and rights. Those terms reinforced the merchant agreement’s restriction.",
+        "The economic-loss doctrine also barred ordinary negligence because the banks alleged economic loss without personal injury or physical property damage. Claiming a property interest in electronic data did not establish physical destruction. Policy objections and a request to certify the state-law question did not change the clear applicable rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498–499"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Misrepresentation survives provisionally, and unfairness returns",
+      "cue": "The theories still open",
+      "paragraphs": [
+        "The banks had expressly pleaded misrepresentation, but their developed theory largely treated participation in card transactions as an implied representation of compliance with every security requirement. The First Circuit considered that inference too loose for Massachusetts negligent-misrepresentation liability. An asserted website listing did not clearly supply an affirmative representation and was not the theory defended on appeal.",
+        "Nevertheless, the court did not order dismissal of the facially pleaded claim. Summary judgment could better test the actual evidentiary theory. Negligent misrepresentation and its derivative Chapter 93A claim therefore remained, subject to defendants’ summary-judgment motions; transaction processing itself was not held actionable.",
+        "The court revived an independent Chapter 93A unfairness theory. Federal Trade Commission standards, complaints, and consent decrees could inform whether prolonged reckless security failures and delayed disclosure were unfair and highly injurious. Consent decrees were instructive rather than conclusive proof. Deliberate wrongdoing or personal enrichment was not invariably essential; systematic recklessness could suffice.",
+        "At this stage, TJX’s payment requests through Fifth Third could establish a sufficiently close business relationship with issuing banks. Fifth Third’s alleged Massachusetts offices and communications with TJX’s Massachusetts servers also prevented dismissal under the geographic limitation. Discovery could support later defenses. The banks had abandoned a separate Gramm-Leach-Bliley Act theory. Reliance on federal standards did not itself establish federal-question jurisdiction; substantiality and Massachusetts’s treatment of those standards would need proper briefing if that route became necessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "494–498 & nn.2–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Late amendments and class questions receive different treatment",
+      "cue": "The remaining procedural issues",
+      "paragraphs": [
+        "The proposed conversion claim relied on no newly discovered facts and could have been pleaded earlier. Under abuse-of-discretion review, the court affirmed denial of amendment without deciding whether Massachusetts conversion covered intangible property or whether hackers’ theft amounted to appropriation by TJX. The same timing rationale supported refusal of the additional Chapter 93A allegations.",
+        "The banks had not appealed denial of certification for misrepresentation or its derivative claim, which depended principally on individual reliance. The revived unfairness theory focused instead on defendants’ conduct and might present different commonality and predominance questions. Individual causation, class definition, and representational conflicts could still matter. The First Circuit left that certification decision to the district court rather than resolving it for either side."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499–501 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The case returns to federal district court",
+      "cue": "The amended appellate disposition",
+      "paragraphs": [
+        "Binding circuit precedent foreclosed the purported transfer to state court, and no specialized state transfer statute had been invoked. If federal jurisdiction ultimately failed, the ordinary response was dismissal. The accompanying declaration that prior rulings were without prejudice fell with the transfer; the district court could not decide merits and then erase ordinary preclusion consequences.",
+        "The First Circuit affirmed dismissal of negligence and contract, denial of amendment, and survival of misrepresentation and its Chapter 93A derivative, without prejudice to summary-judgment motions. It vacated dismissal of the independent unfairness theory and vacated the transfer and no-prejudice ruling, then remanded. Each party bore its appellate costs. No damages, class certification, or ultimate security-breach liability was established."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "501–502"
+        }
+      ]
+    }
+  ]
+}

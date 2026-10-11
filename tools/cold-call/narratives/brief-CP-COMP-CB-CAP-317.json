@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-317",
+  "briefId": "CP-COMP-CB-CAP-317",
+  "title": "Danner v. Anskis",
+  "course": "Civil Procedure",
+  "citation": "256 F.2d 123 (3d Cir. June 3, 1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Families jointly suing another driver try to add a claim against their own driver and her husband, but the court’s historical crossclaim rule and diversity analysis defeat that attempt.",
+  "actors": [
+    {
+      "name": "The Danner family",
+      "role": "Original plaintiffs; Mrs. Danner drove the car involved in the collision."
+    },
+    {
+      "name": "The Weintraub family",
+      "role": "Original plaintiffs later seeking relief from Mrs. Danner and her husband."
+    },
+    {
+      "name": "William Anskis",
+      "role": "New Jersey defendant who defaulted in the families’ original action."
+    }
+  ],
+  "proceedings": [
+    "Anskis defaulted; the Weintraubs then attempted a crossclaim against the Danners, which the district court dismissed.",
+    "The Third Circuit affirmed without deciding the limitations defense."
+  ],
+  "limits": "The opinion’s ancillary-jurisdiction analysis is historical. It did not interpret later § 1367, find collusion or decide accident liability; it expressly recognized a counterclaim situation where a plaintiff could crossclaim.",
+  "briefSha256": "bb6d5cdba26b796021ebbecd82bbc666698063a248782d5a3f58ebe1567083e3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-317"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two families sue the other driver after a Pennsylvania collision",
+      "cue": "Who shared the original claim and citizenship?",
+      "paragraphs": [
+        "After a two-car collision in Bucks County, the Danner and Weintraub families sued William Anskis on October 1, 1954. Mrs. Danner had driven the car carrying three Danner children, two Weintraub children and the families’ mothers. The complaint alleged that Anskis’s negligent driving caused personal injuries.",
+        "Every plaintiff was a Pennsylvania citizen; Anskis was a New Jersey citizen, supplying diversity jurisdiction over that suit. These allegations did not determine which driver actually caused the accident."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "256 F.2d 123–124; collision, parties and initial jurisdiction"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "After Anskis defaults, the Weintraubs turn against their coplaintiffs",
+      "cue": "Why was the new claim dismissed?",
+      "paragraphs": [
+        "On April 1, 1957, Anskis defaulted for failure to appear, plead or defend. Three weeks later, the Weintraub plaintiffs attempted to crossclaim against Mrs. Danner and her husband, alleging that Mrs. Danner’s negligence caused the same injuries.",
+        "The district court dismissed on the Danners’ motion, finding no proper Rule 13(g) crossclaim and no independent federal jurisdiction. The Weintraubs appealed. Anskis’s default had not created a claim against the Weintraubs to which their proposed crossclaim responded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "124; default, proposed claim and dismissal"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court reads Rule 13(g) as ancillary to a claim against its user",
+      "cue": "Why was the same-accident connection insufficient?",
+      "paragraphs": [
+        "Judge Maris acknowledged Rule 13(g)’s language concerning coparties and the same transaction or occurrence. But he understood the device as ancillary to a claim already asserted against the crossclaimant: a defendant could claim against a codefendant, and a plaintiff facing a counterclaim could claim against a coplaintiff about that counterclaim’s transaction.",
+        "No claim had been asserted against the Weintraubs. Their new affirmative claim was independent of the families’ shared complaint against Anskis. The court connected that reading to Rule 82’s jurisdictional limits: joining Pennsylvania plaintiffs against a New Jersey defendant did not create federal authority over a separate controversy between those Pennsylvania parties. Independently brought, the proposed claim lacked diversity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "124; procedural construction and jurisdictional analysis"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dismissal stands without an appellate limitations ruling",
+      "cue": "Which issues remained undecided?",
+      "paragraphs": [
+        "The district court had also invoked Pennsylvania’s limitations period. The Third Circuit declined to decide that ground because procedure and jurisdiction sufficed. It observed that more than two years had passed before crossclaim service and that, if the dismissal were reversed, the Danners could plead limitations under Rule 12. That was not a final appellate adjudication of the defense for every possible state action.",
+        "On June 3, 1958, Maris, Kalodner and Staley affirmed without a separate opinion or dissent. The judgment left Anskis’s default undisturbed and neither established Mrs. Danner’s negligence nor awarded crossclaim damages. Later textbook questions about collusion and supplemental jurisdiction were not holdings of this court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "123–124; reserved limitations issue and exact judgment"
+        }
+      ]
+    }
+  ]
+}

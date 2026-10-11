@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-011",
+  "briefId": "CT-ADDITIONAL-CM-B3-011",
+  "title": "Frostifresh Corp. v. Reynoso",
+  "course": "Contracts",
+  "citation": "54 Misc. 2d 119, 281 N.Y.S.2d 964 (App. Term 1967); trial: 52 Misc. 2d 26, 274 N.Y.S.2d 757 (1966)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An oppressive refrigerator sale is limited after trial, then the appellate court preserves unconscionability while allowing reasonable profit and expenses beyond the seller’s acquisition cost.",
+  "actors": [
+    {
+      "name": "Frostifresh",
+      "role": "Installment seller seeking the balance, fees and a late charge."
+    },
+    {
+      "name": "Reynoso and the other buyer",
+      "role": "Buyers who negotiated in Spanish and retained the refrigerator-freezer."
+    }
+  ],
+  "proceedings": [
+    "The Nassau District Court awarded $316 plus interest after finding unconscionability.",
+    "Appellate Term reversed without costs for a new trial limited to reasonable seller damages."
+  ],
+  "limits": "The seller’s $348 acquisition cost was not the $900 contractual cash price. The appeal neither restored the original terms nor fixed a new dollar award; no later damages assessment is supplied.",
+  "briefSha256": "cceeb22ab69497c9ec325e0ce08e64b41a1d5570621b6affac8eba00914cc1e7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-011"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A salesman promises referrals will offset the appliance’s price",
+      "cue": "What circumstances accompanied the installment form?",
+      "paragraphs": [
+        "Frostifresh sold Reynoso and another buyer a refrigerator-freezer under an installment agreement. A Spanish-speaking salesman negotiated in Spanish. Reynoso said he had only one week left on his job and could not afford the purchase. The salesman said $25 referral bonuses or commissions on friends’ and neighbors’ purchases would make the appliance cost nothing.",
+        "The English-only form was neither translated nor explained. It specified a $900 cash price and $245.88 credit charge, totaling $1,145.88. The buyers paid only $32; the seller admitted its own acquisition cost was $348. The trial court found that the sales approach distracted and deluded buyers already disadvantaged in understanding the transaction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "52 Misc. 2d 26–27; negotiated circumstances, terms and findings"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The seller sues and the trial court permits evidence on unconscionability",
+      "cue": "Why could that defense be considered when fraud could not?",
+      "paragraphs": [
+        "Frostifresh sought $1,364.10, including its asserted balance, attorney fees and a late charge. Fraud had not been pleaded as a defense and was treated as unavailable. Unconscionability remained independently available under UCC § 2-302.",
+        "When that issue emerged, Judge Francis Donovan adjourned the trial to let both sides present evidence of the bargain’s commercial setting, purpose and effect. He found the price and terms oppressive in combination with the buyers’ limited understanding and the unexplained form, invoking the Code’s protection against oppression and unfair surprise. Its comment’s discussion of the Campbell Soup decision reinforced that analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "52 Misc. 2d 27–28; statutory evidentiary opportunity and findings"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial remedy reimburses only acquisition cost after prior payment",
+      "cue": "What sum did the first judgment award?",
+      "paragraphs": [
+        "Because the buyers kept the appliance, Donovan required payment of Frostifresh’s $348 cost, allowing nothing for commissions, attorney fees, service charges or overhead. Subtracting the $32 already paid produced a $316 judgment against both buyers, with interest from December 26, 1964. The trial judgment was issued November 15, 1966.",
+        "The report later refers to a $245.85 service charge, three cents below its initial $245.88 figure. The initial figure produces the stated contractual total; the inconsistent reference does not establish a different purchase. The central remedial question was whether acquisition cost alone fairly compensated the seller."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "52 Misc. 2d 27–28; first judgment and internal numerical discrepancy"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Appellate Term adds reasonable compensation without restoring the oppressive bargain",
+      "cue": "What did the limited new trial have to determine?",
+      "paragraphs": [
+        "On May 24, 1967, Appellate Term unanimously accepted that the evidence warranted unconscionability but rejected the cost-only remedy. Frostifresh could receive net cost, reasonable profit, necessarily incurred trucking and service charges, and reasonable finance charges.",
+        "The per curiam opinion reversed without costs and ordered a new trial limited to assessing damages and entering judgment. Justices Schwartzwald, Fanelli and Beckinella concurred without separate writing. The court did not validate the original $900 price, approve all claimed charges or state the replacement award. The buyers were not entitled to the appliance free, but reasonable compensation did not revive the original terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "54 Misc. 2d 119–120; appellate correction and exact remand"
+        }
+      ]
+    }
+  ]
+}

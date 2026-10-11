@@ -1,0 +1,139 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-494",
+  "briefId": "CP-COMP-CB-CAP-494",
+  "title": "Richardson-Merrell Inc. v. Koller",
+  "course": "Civil Procedure",
+  "citation": "472 U.S. 424 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A disqualification order interrupted a birth-defect lawsuit, but the Supreme Court held that civil disqualification orders do not qualify for automatic collateral-order appeals. It left the underlying misconduct and product claims undecided.",
+  "actors": [
+    {
+      "name": "Anne Koller",
+      "role": "Child suing through guardians over alleged Bendectin-related birth defects"
+    },
+    {
+      "name": "Richardson-Merrell Inc.",
+      "role": "Drug manufacturer and defendant"
+    },
+    {
+      "name": "James Butler and Nicholas Allis",
+      "role": "Trial lawyers disqualified by the district court"
+    },
+    {
+      "name": "Justice O’Connor",
+      "role": "Majority author"
+    },
+    {
+      "name": "Justices Brennan and Stevens",
+      "role": "Separate concurrence and dissent authors"
+    }
+  ],
+  "proceedings": [
+    "District court revoked two lawyers’ pro hac vice admissions and their firm’s appearance after hearings.",
+    "D.C. Circuit stayed trial, accepted an immediate § 1291 appeal, and invalidated disqualification.",
+    "Supreme Court vacated and remanded with instructions to dismiss for lack of appellate jurisdiction."
+  ],
+  "limits": [
+    "Drug causation and correctness of the disqualification were not decided by the Supreme Court majority.",
+    "The Court reserved whether erroneous disqualification requires prejudice for reversal after final judgment."
+  ],
+  "briefSha256": "fdc571344b269b460de281d9ad2df9efa18cb20c2248ed2ff6dc3dbe7bd23ec1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-494"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A product-liability case becomes a dispute over counsel",
+      "cue": "Introduce the claim and first disputed episode.",
+      "paragraphs": [
+        "Anne Koller was born in 1979 without normal arms or legs. Through guardians, she sued Richardson-Merrell Inc., alleging that her mother took its antinausea drug Bendectin early in pregnancy and that the drug caused her birth defects. Miami and Washington lawyers initially represented her; the Los Angeles firm Butler, Jefferson, Dan & Allis later led trial preparation. James Butler and Nicholas Allis appeared pro hac vice. As trial approached, at least eight lawyers from four firms were counsel of record.",
+        "In December 1982, Allis’s secretary, Krystyna Janowski, called the defense firm and said the case was fraudulent because Koller’s mother had not taken Bendectin in the critical period. She later regretted the calls and described investigators’ efforts to obtain a statement. Allis visited her, once with an investigator secretly recording, and obtained a signed denial that she had heard the mother or anyone say the mother had not taken the drug. Janowski later recanted that statement. Hearings and discovery followed. These competing assertions were not Supreme Court findings about drug exposure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 426–427"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Excluded reports reach a regulator and a newspaper",
+      "cue": "Follow the second episode to disqualification and appeal.",
+      "paragraphs": [
+        "The district court excluded evidence about other children with superficially similar defects. Butler then submitted Drug Experience Reports to the Food and Drug Administration, including reports about those children, urged removal of Bendectin from the market, and supplied materials to a newspaper reporter. The court also excluded reports submitted more than a year after birth, including Butler’s fourteen reports. After the anticipated jury pool had been called, the newspaper published an article discussing the case and excluded reports.",
+        "Richardson-Merrell moved to disqualify Butler, Allis and their firm. After evidentiary hearings and a show-cause process, the district court found that Allis had tried to obstruct investigation of a crucial witness and Butler had tried to prejudice the defense and evade evidentiary rulings. It revoked their pro hac vice admissions and the firm’s appearance, noting other competent counsel remained. The Supreme Court later expressly reserved whether those trial findings and the disqualification were correct.",
+        "Koller immediately appealed. The D.C. Circuit stayed the entire trial, found jurisdiction under 28 U.S.C. § 1291, and invalidated the order. Counsel had mentioned permissive certification under § 1292(b) during the show-cause process, but apparently sought none after disqualification; § 1291 was the asserted appellate basis. The Supreme Court granted review of jurisdiction and merits but reached only jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 427–429 & n. 1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Practical costs do not independently authorize appeal",
+      "cue": "Explain the finality policy and alternatives.",
+      "paragraphs": [
+        "Justice O’Connor’s majority explained that disqualification was not a final merits judgment. Collateral-order review required conclusive determination of an important issue wholly separate from the merits and effective unreviewability after final judgment.",
+        "The D.C. Circuit emphasized civil litigation’s lesser urgency, disruption from replacing lawyers, reputational vindication and tactical misuse of disqualification motions. The Supreme Court acknowledged those concerns but found no independent source of jurisdiction in them. Civil appeals also delayed litigation, as the complete stay here showed. New counsel might need preparation time, but appeals from both proper and improper disqualification would add delay.",
+        "A lawyer’s reputational interest could diverge from the client’s, whose interests must govern the ethical decision to appeal. Conditional avenues remained: § 1292(b) certification, extraordinary mandamus, and review after an unsatisfactory final judgment. Possible Judicial Council relief for egregious reputational injury from judicial misconduct was administrative, not appellate correction of every erroneous ruling.",
+        "District judges retained primary responsibility for prejudgment conduct. Mistakes and expense accompany many pretrial orders; making them enough for immediate review would swallow finality. Congress’s policy accepted delayed correction of some errors to avoid repeated interruption."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 429–436 & n. 2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Either prejudice rule defeats collateral-order treatment",
+      "cue": "Preserve the question the majority did not decide.",
+      "paragraphs": [
+        "The majority applied Flanagan, the earlier criminal-disqualification decision. If erroneous disqualification required no prejudice showing for reversal, review after judgment would be as effective as review before trial. If prejudice was required, assessing its effect on outcome would connect the issue to the merits. Either the separation requirement or effective-unreviewability requirement would fail.",
+        "The Court did not choose whether prejudice was required in civil or criminal cases. Difficulty proving it concerned the eventual review standard, not a basis for immediate jurisdiction. A sufficiently developed misconduct record in this individual case could not defeat categorical treatment.",
+        "Disqualification often overlaps merits independently. Lawyer-witness questions require evaluating likely testimony and trial, while misconduct questions may involve future proceedings, underlying claims and the judge’s ability to remain impartial. Some apparently separate orders did not make the whole category separate.",
+        "On June 17, 1985, seven participating Justices supported vacating the D.C. Circuit judgment and remanding with instructions to dismiss the appeal for want of jurisdiction. The Court expressed no view on disqualification or Bendectin liability. Justice Powell did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 436–441"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The separate opinions disagree about protecting chosen counsel",
+      "cue": "Explain Brennan’s condition and Stevens’s objection.",
+      "paragraphs": [
+        "Justice Brennan joined on the understanding that appellate courts would develop effective standards protecting the qualified right to chosen counsel. Tactical motions could let an opponent dictate representation. Later review could still work if courts would sometimes set aside judgments after lengthy trials; that risk could discourage abuse. He did not support automatic immediate appeal.",
+        "Justice Stevens dissented. Losing chosen counsel immediately prejudiced a fundamental interest. Yet he would hesitate to overturn a completed civil trial without some outcome effect, and proving that effect among many verdict variables could be practically impossible. He considered pretrial misconduct and the representation injury separate from the merits and would allow collateral-order review. He also agreed with the D.C. Circuit that this particular disqualification was legally erroneous and would have affirmed it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 441–444 & Stevens nn. 1–3"
+        }
+      ]
+    }
+  ]
+}

@@ -35,6 +35,7 @@ jobs:
         run: |
           python3 tools/r19/assemble.py
           python3 tools/r19/check.py
+          node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
           python3 tools/cold-call/check_narratives.py --write
           python3 tools/r19/audit24.py

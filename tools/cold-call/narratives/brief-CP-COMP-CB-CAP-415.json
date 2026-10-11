@@ -1,0 +1,139 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-415",
+  "briefId": "CP-COMP-CB-CAP-415",
+  "title": "Tull v. United States",
+  "course": "Civil Procedure",
+  "citation": "481 U.S. 412 (1987)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The government seeks millions in civil penalties and restoration after a developer fills disputed wetlands. A denied jury demand leads the Supreme Court to separate who decides statutory liability from who fixes the penalty amount.",
+  "actors": [
+    {
+      "name": "Tull",
+      "role": "Real-estate developer disputing wetland status and asserting a jury right."
+    },
+    {
+      "name": "United States",
+      "role": "Enforcement plaintiff seeking Clean Water Act penalties and injunctions."
+    }
+  ],
+  "proceedings": [
+    "After denying a timely jury demand, the district court found violations at a fifteen-day bench trial and imposed monetary and restoration remedies.",
+    "The Fourth Circuit affirmed over dissent.",
+    "The Supreme Court unanimously reversed as to denial of jury liability determination; seven Justices assigned penalty calculation to the judge."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current Seventh Amendment review. The decision concerned a federal civil action, not administrative adjudication. The separate Rivers and Harbors Act allegation was outside Tull’s jury argument. A 1987 statutory amendment followed argument and is distinct from the original trial text.",
+  "briefSha256": "64d773f8187644fd1a0f95241d43a7c871c9e5f1bb4cca011367cd1861fa6093",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-415"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Tull places fill without permits and the government disputes wetland status",
+      "cue": "What relief did the complaint seek?",
+      "paragraphs": [
+        "The United States sued developer Tull for unpermitted fill on Chincoteague Island, Virginia, at Ocean Breeze Mobile Homes Sites, Mire Pond Properties, and Eel Creek. An amendment added the manmade waterway Fowling Gut Extended.",
+        "The Clean Water Act prohibited specified unpermitted discharges into navigable waters, including adjacent wetlands, and separately allowed injunctions and civil penalties up to $10,000 daily. The government demanded $22,890,000, its claimed maximum, plus equitable relief. Tull admitted placing fill without permits but disputed that the land qualified as wetlands; competing experts created factual disputes.",
+        "He had sold almost all affected property before suit, limiting feasible injunctions. More than one million square feet were alleged affected, while the resulting injunction concerned only 6,000. A separate Rivers and Harbors Act allegation involving Fowling Gut Extended provided injunctive relief, not the civil penalties on which his jury argument rested."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 414–415 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A bench trial produces fines and restoration conditions",
+      "cue": "Why did the Fourth Circuit regard the remedy as equitable?",
+      "paragraphs": [
+        "The district court denied Tull’s timely jury demand and held a fifteen-day bench trial. It found violations and imposed $35,000 each for Ocean Breeze and Mire Pond and $5,000 for Eel Creek. A further $250,000 fine was suspended if Fowling Gut Extended was restored to its prior navigable condition.",
+        "Tull asserted that restoration required buying third-party land for over $700,000, leaving payment as the practical choice; the court did not change its order. Other terms required restoring wetlands he still owned and removing fill from five Ocean Breeze lots unless he obtained an after-the-fact permit.",
+        "The Fourth Circuit affirmed over dissent, viewing discretionary penalty selection and injunctions as a combined exercise of statutory equity. It distinguished fixed-penalty precedents and disagreed with a Second Circuit jury-right decision. The Supreme Court accepted review of that conflict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 415–417"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court compares historical actions and the requested remedy",
+      "cue": "Why does the civil penalty require jury determination of liability?",
+      "paragraphs": [
+        "Tull sought a jury on liability and amount, analogizing to English actions in debt for statutory penalties. The government invoked equity’s public-nuisance jurisdiction over waterways and pollution, disgorgement, and money incidental to injunctions. Neither statutory text nor history fairly implied a jury entitlement itself, so constitutional analysis was necessary.",
+        "Justice Brennan examined both eighteenth-century analogues and legal versus equitable relief, placing greater weight on the remedy without treating action and remedy as disconnected tests. New statutory claims could receive Seventh Amendment protection without exact historical duplicates. Debt, supported by Hepner and Regan, was a plausible analogy; nuisance also illuminated the claim, and the Court need not choose the single closest form.",
+        "Punishment and deterrence made this civil penalty legal. Section 1319(d) was not limited to restitution, restored position, or profits. Legislative guidance concerned seriousness, prior violations, good faith, and deterrence, and the trial court fined properties yielding Tull no profit. Disgorgement therefore could not describe the whole remedy.",
+        "Joining injunction claims did not remove a jury right on the legal claim and shared factual issues. Equity could restore money appropriately but did not ordinarily enforce punitive penalties. Nor could the enormous claimed fine be incidental to the small remaining injunction after sales. All nine Justices agreed that Tull was entitled to a jury on liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 417–425 & nn.3–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Seven Justices assign the penalty amount to the judge",
+      "cue": "Why did the majority distinguish this from liability?",
+      "paragraphs": [
+        "The majority understood Congress to intend discretionary penalty calculations by trial judges after liability. The Seventh Amendment preserved fundamental jury elements, but the Court did not view civil-penalty assessment in this setting as one. Congress could set an amount itself and could delegate selection to judges, whose traditional work included comparable multifactor decisions.",
+        "At trial, the statute did not expressly choose judge or jury; the Court relied on legislative history and constitutional reasoning, including lack of evidence that the Amendment necessarily extended to this remedy phase. An amendment enacted after argument in 1987 expressly listed assessment factors and other justice-related considerations.",
+        "This allocation did not broadly remove ordinary compensatory or punitive damages from civil juries. It addressed the statutory penalty at issue. Practical compatibility considerations discussed for administrative proceedings were not an independent basis to expand jury protection here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 418 n.4, 423 n.8, 425–427 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Scalia and Stevens would also give amount to the jury",
+      "cue": "What was wrong with the majority’s fixed-sum analogy in their view?",
+      "paragraphs": [
+        "Justice Scalia, joined by Justice Stevens, accepted the facts, liability analysis, and reversal but rejected separating penalty valuation. Congress’s ability to fix a sum did not authorize removing valuation from a jury when Congress instead left the amount open. The same logic, he argued, would improperly transfer damages assessment in ordinary private actions merely because legislators could have fixed damages.",
+        "He found no historical precedent for the majority’s arrangement and pointed to juries’ ordinary punitive-damages role. Criminal sentencing offered a tempting analogy, but criminal prosecution carried proof beyond a reasonable doubt. Government choosing a civil debt-like action should accept the jury’s amount determination along with civil procedure’s benefits. He would remand both questions for a jury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 427–428"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The remand requires a jury on the contested liability facts",
+      "cue": "What did reversal leave undecided?",
+      "paragraphs": [
+        "On April 28, 1987, the Supreme Court reversed the Fourth Circuit and remanded. All nine agreed on liability jury trial and the disposition; the judge-assessed penalty rule divided seven to two.",
+        "The Court did not decide whether the disputed land was wetland, set a replacement penalty, or adjudicate the separate statute outside Tull’s jury argument. Further proceedings had to follow the liability-versus-amount allocation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. 413, 427–428"
+        }
+      ]
+    }
+  ]
+}

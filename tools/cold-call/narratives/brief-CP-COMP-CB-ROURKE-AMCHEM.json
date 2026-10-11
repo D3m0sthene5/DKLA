@@ -1,0 +1,117 @@
+{
+  "id": "brief-CP-COMP-CB-ROURKE-AMCHEM",
+  "briefId": "CP-COMP-CB-ROURKE-AMCHEM",
+  "title": "Rourke v. Amchem Products, Inc.",
+  "course": "Civil Procedure",
+  "citation": "384 Md. 329, 863 A.2d 926 (2004)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Maryland asbestos claimants invoked a Virginia arbitration ruling to avoid arbitrating their settlement dispute. Maryland’s highest court applied Virginia’s preclusion limits, then independently found the arbitration agreement remained in force.",
+  "actors": [
+    {
+      "name": "Maryland asbestos claimants",
+      "role": "882 personal-injury and wrongful-death settling claimants"
+    },
+    {
+      "name": "Center for Claims Resolution",
+      "role": "Administrator of manufacturers’ asbestos settlements"
+    },
+    {
+      "name": "Member manufacturers",
+      "role": "Defendants whose original settlement liability was several"
+    },
+    {
+      "name": "Michael Rooney",
+      "role": "Claims officer who clarified the effect of releases"
+    }
+  ],
+  "proceedings": [
+    "Circuit court compelled arbitration, without ruling on the motion to dismiss the Center.",
+    "Court of Special Appeals affirmed.",
+    "Court of Appeals of Maryland affirmed, five to two."
+  ],
+  "limits": "No determination that nondefaulting members owed others’ unpaid shares. Only three manufacturer defendants and the Center were actual Virginia parties; asserted privity was unlitigated on appeal. Maryland did not newly adopt general offensive nonmutual preclusion.",
+  "briefSha256": "dca535de63367bf5678879acbf7c8b1d31e1d8e8b9ba3135006fcec87b85148f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-ROURKE-AMCHEM"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An asbestos settlement allocates each manufacturer’s share",
+      "cue": "The agreement and release problem",
+      "paragraphs": [
+        "Asbestos manufacturers formed the Center for Claims Resolution to administer claims under a Producer Agreement allocating liability, expense, and membership changes. In April 2000 plaintiffs’ firms negotiated a settlement for 882 Maryland injury and wrongful-death claimants, anticipated at about $10.1 million in three adjustable installments. Each claimant had to qualify, accept the amount, and release claims.",
+        "The Settlement Agreement made each manufacturer liable only for its own share, provided default options, required good-faith dispute resolution followed by binding arbitration of unresolved implementation disputes, and selected Maryland law.",
+        "One firm wanted to distribute installments proportionally rather than pay successive clients fully. Releases nevertheless acknowledged full payment before some clients received it. On October 31, claims officer Michael Rooney wrote that those releases did not establish satisfaction. Unpaid claimants retained a contract remedy for deficiencies, interest, and reasonable collection expenses, including collection by lawsuit or otherwise. Subject to an identified exception, the letter described that as the releasing claimant’s sole legal remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333–338"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Shortfalls produce a suit and a prior-judgment argument",
+      "cue": "The question sent through Maryland’s courts",
+      "paragraphs": [
+        "After defaults and payment shortfalls, the claimants argued Rooney’s letter created joint-and-several liability and allowed judicial collection. They sued the Center and its twelve then-current members for declarations and money. Defendants sought arbitration.",
+        "The claimants argued the letter displaced arbitration and invoked a Virginia Supreme Court decision construing a similar agreement and letter against arbitration. They had not been Virginia plaintiffs. Only the Center and three manufacturer defendants had actually participated there; alleged privity of others was not disputed on this appeal and remained undecided.",
+        "The circuit court compelled arbitration and entered no ruling on the Center’s dismissal motion. The Court of Special Appeals affirmed, using Virginia’s mutuality requirement to deny preclusion and reading the letter as preserving arbitration. Maryland’s highest court then reviewed both grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "339–343 & majority n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Virginia determines the reach of its judgment",
+      "cue": "The majority’s preclusion ruling",
+      "paragraphs": [
+        "Judge Wilner’s majority held Maryland must give the Virginia judgment the preclusive effect Virginia would give it. These new plaintiffs sought offensive nonmutual preclusion—binding defendants to an issue they lost against different plaintiffs. Virginia retained mutuality and would not allow that use.",
+        "Full faith and credit and Maryland’s own conflicts law required the rendering state’s rules, ordinarily giving its judgment neither greater nor lesser effect. A forum could not enlarge it merely because local policy differed. States’ choices reflected fairness, incentives, and reliance: offensive use could reward waiting for another plaintiff’s win, amplify a small first case, and disregard inconsistent judgments or different procedural opportunities.",
+        "Maryland had recognized defensive nonmutual preclusion but had not formally embraced offensive use, and the court declined to do so here. The Maryland-law clause did not change the result because Maryland law itself referred to Virginia’s rules for this judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "343–352 & majority n.11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The documents still require arbitration",
+      "cue": "Independent interpretation and the dissent",
+      "paragraphs": [
+        "Without binding Virginia preclusion, the court addressed whether the later letter ended the original arbitration obligation. Continued existence was a court question, distinct from scope uncertainty about an admitted existing clause. The broad clause covered the disputed allocation of defaulting members’ shares, but the court did not decide that liability.",
+        "Read harmoniously, a contract remedy could be pursued in arbitration; references to such action, interest, and expenses did not necessarily mean court litigation. The letter protected clients signing before full payment. Its lawsuit language could coexist with arbitration because original default provisions allowed the settlement to end as to defaulting members, against whom litigation remained possible. It did not eliminate arbitration concerning the nondefaulting defendants.",
+        "Chief Judge Bell, joined by Judge Cathell, dissented. He viewed collateral estoppel as the later forum’s litigation-management policy rather than a change to the original judgment’s validity. Defendants had received full Virginia review, with no demonstrated inadequate opportunity. He challenged extending federal full-faith-and-credit precedents to prohibit broader forum preclusion and favored contrary authorities’ reasoning. At minimum he would remand for review of discretionary offensive preclusion on its merits, not award payment.",
+        "The five-to-two majority affirmed the order compelling arbitration, without deciding that defendants owed all unpaid settlement amounts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352–372 & majority n.12, dissent nn.5–6"
+        }
+      ]
+    }
+  ]
+}

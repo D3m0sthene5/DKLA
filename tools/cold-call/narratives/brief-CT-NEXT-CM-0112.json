@@ -1,0 +1,107 @@
+{
+  "id": "brief-CT-NEXT-CM-0112",
+  "briefId": "CT-NEXT-CM-0112",
+  "title": "Shadis v. Beal",
+  "course": "Contracts",
+  "citation": "685 F.2d 824 (3d Cir. July 20, 1982), amended August 4, 1982",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A legal-aid organization wins civil-rights relief and seeks statutory fees, then defeats the state’s attempt to enforce funding terms barring those fees.",
+  "actors": [
+    {
+      "name": "The plaintiff classes",
+      "role": "Medically needy Pennsylvania residents challenging Medicaid practices."
+    },
+    {
+      "name": "Community Legal Services",
+      "role": "Nonprofit counsel relying on grants and statutory fee awards."
+    },
+    {
+      "name": "Pennsylvania welfare authorities",
+      "role": "Civil-rights defendants and participants in the funding arrangements."
+    }
+  ],
+  "proceedings": [
+    "The classes obtained relief and a settlement approved in December 1979.",
+    "The district court invalidated the fee restraints and entered the agreed $85,000 fee judgment; the Third Circuit affirmed."
+  ],
+  "limits": "The decision rests on federal public policy in these funding restraints, not economic duress or invalidation of every grant obligation. It is not a statement about every later fee-waiver arrangement.",
+  "briefSha256": "997b32e05b402aa3a42702755b8e274b538cec42b81ff55623e2c114818cf3a1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0112"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Medicaid recipients obtain relief through nonprofit counsel",
+      "cue": "What litigation generated the fee request?",
+      "paragraphs": [
+        "Medically needy Pennsylvania residents brought a class action in 1975 under 42 U.S.C. § 1983. They challenged termination of Medicaid benefits without notice or hearings and eligibility requirements inconsistent with federal law. The classes obtained declaratory and injunctive relief, essentially prevailed, and reached a settlement approved in December 1979.",
+        "Their nonprofit lawyer, Community Legal Services, then requested attorney’s fees under § 1988. About half its operations were funded directly by the federal Legal Services Corporation. The rest came through Title XX funds routed through the state welfare department and Pennsylvania Legal Services Center, including a twenty-five-percent state match."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "685 F.2d 826–828, 832 and notes 1, 4; litigation and funding"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Funding contracts place limits on claims against the state",
+      "cue": "What had the legal-aid organization signed?",
+      "paragraphs": [
+        "Beginning in 1978–1979, the welfare department required no-fee terms in its agreement with the Center and later in local programs’ contracts. Community Legal Services’ 1979–1980 agreement prohibited fee requests against the state or its employees and permitted awards to be deducted from later invoices. The next agreement also prohibited accepting fees.",
+        "The organization signed while expressly reserving objections. In July 1980 it faced threatened loss of all funding, an unexpected $118,000 reimbursement reduction and earlier funding and staffing cuts. It raised economic duress, but the appellate court would not need to resolve that alternative ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826–828 and notes 4–6; successive restraints and reservations"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The district court allows fees despite the restraints",
+      "cue": "Why did federal policy control the contract defense?",
+      "paragraphs": [
+        "The district court invalidated the restraints. The parties agreed that $85,000 would be reasonable if fees were recoverable, so judgment for that amount left entitlement, rather than hours or rates, for appeal. The state invoked the contracts to resist the federal statutory remedy.",
+        "The Third Circuit treated that defense as a federal question because the underlying claim and fee request arose under civil-rights statutes. Pennsylvania public-policy principles could inform the analysis, but this was not an ordinary contract dispute merely connected to federal grants. Congress intended § 1988 to support private enforcement, including by legal-aid organizations serving clients without charge. General subsidies did not replace litigation incentives or permit a state to purchase protection from a significant part of the civil-rights bar."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826, 828–831 and notes 3, 7, 9–11; award, governing law and statutory purpose"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court balances funding expectations against enforcement of civil rights",
+      "cue": "Why did taxpayer and double-payment objections fail?",
+      "paragraphs": [
+        "The state stressed predictable budgets, taxpayers and paying for services twice. The court recognized fixed-funding interests but distinguished a general legal-services grant from fees incurred as a losing civil-rights defendant. The latter addressed costs associated with a violation and encouraged compliance and appropriate settlement. Public enforcement benefited taxpayers as well.",
+        "Restatement §§ 178 and 179 supported balancing justified expectations, forfeiture and enforcement interests against the strength and directness of the contrary policy. A literal statutory ban on the term was unnecessary: purpose, history and the statutory scheme could establish a decisive conflict. Earlier cases enforcing unrelated reimbursement clauses lacked that conflict. Judge James Hunter III, joined by Gibbons and visiting District Judge Gerry, held the restraints void and affirmed the $85,000 judgment, without separate writing or a decision on duress."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "832–834 and notes 6, 12–15; balance, rejected limiting argument and disposition"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-077",
+  "briefId": "CP-COMP-CB-CAP-077",
+  "title": "Jones v. Flowers",
+  "course": "Civil Procedure",
+  "citation": "547 U.S. 220 (2006)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Arkansas twice mailed certified tax-sale notices that came back unclaimed, then sold Gary Jones’s house. The Supreme Court required another reasonable notice effort when practicable because the State learned of the failed deliveries before taking the property.",
+  "actors": [
+    {
+      "name": "Gary Jones",
+      "role": "Owner whose home was sold for delinquent taxes"
+    },
+    {
+      "name": "Mark Wilcox",
+      "role": "Arkansas Commissioner of State Lands administering the sale"
+    },
+    {
+      "name": "Linda Flowers",
+      "role": "Purchaser who later sought possession"
+    }
+  ],
+  "proceedings": "Trial court granted defendants summary judgment; Arkansas Supreme Court affirmed; U.S. Supreme Court reversed and remanded, 5–3, with one Justice not participating.",
+  "limits": "The narrative preserves the historical notice dispute and does not certify current Arkansas statutes or later notice doctrine. It transforms the full source brief without a new opinion audit.",
+  "briefSha256": "8113183bf32c997e7948da856c61880db4e32073aca50e87eae7c207a8cd3790",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-077"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Taxes go unpaid after the mortgage ends",
+      "cue": "1967–2000",
+      "paragraphs": [
+        "Gary Jones bought a house at 717 North Bryan Street in Little Rock in 1967. After separating from his wife in 1993, he moved to another apartment in the city while she remained in the house. His mortgage company paid property taxes until he paid off the mortgage in 1997. Taxes then went unpaid, and the property was certified delinquent. Jones had not updated his address with the tax collector as Arkansas law required.",
+        "In April 2000, Commissioner of State Lands Mark Wilcox sent Jones a certified letter at the house explaining the delinquency and an impending public sale unless he redeemed. Nobody was home to sign, and nobody later retrieved the letter. It returned marked “unclaimed.” The scheduled sale was roughly two years away."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "223–224, 230–232"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A second letter returns and the house is sold",
+      "cue": "2002 and the ensuing challenge",
+      "paragraphs": [
+        "Arkansas published newspaper notice in 2002. The public auction produced no bids, but Linda Flowers later offered to buy privately. Another certified letter to Jones at the house also returned unclaimed. Flowers purchased for $21,042.15, although the parties stipulated that fair market value was $80,000. The postsale redemption period expired.",
+        "Jones learned about the sale when his daughter received Flowers’s unlawful-detainer notice. He sued Flowers and the Commissioner, alleging deprivation of property without due process. On cross-motions for summary judgment, the trial court ruled for the defendants. The Arkansas Supreme Court affirmed, treating statutory mailing as adequate without actual receipt. The U.S. Supreme Court agreed to decide whether known failure of the certified-mail attempt required a practicable follow-up before sale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "223–225"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Returned mail changes the circumstances",
+      "cue": "The majority’s notice analysis",
+      "paragraphs": [
+        "Chief Justice Roberts’s majority applied Mullane, the precedent requiring notice reasonably calculated under all the circumstances to inform interested people and permit objections. Actual receipt was unnecessary, and certified mail could be reasonable initially. But affirmative information that the letters were unclaimed, received while there was time to respond, changed the circumstances.",
+        "The question was what someone actually desirous of informing the owner would reasonably do next. The first return came about two years before the sale, not after a completed deprivation. The majority illustrated the distinction with notices visibly falling into a storm drain: the sender could not regard the act of mailing as sufficient despite knowing it had failed.",
+        "Jones’s own shortcomings did not eliminate the State’s duty. Knowing taxes were owed did not establish knowledge of a particular impending sale, and failing to update an address did not authorize constitutionally inadequate notice. The State also could not automatically make occupants the absent owner’s agents for retrieving certified mail. The record contained no evidence that attempted-delivery slips were actually left, distinct from postal rules requiring such slips."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "225–234"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Reasonable follow-up need not become a limitless search",
+      "cue": "Available measures and limits",
+      "paragraphs": [
+        "An unclaimed letter might mean the owner was temporarily absent or had moved. Regular mail could remain without a signature and might be forwarded or brought to his attention. Posting notice or mailing to “occupant” could alert people whose possession was threatened. Jones’s daughter ultimately did inform him after receiving the detainer notice, illustrating the possible value of reaching occupants. None of those alternatives was guaranteed to succeed.",
+        "The majority rejected an open-ended search through telephone directories and government records. “Unclaimed” did not prove the address wrong, and those searches were substantially more burdensome. Conversely, the Commissioner offered no estimate of returned letters or factual support for claims about finding tens of thousands of properties. Arkansas already required personal service for some homesteads after returned certified mail and shifted notice costs to taxpayers or purchasers. Those practices informed the burden analysis without creating a universal personal-service requirement.",
+        "Publication could not cure the defect when a better warning was reasonably available. Certified mail remained useful for documenting delivery, but the information it supplied could not be ignored. The Court distinguished Dusenbery, a notice case where a prison signed for the mailing, from letters returned to their sender."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "234–238"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court requires another practicable step",
+      "cue": "April 26, 2006",
+      "paragraphs": [
+        "Justices Stevens, Souter, Ginsburg, and Breyer joined Roberts. On April 26, 2006, the Court reversed the Arkansas Supreme Court and remanded. When certified tax-sale notice returns unclaimed before the sale, the State must take additional reasonable steps if practicable. Reasonable options existed here.",
+        "The Court did not award title to Jones, dictate a replacement statute, require actual receipt, or condemn certified mail categorically. States retained choices among reasonable procedures. Although taking and selling a house was an extraordinary power, the rule did not depend on Jones personally residing there."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "238–239"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Three Justices would judge the initial mailing as sufficient",
+      "cue": "Thomas’s dissent",
+      "paragraphs": [
+        "Justice Thomas, joined by Justices Scalia and Kennedy, would have affirmed; Justice Alito did not participate. Thomas considered certified mail to the owner-provided address plus publication reasonably calculated to give notice when sent. In his view, later failure information should not turn that ex ante inquiry into a potentially endless obligation. Ownership and the statutory address-update duty supported expecting Jones to protect his interests.",
+        "Thomas distinguished situations where officials already knew before mailing that a recipient was jailed or incompetent. An unclaimed letter could reflect refusal or neglect to retrieve it, not an obsolete address, and did not explain how to fix the problem. Regular mail lacked traceability, posting imposed burdens without assured success, and occupants might discard mail. He relied on postal rules requiring delivery slips, without converting them into evidence that slips were left here, and questioned the line between required modest measures and rejected broader searches.",
+        "Both opinions accepted that actual receipt was unnecessary. They disagreed about what officials must do with known failure before the deprivation; the majority regarded its rule as responding to then-available information rather than hindsight after the taking."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "238, 239–249 & dissent nn.1–6"
+        }
+      ]
+    }
+  ]
+}

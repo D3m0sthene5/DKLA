@@ -1,0 +1,138 @@
+{
+  "id": "brief-CP-COMP-CB-US-WOOD",
+  "briefId": "CP-COMP-CB-US-WOOD",
+  "title": "United States v. Wood",
+  "course": "Civil Procedure",
+  "citation": "295 F.2d 772 (5th Cir. 1961)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The United States sought to postpone Mississippi’s prosecution of voting-rights organizer John Hardy because it allegedly intimidated eligible Black residents from registering. The Fifth Circuit allowed an exceptional immediate appeal and required preservation of the federal claim for a hearing, without deciding whether the allegations were ultimately true.",
+  "actors": [
+    {
+      "name": "United States",
+      "role": "Plaintiff enforcing the Civil Rights Act of 1957 through the Attorney General."
+    },
+    {
+      "name": "John Hardy",
+      "role": "Black Tennessee resident and Student Nonviolent Coordinating Committee participant."
+    },
+    {
+      "name": "John Q. Wood",
+      "role": "Walthall County voter registrar accused of assaulting Hardy."
+    },
+    {
+      "name": "Edd Craft",
+      "role": "Sheriff who arrested Hardy."
+    },
+    {
+      "name": "Edith Peters and Lucius Wilson",
+      "role": "Residents Hardy accompanied to the registrar."
+    },
+    {
+      "name": "Judges Rives and Brown",
+      "role": "Majority requiring a hearing and conditional temporary protection."
+    },
+    {
+      "name": "Judge Cameron",
+      "role": "Dissenter opposing jurisdiction and federal interference."
+    }
+  ],
+  "proceedings": "District court denied a temporary restraining order and interlocutory certification. Fifth Circuit treated the denial as effectively final under §1291, reversed, and remanded for a hearing with conditional temporary protection.",
+  "limits": "The government’s affidavits were allegations, not ultimate findings. The opinion describes historical jurisdiction and civil-rights enforcement; it is not a general rule that every temporary-order denial is appealable.",
+  "briefSha256": "6ee2c5f6371f606ee4c1fa88eb6816be1bceab593291cf79613a8f05eb8c1c2a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-US-WOOD"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Registration classes meet official resistance in the government’s account",
+      "cue": "The alleged injury concerns county voters as well as the organizer.",
+      "paragraphs": [
+        "John Hardy, a Black Tennessee resident participating in the Student Nonviolent Coordinating Committee, organized classes to help Black residents of Mississippi’s Walthall County register to vote. The United States’ affidavits described approximately 2,490 Black voting-age residents, none registered, while a substantial majority of roughly 4,530 white voting-age residents were registered. Several Black residents applied after the school opened.",
+        "On September 7, 1961, Hardy accompanied Edith Peters and Lucius Wilson to registrar John Q. Wood’s office. According to the government’s affidavits, Wood refused to register anyone, obtained a revolver, ordered Hardy out, and struck his head as he left. Sheriff Edd Craft then arrested Hardy for disturbing the peace. Statements attributed to Craft and other officials connected their hostility to Hardy’s registration activity and presence in Mississippi. No Black residents applied after the incident. These were the government’s allegations, not findings following an evidentiary trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "295 F.2d at 774–776"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An imminent prosecution creates an urgent federal motion",
+      "cue": "The appellate record remains the record presented below.",
+      "paragraphs": [
+        "Hardy’s prosecution was set for September 22. On September 20 the United States sued Mississippi officials under the Civil Rights Act of 1957 and sought a temporary restraining order. At the next day’s hearing, the officials supplied no counter-affidavits, saying notice and preparation time were insufficient. At 5 p.m. on September 21, the district court denied relief and declined certification for a discretionary interlocutory appeal.",
+        "Government lawyers applied to Circuit Judge Rives. A Mississippi assistant attorney general agreed to continue the prosecution during the appeal, making an immediate appellate stay unnecessary. Rives expedited the appeal and gave the officials time to obtain affidavits, subject to whether they could legally be considered. Once the majority accepted appellate jurisdiction, it treated the case as review of the district-court record and declined the new affidavits. Such material might have been considered under the alternative All Writs Act request; Judge Cameron later disputed the exclusion.",
+        "The government was not protecting Hardy’s own registration eligibility—he could not register in Walthall County—and did not allege that he could not receive a fair criminal trial. It sought protection for eligible Black residents whom a retaliatory prosecution could deter even if Hardy were acquitted. Their voting rights were not issues in his prosecution, and his remedies would not cure their intimidation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "295 F.2d at 774–775 & n.3; 780–781; 788"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats denial as practically final",
+      "cue": "Delayed review could no longer prevent the alleged injury.",
+      "paragraphs": [
+        "The officials sought dismissal because denial of a temporary restraining order ordinarily is not appealable. Judge Rives, joined by Judge Brown, acknowledged that rule. But the government’s first claim sought to prevent a specific, imminent prosecution from causing intimidation. Once prosecution occurred, later review could not restore the preventive relief. Denial effectively disposed of that claim before its merits could be heard.",
+        "Drawing on Cohen and related precedents construing finality practically, the majority held that an order deciding substantial rights irreparably lost through delayed review could be immediately reviewed under 28 U.S.C. §1291. It did not simply classify every temporary-order denial as an appealable interlocutory injunction. Denial here could end the claim, whereas granting temporary protection would preserve it for later decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "295 F.2d at 776–778 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Federal statutory enforcement requires a chance to be heard",
+      "cue": "The majority distinguishes this public claim from Hardy’s criminal defense.",
+      "paragraphs": [
+        "The officials invoked the Anti-Injunction Act, 28 U.S.C. §2283, and traditional restraint toward state prosecutions. Under the Supreme Court’s Leiter Minerals decision, the majority understood the statutory prohibition as inapplicable to suits by the United States, without limiting that principle to property disputes or civil state proceedings. United States v. Raines confirmed the national public interest in federal protection of voting rights. The court therefore did not need to decide whether the Civil Rights Act separately met the express-authorization or aid-of-jurisdiction exceptions.",
+        "The absence of a statutory bar did not automatically require an injunction. But the district court’s reliance on Douglas v. City of Jeannette and ordinary discretion to avoid state criminal proceedings did not answer this authorized enforcement claim. Section 1971 prohibited voting intimidation and authorized preventive relief by the Attorney General; its text and history encompassed misuse of criminal process. The pleaded conduct, affidavits, and alleged deterrence warranted consideration.",
+        "Section 1971(d) required jurisdiction without exhaustion of other remedies, and Congress had rejected language making that exercise permissive. The majority understood this as requiring an opportunity to hear a properly asserted claim, not mandating victory or every requested injunction. The affected voters could not secure relief in Hardy’s trial. Waiting until intimidation achieved its purpose would defeat preventive enforcement, while a brief delay of a misdemeanor prosecution imposed little injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "295 F.2d at 778–785 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent disputes jurisdiction, the record, and federal intervention",
+      "cue": "The majority orders a hearing rather than a final merits result.",
+      "paragraphs": [
+        "Judge Cameron denied appealability and rejected the majority’s Anti-Injunction Act interpretation. He regarded Douglas and later Supreme Court decisions as binding restraints on interference with state prosecutions and contested reliance on circuit precedent suggesting modification. He also charged the government with creating its own emergency by delay and criticized adverse portrayals of officials based on one-sided submissions. The officials had produced affidavits within Rives’s allowed timetable, and the government had not moved to strike them.",
+        "Cameron also characterized Hardy as an outside agitator and defended local control of racial relationships, repeating his earlier criticism of federal civil-rights intervention. Those were the dissent’s historical characterizations, not majority findings or an adopted limitation on voting-rights enforcement.",
+        "The court reversed and remanded for a full hearing on preliminary relief or the ultimate claim, with examination and cross-examination of witnesses. Unless officials agreed to postpone Hardy’s prosecution at least until the preliminary-injunction decision, the district court was to issue the temporary restraining order. The majority expressly reserved ultimate merits. The report notes denial of rehearing on November 30, 1961 without reproducing a separate reasoned opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "295 F.2d at 772, 785–789 & Cameron nn.1–3"
+        }
+      ]
+    }
+  ]
+}

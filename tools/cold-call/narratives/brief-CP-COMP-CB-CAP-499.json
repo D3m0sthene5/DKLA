@@ -1,0 +1,141 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-499",
+  "briefId": "CP-COMP-CB-CAP-499",
+  "title": "United States v. Nixon",
+  "course": "Civil Procedure",
+  "citation": "418 U.S. 683 (1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Special Prosecutor Leon Jaworski sought specific White House recordings for the Watergate criminal trial. President Richard Nixon claimed executive privilege, and the Supreme Court permitted immediate review before requiring him to deliver the materials for confidential judicial screening.",
+  "actors": [
+    {
+      "name": "President Richard Nixon",
+      "role": "President asserting privilege over White House conversations."
+    },
+    {
+      "name": "Leon Jaworski",
+      "role": "Special Prosecutor seeking evidence for the Watergate prosecution."
+    },
+    {
+      "name": "John Mitchell, H. R. Haldeman, and John Ehrlichman",
+      "role": "Former Attorney General and White House aides among the indicted defendants."
+    },
+    {
+      "name": "Chief Justice Burger",
+      "role": "Author for all eight participating Justices."
+    }
+  ],
+  "proceedings": "District court denied the motion to quash and ordered in-camera production. Supreme Court granted certiorari before court-of-appeals judgment, affirmed the production order, and dismissed Nixon’s companion cross-petition as improvidently granted.",
+  "limits": "The Court reserved civil suits, congressional information demands, and state secrets. It did not decide the grand jury’s authority to name Nixon an unindicted coconspirator. Justice Rehnquist did not participate.",
+  "briefSha256": "53146e08ad4731c52414c2a01c6ab3b643a06fe6ea8da05af5a03f5659dc4ccc",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-499"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Criminal charges make recorded conversations relevant",
+      "cue": "The prosecutor asks for identified evidence before trial.",
+      "paragraphs": [
+        "On March 1, 1974, a federal grand jury indicted seven people in the Watergate prosecution for offenses including conspiracy to obstruct justice. They included former Attorney General John Mitchell and White House aides H. R. Haldeman and John Ehrlichman. The grand jury also identified President Richard Nixon as an unindicted coconspirator. Charles Colson later pleaded guilty to a different charge and ceased to be a defendant in this prosecution.",
+        "Special Prosecutor Leon Jaworski requested tapes and documents concerning precisely identified presidential conversations and meetings. White House logs supplied dates, places, participants, and timing. On April 18 the district court issued a subpoena under Federal Rule of Criminal Procedure 17(c). Nixon publicly released edited transcripts of forty-three conversations on April 30, including portions of twenty subpoenaed conversations, but made a special appearance on May 1 to seek to quash the subpoena on executive-privilege grounds.",
+        "On May 20 the district court denied that request and ordered the original recordings and materials delivered with copies and an index for confidential, in-camera examination. The criminal trial was set for September 9. Nixon appealed and sought mandamus; Jaworski obtained Supreme Court review before the court of appeals entered judgment. Nixon separately obtained review of the refusal to expunge the grand jury’s reference to him. The Court heard argument on July 8."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 687–690 & nn.2–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court permits review without presidential contempt",
+      "cue": "Special access to appeal does not decide the privilege claim.",
+      "paragraphs": [
+        "Chief Justice Burger wrote for all eight participating Justices; Justice Rehnquist took no part. The Court first addressed appellate jurisdiction. Ordinarily, denial of a motion to quash a subpoena is not a final decision under 28 U.S.C. § 1291. A recipient must refuse compliance, be held in contempt, and appeal that judgment. The ordinary rule prevents evidentiary disputes from repeatedly interrupting proceedings. A recognized exception concerns a third-party recipient unlikely to risk contempt to protect another person’s interests.",
+        "The President presented a different but comparably compelling situation. Requiring deliberate disobedience merely to obtain appellate review would generate an unnecessary constitutional confrontation and delay an approaching criminal trial. The Court treated this particular order as appealable under § 1291. The case was therefore properly pending in the court of appeals and eligible for certiorari before judgment under § 1254. The Court did not reach other suggested jurisdictional grounds or make ordinary subpoena and privilege rulings immediately appealable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 690–692 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The prosecutor and President present a judicial controversy",
+      "cue": "An operative delegation gives the dispute legal adversity.",
+      "paragraphs": [
+        "Nixon argued that a disagreement between two Executive Branch officials was not justiciable. The Court examined the authority actually conferred on Jaworski. Congress had vested criminal litigation authority in the Attorney General, who delegated power through an operative regulation authorizing the Special Prosecutor to seek evidence, contest executive privilege, and exercise substantial independence with special removal protections.",
+        "The Executive could potentially amend or revoke that regulation but had not done so. While operative, it bound the Executive Branch. Jaworski’s exercise of delegated authority and Nixon’s assertion of privilege thus created concrete adversity concerning evidence for a pending criminal prosecution. Courts traditionally decided that sort of legal dispute. The conclusion rested on the existing delegation, not on a rule allowing judicial resolution of every internal executive disagreement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 692–697 & nn.8–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The requested recordings satisfy the subpoena standard",
+      "cue": "Specificity and likely evidentiary uses justify judicial screening.",
+      "paragraphs": [
+        "Nixon also challenged the evidentiary showing. Rule 17(c) obtains evidentiary material before trial; it is not a general criminal-discovery device. The principal requirements were relevance, admissibility, and specificity. The district court also considered whether diligent efforts could obtain the materials elsewhere, whether advance production was needed for preparation and avoiding delay, and whether the request was made in good faith rather than as a fishing expedition.",
+        "Jaworski identified particular conversations instead of demanding an undefined mass of presidential papers. Participants’ testimony and the conversations’ connection to the alleged conspiracy supplied a rational basis for relevance. The materials could include admissible party statements or coconspirator declarations, subject to the requirements for those uses. Their potential importance and the time needed to examine recordings supported pretrial production. Although impeachment alone ordinarily would not justify such production, other evidentiary uses had been shown.",
+        "The Court upheld production for screening; it did not declare every recording admissible before examination. Because the prosecutor satisfied the ordinary requirements, the Court also left open whether third-party subpoenas might sometimes receive a lower standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 697–702 & nn.12–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A substantial privilege meets a specific criminal-trial need",
+      "cue": "General confidentiality cannot conclusively defeat the subpoena.",
+      "paragraphs": [
+        "Nixon asserted an absolute privilege grounded in separation of powers and the need for candid presidential advice. The Court recognized a constitutionally grounded presumption protecting presidential communications. Confidential deliberation deserves substantial respect even though the Constitution does not expressly enumerate the privilege.",
+        "But the President could not conclusively define a legal privilege asserted against a judicial demand for evidence. Resolving such claims belonged to the judicial function. An absolute privilege resting on separation of powers or generalized confidentiality would impair the courts’ own constitutional responsibility to administer criminal justice. Nixon had not asserted military, diplomatic, or sensitive national-security secrets, which raised different considerations.",
+        "The competing need was specific and demonstrated: relevant evidence for a criminal trial. The Fifth and Sixth Amendments and the duty to determine guilt fairly gave that need constitutional significance. Permitting generalized confidentiality to defeat the showing made here would seriously impair criminal adjudication. The Court held that the trial’s demonstrated evidentiary need prevailed, while expressly reserving civil litigation, congressional demands, and preservation of state secrets."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 703–713 & nn.15–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The order requires confidential production, not unrestricted disclosure",
+      "cue": "The companion petition does not resolve the grand jury question.",
+      "paragraphs": [
+        "The Court affirmed the production order in No. 73-1766 and directed that its mandate issue forthwith. Nixon was to deliver the materials to the district judge for confidential inspection and selection of relevant, admissible evidence. Unrelated or inadmissible presidential communications were to be protected, excised, and returned under seal to their lawful custodian. The judge could seek counsel’s assistance in camera about proposed excisions while preserving confidentiality. The order did not authorize immediate public release of all recordings.",
+        "In companion No. 73-1834, the Court dismissed Nixon’s cross-petition as improvidently granted and denied his request to transmit the grand jury material. It therefore did not decide whether the grand jury could lawfully name him an unindicted coconspirator. The eight participating Justices were unanimous, with no separate opinions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "418 U.S. at 687 n.2, 713–716 & n.21"
+        }
+      ]
+    }
+  ]
+}

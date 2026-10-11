@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-082",
+  "briefId": "CT-ADDITIONAL-CM-B3-082",
+  "title": "United States v. Peck; Peck v. United States",
+  "course": "Contracts",
+  "citation": "102 U.S. 64 (1880)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Government diverts the only contemplated hay supply to other suppliers, then cannot charge its contractor for the resulting failure to deliver.",
+  "actors": [
+    {
+      "name": "Peck",
+      "role": "Contractor who delivered wood but could not deliver the contracted hay."
+    },
+    {
+      "name": "The United States",
+      "role": "Purchaser whose officers allowed others to take the expected supply and sought an increased-cost deduction."
+    }
+  ],
+  "proceedings": [
+    "The Court of Claims considered the written contract and surrounding circumstances.",
+    "The Supreme Court affirmed in cross appeals, rejecting the published increased-cost deduction argument."
+  ],
+  "limits": "The published report deliberately omits other minor points. It gives no quantified recovery, separate writing or numerical vote; the omitted matters are not reconstructed.",
+  "briefSha256": "f167118ea3398dc96750960e659ad3fbed5d8275a41313c6a080baac291c45ab",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-082"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A military supply contract depends on a known local hay source",
+      "cue": "What did Peck promise and where could he obtain the hay?",
+      "paragraphs": [
+        "Peck contracted with a military officer to supply specified quantities of wood and hay to the Tongue River station in the Yellowstone region by a designated time. He delivered the wood but not the hay.",
+        "The written agreement did not name the hay’s source. The surrounding circumstances showed that both sides contemplated cutting it in the Yellowstone valley, especially Big Meadows near the mouth of Tongue River. This was the only source available to Peck within hundreds of miles, and government officers knew he relied on it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "102 U.S. 64; agreement and contemplated source"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Government officers permit competing suppliers to take that hay",
+      "cue": "How did the proposed deduction arise?",
+      "paragraphs": [
+        "Concerned about possible nonperformance and regarding the hay as indispensable, government officers allowed others to cut the Big Meadows hay and use it to supply the station. Other suppliers furnished hay at increased expense, and accounting officers proposed deducting the extra cost from the money due for Peck’s wood.",
+        "Peck objected that the Government had taken away the means on which it knew he depended and then charged him for the resulting failure. The Court of Claims considered the agreement with those circumstances, and both sides appealed its judgment to the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "64; interference, substitute supply and cross appeals"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Bradley explains why surrounding circumstances and later conduct matter",
+      "cue": "Did the evidence simply add an unwritten source restriction?",
+      "paragraphs": [
+        "Justice Bradley identified two proper uses of parol evidence. It clarified the subject matter—hay to be cut in the region of delivery—and established the Government’s later interference. Its agents encouraged reliance on the particular means until alternatives were no longer feasible, then removed that means themselves.",
+        "The reasoning did not merely insert a new sourcing term or excuse a supplier’s independent selection of an unreliable source. It connected known reliance to the other party’s own prevention. A contracting party could not invoke the nonperformance its interference caused."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "64–65; evidentiary uses and prevention principle"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Prevention precedents support affirmance without a stated amount",
+      "cue": "What remained within the published decision?",
+      "paragraphs": [
+        "Bradley compared a mortgage-cancellation bond: the obligee’s direction to place the mortgage with a third person excused incomplete literal compliance that the obligor otherwise might have completed. Another precedent concerned a land-conveyance bond orally rescinded and followed by a sale to someone else, with conduct discharging the obligation despite unsurrendered papers. These were analogies, not additional events in Peck’s transaction.",
+        "The Supreme Court affirmed. The published reasoning rejected charging the extra hay cost against the wood account but stated no quantified recovery. It expressly omitted other minor points at Bradley’s suggestion, so their results cannot be reconstructed. No separate writing or vote count appears."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "65–66; supporting analogies, affirmance and publication limit"
+        }
+      ]
+    }
+  ]
+}

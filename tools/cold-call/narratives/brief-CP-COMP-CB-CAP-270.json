@@ -1,0 +1,140 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-270",
+  "briefId": "CP-COMP-CB-CAP-270",
+  "title": "Skinner v. Switzer",
+  "course": "Civil Procedure",
+  "citation": "562 U.S. 521 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A condemned prisoner sought DNA testing through a civil-rights action. The Supreme Court permitted that procedural vehicle because access to evidence would not necessarily invalidate his conviction, leaving entitlement to testing unresolved.",
+  "actors": [
+    {
+      "name": "Henry Skinner",
+      "role": "Texas prisoner convicted of three murders and sentenced to death"
+    },
+    {
+      "name": "Twila Busby and her two sons",
+      "role": "Victims of the murders for which Skinner was convicted"
+    },
+    {
+      "name": "Lynn Switzer",
+      "role": "District attorney whose office held the evidence"
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the six-Justice majority"
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Dissent author joined by Kennedy and Alito"
+    }
+  ],
+  "proceedings": [
+    "Texas courts twice denied testing under Article 64.",
+    "Federal district court dismissed the § 1983 suit under circuit habeas precedent; Fifth Circuit affirmed.",
+    "Supreme Court reversed and remanded, allowing the statutory vehicle and federal jurisdiction but not ordering testing."
+  ],
+  "limits": [
+    "The Court did not find innocence, resolve disputed DNA implications, or establish a constitutional entitlement to evidence.",
+    "Merits and ordinary preclusion questions remained for remand."
+  ],
+  "briefSha256": "b2cee2af28ce7e0620e5fd888d106ed68b9c37db8b024b8f70c4039cdf0570db",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-270"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Untested evidence remains after conviction",
+      "cue": "Introduce Skinner’s account without endorsing it.",
+      "paragraphs": [
+        "A Texas jury convicted Henry Skinner in 1995 of murdering his live-in girlfriend, Twila Busby, and her two sons, and sentenced him to death. He admitted being at the house but claimed alcohol and codeine had incapacitated him. He identified Busby’s uncle, Robert Donnell, as a possible perpetrator.",
+        "Some tested evidence implicated Skinner and other evidence did not. Knives, an axe handle, vaginal swabs, fingernail clippings and additional hair samples remained untested. A trial witness described Donnell’s sexual advances, a neighbor later described him cleaning his truck, and an expert excluded household members as sources of one hair. Later state DNA testing occurred without Skinner’s participation. He called it inconclusive; the state court described some results as inculpatory. The Supreme Court did not resolve that disagreement or find innocence. Skinner’s trial lawyer had declined additional testing for fear it would implicate him."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 U.S. at 525–529 & nn. 1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two state testing requests fail before the federal suit",
+      "cue": "Explain the state procedure and the relief sought.",
+      "paragraphs": [
+        "Texas enacted Article 64 in 2001 to allow limited postconviction DNA testing. It required earlier testing to have been unavailable or technologically inadequate, or evidence to have remained untested through no prisoner fault with testing serving justice. It also required a showing that exculpatory results would have prevented conviction and that the request would not unreasonably delay punishment.",
+        "The Texas Court of Criminal Appeals affirmed denial of Skinner’s first request because he had not shown the required prospect of a different conviction outcome. It affirmed the second denial on the no-fault requirement, accepting counsel’s earlier choice as reasonable strategy. The prosecutor reported that the requested items remained available with intact custody, while noting she had obtained no expert condition assessment.",
+        "Skinner sued district attorney Lynn Switzer, whose office held the evidence, for an injunction under 42 U.S.C. § 1983, alleging denial of procedural due process. The district court dismissed under circuit precedent requiring habeas for such requests; the Fifth Circuit affirmed. The Supreme Court granted review and stayed his scheduled execution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 U.S. at 527–529 & nn. 5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The complaint challenges the governing rule, not an appellate judgment",
+      "cue": "Explain pleading and subject-matter jurisdiction.",
+      "paragraphs": [
+        "Justice Ginsburg’s majority clarified the claim. Skinner alleged liberty interests in using state procedures to seek reversal, pardon or a reduced sentence. Counsel explained that he challenged the DNA statute as authoritatively construed, rather than seeking federal appellate reversal of particular state judgments or adjudication of prosecutorial misconduct. Rule 8(a)(2) required a plausible short and plain statement, not a perfect exposition of legal argument, so imperfect drafting did not obscure the procedural claim.",
+        "That distinction defeated the Rooker-Feldman objection, the jurisdictional doctrine preventing lower federal courts from hearing appeals seeking rejection of completed state judgments. An independent constitutional attack on the governing statute or rule could proceed even if a state court had already considered a related question. Skinner had also used the available state procedure rather than bypassing it.",
+        "Ordinary preclusion remained a separate matter. Even if Skinner could have raised his federal theory earlier, Rooker-Feldman was not preclusion under another name. Unaddressed preclusion questions were left for remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 U.S. at 529–533 & nn. 8–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Access to information does not necessarily undo custody",
+      "cue": "Explain why § 1983 remained available and narrow.",
+      "paragraphs": [
+        "The Court drew its boundary from Heck and Wilkinson v. Dotson, earlier decisions distinguishing civil-rights actions from habeas challenges. Section 1983 could not provide relief whose success necessarily implied an outstanding conviction or sentence was invalid. A claim lacking that necessary consequence could proceed subject to other requirements.",
+        "DNA access yielded information that might exculpate Skinner, incriminate him further, or be inconclusive. Success in this suit would not necessarily invalidate the conviction or shorten confinement. His hope of using favorable results later did not change the immediate relief sought. The majority refused to substitute a broader test asking merely whether a claim related to guilt or punishment.",
+        "Switzer supplied no evidence of a litigation flood in circuits already allowing such suits. More fundamentally, Osborne, the Court’s earlier DNA-testing decision, rejected substantive due process as a testing entitlement and left only a narrow procedural route. The Prison Litigation Reform Act also imposed fees, costs, sanctions and restrictions on repeated frivolous filings. An available vehicle did not promise success.",
+        "A postconviction Brady claim was different: suppression of favorable material evidence includes prejudice and necessarily undermines a conviction. Access to untested DNA did not yet show whether the information would help. Brady claims therefore remained within habeas’s traditional core; the Court was not deciding one brought by Skinner.",
+        "On March 7, 2011, the Court reversed and remanded. Chief Justice Roberts and Justices Scalia, Breyer, Sotomayor and Kagan joined Ginsburg, making six. Federal jurisdiction and § 1983 were available, but no testing, conviction relief or constitutional entitlement was ordered. Switzer’s remaining merits objections stayed open."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 U.S. at 531, 533–537 & nn. 12–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas views the testing process as collateral review",
+      "cue": "Preserve the dissent’s functional objection.",
+      "paragraphs": [
+        "Justice Thomas, joined by Justices Kennedy and Alito, would have affirmed. He accepted the procedural characterization for analysis while questioning whether the complaint more naturally asserted substantive due process and whether testing was an appropriate procedural remedy.",
+        "He considered challenges to state collateral-review procedures part of habeas. Trial, appellate and collateral processes all determine or review custody’s validity. Allowing attacks on the process through § 1983 could evade habeas exhaustion and deference. Although Article 64 testing and later state habeas were separate proceedings, both functioned as collateral review. That functional point differed from whether a testing request counted as collateral review under a particular federal tolling statute.",
+        "Thomas distinguished Dotson’s parole procedures from conviction review and rejected treating the majority’s necessary-effect formulas as exhaustive limits. Earlier decisions had returned to underlying principles to draw additional boundaries. He warned of analogous workarounds for direct appeals and rejected a purely mechanical speedier-release test outside the parole setting."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562 U.S. at 537–544 & Thomas nn. 1–5"
+        }
+      ]
+    }
+  ]
+}

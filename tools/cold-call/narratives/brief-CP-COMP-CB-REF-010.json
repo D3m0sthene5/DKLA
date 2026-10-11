@@ -1,0 +1,110 @@
+{
+  "id": "brief-CP-COMP-CB-REF-010",
+  "briefId": "CP-COMP-CB-REF-010",
+  "title": "Arbaugh v. Y & H Corp.",
+  "course": "Civil Procedure",
+  "citation": "546 U.S. 500 (2006)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employer waited until after losing a jury trial to claim that it lacked Title VII’s required workforce. The Supreme Court held that employee count was a claim element, so it could not support this belated jurisdictional attack.",
+  "actors": [
+    {
+      "name": "Jenifer Arbaugh",
+      "role": "Bartender and waitress alleging harassment and constructive discharge"
+    },
+    {
+      "name": "Y & H Corporation",
+      "role": "Owner of New Orleans’s Moonlight Cafe"
+    },
+    {
+      "name": "Yalcin Hatipoglu",
+      "role": "Owner accused of harassment"
+    }
+  ],
+  "proceedings": [
+    "Jury awarded $40,000; judgment entered November 5, 2002.",
+    "Posttrial workforce motion caused vacatur and dismissal; Fifth Circuit affirmed.",
+    "Supreme Court reversed and remanded, eight to zero, Alito not participating."
+  ],
+  "limits": "No Supreme Court determination of disputed workers’ employee status or new damages award. Fifteen-worker requirement remains substantive; wholly frivolous federal claims still cannot create jurisdiction.",
+  "briefSha256": "331f9b488bc7df668c638c76e63216407fab0a333cac8300d2be6acda4e31e07",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-REF-010"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The employment claim is tried without a workforce dispute",
+      "cue": "Arbaugh’s verdict",
+      "paragraphs": [
+        "Jenifer Arbaugh worked as a bartender and waitress at the Moonlight Cafe in New Orleans from May 2000 through February 2001. She alleged owner Yalcin Hatipoglu sexually harassed her and caused constructive discharge. In November 2001 she sued the restaurant’s owner, Y & H Corporation, under Title VII and Louisiana law, invoking federal-question and supplemental jurisdiction.",
+        "Y & H admitted jurisdiction while disputing the merits. The pretrial order likewise accepted federal jurisdiction and identified no dispute over employee numbers. With consent to a magistrate judge’s adjudication, a two-day jury trial found harassment and constructive discharge under federal and state law. It awarded $5,000 backpay, $5,000 compensatory damages, and $30,000 punitive damages. Judgment entered November 5, 2002."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "507–508 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The employer raises employee count after judgment",
+      "cue": "A merits victory becomes a jurisdictional dismissal",
+      "paragraphs": [
+        "Two weeks later Y & H invoked the rule requiring dismissal whenever subject-matter jurisdiction was lacking. It asserted for the first time that it did not have fifteen employees, Title VII’s employer threshold. Posttrial discovery considered eight delivery drivers, two owner-managers, and their shareholder spouses. Counting either the drivers or the four owners alongside payroll staff would satisfy the minimum. The trial court counted neither category.",
+        "Despite describing the timing as unfair and wasteful, it believed jurisdictional dismissal mandatory. It vacated the verdict judgment, dismissed the federal claim with prejudice, and dismissed the state claims without prejudice. The Fifth Circuit affirmed under its jurisdictional classification precedent. Supreme Court review concerned that classification, not recalculation of the workers’ status."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "508–510"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Coverage and court authority occupy separate provisions",
+      "cue": "Ginsburg’s reasoning",
+      "paragraphs": [
+        "Justice Ginsburg’s opinion separated Title VII’s definitions from jurisdiction. The statute defined an employer by fifteen employees for each working day in twenty or more weeks of the current or preceding year, alongside twelve other definitions. Federal-question jurisdiction and Title VII’s own court-authorization provision did not incorporate that threshold. The latter originally assured access when general federal-question jurisdiction had a monetary floor, removed in 1980. Supplemental jurisdiction covered the related state claims.",
+        "True jurisdictional defects were nonwaivable and demanded attention even after judgment. A failure-to-state-a-claim defense survived through merits trial, but not this far beyond it. Calling workforce coverage jurisdictional would also require independent judicial investigation without congressional instruction, permit judicial resolution of facts that belonged to a jury as claim elements, and compel dismissal of the entire case including tried state claims. A merits defeat instead allowed discretion concerning supplemental claims.",
+        "Earlier loose uses of jurisdiction did not resolve this question. Prior decisions on partnership discrimination, geographic coverage, and the employee-count method had not actually adjudicated this classification. Passing labels and an agency-authority discussion could not substitute for analysis of a federal court’s power."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "504–507 & nn.1–5; 510–515 & nn.7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A clear statutory classification is required",
+      "cue": "The belated attack fails",
+      "paragraphs": [
+        "The Court adopted a rule requiring Congress clearly to classify a statutory-coverage threshold as jurisdictional before courts treated it that way. Congress remained free to do so, as with express monetary limits on diversity jurisdiction. This threshold instead appeared in a separate definition with no jurisdictional language or reference to district-court authority.",
+        "The fifteen-worker minimum therefore remained an element of Arbaugh’s claim. It was not abolished, and the Court did not decide Y & H actually met it. Rather, the employer could not revive an untimely merits objection as a claim that the completed judgment was jurisdictionally void. The Court also preserved the distinct bar against federal claims manufactured solely to obtain jurisdiction or wholly insubstantial and frivolous; Arbaugh’s claim plainly was not one.",
+        "All eight participating Justices reversed the Fifth Circuit and remanded; Justice Alito did not participate. The classification foreclosed this late jurisdictional attack on the $40,000 verdict judgment, without issuing a new damages award or determining the disputed workers’ status."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513–516 & nn.10–11"
+        }
+      ]
+    }
+  ]
+}

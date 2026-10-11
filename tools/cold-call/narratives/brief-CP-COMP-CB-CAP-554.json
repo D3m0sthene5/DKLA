@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-554",
+  "briefId": "CP-COMP-CB-CAP-554",
+  "title": "The Evergreens v. Nunan",
+  "course": "Civil Procedure",
+  "citation": "141 F.2d 927 (2d Cir. 1944)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A cemetery sought to derive one property valuation from findings made in an earlier tax case. The Second Circuit rejected using an earlier finding as a conclusive evidentiary premise for a different ultimate issue.",
+  "actors": [
+    {
+      "name": "The Evergreens",
+      "role": "Brooklyn cemetery company selling burial lots"
+    },
+    {
+      "name": "Commissioner of Internal Revenue",
+      "role": "Tax authority defending deficiencies"
+    }
+  ],
+  "proceedings": [
+    "Earlier Board of Tax Appeals proceeding valued fully improved lots for 1929–1933 taxes.",
+    "Later Tax Court proceeding independently valued partially improved land for 1934–1935.",
+    "Second Circuit affirmed the deficiency order."
+  ],
+  "limits": "Historical restriction on using prior findings as mediate data in a second suit. Court did not decide all questions concerning evidentiary findings in the first suit or adopt a general foreseeability exception.",
+  "briefSha256": "5116fc1ae71e771c1d249acfe9846642964307c558e7d2068dd6e65b8d6b0553",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-554"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two kinds of cemetery property enter separate tax cases",
+      "cue": "The earlier valuation",
+      "paragraphs": [
+        "The Evergreens operated a Brooklyn cemetery and sold burial lots. Its taxable gains depended on proceeds minus basis, here the property’s value on March 1, 1913. Some lots were fully improved and others only partially improved.",
+        "In an earlier proceeding concerning 1929–1933 income taxes, the Board of Tax Appeals determined a value for fully improved lots and also found improvement costs ranged from eight to twenty cents per square foot. During 1934 and 1935, the company sold fully improved lots, while New York City took a large tract of partially improved land for municipal purposes. The later proceeding therefore required valuation of both kinds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "927–928"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The company proposes a conclusive subtraction",
+      "cue": "The Tax Court takes new evidence",
+      "paragraphs": [
+        "The Tax Court treated the earlier fully improved valuation as binding for that property category and used $1.55 per square foot. The Commissioner did not appeal that treatment. For partially improved land, however, the court heard new evidence and set basis at thirty-five cents per square foot. It refused to subtract the earlier improvement-cost finding from the earlier fully improved value.",
+        "The Evergreens sought review of the resulting deficiencies. It argued the earlier valuation supplied an indisputable starting point for subtraction and that the Board must already have determined partially improved value as a necessary step toward fully improved value. A Tax Court minority agreed with the latter argument.",
+        "Judge Learned Hand, writing for the Second Circuit panel with Swan and Augustus N. Hand, found no such determination in the earlier record. Considering delays in disposing of all lots did not establish that the Board first valued partially improved property and added costs. The improvement-cost finding itself was unnecessary to the earlier judgment and created no estoppel. Expert evidence also independently supported the later thirty-five-cent valuation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "927–928"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A finding’s role changes between suits",
+      "cue": "The distinction that controls",
+      "paragraphs": [
+        "Hand called a fact ultimate when, with other facts, it triggered a legal right, duty, or sanction. A mediate datum instead supplied evidence from which that ultimate fact could be inferred. The same proposition could play different roles in different cases.",
+        "He separated two questions. Courts disagreed whether a necessary evidentiary finding in the first action could ever be preclusive. This case did not require choosing because the earlier proceeding contained no relevant necessary mediate finding presenting that dispute.",
+        "The decisive question concerned the second action. The company wanted the fully improved valuation—ultimate in its earlier setting—to become conclusive evidence from which a different value would now be deduced. Hand rejected that use. Even assuming a first suit’s mediate finding could conclusively establish a second suit’s ultimate fact, an earlier finding could not conclusively supply a mediate datum in the second suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "928–931"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The reach of preclusion is limited",
+      "cue": "The deficiency order stands",
+      "paragraphs": [
+        "Necessity to the first judgment ordinarily encouraged real contest: the result depended on the finding. But parties facing modest stakes might not anticipate later consequences. Turning every earlier determination into indisputable evidence for every rational future inference would multiply exposure beyond what they could calculate. Hand considered foreseeability as a possible general reform, but expressly did not identify it as existing law. His actual rule was the narrower second-suit restriction.",
+        "The supporting authorities did not already settle every aspect. A favorable New Hampshire tax precedent had been overruled; a British medical-certificate decision concerned a statutorily conclusive step within the same proceeding. A Restatement illustration denied conclusive use of a location finding from a contract case in a later assault case, but involved a mediate datum in both. Hand left open the distinct first-suit-status question while explaining its relevance.",
+        "The panel affirmed the Tax Court’s order. The thirty-five-cent basis and resulting deficiency determination stood; the company obtained neither mandatory subtraction nor a new valuation proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "929–931 & n.1"
+        }
+      ]
+    }
+  ]
+}

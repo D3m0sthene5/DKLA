@@ -1,0 +1,167 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-530",
+  "briefId": "CP-COMP-CB-CAP-530",
+  "title": "Inwood Laboratories, Inc. v. Ives Laboratories, Inc.",
+  "course": "Civil Procedure",
+  "citation": "456 U.S. 844 (1982)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After Ives’s drug patent expired, generic suppliers sold equivalent medicine in matching capsule colors. Ives blamed them when some pharmacists applied its trademark to generics, but the Supreme Court held that the appellate court had improperly displaced the trial judge’s findings.",
+  "actors": [
+    {
+      "name": "Ives Laboratories",
+      "role": "Patent and trademark holder suing generic suppliers."
+    },
+    {
+      "name": "Inwood, Premo, and other manufacturers and wholesalers",
+      "role": "Suppliers of generic cyclandelate defending against contributory infringement and related claims."
+    },
+    {
+      "name": "Pharmacists",
+      "role": "Retail dispensers who transferred capsules and supplied consumer-facing labels."
+    },
+    {
+      "name": "Justice O’Connor",
+      "role": "Author of the six-Justice majority."
+    },
+    {
+      "name": "Justice White",
+      "role": "Concurrence author joined by Marshall."
+    },
+    {
+      "name": "Justice Rehnquist",
+      "role": "Separate concurrence author."
+    }
+  ],
+  "proceedings": "The district court rejected the claims after a bench trial; the Second Circuit reversed on contributory infringement without reaching other claims. The Supreme Court reversed and remanded to that court for remaining review, with all nine Justices agreeing in the result.",
+  "limits": "The holding did not finally dispose of every statutory and state claim or immunize all copying. White’s functionality-defense discussion was a concurrence, and a knowledgeable-supply finding unaddressed by the appellate court was not independently reviewed by the Supreme Court.",
+  "briefSha256": "90f2266dc0a512f1ce9ec968a2dd87d34250df5bb5ec1bda3829e6cd5bbbc971",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-530"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Patent expiration permits generic competition while the trademark remains",
+      "cue": "How did capsules reach consumers with potentially misleading labels?",
+      "paragraphs": [
+        "Ives Laboratories patented cyclandelate, a prescription vasodilator for long-term treatment of peripheral and cerebral vascular disease, and sold it under the registered trademark CYCLOSPASMOL. White powder came in an imprinted blue capsule for 200 milligrams and blue-and-red capsule for 400 milligrams. Ives initially selected the colors arbitrarily. Its patent expired in 1972.",
+        "Generic manufacturers sold cyclandelate in matching colors, initially without identifying imprints. After litigation began, Premo and Inwood added their own marks. Ives conceded bioequivalence and equal bioavailability, so lawful copying of the unpatented drug differed from falsely naming its source.",
+        "Ives marketed to doctors and encouraged prescriptions forbidding substitution. Generic suppliers primarily sent catalogs to wholesalers, hospitals, and pharmacies, truthfully describing equivalence or comparability and sometimes prices and colors. Bulk containers identified the actual manufacturer. Pharmacists transferred capsules to dispensing bottles and created the labels consumers saw, providing the opportunity for mislabeled generics."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "846–849 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ives attributes pharmacists’ labeling to suppliers’ colors and promotion",
+      "cue": "What claims went to trial?",
+      "paragraphs": [
+        "Ives sued manufacturers and wholesalers under §§32 and 43(a) of the Lanham Act and New York unfair-competition law, seeking damages and an injunction against matching capsules. Its §32 theory was contributory infringement: identical appearances and promotions allegedly induced pharmacists to use Ives’s mark. It did not claim the suppliers themselves placed that trademark on their drugs.",
+        "Under §43(a), Ives alleged false designation through copied colors and marketing, arguing that the colors were nonfunctional identifiers of origin. Substitution and mislabeling remained distinct: a pharmacist might both violate a no-substitution instruction and mislabel, or permissibly substitute but still falsely use CYCLOSPASMOL on the label.",
+        "The district court denied a preliminary injunction. The Second Circuit affirmed and supplied the trial standard: liability could follow even an implicit suggestion to mislabel or continued supply to retailers known or reasonably understood to infringe."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "847–852 & nn.4, 6–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial judge finds neither improper encouragement nor a nonfunctional source identifier",
+      "cue": "Why did the court of appeals disagree?",
+      "paragraphs": [
+        "After a bench trial, the district court entered judgment for the suppliers. It found catalogs did not fairly urge infringement and mislabeling occurred too infrequently to imply supplier encouragement. The instances reflected misunderstanding of state substitution law rather than deliberate passing off.",
+        "The court also rejected §43(a). Matching colors helped patients identify medicine and maintain continuity, assisted in emergencies, and reduced dispensing confusion. Ives had not shown that colors primarily identified origin.",
+        "The Second Circuit reversed on §32 without expressly declaring those findings clearly erroneous. It found a pattern of illegal substitution and mislabeling, drew its own conclusions about anticipated wrongdoing, and found explanations for copying unpersuasive. It did not reach §43(a) or state law. The Supreme Court reviewed that ruling, together with the companion Darby Drug proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "851–853, 855–858"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority distinguishes the substantive standard from the standard of appellate review",
+      "cue": "What could justify overturning the findings?",
+      "paragraphs": [
+        "Justice O’Connor wrote for six Justices. Contributory liability extended to a manufacturer or distributor intentionally inducing infringement or continuing supply to someone it knew or had reason to know was infringing. Imitative manufacture alone did not establish those facts. Mere reasonable anticipation that unidentified retailers might misbehave was a weaker, insufficient rule.",
+        "The majority understood the Second Circuit as professing the correct legal test but reweighing evidence. Federal Rule of Civil Procedure 52(a) required acceptance of findings unless the whole record produced a definite and firm conviction of mistake. The trial judge’s role assessing witnesses and evidence supported that restraint. A permissible interpretation could not be replaced merely because appellate judges preferred another inference.",
+        "Findings based on a mistaken legal principle were different. Deference did not protect such an error. Here the trial court had used the correct standard already supplied on the first appeal, so the dispute concerned factual evaluation rather than demonstrated legal misunderstanding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "853–857 & nn.13, 15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The test purchases admit more than one reasonable inference",
+      "cue": "Why did the appellate reasons not establish a proper reversal?",
+      "paragraphs": [
+        "Among eighty-three pharmacists given prescriptions allowing substitution, forty-eight supplied the brand and thirty-five a generic. Ten generic bottles used CYCLOSPASMOL, but five also included a form of generic, nine pharmacists disclosed substitution, and only one charged the brand price. Emphasis could differ, but the district judge’s conclusion that suppliers had not encouraged infringement was not unreasonable as a matter of law.",
+        "The assumption that lookalike products would lead substantial numbers of pharmacists to illicit profits lacked record support. Multiple examples of misunderstanding substitution law supported the trial judge’s explanation. Later indictments cited on appeal were not convictions and involved information unavailable at trial. Even improperly omitted relevant evidence ordinarily called for remand to the factfinder, not appellate factfinding.",
+        "The functionality finding also provided a lawful explanation for the colors. The Second Circuit could not simply disregard it. A legal challenge required identified legal error; a factual challenge required clear-error review. Though most directly relevant to §43(a), functionality also informed whether matching colors signaled improper encouragement under §32."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "855–858 & nn.16–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "White would reverse principally for applying the wrong substantive rule",
+      "cue": "What role did functionality play in his separate analysis?",
+      "paragraphs": [
+        "Justice White, joined by Justice Marshall, concurred in the result. He objected that a broad question about applying clear-error review was not presented, while acknowledging that one petition challenged Rule 52 treatment of functionality. He instead read the Second Circuit as replacing intentional encouragement or knowledgeable supply with foreseeable wrongdoing by unidentified pharmacists. Lawful generic competition should not be burdened merely because unknown retailers might misuse it.",
+        "White also considered functionality a complete defense to a contributory claim based solely on reproducing a functional attribute. Once the patent expired, that attribute was not the originator’s exclusive property. He expressly limited the point: it would not shield active inducement or additional copied nonfunctional features. He recognized functionality under §43(a) too but agreed that unreviewed claims required appellate attention. This broader defense rationale was not a nine-Justice holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "859–864 & White nn.1–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Rehnquist prefers appellate application of clear-error review on remand",
+      "cue": "What did the final disposition leave open?",
+      "paragraphs": [
+        "Justice Rehnquist separately concurred. He agreed that findings could not be rejected without identifying clear error but preferred the court of appeals, with greater routine experience in factual review, to decide whether clear error actually existed. He understood the majority as restricting reversal where none had been found, not preventing contrary findings after a proper clear-error determination.",
+        "On June 1, 1982, all nine Justices agreed to reverse and remand. The §32 reversal could not stand, while the Second Circuit still had to independently review §43(a) and state unfair-competition issues. A trial finding concerning knowledgeable continued supply that the appellate court had not discussed likewise was not independently addressed by the Supreme Court.",
+        "The decision therefore did not finish every claim or declare all generic copying and promotion immune. It corrected the handling of trial findings while preserving the distinction between factual deference and legal error."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "852 n.12, 858–859, 864"
+        }
+      ]
+    }
+  ]
+}

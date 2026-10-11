@@ -1,0 +1,144 @@
+{
+  "id": "brief-CP-COMP-CB-MARRESE-SC",
+  "briefId": "CP-COMP-CB-MARRESE-SC",
+  "title": "Marrese v. American Academy of Orthopaedic Surgeons (Supreme Court preclusion stage)",
+  "course": "Civil Procedure",
+  "citation": "470 U.S. 373 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Surgeons excluded from a professional academy pursued federal antitrust claims after state-law litigation, and the Supreme Court required the federal courts to begin with Illinois preclusion law.",
+  "actors": [
+    {
+      "name": "Drs. Michael Treister and R. Anthony Marrese",
+      "role": "Board-certified orthopaedic surgeons denied Academy membership."
+    },
+    {
+      "name": "American Academy of Orthopaedic Surgeons",
+      "role": "Professional organization defending the admission decisions and invoking the prior state judgments."
+    }
+  ],
+  "proceedings": "The district court denied claim-preclusion dismissal; the Seventh Circuit en banc reversed that ruling and also reversed criminal contempt. The Supreme Court reviewed only preclusion, reversed, and remanded.",
+  "limits": "The Supreme Court did not apply Illinois preclusion law, decide a Sherman Act exception, adjudicate antitrust liability, or review discovery and contempt. The companion circuit brief clarifies that Marrese’s own state dismissal followed federal filing.",
+  "briefSha256": "97fb9dfe36a0d2a7ebe2432757e555f10a8e3ee9add3dd72a7a9317f8ed0d286",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-MARRESE-SC"
+    },
+    {
+      "id": "circuit-brief",
+      "label": "Companion circuit-stage source brief",
+      "briefId": "CP-COMP-CB-CAP-368",
+      "sha256": "ceb7e316794ecc9f6ea9456dc1cb94416b5963b29a640a656825da90e65de6dc"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two surgeons challenge unexplained membership denials",
+      "cue": "1976 and the Illinois cases",
+      "paragraphs": [
+        "The American Academy of Orthopaedic Surgeons denied membership to board-certified surgeons Michael Treister and R. Anthony Marrese without a hearing or explanation. Membership allegedly brought professional advantages but was not necessary to practice or hold hospital privileges; both doctors held privileges at several hospitals.",
+        "Treister sued in Illinois circuit court in November 1976 on common-law associational-rights grounds. Marrese filed a similar separate action, which was stayed pending Treister’s appeal. Neither pleaded state antitrust violations or began a federal antitrust action at the same time. The Illinois Appellate Court directed dismissal of Treister’s complaint, reasoning that Academy membership was not an economic necessity, and the Illinois Supreme Court declined review. Marrese’s state complaint was subsequently dismissed, but his own dismissal occurred after the federal action had been filed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375"
+        },
+        {
+          "id": "circuit-brief",
+          "pinpoint": "1151–1152; 1163 n.1; Cudahy n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A federal antitrust case generates two distinct appeals",
+      "cue": "March 1980 onward",
+      "paragraphs": [
+        "In March 1980 the doctors filed in the Northern District of Illinois. Their amended complaint alleged that the Academy possessed monopoly power and excluded them to discourage competition, creating a boycott prohibited by § 1 of the Sherman Act. These were allegations, not findings of monopoly or unlawful exclusion.",
+        "The Academy sought dismissal because the state actions concerned the same events and ended with prejudice. The district court denied claim-preclusion dismissal, reasoning that state courts lacked jurisdiction over federal antitrust claims and could not bar them. A separate discovery dispute arose when the Academy refused ordered access to membership-application files. The court entered criminal contempt. An initial Seventh Circuit panel reversed contempt, criticized discovery, and suggested both preclusion and lack of antitrust merit. Further appellate proceedings culminated in an en banc ruling barring the federal claims and reversing contempt.",
+        "No preclusion opinion commanded a majority. A plurality stressed the available, materially similar Illinois antitrust theory; another judge proposed requiring related claims within a reasonable time, through concurrent suits or a federal action with pendent state claims. The contempt reversal likewise rested on differing explanations about discovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "376–378"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contempt appeal had not transferred the entire case",
+      "cue": "Appellate jurisdiction and the question accepted",
+      "paragraphs": [
+        "The Supreme Court examined appellate jurisdiction even though the parties had not raised the problem there. The district court initially refused to certify its denial of dismissal under 28 U.S.C. § 1292(b), but later certified the preclusion question while the contempt appeal was pending. The Seventh Circuit accepted that separate interlocutory appeal and consolidated the proceedings.",
+        "An appeal ordinarily transfers control over the aspects involved in it, but criminal contempt separately vindicates judicial authority. That appeal did not transfer the entire antitrust action out of district court. The later certification was therefore valid, and the court of appeals had jurisdiction over preclusion. The Supreme Court accepted review only of that ruling; discovery’s validity and the contempt reversal remained outside its review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "378–379, 387"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Justice O’Connor requires state law before a federal exception",
+      "cue": "The governing sequence",
+      "paragraphs": [
+        "Justice O’Connor wrote for six Justices. Under 28 U.S.C. § 1738, federal courts ordinarily gave state judgments the preclusive effect they received under the rendering state’s law. Both lower courts had used independent federal rules without first determining Illinois law. Exclusive federal jurisdiction over Sherman Act claims did not excuse that first inquiry.",
+        "The correct sequence began by asking whether Illinois preclusion law barred the particular claim or issue. If it did not, there was no reason to decide a federal statutory exception. Only if Illinois law produced a bar should the court consider whether the Sherman Act expressly or impliedly displaced § 1738. That second question depended on congressional intent, the statute, and the particular claim or issue, not a general preference for federal litigation.",
+        "Exclusive jurisdiction did not make state adjudication irrelevant. A state court might decide an issue important to a later exclusively federal claim, allowing issue preclusion. Claim preclusion posed a different problem when the first tribunal lacked power over the omitted theory or remedy. Most state rules recognized that jurisdictional limit, but courts had to examine the actual state rule rather than invent a categorical federal answer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379–383, 386"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Efficiency does not authorize greater effect than Illinois gives",
+      "cue": "Why the circuit approach failed",
+      "paragraphs": [
+        "The Seventh Circuit suggested federal courts could give the state judgments stronger preclusive effect than Illinois would. The earlier Migra decision, which remanded to determine the rendering state’s rule, foreclosed that approach. Otherwise its state-law inquiry would have been unnecessary. The Supreme Court refused a special antitrust rule forfeiting later federal rights merely because an initial state action had been filed where state law imposed no such forfeiture.",
+        "Efficiency and repose were legitimate but did not erase separate state and federal judicial systems or § 1738’s respect for state judgments. Steering every dispute to the broadest forum might suit one judicial system; Congress instead required the scope each state assigned its own judgments. Moitie, involving a prior federal judgment, did not override that statutory command.",
+        "The Court did not decide whether the similar result in Nash County would survive a proper state-law analysis. It distinguished claim-splitting rules between limited and general courts in a single system and observed the usual understanding that litigation under an analogous state statute did not bar a later federal claim outside the state court’s jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "382–386 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Burger agrees with reversal but seeks a rule for uncertain state law",
+      "cue": "March 4, 1985",
+      "paragraphs": [
+        "Chief Justice Burger concurred in the judgment. He agreed that general state preclusion principles had to be consulted and that a clear state limitation could not be exceeded. But he thought the majority gave inadequate guidance where state law was uncertain. If a virtually identical state cause offered the same theory and remedy, he questioned whether lack of jurisdiction over the federal label necessarily preserved another suit.",
+        "Burger favored considering a federal rule, if Illinois law remained ambiguous, asking whether the doctors had a full and fair opportunity to pursue equivalent rights. He believed that approach would promote efficient adjudication and reduce uncertainty and would have resolved it immediately. His discussion distinguished different meanings of claims that could have been raised, within-state splitting, and the stronger state interest in defining substantive rights in diversity cases. That proposal did not command the Court.",
+        "On March 4, 1985 all seven participating Justices reversed and remanded, leaving Illinois law’s application to the district court first. Justices Blackmun and Stevens did not participate. The Court neither found the claims barred nor decided a Sherman Act exception, and it adjudicated no antitrust allegations. Reversing preclusion was not a Supreme Court endorsement of the doctors’ discovery demands or a ruling on contempt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386–391 & Burger nn.1–4"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "brief-LRS-CLOSURE-062",
+  "briefId": "LRS-CLOSURE-062",
+  "title": "Commonwealth v. Welosky",
+  "course": "Legislation and the Regulatory State",
+  "citation": "276 Mass. 398, 177 N.E. 656 (1931)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Genevieve Welosky challenged an all-male jury list after women had gained voting rights. Massachusetts’s highest court used the jury statute’s historical setting to reject her challenge and left her liquor conviction undisturbed.",
+  "actors": [
+    {
+      "name": "Genevieve Welosky",
+      "role": "Defendant convicted of possessing liquor for unlawful sale"
+    },
+    {
+      "name": "Commonwealth of Massachusetts",
+      "role": "Prosecuting authority defending the jury array"
+    }
+  ],
+  "proceedings": [
+    "Complaint sworn July 9, 1930; Superior Court trial on appeal rejected jury-array challenge and convicted.",
+    "Supreme Judicial Court overruled all exceptions September 9, 1931."
+  ],
+  "limits": "Historical 1931 statutory and constitutional reasoning, not present eligibility or equal-protection law. Prior advisory opinion lacked stare decisis effect; no separate opinion or numerical split is reported.",
+  "briefSha256": "8c7fe39035f6584e85dfe134c034356adb4d1a28131a9ae26e11521002173b98",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-062"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The voter qualification changes before the criminal case",
+      "cue": "A general jury statute with a disputed reach",
+      "paragraphs": [
+        "Massachusetts’s jury statute made a person qualified to vote for representatives to the General Court liable for jury service, subject to exceptions. Its predecessors had operated when the state constitution limited voting to men. The Nineteenth Amendment removed that voting disqualification in August 1920; Massachusetts formally deleted the word male in 1924, but women’s voting rights already existed under the federal amendment.",
+        "The General Laws reenacted the voter-based jury language in December 1920, after federal ratification. That sequence later supported Genevieve Welosky’s contention that women now belonged on jury lists, either because the original general language dynamically followed voter qualifications or because post-amendment reenactment embraced the new electorate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "401–403, 409"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Welosky challenges the jury array",
+      "cue": "The liquor prosecution",
+      "paragraphs": [
+        "A Chelsea District Court complaint sworn July 9, 1930 charged Welosky with keeping and exposing intoxicating liquor for unlawful sale. On appeal, she was tried in Superior Court before Judge Hayes, a district judge sitting under statutory authority. As the jury was about to be selected, she challenged the array because its source lists contained no women. The Commonwealth joined an issue of law, and the judge sustained its position. Welosky was convicted and preserved exceptions concerning the jury, evidence, and instructions.",
+        "Chief Justice Rugg’s Supreme Judicial Court opinion stressed that earlier justices’ adverse advisory answers to the legislature were individual constitutional advice, not adjudications entitled to stare decisis. The court had to examine the actual litigants’ questions afresh, including statutory eligibility, federal equal protection, and the state guarantee of judgment by peers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "399–401"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court gives the general words their historical class",
+      "cue": "Why reenactment does not alter its reading",
+      "paragraphs": [
+        "The court acknowledged that an abstract reading of persons included women. It nevertheless read legislative purpose from text, development, prior law, circumstances, constitutional background, and common law. In its view, the original voter description necessarily meant men; later removal of property or tax qualifications enlarged that class, whereas women’s enfranchisement added a historically different class outside the enactment’s purpose. It did not claim women were not persons, but restricted the legal reference contextually.",
+        "December 1920 reenactment presented the harder question. The court presumed unchanged wording continued earlier meaning and examined the revision process. Commissioners submitted the consolidation June 1, before ratification, with instructions to suggest changes separately rather than silently make them. A later legislative committee changed election provisions for the Nineteenth Amendment but left jury lists unchanged and retained an express jury-of-men provision elsewhere. The court inferred no intended jury-service expansion. It also cited possible exemptions and courthouse accommodations and a 1923 inquiry followed by no favorable enactment. Those were its interpretive reasons, not newly imposed independent eligibility requirements.",
+        "Acknowledging divided decisions elsewhere, the court held women ineligible under these existing Massachusetts statutes and approved the all-male lists."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "401–411"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Constitutional and trial objections also fail",
+      "cue": "The conviction remains",
+      "paragraphs": [
+        "Welosky invoked federal decisions invalidating racial jury exclusions. The court acknowledged federal supremacy and the Fourteenth Amendment’s broader protection but distinguished the Reconstruction Amendments from the Nineteenth Amendment’s voting command. It relied on historical precedent allowing male-only selection and other sex-based restrictions. Those propositions describe the court’s 1931 reasoning, not current constitutional law. It treated the Supreme Court’s acceptance of Delaware’s interpretation after Black enfranchisement as deference to that state-law construction, not a command governing this statute. The federal race-disqualification statute did not supply her asserted right; other unargued federal grounds were waived. The selected jury also satisfied the state peers guarantee under the court’s reading.",
+        "Police observations of the premises and visitors’ numbers and sobriety were relevant to liquor sales. Questions about omitted arrests or manufacturing charges and officers’ intended impressions were properly excluded as irrelevant. A competent but nonresponsive answer required a motion to strike. Evidence supported guilt, raid motives did not determine guilt, and the instructions adequately covered credibility and necessary rulings.",
+        "The court overruled all exceptions, leaving the conviction undisturbed. Rugg wrote the sole reported opinion; no dissent is recorded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "411–418"
+        }
+      ]
+    }
+  ]
+}

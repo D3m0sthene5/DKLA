@@ -1,0 +1,155 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-091",
+  "briefId": "CT-ADDITIONAL-CM-B3-091",
+  "title": "Norrington v. Wright",
+  "course": "Contracts",
+  "citation": "115 U.S. 188 (1885)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A seller promised rails in monthly shipments, delivered far too little at the beginning, and tried to preserve the bargain by making up the deficit later. The buyers treated the shipment schedule as part of what they had bought.",
+  "actors": [
+    {
+      "name": "Arthur Norrington",
+      "role": "Seller of the iron rails"
+    },
+    {
+      "name": "Peter Wright & Sons",
+      "role": "Pennsylvania buyers, named as Wright and others"
+    },
+    {
+      "name": "Edward Etting",
+      "role": "Broker who communicated with the buyers"
+    },
+    {
+      "name": "Justice Gray",
+      "role": "Author of the Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The federal Circuit Court for the Eastern District of Pennsylvania entered judgment on a jury verdict for the buyers. The Supreme Court affirmed on October 26, 1885.",
+  "limits": "The Chief Justice did not participate because he was absent from argument. No separate opinion is reported. The source gives no quantified damages or later proceedings. The shipping contract used a ton of 2,240 pounds.",
+  "briefSha256": "fe999004ee078e730332834200cc1b79670321fd929e004c5423d904e9a3bb63",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-091"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "One purchase, with a shipping calendar",
+      "cue": "January 1880",
+      "paragraphs": [
+        "Arthur Norrington agreed on January 19, 1880, to sell 5,000 tons of old T iron rails to Wright and the other Pennsylvania buyers trading as Peter Wright & Sons. Edward Etting acted as the broker. The rails were to travel from European ports to Philadelphia at about 1,000 tons per month beginning in February, with all shipments made before August 1. The price was $45 per ton of 2,240 pounds, measured by custom-house weight, and payment was due in cash upon presentation of the bills and weight certificates.",
+        "The arrangement required prompt notice of shipments and vessel names, and, where possible, the seller was to obtain the buyers' selection of a berth. Rails lost at sea did not have to be replaced. These provisions addressed the practical business of shipping and receiving the rails, but the dispute would concern whether they divided the sale into independent purchases or left the monthly schedule as a condition of one bargain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts, 189–192; contract construction, 203–205"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Short shipments precede a falling market",
+      "cue": "February through May",
+      "paragraphs": [
+        "The shipments proved at trial were 400 tons in February, 885 in March, 1,571 in April, 850 in May, 1,000 in June, and 300 in July. The buyers received and paid for the February cargo in March without knowing that it represented the whole February shipment. In April they gave unloading instructions for the March cargoes.",
+        "Around May 14, when the March cargo arrived, the buyers learned the quantities shipped during the first three months. They told Etting that they rejected the March and April shipments because Norrington had not complied with the contract. By then the market price was below the contract price and continuing to fall. That economic setting explained why the parties cared about escaping or preserving the bargain; it did not itself decide what the contract required."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and correspondence, 189–192; arguments, 192–202"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The broker proposes a cure",
+      "cue": "The correspondence over cancellation",
+      "paragraphs": [
+        "On May 17 the buyers said that, if the early deficiencies released them from the agreement, they would take advantage of that right. Etting replied that the contract allowed six months to complete shipment and therefore permitted Norrington to make up the shortfall. He proposed that the buyers select 1,000 tons from the April shipment and demanded a definite answer concerning later deliveries.",
+        "On May 19 the buyers explained their different reading: the additional month allowed only minor deficiencies to be made up, not substantial early departures from the schedule. They objected to revised shipment notices and said they would reject future cargoes if the law entitled them to do so, but would accept them if it did not. In June they refused an offer identifying exactly 1,000 tons from the April shipment and revising the vessel notifications. Eventually the cargo was resold with the buyers' consent for the account of whichever party was legally entitled to it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and correspondence, 189–192"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A jury resolves the dispute for the buyers",
+      "cue": "The federal trial and the seller’s objections",
+      "paragraphs": [
+        "Norrington sued in the federal Circuit Court for the Eastern District of Pennsylvania. He argued that the August deadline permitted deficiencies to be made up so long as the buyers were not required to receive more than 1,000 tons in a month. Alternatively, he characterized the agreement as divisible: each monthly shipment and payment was an independent transaction, so a shortage justified a damages deduction rather than cancellation of the whole sale. Difficulties involving ports, voyages, and lost parcels, he contended, made exact monthly regularity impractical.",
+        "The trial court instructed the jury to find for the buyers if they had accepted the February cargo without knowing that it was the entire February shipment and had immediately rescinded upon learning of the deficiency. The jury returned a verdict for the buyers. Norrington excepted to the instruction and sought Supreme Court review. He also argued that the buyers' legally conditional correspondence was not a definite rescission and that acceptance of the February cargo prevented cancellation later."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Trial and arguments, 192–202"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Shipment time describes the promised goods",
+      "cue": "Justice Gray explains the contract",
+      "paragraphs": [
+        "Justice Gray, writing for the Supreme Court, treated the shipping calendar as a material description of the goods in a mercantile sale. A buyer may arrange financing, expected arrivals, and downstream transactions around when goods are shipped. Goods that remain useful after a late or deficient shipment are not necessarily the goods, on the agreed terms, that the buyer promised to purchase. The opinion's discussion of a “warranty” in maritime insurance used that word in its historical sense of a condition precedent, not as a statement that every modern warranty has the same effect.",
+        "This was one contract for 5,000 tons, with shipment and payment provisions subordinate to that purchase. The loss-at-sea clause could reduce the amount ultimately delivered without turning the transaction into separate contracts. The natural schedule called for about 1,000 tons in each month from February through June, allowing slight and unimportant deficits to be supplied in July. It did not call for six installments of roughly 833 tons or authorize large early shortages.",
+        "“About” accommodated small accidental differences in number, measurement, or weight. The Court distinguished a sale of an independently identified lot, whose stated quantity might be only an estimate, from this promise to supply a stated quantity of described goods. Shipping 400 tons in February and 885 in March did not satisfy this agreement. Norrington could neither compel acceptance of deficient shipments nor require the buyers to select the contractual amount out of an excessive one."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract construction and application, 203–205"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The buyers had exercised their right",
+      "cue": "Rescission, acceptance, and the comparison cases",
+      "paragraphs": [
+        "The Court read the correspondence as a clear exercise of the buyers' claimed right to end the contract. Their willingness to accept the cargoes if the law required it showed uncertainty about their legal entitlement, not an abandonment of cancellation. Nor had their earlier acceptance waived the breach: they lacked notice or means of knowing that the February cargo was the whole month's shipment. This differed from knowing acceptance and use of a particular lot whose conformity could be determined.",
+        "Failure to return the accepted cargo caused Norrington no injury on this record. The buyers had paid a price above the market, and the correspondence had not objected to rescission on the ground that the cargo was retained. The falling market did not alter the meaning of the bargain.",
+        "The Court examined conflicting English installment decisions and favored the approach permitting rejection for a deficient first installment, together with decisions of the House of Lords treating a shipping date as part of the description of the article sold. Mersey Steel, concerning a buyer's failure to pay an installment, did not dictate the result: where delivery comes first, payment of one installment ordinarily is not a condition of the entire purchase and future deliveries unless the agreement makes it so. Pennsylvania decisions involving payment not yet due, waiver of delay, or informed acceptance likewise did not establish a waiver here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Authorities, rescission, and waiver, 206–212"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The early breaches are enough",
+      "cue": "Affirmance",
+      "paragraphs": [
+        "The February and March deficiencies were sufficient to support a seasonable rescission of the entire contract. The Court therefore did not need a further ruling about the excessive April shipment. Requiring the buyers to choose 1,000 tons from 1,571, or issuing revised vessel designations, could not manufacture compliance with the original schedule.",
+        "On October 26, 1885, the Supreme Court affirmed the judgment for the buyers. The Chief Justice had been absent from argument and did not participate. The source reports no separate opinion, quantified damages award, or later proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition, 211–212"
+        }
+      ]
+    }
+  ]
+}

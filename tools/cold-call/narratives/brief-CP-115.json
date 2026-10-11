@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-115",
+  "briefId": "CP-115",
+  "title": "Denman v. Spain",
+  "course": "Civil Procedure",
+  "citation": "242 Miss. 431, 135 So. 2d 195 (1961)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A child proves evidence of excessive speed before a fatal collision, but the missing connection between that speed and the impact defeats her jury verdict.",
+  "actors": [
+    {
+      "name": "Betty Denman",
+      "role": "Nearly seven-year-old injured passenger suing through her mother and next friend."
+    },
+    {
+      "name": "Eva Denman",
+      "role": "Betty’s grandmother, driving the southbound Ford."
+    },
+    {
+      "name": "Joseph Ross’s executrix",
+      "role": "Defendant representing the deceased driver of the northbound Plymouth."
+    }
+  ],
+  "proceedings": [
+    "A jury awarded Betty $5,000 on her evidence alone; the trial court entered judgment notwithstanding that verdict.",
+    "The Mississippi Supreme Court affirmed the defense judgment on December 4, 1961."
+  ],
+  "limits": "The court found a failure of causal proof, not that Ross drove carefully or that the grandmother actually caused the collision. No new trial or reinstated award was ordered.",
+  "briefSha256": "fb331cd39af9817bc2027517216d25a3c7aaec7151eab15d9215d6d11777291f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-115"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A collision leaves surviving passengers unable to describe the impact",
+      "cue": "Who was injured and what evidence was missing?",
+      "paragraphs": [
+        "Betty Denman, nearly seven, rode with her grandmother Eva in a Ford traveling south on U.S. Highway 49E near Sumner. On a rainy, foggy evening in March 1958, it collided with Joseph Ross’s northbound Plymouth. Eva, Ross and a Plymouth passenger died. Betty and another passenger survived with injuries but could not remember the collision itself.",
+        "Through her mother and next friend, Betty sued Ross’s executrix for negligent driving. A separate suit against her grandmother’s estate had already ended in an affirmed directed defense verdict; that was background, not the judgment now under review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "242 Miss. 434–435; accident, parties and separate action"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Witnesses describe speed but cannot locate the collision’s cause",
+      "cue": "What could their observations establish?",
+      "paragraphs": [
+        "Betty’s father described the wrecked cars, including displacement of the Ford’s engine and transmission. Photographs showed extensive damage, but no skid marks or actual impact point were established. The physical evidence did not reconstruct how the cars met.",
+        "John Barnett saw the Plymouth pass about three-quarters of a mile before the crash at roughly seventy miles per hour. He watched only forty or fifty yards afterward, seeing it remain in its lane. Hal Buckley saw it pass about two hundred yards before impact at seventy-five to eighty miles per hour and continue without slowing. He followed its taillights but could not identify the impact location, saw no departure from its lane and did not notice the approaching Ford. His earlier inability to estimate speed was used to impeach him."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "435–438; physical and eyewitness evidence"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The jury awards damages but the trial judge sets its verdict aside",
+      "cue": "How did the Supreme Court evaluate admissible proof?",
+      "paragraphs": [
+        "The defense offered no evidence. The jury awarded Betty $5,000, but the trial court granted judgment notwithstanding the verdict. Betty appealed for reinstatement, arguing that speed in bad conditions supported inadequate control and avoidability, and that the physical evidence suggested the Ford had been angled across the highway.",
+        "The Supreme Court excluded Barnett’s relatively remote speed observation under Mississippi precedent. Buckley’s continuous observation over the shorter interval was competent; his inconsistency went to credibility. His testimony could establish excessive and negligent speed, but Betty also had to prove by a preponderance that negligence proximately contributed to her injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "436–439; verdict, motions, admissibility and burden"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A missing causal link requires judgment for the defense",
+      "cue": "Why was possible contribution insufficient on this record?",
+      "paragraphs": [
+        "No evidence established the Ford’s speed, lane or sudden movement, and neither witnesses nor photographs located the contact point. Excessive speed might have contributed under some imagined sequences, but the proof gave no sound basis to select one over competing possibilities. The absence of defense evidence did not relieve Betty of proving causation.",
+        "On December 4, 1961, Presiding Justice Lee’s opinion affirmed the defense judgment notwithstanding the verdict. Kyle, Arrington, Ethridge and Gillespie concurred without separate writings or footnotes. Betty’s $5,000 verdict was not reinstated and no new trial was ordered. The court did not find her grandmother responsible or prohibit causal proof by circumstantial evidence generally; it found this record insufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "438–439; causal gap and exact disposition"
+        }
+      ]
+    }
+  ]
+}

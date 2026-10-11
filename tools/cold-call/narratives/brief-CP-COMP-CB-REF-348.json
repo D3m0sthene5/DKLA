@@ -1,0 +1,122 @@
+{
+  "id": "brief-CP-COMP-CB-REF-348",
+  "briefId": "CP-COMP-CB-REF-348",
+  "title": "Wallace B. Roderick Revocable Living Trust v. XTO Energy, Inc.",
+  "course": "Civil Procedure",
+  "citation": "725 F.3d 1213 (10th Cir. 2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A royalty-owning trust challenged XTO Energy’s uniform method of calculating gas royalties for thousands of Kansas owners. The Tenth Circuit vacated class certification because common accounting software did not itself establish common contractual rights or show that each challenged deduction occurred before the gas became marketable.",
+  "actors": [
+    {
+      "name": "Wallace B. Roderick Revocable Living Trust",
+      "role": "Royalty owner representing the proposed Kansas class."
+    },
+    {
+      "name": "XTO Energy, Inc.",
+      "role": "Gas producer accused of passing marketability expenses to royalty owners."
+    },
+    {
+      "name": "Judge Kelly",
+      "role": "Author of the unanimous Tenth Circuit opinion."
+    }
+  ],
+  "proceedings": "District court certified a Rule 23(b)(3) class. Tenth Circuit accepted a Rule 23(f) appeal, vacated certification, and remanded for further examination of lease terms, marketability, representation, and predominance.",
+  "limits": "Court-issued slip pinpoints are used. No merits ruling established lawful deductions or underpayment, and the court did not foreclose certification after an adequate showing.",
+  "briefSha256": "4a10e2a3c876b8917a8191dd62cac3cf66610cdeb050b45e5edb68de1ef53b05",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-REF-348"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Royalty owners challenge deductions across hundreds of leases",
+      "cue": "The claimed duty depends on contract terms and gas condition.",
+      "paragraphs": [
+        "XTO Energy produced natural gas and constituent products from Kansas wells. Thousands of royalty owners alleged that it underpaid them by deducting costs Kansas law required the producer to bear. Their proposed representative, the Wallace B. Roderick Revocable Living Trust, owned interests in eight wells under five leases. The proposed class encompassed roughly 650 leases and more than 300 wells across ten fields, covering Kansas production from January 1, 1999 onward. Colorado claims were dropped, and Oklahoma claims were severed and transferred elsewhere. The Kansas claims sought relief for breach of contract and unjust enrichment and requested an accounting.",
+        "The theory relied on Kansas’s implied duty of marketability. Unless a lease provided otherwise, a producer bore gathering, compression, dehydration, treatment, and processing costs needed to make gas marketable. The Trust argued that all class gas needed at least one such service. XTO disputed that assertion and said some gas entered interstate pipelines without processing. Neither XTO nor an affiliate owned or operated a gathering system or processing plant for these wells; contracts with third parties supplied relevant services and payment terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp.2–4 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Uniform accounting supplies the district court’s common question",
+      "cue": "XTO identifies potentially different rights within the class.",
+      "paragraphs": [
+        "XTO used its Avatar accounting system to calculate royalties. Payments depended on XTO’s marketing contract with the purchaser rather than adjustments for each owner’s lease language. The Trust argued that this uniform method improperly passed marketability costs to owners. XTO answered that leases differed and gas became marketable at different points. Its expert sampled one-fifth of the leases and grouped royalty provisions into twenty categories, some allegedly displacing the implied duty or authorizing particular deductions.",
+        "The district court certified a class under Rule 23(b)(3), relying on whether the uniform payment methodology breached the marketability duty. It did not address the Trust’s other proposed common claims. The Tenth Circuit allowed a Rule 23(f) appeal in which XTO contested commonality, typicality, adequacy, and predominance. The asserted lease effects and universal need for processing remained contested, not established appellate facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp.4–7 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The plaintiff must prove a shared answer about actual rights",
+      "cue": "The appellate court requires examination rather than a presumption.",
+      "paragraphs": [
+        "Judge Kelly, joined by Judges McKay and Matheson, explained that Rule 23 requires proof of compliance, not allegations or a presumption favoring certification. A common question must yield an answer central to every claim. Passing all payments through the same software was not enough. A deduction was wrongful only if an owner possessed the claimed contractual right and the gas had not already become marketable when the expense arose.",
+        "The district court assumed every lease contained the duty because XTO had not identified language unambiguously negating it. That risked reversing the burden. Given known variations, the Trust had to establish the necessary right throughout the class; roughly 430 leases had not been examined by the Trust or court. A chart grouping terms could assist on remand, and the district court might ultimately find that no category displaced the duty. The appellate court did not prejudge that work.",
+        "A Kansas certification decision did not eliminate the federal inquiry. Even without individual testimony about contracting intent, written lease language might require examination. That earlier state case did not apply Federal Rule 23 and had approved certification despite express abrogation in some leases. It needed consideration in light of the Supreme Court’s intervening Wal-Mart and Comcast decisions requiring rigorous certification analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp.7–10 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marketability and damages require a practical litigation analysis",
+      "cue": "Individual differences may matter without automatically defeating a class.",
+      "paragraphs": [
+        "Kansas law distinguished marketable condition from simply having an available market at a location. Gas could already be marketable at one well while requiring services at another. The same calculation could therefore produce a permissible deduction for one owner and breach for another. The district court also might have mistaken XTO’s acknowledgment of a uniform policy for a concession that it uniformly imposed improper marketability charges. XTO had consistently contested that liability proposition.",
+        "The panel directed reconsideration of typicality and adequacy because those inquiries overlapped with the identified differences. It did not hold either impossible to establish. Rule 23(b)(3) predominance required still more demanding analysis of how the litigation would proceed, including lease rights, marketability, and defenses. Focusing solely on common defendant conduct was insufficient, and overlap with the merits did not excuse analysis needed for certification.",
+        "Individual damages calculations alone would not defeat certification, but their complexity mattered if they overwhelmed common issues. Subclasses or liability-only proceedings followed by individual damages determinations could preserve appropriate class treatment. The district court retained responsibility for that practical assessment and tailoring."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp.10–14 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "An earlier settlement does not prevent XTO’s challenge",
+      "cue": "The certification decision returns for a fuller analysis.",
+      "paragraphs": [
+        "The Trust argued that collateral or judicial estoppel should bar XTO’s objections because it had settled the Fankhouser royalty class action. The panel found no showing of identical issues or clearly inconsistent positions. Fankhouser involved an XTO-owned or operated gathering system and allegedly improper payments based on affiliated-company sales, distinctions material to its certification reasoning. The Trust also had not addressed a settlement term prohibiting later use against XTO.",
+        "Fankhouser’s class was certified in March 2009, before Wal-Mart and Comcast, although settlement approval occurred in 2012. The district court deserved an opportunity to apply those later certification decisions here, and the panel declined equitable foreclosure of XTO’s objection.",
+        "The Tenth Circuit vacated certification and remanded. It decided neither the royalty claims nor whether a better-supported class could be certified. No judge wrote separately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip pp.14–16 & n.6"
+        }
+      ]
+    }
+  ]
+}

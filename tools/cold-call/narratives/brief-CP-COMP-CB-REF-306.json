@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-REF-306",
+  "briefId": "CP-COMP-CB-REF-306",
+  "title": "Spectacor Management Group v. Brown",
+  "course": "Civil Procedure",
+  "citation": "131 F.3d 120 (3d Cir. 1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employer’s recovery claim arguably fell below the diversity threshold, but the employee answered with much larger compulsory counterclaims while disputing jurisdiction. A divided Third Circuit counted those counterclaims in this originally filed federal action.",
+  "actors": [
+    {
+      "name": "Spectacor Management Group",
+      "role": "Pennsylvania facilities-management venture and former employer"
+    },
+    {
+      "name": "Matthew Brown",
+      "role": "New Jersey former executive vice-president"
+    }
+  ],
+  "proceedings": [
+    "Brown answered, disputed jurisdiction, and asserted compulsory counterclaims without first filing a dismissal motion.",
+    "After bench trial, district court entered judgment for Brown for less than requested.",
+    "Third Circuit affirmed, two to one; dissent sought jurisdictional inquiry."
+  ],
+  "limits": "Historical $50,000 threshold; exact merits award unreported. No resolution of payroll-tax recovery, permissive counterclaims, or removal based on counterclaims. Majority rejected consent or waiver as a source of jurisdiction.",
+  "briefSha256": "b8ad83821f17bb6ad77372af32bcb081b81e98d7e29226f753c731851a7d4f4d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-REF-306"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Termination payments generate competing demands",
+      "cue": "The amount pleaded by the employer",
+      "paragraphs": [
+        "Spectacor Management Group, a Pennsylvania venture managing stadiums and other public facilities, sued former executive vice-president Matthew Brown, a New Jersey citizen, over post-termination payments. It sought $42,500 in benefits and $4,921.04 in medical insurance, totaling $47,421.04—below the diversity threshold of $50,000 then applicable. Adding $3,287.21 in payroll taxes brought its demand to $50,708.25.",
+        "Brown called the tax component a jurisdictional contrivance intended to preempt his state suit and argued Spectacor conceded it owed him more than it sought. Spectacor characterized the payments as advances against an uncompleted settlement and defended its tax claim as good faith. The record described stipulated obligations of $50,000 benefits and $15,692 vacation pay, alongside disputed setoff treatment. These positions did not establish every component’s ultimate recoverability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "121–123"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Brown counterclaims while contesting jurisdiction",
+      "cue": "The procedural choice that matters",
+      "paragraphs": [
+        "Instead of first moving to dismiss for lack of subject-matter jurisdiction, Brown answered, expressly denied jurisdiction, and brought compulsory counterclaims. He demanded $135,000 severance, $837,000 commissions, $70,720 bonus, and $17,550 unused vacation and unreimbursed expenses. Those demands independently exceeded the threshold.",
+        "Following a bench trial, the district court entered judgment for Brown, though substantially below his demands. He appealed. Judge McKee, joined by Judge Greenberg, held that his compulsory counterclaims could be considered in measuring this controversy. That made it unnecessary to decide whether Spectacor’s payroll taxes properly increased its own claim above the threshold."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "120–122, 126"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority measures the connected controversy",
+      "cue": "A narrow rule rather than waiver",
+      "paragraphs": [
+        "Good-faith complaint allegations ordinarily measured the amount, subject to legal certainty that recovery could not reach it. But the majority did not treat the complaint as necessarily the whole controversy. Brown’s compulsory claims arose from the same employment arrangement and termination payments; they were connected affirmative demands, not merely a setoff reducing the employer’s claim. Earlier authorities supported that distinction, though some came from historical equity practice.",
+        "A sufficiently large compulsory counterclaim could support a separate suit with parties reversed. Counting it avoided dependence solely on who filed first. The majority nonetheless acknowledged Brown preferred state court and claimed Spectacor raced him; it did not say he voluntarily selected federal litigation.",
+        "Nor could agreement or waiver create subject-matter jurisdiction. The point was which demands Brown had placed before the court before obtaining consideration of a dismissal motion. His jurisdictional denial remained an objection, but his counterclaims were also before the court. A later sanctions request did not alter that sequence. Permissive counterclaims were expressly reserved.",
+        "Removal involved a distinct, narrowly construed statutory framework protecting the state forum and potentially varying state counterclaim definitions. This originally federal suit did not establish that counterclaims could make a state action removable. The majority also noted that Spectacor’s Pennsylvania citizenship obstructed removal of the contemplated Pennsylvania action, and discussed but did not rely on the special workers’ compensation setting of Horton v. Liberty Mutual."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "122–127 & nn.2,4–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent insists on a fuller jurisdictional examination",
+      "cue": "Affirmance without a tax ruling",
+      "paragraphs": [
+        "Judge Wellford dissented. Jurisdiction ordinarily existed or failed when suit began, and the invoking plaintiff bore the burden after challenge. Brown expressly objected; asserting a procedurally required counterclaim should not deprive him of that objection because he used an answer rather than a separate motion. Wellford distinguished cases without an initial challenge and read the supporting precedents differently.",
+        "He also questioned whether payroll taxes were incurred, bookkeeping entries, part of an advance, or personally repayable by Brown, finding the good-faith explanation insufficient. He would remand for fuller inquiry. His suggestion that Spectacor could remove a state action differed from the majority’s forum-defendant analysis.",
+        "The majority affirmed both jurisdiction and the merits judgment, finding no clear error in the evidentiary assessment without extended merits discussion. The report gives no exact award. Its chosen jurisdictional ground left the payroll-tax question unresolved and did not extend to every counterclaim or removal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "127–129 & dissent nn.1–2"
+        }
+      ]
+    }
+  ]
+}

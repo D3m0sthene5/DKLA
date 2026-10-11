@@ -1,0 +1,138 @@
+{
+  "id": "brief-CP-COMP-CB-MATSUSHITA-EPSTEIN",
+  "briefId": "CP-COMP-CB-MATSUSHITA-EPSTEIN",
+  "title": "Matsushita Electric Industrial Co., Ltd. v. Epstein",
+  "course": "Civil Procedure",
+  "citation": "516 U.S. 367 (1996)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Parallel shareholder suits ended in a Delaware settlement releasing federal securities claims, raising whether a federal court had to recognize a release the state court could not itself adjudicate on the merits.",
+  "actors": [
+    {
+      "name": "Matsushita Electric Industrial",
+      "role": "Acquirer of MCA through a 1990 tender offer."
+    },
+    {
+      "name": "MCA shareholders",
+      "role": "Participants in Delaware fiduciary litigation and separate California federal securities litigation."
+    },
+    {
+      "name": "MCA directors",
+      "role": "Defendants accused of fiduciary breaches in the Delaware action."
+    }
+  ],
+  "proceedings": "Delaware approved the second class settlement and its Supreme Court affirmed. The Ninth Circuit refused to treat it as a bar to the federal appeal. The Supreme Court reversed and remanded on the preclusion issue.",
+  "limits": "The Supreme Court reserved adequacy of representation, the pure-contract objection, and the asserted private rights of action under the securities rules. It did not decide securities liability or find collusion or inadequate representation.",
+  "briefSha256": "468b8ff88cb3a05df9cd6a044b7a868b8b0c732257898960524c7d469e1b35ea",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-MATSUSHITA-EPSTEIN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The acquisition generates two sets of shareholder claims",
+      "cue": "1990–1992",
+      "paragraphs": [
+        "Matsushita Electric Industrial’s 1990 tender offer sought MCA, a Delaware corporation. Shareholders sued MCA’s directors in Delaware for alleged fiduciary breaches concerning shareholder value. An amended complaint added allegations of corporate waste through exposure to federal securities liability and Matsushita’s conspiracy and assistance in the fiduciary breaches. These remained state causes of action, even where potential federal liability supplied the waste theory.",
+        "Other shareholder litigation proceeded in California federal court against Matsushita under Securities and Exchange Commission Rules 10b-13 and 14d-10. Section 27 of the Securities Exchange Act gave federal courts exclusive jurisdiction over those claims. The federal court denied class certification, granted Matsushita summary judgment, and dismissed the case April 15, 1992. The plaintiffs appealed. Exclusive federal jurisdiction over securities claims did not deprive Delaware of jurisdiction over the separate state-law suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369–371, 381–382 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Delaware rejects one settlement and approves another",
+      "cue": "The class release",
+      "paragraphs": [
+        "In April 1991 the Delaware Court of Chancery rejected an initial settlement that offered shareholders no money. Removing a poison pill offered little practical benefit after the acquisition, while counsel sought substantial fees and shareholders had no opt-out right.",
+        "A second agreement created a $2 million fund, expressly released the pending federal case, and allowed shareholders to opt out. After deductions, the fund would yield only a few cents per share. The court called the monetary benefit meager and barely adequate but approved the settlement, reducing requested attorney fees to $250,000. Suspicion of collusion did not become a finding that collusion had occurred.",
+        "Notice was mailed twice and published in the Wall Street Journal. The respondents in the eventual Supreme Court case neither opted out nor objected nor appeared at the approval hearing. Delaware’s Supreme Court affirmed. The Ninth Circuit nevertheless refused to treat the judgment as a bar to the federal appeal. It limited a state settlement’s preclusive reach to claims that issue preclusion from adjudicating the state claims could have extinguished, and it also addressed the federal securities claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "371–374; Ginsburg 389–394, 399 n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court requires Delaware law as the starting point",
+      "cue": "The full-faith-and-credit question",
+      "paragraphs": [
+        "Justice Thomas wrote the Supreme Court’s principal opinion. Under 28 U.S.C. § 1738, a state judgment ordinarily received in federal court the effect it would receive in the rendering state. A judgment incorporating a class settlement was still the product of a judicial proceeding. Neither settlement nor the exclusively federal nature of some released claims made it categorically exempt.",
+        "The earlier Marrese decision supplied two steps: first determine the judgment’s effect under the rendering state’s law; if that law barred the action, then ask whether the relevant federal statute created an exception to § 1738. Federal courts could not substitute their own preferred preclusion test. Rules about claims outside the first court’s jurisdiction still mattered, but Delaware’s law governing settlement releases had to be examined.",
+        "The Court read Delaware’s Nottingham Partners decision and the later Union Square arbitration case to allow settlements releasing related claims that Chancery could not itself adjudicate, where they shared the settled litigation’s factual predicate. Delaware could not directly command dismissal of the California suit. Its judgment could nonetheless operate as a collateral bar when the federal court applied § 1738. This release specifically identified that suit, and respondents had remained in the settlement class."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "373–379"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Exclusive adjudicatory jurisdiction does not forbid release",
+      "cue": "The federal-statute step",
+      "paragraphs": [
+        "Section 27 contained no express exception to § 1738, so respondents needed an implied partial repeal based on irreconcilable conflict. The Court found none. Reserving adjudication of Exchange Act duties to federal courts did not prohibit parties from releasing such claims in settlement of a properly pending state suit. Evaluating potential claim value to determine fairness was not deciding the claims’ merits.",
+        "Federal expertise and uniform interpretation remained compatible with that distinction because the state court approved a compromise rather than authoritatively enforcing securities liabilities. Other Exchange Act provisions anticipated overlapping state and federal remedies and barred double recovery without displacing § 1738. Precedents involving state findings and arbitration also undermined an unconditional right to litigate every exclusively federal claim to judgment in federal court.",
+        "Delaware had jurisdiction over the state action and parties. That differed from a court lacking power over the proceeding it actually entertained. The Court distinguished Kalb, an earlier jurisdictional-exception case in which a federal statute prohibited the very state proceeding. Delaware’s inability to adjudicate each released federal claim did not produce that defect."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "380–387 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Separate opinions insist that representation remains open",
+      "cue": "The Justices’ disagreements",
+      "paragraphs": [
+        "Justice Stevens agreed that § 27 did not impliedly repeal § 1738 but would have allowed the lower federal court to determine Delaware law first. He also stressed its ability to examine whether adequacy of representation had been fully and fairly litigated in Delaware. He joined Parts I, II–A, and II–C of Thomas’s opinion, but not Part II–B or the judgment.",
+        "Justice Ginsburg likewise favored remand while objecting to deciding Delaware law in the first instance. She questioned blending an identical-factual-predicate test with a broader same-transaction approach. Her Part II–B, joined by Stevens and Justice Souter, emphasized that absent class members still required adequate representation. Notice and an opt-out opportunity did not replace it, and a rendering court’s approval did not automatically settle every future court’s recognition duty. Stevens joined her entire opinion.",
+        "Ginsburg described respondents’ contentions that the state representatives might not have tendered shares and therefore might not possess the federal claims they released, and might have undervalued them for a modest fund with substantial counsel fees. She did not find those allegations proved. She discussed explicit class findings, a disputed burden of proof, and Delaware’s counterpart to Rule 60 as an avenue for relief. Respondents’ adequacy challenge and Matsushita’s claim that adequacy was already fully and fairly litigated remained unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "387–399 & Ginsburg nn.4, 6–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Recognition is required subject to questions the Court reserved",
+      "cue": "February 27, 1996",
+      "paragraphs": [
+        "On February 27, 1996 the Supreme Court reversed the Ninth Circuit and remanded. The majority concluded that Delaware would treat the settlement as preclusive and that § 27 supplied no implied exception to § 1738. The Ninth Circuit could not refuse recognition solely because the release included claims within exclusive federal jurisdiction.",
+        "The Court expressly did not decide constitutional adequacy of representation, which fell outside the question presented and had not supported the decision below. It separately reserved respondents’ pure-contract objection about failure to opt out, explaining that § 1738 would require adherence to a state’s contract-based approach if that were state law. Nor did it resolve whether the securities rules supplied the asserted private rights of action or whether Matsushita had violated them. Recognition of a settlement judgment was the holding; approval of the settlement’s due-process sufficiency was not."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369–370 n.1, 379–380 nn.5–6, 387"
+        }
+      ]
+    }
+  ]
+}

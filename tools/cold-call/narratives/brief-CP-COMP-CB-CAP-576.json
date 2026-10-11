@@ -1,0 +1,137 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-576",
+  "briefId": "CP-COMP-CB-CAP-576",
+  "title": "Baker v. General Motors Corp.",
+  "course": "Civil Procedure",
+  "citation": "522 U.S. 222 (1998)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Michigan settlement restricted a former General Motors employee’s testimony, but a Missouri court subpoenaed him in an unrelated product-liability suit. The Supreme Court held that full faith and credit did not let the Michigan decree control the evidence in that separate case.",
+  "actors": [
+    {
+      "name": "Ronald Elwell",
+      "role": "Former GM employee and later witness"
+    },
+    {
+      "name": "General Motors",
+      "role": "Elwell’s former employer and defendant in the Bakers’ product-liability action"
+    },
+    {
+      "name": "Kenneth and Steven Baker",
+      "role": "Sons of Beverly Garner, seeking recovery for her death"
+    }
+  ],
+  "proceedings": "Missouri federal jury awarded $11.3 million; Eighth Circuit reversed on several grounds; Supreme Court unanimously reversed and remanded, with a five-Justice majority and two concurrences in the judgment.",
+  "limits": "The supplied full brief distinguishes the injunction from the separate settlement contract. This narrative does not independently determine product liability or certify later treatment; it is a transformation of the canonical source.",
+  "briefSha256": "5134f2900854b1bd81e46ca5d78ef1fdcad1a265e3ffe88a396c494e027b0d60",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-576"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A former employee and a fatal vehicle fire",
+      "cue": "1959 through early 1991",
+      "paragraphs": [
+        "Ronald Elwell worked for General Motors, or GM, from 1959 until 1989. For fifteen years beginning in 1971, he studied vehicle performance, particularly fires, helped defend product-liability suits, and suggested fuel-line improvements. Relations deteriorated in 1987. An arrangement for two consulting years followed by retirement did not end the dispute.",
+        "In February 1990, Beverly Garner was a passenger in a Chevrolet Blazer involved in a Missouri collision. The engine caught fire, and both occupants died. Separately, plaintiffs in a Georgia pickup-truck fuel-tank lawsuit deposed Elwell in May 1991. His criticism of that fuel system as inferior to competing designs departed from his earlier testimony as a GM expert."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "226–229"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two lawsuits proceed in different states",
+      "cue": "1991–1992",
+      "paragraphs": [
+        "In June 1991, Elwell sued GM in Michigan for wrongful discharge and related contract and tort claims. GM counterclaimed, alleging disclosure of confidential or privileged information and misappropriation of documents. A preliminary injunction restricted disclosures.",
+        "In September 1991, Garner’s sons, Kenneth and Steven Baker, sued GM in Missouri state court. They alleged that a defective fuel pump caused the fatal fire. GM removed the suit to federal court on diversity grounds, denied defect and causation, and asserted that impact injuries caused Garner’s death.",
+        "Elwell and GM settled their Michigan dispute in August 1992 for an undisclosed payment. A judge new to the case entered their proposed permanent injunction without another hearing. Besides confidentiality restrictions, it prohibited Elwell from testifying or consulting in litigation involving GM without written consent. The decree expressly exempted the pending Georgia case to avoid interfering with that court’s jurisdiction. A separate settlement contract went further: testimony ordered by another court or tribunal would not support an action for violating either the agreement or injunction. That general qualification did not appear in the decree itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "227–229 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Missouri receives the testimony",
+      "cue": "Trial and appeal",
+      "paragraphs": [
+        "The Bakers subpoenaed Elwell for deposition and trial. GM invoked the Michigan injunction. After reviewing the decree and contract in camera, the district court allowed testimony. It reasoned that Missouri’s policy favoring disclosure of relevant nonprivileged evidence justified nonenforcement and, alternatively, that a decree modifiable in Michigan could be modified elsewhere.",
+        "Elwell testified about the fuel-pump system and a 1973 GM memorandum addressing engine-fire risks. The jury awarded $11.3 million. The Eighth Circuit reversed on several grounds, including admission of Elwell’s testimony. Even assuming a public-policy exception to full faith and credit, it regarded Missouri’s competing commitment to that constitutional command as decisive. It also found insufficient evidence that Michigan would modify the decree. The Supreme Court took up whether the decree prevented the Bakers, strangers to the Michigan case, from obtaining Elwell’s testimony."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "229–231"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Recognition does not transfer all enforcement methods",
+      "cue": "The Supreme Court’s majority reasoning",
+      "paragraphs": [
+        "Justice Ginsburg’s five-Justice majority rejected a general public-policy exception. Article IV and 28 U.S.C. § 1738 demand recognition of a qualifying final judgment rendered with authority over its subject matter and governed persons. A forum’s freedom in choosing applicable law is different from its obligation to recognize another state’s judgment. Equitable decrees, like legal judgments, can carry claim- and issue-preclusive effects.",
+        "Recognition and preclusion nevertheless differ from execution. A judgment’s enforcement methods do not automatically travel with it, and the receiving forum retains evenhanded control of those methods. Analogies involving out-of-state land and injunctions concerning other lawsuits illustrated that binding a person does not itself perform an official act reserved to another state or control another court’s proceedings. The majority did not resolve the entire law of interstate antisuit injunctions.",
+        "The Michigan settlement resolved Elwell’s employment claims and GM’s counterclaim, preventing their renewal elsewhere. It did not adjudicate any specifically contested privilege issue, and the Bakers were not parties. Michigan could not require them to intervene in that unrelated dispute to preserve evidentiary rights in their own lawsuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "231–238 & nn.3–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The decree cannot displace the subpoena",
+      "cue": "January 13, 1998",
+      "paragraphs": [
+        "GM answered that the decree bound Elwell and that the Bakers had no constitutional entitlement to a particular witness. The majority therefore did not rest solely on limits against precluding strangers. Michigan lacked authority to dictate witnesses in a separate controversy outside its governance. It could restrict Elwell’s voluntary testimony without shielding him from another court’s subpoena in these circumstances.",
+        "The result did not authorize relitigation of an actual privilege adjudication. Had the Bakers participated in Michigan and litigated whether the testimony was privileged, preclusion would apply. Here, GM had not objected to specific questions or answers on attorney-client, work-product, or trade-secret grounds. The decree’s Georgia exception and the contract’s protection for compelled testimony also recognized the limits of interference with other courts. GM had agreed not to pursue the issuing court’s usual enforcement route for such testimony.",
+        "Chief Justice Rehnquist and Justices Stevens, Souter, and Breyer joined Ginsburg. On January 13, 1998, all nine Justices agreed to reverse and remand. The Court removed the full-faith-and-credit objection; it neither entered a new damages judgment nor resolved the contested product-liability merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "237–241 & nn.10–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Two concurrences prefer narrower paths",
+      "cue": "Agreement on the judgment",
+      "paragraphs": [
+        "Justice Scalia found the recognition-enforcement distinction sufficient. Missouri need no more exclude testimony to enforce the Michigan injunction than hold Elwell in contempt; recognition does not import another jurisdiction’s execution machinery.",
+        "Justice Kennedy, joined by Justices O’Connor and Thomas, worried that broad statements about official acts and interference with litigation would create uncertain exceptions. Existing law sometimes recognized obligations affecting out-of-state land, and the wider equitable-decree questions were unnecessary. Kennedy preferred Michigan law: it required an opportunity to litigate and retained mutuality, while the Bakers had never participated. GM had not shown Michigan would bind them, and § 1738 could not give the judgment greater effect elsewhere. Requiring modification before the issuing judge was a procedural rule, not preclusion against strangers. Elwell himself sought no relitigation; in Missouri he was a witness, not a party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "241–251"
+        }
+      ]
+    }
+  ]
+}

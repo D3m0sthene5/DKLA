@@ -1,0 +1,177 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-436",
+  "briefId": "CP-COMP-CB-CAP-436",
+  "title": "Slocum v. New York Life Insurance Co.",
+  "course": "Civil Procedure",
+  "citation": "228 U.S. 364 (1913)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A life-insurance claimant won a jury verdict even though the evidence did not show continued coverage after a missed premium. The Supreme Court agreed that the insurer should have won a directed verdict, but divided over whether the appellate court could enter that judgment or had to order another trial.",
+  "actors": [
+    {
+      "name": "Alexander W. Slocum",
+      "role": "Insured who died without signing a required premium-extension note."
+    },
+    {
+      "name": "Slocum’s wife and executrix",
+      "role": "Person who arranged the partial payment and later sued on the policy."
+    },
+    {
+      "name": "New York Life Insurance Company",
+      "role": "Insurer asserting lapse and seeking judgment on insufficient evidence."
+    },
+    {
+      "name": "Justice Van Devanter",
+      "role": "Author of the five-Justice majority."
+    },
+    {
+      "name": "Justice Hughes",
+      "role": "Dissenter joined by Holmes, Lurton, and Pitney."
+    }
+  ],
+  "proceedings": "The trial court denied a directed verdict and entered the plaintiff’s jury award. The Third Circuit reversed and directed judgment for the insurer. The Supreme Court kept the reversal but modified the mandate to require a new trial.",
+  "limits": "The Court did not restore the claimant’s verdict or hold coverage continued. Its Seventh Amendment remedial analysis concerns an unconditional 1913 verdict and historical procedure, not current Rule 50. The disputed constitutional outcome was 5–4, while the dissent agreed the plaintiff’s judgment could not stand.",
+  "briefSha256": "f067244f46e756391c38b013b3cf6a7ec6b90d4d5099734c724ec8bed0c4d5f3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-436"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An annual premium becomes due after the policy reserve is fully borrowed",
+      "cue": "What options remained for keeping the insurance in force?",
+      "paragraphs": [
+        "Alexander W. Slocum held a $20,000 life policy issued by New York Life Insurance Company in 1899. The annual premium was $579.60, due November 27 with one month’s grace. Only specified company officers could modify terms or extend payment time.",
+        "By 1907, Slocum had borrowed the full $2,360 policy reserve. It therefore could not fund continued or paid-up insurance after default. The company also offered a blue-note arrangement: part payment in cash plus a prescribed signed note containing the terms of temporary extension and the consequences of nonpayment. Slocum and his wife knew that system from using it three or four times. The agent could arrange it but could not dispense with the note or create different extension terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "366–375"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The wife delivers a check, but the required note is never signed",
+      "cue": "What did the company do with the money?",
+      "paragraphs": [
+        "Before the 1907 premium date, Slocum’s wife asked the Pittsburgh agent for easier terms because her husband lacked ready cash. One proposed arrangement called for $264.20 immediately and a $434 blue note due in six months.",
+        "On December 27, the final grace day, she delivered a check for the cash amount. The agent gave her the note to obtain her husband’s signature, asked her to return it, and allowed mailing as soon as possible because Slocum was ill. She took it home, but he was too ill to attend to it and died four days later without signing. No receipt for the partial payment was requested or given.",
+        "The St. Louis agency later acknowledged the remittance without knowing of his death. Its letter said the money was held subject to his order while awaiting a properly executed note. The deposited check remained in a suspense account. The executrix later tendered the amount the note would have covered, and the company tendered the cash back. Neither tender was accepted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "371–374"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The claimant wins a general verdict, followed by an appellate judgment for the insurer",
+      "cue": "What procedural power was disputed?",
+      "paragraphs": [
+        "The executrix sued in the federal Circuit Court for the Western District of Pennsylvania. She argued that the agent’s acceptance extended coverage or that the company ratified his action; reserve-based continuation was another asserted theory.",
+        "After all evidence, the insurer requested a directed verdict. The judge refused, and the jury returned an unconditional general verdict for the plaintiff of $18,224.02, reflecting policy deductions and interest. The court also declined judgment for the company notwithstanding the verdict.",
+        "The Third Circuit reversed and directed judgment for the insurer using Pennsylvania procedure. That statute permitted judgment on the entire evidence after a request for binding instructions had been reserved or denied. Supreme Court review concerned both evidentiary insufficiency and whether that state procedure could constitutionally finish the federal case without another jury trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "366–370, 375–377"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The evidence does not establish a valid premium extension or ratification",
+      "cue": "Why did both sides of the Supreme Court agree reversal was necessary?",
+      "paragraphs": [
+        "Justice Van Devanter’s majority agreed with the court of appeals that the policy was no longer in force. Scattered partial payments were not authorized. The check mattered only with a valid adjustment or waiver, and someone aware of an agent’s restricted authority could not bind the principal through an unauthorized act.",
+        "The blue note’s terms were substantive. Slocum and his wife knew a signature was required, and the agent’s permitted arrangement depended on it. Company correspondence and the suspense account showed that it awaited the note rather than adopted a different extension. Exhaustion of the reserve independently defeated that continuation theory.",
+        "The trial judge therefore should have directed a verdict for the insurer. Reversal of the plaintiff’s judgment was proper. The remaining disagreement concerned what should happen next."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370–375"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority treats reexamination as an independent limit on the remedy",
+      "cue": "Why was a new trial required despite insufficient proof?",
+      "paragraphs": [
+        "The Seventh Amendment’s Reexamination Clause constrained the federal court regardless of state procedure. Historical English common law, not one State’s practice, supplied the relevant modes of reexamination: a trial court could grant a new trial, or an appellate court could order one for legal error.",
+        "Once the general verdict was set aside, the factual issues pleaded became unresolved again. For the majority, they still required the constitutionally constituted judge-and-jury tribunal. Sufficiency determined whether the judge should direct a verdict but did not dispense with a verdict or authorize an appellate final disposition of factual issues. The right to jury trial followed material factual issues in the pleadings, distinct from the legal sufficiency of the evidence presented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "376–388, 397–399"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Historical substitutes for a verdict do not fit this record",
+      "cue": "What opportunity did another trial preserve?",
+      "paragraphs": [
+        "Historical judgment notwithstanding the verdict and arrest of judgment addressed deficiencies appearing in the pleadings. A verdict’s findings might be immaterial because a pleaded claim or defense was legally inadequate; those devices did not authorize judgment against a verdict merely for insufficient trial evidence.",
+        "A properly framed demurrer to evidence proceeded on facts admitted and ascertained through that procedure. A voluntary nonsuit left the claimant free to sue again. Neither, in the majority’s view, supported setting aside this unconditional verdict and entering a binding evidence-based judgment for the opposing party. Contrary nonsuit precedents likewise involved nonpreclusive dispositions.",
+        "A new trial had practical substance: the plaintiff might supply missing evidence or expose defects in the insurer’s proof. The first evidentiary failure did not constitutionally extinguish that chance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "381–382, 388–400"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Hughes sees correction of a legal ruling rather than displacement of jury factfinding",
+      "cue": "Why would the dissent have left the appellate mandate intact?",
+      "paragraphs": [
+        "Justice Hughes, joined by Justices Holmes, Lurton, and Pitney, considered the majority’s distinction an elevation of procedural form. Everyone agreed there was no evidentiary foundation for the plaintiff’s verdict. Whether any such foundation existed was law, not weighing of a genuine factual conflict. Had the requested instruction been given initially, final judgment for the company could have followed; the trial judge’s mistake should not create a constitutional right to repeat the trial.",
+        "Pennsylvania’s procedure preserved the law-fact distinction because judgment remained unavailable where conflicting evidence on a material issue prevented binding instructions. It allowed deliberate reconsideration of a legal question and avoided needless retrials. Hughes read common-law demurrers to evidence as allowing final judgment when every favorable fact and inference was admitted but still legally insufficient; the modern device performed that function more simply.",
+        "He distinguished majority precedents involving real factual disputes, incomplete records, or replacement of jury determinations. The abstract possibility of better proof did not require another trial, especially without an application based on newly discovered evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "400–428"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The mandate changes from judgment for the company to a new trial",
+      "cue": "What was the precise 1913 result?",
+      "paragraphs": [
+        "On April 21, 1913, the Supreme Court modified the Third Circuit’s judgment by removing its instruction to enter judgment for the insurer and substituting a new-trial direction. Five Justices supported that disputed constitutional result; Hughes’s four-Justice dissent agreed that the plaintiff’s original judgment had to be reversed.",
+        "The Court neither restored the $18,224.02 verdict nor found coverage at death. Later distinctions involving Redman and modern Rule 50 were separate developments, not holdings of this opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375, 399–401, 428"
+        }
+      ]
+    }
+  ]
+}

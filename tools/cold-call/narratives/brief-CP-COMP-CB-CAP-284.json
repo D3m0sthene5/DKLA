@@ -1,0 +1,103 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-284",
+  "briefId": "CP-COMP-CB-CAP-284",
+  "title": "Whittlestone, Inc. v. Handi-Craft Company",
+  "course": "Civil Procedure",
+  "citation": "618 F.3d 970 (9th Cir. August 17, 2010)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A reseller leaves a twenty-year purchase agreement after two years and uses a motion to strike to attack damages; the appeal restores the claim and leaves contract interpretation unresolved.",
+  "actors": [
+    {
+      "name": "Whittlestone",
+      "role": "California supplier claiming damages after early withdrawal."
+    },
+    {
+      "name": "Handi-Craft",
+      "role": "Missouri purchaser relying on a contractual termination compensation limit."
+    }
+  ],
+  "proceedings": [
+    "The district court struck the damages allegations under Rule 12(f) and denied reconsideration.",
+    "The Ninth Circuit reversed and remanded, also finding the supplier’s contract reading plausible at the pleading stage."
+  ],
+  "limits": "The decision establishes procedural limits and preserves a plausible claim. It does not award the demanded damages, invalidate the exclusion or definitively interpret the contract.",
+  "briefSha256": "51343fc0605d3dd0892873abf29497048cdda6bb95722f870674b32665d4159e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-284"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A twenty-year purchase agreement includes specific termination routes",
+      "cue": "What did the companies promise and limit?",
+      "paragraphs": [
+        "In March 2006, California-based Whittlestone and Missouri-based Handi-Craft made a written twenty-year agreement. Handi-Craft undertook minimum annual unit or dollar purchases of Whittlestone products for resale. The term continued unless ended under the agreement.",
+        "Paragraph 20 allowed termination through mutual written consent, insolvency, material breach after notice and an opportunity to cure, or a change of ownership subject to specified conditions. Paragraph 20(d) limited compensation arising from termination or nonrenewal, including anticipated sales, prospective profits and business expenditures. How that limit related to the authorized termination routes became disputed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 12062–12064; agreement and paragraph 20"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Handi-Craft withdraws and attacks the supplier’s damages pleading",
+      "cue": "What motion produced the appeal?",
+      "paragraphs": [
+        "Handi-Craft unilaterally withdrew in June 2008, two years into the agreement. Whittlestone sued for breach, demanding more than $250,000 for lost contract value, profits, consequential losses, credits or discounts, and also seeking restitution. Those were requests, not awards.",
+        "On October 9, 2008, Handi-Craft moved under Rule 12(f) to strike damages barred, it said, by paragraph 20(d). The district court granted the motion November 18, finding the exclusion enforceable under either Missouri or California law without choosing between them. It denied reconsideration, and Whittlestone appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "12063–12065; withdrawal, demand and challenged order"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Ninth Circuit confines a motion to strike to its listed categories",
+      "cue": "Why could it not substitute for dismissal or summary judgment?",
+      "paragraphs": [
+        "Although an ordinary decision to strike is reviewed for abuse of discretion, the rule’s legal scope received de novo review. Rule 12(f) addressed insufficient defenses or redundant, immaterial, impertinent or scandalous matter. Whittlestone’s damages demand was no defense, repeated no other claim, directly concerned the alleged harm and requested relief, and was not claimed to be scandalous.",
+        "Handi-Craft effectively wanted dismissal or summary judgment, functions belonging to Rules 12(b)(6) and 56. Allowing the same substantive decision under Rule 12(f) would duplicate those mechanisms and alter appellate review simply through labeling. The panel also noted that Rule 12(d) protects a reasonable opportunity to present material when outside evidence converts a dismissal motion into summary judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "12065–12068 and note 1; standard of review and procedural safeguards"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The supplier’s interpretation also survives pleading review",
+      "cue": "What did the court leave for later proceedings?",
+      "paragraphs": [
+        "Reading the whole contract under either state’s law, Whittlestone plausibly treated paragraph 20(d) as covering authorized termination, not unilateral abandonment. The twenty-year term and enumerated methods supported that view. The material-breach route gave the nonbreaching party a right to terminate after notice and failed cure; it did not necessarily let a breacher activate the exclusion through its own withdrawal.",
+        "Paragraph 20(f), concerning remaining orders and shipments after breach-based termination, was consistent with that interpretation. Intent and properly admitted extrinsic evidence could later favor either party. Judge N. R. Smith, joined by Reinhardt and Fletcher, reversed and remanded on August 17, 2010, directing that lost profits and consequential damages not be dismissed under Rule 12(f). No separate opinion appeared, and no ultimate recovery was guaranteed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "12068–12070 and note 2; plausible interpretation and exact disposition"
+        }
+      ]
+    }
+  ]
+}

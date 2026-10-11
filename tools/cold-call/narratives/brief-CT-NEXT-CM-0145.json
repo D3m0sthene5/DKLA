@@ -1,0 +1,138 @@
+{
+  "id": "brief-CT-NEXT-CM-0145",
+  "briefId": "CT-NEXT-CM-0145",
+  "title": "Laredo Hides Company, Inc. v. H & H Meat Products Company, Inc.",
+  "course": "Contracts",
+  "citation": "513 S.W.2d 210 (Tex. Civ. App.—Corpus Christi 1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A forgotten payment check led a meatpacker to cancel months of hide deliveries. The appellate majority found waiver and repudiation, then rendered a fully calculated cover award over a changing dissent.",
+  "actors": [
+    {
+      "name": "Laredo Hides Company, Inc.",
+      "role": "Hide buyer reselling to Mexican tanneries"
+    },
+    {
+      "name": "H & H Meat Products Company, Inc.",
+      "role": "Meatpacker and output-contract seller"
+    },
+    {
+      "name": "Hinojosa",
+      "role": "H & H’s manager"
+    },
+    {
+      "name": "Justice Bissett",
+      "role": "Majority author"
+    },
+    {
+      "name": "Chief Justice Nye",
+      "role": "Dissenter who changed his position on rehearing"
+    }
+  ],
+  "proceedings": [
+    "Bench trial produced a take-nothing judgment for H & H.",
+    "Court of Civil Appeals reversed and rendered $152,960.04 plus specified judgment interest.",
+    "Rehearing and second rehearing were denied; Nye withdrew his original remand dissent and ultimately favored affirmance."
+  ],
+  "limits": [
+    "The original opinion’s consideration discussion must be read with the rehearing treatment of Uniform Commercial Code modification.",
+    "The final award was rendered, not remanded for calculation."
+  ],
+  "briefSha256": "672babe0c6f57639e3b3f62ea33cc8148dd706b6f0e52e0717896fb3b3234e4c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0145"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A mailed check interrupts an output arrangement",
+      "cue": "Tell the payment sequence before explaining the legal dispute.",
+      "paragraphs": [
+        "Laredo Hides Company, Inc. bought American meatpackers’ hides for resale to Mexican tanneries. H & H Meat Products Company, Inc. operated a packing plant in Mercedes, Texas. Their February 29, 1972 written contract committed H & H’s entire March-through-December hide production to Laredo, with deliveries at least twice monthly and cash on delivery. In practice, including the first March delivery, payment was by check.",
+        "For the second shipment, Laredo left a $9,000 check with its trucking agent on March 17, but the driver departed without it. The agent called H & H’s manager, Hinojosa, who authorized mailing the check and released the hides. A clerk testified that it was properly addressed, stamped and mailed March 18; the appellate majority treated that evidence as conclusive.",
+        "On March 21, Hinojosa demanded receipt of money by 4:30 that afternoon or no further deliveries. The call’s timing was disputed. Laredo arranged a transfer, but the correspondent bank closed before completion. Two telegrams arrived after the deadline, announcing the transfer and stopped payment on the mailed check. The transfer occurred March 22 and reached H & H’s account March 23. H & H returned the check and the excess over the shipment price. On March 30 it unequivocally refused future deliveries."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 S.W.2d at 213–216"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer covers while the trial court accepts cancellation",
+      "cue": "Introduce the losses and adverse judgment.",
+      "paragraphs": [
+        "Laredo already owed hides to a Mexican tannery. Because hides could not practically be stored for extended periods, it periodically bought replacements during the remaining term as prices rose sharply. H & H actually produced 17,218 hides from April through December, providing the quantity used in calculating loss. Laredo documented replacement prices and additional transportation and handling expenses.",
+        "After a bench trial, the judge entered a take-nothing judgment. Findings made timely payment essential, treated the missing March 18 payment as breach, and characterized the March 21 demand as an agreed extension that Laredo failed to meet. Laredo appealed both H & H’s asserted right to end the contract and the denial of damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 S.W.2d at 213–216, 221–223"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds waiver followed by repudiation",
+      "cue": "Explain why one delivery did not justify ending the whole bargain.",
+      "paragraphs": [
+        "Justice Bissett’s majority opinion rejected automatic forfeiture for delayed payment. The agreement contained no express termination provision for unpunctual payment; the transaction, conduct, and absence of abandonment or material injury mattered. By authorizing mail payment, H & H assumed postal-delay risk, and proper mailing constituted payment for this purpose. Knowingly releasing the hides also waived simultaneous payment.",
+        "Restoring strict performance after waiver required reasonable notice and an opportunity to comply. A few hours between parties roughly 165 miles apart was unreasonable here. Laredo’s attempt to avert cancellation through a transfer did not itself establish assent to new contractual terms. Although the initial opinion referred to absence of new consideration, the Uniform Commercial Code allowed agreed modifications without consideration. On rehearing, the majority emphasized the missing actual agreement and insufficient pleadings and proof of modification.",
+        "H & H’s March 30 refusal was an anticipatory repudiation under § 2.610, excusing repeated tenders and futile truck arrivals. Addressing §§ 2.703 and 2.612 on rehearing, the majority distinguished withholding a particular unpaid shipment from canceling every future installment. The broader response required substantial impairment of the whole contract. Rights to adequate assurance or suitable security did not authorize the wholesale cancellation asserted here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 S.W.2d at 216–221, 224–225"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Documented replacement purchases support a rendered award",
+      "cue": "Follow the remedy through its exact arithmetic.",
+      "paragraphs": [
+        "Under §§ 2.711 and 2.712, good-faith substitute purchases made without unreasonable delay could support recovery of the difference between cover and contract cost, plus recoverable incidental expenses and less expenses saved. Cover and § 2.713 market damages were alternative measures; a buyer proving cover need not separately establish market price when it learned of breach.",
+        "The majority treated Laredo’s documented purchases as presumptively proper. Periodic purchases matched perishable goods and the promised delivery pattern. H & H supplied no evidence rebutting reasonableness or showing saved expenses. Another preexisting lower-priced purchase did not itself discredit the actual cover purchases. The accountant’s invoice-based evidence came in without objection, and the record was fully developed.",
+        "The price differences were $134,252.82 for steer hides and $8,001.66 for bull hides, totaling $142,254.48. Transportation and handling added $3,448.95. The prayer for specific performance or at least $100,000, accompanied by general relief and unchallenged by exception, did not cap recovery. Adding $7,132.51 prejudgment interest on cover and $124.10 interest on incidentals from December 31 as requested, the court reversed and rendered $152,960.04. The judgment carried six-percent interest from August 6, 1973, the trial judgment date, until payment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 S.W.2d at 221–223, 225–226"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Nye changes his dissent on rehearing",
+      "cue": "Identify his ultimate position and the majority’s final result.",
+      "paragraphs": [
+        "Chief Justice Nye initially agreed on reversal but would have remanded because he thought damages insufficiently conclusive. On rehearing he expressly withdrew that dissent and substituted one favoring affirmance of the trial judgment.",
+        "He emphasized deference to supported bench-trial findings, including that the call arrived early enough for compliance. He read the transfer efforts, telegrams and stop-payment instruction as assent to modified payment terms. Section 2.209 required no new consideration, and in his view a merchants’ written confirmation satisfied formal requirements. Stopping the original check defeated the mailing arrangement; missing the new deadline breached its replacement.",
+        "Nye also relied on prior dishonored checks and their effect on H & H’s payments to suppliers as support for substantial impairment. Alternatively, he considered the indefinite-output arrangement outside § 2.612’s installment definition, making whole-contract impairment unnecessary. The majority rejected those grounds. His substituted dissent, and a later short dissent, favored rehearing and affirmance. Rehearing was denied August 29 and the second motion September 23, 1974, leaving the rendered recovery intact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 S.W.2d at 223–229"
+        }
+      ]
+    }
+  ]
+}

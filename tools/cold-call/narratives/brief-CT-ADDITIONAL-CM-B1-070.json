@@ -1,0 +1,137 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-070",
+  "briefId": "CT-ADDITIONAL-CM-B1-070",
+  "title": "Foster v. Colorado Radio Corporation",
+  "course": "Contracts",
+  "citation": "381 F.2d 222 (10th Cir. 1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A radio-station buyer’s failure to pursue financing and license transfer breached the bargain, but an unnoticed private resale reduced the seller’s recovery for the movable assets.",
+  "actors": [
+    {
+      "name": "Rosemary Foster",
+      "role": "Buyer who agreed to acquire radio-station assets."
+    },
+    {
+      "name": "Colorado Radio Corporation",
+      "role": "Seller that sued and then privately resold the assets."
+    },
+    {
+      "name": "Walton",
+      "role": "Purchaser in the subsequent private resale."
+    }
+  ],
+  "proceedings": "Colorado Radio obtained a diversity judgment for $15,750 in price-difference damages plus $500 in attorney fees. The Tenth Circuit affirmed as modified, reducing only the principal price-difference amount to $14,175.",
+  "limits": "The decision applied 1967 New Mexico law to a mixed asset sale. Loss of the goods remedy depended on both the missing resale notice and the parties’ stipulated measure; it did not eliminate all possible remedies whenever notice is omitted.",
+  "briefSha256": "76c2f90a529808965a5caf9370e4171eae8e6cbfc1501aa683309c1a270a60c5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-070"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Foster undertakes the financing and licensing steps",
+      "cue": "The August 28, 1964 agreement",
+      "paragraphs": [
+        "Rosemary Foster agreed to acquire certain assets of a New Mexico radio station from Colorado Radio Corporation. The agreement required her to arrange satisfactorily to assume two notes and to apply to the Federal Communications Commission for transfer of the operating license. Both sides were to cooperate diligently. A provision could release them if transfer permission was not obtained within nine months of filing, absent specified outstanding protest or litigation.",
+        "Foster did not make the necessary progress. Colorado Radio’s materials had been ready in September, but the application remained unready. A November 18 telegram demanded diligence and stated that the seller’s attorneys considered five more days reasonable. Two later calls asked whether and when Foster would file. About two weeks after the telegram, Colorado Radio sued in diversity for breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "224–225 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Conditions do not excuse failure to take the promised first steps",
+      "cue": "The breach arguments",
+      "paragraphs": [
+        "Foster argued that satisfactory arrangements for the notes were a condition precedent that had never occurred, so her purchase obligation never arose. The agreement, however, assigned those arrangements to her, and the evidence fell far short of reasonable diligence on one note. The Tenth Circuit held that she could not rely on a condition’s failure when her own inaction caused it.",
+        "She also invoked a New Mexico statute requiring a performance demand before certain contracts without a fixed performance time could become money demands. She acknowledged a demand to file the license application but argued that the seller also had to demand the purchase price separately. The court rejected that reading. The statute gave a final opportunity to perform before suit. Although license transfer was a condition to purchase, Foster had not even filed the application. Demanding that necessary first step satisfied the statute here. Neither the unfinished transfer nor the nine-month transfer provision excused her affirmative application duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "224–225 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A private resale sets up the damages dispute",
+      "cue": "The trial judgment",
+      "paragraphs": [
+        "Shortly after filing suit, Colorado Radio privately resold the station to Walton. The trial court found that the transactions covered the same items. At trial the parties stipulated that, apart from incidental damages, recovery would equal the contract price minus the resale price. The judge calculated $15,750 and added $500 attorney fees as incidental damages. Foster did not challenge the fee award.",
+        "Colorado Radio admitted giving no notice of the intended private resale. Foster invoked New Mexico’s Uniform Commercial Code §§ 2-706(1) and (3), which allowed the price-difference remedy for a qualifying resale but required reasonable notification of a private sale. The seller did not argue that the stipulation waived her notice objection. The appellate court therefore understood the stipulation as selecting the measure if the resale was legally proper, without dispensing with the statutory prerequisite."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "225 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court separates movable goods from the other assets",
+      "cue": "Article 2’s reach",
+      "paragraphs": [
+        "The trial court had excluded the entire transaction from the Code. The Tenth Circuit agreed that this record supported treating the license, goodwill, real estate, studios, and transmission equipment as nonmovables and therefore non-goods. It did not classify all transmission equipment in every transaction that way. Colorado Radio conceded that the office equipment and furnishings were movable goods, but argued that their incidental role in transferring a going concern removed them from Article 2.",
+        "The court rejected that exemption. Article 2’s language governing transactions in goods did not permit disregarding a conceded goods sale because non-goods dominated the larger bargain. The office items represented only five to ten percent of the price, but proportion did not eliminate statutory coverage. Conversely, a business might contain almost entirely goods apart from goodwill, illustrating the problem with a blanket business-sale exception.",
+        "The seller relied on Epstein, a beauty-service decision treating a product applied during a service as part of the service for warranty purposes. Here the bargain sold assets, some goods and some non-goods; it did not supply a service. The distinction did not announce compulsory division of every mixed goods-and-services contract."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "225–226 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Missing notice reduces one part of the stipulated recovery",
+      "cue": "The allocation",
+      "paragraphs": [
+        "For the goods portion, missing notice foreclosed the Code’s resale-price remedy. Because the parties had stipulated to that specific measure, this breach component was unremediable in this case. The court did not hold that every seller omitting notice lost every possible Article 2 remedy. For the non-goods, notice was not mandatory, the resale price’s reasonableness was unchallenged, and the stipulated measure remained available.",
+        "Using the uncontradicted valuation testimony most favorably to Foster, the court assigned ten percent to the goods and reasonably attributed ten percent of the damages to refusal to buy them. It reduced $15,750 to $14,175 without requiring a new allocation trial.",
+        "Foster could not then go behind the agreed net-price comparison with a new argument that the seller was not actually worse off. An in-court stipulation entered with open eyes controlled. The evidence also supported the calculation: although Walton’s writing contained a lease provision, uncontroverted extrinsic evidence showed that was a mistake and the real estate had been sold. Similar evidence supported deducting precomputed interest in finding Walton’s net price."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "226–227 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The escrow is security, not an exclusive damages limit",
+      "cue": "July 6, 1967",
+      "paragraphs": [
+        "Foster finally argued that a $5,000 good-faith escrow limited her liability. The trial judge found the purchase-contract provision ambiguous and consulted the separate escrow agreement, which expressly preserved damages and other remedies beyond payment of the fund.",
+        "Foster objected that New Mexico Rule 9(k) required attaching that document to the complaint. But this damages action was founded on the purchase contract, not the escrow agreement. The latter was admissible to explain whether the parties intended an exclusive remedy, and the finding that they did not was correct.",
+        "Chief Judge Murrah, writing with Judge Hickey and District Judge Christensen on July 6, 1967, affirmed as modified. Breach liability stood, the price-difference award became $14,175, and the unchallenged $500 attorney-fee award was not reduced by that calculation. There was no new trial or remand for another damages theory and no separate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "227–228 & nn.7–9"
+        }
+      ]
+    }
+  ]
+}

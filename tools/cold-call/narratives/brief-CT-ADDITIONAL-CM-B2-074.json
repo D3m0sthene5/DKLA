@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B2-074",
+  "briefId": "CT-ADDITIONAL-CM-B2-074",
+  "title": "Ballard v. Chavez",
+  "course": "Contracts",
+  "citation": "117 N.M. 1, 868 P.2d 646 (1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Contractors allege a paving allowance was deducted twice from an executed school contract; bid-modification rules and a general duty to read do not categorically foreclose reformation.",
+  "actors": [
+    {
+      "name": "James, Wayne and Glenn Ballard, doing business as Ballard and Sons",
+      "role": "Successful school-construction bidders seeking correction of executed writings."
+    },
+    {
+      "name": "Loving Municipal School District",
+      "role": "Contracting school district resisting reformation."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed the amended complaint for failure to state a claim.",
+    "The New Mexico Supreme Court reversed and set the dismissal aside, leaving factual evaluation and merits to the district court."
+  ],
+  "limits": "Mutual mistake and the $93,840 loss are pleading allegations; $20,000 was alleged already paid. Reversal ordered neither reformation nor a final monetary recovery.",
+  "briefSha256": "e3f72680bcc05bd5ef56ecadd8fe2b540bb0590c07f3a236937f36859b38be48",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B2-074"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The contractors sign a contract and change order containing an alleged double deduction",
+      "cue": "What agreement did they ask to correct?",
+      "paragraphs": [
+        "James, Wayne and Glenn Ballard, operating as Ballard and Sons, won the bid for Phase I of Loving High School. Their amended complaint alleged that on December 26, 1988, they signed a contract with the Loving Municipal School District and simultaneously executed a change order subtracting the cost of paving certain parking areas.",
+        "Neither side allegedly realized that the construction contract had already deducted that same paving cost. The Ballards alleged a $93,840 loss, of which the district had paid $20,000, and sought equitable reformation of the writings. Those allegations had not been proved at trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "868 P.2d 646–647; execution, mistake and demanded correction"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial court treats the suit as an impermissible bid change",
+      "cue": "Which two grounds supported dismissal?",
+      "paragraphs": [
+        "The district court dismissed for failure to state a claim, relying on Procurement Code § 13-1-106’s restriction on changing bids after opening. It also invoked Gardner-Zemke, a contractor decision involving failure to read contract documents.",
+        "On appeal, the Supreme Court accepted well-pleaded facts under the historical Rule 1-012(B)(6) standard and asked whether any provable facts within the claim could permit relief. The question was availability of reformation, not whether the Ballards had already established a right to it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "646–647; dismissal and then-stated review standard"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court distinguishes an executed agreement from the earlier bid",
+      "cue": "Why did the procurement statute not resolve the suit?",
+      "paragraphs": [
+        "A bid is essentially an offer; an executed contract is an agreement. The alleged error was discovered after the instruments were executed, and the change order had become part of the contract. The Ballards therefore sought correction of existing writings rather than permission to alter the price of an open bid.",
+        "Section 13-1-106’s bid-correction and withdrawal rules, including limited withdrawal of a materially mistaken nonresponsive low bid, did not dispose of that distinct claim. The district’s immunity argument under § 37-1-23 also failed: the contract and change order were both written. The court did not create a general immunity exception for oral public contracts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "647 and notes 1–2; bid-contract distinction and written-contract immunity"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Failure to discover the discrepancy is not an absolute defense to reformation",
+      "cue": "What factual questions remained after reversal?",
+      "paragraphs": [
+        "Restatement § 155 permits correction when mutual mistake about contents or effect keeps a writing from expressing the agreement. Section 157 makes failure to discover facts disqualifying only if it falls below good faith and reasonable fair-dealing standards. An ordinary duty to read therefore did not categorically bar the alleged double-subtraction claim.",
+        "Gardner-Zemke concerned changed subsurface conditions and unread materials affecting what a contractor reasonably expected, not a mutually mistaken writing. On January 12, 1994, Justice Frost, joined by Chief Justice Ransom and Justice Montgomery, reversed and set aside dismissal without deciding the merits. The district court still had to assess the alleged mistake and conduct. No contract was reformed and no unpaid balance ordered; the decisive statutory distinction was contract formation, not an independently decided construction-start date."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "647–648; qualified fault rule, distinguished precedent and disposition"
+        }
+      ]
+    }
+  ]
+}

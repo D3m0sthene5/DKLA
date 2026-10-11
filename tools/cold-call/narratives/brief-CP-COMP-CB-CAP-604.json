@@ -1,0 +1,138 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-604",
+  "briefId": "CP-COMP-CB-CAP-604",
+  "title": "Marek v. Chesny",
+  "course": "Civil Procedure",
+  "citation": "473 U.S. 1 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A civil-rights plaintiff rejects an offer covering damages, accrued costs, and fees, then wins less at trial. The ensuing fee dispute asks whether Rule 68 cuts off his own postoffer attorney’s fees authorized as costs by statute.",
+  "actors": [
+    {
+      "name": "Chesny",
+      "role": "Father suing individually and as administrator after his adult son’s death."
+    },
+    {
+      "name": "Three police officers",
+      "role": "Defendants who made the inclusive offer of judgment."
+    }
+  ],
+  "proceedings": [
+    "The plaintiff won $60,000 at trial, but the district court denied requested postoffer costs and fees under Rule 68.",
+    "The Seventh Circuit reversed that fee ruling.",
+    "The Supreme Court reversed the Seventh Circuit, leaving the underlying damages award intact."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current Rule 68 review. Section 1983 supplies the claim; § 1988 supplies fees as part of costs. The Court reviewed denial of plaintiff’s postoffer recovery, not an award of defendants’ fees. Proposed reforms and dissent hypotheticals are not operative holdings.",
+  "briefSha256": "be02c7c964083ca1c4cbaccc1aa42596cf241d06988af08c5daa1bf4525b8484",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-604"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The officers make a global offer before trial",
+      "cue": "What did the plaintiff recover after rejecting it?",
+      "paragraphs": [
+        "Three police officers responding to a domestic-disturbance call shot and killed Chesny’s adult son. Chesny sued individually and as estate administrator under 42 U.S.C. § 1983 and state tort law.",
+        "Before trial, the officers timely offered $100,000 expressly including accrued costs and attorney’s fees. Chesny did not accept. Trial produced $5,000 for state wrongful death, $52,000 for the civil-rights violation, and $3,000 punitive damages, totaling $60,000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The dispute shifts from damages to litigation expenses",
+      "cue": "Which costs were actually at issue?",
+      "paragraphs": [
+        "Chesny requested $171,692.47 in costs including fees. The district court invoked Federal Rule of Civil Procedure 68 to refuse amounts incurred after the offer. The parties later agreed that $32,000 represented allowable preoffer costs and fees, leaving about $139,692.47 requested for later work.",
+        "The district court did not require payment of the officers’ costs, and they did not challenge that ruling. The Seventh Circuit reversed the denial of Chesny’s own fees, reasoning that mechanically combining Rule 68 with the civil-rights fee statute could pressure plaintiffs and lawyers to accept inadequate offers. The Supreme Court reviewed both the inclusive offer’s validity and whether § 1988 attorney’s fees counted as Rule 68 costs."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 4–5 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority permits one inclusive figure",
+      "cue": "Why did the rule not require itemized damages and costs?",
+      "paragraphs": [
+        "Chief Justice Burger focused on the judgment the offer authorized. If an offer expressly included costs or specified them, judgment included that amount. If silent, the court added appropriate accrued costs. Provided the offer did not exclude costs from judgment, no allocation was required.",
+        "A total-exposure figure could promote settlement where defendants would not commit while additional fees remained open. Plaintiffs could compare known or ascertainable accrued expenses and damages against the offer. Uncertain trial outcomes were inherent in settlement, and itemizing components would not remove that uncertainty.",
+        "The comparison here included both the $60,000 verdict and $32,000 preoffer expenses: $92,000 against $100,000. Claimed postoffer costs were excluded because they compensated the expense of continuing litigation; adding them would undermine the offer’s operation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 5–7, 11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Section 1988’s wording brings attorney’s fees within the cutoff",
+      "cue": "How did the majority connect the two policies?",
+      "paragraphs": [
+        "Although ordinary American practice excluded fees from costs, statutes existing when the Rules were adopted in 1938 sometimes expressly included them, and committee materials identified many examples. Rule 68 supplied no independent definition. The majority therefore understood it to incorporate costs properly awardable under applicable substantive statutes or other authority.",
+        "Section 1988 expressly authorized fees as part of costs in § 1983 cases. Absent contrary congressional expression, those fees fell within Rule 68. Roadway Express involved a sanctions statute with its own cost definition and thus did not govern this incorporation question. The result did not mean every fee statute classified fees identically.",
+        "The majority viewed support for meritorious civil-rights suits and encouragement of settlement as compatible. Settlement could provide earlier compensation and avoid burdens or adverse outcomes. It also noted the relationship between reasonable fees and success: substantial postoffer expense here achieved $8,000 less than the rejected offer once accrued costs were included. The cutoff nevertheless operated by the rule once applicable, not by a separate finding that every hour of postoffer work was unreasonable under § 1988."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 7–12 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Two concurrences accept a settled interpretation, while Brennan disputes it",
+      "cue": "What consequences did the dissent predict?",
+      "paragraphs": [
+        "Justice Powell acknowledged previously favoring separate identification of relief and costs in Delta Air Lines v. August. He still considered it better practice but joined the clarified rule for stability. Justice Rehnquist expressly withdrew his Delta dissent’s view excluding attorney’s fees from Rule 68 costs after further consideration. Both joined Burger fully.",
+        "Justice Brennan, joined by Justices Marshall and Blackmun, favored a uniform meaning based on traditional taxable items in § 1920. History, clerical cost procedures, and other rules’ express fee references supported separation. Making Rule 68 depend on small wording variations across fee statutes undermined uniformity, and he found the Roadway Express distinction inadequate.",
+        "He argued that § 1988 called for contextual reasonableness: unproductive work could already be denied, and the district court might reject much of this request on that basis. Automatic cutoff nevertheless barred otherwise reasonable work even after results of public importance. The rule’s availability only to defending parties was not neutral; early offers before adequate discovery might coerce uninformed decisions. Valuing injunctions, short acceptance periods in class actions, and conflicts with absent members illustrated further predicted problems, not facts of this damages case.",
+        "Brennan treated statutory fee entitlement as substantive and the majority’s procedural alteration as contrary to the Rules Enabling Act. Proposed judicial and legislative reforms with reasonableness, discovery, and class safeguards demonstrated why proper rulemaking or Congress should decide. His appendix grouped 63 fee-as-cost statutes, 49 separately phrased statutes, and seven ambiguous formulations to illustrate disparities, expressly warning that the list was incomplete and did not decide application to each enactment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 12–51 & dissent nn.1–65"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The officers owe no postoffer costs on the issue reviewed",
+      "cue": "What remained unaffected?",
+      "paragraphs": [
+        "On June 27, 1985, the Court reversed the Seventh Circuit six to three. Justices White, Powell, Rehnquist, Stevens, and O’Connor joined Burger. The officers were not liable for Chesny’s approximately $139,692 postoffer costs-and-fees request.",
+        "The damages verdict remained intact, as did the distinct agreed preoffer amount and the unchallenged refusal to shift the officers’ own expenses. The decision did not order Chesny to pay their attorney’s fees."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "473 U.S. 1, 4 n.1, 12"
+        }
+      ]
+    }
+  ]
+}

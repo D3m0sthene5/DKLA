@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-486",
+  "briefId": "CP-COMP-CB-CAP-486",
+  "title": "Grimes v. Miller",
+  "course": "Civil Procedure",
+  "citation": "429 F. Supp. 1350 (M.D.N.C. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After forty-nine days in civil jail, a debtor challenged North Carolina’s body-execution system. A three-judge federal court preserved postjudgment execution only with added safeguards and invalidated the waiting period that blocked prompt preliminary release.",
+  "actors": [
+    {
+      "name": "Grimes",
+      "role": "Judgment debtor challenging civil imprisonment"
+    },
+    {
+      "name": "Patricia Miller",
+      "role": "Stockcar racer and conversion judgment creditor"
+    },
+    {
+      "name": "Hugh Shepherd and Paul McCrary",
+      "role": "Clerk and sheriff named in the federal action"
+    }
+  ],
+  "proceedings": [
+    "State default judgment awarded conversion and punitive damages and authorized body execution if property execution failed.",
+    "Grimes spent forty-nine days jailed before insolvent’s-oath release.",
+    "Federal three-judge court issued conditional constitutional rulings, denying damages and injunctive relief."
+  ],
+  "limits": "Historical federal constitutional action, not reversal of conversion judgment or current statutory certification. Three-day hearing clock begins on petition, not arrest; counsel ruling rested on statute.",
+  "briefSha256": "a20f9022a3d4237164422f2c25c84c6ec4d2684b0d006c3f0625bc3bbee210d8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-486"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A racing-car repair becomes a conversion judgment",
+      "cue": "The debt underlying the detention",
+      "paragraphs": [
+        "Professional stockcar racer Patricia Miller delivered her 1972 Pinto to Grimes in 1973 for rebuilding, a new engine, and racing improvements. When she recovered it in May 1974, its parts had been stripped, leaving frame and body shell. Her state complaint alleged intentional fraud and malicious conversion, and separately alleged that Grimes transferred an $18,000 Petty-built dragster to his wife to frustrate creditors.",
+        "The defendants were served and did not answer. After default, Judge McConnell found intentional, willful, malicious, fraudulent conversion: the Pinto’s value had fallen from $6,500 to $150. He awarded $6,350 loss and $5,000 punitive damages and authorized execution against Grimes’s person if property execution failed. He made no finding on the alleged transfer to the wife; her case was dismissed without prejudice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1352–1353"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Property collection fails and Grimes goes to jail",
+      "cue": "Release precedes the federal challenge",
+      "paragraphs": [
+        "Property execution was unsatisfied, and body-execution writs issued January 15 and May 23, 1975. Grimes temporarily fled to Florida; whether he sought to avoid bad-check arrest or civil arrest remained unresolved. He was arrested July 30. His wife initially could not find counsel, but the federal court could not determine whether inability to pay caused the delay.",
+        "A lawyer eventually acted without a fee, unsuccessfully sought habeas relief, and then petitioned for an insolvent’s oath. After twenty days’ creditor notice and examination, the clerk found no assets beyond $50 and released Grimes September 17, after forty-nine days in jail.",
+        "Grimes sued Miller, clerk Hugh Shepherd, and Sheriff Paul McCrary under section 1983, seeking personal and class relief and $100 from Miller. The three-judge Middle District of North Carolina court rejected his standing to challenge prejudgment arrest because he had experienced only postjudgment execution. That challenge remained live despite release: other debts created a reasonable recurrence risk, and short detention could evade review. With no pending state case or relevant ambiguity, abstention was unwarranted. The court denied plaintiff and defendant classes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1353–1355 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Civil confinement needs a recovery-related justification",
+      "cue": "The court’s protective construction",
+      "paragraphs": [
+        "Circuit Judge Craven’s opinion described the permissible objective as compelling disclosure and preventing concealment by debtors adjudged guilty of fraud or similar wrongdoing, not imprisoning indigent people merely for nonpayment. On that construction it rejected substantive due-process, equal-protection, and Eighth Amendment challenges; wealthy concealers could also remain confined.",
+        "The underlying tort findings alone were insufficient. Without more, jail would punish wrongdoing without criminal protections. Before detention, the court required additional probable-cause facts showing impending flight to avoid creditors, fraudulent concealment or diversion of assets, or a risk of such conduct unless immediate detention occurred. The federal court acknowledged that it could not authoritatively construe state law and was predicting a saving construction by North Carolina’s highest court. These were additional safeguards, not findings already made in Grimes’s judgment.",
+        "The twenty-day creditor-notice rule was unconstitutional insofar as it barred preliminary release, even for someone plainly assetless. The debtor had to receive an actual hearing within three days of petitioning for release or be released, regardless of creditor notice or service failures. Continued detention required examination and findings supporting actual concealment. Preliminary release was not final statutory discharge: creditors could investigate and pursue later confinement for fraudulent concealment until full disclosure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1355–1358 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Notice of counsel and release rights",
+      "cue": "The precise federal result",
+      "paragraphs": [
+        "State law supplied indigent civil detainees a counsel right, so the court did not decide an independent constitutional entitlement. It agreed counsel had not been provided to Grimes, but placed the duty at the first indication of indigency; Miller’s complaint had instead suggested concealed assets.",
+        "The warrant had to explain indigent counsel eligibility, the opportunity to petition for preliminary release, and the chance within seventy-two hours of petition to establish indigency for both purposes. Counsel should be appointed immediately upon finding inability to pay, or provisionally when apparent indigency arose, including before arrest. The entitlement continued after preliminary release while concealment and indigency remained unresolved.",
+        "Miller had acted in good faith under the existing scheme and could not reasonably anticipate the new construction, so damages were denied. The court upheld postjudgment execution only with the required findings, invalidated the notice barrier to preliminary release, and required counsel notice. It dismissed the prejudgment challenge, denied classes, an injunction, and statutory attorney fees, and assigned each side its own costs. The conversion judgment itself was not reversed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1358–1359"
+        }
+      ]
+    }
+  ]
+}

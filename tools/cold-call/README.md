@@ -62,6 +62,7 @@ Run these from the repository root:
 python3 tools/cold-call/check_narratives.py --write
 python3 tools/r19/assemble.py
 python3 tools/r19/check.py
+node tools/cold-call/check_reader.cjs
 python3 tools/r19/audit24.py
 python3 tools/cold-call/check_narratives.py --require-complete
 ```
@@ -73,6 +74,12 @@ checks identities, citations and source fingerprints. A length flag invites
 human inspection; source repetition and audit notes make a word-count ratio an
 unreliable measure of retained detail. Automated checks cannot prove legal
 accuracy, complete chronology or unambiguous antecedents.
+
+`check_reader.cjs` executes the reader's opening and closing path for every
+account in the built file, checking that each narrative paragraph, court stage
+and source qualification renders. Orientation fields accept a paragraph or a
+list of paragraphs. This catches data-shape failures; it does not replace the
+browser checks for layout and interaction.
 
 The assembler embeds narratives and the reader into the standalone atlas,
 fingerprints them, and writes routes, worker and version metadata together.

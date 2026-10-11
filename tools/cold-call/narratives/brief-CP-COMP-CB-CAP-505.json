@@ -1,0 +1,124 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-505",
+  "briefId": "CP-COMP-CB-CAP-505",
+  "title": "Will v. United States",
+  "course": "Civil Procedure",
+  "citation": "389 U.S. 90 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A prosecutor sought extraordinary appellate relief from a criminal-discovery order. The Supreme Court required an explanation of exceptional circumstances, leaving the discovery merits and a possible supported writ unresolved.",
+  "actors": [
+    {
+      "name": "Simmie Horwitz",
+      "role": "Defendant charged with federal income-tax evasion"
+    },
+    {
+      "name": "Judge Will",
+      "role": "Northern District of Illinois judge who ordered a narrowed bill of particulars"
+    },
+    {
+      "name": "United States",
+      "role": "Prosecuting party seeking mandamus"
+    },
+    {
+      "name": "Chief Justice Warren",
+      "role": "Author of the Court opinion"
+    },
+    {
+      "name": "Justice Black",
+      "role": "Concurred in the judgment with separate reasoning"
+    }
+  ],
+  "proceedings": [
+    "Government refused discovery; district judge threatened but did not enter dismissal.",
+    "Seventh Circuit initially denied mandamus, then reconsidered and issued an unexplained writ.",
+    "Supreme Court vacated the writ and remanded for further consideration."
+  ],
+  "limits": [
+    "The Court did not decide the discovery merits, appealability of a later dismissal, or the Rule 7(f) amendment’s effect.",
+    "The judgment was unanimous among eight participants; Black concurred in judgment and Marshall did not participate."
+  ],
+  "briefSha256": "283e583d23bd2054e34c5f2ebdf0bc25d808e3225aa274681cb196b5572304d4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-505"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "One disputed request remains in a tax prosecution",
+      "cue": "Introduce the narrowed order.",
+      "paragraphs": [
+        "Simmie Horwitz faced federal income-tax-evasion indictments in the Northern District of Illinois. He requested thirty items in a bill of particulars. Negotiations resolved the other disputes, leaving request 25: who heard oral statements by Horwitz that the government intended to rely on, the circumstances, whether the listeners were government agents, and any memoranda or transcripts.",
+        "District Judge Will initially removed a demand for the statements’ substance because of work-product concerns. He later allowed that information for statements to government agents while excluding it for statements to private people. This was a limited order, not an unrestricted demand for all prosecution witnesses or conversations.",
+        "The government objected that the order exposed its witnesses and exceeded Criminal Rule 7(f), and refused compliance. Will indicated that he would dismiss the indictments unless it complied, but entered no dismissal. The government instead obtained a stay and petitioned the Seventh Circuit for mandamus. That court denied relief July 12, 1966, reconsidered August 16, and issued the writ October 4 without new briefs, oral argument, or an opinion identifying extraordinary circumstances."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "389 U.S. at 91–94 & nn. 1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mandamus cannot become an ordinary discovery appeal",
+      "cue": "Explain the standard and the appeal-related reservations.",
+      "paragraphs": [
+        "In the Supreme Court, the government argued both that the particular order exceeded authority and that Will generally required disclosure contrary to established criminal-discovery rules. It invoked La Buy, an earlier supervisory-mandamus decision, and the government’s limited ability to appeal criminal rulings. Will disputed both descriptions.",
+        "Chief Justice Warren explained that mandamus traditionally confines a lower court to lawful authority or requires exercise of authority it must exercise. Exceptional circumstances involving judicial usurpation and a clear, indisputable entitlement were essential. Mere disagreement with an interlocutory ruling would otherwise displace Congress’s policy against piecemeal appeals. Calling an error beyond a judge’s “power” did not supply those circumstances: courts ordinarily have authority to decide matters incorrectly.",
+        "Criminal cases demanded particular restraint because interlocutory review delays trial and government appeals encounter restrictions including double jeopardy. The Court assumed for decision that the government had no alternative review, yet held that absence insufficient to create an appeal Congress had withheld. It reserved whether an eventual dismissal would itself be appealable.",
+        "The Court also assumed, without deciding, a sufficient jurisdictional basis under the All Writs Act. It left open whether the writ could aid appellate jurisdiction the government might invoke. The holding neither prohibited all criminal-discovery mandamus nor settled every jurisdictional question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "389 U.S. at 95–98 & nn. 4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The record does not show systematic defiance",
+      "cue": "Test the government’s characterizations against the actual orders.",
+      "paragraphs": [
+        "Rule 7(f) gave judges substantial discretion over bills of particulars. Identifying people necessary to prepare a defense could incidentally reveal potential witnesses without becoming an impermissible general witness list. People who heard particular admissions were not necessarily the people the prosecution would call.",
+        "Will had rejected request 29, which did seek a general prosecution witness list. He narrowed request 25 and offered to reconsider upon a concrete showing of danger to a witness or harm to the prosecution. The government made no particularized showing. His remarks revealed a liberal view of discovery, but preference for disclosure and even an erroneous ruling did not establish deliberate disregard of governing law.",
+        "The Court kept precedent comparisons limited. A Rule 7(f) amendment effective July 1, 1966 removed the former cause requirement, but the challenged order predated its promulgation; the amendment’s meaning and effect were left for remand. La Buy arose in civil litigation, yet the Court did not announce an abstract rule that criminal mandamus always requires a stricter standard. Schlagenhauf, involving exceptional questions about a novel examination order and Rule 35’s scope, likewise did not make mandamus a general discovery-error remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "389 U.S. at 98–105 & nn. 7, 10–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The unexplained writ is vacated, not the discovery order affirmed",
+      "cue": "End with the remand and Black’s distinct position.",
+      "paragraphs": [
+        "The Seventh Circuit’s missing explanation mattered. It needed to identify what Will actually ordered, whether an unlawful general practice existed, and what made intervention extraordinary. Mandamus corrects judicial action; it does not punish a judge’s views. An unexplained command also poorly serves any instructional purpose. The Supreme Court could not replace missing reasons with the government’s contested characterization.",
+        "On November 13, 1967, the Court vacated the writ and remanded to the Seventh Circuit. That court remained free to consider whether a fuller record justified relief under the proper standard. The Supreme Court did not uphold the discovery order on its merits or direct the government to disclose the material.",
+        "Justice Black concurred in the judgment and substantially agreed with Warren, but emphasized that absence of final judgment does not itself bar an extraordinary writ. Exceptional circumstances and irreparable harm can justify earlier intervention. He thought neither court had adequately examined whether this case presented them, and understood remand to permit that inquiry rather than impose an absolute finality rule. Justice Marshall did not participate; all eight participating Justices agreed on the judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "389 U.S. at 104–108"
+        }
+      ]
+    }
+  ]
+}

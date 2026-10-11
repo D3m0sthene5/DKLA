@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-107",
+  "briefId": "CP-COMP-CB-CAP-107",
+  "title": "Nelson v. Colorado",
+  "course": "Civil Procedure",
+  "citation": "581 U.S. 128 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Colorado retained costs, fees, and restitution after convictions were invalidated unless former defendants proved actual innocence in a separate compensation proceeding. The Supreme Court held that refund barrier violated due process.",
+  "actors": [
+    {
+      "name": "Shannon Nelson",
+      "role": "Acquitted after reversal and retrial"
+    },
+    {
+      "name": "Louis Alonzo Madden",
+      "role": "Defendant whose convictions were reversed or vacated without further prosecution"
+    },
+    {
+      "name": "Colorado",
+      "role": "State retaining conviction-dependent payments"
+    }
+  ],
+  "proceedings": [
+    "Trial courts denied all Nelson’s refund and Madden’s restitution refund; Court of Appeals allowed all payments to be reclaimed.",
+    "Colorado Supreme Court treated Exoneration Act as exclusive remedy.",
+    "United States Supreme Court reversed both judgments and remanded, seven to one, with six joining the majority reasoning."
+  ],
+  "limits": "Refunds of payments dependent solely on invalidated convictions, not compensation for imprisonment or every collateral civil loss. Alito’s restitution cautions were separate; Gorsuch did not participate.",
+  "briefSha256": "603ac64e1e2bdf32bf12c55c8efd4befb3cc0a7d7a6b95e88d25ff16a302426c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-107"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Convictions authorize monetary collections",
+      "cue": "Two defendants pay different sums",
+      "paragraphs": [
+        "Shannon Nelson’s 2006 convictions for two felonies and three misdemeanors involving alleged abuse of her children carried twenty years to life and $8,192.50 in costs, fees, and restitution. Colorado took $702.10 from her inmate account: $287.50 costs and fees and $414.60 restitution. Her convictions were reversed for trial error, and a new jury acquitted her on every charge.",
+        "Louis Alonzo Madden’s 2005 convictions for attempting to patronize a prostituted child and attempted third-degree sexual assault carried $4,413 in assessments. He paid $1,977.75, including $1,220 costs and fees and $757.75 restitution. One conviction was reversed on direct review and the other vacated in postconviction proceedings; Colorado declined appeal or retrial. The refund requests concerned amounts actually collected, not the original full assessments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "131–132 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The state requires a separate innocence proceeding",
+      "cue": "The refund litigation",
+      "paragraphs": [
+        "Nelson’s trial court denied any refund. Madden’s postconviction court returned costs and fees but refused restitution. The Colorado Court of Appeals allowed both to seek all payments, but the state Supreme Court reversed. It considered statutory authority necessary to return public funds and treated the 2013 Exoneration Act as the exclusive route. Neither had filed under it. A state dissent argued restored innocence required a workable refund process without proving actual innocence.",
+        "That Act compensated actual innocence after felony imprisonment. It excluded reversals for insufficient evidence or legal error unrelated to actual innocence and demanded clear-and-convincing proof of innocence. Successful claimants could recover incarceration-related compensation and conviction-based payments. Used as the only refund route, it excluded misdemeanor-only cases and made small refund claims impractical. The United States Supreme Court reviewed whether the state could retain these conviction-dependent payments after invalidation and the end of prosecution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "132–134 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority requires a workable return of the money",
+      "cue": "Mathews balancing after criminal proceedings end",
+      "paragraphs": [
+        "Justice Ginsburg’s six-Justice opinion applied Mathews v. Eldridge’s balancing of private interest, error risk, and governmental interest. Colorado sought the historically oriented Medina criminal-procedure test. The majority distinguished ongoing retention after criminal proceedings ended from rules governing those proceedings, while adding that the scheme would also fail Medina because the presumption of innocence was fundamental.",
+        "The defendants had an obvious interest in their money. Invalidation restored innocence; a formerly valid conviction did not justify continued retention. Distinctions between trial and appellate reversal, or void and voidable convictions, would otherwise leave successful appeals from fine-only punishment without meaningful monetary relief. Colorado restitution was a separate civil judgment, but these conviction-dependent orders fell when the convictions did.",
+        "The Act risked continued wrongful deprivation by demanding proof of innocence, excluding some defendants entirely, and imposing expense disproportionate to small claims despite possible fee awards. Earlier probable-cause findings and trials protected conviction decisions, not post-reversal refunds. Appeal stays were also insufficient: few could qualify, and costs might still require a deposit.",
+        "These plaintiffs sought their payments back, not interest, lost-use compensation, or wrongful-imprisonment damages. Colorado identified no countervailing interest in retaining money to which it presently had no right, and its vague equitable concerns supplied no applicable reason. Only minimal refund procedures were permissible for these exactions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "134–139 & nn.7–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Separate views on history and property entitlement",
+      "cue": "The two judgments are reversed",
+      "paragraphs": [
+        "Justice Alito agreed with reversal but preferred Medina. He regarded refunds as part of the criminal process and found a historical authority to restore payments, subject to equitable exceptions, that Colorado’s rigid scheme abandoned. He cautioned that restitution paid to victims could resemble a distinct civil entitlement and that a state acting as intermediary might not always owe reimbursement. Those cautions and hypotheticals did not establish an independent surviving judgment against either petitioner.",
+        "Justice Thomas dissented. Procedural due process required an independently established property right; Colorado’s highest court treated the collected money as public or victims’ funds and made the Act the source of any refund entitlement. Because petitioners had not shown such entitlement, he thought the majority assumed a substantive right and created it through procedure. He did not suggest new payments could now be compelled or that unconvicted people could initially be charged.",
+        "With Justice Gorsuch not participating, the Court reversed both state judgments and remanded, seven to one. Six joined Ginsburg’s reasoning; Alito joined only the result. New Colorado legislation effective September 1, 2017 had no effect on these cases."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "133 n.4; 139–154 & separate notes"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-073",
+  "briefId": "CP-COMP-CB-CAP-073",
+  "title": "Mennonite Board of Missions v. Adams",
+  "course": "Civil Procedure",
+  "citation": "462 U.S. 791 (1983)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A recorded mortgagee learned of a tax sale only after redemption expired. The Supreme Court held that publication and notice to the owner did not adequately protect the reasonably identifiable mortgagee’s interest.",
+  "actors": [
+    {
+      "name": "Mennonite Board of Missions",
+      "role": "Seller holding a recorded mortgage"
+    },
+    {
+      "name": "Alfred Jean Moore",
+      "role": "Buyer responsible for taxes"
+    },
+    {
+      "name": "Richard Adams",
+      "role": "Tax-sale purchaser seeking clear title"
+    }
+  ],
+  "proceedings": [
+    "Indiana trial court upheld notice statute in Adams’s quiet-title action; Court of Appeals affirmed.",
+    "Supreme Court reversed and remanded, six to three."
+  ],
+  "limits": "Presale notice decided; separate redemption-stage notice and the 1980 request-for-notice amendment were reserved. Address discoverability assumed under reasonable diligence, not found already known.",
+  "briefSha256": "441ae1af285a226962151e849e4a22dcb68326dc49b38493d54c77fe934961b9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-073"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A recorded mortgage secures the unpaid price",
+      "cue": "Taxes become delinquent without the lender’s knowledge",
+      "paragraphs": [
+        "Alfred Jean Moore bought Elkhart, Indiana property from the Mennonite Board of Missions and secured a $14,000 obligation with a mortgage recorded March 1, 1973. Their agreement required her to pay property taxes. She fell behind without telling the Board.",
+        "In 1977 the county began a tax sale. As then-required law directed, it posted notice at the courthouse, published notice, and sent Moore certified notice. Neither the auditor nor Moore notified the Board. Richard Adams bought the property August 8 for $1,167.75. Moore continued her monthly mortgage payments, and the Board remained unaware that its security had been sold. The Board learned of the sale August 16, 1979, after the two-year redemption period, when Moore still owed $8,237.19."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "792–794"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The purchaser seeks title free of the mortgage",
+      "cue": "What the sale threatened",
+      "paragraphs": [
+        "Indiana initially gave a tax-sale buyer a certificate and a lien superior to existing liens. Interested owners and lienholders could redeem by paying the price, later taxes and assessments, and a statutory additional amount. After two years, the purchaser could request a deed. The former owner then received another notice and thirty days to redeem, but mortgagees received no corresponding required notice. The deed conveyed title free of existing liens, subject to limited challenges.",
+        "The Board therefore faced immediate subordination and eventual destruction of its security, even though it did not own the land outright. When Adams sued to quiet title in November 1979, the Board opposed summary judgment, challenging notice of both the sale and redemption opportunity. The trial court upheld the statute, and Indiana’s Court of Appeals affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "793–795, 798"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An identifiable creditor needs a reasonably effective warning",
+      "cue": "Marshall’s majority",
+      "paragraphs": [
+        "Justice Marshall’s six-Justice Supreme Court majority applied the Mullane notice standard: a method reasonably calculated in context to inform interested persons and allow objections. Calling the proceeding one against property did not excuse indirect notice to identifiable interests.",
+        "Publication mainly attracted buyers and was unlikely to reach a creditor not habitually reviewing sale announcements. Mailing to a defaulting owner did not reliably warn the mortgagee. A direct letter was inexpensive and more effective, and might even reduce administration if the creditor paid before sale. Knowledge that taxes were overdue differed from notice that a particular sale was imminent.",
+        "Lenders could monitor records, require receipts, or arrange contractual safeguards, but those precautions did not replace the county’s duty. Protection applied to inexperienced creditors as well as sophisticated institutions. Where identity was reasonably ascertainable from a recorded mortgage, publication required supplementation by mail to the last known available address or personal service.",
+        "This mortgage identified the Board as a corporation of Wayne County, Ohio, without a full mailing address. The Court assumed reasonable diligence could locate it and suggested ordinary postal handling might deliver an imperfectly addressed letter. It required no extraordinary search for an interest absent from the records and did not find the auditor already possessed a street address."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "795–800 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent would place more responsibility on lenders",
+      "cue": "Reversal on presale notice alone",
+      "paragraphs": [
+        "Justice O’Connor, joined by Powell and Rehnquist, thought the majority displaced contextual balancing with a broad direct-notice rule. She favored state assessment of burdens and affected parties’ ability to protect themselves, subject to correction of irrational choices. Predictable annual taxes and sales differed, in her view, from unexpected proceedings in earlier notice cases. She also questioned the historical account and breadth of record-search duties.",
+        "Mortgagees commonly had practical resources to require paid assessments, escrow money, or monitor records. The Board had voluntarily assigned tax responsibility to Moore. For the dissent, modest precautions and predictable risk made the state’s balance reasonable; the majority refused to make such vigilance a substitute for direct notice.",
+        "The Court reversed and remanded. Inadequate presale notice made it unnecessary to decide a separate duty to notify mortgagees before the tax deed or the constitutionality of Indiana’s later 1980 paid annual-notice-request procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "800–809 & majority nn.2,6, dissent nn.1–6"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "brief-CP-COMP-CB-GULFSTREAM",
+  "briefId": "CP-COMP-CB-GULFSTREAM",
+  "title": "Gulfstream Aerospace Corp. v. Mayacamas Corp.",
+  "course": "Civil Procedure",
+  "citation": "485 U.S. 271 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two parallel aircraft-contract suits produced a fight over immediate appellate review. The Supreme Court let the federal litigation proceed and abandoned a historical shortcut for appealing stay orders.",
+  "actors": [
+    {
+      "name": "Gulfstream Aerospace Corporation",
+      "role": "Aircraft manufacturer and state-court plaintiff"
+    },
+    {
+      "name": "Mayacamas Corporation",
+      "role": "Buyer and federal-court plaintiff"
+    },
+    {
+      "name": "Justice Marshall",
+      "role": "Author of the opinion for eight participating Justices"
+    },
+    {
+      "name": "Justice Scalia",
+      "role": "Author of a separate concurrence"
+    }
+  ],
+  "proceedings": [
+    "Federal district court denied Gulfstream’s Colorado River stay or dismissal motion.",
+    "Ninth Circuit dismissed the appeal and declined conversion to mandamus.",
+    "Supreme Court affirmed; Justice Kennedy did not participate."
+  ],
+  "limits": [
+    "The contract merits were not decided. The collateral-order ruling addressed conclusiveness and expressly reserved the other two requirements.",
+    "The Court reserved whether the Ninth Circuit properly refused to convert the notice of appeal into a mandamus application."
+  ],
+  "briefSha256": "46ff52fc952d267a144b23ab43723ed1084ec064abb9490c97e3fb0b5caef00f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-GULFSTREAM"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An aircraft purchase generates two lawsuits",
+      "cue": "Start with the competing claims.",
+      "paragraphs": [
+        "Mayacamas Corporation agreed to buy an aircraft made by Gulfstream Aerospace Corporation, planning to resell it while demand was high. It later stopped making payments, alleging that Gulfstream had frustrated the deal’s purpose by increasing aircraft production and availability. Gulfstream sued for breach in Georgia state court. Mayacamas answered and counterclaimed instead of removing the action to federal court. About a month later, it brought its own diversity suit in federal district court in Northern California over the same contract.",
+        "Gulfstream sought a stay or dismissal of the federal case under Colorado River, the Supreme Court’s precedent allowing deferral to parallel state litigation in exceptional circumstances. The district court found those circumstances absent and denied relief. Gulfstream appealed under the final-decision statute, 28 U.S.C. § 1291, or the injunction-appeal provision, § 1292(a)(1). Alternatively, it asked the Ninth Circuit to treat its notice of appeal as a mandamus application.",
+        "The Ninth Circuit dismissed for lack of appellate jurisdiction. It declined conversion because Gulfstream had shown no serious hardship or prejudice and added that the district court had acted within its discretion. One judge disagreed about appealability but would have affirmed the stay denial. The Supreme Court took the case to resolve disagreement among the circuits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "485 U.S. at 272–275"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Refusing a stay does not conclusively surrender federal adjudication",
+      "cue": "Explain why the denial was not a collateral order.",
+      "paragraphs": [
+        "Justice Marshall wrote for all eight participating Justices. The denial did not end litigation; it ensured the federal case would continue. To appeal under § 1291, Gulfstream therefore needed the collateral-order exception, requiring a conclusive determination of an important question entirely separate from the merits that would be effectively unreviewable after final judgment. Failure of any requirement defeated the exception.",
+        "The Court distinguished Moses H. Cone, an earlier case allowing appeal from a Colorado River stay. A granted stay could contemplate state resolution of the entire dispute, leaving the federal court nothing substantive to do. Once preclusion attached, later review could not adequately restore the federal adjudication. Although technically revisable, that stay was intended as the last word.",
+        "A denial had a different character. It could reflect a decision to await developments before deciding whether the state proceeding was comprehensive or advanced enough to warrant deferral. As the litigation progressed, the district court could reconsider. Such a denial was inherently tentative and failed the conclusiveness requirement. The Court expressly did not decide the other two collateral-order requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "485 U.S. at 275–278"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court retires an obsolete law-and-equity fiction",
+      "cue": "Explain the rejected injunction theory and remaining avenues.",
+      "paragraphs": [
+        "Ordinarily, an order regulating only the issuing court’s own proceedings is not an injunction under § 1292(a)(1). Gulfstream invoked the Enelow-Ettelson doctrine, which treated stays of historically legal actions on historically equitable grounds as appealable injunctions. The contract suit was historically legal; the parties disputed whether the requested Colorado River stay involved an equitable defense or only equitable considerations.",
+        "The Court overruled the doctrine rather than resolve that classification. It arose when a chancellor restraining a law action resembled one tribunal enjoining another, although even then the same federal judge administered both systems. Merger of law and equity made the fiction still less realistic.",
+        "The doctrine also produced classifications unrelated to the need for prompt review. Mixed claims and modern remedies fitted the categories poorly. Declaratory judgments required classifying hypothetical actions never filed; arbitration and administrative stays created further problems. A single stay could be appealable for a legal counterclaim but not for an equitable specific-performance claim. The Court surveyed sustained judicial and scholarly criticism of those anomalies.",
+        "The holding eliminated automatic appealability based on that historical analogy. Actual injunctions remained appealable, as did orders having an injunction’s practical effect and serious, perhaps irreparable consequences. When their own conditions were met, collateral-order review, permissive appeals under § 1292(b), and mandamus remained available. The Court specifically preserved mandamus protection for a jury right impaired by a stay."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "485 U.S. at 279–288 & nn. 8–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Parallel filing does not create a clear right to mandamus",
+      "cue": "State the extraordinary-remedy ruling precisely.",
+      "paragraphs": [
+        "Gulfstream argued that Mayacamas’s decision to forgo removal and file a separate federal action itself required deferral absent imperative circumstances. The Court rejected that premise. Colorado River placed the exceptional-circumstances burden on the party seeking to discontinue federal litigation; it did not impose automatic deference whenever a state-court defendant separately invoked federal jurisdiction.",
+        "Mandamus required a clear and indisputable entitlement and exceptional circumstances amounting to judicial usurpation of power. Gulfstream identified no other circumstance making denial clearly beyond the district court’s authority. It therefore failed on entitlement regardless of whether the Ninth Circuit should have converted the appeal papers. The Supreme Court expressly reserved that conversion question.",
+        "On March 22, 1988, the Court affirmed the Ninth Circuit’s judgment. Neither asserted statute permitted this immediate appeal, and mandamus was unwarranted. The federal contract action could continue. Nothing decided which company breached, whether Mayacamas’s frustration defense was valid, or whether later developments could support a renewed stay."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "485 U.S. at 288–290 & n. 14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Scalia agrees but refines the finality explanation",
+      "cue": "Keep the concurrence’s suggestions distinct from the holding.",
+      "paragraphs": [
+        "Justice Scalia joined the Court’s entire opinion but cautioned that possible reconsideration alone cannot make every denial nonfinal. A categorical denial can conclusively reject immediate relief even if another request could follow; he used an immunity example to show the difficulty. For these stays, he emphasized likely renewal and the availability of equally or nearly equally effective relief later, with limited intervening harm. He agreed that initial Colorado River denials were not immediately appealable.",
+        "He also considered whether collateral-order review should require an important, unsettled controlling legal question rather than mere review of discretion. Finding support in precedent and policy, he nevertheless declined to adopt that additional rationale without adversarial briefing. It remained a suggested limit, not a new rule of the Court. Justice Kennedy did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "485 U.S. at 290–292"
+        }
+      ]
+    }
+  ]
+}

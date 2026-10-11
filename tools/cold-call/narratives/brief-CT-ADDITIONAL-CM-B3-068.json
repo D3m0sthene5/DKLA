@@ -1,0 +1,107 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-068",
+  "briefId": "CT-ADDITIONAL-CM-B3-068",
+  "title": "J. C. Patel v. Telerent Leasing Corporation",
+  "course": "Contracts",
+  "citation": "574 So. 2d 3 (Miss. 1990)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A motel owner withheld payment after complaining that leased television equipment was not properly installed. Mississippi’s Supreme Court reinstated the trial court’s rejection of the lessor’s deficiency demand, relying on material breach and same-contract withholding.",
+  "actors": [
+    {
+      "name": "Jagdish C. Patel",
+      "role": "Owner of the Sonya Motor Inn"
+    },
+    {
+      "name": "Telerent Leasing",
+      "role": "Equipment supplier seeking accelerated balance after repossession"
+    }
+  ],
+  "proceedings": [
+    "County court recovered equipment for Telerent, then denied its separate deficiency demand after bench trial.",
+    "Circuit court reversed and awarded $24,445.44.",
+    "Mississippi Supreme Court reversed circuit judgment and reinstated denial of recovery unanimously."
+  ],
+  "limits": "No affirmative damages or refund to Patel and no new trial. Certificates’ conflicting dates and later circuit dates not harmonized. Replevin judgment was not invoked as preclusion against breach defense.",
+  "briefSha256": "247f34acd5d2f46d966337b89d3586cfe00bcbbd6402679ad389974b3738e1a9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-068"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The television contract includes installation and replacement duties",
+      "cue": "Equipment for a fifty-room motel",
+      "paragraphs": [
+        "On April 25, 1985 Telerent agreed to supply thirty General Electric television sets and accessories to Jagdish Patel’s fifty-room Sonya Motor Inn in Jackson. The lease-purchase required eighty-four monthly $281.16 payments beginning by the first day of the month after Telerent completed its work, followed by a nominal purchase option. Telerent would replace room taps, provide an in-line amplifier, and repair or replace promptly reported stolen or damaged sets. A typed term made Patel responsible for servicing and maintaining equipment during the lease.",
+        "An August addendum added alarms for all fifty rooms and $27.39 monthly rent; September added receiver insurance. Patel signed a June completion certificate and another October 15 covering pedestals, taps, and alarms, but repeatedly complained the distribution system remained incomplete and unusable before October 15."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The supplier acknowledges delay but demands earlier payments",
+      "cue": "Tender, repossession, and a deficiency suit",
+      "paragraphs": [
+        "Telerent’s November 11 letter acknowledged Patel rejected its July bill because installation was incomplete and that it returned to extend the system. It agreed to begin the full lease November 1 at $327.06 monthly including alarms and taxes. Yet it claimed four months’ prior television use and demanded $1,345.78, including the new month, threatening repossession.",
+        "Patel denied pre-November liability. On November 17 he tendered $272.55, subtracting $54.51 for five reported stolen sets not replaced. Telerent returned it and demanded the larger amount within five days, threatening acceleration and removal. Patel resent the check December 4, repeated his complaints, and described malfunctioning alarms and improperly mounted equipment.",
+        "Telerent obtained replevin possession of twenty-two sets with radios, twenty-two locking pedestals, and the alarm system. As sole bidder at public sale, it bought the sets for $110 each and alarms for $500, totaling $2,920. It then demanded $24,445.44 in remaining obligations and repossession and sale expenses, including fees, net of proceeds. It did not assert the replevin judgment precluded Patel’s breach defense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court must respect the actual factfinder",
+      "cue": "County and circuit courts diverge",
+      "paragraphs": [
+        "Only Patel and Telerent’s collection manager testified in county court. The county judge found failure of the typed tap-and-amplifier requirement, timely rejection and abandonment, and a notice failure, denying relief December 22, 1986. The circuit court, acting on appeal, applied North Carolina law and treated certificates and engraving the motel name on sets as acceptance; it found ineffective rejection and rendered judgment for Telerent.",
+        "Presiding Justice Hawkins’s Supreme Court opinion treated the nominal-option lease-purchase as functionally a sale under Uniform Commercial Code Article 2. Relevant Mississippi and North Carolina provisions were identical, so no conflicting-state rule had to be chosen. The county court, not the appellate circuit court, was the factfinder. Substantial evidence and absence of manifest error required deference, with supporting necessary findings assumed; a correct ground could sustain the result even if the trial judge gave another explanation.",
+        "Patel’s letters and Telerent’s own concession supported incomplete and unsatisfactory installation before October 15. Certificates and markings could not simply displace that evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Acceptance does not erase a notified same-contract breach",
+      "cue": "The deficiency judgment is undone",
+      "paragraphs": [
+        "Material failure to install justified withholding. Under the Code, a buyer notifying the seller could deduct breach damages from the price owed under that same contract. Breach and price had to be connected, and notice had to reasonably explain withholding, without special formalities. Patel’s correspondence did so.",
+        "The court also invoked written demands for adequate assurance and commercially reasonable suspension when the agreed return had not been received. His demands to complete conditions should not be penalized. These principles did not authorize arbitrary deductions from unrelated obligations.",
+        "Acceptance and use of defective goods did not necessarily waive price offsets or continuing obligations. The Supreme Court therefore sustained the county court through material breach, withholding, and recoupment without adopting every rejection-and-abandonment characterization. It unanimously reversed the circuit court’s $24,445.44 judgment and reinstated denial of Telerent’s claim. Patel received no affirmative damages award, and no new trial was ordered."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6–8"
+        }
+      ]
+    }
+  ]
+}

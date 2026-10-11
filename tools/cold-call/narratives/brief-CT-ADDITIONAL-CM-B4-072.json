@@ -1,0 +1,110 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-072",
+  "briefId": "CT-ADDITIONAL-CM-B4-072",
+  "title": "United Kingdom Ministry of Defence v. Trimble Navigation Limited",
+  "course": "Contracts",
+  "citation": "422 F.3d 165 (4th Cir. 2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The United Kingdom sought damages from a private supplier under federal procurement contracts it claimed were intended to benefit it. The Fourth Circuit held that the Contract Disputes Act did not itself exclude that suit from district court.",
+  "actors": [
+    {
+      "name": "United Kingdom Ministry of Defence",
+      "role": "Alleged beneficiary seeking contract damages"
+    },
+    {
+      "name": "Trimble Navigation",
+      "role": "Private supplier of auxiliary output chips"
+    },
+    {
+      "name": "United States Department of Defense",
+      "role": "Purchaser under four procurement contracts"
+    }
+  ],
+  "proceedings": [
+    "District court dismissed for lack of subject-matter jurisdiction under Contract Disputes Act.",
+    "Fourth Circuit unanimously reversed and remanded September 6, 2005."
+  ],
+  "limits": "Jurisdiction only: intended-beneficiary status, breach, damages, and unresolved indispensable-party defense remained undecided. Defect percentages and program losses were allegations.",
+  "briefSha256": "cc2211e509ab136daa0c6dfae8dc3b567ca9d6a2c93d20558e0ce58fc160489f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-072"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Military equipment moves through United States procurement",
+      "cue": "The foreign-sales arrangement",
+      "paragraphs": [
+        "Under the Arms Export Control Act’s Foreign Military Sales Program, a foreign government paid the United States in advance, the United States contracted with a supplier, and the supplier furnished military goods. The United Kingdom and fourteen other North Atlantic Treaty Organization countries had agreed to obtain specified NAVSTAR Global Positioning System equipment through that program and a Letter of Offer and Acceptance with nonnegotiable general conditions.",
+        "In July 1998 the United States Department of Defense agreed to procure more than two thousand Trimble Navigation auxiliary output chips for the United Kingdom Ministry of Defence, without profit. It entered four contracts with Trimble. Everyone agreed those procurement contracts were covered by the Contract Disputes Act, but the Ministry was not itself a contracting party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Alleged failures lead the Ministry to sue the supplier",
+      "cue": "The agency declines to recommend action",
+      "paragraphs": [
+        "Deliveries began in early 2000. The Ministry alleged roughly ninety-five percent of the first chips failed military specifications and that about twenty percent of replacements or repairs remained defective. Continuing problems in 2000 and 2001 allegedly delayed its cruise-missile program and increased costs.",
+        "The Ministry sought United States help recovering costs. The Air Force investigated possible claims and necessary proof. In January 2003 the Department released an Air Force legal opinion, approved by its General Counsel, that did not recommend action against Trimble but promised continued quality monitoring.",
+        "The Ministry then sued Trimble for breach as an intended third-party beneficiary. It invoked diversity jurisdiction for a foreign state suing qualifying United States citizens; governmental status and the amount exceeding $75,000 were undisputed. Trimble argued the Contract Disputes Act displaced jurisdiction, no beneficiary rights existed, and the United States was indispensable but absent. The district court reached only the first ground, reasoning that rights derived from federal procurement necessarily belonged within that statutory system."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167–168 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A covered contract does not cover every related claimant",
+      "cue": "The appellate court reads the procedures",
+      "paragraphs": [
+        "On de novo review, Judge Traxler’s unanimous Fourth Circuit panel separated contract coverage from the statute’s specified disputes. The United States, invited as amicus with opportunity for party responses, supported Trimble. But the procedures addressed contractors’ claims against the government and government claims against contractors. A contractor meant a party to the government contract other than the government. The Ministry alleged beneficiary status, not contracting-party status, and sought relief from Trimble, not the United States.",
+        "The statutory appeals routes likewise contemplated contracting officers, agency boards, and the Court of Federal Claims for government-contractor disputes. No route allowed this foreign beneficiary to obtain a monetary judgment against a private supplier; the Court of Federal Claims could issue the relevant judgments against the United States. Sending the Ministry there would provide no requested relief. Analogous subcontractor suits against prime contractors supported the distinction.",
+        "Specialized expertise and consistency could not enlarge unambiguous statutory categories. Even considered alternatively, legislative history addressed deficient procedures for claims by or against the United States, not every third-party procurement dispute. District courts could apply ordinary contract principles."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "168–172 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Derivative rights remain a merits issue",
+      "cue": "Reversal leaves the contract dispute open",
+      "paragraphs": [
+        "Trimble argued a beneficiary could acquire no greater rights than its promisee and therefore inherited the United States’ statutory procedure limits. The panel answered that Congress determined federal jurisdiction. Limits on derivative substantive rights might matter to recovery, but did not expand the Act’s jurisdictional scope to new party categories.",
+        "Trimble also sought affirmance on the alternative ground that the Ministry was not an intended beneficiary. Intent required fact-sensitive examination of contracts and formation circumstances, best done first by the district court. The United States’ deliberate control over sensitive military sales could matter, but the appellate court expressed no ultimate view. The unaddressed indispensable-party defense also remained unresolved.",
+        "The court reversed and remanded. It opened the district-court forum against the statutory objection without establishing beneficiary rights, finding defective performance, or awarding damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "172–173 & n.6"
+        }
+      ]
+    }
+  ]
+}

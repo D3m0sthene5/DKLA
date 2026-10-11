@@ -1,0 +1,105 @@
+{
+  "id": "brief-CT-CB-0074",
+  "briefId": "CT-CB-0074",
+  "title": "Mills v. Wyman",
+  "course": "Contracts",
+  "citation": "20 Mass. (3 Pick.) 207 (1825)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Daniel Mills cared for an independent adult who fell ill among strangers; the young man’s father promised reimbursement only after the care was over.",
+  "actors": [
+    {
+      "name": "Daniel Mills",
+      "role": "Caregiver who sued on a later reimbursement promise."
+    },
+    {
+      "name": "Levi Wyman",
+      "role": "Seth Wyman’s twenty-five-year-old son, who had left his father’s household."
+    },
+    {
+      "name": "Seth Wyman",
+      "role": "Father who wrote the promise and then refused payment."
+    }
+  ],
+  "proceedings": "The Court of Common Pleas directed a nonsuit. On Mills’s exceptions, the Massachusetts Supreme Judicial Court upheld it and directed judgment for Seth Wyman with costs.",
+  "limits": "The story follows the facts assumed in the reported opinion, including Levi’s death; later editorial historical questions are not judicial findings. This was not a claim against Levi or his estate, and the historical revived-debt rules do not state current statutory law.",
+  "briefSha256": "ebe4002ae0e91521423feecaf19dc0060cb353c48e5f7048fd51c703e1928a58",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0074"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Mills helps a traveler without asking his father",
+      "cue": "Before the promise",
+      "paragraphs": [
+        "Levi Wyman, twenty-five years old, had long since left the household of his father, Seth Wyman. Returning from a voyage, Levi became ill among strangers. Daniel Mills provided shelter and care without any request from Seth. The reported opinion describes Mills as caring for Levi until Levi died.",
+        "Only after the services and expenses had been incurred did Seth write promising to reimburse Mills. Seth subsequently refused payment. Mills’s care had real value, but Levi had received it, and Mills had not provided it in response to Seth’s promise. Nor had Seth been shown to owe an existing legal duty to pay this independent adult son’s particular expense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "208–209, 211–212"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mills sues on the father’s later writing",
+      "cue": "Nonsuit and exceptions",
+      "paragraphs": [
+        "Mills sued Seth on the reimbursement promise, rather than suing Levi or Levi’s estate for necessaries. The Court of Common Pleas directed a nonsuit: the family relationship and later promise supplied no sufficient consideration. Mills took exceptions to the Massachusetts Supreme Judicial Court.",
+        "Chief Justice Parker acknowledged the humane value of Mills’s services and sharply disapproved Seth’s refusal to honor his deliberate promise. But gratitude could not establish that Mills had supplied the earlier care as the price of Seth’s later writing. Levi’s expenses were not automatically Seth’s debts merely because the two were father and son. The issue was the legal foundation for this defendant’s promise, not whether caring for Levi was worthwhile."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "207–209, 211"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Past debt and moral duty do not create the missing obligation",
+      "cue": "Parker’s consideration analysis",
+      "paragraphs": [
+        "Mills relied on decisions saying that moral obligation could support an express promise. Parker examined their usual examples: promises to pay debts barred by limitations, obligations incurred during infancy, and debts discharged in bankruptcy. In each, the original transaction had involved a quid pro quo. The later promise removed or waived an impediment to enforcing an obligation that already possessed that underlying basis. It did not show that consideration had been unnecessary throughout the transaction.",
+        "Seth’s promise would create an obligation from gratitude, rather than revive his own earlier obligation founded on exchange. Parker accepted that breaking a promise could be morally wrong while insisting that many family and benevolent duties remained matters of conscience. Affluent children’s duties toward needy parents illustrated how broadly a rule enforcing every moral obligation could reach. Indeed, if conscience alone created legal liability, the court asked why a later promise should be necessary at all. Leaving a duty judicially unenforceable did not make it morally unimportant.",
+        "The letter’s voluntary, written, deliberate character did not change the result. Instruments under seal and certain negotiable commercial instruments had historically recognized formal or mercantile treatment; those exceptions did not turn an ordinary reimbursement letter into such an instrument. This reasoning described the court’s historical revived-debt doctrines, not a determination that later statutes leave those rules unchanged."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "209–212"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The family-support statute cannot fill the gap on this record",
+      "cue": "Judgment for Seth Wyman",
+      "paragraphs": [
+        "Mills also invoked a Massachusetts statute imposing support obligations on lineal relatives in specified circumstances involving poor relations likely to become a public charge. Parker did not deny the statute’s potential force. But liability required facts and an adjudication absent here: the needy person’s legally relevant settlement and likelihood of becoming chargeable to a town, the relative’s ability to provide support, and a judgment entered after an opportunity to be heard. Kinship alone could not substitute for those conditions.",
+        "Parker reported that all members of the court agreed the nonsuit was proper; no separate opinion appears. The Supreme Judicial Court upheld the nonsuit and directed judgment for Seth Wyman, including costs. It did not value Mills’s services or award reimbursement on another theory. Seth’s moral failure therefore did not produce recovery on the particular promise Mills had sued to enforce."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212"
+        }
+      ]
+    }
+  ]
+}

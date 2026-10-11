@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-311",
+  "briefId": "CP-COMP-CB-CAP-311",
+  "title": "Moore v. New York Cotton Exchange",
+  "course": "Civil Procedure",
+  "citation": "270 U.S. 593 (1926)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "One cotton exchange sought compulsory access to another’s quotations, while the other sought to stop their allegedly unlawful acquisition. The Supreme Court rejected the antitrust claim on its merits and upheld the related counterclaim injunction.",
+  "actors": [
+    {
+      "name": "Moore and the Odd-Lot Cotton Exchange",
+      "role": "Plaintiff seeking quotation service"
+    },
+    {
+      "name": "New York Cotton Exchange",
+      "role": "Owner and distributor of market quotations"
+    },
+    {
+      "name": "Western Union and Gold & Stock",
+      "role": "Transmission company and controlled ticker-service subsidiary"
+    }
+  ],
+  "proceedings": [
+    "District court denied plaintiff’s preliminary injunction and granted defendants’ injunction.",
+    "Second Circuit affirmed and by stipulation directed a final dismissal and permanent counterclaim injunction.",
+    "Supreme Court affirmed the decree."
+  ],
+  "limits": "Historical Equity Rule 30 and antitrust reasoning; permissive-counterclaim independent-jurisdiction question expressly reserved. Counterclaim remedy was an injunction, not damages.",
+  "briefSha256": "574167f7cf63bf9bc829290778162603e64b0d6b3e4a1f56b3522f58074c6cd1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-311"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The exchange controls distribution of its quotations",
+      "cue": "Odd-Lot is refused service",
+      "paragraphs": [
+        "Members of the Odd-Lot Cotton Exchange contracted for future cotton delivery in lots of ten to one hundred bales. The New York Cotton Exchange conducted open bidding at its premises and collected the resulting quotations. It contracted with Western Union to transmit them only to approved recipients, for an annual $27,500 payment. Applicants promised no bucket-shop use or redistribution; Western Union’s controlled Gold & Stock Telegraph subsidiary supplied tickers.",
+        "Odd-Lot applied and was refused because the New York exchange withheld approval. The stated investigation linked it to a predecessor convicted of operating a bucket shop, with overlapping members and organization allegedly covering continuation of that business. That explanation for refusal was not a new criminal conviction of Odd-Lot."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "601–602"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Demanded access meets a counterclaim against appropriation",
+      "cue": "The connected proceedings",
+      "paragraphs": [
+        "Moore, as Odd-Lot’s president, brought a federal antitrust bill alleging interstate dealings, control of national price information, restraint, and monopolization. It sought cancellation of the distribution contract, a monopoly declaration, ticker installation, and compelled quotation delivery. The exchange defended its control and counterclaimed that Odd-Lot obtained quotations unlawfully, directly or through another person, then distributed them to members supplying bucket shops. It requested an injunction.",
+        "Both sides sought preliminary relief. The district court denied Odd-Lot’s request and granted the defendants’, and the Second Circuit affirmed. By stipulation it directed final dismissal of the bill and a permanent counterclaim injunction. Only ministerial implementation remained, so the Supreme Court treated the decree as final.",
+        "Odd-Lot argued interstate distribution itself was commerce and that Western Union had purchased information it could not withhold as a public-service company. The exchange argued Western Union merely acted as distribution agent. Odd-Lot also challenged the counterclaim’s jurisdiction, transactional relationship, and evidentiary support."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594–603, 607–608"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The original federal claim fails on its merits",
+      "cue": "Why the court retains authority to decide",
+      "paragraphs": [
+        "Justice Sutherland’s opinion put aside a Federal Trade Commission Act theory because proceedings had to begin before that Commission. It rejected the asserted Sherman Act violations supporting private injunctive relief. The underlying exchange contracts were made locally, called for cotton represented by New York-port warehouse receipts, and required delivery there. Possible later interstate shipments were not contractual obligations.",
+        "The exchange remained the real distributor of its information, with Western Union acting as transmitter to designated recipients. Its annual payment bought the distribution business, not ownership requiring universal access. A carrier’s duty to carry messages did not authorize sending one customer’s messages to undesignated recipients. Selective disposition of the exchange’s own information was treated as private business, with incidental rather than direct or unreasonable effects on interstate trade. Those were the Court’s historical commerce and antitrust conclusions.",
+        "The defeat did not eliminate federal jurisdiction. A substantial, nonfrivolous statutory claim gave the court power to decide its sufficiency; only a claim plainly without color of merit would fail at that threshold. Odd-Lot made a serious but insufficient antitrust claim, dismissed on the merits rather than for want of jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "603–609"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The refusal logically links both demands",
+      "cue": "Permanent relief is affirmed",
+      "paragraphs": [
+        "Historical Equity Rule 30 required a counterclaim arising from the transaction underlying the suit and separately allowed optional independent equitable claims. This counterclaim fell within the required category. The Court expressly reserved the independent-federal-jurisdiction question for the optional category.",
+        "Odd-Lot demanded legal compulsion to obtain quotations; the exchange defended refusal and sought to stop unlawful acquisition despite it. That refusal was essential to both controversies. Extra facts about appropriation did not destroy the logical connection, because complete factual identity would make the transaction rule impractical. Rejecting a compulsory-access right alone would leave ongoing appropriation unresolved; the injunction completed related relief.",
+        "Odd-Lot had agreed the preliminary affidavits could serve as counterclaim testimony and that a final decree could be directed. The Court found the pleadings and evidence sufficient and affirmed the decree dismissing the bill and making the injunction permanent. It awarded no counterclaim damages and did not resolve all jurisdictional questions about permissive claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "609–611"
+        }
+      ]
+    }
+  ]
+}

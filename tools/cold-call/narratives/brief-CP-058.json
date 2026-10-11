@@ -1,0 +1,123 @@
+{
+  "id": "brief-CP-058",
+  "briefId": "CP-058",
+  "title": "Scott, an Infant, by His Next Friend v. Shepherd, an Infant, by Guardian",
+  "course": "Civil Procedure",
+  "citation": "2 Wm. Bl. 892, 96 Eng. Rep. 525 (C.P. 1773)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A lighted firework passed through two people’s hands before injuring Scott. The judges divided over whether their defensive throws continued Shepherd’s original force for the historical action of trespass.",
+  "actors": [
+    {
+      "name": "Scott",
+      "role": "Injured plaintiff suing through a next friend"
+    },
+    {
+      "name": "Shepherd",
+      "role": "Defendant who first threw the lighted squib, appearing through a guardian"
+    },
+    {
+      "name": "Willis and Ryal",
+      "role": "Market participants who threw the danger away"
+    },
+    {
+      "name": "Nares, Gould and Chief Justice De Grey",
+      "role": "Judges allowing the trespass action"
+    },
+    {
+      "name": "Blackstone",
+      "role": "Judge disagreeing about the proper form of action"
+    }
+  ],
+  "proceedings": [
+    "Jury awarded Scott £100 at assizes, subject to Common Pleas deciding the reserved legal question.",
+    "Common Pleas ordered postea to Scott, three judges to one, allowing the conditional verdict to proceed."
+  ],
+  "limits": [
+    "The report concerns historical trespass versus case, not a complete modern negligence rule.",
+    "Both parties are captioned as infants; no infancy defense is adjudicated. Later reporter notes are not reasons delivered by the judges."
+  ],
+  "briefSha256": "0ae1498cff3abd094a15aa7f93d256ad267573f691615f61cddc9250543c6c87",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-058"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A squib crosses the crowded market-house",
+      "cue": "Begin with the sequence of throws and conditional verdict.",
+      "paragraphs": [
+        "At the Milborne Port fair on October 28, 1770, Shepherd threw a lighted squib—a small gunpowder firework—from the street into a crowded market-house. It landed on gingerbread seller Yates’s stall. Willis immediately threw it across the building to protect himself and Yates’s goods. It landed on Ryal’s stall; Ryal immediately threw it away to protect his goods. This throw struck Scott’s face, and the explosion destroyed sight in one eye.",
+        "Scott, described in the caption as an infant acting through a next friend, sued Shepherd, also an infant appearing through a guardian, in trespass and assault. He alleged that Shepherd threw the squib against him and struck him. Shepherd pleaded not guilty. Infancy was not the issue.",
+        "At summer assizes in Bridgwater before Justice Nares, the jury found for Scott with £100 damages, subject to the court’s opinion on the stated facts. Common Pleas thus had to decide whether the chosen action fit those facts; this was not review of an unconditional final judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "96 Eng. Rep. at 525–526, 527–528"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Nares treats the original danger as continuing",
+      "cue": "Explain the historical procedural stakes and his reasoning.",
+      "paragraphs": [
+        "Trespass addressed direct or immediate injury inflicted with force; an action on the case addressed consequential injury. The question was not simply whether Shepherd acted wrongfully or whether Scott deserved some remedy, but whether this action against this defendant could recover. A possible action on the case would not necessarily save a wrongly selected trespass claim.",
+        "Nares thought injury a natural and probable consequence of throwing a lighted firework into a crowd. He emphasized that the unlawful actor should answer for mediated as well as immediate consequences. Shepherd supplied the dangerous capacity, and Willis and Ryal created no new power of mischief; that capacity lasted until explosion. Releasing a mad ox into a crowd offered an analogy: the initiator could answer without personally touching the victim.",
+        "The intervening throws did not cleanse the wrong. Nares also invoked reluctance to defeat a deserving damages verdict through excessively exact scrutiny of fit between proof and pleading. That supplemented his view of the continuing instrument. Blackstone would disagree both with his causal account and with using ordinary post-verdict tolerance when the jury expressly reserved this very issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "96 Eng. Rep. at 526–528"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Blackstone sees new immediate acts by rational people",
+      "cue": "Preserve his disagreement without denying every possible remedy.",
+      "paragraphs": [
+        "Blackstone rejected unlawfulness as the test separating the forms. A log unlawfully thrown into a highway might later trip someone, producing consequential injury actionable in case; the same thrown log immediately striking someone would support trespass. Conversely, lawful activity could cause immediate trespass. Wrongfulness and the relevant causal relationship were distinct.",
+        "Shepherd’s direct force ended when the squib rested on Yates’s stall, Blackstone reasoned. Willis and Ryal were rational agents supplying fresh motion and direction, unlike an animal, an object deflected by a tree, or an instrument still moving under the first force. Continuing dangerous capacity did not make every later movement Shepherd’s immediate act. Otherwise the first person in a chain of football kickers could face trespass for someone else’s eventual damage.",
+        "The two men could remove danger but had to protect others. Blackstone thought they could have brushed it down or thrown it through an open side rather than across the building. He tentatively considered case against Shepherd possible, without deciding it, and regarded Ryal as an immediate actor against whom trespass would lie. His position did not necessarily leave Scott remediless.",
+        "Ordinary tolerance of variance after a verdict did not settle a deliberately reserved question whether consequential proof supported an immediate-trespass declaration. Proof sufficient for trespass might also support case, but the reverse did not necessarily follow. Blackstone would enter judgment for Shepherd in this action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "96 Eng. Rep. at 526–528"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gould and De Grey treat defensive necessity as continuity",
+      "cue": "Explain the majority result without collapsing their reasoning.",
+      "paragraphs": [
+        "Gould agreed that the action lay while recognizing the difficulty concerned form of remedy. Apart from Nares’s broad unlawful-act proposition, he stressed terror that deprived Willis and Ryal of reflective choice. The defensive response was inevitable from the danger Shepherd imposed and could be treated as though Shepherd threw directly into Scott’s face. Gould’s football example involving concerted actors was an illustration, not a finding that the market participants shared a plan.",
+        "Chief Justice De Grey expressly agreed with Blackstone that immediacy, not unlawfulness alone, controlled. The question was whether Scott’s injury proceeded from Shepherd’s first force or a genuinely new third-party force. He regarded movement until explosion as a continuing original act. Immediate did not mean instantaneous; a connected chain could suffice. Willis and Ryal acted under imposed self-preservation necessity rather than freely initiating fresh trespasses. Innocently removing the danger did not transfer responsibility from the original thrower.",
+        "The result in 1773 was postea to Scott, three judges to one, allowing his conditional £100 verdict to proceed. The court did not reassess damages, adjudicate separate suits against Willis or Ryal, or enter judgment in an action on the case. The individual opinions explain a historical forms-of-action dispute, not a unanimous rule that every consequence of an unlawful act is trespass."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "96 Eng. Rep. at 528–529"
+        }
+      ]
+    }
+  ]
+}

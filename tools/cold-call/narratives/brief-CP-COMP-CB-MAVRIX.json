@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-COMP-CB-MAVRIX",
+  "briefId": "CP-COMP-CB-MAVRIX",
+  "title": "Mavrix Photo, Inc. v. Brand Technologies, Inc.",
+  "course": "Civil Procedure",
+  "citation": "647 F.3d 1218 (9th Cir. 2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An Ohio entertainment website allegedly copied a Florida photo agency’s celebrity photographs. The agency sued in California, where the website cultivated readers and the photographs had substantial commercial value.",
+  "actors": [
+    {
+      "name": "Mavrix Photo, Inc.",
+      "role": "Florida celebrity-photo agency and copyright plaintiff"
+    },
+    {
+      "name": "Brand Technologies, Inc.",
+      "role": "Ohio operator of celebrity-gossip.net"
+    },
+    {
+      "name": "Brad Mandell",
+      "role": "Brand’s chief executive and a named defendant"
+    },
+    {
+      "name": "Judge William A. Fletcher",
+      "role": "Author of the unanimous Ninth Circuit panel opinion"
+    }
+  ],
+  "proceedings": "The Central District of California denied jurisdictional discovery and dismissed for lack of personal jurisdiction. The Ninth Circuit reversed and remanded on August 8, 2011, finding specific but not general jurisdiction.",
+  "limits": "The ruling accepted a prima facie jurisdictional showing on written submissions; it did not establish infringement, award damages, or grant a permanent injunction. The narrative describes the 2011 analysis without certifying current Internet-jurisdiction law.",
+  "briefSha256": "4f262c9c09e3ce59de7eb7fc06a10f0282558dbc29b0b6b5ced525dc46a2fefa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-MAVRIX"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two businesses trade on celebrity attention",
+      "cue": "The agency and the website",
+      "paragraphs": [
+        "Mavrix Photo, Inc., a celebrity-photo agency incorporated in Florida and principally based in Miami, paid photographers for candid images and licensed them to publications such as People and Us Weekly. Many of its subjects lived or worked in Southern California. Mavrix maintained a Los Angeles office, used California photographers, kept a registered agent there, and paid California franchise fees.",
+        "Brand Technologies, Inc., an Ohio corporation based in Toledo, operated celebrity-gossip.net. Its entertainment website offered photographs, videos, and short stories, along with comments, polls, a newsletter, a membership club, and opportunities to submit tips and images. Marketing materials claimed more than twelve million unique United States visitors and seventy million United States page views each month. The record did not supply an exact California audience count.",
+        "Brand earned advertising revenue. Some third-party advertisements promoted California jobs, hotels, or vacations, and a ticket-selling link included California events. Brand had relationships with California businesses for advertising, wireless hosting, design or maintenance, and shared news links. It nevertheless had no California office, property, or staff, was not licensed there, and paid no California taxes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Businesses and forum contacts, court opinion 10337–10339"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Vacation photographs lead to a California suit",
+      "cue": "The alleged copying and dismissal",
+      "paragraphs": [
+        "In 2008 a Mavrix photographer took thirty-five photographs of singer Stacy Ferguson, known as Fergie, and actor Josh Duhamel vacationing in the Bahamas. Mavrix registered copyright and displayed the images on its website. It alleged that Brand soon republished them without permission, destroying their market value.",
+        "Mavrix sued Brand and its chief executive, Brad Mandell, in the Central District of California, requesting an injunction and actual and statutory copyright damages. Brand challenged personal jurisdiction. The district court denied jurisdictional discovery and dismissed, and Mavrix appealed.",
+        "Judge William A. Fletcher wrote for a Ninth Circuit panel consisting of Judges Wardlaw and Fletcher and District Judge Barbara M. Lynn, sitting by designation. Reviewing the dismissal anew, the panel required only a prima facie jurisdictional showing because the motion had been decided on written materials. Uncontroverted allegations and disputed facts favored Mavrix at this stage, although bare allegations could not overcome contradicting affidavits. With no applicable federal statute independently authorizing jurisdiction, Federal Rule of Civil Procedure 4(k)(1)(A) pointed to California's long-arm law, which reached the limits of federal due process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Allegations, procedure, and standard, 10339–10340"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "California was not the website operator’s home",
+      "cue": "The general-jurisdiction claim fails",
+      "paragraphs": [
+        "General jurisdiction would allow claims unrelated to Brand's California contacts and therefore required a much stronger affiliation. Applying its contemporaneous precedents and the Supreme Court's recent Goodyear decision, the panel asked whether the contacts approximated an in-state presence and made Brand essentially at home. Perkins, where a corporation temporarily maintained its headquarters in the forum, illustrated exceptional affiliation; substantial purchases, relationships, or some sales alone did not.",
+        "Third-party advertisements principally marketed the advertisers' own businesses. The only demonstrated ticket sale through the linked seller was to Mavrix's counsel, regardless of the dispute over the seller's identity. Design contractors worked in Canada and incorporated a California company only after building the website; that later incorporation was fortuitous. Other business relationships did not establish substantial corporate operations inside California.",
+        "The panel also rejected using the website-interactivity scale associated with Zippo as a substitute for general-jurisdiction analysis. Comments, newsletters, polls, and uploads were standard features. Treating them as sufficient would expose large media businesses to unrelated suits everywhere their sites were accessible. All the contacts together failed to establish general jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "General jurisdiction, 10340–10347"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The publication claim has a more focused connection",
+      "cue": "Purposeful direction toward a commercial audience",
+      "paragraphs": [
+        "Specific jurisdiction required purposeful direction or availment, a claim arising from or relating to forum activity, and reasonableness. Mavrix bore the first two burdens; Brand then had to show a compelling case of unreasonableness. Only the first element was disputed. The panel treated the copyright claim as arising from website publication accessible to California users, and Brand did not press a reasonableness argument.",
+        "For the tort-like copyright claim, the court used Calder's effects framework: an intentional act, express aiming at the forum, and harm the defendant knew was likely there. It distinguished the purposeful-availment analysis in the McIntyre product-liability plurality. Deliberate republication satisfied the intentional-act element. Express aiming required more than Internet accessibility; even a passive site might qualify with additional targeted conduct, while passive publication alone would not.",
+        "The court compared Keeton, where Hustler magazine's deliberate, regular distribution supported jurisdiction over a claim about published content even though those sales did not support general jurisdiction. Brand similarly cultivated a national audience for profit, including substantial California readership. California-directed advertisements supported an inference that Brand actually or constructively knew of and commercially exploited those users. Whether Brand or its advertisers chose the targeting did not defeat that inference.",
+        "Brand had not promoted its own site in California local media. Its focus on the California-centered celebrity and entertainment industries, however, combined with the market's size and commercial importance, supported the conclusion that it anticipated, wanted, and obtained substantial California viewers. Exact traffic figures were unnecessary to that inference. Those readers were part of its business model, not merely isolated accidental visitors."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Specific jurisdiction and express aiming, 10347–10353"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "California injury completes the connection",
+      "cue": "A limited reversal on August 8, 2011",
+      "paragraphs": [
+        "The panel distinguished a local newspaper, individual, or unpaid blogger whose accessible content might lack Brand's national commercial ambitions and predictable national consumption. Universal accessibility alone did not establish express aiming in every state. Here the combination of commercial cultivation, national scope, and a substantial forum audience mattered.",
+        "Mavrix's Florida headquarters did not confine all economic injury to Florida. The alleged unauthorized republication destroyed the photographs' market value, a substantial part of which came from California readers who otherwise would purchase publications to see the pictures. The court therefore found foreseeable and jurisdictionally significant California injury.",
+        "On August 8, 2011, the unanimous panel held that Mavrix had made the prima facie showing necessary for specific jurisdiction over Brand, though general jurisdiction was lacking. It reversed the dismissal and remanded for further proceedings. The court did not decide whether infringement ultimately occurred, award copyright damages, or issue a permanent injunction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Limits, forum injury, and disposition, 10353–10355"
+        }
+      ]
+    }
+  ]
+}

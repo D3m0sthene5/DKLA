@@ -1,0 +1,123 @@
+{
+  "id": "brief-CP-COMP-CB-LOWER-243",
+  "briefId": "CP-COMP-CB-LOWER-243",
+  "title": "O’Regan v. Schermerhorn",
+  "course": "Civil Procedure",
+  "citation": "25 N.J. Misc. 1, 50 A.2d 10 (1946)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two former prosecutors sued the grand jurors who accused them of withholding potentially exculpatory evidence. On pleading motions, the court required facts supporting each defense and preserved one adequately pleaded claim of absolute judicial privilege.",
+  "actors": [
+    {
+      "name": "Daniel O’Regan and William George",
+      "role": "Former Hudson County prosecutor and assistant prosecutor bringing separate libel suits"
+    },
+    {
+      "name": "Twenty-three grand jurors",
+      "role": "Members of the December 1944 grand jury who allegedly published the accusations"
+    },
+    {
+      "name": "Commissioner Ackerson",
+      "role": "Judicial officer deciding the pleading motions"
+    }
+  ],
+  "proceedings": "Two substantially identical libel actions considered together on motions to strike complaints and defenses; mixed rulings with leave to amend and the fourteenth defense preserved.",
+  "limits": "The original report dates the decision November 6, 1946; another reproduction gives November 7. This source transformation preserves historical pleading and privilege rules without asserting their current force. No separate opinion or vote count is supplied.",
+  "briefSha256": "643ff6fc7da74fe470f6287f8186e24041a9ef7e4cd0f99c56f3232c9857bdb3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-LOWER-243"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A grand-jury accusation leads to two libel suits",
+      "cue": "After the prosecutors leave office",
+      "paragraphs": [
+        "Daniel O’Regan served as Hudson County prosecutor and William George as assistant prosecutor from February 4, 1934, through February 4, 1944. Each later sued the twenty-three members of the county’s December 1944 grand jury. Their complaints alleged that the jurors composed and published a report accusing the prosecutors of suppressing the Hartkorn report and failing to call Hartkorn as a witness in the prosecution of John Longo. The accusation described withholding potentially exculpatory material and invoked Canon 5’s obligation to seek justice rather than merely convictions. These were the complaints’ descriptions of the publication, not findings that the prosecutors had suppressed evidence.",
+        "Each complaint charged a joint tort but demanded $100,000 separately from each defendant. The jurors filed joint answers containing fourteen defenses. The prosecutors moved to strike the answers or particular defenses. At oral argument, the jurors received permission to supplement their answers with a prematurity objection, also operating as cross-motions against the complaints. Supreme Court Commissioner Ackerson considered the practically identical pleadings together."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The complaints survive with a required amendment",
+      "cue": "Threshold pleading and representation questions",
+      "paragraphs": [
+        "Ackerson allowed the prosecutors to replace their technically defective separate damages demands with one amount against the defendants jointly. He proceeded as if amended but warned that failure to amend by the deadline would result in striking the complaints.",
+        "The jurors argued that the publication was an official report accepted by the Court of Oyer and Terminer and therefore absolutely privileged. The complaints, however, alleged composition and publication without establishing that official presentation. A supposed requirement to expunge the report first likewise depended on facts the complaints did not disclose. Legal labels about jurisdiction would not resolve the problem; the jurors needed to plead supporting facts in their answers.",
+        "The prosecutors also challenged the Attorney General’s authority to represent former grand jurors. Ackerson held that the Attorney General’s common-law power to protect public interests survived and was reaffirmed by the 1944 Department of Law statute. Liability arising from compelled grand-jury service affected the statewide judicial system and did not depend on classifying defendants narrowly as formal state officers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Belief in truth does not plead truth",
+      "cue": "The first group of defenses",
+      "paragraphs": [
+        "Ackerson struck portions of the first defense containing evasive or unresponsive denials, demands for proof of matters never alleged, and unnecessary legal or evidentiary detail. Some rulings were on his own motion. He preserved express admissions and denials embedded in defective paragraphs, leaving the jurors able to dispute pleaded facts.",
+        "One paragraph asserted the jurors’ belief that the report was true and described the evidence producing that belief. Honest belief was not a complete truth defense. It might mitigate punitive damages if clearly pleaded for that purpose, without detailing the evidence. Nor did belief alone establish qualified privilege: a communication could be malicious for other reasons. Ackerson struck the challenged substance while preserving express denials.",
+        "The second defense’s allegation that the statements were substantially true was technically insufficient; it needed to allege truth in substance and in fact. But an unchallenged third defense separately alleged truth and remained. A fair-comment defense likewise required true underlying facts, public interest, fairness, good faith, and absence of malice. Alleging truth supplied a necessary foundation rather than improperly combining defenses.",
+        "Other defenses offered unsupported public-policy conclusions or an asserted exclusive remedy in the original court. A defense based on absence of defamatory intention included irrelevant matter because the author’s intention did not determine defamatory meaning. Ackerson struck the deficient portions as specified. He treated a separately reserved Rule 40 prematurity question differently: reservation of a legal question functioned like a demurrer, so he denied the attack without prejudice to a proper preliminary motion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "10–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "One privilege defense supplies the missing circumstances",
+      "cue": "The fourth, seventh, and fourteenth defenses",
+      "paragraphs": [
+        "The jurors did not have to attach the label absolute or qualified privilege if their pleaded facts established it. Grand-juror status alone, however, did not protect every publication. The fourth defense failed to show an official investigation and judicial act; the seventh omitted the circumstances of publication. Neither adequately incorporated other allegations. Publication outside judicial proceedings, possibly in a newspaper, would not become privileged merely because jurors authored it. Those defenses were stricken. Discussion of the complete report did not place it competently before the court.",
+        "The fourteenth defense alleged an investigation into suppression of evidence in a particular prosecution, testimony under oath by the prosecutors, and official presentation of the resulting publication to the court. Ackerson accepted those allegations only for testing the defense. They described a possible inquiry into criminal misconduct, rather than private behavior or a general exploration of official conduct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "15–19, 23–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Colorable judicial authority protects the pleaded act",
+      "cue": "Immunity and the final order",
+      "paragraphs": [
+        "Ackerson reasoned that grand juries act judicially as arms of the courts and possess broad common-law investigative powers. Immunity turns on the act and jurisdiction. A clear absence of all jurisdiction differs from error or excess within actual or colorable jurisdiction; deciding an arguable jurisdictional question is itself judicial. Error, irregularity, malice, or corruption alone would not strip that protection.",
+        "The prosecutors argued that a report without an indictment was unauthorized. After considering New Jersey’s continued recognition of common-law presentments, Ackerson declined finally to classify this document. Even assuming a report with no intended indictment, the pleaded composition and presentation remained judicial acts within colorable jurisdiction. Decisions expunging reports did not decide personal civil liability: expunction could address actual authority, while immunity also protected colorable authority. Conflicting precedents underscored the unfairness of requiring compelled jurors to resolve unsettled questions at the risk of personal damages.",
+        "The statements described in the fourteenth defense were pertinent to the investigation and absolutely privileged. Ackerson denied the motion to strike that defense and directed an order implementing the mixed rulings. The prosecutors could amend their damages demand, and the jurors could amend paragraph eight of the first defense and the sixth, tenth, and twelfth defenses, by November 25, 1946. The decision neither dismissed both actions outright nor established the accusations’ truth."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "19–32"
+        }
+      ]
+    }
+  ]
+}

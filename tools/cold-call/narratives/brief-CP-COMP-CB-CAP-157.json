@@ -1,0 +1,142 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-157",
+  "briefId": "CP-COMP-CB-CAP-157",
+  "title": "Zahn v. International Paper Co.",
+  "course": "Civil Procedure",
+  "citation": "414 U.S. 291 (1973)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Lake Champlain property owners sought to litigate alleged pollution damage together. Their named representatives met the federal amount requirement, but smaller individual claims prevented the proposed class from proceeding under the jurisdictional rule the Supreme Court applied in 1973.",
+  "actors": [
+    {
+      "name": "The lakefront owners",
+      "role": "Owners and lessees alleging pollution damage in Orwell, Vermont"
+    },
+    {
+      "name": "International Paper Company",
+      "role": "New York corporation operating the allegedly polluting plant"
+    },
+    {
+      "name": "Justice White",
+      "role": "Author of the six-justice majority"
+    },
+    {
+      "name": "Justice Brennan",
+      "role": "Author of the dissent joined by Justices Douglas and Marshall"
+    }
+  ],
+  "proceedings": "The district court refused the proposed class because not all individual claims exceeded the then-$10,000 diversity threshold and a qualifying class could not feasibly be defined. A divided Second Circuit affirmed. The Supreme Court affirmed, 6–3, on December 17, 1973.",
+  "limits": "The pollution merits and named owners’ independently sufficient claims were not disposed of by this class ruling. Zahn states a historical rule: the supplied brief separately verifies that Allapattah later held § 1367’s text overruled its each-member amount requirement, subject to statutory conditions and exceptions.",
+  "briefSha256": "190174613901567dd09c16c5b6111bb51d27d6af4dea6ab1b5873fd662d47b32",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-157"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Pollution allegations connect separate properties",
+      "cue": "The proposed Lake Champlain class",
+      "paragraphs": [
+        "Owners of property along Lake Champlain in Orwell, Vermont, alleged that discharges from International Paper Company's New York pulp-and-paper plant entered Ticonderoga Creek, flowed into the lake, and impaired the value and use of nearby properties. They proposed a class including the named owners and approximately 200 other lakefront owners and lessees, as the Supreme Court majority described it. The allegations did not become findings of pollution liability in this decision.",
+        "The owners invoked diversity jurisdiction under 28 U.S.C. § 1332(a)(1). At the time, the amount in controversy had to exceed $10,000, exclusive of interest and costs. Every named plaintiff satisfied that threshold, but the district court concluded to a legal certainty that not every individual owner had damages exceeding it. The court also found it infeasible to define a class limited to qualifying claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and district-court findings, 291–292, 293 n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts refuse the proposed class",
+      "cue": "A question left distinct from simple aggregation",
+      "paragraphs": [
+        "Relying on Snyder v. Harris, which prohibited aggregating separate claims to reach the jurisdictional amount, the district court required each owner's claim to qualify and refused class treatment. A divided Second Circuit affirmed, and the owners obtained Supreme Court review.",
+        "Their situation differed from Snyder in a critical respect: Snyder had no plaintiff with a sufficiently large claim to create original diversity jurisdiction. Here the named owners qualified. The question was whether those claims permitted absent owners with smaller, separate claims to participate in the same Federal Rule of Civil Procedure 23(b)(3) class action. The owners were not merely trying to add otherwise insufficient claims together until the total exceeded $10,000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural path and distinction from Snyder, 292–293, 298–301"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White finds an individual requirement in the statute",
+      "cue": "The majority’s historical and textual reasoning",
+      "paragraphs": [
+        "Justice White wrote for six justices, joined by Chief Justice Burger and Justices Stewart, Blackmun, Powell, and Rehnquist. He located the rule in the statutory phrase “matter in controversy.” Separate and distinct demands joined for convenience required each claimant to meet the amount. A common and undivided interest in a single title or right could be considered collectively. Damage to individual lakefront properties belonged to the former category: a common alleged source did not merge separate property rights into one undivided interest.",
+        "The majority traced this distinction through earlier jurisdictional and joinder decisions. In Clark v. Paul Gray, the Court had entertained the one qualifying plaintiff's claim while directing dismissal of insufficient claims. Thus the rule did more than prevent aggregation where nobody qualified; it also prevented smaller independent claims from accompanying a sufficient one.",
+        "Before the 1966 revision of Rule 23, the category called a “spurious” class action functioned as permissive joinder of separate rights presenting common questions. Steele and Hackner illustrated application of individual jurisdictional requirements in that setting. Those procedural categories explained history rather than supplied the statutory limitation.",
+        "Snyder had already held that revising Rule 23 did not alter the statute's nonaggregation rule. Broader binding effect for class judgments did not change “matter in controversy.” Congress had repeatedly changed the dollar threshold while retaining those words, and neither the revised rule nor its official commentary announced a jurisdictional change. White saw no reason to exempt absent class members from requirements applicable to original plaintiffs with separate claims and declined to reconsider the longstanding construction without congressional action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "White majority, 293–302 and nn.3–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Brennan proposes ancillary jurisdiction",
+      "cue": "The dissent’s different route into the same action",
+      "paragraphs": [
+        "Justice Brennan dissented, joined by Justices Douglas and Marshall. He accepted that an adequate claim or undivided interest was needed to establish original jurisdiction. The named plaintiffs had supplied it. His question was whether the court could then exercise ancillary jurisdiction over related claims of nonappearing class members. In his view, applying a nonaggregation rule did not answer that distinct theory.",
+        "The statute spoke of civil actions without expressly addressing every claimant's position. Ancillary jurisdiction already accommodated closely related compulsory counterclaims, intervention as of right, and other claims lacking independent compliance with ordinary jurisdictional requirements. A Rule 23(b)(3) class, in which common questions predominated, could similarly guard against importing unrelated disputes.",
+        "Brennan invoked Supreme Tribe of Ben-Hur, which allowed a class action without demanding that every absent member independently satisfy complete diversity, to show why representative status mattered. Clark involved original appearing plaintiffs, while Snyder involved an action where no claimant first established jurisdiction. Neither, in his view, resolved this case.",
+        "Federal Rule of Civil Procedure 82 barred interpreting procedural rules to expand jurisdiction. Brennan answered that ancillary jurisdiction was an existing judicial power, not a new grant derived from revised Rule 23. Procedural innovations could shape its exercise, and the revised rule's protections and binding effect strengthened the case for allowing class treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Brennan dissent, 302–307, 309–311 and nn.1–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The competing views produce a limited affirmance",
+      "cue": "December 17, 1973",
+      "paragraphs": [
+        "Practical consequences reinforced Brennan's position. Scientific pollution claims could require expensive experts; separate suits would duplicate costs and might make smaller claims uneconomical. Inability to identify claims above $10,000 might also prevent class treatment for owners whose damages actually qualified. The dissent described approximately 240 proposed claimants, a different count from the majority's description. Brennan would have recognized power to consider certification under Rule 23, not ordered certification regardless of that rule's requirements.",
+        "The six-justice majority instead required every claimant asserting a separate and distinct claim in this Rule 23(b)(3) action to satisfy the amount. On December 17, 1973, the Supreme Court affirmed the Second Circuit's judgment sustaining refusal of the proposed class. It did not dismiss the named owners' independently sufficient claims, decide whether International Paper caused the pollution, or determine individual damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissent’s practical concerns, 307–312; holding and judgment, 300–302"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Congressional text later changes the result",
+      "cue": "The verified Allapattah comparison",
+      "paragraphs": [
+        "The rule applied in Zahn is historical. In Exxon Mobil Corp. v. Allapattah Services, Inc., decided in 2005, the Supreme Court explained that an otherwise proper claim satisfying the amount requirement supplies original jurisdiction over a civil action, after which 28 U.S.C. § 1367 governs supplemental jurisdiction over related claims. Section 1367(b) did not exclude the additional Rule 23 class members at issue there. The Court expressly stated that the statute's text overruled Clark and Zahn, subject to the statutory exceptions.",
+        "That later development preserves the distinction between aggregating deficient claims to create original jurisdiction and adding related claims under a statute after a qualifying claim establishes jurisdiction. Zahn's observation that a similar dollar threshold then applied to general federal-question jurisdiction likewise describes its historical setting, not present § 1331 law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Verified later-development passages, Allapattah 559–560, 566–567; Zahn 301–302 n.11"
+        }
+      ]
+    }
+  ]
+}
