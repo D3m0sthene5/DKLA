@@ -14,16 +14,20 @@ records authored coverage, missing main cases and optional supporting entries
 without narratives separately. Only an authored narrative receives a Cold Call launch button. The
 compiler never fills a missing narrative with a reordered brief.
 
-## Reading and practice
+## Reading
 
-Read continuously, use the case-specific section index (a disclosure on narrow
-screens), or search sections. A jump remembers the original reading position
-until **Return to where I was** is used. **Practice aloud** starts at the current
-episode, hides its account, and reveals it on request. Pilot follow-up questions
-include their answers and opinion pinpoints. Clean/Patchy/Blank ratings use
-`dkla.coldCall.v1`, keyed by case revision and episode. Ratings are device-local;
-existing rule recall and sync are untouched. The inspector, saved edits, graph
-and map camera are preserved.
+Read continuously or use the case-specific episode index (a disclosure on narrow
+screens). Reopening a narrative retains the session's reading position. The
+v2.5 reader starts directly with the first episode: it no longer repeats the
+introductory summary or the actor/court-stage orientation fields already told
+in the prose. Those authoring fields remain in the source dataset. All episode
+paragraphs and source notices remain visible. Pilot follow-up questions and
+their answers now sit in disclosures within their episodes. Source scope is
+available at the end, and Full brief opens the original source in a nested view.
+
+Practice aloud and episode ratings have been removed at the owner's request.
+The reader no longer reads or writes the old `dkla.coldCall.v1` storage key.
+Existing rule recall, saved edits, the graph and map camera are preserved.
 
 ## Content and sources
 
@@ -51,8 +55,7 @@ source limit without filling it with an invented fact. The visible narrative
 must introduce its participants; the optional actor list is only an aid. Do not
 pad a sparse source into an invented judicial history.
 
-When substantive prose changes, increment its revision so practice ratings do
-not silently attach to a different account. When a source changes, compare the
+When substantive prose changes, increment its revision. When a source changes, compare the
 account again before updating its fingerprint. Root `AUDIT_V2.4.md` describes
 the separate legal audit and its limits.
 
@@ -79,10 +82,11 @@ unreliable measure of retained detail. Automated checks cannot prove legal
 accuracy, complete chronology or unambiguous antecedents.
 
 `check_reader.cjs` executes the reader's opening and closing path for every
-account in the built file, checking that each narrative paragraph, court stage
-and source qualification renders. Orientation fields accept a paragraph or a
-list of paragraphs. This catches data-shape failures; it does not replace the
-browser checks for layout and interaction.
+account in the built file, checking every episode paragraph, follow-up answer,
+source notice and source qualification. It also exercises the nested source
+return, keyboard isolation, and reopening position, and rejects retired practice
+UI. This catches data-shape and interaction regressions; it does not replace
+browser checks for layout and focus.
 
 The assembler embeds narratives and the reader into the standalone atlas,
 fingerprints them, and writes routes, worker and version metadata together.
@@ -92,8 +96,8 @@ changes stop publication instead of being overwritten. Narratives need no
 runtime network access. Outside sources and uncached source files do.
 
 UI verification covers a main case, a supporting case and Swiss; continuous
-reading, jump/return, search/no matches, practice/reveal/rating/next/back, reopening,
-Escape and focus, mobile section disclosure, and full-source return. Use
+reading, episode jumps, reopening, Escape and focus, mobile episode disclosure,
+and full-source return. Use
 `tools/cold-call/preview.html` at 390px, 768px and 1100px. Keep all narrative
 paragraphs visible in reading mode.
 

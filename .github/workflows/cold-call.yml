@@ -1,12 +1,15 @@
-name: Build Cold Call release
+name: Build DKLA release
 on:
   push:
     branches:
       - codex/cold-call-v24
+      - codex/v2.5-hotfix
       - claude/atlas-design-content-audit-m1cw9x
     paths:
       - tools/cold-call/**
       - tools/r19/**
+      - tools/v25/**
+      - tools/atlas.py
       - .github/workflows/cold-call.yml
   workflow_dispatch:
 permissions:
@@ -26,6 +29,8 @@ jobs:
             /DKLA-r18.html
             /tools/r19/
             /tools/cold-call/
+            /tools/v25/
+            /tools/atlas.py
             /added-sources/opinions/lrs-s-chadha.txt
             /index.html
             /vercel.json
@@ -35,6 +40,10 @@ jobs:
         run: |
           python3 tools/r19/assemble.py
           python3 tools/r19/check.py
+          python3 tools/v25/authorities_build.py --check
+          python3 tools/v25/uscode_build.py --check
+          python3 tools/v25/check_timeline_audit.py --json
+          node tools/v25/authorities_check.cjs
           node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
           python3 tools/cold-call/check_narratives.py --write
@@ -51,6 +60,6 @@ jobs:
           RELEASE_FILE="$(python3 -c 'import json; print(json.load(open("version.json"))["file"])')"
           git add --sparse "$RELEASE_FILE" index.html vercel.json version.json sw.js tools/r19/integrity.json tools/r19/data/accuracy24-inventory.json tools/cold-call/coverage.json
           if ! git diff --cached --quiet; then
-            git commit -m "Build $RELEASE_FILE Cold Call release"
+            git commit -m "Build $RELEASE_FILE release"
             git push origin "HEAD:$RELEASE_BRANCH"
           fi

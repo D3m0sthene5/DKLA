@@ -22,10 +22,10 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v2.4.html"
+TARGET = ROOT / "DKLA-v2.5.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v2.4"
-LABEL = "v2.4"
+VERSION = "v2.5"
+LABEL = "v2.5"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -36,6 +36,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V25_READING = {
+    "v": "v2.5", "date": "2026-10-11",
+    "text": "Case reading panels have a clearer title, one visible takeaway, and expandable legal detail, sources and study tools. Cold Call reads directly as a narrative without practice controls or a repeated introduction. The Rules & authorities library keeps the Constitution, Federal Rules and assigned Contracts authorities in ordered collections linked to relevant entries. Doctrine timelines have clearer explanations, scoped summaries and recorded review evidence. A bounded source lookup tool and an explicit runtime-module manifest support later audits without editing generated HTML.",
+}
 CHANGELOG_V24_NARRATIVE = {
     "v": "v2.4", "date": "2026-10-11",
     "text": "Cold Call accounts are individually written narratives: people are introduced, events lead into litigation, and each court's reasoning and separate opinions follow in sequence. Case-specific episodes support reading and oral practice. Original full briefs remain available. The earlier brief-section fallback has been removed; only authored narratives receive a Cold Call button.",
@@ -361,7 +365,7 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -378,6 +382,30 @@ def tiles(graph: dict) -> dict:
 
 def embed_json(block_id: str, value) -> str:
     return f'<script type="application/json" id="{block_id}">' + json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>\n"
+
+
+def load_runtime_modules() -> tuple[str, str, list[dict]]:
+    """One explicit load order replaces the growing concatenation chain.
+
+    Named boundary comments point a generated script error back to its source;
+    integrity records preserve hashes and line ranges for each source module.
+    """
+    manifest = json.loads((ROOT / 'tools/v25/runtime-manifest.json').read_text(encoding='utf-8'))
+    records, outputs = [], []
+    for kind in ('javascript', 'stylesheets'):
+        chunks, offset, seen = [], 1, set()
+        for relative in manifest[kind]:
+            path = (ROOT / relative).resolve()
+            if not path.is_relative_to(ROOT) or relative in seen:
+                raise ValueError(f'Invalid or duplicate runtime module: {relative}')
+            seen.add(relative)
+            text = path.read_text(encoding='utf-8')
+            chunk = f'/* ===== {relative} ===== */\n{text}\n'
+            line_count = chunk.count('\n')
+            records.append(dict(path=relative,kind=kind,sha256=digest(text.encode('utf-8')),startLine=offset,sourceStartLine=offset+1,endLine=offset+line_count-1))
+            chunks.append(chunk); offset += line_count
+        outputs.append(''.join(chunks))
+    return outputs[0], outputs[1], records
 
 
 
@@ -621,21 +649,20 @@ def main() -> None:
     if missing:
         raise ValueError(f"rules22 entries that no timeline opens: {missing}")
     audit21 = load_audit(graph, nodes, edge_ids)
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rules22.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8") + "\n" + (PARTS / "audit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "takeaways.js").read_text(encoding="utf-8")
-    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r22.css").read_text(encoding="utf-8")
-    js += "\n" + (cold_dir / "reader.js").read_text(encoding="utf-8")
-    css += "\n" + (cold_dir / "reader.css").read_text(encoding="utf-8")
+    authorities = json.loads((ROOT / 'tools/v25/authorities.json').read_text(encoding='utf-8'))
+    js, css, modules = load_runtime_modules()
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
     addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
     addition += embed_json("dklaColdCallData", cold)
+    addition += embed_json("dklaAuthoritiesData", authorities)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
@@ -661,11 +688,11 @@ def main() -> None:
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
     TARGET.write_text(output, encoding="utf-8", newline="\n")
-    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8")
-    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
+    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8", newline="\n")
+    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
     # Publish routing and metadata with the generated artifact, never a half-release.
     index = ROOT / "index.html"
-    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, index.read_text(encoding="utf-8")), encoding="utf-8")
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, index.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     route_path = ROOT / "vercel.json"
     routes = json.loads(route_path.read_text(encoding="utf-8"))
     destination = "/" + TARGET.name
@@ -675,7 +702,7 @@ def main() -> None:
     for route in routes.get("redirects", []) + routes["rewrites"]:
         if re.fullmatch(r"/DKLA-[rv][0-9.]+\.html", route.get("destination", "")):
             route["destination"] = destination
-    route_path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8")
+    route_path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8", newline="\n")
     kinds = {}
     for e in data["entries"]:
         kinds[e[3]] = kinds.get(e[3], 0) + 1
@@ -687,8 +714,9 @@ def main() -> None:
         "supporting_with_sections": sum(1 for e in data["entries"] if not e[6] and e[0] in data["sections"]),
         "additional_source_reviews": {v: sum(1 for a in data["audit"].values() if a["v"] == v) for v in ("clean", "corrected", "could-not-audit")},
         "preserved_script_blocks": len(old),
+        "runtime_modules": modules,
     }
-    (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")
+    (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({k: (v if k != "mapped_without_conversion" else len(v)) for k, v in audit.items()}, indent=1))
 
 

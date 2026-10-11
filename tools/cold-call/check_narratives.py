@@ -14,7 +14,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import build_data, script_blocks, SOURCE
+from assemble import build_data, script_blocks, SOURCE, LABEL
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--require-complete', action='store_true',
@@ -86,11 +86,11 @@ for story in stories['cases']:
         sourceSha256=story.get('briefSha256', story.get('atlasSha256')),
         basis=story.get('review', {}).get('basis', 'Original pilot with recorded opinion-source comparison.'),
         reviewFlags=flags, literalNumberCandidates=number_candidates))
-report = dict(date='2026-10-11', version='v2.4', coverage=stories['coverage'], rejectionRegressions=3,
+report = dict(date='2026-10-11', version=LABEL, coverage=stories['coverage'], rejectionRegressions=3,
     method='Individually authored narrative prose. No brief-section fallback. Automated checks verify identity, source fingerprints and schema, not the truth of every sentence or absence of every ambiguous antecedent.',
     cases=sorted(records, key=lambda c:c['id']), pending=stories['pending'])
 if args.write:
-    (directory / 'coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+    (directory / 'coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
 print(json.dumps(dict(coverage=report['coverage'], flaggedForReading=sum(bool(c['reviewFlags']) for c in records), unresolvedLiteralNumbers=[dict(id=c['id'],candidates=[n for n in c['literalNumberCandidates'] if not n['resolution']]) for c in records if any(not n['resolution'] for n in c['literalNumberCandidates'])], rejectionRegressions=3), ensure_ascii=False))
 if args.require_complete:
     missing_main = [c for c in stories['pending'] if not c['id'].startswith('brief-')]

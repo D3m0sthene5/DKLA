@@ -2,7 +2,7 @@
    The atlas's timelines (seedData.timelines, drawn in the reading panel by dklaUI) were re-cut course by course:
    tools/r19/data/timelines.json holds the new set. Each step is an entry on the map, a supporting case (opens its
    brief) or a dated statute or rule change, and carries what it did to the doctrine ("turn") and, where a later
-   case undid it, its fate; each timeline says where the doctrine stands now.
+   case undid it, its fate. v2.5 adds a scoped synthesis and an authored guide to each line.
    - The saved graph's `timelines` is replaced by the new set once (stamped by `rev`). Steps that are not map
      entries get ids that match no entry, so the panel code that walks the steps simply skips them.
    - r22: every statute or rule step opens an entry (six new rule entries, tools/r19/rules22.js; an event step may
@@ -21,9 +21,10 @@
      and limits ("Widens removal power", "Harder to survive dismissal"), the step's object for overrules, displaces,
      extends, codifies and counterpoint ("Overrules Chevron", "Replaces Finley", "Extends to commercial bids",
      "Codified in Rule 23", "Singapore disagrees"), fixed words for the rest. Hovering explains the move. */
-  const TURN = { origin: 'Starts the line', widens: 'Widens', limits: 'Narrows', extends: 'Extends', sharpens: 'Refines the test', reaffirms: 'Reaffirms the rule', applies: 'Applies the rule', overrules: 'Overrules', displaces: 'Replaces', codifies: 'Codified', divided: 'No majority', counterpoint: 'Counterpoint' };
-  const MEANS = { origin: 'The first step of the line.', widens: 'After this step the doctrine reaches further.', limits: 'After this step the doctrine reaches less far, or an exception cuts in.', extends: 'Carries the doctrine into a new setting without changing the test.', sharpens: 'Restates the test more precisely.', reaffirms: 'Holds the rule when asked to change it.', applies: 'A straightforward application.', overrules: 'Expressly overrules an earlier step.', displaces: 'Replaces an earlier rule without the word: a statute overrides a case, a higher court sets aside a doctrine, a formula is retired.', codifies: 'A statute, rule or Restatement writes the case law down.', divided: 'No majority opinion.', counterpoint: 'Another court or legal system takes the other view.' };
+  const TURN = { origin: 'Starting point', widens: 'Widens', limits: 'Narrows', extends: 'Extends', sharpens: 'Clarifies the rule', reaffirms: 'Reaffirms the rule', applies: 'Applies the rule', overrules: 'Overrules', displaces: 'Replaces', codifies: 'States the rule', divided: 'Reasoning divided', counterpoint: 'Different jurisdiction' };
+  const MEANS = { origin: 'The starting point selected for this timeline, not a claim that the doctrine began here.', widens: 'Broadens the specific dimension named by this timeline. Read the note for jurisdiction and qualifications.', limits: 'Limits the specific dimension named by this timeline. Read the note for jurisdiction and qualifications.', extends: 'Applies a related rule in another setting; the note identifies the relationship.', sharpens: 'Clarifies a test or distinguishes a separate doctrinal branch.', reaffirms: 'Retains an earlier rule in the setting described.', applies: 'Illustrates application in the setting described.', overrules: 'Expressly overrules the identified precedent to the stated extent.', displaces: 'Changes the identified rule through the authority described; a Restatement formulation is not legislation.', codifies: 'States a doctrinal formulation. A model UCC text needs state enactment; a Restatement is persuasive authority.', divided: 'The relevant reasoning lacks a majority. Agreement on judgment or another issue may still exist.', counterpoint: 'A comparison from another jurisdiction or legal regime, not an overruling.' };
   const label = (s, t) => {
+    if (s.effect) return s.effect;
     const o = s.object || '';
     switch (s.turn) {
       case 'widens': return (t && t.up) || 'Widens the doctrine';
@@ -31,7 +32,7 @@
       case 'extends': return o ? 'Extends to ' + o : 'Extends the doctrine';
       case 'overrules': return o ? 'Overrules ' + o : 'Overrules';
       case 'displaces': return o ? 'Replaces ' + o : 'Replaces the rule';
-      case 'codifies': return o ? 'Codified in ' + o : 'Statute or rule';
+      case 'codifies': return o ? 'States ' + o : 'States the rule';
       case 'counterpoint': return o ? o + ' disagrees' : 'Counterpoint';
       default: return TURN[s.turn] || '';
     }
@@ -59,7 +60,9 @@
   }
   const live = s => s.event || s.sup || nodesById.get(s.id);
   const span = t => { const y = t.steps.map(s => s.year); return y[0] === y[y.length - 1] ? String(y[0]) : `${y[0]}–${y[y.length - 1]}`; };
-  const turnTag = (s, t) => s.turn && TURN[s.turn] ? `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(MEANS[s.turn])}">${esc(label(s, t))}</em>` : '';
+  const turnTag = (s, t) => s.turn && TURN[s.turn] ? `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(MEANS[s.turn])}${['widens', 'limits'].includes(s.turn) ? ' Reference: ' + esc(t.anchor) + '.' : ''}">${esc(label(s, t))}</em>` : '';
+  const authority = s => s.authorityKind && s.authorityKind !== 'Court decision' ? `<span class="r25-authority-kind">${esc(s.authorityKind)}</span>` : '';
+  const synthesis = t => t.now ? `<div class="r21-now"><b>${esc(t.summaryLabel || 'What these sources establish')}</b><p>${esc(t.now)}</p></div>` : '';
   const fate = s => s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '';
   // the button a step opens with: an entry on the map, a supporting brief, or nothing for a statute or rule change
   function opener(s, inner, cls) {
@@ -73,9 +76,9 @@
     const steps = t.steps.filter(live).map((s, i) => {
       const cur = s.id && s.id === current;
       const kind = s.event ? ' r21-event' : s.sup ? ' r21-sup' : '';
-      return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${esc(s.year)}</span><strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}</li>`;
+      return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${esc(s.year)}</span>${authority(s)}<strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}</li>`;
     }).join('');
-    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><div class="dkla-timeline-head"><span>How the doctrine developed</span><h3>${esc(t.title)}</h3><p>${esc(t.question)}</p></div><ol class="dkla-timeline-track">${steps}</ol>${t.now ? `<p class="r21-now"><b>Where it stands</b>${esc(t.now)}</p>` : ''}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">All doctrine timelines</button></section>`;
+    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><details class="r25-timeline-disclosure"><summary><span class="r25-timeline-label">How the doctrine developed</span><strong>${esc(t.title)}</strong><small>${t.steps.length} steps · ${span(t)}</small></summary><div class="r25-timeline-content">${t.guide ? `<p class="r25-timeline-guide">${esc(t.guide)}</p>` : ''}<ol class="dkla-timeline-track">${steps}</ol>${synthesis(t)}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Open full timeline</button></div></details></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {
@@ -100,8 +103,14 @@
     }
     fresh.forEach(([sec, t]) => { sec.outerHTML = panelHTML(t, current); painted = true; });
     // bring the open case's step into view, as the panel did before
-    if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21] li.is-current').forEach(li => { const track = li.parentElement; track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2); });
+    if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21] details[open]').forEach(positionCurrent);
   }
+  function positionCurrent(disclosure) {
+    disclosure.querySelectorAll('li.is-current').forEach(li => { const track = li.parentElement; track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2); });
+  }
+  document.addEventListener('toggle', ev => {
+    if (ev.target.matches?.('.r25-timeline-disclosure') && ev.target.open) positionCurrent(ev.target);
+  }, true);
   if (typeof renderInspector === 'function') {
     const prior = renderInspector;
     renderInspector = function (...a) { apply(); const v = prior.apply(this, a); try { paint(); } catch { /* the plain timeline stays */ } return v; };
@@ -123,9 +132,9 @@
   }
   function detailHTML(t) {
     title.innerHTML = `<span class="r18-kicker">${esc(t.course.toUpperCase())} · ${span(t)}</span><h2>${esc(t.title)}</h2>`;
-    return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div><p class="r21-q">${esc(t.question)}</p>
-      <ol class="r21-v">${t.steps.filter(live).map(s => `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button><i class="r21-tag">supporting case</i>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`).join('')}</ol>
-      ${t.now ? `<p class="r21-now"><b>Where it stands</b>${esc(t.now)}</p>` : ''}`;
+    return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div><p class="r25-timeline-guide">${esc(t.guide || t.question)}</p>
+      <ol class="r21-v">${t.steps.filter(live).map(s => `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`).join('')}</ol>
+      ${synthesis(t)}`;
   }
   function render() { const t = V.open && byId.get(V.open); body.innerHTML = t ? detailHTML(t) : listHTML(); body.scrollTop = 0; }
   function open(id, course) {

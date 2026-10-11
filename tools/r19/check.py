@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(PARTS))
-from assemble import EXPECTED_R18, KEYS, TARGET, script_blocks  # noqa: E402
+from assemble import EXPECTED_R18, KEYS, TARGET, script_blocks, load_runtime_modules  # noqa: E402
 
 errors: list[str] = []
 
@@ -31,7 +31,7 @@ r18 = script_blocks(r18_bytes.decode("utf-8"))
 html = TARGET.read_text(encoding="utf-8")
 r19 = script_blocks(html)
 require(all(r19.get(k) == v for k, v in r18.items()), "an r18 block differs in r19")
-for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs", "dklaColdCallData"):
+for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs", "dklaColdCallData", "dklaAuthoritiesData"):
     require(ident in r19, f"missing block {ident}")
 require('<style id="dklaR19Styles">' in html, "missing dklaR19Styles")
 
@@ -40,6 +40,11 @@ full = json.loads(r19["dklaR19Full"])
 graph = json.loads(r18["seedData"])
 nodes = {n["id"]: n for n in graph["nodes"]}
 cold = json.loads(r19["dklaColdCallData"])
+authorities = json.loads(r19["dklaAuthoritiesData"])
+require(authorities == json.loads((ROOT / 'tools/v25/authorities.json').read_text(encoding='utf-8')), 'authorities artifact differs from source')
+expected_js, expected_css, modules = load_runtime_modules()
+require(r19['dklaR19Briefs'] == expected_js, 'generated runtime differs from the ordered source manifest')
+require('<style id="dklaR19Styles">' + expected_css + '</style>' in html, 'generated styles differ from source manifest')
 runpy.run_path(str(ROOT / "tools/cold-call/validate.py"))["validate"](cold, graph, full, data)
 expected_cold = runpy.run_path(str(ROOT / "tools/cold-call/compile.py"))["compile_cases"](json.loads((ROOT / "tools/cold-call/cases.json").read_text()), graph, data, full)
 require(cold == expected_cold, "cold-call artifact differs from source")
@@ -84,6 +89,7 @@ vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
 require(any(r.get("destination") == "/" + TARGET.name for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
 require(integrity.get("r19_sha256") == hashlib.sha256(TARGET.read_bytes()).hexdigest(), "integrity.json does not describe the current artifact")
+require(integrity.get('runtime_modules') == modules, 'module provenance or line ranges differ')
 
 print(f"Authored Cold Call narratives: {cold['coverage']['mapCases']} map cases, {cold['coverage']['supportingCases']} supporting cases; {cold['coverage']['pendingMapCases']} required main cases missing, {cold['coverage']['pendingSupportingCases']} optional supporting entries without Cold Call")
 

@@ -1,0 +1,77 @@
+/* v2.5 case reading hierarchy. Scoped selectors keep map/card geometry intact. */
+#inspector .reader-body{min-width:0}
+#inspector .dkla-record-title{min-width:0;gap:12px}
+#inspector .dkla-record-title h2{min-width:0;font-size:clamp(25px,2vw,32px);line-height:1.25;overflow-wrap:break-word;letter-spacing:-.02em}
+#inspector .reader-body>.dkla-file-chips{display:flex;flex-wrap:wrap;gap:8px}
+#inspector .reader-body>.dkla-file-chips button{max-width:100%;white-space:normal;font-size:12px;line-height:1.5;min-height:36px;padding:7px 11px;overflow-wrap:anywhere}
+#inspector .v25-case-reader{padding:30px 30px 64px}
+#inspector .v25-record-header{margin:0 0 26px;padding:0 0 22px;border-bottom:1px solid #3b4a56}
+#inspector .v25-record-header .dkla-record-title{align-items:flex-start;gap:12px;margin:0}
+#inspector .v25-record-header .dkla-record-title h2{font-size:clamp(25px,2vw,32px)!important;line-height:1.2!important;letter-spacing:-.025em;margin:0!important;min-width:0;overflow-wrap:break-word;font-weight:650}
+#inspector .v25-record-header .dkla-symbol{width:32px;height:32px;flex-basis:32px;margin-top:3px}
+#inspector .v25-record-header .dkla-icon-caption{margin:12px 0 0 44px!important;font-size:12px!important;line-height:1.6!important;color:#9cb0bf!important;font-style:normal;max-width:55ch}
+#inspector .v25-record-actions,#r19Body .v25-support-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
+#inspector .v25-record-actions button,#r19Body .v25-support-actions button{min-height:40px;max-width:100%;font-size:12.5px;line-height:1.4;font-weight:600;font-family:inherit;border-radius:7px;border:1px solid #536b7d;color:#dce7ef;background:transparent;padding:8px 14px;cursor:pointer}
+#inspector .v25-record-actions .cc-launch{margin:0;border-color:#91b5d0!important;background:#263a4a;font-size:13px!important}
+#inspector .v25-record-actions button:hover,#r19Body .v25-support-actions button:hover{background:#2b3b49;border-color:#a7b9c8}
+#inspector .v25-record-actions:empty{display:none}
+#inspector .v25-case-reader>.dkla-rule-label{margin:0 0 10px!important;font-size:11px!important;color:#9eafbd;letter-spacing:.1em}
+#inspector .v25-case-reader>.takeaway{margin:0 0 22px;padding:0 0 0 16px;border-left:3px solid var(--dkla-course)}
+#inspector .v25-case-reader .takeaway.r22-plain{gap:0}
+#inspector .v25-case-reader .r22-plain-text{font-size:17px!important;font-weight:450;line-height:1.7!important;color:#e2eaf0!important;margin:0!important}
+#inspector .v25-legal-rule{margin-top:10px}
+#inspector .v25-legal-rule>summary{font-size:12px;line-height:1.5;color:#9fb6c6;cursor:pointer;padding:8px 0;font-weight:500}
+#inspector .v25-legal-rule .r22-rule-sub{border:0;padding:8px 0 0;margin:0}
+#inspector .v25-legal-rule .r22-rule-sub-label{display:none}
+#inspector .v25-legal-rule .r22-rule-text,#inspector .v25-legal-rule .r22-rule-text p{font-size:14px!important;font-weight:400;line-height:1.75!important;color:#bacbd6!important}
+#inspector .v25-disclosure,#r19Body .v25-disclosure{border:0;border-bottom:1px solid #33424f;border-radius:0;background:transparent;margin:0 0 4px;padding:0}
+#inspector .v25-disclosure>summary,#r19Body .v25-disclosure>summary{font-size:12px;line-height:1.5;padding:12px 0;color:#a8bdcb;font-weight:550;cursor:pointer;list-style-position:inside}
+#inspector .v25-disclosure[open],#r19Body .v25-disclosure[open]{padding-bottom:14px}
+#inspector .v25-source-details .dkla-file-chips,#inspector .v25-source-details .source-strip,#inspector .v25-source-details .r19-chiprow{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+#inspector .v25-source-details button,#inspector .v25-source-details a{min-height:36px;font-size:12px!important;line-height:1.5!important;padding:7px 11px;max-width:100%;white-space:normal!important;text-align:left;overflow-wrap:anywhere;border-radius:7px}
+#inspector .v25-source-details .civil-source-scope{font-size:12px!important;margin:12px 0 0}
+#inspector .v25-study-tools .r18-recall{margin:8px 0 0}
+#inspector .v25-term-details .dkla-terms{margin:6px 0 0;border:0;padding:0}
+#inspector .v25-term-details .dkla-terms>h3{display:none}
+#inspector .v25-case-reader .brief-jump{display:flex;flex-wrap:wrap;gap:4px 12px;margin:25px 0 18px;padding:0 0 16px;border-bottom:1px solid #3b4a56}
+#inspector .v25-case-reader .brief-jump button{background:transparent;border:0;padding:5px 0;min-height:32px;border-radius:0;font-size:12px;color:#9fb9cc;text-decoration:underline;text-underline-offset:4px}
+#inspector .v25-case-reader .case-box{background:transparent;border:0;border-radius:0;padding:0}
+#inspector .v25-case-reader .case-box>section{margin:0;padding:22px 0;border-bottom:1px solid #32414e;scroll-margin-top:18px}
+#inspector .v25-case-reader .case-box>section:first-child{padding-top:0}
+#inspector .v25-case-reader .case-box h3{font-size:15px!important;line-height:1.5;margin:0 0 10px!important;color:#e5ebef!important;text-transform:none;letter-spacing:0;font-weight:650}
+#inspector .v25-case-reader .case-box p{font-size:15px!important;line-height:1.8!important;color:#c7d5df;margin:0 0 14px}
+#inspector .v25-case-reader .case-box p:last-child{margin-bottom:0}
+#inspector .v25-case-reader>.note-text{font-size:14px;line-height:1.75}
+#inspector .v25-case-reader>.r19-brief{margin-top:28px}
+#inspector .v25-case-reader .r19-line{font-size:12px}
+#inspector .v25-case-reader .r19-status,#r19Body.v25-support-reader .r19-status{white-space:normal;line-height:1.5;letter-spacing:0;text-transform:none;font-family:inherit;max-width:100%;font-size:11.5px}
+#inspector .v25-case-reader :focus-visible,#r19Body.v25-support-reader :focus-visible{outline:2px solid #a3c8e1;outline-offset:3px}
+#r19Dialog .r19-head{padding:22px 24px 18px}
+#r19Dialog .r19-head h2{font-size:clamp(23px,2.4vw,29px);line-height:1.25;letter-spacing:-.02em;overflow-wrap:break-word}
+#r19Body.v25-support-reader{padding:24px 32px 48px}
+#r19Body .v25-support-actions{margin:0 0 18px}
+#r19Body .v25-support-actions [data-cold-call]{background:#263a4a;border-color:#91b5d0}
+#r19Body .v25-support-sources .r19-line{margin:10px 0 0;align-items:flex-start;gap:10px;font-size:12px}
+#r19Body .v25-support-sources button{white-space:normal;font-size:12px;line-height:1.5;min-height:36px;max-width:100%}
+#r19Body.v25-support-reader .r19-rule{margin:24px 0 8px;padding:0 0 0 16px}
+#r19Body.v25-support-reader .r19-rule>span{font-weight:550;font-size:11px;line-height:1.5;font-family:inherit;letter-spacing:.08em}
+#r19Body.v25-support-reader .r19-rule p{font-size:16px;line-height:1.75;margin-top:8px}
+#r19Body.v25-support-reader .r19-sec{margin:0;padding:24px 0;border-bottom:1px solid #33424f}
+#r19Body.v25-support-reader .r19-sec h3{font-weight:650;font-size:16px;line-height:1.5;font-family:inherit;letter-spacing:0;text-transform:none;color:#e3ebf1;margin:0 0 12px}
+#r19Body.v25-support-reader .r19-sec p{font-size:15px;line-height:1.8;color:#c7d5df;margin:0 0 16px}
+#r19Body.v25-support-reader>.r19-full{margin-top:26px}
+#r19Body.v25-support-reader .r20-terms{margin:8px 0 0}
+#r19Body.v25-support-reader .r20-terms>span{display:none}
+@media(max-width:640px){
+ #inspector .v25-case-reader{padding:24px 22px 48px}
+ #inspector .v25-record-header .dkla-record-title h2{font-size:26px!important}
+ #inspector .v25-record-header .dkla-symbol{width:28px;height:28px;flex-basis:28px}
+ #inspector .v25-record-header .dkla-icon-caption{margin-left:40px!important}
+ #inspector .v25-case-reader .r22-plain-text{font-size:16px!important}
+ #inspector .v25-case-reader .brief-jump{gap:5px 14px}
+ #inspector .v25-case-reader .brief-jump button{min-height:36px}
+ #r19Dialog .r19-head{padding:20px 18px 16px}
+ #r19Body.v25-support-reader{padding:22px 20px 40px}
+ #r19Dialog .r19-head h2{font-size:24px}
+}
+@media print{#inspector .v25-disclosure>*,#inspector .v25-legal-rule>*{display:block!important}#inspector .v25-record-actions{display:none!important}#inspector .v25-disclosure summary,#inspector .v25-legal-rule summary{color:#222!important}}

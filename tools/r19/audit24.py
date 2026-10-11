@@ -93,5 +93,5 @@ encoded = json.dumps(report, ensure_ascii=False, indent=2)+'\n'
 if '--check' in sys.argv:
     assert target.read_text() == encoded, 'Audit inventory is stale; run tools/r19/audit24.py'
 else:
-    target.write_text(encoded)
+    target.write_text(encoded, encoding="utf-8", newline="\n")
 print(json.dumps(report['counts']))

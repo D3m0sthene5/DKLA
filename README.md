@@ -1,10 +1,14 @@
-## v2.4 · Cold Call Mode and accuracy corrections
+## v2.5 · Clearer reading and an ordered rules library
 
-**Cold call** opens an individually written account that follows the people, events, litigation, arguments and decision in order. Read continuously, jump and return to your place, or practice aloud. Hamer supplies the writing standard. This release includes all 392 main-map cases and 350 supporting cases. Supporting Cold Calls are optional; the other supporting briefs remain available. The original full briefs remain available beside the narratives. [Exact authored coverage and optional inventory](tools/cold-call/coverage.json), [build and content notes](tools/cold-call/README.md), and [audit scope and findings](AUDIT_V2.4.md).
+Case panels have a clear title, one visible takeaway, and expandable legal detail, sources and study tools. **Cold call** opens the individually authored chronological narrative directly, with section navigation and the original full brief. It preserves all 392 main-map accounts and 350 supporting narratives; further supporting Cold Calls are optional.
+
+**Rules & authorities** opens ordered collections of the Constitution, Federal Rules of Civil Procedure, full Title 28, Title 9 arbitration, key administrative-law statutes and the assigned Contracts authorities, with source text and relevant atlas links. The collections live in one reader rather than adding hundreds of map cards. Doctrine timelines explain their legal changes and keep the [v2.5 review scope](TIMELINE_AUDIT.md) explicit.
+
+For contributors and AI audits, start with the [architecture and bounded source lookup guide](tools/v25/ARCHITECTURE.md), [runtime module manifest](tools/v25/runtime-manifest.json), and [source catalog](tools/v25/source-catalog.json). [Authored narrative inventory](tools/cold-call/coverage.json) and [inherited v2.4 accuracy scope](AUDIT_V2.4.md) remain available; structural tests are not a claim-by-claim legal certification.
 
 # Danny Kind Legal Atlas
 
-**Open `DKLA-v2.4.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
+**Open `DKLA-v2.5.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older releases remain available for comparison.
 
 In v17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
 

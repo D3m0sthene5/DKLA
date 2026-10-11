@@ -61,3 +61,21 @@
    everywhere), so the fade only ever covers cards that have been scrolled under it. */
 #inspector .reader-body .dkla-timeline-track{padding-left:22px;padding-right:0;scroll-padding-inline:22px}
 #inspector .reader-body .dkla-timeline-track::after{content:"";flex:0 0 22px}
+
+/* v2.5: the chronology is available on demand; the case remains the reading focus. */
+#inspector .dkla-timeline[data-r21]{margin:18px 0;padding:0;border:1px solid #34424d;border-radius:12px;background:rgba(21,31,40,.45);overflow:hidden}
+.r25-timeline-disclosure>summary{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;list-style:none;cursor:pointer;padding:16px 18px;position:relative;padding-right:38px}
+.r25-timeline-disclosure>summary::-webkit-details-marker{display:none}
+.r25-timeline-disclosure>summary::after{content:'+';position:absolute;right:16px;top:24px;color:#95b6cf;font-size:20px;line-height:1}
+.r25-timeline-disclosure[open]>summary::after{content:'−'}
+.r25-timeline-label{font-size:11px;font-weight:650;line-height:1.4;color:#9cb1c1;grid-column:1/-1}
+.r25-timeline-disclosure>summary strong{font-size:15px;line-height:1.45;font-weight:600;color:#e4ebf0;overflow-wrap:anywhere}
+.r25-timeline-disclosure>summary small{font-size:11px;line-height:1.5;color:#99aab6;align-self:center;white-space:nowrap}
+.r25-timeline-disclosure>summary:focus-visible{outline:2px solid #9bc8ec;outline-offset:-4px}
+.r25-timeline-content{padding:0 16px 16px;border-top:1px solid #2f3b45}
+.r25-timeline-guide{font-size:14px!important;line-height:1.6!important;color:#bccbd5!important;margin:16px 0 22px!important;max-width:72ch}
+.r25-authority-kind{display:block;margin:5px 0;color:#9db7cb;font:500 10px/1.4 system-ui}
+.dkla-timeline-track .r21-turn,#r21Timelines .r21-turn{font-size:11px;line-height:1.45;text-transform:none;letter-spacing:0}
+.dkla-timeline .r21-now p,#r21Timelines .r21-now p{margin:3px 0!important;font-size:13px!important;line-height:1.6!important;color:inherit}
+.r21-v li.r21-event button.r21-name{cursor:pointer}
+@media(max-width:640px){.r25-timeline-disclosure>summary{grid-template-columns:1fr;padding:14px 36px 14px 14px}.r25-timeline-disclosure>summary small{white-space:normal}.r25-timeline-content{padding:0 12px 14px}.r25-timeline-guide{font-size:13px!important;line-height:1.6!important}}

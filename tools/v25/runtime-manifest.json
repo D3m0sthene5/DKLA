@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Ordered source modules appended to the immutable r18 artifact; edit source files rather than generated HTML.",
+  "javascript": [
+    "tools/r19/briefs.js",
+    "tools/r19/rlcc.js",
+    "tools/r19/rules22.js",
+    "tools/r19/provisions.js",
+    "tools/r19/fit.js",
+    "tools/r19/plain.js",
+    "tools/r19/r20.js",
+    "tools/r19/timelines.js",
+    "tools/r19/audit.js",
+    "tools/r19/takeaways.js",
+    "tools/cold-call/reader.js",
+    "tools/v25/authorities.js",
+    "tools/v25/reading.js"
+  ],
+  "stylesheets": [
+    "tools/r19/briefs.css",
+    "tools/r19/polish.css",
+    "tools/r19/r20.css",
+    "tools/r19/timelines.css",
+    "tools/r19/r22.css",
+    "tools/cold-call/reader.css",
+    "tools/v25/authorities.css",
+    "tools/v25/reading.css"
+  ]
+}
