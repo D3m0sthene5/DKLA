@@ -146,13 +146,18 @@
     progress();
   }
   function reveal() {
+    if (!$('ccAnswer').hidden) {
+      $('ccAnswer').hidden = true;
+      $('ccReveal').setAttribute('aria-expanded','false');
+      $('ccReveal').textContent = 'Reveal account';
+      return;
+    }
     const s = current.sections[active];
     $('ccAnswer').innerHTML = `${paragraphs(s)}${citations(s.sources)}<details class="cc-followup"><summary>Follow-up: ${esc(s.followUp.question)}</summary><p>${esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>
       <fieldset class="cc-ratings"><legend>How did that account come out?</legend>${grades.map(g=>`<button type="button" data-cc-rate="${g}" aria-pressed="${grade(s) === g}">${g}</button>`).join('')}</fieldset><p id="ccRatingStatus" role="status" class="cc-small"></p>`;
     $('ccAnswer').hidden = false;
     $('ccReveal').setAttribute('aria-expanded','true');
-    $('ccReveal').textContent = 'Account revealed';
-    $('ccReveal').disabled = true;
+    $('ccReveal').textContent = 'Hide account';
   }
   function rate(g) {
     if (!grades.includes(g)) return;
