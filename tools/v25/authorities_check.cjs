@@ -87,6 +87,16 @@ const fittedMap=ids.get('geoCanvas').innerHTML,preamble=data.entries.find(e=>e.i
 const excerpt=[...fittedMap.matchAll(/<text\b[^>]*class="authority-preamble-excerpt"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]).join(' ');
 assert.equal(excerpt.replace(/\s+/g,' ').trim(),escape(preamble).replace(/\s+/g,' ').trim(),'Fitted phone Preamble loses source words');
 assert.ok(!excerpt.includes('…'),'Preamble quote must remain complete');
+function assertPreambleBounds(map){
+  const clip=map.match(/<clipPath id="authority-clip-authority_3aconst_2dpreamble"><rect\b([^>]*)\/>/);assert.ok(clip,'Preamble clip boundary missing');
+  const attrs=s=>Object.fromEntries([...s.matchAll(/\b(y|height|font-size)="([\d.-]+)"/g)].map(m=>[m[1],Number(m[2])]));
+  const box=attrs(clip[1]),lines=[...map.matchAll(/<text\b([^>]*class="authority-preamble-excerpt"[^>]*)>([^<]*)<\/text>/g)];assert.ok(lines.length,'Preamble is not rendered');
+  for(const l of lines){const a=attrs(l[1]);assert.ok(a.y+a['font-size']*.3<=box.y+box.height,'Preamble descender extends below its card');assert.ok(a.y-a['font-size']*.9>=box.y,'Preamble extends above its card');}
+  assert.equal(lines.map(m=>m[2]).join(' ').replace(/\s+/g,' ').trim(),escape(preamble).replace(/\s+/g,' ').trim(),'Bounding the quote removed source words');
+}
+assertPreambleBounds(fittedMap);
+// Match the real phone's smaller safe area, and a further camera zoom-out.
+for(const z of [.24,.18]){S.z=z;context.draw();assertPreambleBounds(ids.get('geoCanvas').innerHTML);}
 const previewCodes=[...fittedMap.matchAll(/<text\b[^>]*class="authority-preview-code"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]);
 assert.ok(previewCodes.includes('1–10')&&!previewCodes.some(s=>s.startsWith('Amendments ')),'Amendment period badges repeat their parent label');
 api.group('authority:frcp');context.draw();

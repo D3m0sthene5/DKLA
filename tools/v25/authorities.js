@@ -151,7 +151,11 @@
       const cards=new Map(),[preamble,articles,amendments]=n.children,contentW=width-pad*2,stripH=narrow?520:270,groupH=narrow?730:740;
       cards.set(preamble.key,{x:BOX.x+pad,y:BOX.y+header,w:contentW,h:stripH,node:preamble,unit:1});
       for(const [i,c]of [articles,amendments].entries())cards.set(c.key,{x:BOX.x+pad+(narrow?0:i*(contentW+gap)/2),y:BOX.y+header+stripH+gap+(narrow?i*(groupH+gap):0),w:narrow?contentW:(contentW-gap)/2,h:groupH,node:c,unit:1});
-      const box={x:BOX.x,y:BOX.y,w:width,h:header+stripH+gap+(narrow?2*groupH+gap:groupH)+pad};geometryCache={key,box,cards,fit:{...box},unit:1,cols:narrow?1:2};return geometryCache;
+      const box={x:BOX.x,y:BOX.y,w:width,h:header+stripH+gap+(narrow?2*groupH+gap:groupH)+pad};
+      // On phones the masthead, complete Preamble and Articles fill the first
+      // view. Fitting both tall contents panels made the quote's readable font
+      // reflow into more lines than its strip; Amendments remain just below.
+      const fit={...box,h:narrow?header+stripH+gap+groupH+pad:box.h};geometryCache={key,box,cards,fit,unit:1,cols:narrow?1:2};return geometryCache;
     }
     const cards=new Map(n.children.map((c,i)=>[c.key,{x:BOX.x+pad+(i%cols)*(w+gap),y:BOX.y+header+Math.floor(i/cols)*(h+gap),w,h,node:c,cover,unit}]));
     const box={x:BOX.x,y:BOX.y,w:width,h:header+Math.ceil(n.children.length/cols)*(h+gap)+pad};
@@ -253,7 +257,11 @@
       if(rowH>small*1.25)shown.forEach((child,i)=>{out+=preview(child,{x:card.x+pad,y:y+i*(rowH+rowGap),w:card.w-pad*2,h:rowH,unit:u},s,i);});
       if(n.children.length>shown.length)out+=text(['···'],card.x+card.w-pad-small*1.3,card.y+card.h-pad*.4,small,s.ink,450);
     }else if(e.id==='const-preamble'){
-      const quote=e.lines[0]?.[1]||'',available=card.y+card.h-pad-y;out+=text(rows(quote,card.w-pad*2,small,450,Math.max(1,Math.floor(available/(small*1.25)))),card.x+pad,y+small,small,'#c5d9d0',450,'authority-preamble-excerpt');
+      const quote=e.lines[0]?.[1]||'',available=card.y+card.h-pad-y,lines=rows(quote,card.w-pad*2,small,450,Math.max(1,Math.floor(available/(small*1.25))));
+      // fit.js may add lines as well as reduce their size. Bound the complete
+      // fitted block, including descenders, instead of assuming maxLines won.
+      const size=Math.min(small,available/((lines.length*1.25+.2)*(lines.scale||1)));
+      out+=text(lines,card.x+pad,y+size*(lines.scale||1),size,'#c5d9d0',450,'authority-preamble-excerpt');
     }
     if(e&&status[e.status])out+=text(rows(status[e.status],card.w-pad*2,small*.9,450,1),card.x+pad,card.y+card.h-pad*.6,small*.9,'#d6b789');return out+'</g></g>';
   }
