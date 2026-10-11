@@ -1,0 +1,138 @@
+{
+  "id": "cp-gasperini",
+  "briefId": "CP-051",
+  "title": "Gasperini v. Center for Humanities, Inc.",
+  "course": "Civil Procedure",
+  "citation": "518 U.S. 415 (1996)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After borrowed photographic originals disappear, the amount of a conceded damages claim exposes a conflict between New York’s compensation limit and federal trial and appellate responsibilities.",
+  "actors": [
+    {
+      "name": "William Gasperini",
+      "role": "Journalist and photographer whose original slides were lost."
+    },
+    {
+      "name": "Center for Humanities, Inc.",
+      "role": "Educational-video producer that borrowed the slides and conceded liability."
+    }
+  ],
+  "proceedings": [
+    "The jury awarded $450,000; the district court denied the Center’s Rule 59 new-trial motion without explanation.",
+    "The Second Circuit required a new trial unless Gasperini accepted $100,000.",
+    "The Supreme Court vacated and required district-court application of New York’s standard, followed by abuse-of-discretion review."
+  ],
+  "limits": "Neither $100,000 nor $450,000 received final approval. Liability was conceded; the Court decided the measure and allocation of excessiveness review, not the photographs’ final value.",
+  "briefSha256": "ff3466374d6d96d6feb4c23e16a740cf352a0a428bff8c140f53427baee6bb35",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-051"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Center borrows originals and cannot return them",
+      "cue": "What evidence supported and questioned the photographer’s valuation?",
+      "paragraphs": [
+        "William Gasperini reported from Central America between 1984 and 1991, producing more than 5,000 original slide transparencies of conflict, political figures, and daily life. In 1990 he lent 300 to the Center for Humanities for an educational video. The Center used 110 and promised return, but could not find the originals after production. Their loss prevented further original use.",
+        "Gasperini, a California citizen, sued the New York-incorporated and headquartered Center in the Southern District of New York under diversity jurisdiction. He asserted contract, conversion, and negligence claims. The Center conceded liability, leaving value disputed. His expert described $1,500 per transparency as an industry standard. A three-day damages trial produced a $450,000 verdict, explicitly $1,500 times all 300 slides. The record also questioned each photograph’s uniqueness and compared his just-over-$10,000 photographic earnings during the relevant years with projected earnings and a proposed book."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; Procedural History; 518 U.S. 419–421 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two federal courts take different approaches to the award",
+      "cue": "Why did the Second Circuit substitute a conditional $100,000 award?",
+      "paragraphs": [
+        "New York had tightened excessiveness review in 1986. Civil Practice Law and Rules § 5501(c) required asking whether an award materially departed from reasonable compensation, rather than merely shocked the conscience. Although addressed expressly to the Appellate Division, New York decisions applied it to trial judges as well. Comparable awards supplied a permissible range instead of a fixed dollar cap.",
+        "The Center moved for a new trial under Federal Rule of Civil Procedure 59, including an excessive-award challenge. The district judge denied the motion without explaining that issue. The Second Circuit directly applied New York’s material-deviation test and compared lost-transparency cases. It found general industry testimony insufficient to establish $1,500 for every image. Giving Gasperini favorable assumptions, it allowed that value for fifty images and $100 for each of the remaining 250: $100,000 total.",
+        "The appellate court vacated and ordered a new trial unless Gasperini accepted the lower amount. That conditional reduction was remittitur. The Supreme Court reviewed whether state law governed and which federal court should perform the primary assessment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; 518 U.S. 420–426"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ginsburg separates a damages limit from an appellate assignment",
+      "cue": "How could federal court preserve state law without duplicating every state procedure?",
+      "paragraphs": [
+        "Justice Ginsburg wrote for O’Connor, Kennedy, Souter, and Breyer. New York’s test had substantive significance under Erie, the doctrine protecting state-created rights in federal diversity litigation. A looser federal test could yield substantially more money for the same state claim, encouraging forum shopping and unequal administration. Comparison-based limits functioned like a ceiling even without a fixed sum; diversity supplied another forum, not enlarged compensation.",
+        "But the statute also assigned review to a state appellate institution. The Court separated that procedural function from the recovery constraint. Drawing on Byrd’s recognition of federal interests in allocating judicial responsibilities, it considered the Seventh Amendment’s Reexamination Clause and federal trial-appellate relations. State authority to reassess damages did not automatically pass to federal appeals judges.",
+        "Trial judges historically granted new trials for verdicts against the evidence, including excessiveness, and could condition relief on refusal of remittitur. Applying the state test through a Rule 59 motion therefore respected the jury framework. New York’s own application at trial level made that accommodation workable. The district judge would implement state compensation policy first."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 518 U.S. 425–433, 437–438"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The appellate court reviews discretion instead of fixing its own figure",
+      "cue": "What role did Rule 59 and the trial judge’s access to evidence play?",
+      "paragraphs": [
+        "Earlier Supreme Court cases had reserved whether appellate excessiveness review was constitutional, while federal appeals courts had adopted abuse-of-discretion review. Ginsburg expressly approved that limited check. The trial judge had watched witnesses and evidence; appeals judges read a record. Deference did not allow a new damages figure simply because the reviewing judges preferred one.",
+        "The majority read Rule 59 as authorizing the new-trial mechanism without supplying a conflicting substantive measure of allowable compensation. New York law furnished that measure. It therefore rejected a direct collision of rules. The scope question mattered because Hanna’s framework would govern if a valid Federal Rule directly controlled the disputed issue.",
+        "The unexplained trial denial did not show examination under New York authorities requiring more than a general industry figure. Uniqueness and actual earnings mattered. The Second Circuit identified relevant considerations but performed the primary evaluation itself. The trial judge needed to make that assessment under the correct standard before deferential appellate review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; 518 U.S. 427 n.7, 434–439 & n.22"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens and Scalia disagree for very different reasons",
+      "cue": "Why did neither dissent adopt the majority’s accommodation?",
+      "paragraphs": [
+        "Justice Stevens agreed that New York supplied a substantive standard and appellate review was permissible, but would affirm the Second Circuit. The trial judge had already had an opportunity, and the appeals court corrected error on assumptions favorable to Gasperini. Another trial-court pass served no useful purpose. Stevens also resisted making the precise deference level constitutionally mandatory: enforcing a state damages limit corrected legal error even when facts informed it. History permitted review, and practical deference was more persuasive than a constitutional restriction.",
+        "Justice Scalia, joined by Chief Justice Rehnquist and Thomas, would reverse the Second Circuit. His historical reading prohibited appellate reconsideration of a jury’s damages against the weight of evidence. Westminster new-trial review belonged to the original proceeding rather than a modern appeal; relabeling review abuse of discretion did not remove its factual character.",
+        "Scalia separately disputed Erie’s application. Rules specifying compensable injuries and amounts differed from a review standard regulating how closely judges supervise juries. He read Rule 59 as controlling federal procedure and thought the state test disrupted the trial judge–jury relationship. He also doubted promised uniformity when state appellate reassessment and deferential federal review remained different."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 518 U.S. 439–469"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The proper amount remains for a renewed trial-court decision",
+      "cue": "What was the precise remand?",
+      "paragraphs": [
+        "On June 24, 1996, the Supreme Court vacated the Second Circuit and directed a remand to the district court. The trial judge would revisit the new-trial motion under § 5501(c) and relevant New York decisions. The Court neither endorsed $100,000 nor unconditionally restored $450,000.",
+        "The resulting sequence preserved state compensation limits, used federal new-trial machinery at the trial level, and confined appellate review to abuse of discretion. The Rule 59 scope dispute explains the disagreement about Hanna; the workable division of functions explains why Byrd’s federal interests did not demand an all-or-nothing choice. The opinion did not promise the same accommodation for every future Erie dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 518 U.S. 426–439"
+        }
+      ]
+    }
+  ]
+}

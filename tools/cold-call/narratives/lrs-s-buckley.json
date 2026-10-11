@@ -1,0 +1,183 @@
+{
+  "id": "lrs-s-buckley",
+  "briefId": "LRS-NEXT-009",
+  "title": "Buckley v. Valeo",
+  "course": "Legislation and the Regulatory State",
+  "citation": "424 U.S. 1 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Congress paired campaign-finance restrictions with a new enforcement commission. Candidates, contributors, and political organizations challenged both the restrictions and Congress’s role in choosing the officials who would administer them.",
+  "actors": [
+    {
+      "name": "Congress",
+      "role": "Enacted the 1974 campaign-finance amendments and reserved appointment roles for congressional officers."
+    },
+    {
+      "name": "James Buckley and Eugene McCarthy",
+      "role": "Senator and presidential candidate among the pre-enforcement challengers, joined by contributors, parties, and advocacy organizations."
+    },
+    {
+      "name": "Federal Election Commission",
+      "role": "Agency with six voting commissioners and two nonvoting congressional officials; defended its structure and statutory powers."
+    },
+    {
+      "name": "The President pro tempore, Speaker, and President",
+      "role": "Each selected two voting commissioners, all subject to confirmation by both Houses."
+    }
+  ],
+  "proceedings": [
+    "District court certified constitutional questions to the en banc D.C. Circuit under the Act’s special procedure; after further development that court substantially upheld the law.",
+    "A three-judge district court separately upheld presidential public financing.",
+    "Supreme Court affirmed the public-financing judgment and affirmed in part and reversed in part the D.C. Circuit judgment; the Commission remedy was stayed no more than thirty days."
+  ],
+  "limits": "This is the 1976 statutory and constitutional decision, not a description of current campaign-finance law. The Court reserved the independent validity of candidate disqualification and congressional disapproval of regulations, among other questions. Later statutory changes are not narrated.",
+  "briefSha256": "6da9ac305b1db7ba02ad49bb4e1b43745c070eb2fcb65f23f12ca93bd5318099",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-NEXT-009"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress combines funding rules and a new commission",
+      "cue": "Which restrictions and appointment methods did the challengers confront?",
+      "paragraphs": [
+        "After experience with large contributions and the influence they could buy, Congress amended the Federal Election Campaign Act in 1974. It limited a person’s contribution to a candidate to $1,000 per election, a qualifying political committee’s contribution to $5,000, and an individual’s annual aggregate contributions to $25,000. Separate provisions capped independent spending concerning a clearly identified candidate at $1,000 annually, restricted candidates’ personal or controlled family spending by office, and limited total campaign expenditures. Committees had to keep identifying records above $10 and publicly report identifying information above $100; other persons incurred reporting duties for certain contributions or expenditures above $100.",
+        "Congress also established presidential public financing and an independent Federal Election Commission. Of the Commission’s eight members, six voted: the Senate’s President pro tempore chose two on recommendations from the majority and minority leaders; the House Speaker similarly chose two; and the President chose two. Each selecting authority had to choose members from different parties, and both Houses had to confirm all six. The Senate Secretary and House Clerk served without votes. Commissioners had statutory terms and no day-to-day direction from another branch.",
+        "The Commission’s work extended well beyond filing reports. It could investigate, subpoena, audit, make regulations and policy, issue advisory opinions protecting good-faith reliance, decide public-funding eligibility, and recover overpayments. It had primary civil-enforcement responsibility and could sue; certain criminal violations could prompt Attorney General civil proceedings at its request. It could also, after proceedings, disqualify candidates who failed to report. Those consequential powers would make the appointment structure constitutionally decisive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and statutory setting; 424 U.S. at 7–8, 23–24, 35–39, 51–55, 62–64, 109–13, 126 n.162, 161–64"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Candidates and contributors bring a pre-enforcement challenge",
+      "cue": "How did two judgments reach the Supreme Court?",
+      "paragraphs": [
+        "Senator James Buckley, presidential candidate Eugene McCarthy, contributors, political parties, and advocacy organizations challenged provisions restricting their activities or placing them under the Commission’s authority. Their concrete interests supported the constitutional challenges before enforcement; this was not review of one assessed campaign penalty.",
+        "The Act’s special procedure allowed a district court to certify constitutional questions to the D.C. Circuit sitting en banc, followed by direct Supreme Court appeal. After a remand to develop findings and identify issues, the court of appeals substantially sustained the challenged provisions. A three-judge district court separately upheld the Internal Revenue Code’s public-financing provisions. Both judgments reached the Supreme Court. Section 437a, a reporting provision invalidated below without an appeal, remained outside the issues presented for reversal.",
+        "The court of appeals considered much of the appointments attack premature because some powers had not been exercised. The Supreme Court disagreed: rulemaking had begun, other operations were approaching, and the certified questions concerned impending agency decisions affecting the plaintiffs’ rights. That ripeness conclusion rested on concrete interests, not elimination of Article III injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation; 424 U.S. at 8–12 & nn.6–7, 61 n.70, 113–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court permits contribution limits but rejects compulsory spending ceilings",
+      "cue": "Why did the forms of regulated money receive different treatment?",
+      "paragraphs": [
+        "The per curiam opinion upheld contribution ceilings. Giving money expresses support and association, while translating the contribution into further communication generally involves the recipient’s speech. Contribution caps therefore restrained expression less directly than expenditure caps. Preventing actual or apparent quid pro quo corruption was sufficiently important, and these limits were closely drawn. Bribery law addressed only blatant abuses; disclosure alone did not eliminate the risk. The record did not show that $1,000 prevented effective campaigns or unfairly disadvantaged challengers or minor parties. Higher allowances for established committees and the individual annual ceiling served anticircumvention purposes.",
+        "Expenditure ceilings directly reduced political speech’s quantity and reach. The Court construed the independent-spending provision to concern express advocacy of a clearly identified candidate’s election or defeat, avoiding vagueness, but invalidated even that narrowed restriction. Genuine independence lacked the prearrangement that made coordinated or authorized spending contribution-like; coordinated spending remained subject to contribution limits. Equalizing speakers’ financial influence did not justify suppressing communication.",
+        "The candidate personal-resource limit likewise directly restricted speech without preventing outside corruption; personal funds might reduce dependence on donors. Overall campaign ceilings also failed: contribution limits and disclosure addressed the asserted corruption danger, and Congress could not decide how much debate was wasteful. Candidates could, however, voluntarily accept spending limits as a condition of public financing. These were rulings on the 1976 scheme, not statements of present statutory limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Campaign-finance holdings; 424 U.S. at 19–59 & nn.52–53, 57, 59, 65–66"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Disclosure and public funding survive with limits",
+      "cue": "Which protections and unresolved questions accompanied those holdings?",
+      "paragraphs": [
+        "Disclosure survived exacting scrutiny as construed because it informed voters about financial support, exposed potential corruption, and assisted contribution-limit enforcement. The Court refused a blanket minor-party exemption on this record but permitted exemptions on a reasonable probability of threats, harassment, or reprisals. Evidence could involve members or an organization and, for a new party, similarly situated organizations or individuals.",
+        "Independent reporting was confined to campaign-connected contributions and spending expressly advocating election or defeat. Political committees were construed as candidate-controlled bodies or organizations with candidate nomination or election as their major purpose. The Court sustained the low thresholds on the record while leaving undecided whether nonpublic records for contributions between $10 and $100 could constitutionally be published. Its broader discussion did not disturb the unappealed invalidation of § 437a.",
+        "The Court also sustained presidential public financing against the facial challenge. Congress could spend to reduce dependence on large donors and facilitate electoral discussion. A tax-return checkoff determined the appropriation’s size, not each taxpayer’s choice of recipient. The scheme distinguished major parties receiving at least 25 percent of the preceding presidential vote, minor parties receiving at least 5 but less than 25 percent, and new parties. Demonstrated support could justify subsidies and avoid funding hopeless candidacies. Denial of a subsidy was less restrictive than ballot exclusion; private fundraising remained available, and subsidized competitors accepted spending limits.",
+        "Primary matching conditions encouraged geographically dispersed small contributions. Public funding remained severable from compulsory expenditure ceilings. The Court reserved later proof of discriminatory operation and questions concerning unaffiliated independent candidates."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Campaign-finance holdings; 424 U.S. at 60–109 & nn.118, 122, 131"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Congress’s election powers do not supply an appointment power",
+      "cue": "How did the Court identify officers and reject the Commission’s defense?",
+      "paragraphs": [
+        "The challengers argued that Congress could establish the Commission and its duties but could not appoint officials executing federal law. The Commission’s defenders invoked appropriate legislative functions, broad election-regulation authority, the Necessary and Proper Clause, and the danger of entrusting election enforcement entirely to an incumbent President.",
+        "The Court held that anyone exercising significant federal statutory authority is an officer subject to the Appointments Clause. Principal officers require presidential nomination and Senate advice and consent; Congress may vest appointment of inferior officers in the President alone, a court of law, or a department head. Congress and its presiding officers appear nowhere in that latter list. The voting commissioners were at least inferior officers, making finer classification unnecessary because the selection process failed even that standard.",
+        "All six voting appointments were defective. Four originated with congressional officers who were neither courts nor department heads; the President’s two selections improperly required House confirmation as well as Senate confirmation. Congress’s express authority to choose its own legislative officers did not empower those officers to appoint administrators of public law. Footnote 162 distinguished subordinate lesser employees from officers: these commissioners’ independence, terms, and responsibilities plainly placed them in the officer category without deciding every borderline job.",
+        "Constitutional text, convention history, and the danger of congressional expansion into execution supported that result. The branches need not be hermetically isolated, but Congress could not enlarge its legislative role through appointments. Broad subject-matter authority over elections and the Necessary and Proper Clause could not override the specific structural rule. Insulation from a candidate-President was a practical concern, not authority to rewrite the Clause; congressional appointees might also answer to incumbent legislators."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appointments holding and reasoning; 424 U.S. at 118–35 & n.162"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Commission may assist legislation but cannot administer public law",
+      "cue": "Which activities depended on valid appointment?",
+      "paragraphs": [
+        "The Court distinguished appointment from removal and supervision. Humphrey’s Executor and Wiener had recognized forms of administrative independence involving officers appointed through constitutional methods. Quasi-legislative or quasi-judicial work did not put a federal agency outside the Appointments Clause. Buckley did not decide that every properly appointed administrator must be removable at the President’s will.",
+        "The existing commissioners could gather, receive, investigate, and disseminate information comparable to tasks assigned to a legislative committee. Civil-enforcement suits were different: seeking judicial relief to vindicate public rights executed the law. Rulemaking, consequential advisory opinions, and eligibility determinations for money or office likewise administered public law and required constitutionally appointed officers, despite their resemblance to legislation or adjudication.",
+        "The Court assumed for argument that a validly appointed agency could receive the statutory powers; it did not approve each power independently. It expressly reserved whether candidate disqualification violated Article I and declined to decide the separate challenge to congressional disapproval of Commission regulations. The appointment defect sufficed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Allocation of powers; 424 U.S. at 133, 135–41 & nn.175–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Five separate writings dispute different parts of the package",
+      "cue": "Why is there no single vote count for Buckley?",
+      "paragraphs": [
+        "Eight Justices participated; Justice Stevens did not. Justices Brennan, Stewart, and Powell joined the per curiam opinion throughout. All participating Justices accepted the appointment defect and the answers restricting Commission authority, but their agreement differed elsewhere.",
+        "Chief Justice Burger agreed that spending ceilings and appointments were invalid but rejected the contribution/expenditure distinction. He regarded the disclosure thresholds as insufficiently justified and public financing as an intrusion that could entrench major parties. Despite the severability clause, he thought piecemeal invalidation dismantled an integrated scheme. He alone opposed blanket de facto validation of unidentified past Commission actions, preferring individual district-court challenges.",
+        "Justice White would uphold all three categories of expenditure limits. He credited Congress’s experience with corruption, circumvention, costs, campaign debts, and wealth-based barriers, treating effects on speech from regulation of money as permissible. He accepted the appointment defect, de facto treatment, and stay. Although the Court reserved legislative disapproval, White would sustain it for a properly appointed agency because a regulation took effect through congressional inaction rather than a new enactment. He separately reserved candidate disqualification’s validity.",
+        "Justice Marshall dissented only from invalidating the candidate personal-resource ceiling. He saw a candidate contribution limit, not a total campaign-spending ceiling, because outside fundraising remained possible. With outside gifts already capped, limiting personal wealth promoted equal access and avoided an insurmountable initial advantage. Justice Blackmun rejected a principled distinction between contributions and expenditures and would invalidate the contribution restrictions too.",
+        "Justice Rehnquist accepted congressional power to finance campaigns but opposed the general-election formula’s preference for established major parties. Optional subsidies did not share the administrative necessity supporting ballot-management restrictions. Thus White alone opposed invalidating independent and overall spending caps; White and Marshall opposed invalidating personal-resource caps; Burger and Blackmun opposed upholding contribution limits; and Burger and Rehnquist opposed the challenged minor-party general-election funding treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Participation and separate opinions; 424 U.S. at 5, 235–94"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court preserves past acts and allows a short transition",
+      "cue": "What exactly happened to the two judgments and the Commission?",
+      "paragraphs": [
+        "In No. 75-436, the Supreme Court affirmed in part and reversed in part the D.C. Circuit judgment. In No. 75-437, it affirmed the three-judge district court’s public-financing judgment. The mandate issued forthwith except that the judgment affecting Commission powers was stayed for no more than thirty days.",
+        "The Court accorded de facto validity to past Commission acts and temporarily permitted continued functioning so Congress could reconstitute the agency or establish valid enforcement arrangements. That remedy did not cure the appointments or authorize indefinite operation under the defective structure. The source’s assigned appointments excerpt omits much of the broader litigation, separate opinions, and transition remedy; those matters remain part of the full judgment. Later editorial references are not holdings issued in 1976."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and source limits; 424 U.S. at 142–44"
+        }
+      ]
+    }
+  ]
+}

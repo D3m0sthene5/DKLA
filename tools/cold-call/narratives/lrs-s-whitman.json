@@ -1,0 +1,181 @@
+{
+  "id": "lrs-s-whitman",
+  "briefId": "LRSR-041",
+  "title": "Whitman v. American Trucking Associations, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "531 U.S. 457 (2001)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Revised air-pollution standards bring industry challengers and the EPA to court over costs, delegated power, and the rules states must follow.",
+  "actors": [
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Issued the 1997 air standards and the interpretation of ozone implementation requirements."
+    },
+    {
+      "name": "Christine Todd Whitman",
+      "role": "EPA Administrator when the Supreme Court decided the case; the rules predated her tenure."
+    },
+    {
+      "name": "American Trucking Associations and fellow challengers",
+      "role": "Private companies and organizations, joined by Michigan, Ohio, and West Virginia, challenging the standards."
+    }
+  ],
+  "proceedings": [
+    "The challengers sought direct review of EPA rulemaking in the D.C. Circuit.",
+    "The D.C. Circuit rejected cost consideration but found a nondelegation problem and rejected the EPA’s ozone implementation construction.",
+    "The Supreme Court affirmed in part, reversed in part, and remanded for further proceedings."
+  ],
+  "limits": "The decision leaves other preserved scientific and administrative-law challenges for further proceedings. Its account of Chevron describes the 2001 framework; later Loper Bright changed that methodology without itself overruling these holdings.",
+  "briefSha256": "ec96e341c4394b6805a89194cb700a7686252baa2f2ff05efbc0dcbc77f6a4ef",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRSR-041"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress separates national air standards from the means of attaining them",
+      "cue": "Which statutory decisions came before the EPA’s disputed rules?",
+      "paragraphs": [
+        "The Clean Air Act gave the Environmental Protection Agency a sequence of tasks. Under § 108, the agency identifies covered pollutants and publishes air-quality criteria describing scientific knowledge of their effects. Under § 109, it then sets national ambient air quality standards, or NAAQS: permissible concentrations of pollutants in the ambient air. Periodic review under § 109(d)(1) can produce revisions. States subsequently prepare implementation plans under § 110, within the Act’s requirements and federal supervision.",
+        "For primary standards, § 109(b)(1) directed the Administrator to use the air-quality criteria, allow an adequate margin of safety, and select a level requisite to protect public health. Secondary standards protected public welfare against known or anticipated adverse effects of the pollutant’s presence. This distinction between setting the national objective and choosing the measures needed to achieve it later became central to the dispute over costs.",
+        "Ozone implementation presented an additional complication. Part D’s Subpart 1 supplied general requirements for areas failing a national standard. Congress added ozone-specific Subpart 2 in 1990 after dissatisfaction with the earlier regime. Its severity classifications carried deadlines and control requirements, but those classifications and dates had been built around the old ozone standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 531 U.S. at 462–65, 470, 476–78"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The EPA revises ozone and particulate standards",
+      "cue": "How did the new averaging period create a second dispute?",
+      "paragraphs": [
+        "On July 18, 1997, the EPA revised the ozone and particulate-matter standards. The new ozone standard measured concentrations over eight hours instead of one. The EPA selected the national standards without considering the economic costs of implementation. American Trucking Associations, other private companies and organizations, and Michigan, Ohio, and West Virginia objected. They maintained that costly controls could themselves injure health by reducing economic activity and resources available for such things as medical care, and that the Act supplied inadequate guidance about how much protection was enough. Other governmental and organizational participants supported the EPA; the challengers did not speak for everyone outside the agency.",
+        "In the ozone rule’s preamble, the EPA also announced how it understood the implementation provisions. It would use the more flexible Subpart 1 to implement the new standard and retain Subpart 2 for the old standard only until an area attained that older standard. As areas achieved the old standard, the detailed ozone-specific restrictions would cease to govern them even though implementation of the new standard continued. Selecting the permissible ozone concentration and interpreting the legal regime for attaining it were separate agency actions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 531 U.S. at 462–66, 475–85"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The challengers go directly to the D.C. Circuit",
+      "cue": "What did the appellate panel actually send back to the agency?",
+      "paragraphs": [
+        "The challengers petitioned the D.C. Circuit for direct review under Clean Air Act § 307(b)(1), rather than filing a case for a district-court trial. In its 1999 decision, followed by rehearing, the panel unanimously rejected their contention that § 109 allowed implementation costs to determine the standards. On nondelegation, however, the panel concluded that the EPA had interpreted the section to confer discretion without an intelligible principle. Judge Tatel dissented on that point.",
+        "The panel did not simply invalidate § 109. It remanded to let the EPA adopt a limiting interpretation of its own authority. That proposed cure created a distinct constitutional question: if Congress had failed to supply the required policy constraint, could the agency supply it itself? The court also recognized authority to revise ozone standards but held that Subpart 2 constrained implementation of a revision. On rehearing, it rejected the EPA’s argument that its implementation interpretation was not final agency action.",
+        "The EPA sought Supreme Court review of the nondelegation ruling and defended its implementation interpretation. The challengers cross-petitioned on costs. Christine Todd Whitman’s name appeared because she held the Administrator’s office by the time the Court decided the case; she had not issued the 1997 rules. The Court heard argument on November 7, 2000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Procedural History; 531 U.S. at 462–64"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Scalia reads the health instruction before considering the Constitution",
+      "cue": "Why did economic consequences not become part of this standard-setting decision?",
+      "paragraphs": [
+        "Justice Scalia’s principal opinion began with what authority Congress had actually conferred. In § 109’s context, public health referred to the effects of a pollutant in ambient air. The prescribed scientific criteria and margin of safety did not direct the EPA to balance those effects against the cost of reducing pollution. The Court did not decide that the challengers’ claim about the health effects of economic losses was empirically false. It decided that Congress had not assigned that broader balancing task to the EPA in this particular statutory decision.",
+        "Other provisions expressly mentioned costs or economic feasibility, demonstrating that Congress knew how to authorize their consideration. Repeated amendments had not added such language to § 109. General phrases about the Administrator’s judgment, adequacy, or what was requisite could not carry a major alteration in the program. The opinion’s image of Congress not hiding elephants in mouseholes expressed that inference from statutory design.",
+        "The scientific advisory committee’s duties did not supply missing authorization. The committee could advise on adverse health, welfare, social, economic, and energy effects of strategies for attaining and maintaining the standards. That information could aid implementation and other statutory responsibilities without becoming a criterion for the national level of protection itself. The exclusion applied to secondary as well as primary standards; it did not make costs irrelevant throughout the Clean Air Act.",
+        "The challengers also invoked constitutional avoidance, proposing costs as a limiting principle that would avert a delegation problem. But avoidance selects among legally available interpretations; it cannot contradict an unambiguous statutory direction. If the EPA had covertly relied on costs, that could support a challenge to the resulting agency action. It would not change the meaning of the statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: statutory meaning and costs; 531 U.S. at 464–72 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court rejects the agency cure but upholds Congress’s instruction",
+      "cue": "What makes the statutory limit sufficient despite the EPA’s considerable discretion?",
+      "paragraphs": [
+        "Turning to Article I’s vesting of legislative powers in Congress, the Court applied the intelligible-principle test associated with J. W. Hampton. Congress must supply a governing principle for the official exercising delegated authority. Execution still involves judgment; the constitutional inquiry is not whether every choice has been eliminated.",
+        "The Court first rejected the D.C. Circuit’s proposed cure. An agency cannot repair Congress’s failure to constrain power by deciding voluntarily how little of that power it will use. Choosing the constraint would itself make the policy decision reserved to Congress. A statute can incorporate established legal meaning, and Congress can adopt previously developed standards, but those means of finding a congressional limitation differ from an agency manufacturing one after an unconstitutional grant.",
+        "No such repair was needed here. Section 109 identified the pollutants to regulate, the evidence to consult, the protected interest, and the degree of protection. Requisite meant sufficient, but no more stringent than necessary, to protect public health with an adequate margin of safety. The instruction left scientific and policy judgments about the precise concentration, yet bounded those judgments.",
+        "The Court compared this direction with earlier delegations involving imminent hazards to public safety in Touby, the public interest, fair and equitable prices, and excessive profits. Section 109 fit comfortably within the sustained statutes. The failures to confine authority in Panama Refining and Schechter Poultry, the two 1935 invalidations, were materially different. The amount of guidance required can vary with the breadth of the delegated task: national economic consequences call for meaningful constraints. Congress had supplied them here without calculating the numerical standard itself.",
+        "Nor did pollutants lacking a demonstrated harmless threshold make delegation impossible. Selecting among degrees of risk requires judgment, but the Court had never demanded that Congress specify exactly how much risk was excessive or furnish a deterministic formula. Whether the EPA had adequately justified the particular concentrations it chose remained a separate question about the agency’s exercise of valid authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: nondelegation; 531 U.S. at 472–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Court reviews the ozone interpretation and rejects its effect on Subpart 2",
+      "cue": "Why could review occur now, and why did ambiguity not save this interpretation?",
+      "paragraphs": [
+        "The Court next asked whether review of the implementation interpretation had come too early. The interpretation appeared in a final-rule preamble, followed comments, and stated the agency’s considered position about the governing legal regime. Those completed decisions and legal consequences established final agency action even though the EPA had announced the position alongside a standard-setting rule.",
+        "The dispute was ripe as well. It concerned the statutory relationship between two subparts, which additional factual development would not illuminate. Delay would burden states preparing implementation plans without knowing the applicable requirements. Finality concerned whether the agency had finished deciding; ripeness concerned whether judicial review at that time was suitable and useful.",
+        "On the merits, the Court used the then-governing Chevron framework. It acknowledged genuine ambiguity. Subpart 2’s one-hour classifications did not readily translate into the new eight-hour standard; some newly nonattaining areas did not fit the older categories; and statutory deadlines referred to the 1990 amendments. The agency therefore had interpretive room.",
+        "That room did not permit the EPA to make Congress’s ozone-specific controls largely disappear. Congress enacted Subpart 2 to strengthen implementation and constrain discretion. Under the EPA’s approach, attainment of the old standard would remove those constraints while the revised standard operated through the more permissive general regime. The Court rejected that construction and left the agency to develop a permissible reconciliation of the provisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: finality, ripeness, and implementation; 531 U.S. at 477–86"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The concurring Justices explain their different routes to the judgment",
+      "cue": "Which objections concerned the rationale rather than the result?",
+      "paragraphs": [
+        "Justice Thomas joined the principal opinion but questioned whether an intelligible principle always sufficed under Article I. A decision might be so important that Congress must make it even when a statute supplies guidance. The parties had not requested reconsideration on that basis, and Thomas did not resolve it; he invited reconsideration in a suitable case while joining this judgment.",
+        "Justice Stevens, joined by Justice Souter, agreed that § 109 was constitutional but described the nature of the power differently. Choosing generally applicable air-quality standards was legislative activity in a meaningful sense. In his view, the Constitution permitted delegation of that policymaking power within adequate statutory limits. Congress had selected a goal and supplied an intelligible principle. The principal opinion instead treated adequate guidance as marking the boundary between permissible executive discretion and an impermissible transfer of legislative power. The two explanations sustained the same grant; neither adopted Thomas’s possible stricter approach.",
+        "Justice Breyer agreed that this statute excluded costs, but he was less willing to infer such an exclusion from regulatory silence in general. Ordinarily, he would hesitate to require an administrator to ignore serious adverse consequences, including those arising from excessive costs. Here, the Act’s structure, history, and technology-forcing purpose overcame that presumption. Congress chose health goals that could demand technology not yet available. Tying the goals to present technology or predicted costs could frustrate that choice and encourage delay; other provisions dealt with implementation difficulties.",
+        "Breyer also explained that a health standard need not eliminate every conceivable risk. Context and comparative health information could inform what protection was requisite without requiring catastrophic efforts to remove trivial residual risks. That was his account of permissible health-based judgment, not authorization for the general cost-benefit balancing the Court rejected."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 531 U.S. at 486–96"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The unanimous judgment returns several issues for further proceedings",
+      "cue": "What was decided, and what remains distinct in later law?",
+      "paragraphs": [
+        "On February 27, 2001, the Supreme Court affirmed in part, reversed in part, and remanded. It upheld exclusion of costs and rejected the nondelegation objection. It also upheld reviewability but rejected the EPA’s ozone implementation interpretation. The D.C. Circuit was to conduct further proceedings, including disposition of other preserved challenges to the standards. The judgment did not dispose of every scientific or administrative-law objection to the 1997 rules.",
+        "The judgment was unanimous, while the rationales differed. Parts I and IV of Scalia’s opinion were unanimous; Breyer did not join the costs discussion in Part II; Stevens and Souter did not join the nondelegation discussion in Part III. The course of this litigation keeps three questions separate: what Congress authorized, whether that authorization was constitutional, and whether the agency lawfully exercised it. The EPA succeeded on the second while losing an important part of the third.",
+        "The later Gundy debate illustrates the distinction about agency self-limitation. Its plurality claimed to find a limit Congress had already enacted through text and context, while Justice Gorsuch’s dissent disputed that reading. Whitman forbids an agency from creating a missing congressional standard; identifying a genuine statutory limitation is a different proposition.",
+        "Later still, Loper Bright, 603 U.S. 369 (2024), overruled Chevron and required independent judicial judgment about statutory meaning, while recognizing that statutes can confer agency discretion. It preserved ordinary statutory stare decisis for earlier holdings that particular actions were lawful. That later methodological change does not by itself establish that Whitman’s holdings were overruled. Nor does this particular cost exclusion establish a general ban on agency cost consideration or a constitutional requirement to prefer health over economic effects."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Citation; Judgment; Notes; 531 U.S. at 475–76, 486; cited later-development discussion"
+        }
+      ]
+    }
+  ]
+}

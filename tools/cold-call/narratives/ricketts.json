@@ -1,0 +1,141 @@
+{
+  "id": "ricketts",
+  "briefId": "CTR-023",
+  "title": "Ricketts v. Scothorn",
+  "course": "Contracts",
+  "citation": "57 Neb. 51, 77 N.W. 365 (1898)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A grandfather’s promise lets his granddaughter leave her job; after his death, the executor challenges payment.",
+  "actors": [
+    {
+      "name": "Katie Scothorn",
+      "role": "Granddaughter, bookkeeper, and payee who sued on the note."
+    },
+    {
+      "name": "John C. Ricketts",
+      "role": "Grandfather who made the note and encouraged freedom from employment."
+    },
+    {
+      "name": "Andrew D. Ricketts",
+      "role": "Executor of the grandfather’s estate; defended the suit and sought review."
+    }
+  ],
+  "proceedings": [
+    "Scothorn obtained judgment in the District Court of Lancaster County.",
+    "The executor sought review by error in the Nebraska Supreme Court.",
+    "The supreme court affirmed through equitable estoppel."
+  ],
+  "limits": "The source reports the judgment enforcing the note, not later collection from the estate. The decision predates Restatement § 90 and speaks in equitable-estoppel terms.",
+  "briefSha256": "b477dc378d8b0c4c00badf187ddd0d4fc86fb102b81a11eb959d48cc8aa48033",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-023"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The grandfather offers financial independence",
+      "cue": "What exactly was promised, and what was Scothorn asked to do in exchange?",
+      "paragraphs": [
+        "Katie Scothorn worked as a bookkeeper for Mayer Brothers, earning $10 a week. Her grandfather, John C. Ricketts, wanted her to have the freedom from employment that his other grandchildren enjoyed. On May 1, 1891, he signed a note promising to pay her $2,000 on demand, with six percent annual interest.",
+        "At about nine that morning, Ricketts visited Scothorn at the store, took the note from his vest, and told her that he had arranged matters so she would no longer have to work. He referred to the fact that his other grandchildren did not work. Scothorn accepted the note, kissed him, cried, and immediately told her employer that she intended to leave. She soon surrendered her position.",
+        "The note and accompanying conversation imposed no express condition that Scothorn resign or remain unemployed. She made no return promise to do so. Her mother later testified that Ricketts had explained his wish to let Scothorn quit. His purpose and the response he expected matter, but they do not change the gift into a bargain for an expressly requested resignation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Scothorn leaves work and later returns with his approval",
+      "cue": "Why did taking a second job not defeat the promise?",
+      "paragraphs": [
+        "Scothorn remained without an occupation for more than a year. In September 1892, she took another bookkeeping position, this time with Funke & Ogden. Ricketts consented to the change and helped her obtain the position. Her new employment fit the independence he had offered: the promise had left her free to work or remain idle rather than obliging her to remain unemployed.",
+        "Ricketts paid one year’s interest on the note. In the summer or fall of 1892, he told Scothorn’s mother that, if he sold his Ohio farm, he would pay the note from the proceeds. Shortly before his death, he regretted that he had not paid the balance. He died on June 8, 1894, without repudiating the obligation. The farm-sale statement described a possible means of payment; the original note promised payment on demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The estate contests the note",
+      "cue": "Who became the defendant, and what was decided at trial?",
+      "paragraphs": [
+        "After the grandfather’s death, Scothorn sued Andrew D. Ricketts in his capacity as executor of the estate in the District Court of Lancaster County. Her petition alleged that the grandfather gave the note to induce her to give up bookkeeping and that she relied on the note and its annual interest for support. The executor denied those allegations and raised want of consideration.",
+        "The material facts became undisputed at trial, and Scothorn obtained judgment. The executor then brought error to the Nebraska Supreme Court, challenging admission of the note, the sufficiency of consideration, and the treatment of the undisputed evidence. The grandfather who made the promise and the executor seeking reversal are different people with different roles."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The supreme court first rejects the bargain theory",
+      "cue": "Why did the note and the resignation not themselves establish an exchange?",
+      "paragraphs": [
+        "Justice Sullivan’s opinion accepted the difficulty in the executor’s consideration argument. The grandfather had requested no return performance or promise as the price of his commitment. Scothorn’s resignation was a consequence that he reasonably anticipated, but she remained legally free to continue working. The note originated as a promised gift.",
+        "Writing the promise in the form of a promissory note established evidence of the promise and its amount; between the original parties and their representatives, it did not prevent the estate from raising want of consideration. The court therefore needed a reason why the executor could not use that otherwise relevant defense against Scothorn’s induced change of position. It did not simply declare that every written gift promise is enforceable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: bargain analysis and the note"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Induced reliance prevents the executor from using that defense",
+      "cue": "How did the court get from a gratuitous promise to an enforceable judgment?",
+      "paragraphs": [
+        "The court considered cases involving charitable subscriptions. Churches, colleges, and similar institutions had spent money or incurred obligations in reliance on promised donations. Although some decisions called the resulting expenditure consideration, the Nebraska court identified equitable estoppel as the operative principle: a donor who induces the recipient to assume obligations on the faith of the promise cannot then shift that resulting loss to the recipient by invoking want of consideration.",
+        "The opinion described estoppel in pais as a consequence of acts, admissions, or conduct inducing another person to change position in accordance with the actor’s real or apparent intention. When the other person relies in good faith and changes position for the worse, the actor may be precluded from asserting an otherwise available right against that person.",
+        "Ricketts had directly connected the note with Scothorn’s freedom from employment. Her resignation was a reasonable and probable response to his words and the prospect of six-percent income. She gave up an existing $10-per-week position and remained out of work for more than a year. The court treated that induced change as sufficient to prevent the grandfather’s estate from relying on want of consideration to defeat payment.",
+        "Scothorn’s later return to employment did not undo what she had already given up. The grandfather himself approved and assisted the move, continued to acknowledge the note, and had paid interest. No promise of lifelong idleness had been made or breached."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: charitable subscriptions, estoppel, application, and return to work"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The undisputed record supports affirmance",
+      "cue": "How did the reliance conclusion affect the claimed trial errors?",
+      "paragraphs": [
+        "The supreme court agreed that the undisputed facts required a directed legal result for one party. A result for the executor depended on the continued availability of the consideration defense. Equitable estoppel removed that defense. A verdict for the executor would therefore have lacked support, and the asserted intervening trial errors could not have changed the judgment properly due.",
+        "On December 8, 1898, the Nebraska Supreme Court affirmed Scothorn’s judgment. Its explanation was that induced reliance precluded the defense, even though the note had not arisen from a bargain. The historical terminology matters: this decision preceded the First Restatement’s § 90. Later writers describe this kind of enforcement of reliance on a future promise as promissory estoppel. That later label helps locate the case doctrinally, but it is not a statute or Restatement provision the 1898 court applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Holding; Reasoning: procedural consequence and doctrinal significance"
+        }
+      ]
+    }
+  ]
+}

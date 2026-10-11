@@ -1,0 +1,176 @@
+{
+  "id": "lrs-n-commerce-new-york",
+  "briefId": "LRS-ATLAS-N-COMMERCE-NEW-YORK",
+  "title": "Department of Commerce v. New York",
+  "course": "Legislation and the Regulatory State",
+  "citation": "588 U.S. 752 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Secretary chooses a census citizenship question before obtaining the agency request later presented as its impetus, and the record defeats that sole stated explanation.",
+  "actors": [
+    {
+      "name": "Wilbur Ross and Department of Commerce",
+      "role": "Secretary and department responsible for the census decision."
+    },
+    {
+      "name": "Census Bureau staff",
+      "role": "Analysts evaluating questions, administrative records, and effects on response and accuracy."
+    },
+    {
+      "name": "Department of Justice",
+      "role": "Agency whose Voting Rights Act data request supplied the announced rationale."
+    },
+    {
+      "name": "States and other governmental and nongovernmental plaintiffs",
+      "role": "Challengers alleging census injuries and legal defects."
+    }
+  ],
+  "proceedings": [
+    "The District Court conducted a bench trial, rejected discriminatory-intent claims, and vacated and enjoined the question for APA and Census Act defects.",
+    "The Supreme Court granted review before Second Circuit judgment.",
+    "The Supreme Court affirmed in part, reversed in part, and remanded, requiring an agency explanation matching the actual decisionmaking record."
+  ],
+  "limits": "The June 2019 decision did not categorically forbid citizenship questions, establish unconstitutional discrimination, or settle later census policy. Vote alignments differ across standing, reviewability, merits, and explanation.",
+  "briefSha256": "f551d6d397d660f69cd47879751592749f4b614053fcb10a38accf05a3f43cad",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-COMMERCE-NEW-YORK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Citizenship data had been collected through different census instruments",
+      "cue": "What historical practice did the parties invoke?",
+      "paragraphs": [
+        "The census serves apportionment, districting, federal funding, and demographic purposes. Citizenship or birthplace questions appeared in nearly every census from 1820 to 2000. From 1960 through 2000 citizenship went to a long-form sample, replaced in 2010 by the annual American Community Survey (ACS) sampling about 2.6 percent of households. That history supported authority to collect citizenship information without showing identical effects from asking every household on the short form. Federal laws protected individual responses and required truthful answers.",
+        "Ross began considering a citizenship question early in 2017 and asked other agencies whether they wanted it. These earlier steps later emerged through supplemental and expanded administrative materials; the initial explanation instead presented a December 2017 Department of Justice (DOJ) request as the impetus. DOJ sought more precise block-level citizen voting-age population data for Voting Rights Act (VRA) enforcement than ACS estimates and larger geographic units supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Census practices; Litigation and record; Explanation analysis; principal slip 1–7,26–28"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ross chooses a question combined with administrative records",
+      "cue": "What tradeoff did the Bureau contest?",
+      "paragraphs": [
+        "Bureau staff assessed continued ACS modeling, adding a question, administrative records alone, and a question combined with records. On March 26, 2018, Ross announced the combined option for 2020. Records covered about 90 percent of the population; he said the question would reduce people requiring citizenship imputation from about 35 million to 13.8 million.",
+        "The Bureau predicted lower response, higher cost, and reduced accuracy. Its projected differential response decline among households with noncitizens was 5.1 percentage points, later 5.8. These were response-rate estimates, not mechanically equal final undercounts after follow-up. Staff regarded records as reliable and warned that citizenship answers could conflict with them. Ross acknowledged the concern but treated the predicted response effect as uncertain and the records-only model as insufficiently demonstrated, favoring greater completeness from the combined approach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Census practices and decision; principal slip 3–5,16–20 & n.2; Breyer slip 4–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A bench trial develops the record and produces an injunction",
+      "cue": "What did the District Court find and leave unproved?",
+      "paragraphs": [
+        "States, the District of Columbia, local governments, and other plaintiffs sued. After dismissing the Enumeration Clause claim, the District Court held a bench trial, found standing and Administrative Procedure Act (APA) and Census Act violations, and rejected the separate equal-protection claim for insufficient proof of discriminatory intent. It vacated the decision and barred the question unless the defects were cured.",
+        "The initial administrative record centered on DOJ’s request. A supplemental memorandum acknowledged Ross’s earlier interest, the parties stipulated to additional material, and the District Court allowed extra-record discovery. The Supreme Court stayed Ross’s deposition, which never occurred, but other discovery proceeded. Printing deadlines led it to take review before Second Circuit judgment and request briefing on the Enumeration Clause as an alternative ground.",
+        "All Justices agreed on standing. A supported forecast of roughly a two-percent noncitizen undercount established impending funding loss to some states. Predictable nonresponse could supply causation even when it violated response duties or reflected fears officials would breach confidentiality. The Court did not require every feared injury or every plaintiff’s theory to be separately established."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation, record, standing; principal slip 5–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court allows review and sustains constitutional and statutory authority",
+      "cue": "Which limits on judicial review did the Court reject?",
+      "paragraphs": [
+        "Seven Justices—Roberts, Thomas, Ginsburg, Breyer, Sotomayor, Kagan, and Kavanaugh—joined Part IV-A allowing APA review. Section 701(a)(2)’s committed-to-discretion exception was narrow. Broad authority over form and content coexisted with statutory standards concerning accurate enumeration, sampling, records, and reporting, and census decisions had previously been reviewed.",
+        "Roberts, Thomas, Alito, Gorsuch, and Kavanaugh joined the Enumeration Clause analysis and the ordinary merits and statutory portions. The Clause required counting everyone, including noncitizens, but history showed it permitted collecting additional demographic information. A test for enumeration methods could not simply be transplanted to each question.",
+        "The Court assumed, without deciding its reach, that § 6(c)’s preference for records applied. Ross had judged the combination more accurate than records alone. Section 141(f)’s congressional reporting allowed modifications for new circumstances; a later question report could modify the earlier subjects report, with DOJ’s request offered as the new circumstance. Congress was fully informed, making any reporting defect harmless. The Court assumed rather than resolved the full scope of judicial enforcement of that reporting rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reviewability and authority; principal slip 11–16,20–23 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Five Justices regard the policy balance as ordinarily reasonable",
+      "cue": "Why was that different from accepting the explanation?",
+      "paragraphs": [
+        "Part IV-B allowed Ross to weigh reasonable alternatives despite staff disagreement. He recognized nonresponse risks and gave reasons for valuing more complete information; uncertainty about the untested records-only imputation model mattered. Judges could not substitute their preferred balance.",
+        "That assessment concerned the permissibility of the choice on its stated terms. It did not answer whether the reason offered accurately reflected the process. Breyer and the other three Justices who disagreed with this ordinary reasonableness conclusion would later join the requirement of a genuine explanation without adopting the premise that the decision was otherwise reasonable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Decision and posture; Reviewability and authority; principal slip 16–20; Breyer slip 1–2,22"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The record makes the sole announced justification appear contrived",
+      "cue": "What distinguishes pretext here from an undisclosed additional motive?",
+      "paragraphs": [
+        "Part V drew Roberts, Ginsburg, Breyer, Sotomayor, and Kagan. Courts ordinarily examine contemporaneous records without probing mental processes. Administrators need not disclose every motive, avoid politics, or approach policy without preferences. Asking others for support is not inherently unlawful. A strong showing of bad faith or improper conduct can nevertheless justify further inquiry.",
+        "The initial extra-record order preceded an adequate showing, but the stipulated expanded record eventually supplied a strong basis. Ross sought the question before DOJ asked, explored immigration-related and other agency needs, and pursued a suitable explanation. DOJ’s letter followed his contact with the Attorney General, Commerce helped produce it, and DOJ declined discussion of alternative data. Considered together, these circumstances contradicted the account of a routine DOJ request driving the decision.",
+        "The problem was the disconnect between the record and the sole VRA rationale, not simply additional undisclosed preferences. A genuine VRA reason alongside politics would be different. Reviewable reasons must permit scrutiny by courts and the public, so the agency had to provide a proper explanation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Why remand was required; principal slip 23–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Three separate writings identify different objections",
+      "cue": "How did the Justices divide beyond the main holdings?",
+      "paragraphs": [
+        "Thomas, joined by Gorsuch and Kavanaugh, opposed the exceptional inquiry and pretext finding. Earlier interest, pursuit of support, and unwillingness to revisit alternatives could coexist with a true desire for better VRA data. He would presume regularity where innocent and improper explanations competed and warned of intrusive discovery and separation-of-powers costs. He distinguished an actually unconstitutional purpose from this APA explanation dispute.",
+        "Breyer, joined by Ginsburg, Sotomayor, and Kagan, also found the underlying decision arbitrary. Three Bureau studies supported reduced response; longer forms and a paid Nielsen survey did not answer their controls or incentives. Uncertainty did not make evidence worthless, follow-up could not reliably cure the harm, and records were generally more reliable than citizenship answers. Ross did not explain conflicting answers, improved imputation, or why existing data failed VRA needs. Breyer would sustain both the ordinary APA ruling and the explanation remand.",
+        "Alito would dismiss the APA claims as committed to discretion. He distinguished choosing demographics from obeying constitutional enumeration duties or express statutory prohibitions. Broad delegation, congressional oversight, historical practice, and interacting policy choices supplied no manageable standard in his view. Reason-giving requirements alone could not erase § 701(a)(2). He nevertheless joined the alternative ordinary merits and statutory conclusions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions; Thomas slip 1–15; Breyer slip 1–23; Alito slip 1–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The judgment requires an agency remand without banning the question",
+      "cue": "State the result at the correct level of specificity.",
+      "paragraphs": [
+        "The Supreme Court affirmed in part, reversed in part, and remanded. Constitutional authority, ordinary policy reasonableness, and the challenged Census Act requirements did not invalidate the question on the grounds accepted below. The mismatch between the stated justification and actual record did require returning the decision to the agency.",
+        "The result did not establish discriminatory intent or categorically prohibit citizenship inquiries. It ends with the requirement of a genuine explanation for this decision, not a description of later census policy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Decision and posture; principal slip 28–29"
+        }
+      ]
+    }
+  ]
+}

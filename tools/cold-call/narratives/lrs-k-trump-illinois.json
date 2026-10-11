@@ -1,0 +1,164 @@
+{
+  "id": "lrs-k-trump-illinois",
+  "briefId": "LRS-SUP-0006B",
+  "title": "Trump v. Illinois",
+  "course": "Legislation and the Regulatory State",
+  "citation": "No. 25A443, 607 U.S. ___ (2025); 146 S. Ct. 432",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After Guard members were federalized for protection around Chicago immigration operations, lower courts restricted deployment. The government’s emergency stay request turned on what “regular forces” meant and what legal inability the statute required.",
+  "actors": [
+    {
+      "name": "President Donald Trump and the federal government",
+      "role": "Ordered federalization and requested a stay allowing deployment."
+    },
+    {
+      "name": "Illinois and other respondents",
+      "role": "Challenged federalization and deployment."
+    },
+    {
+      "name": "Illinois and Texas National Guard members",
+      "role": "Units called into federal service for the Chicago protection mission."
+    },
+    {
+      "name": "Immigration and Customs Enforcement",
+      "role": "Federal agency operating the Broadview processing facility at the center of the government’s factual account."
+    }
+  ],
+  "proceedings": [
+    "Northern District of Illinois temporarily restrained federalization and deployment.",
+    "Seventh Circuit allowed continued federalized status in Illinois but maintained the deployment restriction.",
+    "Supreme Court denied a stay December 23, 2025, leaving that interim arrangement intact; Kavanaugh concurred in judgment, and Alito, Thomas, and Gorsuch dissented."
+  ],
+  "limits": "The order states likely conclusions on interim relief, not a final merits judgment. Reviewability of presidential findings, alternative military authorities, factual incidents, and legality of individual immigration encounters remained unresolved. It did not release Guard members from federal status.",
+  "briefSha256": "30ea945b35b12e7b9f09c8fa044b1b6422536d6e185a66bc7291f127aed01908",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0006B"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The government describes resistance and calls Guard members into service",
+      "cue": "What was asserted, rather than finally adjudicated, about the Chicago events?",
+      "paragraphs": [
+        "The federal government reported obstruction, threats, assaults, property damage, and violent protests around Chicago immigration enforcement, particularly at Immigration and Customs Enforcement’s Broadview processing facility. Its declarations described blocked access, attacks on personnel and vehicles, injuries, threats to officers and families, and failures of local police assistance. Those were the government’s assertions, not conclusive findings about every incident in the later stay proceeding.",
+        "On October 4, 2025, President Donald Trump called approximately 300 Illinois National Guard members into federal service to protect federal personnel and property. Texas Guard members were federalized and sent to Chicago the following day. The invoked provision, 10 U.S.C. § 12406(3), authorizes federalization when the President is unable with the “regular forces” to execute federal law. Which forces that phrase identifies would become central to review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and record posture; Court slip op. 1–2; Alito 7–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts separate federal status from deployment",
+      "cue": "How did a new interpretive question enter the stay proceedings?",
+      "paragraphs": [
+        "Illinois and other respondents challenged both federalization and deployment. The Northern District of Illinois entered a temporary restraining order barring both. The Seventh Circuit permitted Guard members to remain federalized within Illinois but continued the deployment prohibition. The government requested a Supreme Court stay, which Justice Barrett referred to the full Court.",
+        "The Supreme Court requested supplemental letters about “regular forces.” The district court had addressed the phrase, but the initial Supreme Court submissions had not. In the new briefing the government identified civilian federal law-enforcement officers as the regular forces; respondents identified the regular military.",
+        "The government also invoked inherent presidential authority to protect federal people and property, while arguing that protective activity was not execution of the laws under the Posse Comitatus Act. The eventual dissent would object that respondents had initially adopted the civilian-officer reading, abandoned defense of the district court’s alternative interpretation on appeal, and not answered the government’s initial waiver argument. That party-presentation objection was a dissenting assessment, not a holding that statutory interpretation was jurisdictionally unavailable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and parties’ positions; Court 1–3; Alito 2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court reads “regular forces” as military forces and asks about lawful use",
+      "cue": "Why did the government’s protection theory fail to establish the statutory predicate?",
+      "paragraphs": [
+        "The unsigned Court opinion concluded that “regular forces” likely meant the regular United States military. That changed the predicate from inadequate civilian officers to inability to execute law with military forces. The short order did not extensively elaborate that initial reading, but adopted it after supplemental briefing.",
+        "The Court then reasoned that § 12406(3) likely presupposed circumstances in which the military could lawfully execute federal law, yet the President could not accomplish that task with it. The Posse Comitatus Act, 18 U.S.C. § 1385, generally prohibits military execution of law without express constitutional or congressional authorization. The President had invoked no other statute establishing such an exception in Illinois.",
+        "Reliance on inherent protective power created a second difficulty. The government said protection did not constitute execution for Posse Comitatus purposes; it nevertheless needed the protective mission to satisfy execution under § 12406(3). Invoking Azar v. Allina Health Services for the presumption of consistent meaning in related statutes, the Court declined silently to give the same term different meanings. On the government’s own account, the mission did not establish the necessary predicate.",
+        "The conclusion was expressly provisional: on this record and these arguments, the government had not shown entitlement to a stay under § 12406(3). The Court did not declare every military protection mission illegal, finally reject inherent Article II protective power, or decide reviewability of presidential findings under this or another statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court’s statutory reasoning; Court 2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kavanaugh would stop at the missing military finding",
+      "cue": "What broader consequences concerned the concurrence?",
+      "paragraphs": [
+        "Justice Kavanaugh agreed that “regular forces” likely meant the military and voted to deny the stay. He would stop because the current record apparently lacked the required presidential finding of inability with military forces, as distinct from civilian officers. He recognized substantial presidential discretion to make that finding and did not join the additional conclusions about lawful authority and protective functions.",
+        "His hypothetical imagined a mob threatening a federal courthouse, overwhelmed civilian security, and regular military forces unable to arrive promptly. On his reading of the Court’s reasoning, § 12406(3) might still prevent use of available Guard units for protection. That was an illustration, not an event in this lawsuit.",
+        "Kavanaugh emphasized that the order did not resolve Insurrection Act authority or purport to disturb the President’s long-asserted Article II power to use regular military forces, distinct from federalizing the Guard, for protection. He worried it could encourage more regular-military deployment. He preferred fuller briefing and potentially argument on those consequential questions. Although preliminary, the likely legal conclusions could guide lower-court interim injunctions until the Supreme Court changed course. Individual immigration stops’ or arrests’ constitutionality was also outside this application."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kavanaugh concurrence; Court/Kavanaugh continuous slip pp.3–7 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Alito would honor the original premise and defer to an adequate showing",
+      "cue": "How did his disagreement about inability affect his view of the record?",
+      "paragraphs": [
+        "Justice Alito, joined by Justice Thomas, would grant the stay. He objected to reviving what he regarded as an abandoned argument and addressing additional complex issues without extensive adversarial briefing or argument. On the parties’ original civilian-officer premise, he would examine whether the district court improperly rejected the President’s assessment.",
+        "Alito read “unable” to include substantial impairment rather than literal total impossibility. The statute need not require exhaustion of every conceivable officer or proof that no amount of law could be enforced. Ordinary usage can describe inability when performance entails unacceptable consequences. He also invoked Martin v. Mott and Luther v. Borden for conclusiveness of, or at least deference to, presidential militia-call determinations.",
+        "Even without special deference, he considered the government’s declarations sufficient. He criticized the district court for relying on declarants’ failure to mention grand-jury nonindictments without evidence they knew of them, and for citing a separate protest-case order that did not find these declarations false. Local police capacity and willingness to assist were different questions. His evaluation favored interim relief; it did not finally establish the truth of all alleged incidents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito dissent; Alito 1–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Alito also disputes the Court’s military-law premises",
+      "cue": "Which alternative possibilities did he raise without finally settling them?",
+      "paragraphs": [
+        "Even accepting a military meaning, Alito thought the presidential memorandum’s express insufficiency finding and a presumption of regularity supported federalization. He rejected limiting inability to operational obstacles: ordinary language includes legal inability, and the statute did not specify otherwise.",
+        "Section 12406(3) itself might supply the congressional authorization required under Posse Comitatus, and inherent protective authority might matter too. His third footnote questioned, without definitively answering, whether Posse Comitatus applied to federalized Guard units at all.",
+        "Alito further argued that consistent meaning is a defeasible presumption. The Executive’s narrow understanding of execution under Posse Comitatus rested on that Act’s history, purpose, and constitutional concerns. Section 12406 could use the ordinary broader meaning, encompassing protection. Otherwise Guard units might be permitted intrusive enforcement while barred from protective functions, reversing traditional practice in a way he considered implausible. These were dissenting doubts and alternative arguments, not comprehensive holdings authorizing every military mission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito dissent; Alito 11–16 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Gorsuch supports a narrower stay rationale, and deployment remains restricted",
+      "cue": "What did each alignment and the disposition actually do?",
+      "paragraphs": [
+        "Justice Gorsuch separately favored a stay on the original civilian-enforcement premise. He relied substantially on Parts I-A, I-B-1, I-C, and I-D of Alito’s dissent, covering party presentation, inability, and the evidence. He did not join the entire dissent or its Part I-B-2 deference analysis.",
+        "Gorsuch reserved questions about regular forces, reviewability, independent statutory authorization, Posse Comitatus and the Insurrection Act, inherent protective power, Congress’s militia authority, and constitutional limits on domestic military use. In his view the compressed interlocutory record could not support comprehensive answers. His preferred interim disposition was not a complete constitutional license.",
+        "On December 23, 2025, six Justices voted against the stay and three for it. The Court opinion was unsigned; Kavanaugh concurred only in the judgment, while Alito, Thomas, and Gorsuch dissented with the distinctions just described. Denial preserved the Seventh Circuit’s interim arrangement: continued federalized status was allowed, deployment remained restricted. It did not newly release troops from federal service, finally dispose of the litigation, resolve every factual dispute, or determine all future emergencies. The source supplies this stay decision, not later procedural developments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch dissent and practical disposition; Gorsuch 1–2; Court 1–3"
+        }
+      ]
+    }
+  ]
+}

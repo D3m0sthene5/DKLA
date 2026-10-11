@@ -1,0 +1,166 @@
+{
+  "id": "lrs-k-riggs",
+  "briefId": "LRS-SUP-0003A",
+  "title": "Riggs v. Palmer",
+  "course": "Legislation and the Regulatory State",
+  "citation": "115 N.Y. 506, 22 N.E. 188 (1889)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A grandson murders his grandfather to preserve an inheritance, forcing the courts to decide whether valid testamentary formalities let him acquire the estate.",
+  "actors": [
+    {
+      "name": "Francis B. Palmer",
+      "role": "Grandfather and testator killed in 1882."
+    },
+    {
+      "name": "Elmer E. Palmer",
+      "role": "Grandson and residuary beneficiary; convicted of second-degree murder."
+    },
+    {
+      "name": "Mrs. Riggs and Mrs. Preston",
+      "role": "Francis’s daughters, who sought to exclude Elmer from the estate."
+    },
+    {
+      "name": "Susan and Mrs. Bresee",
+      "role": "Elmer’s mother and Francis’s widow, respectively; holders of preserved support charges."
+    },
+    {
+      "name": "The administrator",
+      "role": "Estate representative sued with Elmer."
+    }
+  ],
+  "proceedings": [
+    "A referee’s decision led to dismissal of the daughters’ complaint.",
+    "The General Term affirmed.",
+    "The Court of Appeals reversed and directed judgment for the daughters without a new trial."
+  ],
+  "limits": "The historical holding concerns an intentional killing to prevent revocation and obtain an inheritance. It neither rewrites the criminal sentence nor supplies a complete account of contemporary slayer statutes.",
+  "briefSha256": "dac021db5d52e95833a0a3d96c702c0621fb6d105831855b4424bb501cca8e2d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0003A"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Francis makes a will with several distinct family interests",
+      "cue": "Who would receive the property, and what obligations accompanied it?",
+      "paragraphs": [
+        "Francis B. Palmer executed his will in 1880. He gave small legacies to his daughters, Mrs. Riggs and Mrs. Preston, and left the residue of his real and personal property to his grandson, Elmer E. Palmer. Elmer’s gift was subject to support for his mother, Susan. The daughters also held a conditional gift over if Elmer survived Francis but died while under age, unmarried, and without issue. These were specified interests in a validly executed will.",
+        "Francis later married Mrs. Bresee. An antenuptial agreement promised her lifetime support on his farm instead of dower and other claims against the estate. Her support was charged on the farm. Both that obligation and Susan’s support would remain significant when the courts decided who owned the estate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and material facts; 115 N.Y. at 508"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Elmer kills Francis to make the existing will effective",
+      "cue": "Were the motive and killing merely allegations in this civil case?",
+      "paragraphs": [
+        "Elmer lived with Francis and knew the will’s contents. In 1882, when Elmer was sixteen, he poisoned his grandfather. The findings established that he wanted to prevent Francis from changing the will and obtain immediate enjoyment of the property. The crime was therefore directly connected to the inheritance he sought.",
+        "Elmer was convicted of second-degree murder and was confined in a reformatory when the civil proceeding began. Francis’s daughters then sued Elmer and the estate administrator to prevent the crime from bringing him the property. The civil case was tried before a referee, whose findings established the relevant facts. The later appeal did not present an unresolved accusation or require the civil court to retry criminal guilt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and material facts; Procedural history; 115 N.Y. at 508–09, 514–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The daughters lose below and appeal on established findings",
+      "cue": "Why could the final court direct relief without another trial?",
+      "paragraphs": [
+        "The judgment entered on the referee’s report dismissed the daughters’ complaint. The General Term of the Supreme Court in the Third Judicial Department affirmed through an order made February 5, 1887. The daughters appealed to the New York Court of Appeals, submitting the appeal on June 21, 1889.",
+        "The dispute was legal: did the statutory rules for wills and descent require Elmer to take because the will was properly executed and never revoked by a prescribed statutory act? Or did those rules operate against an existing principle forbidding acquisition through one’s own crime? The established findings already supplied the facts needed to grant relief if the daughters’ legal position prevailed. The original caption also identifies Philo Riggs as guardian ad litem; he must not be confused with Mrs. Riggs, whom the opinion identifies as one of Francis’s daughters."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Issues; Additional original-opinion details; 115 N.Y. at 506, 508–09, 514–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Earl concedes the literal reading and asks what the statutes accomplish",
+      "cue": "How does legislative purpose change the result for this beneficiary?",
+      "paragraphs": [
+        "Judge Earl’s majority opinion acknowledged that an unqualified literal application of the statutes would pass the property to Elmer. The court did not question the will’s original validity or discover an ambiguity about the named beneficiary. It instead considered why the legislature protected testamentary disposition: owners should be able to direct property at death and have their lawful final wishes carried out. Permitting a beneficiary to kill the owner before those wishes could change would defeat that purpose.",
+        "Earl reasoned that lawmakers expressly confronted with this situation would not have intended the killer to inherit. His illustrations included a manor judge forbidden to decide his own dispute despite broadly granted jurisdiction, a barber’s bloodletting outside the intended reach of a ban on street bloodshed, and necessary or charitable work outside a Sabbath prohibition. These examples illustrated how a statute’s design can confine general words; they were not additional disputes decided in Palmer’s case.",
+        "The majority also invoked established common-law principles: a claimant cannot profit from fraud, acquire property through his own wrong, or base a claim on his own crime. Statutes operate within that legal background unless the legislature displaces it. The inheritance statutes did not expressly abrogate the principle, so silence about murder did not affirmatively authorize a murderer’s gain. Earl described the rule as already part of the law, not a special exception invented solely because Elmer was an unsympathetic litigant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning: purpose and background maxims; Additional original-opinion details; 115 N.Y. at 509–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority connects the killing to acquisition rather than forfeiture",
+      "cue": "Why did Earl think no extra criminal punishment was being imposed?",
+      "paragraphs": [
+        "Earl supported the principle through analogies to fraudulent or unduly influenced wills and to insurance claims obtained by wrongdoing. Armstrong refused insurance recovery to a claimant who feloniously caused the insured’s death. Although Francis’s will was valid when made, the majority saw no reason for the legal system to assist Elmer’s subsequent criminal effort to put it into immediate operation.",
+        "The majority referred to civil-law treatment of comparable wrongdoing to confirm that the result was not novel. It also expressly rejected Owens v. Owens, which had allowed dower to a wife convicted as an accessory before the fact to her husband’s murder. That discussion supported the inheritance rationale; it did not adjudicate another widow’s dower rights in this lawsuit.",
+        "Before Francis’s death, Elmer did not own the estate. Denying its acquisition by murder therefore did not, in Earl’s view, confiscate vested property or add imprisonment to the criminal judgment. It prevented the criminally produced transfer in the first place. Elmer could not avoid the principle by claiming as an intestate heir rather than a devisee, because the causal connection between the killing and the desired property remained the same."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning: analogies, silence, acquisition; Additional original-opinion details; 115 N.Y. at 512–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Gray argues that the enacted revocation rules bind the court",
+      "cue": "Why did moral agreement about the murder not yield agreement about judicial power?",
+      "paragraphs": [
+        "Judge Gray dissented, and Judge Danforth joined that dissent. Gray accepted the killing’s moral repugnance but treated the legal question as one of authority. The legislature had comprehensively prescribed how wills were made, changed, and revoked. Francis’s will satisfied those rules; a beneficiary’s murder was not a prescribed form of revocation. Courts could not add it on the ground that legislators ought to have done so.",
+        "For Gray, intention to revoke did not complete revocation. The statutory outward act still had to occur. He discussed Dan v. Brown’s outward-act requirement, Gains v. Gains’s forcibly retained will, Leaycraft v. Simmons’s withheld instrument and proposed codicil, and Clingan v. Mitcheltree’s fraudulent prevention of destruction. In those analogies, intention or interference could not substitute for the legally required act. Elmer’s motive showed why he killed, but it neither proved a completed revocation nor established what replacement disposition Francis would have chosen.",
+        "Gray also disputed the transfer of principles from insurance and contract law. A will does not rest on a beneficiary’s reciprocal promise; it takes effect through the testator’s valid act and the governing statutes. General maxims could not override the specific legislative conditions. Once the majority departed from the will, deciding who should receive the property risked making a judicial will Francis had never made.",
+        "The dissent viewed deprivation of the testamentary benefit as an additional consequence omitted from both criminal and probate law. Its Roman-law comparison described escheat as punishment and treated a possible slayer rule as a legislative choice. Gray would have affirmed with costs. The disagreement thus concerned two accounts of legal fidelity: Earl read purpose and background maxims as part of the statute’s operation, while Gray treated the formal scheme as a limit on judicial supplementation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gray’s dissent; Additional original-opinion details; 115 N.Y. at 515–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court directs ownership to the daughters while preserving support charges",
+      "cue": "What exactly did the civil judgment do?",
+      "paragraphs": [
+        "On October 8, 1889, the Court of Appeals reversed both the General Term judgment and the judgment on the referee’s report, without a new trial. It directed that Elmer and the administrator be restrained from using estate property for Elmer’s benefit, that the devise and bequest to Elmer be ineffective to pass title, and that he have no interest in the estate. The daughters were to be declared its true owners, subject to Susan’s support charge and the widow’s rights under the antenuptial agreement. Elmer bore costs in all courts.",
+        "The decree therefore did not cancel every provision of the will or transfer an unencumbered estate to the daughters. It preserved the other family obligations while preventing the acquisition the majority connected to the crime. The criminal sentence remained a separate matter.",
+        "This decision is about the 1889 law and these established facts. It does not authorize courts to disregard every morally unattractive statutory result, supply a complete contemporary slayer-law rule, or decide accidental homicide, insanity, joint ownership, or constructive-trust questions absent here. The reviewed full brief draws on both the assigned abridgment and the full report; its historical source-review assertions are distinct from this narrative’s comparison with that brief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Study synthesis and limits; Court, opinion, and assigned scope; 115 N.Y. at 514–20"
+        }
+      ]
+    }
+  ]
+}

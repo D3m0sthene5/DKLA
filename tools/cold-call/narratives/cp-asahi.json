@@ -1,0 +1,155 @@
+{
+  "id": "cp-asahi",
+  "briefId": "CPR-004",
+  "title": "Asahi Metal Industry Co. v. Superior Court",
+  "course": "Civil Procedure",
+  "citation": "480 U.S. 102 (1987)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A California motorcycle accident draws an Asian component supplier into court. Settlements leave only an indemnity dispute between two foreign manufacturers, changing the jurisdictional balance.",
+  "actors": [
+    {
+      "name": "Gary Zurcher",
+      "role": "California motorcyclist injured in the accident; original products-liability plaintiff."
+    },
+    {
+      "name": "Ruth Ann Moreno",
+      "role": "Zurcher’s wife and passenger, who died in the accident."
+    },
+    {
+      "name": "Cheng Shin Rubber Industrial Co.",
+      "role": "Taiwanese tube manufacturer; sought indemnity from Asahi."
+    },
+    {
+      "name": "Asahi Metal Industry Co.",
+      "role": "Japanese valve-assembly manufacturer; challenged California jurisdiction."
+    },
+    {
+      "name": "Solano County Superior Court",
+      "role": "Trial court named as respondent in Asahi’s extraordinary-writ challenge."
+    }
+  ],
+  "proceedings": [
+    "The Solano County Superior Court denied Asahi’s motion to quash on April 20, 1983.",
+    "The California Court of Appeal ordered service quashed by writ of mandate.",
+    "The California Supreme Court denied mandate and discharged the alternative writ on July 25, 1985, restoring the trial ruling.",
+    "The U.S. Supreme Court unanimously reversed and remanded on February 24, 1987; eight Justices agreed that jurisdiction was unreasonable."
+  ],
+  "limits": "The narrative follows the canonical source brief, without a new source audit. It concerns Fourteenth Amendment authority over the remaining indemnity claim. The indemnity merits, governing law, and a federal court’s possible Fifth Amendment national-contacts jurisdiction were not decided. No majority adopted either competing stream-of-commerce test.",
+  "briefSha256": "148f6338ef31b758ae96731b04f51c66f77095ca37e2d981c9f01b371ca8644d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-004"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Asahi sells components to Cheng Shin in Asia",
+      "cue": "Introduce each company before following its products to California.",
+      "paragraphs": [
+        "Asahi Metal Industry Co., a Japanese corporation, made tire-valve assemblies in Japan and sold them to tire manufacturers, including Cheng Shin Rubber Industrial Co., a Taiwanese corporation. Asahi’s sales to Cheng Shin occurred in Taiwan; the components traveled from Japan to Taiwan for incorporation in finished tubes. Cheng Shin then sold its tubes worldwide and represented that approximately twenty percent of its United States sales occurred in California. That percentage concerned United States sales, not all worldwide sales.",
+        "The relationship was recurring. Cheng Shin purchased 150,000 Asahi assemblies in 1978, 500,000 in 1979, 500,000 in 1980, 100,000 in 1981 and 100,000 in 1982: 1,350,000 in five years. Those sales accounted for 1.24 percent of Asahi’s income in 1981 and 0.44 percent in 1982. Cheng Shin also used other suppliers’ valves, while other tube makers incorporated Asahi valves into products sold in California. These facts linked Asahi economically to distribution without establishing a direct California sale by Asahi."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 480 U.S. 105–107"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The accident produces a product suit and an indemnity claim",
+      "cue": "Why does the case eventually concern two foreign companies rather than the injured Californian?",
+      "paragraphs": [
+        "On September 23, 1978, Gary Zurcher, a California resident, was injured in a motorcycle accident on Interstate 80 in Solano County. His wife and passenger, Ruth Ann Moreno, died. In September 1979 Zurcher sued in the Solano County Superior Court, alleging defects in the motorcycle’s tire, tube and sealant. He named Cheng Shin as the tube manufacturer, a California retailer and other defendants. The allegations did not themselves establish that Asahi’s component was defective.",
+        "Cheng Shin cross-complained for indemnification against its codefendants and against Asahi, which had manufactured the tube’s valve assembly. Indemnity would shift an underlying liability paid to the injured claimant to another allegedly responsible party. Asahi thus entered through Cheng Shin’s attempt to allocate liability arising from their commercial relationship.",
+        "Zurcher’s claims eventually settled and were dismissed. The California Supreme Court later reported that settlement occurred after the petition for hearing and that other cross-claims then remained. By U.S. Supreme Court review, Cheng Shin’s claim against Asahi was the sole controversy. Those accounts describe different procedural moments. The final jurisdictional decision addressed the surviving foreign-company indemnity dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History: accident, cross-complaint, state Supreme Court; 39 Cal. 3d 50 n.9; 480 U.S. 105–108"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Asahi challenges service and the parties build a jurisdictional record",
+      "cue": "Which connections were established, disputed, or missing?",
+      "paragraphs": [
+        "California’s long-arm statute, Code of Civil Procedure § 410.10, permitted jurisdiction to the limits of the California and United States Constitutions. Asahi moved to quash service of Cheng Shin’s summons, invoking the Fourteenth Amendment. The motion challenged California’s authority over Asahi, leaving liability for indemnity undecided. Cheng Shin bore the state-law burden of proving jurisdiction through competent evidence.",
+        "Asahi had no California office, agents, employees or property, advertised and solicited no business there, made no direct California sales, and did not create, control or employ the distribution system that brought its valves there. Asahi’s president declared that the company had never contemplated California litigation from the Taiwanese transactions. Cheng Shin’s manager said the companies had discussed worldwide and United States distribution, including California. The Supreme Court reported these declarations and the absence of a contract from the record; that description was not a certification that every item of jurisdictional evidence had been reproduced.",
+        "In 1983 Cheng Shin’s lawyer informally examined about 115 tubes in one Solano County motorcycle store. Ninety-seven appeared Japanese or Taiwanese; twenty-one of those carried Asahi’s circled-A mark, twelve in Cheng Shin tubes. The survey showed Asahi valves in a local retail channel, not a direct Asahi sale or California distribution agreement. The California Supreme Court found knowledge that finished tubes would reach California. The later U.S. plurality assumed that knowledge but found no demonstrated additional conduct serving California and no evidence of design anticipating California sales. Absence of proof of California connections did not affirmatively locate every design, advice or agency activity elsewhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History: long-arm, evidence; Material Facts; 480 U.S. 106–108, 112–113, 121 n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "California’s courts divide over what the distribution stream establishes",
+      "cue": "Keep the trial order, intermediate writ, and state Supreme Court disposition distinct.",
+      "paragraphs": [
+        "On April 20, 1983, the Superior Court denied the motion to quash. It relied on the number of Asahi valves in California tubes, Asahi’s sales volume to Cheng Shin, Cheng Shin’s substantial California distribution and Asahi’s awareness of it. The trial court reasoned that an international business could reasonably defend international product claims.",
+        "Because the action remained pending, Asahi sought immediate extraordinary relief. The California Court of Appeal issued a peremptory writ of mandate directing the Superior Court to quash service. It regarded worldwide foreseeability of product movement as insufficient to force Asahi to defend in California. The trial court appears as respondent in the writ caption because the requested writ would command it to change its ruling.",
+        "On July 25, 1985, the California Supreme Court reversed the intermediate writ result, denied mandate and discharged the alternative writ. Chief Justice Bird’s five-Justice opinion found that Asahi intentionally supplied a regular distribution stream, knew finished tubes would be sold in California and indirectly benefited from those sales. It credited California’s consumer-safety and efficient-litigation interests. Justice Lucas, joined by Justice Mosk, dissented, emphasizing Cheng Shin’s evidentiary burden, the small fraction of Asahi’s revenue attributable to Cheng Shin, the overseas commercial relationship, and the foreign indemnity claim remaining after settlement.",
+        "The U.S. Supreme Court granted certiorari from that completed extraordinary-writ proceeding while the indemnity action remained pending. It heard argument on November 5, 1986."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 480 U.S. 107–108; 39 Cal. 3d 35, 41–56"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The U.S. Supreme Court splits on purposeful contacts",
+      "cue": "Which Justices required additional targeting, and which found the regular flow sufficient?",
+      "paragraphs": [
+        "Justice O’Connor began from the relationship between World-Wide Volkswagen and Burger King. The former required a defendant-created forum affiliation and described products delivered into a stream with an expectation of forum purchases. Lower courts disagreed whether that language required awareness of regular sales or additional targeting. Burger King separated purposeful contacts from the further fairness assessment. Asahi divided the Court at the contacts stage.",
+        "O’Connor, Chief Justice Rehnquist, Justice Powell and Justice Scalia required conduct purposefully directed at the forum beyond awareness that goods would arrive there. Examples included forum-oriented product design, advertising, regular customer-advice channels, or a distributor agreeing to serve as a forum sales agent. Cheng Shin determined where its finished tubes would go. Even assuming Asahi knew about California sales and maintained a substantial ongoing supply relationship, the plurality found none of the additional California conduct necessary under its test.",
+        "Justice Brennan, joined by White, Marshall and Blackmun, understood the stream as the regular and anticipated movement from manufacture through distribution to retail. A participant aware that the product is marketed in the forum benefits from its sales and commercial legal system and has notice of possible litigation there. The recurring hundreds of thousands of valves, the store survey, and discussions of distribution established contacts under that approach. Brennan nevertheless voted to reverse because jurisdiction failed the separate fairness inquiry.",
+        "Justice Stevens, joined by White and Blackmun, considered fairness sufficient and would leave the stream question undecided. He also questioned describing the transaction as bare placement: volume, value and hazardous character could bear on purposeful availment. The five-year quantity and tire valves’ safety role might support greater forum-relevant conduct than the plurality recognized. White and Blackmun joined both concurrences; those overlapping memberships cannot be added as different votes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: World-Wide Volkswagen, plurality, Brennan, Stevens; Vote structure; 480 U.S. 108–113, 116–122"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The surviving claim makes California jurisdiction unreasonable",
+      "cue": "Why did eight Justices agree on fairness despite disagreement about contacts?",
+      "paragraphs": [
+        "Eight Justices joined O’Connor’s Part II-B; Scalia did not. Defending in California imposed geographic distance and the distinctive burden of submitting a Japanese company’s Asian commercial dispute to a foreign legal system. The Court did not make separate evidentiary findings about translation costs or witness expenses. It also considered other nations’ policies and the federal government’s foreign-relations interests.",
+        "Settlement diminished California’s interests. Its residents no longer sought compensation, and the product-liability claims enforcing California safety standards had ended. The remaining Taiwanese claimant sought indemnity from a Japanese seller over sales in Taiwan and shipments from Japan to Taiwan. Cheng Shin showed no reason California was more convenient than Taiwan or Japan. Consolidation and avoidance of inconsistent product judgments no longer carried their earlier weight. Nothing clearly established that California indemnity law would govern the Asian relationship.",
+        "The interstate fairness inquiry required attention here to foreign procedural and substantive policies and federal foreign relations. Comity supported restraint where foreign burdens were substantial and local interests slight. The Court also recognized that purchasers whose finished products remained subject to California tort law could exert safety pressure on component makers. The surviving claim’s procedural identity, rather than simply the original California accident, controlled the balance.",
+        "On February 24, 1987, all nine Justices agreed to reverse the California Supreme Court and remand consistently with the opinions, requiring California to release Asahi from this indemnity action. Part I was unanimous; Parts II-A and III had four votes; the eight-vote fairness ruling supplied the controlling principle that jurisdiction can be unreasonable even when a contacts theory is available. Neither stream formulation gained a majority. The Court reserved whether Congress could authorize federal jurisdiction over an alien under the Fifth Amendment using aggregate United States contacts, and decided neither indemnity liability nor governing substantive law. Assigned notes concerning later circuit cases, Gray, Calder, safety and foreign burdens remain teaching comparisons, not additional Asahi holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: fairness, procedural identity, precedential rule; Scope; Source verification; 480 U.S. 113–116 & 113 starred note"
+        }
+      ]
+    }
+  ]
+}

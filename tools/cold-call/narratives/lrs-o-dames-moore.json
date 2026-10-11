@@ -1,0 +1,164 @@
+{
+  "id": "lrs-o-dames-moore",
+  "briefId": "LRS-ATLAS-O-DAMES-MOORE",
+  "title": "Dames & Moore v. Regan",
+  "course": "Legislation and the Regulatory State",
+  "citation": "453 U.S. 654 (1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A contractor’s Iranian payment claim and conditional attachments collide with executive measures implementing the hostage-release agreement.",
+  "actors": [
+    {
+      "name": "Dames & Moore",
+      "role": "Assignee of its subsidiary’s claim for nuclear-plant site studies."
+    },
+    {
+      "name": "Iran, Atomic Energy Organization of Iran, and Iranian banks",
+      "role": "Defendants in the original commercial litigation; judgment was against Iran and the organization, not the banks."
+    },
+    {
+      "name": "Presidents Carter and Reagan",
+      "role": "Issued and ratified asset-transfer and claims-suspension measures."
+    },
+    {
+      "name": "United States and Treasury Secretary",
+      "role": "Defendants in the separate challenge to implementation of the settlement."
+    }
+  ],
+  "proceedings": [
+    "Dames & Moore obtained attachments and later a commercial judgment, then challenged the executive settlement measures in a separate action.",
+    "The District Court dismissed the implementation challenge but enjoined transfer of liened property pending appeal.",
+    "The Supreme Court took certiorari before Ninth Circuit judgment, affirmed dismissal, and directed its mandate to issue immediately."
+  ],
+  "limits": "The holding concerns the July 1981 settlement and statutory setting. Attachment interests and the underlying claim receive different takings treatment. No later tribunal award, compensation result, or current executive-power rule is supplied.",
+  "briefSha256": "60809c4e1ae914089c6c4f2d2287f65670271446a6230c82e58ebdcd61c071bf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-DAMES-MOORE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A terminated Iranian contract leaves a payment claim",
+      "cue": "Why did Dames & Moore sue, and what property could secure recovery?",
+      "paragraphs": [
+        "Dames & Moore’s subsidiary had agreed to conduct site studies for an Iranian nuclear power plant. The Atomic Energy Organization of Iran terminated the contract for convenience on June 30, 1979. The subsidiary assigned its interest to Dames & Moore, which claimed $3,436,694.30 plus interest for completed work. The contract called for conciliation followed if needed by litigation in Iran; Dames & Moore alleged repeated postponement of the requested settlement meeting.",
+        "After the American Embassy seizure on November 4, President Carter declared a national emergency on November 14 and blocked Iranian government and related property within United States jurisdiction. The emergency declaration’s validity was not disputed. Treasury regulations made judicial processes against blocked property void unless licensed and expressly allowed licenses to be amended or revoked. A November 26 license permitted specified litigation without judgment; a December 19 clarification permitted prejudgment attachment.",
+        "On December 19 Dames & Moore sued Iran, the organization, and Iranian banks. The District Court ordered attachments, and property of some bank defendants was attached as security. Those interests arose after the freeze under expressly conditional licenses, a sequence crucial to the later compensation analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract claim and conditional attachments; 453 U.S. at 662–664 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The hostage agreement redirects assets and covered claims",
+      "cue": "Distinguish Carter’s measures from Reagan’s suspension order.",
+      "paragraphs": [
+        "The January 19, 1981 agreement, embodied in two Algerian declarations, established the Iran–United States Claims Tribunal to make final, binding awards enforceable under national law. The United States undertook to terminate covered domestic litigation and attachments and transfer assets by July 19. A $1 billion security account would support awards. The Court’s factual account dates release of the hostages January 20, although its syllabus compresses it into January 19.",
+        "Carter’s January 19 orders revoked licenses relating to Iranian funds, nullified non-Iranian interests acquired after the freeze, and directed transfers through the Federal Reserve Bank of New York. On February 24 Reagan ratified those measures and suspended claims presentable to the tribunal, depriving them of legal effect in pending domestic cases. Suspension would end if the tribunal lacked jurisdiction; payment of an award or a finding that nothing was due would discharge a claim. The mechanism did not abolish every claimant’s access to every court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "International agreement and litigation stages; 453 U.S. at 664–666"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contractor’s two lawsuits take different paths",
+      "cue": "Which judgment did the Supreme Court review?",
+      "paragraphs": [
+        "Meanwhile, Dames & Moore obtained summary judgment against Iran and the Atomic Energy Organization, not the banks, and sought execution in Washington state court. The federal District Court later stayed execution pending the defendants’ appeal, vacated prejudgment attachments, and stayed proceedings against the banks in light of the executive orders.",
+        "On April 28 Dames & Moore separately sued the United States and Treasury Secretary for declarations and injunctions against the settlement’s implementation. It asserted statutory, constitutional, and property objections. On May 28 the District Court denied preliminary relief and dismissed that complaint for failure to state a claim, while enjoining transfer of property subject to its judicial liens pending appeal.",
+        "Other courts had reached differing conclusions, and the July 19 international deadline approached. The Supreme Court granted certiorari before Ninth Circuit judgment, heard argument June 24, and decided July 2. It reviewed dismissal of the executive-action challenge, not the contractor’s underlying entitlement to payment or a Ninth Circuit merits judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "International agreement and separate stages; 453 U.S. at 660,666–668"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court finds express statutory power over the attachments",
+      "cue": "Why did the conditional licenses matter?",
+      "paragraphs": [
+        "Rehnquist used Jackson’s Youngstown framework while warning that its categories simplified a spectrum of authorization, silence, and opposition. Foreign crises require attention to legislative context and practice rather than treating absence of an exact statute as automatically dispositive.",
+        "Section 1702(a)(1)(B) of the International Emergency Economic Powers Act (IEEPA) expressly authorized compelled transfers and nullification of rights in foreign-interested property subject to United States jurisdiction. Dames & Moore argued that omission of the Trading With the Enemy Act’s vesting power limited IEEPA to starting or ending a freeze. The Court refused to erase its operative transfer and nullification language: directing the disposition of foreign property differed from taking title in the United States.",
+        "The regulations and licenses subordinated these attachments to further presidential action. Treating conditional attachments as permanent restraints would defeat the statutory preservation of assets as a bargaining resource. The property measures fell within Youngstown’s strongest category of specific congressional authorization.",
+        "Footnote 6 separately rejected compensation based on these attachment interests. The Court rejected the argument that only future licenses, not completed liens, were revocable and concluded that the contingent interests were not compensable property of the asserted sort. Powell disagreed with conclusively resolving that question, while accepting the President’s authority to nullify them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Youngstown; Statutory authority; 453 U.S. at 668–674 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Suspending the underlying claim requires a different basis",
+      "cue": "Why were IEEPA and the Hostage Act insufficient by themselves?",
+      "paragraphs": [
+        "An in personam claim for liability existed apart from particular attached property. IEEPA’s property provisions did not authorize its suspension. Nor did the Court find specific authority in the 1868 Hostage Act: its history concerned foreign governments denying naturalized Americans’ citizenship and repatriating them, while the Iran hostages were seized because they were Americans.",
+        "The two statutes nevertheless showed congressional willingness to grant broad discretion over foreign emergencies and unjust imprisonment. That context combined with a long practice of executive agreements settling nationals’ claims, sometimes without consent in exchange for lump sums or arbitration. Congress had supplied distribution machinery in the International Claims Settlement Act of 1949, repeatedly amended it for other settlements, prepared for settlements with East Germany and Vietnam, and recognized executive settlement in IEEPA’s history. At least ten settlements since 1952 answered the contention that the move away from absolute sovereign immunity had ended the practice.",
+        "Pink and related cases supported removing claims obstacles to international relations. The Court read the Foreign Sovereign Immunities Act (FSIA) as eliminating an immunity barrier and executive control of immunity determinations, not forbidding consensual international settlements. Congress had rejected separate restrictions on executive agreements, and reporting requirements did not make all such agreements subject to prior approval.",
+        "The suspension changed the substantive law courts applied rather than stripping them of Article III jurisdiction over unchanged claims. Claims outside the tribunal’s jurisdiction could revive. This answered the presented Article III objection without recognizing unrestricted executive authority to direct judicial outcomes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Suspension of claims; 453 U.S. at 675–686 & nn.7–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The alternative tribunal and congressional response support a narrow holding",
+      "cue": "Was recovery assured, and what compensation question remained?",
+      "paragraphs": [
+        "The tribunal offered a genuine alternative capable of relief, strengthening the analogy to historical settlements. The Court did not guarantee full recovery or accept that every claimant would fare better. Statutory asset-transfer authority itself did not depend on another forum. Congress held hearings without disapproving the agreement, and a Senate committee called the tribunal vitally important, unlike express congressional opposition to a proposed Czechoslovak settlement.",
+        "The Court confined its claims holding to settlement necessary to resolve a major foreign-policy dispute where Congress had acquiesced. It denied announcing plenary authority over foreign-government claims.",
+        "Both sides agreed that whether suspension of the underlying claim caused a compensable taking was unripe. Availability of a remedy if such a taking occurred was ripe, because adequate provision had to exist when property was taken. Part V held an appropriate Tucker Act claim could proceed in the Court of Claims despite the treaty exception. It neither found a taking nor awarded compensation. That reservation differed from footnote 6’s rejection of the attachment-based theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Particular settlement and compensation; 453 U.S. at 686–690 & nn.12–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The separate writings preserve distinct compensation disagreements",
+      "cue": "Give the exact judgment and the limited nonjoinders.",
+      "paragraphs": [
+        "Stevens joined everything except Part V. He thought a taking from transfer to another forum so remote that the Court should not decide Court of Claims jurisdiction. He did join the attachment ruling. Powell joined except footnote 6 and would preserve both attachment and underlying-claim theories for specific compensation litigation. He questioned whether imposing the attachment condition could itself take a right and whether revocability of a license necessarily made an acquired lien revocable. National policy burdens, he cautioned, could not simply be concentrated on a few private parties without compensation.",
+        "All nine Justices accepted the authority to nullify attachments, transfer assets, and suspend covered claims. Eight joined the attachment-compensation ruling and a different eight Part V. Neither separate writing dissented from affirmance of dismissal. The Supreme Court affirmed the Central District of California and ordered its mandate issued immediately. It left the commercial claim’s later tribunal treatment and any qualifying future compensation claim unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Decision and alignment; Separate opinions; 453 U.S. at 658,674 n.6,688–691"
+        }
+      ]
+    }
+  ]
+}

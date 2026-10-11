@@ -1,0 +1,178 @@
+{
+  "id": "lrs-s-slaughter",
+  "briefId": "LRS-SUP-0011-SLAUGHTER",
+  "title": "Trump v. Slaughter",
+  "course": "Legislation and the Regulatory State",
+  "citation": "609 U.S. 422 (2026)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The President removes FTC commissioners for conflicting with his priorities, producing a challenge to the statute’s for-cause protection and Humphrey’s Executor.",
+  "actors": [
+    {
+      "name": "Rebecca Slaughter",
+      "role": "FTC Commissioner removed without an allegation of statutory cause; the sole claimant whose claims reached the Supreme Court."
+    },
+    {
+      "name": "Donald Trump and executive officials",
+      "role": "Defendants asserting presidential power to remove FTC Commissioners at will."
+    },
+    {
+      "name": "Alvaro Bedoya",
+      "role": "Fellow removed Commissioner whose later resignation made his claims moot."
+    },
+    {
+      "name": "Federal Trade Commission",
+      "role": "Five-member commission exercising regulatory, enforcement, adjudicative, and litigation powers."
+    }
+  ],
+  "proceedings": [
+    "The District Court granted Slaughter summary judgment and enjoined interference with her lawful duties.",
+    "A divided D.C. Circuit panel denied a stay pending appeal.",
+    "The Supreme Court stayed the order, granted certiorari before judgment, then reversed the District Court and remanded."
+  ],
+  "limits": "The account follows the canonical reviewed brief of the June 29, 2026 decision. It does not claim a new independent opinion audit. The decision did not dissolve the FTC, adjudicate a particular enforcement action, or resolve the expressly reserved institutional arrangements and alternative remedial questions.",
+  "briefSha256": "06c812dc1c47297b740430e54074128042c2f2711402b7e9f03c6455c5635353",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0011-SLAUGHTER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The FTC’s statutory design limits removal",
+      "cue": "How did Slaughter come to hold her office?",
+      "paragraphs": [
+        "Congress created a Federal Trade Commission with five presidentially appointed, Senate-confirmed Commissioners. Ordinary seven-year terms are staggered, no more than three Commissioners may belong to the same political party, and the President designates the Chair. The FTC Act permits removal only for inefficiency, neglect of duty, or malfeasance in office. The Commission administers and enforces approximately eighty statutes through substantive rules, investigations, administrative adjudication, and civil enforcement suits.",
+        "President Trump nominated Rebecca Slaughter, a Democrat, and she was confirmed in 2018. She received confirmation for a second term in 2024. At the beginning of Trump’s second presidential term in January 2025, the Commission had two Republicans and three Democrats. He selected Andrew Ferguson as Chair. Former Chair Lina Khan shortly afterward resigned her Commission seat, leaving two Republicans and two Democrats pending a replacement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and agency structure; 609 U.S. at 431–432,454–455,481–482"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The President removes two Commissioners without alleging cause",
+      "cue": "What action triggered the suit, and why did only Slaughter remain?",
+      "paragraphs": [
+        "In March, Trump removed Slaughter and Alvaro Bedoya. He did not allege one of the statutory grounds. His notice instead said their service conflicted with his administration’s priorities and invoked Article II. Two Republican Commissioners remained.",
+        "Slaughter and Bedoya sued the President and other executive officials for declarations and injunctive relief restoring them to office. They alleged that the removals were ultra vires and violated the Administrative Procedure Act (APA) and Constitution. Bedoya later formally resigned, so the District Court dismissed his claims as moot. Slaughter continued to seek enforcement of the statutory protection.",
+        "The government argued that the FTC exercises executive power, that Article II requires presidential control of its leadership, and that Humphrey’s Executor should be rejected or overruled. It also argued that courts could not reinstate Slaughter even if her tenure protection were valid. Slaughter defended the precedent, reliance on independent commissions, historical arrangements, and Congress’s power to prescribe reasonable limits. She accepted a default presidential removal power and Seila Law’s result while disputing their asserted consequence for FTC Commissioners."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Procedure and parties’ arguments; 609 U.S. at 431–433,445–453,456–464"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The lower courts apply Humphrey’s Executor",
+      "cue": "Why does the Supreme Court ultimately reverse the District Court directly?",
+      "paragraphs": [
+        "The District Court granted Slaughter summary judgment, declared the removal ultra vires, and permanently enjoined interference with her lawful duties. It regarded Humphrey’s Executor, which had upheld this FTC removal provision in 1935, as controlling.",
+        "A divided D.C. Circuit panel denied the government’s request for a stay pending appeal because the same precedent foreclosed success; Judge Rao dissented. That was an interim ruling, not a completed merits appeal. The Supreme Court stayed the District Court’s order and granted certiorari before judgment. The merits judgment eventually before the Court for reversal was therefore the District Court’s."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; 609 U.S. at 432–433 & n.1,464"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority connects executive responsibility to removal",
+      "cue": "How does the Court’s account of Article II answer the statutory protection?",
+      "paragraphs": [
+        "Chief Justice Roberts wrote the dispositive analysis for himself and Justices Thomas, Alito, Gorsuch, Kavanaugh, and Barrett. The majority read Article II’s vesting of executive power and Take Care duty as creating a hierarchy in which subordinate officers help the President perform responsibilities for which he remains answerable. Removal allows the President to replace those exercising that power and permits voters to identify responsibility.",
+        "The majority contrasted the single constitutional President with early state executives sharing authority with councils. Congress could create offices and departments, but their heads were assistants, not constitutional equals of the President. In its account, the First Congress’s Decision of 1789 confirmed a constitutional removal authority: Congress used language presupposing presidential removal rather than appearing to grant it. The majority relied on Madison, commentary, and practice and rejected the proposition that Congress could diminish a removal power merely because it created an office. That interpretation of contested history was the majority’s, not an agreed historical premise.",
+        "The Court read Ex parte Hennen, Parsons, and especially Myers as reinforcing presidential control. Myers had invalidated Senate consent to a postmaster’s removal; the majority drew broader support from its reasoning and its account of executive resistance to the Tenure of Office Act. It rejected a general reasonableness standard under which Congress might insulate ordinary departments, disputed Slaughter’s characterization of early agencies’ removal arrangements, and declined to let later practice validate what it regarded as an unconstitutional allocation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Text, structure, and majority history; Precedent; Application; 609 U.S. at 433–445,456–464"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court rejects Humphrey’s Executor’s account of FTC power",
+      "cue": "What is overruled, and which institutional questions remain open?",
+      "paragraphs": [
+        "Humphrey’s Executor had characterized the FTC as predominantly quasi-legislative and quasi-judicial, exercising no executive power. The majority found that classification untenable after Buckley’s treatment of federal enforcement litigation, Chadha and Bowsher’s treatment of implementing delegated standards, and Morrison’s recognition of the FTC’s executive functions. Free Enterprise Fund and Seila Law had refused to extend the older exception to two layers of removal protection and to a powerful agency’s sole head.",
+        "The Court concluded that Humphrey’s Executor could no longer justify insulating an executive agency and expressly overruled it to the extent anything contrary remained. Its stare decisis analysis found the reasoning unsound, the fit with later law poor, and the boundaries uncertain. Congressional reliance on creating independent agencies did not, in its view, justify reallocating constitutionally vested power. It also rejected equating presidential independence with freedom from politics: reduced presidential control could increase congressional influence.",
+        "The FTC’s binding rules, administrative investigation and enforcement, and federal civil suits were each executive power for the majority. The combined breadth of those functions made its Commissioners subject to presidential removal at will despite their bipartisan, multimember design. A severability footnote did not abolish the FTC or invalidate its programs. It referred to decisions leaving agencies in place after removing tenure restrictions and reserved broader congressional-preference questions for a case presenting them.",
+        "Part III-B, which Thomas did not join, cautioned that congressional creation alone does not make an institution an executive instrument. An entity might exercise no sovereign power or assist congressional information gathering. The Court also reserved historically distinct arrangements, identifying the Federal Reserve’s relationship to the First and Second Banks, and reserved tenure protections for non-Article III judges such as those of the Tax Court and Court of Federal Claims. The opinion did not itself invalidate every removal protection or decide every civil servant’s position."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Precedent and overruling; Application and reservations; 609 U.S. at 445–456 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Gorsuch agrees on removal but worries about the powers now controlled",
+      "cue": "What further work did his concurrence urge?",
+      "paragraphs": [
+        "Gorsuch concurred separately without joiners. He agreed that principal officers exercising executive power must answer to the President through removal, but emphasized that ending independence does not reduce agencies’ extensive delegated powers. It places rulemaking, enforcement, and adjudication more directly under presidential control. He warned that coordinated use of those powers could target disfavored businesses or individuals.",
+        "He questioned whether Congress would have delegated the same authority without independence and whether it could readily retrieve it when the President can veto a reduction. He urged attention to nondelegation, major questions, vagueness, Article III, due process, and jury-trial constraints. These were arguments for future doctrinal enforcement, not holdings invalidating FTC delegations or granting relief from a particular agency adjudication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch concurrence; 609 U.S. at 464–479"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Sotomayor would preserve the statutory design and relief",
+      "cue": "How did the dissent dispute history, precedent, and the proposed remedy?",
+      "paragraphs": [
+        "Sotomayor dissented with Kagan and Jackson. Humphrey’s Executor addressed the same statute and issue; Wiener and Morrison preserved or extended its functional reasoning, while Free Enterprise Fund and Seila Law distinguished new structures without eliminating established multimember commissions. The FTC had investigative, enforcement, and rulemaking functions in 1935. If later-added powers were incompatible with its structure, she suggested examining those powers rather than automatically destroying independence.",
+        "The dissent read constitutional silence on removal alongside Congress’s express power to create offices and pass necessary and proper laws. Neither the Take Care duty nor appointment, itself shared with the Senate, necessarily entailed unrestricted dismissal. Drawing on English and state practice, Federalist Nos. 39 and 77, and Convention history, it disputed the majority’s originalist conclusion. The Decision of 1789 could reject Senate participation in individual removals without deciding whether Congress could prescribe cause. Nineteenth-century disagreements, early financial commissions, and later independent agencies established with presidential participation supported the dissent’s account. Myers could be confined to its Senate-consent holding; Chadha involved express constitutional procedures unlike the textual silence here.",
+        "Sotomayor also emphasized other channels of accountability: appointment, Chair selection, budgets, and genuine for-cause removal. Congress had balanced those controls with continuity and impartiality. Reliance included both legislative choices and the arrangements of regulated firms and ordinary people. At-will dismissal could defeat staggered terms and bipartisan membership. The dissent regarded the older commission rule as workable, attributed some uncertainty to recent emergency rulings, and criticized the new rule’s unexplained boundaries. Its predictions about other officers were not holdings invalidating their protections.",
+        "In footnote 13, the dissent rejected the government’s alternative remedial objections. Valid tenure protection could be judicially enforced; historical restrictions on equitable reinstatement coexisted with mandamus, declarations, and precedents approving reinstatement injunctions. The Civil Service Reform Act excluded principal officers like Slaughter, and that argument had not been properly raised below or in the initial application. The majority’s constitutional ruling made resolution of those alternatives unnecessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor dissent; 609 U.S. at 480–526 & n.13"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court reverses Slaughter’s reinstatement judgment",
+      "cue": "Give the precise disposition and voting alignment.",
+      "paragraphs": [
+        "On June 29, 2026, the Supreme Court reversed the District Court’s judgment and remanded for proceedings consistent with its opinion. The FTC Act’s removal restriction could not prevent Slaughter’s dismissal or sustain the judgment protecting her performance of the office.",
+        "The dispositive vote was six to three. Thomas joined the majority except its Part III-B reservations and wrote no separate opinion; five Justices joined that part. Gorsuch’s concurrence and Sotomayor’s dissent drew different conclusions from increased presidential control over delegated powers. The Class 11 supplement’s discussion of Trump v. Cook remains editorial context, not a merits ruling in this case. The decision ends with reversal and remand, without supplying a later account of Commission membership or operation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Issue, holding, exact disposition; Course significance and source boundaries; 609 U.S. at 428,450,454–456,464"
+        }
+      ]
+    }
+  ]
+}

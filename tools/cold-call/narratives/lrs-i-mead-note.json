@@ -1,0 +1,156 @@
+{
+  "id": "lrs-i-mead-note",
+  "briefId": "LRS-SUP-MEAD",
+  "title": "United States v. Mead Corp.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "533 U.S. 218 (2001)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Customs changes the tariff classification of imported planners, and the resulting suit distinguishes delegated interpretive force from persuasive agency expertise.",
+  "actors": [
+    {
+      "name": "Mead Corporation",
+      "role": "Importer contesting duties on ring-bound day planners."
+    },
+    {
+      "name": "United States Customs Service",
+      "role": "Agency whose Headquarters ruling classified the planners as bound diaries."
+    },
+    {
+      "name": "United States",
+      "role": "Government defending the classification and seeking Chevron treatment."
+    }
+  ],
+  "proceedings": [
+    "Customs changed the classification and rejected Mead’s protests.",
+    "The Court of International Trade sustained the classification; the Federal Circuit rejected it without deference.",
+    "The Supreme Court vacated and remanded for consideration of the letter’s persuasive force under Skidmore."
+  ],
+  "limits": "Mead describes the historical 2001 Chevron framework. The canonical brief includes the limited later update that Loper Bright overruled Chevron in 2024; no later outcome of Mead’s tariff litigation is asserted.",
+  "briefSha256": "ad4e5d14fc31cf238baa5d7c6f32b9ab64339b4f671180176a41ab237eca4018",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-MEAD"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Customs changes its treatment of day planners",
+      "cue": "What were the goods and the disputed tariff terms?",
+      "paragraphs": [
+        "Mead imported three-ring day planners containing dated schedule pages, notes, telephone numbers, addresses, calendars, and similar material. The tariff schedule grouped these paper articles under a common heading but imposed a four-percent duty on bound diaries, notebooks, address books, and specified similar articles, while a residual category was duty free.",
+        "From 1989 through 1993 Customs repeatedly treated Mead’s planners as duty free. In January 1993 Headquarters changed the classification to bound diaries. Its first letter gave little explanation. After Mead protested, Headquarters issued a reasoned but unpublished letter. It used a broader Oxford English Dictionary definition of diary including printed dates for future memoranda and understood “bound” to include metal or plastic fastenings, not only conventional bookbinding. Mead disputed both the classification and the authority courts should assign to that interpretation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Imported planners and changed classification; 533 U.S. at 224–225"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The ruling-letter system gives official answers to particular transactions",
+      "cue": "How far did one letter’s legal effect extend?",
+      "paragraphs": [
+        "Federal law authorized classification under Treasury rules and procedures for pre-entry binding rulings. Ruling letters stated Customs’ official position and bound its personnel, but applied to goods identical to the submitted sample or description and could be modified. Other importers ordinarily acquired no reliance rights and were warned not to assume the letter controlled their transactions.",
+        "Forty-six port offices and Headquarters issued roughly ten to fifteen thousand letters annually. Many supplied little beyond description and classification. They ordinarily required public availability, not initial notice and comment. Later amendments added notice-and-comment requirements for certain modifications and revocations, not every classification. The challenged ruling itself was not a pre-entry ruling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Administrative system; Why this letter fell outside Chevron; 533 U.S. at 221–224,232–234 & n.15"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Two reviewing courts disagree over the classification",
+      "cue": "Why did Haggar enter the appeal?",
+      "paragraphs": [
+        "After another unsuccessful administrative protest, Mead sued in the Court of International Trade. That court granted government summary judgment and adopted Customs’ reasoning without discussing deference. During appeal, the Supreme Court decided Haggar Apparel, giving Chevron treatment to Customs regulations. The government argued classification letters deserved the same treatment.",
+        "The Federal Circuit rejected the analogy. Initial letters lacked notice and comment, general force of law, and an intention to define obligations beyond the transaction. It accorded the letter no deference and rejected Customs’ readings of both “diary” and “bound.” The Supreme Court took review to address the boundary of the deference doctrine rather than simply choose its preferred tariff definition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Administrative system and court path; 533 U.S. at 225–227"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Eight Justices distinguish lawmaking authority from persuasive interpretation",
+      "cue": "Why did Customs’ general power to make regulations not settle this letter’s status?",
+      "paragraphs": [
+        "Souter wrote for all Justices except Scalia. Under the then-governing Chevron doctrine, mandatory acceptance of a reasonable agency answer depended on Congress delegating authority to make rules with legal force and the agency exercising that authority in the interpretation at issue. Formal adjudication and notice-and-comment rulemaking were strong signals, not absolute prerequisites; NationsBank illustrated another qualifying arrangement.",
+        "Customs plainly could exercise legislative rulemaking power, as Haggar showed. It did not follow that every interpretive mechanism invoked that power. Neither the statutory text nor routine letter practice indicated general lawmaking force for these classifications. Transaction-specific binding effect and usefulness as precedent were insufficient. Congress had not made reasoned Headquarters letters a special higher-authority category, and later modification procedures did not produce a patchwork of otherwise identical letters with legislative status.",
+        "The Court of International Trade could consider new grounds and make its own record. The majority regarded that scheme, despite a presumption of correctness, as further evidence against the claimed delegated force. It did not announce that all de novo factual proceedings negate agency authority.",
+        "Government approval in litigation did not convert the letter into the kind of Commissioner-and-Treasury-approved regulation involved in Haggar. Otherwise Chevron would attach to the litigation position rather than the original agency action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Historical holding; Delegation; Ruling-letter analysis; 533 U.S. at 226–234,238 n.19"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Lack of Chevron force does not make agency expertise irrelevant",
+      "cue": "What assessment had the Federal Circuit omitted?",
+      "paragraphs": [
+        "Under Skidmore, Customs’ specialized experience with an intricate national classification system could make its interpretation persuasive. Thoroughness, reasoning, expertise, consistency, and other relevant qualities warranted assessment. The change from prior duty-free treatment mattered but did not mechanically determine persuasiveness.",
+        "The majority rejected an either-or choice between Chevron and no consideration. Congress assigned agencies varied tasks through varied forms, warranting different judicial responses. The boundary was not hard-edged, but the Court considered case-sensitive comparison more faithful to the statutes. The Federal Circuit had gone too far by denying the letter any weight without that inquiry."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "What remained under Skidmore; 533 U.S. at 234–238 & nn.18–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Scalia would sustain the classification as an authoritative reasonable answer",
+      "cue": "What dangers did he see in the new threshold?",
+      "paragraphs": [
+        "Scalia understood assignment of an ambiguous statute to an agency as presumptively delegating reasonable resolution of ambiguity. The question was whether an interpretation was authoritative, not its procedure. Formal adjudication mainly developed facts; similar trial procedures did not make judicial legal interpretations deferential. Agencies could legitimately choose case-by-case administration, and Cabinet officers sometimes exercised personally assigned authority without formal process.",
+        "He predicted litigation over an uncertain delegation test, pressure toward rulemaking, vague rules followed by informal interpretation, and judicial freezing of statutory meanings under Skidmore. Allowing later agency rules to displace judicial constructions would in his view surrender judicial authority. He regarded persuasion factors as an unhelpful restatement of the obvious, disputed the majority’s precedent reading, and considered Christensen’s contrary discussion unnecessary to its result.",
+        "Treasury’s general counsel and the Solicitor General represented the classification as official, satisfying his authoritative-position test without requiring deference to every employee. He found the classification reasonable and thought Customs’ traditional position also resembled NationsBank even under the majority’s approach. His reading of trade-court review emphasized factual review and presumptive correctness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia dissent; 533 U.S. at 239–261 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The remand leaves the tariff outcome open",
+      "cue": "How does the historical holding differ from present Chevron status?",
+      "paragraphs": [
+        "The Court vacated the Federal Circuit’s judgment and remanded for it or the Court of International Trade to assess Skidmore persuasiveness. It neither finally awarded duty-free treatment to Mead nor automatically sustained the government’s duty assessment.",
+        "The canonical brief records the later doctrinal change in Loper Bright, decided June 28, 2024: Chevron was overruled, and statutory interpretation under the Administrative Procedure Act calls for independent judicial judgment, while informed agency views may assist through persuasion. Mead’s threshold for mandatory Chevron treatment therefore describes the former system. That limited update is not an independent complete Loper Bright audit and supplies no later disposition for Mead itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and later doctrinal change; 533 U.S. at 234–239; canonical brief’s Loper Bright majority slip 16–17,25,35 comparison"
+        }
+      ]
+    }
+  ]
+}

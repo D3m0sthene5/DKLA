@@ -1,0 +1,160 @@
+{
+  "id": "lrs-n-heckler-chaney",
+  "briefId": "LRS-CB-1048",
+  "title": "Heckler v. Chaney",
+  "course": "Legislation and the Regulatory State",
+  "citation": "470 U.S. 821 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A request to stop the use of execution drugs reaches the FDA, then three courts. The final court separates an unreviewable enforcement choice from approval of the drugs or the executions.",
+  "actors": [
+    {
+      "name": "The respondent prisoners",
+      "role": "Oklahoma and Texas prisoners sentenced to death by lethal injection; petitioned the FDA and sought judicial review."
+    },
+    {
+      "name": "FDA Commissioner",
+      "role": "Denied the enforcement petition on jurisdictional and discretionary grounds."
+    },
+    {
+      "name": "Margaret Heckler",
+      "role": "Secretary of Health and Human Services; defended the agency in the Supreme Court."
+    }
+  ],
+  "proceedings": [
+    "The District Court for the District of Columbia granted summary judgment for the federal officials.",
+    "A divided D.C. Circuit reversed, finding jurisdiction, reviewability, and arbitrary agency action.",
+    "The Supreme Court reversed on March 20, 1985; all nine Justices agreed on the judgment, but Marshall rejected the majority’s nonreviewability rule."
+  ],
+  "limits": "This account follows the reviewed source brief of the 1985 decision and its assigned notes, without a new opinion audit or present-law certification. Allegations about drug effects were not adjudicated. FDA jurisdiction, solely jurisdictional refusals, statutory abdication, colorable constitutional claims, and the possible force of an operative binding rule remained unresolved. The textbook’s fifth note continues onto unavailable pages 1061–1067.",
+  "briefSha256": "78e2abbd3a103f534da530bed67426dd54a2c449386383489f8841d8f184634f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-1048"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Prisoners ask the FDA to intervene before their executions",
+      "cue": "Who sought agency action, and what did they ask the agency to do?",
+      "paragraphs": [
+        "Prisoners sentenced to death in Oklahoma and Texas faced execution by lethal injection. The drugs to be administered had FDA approval for therapeutic uses, but not for use in executions. The prisoners petitioned the Food and Drug Administration, alleging that distribution and administration for this purpose violated the Federal Food, Drug, and Cosmetic Act’s restrictions on unapproved new drugs and misbranding. They asserted that the drugs had not been shown safe and effective for the intended execution use and that untrained personnel could cause prolonged suffering. Those assertions explain the petition; the Supreme Court never decided the medical adequacy of a particular protocol.",
+        "The prisoners requested warning labels against execution use, notices to manufacturers, distributors and prison officials, seizures of drugs intended for executions, and recommendations for prosecution of people in the distribution chain. They also requested an evidentiary hearing. They later left unchallenged the district court’s description of that hearing as preliminary to these enforcement measures. Their proceeding therefore did not present a refusal to initiate rulemaking or a demand to perform one expressly required ministerial act."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and requested relief; Material facts; Further source distinctions; 470 U.S. 823–825 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Commissioner gives two reasons for declining",
+      "cue": "Which reason allowed the Court to leave FDA jurisdiction undecided?",
+      "paragraphs": [
+        "The FDA Commissioner first questioned the agency’s jurisdiction over the use of drugs in state executions. He distinguished control of products in commerce from the use the prisoners challenged. In explaining a different treatment of animal-euthanasia drugs, the Commissioner said those products were new drugs intended by their manufacturers for that purpose. That explanation was the agency’s jurisdictional position, not a Supreme Court resolution of FDA authority over execution drugs.",
+        "The Commissioner independently declined to enforce even assuming jurisdiction. He invoked the agency’s practice concerning unapproved uses, the absence of the kind of serious public-health danger or blatant fraud ordinarily prompting intervention, and the state criminal-justice setting. Because this second ground did not depend on the first, a reviewing court could address enforcement discretion without resolving the jurisdictional disagreement.",
+        "The FDCA prohibited various dealings in adulterated, misbranded and unapproved drugs and authorized investigation, injunction, seizure and criminal enforcement. The prisoners argued that those provisions constrained discretion. They also relied on an exception allowing minor violations to be handled by warnings and on an FDA statement concerning dangerous unapproved uses. Whether those materials required enforcement, as distinct from authorizing it, became the central legal dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts and statutory setting; Further source distinctions; 470 U.S. 824–825, 827 n.3, 835–837"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The district court and court of appeals disagree about review",
+      "cue": "What did each lower court decide before the dispute reached the Supreme Court?",
+      "paragraphs": [
+        "The prisoners sued federal officials in the United States District Court for the District of Columbia. The district court granted summary judgment for the government because it treated the enforcement refusal as committed to agency discretion. That judgment prevented the prisoners from obtaining review of the merits of the refusal.",
+        "A divided D.C. Circuit reversed. The court of appeals concluded that the FDA possessed jurisdiction, that the refusal was reviewable, and that the refusal was arbitrary and capricious. It relied in part on a Food and Drug Administration policy statement that it understood to require intervention against dangerous unapproved uses. Secretary of Health and Human Services Margaret Heckler sought Supreme Court review on the government’s behalf. The Supreme Court heard argument on December 3, 1984, and approached the case first as a question about the availability of Administrative Procedure Act (APA) review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Citation and opinion structure; 470 U.S. 825–828"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court distinguishes reviewable discretion from no standard to apply",
+      "cue": "Why does the APA’s abuse-of-discretion language not answer the threshold question?",
+      "paragraphs": [
+        "Justice Rehnquist explained that the two exceptions in APA § 701(a) perform different functions. Section 701(a)(1) asks whether Congress intended to preclude review through a particular statute. Section 701(a)(2) instead addresses decisions for which the law supplies no meaningful standard to judge the discretion, even without affirmative evidence that Congress intended preclusion. The second exception is narrow but real. Section 706 authorizes courts to set aside abuses of discretion when legal criteria identify an abuse; its general words do not create criteria absent from the governing law.",
+        "An enforcement decision generally requires the agency to combine an assessment of proof, prospects of success, competing demands, limited resources and the program’s overall objectives. Agencies ordinarily have greater competence than courts to make that combined choice. A prohibition on regulated conduct does not itself require the agency to pursue every apparent violation. Refusing enforcement also ordinarily involves no coercive exercise of agency power over an individual’s liberty or property, while affirmative enforcement supplies a concrete exercise of authority to evaluate. Criminal prosecutorial discretion supported the analogy, but the Court did not hold that the Constitution immunizes every civil regulatory refusal.",
+        "These considerations produced a presumption that nonenforcement decisions fall within § 701(a)(2). The Court distinguished Citizens to Preserve Overton Park, which concerned affirmative approval of a highway through a park under a statute specifying conditions for approval. That law supplied standards. It also distinguished Dunlop v. Bachowski: the union-election statute there required investigation and directed suit upon a qualifying probable-cause finding. Dunlop showed that Congress can overcome the presumption with substantive enforcement instructions, not that the APA makes all refusals reviewable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court’s reasoning: two exclusions, enforcement choices, Overton Park, Dunlop; 470 U.S. 828–835"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The FDCA and the proposed policy fail to require these measures",
+      "cue": "Why did the prisoners’ particular statutory and regulatory arguments fail?",
+      "paragraphs": [
+        "The Court found authority to enforce in the FDCA, but no direction fixing when the FDA had to use the requested powers. The investigation, injunction and seizure provisions authorized measures without requiring them in this situation. A criminal provision addressing punishment did not require the Commissioner to recommend prosecution whenever a violation was alleged; recommending proceedings and the Attorney General’s decision to bring them were distinct functions.",
+        "The prisoners argued that express permission to use warnings for minor violations implied an obligation to pursue serious ones. The Court rejected that negative implication. Preserving limited discretion over known minor violations did not turn the remainder of the Act into a command to investigate and enforce every alleged major violation. The statute thus provided no workable mandatory standard for this refusal.",
+        "The supposed binding policy was language accompanying a proposed 1972 rule about unapproved uses by physicians. The proposal had never been adopted, arose in a different setting, and did not create the mandatory duty asserted. Government counsel’s litigation statements could not convert it into a binding regulation. The agency’s operative regulation treated enforcement as discretionary. The Court rejected these particular materials while expressly leaving open whether a genuine binding agency rule could supply law to apply despite statutory discretion.",
+        "The independent discretionary ground also meant that this was not a refusal based solely on a belief that jurisdiction was absent. Footnote 4 left that situation and an extreme general policy amounting to abdication of statutory responsibilities for another case. The Court’s final paragraph reserved a colorable constitutional challenge because none had been presented. These reservations were unanswered questions, not findings of unlawful FDA conduct or promises that every proposed exception would permit review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court’s reasoning: FDCA, policy statement, reserved situations; 470 U.S. 833 n.4, 835–838"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan joins on a limited understanding; Marshall would review the refusal",
+      "cue": "How could every Justice vote to reverse without agreeing on reviewability?",
+      "paragraphs": [
+        "Chief Justice Burger and Justices Brennan, White, Blackmun, Powell, Stevens and O’Connor joined Rehnquist’s opinion. Brennan also wrote separately. He understood the decision as limited to an individual enforcement refusal under the statute before the Court. It did not release agencies from clear statutes, binding regulations, constitutional requirements, or possible review of refusals resting solely on a mistaken jurisdictional view. He emphasized the reservations about general policies and unconstitutional reasons. His example of a refusal obtained through bribery illustrated a danger of absolute immunity; bribery was not a finding or substantiated allegation in this case. Brennan also retained his separate objection to capital punishment and distinguished reviewability from approval of lethal injection.",
+        "Justice Marshall concurred only in the judgment. He would have applied ordinary, deferential APA review and upheld this refusal as reasonable. The FDCA did not require pursuit of every violation, and resources, other public-health obligations, the relatively limited affected group, and the state criminal-justice context justified the FDA’s choice here. Those considerations supported deference, in his view, without excluding review at the outset.",
+        "Marshall relied on the APA’s broad review provisions, including failures to act. He disputed that historical cases from different statutes and prosecutorial settings established a general tradition shielding civil regulatory refusals. Statutory purposes, regulations, established practice and other limits could supply standards. He also rejected the coercion distinction as an adequate justification: beneficiaries of regulation can suffer concrete injury when an agency refuses to protect them, even without a sanction imposed directly on them. Expertise and resource allocation appear in many decisions courts do review.",
+        "Marshall feared that the presumption could let an agency defeat its statutory mission. If courts nevertheless had to examine every unlawful reason or binding constraint first, the threshold inquiry might resemble merits review. He suggested that § 555(e) could require an explanation and criticized invoking reservations without examining reasons. His final footnote allowed that a challenger to an asserted resource-priority rationale might need some basis to question it or an explanation why evidence was not yet available at summary judgment. Those points belonged to Marshall, not to the majority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions; Further source distinctions; 470 U.S. 838–855"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The judgment ends at reviewability; assigned comparisons remain separate",
+      "cue": "What did reversal accomplish, and what did it leave unresolved?",
+      "paragraphs": [
+        "On March 20, 1985, the Supreme Court reversed the D.C. Circuit. The FDA’s particular refusal was outside the requested APA review. No relabeling, seizure, investigation, prosecution or change in execution practice was ordered. The majority neither decided FDA jurisdiction nor sustained the agency’s substantive assessment after arbitrary-and-capricious review. Marshall supplied a ninth vote for reversal, but not for the presumption against review.",
+        "The assigned textbook notes ask whether the FDA’s response might instead resemble a categorical abdication; that is an editorial question, not a Court finding. Their later Riverkeeper example remains later context. A separate note distinguishes initial nonenforcement from remedial discretion after a violation has been charged and proved, discussing Universal-Rundle/Moog’s patent-abuse review and stay evaluation and Butz’s treatment of sanction severity. The editors’ comparison with arbitrary-and-capricious review adds no Chaney test. Another note introduces United States v. Texas’s distinct 2023 standing holding.",
+        "The notes’ fuller Dunlop discussion connects investigation and probable-cause instructions to the Secretary’s exclusive post-election remedy and unusually limited, reasons-based review, while recording Rehnquist’s objection to the review allowed there. Solien’s negotiated settlements and Action on Safety and Health’s rejection of participation rights in FTC precomplaint consent negotiations illustrate different statutory and procedural settings. None creates a universal enforcement duty or outsiders’ right to participate in settlements. The supplied extract contains four complete notes but only the beginning of note 5 on Investment Co. Institute v. FDIC; pages 1061–1067 are absent. These comparisons and that source limit remain distinct from the historical holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Scope and casebook relationship; Complete available textbook notes; Source scope; 470 U.S. 837–855; casebook 1048–1060"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "id": "lrs-n-regents",
+  "briefId": "LRS-ATLAS-N-REGENTS",
+  "title": "Department of Homeland Security v. Regents of the University of California",
+  "course": "Legislation and the Regulatory State",
+  "citation": "591 U.S. 1 (2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "DHS ends a deferred-action program on an asserted legal ground, then supplies additional policy reasons during litigation; the Court asks what the original decisionmaker considered and which choices remained open.",
+  "actors": [
+    {
+      "name": "Department of Homeland Security",
+      "role": "Created DACA and later rescinded it."
+    },
+    {
+      "name": "Elaine Duke",
+      "role": "Acting Secretary who issued the September 2017 rescission memorandum."
+    },
+    {
+      "name": "Jeff Sessions",
+      "role": "Attorney General whose legal determination prompted Duke’s action."
+    },
+    {
+      "name": "Kirstjen Nielsen",
+      "role": "Secretary who supplied a later memorandum preserving Duke’s original action."
+    },
+    {
+      "name": "DACA recipients, States, universities, and other plaintiffs",
+      "role": "Challenged rescission in California, New York, and the District of Columbia."
+    }
+  ],
+  "proceedings": [
+    "California and New York courts entered renewal injunctions; the D.C. court vacated rescission and temporarily stayed its order for further explanation.",
+    "Nielsen supplied a June 2018 memorandum; the D.C. court declined to revise its order.",
+    "The Supreme Court reviewed three consolidated cases, affirmed the D.C. vacatur, issued case-specific orders in the other two, and remanded all three."
+  ],
+  "limits": "The Court did not decide DACA’s legality or require its indefinite retention. Equal protection was rejected at the pleading stage by an eight-Justice result with only four joining Roberts’s explanatory Part IV. The account concerns the June 2020 judgment, not subsequent eligibility or policy.",
+  "briefSha256": "257ed7550e775586cddba21de20eb9047d63136f35cf0cc96a6271d8cb1c1ee9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-REGENTS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "DHS creates an affirmative program for people brought to the country as children",
+      "cue": "How did DACA combine forbearance and associated benefits?",
+      "paragraphs": [
+        "In June 2012, the Department of Homeland Security established Deferred Action for Childhood Arrivals for specified people brought to the United States as children. Age, continuous residence, education or military service, criminal-record, and security requirements limited eligibility. DHS directed individualized decisions granting renewable two-year deferred action. About 700,000 people obtained relief.",
+        "Recipients could seek work authorization upon economic necessity under regulations predating DACA. Other regulations treated recipients as lawfully present for specified Social Security and Medicare purposes. Those benefits were distinct from permanent immigration status and from the underlying decision to refrain from removal.",
+        "In 2014, DHS expanded DACA and created Deferred Action for Parents of Americans and Lawful Permanent Residents, potentially covering 4.3 million parents. Twenty-six States sued. The Fifth Circuit sustained a preliminary injunction on notice-and-comment and substantive immigration-law grounds, treating benefits eligibility as more than unreviewable nonenforcement. In 2016, an equally divided Supreme Court affirmed without a controlling explanatory opinion. That injunction concerned the 2014 changes, not an adjudication of the original 2012 DACA program."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 2–5; DACA, related litigation, and rescission"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Duke rescinds DACA and affected parties bring three sets of litigation",
+      "cue": "What reasons and wind-down arrangements did the original action contain?",
+      "paragraphs": [
+        "DHS rescinded the 2014 memorandum in June 2017. In September, Attorney General Jeff Sessions advised Acting Secretary Elaine Duke that DACA shared the defects identified in the DAPA litigation and should end through an orderly wind-down. On September 5, Duke rescinded DACA, relying on the court decisions and Sessions’s illegality determination.",
+        "Duke stopped new applications, permitted two-year renewals for existing recipients whose benefits would expire within six months, and otherwise allowed existing grants to expire without renewal. Recipients, States, universities, and other plaintiffs sued in California, New York, and the District of Columbia.",
+        "The California and New York courts found likely APA success and issued nationwide preliminary injunctions requiring renewals but not new applications. They also allowed equal-protection claims to proceed. The D.C. court granted partial summary judgment, vacated rescission for inadequate explanation, and stayed its order ninety days for a fuller agency explanation. Notice-and-comment and other due-process claims existed below but were not before the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 5–8 & nn.1–2; Thomas, slip 6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Nielsen preserves the original action while adding reasons",
+      "cue": "How did the cases reach the Supreme Court?",
+      "paragraphs": [
+        "In June 2018, Secretary Kirstjen Nielsen declined to disturb Duke’s rescission and offered three independently sufficient grounds: illegality, legal uncertainty and litigation concerns, and policy objections to class-based executive relief. Her policy reasons included congressional responsibility, individualized prosecutorial discretion, and a clear enforcement message. She acknowledged reliance but found it outweighed.",
+        "The D.C. court declined to revise its order because Nielsen had not adequately elaborated Duke’s original illegality ground. The government requested certiorari before judgment in all three cases. The Ninth Circuit affirmed before the Supreme Court granted review; the Second and D.C. Circuit appeals remained unresolved. The Court therefore reviewed three consolidated disputes with different underlying orders, not three identical completed appellate judgments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds reviewable programmatic action",
+      "cue": "Why did enforcement discretion and immigration review limits not bar these suits?",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for Justices Ginsburg, Breyer, Kagan, and Sotomayor on the APA issues. The government invoked Heckler v. Chaney’s protection of prosecutorial discretion. The Court left broader questions about general nonenforcement policies open but held that DACA was more than passive nonenforcement. DHS solicited applications, established standardized adjudication, and issued affirmative approvals identifying recipients of forbearance. Associated benefits added interests ordinarily subject to judicial protection and furnished a concrete focus for review.",
+        "The immigration statutes did not withdraw jurisdiction. Section 1252(b)(9) concerned claims arising from action or proceedings to remove a person; these plaintiffs were not contesting removal proceedings. Section 1252(g) addressed decisions to commence proceedings, adjudicate cases, or execute removal orders, rather than every immigration policy. Revoking DACA and its benefits was none of those specified decisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 9–13; Why the APA and immigration statutes permitted review"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court separates elaboration of an old decision from new agency action",
+      "cue": "Why could Nielsen’s policy discussion not cure Duke’s memorandum?",
+      "paragraphs": [
+        "An agency with a deficient explanation could elaborate the reasons it actually relied on or decide the matter afresh through new action and its required procedures. It could not retain an original decision while adding rationales as though they had always supported it. Nielsen expressly chose to preserve Duke’s action, and the government asked the courts to leave the September 2017 rescission intact.",
+        "Duke relied on illegality alone. Nielsen’s legal-uncertainty concern differed because uncertainty did not necessarily compel remedial action. Her policy preferences also did not appear in Duke’s explanation or its incorporated authorities. Those new grounds could not support the earlier action.",
+        "The majority rejected a distinction between later explanations by lawyers and agency officials: timing, not the speaker, caused the problem. Nor was rulemaking categorically exempt. Requiring a fresh decision for new reasons protected public accountability and orderly review, giving affected people a chance to address the actual authority and grounds rather than forcing parties and courts to chase evolving litigation justifications."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 13–17 & nn.3–4; New reasons required new action"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The original legal rationale leaves two central matters unexplained",
+      "cue": "What did Duke still need to consider?",
+      "paragraphs": [
+        "The Court declined to decide attacks on Sessions’s legal determination. Section 1103(a)(1) made that determination controlling for Duke, and respondents had not sufficiently addressed the constraint or whether these actions properly presented an attack on it. The reservation neither approved DACA nor endorsed every aspect of Sessions’s view.",
+        "DHS still had to decide how to respond. The majority understood the incorporated Fifth Circuit reasoning to concern benefits while leaving forbearance authority intact. Deferring removal was distinct from lawful-presence designations for specified benefits, and relevant regulations allowed separation. Yet Duke did not explain why she ended forbearance, the program’s centerpiece.",
+        "The Court compared State Farm: objections to automatic seatbelts did not justify removing the entire restraint requirement without considering airbags alone. Likewise, objections to benefits required consideration of forbearance alone. DHS might have sound reasons to keep the components together, but counsel’s assertion of linkage did not establish that Duke considered the choice. The agency did not need to examine every imagined alternative, only a central alternative within the existing policy.",
+        "Duke also failed to assess reliance. Disclaimers of substantive rights and two-year terms could reduce reliance’s weight but did not erase it. Plaintiffs and amici cited schooling, careers, businesses, home purchases, family decisions, employer training, and revenue effects. Those were asserted interests and estimates for agency evaluation, not adjudicated damages or findings validating every forecast.",
+        "Reliance did not mandate indefinite continuation. DHS could find it weak, outweighed, or unsuited to a proposed accommodation. Duke’s wind-down addressed administrative complexity rather than recipients’ needs. Possible accommodations included longer renewal periods, dates sensitive to education, military service, or medical treatment, and individualized enforcement decisions. The Court required consideration, not adoption."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 17–26 & nn.5–6; Illegality did not answer the separate policy choices"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Justices divide separately over equal protection and the APA",
+      "cue": "How did the separate writings differ?",
+      "paragraphs": [
+        "Roberts’s Part IV, joined only by Ginsburg, Breyer, and Kagan, found the pleaded animus theory implausible while assuming rather than deciding whether Reno v. American-Arab Anti-Discrimination Committee barred it. That plurality considered disproportionate Latino impact, the sequence, and presidential statements insufficient. It read June’s statement that DACA remained effective as abstention, not reaffirmation, viewed legal advice as explaining reconsideration, and considered the cited presidential remarks remote and unrelated. No comparable Duke or Sessions statements were identified. This was a pleading decision, not a trial finding about every possible motive.",
+        "Sotomayor dissented from that result. Taken together, statements about Mexican immigrants, disparate impact, and abrupt change after earlier assurances plausibly alleged discrimination and warranted factual development. She did not find discrimination proved.",
+        "Justice Thomas, joined by Alito and Gorsuch, regarded DACA as unlawful from inception under the detailed INA scheme and absence of delegated authority. He also considered it an improperly promulgated legislative rule. Correctly recognizing illegality sufficed for rescission; reliance could not authorize power Congress withheld. He disputed separation of benefits and forbearance, distinguished State Farm’s lawful prior policy, and warned that removing benefits after years of eligibility could itself require explanations and regulatory changes. He would reverse and dissolve the injunctions while rejecting equal protection.",
+        "Justice Alito joined Thomas and added that lawful prosecutorial discretion, if that was what DACA represented, made rescission equally unreviewable. Alternatively, he found Nielsen’s reasons sufficient and criticized litigation preventing rescission without holding rescission prohibited.",
+        "Justice Kavanaugh treated Nielsen’s memorandum as agency action in its own right, comparable to reconsideration or a supplemental decision. He found its legality, policy, and reliance analysis reasonable under deferential review, distinguishing official explanations from counsel’s rationalizations and suggesting different treatment for individual adjudications. The majority rejected those distinctions. Kavanaugh reserved the discretion-based reviewability question because he would uphold the merits, and also rejected equal protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 27–29; Sotomayor, slip 1–4; Thomas, slip 1–26 & n.14; Alito, slip 1–2; Kavanaugh, slip 1–8 & note at 7"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court requires renewed consideration and issues distinct orders",
+      "cue": "What exactly happened to each consolidated case?",
+      "paragraphs": [
+        "The Court affirmed the D.C. NAACP judgment vacating rescission. It vacated in part and reversed in part the Ninth Circuit’s Regents judgment. In Batalla Vidal, it vacated the February 13, 2018 preliminary injunction, affirmed in part the November 9, 2017 order partially denying dismissal, and reversed in part the March 29, 2018 order partially denying the remaining dismissal motion. All three cases were remanded. Because the vacatur was affirmed, the Court did not need to resolve the nationwide scope of the other injunctions.",
+        "The APA holding had five votes. Eight Justices rejected the equal-protection claim, although only four joined Roberts’s explanation; Thomas’s group and Kavanaugh concurred in that result, with Sotomayor dissenting. DHS had to consider the problem anew. The Court did not decide DACA was lawful or wise, forbid properly explained rescission, or determine later immigration eligibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Principal opinion, slip 29 & n.7; Thomas, slip 3 n.1; Kavanaugh, slip 8; Sotomayor, slip 4; Exact judgment"
+        }
+      ]
+    }
+  ]
+}

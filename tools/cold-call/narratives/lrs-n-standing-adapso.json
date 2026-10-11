@@ -1,0 +1,127 @@
+{
+  "id": "lrs-n-standing-adapso",
+  "briefId": "LRS-CB-1153",
+  "title": "Association of Data Processing Service Organizations, Inc. v. Camp",
+  "course": "Legislation and the Regulatory State",
+  "citation": "397 U.S. 150 (1970)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Data processors allege that a banking ruling takes their customers; the Court separates their right to challenge it from whether banking law ultimately protects them.",
+  "actors": [
+    {
+      "name": "Association of Data Processing Service Organizations and Data Systems, Inc.",
+      "role": "Businesses challenging bank competition in data-processing services."
+    },
+    {
+      "name": "Comptroller of the Currency",
+      "role": "Issued the 1966 ruling allowing the challenged services."
+    },
+    {
+      "name": "American National Bank & Trust Company",
+      "role": "National bank allegedly competing for Data Systems’ customers."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed for lack of standing.",
+    "The Eighth Circuit affirmed under a legal-interest test.",
+    "The Supreme Court reversed and remanded without deciding the banking-law merits."
+  ],
+  "limits": "This is the Court’s historical 1970 treatment of standing and the statutory zone. Brennan and White’s joint separate opinion is printed after Barlow and applies here; the Barlow majority is not part of this case’s source comparison.",
+  "briefSha256": "db3876d7b114ee0148505d57daf398c464c4153c07c19d5d5991679304a5cc5b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-1153"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A banking ruling opens the processors’ market",
+      "cue": "What specific business injury did the challengers allege?",
+      "paragraphs": [
+        "The Association of Data Processing Service Organizations and Data Systems, Inc., sold data-processing services. In 1966 the Comptroller of the Currency ruled that national banks could, as an incident to banking, provide certain data-processing services to other banks and bank customers. The processors alleged that this opened their business to unlawful bank competition. Their complaint identified American National Bank & Trust Company as performing or preparing services for two customers whom Data Systems had already contracted or negotiated to serve.",
+        "The National Bank Act gave national banks specified powers and incidental powers necessary for banking. Section 4 of the Bank Service Corporation Act of 1962 limited bank service corporations to bank services for banks. The processors argued that federal banking restrictions prohibited the commercial activity the Comptroller had approved. The distinction between a national bank and a bank service corporation mattered: § 4 did not directly name every institution challenged. Whether it ultimately barred this bank’s conduct remained disputed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material facts; 397 U.S. 151–152, 154–156"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two courts require a legal interest before hearing the challenge",
+      "cue": "Why did that threshold threaten to decide the merits?",
+      "paragraphs": [
+        "The processors sued the Comptroller and the bank. The district court dismissed for lack of standing, and the Eighth Circuit affirmed. Its legal-interest approach asked for a recognized entitlement, such as charter or contractual protection, a statutory right against competition, or congressional permission to represent the public interest. The processors were being asked to establish legal protection against the competition before obtaining review of their claim that the banking statutes prohibited it.",
+        "The Supreme Court reviewed that dismissal, not a decision about the legality of the services after a merits hearing. Justice Douglas’s opinion separated an actual stake in the controversy from ultimate entitlement to win. The two-customer allegation and anticipated competitive losses provided injury in fact. A common-law monopoly or contractual right against the bank was unnecessary to establish that the challenged ruling could concretely harm the processors."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Reasoning 1; 397 U.S. 151–153"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Douglas asks about injury, the statutory zone, and preclusion",
+      "cue": "What permitted review without deciding whether the ruling was unlawful?",
+      "paragraphs": [
+        "Douglas rejected substantive legal interest as the gateway test, but did not make injury the whole inquiry. APA § 702 referred to both legal wrong and adverse effect or aggrievement within the meaning of a relevant statute. The majority asked whether the asserted interest was arguably within the zone protected or regulated by that statute or constitutional guarantee. “Arguably” allowed access without conclusively deciding the contested scope of bank powers.",
+        "Section 4’s restrictions and the legislative concern about banks entering nonbank commercial fields supplied the arguable connection between competitive interests and statutory policy. This was not a final ruling that every restriction on bank service corporations directly governed every national bank. Hardin and Chicago v. Atchison supported review by challengers lacking conventional private rights; the discussion of Arnold Tours likewise resisted making access depend on already proving the disputed protection.",
+        "Douglas explained that injury can be aesthetic, conservational, or recreational as well as economic. These processors, however, alleged commercial harm. The opinion did not grant standing based solely on devotion to conservation without injury to the plaintiff; the casebook’s placement of Sierra Club underscores that separate inquiry.",
+        "The Court then asked whether Congress had foreclosed review under APA § 701(a), which addresses statutory preclusion and action committed to agency discretion. Neither banking enactment demonstrated such an intent. The absence of an express competitor-review provision did not itself defeat the APA route. Injury and a qualifying statutory connection allowed a hearing where the scheme did not exclude one, while substantive protection still awaited decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and holding; Reasoning 2–5; 397 U.S. 153–157"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Brennan and White agree on access but resist a second standing test",
+      "cue": "How did their three inquiries differ from the majority’s arrangement?",
+      "paragraphs": [
+        "Justice Brennan, joined by Justice White, agreed with reversal in a joint separate opinion applying to this case and Barlow v. Collins. It appears at pages 167–178 after Barlow in the report. Its placement does not remove it from Data Processing, and agreement on the result did not make Douglas’s extra test unanimous.",
+        "For Brennan, injury in fact established the personal stake needed for an adversarial controversy. Reviewability separately asked whether Congress foreclosed judicial examination altogether or for this plaintiff. The merits separately asked whether the law protected the asserted interest and the agency violated it. He did not reject statutory interpretation; he disputed the function assigned to it at each step.",
+        "Where no statute expressly granted review, even slight indications that the plaintiff’s class benefited from the statute could support reviewability under the APA’s presumption. Stronger proof might be necessary to win. Brennan questioned what entry into the majority’s zone required: a broad competitive interest, a particular protected interest, an allegation, or evidence approaching merits proof. A demanding version risked recreating the legal-interest obstacle the Court had rejected. A version merely asking whether Congress permitted this injured party to challenge the action belonged openly to reviewability. Either way, entitlement to a hearing could coexist with eventual defeat on banking law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinion; 397 U.S. 167–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The processors obtain a hearing, not a banking-law victory",
+      "cue": "What did the judgment leave to the lower courts?",
+      "paragraphs": [
+        "On March 3, 1970, the Supreme Court reversed the Eighth Circuit and remanded for further proceedings. It expressly reserved whether the National Bank Act or Bank Service Corporation Act prohibited the ruling. The processors gained access to adjudication; they did not receive a merits invalidation, a finding of liability, or compensation for lost customers.",
+        "The assigned editorial notes add historical and interpretive questions. The first contrasts the editors’ older legal-wrong and special-review routes with the injury and arguable-zone route used here. The second observes that those precise formulations are absent from the APA and proposes reading both from § 702’s adversely affected or aggrieved language without necessarily invoking Article III. It questions whether beneficiary or direct-injury demands could narrow access under specific review statutes. These are editorial arguments, not Douglas’s holdings or Brennan’s separate reasoning. Their scope ends before Sierra Club’s separate excerpt.",
+        "This account preserves the opinion’s 1970 classification. It does not certify later terminology, present standing law, or today’s scope of national-bank powers. The useful sequence in this record is concrete competition, an arguable banking-law connection, absence of preclusion, and an unresolved merits question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Reasoning 6; Study notes and limits; assigned notes; 397 U.S. 157–158; casebook 1156–1157"
+        }
+      ]
+    }
+  ]
+}

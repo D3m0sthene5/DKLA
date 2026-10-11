@@ -1,0 +1,185 @@
+{
+  "id": "lrs-s-morrison",
+  "briefId": "LRS-ATLAS-S-MORRISON",
+  "title": "Morrison v. Olson",
+  "course": "Legislation and the Regulatory State",
+  "citation": "487 U.S. 654 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A congressional investigation into withheld EPA documents leads to an independent counsel, grand-jury subpoenas, and a constitutional dispute over judicial appointment and executive control of a prosecutor.",
+  "actors": [
+    {
+      "name": "Theodore Olson",
+      "role": "Former Assistant Attorney General for the Office of Legal Counsel; the independent-counsel inquiry concerned allegations about his congressional testimony."
+    },
+    {
+      "name": "Edward Schmults and Carol Dinkins",
+      "role": "Justice Department officials implicated in related allegations; the Attorney General declined separate independent investigations."
+    },
+    {
+      "name": "Attorney General",
+      "role": "Conducted preliminary review, requested the counsel’s appointment, and retained statutory good-cause removal authority."
+    },
+    {
+      "name": "Special Division",
+      "role": "Three-judge body authorized to appoint independent counsel and define related jurisdiction."
+    },
+    {
+      "name": "James McKay and Alexia Morrison",
+      "role": "Successive independent counsel; Morrison issued the disputed subpoenas."
+    }
+  ],
+  "proceedings": [
+    "The district court rejected constitutional motions to quash and entered stayed contempt orders for noncompliance.",
+    "The divided D.C. Circuit held the independent-counsel provisions unconstitutional.",
+    "The Supreme Court reversed on June 29, 1988, by seven votes to one; Justice Kennedy did not participate."
+  ],
+  "limits": "This judgment concerns subpoenas and contempt, not criminal guilt. It addresses the 1988 statutory arrangement, not current independent-counsel or removal law. The Court did not decide the merits of every jurisdictional ruling the Special Division made.",
+  "briefSha256": "80efe1f52c9fd934e60bb837e6ed149cc1bc15683888a9e2c124471d43f4ff34",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-MORRISON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "EPA document subpoenas produce allegations against Justice Department officials",
+      "cue": "What events preceded any independent-counsel appointment?",
+      "paragraphs": [
+        "In 1982, House subpoenas sought EPA records concerning Superfund enforcement. Acting on Justice Department advice, President Reagan directed EPA’s Administrator to withhold enforcement-sensitive documents under executive privilege. The House held the Administrator in contempt, and the Administrator and the United States sued the House. A March 1983 agreement eventually permitted limited access.",
+        "Theodore Olson, then Assistant Attorney General for the Office of Legal Counsel, testified on March 10, 1983. A later House Judiciary Committee investigation produced a 1985 report alleging false or misleading testimony by Olson and improper withholding by Deputy Attorney General Edward Schmults and Assistant Attorney General Carol Dinkins. Those allegations generated the investigation; they were not findings of guilt in this constitutional case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 665–666; Events leading to the constitutional litigation"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Act divides responsibility between the Attorney General and a judicial division",
+      "cue": "How did investigation, appointment, removal, and termination differ?",
+      "paragraphs": [
+        "The Ethics in Government Act covered investigation and possible prosecution of specified high-ranking executive and presidential-campaign officials for federal crimes beyond minor offenses. The Attorney General could also investigate other persons when ordinary Justice Department action presented personal, financial, or political conflicts. Sufficient information triggered a preliminary investigation. A finding of no reasonable grounds barred appointment; grounds for further investigation, or expiration of ninety days without the contrary determination, required a request for counsel.",
+        "A Special Division of three circuit judges or Justices selected by the Chief Justice appointed counsel and defined jurisdiction from the application. Members served two-year terms; one had to be from the D.C. Circuit, and no two from the same court. Counsel exercised Justice Department investigative and prosecutorial powers within the assigned jurisdiction, including grand-jury proceedings, indictments, litigation, and appeals. Counsel could hire staff and obtain Department assistance; the Department suspended its own proceedings on referred matters. Counsel generally followed established Department policies except where compliance was not possible.",
+        "Removal differed from termination of a completed office. Apart from impeachment, removal required the Attorney General’s personal action for good cause, disability, incapacity, or another condition substantially impairing performance. He reported the facts and reasons to the Division and congressional Judiciary Committees. The reviewed statutory version allowed counsel to challenge removal in district court and obtain reinstatement or other relief; Special Division judges could not decide that litigation. Separately, counsel could declare the work complete or substantially complete, and the Division could terminate an office at that stage.",
+        "Reporting, expenses, fees for unindicted subjects, and congressional oversight imposed additional duties. Congress could request that the Attorney General seek appointment, but could not itself appoint counsel."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 660–665 & nn.1–9; What the statute authorized"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Morrison takes over the inquiry and seeks evidence from the officials",
+      "cue": "How did disagreement about related matters reach the courts?",
+      "paragraphs": [
+        "The Department’s Public Integrity Section recommended independent investigation of Olson, Schmults, and Dinkins. The Attorney General requested counsel only for Olson, concluding that the other two lacked the necessary criminal intent. His application also included matters related to the Olson allegation. The Special Division appointed James McKay on April 23, 1986. After McKay resigned, it appointed Alexia Morrison on May 29 with the same jurisdiction.",
+        "In January 1987, Morrison sought referral of the allegations against Schmults and Dinkins as related matters. The Attorney General refused. The Division concluded it could not override his final refusal to request separate investigations, but read the original grant to permit investigation of whether Olson conspired with others, including those officials, to obstruct the Committee.",
+        "Morrison caused testimony and document subpoenas to issue in May and June. The witnesses moved to quash on constitutional grounds. The district court denied the motions, rejected the constitutional challenge, and entered contempt orders when the witnesses continued to refuse compliance, staying the orders for appeal. The divided D.C. Circuit reversed: it considered counsel a principal officer, judicial appointment improper, the Division’s duties incompatible with Article III, and executive control impermissibly impaired."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 666–669 & n.11"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court reaches the constitutional questions and finds an inferior officer",
+      "cue": "What features of this particular office mattered?",
+      "paragraphs": [
+        "Morrison argued that Blair prevented consideration of the objections in a contempt appeal. The Supreme Court rejected that threshold argument because she had not raised it in district court and could waive it. An actual adversarial controversy remained within judicial power. The Court did not decide whether later cases had narrowed Blair.",
+        "Chief Justice Rehnquist wrote for Justices Brennan, White, Marshall, Blackmun, Stevens, and O’Connor. The Appointments Clause generally required presidential nomination and Senate consent for principal officers but allowed Congress to vest inferior-officer appointments in the President alone, department heads, or courts of law. Morrison’s status as an officer rather than an employee was undisputed.",
+        "Without supplying an exhaustive principal/inferior boundary, the majority relied on several features together. A higher executive official could remove Morrison, reflecting some inferior rank despite independent discretion. Her duties were limited to investigation and prosecution, without broad policymaking or administration beyond her office. Her jurisdiction was confined by the statutory process. Although no fixed deadline applied, her office existed for a particular task and ended with its completion rather than carrying continuing responsibilities. Comparisons included temporary vice-consuls, election supervisors, United States commissioners, and the Watergate Special Prosecutor."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 668–673 & n.12; Court, posture, and judgment; Inferior-officer status"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority permits judicial appointment while limiting judicial control",
+      "cue": "Which judicial functions were incidental, and which would exceed the Act?",
+      "paragraphs": [
+        "The majority rejected a categorical rule that each branch could appoint only its own inferior officers. The Clause’s text, constitutional history, and Ex parte Siebold permitted Congress to choose among listed appointing authorities. That power could not impair another branch’s functions or assign courts incongruous work. Courts had experience with prosecutors, and Division judges could not adjudicate matters concerning their appointed counsel, making the arrangement acceptable here.",
+        "Appointment authority came independently from the Appointments Clause rather than Article III’s case-or-controversy power. Defining jurisdiction could be incidental to appointment for this temporary, fact-specific office, but the jurisdiction had to be demonstrably related to the circumstances underlying the Attorney General’s inquiry and application. Expansion required his request; related-matter referral did not authorize unilateral enlargement.",
+        "Receiving reports did not allow the Division to approve their contents or supervise prosecution. Fee awards, time extensions, and disclosure decisions resembled familiar judicial work. The more troubling termination power was construed narrowly: the Division could end an office whose work was truly complete or substantially complete, not remove counsel during an ongoing investigation or proceeding. Removal belonged to the Attorney General.",
+        "The Court stressed restrictions preventing Division judges from hearing challenges to counsel’s conduct or removal. It warned against unauthorized activities such as orders concerning conflicts of interest or delays in investigations. The holding did not approve those actions or decide the merits of the Division’s reading of Morrison’s original grant and related-matter jurisdiction; it established authority to consider the request and clarify the grant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 673–685 & nn.13–22; Interbranch appointments and Article III"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The majority assesses removal protection and the arrangement as a whole",
+      "cue": "Why did reduced executive control remain constitutionally sufficient?",
+      "paragraphs": [
+        "Congress had neither retained direct removal power nor required its consent to removal, distinguishing Bowsher and Myers. The Attorney General exercised removal, subject to review of compliance with the statutory restriction. Drawing on Humphrey’s Executor and Wiener, the majority declined to make validity turn rigidly on labels such as purely executive, quasi-legislative, or quasi-judicial. Functions mattered insofar as restrictions impaired the President’s constitutional duties. Some purely executive officers still required at-will removal, but no universal categorical rule controlled.",
+        "Independent counsel performed executive law enforcement. Even so, the majority considered inferior status, a limited mission, and absence of broad policymaking sufficient to sustain good-cause protection. The Attorney General retained means to ensure competent statutory performance. The Court did not define good cause exhaustively, though the legislative history included misconduct. Judicial review enforced that restriction without transferring the removal decision to the Judiciary.",
+        "Viewed as a whole, the Act produced neither congressional aggrandizement nor judicial usurpation. Congress received reports, exercised oversight, and could request appointment, but did not direct counsel. The Division could not initiate appointment or supervise prosecutorial decisions. The Attorney General controlled the initial determination, supplied the facts framing jurisdiction, retained good-cause removal, and benefited from Department-policy requirements. The majority acknowledged less control than over an ordinary prosecutor but found enough for the President to perform constitutional duties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 685–697 & nn.23–34; Removal restrictions and the whole statutory arrangement"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Scalia rejects both the balancing method and the majority’s assessment of control",
+      "cue": "Why did he regard the prosecutor as a principal officer?",
+      "paragraphs": [
+        "Justice Scalia alone dissented. Article II vested all executive power in the President, and criminal investigation and prosecution were quintessential executive functions. In his view, the deliberate displacement of exclusive presidential control could not be saved by judges deciding how much remaining authority was sufficient. Constitutional allocation, not standardless balancing, controlled. Conflicts involving presidential associates had to be addressed through political and institutional checks, even if those checks could not prevent every wrong.",
+        "Scalia also challenged the practical account. The referral threshold was low, preliminary investigation lacked ordinary tools, and congressional pressure could make referral politically unavoidable. Good-cause protection restrained control rather than supplied it. Compliance with Department policy only when possible did not restore control over resources, priorities, foreign relations, or national security. Focused investigations could chill advisers and damage the Presidency during interbranch disputes; these were structural objections, not findings of innocence or prosecutorial misconduct.",
+        "For Scalia, an inferior officer had to be subordinate, although subordination alone might not suffice. Limited jurisdiction or a task-based office did not make someone inferior when she exercised full prosecutorial authority within that sphere without a superior’s direction. Good-cause removal did not supply supervision, and the tenure could be long. He distinguished officers under actual supervision or revocable executive appointments and would require presidential appointment and Senate consent for Morrison."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 697–723 & nn.1–3; Scalia: executive control and inferior officers"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Scalia qualifies his removal position and the Court ends the appeal",
+      "cue": "What did the dissent not claim, and what did the judgment establish?",
+      "paragraphs": [
+        "Scalia’s fourth footnote did not demand personal presidential at-will removal of every executive officer. He accepted good-cause protection for inferior officers supervised by principal officers enjoying the President’s confidence, at least where the President or a principal executive official appointed them; refusal of supervision would constitute cause. His objection was to a principal officer outside that chain.",
+        "He also linked structure with individual fairness. Ordinary prosecutors balanced multiple demands and supplied a path to political accountability. A prosecutor assigned to a particular person without a competing portfolio risked overinvestment, lost perspective, and selective prosecution without an accountable political superior. Scalia expressly declined to accuse Morrison or the Division of those abuses and praised their integrity; the objection concerned institutional incentives.",
+        "On June 29, 1988, the Supreme Court reversed the D.C. Circuit by seven votes to one. Justice Kennedy did not participate. The Appointments Clause, Article III, and separation-of-powers attacks failed, allowing the subpoena-and-contempt litigation to proceed under a constitutional statutory arrangement. The Court did not determine that Olson or the other witnesses committed a crime. The assigned extracts belong to this same judgment; language suggesting no dissent from the interbranch analysis cannot erase Scalia’s rejection of Morrison’s inferior status and appointment. The interbranch discussion also extends through report page 677, beyond the excerpt’s narrower locator."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 U.S. at 723–734 & n.4; Court, posture, and judgment; Assigned mapping and limits"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "lrs-o-perales",
+  "briefId": "LRS-CB-0401",
+  "title": "Richardson v. Perales",
+  "course": "Legislation and the Regulatory State",
+  "citation": "402 U.S. 389 (1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A truck driver’s disability application produces conflicting medical opinions. Written reports, live testimony and an unused subpoena process raise separate questions about admissibility, reliability and the sufficiency of the whole record.",
+  "actors": [
+    {
+      "name": "Pedro Perales",
+      "role": "San Antonio truck driver seeking Social Security disability benefits for a back condition."
+    },
+    {
+      "name": "Dr. Munslow",
+      "role": "Neurosurgeon who treated and operated on Perales, and later advised return to work."
+    },
+    {
+      "name": "Dr. Morales",
+      "role": "Treating general practitioner who supported the disability claim and testified."
+    },
+    {
+      "name": "The examining report authors",
+      "role": "Five physicians whose written findings opposed the claimed degree of disability."
+    },
+    {
+      "name": "Dr. Leavitt",
+      "role": "Nonexamining medical adviser who testified and was cross-examined."
+    },
+    {
+      "name": "Secretary of Health, Education, and Welfare",
+      "role": "Defended the administrative denial and evidentiary procedure."
+    }
+  ],
+  "proceedings": [
+    "The claim and reconsideration were denied; hearings occurred January 12 and March 31, 1967, and the Appeals Council sustained denial.",
+    "The district court rejected the evidentiary foundation and remanded for a different examiner.",
+    "The Fifth Circuit agreed the reports could be admitted but excluded them from substantial-evidence support in this configuration.",
+    "The Supreme Court reversed and remanded on May 3, 1971, reserving whole-record sufficiency for the district court."
+  ],
+  "limits": "This account follows the canonical brief’s historical decision, without a new audit. Diagnoses and work capacity are medical opinions or administrative findings, not Supreme Court diagnoses. No final benefits entitlement was decided. The Court did not decide a refused necessary-subpoena case, guarantee every requested subpoena, or determine the APA’s wholesale applicability.",
+  "briefSha256": "18d1a2a6d5335ce565499c93c80c1e7ab39770f52e8d3dd2f1e8ede7b77a3269",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0401"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Perales’s back injury produces conflicting medical assessments",
+      "cue": "Which doctors examined him, and which supported disability?",
+      "paragraphs": [
+        "Pedro Perales, a San Antonio truck driver, claimed that a September 1965 lifting injury disabled him. His neurosurgeon, Dr. Munslow, first treated him conservatively, then operated in November 1965. The surgery revealed no protruded disc or other definitive pathology. Perales continued to report pain, but Munslow and a consulting neurologist found no objective neurological explanation. Munslow advised returning to work.",
+        "Dr. Morales, a general practitioner who later treated and hospitalized Perales, concluded that the injury was genuine, permanent and totally disabling and that Perales was not malingering. Orthopedic, psychiatric and electromyographic examinations obtained through the state agency produced different views. The specialists reported limited objective findings and possible poor effort or functional components in the weakness. Those examinations did not support the extent of disability Morales described.",
+        "The medical disagreements were evidence for the administrative process. The Supreme Court later assessed whether the procedures could fairly use the reports; it did not independently diagnose Perales or establish malingering."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 402 U.S. 390–395 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two hearings permit testimony and access to the reports",
+      "cue": "Whom did counsel cross-examine, and whom did counsel never seek to subpoena?",
+      "paragraphs": [
+        "After denial of the claim and reconsideration, Perales received a hearing notice. He and his attorney could inspect the documentary file, submit additional evidence and bring medical or other witnesses. Hearings took place on January 12 and March 31, 1967. Counsel objected to adverse reports as hearsay and on cross-examination and other grounds. The examiner admitted those reports and the reports Perales offered.",
+        "Perales, Morales, a former coworker, a vocational expert and Dr. Leavitt testified. Leavitt was an independent medical adviser called by the examiner. He had not examined Perales. He reviewed the medical evidence, explained technical material, including electromyography, and offered an opinion consistent with the reports that the impairment was mild. Counsel actually cross-examined Leavitt.",
+        "The statute and regulations permitted subpoena requests for the doctors who wrote the reports. Despite representation and a supplemental hearing more than two months after the first, Perales never requested their attendance. That unused opportunity concerned the examining authors, not Leavitt, who was present. The distinction became central to the Supreme Court’s ruling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Reasoning 5, 8; 402 U.S. 395–397, 404–405, 408–410"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The examiner denies benefits and the lower courts question the evidentiary basis",
+      "cue": "What did each tribunal conclude about the medical reports?",
+      "paragraphs": [
+        "The examiner found a mild low-back impairment, an emotional component insufficient for statutory disability, and capacity for certain less strenuous work. The Appeals Council sustained denial after additional material, including a workers’ compensation judgment and another medical report. Some impairment and a compensation judgment did not automatically satisfy the federal substantial-gainful-activity standard.",
+        "Perales sought review under Social Security Act § 205(g), which made administrative factual findings conclusive when supported by substantial evidence. The district court rejected the denial’s evidentiary foundation and ordered a new hearing before a different examiner. It was concerned that the reports were unsworn and that the nonexamining adviser relied on them.",
+        "The Fifth Circuit agreed the reports and Leavitt’s testimony were admissible and recognized that Perales had not used the subpoena procedure. Nonetheless, it concluded that objected-to reports could not constitute substantial evidence when directly opposed by live testimony from the claimant and his physician. On rehearing it limited that statement to this configuration, disavowing a universal prohibition on uncorroborated hearsay. The Secretary obtained Supreme Court review of that exclusion from the substantial-evidence inquiry."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; 402 U.S. 396–399"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court separates admission from evidentiary sufficiency",
+      "cue": "Why could these written medical reports carry substantial weight?",
+      "paragraphs": [
+        "Justice Blackmun wrote for Chief Justice Burger and Justices Harlan, Stewart, White and Marshall. Congress allowed the Social Security process to receive evidence excluded under ordinary courtroom rules. That permitted admission but did not end review: substantial evidence still meant more than a scintilla, evidence a reasonable mind could accept as adequate for the conclusion. The Court rejected automatic disqualification merely because live testimony contradicted a report.",
+        "The five reporting doctors had personally examined Perales and used ordinary professional methods. Their reports contained observations, tests, diagnoses and recommendations within their specialties. Surgery, neurological evaluation, orthopedics, psychiatry and electromyography provided independent detail, and the majority found the reports mutually consistent. This gave them rational probative force beyond unsupported rumor. Consolidated Edison’s caution about uncorroborated hearsay did not establish a categorical bar to medical evidence of this kind.",
+        "Some doctors were retained through the state agency and paid for their professional services. The majority did not infer a stake in denying benefits from payment alone. It viewed the process as adjudicative rather than adversarial and rejected presumed bias from adverse conclusions. This was its assessment of the record, not a declaration that government-retained experts can never be biased.",
+        "Informality also served a large-scale disability system intended to remain accessible to lay claimants. Examiners had to inquire fully and collect relevant material without importing every courtroom formality. Administrative volume supported that design, but did not replace the requirement of a fundamentally fair hearing or the inquiry into actual reliability and safeguards."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning 1–4, 6; 402 U.S. 398–408"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Available subpoenas and the adviser’s actual role answer the majority’s fairness concerns",
+      "cue": "What procedural opportunities limited the holding?",
+      "paragraphs": [
+        "The reports were available for inspection, the authors were identified, and counsel had two hearing opportunities and a procedure for requesting their attendance. Because Perales made no request, the majority rejected the argument that the process denied confrontation or cross-examination. It did not decide a case where the agency refuses a timely request for a materially necessary subpoena, nor establish unconditional issuance of every subpoena sought.",
+        "Goldberg involved different procedures. Perales sought an initial award, had notice and access to reports, and could request the doctors’ attendance. The majority viewed the record as professional disagreement over medical conclusions rather than a credibility dispute requiring confrontation that had been withheld. It still accepted that procedural due process applied; initial applications were not categorically outside constitutional protection.",
+        "Leavitt explained technical evidence to the lay examiner rather than pretending to have personal knowledge of Perales’s condition. His opinion accorded with the examining reports, and counsel could test him. The examiner’s combination of evidence-development and decisionmaking likewise did not automatically make the examiner an advocate or require disqualification on this record.",
+        "Administrative Procedure Act (APA) § 556(d) allows documentary evidence, requires cross-examination when necessary for full and true disclosure, and contemplates specified written procedures for benefit matters. The majority found these procedures consistent with those requirements because the reports remained subject to subpoena and examination. It therefore expressly reserved the APA’s general applicability to disability proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning 5, 7–9; Notes; 402 U.S. 401–402, 404–410"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Douglas objects to untested reports; the Court leaves benefits unresolved",
+      "cue": "What did reversal decide, and what still had to be reviewed?",
+      "paragraphs": [
+        "Justice Douglas, joined by Justices Black and Brennan, agreed that documentary hearsay could be admitted but disputed its capacity here to supply substantial evidence against Perales and his treating physician’s live testimony. He understood fair hearing and substantial-evidence requirements to demand testing of the adverse reports, with cross-examination exposing strengths and weaknesses of competing medical opinions.",
+        "Douglas particularly objected to reliance on a nonexamining adviser and to treating government-retained specialists as reliably neutral. In his view the arrangement gave the government adverse medical opinions without requiring their authors to defend them. He invoked APA legislative history recognizing that necessary cross-examination can reach written evidence. He did not accept that report consistency and the unused request process answered the fairness problem, and would affirm the judgment requiring further agency proceedings.",
+        "On May 3, 1971, the Court reversed and remanded. Examining doctors’ competent, reliable reports could constitute substantial evidence despite hearsay form, absent actual cross-examination and contrary live testimony where the represented claimant did not use the available request procedure. That capacity was not a ruling that every report outweighed testimony or that all admissible hearsay was substantial evidence.",
+        "The Court expressly gave no view on Perales’s entitlement. The district court had to assess the entire material admissible record for substantial-evidence support. The Supreme Court neither awarded benefits, finally found nondisability, nor required a different examiner. Later textbook notes concerning necessity standards for subpoenas and subsequent regulations remain instructional context, not holdings or current-regulation certification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Judgment; Notes; 402 U.S. 410–414 & dissent nn.1–2"
+        }
+      ]
+    }
+  ]
+}

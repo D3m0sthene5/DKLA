@@ -1,0 +1,163 @@
+{
+  "id": "lrs-o-chenery-i",
+  "briefId": "LRS-CB-0536",
+  "title": "SEC v. Chenery Corp. (Chenery I)",
+  "course": "Legislation and the Regulatory State",
+  "citation": "318 U.S. 80 (1943)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The SEC approves a reorganization only after stripping management’s purchased shares of equity participation, and the Supreme Court asks whether the agency’s actual reason supports that result.",
+  "actors": [
+    {
+      "name": "Federal Water Service Corporation",
+      "role": "Delaware utility holding company reorganizing under the 1935 Act."
+    },
+    {
+      "name": "The Chenery management interests",
+      "role": "Officers, directors, and controlling shareholders who acquired preferred shares during reorganization."
+    },
+    {
+      "name": "Utility Operators Company",
+      "role": "Company through which respondents controlled Federal’s Class B common stock."
+    },
+    {
+      "name": "Securities and Exchange Commission",
+      "role": "Agency approving the amended plan and defending its order."
+    }
+  ],
+  "proceedings": [
+    "The SEC approved the amended plan on September 24, 1941.",
+    "A divided D.C. Court of Appeals set aside the order on the management interests’ petition.",
+    "The Supreme Court remanded through the Court of Appeals for further SEC proceedings."
+  ],
+  "limits": "The remand rejects the stated rationale without granting management the shares or foreclosing the same result under a lawful agency judgment. The later 1947 Chenery decision is a separate proceeding.",
+  "briefSha256": "496e2cdbd856ba1f35dc7fd2861dfd58a5632ddf7181c509fef796aad3757027",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0536"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Federal’s controlling shareholders face the loss of their old equity",
+      "cue": "Why did preferred-stock purchases offer a way to retain influence?",
+      "paragraphs": [
+        "Federal Water Service Corporation was a Delaware public utility holding company owning securities in operating subsidiaries across thirteen states and one foreign country. The respondents, officers, directors, and controlling shareholders associated with the Chenery group, controlled Federal through Utility Operators Company, which held all its controlling Class B common stock.",
+        "Federal registered under the Public Utility Holding Company Act in November 1937 and submitted a reorganization proposal. Three successive plans preserving participation for Class B holders were unacceptable to the Securities and Exchange Commission (SEC) and were withdrawn. A fourth, submitted in March 1940, proposed merger and cancellation of Class B shares. Preferred stock and Class A common stock would convert into common shares of the reorganized enterprise. Preferred holders would receive all but the 5.3 percent allocated to Class A holders.",
+        "Meanwhile, between November 1937 and June 1940, management bought 12,407 of the 159,269 outstanding preferred shares through brokers in the over-the-counter market. Management intended to protect its interests, and conversion would provide more than ten percent of the new common stock. The proposed shares’ book value exceeded purchase costs, but the Supreme Court expressly distinguished book value from actual market value."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 318 U.S. at 81–86"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The SEC conditions approval on surrender at cost plus interest",
+      "cue": "What wrongdoing did the majority understand the SEC to have found?",
+      "paragraphs": [
+        "The SEC refused to let management’s purchased preferred shares participate on the same basis as public holders. It reasoned that those directing a reorganization were fiduciaries subject to equitable restrictions against such trading. The plan was amended to require surrender of their shares at cost plus four-percent interest instead of conversion into new equity. The Commission approved it over their objection on September 24, 1941.",
+        "As the Supreme Court majority later read the agency record, the SEC had not found fraud, concealment, misuse of inside knowledge, a price advantage attributable to management’s position, or actual injury to Federal or other shareholders. It understood the transactions to have been honest, disclosed, and at fair prices, with management’s role alone triggering what the SEC regarded as a settled judicial prohibition. Justice Black’s dissent disputed that reading of the administrative decision. His different account must remain attributed to him rather than become an undisputed fact.",
+        "Management sought review under § 24(a) of the Holding Company Act. A divided D.C. Court of Appeals set the order aside. The Supreme Court granted certiorari because the question mattered to administration of the Act. This proceeding reviewed an administrative reorganization order, not a private securities-fraud damages claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; 318 U.S. at 81, 85–90, 95–100"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Frankfurter tests the fiduciary rule the agency actually invoked",
+      "cue": "Why was the label fiduciary not enough?",
+      "paragraphs": [
+        "Justice Frankfurter’s opinion agreed that management directing a reorganization held positions of trust and owed demanding duties. But identifying a fiduciary relationship did not specify its beneficiary, the particular obligation, its breach, or the consequence of breach. The label alone could not establish that an ordinary-market stock purchase forfeited participation in a reorganization.",
+        "The majority read the SEC’s explanation as invoking existing judicial equity rules, particularly an analogy to trustees dealing with trust property, rather than announcing an independent administrative policy under the Act. That characterization determined what the court had to review and was the central disagreement with Black.",
+        "The cited precedents did not establish the categorical prohibition asserted. Pepper v. Litton involved a fraudulent scheme injuring creditors; Woods concerned a bankruptcy court’s control over compensation to representatives with conflicts; Michoud and Magruder concerned express trustees. Their settings differed from open corporate-stock purchases without the particular misuse the majority understood the SEC to have declined to find. The Court rejected the precedents as support for this stated rule; it did not generally endorse insider self-dealing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning 1–3; 318 U.S. at 85–90"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court declines to supply the policy rationale urged in litigation",
+      "cue": "How does review of an agency differ from affirming a court on another ground?",
+      "paragraphs": [
+        "The SEC defended its result through its broader statutory powers and experience with subtle reorganization abuses. Sections 7 and 11 authorized scrutiny of fairness, equity, and the interests of investors, consumers, and the public. Statutory history supported protection from favored insiders’ power. Management could initiate, amend, withdraw, and consent to plans, making its strategic position significant. Section 17’s short-swing-profit regulation did not exhaust the Commission’s authority over other reorganization abuses.",
+        "The majority acknowledged that those powers could support standards evolving beyond pre-1935 equitable doctrine and perhaps a protective policy reaching transactions that individually appeared fair. The defect was that the agency had not exercised that administrative judgment as the basis of the order under review. The court could not infer the missing determination or make it itself.",
+        "An appellate court may sometimes affirm a judicial judgment on another legal ground within its own authority, but cannot supply an unmade jury finding. Similarly, when Congress assigns a policy choice to an agency, that institution must make it. Judicially inventing a policy to sustain an order invades delegated authority just as substituting judicial policy to overturn an order does. Agency counsel’s alternative defense could not replace responsible agency action.",
+        "The remedy reinforced the problem with the stated equitable basis. The SEC did not undo the purchases or provide restitution to supposedly injured sellers. It confirmed acquisition, then required surrender to Federal at cost plus interest. Management was being subjected to a positive conduct rule rather than compensation for a found wrong to identified sellers, making the source and adoption of the rule critical."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning 4–7; 318 U.S. at 88–94"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Clear reasons preserve both correction and deference",
+      "cue": "What did the majority require the agency to do on return?",
+      "paragraphs": [
+        "Review had to proceed on grounds the record showed the agency actually relied upon, sufficiently disclosed and supported to permit judicial examination. A legal misunderstanding warranted correction, whereas a properly authorized policy decision received the review appropriate to that exercise of discretion. Clear grounds allowed courts to tell which kind of decision the SEC had made.",
+        "The requirement was substantive responsibility, not artistic drafting, ritual phrases, or an obligatory form of findings. Nor did the opinion impose an unconditional rule that new policy must always originate through prospective rulemaking. References to a possible general rule illustrated an avenue the agency had not used. The agency retained room to develop lawful standards and reconsider the proposal after remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning 8–9; 318 U.S. at 89, 92–95"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Black believes the agency has already made the needed judgment",
+      "cue": "Why did the dissent see redrafting as unnecessary and potentially harmful?",
+      "paragraphs": [
+        "Justice Black, joined by Reed and Murphy, agreed about management’s fiduciary responsibilities and the SEC’s broad statutory role. He read the administrative explanation as already exercising that authority. He quoted findings that the issuance would harm investors and that the plan would be unfair and inequitable. The reasons were ascertainable without a revised opinion, in his view.",
+        "Black emphasized management’s influence over the plan and the large potential increase in the acquired shares’ book value. He considered the equitable cases useful analogies supporting a protective standard even without identical facts. Citing judicial decisions did not, to him, exclude reliance on administrative experience. His descriptions of insiders’ information advantage and unconscionable profit differed from the majority’s account of the findings and belonged to his rationale.",
+        "He warned that elaborate explanation demands could impede administration and give courts a subtle route into policy review. Adjudication could announce standards to the industry case by case, and a protective rule could address a tendency toward abuse without proving an injury in every instance. The dissent would have sustained the SEC’s rule and order rather than require it to restate what Black believed it had already decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 318 U.S. at 95–100"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Management wins a remand, not entitlement to the disputed equity",
+      "cue": "What is the precise result of the first Chenery decision?",
+      "paragraphs": [
+        "On February 1, 1943, the Supreme Court remanded the cause to the Court of Appeals with instructions to return it to the SEC for appropriate further proceedings consistent with the opinion. The order was not sustained on its existing rationale. Management did not obtain approval of its preferred equity treatment or a declaration that the Commission could never reach the same economic result. Justice Douglas did not participate; no concurrence is reported.",
+        "The 1947 Chenery litigation separately addressed what the agency could do after this remand. The first decision’s allocation of responsibility applies beyond notice-and-comment rulemaking even though the casebook places it in a rulemaking chapter: the action here was adjudicatory. Later editorial discussion of exceptions to futile remands is not an additional holding of the 1943 Court or an independently verified account of every later exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 318 U.S. at 94–100"
+        }
+      ]
+    }
+  ]
+}

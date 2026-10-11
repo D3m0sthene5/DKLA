@@ -1,0 +1,161 @@
+{
+  "id": "austin",
+  "briefId": "CTR-036",
+  "title": "Austin Instrument, Inc. v. Loral Corporation",
+  "course": "Contracts",
+  "citation": "29 N.Y.2d 124, 272 N.E.2d 533 (1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A gear supplier stops deliveries already owed to a Navy radar contractor to obtain higher prices and a second subcontract, leaving two distinct payment claims after the pressure ends.",
+  "actors": [
+    {
+      "name": "Austin Instrument, Inc.",
+      "role": "Precision-gear supplier under two Loral subcontracts; sued for an unpaid balance on the second."
+    },
+    {
+      "name": "Loral Corporation",
+      "role": "Navy radar contractor; sought return of coerced price increases paid under the first subcontract."
+    },
+    {
+      "name": "United States Navy",
+      "role": "Loral’s prime-contract customer, entitled to scheduled radar deliveries and default remedies."
+    }
+  ],
+  "proceedings": [
+    "Austin and Loral filed separate actions on September 15, 1967; the cases were consolidated for trial.",
+    "Austin recovered on its second-subcontract balance; Loral’s claim was dismissed, and the Appellate Division affirmed.",
+    "The Court of Appeals reversed only the dismissal of Loral’s claim and remanded for damages computation."
+  ],
+  "limits": "Loral attacked the first subcontract’s price increases, not the validity of the second subcontract. The Court did not itself award the approximately $22,250 sought. The majority treated duress as a legal conclusion from established facts; the dissent disputed that appellate characterization.",
+  "briefSha256": "293f010d98d9455ac512f5b05b006a20088bdd88ff1dd006d98de20a7a0e25aa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-036"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Loral’s first Navy contract leads to Austin’s initial subcontract",
+      "cue": "What performance was already owed before the parties negotiated new business?",
+      "paragraphs": [
+        "In July 1965, the Navy awarded Loral Corporation a $6 million contract to produce radar sets. Scheduled deliveries mattered: delay carried liquidated damages, and default could permit cancellation. Loral sought bids for approximately forty precision-gear components and awarded twenty-three to Austin Instrument, a manufacturer of those components. Austin began supplying them in early 1966.",
+        "Loral obtained a second Navy contract in May 1966 and again requested bids. Austin sought all forty gear parts. On July 15, Loral said Austin would receive only items for which it was the low bidder. Austin refused an award covering fewer than all forty. The new order was still being negotiated, while deliveries under the first subcontract were already owed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 128–129; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Austin links continued delivery to new concessions",
+      "cue": "Why did Loral consider itself without a practical alternative?",
+      "paragraphs": [
+        "The next day Austin threatened to stop performance of the first subcontract unless Loral awarded all forty items under the second and accepted substantial increases under the first. Those increases reached both parts already delivered and parts still due. Austin then stopped shipments.",
+        "Loral contacted ten manufacturers, its entire approved precision-gear vendor list. None could supply the required parts in time for the Navy production schedule. The best response offered to begin deliveries sometime in October, not to complete the required supply by that date. On July 22, Loral wrote that its urgent search had left no practical alternative to Austin’s demands. Loral accepted the increases and awarded all forty parts under the second subcontract.",
+        "Loral formally allowed Austin until September to resume, but Austin furnished some parts in August. Components for September and October production arrived around late August and early September, forcing Loral to work around the clock. The lead time needed to assemble radar sets made the July stoppage urgent even before the Navy’s formal delivery dates arrived."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 129, 131–133 & nn.1, 6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Loral waits until the supply dependence ends and the parties sue separately",
+      "cue": "Which contract supported each claim?",
+      "paragraphs": [
+        "Austin completed the last delivery under the second subcontract in July 1967. Three days later, Loral demanded repayment of the increases paid under the first. Loral explained that an earlier demand could have triggered another stoppage while it still depended on Austin. The second subcontract therefore mattered to the duration of the pressure even though Loral did not challenge that contract’s validity.",
+        "On September 15, 1967, Austin sued for more than $17,750 unpaid under the second subcontract. That same day, Loral sued to recover approximately $22,250 in increases paid under the first. The actions were consolidated. After trial, Austin received its requested recovery and Loral’s complaint was dismissed because the trial court considered Loral’s proof of unavailable timely replacements insufficient. A closely divided Appellate Division affirmed.",
+        "Loral appealed. The Court of Appeals had to decide whether the established circumstances amounted to economic duress, whether Loral had to pursue additional sources or a Navy extension, and whether waiting until final delivery ratified the coerced modification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 129 n.2, 130, 133; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority distinguishes a wrongful threat from an inadequate choice",
+      "cue": "Why did a threatened breach alone not complete Loral’s case?",
+      "paragraphs": [
+        "Chief Judge Fuld wrote for Judges Burke, Scileppi, and Gibson. A contract was voidable when a wrongful threat deprived the threatened party of meaningful voluntary choice. In this setting, threatening to withhold goods already owed was not enough by itself; the buyer also needed to show that suitable replacements were unavailable in the relevant time and an ordinary breach action was inadequate.",
+        "A seller ordinarily could bargain over whether to accept a new order. Austin instead used performance already owed to obtain new business and increased prices for past and future deliveries. The majority treated that threatened breach as wrongful, then examined Loral’s alternatives.",
+        "The emergency depended on production requirements, not just the next nominal delivery date. Gears were needed before completion of radar sets for staggered September, October, and November commitments. Liquidated damages, cancellation, and damage to future government-business prospects created concrete exposure. The majority rejected treating those concerns as merely subjective or self-imposed.",
+        "Nor did the September deadline given Austin establish that another supplier could begin in October. Austin indicated some August deliveries; even its late-August and early-September shipments demanded exceptional work. A promise only to start later did not supply a usable substitute for earlier commitments or guarantee enough for later ones."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 129–132; Rule and Holding; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority finds Loral’s search reasonable and damages insufficient",
+      "cue": "Why were a Navy extension and unapproved suppliers not required?",
+      "paragraphs": [
+        "Loral could not reliably request a Navy extension of a known length because the replacement supplier promised only the beginning of deliveries and delays were common. An extension might not protect its government relationship, and a subcontractor’s breach did not automatically excuse prime-contract default. The majority did not declare extensions irrelevant in every duress case; it found this uncertain possibility insufficient to defeat the claim.",
+        "Loral’s approved suppliers had been inspected and found capable of meeting exacting military-radar standards. Exhausting that list was reasonable. A trade directory’s additional names did not prove equal capability, quality, or timely performance. Loral did not have to treat every manufacturer as interchangeable.",
+        "A later damages judgment against Austin also would not supply gears when needed or reliably prevent damage to the Navy relationship. Accepting the demanded prices to secure delivery and then seeking repayment of the excess was therefore a permissible response to duress, not conclusive proof of free agreement.",
+        "Prompt disaffirmance ordinarily mattered, but the pressure continued while Austin retained critical obligations under the second subcontract. Its earlier conduct gave Loral a reasonable fear of another stoppage. A demand three days after final delivery was timely once that pressure ended."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 132–134 & n.6; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissent disputes the majority’s power to characterize the record as settled",
+      "cue": "Which alternative account did Austin offer?",
+      "paragraphs": [
+        "Judge Bergan dissented with Judges Breitel and Jasen. Whether the conduct actually produced economic duress was, in their view, a factual issue resolved against Loral at trial and affirmed below. The majority could not convert it into a legal issue simply by describing the facts as undisputed.",
+        "Austin maintained that renegotiation followed Loral’s failure to honor an understanding about an earlier allocation of items and that the stoppage reflected a customary vacation closing rather than extortionate pressure. The dissent also pointed to a trade registry listing suppliers Loral had not contacted. Whether the approved-vendor search exhausted reasonable alternatives remained factual to Bergan. Those were Austin’s account and the dissent’s grounds for deference, not findings adopted by the majority.",
+        "The majority answered that it accepted the lower courts’ facts and corrected their legal significance. The four-to-three division therefore concerned application of duress and the limits of appellate review, not whether economic duress existed as a doctrine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 131 n.5, 134–135; Separate Opinions"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Loral wins a remand for its increases while Austin’s separate recovery survives",
+      "cue": "How do the remedy and the later study comparisons fit?",
+      "paragraphs": [
+        "On July 6, 1971, after argument on May 12, the Court modified the order with costs: it reversed the part affirming dismissal of Loral’s claim and otherwise affirmed. The case returned for computation of Loral’s damages. Austin’s recovery on the second subcontract remained in place. The Court neither entered a final award of the approximate amount Loral demanded nor rescinded the second subcontract.",
+        "The assigned note connects the decision with sales-law modification rules. UCC § 2-209 removes the need for new consideration, but duress remains available through § 1-103(b), and Comment 2 to § 2-209 requires good faith. Thus, the consideration objection associated with Alaska Packers did not exhaust the analysis. The later Restatement §§ 175–176 framework maps coerced assent and absence of reasonable alternatives to § 175, and wrongful threatened breach to § 176(1)(d). Those are explanatory comparisons, not additional holdings in this appeal.",
+        "Loral’s contemporaneous protest supported causation without making its exact words mandatory in every case. A timely qualified substitute, a reliable extension eliminating the emergency, justified renegotiation, or delay after pressure ended could change the analysis; these are study variations, not events established here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29 N.Y.2d at 129 n.2, 130–134; Notes; Source scope"
+        }
+      ]
+    }
+  ]
+}

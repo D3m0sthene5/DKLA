@@ -1,0 +1,160 @@
+{
+  "id": "lrs-n-standing-sierra",
+  "briefId": "LRS-CB-1157",
+  "title": "Sierra Club v. Morton",
+  "course": "Legislation and the Regulatory State",
+  "citation": "405 U.S. 727 (1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A conservation group challenges a proposed resort in Mineral King, but its chosen allegations never connect the threatened environmental changes to its own or its members’ use.",
+  "actors": [
+    {
+      "name": "Sierra Club",
+      "role": "Conservation membership organization seeking to restrain federal approvals."
+    },
+    {
+      "name": "Rogers C. B. Morton and other federal officials",
+      "role": "Officials defending approvals involving national forest and national park land."
+    },
+    {
+      "name": "Walt Disney Enterprises, Inc.",
+      "role": "Selected resort developer as named by the majority; Douglas’s footnote calls it Walt Disney Productions."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of California granted a preliminary injunction after a two-day hearing.",
+    "The Ninth Circuit reversed, including on standing.",
+    "The Supreme Court affirmed for lack of injury allegations and did not resolve the development’s legality."
+  ],
+  "limits": "The judgment concerns the allegations and organizational-interest theory actually presented. The majority left the zone-of-interests question open and permitted only the possibility of seeking leave to amend. The reviewed brief’s historical opinion comparison does not establish the project’s later history or certify present standing doctrine.",
+  "briefSha256": "56521c41e3c7b1b2137237e9a2c4815408698b41d08d46576ab5f30e0f184df1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-1157"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A proposed resort would transform Mineral King",
+      "cue": "Who planned the development, and why did more than one federal department matter?",
+      "paragraphs": [
+        "Mineral King was a largely undeveloped Sierra Nevada valley in Sequoia National Forest, used for hiking, camping, and skiing. In 1965 the Forest Service solicited development proposals and selected Disney from six applicants. The agency granted a three-year permit for surveys and planning, then approved the master plan in January 1969. The approximately $35 million proposal contemplated hotels, restaurants, lifts, parking, and associated facilities serving 14,000 visitors a day.",
+        "The proposed permissions included a thirty-year permit for an eighty-acre part of the development and special-use permits for additional facilities. Access called for a new twenty-mile road partly crossing Sequoia National Park; a high-voltage power line would also cross park land. The Forest Service in the Agriculture Department controlled forest approvals, while Interior officials had responsibilities concerning the park. These distinct approvals explain why the suit challenged federal officials rather than merely a private developer’s construction plans."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material facts; 405 U.S. at 728–730"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Sierra Club challenges the approvals on its conservation interest",
+      "cue": "What did the Club allege, and what did it deliberately leave out?",
+      "paragraphs": [
+        "The Sierra Club, organized in 1892, had roughly 78,000 members, including approximately 27,000 in the San Francisco Bay area. Its conservation expertise and established interest in parks, forests, and refuges were undisputed for this case. In June 1969 it sued in the Northern District of California for declaratory and injunctive relief, including a preliminary injunction.",
+        "The Club alleged that the permit arrangement evaded a statutory acreage limitation, that the proposed road conflicted with park purposes and restrictions, that regulations required a public hearing that had not occurred, and that officials lacked authority to approve the power line. Those were disputed merits allegations, not Supreme Court findings of illegality.",
+        "For standing, the Club relied on its longstanding organizational conservation interest. It did not allege that the organization or any of its members used Mineral King or would suffer diminished activities or enjoyment there. The omission was a choice of legal theory, not merely failure to name a person in an otherwise adequate allegation of injury. An amicus later referred to Club outings in the valley, but the Club had not made such use the basis of its claim below and continued to defend its institutional-interest theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material facts; Procedural history; 405 U.S. at 730–736 & nn.8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A preliminary injunction is granted and then reversed",
+      "cue": "What had the lower courts actually decided?",
+      "paragraphs": [
+        "After a two-day hearing, the district court accepted the Club’s standing and granted preliminary relief. It found the merits questions substantial enough to support an interim injunction. It had not entered a final judgment proving each alleged statutory violation.",
+        "The Ninth Circuit reversed. It rejected standing based on the Club’s special conservation interest and also addressed irreparable injury and the merits showing required for preliminary relief. The Supreme Court granted review on standing. Thus the issue before it was whether this plaintiff could obtain review on these allegations, not whether the resort had been finally adjudged lawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; 405 U.S. at 730–731, 741"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority recognizes environmental injury but requires an injured plaintiff",
+      "cue": "Why was the kind of harm acceptable while the Club’s allegations were insufficient?",
+      "paragraphs": [
+        "Justice Stewart wrote for Chief Justice Burger and Justices White and Marshall. Section 702 of the Administrative Procedure Act (APA) permits review for a person suffering legal wrong or adversely affected or aggrieved within the meaning of a relevant statute. The Court traced the movement away from a narrow legal-interest test and explained Data Processing’s injury-in-fact and zone-of-interests requirements. Because the Club failed at injury, the Court left the zone question unanswered.",
+        "Scenic, recreational, aesthetic, and environmental injury could qualify. Economic loss and property ownership were unnecessary, and an injury did not cease to count merely because many people shared it. Someone using Mineral King could suffer a concrete loss from the development. The missing step was a connection between that harm and the Club or its members. Describing an adverse environmental change did not by itself identify this plaintiff as one of the affected interests.",
+        "An organization could represent injured members without requiring separate suits from each. Its expertise, sincerity, size, and history did not substitute for that injury. If special commitment alone sufficed, a sincere individual could invoke the same theory, leaving no principled limit at an established organization. Congress could broaden the interests supporting review, but the general APA provision supplied no basis for eliminating injury to the party seeking it.",
+        "The majority also separated entry into court from the arguments an injured litigant may make there. Earlier public-interest cases involved plaintiffs who first established a stake, such as economic harm to a competitor. Once standing exists, a litigant can invoke broader statutory and public-interest concerns, including in support of equitable relief. Alleging members’ recreational injury would therefore not trap the Club into arguing only private interests."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; Rule and holdings; 405 U.S. at 731–741 & nn.5,15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Douglas would let the threatened place appear through human representatives",
+      "cue": "What different party did his dissent imagine?",
+      "paragraphs": [
+        "Douglas dissented and also expressed agreement with Blackmun. He proposed allowing suit in the name of the threatened natural object: Mineral King itself could seek protection through knowledgeable human representatives. Corporations and ships already possessed forms of legal personality; he would use an analogous device for an ecological community.",
+        "People who hiked, fished, camped, studied, or otherwise knew a place could present its interests, including the interests of forms of life unable to speak. He distinguished that meaningful connection from simply reacting to environmental publicity. This was a different conception of the represented party, not only an easier means of alleging one member’s recreational injury.",
+        "Douglas worried that agency relationships with regulated interests and practical limits on congressional oversight left environmental concerns underrepresented. Those were institutional assessments in his dissent, not majority findings of corrupt conduct by these officials. He did not ask courts to manage the lands or promise a conservation victory on the merits. His appendix reproduced the Solicitor General’s oral argument about separation of powers and broad judicial access; it was government argument quoted in a dissent, not another Court opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions: Douglas; 405 U.S. at 741–755"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Blackmun offers two routes, and Brennan adopts the second",
+      "cue": "Why must the two proposed remedies remain distinct?",
+      "paragraphs": [
+        "Blackmun regarded the unresolved acreage, road, power-line, refuge, and administrative-compliance questions as substantial. He feared that losing interim protection could allow irreversible physical changes and economic pressure against stopping the project before those legal questions were heard. That concern supported his proposed disposition; it did not establish a particular future construction history.",
+        "His first alternative would reverse the Ninth Circuit and maintain the district court’s standing ruling and injunction on condition that the Club promptly amend to satisfy the majority’s injury requirement. Failure or refusal to amend would end that route. It was more protective than merely allowing the Club to ask for leave after affirmance.",
+        "His second alternative would allow a bona fide, established organization with relevant purposes and expertise to litigate on its organizational interest. He thought courts could use sincerity, knowledge, established status, and ability to present a genuine controversy as practical limits. His discussion of expected visitor traffic and questions about whether local economic beneficiaries would adequately represent conservation concerns supported that proposed expansion; they were not majority rules or findings about every resident’s motives.",
+        "Brennan wrote separately to adopt Blackmun’s second alternative specifically. He would recognize organizational standing and reach the merits. Because the Court did not decide those merits, he recorded agreement that they were substantial without deciding who should win them. He did not adopt every argument or interim remedy Blackmun proposed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions: Blackmun and Brennan; 405 U.S. at 755–760"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The affirmance removes the injunction without approving the project",
+      "cue": "What remains possible after the result, and what was not ordered?",
+      "paragraphs": [
+        "The Supreme Court affirmed the Ninth Circuit on standing. Stewart’s four-Justice majority prevailed over the three separate dissenters; Powell and Rehnquist did not participate. The preliminary injunction was not reinstated. The Court noted that the Club could seek leave to amend under Rule 15, but did not command acceptance of an amendment or preserve relief while one was sought.",
+        "The assigned “Standing v. Cause of Action” note asks which interests associations may represent and whether citizen or taxpayer litigation risks turning courts into forums for generalized grievances. It compares later, more detailed injury, causal, and remedial inquiries with elements of a cause of action and notes the development of redressability. Those are editorial comparisons, not a holding here that standing equals the merits or an adoption of every later standing requirement.",
+        "The case ends with a failure of the injury allegations the Club chose to present. The Court recognized noneconomic environmental injuries and representation of injured members, but did not decide whether these federal approvals were lawful or whether Disney’s development could proceed under the contested statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Scope; Assigned editorial note; 405 U.S. at 735 n.8,741; casebook 1161–1162"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "lrs-o-noel-canning",
+  "briefId": "LRS-ATLAS-O-NOEL-CANNING",
+  "title": "Noel Canning v. NLRB; NLRB v. Noel Canning",
+  "course": "Legislation and the Regulatory State",
+  "citation": "705 F.3d 490 (D.C. Cir. 2013); 573 U.S. 513 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A bottler loses a labor dispute before a Board whose quorum depends on three disputed recess appointments; two courts invalidate the appointments for different reasons.",
+  "actors": [
+    {
+      "name": "Noel Canning",
+      "role": "Pepsi-Cola bottler and distributor disputing a collective-bargaining agreement and the Board’s authority."
+    },
+    {
+      "name": "National Labor Relations Board",
+      "role": "Agency seeking enforcement of its unfair-labor-practice order."
+    },
+    {
+      "name": "President Barack Obama",
+      "role": "Made the disputed January 4, 2012 appointments."
+    },
+    {
+      "name": "Sharon Block, Richard Griffin, and Terence Flynn",
+      "role": "Recess appointees whose appointments were held invalid."
+    }
+  ],
+  "proceedings": [
+    "An ALJ credited the union, and the NLRB ordered execution of the agreement and make-whole relief.",
+    "The D.C. Circuit granted review, vacated the order, and denied enforcement.",
+    "The Supreme Court affirmed because pro forma sessions left only a three-day recess, while rejecting the appellate court’s categorical constitutional rules."
+  ],
+  "limits": "This account preserves both the 2013 appellate decision and the 2014 Supreme Court decision. It does not supply a later labor settlement. The Supreme Court’s short-recess presumption applies to both intersession and intrasession breaks and includes an unusual-emergency qualification.",
+  "briefSha256": "1dd593bbde0666670d78206ffa6308966d4cebd4d714b09fcd207663d8331f48",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-NOEL-CANNING"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The bargaining parties disagree about forty cents",
+      "cue": "How did a labor dispute reach the Board?",
+      "paragraphs": [
+        "After its collective-bargaining agreement expired in April 2010, Noel Canning negotiated a replacement. At the final meeting on December 8, wages and pensions remained unresolved. The parties discussed allocating a forty-cent hourly increase between them. The union’s evidence described an agreement allowing employees to choose the allocation without a ten-cent pension ceiling. After a handshake and an understanding that employees would vote, the company sent an email imposing that ceiling.",
+        "Employees ratified a proposal putting all forty cents into pensions. The company treated that choice as a counteroffer, declared impasse, and refused to execute the agreement. After a two-day hearing, the administrative law judge credited the union’s detailed contemporaneous notes over the company’s account. The National Labor Relations Board (NLRB) eventually ordered Noel Canning to put the agreement in writing, execute it, and make employees whole for losses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dispute and appointments; D.C. Circuit slip 3,5–8; 573 U.S. at 520"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Three appointments occur between brief Senate meetings",
+      "cue": "Why did their validity determine the Board’s power to issue the order?",
+      "paragraphs": [
+        "The Senate arranged pro forma sessions every Tuesday and Friday from December 17, 2011 through January 20, with ordinary business resuming January 23. Although the arrangement contemplated no business, the Senate passed a payroll-tax extension by unanimous consent on December 23. Its January 3 meeting began the second session of the 112th Congress.",
+        "On January 4, President Obama appointed Block, Griffin, and Flynn under the Recess Appointments Clause. Flynn’s nomination had been pending about a year; the others’ only weeks. The vacancies dated from August 27, 2010, August 27, 2011, and January 3, 2012, the last when Craig Becker’s earlier recess commission expired. The administration regarded the pro forma meetings as ineffective interruptions of a longer period when the Senate was unavailable. Noel Canning regarded them as real sessions separating short adjournments.",
+        "When the Board acted on February 8, only Chairman Mark Pearce and Brian Hayes held Senate-confirmed appointments unaffected by the challenge. Hayes, Flynn, and Block sat on this panel. Under the National Labor Relations Act (NLRA) and New Process Steel, the Board required three lawful members. Invalidity of the recess appointments therefore deprived the Board itself of the necessary quorum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dispute and appointments; D.C. Circuit slip 13–15,40–43; 573 U.S. at 520–522,552–554"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The D.C. Circuit first rejects the company’s nonconstitutional objections",
+      "cue": "Why could the court reach the unpreserved quorum challenge?",
+      "paragraphs": [
+        "Noel Canning petitioned for review, and the Board sought enforcement. The D.C. Circuit first considered ordinary objections to avoid an unnecessary constitutional ruling. Substantial evidence supported the ALJ’s credibility choice; a supposed contradiction in a union affidavit was an apparent typographical error. The company’s Washington-law theory had not been presented in its exceptions, so the court did not decide enforceability under that law.",
+        "The likewise unpreserved quorum objection was different. NLRA § 10(e)’s extraordinary-circumstances exception permitted consideration of a fundamental constitutional challenge to the Board’s authority, rather than an ordinary complaint about a hearing examiner’s qualifications. With the other objections unsuccessful, the constitutional question became necessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "D.C. Circuit review; slip 4–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The appellate judges invalidate the appointments under narrow readings",
+      "cue": "Which ground commanded all three judges?",
+      "paragraphs": [
+        "Chief Judge Sentelle, joined by Henderson and Griffith on this ground, construed “the Recess” as only the interval between formal Senate sessions. He relied on the definite article, the singular noun, the distinction from “adjournment,” and commissions expiring at the end of the next “Session.” Early practice, including roughly eighty years without intrasession appointments, outweighed later practice. A presidential power to declare substantial unavailability would undermine the subsidiary character of recess appointments and leave uncertain boundaries. The court rejected Evans v. Stephens. These appointments occurred after the second session had begun and therefore failed its rule.",
+        "Sentelle and Henderson additionally read vacancies that “may happen during the Recess” as vacancies first arising in that same intersession recess. They relied on contemporary usage, the parallel Senate-vacancy clause, and early interpretations. Salary statutes could not authorize a constitutional departure, and structural safeguards could not be waived by the branches. None of the vacancies qualified. The Senate had not adjourned sine die before January 3, so no intervening recess captured Becker’s expiration; a President also could not save a vacancy for a later recess after an intervening Senate opportunity to act.",
+        "Griffith declined to join that second ground because the first sufficed. He thought the broader vacancy interpretation’s history since at least the 1820s warranted caution. All three judges granted the petition, vacated the order, and denied enforcement. They dismissed the Chamber of Commerce and Coalition for a Democratic Workplace’s intervention motion as moot without resolving contested associational standing, because Noel Canning itself could obtain complete relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "D.C. Circuit reasoning and judgment; slip 16–46; Griffith concurrence"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Supreme Court rejects both categorical rules",
+      "cue": "What role did historical practice and duration play?",
+      "paragraphs": [
+        "By Supreme Court decision, confirmed successors had restored an unquestioned Board quorum, but the earlier order’s validity remained live. Related Becker challenges also made the broader questions significant. Breyer, joined by Kennedy, Ginsburg, Sotomayor, and Kagan, treated longstanding practice as important evidence for ambiguous interbranch powers while preserving the Clause as a subsidiary means of staffing government.",
+        "The majority held that sufficiently long intrasession and intersession recesses can qualify. Text did not require one formal interval; early intrasession breaks were uncommon, reducing the force of early silence. Later appointments, executive interpretations, and decades without formal Senate opposition supported the broader reading. The Senate’s rejection of Roosevelt’s instantaneous-recess appointments also showed that a formal label was insufficient.",
+        "A three-day recess is too short, informed by the Adjournments Clause. A break longer than three but shorter than ten days is presumptively too short in either setting. The presumption permits highly unusual emergencies, such as a catastrophe making the Senate unavailable while appointments are urgently needed; political opposition is not such an emergency.",
+        "Vacancies arising earlier and remaining open during a recess also qualify. The text could describe a vacancy that happens to exist, and limiting the power to newly arising vacancies would frustrate continuity when a vacancy preceded departure or persisted despite efforts at confirmation. The majority relied on Wirt’s 1823 interpretation, subsequent practice, the 1863 salary restriction, congressional reactions, and 1940 payment exceptions. Acting officers and special sessions were imperfect substitutes; limited commissions and the Senate’s ability to remain in session constrained evasion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supreme Court questions and rules; 573 U.S. at 519–549"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The pro forma sessions still defeat these appointments",
+      "cue": "Why did an apparently empty chamber count as a session?",
+      "paragraphs": [
+        "The Court treated the Senate as in session when it said so, provided its rules left it able to conduct business. Unanimous consent remained available and a quorum was presumed unless its absence was raised. Actual passage of legislation on December 23 demonstrated that the no-business arrangement could be overcome. The Senate also retained mechanisms to receive messages and obtain members’ attendance.",
+        "The administration’s realistic-availability test would require judicial second-guessing of journals, quorum practices, and internal rules. Practical inconvenience differed from legal incapacity. The January 3 and January 6 sessions left only a three-day interval, making all three appointments invalid and the Board’s order unsupported by a lawful quorum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Pro forma sessions; 573 U.S. at 549–557"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Four Justices would adopt broader limits on recess appointments",
+      "cue": "How does concurrence in the result differ from the Court’s rule?",
+      "paragraphs": [
+        "Scalia, joined by Roberts, Thomas, and Alito, concurred only in the judgment. He favored the two narrow readings substantially matching the D.C. Circuit: formal intersession recesses and vacancies first arising then. He criticized the majority’s duration lines and emergency qualification as judicial inventions; a genuine intersession recess under his approach needed no new minimum, although a merely instantaneous constructive interval did not qualify.",
+        "The concurrence disputed the historical samples and the inference of Senate acquiescence. A unified Executive has incentives to expand power, while a divided Senate’s silence does not necessarily signal agreement. Later practice could not acquire structural authority by adverse possession. Scalia also read early interpretations and the 1863 pay restriction against preexisting-vacancy appointments and distinguished later payment exceptions without deciding those statutes’ constitutionality. Efficiency did not justify changing the constitutional allocation.",
+        "The Supreme Court unanimously affirmed the judgment, but only five Justices adopted its rationale. The labor order remained vacated and unenforceable; the Court did not reject the labor findings on their merits. The assigned account’s contrary suggestion that successors were confirmed afterward and its uncertainty about intersession short recesses are corrected by the judicial account: successors were already confirmed, and the presumption governs both kinds of recess."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia concurrence; Assigned coverage; 573 U.S. at 522,538,557,569–615"
+        }
+      ]
+    }
+  ]
+}

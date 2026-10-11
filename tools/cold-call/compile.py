@@ -1,4 +1,9 @@
-"""Index existing full briefs for Cold Call without duplicating or summarizing their text.
+"""Compile individually authored Cold Call narratives.
+
+The legacy index_brief helper is retained solely for historical regression tests.
+It must not be used as a production narrative generator.
+
+Legacy index description:
 
 Line ranges refer to dklaR19Full, already embedded in the atlas. Facts precede
 procedure; analysis and separate opinions precede the final disposition. Within
@@ -9,6 +14,8 @@ from collections import Counter
 from copy import deepcopy
 import hashlib
 import re
+import json
+from pathlib import Path
 
 COURSES = ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State']
 HEADING = re.compile(r'^(#{1,4})\s+(.+?)\s*$')
@@ -130,59 +137,33 @@ def index_brief(text, title):
 
 
 def compile_cases(manual, graph, briefs, full):
+    """Publish authored accounts only. A source brief is not a narrative fallback."""
     result = deepcopy(manual)
-    result['schemaVersion'] = 2
-    nodes = {n['id']: n for n in graph['nodes']}
-    done = {c['id'] for c in result['cases']}
-    for case in result['cases']:
-        case['origin'] = 'narrative'
-    for brief_id, title, course, status, _, _, atlas_id in briefs['entries']:
-        case_id = atlas_id or 'brief-' + brief_id
-        if case_id in done:
-            continue
-        text = full[brief_id]
-        digest = hashlib.sha256(text.encode()).hexdigest()
-        sections = index_brief(text, title)
-        sources = [{'id': 'brief', 'label': 'Full case brief', 'briefId': brief_id}]
-        node = nodes.get(atlas_id, {})
-        for i, source in enumerate(node.get('sources', [])):
-            url = source.get('url', '')
-            if url and (url.startswith(('https://', '#book=', '#civ=', '#lrs=', '#supp=', 'added-sources/', 'DKLA-sources/'))):
-                sources.append({'id': f'original-{i}', 'label': source.get('label') or 'Assigned source',
-                                **({'path':url} if url.startswith(('added-sources/','DKLA-sources/')) else {'url':url})})
-        result['cases'].append(dict(id=case_id, briefId=brief_id, title=node.get('title', title),
-            course=COURSES[course], citation='', revision='brief-' + digest[:12],
-            origin='brief', briefSha256=digest, sources=sources, sections=sections,
-            notice='The existing brief identifies limits in the available source material.' if status == 'limited' else '',
-            lead='', actors=[], proceedings=[], limits=''))
-        done.add(case_id)
-    # One main-map case has a detailed atlas account but no separate full brief.
-    # Preserve that account and its precise source qualification instead of
-    # manufacturing a fuller opinion or silently hiding its launch control.
-    for node in graph['nodes']:
-        if node['kind'] != 'Case' or node['id'] in done:
-            continue
-        sources = [{'id': f'original-{i}', 'label': s['label'], 'url': s['url']}
-                   for i,s in enumerate(node.get('sources', [])) if s.get('url')]
-        reference = [{'id': sources[0]['id'], 'pinpoint': 'Assigned account'}] if sources else []
-        sections = []
-        for i,(heading,body) in enumerate(node.get('sections', {}).items()):
-            if not body.strip():
-                continue
-            phase = phase_for(heading,0,False)
-            sections.append(dict(id=f'account-{i+1}', title=heading, phase=phase,
-                cue=CUES[phase], paragraphs=body.split('\n\n'), sources=reference))
-        sections.sort(key=lambda s:s['phase'])
-        if node.get('notes'):
-            sections.append(dict(id='record-limits', title='Source qualifications', phase=90,
-                cue=CUES[90], paragraphs=node['notes'].split('\n\n'), sources=reference))
-        digest = hashlib.sha256(str(node.get('sections', {})).encode()).hexdigest()
-        result['cases'].append(dict(id=node['id'],title=node['title'],course=node['courses'][0],
-            citation='',revision='atlas-'+digest[:12],origin='atlas',sources=sources,
-            sections=sections,lead='',actors=[],proceedings=[],limits='',
-            notice='This account follows the assigned translated excerpt; the source qualifications are included below.'))
-        done.add(node['id'])
-    result['coverage'] = {'mapCases': sum(n['kind']=='Case' for n in graph['nodes']),
-        'supportingCases': sum(not e[6] for e in briefs['entries']),
-        'customNarratives': len(manual['cases']), 'total': len(result['cases'])}
+    result['schemaVersion'] = 3
+    for account in result['cases']:
+        account.setdefault('origin', 'narrative')
+    directory = Path(__file__).resolve().parent / 'narratives'
+    for path in sorted(directory.glob('*.json')):
+        account = json.loads(path.read_text(encoding='utf-8'))
+        assert path.stem == account['id'], f'{path.name}: file and case identities differ'
+        assert account.get('origin') == 'narrative', f'{path.name}: only authored narratives may be compiled'
+        result['cases'].append(account)
+    ids = set()
+    for account in result['cases']:
+        assert account['id'] not in ids, f"Duplicate authored account: {account['id']}"
+        ids.add(account['id'])
+    inventory = {n['id']: dict(id=n['id'], title=n['title'], course=n['courses'][0])
+                 for n in graph['nodes'] if n['kind'] == 'Case'}
+    for bid, title, course, status, _, _, atlas_id in briefs['entries']:
+        cid = atlas_id or 'brief-' + bid
+        inventory[cid] = dict(id=cid, title=title, course=COURSES[course], briefId=bid)
+    assert ids <= inventory.keys(), f'Unknown authored cases: {sorted(ids-inventory.keys())}'
+    result['pending'] = [inventory[cid] for cid in sorted(inventory.keys()-ids)]
+    result['coverage'] = dict(
+        mapCases=sum(not cid.startswith('brief-') for cid in ids),
+        supportingCases=sum(cid.startswith('brief-') for cid in ids),
+        customNarratives=len(ids), total=len(ids), pending=len(result['pending']),
+        inventoryMapCases=sum(not cid.startswith('brief-') for cid in inventory),
+        inventorySupportingCases=sum(cid.startswith('brief-') for cid in inventory),
+        inventoryTotal=len(inventory))
     return result

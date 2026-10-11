@@ -1,0 +1,182 @@
+{
+  "id": "lrs-s-myers",
+  "briefId": "LRS-NEXT-011",
+  "title": "Myers v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "272 U.S. 52 (1926)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Frank Myers lost his postmastership before his four-year term ended. His estate’s salary claim forced the Court to choose between Congress’s express Senate-consent requirement and an implied presidential removal power.",
+  "actors": [
+    {
+      "name": "Frank S. Myers",
+      "role": "Portland, Oregon first-class postmaster appointed July 21, 1917; removed before completing his term."
+    },
+    {
+      "name": "The President and Postmaster General",
+      "role": "President directed Myers’s removal, which the Postmaster General carried out."
+    },
+    {
+      "name": "Jones",
+      "role": "Recess-appointed replacement who took office September 19, 1920."
+    },
+    {
+      "name": "Myers’s administratrix",
+      "role": "Pursued the salary claim on Supreme Court appeal."
+    },
+    {
+      "name": "Senator George Wharton Pepper",
+      "role": "At the Court’s request, presented arguments as amicus against unilateral presidential removal."
+    }
+  ],
+  "proceedings": [
+    "Myers sued for salary in the Court of Claims April 21, 1921, later seeking $8,838.71 through the term’s end.",
+    "Court of Claims rejected the claim for laches.",
+    "Supreme Court on October 25, 1926 rejected the laches rationale but affirmed because the statutory removal restriction was unconstitutional; Holmes, McReynolds, and Brandeis separately dissented."
+  ],
+  "limits": "The majority uses February 2, 1920 for removal; McReynolds’s recital uses February 3. The claim sought salary, not an order of reinstatement. This historical account does not establish all present-day removal doctrine.",
+  "briefSha256": "ecce9de5f40cc4dd641bf6304f90e2ff2d542c2625946baa3c2a381d0a85569e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-NEXT-011"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A fixed term comes with an express removal condition",
+      "cue": "What did the postal statute promise, and how was Myers removed?",
+      "paragraphs": [
+        "On July 21, 1917, the President appointed Frank S. Myers first-class postmaster at Portland, Oregon, with Senate advice and consent, for four years. Section 6 of the Act of July 12, 1876 required Senate consent for both presidential appointment and removal of postmasters in the first three classes. They held four-year terms unless sooner removed or suspended according to law. Congress had expressly addressed removal; this was not a silent statute from which an ordinary power had to be inferred.",
+        "Myers was asked to resign on January 20, 1920 and refused. According to the majority’s chronology, the Postmaster General removed him on February 2 at the President’s direction. On February 10, Myers petitioned the President and the Senate Post Offices Committee for a chance to answer charges. He continued protesting to the Department until his term ended, took no other occupation, and received no compensation from other service.",
+        "The President recess-appointed a replacement, Jones, in August 1920; Jones took office September 19. That replacement did not provide Senate consent to Myers’s removal. McReynolds’s separate factual recital later used February 3 as the removal and salary-start date. The report does not silently resolve that one-day discrepancy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and claim; 272 U.S. at 106–08, 178, 187"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The salary suit reaches the constitutional question",
+      "cue": "Why could the Court not simply uphold the finding of delay?",
+      "paragraphs": [
+        "Myers sued in the Court of Claims on April 21, 1921. After the term expired on July 21, a supplemental petition sought $8,838.71 for the remaining-term period after removal. His administratrix prosecuted the Supreme Court appeal. The requested judicial remedy was money, not restoration to office.",
+        "The Court of Claims rejected the claim for laches, reasoning that a dismissed officer must promptly assert his rights. Chief Justice Taft’s Supreme Court opinion accepted that general requirement but found Myers met it. Myers continuously sought reinstatement. A Senate committee hearing depended on receipt of a removal notice or successor nomination, yet neither arrived during the three sessions before his term ended. He sued shortly after the Sixty-sixth Congress concluded and three months before expiration of the term.",
+        "The Solicitor General orally conceded that laches was unproved without formally confessing error. The Court therefore had to address the statute: if Senate consent was a valid prerequisite, the administratrix was entitled to unpaid salary; if unconstitutional, removal was effective and the adverse judgment could stand for a different reason."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural posture; 272 U.S. at 107–08"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Taft links executive responsibility with control of subordinates",
+      "cue": "How did the majority infer removal authority from Article II?",
+      "paragraphs": [
+        "Myers relied on the postal statute and Congress’s power to create inferior offices, prescribe duties, tenure and compensation, and provide machinery for federal administration. Opponents of unilateral removal also invoked the absence of a general constitutional removal clause and Marbury’s discussion of fixed tenure. At the Court’s request, Senator George Wharton Pepper presented opposing arguments as a friend of the Court. The government answered that Article II vested removal power exclusively in the President.",
+        "The Constitution expressly addresses impeachment and Article III judicial tenure, but not ordinary executive removal generally. Article II vests executive power, prescribes appointment methods, and requires faithful execution. Taft read the Executive Vesting Clause as a substantive grant. A President responsible for executing laws must act through officers and be able to dismiss those whose ability, judgment, loyalty, or performance no longer merits confidence. Responsibility without control would place administration elsewhere while leaving the President accountable.",
+        "Taft contrasted Congress’s enumerated legislative powers with Article II’s general executive grant. The Senate’s express appointment role did not extend by implication to removal. A rejected nominee could ordinarily be replaced with another candidate; a Senate removal veto could force retention of an officer whose service demonstrated unfitness. The President and administrators were positioned to assess that service. In the majority’s reasoning, removal followed presidential appointment authority, not the Senate’s limited advice-and-consent participation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Issue and majority reasoning; 272 U.S. at 108–10, 115–25, 131–34, 151–52, 163–64"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Congress may design the office but cannot take its removal power",
+      "cue": "Which legislative powers did Taft preserve?",
+      "paragraphs": [
+        "Congress could create offices, define duties and jurisdiction, prescribe reasonable qualifications, set duration, and fix compensation. Taft distinguished these choices from selecting an incumbent or controlling removal once the office existed. Qualifications could not become disguised legislative selection. Congress’s distribution of jurisdiction among inferior federal courts did not establish a power to redistribute executive appointment and removal authority after creating an executive office.",
+        "Control also varied with assigned duties. Some statutory decisions belonged to an officer’s own discretion, and the President could not properly dictate an individual quasi-judicial decision affecting private interests. Taft nevertheless allowed the President to examine completed decisions in evaluating whether discretion had generally been exercised wisely and intelligently, and remove the officer on that assessment. The distinction was between directing a particular adjudication and evaluating continued service, not treating every statutory decision as personally the President’s."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning and qualifications; 272 U.S. at 126–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The 1789 debate anchors the majority’s historical account",
+      "cue": "Why did later contrary legislation not persuade Taft?",
+      "paragraphs": [
+        "The First Congress’s organization of the Department of Foreign Affairs supplied Taft’s principal historical support. The House initially considered an express presidential-removal provision. Benson’s amendments instead addressed custody of records when the President removed the secretary and deleted the express grant. Taft read this sequence as recognizing an existing constitutional power while avoiding the implication of a revocable legislative delegation. Vice President Adams broke the Senate division, and President Washington signed. Contemporary accounts varied on the exact Senate tally, a difference the opinion’s note acknowledged.",
+        "The majority gave this early construction substantial weight because it organized the new government, involved Constitutional Convention participants, and was followed, in Taft’s view, by longstanding interbranch practice. Congress’s view was not automatically conclusive; Taft agreed with its substantive reasoning. He treated Marbury’s discussion of irrevocable appointment as unnecessary to its jurisdictional judgment and used cases including Parsons to reject a fixed term as an unconditional right to remain despite removal.",
+        "Taft treated Reconstruction’s Tenure of Office Act as a departure from the earlier understanding, with presidential objections and later repeal defeating a claim of settled acquiescence. Signing legislation with a removal rider could reflect the importance of an appropriation rather than acceptance of the rider’s constitutionality. Practice required attention to opportunities for objection and all branches’ positions. He held the 1867 Act invalid insofar as it prevented removal of executive officers appointed with Senate consent and applied the same conclusion to Myers’s postal restriction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Historical reasoning; 272 U.S. at 111–15 & n.*, 136–56, 164–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Appointment by a department head presents a different case",
+      "cue": "What did the Court leave unresolved?",
+      "paragraphs": [
+        "United States v. Perkins allowed Congress to restrict a department head’s removal of an inferior officer whose appointment Congress had vested in that head. The head had no independent constitutional appointment prerogative defeating the statutory condition. That exception could not be used to bring removal participation to Congress or a chamber, and Myers’s presidential appointment with Senate consent had not been replaced by the department-head alternative.",
+        "The Court expressly reserved whether Congress could impose additional removal regulation when it vested an inferior officer’s appointment in the President alone. It also left questions involving judges outside Article III for another case because their functions differed from executive duties. The holding therefore operated through the appointment arrangement before the Court and did not answer every possible inferior-officer or judicial-tenure question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Qualifications; 272 U.S. at 154–64, especially 158, 160–62"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Holmes and McReynolds defend Congress’s tenure condition",
+      "cue": "Why did the dissents reject the claimed constitutional necessity?",
+      "paragraphs": [
+        "Justice Holmes’s short dissent emphasized Congress’s control over the office it created. If Congress could abolish it, fix its duration and salary, or vest this inferior appointment in another authorized actor, Holmes saw no reason it could not protect tenure until Congress or the Senate consented to removal. Faithful execution meant acting within valid laws and supplied powers. He agreed with the conclusions of McReynolds and Brandeis.",
+        "Justice McReynolds concentrated on an inferior postmaster with a definite term and an express statutory restriction. An assumed removal power in statutory silence did not establish power to disregard a positive limitation. Ousting an officer might be executive conduct, while specifying when ouster could occur was legislative. Congress’s postal and Necessary and Proper powers, and its ability to use department-head appointment, undermined the supposed indispensability of unrestricted presidential control.",
+        "McReynolds disputed a clear 1789 settlement: that debate involved a superior officer without a fixed term and participants with divergent theories. Later statutes supported tenure regulation. He regarded Marbury’s protected right to office as a necessary step rather than disposable dictum and read Parsons, Perkins, and Shurtleff as compatible with statutory limits. Undefined royal prerogatives could not enter a limited government through broad executive language. He would award judgment to the administratrix."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holmes and McReynolds dissents; 272 U.S. at 177–239"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Brandeis treats friction as a constitutional safeguard",
+      "cue": "What final judgment defeated the salary claim?",
+      "paragraphs": [
+        "Justice Brandeis framed an even narrower question: could the President ignore the Senate-consent condition for this inferior civil officer while the Senate was in session? Military and cabinet removals and recess removals were unnecessary to decide. Legislative authority over tenure included its ending conditions. Implied executive authority should extend only as far as constitutional duty required; suspension could address immediate disloyalty or neglect without unrestricted permanent removal.",
+        "His extensive notes surveyed state structures, federal tenure laws, presidential compliance, successor appointments, and nomination restrictions to show that effective government and legislative limits could coexist. He read the 1789 votes as coalitions resting on different premises rather than agreement that Congress lacked regulatory authority. Tenure protections also reflected resistance to the spoils system, not merely the Johnson controversy. Separation of powers deliberately tolerated friction to check arbitrary authority; the President had to use lawful means, not every power that might improve efficiency.",
+        "On October 25, 1926, the Court affirmed the judgment against Myers’s administratrix. Taft’s majority upheld removal because the Senate-consent restriction was unconstitutional, while rejecting the Court of Claims’ laches reasoning. Holmes, McReynolds, and Brandeis each dissented. The estate therefore lost the remaining-term salary claim on the constitutional ground, not because Myers failed to act promptly."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Brandeis dissent and judgment; 272 U.S. at 107–08, 176–78, 240–95"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "lrs-k-vanderstok",
+  "briefId": "LRS-SUP-0003C",
+  "title": "Bondi v. VanDerStok",
+  "course": "Legislation and the Regulatory State",
+  "citation": "145 S. Ct. 857 (2025)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "ATF brings certain incomplete firearm products within existing federal requirements, and a challenge to the entire rule turns on whether Congress categorically excluded every unfinished kit or component.",
+  "actors": [
+    {
+      "name": "Jennifer VanDerStok and other individual and business challengers",
+      "role": "Brought a pre-enforcement statutory challenge to ATF’s 2022 rule."
+    },
+    {
+      "name": "Bureau of Alcohol, Tobacco, Firearms and Explosives",
+      "role": "Promulgated the disputed regulatory definitions."
+    },
+    {
+      "name": "Attorney General and other federal officials",
+      "role": "Defended ATF’s rule in court."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of Texas granted summary judgment and vacated the rule.",
+    "The Fifth Circuit largely affirmed through categorical readings excluding kits and incomplete components.",
+    "The Supreme Court reversed and remanded on March 26, 2025."
+  ],
+  "limits": "The holding rejects the facial statutory objections as litigated; it does not approve every application or prescribe the universal test for pre-enforcement APA challenges. Slip-page citations refer separately to each opinion. The assigned kit-only excerpt omitted the frame analysis and several separate opinions supplied in the full source brief.",
+  "briefSha256": "f18672959d83ef55f6e5f2dd92325d9efd01093609b1001955e816c6c96cf318",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0003C"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress defines weapons and components, and ATF addresses unfinished products",
+      "cue": "Which statutory categories did the 2022 rule address?",
+      "paragraphs": [
+        "The Gun Control Act defined a firearm through several categories. Under 18 U.S.C. § 921(a)(3)(A), it included a weapon that will, is designed to, or may readily be converted to expel a projectile by explosive action; Congress expressly included starter guns. Subsection (B) independently included the frame or receiver of such a weapon. Other subsections covered silencers, mufflers, and destructive devices. A weapon and a component classified as a firearm therefore presented distinct statutory questions.",
+        "In 2022, the Bureau of Alcohol, Tobacco, Firearms and Explosives adopted a rule applying existing licensing, recordkeeping, serialization, and background-check requirements to certain weapon-parts kits and incomplete components. The kit provisions concerned products designed to, or readily capable of being completed or assembled to, operate as firearms. The component provisions covered partially complete, disassembled, or nonfunctional frames and receivers that could be completed or converted to function as those components. ATF also excluded objects not yet sufficiently identifiable as unfinished weapon components.",
+        "The rule did not simply prohibit every kit or every homemade firearm. Jennifer VanDerStok and other individuals and businesses nevertheless maintained that the definitions reached beyond what Congress had authorized. The record included Polymer80 products whose relationship to the intended final weapons or components, degree of completion, and limited remaining work would become important to the Court’s analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch, slip op. at 1–6, 8–13, 17–19; Parties and material facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A facial challenge produces categorical exclusions below",
+      "cue": "What did the lower courts decide, and what framework reached the Supreme Court?",
+      "paragraphs": [
+        "The challengers filed a pre-enforcement action under the Administrative Procedure Act seeking to set aside the rule as exceeding statutory authority. They described their challenge as facial. The Northern District of Texas granted summary judgment and vacated the rule. The Fifth Circuit largely affirmed, reading subsection (A) categorically to exclude weapon-parts kits and subsection (B) to reach only completed frames or receivers.",
+        "The Supreme Court granted review of both questions. For this case, the majority accepted the parties’ framing that the challengers had to show facial inconsistency with the statute. The majority considered the government’s formulation unchallenged in the briefing. Justices Thomas and Alito would dispute both the suitability of that framework and the inference that the challengers had accepted it. That procedural disagreement mattered because showing that some products qualified could defeat a categorical challenge without deciding every possible application of the rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch, slip op. at 5–7 & n.2; Thomas, slip op. at 6–9; Alito, slip op. at 1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Gorsuch asks whether some kits already are weapons",
+      "cue": "Why did incompleteness not settle the identity of the product?",
+      "paragraphs": [
+        "Justice Gorsuch wrote for Chief Justice Roberts and Justices Sotomayor, Kagan, Kavanaugh, Barrett, and Jackson. The majority retained two requirements under subsection (A): an object must be a weapon, and it must have the specified relationship to firing through present ability, design, or ready conversion. Mere eventual transformability did not erase the noun “weapon.” The Court concluded that some kits already satisfied both requirements.",
+        "Gorsuch described “weapon” as an artifact noun: an object people make and identify substantially by its intended function. An unfinished manuscript may be called a novel, and an unassembled furniture purchase a table. In context, incompleteness need not erase identity. The record products had an obvious intended function and a substantially complete collection of components. The majority’s point was about ordinary usage in a suitable context, not every precursor to every human-made object.",
+        "The statute reinforced that reading by expressly including starter guns, which ordinarily require conversion to fire live projectiles. Present operational readiness therefore could not be essential. References to design and ready conversion likewise would serve little purpose if Congress reached only fully operating guns. The majority compared the remaining work for the record kit with conversion of a starter gun and found no greater burden of time, expertise, or specialized equipment. That comparison applied the statutory standard; it did not impose a numerical time limit for all products.",
+        "The Court acknowledged difficult boundaries: as components disappear, an object eventually ceases to fit the noun, much as removing grains eventually leaves no heap. Some cases remained uncertain, but the clear examples before the Court defeated the Fifth Circuit’s categorical exclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch, slip op. at 7–13, 17 n.4; Majority reasoning on the assigned kit issue"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority tests the kit reading against neighboring provisions",
+      "cue": "Why did express references to parts elsewhere not exclude every kit here?",
+      "paragraphs": [
+        "The challengers emphasized that other statutory provisions expressly addressed combinations of parts. The majority agreed that subsection (A) was narrower than those provisions: it did not reach every separate component or every conceivable kit. A difference in breadth, however, did not establish that no sufficiently complete kit could be a weapon under subsection (A).",
+        "The proposed requirement of a fully functioning frame also lacked a categorical basis in the text; some kits could satisfy even that proposed requirement. Nor could the definition be narrowed merely because certain criminal provisions would rarely apply to kits. Congress expressly classified components and silencers as firearms even though those objects could not meaningfully participate in every firearm-related offense. The definition operated across the Act and did not depend on a prototypical completed gun in every application."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch, slip op. at 14–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court separately examines unfinished frames and receivers",
+      "cue": "How could subsection (B) include incomplete components without conversion language?",
+      "paragraphs": [
+        "The majority next applied ordinary usage to “frame” and “receiver.” Section 923(i) required serial numbers on the frame or receiver of covered firearms. Because the Act reached some incomplete or unconventional weapons and devices, that serialization scheme used the component terms more broadly than a single prototypical finished frame. The Court favored consistent usage across the statute.",
+        "ATF’s longstanding treatment of some incomplete components supplied further evidence of meaning. The challengers conceded that they did not dispute the agency’s earlier practice, undermining their categorical completed-items-only position. The majority nevertheless retained the judiciary’s independent duty to interpret the statute; historical practice did not restore mandatory deference to any reasonable agency interpretation.",
+        "Subsection (B) omitted subsection (A)’s express ready-conversion language. The majority answered that the component nouns themselves could include certain unfinished objects in context. The reference to the frame or receiver of “any such weapon” also connected subsection (B) to subsection (A), which already included some incomplete weapons. Ordinary usage, that connection, serialization, and prior practice jointly supported the result. The Court did not simply import conversion language into every provision where Congress omitted it.",
+        "The challengers warned that this reasoning could turn ordinary semiautomatic receivers into machinegun receivers under the National Firearms Act. The majority rejected the extrapolation because the statutes differed in language, context, and regulatory problems, and the government disclaimed that classification. Questions about the proper weight of tools, instructions, and other associated materials in individual classifications remained open. Text, context, and structure resolved the categorical dispute, so lenity and constitutional avoidance did not change the result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch, slip op. at 17–24 & nn.4–5; Additional majority reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Three concurrences address different consequences of the ruling",
+      "cue": "What did Sotomayor, Kavanaugh, and Jackson each add?",
+      "paragraphs": [
+        "Justice Sotomayor joined the majority in full and stressed that the regulatory duties were longstanding. Good-faith businesses could seek agency classifications for doubtful products. Responding to fair-notice concerns and descriptions of the examples as exceptionally close to finished products, she cautioned that a dissent’s characterization should not replace the majority’s own account of its holding. Her concurrence did not classify every possible kit.",
+        "Justice Kavanaugh also joined in full but recognized uncertainty at the boundary. He distinguished offenses requiring willfulness from background-check offenses requiring knowledge. Under the authority he discussed, willfulness generally required awareness of unlawfulness, while knowledge ordinarily concerned the facts constituting the offense. The former offered additional protection when a person did not know a disputed classification made conduct unlawful. For background-check violations, Kavanaugh noted the government’s representation that it likely would not prosecute certain good-faith situations and identified a possible due-process fair-notice argument. He did not make knowledge of illegality an element of every offense or declare notice concerns eliminated.",
+        "Justice Jackson focused on the limited excess-of-authority claim. Congress delegated rulemaking power, and courts had to determine its statutory boundaries. Once agency action fell within those boundaries, judges could not invalidate it merely because they would have chosen a different policy. Her point preserved judicial interpretation of legal limits while distinguishing policy choices entrusted to the agency; it did not let ATF define its own jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor, slip op. at 1–2; Kavanaugh, slip op. at 1–2; Jackson, slip op. at 1"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Thomas challenges both the review framework and the statutory reading",
+      "cue": "Why did Thomas reject the majority’s examples and noun analysis?",
+      "paragraphs": [
+        "Justice Thomas dissented. He objected that a regulation could have some lawful applications while still defining a category more broadly than Congress allowed. Treating a single overlap as dispositive could insulate an overbroad definition. He would test the regulation against statutory limits rather than stop after finding a valid application.",
+        "Thomas read frames and receivers as actual functional components, not objects that must first become those components. Congress’s inclusion of conversion language elsewhere and omission from subsection (B) supported deliberate exclusion. External marketing materials or tools should not alter the legal identity of the object. Casual references to unfinished novels or tables, he argued, did not overcome precise statutory distinctions. He treated the serialization examples as context-specific accommodations, not a reason to expand the component terms throughout the Act.",
+        "For kits, Thomas insisted that the product first qualify as a weapon before ready conversion mattered. A collection of unfinished pieces without the essential functional component was not already a weapon. The explicit inclusion of starter guns was a specified exception, not authority to generalize further exceptions. If uncertainty persisted, the statute’s criminal consequences called for lenity. His analysis drew on Thompson/Center Arms and the contrast between definitions expressly referring to parts combinations and those that did not."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 6–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Alito agrees about the examples but disputes the route to judgment",
+      "cue": "What disposition did Alito propose, and what did the Court actually order?",
+      "paragraphs": [
+        "Justice Alito’s dissent differed from Thomas’s. Alito agreed that the examples identified by the majority were consistent with the statute and would have joined if satisfied that the demanding facial-challenge standard governed. He denied that calling a challenge “facial” necessarily conceded a particular constitutional facial-challenge test for APA litigation. Respect for legislative enactments might support such a test in constitutional litigation without justifying it for an agency definition alleged to exceed legislative instructions. Importing it could substantially restrict review of overbroad rules.",
+        "Alito would have sought supplemental briefing or vacated and remanded for the Fifth Circuit to consider the appropriate test. His disagreement therefore cannot be reduced to the proposition that no kit could ever qualify.",
+        "On March 26, 2025, the Court reversed the Fifth Circuit and remanded. At least some kits and some unfinished frames or receivers fit the statutory categories, so the facial objections as litigated failed. The Court left difficult product classifications and the general APA framework for other cases. Its footnote added a remand constraint: forfeiture and law-of-the-case principles prevented these parties from using remand to inject arguments they had not pursued in the Supreme Court. The result neither authorized regulation of raw material merely because it might become a firearm nor approved every future application of the rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito, slip op. at 1–5; Gorsuch, slip op. at 7 n.2, 23–24; Actual judgment and consequences for remand"
+        }
+      ]
+    }
+  ]
+}

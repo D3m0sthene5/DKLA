@@ -1,0 +1,183 @@
+{
+  "id": "cosby",
+  "briefId": "CT-COMPLETE-FA26-COSBY",
+  "title": "Commonwealth v. Cosby",
+  "course": "Contracts",
+  "citation": "252 A.3d 1092 (Pa. 2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A prosecutor declined charges to induce civil testimony. After that testimony helped produce a settlement and later became prosecution evidence, Pennsylvania’s Supreme Court had to decide what remedy due process required.",
+  "actors": [
+    {
+      "name": "Andrea Constand",
+      "role": "Temple University athletics employee who reported an assault and later sued Cosby civilly."
+    },
+    {
+      "name": "William Henry Cosby Jr.",
+      "role": "Civil defendant and later criminal defendant convicted of three aggravated-indecent-assault counts."
+    },
+    {
+      "name": "Bruce Castor",
+      "role": "Montgomery County district attorney who announced nonprosecution in 2005."
+    },
+    {
+      "name": "Walter Phillips and John Schmitt",
+      "role": "Cosby’s criminal and civil counsel, respectively; Phillips relayed Castor’s decision to Schmitt."
+    },
+    {
+      "name": "Risa Ferman and successor prosecutors",
+      "role": "Prosecutorial officials who disputed the binding effect of Castor’s action and reopened the case."
+    }
+  ],
+  "proceedings": [
+    "Trial court rejected Cosby’s January 2016 habeas dismissal request and later denied suppression.",
+    "2017 jury trial ended in mistrial; 2018 retrial produced three convictions and a three-to-ten-year sentence.",
+    "Superior Court affirmed December 10, 2019.",
+    "Pennsylvania Supreme Court on June 30, 2021 vacated convictions and sentence, discharged Cosby, and barred prosecution on these charges; four Justices supported discharge, two preferred suppression and continued prosecution, and one dissented from discharge."
+  ],
+  "limits": "The judgment enforced due process after induced reliance; it did not decide that the alleged assault never occurred, create ordinary contractual or statutory immunity, resolve other-acts admissibility, or confer immunity for all allegations involving other women.",
+  "briefSha256": "b8454b16c30b53df100adddf3e202cb6f5c5c81a6ca17ef37cd5f8b56f68c3a0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-COMPLETE-FA26-COSBY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Constand reports an encounter; Castor assesses prosecution",
+      "cue": "Which facts were testimony, and which were the prosecutor’s assessments?",
+      "paragraphs": [
+        "Andrea Constand worked in Temple University’s athletics department and met William Henry Cosby Jr. in 2002 through his university relationship. Their contacts included career advice and visits during which, she later testified, he made unwelcome advances. Constand described a January 2004 encounter at Cosby’s Cheltenham home: he gave her three blue pills and wine, after which she experienced impaired vision, weakness, difficulty speaking, and intermittent unconsciousness. She testified to digital penetration and his use of her hand to masturbate while she could not resist. She continued some contact and tried to identify the pills. After returning to Canada, she reported the incident in January 2005; the complaint reached Pennsylvania authorities.",
+        "Montgomery County District Attorney Bruce Castor investigated with detectives and a deputy. He thought delayed reporting, perceived inconsistencies, lack of forensic corroboration, later contacts, and difficulties admitting other complainants’ accounts made conviction unlikely. Those were Castor’s prosecutorial judgments, not independent findings that Constand lied. Cosby voluntarily spoke to police with counsel, described a consensual encounter, and said the pills were Benadryl. Pills he voluntarily supplied tested as Benadryl; a later home search produced no evidence investigators considered corroborative of Constand’s allegation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; majority slip op. 3–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Castor announces nonprosecution to remove a privilege obstacle",
+      "cue": "Why did an unwritten decision later matter in civil discovery?",
+      "paragraphs": [
+        "Castor decided against prosecution. He later testified that he meant to remove Cosby’s criminal exposure so Cosby could not invoke the Fifth Amendment in Constand’s anticipated civil suit. Castor communicated with criminal attorney Walter Phillips, who relayed the decision to civil counsel John Schmitt.",
+        "On February 17, 2005, Castor issued a signed release describing the investigation as concluded, a conviction as unattainable on available evidence, and his refusal to authorize charges. The final paragraph said he would not elaborate publicly because of possible civil litigation and would reconsider “this decision” if necessary. Whether those words reserved charging discretion or only public elaboration became a central dispute.",
+        "No formal immunity order or bargained written nonprosecution agreement was executed. Constand and her attorneys did not assent to an arrangement and learned of the charging decision from a reporter. The eventual majority would accept those facts while separately examining the announcement’s objective effect and intentional inducement of reliance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; majority 10–13, 19–29, 61–64 & n.25"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Cosby gives four civil depositions and settles",
+      "cue": "What consequences could later suppression fail to undo?",
+      "paragraphs": [
+        "Constand filed her federal civil suit on March 8, 2005. One page of the official opinion erroneously says 2015; the other passages and assigned excerpt establish 2005. Relying on counsel’s understanding that Castor had removed the criminal risk underlying a Fifth Amendment claim, Cosby gave four depositions without asserting that privilege. Counsel resisted some questions on other grounds, and a civil-court order required answers about Constand.",
+        "Cosby maintained his consent account but also disclosed inculpatory information about supplying drugs to other women before sexual activity. Constand settled for $3.38 million. The initially sealed records were unsealed following a media request in 2015. The later majority considered the disclosures, weakened civil defense, and substantial settlement evidence of detrimental reliance.",
+        "Successor prosecutors reopened the investigation in 2015 and rejected the claimed prosecution bar. Correspondence between Castor and then-District Attorney Risa Ferman exposed disagreements about whether the assurance barred prosecution or only use of civil admissions and whether Constand’s lawyers had accepted it. Castor’s accounts were inconsistent on some points. The ensuing charges concerned the January 2004 Constand encounter, not every allegation involving other women."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Civil action and renewed investigation; majority 13–18, 26–29, 66–67, 76–78"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The trial court rejects dismissal, then two juries hear the prosecution",
+      "cue": "Why did the lower courts consider the assurance insufficient?",
+      "paragraphs": [
+        "Cosby sought dismissal in a January 11, 2016 habeas petition. At the evidentiary hearing, Castor and Schmitt described the decision and reliance, while Constand’s lawyers disputed an agreement and their supposed assent. The trial court found no formal agreement or enforceable immunity promise. It regarded Castor’s act as ordinary unilateral charging discretion and his later descriptions as equivocal. The absence of writing and availability of experienced counsel made reliance unreasonable in its view. It denied dismissal and later refused to suppress the depositions; interlocutory efforts did not halt prosecution.",
+        "At the first trial in 2017, one other alleged victim testified. After seven days of deliberations, the jury could not agree and the court declared a mistrial. The 2018 retrial admitted five other alleged victims’ accounts of incidents in the 1980s as a common plan or scheme relevant to consent, rather than solely propensity evidence. The jury convicted on all three aggravated-indecent-assault charges. On September 25, 2018, the court imposed three to ten years and designated Cosby a sexually violent predator.",
+        "The Superior Court affirmed on December 10, 2019, sustaining the evidence rulings and rejection of nonprosecution. It emphasized the lack of judicially approved statutory immunity and unreasonableness of reliance on an informal press release. The Pennsylvania Supreme Court granted review of both nonprosecution and other-acts evidence under Rule 404(b). Cosby requested enforcement against successor prosecutors, alternatively suppression; the Commonwealth defended the trial court’s findings, ordinary charging discretion, and lack of formal assurance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; majority 18–52 & nn.16–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Wecht separates factual findings from their due-process consequences",
+      "cue": "How could the majority accept no formal agreement and still grant relief?",
+      "paragraphs": [
+        "Justice Wecht wrote for Justices Todd, Donohue, and Mundy. Supported trial-court facts bound the Court, but legal conclusions and inferences remained reviewable. The majority accepted the absence of formal immunity and the unilateral character of Castor’s decision. It did not replace those findings with an ordinary bargain. Instead, it asked what constitutional consequences followed from intentionally induced detrimental reliance.",
+        "Prosecutors can generally choose charges, decline them, discontinue cases, or revise and condition decisions. Declination alone does not invariably create a permanent defense. But federal due process and Pennsylvania Constitution Article I, Section 9 constrain those choices. Here an unconditional announcement intended to induce reasonable detrimental reliance involving self-incrimination had to be enforced as fundamental fairness. Changing officeholders did not end the prosecutorial office’s responsibility.",
+        "Contract concepts informed that constitutional analysis. Santobello, Zuber, Martinez, and related assurance cases illustrated enforcement beyond ordinary contractual labels. Promissory-estoppel principles asked whether conduct should foreseeably induce action or inaction, actually did so, and required enforcement to avoid injustice. An unconsummated offer ordinarily need not be enforced; detrimental reliance can change the constitutional consequences. Due process remained the foundation of relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Governing principles; majority 48–60 & nn.21–23, 68 n.27"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The majority finds the assurance unconditional and reliance reasonable",
+      "cue": "How did it read the reservation and the depositions?",
+      "paragraphs": [
+        "Reading the release as a whole, Wecht understood Castor’s reconsideration reservation to concern public commentary, not reopening prosecution. That reading and Castor’s established purpose differed from finding a bargained immunity contract. A press release alone would not necessarily create an entitlement; intended and actual reliance supplied the additional constitutional significance.",
+        "The Fifth Amendment applies in civil proceedings when answers could expose a witness to criminal punishment. The majority concluded that the assurance removed the risk on which Cosby and counsel understood the privilege to depend. Prior voluntary police questioning and repetition of an exculpatory account did not prove he would freely provide inculpatory admissions without it. The majority rejected the trial court’s inferred waiver and treated four depositions, damaging disclosures, and civil-settlement consequences as clear reliance.",
+        "Reliance was reasonable in the majority’s view. Otherwise a defendant would have to distrust an elected prosecutor’s public statement and disregard experienced counsel. No legal rule made a recorded or written agreement indispensable. Wealth, education, attorney count, and supposed sophistication did not vary the entitlement to rely on counsel. Castor intended this reliance and did not correct it during the following decade."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority application; majority 61–72 & nn.25–27"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The majority chooses discharge because the harm extended beyond trial evidence",
+      "cue": "Why was this more than automatic specific performance?",
+      "paragraphs": [
+        "Wecht did not treat specific performance as automatic whenever reliance occurs. He asked what equity and fundamental fairness required in these circumstances. Stipetich involved police lacking authority to promise nonprosecution and suggested suppression. Here the elected district attorney made the decision, and induced testimony harmed Cosby in civil litigation and contributed to a substantial settlement before criminal prosecution.",
+        "Suppressing the depositions at a third trial would not undo those civil consequences or restore the promised position. The majority therefore required discharge and barred future prosecution on these particular charges. It described the circumstances and remedy as rare and severe, not a rule that every defective prosecutorial assurance compels dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority remedy; majority 72–79 & nn.28–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Dougherty would suppress; Saylor disputes the assurance",
+      "cue": "What did the vote actually establish?",
+      "paragraphs": [
+        "Justice Dougherty, joined by Chief Justice Baer, agreed that intentional inducement, reasonable reliance, and later use of damaging testimony violated due process. He rejected any unilateral, permanent pardon-like power in a district attorney. For him the violation occurred when prosecutors introduced the depositions at trial, not simply when successors charged Cosby. Suppression could restore the relevant position without barring an otherwise valid prosecution. He relied on Stipetich, Peters, Parker, Gallego, and Blue and expressed no view on other-acts evidence because discharge made that issue moot.",
+        "Justice Saylor viewed the release as an ordinary current discretionary decision inherently subject to reconsideration. He found its reservation ambiguous, disputed the majority’s treatment of supported credibility findings about promise and reliance, and considered reliance on a vague, unwritten, unrecorded undertaking unreasonable. He dissented from discharge but did not endorse every trial ruling: he voiced serious concern about remote other-acts evidence and a tentative inclination toward a new trial on that ground, not a decided evidence holding.",
+        "On June 30, 2021, the four-Justice majority vacated the convictions and sentence, discharged Cosby, and barred prosecution on the Constand charges. Six Justices accepted a due-process violation, but only four accepted the majority’s scope and remedy. The Court did not decide Rule 404(b), adjudicate whether the assault occurred, revive an ordinary contract theory, or grant immunity for unrelated allegations. The source describes this decision, not a later current-law certification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions and judgment; majority 78–79 & n.35; Dougherty 1–9; Saylor 1–5"
+        }
+      ]
+    }
+  ]
+}

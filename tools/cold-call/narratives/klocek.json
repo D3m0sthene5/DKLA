@@ -1,0 +1,158 @@
+{
+  "id": "klocek",
+  "briefId": "CT-CB-0298",
+  "title": "Klocek v. Gateway, Inc.",
+  "course": "Contracts",
+  "citation": "104 F. Supp. 2d 1332 (D. Kan. 2000)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A computer buyer challenges product and support promises, and Gateway relies on an arbitration clause inside the box without establishing how the parties formed their sale.",
+  "actors": [
+    {
+      "name": "William S. Klocek",
+      "role": "Missouri resident who sued over a Gateway computer and Hewlett-Packard scanner without counsel."
+    },
+    {
+      "name": "Gateway, Inc.",
+      "role": "Computer seller seeking dismissal based on its enclosed Standard Terms."
+    },
+    {
+      "name": "Hewlett-Packard",
+      "role": "Scanner manufacturer separately contesting federal subject-matter jurisdiction."
+    }
+  ],
+  "proceedings": [
+    "Klocek filed individual and proposed class claims against Gateway and Hewlett-Packard.",
+    "The district court denied Gateway’s existing arbitration dismissal motion while allowing a better-supported supplemental motion.",
+    "It dismissed Hewlett-Packard for lack of jurisdiction and denied class certification and the plaintiff’s additional motions."
+  ],
+  "limits": "The order did not award damages, compel arbitration, or conclusively reject every possible agreement under every potentially applicable state law. Competing accounts of the purchase remain unresolved, and the historical FAA dismissal discussion is not a current universal rule.",
+  "briefSha256": "87bb461051f0f2e2694a421b1cf45197b0b267bfef7438a2c5ed0709ef898d9d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0298"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A computer purchase produces conflicting accounts and product complaints",
+      "cue": "What did the record establish about the transaction?",
+      "paragraphs": [
+        "William S. Klocek, a Missouri resident, bought and received a Gateway computer, but the evidence did not reliably establish when, where, or how the sale took place. Gateway’s affidavit said it shipped him a computer on or about August 31, 1997, with few further details. Klocek said in his response that he bought it in person at Gateway’s Overland Park, Kansas store on August 27 and took it away. The court did not select one account as established fact.",
+        "Gateway routinely included four pages of Standard Terms with its computers. A prominent box said retention for more than five days after delivery constituted acceptance. Paragraph ten required binding arbitration before one arbitrator in Chicago under International Chamber of Commerce rules. Gateway later relied on Klocek’s retention as assent.",
+        "Klocek sued Gateway over alleged false technical-support promises and contract and warranty breaches concerning compatibility with peripherals and Internet services. He also sued Hewlett-Packard for allegedly failing to warn that its scanner was incompatible with Gateway computers. He sought to proceed for himself and a class. Those product and support allegations were not adjudicated as proven breaches in the order at issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material facts; 104 F. Supp. 2d at 1334–37, 1341–42"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Gateway asks for arbitration before establishing the terms of the sale",
+      "cue": "Why did the formation inquiry come first?",
+      "paragraphs": [
+        "Gateway moved to dismiss on the ground that the claims were arbitrable. Judge Kathryn H. Vratil required an initial evidentiary showing comparable to the movant’s summary-judgment burden: Gateway first had to support existence of an enforceable arbitration agreement. Only then would Klocek need evidence raising a genuine factual dispute. The Federal Arbitration Act enforces agreements; policy favoring arbitration and rules resolving doubts about a clause’s scope could not create assent to the clause itself.",
+        "In this diversity case, Kansas choice-of-law principles looked to the place of the last act necessary to contract formation. Gateway had not proved that place. Kansas and Missouri both applied Article 2 and appeared materially alike on this issue, allowing analysis on that assumption, while some other state’s law might require separate treatment on a better record. A South Dakota choice-of-law clause in the disputed insert could not prove enforceability of the very document containing it.",
+        "Payment and receipt did establish a sale of goods. Gateway produced no evidence that it told Klocek at sale that the transaction depended on the insert, that he accepted a five-day review-and-return arrangement, or that the parties contemplated later terms. The remaining issue was what terms belonged to the already evidenced transaction, not whether Gateway could simply declare its insert the first offer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Reasoning: arbitration policy and payment; 104 F. Supp. 2d at 1335–37, 1340–42"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court applies section 2-207 to the later written terms",
+      "cue": "Why did a single form still fall within the statute?",
+      "paragraphs": [
+        "Ordinarily the purchaser makes an offer and the vendor accepts by completing the sale, promising shipment, or shipping. A seller can be the offeror, but that conclusion must arise from the actual communications and conduct rather than the fact that the seller supplies more detailed boilerplate. On the assumed Kansas and Missouri analysis, Gateway’s insert operated as an acceptance or written confirmation proposing additional terms under Uniform Commercial Code (UCC) § 2-207.",
+        "Hill and ProCD had regarded § 2-207 as inapplicable when only one form was exchanged. Vratil disagreed. The statutory text expressly covers a written confirmation, and its commentary contemplates an oral agreement followed by a memorandum from one or both parties with terms not previously discussed. Kansas and Missouri authorities recognized that application. A provision familiar from battles of forms was not limited to two competing physical documents.",
+        "This was a district court’s contrary state-law analysis, not a controlling reversal of Hill. The records and state-law predictions also differed. The disagreement concerned contract formation and statutory meaning, not merely whether five days or thirty days seemed a more comfortable return period."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rules and holdings; Reasoning: payment and § 2-207; 104 F. Supp. 2d at 1337–40"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Neither conditional acceptance nor retention supplies the missing assent",
+      "cue": "What could Gateway have communicated at the time of sale?",
+      "paragraphs": [
+        "Under § 2-207(1)’s conditional-acceptance proviso, Gateway needed clearly to communicate unwillingness to proceed without assent to its added terms. It offered no evidence of that communication at sale. Attaching a statement of conditions to the product did not itself prove the necessary refusal to proceed absent agreement.",
+        "The court recognized competing interpretations of the proviso, including strict Dorton and intermediate approaches, but did not choose between them because Gateway failed under both. It rejected the discredited view that any materially different acceptance automatically became a conditional counteroffer. Conditional acceptance in consumer transactions was possible; missing communication defeated this showing.",
+        "Because Klocek was not a merchant, § 2-207(2)’s rules for automatic inclusion between merchants did not apply. The additional terms required express assent. Gateway could not establish assent solely through an unaccepted document’s own declaration that keeping the product counted. Klocek had no proved duty to return the machine in order to preserve the original agreement’s terms.",
+        "Treating the insert as a proposed § 2-209 modification likewise failed under the authorities applied because express assent was still absent. The court did not demand a telephone recital of every clause. A seller could disclose either the terms themselves or a condition that further terms would form part of the transaction when the sale occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: conditional acceptance and nonmerchant buyer; 104 F. Supp. 2d at 1340–41 & nn.12–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The deficient arbitration motion is denied with room for a renewed showing",
+      "cue": "What question did the judge leave open?",
+      "paragraphs": [
+        "Gateway’s existing motion failed. The court allowed a factually supported supplemental motion if Gateway contended that another state’s law controlled, after which it could consider whether a jury trial on formation was warranted. Thus it decided the inadequacy of the present record and explained why the assumed Kansas and Missouri law did not enforce this clause; it did not conclusively determine every missing transaction fact or every potentially applicable body of law.",
+        "A later Gateway publication apparently offered additional arbitration providers. Neither party explained why Gateway could unilaterally change an enforceable agreement, and Klocek denied receiving the notice. Because Gateway had not established the initial agreement, the judge did not decide whether an amended agreement existed. The order neither compelled arbitration nor granted an arbitral stay. Its discussion of possible dismissal of arbitrable claims reflected procedural authorities applied in 2000, not a universal current rule for FAA motions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Material facts; Procedural history; 104 F. Supp. 2d at 1335 n.1, 1342, 1344"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Hewlett-Packard’s separate jurisdictional objection succeeds",
+      "cue": "Why did the Gateway claims not establish jurisdiction over the scanner claim?",
+      "paragraphs": [
+        "Hewlett-Packard independently challenged subject-matter jurisdiction. Klocek requested about $24,000 plus unspecified punitive damages against it but alleged no facts supporting the actual-loss amount or punitive damages approaching the federal jurisdictional threshold. General allegations of larger claims against Gateway did not establish the amount against Hewlett-Packard, and procedural joinder rules supplied no independent subject-matter jurisdiction.",
+        "The court dismissed Hewlett-Packard without deciding its alternative failure-to-state-a-claim argument. This was not a holding that scanner makers could never owe a warning duty of the kind alleged; it was failure to establish federal jurisdiction over this plaintiff’s claim on these pleadings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: Hewlett-Packard; 104 F. Supp. 2d at 1342–43 & n.18"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The proposed class and additional motions fail without deciding Gateway’s alleged breaches",
+      "cue": "What did Klocek win and lose in the June order?",
+      "paragraphs": [
+        "A class representative must adequately protect absent members. As a nonlawyer acting without counsel, Klocek could not represent them, so the court denied certification. His requested writ of certiorari sought access to a state-court record through a device that did not turn the federal district court into that court’s appellate reviewer. His sanctions, related-relief, and disciplinary-complaint verification motions likewise supplied no basis for relief.",
+        "Judge Vratil issued the memorandum and order on June 15, 2000. Klocek resisted Gateway’s existing arbitration motion, but received no damages, lost his proposed class representation, and saw Hewlett-Packard dismissed for lack of jurisdiction. No separate judicial opinion accompanied the order; the critique of Hill and ProCD was Vratil’s analysis, not a dissent within those appellate cases. The substantive truth of Gateway’s alleged product and support failures remained unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Remaining motions; Separate opinions; 104 F. Supp. 2d at 1343–45"
+        }
+      ]
+    }
+  ]
+}

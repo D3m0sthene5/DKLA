@@ -1,0 +1,153 @@
+{
+  "id": "lrs-o-neagle",
+  "briefId": "LRS-ATLAS-O-NEAGLE",
+  "title": "In re Neagle (Cunningham v. Neagle)",
+  "course": "Legislation and the Regulatory State",
+  "citation": "135 U.S. 1 (1890)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Threats arising from federal litigation lead to a marshal’s protection of Justice Field, a fatal encounter, and a federal habeas dispute over whether California may keep the marshal in custody.",
+  "actors": [
+    {
+      "name": "William Sharon and Frederick Sharon",
+      "role": "Original federal plaintiff challenging a marriage declaration, and his son and executor."
+    },
+    {
+      "name": "Sarah Althea Hill and David Terry",
+      "role": "Targets of the revived decree; later husband and wife who threatened judges."
+    },
+    {
+      "name": "Justice Stephen Field",
+      "role": "Supreme Court Justice performing circuit duties in California."
+    },
+    {
+      "name": "David Neagle",
+      "role": "Deputy U.S. Marshal assigned to protect Field."
+    },
+    {
+      "name": "Thomas Cunningham",
+      "role": "County sheriff holding Neagle under a state murder warrant."
+    }
+  ],
+  "proceedings": [
+    "Judges Sawyer and Sabin granted federal habeas relief after hearing evidence and discharged Neagle.",
+    "Sheriff Cunningham appealed the discharge.",
+    "The Supreme Court affirmed, 6–2, with Field not participating."
+  ],
+  "limits": "The shooting occurred in the Lathrop station dining room, and the underlying Sharon litigation was in California federal court. Discharge on habeas was not an acquittal by a state jury. The account concerns the historical statutes and decision.",
+  "briefSha256": "87b55a16d5105bb5a78ad6257181eed3d24e777c0e714b45c21857c02a638d5d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-NEAGLE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A disputed marriage declaration produces a federal decree and escalating threats",
+      "cue": "What brought Field, Terry, and Neagle into the same controversy?",
+      "paragraphs": [
+        "William Sharon, a Nevada citizen, sued Sarah Althea Hill in California’s federal Circuit Court on October 3, 1883, to cancel an alleged marriage declaration as forged. Judges Sawyer and Deady heard the case in September 1885 and declared the document fraudulent and void on January 15, 1886. Sharon had died between hearing and decision, so the decree was entered nunc pro tunc as of the hearing. Hill withheld the document and continued asserting it in state court. In March 1888 Sharon’s son and executor Frederick sought revival against Hill and her new husband, David Terry.",
+        "Before that decision Hill pulled Judge Sawyer’s hair on a train and threatened consequences for an adverse ruling; Terry proposed drowning him. On September 3, 1888, Justice Stephen Field delivered the decision reviving the decree. Hill interrupted, accused him of corruption, and refused to sit or leave. When Marshal Franks tried to remove her, Terry struck him, knocking out a tooth, and reached for a bowie knife. After restraint, Terry drew it outside or at the courtroom exit and struggled until Deputy Marshal David Neagle principally disarmed him. Hill’s satchel held a revolver. The court imposed one month’s contempt imprisonment on Hill and six months on Terry. Separate review of contempt and revival, and pending criminal charges arising from the disruption, were background proceedings rather than the habeas judgment later appealed.",
+        "Threats continued during and after confinement. Terry discussed horsewhipping Field and killing him if he resisted; Hill threatened Field and Sawyer. The Supreme Court later treated testimony and public statements as establishing a settled plan to provoke a lethal encounter, prompting protection before Field’s 1889 return to California."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation that produced the threat; 135 U.S. 42–47"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Federal officials assign protection and the danger becomes immediate",
+      "cue": "What was Neagle instructed to do, and what did he perceive at Lathrop?",
+      "paragraphs": [
+        "Attorney General W. H. H. Miller instructed Franks on April 27 to take unusual care protecting the judges and judicial independence. Franks described precautions, and District Attorney Carey urged discreet deputies for danger outside court. The Attorney General’s May 27 letter authorized special deputies at five dollars daily as extraordinary marshal expenses under the stated approval procedure. Franks appointed Neagle to accompany Field both in court and between courts. The correspondence authorized protective arrangements without prescribing detailed tactics.",
+        "After holding court in Los Angeles, Field and Neagle traveled toward San Francisco, where court remained in session. Terry and Hill boarded at Fresno. At Lathrop’s breakfast stop Neagle sought local peace-officer assistance without effective help. He urged Field to eat aboard, but accompanied him into the station dining room. Hill recognized Field and went for her satchel and revolver. Before her return Terry came behind Field, struck both sides of his face, and appeared ready to strike again.",
+        "Neagle stood with his revolver, loudly identified himself as an officer, and ordered Terry to stop. Terry turned and thrust a hand into his clothing. Knowing the threats and knife episode, Neagle believed he was reaching for a bowie knife and fired twice. Terry died within minutes. Hill returned demanding vengeance and a search for weapons; her own bag again contained a revolver. The later justification rested on Neagle’s well-founded perception of an imminent lethal threat, not discovery of an actually drawn knife."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Federal arrangements and shooting; 135 U.S. 47–54, 67–68, 75–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A state warrant meets a federal habeas petition",
+      "cue": "Who sought discharge, and what did the federal court decide?",
+      "paragraphs": [
+        "A Stockton magistrate issued a murder warrant for Field and Neagle on August 14, 1889; the report records Neagle’s commitment for examination on August 15. After the governor and California Attorney General urged dismissal of the unsupported charge against Field, that charge was dismissed. On August 16 fellow deputy A. L. Farrish applied for habeas corpus for Neagle. Sheriff Thomas Cunningham produced the prisoner and relied on the state warrant.",
+        "Judges Sawyer and Sabin heard extensive documents and testimony. Their discharge order states that Cunningham offered no testimony. They found the petition’s allegations true and detention contrary to federal law. Cunningham appealed. His lawyers disputed fatal intent, argued that ordinary California self-defense belonged in state court, and read “law of the United States” in Revised Statutes § 753 as enacted law and necessary statutory incidents. Court attendance and process duties, they said, did not authorize a traveling bodyguard. They also objected to Farrish’s signing and verification and amendment of the traverse after evidence; the Supreme Court developed its substantive decision without separately resolving those pleading points.",
+        "Neagle and the United States invoked federal institutional self-protection, the Take Care Clause, implied and statutory authority, marshal powers corresponding to state sheriffs’, the Attorney General’s directions, and federal habeas statutes. Their broad assertions must be distinguished from the Court’s actual combined reasoning. Justice Miller wrote for the Court; Field did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Habeas proceedings and arguments; 135 U.S. 3–40"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Miller connects the protection to a lawful federal duty",
+      "cue": "Why did a breakfast stop remain part of Field’s official work?",
+      "paragraphs": [
+        "Section 753 extended habeas to custody for acts pursuant to federal law and custody contrary to the Constitution or federal law. Section 761 authorized a summary determination of facts through testimony and argument and disposition as law and justice required. The 1885 appeal amendment allowed Supreme Court review. Because this was an appeal, not a law-only writ of error, Miller reexamined facts as well as law.",
+        "Sections 606 and 610 assigned Supreme Court Justices to circuits and required periodic circuit attendance. Necessary travel belonged to that duty, as chambers work could remain official outside a courtroom. Earlier chambers and returning-officer cases reinforced the connection. The breakfast stop did not make Field’s required journey purely private.",
+        "Miller rejected limiting federal “law” to an enactment naming this precise protective task. Duties properly inferred from the Constitution and general marshal responsibilities could qualify. Punishment after assassination was no adequate substitute for prevention. Ex parte Siebold and Tennessee v. Davis supported federal government’s ability to operate throughout the states and protect its lawful functions against paralysis. Consistent state authority remained possible.",
+        "Marshals were executive officers supervised through the Justice Department. Faithful execution embraced constitutional rights and duties and protections implicit in government, as well as express statutory commands. Miller invoked Koszta’s diplomatic protection, mail carriers, timber protection in Wells v. Nickles, and litigation over fraudulent land patents in San Jacinto as analogies. They supported preserving an authorized judicial function, not unlimited domestic executive policymaking.",
+        "Section 788 also gave marshals and deputies corresponding sheriff powers when executing federal law. California sheriffs preserved peace, prevented breaches, and arrested offenders; California law permitted necessary defense against attempted murder or serious injury. An assault on Field in federal duty breached the peace of the United States. Neagle’s assignment and the immediate threat supplied authority and responsibility to act, including necessary lethal force. Section 788 did not make him a general California police officer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court’s reasoning: official duty; 135 U.S. 40–42, 54–69"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Federal justification permits discharge before a state trial",
+      "cue": "Why was a state jury not required after the federal factual hearing?",
+      "paragraphs": [
+        "The Court traced habeas expansion through 1789, the 1833 nullification response, the 1842 McLeod controversy, and the 1867 protection against unlawful custody. It discussed historical Fugitive Slave Act officer cases as examples of deciding federal justification before state prosecution ended. Those references retain their historical context.",
+        "A jury trial protected an accused; it did not give government a right to try every accusation. Once the federal court properly established an authorized duty and conduct no more than necessary and proper, the lawful act could not become a state crime. No additional prosecution was required merely because Congress supplied no replacement federal criminal trial. On April 14, 1890, the Supreme Court affirmed Neagle’s discharge, six to two among participating Justices. It did not merely remove his case for another trial, and expressly held that he need not answer in California’s courts for this transaction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court’s reasoning: discharge; Decision and posture; 135 U.S. 70–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Lamar and Fuller would return the justification to California",
+      "cue": "What source of authority did the dissent find missing?",
+      "paragraphs": [
+        "Justice Lamar, joined by Chief Justice Fuller, did not assume Neagle guilty. He accepted that even an ordinary bystander might be justified in killing to protect Field. The dispute was whether federal law supplied that justification and federal habeas authority. The dissent accepted supremacy within federal jurisdiction, legitimate implications, and habeas for truly authorized federal acts; absence of a later federal trial alone was no objection.",
+        "For Lamar, implied powers still had to operate through constitutionally designated institutions. The Necessary and Proper Clause assigned Congress the means of carrying federal powers into effect. The President’s oath and Take Care duty did not create a missing law. Congress had expressly protected officers in election statutes and could legislate here. Koszta involved distinct foreign-relations authority; San Jacinto implied litigation power from statutes. Congress’s control of inferior courts and the absence of federal common-law criminal jurisdiction resisted a self-executing executive or judicial power.",
+        "Section 787 concerned attendance on courts actually sitting, and a traveling judge was not everywhere the court. Section 788 measured powers for an existing duty; importing state police powers could not create that duty. Earlier habeas examples involved enactments or process. Lamar questioned freeing an alleged killer on implied authority where no federal statute criminalized the supposed underlying murder, while reserving broader limits on congressional displacement of state jurisdiction. He would reverse and remand Neagle to Cunningham’s custody for California to adjudicate a defense the dissent considered potentially conclusive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Lamar and Fuller dissent; 135 U.S. 76–99"
+        }
+      ]
+    }
+  ]
+}

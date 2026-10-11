@@ -1,0 +1,148 @@
+{
+  "id": "lrs-n-standing-ncua",
+  "briefId": "LRS-CB-1250",
+  "title": "National Credit Union Administration v. First National Bank & Trust Co.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "522 U.S. 479 (1998)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Banks challenge a credit union’s expansion into unrelated employer groups, forcing a decision first about their relationship to the statutory membership restriction and then about what that restriction means.",
+  "actors": [
+    {
+      "name": "National Credit Union Administration",
+      "role": "Agency that changed its interpretation of the occupational common-bond requirement in 1982."
+    },
+    {
+      "name": "AT&T Family Federal Credit Union",
+      "role": "Expanded to multiple unrelated employer groups and joined the Supreme Court challenge to the appellate ruling."
+    },
+    {
+      "name": "Five commercial banks and American Bankers Association",
+      "role": "Challenged charter amendments based on their competitive interest in membership limits."
+    },
+    {
+      "name": "Credit Union National Association",
+      "role": "Intervened for the agency in district court and also petitioned for Supreme Court review."
+    }
+  ],
+  "proceedings": [
+    "The district court first dismissed for lack of prudential standing; the D.C. Circuit reversed.",
+    "On remand the district court found statutory ambiguity; the D.C. Circuit reversed again, finding a single common bond required.",
+    "The Supreme Court affirmed the D.C. Circuit on February 25, 1998."
+  ],
+  "limits": "The disputed threshold was the APA zone of interests, not contested Article III injury. The merits used then-governing Chevron step one and the then-existing membership statute. Scalia joined all but footnote 6 and wrote no separate opinion.",
+  "briefSha256": "ebaf9051a45a307ed2e8d26956164074f15b6e596ad06c453a0a56e0f2cca7a8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-1250"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The agency changes its membership interpretation and a credit union expands",
+      "cue": "How did an internal membership rule become a competitive dispute?",
+      "paragraphs": [
+        "Section 109 of the Federal Credit Union Act restricted membership to groups sharing a common bond of occupation or association, or groups within a defined geographic community. Before 1982, the National Credit Union Administration required a single occupational bond across an occupational credit union. In 1982, the agency began allowing multiple unrelated employer groups to enter the same credit union so long as each group had its own bond.",
+        "AT&T Family Federal Credit Union expanded substantially under that interpretation. Only about thirty-five percent of roughly 110,000 members were AT&T employees or affiliates; the rest included workers for unrelated companies. Five commercial banks and the American Bankers Association alleged that the enlarged credit union could serve customers who otherwise might use banks.",
+        "The banks challenged agency charter amendments under § 702 of the Administrative Procedure Act. They claimed that § 109 unambiguously required one occupational bond uniting the credit union’s membership. The agency and credit union defended the interpretation. Credit Union National Association intervened on the agency’s side and later became a Supreme Court petitioner as well."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 483–488; Parties and Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two appellate reversals separate the right to sue from statutory meaning",
+      "cue": "What did each court decide at each stage?",
+      "paragraphs": [
+        "The district court initially dismissed for lack of what the case called prudential standing, reasoning that Congress had not enacted § 109 to protect banks. The D.C. Circuit reversed, relying on cases allowing competitors in regulated financial markets to challenge agency relaxation of statutory limits.",
+        "On remand, the district court found ambiguity at step one of the then-operative Chevron framework, under which the first question was whether Congress had clearly resolved the statutory issue. It did not separately analyze reasonableness at step two because the banks had not seriously contested the agency’s interpretation on that basis. The D.C. Circuit again reversed, finding that the statute unambiguously required one common bond.",
+        "The Supreme Court granted review in the agency and credit union’s consolidated cases and heard argument on October 6, 1997. Competitive injury sufficient for Article III was not disputed. The threshold question was the additional relationship between the banks’ affected interest and the interests arguably protected or regulated by § 109."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 485–489; Procedural History; Additional reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Thomas distinguishes the statutory zone from an intended-beneficiary requirement",
+      "cue": "Why could a commercially motivated competitor qualify?",
+      "paragraphs": [
+        "Justice Thomas wrote the Court’s opinion, joined by Chief Justice Rehnquist and Justices Kennedy and Ginsburg; Justice Scalia joined except footnote 6. Under the zone-of-interests inquiry applied here, the plaintiff did not need proof that Congress specifically intended to benefit its class. The court identified interests arguably protected or regulated by the provision, then asked whether the plaintiff’s affected interest belonged among them.",
+        "The financial-industry decisions Data Processing, Arnold Tours, Investment Company Institute, and Clarke had allowed competitors to challenge relaxation of statutory limits. For the majority, they connected the competitor’s interest with the statutory restriction rather than requiring a legislative purpose to enrich that competitor.",
+        "Federal credit unions generally served their members. Restricting membership therefore directly restricted their potential market. The banks’ interest in those market limits was affected by an interpretation opening the credit union to unrelated groups. It was at least arguably within the statutory zone, even if Congress’s purpose was promoting credit unions rather than shielding banks. Commercial motives did not disqualify the challengers.",
+        "This was not a rule that anyone harmed by noncompliance could sue. Footnote 7 retained the need for an arguably protected interest, and footnote 9 noted that no separate congressional-preclusion argument had been raised. The majority distinguished Air Courier, where postal employees’ interest in more employment did not match statutes protecting public postal service and revenue. Here the claimed interest matched an express customer-market restriction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 488–499 & nn.7–9; Zone-of-interests reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority reads the occupational restriction as a unitary limit",
+      "cue": "Which textual relationships made the agency’s interpretation unacceptable?",
+      "paragraphs": [
+        "On the merits, the phrase concerning groups having a common occupational bond could not sensibly mean only that each employer group possessed the bond already inherent in being such a group. That reading would leave “common bond” largely redundant. The parallel geographic clause also suggested a unitary limit; the agency did not claim authority to combine unlimited unrelated geographic groups. Unlimited employer aggregation would likewise drain “shall be limited” of practical effect.",
+        "The article “a” and plural “groups” did not alone decide the case. Avoiding surplusage, reading the two limits consistently, and preserving their practical force supplied the fuller analysis. The Court rejected a distinction between participial “having” and prepositional “within.” Its February 29 wedding-anniversary example was a grammatical illustration, not a fact about these litigants.",
+        "The Court held the statute unambiguous under Chevron step one. Footnote 10 found no need for murky legislative history on that merits question. Footnote 6, by contrast, used cooperative history in characterizing limited markets for standing; Scalia did not join that four-Justice footnote. The two discussions addressed different issues."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 493 n.6, 499–503 & n.10; Statutory merits; Additional reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "O’Connor finds only incidental competitive benefit from an internal cooperative rule",
+      "cue": "Why would the dissent dismiss rather than uphold the agency on the merits?",
+      "paragraphs": [
+        "Justice O’Connor dissented, joined by Justices Stevens, Souter, and Breyer. She accepted competitive injury for Article III but insisted that the statutory zone remained an additional restriction. Her agency-reporter hypothetical and comparison to Air Courier illustrated that consequential financial loss did not itself make the injured interest protected. She read Bennett as requiring a protected economic interest, not just an economic consequence.",
+        "O’Connor did not demand that Congress name or favor these particular banks. She read the majority’s financial precedents as enforcing anti-competition restrictions protecting competitors generally. Section 109 instead concerned each credit union’s internal cooperative membership. A group excluded from one could join another or organize its own; that differed from excluding national banks entirely from a product or geographic market.",
+        "The dissent read the Depression-era statute as expanding credit to people banks neglected. Common bonds promoted informed lending, repayment incentives, and stability. Banks’ incentives to suppress credit-union growth could conflict with that aim, and incidental benefit from enforcement was not enough. Emphasizing the limited judicial role underlying the then-described prudential requirement, O’Connor would vacate the appellate judgment and remand for dismissal. She did not propose a merits judgment that the agency’s interpretation was lawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 503–519; Separate Opinion"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Court affirms and the assigned note tests the statutory connection elsewhere",
+      "cue": "What did this historical judgment settle?",
+      "paragraphs": [
+        "On February 25, 1998, the Court affirmed the D.C. Circuit. The banks were within the APA zone of interests, and the multiple-unrelated-employer interpretation contradicted the membership statute. The decision describes the statute and deference framework then in force, not current membership permissions or present deference law. Later cases also reformulated the zone inquiry as identifying the class Congress authorized to sue.",
+        "The complete assigned editorial note compares later decisions. Its account of Thompson v. North American Stainless treats the harmed fiancé as a means of retaliation within the statutory relationship; its Patchak discussion connects neighboring land-use interests foreseeably to statutory land acquisition; and its Twin Rivers Paper v. SEC account rejects fortuitous economic harm from electronic reporting as a sufficient statutory interest. These comparisons illustrate the connection between injury and statutory purposes across different statutes and actions. They are editorial comparisons, not additional holdings of this case or independently certified complete accounts of those decisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "522 U.S. at 503; Doctrinal Significance and Historical Note; Assigned textbook discussion"
+        }
+      ]
+    }
+  ]
+}

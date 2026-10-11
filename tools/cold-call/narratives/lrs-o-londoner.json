@@ -1,0 +1,125 @@
+{
+  "id": "lrs-o-londoner",
+  "briefId": "LRS-CB-0328",
+  "title": "Londoner v. Denver",
+  "course": "Legislation and the Regulatory State",
+  "citation": "210 U.S. 373 (1908)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Denver invites written objections to a paving assessment but fixes individual property charges without telling objectors when they may support their protests.",
+  "actors": [
+    {
+      "name": "Abutting landowners, including Londoner",
+      "role": "Owners seeking discharge of paving-assessment liens."
+    },
+    {
+      "name": "Denver board of public works",
+      "role": "Initiated the paving project and proposed cost allocation."
+    },
+    {
+      "name": "Denver city council",
+      "role": "Authorized the project, then sat as a board of equalization to decide assessments."
+    }
+  ],
+  "proceedings": [
+    "The Colorado trial court granted the owners relief.",
+    "The Colorado Supreme Court reversed and directed judgment for Denver.",
+    "The United States Supreme Court reversed, holding this assessment void and entitling the owners to discharge of its lien."
+  ],
+  "limits": "The owners had assessment notice and a filing opportunity; the defect was no notified opportunity to argue and present proof. Excessive-benefit allegations remained unproved, and the dissenters gave no reasons.",
+  "briefSha256": "90a63dae8ffddef6df320f448760f376fe44012d94e7f5812a33908f20365078",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0328"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Denver’s charter separates paving authorization from the assessment",
+      "cue": "What did each municipal body do?",
+      "paragraphs": [
+        "Owners whose land abutted a Denver street faced a special assessment for paving. The charter allowed local improvements funded by specially benefited property. The board of public works first needed a petition representing a majority of affected frontage, specifications, a district map, estimated cost and approximate lot shares, and initial notice. It then sent a resolution and proposed ordinance to the city council. The council could approve or reject and conclusively determine preliminary compliance under Colorado law.",
+        "After costs became ascertainable, the board calculated the total, including collection expenses and interest, and apportioned it to lots. The clerk published proposed total and individual charges. Owners had thirty days for written objections, to be heard by the council as a board of equalization before assessment. Colorado’s later controlling interpretation made this a hearing on relevant evidence and objections to validity and amount, with those matters unavailable for subsequent relitigation in court. Authorization and the eventual parcel-specific burden were thus separate stages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 210 U.S. 374–378, 380"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The owners file concrete objections and miss an unannounced session",
+      "cue": "Why was the council’s description of the protest incomplete?",
+      "paragraphs": [
+        "After paving, the clerk published notice inviting written objections and promising consideration before assessment. It specified the filing deadline but no hearing time. On January 13, 1900, the owners filed a detailed protest about the petition, contracts, notices, charges, and district boundaries. They also alleged omitted benefited land, assessed land receiving no benefit, charges exceeding particular parcels’ benefits, and equal charges unsupported by equal benefit. Those were allegations, not established overcharges.",
+        "The council held a specially called session without notifying the objectors or allowing argument or proof. It characterized their papers as attacks on general authority rather than cost allocation, confirmed the proposed shares, and enacted the assessment ordinance without another hearing. That characterization could not erase the actual parcel-specific objections. Written filing preceded a decision made without an opportunity to support the filing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 210 U.S. 380–385"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The owners win below, lose on appeal, and raise federal objections",
+      "cue": "Which challenges did the Supreme Court reject before reaching the hearing defect?",
+      "paragraphs": [
+        "The owners sued in Colorado to remove the resulting liens. The trial court granted relief, finding among other things no required majority petition and no hearing opportunity. The Colorado Supreme Court reversed and directed judgment for Denver, sustaining state-law validity without disturbing the no-hearing finding. The owners sought review by writ of error in the United States Supreme Court, where Colorado’s construction of its own law bound the Court.",
+        "Justice Moody rejected the attack on the conclusive municipal petition finding. The legislature could authorize paving without a petition at all; that preliminary action imposed no assessment and need not produce one. A later assessment hearing could supply constitutional protection. Another interpretive objection presented no federal question, and the state court’s interpretive method was not itself a Fourteenth Amendment violation.",
+        "Under the state court’s reading, the charter required a meaningful assessment hearing and allowed the city to give necessary additional notice. The statute was therefore constitutionally valid as construed. The issue was Denver’s implementation, not a categorical lack of power to assess."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Reasoning; 210 U.S. 378–381"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "An individualized charge requires a meaningful opportunity before it becomes final",
+      "cue": "Why did written submission fail in this setting?",
+      "paragraphs": [
+        "When a subordinate body decides whether to levy a tax, its amount, and allocation among particular taxpayers, an affected owner needs notice and an opportunity to be heard before the assessment becomes irrevocably fixed. This process determines individual financial burdens on grounds owners can contest. The council acted for the state while equalizing, so the Fourteenth Amendment applied.",
+        "The notice told owners when papers were due and promised consideration, but never told them when they could appear. No regular equalization session supplied an independently knowable date; the council instead met specially. Timely filing could not itself provide notice or participation in that later decision.",
+        "Taxation permits procedural flexibility. Moody did not require a courtroom trial, cross-examination, or every judicial safeguard. Brief argument and informal proof, if needed, could suffice. But an owner needed more than an unsupported written allegation officials could reject in the owner’s absence. The specific benefit and allocation claims furnished subjects for evidence and discussion. The lack of later judicial reconsideration made the lost administrative opportunity especially consequential."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 210 U.S. 380–386"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The lien fails without a judicial recalculation of benefits",
+      "cue": "What remedy and unanswered issues followed?",
+      "paragraphs": [
+        "On June 1, 1908, the Supreme Court reversed the Colorado judgment, declared this assessment void, and held the owners entitled to a decree discharging the liens attributable to it. The Court neither recomputed charges nor found the alleged benefit disparities true. It expressly declined the separate contention that corner-lot assessments exceeded worth and benefit, and awarded no damages.",
+        "The Chief Justice and Justice Holmes dissented without published reasons. Their rationale cannot be invented from Holmes’s later Bi-Metallic opinion. That later case distinguished a relatively small group exceptionally affected on individual grounds from a general adjustment across a taxing community. The comparison helps locate Londoner’s hearing requirement; it does not turn this decision into a universal trial right for taxes. Discharge of this defective lien also did not immunize the land from a properly imposed future assessment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; 210 U.S. 385–386; Bi-Metallic 445–446"
+        }
+      ]
+    }
+  ]
+}

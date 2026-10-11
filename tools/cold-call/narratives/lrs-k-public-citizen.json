@@ -1,0 +1,137 @@
+{
+  "id": "lrs-k-public-citizen",
+  "briefId": "LRS-SUP-0005D",
+  "title": "Public Citizen v. United States Department of Justice",
+  "course": "Legislation and the Regulatory State",
+  "citation": "491 U.S. 440 (1989)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Organizations seeking access to confidential judicial evaluations establish an injury but lose their FACA claim, with the Justices dividing over statutory interpretation and constitutional power.",
+  "actors": [
+    {
+      "name": "Department of Justice",
+      "role": "Requested confidential evaluations of potential judicial nominees."
+    },
+    {
+      "name": "ABA Standing Committee on Federal Judiciary",
+      "role": "Privately selected fourteen-member advisory body evaluating candidates."
+    },
+    {
+      "name": "Washington Legal Foundation",
+      "role": "Requested records and sued after refusal."
+    },
+    {
+      "name": "Public Citizen",
+      "role": "Intervened to seek FACA compliance."
+    },
+    {
+      "name": "American Bar Association",
+      "role": "Private association that intervened in the Supreme Court appeal."
+    }
+  ],
+  "proceedings": [
+    "The district court found FACA applicable but dismissed on separation-of-powers grounds.",
+    "On direct appeal, the Supreme Court found standing and affirmed dismissal on statutory grounds.",
+    "Kennedy, Rehnquist, and O’Connor concurred in the judgment on constitutional grounds; Scalia did not participate."
+  ],
+  "limits": "The majority excluded this advisory relationship from FACA without deciding constitutional validity. Kennedy’s Appointments Clause reasoning belongs to his concurrence. The committee did not itself select or nominate judges.",
+  "briefSha256": "75dcd69a2f878022d619584d918d503c5ca17b531e1f54d6d19bc19e27f4b122",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0005D"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A private committee gives the Department confidential evaluations",
+      "cue": "How did the advisory arrangement work before anyone demanded public access?",
+      "paragraphs": [
+        "Beginning in 1952 the Department of Justice sought confidential judicial-candidate evaluations from the American Bar Association’s Standing Committee on Federal Judiciary. The ABA selected the fourteen members, the committee received no federal funds, and it did not independently propose nominees. The President retained the nomination choice.",
+        "For most lower-court candidates, an ABA questionnaire preceded review of writings and interviews with lawyers, judges, and the candidate. A representative prepared an informal assessment, which the chair conveyed to the Department. If asked for a formal evaluation, members reviewed a report and voted. The Department received the rating and degree of agreement, not the final report. After nomination the rating became public at the Senate Judiciary Committee’s request; interviews, underlying reports, investigations, and deliberations stayed confidential. Supreme Court candidates ordinarily were not referred before nomination, with occasional exceptions.",
+        "Congress enacted the Federal Advisory Committee Act in 1972 to limit unnecessary committees and increase accountability. Its definition included committees established or utilized by the President or an agency for advice. Covered bodies generally needed charters, meeting notice, minutes, public access subject to exemptions, and a federal official able to attend and adjourn meetings. Balance, duration, administration, and reporting requirements also applied. Whether that management scheme reached the existing private ABA relationship became the dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and institutional setting; 491 U.S. 443–447, 451–452"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A records refusal produces litigation against the Department",
+      "cue": "Why did the challengers have standing even though disclosure might be limited?",
+      "paragraphs": [
+        "Washington Legal Foundation requested candidate identities, committee reports, and minutes. After refusal it sued the Department in October 1986. An earlier suit against the ABA and committee had been dismissed because the Department was considered the proper defendant; a separate appeal about direct committee suit was noted. Public Citizen intervened. Both sought a declaration of FACA coverage and an injunction against further use until compliance.",
+        "The Department denied coverage and asserted separation of powers. The district court accepted coverage but dismissed because application would intrude on Article II nomination authority. The organizations appealed directly to the Supreme Court. The ABA intervened and argued that a generalized grievance and possible exemptions defeated standing.",
+        "Justice Brennan’s majority rejected that threshold objection. Denial of requested information and advance notice was a particular injury even if many people could make the same request. The organizations need not prove that a nominee was unqualified or another personal harm. Exemptions might protect many records and meetings, but compliance could still provide charters, notice, and information about investigative and voting procedures. The ABA’s own warning that disclosure would interfere meaningfully with confidentiality undercut its no-redress claim. The Department conceded standing for some requirements; the Court did not reach its provision-specific objections to others because statutory coverage disposed of the action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties’ positions; Standing reasoning; 491 U.S. 447–451 & nn.5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brennan reads utilized through the scheme’s history and purpose",
+      "cue": "Why did ordinary usage not end the majority’s inquiry?",
+      "paragraphs": [
+        "Brennan acknowledged that the Department used the committee in an ordinary sense. Taken without qualification, however, “utilized” could reach nearly any outside consultation, including an American Legion post, a civil-rights group advising on appointments, or the President’s party. The majority considered imposing FACA’s intrusive controls on such exchanges sufficiently odd to examine context, not merely when a result became utterly impossible or absurd.",
+        "Invoking Holy Trinity, the majority treated words as primary evidence while permitting persuasive evidence of intended meaning. It did not claim that every policy objection warrants rewriting text. Executive Order 11007 had earlier regulated government-created committees and outside bodies used like government-created ones. Administrations had not treated the prominent ABA relationship as covered. Private origins, no federal funding, independence from government management, and advice about a constitutionally specified presidential function explained that practice.",
+        "FACA adopted many controls while adding presidential committees and stronger requirements. The majority read House and Senate development as targeting committees established by government broadly, including quasi-public committees formed for agencies; National Academy examples illustrated that gap. The conference addition of “utilized” did not, in its view, silently capture every independently organized private group. Language about committees established by or for agencies supported continuity. Brennan acknowledged the competing reading and called the question close.",
+        "The challengers also invoked a GSA regulation covering preferred outside advisers. The majority considered its breadth, late adoption, limited statutory basis, and GSA’s recurring omission of the ABA committee from annual lists. It did not accord it the force of a binding legislative definition. That is the Court’s treatment of this regulation in 1989, not a general statement of present agency-deference law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority’s statutory reasoning; 491 U.S. 452–465 & nn.8–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Avoidance tips the statutory balance; Kennedy would confront the Constitution",
+      "cue": "Where did the opinions diverge despite reaching the same result?",
+      "paragraphs": [
+        "For Brennan, controls on confidential judicial-nomination consultation raised serious Article II and separation-of-powers concerns; the ABA also asserted First Amendment interests. A fairly possible alternative reading supported by statutory history avoided those questions. Avoidance could not justify disingenuous evasion, but the close statutory issue and predecessor scheme made this narrower reading plausible. The majority excluded this relationship, not every unfunded private adviser.",
+        "Justice Kennedy, joined by Chief Justice Rehnquist and Justice O’Connor, rejected both the method and construction. Ordinary meaning plainly covered an enduring institutional advisory arrangement. A genuine absurdity exception was narrow; occasional casual conversations could differ from this relationship, and constitutional questions or disputed policy outcomes were not absurdity. He criticized Holy Trinity’s legislative-spirit approach, particularly its religious characterization, as an invitation to judicial preference.",
+        "Kennedy read FACA as changing executive practice. Congress legislates in categories without naming each committee, and the conference purposes extended beyond federal spending. He regarded GSA’s definition as reasonable, authorized, binding, and directly applicable. Avoidance still required a fairly possible reading; constitutional doubt could not circularly prove that an application was never covered.",
+        "He therefore reached the Appointments Clause. Nomination of principal officers belongs expressly to the President and consent to the Senate, with no congressional role in selecting the nominee. Unlike implied-function cases where balancing might apply, the Constitution had allocated this function. Interference with confidential investigation and consultation made this application invalid without requiring immediate individual-liberty injury. Kennedy reserved First Amendment objections, inferior-officer treatment, and a universal no-balancing rule for every intrusion on explicit allocations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; Kennedy concurrence; 491 U.S. 465–489 & concurrence nn.1, 3, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The organizations may sue but receive no injunction",
+      "cue": "Which rationale governs the Court’s affirmance?",
+      "paragraphs": [
+        "On June 21, 1989, the Supreme Court affirmed dismissal. Brennan wrote for White, Marshall, Blackmun, and Stevens; Kennedy’s three-Justice concurrence agreed only in the judgment. Scalia did not participate and no Justice dissented. The organizations established standing but obtained no FACA-compliance injunction.",
+        "The controlling majority resolution was statutory exclusion strengthened by constitutional avoidance. The district court’s constitutional ground and Kennedy’s concurrence must not replace it. The assigned excerpt contains selected majority discussion; the full canonical brief supplies the standing analysis, advisory mechanics, statutory and regulatory history, and concurrence that explain both why suit was possible and why it failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and alignment; Assigned excerpt; 491 U.S. 442, 467, 489"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "id": "lrs-o-mathews",
+  "briefId": "LRS-CB-0456",
+  "title": "Mathews v. Eldridge",
+  "course": "Legislation and the Regulatory State",
+  "citation": "424 U.S. 319 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A disability beneficiary contests a proposed cutoff in writing, then seeks a court-ordered evidentiary hearing before payments stop instead of pursuing agency reconsideration.",
+  "actors": [
+    {
+      "name": "George Eldridge",
+      "role": "Social Security disability-insurance recipient challenging termination procedures."
+    },
+    {
+      "name": "Secretary of Health, Education, and Welfare",
+      "role": "Federal official defending the administrative review system."
+    },
+    {
+      "name": "State disability agency and Social Security Administration",
+      "role": "Officials assessing medical recovery and implementing the termination."
+    }
+  ],
+  "proceedings": [
+    "The state agency found medical recovery and SSA notified Eldridge of a July 1972 cutoff.",
+    "The District Court required a pretermination evidentiary hearing; the Fourth Circuit affirmed.",
+    "The Supreme Court sustained jurisdiction over the collateral claim but reversed the hearing injunction."
+  ],
+  "limits": "The Court reviewed the historical medical-recovery procedures, not return-to-work terminations or current program practices. It did not decide Eldridge’s continuing medical eligibility. The dissent’s reports of foreclosure and repossession remain attributed to that writing.",
+  "briefSha256": "544131cd946297014b263c6d1b0f4da177c8acf66a4e645933ea1b6f1e831025",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0456"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Eldridge receives benefits and undergoes a continuing-disability review",
+      "cue": "What evidence did the agency receive before proposing termination?",
+      "paragraphs": [
+        "George Eldridge began receiving disability-insurance benefits in June 1968 for chronic anxiety and back strain; diabetes was later identified. In March 1972 the monitoring state agency asked about his condition and treatment. He reported no improvement and identified medical sources. After obtaining his physician’s report and a psychiatric consultant’s report, the agency tentatively found that disability had ceased in May.",
+        "The agency’s letter explained its reasons and allowed additional submissions. It described controlled diabetes, insufficiently restrictive back limitations, and no emotional condition preventing all suitable work. Eldridge replied that he had spinal arthritis rather than a strain and that the record already established continued disability. The agency reaffirmed cessation, and the Social Security Administration (SSA) accepted that conclusion. A July notice said benefits would end after that month and explained his right to request reconsideration within six months."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 424 U.S. at 323–325 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The review system offers written participation before cutoff and a hearing afterward",
+      "cue": "Which safeguards and limitations shaped the dispute?",
+      "paragraphs": [
+        "Disability insurance required insured status and a medically determinable impairment preventing substantial gainful work, considering age, education, and work experience. Eligibility did not require a separate showing of financial need. The procedures reviewed here concerned medical recovery; the Court left return-to-work termination procedures aside.",
+        "Before cutoff, recipients could receive reasons and an evidence summary and submit contrary evidence and argument. A chosen representative, including a lay friend or relative, could inspect medical reports. The recipient personally could not then inspect those reports, a restriction the Secretary said was under review. The case therefore did not involve unrestricted personal file access.",
+        "After termination came reconsideration, an ALJ evidentiary hearing, possible Appeals Council review, and judicial review. A successful claimant could recover retroactive benefits. The interval through the hearing decision could exceed a year, however, and an erroneous cutoff could cause substantial hardship. Eldridge accepted the overall system if payment continued until that hearing; his objection concerned the earlier interruption."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Reasoning; 424 U.S. at 332–343 & nn.14–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Eldridge goes to court without requesting reconsideration",
+      "cue": "Why did the lower courts require continued payments?",
+      "paragraphs": [
+        "Eldridge did not seek administrative reconsideration. He sued in the Western District of Virginia for reinstatement pending an evidentiary hearing. The District Court ordered reinstatement during litigation and ultimately held that Goldberg required a hearing before termination. It considered the recipient’s interest and possible medical and nonmedical disputes sufficient to demand that protection. The Fourth Circuit affirmed on the same reasoning.",
+        "The Secretary sought Supreme Court review both of jurisdiction and of the constitutional ruling. A failure to exhaust, the Secretary argued, blocked judicial consideration under the Social Security Act. Thus Eldridge first had to establish a route into court before the Court could assess the requested procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 424 U.S. at 324–332 & nn.3–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court allows the collateral constitutional claim into court",
+      "cue": "How can nonexhaustion coexist with judicial review?",
+      "paragraphs": [
+        "Justice Powell’s opinion distinguished claim presentment from exhaustion within § 405(g)’s final-decision requirement. Section 405(h), as construed in Salfi, foreclosed ordinary federal-question jurisdiction over the benefits denial. Section 405(g) nevertheless supplied review here because presentment was nonwaivable while exhaustion could yield in appropriate circumstances.",
+        "Eldridge’s questionnaire and written response presented the claim that benefits should continue, even though he had not separately presented a constitutional demand for an earlier hearing. The agency denied that benefits claim. His constitutional issue was collateral to substantive eligibility: later success on the medical question would not answer whether a hearing had been required sooner. He also colorably alleged interim harm retroactive money could not fully repair. The denial was sufficiently final for that collateral issue. This jurisdictional conclusion favored Eldridge but did not decide whether his constitutional argument was correct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 424 U.S. at 326–332"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority weighs the interest and the likely value of an earlier hearing",
+      "cue": "Why did it distinguish Goldberg?",
+      "paragraphs": [
+        "The Secretary accepted that continued statutory benefits were a protected property interest. The Court asked what procedures were due, weighing the private interest, the risk of error and probable value of added safeguards, and government interests including fiscal and administrative burdens. It required a meaningful opportunity to meet the agency’s case, with the form adapted to context.",
+        "Because retroactive relief was available, the private interest concerned interruption during review. Goldberg’s means-tested welfare program identified recipients at the margin of subsistence; disability insurance did not establish need in that way. The majority acknowledged modest resources, difficulty finding temporary work, and long delays. Its comparison concerned the general program population, not a finding that Eldridge could easily replace the money. It considered possible private resources and assistance, while recognizing the objection that the same disability definition could affect Supplemental Security Income (SSI). References to state or local assistance, food stamps, and distinct SSI procedures did not establish that every terminated worker actually obtained substitutes.",
+        "The majority thought disability decisions generally turned on medical examinations, reports, and documented limitations, making an early oral hearing less useful than in disputes about personal conduct or circumstances. It did not regard disability as exclusively medical: age, education, work history, and available work also mattered, but could generally be presented in writing. Some cases involved credibility, yet procedural design was assessed across the generality of cases.",
+        "The existing questionnaire, reasons, evidence summary, representative access, and written response allowed recipients to address the actual proposed grounds. Amici’s reversal statistics were relevant but inconclusive because denominators differed and later proceedings could add evidence or examinations. The Court would not treat every reversal as an error an earlier trial-type hearing would have prevented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; 424 U.S. at 332–347 & nn.27–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Costs and the remaining review opportunities complete the balance",
+      "cue": "Did the Court authorize cutoff without any prior response?",
+      "paragraphs": [
+        "The majority considered additional hearings, continued payments to persons ultimately ineligible, and diversion of administrative resources. It did not make a precise cost figure decisive or hold that expense alone defeated process. Those burdens mattered together with the private interest and the expected limited benefit of an earlier evidentiary hearing.",
+        "The Court gave weight to administrators’ judgments while making its own constitutional assessment. Written pretermination participation, a later evidentiary hearing, and judicial review together supplied a meaningful opportunity in this system. It did not remove notice or the opportunity to respond, and the later hearing remained essential. The holding rejected an additional Goldberg-type hearing before cutoff, not every form of advance participation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Notes; 424 U.S. at 325 n.4,337–338,345–349"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Brennan disputes the majority’s assessment of hardship",
+      "cue": "What result did the Court actually reach?",
+      "paragraphs": [
+        "Brennan, joined by Marshall, would affirm the lower courts and require the hearing before termination. Invoking Goldberg and his Richardson v. Wright dissent, he regarded the supposedly limited deprivation as speculative. Congress’s provision of disability benefits without a means test, he thought, acknowledged need rather than permitting courts to discount it. Citing oral argument, he reported foreclosure of Eldridge’s home and repossession of family furniture and rejected other possible assistance as an answer to losing this benefit. Those reports belong to his dissent, not additional majority findings.",
+        "Six Justices joined Powell; Stevens did not participate. The Supreme Court reversed the Fourth Circuit’s injunction because the challenged procedures satisfied due process. It did not decide whether Eldridge remained disabled or award a fixed sum. The assigned notes’ critiques of the emphasis on accuracy and characterization of medical decisions are editorial analysis. Jurisdiction and defeat on the merits coexist: a colorable delay injury permitted adjudication of a claim that ultimately failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Judgment; Notes; 424 U.S. at 349–350; casebook 465"
+        }
+      ]
+    }
+  ]
+}

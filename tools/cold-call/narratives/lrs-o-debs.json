@@ -1,0 +1,146 @@
+{
+  "id": "lrs-o-debs",
+  "briefId": "LRS-ATLAS-O-DEBS",
+  "title": "In re Debs",
+  "course": "Legislation and the Regulatory State",
+  "citation": "158 U.S. 564 (1895)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A railway boycott brings a federal injunction and contempt imprisonment; the prisoners’ habeas challenge tests federal protective authority and equity’s jurisdiction, not a jury verdict on the boycott’s crimes.",
+  "actors": [
+    {
+      "name": "Pullman Palace Car Company and employees",
+      "role": "Parties to the labor dispute that prompted the boycott."
+    },
+    {
+      "name": "Eugene Debs and other American Railway Union officers",
+      "role": "Boycott organizers later imprisoned for contempt."
+    },
+    {
+      "name": "United States",
+      "role": "Sought protection of interstate railway commerce and mail transportation."
+    },
+    {
+      "name": "Attorney General Richard Olney and District Attorney Thomas Milchrist",
+      "role": "Directed and filed the federal protective suit."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of Illinois Circuit Court issued the injunction in July 1894 and imposed contempt terms in December.",
+    "The Supreme Court denied a writ of error in January 1895 because the contempt order was not final.",
+    "On May 27, 1895, the Supreme Court denied original habeas relief."
+  ],
+  "limits": "Government allegations of violent acts are not findings that Debs personally committed them all. The Court reserved the Sherman Act issue and did not decide a particular troop deployment, workers’ underlying grievances, or present contempt and labor-injunction law.",
+  "briefSha256": "5d187b4528a845445bfd10d403f9108ed53db3d12d1bc47d3ef90e35ba5b650b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-DEBS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A Pullman dispute expands into a railway boycott",
+      "cue": "What conduct did the Government allege beyond refusal to work?",
+      "paragraphs": [
+        "A May 1894 dispute between the Pullman Palace Car Company and its employees led many to stop work. Officers of the American Railway Union, including Eugene Debs, organized a boycott of Pullman cars and encouraged railway employees to refuse trains carrying them. On July 2 District Attorney Thomas Milchrist, at Attorney General Richard Olney’s direction, filed a verified federal bill in the Northern District of Illinois against Debs, Howard, Rogers, Keliher, and others, identifying twenty-two railroads.",
+        "The United States alleged that those roads carried interstate passengers and freight, operated as federal post roads, and transported mail under contracts. Some carried military obligations and two operated under federal receivers. Railway and stockyard interruption blocked food, fuel, and other necessities to Chicago and beyond. Allegations included threats preventing replacement employment, interference with switches and signals, removal of rails and spikes, derailments and wrecks, and plans for wider paralysis. These allegations supported jurisdiction; they did not establish that each prisoner personally committed every violent act."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts, allegations and chronology; 158 U.S. 565–570"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The injunction is followed by contempt and two review attempts",
+      "cue": "Which order produced the confinement challenged in the Supreme Court?",
+      "paragraphs": [
+        "The Circuit Court enjoined interference with interstate business and mail, damage to railroad property and equipment, and participation in the obstructive combination. Its extensive terms also prohibited inducing duty failures through threats, intimidation, persuasion, force, or violence and directing or helping forbidden conduct. Notice reached named defendants and others learning of the order; the later habeas petitioners were served. The Court’s description of a protective purpose did not erase this broad wording.",
+        "Contempt informations followed July 17 and August 1. After hearing, the court found disobedience on December 14 and imposed county-jail sentences of three to six months. On January 14, 1895, the prisoners sought writs of error and habeas corpus. The Supreme Court denied the writ of error January 17 because the contempt order was not a final judgment or decree, heard original habeas in March, and decided it in May. The injunction, contempt, and any separate criminal proceedings remained different stages.",
+        "Counsel Lyman Trumbull argued that lawful adjustment of workers’ grievances caused only incidental commerce effects. The Government did not own the railroads; equity could not protect others’ private property or enforce criminal law. Crimes required indictment and jury trial, he argued, and injunction contempt evaded that guarantee. He also challenged the bill’s sufficiency and treatment of stockyard powers. Justice Brewer framed two questions: federal authority to prevent forcible obstruction of commerce and mail, and equity’s power to assist that duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; Petitioners’ objections; 158 U.S. 570–577"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brewer connects federal protection to powers Congress had exercised",
+      "cue": "Why was this more than an assertion of dormant constitutional authority?",
+      "paragraphs": [
+        "Within enumerated powers, the United States operates directly throughout its territory and has sovereign means to carry out its functions. Brewer used McCulloch, Lane County, and Siebold to reject dependence on state cooperation while preserving consistent concurrent state law. Commerce and postal powers marked national responsibility.",
+        "Congress had acted extensively: interstate railway authorization, livestock and disease regulation, the Interstate Commerce Commission, railway-employee arbitration, automatic couplers, and postal legislation. These laws established actual federal responsibility, not merely unused constitutional grants. If a state could not obstruct interstate commerce, a voluntary association could claim no superior power to do so.",
+        "Criminal punishment was not the only remedy. A locally supported obstruction could frustrate prosecutions and national duties. The Court said federal strength, including executive force when necessary, could clear obstruction, but force did not exclude peaceful judicial determination or preventive relief. Nuisance cases showed that judicial intervention could accompany executive protection. Those observations justified jurisdiction; the habeas proceeding did not adjudicate a specific military deployment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Federal authority and judicial process; 158 U.S. 577–583, 596–598"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Public responsibility supplies an equitable interest",
+      "cue": "How could Government sue without owning the railway?",
+      "paragraphs": [
+        "The United States’ proprietary interest in the mails answered the property objection, but Brewer did not rely on that alone. Its duty to protect public rights within constitutional responsibility permitted suit without financial ownership. San Jacinto and Bell Telephone distinguished impermissibly advancing one person’s private dispute from performing a public obligation. Keeping federally regulated interstate highways open was the latter.",
+        "Traditional equity restrained public nuisances involving streets, rivers, canals, wharves, and bridges, often cautiously and with attention to adequate ordinary remedies. Existence of jurisdiction differed from whether its exercise was necessary. This bill’s continuing threats, nationwide effects, and forcible interference supplied urgency. Private ownership and new railway technology did not eliminate commerce authority: control over railways and navigable waters came from the same constitutional grant, not government title. Railways were artificial highways to which the preventive principle could apply."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Government interest and equity; 158 U.S. 583–593"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Contempt is treated as enforcement of the court’s order",
+      "cue": "How did the Court answer the criminal-jury objection?",
+      "paragraphs": [
+        "Brewer accepted that equity has no criminal jurisdiction and cannot enjoin conduct merely because it threatens a crime. Here interference with independently protected property and public rights supplied a civil basis. The possibility of simultaneous crimes did not destroy preventive jurisdiction.",
+        "Contempt enforced the court’s authority and adjudicated rights, rather than serving as a criminal trial for wrecks or assaults. A contempt sanction would not bar later prosecution for those acts. Under the historical framework the Court applied, courts could summarily determine disobedience; submitting enforcement to another jury or tribunal would impair that power. That reasoning is not a complete account of modern contempt procedure.",
+        "The claim that an order could not suppress a mob challenged expediency, not jurisdiction. Brewer cited a defendant’s Strike Commission testimony that removing union leaders and restricting communications broke the strike; compliance by most participants showed ordinary process could work rather than facing a rebellion. The testimony did not itself make every union communication unlawful.",
+        "The Court said workers’ right to stop work was not challenged and characterized the object as preventing forcible obstruction of commerce and mail. Sympathy for employees could not justify violence or obstruction. That characterization must remain alongside the decree’s broad language, including persuasion, and the petitioners’ jury objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Criminal-law objection, jury trial and contempt; 158 U.S. 570–572, 593–599"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The prisoners remain confined because the court had jurisdiction",
+      "cue": "What did habeas leave unreviewed?",
+      "paragraphs": [
+        "On May 27, 1895, the Court denied habeas relief without a separate writing or dissent. The Circuit Court had jurisdiction over the protective suit and authority under Revised Statutes § 725 to punish disobedience. Once jurisdiction existed, habeas could not reexamine the factual contempt finding. This was denial of an original petition, not affirmance of an ordinary criminal conviction.",
+        "The Supreme Court expressly declined the Sherman Act ground principally used below. The assigned account’s statement that no statute specifically authorized this labor injunction therefore coexists with extensive reliance on enacted commerce and postal law. The editors’ discussion of a reportedly unsuccessful separate criminal prosecution and concern about jury-free contempt supplies supplementary historical commentary, not additional findings here. Later labor-injunction legislation and present enforceability fall outside this historical account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Decision and posture; Exact holding and limits; 158 U.S. 599–600; casebook 261–262"
+        }
+      ]
+    }
+  ]
+}

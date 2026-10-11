@@ -1,0 +1,177 @@
+{
+  "id": "lrs-i-benzene",
+  "briefId": "LRS-ATLAS-I-BENZENE",
+  "title": "Industrial Union Department, AFL–CIO v. American Petroleum Institute",
+  "course": "Legislation and the Regulatory State",
+  "citation": "448 U.S. 607 (1980)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Secretary of Labor lowered benzene limits under a policy treating uncertain cancer risk as a reason for maximum feasible protection. A fractured Court required a different justification, while disagreeing about costs, scientific uncertainty, and delegation.",
+  "actors": [
+    {
+      "name": "Secretary of Labor",
+      "role": "Issued the occupational benzene standard and defended it in the Supreme Court."
+    },
+    {
+      "name": "National Institute for Occupational Safety and Health",
+      "role": "Federal scientific body whose changing recommendations informed the regulatory history."
+    },
+    {
+      "name": "American Petroleum Institute and industry challengers",
+      "role": "Challenged airborne and dermal-contact restrictions."
+    },
+    {
+      "name": "Industrial Union Department, AFL–CIO",
+      "role": "Union petitioner seeking review of the judgment against the standard."
+    }
+  ],
+  "proceedings": [
+    "Fifth Circuit invalidated challenged airborne and dermal-contact portions and remanded to the Secretary.",
+    "Union and Secretary obtained Supreme Court review in consolidated Nos. 78–911 and 78–1036.",
+    "Supreme Court on July 2, 1980 affirmed the remand 5–4; Stevens announced a plurality statutory rationale, and Rehnquist supplied a separate nondelegation vote."
+  ],
+  "limits": "No majority adopted Stevens’s statutory opinion, Powell’s cost-benefit rule, or Rehnquist’s constitutional invalidation. The Court did not find ten ppm safe, prescribe a replacement limit, or decide the general permissibility of cost-benefit analysis. The account describes the 1980 decision.",
+  "briefSha256": "46022cc8ff48b0f9e62be40f809ea99faf79ec7aa284d6eec42ecfbac0b693c3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-BENZENE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress gives the Secretary overlapping safety instructions",
+      "cue": "Why was low-dose benzene uncertainty difficult to regulate?",
+      "paragraphs": [
+        "The Occupational Safety and Health Act of 1970 defined a standard in § 3(8) by reference to conditions reasonably necessary or appropriate for safe or healthful employment. Section 6(b)(5), addressing toxic substances and harmful physical agents, directed the Secretary of Labor to provide the most adequate assurance, to the extent feasible and on the best available evidence, against material impairment over a working lifetime. The dispute would concern how those instructions worked together when low-dose cancer risk resisted confident measurement.",
+        "Benzene served several industries and at high exposure could cause leukemia and other serious blood disorders. A 1971 consensus-derived standard generally allowed a ten-parts-per-million eight-hour average, with higher short-term ceilings and peaks. The National Institute for Occupational Safety and Health did not recommend reducing that average in 1974. In 1976 it identified benzene as a human carcinogen and recommended one part per million (ppm), based on detection limits and background exposure rather than a demonstrated safe threshold or feasibility evaluation.",
+        "A 1977 emergency standard encountered judicial obstacles. The Secretary issued a permanent rule in February 1978 and amended it in June. It required a one-ppm eight-hour average and five-ppm fifteen-minute ceiling, regulated contact with benzene-containing liquids, and used a half-ppm action level to trigger surveillance. Exposure determined monitoring, medical examinations, engineering controls, and supplemental respiratory protection. Amended liquid-contact provisions permitted progressively smaller concentrations, and fuel uses after bulk distribution were excluded. Detection limits, background levels, and the workforce covered therefore shaped the practical rule; it did not literally eliminate every potentially avoidable molecule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; 448 U.S. at 612–29 & nn.6–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A precautionary policy substitutes for a low-dose risk estimate",
+      "cue": "What findings did the Secretary make, and what did the agency not estimate?",
+      "paragraphs": [
+        "The Secretary presumed no safe cancer threshold unless industry proved one. Once high-exposure carcinogenicity was established, that policy called for the lowest exposure regarded as technologically and economically feasible. The Secretary did not estimate additional leukemia cases at ten ppm or cases avoided by moving to one ppm.",
+        "The evidence faced small study populations, uncertain historical exposures, latency, and possible confounding factors. Those problems did not prove safety. They framed the later dispute over whether the agency had made a sufficient finding of danger rather than simply applying its general cancer policy.",
+        "Industry challenged the airborne and dermal-contact provisions. The Fifth Circuit invalidated those portions as inadequately justified and discussed the relationship between cost and benefit. The union and Secretary sought Supreme Court review. Objections to monitoring, testing, and priority for engineering controls had not been decided by the circuit and were not before the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Record and procedure; 448 U.S. at 613–14, 629–38 & nn.30–31, 658–59; Marshall at 700"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stevens requires a significant-risk finding before feasible reduction",
+      "cue": "Why did four Justices reject the government’s reading?",
+      "paragraphs": [
+        "The government argued that the specific toxic-substance instruction required maximum feasible protection despite inability to quantify cancer risk at the existing limit. Scientific uncertainty should not give employers the benefit of an unproved safe threshold. Industry demanded a meaningful danger showing and justification of the burdens.",
+        "Justice Stevens, joined in the principal statutory analysis by Chief Justice Burger and Justices Stewart and Powell, read § 3(8) with § 6(b)(5). Safe employment did not mean freedom from every conceivable risk. Before issuing a permanent standard, the Secretary had to find a significant risk of material impairment under existing conditions and a prospect that the new standard would eliminate or reduce it. Structure, priority provisions, legislative changes, and the feasibility limitation supported separating unsafe workplaces from ordinary minor risks.",
+        "Without that threshold, high-dose carcinogenicity could justify restrictions at arbitrarily low concentrations, potentially regulating thousands of substances at enormous cost with little discernible benefit. Stevens required clearer congressional authorization for that breadth and invoked constitutional avoidance because such open-ended power could raise delegation problems. That was a statutory construction reinforced by constitutional concern, not a holding invalidating the Act."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and principal plurality reasoning; 448 U.S. at 638–52 & n.51"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Three Justices explain how uncertainty can coexist with a supported threshold",
+      "cue": "What did the plurality not require of science?",
+      "paragraphs": [
+        "In Part III–D, joined only by Burger and Stewart, Stevens placed the substantial-evidence burden on the agency instead of requiring industry to prove safety. He did not demand certainty or mathematically exact forecasts. Reputable scientific evidence, reasonable conservative assumptions, and policy judgment at the frontiers of knowledge could support protection. Contrasting an extremely remote risk with a one-in-a-thousand risk illustrated significance; it did not establish a numerical legal cutoff. Monitoring could serve as a protective backstop while uncertainty was addressed.",
+        "The central objection was the direct move from known carcinogenicity to the lowest feasible limit without the required significant-risk finding. The plurality did not insist on waiting for worker deaths or perfect epidemiology and did not decide what a properly justified finding on this record could show. Judicial review could not invent a rationale or findings the Secretary had not used.",
+        "Stevens, Burger, and Stewart applied the same threshold to dermal contact: possible absorption and carcinogenic effect did not supply the necessary finding. They did not decide the circuit’s separate demand for additional experiments. The broader cost-benefit question likewise remained unresolved, and the remand did not specify a permissible replacement exposure limit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Three-Justice portions III–D and IV; 448 U.S. at 652–62 & nn.59–67"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Burger and Powell explain distinct reasons for requiring better support",
+      "cue": "Why was Powell’s costs rule not the Court’s holding?",
+      "paragraphs": [
+        "Burger separately stressed an understandable, supported description of significant risk. Courts should enforce that statutory duty while leaving authorized policy choices to the Secretary, not substitute their own views of efficiency or prudence.",
+        "Powell agreed on the threshold and the record’s failure but disagreed with parts of Stevens’s treatment of the agency’s effort. An adequately supported finding of appreciable benefits could embody significant risk without precise quantification. He would not say the Secretary had made no attempt to identify danger.",
+        "Powell separately read the statute to require a reasonable relationship between costs and expected benefits and faulted the justification of costs here. That position did not command the Court. He also expressly reserved whether an alternative statutory interpretation would violate nondelegation, despite joining Part III–B. A later formal generic cancer policy had not supplied this rule’s basis and was not being adjudicated. Powell joined Parts I, II, III–A, III–B, III–C, and III–E, but not III–D or IV; those distinctions limit which passages had four or only three votes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Burger and Powell concurrences; 448 U.S. at 662–71 & Powell nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Rehnquist sees a legislative choice Congress failed to make",
+      "cue": "What constitutional conclusion did only one Justice adopt?",
+      "paragraphs": [
+        "Justice Rehnquist concurred in the judgment on nondelegation grounds. In his view, when a safe exposure level was unknown or infeasible, the first sentence of § 6(b)(5) left the basic tradeoff between worker protection and economic burdens to the Secretary and ultimately the courts. Congress had not supplied the political decision, intelligible administrative guidance, or standards for judicial review.",
+        "He would invalidate that sentence in those circumstances. His final note preserved situations where a known safe level was feasible and other statutory authority remained available. No other Justice joined this constitutional conclusion. Rehnquist supplied the fifth vote for the judgment without converting Stevens’s plurality interpretation into a majority opinion or invalidating the statute for the Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rehnquist concurrence; 448 U.S. at 671–88 & nn.1–8, especially n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Marshall would uphold precautionary protection on this record",
+      "cue": "What did the dissent think Congress had already decided?",
+      "paragraphs": [
+        "Justice Marshall, joined by Justices Brennan, White, and Blackmun, read § 6(b)(5) as Congress’s specific choice for feasible worker protection despite scientific uncertainty. He emphasized the large hearing record, evidence of carcinogenicity, low-dose epidemiology’s limitations, and the Secretary’s expert judgment. Inability to generate reliable numbers did not mean absence of evidence of serious danger.",
+        "Marshall argued that the plurality added a new statutory obstacle and displaced administrative judgment. He rejected the industry argument that “material” excluded low-probability harms: the words concerned material impairment, not material risk of impairment. He also disputed Powell’s cost-benefit reading and Rehnquist’s constitutional objection. He defended the dermal rule without requiring every potentially informative experiment and would sustain the standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Marshall dissent; 448 U.S. at 688–724 & nn.1–36"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Five votes affirm remand without a single majority rationale",
+      "cue": "What should a reader carry forward from the disposition?",
+      "paragraphs": [
+        "On July 2, 1980, the Supreme Court affirmed the Fifth Circuit judgment remanding the standard to the Secretary for further proceedings, 5–4. Stevens announced the judgment; Burger and Stewart joined throughout, Powell joined specified portions, and Rehnquist concurred separately in the result. Marshall and three colleagues dissented.",
+        "The Court did not establish that ten ppm was safe, decide the general validity of cost-benefit analysis, adopt a numerical threshold, or invalidate the Act as unconstitutional. The assigned discussion treats the case as a precursor to later concerns about extraordinary agency power, but that editorial context does not turn a plurality into a majority or replace the opinions’ treatment of uncertain science. Later regulatory developments and doctrinal changes are outside this source’s historical account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Result and assigned limits; 448 U.S. at 611, 614–15, 639–40, 658–62"
+        }
+      ]
+    }
+  ]
+}

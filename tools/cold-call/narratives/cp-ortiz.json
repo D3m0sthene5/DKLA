@@ -1,0 +1,148 @@
+{
+  "id": "cp-ortiz",
+  "briefId": "CP-ATLAS-ORTIZ",
+  "title": "Ortiz v. Fibreboard Corp.",
+  "course": "Civil Procedure",
+  "citation": "527 U.S. 815 (1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An asbestos defendant and its insurers propose a mandatory global settlement, but disputed insurance value and competing claimants prevent the deal from satisfying the limited-fund class requirements.",
+  "actors": [
+    {
+      "name": "Fibreboard Corporation",
+      "role": "Former asbestos manufacturer facing present and future injury claims."
+    },
+    {
+      "name": "Continental and Pacific",
+      "role": "Insurers disputing historical coverage."
+    },
+    {
+      "name": "Inventory claimants",
+      "role": "Existing clients with separately negotiated settlements."
+    },
+    {
+      "name": "Settlement class and objectors",
+      "role": "Unfiled, withdrawn, future, and related claimants proposed to be bound without opting out."
+    }
+  ],
+  "proceedings": [
+    "The Eastern District of Texas certified and approved a mandatory settlement class after an eight-day fairness hearing.",
+    "The Fifth Circuit affirmed, reconsidered after Amchem, and again sustained certification.",
+    "The Supreme Court reversed and remanded; the independent backup settlement was not invalidated."
+  ],
+  "limits": "The Court did not decide whether mandatory limited-fund classes can ever aggregate unliquidated mass torts, resolve Article III objections, determine insurance coverage, or award tort damages.",
+  "briefSha256": "9bf70216591b78830d0527b124a5e80523bef4982b6b60fda1ffbdfc2b986c3f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-ORTIZ"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Fibreboard faces asbestos liabilities and a disputed insurance asset",
+      "cue": "Why could both the size and existence of the fund be uncertain?",
+      "paragraphs": [
+        "Fibreboard manufactured asbestos products from the 1920s until 1971. Later it faced thousands of personal-injury claims and potentially many more from exposed people who had not developed disease. Its assets were small relative to projected liability. Continental’s May 1957–March 1959 policy imposed per-person and per-occurrence limits but no aggregate limit; Pacific’s disputed policy covered an earlier period. Fibreboard won a favorable California coverage judgment, but the insurers’ appeal threatened substantial or complete loss of that asset.",
+        "Fibreboard had already settled many claims through partial immediate payments with balances dependent on coverage success, or assignments of insurance rights. During 1993 negotiations, lawyers for existing clients arranged separate settlements for roughly 45,000 inventory claims. Some full payments depended on global approval or a favorable coverage outcome. Those same lawyers negotiated for the proposed class, giving them an incentive to secure a deal that unlocked their existing clients’ money.",
+        "With coverage argument approaching, the parties agreed on August 26, 1993, to a $1.535 billion trust: $1.525 billion from insurers and $10 million attributed to Fibreboard. Only $500,000 came from company assets; the remainder came from other insurance. At class counsel’s insistence, a separate Trilateral Settlement Agreement promised $2 billion from insurers if the global deal failed. That independently approved backup was not itself before the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual dispute and proposed solution; 527 U.S. 822–828 & nn.4, 8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The agreement binds a class while leaving large groups outside",
+      "cue": "What rights would absent members surrender?",
+      "paragraphs": [
+        "The proposed class principally covered unfiled or withdrawn claims, future injuries, and related claimants. Pending plaintiffs and certain already-settled claimants retaining later-malignancy rights were excluded. Class members would pursue settlement, mediation, and arbitration before judicial recovery from the trust. Litigation recovery was capped at $500,000, excluded punitive damages and prejudgment interest, and was payable over five to ten years; settlements paid over three years. A later action against the trust was not an option to reject the deal and sue Fibreboard normally.",
+        "The Eastern District of Texas certified a mandatory Rule 23(b)(1)(B) limited-fund class and approved the agreement after an eight-day fairness hearing. It relied on coverage risk and inadequate company assets and settlement proceeds. The Fifth Circuit affirmed. After the Supreme Court’s Amchem decision on settlement-class safeguards, the Court sent Ortiz back for reconsideration; the Fifth Circuit again sustained it, distinguishing mandatory treatment from Amchem’s opt-out class and finding no discriminatory injury-group allocation.",
+        "Objectors challenged the negotiated fund limit, exclusions, counsel conflicts, and Fibreboard’s retention of value. Proponents stressed disappearing coverage, need for a binding solution, shared recovery interests, saved costs, and separate suits’ potential to impair the asset. The Supreme Court treated certification as logically prior to the Article III objections and left those objections unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and positions; proposed solution; 527 U.S. 826–831, 847 n.23, 848–864"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Souter demands proof of necessity before a mandatory settlement",
+      "cue": "What protections justify binding claimants who cannot opt out?",
+      "paragraphs": [
+        "Justice Souter wrote for seven Justices. Traditional limited-fund proceedings protected claimants competing for a concrete inadequate resource, such as trust, insurance, or sale proceeds, which early recoveries could exhaust. Unlike Rule 23(b)(3), this mandatory form lacked an inherent opt-out right. Its historical protections therefore carried special importance.",
+        "The Court identified three presumptively necessary features: definite maximum claims and fund values showing insufficiency; dedication of the whole inadequate fund to claims; and inclusion and equitable treatment of claimants sharing the recovery theory. A proponent departing from those features had to justify the departure. They were not merely examples of sufficient old arrangements.",
+        "Rule history suggested that the principal mass-tort innovation was opt-out treatment, not unrestricted mandatory aggregation. The Rules Enabling Act bars procedural alteration of substantive rights, and compulsory settlement of damages claims raises jury and due-process concerns. Those considerations counseled restraint without holding every mandatory settlement unconstitutional. The Court also reserved notice’s necessity and sufficiency and whether this Rule could ever aggregate unliquidated mass torts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Historical rule; 527 U.S. 833–848 & nn.13, 19–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The negotiated payment does not independently establish the available resource",
+      "cue": "Why could a fairness hearing and backup agreement not cure the proof problem?",
+      "paragraphs": [
+        "An agreed amount showed what parties promised under the settlement, not the maximum asset available to claimants. The district court needed independent evidence, findings, and a chance for opponents to contest limitation and insufficiency. A fairness hearing could not replace certification safeguards. The case failed under either competing lower-court approach to threatened exhaustion, so the Court did not choose between them.",
+        "Insurance might conceivably be discounted for appellate risk, but the courts had not independently valued it. Settlement could supply evidence if genuinely disinterested bargaining established value; these negotiations lacked that premise because class counsel also represented inventory clients whose payment depended on successful settlement or coverage. An approvable deal need not be the best class deal. The backup was linked to the negotiations and a shared insurer payment constraint, so it did not cure the deficiency. The Court did not find insurance sufficient for everyone; it found insufficiency unproved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application: negotiated fund; 527 U.S. 848–853, 862–863"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Representation and exclusion create separate defects",
+      "cue": "Why did equal treatment on paper not eliminate different interests?",
+      "paragraphs": [
+        "About 45,000 inventory plaintiffs and over 53,000 pending claimants stood outside the class. Counsel had helped extract one substantial group during negotiations for the supposedly necessary binding solution, and inventory clients appeared to receive better immediate payments and terms. Even proof of equivalent benefits could not replace independent representation.",
+        "Present claimants favored immediate payment; future claimants needed preserved resources. They required homogeneous subclasses and separate representatives. Pre-1959 exposure also carried more valuable Continental-insured claims than later exposure. Identical treatment was an allocation choice, not proof of identical interests. Shared desire for insurance money could not dissolve these conflicts. Rule 23(a) adequacy and the equitable basis of mandatory treatment had to precede Rule 23(e) fairness review.",
+        "Fibreboard’s retention of nearly all its net worth created another serious difficulty while claimants lost opt-out rights and accepted caps and delay. The Court reserved whether that defect alone sufficed, how near insolvency a defendant must come, and whether transaction savings might justify a credit elsewhere. Those concerns did not become categorical all-assets holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application: inclusion and representation; 527 U.S. 854–861 & nn.31–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The majority reverses while two Justices would accept the practical solution",
+      "cue": "What did each side think urgency permitted?",
+      "paragraphs": [
+        "On June 23, 1999, the Court reversed the Fifth Circuit and remanded. The fund was not independently proved limited, and exclusions and representation conflicts defeated certification safeguards. The mandate did not determine coverage, award damages, or undo the independent backup agreement.",
+        "Chief Justice Rehnquist, joined by Scalia and Kennedy, accepted the majority’s statement of existing law while recognizing the district court’s work and enormous transaction costs. He viewed the asbestos crisis as calling for legislation rather than judicial redesign of Rule 23.",
+        "Justice Breyer, joined by Stevens, would sustain certification. He emphasized scale, delay, costs, and deference to the district court’s experience. The endangered insurance asset was a genuine limited fund; opt-outs would undermine insurers’ willingness to pay. He treated the backup as arm’s-length valuation, found representation and allocation defensible without subclasses, and considered savings greater than Fibreboard’s retained value sufficient dedication of the fund. He anticipated success on remaining notice, standing, statutory, and constitutional objections but expressly did not decide them; these were dissenting predictions.",
+        "The assignment’s later subclass label, Rule 23(c)(5), is an editorial renumbering of the opinion’s Rule 23(c)(4)(B). Shared editorial notes about legislation, constructive bankruptcy, and settlement policy do not convert the majority’s reserved questions into holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and separate writings; Assignment; 527 U.S. 864–884"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "mattei",
+  "briefId": "CTR-019",
+  "title": "Mattei v. Hopper",
+  "course": "Contracts",
+  "citation": "51 Cal. 2d 119, 330 P.2d 625 (1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A shopping-center developer accepts a land deal conditional on satisfactory leases, and the seller later treats that condition as an unrestricted escape.",
+  "actors": [
+    {
+      "name": "Peter O. Mattei",
+      "role": "Developer and buyer assembling land for a shopping center."
+    },
+    {
+      "name": "Amelia F. Hopper",
+      "role": "Owner of the adjacent parcel and seller under the deposit receipt."
+    },
+    {
+      "name": "Coldwell Banker & Company",
+      "role": "Real-estate intermediary assigned to obtain leases satisfactory to Mattei."
+    }
+  ],
+  "proceedings": [
+    "Mattei sued for damages for failure to convey.",
+    "After a bench trial, the trial court gave judgment to Hopper for lack of mutuality.",
+    "The California Supreme Court reversed."
+  ],
+  "limits": "The appellate judgment reversed Hopper’s victory. The supplied brief does not report a later damages award or completed conveyance. Later Restatement language is identified as later doctrinal context.",
+  "briefSha256": "549e055ca6c476696cd31669b0e120ee74409d03b8f0913cc7ef9bb5ccb5c1b1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-019"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Mattei and Hopper agree on a parcel for the shopping center",
+      "cue": "Why did this buyer need a lease condition?",
+      "paragraphs": [
+        "Peter O. Mattei was assembling land for a shopping center next to a parcel owned by Amelia F. Hopper. A real-estate agent negotiated with Hopper for several months. Hopper rejected several proposals because she considered the offered prices inadequate. She then made an offer that Mattei accepted that same day.",
+        "The parties used the agent’s deposit-receipt form. The price was $57,500, with $1,000 to be deposited with the agent. Mattei had 120 days to examine title and consummate the purchase. At the end of that period, the unpaid balance would become payable when Hopper tendered a good and sufficient deed. The final provision made the transaction subject to Coldwell Banker & Company obtaining leases satisfactory to the purchaser, Mattei.",
+        "The condition reflected the shopping-center project. Before paying the balance and taking title, Mattei wanted tenant commitments. Their value depended on a combination of lease duration, renewal rights, covenants, restrictions, rent, tenant financial responsibility, and the nature and mix of the proposed businesses. The intermediary would seek the leases; Mattei would judge whether they were satisfactory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mattei deposits money; Hopper announces she will not convey",
+      "cue": "Put repudiation, satisfaction, tender, and the withheld deed in order.",
+      "paragraphs": [
+        "Mattei paid the $1,000 deposit and worked to secure leases. Before the 120 days expired, Hopper’s attorney informed him that Hopper would not sell on the deposit receipt’s terms. Hopper later received notice that satisfactory leases had been obtained and that Mattei offered to pay the outstanding purchase price. She withheld the deed.",
+        "Mattei brought a damages action alleging breach of the written land-sale agreement. He was seeking compensation for the failure to convey under that agreement. The dispute thus concerned a signed transaction with a paid deposit and a later tender, not merely preliminary negotiations that never reached a writing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial court treats satisfaction as an unrestricted choice",
+      "cue": "Why did Hopper win below, and what issue did Mattei take on appeal?",
+      "paragraphs": [
+        "The case was tried to the court without a jury. The trial court understood the satisfaction provision as leaving Mattei free to choose whether to buy without a legally enforceable restriction. It characterized his promise as illusory, found a lack of mutuality, and entered judgment for Hopper.",
+        "Mattei appealed to the California Supreme Court. The court had to determine the legal effect of the written instrument: did the parties make a present contract with a condition on performance, and did an enforceable standard govern Mattei’s decision about leases? If his judgment was constrained by a legal obligation, the consideration objection would have a different answer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Question Presented"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The supreme court places the condition inside an existing contract",
+      "cue": "Why was “subject to” a performance condition here?",
+      "paragraphs": [
+        "Justice Spence’s opinion read the deposit receipt as a whole. It specified the parcel, price, deposit, period for performance, tender of a deed, and lease condition. Those provisions formed a present agreement when the parties signed. The satisfaction clause made Mattei’s duty to complete the purchase conditional and gave him a contractual power to terminate if satisfactory leases could not be obtained. It did not postpone all contract formation until Mattei later chose to agree.",
+        "The remaining question was whether Mattei’s discretion was unlimited. In an exchange of promises, a promise that reserves unrestricted freedom to perform or withdraw supplies no legal obligation. The language of illusoriness and lack of mutuality directed attention to that consideration problem. The court could enforce the exchange if honest judgment meaningfully constrained Mattei’s choice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding; Reasoning: subject to, consideration, and mutuality"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The leases call for honest business judgment",
+      "cue": "Which satisfaction standard applied, and why did it supply consideration?",
+      "paragraphs": [
+        "The court distinguished two types of satisfaction provision. Matters such as commercial value, quality, operative fitness, or mechanical utility ordinarily permit an objective reasonable-person standard. Matters of taste, fancy, or judgment instead turn on the particular person’s actual satisfaction, constrained by honesty and good faith. The subject assigned for evaluation determines the standard.",
+        "The acceptability of shopping-center leases required assessment of interacting terms: duration, renewals, covenants, restrictions, rent, the tenants’ credit, and their businesses. This was a matter of business judgment. Mattei therefore could genuinely find proposed leases unsatisfactory, but he could not invent dissatisfaction simply to escape the purchase. His subjective authority carried an enforceable duty to exercise that judgment honestly and in good faith.",
+        "That duty supplied the legal restriction missing from the trial court’s analysis. If the leases satisfied Mattei’s honest judgment, he had to complete the purchase. Hopper could challenge a refusal by proving that his stated dissatisfaction was not genuine. The fact that third-party tenants would provide the leases did not remove the standard: the agreement used their leases as the condition measuring Mattei’s performance, while Hopper’s own promised performance was conveyance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: two satisfaction standards, leases, consideration, and third parties"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court rejects contrary dicta and reverses",
+      "cue": "What did the earlier cases actually decide, and what was the result here?",
+      "paragraphs": [
+        "The court drew on the established satisfaction-contract approach reflected in First Restatement § 265 and the Williston and Corbin treatises. A promise to exercise honest judgment is capable of legal enforcement even when an objective reasonable-person test does not fit the subject.",
+        "Earlier California language had suggested otherwise. Lawrence Block Co. v. Palston described buyer approval as unrestricted when no reasonable-person measure applied, but the result there rested on an unaccepted counteroffer. Pruitt v. Fontana repeated that language in a case involving a later oral agreement and estoppel against a Statute of Frauds defense. Mattei disapproved those dicta to the extent they treated objective reasonableness as the only enforceable standard for satisfaction.",
+        "On October 24, 1958, the California Supreme Court reversed the judgment for Hopper. Chief Justice Gibson and Justices Shenk, Carter, Traynor, and Schauer joined Spence; Justice McComb dissented without an opinion. The court held that the signed receipt created a contract and that the good-faith duty supplied consideration. It did not report a later award of a particular amount.",
+        "The later Restatement (Second) § 79 expresses the related point that, once consideration exists, mutuality adds no separate requirement. That later formulation helps organize the lesson, but the sequence in Mattei itself was to interpret the writing, identify a performance condition, classify the satisfaction judgment, and find an enforceable good-faith restriction on the buyer’s discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Holding; Reasoning: doctrinal history, prior California dicta, and later context"
+        }
+      ]
+    }
+  ]
+}

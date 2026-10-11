@@ -1,0 +1,144 @@
+{
+  "id": "cp-mas-perry",
+  "briefId": "CPR-015",
+  "title": "Mas v. Perry",
+  "course": "Civil Procedure",
+  "citation": "489 F.2d 1396 (5th Cir. 1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A married couple discovers their landlord’s concealed surveillance, obtains separate jury awards, and faces an appeal focused on each spouse’s citizenship and the amount originally at stake.",
+  "actors": [
+    {
+      "name": "Jean Paul Mas",
+      "role": "French citizen and LSU graduate assistant; plaintiff awarded $5,000."
+    },
+    {
+      "name": "Judy Mas",
+      "role": "American graduate assistant with an established Mississippi domicile; plaintiff awarded $15,000."
+    },
+    {
+      "name": "Oliver H. Perry",
+      "role": "Louisiana landlord who watched the couple through concealed two-way mirrors; challenged federal jurisdiction on appeal."
+    }
+  ],
+  "proceedings": [
+    "The Mases filed within days after discovering the surveillance, before moving to Illinois.",
+    "The district court denied Perry’s jurisdictional motion and entered judgment on the jury’s separate awards.",
+    "The Fifth Circuit affirmed on February 22, 1974; certiorari was later denied."
+  ],
+  "limits": "The historical amount threshold was more than $10,000, and each spouse claimed $100,000. Later residence was evidence of intent, not the jurisdictional measuring date. The assigned excerpt omits both the filing-chronology footnote and the amount analysis; the full brief supplies them.",
+  "briefSha256": "07aa3694cacb9f0d8cea35549cedcedeefedbbde96920aa0a0e3aeb2620a7ed5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-015"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two graduate assistants marry and return to Louisiana",
+      "cue": "What was each spouse’s connection to the relevant places?",
+      "paragraphs": [
+        "Jean Paul Mas, a citizen of France, and Judy Mas, an American with an established Mississippi domicile, worked and studied as graduate assistants at Louisiana State University in Baton Rouge. Before their marriage, Jean Paul had been there approximately nine months and Judy approximately a year. They performed teaching duties as well as coursework.",
+        "They married at Judy’s home in Jackson, Mississippi, then returned to Baton Rouge to resume their graduate-assistant work. They rented an apartment from Oliver H. Perry, a Louisiana citizen. The couple discovered two-way mirrors in the bedroom and bathroom through which Perry had watched them during three of the first four months of their marriage.",
+        "The Mases filed their federal complaint within several days of that discovery. They remained in Baton Rouge roughly two years after their return, then moved to Park Ridge, Illinois. At trial, they planned to return to Baton Rouge while Jean Paul completed his doctorate but had not decided where to settle afterward. The move to Illinois happened well after filing; the complete opinion’s second footnote fixes that chronology."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 309–310; full opinion paragraph 2 and footnote 2 to paragraph 10; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Perry raises jurisdiction and the jury returns unequal awards",
+      "cue": "Why did the smaller verdict become an appellate issue?",
+      "paragraphs": [
+        "The spouses sought damages in federal district court, each initially claiming $100,000. Perry orally moved to dismiss for lack of subject-matter jurisdiction just before their last witness testified. By a court-approved stipulation, the motion was treated as made at the close of their case. The district court denied it.",
+        "The jury awarded Jean Paul $5,000 and Judy $15,000, and the court entered final judgment. Perry appealed solely on jurisdictional grounds rather than challenging the substantive basis of liability. He argued that complete diversity was missing and that Jean Paul’s claim failed the then-applicable requirement that more than $10,000 be in controversy.",
+        "The Fifth Circuit panel consisted of Judges Wisdom, Ainsworth, and Clark, with Judge Ainsworth writing. Each spouse’s statutory basis required examination; jurisdiction over one did not automatically supply jurisdiction over the other."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full opinion paragraphs 4–16 and footnote 1 to paragraph 4; Procedural History; Separate Opinions"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court identifies domicile at filing as the citizenship test",
+      "cue": "Why did living and working in Louisiana not resolve Judy’s citizenship?",
+      "paragraphs": [
+        "For an individual to be a citizen of a State under § 1332, the person had to be a United States citizen domiciled there. Residence alone did not suffice. A change required residence in a new place together with intent to remain, and the old domicile persisted until the new one was acquired. Federal law controlled, and the party invoking jurisdiction bore the burden of pleading citizenship and proving it when properly challenged.",
+        "Jean Paul’s French citizenship supplied an alienage basis for his claim against Perry under § 1332(a)(2). Judy’s claim required a separate state-domicile analysis under § 1332(a)(1). Her longstanding Louisiana residence and work established residence, but the educational character of the stay and absence of intent to remain did not establish replacement of Mississippi domicile.",
+        "Judy testified that she did not plan to return to her parents’ Mississippi home after marriage. That did not itself create a new domicile elsewhere. Departure and an unsettled future did not leave her without the existing domicile; the court did not require adults to live with or plan to return to their parents.",
+        "Citizenship was measured when the complaint was filed. Later citizenship changes could not destroy a basis already established. The Illinois move and plans for a temporary return to Louisiana could illuminate earlier intentions, but trial-date residence could not replace the filing-date inquiry."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 310–311; full opinion footnote 2 to paragraph 10; Rule and Holding; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marriage does not mechanically make Judy French or Louisianan",
+      "cue": "Why did the court reject derivative domicile on these facts?",
+      "paragraphs": [
+        "The opinion acknowledged the then-used generalization that a wife’s domicile followed her husband’s but refused to extend that fiction mechanically here. Assigning Judy a French domicile would not make her a French national able to sue as an alien; she would remain American while potentially falling outside ordinary state-citizen diversity. Assigning her Louisiana domicile simply through marriage would defeat diversity from Perry without the required inquiry.",
+        "Nationality and domicile were distinct. An American woman did not lose United States citizenship merely by marrying a foreign citizen, and Judy’s state citizenship and domicile did not automatically change on that basis. The court held that her Mississippi domicile continued. The result made Jean Paul French and Judy a Mississippi citizen for their respective statutory analyses, not both spouses French or both Mississippians.",
+        "The student setting was evidence, not a legal disability preventing students from acquiring domicile. The decisive fact was the absence of the necessary intent to remain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 310–312; Reasoning; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The original amount at stake survives the smaller award",
+      "cue": "What jurisdictional showing did the verdict fail to disprove?",
+      "paragraphs": [
+        "The amount claimed in good faith controlled unless it was legally certain that the claim fell below the jurisdictional threshold. Jean Paul’s eventual $5,000 award did not itself prove that his original $100,000 claim failed that test. After examining the record, the court agreed that more than the required $10,000 had genuinely been in controversy.",
+        "Judy’s larger verdict was not simply added to Jean Paul’s award to cure a deficient claim. Amount and citizenship were separate inquiries, and the court found a statutory basis for each spouse. The opinion’s closing observation that common operative facts and heavily overlapping proof made joint adjudication efficient supported a result whose jurisdictional bases had already been established; efficiency was not a substitute for them.",
+        "On February 22, 1974, the Fifth Circuit affirmed the district court’s judgment, leaving both jury awards intact. No concurrence or dissent was reported. The Supreme Court later denied certiorari, reported at 419 U.S. 842."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full opinion paragraphs 11–18; Citation; Judgment; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The assigned notes separate the historical result from later applications",
+      "cue": "Which details cannot be carried mechanically into a new problem?",
+      "paragraphs": [
+        "The citizenship notes explain that modern decisions reject automatic derivative domicile even when both spouses are American, and that each may have a separate domicile. They also distinguish an American truly domiciled abroad, who is neither an alien nor ordinarily a citizen of a U.S. State for diversity, from someone temporarily abroad retaining a state domicile.",
+        "The supplied brief identifies the later permanent-resident limitation in § 1332(a)(2), requiring attention to whether a lawful permanent resident shares a state domicile with the American opponent. Mas does not establish Jean Paul’s immigration status for that separate modern inquiry. The brief also notes that Mas predates § 1367: related co-plaintiff claims now require attention to the later supplemental-jurisdiction framework and its restrictions. Shared facts do not erase complete-diversity requirements or themselves create an original-jurisdiction claim. These are later statutory comparisons, not rules the 1974 court applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 311–318; Notes; assigned and full-opinion scope"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "id": "lrs-o-kendall",
+  "briefId": "LRS-ATLAS-O-KENDALL",
+  "title": "Kendall v. United States ex rel. Stokes",
+  "course": "Legislation and the Regulatory State",
+  "citation": "37 U.S. (12 Pet.) 524 (1838)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Mail contractors obtain a statutory settlement, but the Postmaster General refuses to enter its full credit and contests the D.C. court’s power to compel him.",
+  "actors": [
+    {
+      "name": "William B. Stokes, Richard C. Stockton, Lucius W. Stockton, and Daniel Moore",
+      "role": "Mail contractors seeking the statutory credit."
+    },
+    {
+      "name": "William T. Barry",
+      "role": "Postmaster General who approved the disputed original allowances."
+    },
+    {
+      "name": "Amos Kendall",
+      "role": "Barry’s successor, who withdrew allowances and resisted the full settlement credit."
+    },
+    {
+      "name": "Virgil Maxcy",
+      "role": "Solicitor of the Treasury assigned by Congress to investigate and adjust the claims."
+    }
+  ],
+  "proceedings": [
+    "The contractors petitioned Congress, obtained a settlement statute, and sought executive and further congressional assistance.",
+    "The D.C. Circuit Court issued a conditional writ and then a peremptory mandamus directing the credit.",
+    "The Supreme Court affirmed with costs and remanded for further proceedings."
+  ],
+  "limits": "The writ compelled a bookkeeping credit, not Treasury payment. The President neither forbade nor advised refusal. The report contains inconsistent restatements of the amounts; the internally consistent petition figures are used.",
+  "briefSha256": "273f467504a4e25317f787629437c993300ce4eb992567f8754d846c0c6e0f04",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-KENDALL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A new Postmaster General withdraws credits his predecessor approved",
+      "cue": "How did the contractors’ administrative dispute reach Congress?",
+      "paragraphs": [
+        "William B. Stokes, Richard C. Stockton, Lucius W. Stockton, and Daniel Moore had contracted with Postmaster General William T. Barry to transport mail. Barry approved allowances and credits, and some amounts were paid. When Amos Kendall succeeded him in 1835, Kendall reexamined the contracts, removed allowances and credits, and recharged the contractors for earlier payments.",
+        "Unable to resolve the disagreement through the department, the contractors petitioned Congress about their claims against the United States. Congress enacted a special settlement law on July 2, 1836. It directed the Solicitor of the Treasury to investigate extra-service claims, determine their equity, and allow amounts supported by evidence and equitable principles. It excluded specified disputed services and routes rather than authorizing unrestricted allowance of every demand. The Solicitor had to report the law and facts to Congress.",
+        "A separate direction required the Postmaster General to credit whatever the Solicitor determined was due. Congress provided no appeal allowing Kendall to revise the award. Decision-making and the resulting bookkeeping act therefore belonged to different officers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Mail contracts and settlement statute; 37 U.S. at 527–29, 608–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Maxcy makes the award, but Kendall leaves a balance uncredited",
+      "cue": "What did the President and Senate actually do?",
+      "paragraphs": [
+        "Solicitor Virgil Maxcy investigated, made awards, and communicated them to Kendall. The contractors’ petition reported an adjusted total of $161,563.89, of which $122,101.46 had been credited or paid, leaving $39,462.43 uncredited. Later passages in the report vary some figures and include an inconsistent residue. These are the petition’s internally consistent figures; the legal dispute concerned entry of the whole statutory award rather than resolution of those printed variations.",
+        "Kendall maintained that Maxcy had exceeded the statutory submission. The contractors asked the President to cause the law to be executed. After receiving Kendall’s explanation, the President referred the disagreement to Congress as best situated to explain its own reference. The contractors renewed their legislative request. The Senate Judiciary Committee concluded that Congress had intended the award to be final and that further legislation was unnecessary, recommending full compliance. The Senate unanimously adopted the resolution, and the committee adhered to its view after reviewing additional materials transmitted by the President.",
+        "These actions supplied context for enforcing the existing act, not a new payment statute enacted by the Senate alone. The President neither forbade nor advised Kendall to withhold the credit and asserted no dispensing power. He transmitted competing submissions without deciding the merits. Counsel’s later theory of presidential supervision must not be converted into an actual presidential order."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Mail contracts; Executive and congressional steps; 37 U.S. at 529–33, 609, 611–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contractors seek a writ in the District of Columbia",
+      "cue": "Which relief did the petition seek and which act did the court command?",
+      "paragraphs": [
+        "On May 26, 1837, the contractors petitioned the Circuit Court for the District of Columbia, sitting for Washington County. They asked for the statutory credit and payment of the resulting balance, after proper charges, with interest. The writ that followed concerned the credit.",
+        "After a rule to show cause, the court issued a mandamus nisi on June 7, requiring compliance or a showing of cause. Kendall appeared by counsel and responded on June 24. He questioned constitutional judicial control of executive functions, the court’s statutory mandamus jurisdiction, whether these circumstances warranted the remedy, and whether compliance would be legally impossible. His response included a supporting Attorney General opinion. Key and Attorney General Butler represented him; Coxe and Johnson represented the contractors.",
+        "On July 13 the court ordered a peremptory mandamus. Kendall brought a writ of error to the Supreme Court. This was appellate review of a lower court’s writ, unlike Marbury’s direct request that the Supreme Court exercise original jurisdiction. The argument based on faithful execution asserted that the President needed power to supervise subordinates’ statutory construction; a separate argument disputed whether this court had received the special supervisory mandamus authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings and opposing positions; 37 U.S. at 527, 533–43, 608–09"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Thompson identifies a definite statutory duty rather than a policy choice",
+      "cue": "Why did the executive-power objection fail?",
+      "paragraphs": [
+        "Justice Thompson’s majority opinion distinguished political duties performed under presidential direction from permissible statutory duties binding officers by law. Congress assigned judgment to the Solicitor and left Kendall no discretion to review the award. Neither Kendall nor the President could refuse the resulting ministerial act. No fraud or misconduct by Maxcy was alleged. The Court questioned whether Congress could later deprive the contractors of a vested award in these circumstances but expressly did not decide the reach of possible further legislation.",
+        "A duty to take care that laws are executed could not imply authority to forbid their execution. Such a dispensing power would permit interference with legislation and obstruct justice. The Court did not need to define every boundary between courts and executive officers, because the commanded act was narrow: enter a credit in departmental books, comparable to a clerk recording a court’s order.",
+        "Kendall did not have to find money or decide whether the account ultimately produced a payable balance. If the credit exceeded the debit, funds still could not be withdrawn from the Treasury without further legislative provision. The opinion therefore did not compel Treasury payment or constitutionalize general judicial supervision of executive policy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ministerial duty; 37 U.S. at 610–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A fixed right needs an effective remedy",
+      "cue": "Why were removal, damages, and another congressional request inadequate?",
+      "paragraphs": [
+        "The contractors’ right and Kendall’s corresponding duty were fixed, and ordinary remedies did not provide adequate specific relief. Common-law mandamus compelled an official duty when other remedies were insufficient. Another approach to Congress had already failed to yield further action.",
+        "Removing Kendall would not ensure that his successor entered the credit and was not an ordinary legal remedy displacing the writ. Repeated damages suits could leave the continuing refusal uncorrected, while damages measured by the award might exceed the defendant’s capacity to pay. The majority consequently treated this as a judicial suit to enforce a right appropriately remedied by mandamus.",
+        "That conclusion still did not establish which court could issue it. McIntire v. Wood and McCluny v. Silliman denied ordinary federal circuit courts in the states authority to entertain comparable original mandamus proceedings against federal officers. Congress had not delegated all constitutionally available judicial power to those courts. State courts could not exercise that federal supervisory writ, and Marbury barred a direct original Supreme Court application. The majority needed a positive statutory reason to treat the D.C. court differently."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ministerial duty; Why this D.C. court had authority; 37 U.S. at 614–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The majority finds the needed jurisdiction in D.C.’s unusual statutes",
+      "cue": "How did incorporated law differ from an auxiliary writ power?",
+      "paragraphs": [
+        "Congress exercised exclusive legislative authority in the District, without the normal division between state and federal government, and had established its highest court of original jurisdiction. Section 1 of the February 27, 1801 act preserved Maryland law on the Maryland side of the Potomac. That included common-law mandamus, illustrated by Runkle v. Winemiller. Thompson considered the historical King’s Bench supervisory writ while recognizing legislative power to allocate jurisdiction differently.",
+        "Original mandamus was distinct from a writ under § 14 of the Judiciary Act aiding jurisdiction already possessed, such as ordering a lower court to proceed so appellate review could occur. The D.C. statute needed to support the new suit itself.",
+        "Section 3 gave the D.C. court powers vested by law in circuit courts, and § 5 gave cognizance of all law and equity cases between parties resident or found in the District. Read together, these provisions supplied both power and cognizance; terminology should not defeat their combined operation. The resident-or-found limitation concerned personal jurisdiction and service, waivable by appearance, and Kendall had made no timely personal objection. The subject-matter language embraced a judicial demand to enforce this definite statutory right.",
+        "The decisive incorporation was temporal. Section 3 adopted the powers of circuit courts existing when Congress enacted the D.C. statute: courts established by the February 13, 1801 act, with broad jurisdiction over cases arising under the Constitution, federal laws, and treaties. Later repeal of that act did not automatically repeal authority separately incorporated into the D.C. law. Adoption by reference brought the existing provisions into the adopting statute rather than importing every subsequent change. That federal-question grant supplied the delegation absent from the ordinary-circuit mandamus precedents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Why this D.C. court had authority; 37 U.S. at 618–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Taney, Barbour, and Catron dispute the grant of jurisdiction",
+      "cue": "What did the dissenters accept about Kendall’s legal duty?",
+      "paragraphs": [
+        "Chief Justice Taney agreed that Congress could regulate this statutory office, subject it to judicial supervision, and require the nondiscretionary credit. He disagreed that this particular court had statutory authority to issue the original writ. Common-law mandamus belonged to a sovereign supervisory tribunal such as King’s Bench or Maryland’s General Court, not every geographically limited court. Preserving Maryland law did not import all General Court powers, and later Maryland legislation giving county courts mandamus authority postdated the District’s adoption.",
+        "Taney thought a grant of all cases at law did not independently confer a prerogative remedy absent from ordinary circuit jurisdiction. He read § 3 dynamically, preserving uniformity after repeal of the February 13 act. Alternatively, its reference to powers concerned procedural tools, not the separate subject-matter cognizance supplied by that act. An earlier insurance-company mandamus appeal did not establish trial jurisdiction merely because the Supreme Court considered the amount needed for appellate jurisdiction: appellate review can correct a lower court’s erroneous assumption of authority. His historical note supported the institutional account of Maryland’s Provincial Court; it was not a separate holding.",
+        "Justice Barbour likewise accepted the duty’s ministerial nature and Congress’s constitutional power to make it judicially enforceable. He considered cases at law and suits at law equivalent and found no grant merely because D.C. lacked ordinary party and amount restrictions. Auxiliary writ authority under § 14 did not create original jurisdiction. Congress’s express grant of mandamus to the Supreme Court argued against implying the same grant to inferior courts, even though Marbury invalidated part of the intended original grant. Maryland law also could not give the D.C. court supervision over a federal officer that Maryland courts themselves lacked.",
+        "Justice Catron joined both dissents without separately writing. All three would reverse because of the statutory allocation of jurisdiction, not because the President or Kendall could disregard Congress’s settlement law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Taney, Barbour, and Catron; 37 U.S. at 626–53"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The credit command survives appellate review",
+      "cue": "What is the precise endpoint?",
+      "paragraphs": [
+        "The Supreme Court affirmed with costs and remanded for further proceedings, preserving the peremptory writ to enter the full credit. It neither ordered withdrawal of public money nor reported a later payment. The case establishes enforcement of this definite duty by this statutorily authorized court.",
+        "The assigned account’s shorthand about payment and presidential direction requires the qualifications developed here. The reviewed brief distinguishes the judicial writings from counsel’s extensive arguments, later Attorney General opinions, and editorial applications. This historical account does not certify current mandamus statutes or later treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Decision and precise relief; Judgment and assigned scope; 37 U.S. at 626–27, 641–42, 653"
+        }
+      ]
+    }
+  ]
+}

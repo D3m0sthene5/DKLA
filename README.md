@@ -1,6 +1,6 @@
 ## v2.4 · Cold Call Mode and accuracy corrections
 
-Open **Cold call** beside any of the 392 illustrated cases, or from a supporting-case reader. Read the full case account, jump and return to your place, or practice aloud. The expanded coverage uses the detailed briefs already in the atlas, with source limitations retained; Hamer, Pennoyer, and Chadha keep their separately written narratives. [Build and content notes](tools/cold-call/README.md). [Audit scope and findings](AUDIT_V2.4.md).
+**Cold call** opens an individually written account that follows the people, events, litigation, arguments and decision in order. Read continuously, jump and return to your place, or practice aloud. Hamer supplies the writing standard. The original full briefs remain available beside the narratives. [Exact authored and pending coverage](tools/cold-call/coverage.json), [build and content notes](tools/cold-call/README.md), and [audit scope and findings](AUDIT_V2.4.md).
 
 # Danny Kind Legal Atlas
 

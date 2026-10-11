@@ -1,0 +1,181 @@
+{
+  "id": "cohen-cowles",
+  "briefId": "CT-CB-0135",
+  "title": "Cohen v. Cowles Media Co. — contract, First Amendment, and remand decisions",
+  "course": "Contracts",
+  "citation": "457 N.W.2d 199 (Minn. 1990); 501 U.S. 663 (1991); 479 N.W.2d 387 (Minn. 1992)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Dan Cohen supplied campaign documents only after two reporters promised anonymity. The newspapers identified him anyway, and his damages award traveled through separate contract, constitutional, and promissory-estoppel decisions.",
+  "actors": [
+    {
+      "name": "Dan Cohen",
+      "role": "Advertising and public-relations employee associated with Wheelock Whitney’s Republican gubernatorial campaign; confidential source and plaintiff."
+    },
+    {
+      "name": "Lori Sturdevant and Bill Salisbury",
+      "role": "Reporters who promised Cohen anonymity and opposed their editors’ later disclosure."
+    },
+    {
+      "name": "The newspaper publishers",
+      "role": "Defendants responsible for newspapers whose editors decided to identify Cohen."
+    },
+    {
+      "name": "Marlene Johnson",
+      "role": "Opposing lieutenant-governor candidate whose earlier arrest and conviction appeared in Cohen’s records."
+    }
+  ],
+  "proceedings": [
+    "Jury awarded $200,000 jointly and severally in compensation and $250,000 in punitive damages against each publisher.",
+    "Minnesota Court of Appeals rejected fraud and punitive damages but retained contract compensation.",
+    "Minnesota Supreme Court in 1990 rejected contract liability and treated the First Amendment as barring promissory estoppel.",
+    "United States Supreme Court in 1991 reversed the federal constitutional ruling and remanded.",
+    "Minnesota Supreme Court on January 24, 1992 sustained $200,000 under promissory estoppel without retrial; a March 17 order remanded interest questions and denied sanctions and attorney’s fees."
+  ],
+  "limits": "The federal Supreme Court neither found a conventional contract nor itself awarded $200,000. The 1992 decision changed the compensation theory without reviving fraud or punitive damages. Later payment is not reported.",
+  "briefSha256": "48209fdda06c3a3e2aaa7f904f92b941a5bc2db4a52a6027ea37732a41421071",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0135"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Cohen exchanges political records for anonymity",
+      "cue": "What exactly did the reporters promise before receiving the information?",
+      "paragraphs": [
+        "On October 27, 1982, near the end of Minnesota’s election campaign, Dan Cohen approached two newspaper reporters with records about Marlene Johnson, the opposing candidate for lieutenant governor. Cohen worked in advertising and public relations and was associated with Republican gubernatorial candidate Wheelock Whitney. The records concerned Johnson’s earlier unlawful-assembly arrest, whose charge had been dismissed, and a shoplifting conviction that had been vacated. Cohen wanted publication of the information but insisted that his identity remain confidential because he feared retaliation from the press and political actors.",
+        "Reporters Lori Sturdevant and Bill Salisbury promised anonymity. Neither reserved a right for an editor to revoke the promise, and both intended to honor it. Cohen then supplied the records. This was a clear, serious undertaking followed by delivery of information, not a casual remark or a promise made after Cohen had already disclosed everything.",
+        "The newspapers’ editors independently concluded that the source’s identity belonged in the story. Their staffs debated the obligation, and both reporters strongly opposed disclosure. Sturdevant refused to place her name on the resulting story. The papers nevertheless published Cohen’s name, and his employer dismissed him. Later testimony from reporters, editors, and experts described source confidentiality as fundamental to journalism; witnesses could not recall comparable editorial overrides."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and material facts; 457 N.W.2d at 200–03; 501 U.S. at 665–66"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury awards compensation and punitive damages",
+      "cue": "Which parts survived the first appeal?",
+      "paragraphs": [
+        "Cohen sued the publishers for breach of contract and fraudulent misrepresentation. The jury awarded $200,000 in compensatory damages jointly and severally, plus $250,000 in punitive damages against each publisher. The Minnesota Court of Appeals rejected fraud and the associated punitive awards but upheld compensation on the contract theory.",
+        "The Minnesota Supreme Court then reviewed the case in 1990. Justice Simonett’s opinion agreed that the evidence did not establish fraud: the reporters intended to keep their promises when they made them, and editors later chose disclosure. A broken promise did not itself establish an initially false representation of intent. The punitive awards therefore remained unavailable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; 1990 fraud analysis; 457 N.W.2d at 200–02"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Minnesota rejects contract liability in 1990",
+      "cue": "Why did a seemingly complete exchange not count as a conventional contract?",
+      "paragraphs": [
+        "Simonett acknowledged that offer, acceptance, consideration, and breach seemingly appeared. The problem was not vagueness or an express editorial escape clause. The majority instead characterized confidential-source arrangements in professional news gathering as moral or ethical undertakings ordinarily outside conventional commercial contract liability.",
+        "The court reasoned that the reporter promises confidentiality before receiving the information, while an editor later must assess that information in the broader story. In its view, enforcing the arrangement as an inflexible contract would impose legal rigidity on a relationship governed by editorial judgment and professional ethics. This was a disputed, context-specific conclusion about intended legal obligation, not a rule against oral agreements or a requirement that every contracting party expressly announce legal intent.",
+        "Justice Yetka would have sustained recovery under contract or promissory estoppel. He opposed a special exemption for the press and emphasized trustworthy source relationships. Justice Kelley agreed that fraud was absent but challenged the majority’s treatment of contractual intent and its displacement of the factual basis supporting that intent; he also joined Yetka’s views. Chief Justice Popovich participated in oral argument but not consideration or decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1990 contract analysis and separate opinions; 457 N.W.2d at 202–03, 205–07"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The 1990 court raises reliance, then blocks it on constitutional grounds",
+      "cue": "Why did Cohen need federal review after losing his contract theory?",
+      "paragraphs": [
+        "Although promissory estoppel had not been the trial’s liability theory, the Minnesota Supreme Court considered whether reliance could support recovery. It concluded that enforcing the promise here would burden publication of truthful political information and improperly second-guess editorial judgments under the First Amendment. Its mixed affirmance and reversal removed the $200,000 recovery while preserving the rejection of fraud and punitive damages.",
+        "Cohen obtained United States Supreme Court review of that federal obstacle. The contract ruling and the First Amendment ruling were distinct: removing the latter would not itself establish a conventional contract or conclusively decide Minnesota’s promissory-estoppel requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1990 constitutional analysis; Procedural history; 457 N.W.2d at 203–05; 501 U.S. at 667–72"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White holds that the First Amendment permits this ordinary-law obligation",
+      "cue": "Why were jurisdiction, state action, and a voluntary promise all important?",
+      "paragraphs": [
+        "In 1991, Justice White wrote for Chief Justice Rehnquist and Justices Stevens, Scalia, and Kennedy. The Court first concluded that the federal question was reviewable because Minnesota had actually decided and relied upon it. The absence of an earlier party presentation of promissory estoppel did not remove that federal decision from review.",
+        "Judicial enforcement through state promissory-estoppel law would constitute state action even though Minnesota had found no conventional contract. White therefore did not treat the controversy as wholly private and beyond First Amendment scrutiny. He instead held that the Amendment permitted this application of a generally applicable legal doctrine.",
+        "The press ordinarily remains subject to generally applicable laws, including obligations that affect news gathering and publication. Promissory estoppel neither singled out newspapers nor legislatively prohibited publication of a category of information. The publishers’ own promises, made to obtain Cohen’s documents, supplied the obligation. That self-imposed commitment distinguished cases punishing publication of lawfully obtained truthful information without such a promise.",
+        "White also rejected the contention that Cohen was evading constitutional limits on defamation suits. Cohen sought compensation for loss caused by violating confidentiality, including losing his job, on an independent promise-based foundation. He was not simply seeking damages because a truthful story harmed his reputation. The ruling was not an unlimited constitutional escape for any claim bearing a contract label; it approved applying this doctrine to these undertakings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1991 majority; 501 U.S. at 667–72"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Two federal dissents focus on the public’s interest in political speech",
+      "cue": "How did Blackmun’s and Souter’s objections differ?",
+      "paragraphs": [
+        "Justice Blackmun, joined by Justices Marshall and Souter, argued that general applicability did not remove the need for constitutional scrutiny. The act triggering liability was publication of truthful information on a matter of public concern. That directly burdened protected expression rather than incidentally regulating unrelated conduct. Changing a tort or other legal label could not avoid speech protections.",
+        "Justice Souter, joined by Justices Marshall, Blackmun, and O’Connor, also rejected general applicability as a complete answer. He stressed the public’s interest in identifying a political source and understanding the source’s motives. A newspaper could not entirely waive that public interest through a private promise. Souter would balance the state’s enforcement interest against the particular expression’s value and regarded this political information as protected. He did not claim absolute immunity for all confidentiality breaches; other circumstances could warrant enforcement.",
+        "The Supreme Court reversed and remanded. It neither restored $200,000 by its own force nor revived fraud or punitive damages. Minnesota still had to decide its own law and any independent state-constitutional protection. These federal dissents addressed the 1991 constitutional judgment, not the 1990 state contract ruling or the eventual 1992 award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1991 separate opinions and judgment; 501 U.S. at 672–79"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "On remand, Minnesota permits a new theory on the existing record",
+      "cue": "Why was no new trial necessary just to consider promissory estoppel?",
+      "paragraphs": [
+        "Back in the Minnesota Supreme Court, the publishers objected that promissory estoppel had not been pleaded and tried as the liability theory. Simonett’s January 24, 1992 opinion invoked Minnesota’s appellate authority to consider an issue in the interests of justice. This unusual first-impression issue closely related to the contract theory already litigated. The promise, reliance, and injury were already in the record, and the parties had opportunities to address the alternative doctrine.",
+        "The ruling did not create a routine right to change theories after trial. It explained why this record allowed the change without unfairness or another factual proceeding. The court then considered whether Minnesota’s Constitution should provide greater speech protection than the federal minimum. It declined the publishers’ proposed broader protection here and rejected their public-policy objection. The relevant question was whether truthful political reporting required naming Cohen in violation of this particular promise, not whether political reporting was valuable generally."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1992 procedural and constitutional rulings; 479 N.W.2d at 388–91"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Professional practice now supports enforcement and the existing award",
+      "cue": "How did the same evidence play a different role under reliance?",
+      "paragraphs": [
+        "The Minnesota court found a clear promise, intended and actual detrimental reliance, and circumstances requiring enforcement to avoid injustice. It treated injustice as a legal policy question. The newspapers’ witnesses had described confidentiality as central to journalism, and the reporters themselves had insisted on honoring their promises. Cohen relied on that established practice in deciding to disclose the records. Evidence that the 1990 majority had used to characterize the relationship as ethical now strongly supported foreseeable reliance and the need for a remedy.",
+        "The publishers said Cohen’s identity completed the story. The court answered that describing the source as someone close to the opposing campaign could provide significant context without naming him. It did not declare Cohen politically disinterested or morally blameless. It found no compelling need to break this promise and concluded that the resulting harm required compensation.",
+        "The original jury instructions tied compensation to harm flowing directly and foreseeably from the broken undertaking. The existing $200,000 verdict was therefore adequate under promissory estoppel and did not require retrial. The 1992 court sustained that award on a new legal foundation; it did not overturn its earlier conventional-contract analysis or convert the reporters’ original good faith into fraud. No separate opinion accompanied the 1992 merits decision.",
+        "A March 17, 1992 rehearing order, reported at 481 N.W.2d 840, remanded questions about interest to the trial court and denied a request for sanctions and attorney’s fees concerning the rehearing petition. That later collateral order did not replace the January merits decision. The litigation thus ends in this source with state-law promissory-estoppel compensation, not a federal Supreme Court contract award; subsequent payment is not reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1992 reliance, remedy, and rehearing; 479 N.W.2d at 391–92; 481 N.W.2d at 840"
+        }
+      ]
+    }
+  ]
+}

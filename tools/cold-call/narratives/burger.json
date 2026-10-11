@@ -1,0 +1,177 @@
+{
+  "id": "burger",
+  "briefId": "CPR-003",
+  "title": "Burger King Corp. v. Rudzewicz",
+  "course": "Civil Procedure",
+  "citation": "471 U.S. 462 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Michigan franchise partnership’s long relationship with Miami headquarters ends in default and a dispute over whether Florida can adjudicate the resulting contract claim.",
+  "actors": [
+    {
+      "name": "Burger King Corporation",
+      "role": "Florida corporation headquartered in Miami; franchisor, plaintiff, and Supreme Court petitioner."
+    },
+    {
+      "name": "John Rudzewicz",
+      "role": "Michigan accountant who supplied capital and personally undertook the franchise obligations; appellant below."
+    },
+    {
+      "name": "Brian MacShara",
+      "role": "Michigan partner who managed the restaurant, attended Miami training, and did not appeal the trial judgment."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of Florida denied jurisdictional objections, tried the case, and entered judgment for Burger King.",
+    "A divided Eleventh Circuit reversed on personal jurisdiction without reaching the remaining merits issues.",
+    "The Supreme Court dismissed the attempted statutory appeal, granted certiorari, reversed, and remanded."
+  ],
+  "limits": "The Supreme Court resolved specific personal jurisdiction for the Florida-linked contract dispute. It reserved attribution of MacShara’s training contacts and the jurisdictional consequences of out-of-state trademark infringement; other substantive appellate issues remained.",
+  "briefSha256": "04a365adef0952faf93fceaf4257f67e91a46927e7ab78c6679724dc2d038438",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-003"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two Michigan businessmen seek a Burger King franchise",
+      "cue": "How did local operations connect to the Florida headquarters?",
+      "paragraphs": [
+        "Burger King operated its national franchise system from Miami. Its franchisees obtained twenty-year licenses to use standardized restaurants, trademarks, and operating methods. District offices monitored daily operations, but Miami set policy and controlled major decisions. Agreements required fees, rent, royalties, tax refunds, and other payments in Miami, directed relevant notices there, stated that acceptance occurred there, and selected Florida law. The choice-of-law provision expressly did not require every lawsuit to be filed in Florida.",
+        "In autumn 1978, John Rudzewicz and Brian MacShara applied through Burger King’s Birmingham, Michigan office. Rudzewicz, a senior partner in a Detroit accounting firm, supplied capital. MacShara had restaurant and construction experience and planned to manage the business. The district office evaluated their application, recommended an existing restaurant in Drayton Plains, negotiated local matters, and attended closing. Miami approved the application, sent the documents, and retained authority over disputed development fees, design, rent, personal liability, and other major terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 471 U.S. at 462–67 & nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The partners negotiate personal obligations and then fall behind",
+      "cue": "What did Rudzewicz himself undertake?",
+      "paragraphs": [
+        "MacShara attended Burger King University in Miami. Before final rent had been calculated, the partners bought and installed about $165,000 in equipment. When Rudzewicz learned the rent, he asked for a reduction, and Miami granted a limited concession. The parties also disputed transferring liabilities to the partners’ corporation; Burger King required continuing personal responsibility.",
+        "Rudzewicz and MacShara signed the lease and franchise agreements in Michigan on June 4, 1979. Rudzewicz personally undertook payments exceeding $1 million over twenty years. The location of his signature and the restaurant did not erase the continuing duties to headquarters.",
+        "The restaurant initially performed steadily, then patronage declined during the 1979 recession. The partners soon became delinquent. Miami sent default notices, and the partners, district office, and headquarters negotiated extensively by mail and telephone. The Michigan office acted as a channel; Miami decided the important concessions and enforcement measures. Headquarters eventually terminated the franchise and ordered the partners to vacate. They stayed and continued using Burger King’s marks."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 471 U.S. at 466–68 & nn.6–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Burger King sues in Florida and the partners preserve a jurisdictional objection",
+      "cue": "What were the different bases for the federal court’s authority?",
+      "paragraphs": [
+        "In May 1981 Burger King filed in the Southern District of Florida. It invoked diversity jurisdiction under 28 U.S.C. § 1332(a) for breach of contract and federal-question jurisdiction under § 1338(a) for trademark claims. It alleged nonpayment of obligations due in Miami and continued use of marks and confidential operating information after termination, requesting contract damages, an injunction, costs, and attorney’s fees.",
+        "Personal jurisdiction required a separate inquiry. The district court relied on Florida § 48.193(1)(g), covering claims arising from a nonresident’s failure to perform contractual acts required in Florida. Rudzewicz and MacShara appeared specially and argued that their Michigan residence, restaurant, and operations excluded them from Florida’s jurisdiction. After a hearing, the court denied their motions because the action arose from franchise obligations requiring performance in Florida. They then answered and counterclaimed under the Michigan Franchise Investment Law, preserving the previously raised objection.",
+        "After a three-day bench trial, Judge Kehoe reaffirmed jurisdiction, found breach and trademark and service-mark infringement, and rejected the Michigan counterclaim. The judgment imposed $228,875.40 in joint and several contract damages, $2,151.06 in costs, and $30,000 in attorney’s fees. It required immediate closure of Restaurant No. 775 or surrender of the premises and keys. Those trial findings and remedies preceded, and were distinct from, the later jurisdictional appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History: complaint, long-arm authority, special appearance, trial; 471 U.S. at 468–70; reviewed Eleventh Circuit procedural account"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Only Rudzewicz appeals, and the Eleventh Circuit sees unfair surprise",
+      "cue": "Which claims and contacts remained before the appellate courts?",
+      "paragraphs": [
+        "MacShara did not appeal. Rudzewicz challenged personal jurisdiction, the contract judgment, and rejection of his counterclaim. A compromise waived appellate review of the trademark finding and its injunction. He also ultimately conceded that his conduct fell within Florida’s contract long-arm statute, leaving due process as the contested jurisdictional boundary.",
+        "A divided Eleventh Circuit reversed. Judge Vance’s majority emphasized the Michigan office’s face-to-face negotiations, supervision, and contractual services, along with Rudzewicz’s residence and restaurant sales in Michigan. It viewed the Florida provisions as printed terms arriving through standardized documents and found insufficient warning and substantial litigation disadvantage. Its conclusion that Florida jurisdiction was fundamentally unfair made it unnecessary to decide the surviving substantive challenges.",
+        "Judge Johnson dissented. He stressed Rudzewicz’s sophistication, five months of negotiation, personal commitments exceeding $1 million, Florida-law clauses, payments due in Miami, and Florida’s interest. Rehearing en banc was denied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History: scope of appeal and Eleventh Circuit; 724 F.2d 1505; 729 F.2d 1468"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Supreme Court corrects the route of review before reaching due process",
+      "cue": "Why did the attempted direct appeal fail?",
+      "paragraphs": [
+        "Burger King attempted a direct Supreme Court appeal under then-28 U.S.C. § 1254(2), applicable when a federal court of appeals held a state statute unconstitutional as applied. But the Eleventh Circuit had accepted a stipulation that Florida’s statute reached Rudzewicz, without independently construing its reach or squarely holding it unconstitutional. Some Florida appellate decisions read the statute as extending only to the constitutional boundary, and the Florida Supreme Court had not resolved its breadth.",
+        "The parties’ stipulation could not supply the independent state-law determination needed for statutory appellate jurisdiction. The Supreme Court dismissed that appeal, treated the jurisdictional statement as a certiorari petition under § 2103, and granted review. Argument took place on January 8, 1985. This procedural step concerns the Supreme Court’s review jurisdiction, separate from the district court’s subject-matter jurisdiction and Florida’s power over Rudzewicz."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History: route into Supreme Court; 471 U.S. at 470–71 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan examines the relationship Rudzewicz deliberately created",
+      "cue": "Why was a contract alone insufficient but this transaction sufficient?",
+      "paragraphs": [
+        "Justice Brennan’s opinion approached specific jurisdiction in sequence. First, the defendant must create minimum contacts connecting himself, the forum, and the litigation through purposeful activity giving rise to or related to the claim. Then the court assesses fair play and substantial justice. A plaintiff’s or third party’s unilateral activity, or random and attenuated contacts, cannot supply the defendant’s deliberate affiliation.",
+        "Rudzewicz’s relationship differed from the completed New York sale in World-Wide Volkswagen, after which the customers carried the product to Oklahoma. He himself created and maintained continuing obligations tied to Florida. Interstate commerce often operates through mail, telephone, licenses, payments, and administration; deliberate direction of those activities can establish meaningful contacts without physical entry.",
+        "A contract with a resident alone does not answer the constitutional question. Courts must examine negotiations, contemplated future consequences, terms, and the actual course of dealing. The written document is an intermediate stage in an intended relationship, so neither the parties’ residences nor signature location should control a multistate transaction.",
+        "Here, Rudzewicz pursued affiliation with a Florida-headquartered enterprise, negotiated matters the Michigan office could not resolve, accepted twenty years of detailed regulation and payments administered from Miami, and communicated with Miami during default. The contract claim arose directly from missed Miami payments and that continuing relationship. The Court relied on his own conduct, expressly stating that MacShara’s Miami training was not pivotal and reserving whether it could be attributed to Rudzewicz.",
+        "The Florida-law clause reinforced this purposeful connection by selecting Florida’s legal protection for the long relationship. It was insufficient standing alone and was not a forum-selection agreement consenting to Florida litigation. The Court also reserved the reach of the tortious-act long-arm provision for out-of-state trademark infringement because those appellate issues had been waived."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: purposeful availment, presence, contract factors, choice of law; 471 U.S. at 471–82 & nn.13–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The established contacts shift attention to practical fairness",
+      "cue": "Why did the record fail to show compelling unreasonableness?",
+      "paragraphs": [
+        "Once purposeful contacts existed, Rudzewicz needed a compelling showing that Florida litigation was unreasonable. The Court considered his burden, Florida’s interest, Burger King’s interest in effective relief, interstate efficiency, and shared substantive policies. Strong forum and plaintiff interests can sustain jurisdiction on fewer purposeful contacts, while an extreme litigation burden can defeat it despite purposeful activity. Ordinary inconvenience can often be handled by transfer, choice-of-law rules, or other procedural measures.",
+        "Florida had a legitimate interest in obligations owed to a Florida corporation and governed by Florida law. Michigan’s franchise-regulation interests could receive attention through choice-of-law analysis. The record did not substantiate the Eleventh Circuit’s worry that necessary Michigan witnesses were inaccessible in Florida.",
+        "The district court had found informed action, commercial sophistication, and no misrepresentation, fraud, adhesion, or imposed economic duress. Rudzewicz was an experienced accountant, had counsel, negotiated concessions, and accepted substantial personal obligations. Those trial findings were subject to Rule 52(a)’s clear-error review, even though constitutional sufficiency of contacts was a legal question. Supported findings could not simply be displaced by an appellate picture of an uninformed local customer.",
+        "The Court nevertheless rejected Burger King’s requested franchise-wide presumption of consent. Decision structures, bargaining, duration, allocation of duties, sophistication, and performance require transaction-specific analysis. It shared concern about distant litigation against customers making modest purchases and did not automatically subject such customers to jurisdiction at a seller’s headquarters."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: fairness and case-specific reach; 471 U.S. at 476–78, 482–87 & nn.19–20, 25–30"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Stevens emphasizes the Michigan relationship, but the Court sends the appeal back",
+      "cue": "What did reversal resolve?",
+      "paragraphs": [
+        "Justice Stevens, joined by Justice White, dissented. In his view, the economic and operational center remained Michigan: the restaurant, workers, sales, property, taxes, daily supervision, direct negotiations, and contractual services were there. Burger King had organized the human relationship around its Michigan office, and the printed Florida terms did not adequately warn Rudzewicz of this distant suit. Stevens would have affirmed the Eleventh Circuit’s fairness conclusion.",
+        "On May 20, 1985, the Court reversed by six votes to two and remanded. Chief Justice Burger and Justices Marshall, Blackmun, Rehnquist, and O’Connor joined Brennan; Justice Powell did not participate. Rudzewicz’s purposeful, continuing Florida relationship and failure to demonstrate compelling unfairness allowed specific jurisdiction over the contract dispute. The remand left the substantive appellate questions the Eleventh Circuit had not reached for further proceedings.",
+        "The result depends on the full relationship, not franchise status or a law-selection clause alone. It also keeps state long-arm authorization, constitutional adjudicatory power, and deference to trial findings separate. The reasonableness framework later supplied the analysis used in Asahi; that later use is doctrinal history rather than another stage of this lawsuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supreme Court disposition; Stevens dissent; Procedural and doctrinal significance; 471 U.S. at 487–90"
+        }
+      ]
+    }
+  ]
+}

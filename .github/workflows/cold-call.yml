@@ -36,7 +36,11 @@ jobs:
           python3 tools/r19/assemble.py
           python3 tools/r19/check.py
           python3 tools/cold-call/check_index.py
+          python3 tools/cold-call/check_narratives.py --write
           python3 tools/r19/audit24.py
+      - name: Require complete production narrative coverage
+        if: github.ref_name == 'claude/atlas-design-content-audit-m1cw9x'
+        run: python3 tools/cold-call/check_narratives.py --require-complete
       - name: Commit generated release
         env:
           RELEASE_BRANCH: ${{ github.ref_name }}
@@ -44,7 +48,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           RELEASE_FILE="$(python3 -c 'import json; print(json.load(open("version.json"))["file"])')"
-          git add --sparse "$RELEASE_FILE" index.html vercel.json version.json sw.js tools/r19/integrity.json tools/r19/data/accuracy24-inventory.json
+          git add --sparse "$RELEASE_FILE" index.html vercel.json version.json sw.js tools/r19/integrity.json tools/r19/data/accuracy24-inventory.json tools/cold-call/coverage.json
           if ! git diff --cached --quiet; then
             git commit -m "Build $RELEASE_FILE Cold Call release"
             git push origin "HEAD:$RELEASE_BRANCH"

@@ -1,0 +1,150 @@
+{
+  "id": "cp-adickes",
+  "briefId": "CP-ATLAS-ADICKES",
+  "title": "Adickes v. S. H. Kress & Co.",
+  "course": "Civil Procedure",
+  "citation": "398 U.S. 144 (1970)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A teacher is refused service while accompanying Black students, then arrested. Her two civil-rights theories fail at different stages, and the Supreme Court separately restores the conspiracy and custom claims.",
+  "actors": [
+    {
+      "name": "Sandra Adickes",
+      "role": "White New York teacher volunteering at a Hattiesburg Freedom School."
+    },
+    {
+      "name": "S. H. Kress & Co.",
+      "role": "Restaurant operator sued for the refusal of service and an alleged police conspiracy."
+    },
+    {
+      "name": "Powell",
+      "role": "Kress manager whose deposition supported its summary-judgment motion."
+    },
+    {
+      "name": "Hattiesburg police and Kress counter employees",
+      "role": "Alleged participants in an agreement; presence and communications remained disputed."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of New York granted Kress pretrial summary judgment on conspiracy.",
+    "After Adickes’s trial evidence, the same court directed a verdict on the custom-based discrimination claim.",
+    "The Second Circuit affirmed both rulings.",
+    "The Supreme Court reversed and remanded both claims on June 1, 1970; seven participating Justices supported reversal on differing grounds."
+  ],
+  "limits": "This is a source-brief transformation of the 1970 decision, not a new audit or complete statement of later Rule 56 law. Reversal established neither conspiracy nor damages. Allegations, defective opposition materials and later trial testimony remain distinct. Relief, defenses, and several state-action questions were reserved; the attempted 1875 Act theory was not considered.",
+  "briefSha256": "d7d24e485e74330dbd0088d22684e91c4b140517299320e7ee58a2da0b3a5121",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-ADICKES"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Adickes accompanies students through a segregated community",
+      "cue": "What events preceded the service refusal and arrest?",
+      "paragraphs": [
+        "During summer 1964 Sandra Adickes, a white New York schoolteacher, volunteered at a Freedom School in Hattiesburg, Mississippi. On August 14 she accompanied six Black students to the public library. Her complaint alleged that the students were refused access, the librarian called police, and the police chief closed the library and ordered the group out.",
+        "The group then went to Kress’s restaurant facilities. The students were offered service, but Adickes was refused because she was white and accompanied by Black people. After they left, police arrested her for vagrancy. The complaint alleged that an officer had entered while the group awaited service and later made the arrest. Whether an officer was present, communicated with employees, or agreed to a refusal or arrest remained matters requiring proof."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Incident and procedural separation; 398 U.S. 146–150"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two civil-rights theories meet different procedural defeats",
+      "cue": "Which ruling concerned an alleged agreement, and which concerned a state-enforced custom?",
+      "paragraphs": [
+        "Adickes sued Kress in the Southern District of New York under the federal civil-rights statute, 42 U.S.C. § 1983, asserting racial discrimination contrary to equal protection. One claim alleged that Kress employees conspired with police to deny service and cause a groundless arrest. The other attributed the refusal to a community custom of racial segregation.",
+        "The conspiracy count ended before trial on summary judgment. The district court found the materials insufficient for a reasonable conspiracy inference, and the Second Circuit unanimously affirmed that ruling. The custom claim proceeded to Adickes’s trial presentation. The district court required a state-enforced custom specifically denying service to white patrons accompanied by Black patrons and directed a verdict because she had not shown enough similar Hattiesburg incidents. The Second Circuit affirmed and additionally required a custom both local and statewide.",
+        "The Supreme Court reviewed these two defeats separately. It declined to consider an attempted additional claim under the 1875 Civil Rights Act because that theory had not been presented to the court of appeals."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court, claims and judgment; Incident and procedural separation; 398 U.S. 146–149 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An agreement with police could make private conduct actionable",
+      "cue": "What had to be proved for the conspiracy theory to succeed?",
+      "paragraphs": [
+        "Justice Harlan explained that § 1983 required deprivation of a federal right under color of a state statute, ordinance, regulation, custom or usage. Equal protection prohibits state racial discrimination, including discrimination because of one’s companions’ race. A private restaurant employee’s agreement with a police officer to refuse service or cause a racially motivated arrest could establish joint participation and state action. The officer’s conduct need not be lawful or officially authorized, and a private participant does not escape merely because the other participant alone holds office.",
+        "The theory rested on constitutional equal protection, not a damages remedy created by the 1964 Public Accommodations Title. Harlan distinguished that title’s limited enforcement provisions from an independent § 1983 constitutional remedy. Conduct violating both did not lose the constitutional remedy because the accommodations statute itself omitted damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Why an agreement could create liability; 398 U.S. 150–152 & nn.4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kress’s own evidence leaves possible employee-police contact unexplained",
+      "cue": "Why did the inadequate opposition papers not save this particular motion?",
+      "paragraphs": [
+        "Kress relied principally on manager Powell’s deposition. Powell denied communicating with police and said he signaled the counter supervisor not to serve Adickes because he feared customer violence in response to the integrated group. Powell and the supervisor had arranged the signal beforehand. The police chief and two arresting officers submitted affidavits denying a request or arrangement to arrest her. Adickes acknowledged no direct knowledge of communications and relied on circumstances.",
+        "Adickes pointed to her complaint, her deposition report that a student saw an officer enter, an employee’s unsworn statement placing Officer Hillman in the store and leaving shortly before the arrest, and her affidavit disputing Powell’s claimed explosive situation. Her deposition report was hearsay and the employee’s statement unsworn. The Court did not convert them into competent affirmative evidence. Students’ subsequent trial testimony, discussed in a note, likewise was not evidence already filed against the earlier motion.",
+        "Instead, Kress’s initial showing failed. Powell’s denial did not eliminate possible contact between police and the counter supervisor or waitress, and no qualifying affidavits from those employees closed that gap. The police affidavits did not foreclose presence during the service decision or communications disapproving the integrated group. If an officer was present, the sequence could permit a jury to infer an understanding with an employee. Presence would not automatically prove conspiracy; the submitted materials simply failed to exclude a reasonable inference when viewed favorably to Adickes.",
+        "Former Rule 56(e)’s specific-facts requirement applied after a properly supported motion. The 1963 amendment did not remove the movant’s Rule 56(c) obligation to show no genuine material issue. The Advisory Committee contemplated denial of an inadequate motion even without a competent response. Had the officers supplied affidavits denying presence, Adickes would have needed a competent eyewitness affidavit or a former Rule 56(f) affidavit explaining why the evidence was unavailable. Such preparation would have been preferable even here. The ruling did not allow pleadings automatically to defeat summary judgment; it addressed this moving record under the rule’s historical subsection labels."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kress’s showing; Opponent’s response obligation; 398 U.S. 153–161 & nn.8–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The custom claim requires official involvement but not the lower courts’ narrow proof",
+      "cue": "What did Harlan’s construction allow Adickes to prove on remand?",
+      "paragraphs": [
+        "For the discrimination count, Harlan read statutory custom or usage as requiring a practice with the force of law through persistent official conduct, rather than private prejudice alone. He relied on the 1866 and 1871 statutes’ history and precedent distinguishing governmental involvement from ordinary habits. Officials could give a practice legal force through sanctions, withholding benefits, systematic maladministration or refusal to enforce equal laws. That differed from a legislature’s mere failure to enact corrective laws.",
+        "A restaurant’s refusal under an officially enforced custom compelling segregation would satisfy equal protection’s separate state-involvement requirement, just as an express segregation statute could. Harlan did not determine whether lesser involvement would suffice. He also reserved whether knowing discrimination under Mississippi’s facially permissive trespass statute could meet the constitutional requirement on a developed record.",
+        "Three corrections required a new opportunity for proof. Enforcement need not rely only on trespass law: false vagrancy arrests punishing interracial dining or police tolerance of violence against challengers could show official compulsion. Those were possible remand showings, not findings already established. The custom also need not match precisely a white patron accompanying Black patrons. The relevant practice was state-enforced segregation in public eating places; before the 1964 Act, Black patrons generally could not obtain service in those formerly white restaurants, making the demanded historical examples artificially narrow. Finally, a state-enforced Hattiesburg custom could qualify without extending throughout Mississippi, much as a municipal ordinance could violate equal protection. Adickes still had to prove that local official custom existed and motivated Kress’s refusal. Remedies and defenses remained open."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Discrimination count; Three corrections; 398 U.S. 161–174 & nn.23–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Black, Douglas and Brennan support reversal for different reasons",
+      "cue": "Why was agreement on the result not agreement with all of Harlan’s reasoning?",
+      "paragraphs": [
+        "Justice Black concurred in the judgment on both counts without choosing a statutory construction. He emphasized live testimony, confrontation, cross-examination and the jury’s role. Even accepting the trial court’s narrow custom theory, he thought the discriminatory-incident evidence sufficient for a jury.",
+        "Justice Douglas dissented in part from making official enforcement indispensable to statutory custom. Mississippi’s entrenched communal segregation norms could compel behavior as effectively as written law. The 1866 statute’s Thirteenth Amendment origins and protection of constitutional and statutory rights supported, in his view, a reach beyond official complicity. He agreed that the lower courts’ narrow definition was wrong and that the evidence warranted jury consideration.",
+        "Justice Brennan concurred in part and dissented in part. He separated state action required by the underlying equal-protection right from the statutory color-of-authority element, joining the conspiracy discussion with a qualification about statutory wording. For the discrimination count, he considered Mississippi’s laws against their segregationist background sufficient governmental encouragement without proving coercion in each private decision. Conscious reliance on supportive statutory authority would separately satisfy the statutory element.",
+        "Brennan also read statutory custom to include enduring communal norms supported by unofficial sentiment or sanctions, while excluding isolated private prejudice. He emphasized the Reconstruction statutes’ remedial design and disputed Harlan’s reliance on ambiguous legislative remarks. That broader statutory reading did not erase equal protection’s separate constitutional state-action requirement. He proposed compensation for proven loss and punitive damages for knowing or reckless violation, rejecting commercial fear of lost customers as an excuse. Those remedial proposals were his, not rules the Court adopted.",
+        "On June 1, 1970, the Court reversed the Second Circuit and remanded both claims. Harlan’s opinion represented Harlan, Burger, Stewart and White; Black, Douglas and Brennan supported reversal through the positions described. Marshall did not participate, and Blackmun had not yet begun service. Thus seven participating Justices supported renewed proceedings, not a conspiracy finding or damages award. The assignment’s emphasis on summary judgment does not erase the separate custom claim restored by the full decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Black, Douglas and Brennan; Court, claims and judgment; Assigned scope; 398 U.S. 174–234"
+        }
+      ]
+    }
+  ]
+}

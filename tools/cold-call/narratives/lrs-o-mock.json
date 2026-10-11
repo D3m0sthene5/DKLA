@@ -1,0 +1,168 @@
+{
+  "id": "lrs-o-mock",
+  "briefId": "LRS-ATLAS-O-MOCK",
+  "title": "Mock v. Garland",
+  "course": "Legislation and the Regulatory State",
+  "citation": "75 F.4th 563 (5th Cir. 2023)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After years of changing brace classifications, ATF proposed a points worksheet and adopted a different final test. Owners, a manufacturer, and an organization challenged that change before the rule’s merits had been finally adjudicated.",
+  "actors": [
+    {
+      "name": "ATF",
+      "role": "Bureau of Alcohol, Tobacco, Firearms and Explosives; issued the 2023 stabilizing-brace rule."
+    },
+    {
+      "name": "William Mock and Christopher Lewis",
+      "role": "Texas owners of braced pistols who wanted to buy more."
+    },
+    {
+      "name": "Maxim Defense",
+      "role": "Manufacturer and seller alleging that affected braces and firearms generated most of its revenue."
+    },
+    {
+      "name": "Firearms Policy Coalition",
+      "role": "Organization representing owners and businesses; the other plaintiffs were members."
+    }
+  ],
+  "proceedings": [
+    "Northern District of Texas denied a preliminary injunction.",
+    "Fifth Circuit motions panel enjoined enforcement pending appeal May 23, 2023; merits panel clarified protected persons May 26.",
+    "On August 1, 2023, divided merits panel reversed and remanded for remaining injunction factors and scope, temporarily preserving its existing injunction."
+  ],
+  "limits": "This account ends with the August 2023 interlocutory decision. It does not establish later merits outcomes or current enforceability. The panel found likely procedural success, not a final APA vacatur, and did not adjudicate statutory-authority or constitutional claims.",
+  "briefSha256": "b2e1b74e6b0976315bb07539dce76cf7afba0e4b228310831cd6d829ee91df7e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-MOCK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A brace enters a statutory system that treats short rifles differently",
+      "cue": "Why did classification carry serious consequences?",
+      "paragraphs": [
+        "The National Firearms Act’s (NFA’s) specialized firearm definition covers short-barreled rifles but generally excludes ordinary pistols. A rifle must be designed, made, and intended for shoulder firing; a barrel under sixteen inches ordinarily triggers the heightened NFA regime. The broader Gun Control Act covers firearms generally and defines a handgun through its short stock and design for one-handed firing. A shoulder stock can therefore change the treatment of otherwise similar AR-style weapons.",
+        "Short-barreled-rifle classification entails registration, manufacturing or transfer authorization, interstate restrictions, ordinarily a $200 transfer tax, and possible felony consequences. The Fifth Circuit majority later discussed the NFA’s response to gangster weapons and Congress’s omission of pistols to explain classification’s stakes, not to invalidate the statutory scheme.",
+        "A stabilizing brace attaches behind a handgun and supports or attaches to a forearm for steadier one-handed use. In 2012, the Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF) approved a specimen designed to assist disabled users without converting the pistol into a shoulder-fired rifle. Subsequent guidance shifted. A March 2014 letter rejected classification solely by individual use; an October letter treated subjective use as potentially changing classification. A 2015 open letter required NFA compliance before using a brace as a stock. In 2017, ATF said incidental shouldering of an unmodified approved brace did not necessarily redesign it. ATF still rejected configurations with ineffective straps or additions serving no brace function. An expanding market faced uncertainty, not unconditional approval of every brace."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory setting and regulatory chronology; slip op. 3–13 & nn.3–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "ATF proposes points, then adopts an unweighted factor test",
+      "cue": "What changed between the notice and the final rule?",
+      "paragraphs": [
+        "On June 10, 2021, ATF proposed Worksheet 4999, with comments due September 8. The worksheet assigned points to design features; at least four points in either of two sections indicated a rifle. The majority later acknowledged subjectivity and double counting but emphasized the identifiable method and three worked examples. One AR-type firearm with an SB-Mini accessory qualified as an approved braced handgun. About 217,000 of 237,000 comments opposed the proposal; many were form letters, so the figures did not represent that many independent analyses.",
+        "The January 31, 2023 final rule discarded the worksheet. It first asked whether a rear accessory provided surface area permitting shoulder firing, then considered six factors: relative weight or length; length of pull; sights or optics requiring shoulder use; necessity of the shoulder surface for operation; manufacturer marketing; and likely community use. ATF said these factors came from the proposal and classified weapons rather than banning braces.",
+        "ATF estimated that about 99 percent of brace-equipped pistols would count as rifles. Roughly sixty accompanying classifications gave results without explanations. The majority could identify no affirmative exempt example and observed that the previously acceptable SB-Mini configuration now appeared classified as a short-barreled rifle.",
+        "The rule was effective January 31, with compliance due May 31. Owners could install a barrel at least sixteen inches long; permanently remove and dispose of or alter the brace so it could not be reattached; surrender or destroy the firearm; or register it as a short-barreled rifle. Timely registration received a tax waiver. Mere detachment while retaining an unaltered brace was not the specified compliance route, despite contrary congressional testimony discussed and distinguished in note 28. About 250,000 registration applications did not measure total compliance because other options were uncounted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Regulatory chronology; slip op. 13–19 & nn.23–31"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Four plaintiffs seek protection before enforcement",
+      "cue": "Which claims did the district court reject at the preliminary stage?",
+      "paragraphs": [
+        "Texas residents William Mock and Christopher Lewis owned braced pistols and wanted additional ones. Maxim Defense made and sold braces and braced pistols and alleged that affected products generated most of its revenue. Firearms Policy Coalition represented owners and businesses, including the other three plaintiffs. Together they challenged statutory authority, invoked lenity and nondelegation, raised Administrative Procedure Act (APA) procedural objections and constitutional objections, and requested an injunction.",
+        "The Northern District of Texas denied preliminary relief. It regarded ATF as likely authorized, rejected lenity and vagueness arguments, classified the rule as interpretive, and alternatively found the final rule a logical outgrowth of the proposal. It also rejected the preliminary First and Second Amendment claims.",
+        "A Fifth Circuit motions panel granted an injunction pending appeal on May 23, 2023. The merits panel clarified on May 26 that protection included represented customers and members of Maxim Defense and the Coalition, plus the individual plaintiffs’ family members. The appeal under 28 U.S.C. § 1292(a)(1) concerned preliminary relief on a limited record, not a completed merits trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and litigation; slip op. 19–22, 40"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Smith treats the final rule as legislative",
+      "cue": "Why did ATF’s interpretive label fail to settle the question?",
+      "paragraphs": [
+        "Plaintiffs argued that replacing a points system with opaque balancing denied meaningful comment on the actual method. ATF answered that it merely interpreted existing statutory coverage and therefore owed no mandatory notice and comment. Alternatively, the proposal’s subject and factors gave notice, removal of an unpopular worksheet responded to comments, and any defect was harmless.",
+        "Judge Jerry Smith, joined fully by Judge Willett, found plaintiffs substantially likely to succeed on their procedural APA claim. The majority distinguished interpretations advising the public from rules carrying legal force. Mandatory language alone was inconclusive because an interpretation of a mandatory statute can sound mandatory too. Plaintiffs had also mistakenly cited policy-statement criteria. Acknowledging uncertainty in circuit law, the panel adopted the five-factor approach used in the district court’s Cargill decision to distinguish legislative from interpretive rules: intended legal force, publication in the Code of Federal Regulations (CFR), invocation of legislative authority, asserted Chevron deference, and significant effects on private interests.",
+        "ATF’s disclaimer of Chevron deference favored interpretive status; the other factors pointed toward legislation. The rule amended two CFR definitions, invoked delegated enforcement authority, imposed a future compliance deadline and disposal methods, and described penalty-triggering possession. Comparing Guedes’s analysis of regulatory commands, the panel saw a new command rather than advice that unchanged behavior had always been unlawful. Saying criminal courts would ultimately apply the statute did not remove these regulatory effects.",
+        "ATF’s low estimate exceeded $245 million in annualized combined public and private costs at a 3 percent discount rate, with ten-year costs approaching $1.9 billion. These were agency estimates, not proven losses. The contrast between earlier letters facilitating lawful ownership and new consequences for millions of owners reinforced the conclusion that § 553 applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Legislative-character reasoning; slip op. 23–31 & nn.35–50"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority finds insufficient notice of the new method",
+      "cue": "Why was a shared subject not enough, and how were plaintiffs prejudiced?",
+      "paragraphs": [
+        "An agency need not predict every final detail, Smith explained, but must frame issues so affected people can reasonably anticipate the eventual course and comment meaningfully. The majority demanded sufficient similarity in regulatory kind, not merely discussion of braces generally. The worksheet organized the proposal; ATF had described it as necessary for consistency. Requests for better criteria did not fairly announce replacement with an unweighted six-factor system. Complaints about subjectivity and overbreadth did not notify commenters that the alternative would become more discretionary and expansive.",
+        "Without a scoring method, explained classifications, or a reliable exemption example, owners lost a way to assess their firearms and contest ATF’s conclusions. Marketing and community-use factors also introduced evidence about third parties beyond an owner’s control; the majority regarded those features as insufficiently disclosed. If comments showed that the method required replacement, ATF should issue another notice on the replacement rather than rely on responsiveness alone.",
+        "Circuit law required prejudice. The majority found it in the lost opportunity to comment on the substantially changed method, reinforced by briefing identifying comments plaintiffs would have made. It distinguished adequate notice in City of Arlington and declined an absolute rule requiring every logical-outgrowth challenger to prove specific additional comments, discussing qualifications in City of Waukesha. Its language about setting aside or remanding an unlawful rule described a likely APA consequence; the actual appeal still concerned preliminary relief.",
+        "The panel regarded statutory-authority, lenity, and nondelegation arguments as potentially colorable but unnecessary, and left constitutional issues for later consideration. A separate arbitrary-and-capricious challenge was forfeited because the opening brief omitted that standard. The majority’s criticisms therefore were not an adjudicated § 706(2)(A) holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Notice, prejudice, and reserved issues; slip op. 22–24 n.38, 31–38 & nn.51–59"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Willett suggests a constitutional issue; Higginson would affirm",
+      "cue": "Which arguments belonged to separate writings?",
+      "paragraphs": [
+        "Willett joined Smith’s opinion completely and added a two-page concurrence. He suggested that common modifications improving lawful arms’ stability and accuracy could receive Second Amendment protection, and that ATF had not shown a historical tradition supporting a lengthy, costly, discretionary approval process. Even an attachment fitting the statutory rifle definition might raise a constitutional issue. He agreed that the APA ground sufficed at this early stage; his constitutional theory was not a panel holding.",
+        "Judge Higginson dissented. He questioned announcing a new legislative-rule test on expedited review after plaintiffs devoted only half a page to an incorrect standard and ATF provided little more. In his view, substantial impact distinguishes substantive from procedural rules, not legislative from interpretive rules: an accurate interpretation can have large economic effects. He traced Gulf Restoration, Texas, Kast Metals, Cabais, and Baylor to explain the mismatch. Courts in particular enforcement cases could independently apply the statute without Chevron deference to the firearm presented.",
+        "Even assuming legislation, Higginson found fair notice. Replacing the criticized worksheet was foreseeable. Plaintiffs’ counsel’s center had called it incomprehensible, and the Coalition called it subjective, malleable, and discretionary, showing awareness of the asserted problems. Four final factors concerned physical design; marketing and use supplied objective evidence of intended shoulder firing. He rejected the majority’s added similarity-in-kind requirement and considered any defect harmless because plaintiffs identified no omitted argument capable of changing the result.",
+        "Answering Willett, Higginson observed that greater accuracy combined with concealability might increase lethality. Plaintiffs did not challenge the NFA itself; registration of dangerous and unusual weapons differed from an outright ban, and the Supreme Court’s Second Amendment decision in Bruen did not invalidate every licensing system. He considered the preliminary constitutional showing inadequate. Neither his views nor Willett’s became the majority’s constitutional disposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate writings; slip op. 41–58 and accompanying notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The panel sends the remaining injunction questions back",
+      "cue": "What relief actually followed on August 1, 2023?",
+      "paragraphs": [
+        "Likelihood of success was only one injunction requirement. Plaintiffs still had to show irreparable injury, favorable equities, and consistency with the public interest; government and public interests merge when the government is the opponent. Despite discussing a sliding scale, the majority expressly warned that strong merits could not substitute for the other factors. The district court had not made those findings, and the appellate record was limited.",
+        "The panel declined to issue the requested nationwide injunction itself. Relief ordinarily must completely protect plaintiffs, sometimes incidentally benefiting others; broad organizational membership might justify wider protection on an appropriate record. Other brace injunctions already complicated enforcement, but that did not determine this remedy. Scope needed initial district-court factual assessment.",
+        "On August 1, 2023, the court reversed the denial and remanded for an expedited ruling within sixty days. It preserved the previously clarified appellate injunction until the district court ruled or sixty days elapsed, whichever came first. It imposed no restriction on the district court’s other matters or anticipated decisions. Higginson likewise emphasized that remaining factors could support a narrow injunction or none. The source stops at this interlocutory decision; it supplies no later final vacatur or present enforceability determination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Remaining factors and exact relief; slip op. 38–40 & nn.60–63; Higginson at 58"
+        }
+      ]
+    }
+  ]
+}

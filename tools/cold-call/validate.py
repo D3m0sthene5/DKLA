@@ -1,5 +1,6 @@
 """Fail closed on unmapped cases, unsourced episodes, or changed source briefs."""
 import hashlib
+import json
 import re
 from pathlib import Path
 from urllib.parse import urlparse
@@ -8,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def validate(data, graph, full, briefs=None):
-    assert data['schemaVersion'] in (1, 2), 'Unsupported cold-call schema'
+    assert data['schemaVersion'] in (1, 2, 3), 'Unsupported cold-call schema'
     nodes = {n['id']: n for n in graph['nodes']}
     known_paths = {s.get('url','').split('#')[0] for n in nodes.values() for s in n.get('sources', [])}
     ids = set()
@@ -18,17 +19,29 @@ def validate(data, graph, full, briefs=None):
         ids.add(cid)
         origin = case.get('origin', 'narrative')
         assert origin in ('narrative', 'brief', 'atlas'), f'{cid}: unknown content origin'
+        if data['schemaVersion'] == 3:
+            assert origin == 'narrative', f'{cid}: a brief index cannot be published as a Cold Call narrative'
         if not cid.startswith('brief-'):
             assert nodes[cid]['kind'] == 'Case' and nodes[cid].get('mnemonic'), f'{cid}: requires an illustrated case'
         if case.get('briefId'):
             assert case['briefSha256'] == hashlib.sha256(full[case['briefId']].encode()).hexdigest(), f'{cid}: source brief changed; recheck the narrative and update its fingerprint'
         if origin == 'narrative':
             assert case['revision'] >= 1 and case['actors'] and case['proceedings'] and case['limits'], f'{cid}: incomplete orientation'
+            if cid not in ('hamer', 'cp-pennoyer', 'lrs-s-chadha'):
+                review = case.get('review', {})
+                assert review.get('basis') and review.get('checkedOn'), f'{cid}: missing authoring review record'
+                assert all(review.get(k) is True for k in ('chronology','antecedents','proceduralStages','sourceQualifications')), f'{cid}: narrative review incomplete'
+            if case.get('atlasSha256'):
+                node = nodes[cid]
+                record = json.dumps({'sections':node['sections'], 'notes':node['notes']}, ensure_ascii=False, sort_keys=True)
+                assert hashlib.sha256(record.encode()).hexdigest() == case['atlasSha256'], f'{cid}: source account changed'
         sources = {s['id']: s for s in case['sources']}
         assert len(sources) == len(case['sources']), f'{cid}: duplicate source'
         for source in sources.values():
             if 'briefId' in source:
-                assert source['briefId'] == case['briefId'] and source['briefId'] in full, f'{cid}: wrong source brief'
+                assert source['briefId'] in full, f'{cid}: missing source brief'
+                if source['briefId'] != case.get('briefId'):
+                    assert source.get('sha256') == hashlib.sha256(full[source['briefId']].encode()).hexdigest(), f'{cid}: companion brief lacks a current fingerprint'
             elif 'url' in source:
                 url = urlparse(source['url'])
                 assert (url.scheme == 'https' and url.hostname) or re.fullmatch(r'#(?:book|civ|lrs|supp)=[\w:.-]+', source['url']), f'{cid}: invalid source link'
@@ -43,6 +56,9 @@ def validate(data, graph, full, briefs=None):
             assert re.fullmatch(r'[a-z][a-z0-9-]*', sid) and sid not in section_ids, f'{cid}: invalid or duplicate section id'
             section_ids.add(sid)
             assert section['title'] and section['cue'], f'{cid}/{sid}: incomplete narrative'
+            if data['schemaVersion'] == 3:
+                assert not section.get('spans') and 'phase' not in section, f'{cid}/{sid}: indexed brief section masquerades as a narrative'
+                assert section['title'].strip().casefold() not in ('parties','material facts','facts','procedural history','procedure','issue','issues','holding','holdings','reasoning','disposition'), f'{cid}/{sid}: generic brief heading'
             if origin == 'brief':
                 assert section['spans'], f'{cid}/{sid}: no text'
                 for start,end in section['spans']:
@@ -69,6 +85,14 @@ def validate(data, graph, full, briefs=None):
     assert ids, 'No cold-call narratives'
     if briefs:
         expected = {n['id'] for n in graph['nodes'] if n['kind'] == 'Case'} | {'brief-'+e[0] for e in briefs['entries'] if not e[6]}
-        assert ids == expected, f'Cold-call coverage mismatch: missing {sorted(expected-ids)}, extra {sorted(ids-expected)}'
+        if data['schemaVersion'] == 3:
+            pending = {c['id'] for c in data['pending']}
+            assert not (pending & ids), 'A completed narrative is also marked pending'
+            assert len(pending) == len(data['pending']), 'Duplicate pending case'
+            assert ids | pending == expected, 'Narrative inventory omitted or invented a case'
+            assert data['coverage']['pending'] == len(pending), 'Incorrect pending count'
+            assert data['coverage']['inventoryTotal'] == len(expected), 'Incorrect total inventory'
+        else:
+            assert ids == expected, f'Cold-call coverage mismatch: missing {sorted(expected-ids)}, extra {sorted(ids-expected)}'
         assert data['coverage']['total'] == len(ids), 'Incorrect coverage count'
     return data

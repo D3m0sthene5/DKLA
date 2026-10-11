@@ -1,0 +1,150 @@
+{
+  "id": "cp-boyle",
+  "briefId": "CP-055",
+  "title": "Boyle v. United Technologies Corp.",
+  "course": "Civil Procedure",
+  "citation": "487 U.S. 500 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A helicopter copilot survives a crash but drowns because he cannot escape. A verdict against its builder raises both a federal military-design defense and the question whether an appellate court may decide the defense without resolving disputed facts through a jury.",
+  "actors": [
+    {
+      "name": "David A. Boyle",
+      "role": "Marine helicopter copilot who died after the aircraft crashed into the ocean."
+    },
+    {
+      "name": "Boyle’s father",
+      "role": "Personal representative of the heirs and estate; plaintiff and Supreme Court petitioner."
+    },
+    {
+      "name": "United Technologies Corporation, Sikorsky Division",
+      "role": "Helicopter manufacturer and defendant."
+    },
+    {
+      "name": "United States",
+      "role": "Military purchaser; not a party to this damages suit."
+    }
+  ],
+  "proceedings": [
+    "A federal diversity jury returned a general $725,000 verdict on Virginia repair and design theories; the district court denied judgment notwithstanding the verdict.",
+    "The Fourth Circuit reversed and directed judgment for Sikorsky, rejecting repair causation and applying a federal design defense.",
+    "The Supreme Court vacated and remanded on June 27, 1988, requiring clarification or proper sufficiency review under the recognized defense."
+  ],
+  "limits": "The canonical brief supplies this historical narrative without a new opinion audit. The Supreme Court recognized a qualified defense but did not finally decide approval, conformity, warnings or recovery. It neither reinstated the verdict nor conclusively denied compensation. Official immunity’s extension to contractors and a Death on the High Seas Act claim were reserved.",
+  "briefSha256": "6480ae5ed04a4c93f7ae9959f663b03da8d06be39f68549141d7214e55bb7ce1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-055"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The crash and failed escape give the estate two different theories",
+      "cue": "Which alleged wrong caused the crash, and which allegedly prevented survival?",
+      "paragraphs": [
+        "On April 27, 1983, David A. Boyle was copiloting a Marine CH-53D helicopter during a training exercise off Virginia Beach. The aircraft crashed into the ocean. Boyle survived the impact but could not escape and drowned. United Technologies Corporation’s Sikorsky Division had built the helicopter for the United States.",
+        "Boyle’s father sued as personal representative of the heirs and estate, invoking diversity jurisdiction and Virginia tort law. The United States was not a defendant. The estate alleged that Sikorsky negligently repaired a servo in the automatic flight-control system, causing the crash. Separately, it alleged a defective copilot escape design: water pressure would prevent the outward-opening hatch from opening underwater, and equipment obstructed access to the handle. The second theory concerned survival after impact, not the cause of the crash.",
+        "Procurement specifications and government approval mattered to Sikorsky’s design defense. The contractor argued that state law could not require a different military design from the one the government selected. Whether the government actually made the requisite decision, the equipment complied, and proper warnings were supplied remained factual questions rather than Supreme Court findings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 487 U.S. 502–504, 509–514"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury awards damages, but the Fourth Circuit orders judgment for Sikorsky",
+      "cue": "Why did Supreme Court review concern both substantive law and jury procedure?",
+      "paragraphs": [
+        "The district court submitted both Virginia theories. The jury returned a general $725,000 verdict, which did not reveal which theory it accepted. The court denied Sikorsky’s motion for judgment notwithstanding the verdict.",
+        "The Fourth Circuit reversed. It found inadequate repair causation under Virginia law because the estate had not shown that Sikorsky’s work, rather than the Navy’s work, caused the malfunction. It also rejected the design claim under the federal military-contractor defense recognized in its companion Tozer decision and directed entry of judgment for Sikorsky.",
+        "The estate challenged judicial creation of the defense, its elements, and the failure to return the newly formulated defense to a jury. After argument on October 13, 1987, and reargument on April 27, 1988, the Supreme Court addressed the federal rule and the appellate method of resolving it. It did not independently grant review of the whole evidentiary-sufficiency determination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Citation; 487 U.S. 503–504, 513–514"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority requires a federal interest and a significant conflict",
+      "cue": "Why does a government purchase not automatically displace state tort law?",
+      "paragraphs": [
+        "Justice Scalia wrote for Chief Justice Rehnquist and Justices White, O’Connor and Kennedy. Federal procurement implicated a uniquely federal interest, related to the government’s contractual rights and duties and liability arising from officials’ work. Although this suit involved a private contractor and third-party victim, imposing liability for a required military design could cause contractors to reject it or increase prices. Official-immunity precedents supported identifying that interest, but the Court did not decide that official immunity itself extended to contractors.",
+        "A federal interest alone was insufficient: state law had to conflict significantly with an identifiable federal policy. Specifications fixing cooling capacity but leaving construction details might permit compliance with both contract and state safety duties. A specified hatch design might directly conflict with a state duty requiring another mechanism. But merely ordering an existing helicopter by model number would not demonstrate a considered governmental judgment about every component.",
+        "The Court rejected the Fourth Circuit’s reliance on Feres, which barred service-related tort actions against the United States, as the appropriate boundary. That approach could protect ordinary stock products bought for service members yet fail to protect deliberate military design choices harming civilians. The relevant distinction was government design discretion, not simply military status of the injured person."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 487 U.S. 504–511 & nn.1, 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Government design discretion produces a three-part defense",
+      "cue": "What must the contractor establish, and why is superior knowledge important?",
+      "paragraphs": [
+        "The Federal Tort Claims Act’s discretionary-function exception supplied evidence of a policy protecting governmental judgments. Military design can balance safety, technical performance, combat effectiveness and other concerns. State tort rules demanding a different design could reexamine those judgments and pass expense to the government through procurement. The exception did not directly immunize this private defendant; the majority derived a federal-common-law defense from its policy.",
+        "State design-defect liability for military equipment was displaced where the United States approved reasonably precise specifications, the equipment conformed to them, and the supplier warned the government of dangers known to the supplier but unknown to the government. Approval and conformity tied the disputed feature to government judgment. Disclosure prevented withholding superior danger information from the officials whose discretion the rule protected.",
+        "The defense was not immunity for all negligence related to federal work. It required disclosure of actually known dangers the government did not already know, not an unspecified universal warning obligation. The Court rejected limiting protection to contractors with little design participation or requiring the proposed alternative of risk-and-alternative warnings followed by clear authorization. A government judgment could remain a policy choice even when the contractor developed the design; discouraging technical contributions would be counterproductive.",
+        "This rule displaced conflicting state law rather than replacing the whole field. Its availability in a diversity suit also did not mean every contractor action automatically belonged in federal court. The Court reserved any effect on a Death on the High Seas Act claim, which was not presented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; Notes; 487 U.S. 507–513 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The judgment turns on what the appellate court did with the evidence",
+      "cue": "Why did recognizing the defense still require vacatur?",
+      "paragraphs": [
+        "Adopting a defense different from the jury instructions did not automatically require another trial. If the evidence under the proper rule could not support a reasonable verdict for the estate, judgment for Sikorsky could be entered. But an appellate court could not weigh disputed facts and decide them itself.",
+        "The Fourth Circuit’s statement that Sikorsky satisfied the defense might have meant the evidence was conclusive under a proper sufficiency test, or might have reflected its own resolution of factual disputes. The Supreme Court could not tell. On June 27, 1988, it vacated and remanded for clarification and, if needed, the appropriate inquiry. If the Fourth Circuit had meant no reasonable jury could reject the defense under the correct rule, its judgment was to stand; otherwise it had to conduct that analysis.",
+        "The Court neither restored the $725,000 award nor finally ruled that the estate recovered nothing. Approval, conformity and warnings were not all conclusively found by the Supreme Court merely because it endorsed the defense’s elements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Judgment; jury reasoning; 487 U.S. 513–514"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan and Stevens object to judicial creation of the defense",
+      "cue": "What did the dissenters say should follow instead?",
+      "paragraphs": [
+        "Justice Brennan, joined by Justices Marshall and Blackmun, would reverse and reinstate the verdict. Erie left only narrow areas of federal common law, and a private victim’s tort claim against a private manufacturer was collateral to a federal contract. Contract precedents did not authorize federal rules for every economically affected relationship; possible higher procurement prices were an indirect burden insufficient to justify displacement.",
+        "Brennan disputed analogies to official immunity and Yearsley’s protection for implementation of government directions. An independent manufacturer participating in design differed from an official or agent simply carrying out statutory authority. The Federal Tort Claims Act addressed suits against the United States, not defenses for suppliers. He also questioned whether liability necessarily increased net governmental costs, since liability could encourage prevention of injuries that themselves cost the government.",
+        "He warned that loose approval scrutiny might shield negligent designs after merely formal approval and that the rationale could spread to nonmilitary products. Those were criticisms of potential extension; the majority’s stated rule concerned military-equipment design. His assumption about the Death on the High Seas Act was expressly rejected as a question outside the case.",
+        "Justice Stevens separately emphasized institutional competence. Creating a new liability restriction balancing a major public program against individual compensation went beyond ordinary interstitial adjudication. Congress, he thought, should choose that policy, just as courts had declined to create major new liabilities without legislative action. His disagreement concerned who should decide, rather than a different list of defense elements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 487 U.S. 515–532"
+        }
+      ]
+    }
+  ]
+}

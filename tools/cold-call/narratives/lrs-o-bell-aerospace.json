@@ -1,0 +1,165 @@
+{
+  "id": "lrs-o-bell-aerospace",
+  "briefId": "LRS-ATLAS-O-BELL-AEROSPACE",
+  "title": "National Labor Relations Board v. Bell Aerospace Co., Division of Textron, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "416 U.S. 267 (1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A union election among aerospace buyers forces the Board and reviewing courts to distinguish genuine managerial authority from purchasing work and to decide how that distinction may be developed.",
+  "actors": [
+    {
+      "name": "Bell Aerospace Company, Division of Textron",
+      "role": "Employer operating a Wheatfield, New York aerospace plant."
+    },
+    {
+      "name": "The twenty-five buyers",
+      "role": "Purchasing and procurement employees whose managerial status remained disputed."
+    },
+    {
+      "name": "The UAW local",
+      "role": "Union seeking to represent the buyers."
+    },
+    {
+      "name": "National Labor Relations Board",
+      "role": "Agency directing the election and later ordering Bell to bargain."
+    }
+  ],
+  "proceedings": [
+    "The Board directed an election, certified the union, and found Bell’s refusal to bargain unlawful.",
+    "The Second Circuit denied enforcement and required rulemaking on remand.",
+    "The Supreme Court affirmed the managerial-exclusion rule, reversed mandatory rulemaking, and remanded through the appellate court to the Board."
+  ],
+  "limits": "The Supreme Court did not decide that these particular buyers were managerial and did not sustain the existing bargaining order. It did not decide how the rejected general coverage standard should originally have been promulgated.",
+  "briefSha256": "9ad06bac3d521469cfca4d0453f4743721167dea68511cf2b75e8a1e283d39d0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-BELL-AEROSPACE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Bell’s buyers exercise purchasing judgment within a layered approval system",
+      "cue": "What authority did the job actually carry?",
+      "paragraphs": [
+        "Bell Aerospace operated a research, development, design, and fabrication plant in Wheatfield, New York. Its purchasing and procurement department included twenty-five buyers. They obtained ordinary supplies and specialized items made to technical specifications. Some requisitions designated a vendor, and changing that designation could require approval. Otherwise buyers chose vendors, drafted invitations, evaluated bids, negotiated prices and terms, and prepared orders.",
+        "Without contrary directions, their negotiating discretion had no dollar limit, but authority to bind Bell was qualified. They executed orders up to $50,000. Orders under $5,000 could be placed or cancelled on their own signatures; commitments above $5,000 needed approval at increasingly senior levels. For the Minute Man project, which represented seventy percent of sales, engineering, quality assurance, finance, and manufacturing participated in team purchasing decisions. The buyer chaired the team and signed the order, while pricing personnel participated in negotiations. Actual responsibility, not the title buyer, would determine whether these workers formulated and implemented management policy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Buyers’ responsibilities; 416 U.S. at 269–70, 290 n.19"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Board permits the election under its narrower managerial exclusion",
+      "cue": "Why did Bell refuse to bargain after the union won?",
+      "paragraphs": [
+        "On July 30, 1970, a UAW local, the organizing union, petitioned to represent the buyers. Bell argued that they were managerial employees excluded from the National Labor Relations Act, or NLRA. The National Labor Relations Board directed an election on May 20, 1971, relying on its North Arkansas decision: even managerial workers were covered unless union membership created a relevant labor-relations conflict.",
+        "Bell feared unionized buyers would prefer union contractors or internal manufacture benefiting other plant unions. The Board regarded those concerns as conjectural and controllable through Bell’s established directions. Member Jenkins separately regarded the buyers as nonmanagerial. The Board majority apparently accepted that they might be managerial but treated that classification as insufficient to deny protection.",
+        "On June 16, fifteen buyers voted for representation and nine against. The Board certified the union on August 12. The same day, the Eighth Circuit rejected the Board’s general approach in North Arkansas. Bell sought reconsideration, but the Board adhered to an exclusion limited to labor-relations policymakers or related conflicts. Bell refused to bargain, producing an unfair-labor-practice finding under §§ 8(a)(5) and (1) and an order to bargain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Administrative proceedings; 416 U.S. at 270–72 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Second Circuit denies enforcement and directs rulemaking",
+      "cue": "What uncertainty about the Board’s finding required reconsideration?",
+      "paragraphs": [
+        "Bell petitioned for review and the Board sought enforcement. The Second Circuit denied enforcement. It saw substantial evidence that these buyers might occupy too low a position to be truly managerial, but could not tell whether the Board had actually found that or instead relied on its legally erroneous theory that managers generally remained covered. The court returned the matter and required rulemaking for any reversal of the Board’s earlier treatment of buyers.",
+        "The Supreme Court granted the Board’s petition. The case therefore presented distinct questions: whether all genuine managerial employees were excluded by the Act, and whether determining these buyers’ status under the proper standard required a general rule rather than adjudication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Administrative proceedings; Judgment and questions left open; 416 U.S. at 272–74"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Powell finds a managerial exclusion beyond the expressly listed supervisors",
+      "cue": "How did history inform the majority’s reading?",
+      "paragraphs": [
+        "Justice Powell’s opinion acknowledged that the NLRA expressly excluded supervisors and other classes without naming managerial employees. The majority nevertheless found an implicit managerial exclusion from early Board practice, the 1947 Taft-Hartley changes, later administrative and judicial construction, and further amendments in 1959. Longstanding interpretations preserved through reenactment and related subsequent legislation could illuminate statutory meaning.",
+        "Before 1947, the Board had kept personnel closely identified with management—such as expediters, buyers, and executives able to formulate and effectuate policies—out of rank-and-file units. Powell acknowledged that some decisions might exclude employees only from particular units rather than from the Act. Dravo expressly reserved buyers’ and expediters’ ability to organize. Still, no managerial unit had been certified, and the decisions recognized their managerial functions. Supervisory policy had changed repeatedly, culminating in Packard’s protection of foremen, which the Supreme Court upheld in 1947.",
+        "Congress responded in Taft-Hartley by expressly excluding supervisors. The House proposed a broad definition covering labor-relations, confidential, police, and time-study workers; the Senate proposed genuine authority over other employees. The conference chose the Senate version while explaining that prevailing Board practice already excluded some omitted groups. Professionals and guards received distinct treatment. Powell understood that history and concern about blurring management and labor, including references to executives already excluded, to encompass genuine managers beyond supervisors. Professional status concerned specialized work; managerial status concerned policy authority.",
+        "After 1947, decisions including Palace Laundry, American Locomotive, Curtiss-Wright, and Swift treated assistant buyers, procurement personnel, and employees empowered to bind their employer as outside bargaining protection. The majority saw a consistent pre-1970 pattern, supported by appellate decisions and left intact in 1959. The Board could not replace it with an exclusion confined to labor-relations conflicts. The proper inquiry concerned duties, authority, and relationship to management: did the employee formulate and effectuate employer policy?"
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory construction; 416 U.S. at 274–90 & nn.4–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The correct standard still leaves these buyers’ classification undecided",
+      "cue": "Why did the Court allow adjudication on remand?",
+      "paragraphs": [
+        "A conflict could independently justify exclusion from a bargaining unit, but was not the only reason true managers fell outside statutory coverage. The Supreme Court did not itself classify Bell’s buyers. Bell also asserted inadequate notice and opportunity to present conflict-specific evidence; if it offered new relevant information on remand, the Board should consider reopening the record. The Court did not declare more evidence necessary or the existing record inadequate.",
+        "The procedural question concerned applying the correct managerial standard to these employees. It was unnecessary to decide whether the rejected general coverage standard had itself been improperly announced through adjudication. Earlier decisions often excluded buyers from other units, but only American Locomotive and Swift appeared to deny separate-unit organization. That history did not require a legislative rule for every buyer classification.",
+        "Chenery II recognized the usefulness of prospective rules and the need for adjudication where problems are unforeseen, experience incomplete, or circumstances unusually varied. The differing Wyman-Gordon opinions also accepted agency policymaking through adjudication. A new principle or changed classification did not automatically compel rulemaking.",
+        "Buyers across industries had widely varying responsibilities, potentially making a general formula unhelpful. Individual proceedings allowed examination of actual duties and authority, and the Board’s choice deserved substantial weight. Rulemaking could obtain broad industry and labor views, but the affected company and buyers could provide relevant information through a full opportunity to be heard.",
+        "The Court reserved cases in which adjudication would abuse discretion or violate a statute. This record showed no substantial adverse reliance, fines, damages, or new liability for past conduct undertaken in good-faith reliance on Board pronouncements. Concerns were also premature because managerial status remained unresolved. Those circumstances supported adjudication here without authorizing every retrospective change."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Choice of procedural method; 416 U.S. at 290–95 & nn.20–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "White accepts adjudication but disputes the categorical exclusion",
+      "cue": "How did he distinguish a unit boundary from loss of statutory protection?",
+      "paragraphs": [
+        "Justice White, joined by Brennan, Stewart, and Marshall, agreed that rulemaking was unnecessary but rejected the majority’s substantive construction. The inclusive statutory text and precise exclusions did not contain a general managerial exception. Congress carefully excluded supervisors while preserving organizing rights for professionals exercising judgment, some of whose work might be called managerial.",
+        "White read early cases largely as unit-designation decisions rather than denials of all employee protection. Dravo expressly preserved organizing rights. Even periods without supervisory bargaining units did not necessarily remove protection against unfair labor practices. Taft-Hartley expressly went further for supervisors; the dissent would not silently extend that exclusion to a separate undefined category.",
+        "The House managers’ explanation might support exclusions for specified labor-relations and confidential personnel, but not every omitted category. Guards and time-study professionals were treated differently. References to executives did not justify excluding hundreds of thousands of relatively low-level buyers, and most senior executives already fit supervisor, confidential, professional, or conflict categories. The burden should remain on those departing from the inclusive text.",
+        "White also considered later practice inconsistent. American Locomotive and Swift denied separate-unit rights, but many decisions only addressed particular units; courts sometimes described total exclusion without needing it to resolve a case. The Board could correct an erroneous interpretation. The 1959 amendments addressed other subjects, with no evidence of congressional attention to managerial coverage, so silence did not ratify every earlier statement. White would accept the Board’s newer interpretation if reasonably grounded in law and record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "White partial dissent; 416 U.S. at 295–311 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court affirms one part of the appellate decision and reverses another",
+      "cue": "What exactly returns to the Board?",
+      "paragraphs": [
+        "On April 23, 1974, the Supreme Court affirmed the Second Circuit’s holding that all properly classified managerial employees are excluded, but reversed its mandatory-rulemaking direction. The case returned through the Second Circuit to the Board for reconsideration under the correct standard. The existing bargaining order was not validated, and the buyers were not permanently denied representation.",
+        "Chief Justice Burger and Justices Douglas, Blackmun, and Rehnquist joined Powell, making the managerial exclusion a five-to-four holding. All nine Justices agreed that this classification decision did not require rulemaking. That agreement did not resolve the unnecessary procedural challenge to adoption of the rejected general standard. Later Board action and contemporary statutory treatment lie beyond this historical decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment, votes, and questions left open; Assigned account and limits; 416 U.S. at 289–91, 295–96"
+        }
+      ]
+    }
+  ]
+}

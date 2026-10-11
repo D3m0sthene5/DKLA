@@ -1,0 +1,149 @@
+{
+  "id": "cp-celotex",
+  "briefId": "CP-107",
+  "title": "Celotex Corp. v. Catrett",
+  "course": "Civil Procedure",
+  "citation": "477 U.S. 317 (1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An asbestos defendant seeks summary judgment because the widow suing it allegedly lacks exposure evidence, while the record already contains documents and a potential witness whose significance remains disputed.",
+  "actors": [
+    {
+      "name": "Myrtle Nell Catrett",
+      "role": "Widow and administratrix suing on behalf of Louis H. Catrett’s estate."
+    },
+    {
+      "name": "Louis H. Catrett",
+      "role": "Decedent allegedly injured by asbestos products; died in 1979."
+    },
+    {
+      "name": "Celotex Corporation",
+      "role": "One of fifteen defendant manufacturers or distributors; sought summary judgment on product exposure."
+    },
+    {
+      "name": "T. R. Hoff",
+      "role": "Official of former employer Anning-Johnson identified as a potential exposure witness."
+    }
+  ],
+  "proceedings": [
+    "The district court granted Celotex summary judgment in July 1982.",
+    "The D.C. Circuit reversed because Celotex supplied no affirmative evidence negating exposure.",
+    "The Supreme Court rejected that categorical requirement, reversed, and remanded on June 25, 1986."
+  ],
+  "limits": "The Supreme Court did not finally decide whether the exposure materials could support admissible proof or whether Celotex deserved judgment. Rule subsection references describe the 1986 version, including then-Rule 56(f).",
+  "briefSha256": "dfcd2968aa31f581c2f568195ddaf4be1bef026ae588a6b6c0855cbbd8e527c1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-107"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A widow’s asbestos suit requires a connection to each defendant’s products",
+      "cue": "What did Catrett have to establish against Celotex?",
+      "paragraphs": [
+        "Louis H. Catrett died in 1979. In September 1980, his widow, Myrtle Nell Catrett, sued as administratrix of his estate, alleging negligence, breach of warranty, and strict liability against fifteen corporations said to have manufactured or distributed asbestos products responsible for the death. Celotex Corporation was one defendant. Recovery from Celotex required evidence connecting Louis Catrett to its products; proof that asbestos caused harm in general would not establish that particular link.",
+        "Celotex first sought summary judgment in September 1981, about a year after filing. Its no-evidence position was that discovery had failed to identify a witness who could testify to exposure. Celotex did not submit an affidavit affirmatively proving that no exposure occurred.",
+        "Catrett identified three documents concerning Chicago exposure in 1970–1971: her husband’s deposition in a workers’ compensation proceeding, a former employer official’s letter, and an insurer’s letter to her lawyer. The assigned account identifies the product as Firebar, made by a Celotex predecessor, and the employer as Anning-Johnson. Employer official T. R. Hoff was a potential trial witness. Celotex called the documents hearsay; that objection concerned usable proof behind the materials, rather than an absence of any record reference to exposure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 319–320, 334–336, 338 nn.2–3; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial court grants judgment and the court of appeals demands affirmative negation",
+      "cue": "What did the appellate majority leave unexamined?",
+      "paragraphs": [
+        "The source account of Justice Brennan’s later dissent describes an earlier motion that Celotex withdrew after Catrett supplied the documents and identified Hoff as an intended witness. Brennan emphasized that Celotex knew of those materials when it renewed its no-evidence motion. That history would become important to whether the initial burden had actually been met.",
+        "In July 1982, the District Court for the District of Columbia granted pending defense motions, including Celotex’s, stating that exposure to Celotex products had not been shown in the District of Columbia or elsewhere within the statutory period. Catrett appealed only Celotex’s judgment.",
+        "A divided D.C. Circuit reversed. Its majority read Rule 56 and Adickes v. S. H. Kress & Co., an earlier summary-judgment decision, to require evidence affirmatively negating exposure before Catrett had to respond. Because Celotex provided none, the panel did not decide the adequacy or admissibility of her materials. Judge Bork dissented. The Supreme Court granted review to resolve conflicting appellate understandings of a movant’s burden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 319–322, 334–337 & nn.5–7; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rehnquist ties the motion to the opponent’s trial burden",
+      "cue": "Why need the defendant not invariably prove the opposite of the plaintiff’s element?",
+      "paragraphs": [
+        "Justice Rehnquist wrote for Justices White, Marshall, Powell, and O’Connor. After adequate discovery, failure to show an essential element on which a party bears the trial burden can justify summary judgment. If Catrett lacked sufficient evidence of product exposure, disputes over other elements would not require a trial. The defendant need not invariably prove the opposite of a fact the plaintiff must establish.",
+        "Rule 56’s text referred to affidavits “if any” and allowed motions with or without them. Depositions, interrogatory answers, admissions, and other existing materials could reveal the necessary evidentiary absence. The D.C. Circuit’s universal requirement for an affidavit or other affirmative negation added a condition not found in the rule.",
+        "The moving party still had an initial responsibility: identify the basis of its motion and the record supporting the absence of a genuine material dispute. Permission to point out missing evidence was not a license to obtain judgment through an unsupported demand. Once a motion was properly made and supported, the opponent had to designate specific facts beyond the complaint’s allegations. “Properly supported” did not mean supported only by newly supplied affidavits.",
+        "This allocation depended on who bore the trial burden on the particular element. A claimant seeking judgment on an element it must prove could not establish it merely by saying the opponent lacked contrary evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 322–325, 328–332; Rule and Holding; Reasoning; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court separates admissible substance from the form used on the motion",
+      "cue": "What questions required remand?",
+      "paragraphs": [
+        "A party did not have to depose every favorable witness or present each item in its ultimate trial format to resist summary judgment. The question included whether the identified substance could become admissible proof at trial. That qualification did not permit unsupported allegations or facts incapable of admissible presentation, but it prevented treating the current format of Catrett’s documents as conclusive by itself.",
+        "The Court preserved Adickes’s requirement that a movant first establish the absence of a genuine material issue and accepted that case’s result on its own record. It rejected turning that duty, or the 1963 amendment requiring more than pleadings after a supported motion, into an invariable duty to disprove the opponent’s claim affirmatively.",
+        "Adequate discovery remained important. Discovery had occurred and Celotex’s motion came a year after filing. Then-Rule 56(f) protected a party needing further discovery against a premature motion. The holding did not authorize withholding a meaningful opportunity to obtain evidence and then faulting the opponent for its absence.",
+        "The majority viewed summary judgment as part of the Federal Rules’ balance between trial for supported claims and avoiding trial costs for unsupported ones. On June 25, 1986, after April 1 argument, it reversed the D.C. Circuit and remanded for consideration of Catrett’s actual showing and its capacity to support admissible proof. It did not finally decide that her documents were inadmissible, no exposure occurred, or Celotex owed nothing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 324–328 & n.6; Judgment; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White and Brennan focus on support already identified in the record",
+      "cue": "Where did agreement on the general rule leave a dispute about this motion?",
+      "paragraphs": [
+        "Justice White joined the Court but emphasized that a conclusory no-evidence assertion would not suffice. A plaintiff need not voluntarily conduct discovery or depose her own witnesses absent a discovery duty or court order. Once she identifies a supporting witness, the movant cannot ignore that witness’s possible testimony. White understood the dispute to concern whether Catrett already identified enough support and agreed that the appellate court should examine it.",
+        "Justice Brennan, joined by Chief Justice Burger and Justice Blackmun, also rejected a universal affirmative-evidence requirement. He distinguished the initial production burden from the ultimate burden of establishing entitlement to judgment. When the opponent bore the trial burden, a movant could negate an element or demonstrate the insufficiency of existing proof; the latter method required engagement with favorable record evidence.",
+        "Brennan would affirm the reversal of summary judgment because the renewed motion did not confront the documents and Hoff’s potential testimony that Catrett had already supplied. Celotex had to explain their inadequacy before shifting the production burden. To Brennan, that defect was apparent and further remand unnecessary. His dissent concerned application and clarity, not endorsement of the D.C. Circuit’s absolute affidavit rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 328–337 & nn.5–7; Separate Opinions"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Stevens reads the motion’s geographic scope more narrowly",
+      "cue": "What record disagreement must remain attributed?",
+      "paragraphs": [
+        "Justice Stevens separately would affirm. He read the motion and argument as directed to lack of exposure in the District of Columbia despite materials supporting Illinois exposure. The district judge’s brief addition concerning exposure elsewhere did not, in his view, justify a broader judgment.",
+        "The majority disagreed about the district court’s ruling and emphasized its express reference to other places. The narrative cannot resolve that dispute by silently adopting one reading. The Court’s operative disposition was a reversal and remand to apply the proper standard, leaving the exposure showing unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 320 n.2, 337–339; Separate Opinions; Judgment"
+        }
+      ]
+    }
+  ]
+}

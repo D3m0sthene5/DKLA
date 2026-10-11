@@ -1,0 +1,145 @@
+{
+  "id": "lucy",
+  "briefId": "CTR-025",
+  "title": "Lucy v. Zehmer",
+  "course": "Contracts",
+  "citation": "196 Va. 493, 84 S.E.2d 516 (1954)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A long-sought farm purchase becomes a dispute about what the sellers communicated when they signed.",
+  "actors": [
+    {
+      "name": "W. O. Lucy",
+      "role": "Farmer and lumberman who negotiated the purchase."
+    },
+    {
+      "name": "A. H. Zehmer",
+      "role": "Owner of the Ferguson Farm and the restaurant where the negotiation occurred."
+    },
+    {
+      "name": "Ida S. Zehmer",
+      "role": "Zehmer’s wife, who signed the sale memorandum."
+    },
+    {
+      "name": "J. C. Lucy",
+      "role": "The buyer’s brother; acquired half the purchase interest after the agreement."
+    }
+  ],
+  "proceedings": [
+    "The Lucys sought specific performance in the Circuit Court of Dinwiddie County.",
+    "The circuit court dismissed their bill.",
+    "The Supreme Court of Appeals of Virginia reversed and directed enforcement."
+  ],
+  "limits": "The reported disposition directs entry of an enforcement decree. It does not establish a later closing or payment. The account concerns the historical decision.",
+  "briefSha256": "5ecef94ea0c414cd5821e673819d3f750283b5cf21ea712e4b235ba240a1e1ad",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-025"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Lucy has been trying to buy the Ferguson Farm",
+      "cue": "Introduce the farm, its owner, and the prospective buyer before describing the negotiation.",
+      "paragraphs": [
+        "W. O. Lucy was a lumberman and farmer who wanted to buy the Ferguson Farm, approximately 471.6 acres in Dinwiddie County, Virginia. The owner, A. H. Zehmer, operated a restaurant, filling station, and motor court in McKenney. Lucy had known Zehmer for fifteen to twenty years and had known the farm for about ten years. According to Lucy, Zehmer had orally accepted an earlier $20,000 offer seven or eight years before the transaction now in dispute, then declined to carry out that sale.",
+        "By December 1952, Zehmer had owned the farm for more than ten years. He had bought it for $11,000 and had received numerous inquiries about selling. This history explains why Lucy’s later visit developed into a concrete negotiation about a known property rather than an unexplained exchange between strangers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The men negotiate and the Zehmers sign",
+      "cue": "What happened before either side described the agreement as a joke?",
+      "paragraphs": [
+        "On Saturday evening, December 20, 1952, Lucy visited Zehmer’s restaurant. Lucy asked whether the farm had been sold and suggested that Zehmer would refuse $50,000 for it. Zehmer answered that he would take that amount but questioned whether Lucy could provide $50,000 in cash. The discussion continued for roughly thirty to forty minutes. The men discussed Lucy’s resources, what property the sale would include, and an examination of title. Both drank whiskey during the evening.",
+        "Zehmer wrote a memorandum on the back of a restaurant guest check. Its first version described his agreement to sell the farm to Lucy for $50,000 complete. Lucy objected to the singular wording because Zehmer’s wife, Ida, needed to sign too. Zehmer prepared a second version saying that “we” agreed to sell the Ferguson Farm complete for $50,000, with title satisfactory to the buyer. Both Zehmers signed. The paper identified the property, the sellers, the buyer, the price, and the title condition.",
+        "The witnesses later disagreed about how Lucy obtained the signed paper. Lucy said Zehmer handed it to him and refused a $5 binder because the signed agreement was sufficient. Zehmer said he placed it on the counter, Lucy picked it up and pocketed it, and Zehmer then refused the $5 and described the exchange as liquor talking. Both Zehmers said that, before Ida signed, her husband privately whispered that the writing was a joke. Their own account placed that whisper outside Lucy’s hearing. The dispute over those details must remain a dispute; the narrative cannot adopt one delivery account as an undisputed fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Reasoning: claimed joke"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Lucy arranges financing and asks to close",
+      "cue": "How did Lucy act on the writing, and when did Zehmer refuse to sell?",
+      "paragraphs": [
+        "The next day Lucy arranged for his brother, J. C. Lucy, to take a one-half interest and provide half the purchase price. On Monday Lucy retained an attorney to examine title. The attorney reported favorably on December 31. On January 2, 1953, Lucy wrote to Zehmer that title was satisfactory, that he was ready to pay $50,000 in cash, and that he wanted a closing date.",
+        "Zehmer replied in a letter mailed January 13 that he had never agreed or intended to sell. That refusal created the need for legal enforcement. Lucy’s brother appears as a party because of the intervening transfer of half the purchase interest; he was not the person who negotiated with Zehmer in the restaurant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Lucys ask a court to require conveyance",
+      "cue": "What remedy did the buyers seek, and what did the first court do?",
+      "paragraphs": [
+        "The two Lucys filed a bill in equity in the Circuit Court of Dinwiddie County asking for specific performance: a decree requiring the Zehmers to convey the farm under the signed agreement. The Zehmers admitted that Lucy had offered $50,000 cash and that they had signed. They contended that the exchange was a jest, relied on the drinking, disputed formal delivery of the paper, and asked the equity court to withhold the requested remedy.",
+        "The evidence was presented through depositions. The circuit court held that the Lucys had failed to establish a right to specific performance and dismissed their bill. The Lucys appealed to the Supreme Court of Appeals of Virginia. The appellate question therefore concerned both whether the communicated acts formed a contract and whether the record justified the particular equitable remedy the buyers sought."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Question Presented"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The appellate court examines what Lucy could understand",
+      "cue": "Why did the unspoken intention to joke fail as a defense?",
+      "paragraphs": [
+        "Justice Buchanan wrote the appellate court’s opinion. The court assigned the parties the intention reasonably expressed by the words and actions they communicated to each other. A privately intended meaning does not displace the reasonable meaning conveyed to the other party unless that party knows of the special meaning. A joke can matter when its context communicates that character. The inquiry was what the Zehmers had made reasonably apparent to Lucy when the agreement was completed.",
+        "The court examined the extended discussion of price and Lucy’s ability to pay, the treatment of what “complete” included, the title condition, the preparation of a written agreement, Lucy’s insistence on both spouses’ signatures, Zehmer’s revision to “we,” and Ida’s reading and signing. Together those acts communicated a deliberate land transaction. The alleged whisper to Ida deliberately kept the claimed joke outside Lucy’s hearing. Even under Zehmer’s account, his statement to Lucy that the exchange was a joke came after signing and Lucy’s acquisition of the paper.",
+        "Lucy’s subsequent conduct also supported the meaning he had assigned to the restaurant transaction. He brought his brother into the purchase, engaged a title attorney, accepted the title, announced readiness to pay, and sought a closing. These later acts corroborated his actual, reasonably grounded understanding; they did not substitute for assent missing at the time of formation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: objective assent, negotiations, joke, and Lucy’s understanding"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Drinking and the requested remedy receive separate treatment",
+      "cue": "Why did the drinking not defeat capacity, and why was specific performance appropriate?",
+      "paragraphs": [
+        "The court then considered the effect of intoxication. Drinking can matter when it deprives a person of the ability to comprehend a transaction’s nature and consequences and the prerequisites for avoidance are established. The detailed bargaining, drafting, revision, signing, and testimony showed comprehension here. Defense counsel conceded at oral argument that the evidence established capacity to contract. The court did not make a general rule that drinking is always irrelevant.",
+        "Specific performance required a further equitable judgment. The discretion to award it was governed by settled principles. The memorandum identified the farm and price and stated the title condition; both sellers signed; Zehmer himself called $50,000 a good price; the evidence supported comprehension; and the parties dealt at arm’s length. Those circumstances supported an order requiring the promised conveyance.",
+        "On November 22, 1954, the Supreme Court of Appeals reversed the dismissal and remanded with instructions to enter a decree requiring the Zehmers to perform. The participating justices identified in the report were Eggleston, Buchanan, Miller, Smith, and Whittle. The report contains one court opinion and no separate writings or judicial footnotes. The case ends in an instruction to enforce the sale, not a reported later closing. Its reasoning requires separate attention to communicated assent, capacity, and the conditions for equitable relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding; Reasoning; Source scope"
+        }
+      ]
+    }
+  ]
+}

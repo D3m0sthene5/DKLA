@@ -1,0 +1,176 @@
+{
+  "id": "lrs-k-cargill",
+  "briefId": "LRS-SUP-0003B",
+  "title": "Garland v. Cargill",
+  "course": "Legislation and the Regulatory State",
+  "citation": "602 U.S. 406 (2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After ATF changes its classification of nonmechanical bump stocks, an owner surrenders his devices under protest and challenges whether the enacted machinegun definition reaches them.",
+  "actors": [
+    {
+      "name": "Michael Cargill",
+      "role": "Owner of two bump stocks who surrendered them under protest and brought the APA challenge."
+    },
+    {
+      "name": "Bureau of Alcohol, Tobacco, Firearms and Explosives",
+      "role": "Issued the 2018 rule classifying the disputed devices as machineguns."
+    },
+    {
+      "name": "Attorney General and other federal officials",
+      "role": "Defended the agency’s statutory authority."
+    }
+  ],
+  "proceedings": [
+    "The Western District of Texas entered judgment for the government after a bench trial.",
+    "A Fifth Circuit panel affirmed; the en banc court reversed.",
+    "The Supreme Court affirmed the en banc judgment on June 14, 2024."
+  ],
+  "limits": "The case addresses the nonmechanical devices before the Court, excluding spring-operated mechanical devices. It decides statutory authority, not a Second Amendment right or the current status of every rapid-fire accessory. Each cited slip opinion has its own pagination.",
+  "briefSha256": "2c4f77d2c8f001053eafc55254897508d0b8a89a496bd80c0a4012273b2901e4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0003B"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An old definition and a changed agency classification create the dispute",
+      "cue": "What changed after the 2017 shooting?",
+      "paragraphs": [
+        "The National Firearms Act defined a machinegun by its capacity to fire automatically more than one shot, without manual reloading, through a single function of the trigger. It also covered parts designed and intended to convert a weapon into a machinegun. A semiautomatic firearm ordinarily fired once for each separate trigger engagement. The legal question would concern the defined firing process, rather than speed alone.",
+        "Before the challenged rule, the Bureau of Alcohol, Tobacco, Firearms and Explosives repeatedly concluded that the nonmechanical bump stocks at issue did not fit that definition. After the 2017 Las Vegas mass shooting, ATF reconsidered. Proposed legislation did not become law. In 2018, ATF issued a final rule interpreting a single trigger function to include a single pull and analogous motions, and describing the devices as self-regulating mechanisms that produced continuous fire.",
+        "The rule directed owners to destroy or surrender covered devices within ninety days, with criminal consequences for noncompliance. Michael Cargill owned two bump stocks. He surrendered them under protest and sued under the Administrative Procedure Act, contending that ATF lacked statutory authority. His challenge did not ask the courts to recognize a constitutional right to possess the devices. The rule’s origin explained the litigation, but neither an absolute prohibition on agency interpretive changes nor a defect in notice and comment became the basis of the Supreme Court’s holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 1–6 & 3 n.1; Parties and material facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The government wins a trial before the en banc court reverses",
+      "cue": "How did the Fifth Circuit’s rationale differ from the Supreme Court’s?",
+      "paragraphs": [
+        "The Western District of Texas held a bench trial and entered judgment for the government, finding that the devices fit the statutory definition. A Fifth Circuit panel affirmed. The court of appeals then reheard the dispute en banc and reversed.",
+        "An eight-judge en banc plurality found the devices unambiguously outside the definition. A majority at least agreed that the statute was ambiguous and that lenity required resolving the uncertainty in Cargill’s favor. The Supreme Court granted review to resolve a conflict among courts of appeals. Thus, affirming the en banc judgment did not necessarily mean adopting lenity as the Supreme Court’s own rationale.",
+        "Justice Thomas wrote for Chief Justice Roberts and Justices Alito, Gorsuch, Kavanaugh, and Barrett. The majority read the statute to exclude the nonmechanical devices at issue. Spring-operated mechanical devices were expressly outside the question. The Court gave two distinct reasons: separate trigger functions remained necessary for separate shots, and, alternatively, the additional ongoing input prevented multiple shots from occurring automatically through a single trigger function."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 3 n.1, 5–7, 14–17; Procedural history; Rule and holding"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority counts the functions of the trigger",
+      "cue": "Why did one initiating action not become one statutory function?",
+      "paragraphs": [
+        "Thomas began with the statutory language and definitions of “function” and “trigger.” The majority understood the relevant function to be the trigger’s action activating the firing mechanism. Each reengagement after reset counted separately. The judicial diagrams supported the factual premise that the semiautomatic mechanism released, fired, and reset for each shot. The device assisted rapid repetition without turning those separate engagements into one mechanical function.",
+        "ATF emphasized the shooter’s initiating action and the comparatively stable position maintained during the assisted sequence. The majority answered that the statute did not distinguish a finger pull from an analogous engagement produced through movement of the firearm. In either case, the trigger operated separately for each shot. If ATF counted analogous motions as trigger functions, the later analogous engagements could not disappear from the count merely because they followed an initial one.",
+        "The Court also observed that rapid repeated firing could occur without the accessory. It considered ATF’s exclusion of an unmodified semiautomatic firearm difficult to reconcile with the agency’s broad account of one initiating action for the equipped firearm. Rate of fire could not replace the particular elements Congress enacted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 7–14; Majority reasoning: statutory unit and initial action"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority separately examines automatic fire",
+      "cue": "Why did the Court distinguish different forms of continuing human input?",
+      "paragraphs": [
+        "The alternative analysis addressed the full requirement of firing automatically through a single trigger function. Even assuming the sequence could be attributed to one function, the majority found that the disputed device required ongoing input beyond that function. An automatic feature somewhere in the firearm’s operation did not by itself satisfy the definition.",
+        "ATF and the dissent observed that conventional machineguns also required continuous pressure. Thomas distinguished pressure constituting the continuing trigger function from additional input elsewhere accompanying that function. His position was not that all sustained human participation defeated automatic operation.",
+        "The majority compared the Ithaca Model 37 shotgun. ATF conceded that the shotgun did not fire automatically in the statutory sense even though more than one shot could follow a continuously held trigger; additional manual operation explained the concession. The dissent objected that manual reloading was a separate statutory condition and that the shotgun did not automate a loading process a semiautomatic rifle already automated. Majority footnote 8 answered that ATF conceded an independent failure of the automatic-fire requirement, not merely a failure of the no-manual-reloading requirement. The analogy and the dissent’s answer concern the statutory distinction and do not expand this case to every other device."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 14–17 & n.8; Sotomayor, slip op. at 12–13 n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Purpose does not displace the majority’s reading of the definition",
+      "cue": "Why did the anti-evasion argument fail with the majority?",
+      "paragraphs": [
+        "ATF invoked the presumption against ineffectiveness: a court should resist an interpretation that permits easy evasion of a law’s evident objective. The majority accepted that principle but rejected its application here. Excluding the devices did not render the Act useless because conventional machineguns remained regulated. Congress could choose a line narrower than the broadest imaginable statement of the statute’s purpose.",
+        "ATF’s own earlier classifications also weakened its claim that exclusion defeated the statutory scheme. Those classifications did not become binding law or estop the agency from changing position; they supported the majority’s response to the purposive argument. Footnote 9 supplied a further answer to reliance on the ordinary label “machinegun”: an express statutory definition normally governs even if it differs from broader ordinary usage.",
+        "The majority therefore did not rely on lenity to reach its result. It held that ATF exceeded the authority supplied by the enacted definition, on both the single-trigger-function and automatic-fire grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas, slip op. at 17–19 & n.9; Rule and holding"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Alito distinguishes the enacted language from a legislative response",
+      "cue": "Why did joining the judgment not imply approval of the devices?",
+      "paragraphs": [
+        "Justice Alito joined the majority in full and wrote separately. He acknowledged that the Congress adopting the definition likely would not have considered the devices materially different from conventional machineguns in lethal effect. He nevertheless viewed the enacted language as clear and binding.",
+        "For Alito, a later tragedy could strengthen the argument for amending a statute without changing the statute’s existing meaning. He identified legislation as the remedy for the disparity. That institutional observation was part of his concurrence, not a condition on Cargill’s victory or a judicial order that Congress enact a replacement prohibition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito, slip op. at 1"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Sotomayor reads the trigger phrase from the shooter’s perspective",
+      "cue": "What evidence supported a different unit of statutory action?",
+      "paragraphs": [
+        "Justice Sotomayor dissented, joined by Justices Kagan and Jackson. She understood a single trigger function as the shooter’s single initiating act, followed by sustained pressure that produced a sequence of shots. The relevant inquiry concerned what the shooter had to do, not how often internal components moved during that sequence.",
+        "Sotomayor disputed the majority’s claim to ordinary meaning. Dictionary definitions, in her view, described the force or mechanism the shooter set in motion without requiring a component-by-component count. A detailed mechanical description did not necessarily establish the ordinary legal meaning of the statutory phrase.",
+        "She cited 1934 congressional hearings and reports using trigger function and trigger pull in connection with the shooter’s action. She offered these as evidence of contemporary word usage, rather than only evidence of general legislative policy. She also invoked Staples, where the Court described the difference between repeated fire from one pull and one shot from each pull. She considered that earlier description consistent with her reading."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor, slip op. at 6–10 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The dissent treats assisted repetition as automatic and warns of evasion",
+      "cue": "How did Sotomayor answer both majority grounds?",
+      "paragraphs": [
+        "Sotomayor emphasized that ordinary machineguns also needed continuing human participation. Sustained pressure could coexist with automatic fire. She found no textual reason to make dispositive the fact that the disputed accessory performed externally a process other weapons performed internally.",
+        "She also distinguished assisted from unassisted repeated firing. In her account, the accessory controlled aspects of movement and supplied support that replaced coordination the shooter otherwise had to provide. That distinction answered the suggestion that her reasoning necessarily classified an unmodified rifle the same way. Her footnotes 3 and 4 connected those differences to both trigger function and automatic operation. She charged the majority with shifting perspectives: counting internal mechanical actions for one requirement, then turning to the shooter’s conduct for the other.",
+        "The dissent further invoked the presumption against ineffectiveness. Congress included conversion parts and broadly framed its definition to prevent circumvention; devices reproducing the regulated firing capability through a different mechanism should fall within that policy and text. Sotomayor discussed ATF’s other-device classifications as evidence of functional conversion, without making those unchallenged classifications holdings of this case. She ended with an M16 comparison and a warning about harmful consequences. She would have sustained ATF’s classification.",
+        "On June 14, 2024, the Court instead affirmed the Fifth Circuit’s en banc judgment. Cargill prevailed on statutory authority. The judgment did not adjudicate a Second Amendment right, decide mechanical spring-operated devices, or settle every federal or state rule governing other rapid-fire accessories. The full source account includes qualifications and footnotes omitted from the assigned excerpt; its explanation rests on the judicial text and static figures, not the unopened animated demonstrations linked in a majority footnote."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor, slip op. at 10–18 & nn.3–7; Thomas, slip op. at 19; Actual judgment; Source comparison record"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "id": "lrs-k-rucho",
+  "briefId": "LRS-SUP-0001",
+  "title": "Rucho v. Common Cause",
+  "course": "Legislation and the Regulatory State",
+  "citation": "139 S. Ct. 2484 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two maps designed to entrench opposing parties reach the Supreme Court, which divides over whether federal courts have a constitutional standard for measuring excessive partisanship.",
+  "actors": [
+    {
+      "name": "North Carolina Republican legislators",
+      "role": "Directed a congressional map aimed at a ten-Republican, three-Democrat delegation."
+    },
+    {
+      "name": "Common Cause, the Democratic Party, the League of Women Voters, and voters",
+      "role": "Challengers to the North Carolina map."
+    },
+    {
+      "name": "Maryland Governor Martin O’Malley and Democratic legislators",
+      "role": "Pursued a seven-Democrat, one-Republican delegation."
+    },
+    {
+      "name": "Three Maryland voters",
+      "role": "Challenged the altered Sixth District in the companion Lamone v. Benisek proceeding."
+    }
+  ],
+  "proceedings": [
+    "Three-judge courts invalidated the North Carolina and Maryland plans under federal constitutional theories.",
+    "The North Carolina case returned after Gill for renewed standing and merits consideration.",
+    "The Supreme Court vacated both judgments and ordered dismissal for lack of jurisdiction."
+  ],
+  "limits": "The 2019 decision does not approve the maps’ fairness or bar racial-gerrymandering and population-equality claims. Election results, pending proposals, and state reforms are historical observations, not claims about subsequent events.",
+  "briefSha256": "452792e4841e06ec85ebd5af5c802b034dad052c7c80f13c6002e27a30c4bec2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0001"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "North Carolina replaces a racially invalidated map with an expressly partisan plan",
+      "cue": "What did the mapmakers seek and achieve?",
+      "paragraphs": [
+        "North Carolina’s 2016 congressional plan followed a judicial finding that two districts in the earlier plan were racial gerrymanders. As Justice Kagan’s later dissent recounted, mapmaker Thomas Hofeller used detailed election data and technology while creating the remedial plan. Republican legislators directed a ten-Republican, three-Democrat outcome. Representative David Lewis defended that goal because he preferred Republican victories and did not believe an eleven-to-two plan possible.",
+        "The legislature adopted the map on a party-line vote. Republicans won ten of thirteen seats in 2016. In 2018 they won nine and Democrats three; an apparent Republican victory in the remaining district was subject to a new election after fraud allegations. That unresolved seat was not a completed Republican victory in the opinion’s account. Success against the earlier racial gerrymander did not itself establish that the later partisan challenge was judicially resolvable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Court opinion slip pp. 2–3; Kagan dissent slip pp. 3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Maryland Democrats reshape the Sixth District",
+      "cue": "How far did the changes exceed the population adjustment?",
+      "paragraphs": [
+        "In Maryland, Governor Martin O’Malley and Democratic legislators sought a seven-Democrat, one-Republican congressional delegation by transforming the Sixth District, long held by a Republican. Equalizing population required removing about 10,000 residents, but the plan moved roughly 360,000 voters out and 350,000 in. Registered Republicans fell by about 66,000 while registered Democrats rose by approximately 24,000.",
+        "The legislature adopted the plan on a party-line vote. The Sixth District changed to Democratic representation in 2012, and a Democrat held it through the period described by the opinion. Both states thus presented admitted partisan objectives, favoring different parties. The ensuing controversy was whether federal courts could adjudicate the alleged constitutional injuries, not whether partisan aims existed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Court opinion slip pp. 1–2, 5–6; Kagan dissent slip pp. 5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The North Carolina plaintiffs obtain two district-court rulings",
+      "cue": "Why did the case return after Gill?",
+      "paragraphs": [
+        "North Carolina litigation began in August 2016. The Democratic Party, Common Cause, and voters, later joined by the League of Women Voters and additional voters, alleged equal-protection vote dilution, First Amendment retaliation and associational injuries, interference with Article I § 2’s popular choice of representatives, and misuse of Elections Clause power. After trial, a three-judge court found constitutional violations; Judge Osteen dissented from the First Amendment ruling. Defendants appealed directly under 28 U.S.C. § 1253.",
+        "While that appeal was pending, Gill v. Whitford required a vote-dilution plaintiff to identify a particular injury from being packed into or cracked among districts. The Supreme Court returned the North Carolina case for reconsideration. The district court again found standing and justiciability, invalidated twelve of thirteen districts under equal protection, reaffirmed its other constitutional conclusions, and prohibited use of the plan after the November 2018 election. It rejected geography and incumbent protection as neutral explanations for the effects. Defendants again appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and claims; Court opinion slip pp. 3–5; 318 F. Supp. 3d 777"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Maryland voters win a First Amendment judgment and the appeals converge",
+      "cue": "What did the federal trial court find?",
+      "paragraphs": [
+        "Three Maryland voters filed in November 2013. After intervening disputes over procedure and preliminary relief, a three-judge court granted summary judgment under the First Amendment. It found that the map diminished their ability to elect preferred candidates because of affiliation and voting history and burdened fundraising, volunteer recruitment, campaigning, and voter engagement. The court permanently barred the map and required a replacement for 2020. State defendants directly appealed in Lamone v. Benisek.",
+        "Across the cases, plaintiffs relied on intentional dilution and retaliation, actual electoral effects, entrenchment, and comparisons with alternative maps. Defendants disputed the existence of a manageable constitutional test and invoked the Elections Clause’s allocation of election regulation to political institutions. The Supreme Court rejected the broadest version of the latter claim—that every election question belonged exclusively to Congress—but separately considered whether these partisan claims could be adjudicated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and claims; Court opinion slip pp. 6, 10, 22–30; 348 F. Supp. 3d 493"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Roberts asks what constitutional baseline a federal court could enforce",
+      "cue": "Why were familiar election precedents insufficient?",
+      "paragraphs": [
+        "Chief Justice Roberts’s majority began with Article III and Baker v. Carr’s recognition that a lack of judicially discoverable and manageable standards can create a political question. Constitutional importance alone does not make a dispute judicially resolvable. The difficulty was determining when permissible political consideration becomes excessive.",
+        "Partisan districting existed around the founding, and the Elections Clause gave state legislatures initial regulatory authority subject to congressional revision. Congress had used that power through districting and voting laws. That history counseled caution about a judicial allocation of political power while leaving racial-gerrymandering and one-person, one-vote cases intact.",
+        "Earlier cases had not settled a controlling standard. Gaffney permitted attention to party balance; the divided Bandemer Court found justiciability without agreeing on a test; Vieth’s plurality favored nonjusticiability while Kennedy left open a future precise and neutral rule; LULAC produced none; and Gill decided standing. The present appeals reached the still-unsettled justiciability threshold.",
+        "The majority first found no constitutional baseline for distributing party influence. Proportional representation is not guaranteed, and competition, safe seats, traditional criteria, geography, and incumbent protection can yield different allocations. The Constitution did not rank those objectives or identify the share a party deserved. Even choosing a baseline would not reveal how much packing or partisan deviation crossed a legal line. Equal-population cases supply mathematical equality for individual vote weight; racial claims target a suspect classification. Neither translates directly where some partisan considerations are lawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority analysis; Court opinion slip pp. 6–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The proposed equal-protection and First Amendment tests fail to persuade the majority",
+      "cue": "What specific problems did the Court identify?",
+      "paragraphs": [
+        "The North Carolina equal-protection approach examined predominant partisan purpose, persistent dilution, and the lack of neutral explanations. The majority reasoned that partisan intent, unlike a suspect racial classification, was not unconstitutional merely because it predominated. Forecasting durable electoral advantage or representatives’ future responsiveness also depended on uncertain candidates, turnout, elections, and voter behavior; earlier gerrymanders had proved less durable than anticipated. Requiring a neutral explanation at the end did not resolve those difficulties.",
+        "The First Amendment theories likewise lacked a workable limit in the majority’s view. The maps formally barred neither speech nor association. Treating all partisan classification as viewpoint discrimination would prohibit considerations precedent allowed. Anecdotes about reduced campaigning or a minimal chilling-effect threshold did not sufficiently define unconstitutional burdens. The Court did not declare First Amendment retaliation generally nonjusticiable.",
+        "Kagan’s alternative-map comparison used a state’s own nonpartisan criteria, but the majority thought federal constitutional liability should not vary with criteria chosen by mapmakers. Changing those criteria could shift the median and alter legality for the same plan. Even an accepted median supplied no constitutional measure of how far was too far. Other judicial judgments of degree rested on guidance the majority found missing here.",
+        "Article I § 2 and the Elections Clause did not independently fill the gap. The argument that voters should choose representatives rather than the reverse resembled a Guarantee Clause republican-government objection previously treated as nonjusticiable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rejected proposed tests; Court opinion slip pp. 22–30"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Kagan sees manageable proof of extreme entrenchment",
+      "cue": "How did her baseline avoid demanding proportional representation?",
+      "paragraphs": [
+        "Justice Kagan, joined by Ginsburg, Breyer, and Sotomayor, viewed packing and cracking as identifiable injuries to equal participation and association based on party affiliation, compounded by the danger of incumbents insulating themselves from voters. She agreed that judges should neither choose ideal seat allocations nor forbid every political influence. Her proposed framework required predominant entrenchment intent, substantial vote dilution, and no legitimate nonpartisan explanation.",
+        "The baseline was what the state would have done with its actual geography, voter distribution, and nonpartisan priorities. It accepted urban concentration instead of correcting it. Different state criteria respected state choices and avoided judicial preferences. Kagan contrasted evenly spread Massachusetts Republicans with regionally concentrated Maryland Republicans to explain why similar statewide support need not yield similar seats without manipulation.",
+        "For North Carolina, one expert generated 3,000 maps using the state’s criteria except partisan advantage and the official mapmaker’s election-data composite. Every alternative yielded at least one additional Democratic seat; 77 percent yielded three or four more. Another generated 24,518 maps under broader criteria, over 99 percent yielding at least one additional Democratic seat. Kagan used these distributions to identify an extreme departure, not to require adoption of a median plan. Maryland’s extraordinary population transfers, registration shifts, and repeated effects supplied more direct evidence.",
+        "She rejected the charge of speculation: the detailed data enabling modern gerrymanders could expose them. Courts routinely assess intent and substantial effects without a universal percentage, could identify extreme cases, and could refine limits through adjudication. Proving entrenchment indirectly would itself be demanding once mapmakers ceased openly stating the goal.",
+        "Kagan doubted political reform would substitute adequately. The beneficiaries had incentives to resist change, congressional bills remained proposals, and many states lacked initiatives. State-court decisions demonstrated judicial capacity, she thought. The majority responded that state law could supply standards absent from the Federal Constitution. Her framework received four votes and did not become the governing rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kagan dissent; slip pp. 1–33 & nn.3–6; Court opinion slip pp. 27–32"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Both judgments are vacated for lack of jurisdiction",
+      "cue": "What does the decision leave to other forms of law?",
+      "paragraphs": [
+        "On June 27, 2019, the Supreme Court vacated both district-court judgments and remanded with instructions to dismiss for lack of jurisdiction. Thomas, Alito, Gorsuch, and Kavanaugh joined Roberts, producing a five-to-four decision with no other separate opinions. The Court held that these partisan-gerrymandering claims presented political questions beyond federal judicial reach because no manageable constitutional standards governed the allocation of partisan power.",
+        "The disposition did not pronounce the maps fair or require replacement maps. The majority disclaimed approval of excessive partisanship and identified state constitutions, legislation, commissions, and Congress’s Elections Clause power as possible responses. Its descriptions of particular reforms and pending legislation were historical observations in 2019.",
+        "Standing, the issue requiring the earlier Gill remand, remained distinct from this threshold of justiciability. Racial and unequal-population claims also remained distinct. Both opinions invoked judicial restraint and Marbury, but disagreed whether enforceable rights and workable standards already existed: the majority confined federal judicial power, while the dissent would permit limited review of intentional, substantial entrenchment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding, exact judgment, scope, and alignment; Court opinion slip pp. 30–34"
+        }
+      ]
+    }
+  ]
+}

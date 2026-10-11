@@ -1,0 +1,217 @@
+{
+  "id": "ford",
+  "briefId": "CPR-007",
+  "title": "Ford Motor Co. v. Montana Eighth Judicial District Court",
+  "course": "Civil Procedure",
+  "citation": "592 U.S. 351, 141 S. Ct. 1017 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two older Fords reached new states through resale. After local accidents injured local residents, Ford argued that those states could not hear the resulting defect claims because Ford first sold each car elsewhere.",
+  "actors": [
+    {
+      "name": "Ford Motor Company",
+      "role": "Delaware corporation headquartered in Michigan; defendant in both damages suits and petitioner challenging jurisdiction."
+    },
+    {
+      "name": "Markkaya Gullett and Charles Lucero",
+      "role": "Gullett died in the Montana Explorer rollover; Lucero, her estate’s personal representative, sued for her and her heirs."
+    },
+    {
+      "name": "Adam Bandemer",
+      "role": "Minnesota passenger alleging brain injury from a Crown Victoria airbag’s failure."
+    },
+    {
+      "name": "Eric Hanson and his father",
+      "role": "Hanson drove the Crown Victoria; his father owned it. Bandemer separately alleged their negligence."
+    },
+    {
+      "name": "Montana Eighth Judicial District Court",
+      "role": "Trial court whose jurisdiction Ford challenged through supervisory control; not the underlying tort claimant."
+    }
+  ],
+  "proceedings": [
+    "Montana trial court denied dismissal; Montana Supreme Court accepted supervisory review and upheld jurisdiction on May 21, 2019.",
+    "Minnesota trial court denied dismissal; Court of Appeals affirmed in 2018; Minnesota Supreme Court affirmed on July 31, 2019, with two justices dissenting.",
+    "United States Supreme Court consolidated Ford’s petitions, heard argument October 7, 2020, and affirmed both judgments March 25, 2021."
+  ],
+  "limits": "The judgment decides specific personal jurisdiction, not defect, liability, damages, venue, choice of law, consent, or the exclusive proper forum. Later merits outcomes are not supplied. The Court reserved isolated sales, internet transactions, and models marketed only elsewhere.",
+  "briefSha256": "423627e3fad9e324ddab068f1b2deab10dd2f93bf902499a39328e4b96eac882",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-007"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Ford builds and supports two local markets",
+      "cue": "What did Ford itself do in each state before the accidents?",
+      "paragraphs": [
+        "Ford Motor Company, incorporated in Delaware and headquartered in Michigan, designed the 1996 Explorer involved in the Montana case in Michigan, assembled it in Kentucky, and first sold it to a Washington dealer. More than ten years later, resale brought the Explorer to Montana, where it was registered. Ford designed the 1994 Crown Victoria involved in the Minnesota case in Michigan, manufactured it in Canada, and first sold it in North Dakota. Later transactions brought that car to Minnesota, where it too was registered. Ford had not originally sold either individual vehicle into the state where the eventual accident occurred.",
+        "Ford nevertheless deliberately cultivated both states’ markets for those models. Television, radio, billboard, print, and direct-mail advertising promoted its vehicles, including Explorers and Crown Victorias at the relevant times. Its network included 36 Montana dealerships and 84 Minnesota dealerships. Minnesota’s record included more than 2,000 sales of model-year 1994 Crown Victorias and about 200,000 sales of all vehicle types during 2013–2015. These were contacts with each particular state, not simply evidence that Ford was a large national company.",
+        "Ford also supported ownership after the first sale. Dealers sold used cars, maintained and repaired cars after warranties expired, and supplied owners with services. Ford distributed replacement parts to dealers and independent shops. Those activities earned Ford money and made continued ownership and resale practical. Minnesota also considered vehicle-performance information collected through local dealers for design and repair purposes. The Supreme Court would emphasize advertising, sales, parts, and service in evaluating the relationship between Ford’s local markets and the accidents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; majority slip op. 2–4, 11–14; Bandemer, 931 N.W.2d at 748, 751, 754"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Separate accidents lead to separate claims",
+      "cue": "Who was injured, and which alleged conduct caused which injury?",
+      "paragraphs": [
+        "In 2015, Montana resident Markkaya Gullett drove the Explorer on an interstate near her home. A rear tire’s tread separated; the vehicle lost stability, rolled into a ditch, and stopped upside down. Gullett died at the scene. Charles Lucero, the personal representative of her estate, sued Ford on behalf of Gullett and her heirs. He alleged strict liability for defective design and failure to warn, as well as negligence, and requested compensatory and punitive damages. The jurisdictional courts did not determine why the tire failed or whether the Explorer was defective.",
+        "In January 2015, Minnesota resident Adam Bandemer rode in the Crown Victoria with his friend Eric Hanson, who was driving toward an ice-fishing location on a rural Minnesota road. Hanson rear-ended a county snowplow, and the car went into a ditch. Bandemer alleged that the passenger airbag failed to deploy and that this failure caused severe brain injury. Minnesota officers responded, and Minnesota physicians treated him.",
+        "Bandemer sued Ford for products liability, negligence, and breach of warranty. He also sued Hanson and Hanson’s father, who owned the car, for negligence. The alleged driver negligence caused the collision; the alleged airbag defect caused or worsened Bandemer’s injury. Neither theory had been adjudicated on its merits. Bandemer was a passenger, which also made a jurisdictional test centered on the injured person’s own purchase an awkward fit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; majority slip op. 2–3; Montana ¶ 2; Bandemer, 931 N.W.2d at 747–48, 754"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Lucero defeats Ford’s Montana objection",
+      "cue": "Why is the trial court named in the Supreme Court caption?",
+      "paragraphs": [
+        "Lucero filed in Montana’s Eighth Judicial District Court in Cascade County, No. DV-18-247. Ford sought dismissal for lack of personal jurisdiction: its Montana activities, Ford argued, had not generated this claim about a vehicle originally sold in Washington. The district court denied dismissal. Ford then asked the Montana Supreme Court to exercise supervisory control, overturn the ruling, and direct dismissal while the tort suit remained pending. That route of review explains the trial court’s appearance in the caption; Lucero remained the claimant in the underlying action.",
+        "The Montana Supreme Court accepted the petition under its state constitutional authority and Appellate Rule 14(3). Supervisory control was extraordinary, but the court regarded ordinary later appellate review as inadequate for an urgent, purely legal question of statewide constitutional importance about the trial court’s power over the parties. Accepting review did not grant Ford the dismissal it wanted. The supreme court independently reviewed the jurisdictional question, without deference to the trial court’s legal conclusion.",
+        "On May 21, 2019, the Montana Supreme Court upheld jurisdiction. It first applied Civil Rule 4(b)(1)(B), which authorized jurisdiction over claims arising from an act resulting in the accrual of a tort action in Montana: the alleged misconduct had produced an accident and injury there. It then separately addressed the Fourteenth Amendment and concluded that Ford’s deliberate service of the Montana market sufficiently related to this local accident."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Montana ¶¶ 2–12; majority slip op. 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Bandemer defeats Ford’s Minnesota objection",
+      "cue": "What was conceded, accepted provisionally, and left undecided?",
+      "paragraphs": [
+        "Bandemer filed in Minnesota’s Seventh Judicial District Court in Todd County, No. 77-cv-16-1025. Ford moved to dismiss under Civil Rule 12.02(b). The district court denied that motion, and the Minnesota Court of Appeals affirmed in 2018, finding Ford’s directed advertising and marketing sufficiently related to Bandemer’s claims under Minnesota precedent.",
+        "The Minnesota Supreme Court affirmed on July 31, 2019. It reviewed the legal question independently. At this dismissal stage, Bandemer needed a prima facie jurisdictional showing, and the court accepted the complaint’s allegations and supporting affidavits as true under the governing standard. It also examined Ford’s discovery responses. An allegation concerning performance data remained accepted unless a response directly contradicted it. That treatment established the basis for resolving the motion, not the truth of a defect allegation for trial.",
+        "Minnesota’s long-arm statute reached the federal due-process boundary. Ford conceded the quantity and quality of its Minnesota contacts and the reasonableness of litigation there; it disputed their connection to this vehicle and claim. The court relied on sales of the model, marketing, performance information, and the local accident. Justice Anderson, joined by Chief Justice Gildea, dissented because he considered the local activities unrelated to this individual vehicle and claim. Both Minnesota appellate courts left Bandemer’s alternative registered-agent consent theory undecided because specific jurisdiction was sufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Bandemer, 931 N.W.2d at 747–55 & nn.1, 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Ford asks the Supreme Court for a causal requirement",
+      "cue": "What precise jurisdictional link was disputed?",
+      "paragraphs": [
+        "Ford petitioned from both state supreme court judgments. The United States Supreme Court consolidated the cases and heard argument October 7, 2020. These were appeals through the state-court systems, not federal diversity cases, and consolidation did not merge the separate accidents or claims. Ford sought threshold dismissal that would send the plaintiffs to another available forum.",
+        "The parties agreed that Ford was ordinarily at home in Delaware and Michigan and was not subject to general, all-purpose jurisdiction in Montana or Minnesota. The question was specific jurisdiction over these particular claims. International Shoe required purposeful contacts, an adequate relationship between those contacts and the litigation, and consistency with fair play and substantial justice. Ford conceded purposeful availment. The dispute concerned whether the claims had to be caused by Ford’s forum activities to “arise out of or relate to” them.",
+        "Ford demanded a link to the individual vehicle’s design, manufacture, or initial sale. Even without Ford’s Montana or Minnesota operations, Ford argued, subsequent owners could have brought these cars into the states and suffered the same injuries. Other local sales and advertisements therefore did not cause these claims. Invoking Bristol-Myers Squibb and Walden, Ford warned that neither substantial business nor the plaintiffs’ local injuries could replace its own relevant conduct.",
+        "The plaintiffs answered that Ford continuously developed and supported the local markets for the very models alleged to have failed. Promotion, sales, parts, and repair networks connected local ownership and use to Ford’s own activities. They opposed requiring an owner to trace an older car to its first sale or prove that a particular advertisement caused a purchase."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Issue; Rule and Holding; Reasoning; majority slip op. 1–9, 11–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Kagan connects the market to the local failures",
+      "cue": "Why did the majority reject Ford’s rule without deciding tort causation?",
+      "paragraphs": [
+        "Justice Kagan wrote for Chief Justice Roberts and Justices Breyer, Sotomayor, and Kavanaugh. She gave separate work to both parts of “arise out of or relate to.” The first addresses causation; the second allows some sufficiently close relationships without proving that forum conduct caused the claim. Ford’s universal causation rule would erase the second route. Relatedness still had real limits: defendant, state, and particular litigation had to be sufficiently connected.",
+        "Here Ford systematically advertised, sold, serviced, and supported Explorers and Crown Victorias in the states where those models allegedly malfunctioned and injured residents. The connection was to the relevant products and local use, not to unrelated business or Ford’s wealth. Used-car movement fit a business strategy that encouraged resale and continued ownership through available parts and repairs. Such support might influence a purchase, but the plaintiffs had neither alleged nor proved individualized reliance of that kind. The majority did not require it.",
+        "Kagan also rejected making jurisdiction turn on the buyer’s reasons. Her footnote explained that these facts would support jurisdiction even if a person recently moved to the state with a car purchased without the move in mind. The person’s unilateral move did not supply Ford’s contacts; Ford’s established activities in the destination market did. This jurisdictional reasoning did not relieve either plaintiff of proving defect, breach, injury, and substantive causal responsibility under the law governing the merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; majority slip op. 8–14 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Earlier cases explain the boundary",
+      "cue": "How did the majority distinguish the cases Ford invoked?",
+      "paragraphs": [
+        "In World-Wide Volkswagen, the New York retailer and regional distributor had not served Oklahoma’s market. A customer’s trip there could not create their contacts. But that opinion also described jurisdiction over a manufacturer deliberately serving a state’s market when its product causes local injury. Audi and the nationwide Volkswagen importer had not challenged jurisdiction there. Kagan acknowledged that the discussion was dictum, then explained that Keeton, Burger King, Goodyear, the O’Connor opinion in Asahi, and Daimler had endorsed the principle. Ford’s extensive local operations presented the manufacturer-and-market situation; mere foreseeability that cars cross state lines would not suffice.",
+        "Bristol-Myers Squibb involved nonresidents’ California claims concerning Plavix prescribed, obtained, used, and allegedly causing injury elsewhere. Similar claims by Californians and local drug sales did not connect those other plaintiffs’ injuries to California. Here the relevant models were used locally and allegedly injured local residents in local accidents. Ford’s Montana sales would not thereby support an Ohio resident’s claim about a purchase, use, and accident entirely in Ohio. A national company still receives a claim-specific inquiry.",
+        "Walden concerned a Georgia officer who seized Nevada residents’ money at an Atlanta airport and had directed no relevant conduct toward Nevada. The residents’ later loss there did not supply his contacts. Ford conceded its own purposeful contacts with these states. Once those existed, the accident’s location and the residents’ injuries helped identify the claims’ relationship to them. Plaintiff connections could help describe that relationship but could not substitute for defendant-created contacts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; majority slip op. 9–11, 15–18 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The local relationship also explains fairness",
+      "cue": "Which state interests supported the majority’s conclusion?",
+      "paragraphs": [
+        "Ford benefited from state enforcement of contracts, property protections, and functioning automobile markets. Kagan treated answering related local product claims as a reciprocal responsibility. Ford could anticipate that litigation and account for it through insurance, pricing, or changes to its activities. Its size or ability to pay litigation costs was not an independent source of jurisdiction.",
+        "Montana and Minnesota had direct interests in remedies for injured residents and the safety of products on their roads. Washington and North Dakota had more remote connections: earlier owners had bought cars there years before accidents elsewhere. This comparison supported the accident states’ jurisdiction; it did not decide that the initial-sale states lacked jurisdiction. Minnesota additionally had local treatment, a local accident, and resident codefendants, and Ford had conceded reasonableness there. The Supreme Court explained fairness and federalism through those circumstances rather than resolving a separate disputed five-factor checklist. Convenience could not cure absent contacts or absent relatedness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; majority slip op. 6–7, 10, 14–15; Bandemer, 931 N.W.2d at 754–55"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "Alito agrees with the result but retains a causal explanation",
+      "cue": "Where did the first concurrence depart from the controlling opinion?",
+      "paragraphs": [
+        "Justice Alito agreed that precedent plainly permitted these suits. Ford’s local sales, service, parts, and substantial presence, together with residents’ local injuries in vehicles acquired through the local later market, fit World-Wide Volkswagen. He rejected Ford’s strict but-for demand and accepted the main thrust of Kagan’s application.",
+        "Alito objected to parsing a judicial phrase like statutory language to create two distinct jurisdictional categories. He preferred a practical, broad conception of causation: Ford’s efforts to build and support the market made it reasonable to infer that its vehicles were on local roads because of those efforts, without tracing an individual purchase to one advertisement. An independent category of noncausal relatedness worried him because almost any two things can be called related and the majority had not clearly specified its limits. His concurrence did not narrow the five-Justice majority’s controlling holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Alito concurrence slip op. 1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-10",
+      "title": "Gorsuch questions the framework, then all participating Justices affirm",
+      "cue": "What was resolved, and what did the concurrences leave for another case?",
+      "paragraphs": [
+        "Justice Gorsuch, joined by Justice Thomas, also agreed with the judgment but questioned the relatedness formula and the larger doctrinal structure. Lower courts had often understood the connection requirement to demand at least but-for causation; terms like affiliation and relationship left him unsure what would now count. Evidence of purchases induced by local advertising or services might have supplied a causal connection here, he suggested. Kagan answered that those individualized facts had not been established and were unnecessary.",
+        "Gorsuch questioned whether comparing the accident states favorably with the initial-sale states might imply the latter could not hear a causally connected suit. That was his criticism of a possible implication, not the Court’s holding. He also considered a Maine craftsperson selling a defective duck decoy online: a single sale might cause injury directly, yet the majority distinguished isolated transactions from Ford’s sustained market. These examples exposed his concern that the formulation might expand jurisdiction in some settings and contract it in others without a clear boundary.",
+        "Gorsuch then traced presence, consent, corporate activity across state lines, and International Shoe’s minimum-contacts framework. He questioned why an individual served while physically present can generally face unrelated claims while a large corporation often receives protection from all-purpose jurisdiction outside one or two home states. He also questioned how rules developed around physical agents and shipments fit small online sellers. He proposed no replacement test adopted by the Court. Ford had deliberately entered these states for business and supplied no constitutional or historical reason to avoid these claims there.",
+        "On March 25, 2021, all eight participating Justices affirmed both state supreme court judgments. Justice Barrett did not participate; there was no dissent from the judgment. The denials of Ford’s dismissal motions remained in place, allowing each damages suit to proceed in its own state. No defect, liability, damages award, venue question, choice of law, or registration-based consent theory was decided, and the source supplies no later merits outcome.",
+        "The holding retains the distinction between general and specific jurisdiction. Extensive business may be insufficient for the former under Goodyear, Daimler, and BNSF while supporting the latter for an appropriately related injury. The Court reserved models marketed only in another state or region, isolated or sporadic transactions, and internet-sale questions; it set no minimum dealership or sales count and no complete product-category test. The residents’ status described the cases decided, not a universal residency requirement. A nonresident’s local injury would require its own analysis, and moving to the forum after an entirely out-of-state accident would not recreate these facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions and Notes; Gorsuch concurrence slip op. 1–11; majority slip op. 7–18 & nn.2–5"
+        }
+      ]
+    }
+  ]
+}

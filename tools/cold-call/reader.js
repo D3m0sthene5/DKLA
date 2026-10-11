@@ -3,7 +3,9 @@
   'use strict';
   const block = document.getElementById('dklaColdCallData');
   if (!block || window.DKLAColdCall) return;
-  const cases = new Map(JSON.parse(block.textContent).cases.map(c => [c.id, c]));
+  const dataset = JSON.parse(block.textContent);
+  // Only genuinely authored prose is eligible for Cold Call. There is no brief-index fallback.
+  const cases = new Map(dataset.cases.filter(c => c.origin === 'narrative').map(c => [c.id, c]));
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const key = 'dkla.coldCall.v1', grades = ['Clean', 'Patchy', 'Blank'];
   const memory = new Map(), wide = matchMedia('(min-width: 800px)');
@@ -26,25 +28,15 @@
     if (source.url?.startsWith('#')) return `<a href="${esc(source.url)}">${esc(label)} ↗</a>`;
     return `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(label)} <span aria-hidden="true">↗</span><span class="cc-sr"> (opens a new tab)</span></a>`;
   }
-  function hydrate(c) {
-    if (!c || c.origin !== 'brief' || c.hydrated) return c;
-    const lines = window.DKLABriefs.text(c.briefId).split('\n');
-    for (const s of c.sections) {
-      s.markdown = s.spans.map(([start,end]) => lines.slice(start,end).join('\n')).join('\n');
-      s.paragraphs = [s.markdown]; // Search the full account, not only its headings.
-    }
-    c.hydrated = true;
-    return c;
-  }
   function citations(refs) {
     return '<div class="cc-citations">' + refs.map(ref => {
       const s = current.sources.find(s => s.id === ref.id);
-      return sourceLink(s, `${s.briefId ? 'Source brief' : s.path ? s.label : current.origin === 'narrative' ? 'Opinion' : 'Assigned source'} · ${ref.pinpoint}`);
+      return sourceLink(s, `${s.briefId ? 'Source brief' : s.label || 'Opinion'} · ${ref.pinpoint}`);
     }).join('') + '</div>';
   }
-  function paragraphs(section) { if (section.markdown) return window.DKLABriefs.render(section.markdown); return section.paragraphs.map(p => `<p>${esc(p)}</p>`).join(''); }
+  function paragraphs(section) { return section.paragraphs.map(p => `<p>${esc(p)}</p>`).join(''); }
   function open(id, trigger) {
-    const c = hydrate(cases.get(id));
+    const c = cases.get(id);
     if (!c || dialog.open) return;
     current = c; active = 0; practice = false; bookmark = null;
     ratings = readRatings();
@@ -232,8 +224,9 @@
   let sourceReturn = null;
   function openSourceBrief(id, trigger) {
     const text = window.DKLABriefs.text(id); if (!text) return;
+    const title = window.DKLABriefs.data.entries.find(e => e[0] === id)?.[1] || current.title;
     sourceReturn = trigger;
-    sourceDialog.innerHTML = `<header><h2 id="ccBriefTitle">${esc(current.title)} · Full case brief</h2><button type="button" id="ccBriefClose" autofocus>← Back to cold call</button></header><div class="cc-brief-body" tabindex="0">${window.DKLABriefs.render(text)}</div>`;
+    sourceDialog.innerHTML = `<header><h2 id="ccBriefTitle">${esc(title)} · Full case brief</h2><button type="button" id="ccBriefClose" autofocus>← Back to cold call</button></header><div class="cc-brief-body" tabindex="0">${window.DKLABriefs.render(text)}</div>`;
     sourceDialog.querySelector('#ccBriefClose').onclick = closeSourceBrief;
     sourceDialog.showModal();
   }
@@ -244,6 +237,6 @@
   }
   sourceDialog.addEventListener('cancel', e=>{e.preventDefault();closeSourceBrief();});
   sourceDialog.addEventListener('keydown', e=>e.stopPropagation());
-  window.DKLAColdCall = {open, close, has: id => cases.has(id), cases: () => [...cases.keys()]};
+  window.DKLAColdCall = {open, close, has: id => cases.has(id), cases: () => [...cases.keys()], coverage: () => ({...dataset.coverage})};
   ready();
 })();

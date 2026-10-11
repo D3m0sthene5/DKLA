@@ -1,0 +1,179 @@
+{
+  "id": "lrs-k-gustafson",
+  "briefId": "LRS-SUP-0005B",
+  "title": "Gustafson v. Alloyd Co., Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "513 U.S. 561 (1995)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After an agreed audit adjustment was paid, buyers of a closely held company sought to undo the entire stock purchase under federal securities law. Their remedy depended on whether the private agreement was a statutory “prospectus.”",
+  "actors": [
+    {
+      "name": "Gustafson, McLean, and Butler",
+      "role": "Owners who sold substantially all already-issued stock in the original Alloyd company."
+    },
+    {
+      "name": "Wind Point Partners and Alloyd Holdings",
+      "role": "Purchasing interests; the newly created acquisition corporation later took the Alloyd Co. name and sought rescission."
+    },
+    {
+      "name": "Alloyd",
+      "role": "Original manufacturer of plastic packaging and heat-sealing equipment; its stock had been issued in 1961."
+    },
+    {
+      "name": "KPMG",
+      "role": "Prepared business analysis reviewed during the buyers’ investigation."
+    }
+  ],
+  "proceedings": [
+    "Northern District of Illinois granted sellers summary judgment.",
+    "Seventh Circuit vacated and remanded under its intervening Pacific Dunlop interpretation.",
+    "Supreme Court reversed the Seventh Circuit and remanded on February 28, 1995."
+  ],
+  "limits": "Material misstatements and failure of the due-care defense were assumed for statutory review, not found as fraud. The decision foreclosed this § 12(2) rescission theory without deciding every other state or federal remedy. Provision numbers and statutory discussion describe the 1995 decision.",
+  "briefSha256": "db7cd91f1a02779c7414811f50b007b13369ba0e6ac9b4c1a572e167e818838e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0005B"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties build an audit adjustment into a private stock sale",
+      "cue": "What had the sellers already paid before the lawsuit?",
+      "paragraphs": [
+        "Gustafson, McLean, and Butler owned Alloyd, a manufacturer of plastic packaging and heat-sealing equipment. In 1989 they arranged a private sale of substantially all its already-issued stock. Wind Point Partners purchased through a new acquisition corporation, Alloyd Holdings, which later used the Alloyd Co. name. The original stock had been issued in 1961; this was a negotiated resale, not a new public distribution.",
+        "The buyers extensively investigated the business, including KPMG’s analysis. Because the parties did not conduct an early inventory, they negotiated from estimates and agreed on a later adjustment. The price included $18,709,000 for the stock and $2,122,219 reflecting estimated growth in net worth since the prior year-end. Sellers represented that the financial statements fairly presented the company’s condition and that no material adverse change had occurred. The agreement required adjustment if the year-end audit showed a difference between estimated and actual value.",
+        "The audit showed lower earnings than estimated. Sellers paid the resulting $815,000 adjustment plus interest. Buyers nevertheless sought a different remedy: rescission under § 12(2) of the Securities Act of 1933, which would undo the transaction. They alleged material inaccuracies in contractual representations and claimed the agreement itself was a prospectus triggering the federal remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transaction; 513 U.S. at 564–66"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A change in circuit precedent revives the rescission claim",
+      "cue": "What did the Supreme Court assume instead of finding?",
+      "paragraphs": [
+        "The Northern District of Illinois granted the sellers summary judgment. It read § 12(2) as limited to initial stock offerings and emphasized the buyers’ access to information and inspection opportunities in this negotiated purchase. The Seventh Circuit then vacated and remanded in light of its intervening Pacific Dunlop decision, which read the statutory definition broadly enough to cover a stock-purchase agreement. The Supreme Court granted review to resolve disagreement with the Third Circuit’s narrower interpretation.",
+        "For the statutory question, the Supreme Court assumed material misstatements and assumed the sellers could not establish due care. Neither assumption was a finding of fraud. The eventual coverage ruling likewise did not establish that all representations were true. The question was whether this communication and transaction supported this particular remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history and assumptions; 513 U.S. at 566–68"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Three sections point the parties toward competing definitions",
+      "cue": "Why did the word “prospectus” control the requested remedy?",
+      "paragraphs": [
+        "As numbered at the time, § 12(2) imposed liability for sales by means of a prospectus or oral communication containing a material misstatement or omission, subject to reasonable care and other statutory conditions. The express remedy did not require proof of fraud or reliance in the manner the sellers proposed. The opinion recorded lower-court agreement that the relevant oral communications were those relating to a prospectus, leaving that term central.",
+        "Section 2(10) defined prospectus to include a prospectus, notice, circular, advertisement, letter, or written, radio, or television communication offering or confirming a security’s sale. The Act introduced its definitions with a qualification allowing context to require otherwise. Section 10 generally required prospectuses to contain registration-statement information. Section 12(2) attached liability to their use.",
+        "Buyers argued that a purchase agreement was plainly a written communication offering or confirming a sale. Sellers argued that the term of art meant a document soliciting the public to buy from an issuer or controlling shareholder. Nobody disputed that the stock was a security; they disputed the agreement’s statutory character."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory framework; 513 U.S. at 567–75, 585–89"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kennedy starts with the disclosure duty and reads the Act together",
+      "cue": "How did section 10 shape the majority’s understanding of section 12?",
+      "paragraphs": [
+        "Justice Kennedy, joined by Chief Justice Rehnquist and Justices Stevens, O’Connor, and Souter, began with § 10. Everyone agreed that this private agreement need not contain registration-statement information and needed no exemption to avoid that duty. Kennedy inferred that it lay outside § 10’s prospectus category. He did not reason that omitting legally required information magically makes a covered document cease being a prospectus; he distinguished a breached duty from a duty that never attached.",
+        "The presumption that identical words in an Act carry the same meaning then linked § 10 to § 12. Kennedy said § 10 supplied guidance rather than a formal definition. In the majority’s view, registration duties, public-offering disclosure, and adjacent liability provisions formed a coherent system. Tying § 12(2) to that system was more natural than creating broad independent liability for private transactions. The government-securities exception also fit protection for governmental issuers within that public-offering framework; it said nothing about these sellers being governmental entities.",
+        "Turning to § 2(10), Kennedy declined to isolate “communication.” If it encompassed every written offer, much of the enumerated list would be redundant. Under noscitur a sociis, a word’s companions inform its meaning. The majority inferred public dissemination from notices, circulars, advertisements, radio, television, and the broader scheme. The ordinary securities meaning of prospectus—an invitation to the public to subscribe—reinforced that inference. The list prevented evasion by using another label for a public solicitation; its catchall broadened form without encompassing every private transaction. Letters can of course be private, and the dissent would attack precisely this choice of a public-facing common category."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority coherent-scheme and associated-words reasoning; 513 U.S. at 568–76"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority tests its reading against other remedies and history",
+      "cue": "Why did broader antifraud coverage not dictate the same result?",
+      "paragraphs": [
+        "Kennedy distinguished United States v. Naftalin, which applied § 17(a)’s fraud prohibition beyond public offerings. That section lacked the limiting prospectus language and had different historical support. The majority thus did not claim that the entire 1933 Act concerned only public offerings; it relied on the wording of this remedy.",
+        "The Court also worried that rescission for casual secondary-market communications, without fraud or reliance, would give disappointed buyers an option to undo deals even when a negligent omission did not cause their losses. It found no basis in this language and structure to assign Congress that sweeping remedial choice. This consequence reinforced rather than replaced its stated interpretation.",
+        "The fuller opinion examined drafting materials and commentary. It discounted many post-enactment writings as evidence of the enacting Congress’s intent and read the House report as connecting civil liability with public solicitation. It rejected the inference that omitting a public-offering phrase found in the British model broadened the American statute: the phrase could have appeared redundant given prospectus’s established meaning. Those historical inferences were contested; they did not add words to the statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Other provisions, consequences, history; 513 U.S. at 576–84"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas would let the express definition govern the remedy",
+      "cue": "What do his canons and vehicle analogy illustrate?",
+      "paragraphs": [
+        "Justice Thomas dissented, joined by Justices Scalia, Ginsburg, and Breyer. He would start with the liability provision and apply Congress’s express definition, whose offers and confirmations were not restricted to public offerings. An enacted definition displaced ordinary technical usage. “Prospectus” was one item in a broad list, not a silently controlling limitation on every other item.",
+        "Thomas rejected both limiting canons. A catchall can deliberately overlap listed items as a safety net; associated words should resolve genuine ambiguity, not create it in broad express language. The instruction allowing context to require otherwise also weakened mandatory uniformity. Section 10 could concern a narrower formal disclosure document while § 12 retained the general definition. Confirmation slips illustrated the difficulty of subjecting every defined prospectus to § 10’s information requirements.",
+        "His analogy imagined an Act defining “car” to include motorcycles, trucks, and trailers. A seatbelt provision might use the narrower ordinary sense, while a sales-misrepresentation remedy retained the broader definition. Letting the seatbelt provision narrow the remedy would defeat the enacted definition. This was Thomas’s objection, not a rule adopted by the Court.",
+        "Thomas also emphasized that § 12(2) omitted issuer, public-offering, and transaction-exemption limitations found elsewhere. Naftalin undercut reliance on the Act’s dominant theme, and overlapping remedies were possible. Even if broad liability posed serious practical problems, Thomas considered correction Congress’s responsibility rather than a reason to displace the definition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas dissent; 513 U.S. at 584–96"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Ginsburg adds drafting history and the established broader understanding",
+      "cue": "Which anomalies did she acknowledge without accepting the majority’s solution?",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Justice Breyer, joined Thomas and also wrote separately; their supplementary writing did not create additional dissenting votes. She treated uniform meaning as flexible, relying on the context clause and later legislation expressly distinguishing a § 10 prospectus from the generally defined term. Formal disclosure documents and communications subject to liability could thus differ.",
+        "Ginsburg stressed the American drafters’ omission of the British definition’s public-offering limit, broad conference-report language, and early commentators, later scholarship, and decisions applying § 12(2) to private transactions. The majority discounted much of that evidence as unreliable or insufficiently specific; Ginsburg thought the longstanding understanding counseled against judicial revision. She also invoked the analogous Uniform Securities Act provision and its application to private and secondary transactions.",
+        "Ginsburg acknowledged that the broader reading lacked a loss-causation requirement and could anomalously expose private sellers while protecting some public sellers: § 2(10)(a) exempted certain communications following a formal § 10 prospectus, an option private sellers might lack. She regarded those concerns as grounds for congressional amendment, not judicial narrowing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ginsburg dissent; 513 U.S. at 596–604 & nn.6–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court removes this rescission theory and remands",
+      "cue": "How broad was the sellers’ victory?",
+      "paragraphs": [
+        "On February 28, 1995, the Court held that the agreement and its representations were not a prospectus: they described a private transaction and were not offered to the public. It reversed the Seventh Circuit and remanded for proceedings consistent with the public-offering interpretation. The controlling formulation encompassed public offerings by issuers or controlling shareholders, not merely the first-ever issuance of a company’s stock; the opinion also recognized registration exemptions in its analysis.",
+        "The buyers lost the asserted § 12(2) rescission route despite the assumed inaccuracies. Sellers’ payment of the bargained-for adjustment remained a separate fact. The judgment did not adjudicate every state contract or fraud claim, eliminate other federal securities remedies, or supply a later outcome on remand. Both majority and dissents used text, structure, canons, and context; their disagreement concerned which provision controlled and what weight history and remedial consequences should receive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding, judgment, and study limits; 513 U.S. at 584"
+        }
+      ]
+    }
+  ]
+}

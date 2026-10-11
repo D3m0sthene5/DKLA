@@ -1,0 +1,182 @@
+{
+  "id": "lrs-o-loudermill",
+  "briefId": "LRS-MAX-LOUDERMILL",
+  "title": "Cleveland Board of Education v. Loudermill",
+  "course": "Legislation and the Regulatory State",
+  "citation": "470 U.S. 532 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two public employees lose their wages before they can answer the grounds for dismissal, and the Court separates Ohio’s employment entitlement from federal procedural protection.",
+  "actors": [
+    {
+      "name": "James Loudermill",
+      "role": "Cleveland school security guard dismissed after a felony conviction came to light."
+    },
+    {
+      "name": "Cleveland Board of Education",
+      "role": "Employer charging Loudermill with dishonesty on his application."
+    },
+    {
+      "name": "Richard Donnelly",
+      "role": "Parma school bus mechanic dismissed after an eye examination."
+    },
+    {
+      "name": "Parma Board of Education",
+      "role": "Donnelly’s employer."
+    },
+    {
+      "name": "The Civil Service Commissions",
+      "role": "Administrative bodies reviewing the respective dismissals."
+    }
+  ],
+  "proceedings": [
+    "The employees pursued civil-service review and then federal procedural challenges.",
+    "The district court dismissed both suits; the Sixth Circuit revived pretermination claims but rejected Loudermill’s delay and liberty theories.",
+    "The Supreme Court affirmed the Sixth Circuit and remanded."
+  ],
+  "limits": "The case arose on dismissal of the complaints. It recognizes pretermination procedural claims without ordering reinstatement or awarding damages, and does not approve every nine-month delay.",
+  "briefSha256": "c7135a4fcd0f29f101553b147760b8b16080b908cd00313539f711e8086963f2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-LOUDERMILL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Donnelly loses his mechanic job after an eye examination",
+      "cue": "What later happened to his dismissal?",
+      "paragraphs": [
+        "Richard Donnelly worked as a bus mechanic for the Parma Board of Education. In August 1977 the Board dismissed him after he failed an eye examination and declined an offer to retake it. The examination concerned driving buses rather than repairing them. When the Supreme Court later examined the allegations, it saw no apparent emergency requiring immediate removal.",
+        "After a dispute about the timeliness of his administrative appeal, the Civil Service Commission reinstated him without backpay. Its actual decision was absent from the record, and the parties and lower court differed about its authority, so the Supreme Court did not resolve why backpay was denied. Donnelly brought a federal challenge alleging that he had been denied a chance to respond before dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Two employees; 470 U.S. at 536–37 & n.1, 545 n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Cleveland discovers Loudermill’s inaccurate employment answer",
+      "cue": "Why could an opportunity to explain have mattered?",
+      "paragraphs": [
+        "The Cleveland Board of Education hired James Loudermill as a security guard in 1979. His application said he had never been convicted of a felony. Eleven months later, a routine record check disclosed a 1968 grand-larceny conviction. The business manager dismissed him by letter dated November 3, 1980, alleging dishonesty; the Board approved the dismissal on November 13. He received no chance to answer beforehand.",
+        "Loudermill acknowledged the application’s inaccuracy but said he had understood the conviction to be a misdemeanor. A six-month suspended sentence and fine made that explanation plausible, and his work had been satisfactory. The relevant decision was therefore whether the error showed dishonesty warranting discharge, not simply whether the criminal record contained a felony. His explanation might affect that judgment without guaranteeing reinstatement.",
+        "Ohio classified-civil-service law entitled Loudermill to continued employment during good behavior and efficient service, with dismissal only for specified causes. He appealed to the Civil Service Commission. A referee heard the case January 29, 1981 and recommended reinstatement. The full Commission heard argument July 20 and upheld dismissal; findings followed in August, and counsel received notice August 21. Although judicial review was available in state court, Loudermill instead sued federally over the lack of a pretermination response and the time consumed by review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Two employees; 470 U.S. at 535–36, 538–39, 544–46 & nn.9–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The federal courts divide over what the state-created right includes",
+      "cue": "How did the claims reach the Supreme Court?",
+      "paragraphs": [
+        "The district court dismissed both employees’ suits for failure to state a claim. It first reasoned that the statute creating continued-employment rights also defined the termination procedures, making statutory compliance sufficient process. On reconsideration it relied instead on balancing, but reached the same dismissal.",
+        "A divided Sixth Circuit reversed as to the need for pretermination process. It upheld rejection of Loudermill’s separate delay and reputational-liberty claims. Both school boards sought Supreme Court review, while Loudermill cross-petitioned on the adverse rulings.",
+        "The employers argued that any property interest existed only on the statute’s terms, including its discharge procedures. Requiring an additional response opportunity would, they said, enlarge the entitlement the state chose to create. Cleveland also belatedly argued that dishonesty in obtaining the position meant Loudermill never had an entitlement at all. The Supreme Court rejected that latter argument because it assumed disputed facts at the pleading stage and ignored that he had been hired and held the job. An asserted dismissal ground could not itself erase the need for process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Pleading posture and statutory-property argument; 470 U.S. at 536–40 & nn.2, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "White separates the source of the entitlement from the source of procedure",
+      "cue": "Why did Ohio’s procedural rules not set the federal constitutional minimum?",
+      "paragraphs": [
+        "Justice White’s Court recognized that the Constitution did not create the jobs’ property interests: Ohio’s restrictions on discharge supplied the independent entitlement. But once a state conferred protected employment, federal due process constrained its deprivation. Otherwise constitutional protection would merely repeat whatever procedures the state selected and impose no independent limit.",
+        "The plurality in Arnett v. Kennedy had described acceptance of a statutory benefit as taking its procedural limitations with it, the bitter with the sweet. Six Justices there had rejected that account, and later decisions confirmed the independent federal requirement. The Court now expressly distinguished the substantive right from the procedures for taking it away. A legislature could choose whether to grant qualifying tenure; it could not define away constitutional procedure after granting it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Pleading posture and statutory-property argument; 470 U.S. at 538–41"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A limited response can prevent an avoidable loss of livelihood",
+      "cue": "How did the competing interests shape the required initial check?",
+      "paragraphs": [
+        "Using the considerations associated with Mathews v. Eldridge, the Court balanced the employees’ interests, the government’s need for prompt removal and manageable administration, and the risk of mistake. Loss of a livelihood could last while another job was sought and be aggravated by the dismissal’s circumstances. A response could expose factual error and inform a legally permissible choice about whether discharge was appropriate. The employee did not have to prove likely ultimate success before receiving that opportunity.",
+        "Donnelly’s reinstatement suggested that an earlier response might have prevented error. Loudermill’s adverse final administrative decision prevented the Court from calling his discharge mistaken, but the favorable referee recommendation showed an arguable question. Employers also benefited from avoiding mistaken dismissal, retaining useful work, and reducing disruption. A brief response need not cause extensive delay, and a significant workplace hazard could be addressed by paid suspension.",
+        "This reasoning did not create a hearing right for wholly discretionary government action or a right to seek leniency forbidden by law. Where an entitlement existed and lawful discretion remained, however, a response could make the choice better informed.",
+        "Because Ohio supplied a full later administrative hearing and judicial review, the pretermination stage could be an initial check for reasonable grounds to believe the charges true and sufficient for proposed action. It required oral or written notice of the charges, an explanation of the evidence, and a chance to tell the employee’s side orally or in writing. A complete adversarial evidentiary trial was unnecessary at that stage. The scope depended partly on the later safeguards, differed from Goldberg’s welfare setting, and did not deny that postdeprivation process alone can suffice in other circumstances. These dismissals did not justify dispensing with the earlier response."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Why some process; Required initial check; 470 U.S. at 542–46 & nn.7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Loudermill’s additional delay and reputation theories remain distinct",
+      "cue": "Why did those pleadings fail?",
+      "paragraphs": [
+        "Loudermill argued that nine months of administrative review independently denied due process. The Court accepted that a hearing must occur at a meaningful time and that excessive delay can be unconstitutional. His complaint, however, recited the chronology and asserted that nine months was too long without explaining why the delay was unreasonable. Some time reflected thorough procedures. Duration alone did not state this separate claim; the Court did not establish nine months as universally permissible.",
+        "His reputational-liberty theory complained that the dishonesty charge hung over him during review, but the complaint did not allege publication of the discharge reasons. That omission defeated the separate liberty claim without affecting his property interest or his right to answer before dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate delay and liberty claims; 470 U.S. at 546–47 & nn.11–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Marshall and Brennan seek greater protection in particular circumstances",
+      "cue": "How did their disagreements differ from rejection of pretermination process?",
+      "paragraphs": [
+        "Justice Marshall joined Part II’s rejection of the state-procedure theory and concurred in the judgment because the employees received recognition of all the process they requested. Where testimony was substantially disputed, he would require confrontation, cross-examination, and supporting witnesses before wages stopped. Months of review could cause serious economic and personal harm, unemployment benefits were uncertain, and reinstatement might carry no backpay. A minimal initial hearing could therefore leave an innocent worker suffering irreparable loss.",
+        "Justice Brennan joined Parts I–IV. He understood the Court’s initial-check requirement as context-sensitive and potentially allowing contrary evidence or confrontation when necessary for a meaningful response. He also agreed that nine months was not automatically acceptable.",
+        "Brennan dissented from dismissal of the delay claim before factual development. The defendants had not answered, and the record did not explain long gaps. Backlog, employee conduct, bad faith, or other causes could matter. Ohio’s hearing deadline and shorter schedules elsewhere supported inquiry. He questioned whether thoroughness explained overturning the referee without new evidence. Under the then-governing pleading standard and Mathews considerations, he would allow that claim to proceed, not declare the delay already proven unconstitutional."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Marshall and Brennan opinions; 470 U.S. at 548–59 and accompanying notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Rehnquist retains the statutory-procedure theory, while the judgment permits the core claims",
+      "cue": "What relief did the Court actually grant?",
+      "paragraphs": [
+        "Justice Rehnquist alone dissented from recognition of the pretermination claim. He retained Arnett’s view that state-created tenure came with its procedural restrictions as one statutory arrangement. Taking the substantive limitation while disregarding the attached procedure, he thought, departed from the rule that state law defined property. He found this particular balance unobjectionable but regarded the Court’s method as subjective and unpredictable across cases such as Goldberg and Mathews.",
+        "On March 19, 1985, the Court affirmed the Sixth Circuit in all respects and remanded. White’s complete opinion was joined by Chief Justice Burger and Justices Blackmun, Powell, Stevens, and O’Connor. Brennan joined Parts I–IV and dissented on delay; Marshall joined Part II and concurred in the judgment; Rehnquist dissented. Eight Justices thus supported the core pretermination claims while differing about procedural detail and the delay pleading.",
+        "Because the complaints alleged no opportunity to respond, dismissal of those claims was erroneous. The Supreme Court ordered neither reinstatement nor damages and made no final merits determination about the dismissals. Further proceedings would follow recognition of the federal procedural right. The reviewed full brief supplies the complete opinions beyond the assigned fragment, which ends mid-narrative; no later employment outcome is inferred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rehnquist opinion; Judgment and alignment; Sources and coverage; 470 U.S. at 548–63"
+        }
+      ]
+    }
+  ]
+}

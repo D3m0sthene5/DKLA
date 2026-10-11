@@ -61,6 +61,7 @@ fresh = {
 }
 meta = {e['id']:e for e in json.loads((DATA / 'meta.json').read_text())['entries']}
 records = []
+stories = {c.get('briefId'):c for c in cold['cases'] if c.get('briefId')}
 for entry in data['entries']:
     bid = entry[0]
     records.append(dict(id=bid, title=entry[1], course=entry[2], main=entry[6],
@@ -69,17 +70,18 @@ for entry in data['entries']:
         conversionReviewRecord=bool(reviewed.get(bid)),
         sourceReviewSupplement=data['audit'].get(bid, {}).get('v'),
         freshSourceCheck=fresh.get(bid),
-        checks=['nonempty-text', 'unique-case-mapping', 'cold-call-full-prose-retention', 'source-span-bounds', 'nested-heading-retention'],
+        checks=['nonempty-text', 'unique-case-mapping'] + (['narrative-source-fingerprint', 'authored-narrative-schema'] if bid in stories else []),
+        coldCallNarrative='authored' if bid in stories else 'pending',
         newClaimByClaimCertification=False))
 
 report = dict(date='2026-10-11', release='v2.4',
     scope='Full-inventory mechanical consistency checks plus specified fresh source comparisons. Existing review records are inherited evidence, not newly repeated reviews. No corpus-wide claim-by-claim certification or citator check.',
-    counts=dict(briefs=len(full), words=sum(len(t.split()) for t in full.values()), coldCalls=len(cold['cases']),
+    counts=dict(briefs=len(full), words=sum(len(t.split()) for t in full.values()), coldCalls=len(cold['cases']), pendingNarratives=len(cold['pending']),
                 converted=len(data['sections']), conversionReviews=sum(r['conversionReviewRecord'] for r in records),
                 recordedConversionFixes=len(fixes), sourceLimited=sum(r['sourceLimited'] for r in records),
                 freshSourceChecks=len(fresh), completeFreshBriefComparisons=1, documentedChanges=len(corrections['changes'])),
     resolvedNumberFlags=number_flags,
-    coldCallFix='Nested sections remain with their parent opinion or judicial stage. This fixes the 62 misclassified nested headings found in 15 briefs. Each account retains its full substantive prose. Sorting headings does not itself verify every event’s chronology or every antecedent.',
+    coldCallFix='The earlier nested-heading repair did not create narratives. Current Cold Call accepts only individually authored narrative accounts; availability and pending work are counted separately. Original full briefs remain available unchanged.',
     outstanding=['A fresh claim-by-claim primary-source review of the remaining full corpus has not been performed.',
                  '44 source-limited briefs retain their documented gaps.',
                  '38 compact accounts lack a separate conversion-review record in the repository; absence of a record is not a finding of error.',

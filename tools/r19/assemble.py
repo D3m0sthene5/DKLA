@@ -36,6 +36,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V24_NARRATIVE = {
+    "v": "v2.4", "date": "2026-10-11",
+    "text": "Cold Call accounts are individually written narratives: people are introduced, events lead into litigation, and each court's reasoning and separate opinions follow in sequence. Case-specific episodes support reading and oral practice. Original full briefs remain available. The earlier brief-section fallback has been removed; only authored narratives receive a Cold Call button.",
+}
 CHANGELOG_V24_AUDIT = {
     "v": "v2.4", "date": "2026-10-11",
     "text": "Release label changed to v2.4, shown beside the DKLA logo. The content audit corrects errors that survived in full briefs after their compact summaries were fixed. Cold Call now keeps nested reasoning and separate-opinion headings with their parent accounts. Source limitations remain visible; the audit records distinguish full-inventory checks from fresh source comparisons.",
@@ -357,7 +361,7 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:

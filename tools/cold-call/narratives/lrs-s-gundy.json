@@ -1,0 +1,146 @@
+{
+  "id": "lrs-s-gundy",
+  "briefId": "LRSR-042",
+  "title": "Gundy v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "588 U.S. 128 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A registration prosecution reaches the Supreme Court as a dispute over who decided which previously convicted offenders would be covered.",
+  "actors": [
+    {
+      "name": "Herman Avery Gundy",
+      "role": "Defendant whose Maryland conviction preceded SORNA."
+    },
+    {
+      "name": "United States",
+      "role": "Prosecuted Gundy for failing to register after interstate travel."
+    },
+    {
+      "name": "Attorney General",
+      "role": "Official authorized to specify SORNA’s application to pre-Act offenders."
+    }
+  ],
+  "proceedings": [
+    "The district court initially dismissed the indictment; the Second Circuit reinstated it in 2015.",
+    "After a stipulated-facts bench trial, the district court convicted Gundy; the Second Circuit affirmed in 2017.",
+    "The Supreme Court reviewed only nondelegation and affirmed, 5–3, in 2019."
+  ],
+  "limits": "Kagan wrote for four Justices. Alito supplied the fifth vote for the judgment without joining her opinion. The Supreme Court did not decide all registration or interstate-travel questions. The later Consumers’ Research decision is a separate development.",
+  "briefSha256": "0697478e27191672b5bb560a6eecc3897439a21e61300bf515f32d382d02cc0e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRSR-042"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress creates a national system after Gundy’s conviction",
+      "cue": "Why did the timing of Gundy’s conviction create a registration question?",
+      "paragraphs": [
+        "Herman Avery Gundy pleaded guilty in Maryland in 2005 to a sexual offense involving a minor. In 2006 Congress enacted the Sex Offender Registration and Notification Act, or SORNA, seeking a comprehensive national system to protect the public. Existing state systems varied, and Congress was concerned about previously convicted offenders absent from functioning systems or no longer locatable through them. Those were legislative concerns, not additional findings about Gundy.",
+        "SORNA requires a covered offender to register and maintain registration where the person resides, works, or studies. It prescribes information, periodic in-person reporting, and registration periods ranging from fifteen years to life. Ordinarily initial registration must occur before completion of imprisonment for the underlying offense, or within three business days of sentencing if no imprisonment is imposed. People whose relevant sentences had already ended could not meet those dates.",
+        "Section 20913(d), formerly § 16913(d), authorized the Attorney General to specify SORNA’s applicability to offenders convicted before enactment or implementation in a jurisdiction, and to prescribe rules for those offenders and others unable to comply with the ordinary deadlines. In February 2007 the Attorney General issued an interim rule applying SORNA to pre-Act offenders; a December 2010 final rule repeated that coverage. Whether Congress had already decided on their coverage or had left that policy to the Attorney General became the constitutional dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Kagan plurality, slip op. 1–4, 6–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Gundy travels to New York and the prosecution takes two trips to the circuit",
+      "cue": "Which proceedings concerned travel, and which issue reached the Supreme Court?",
+      "paragraphs": [
+        "During a later federal sentence associated with a supervised-release violation, Gundy was held in Pennsylvania. After authorizing arrangements for community custody, he traveled unescorted by commercial bus to a Bronx residential reentry center on July 17, 2012. He left federal custody for a private Bronx residence on August 27. He did not register in Maryland or New York. The United States prosecuted him under 18 U.S.C. § 2250(a), which, on the interstate-travel basis used here, punishes a person required to register who travels interstate and knowingly fails to register or update registration. The maximum sentence is ten years.",
+        "The Southern District of New York initially dismissed the indictment because it considered a necessary trigger for his registration obligation absent. The Second Circuit reversed in 2015, holding that Gundy had been required to register no later than August 1, 2008, and reinstated the indictment. On return to the district court Gundy argued that travel while technically in federal custody could not count as interstate travel under the statute. The court rejected that categorical exemption and held a bench trial on stipulated facts. It found the elements proved beyond reasonable doubt, including voluntariness if the statute required it. On June 16, 2016, it imposed time served and five years of supervised release.",
+        "The Second Circuit affirmed on June 22, 2017. It did not decide whether voluntary travel was legally necessary: the stipulated circumstances supported voluntariness even under Gundy’s interpretation. Circuit precedent foreclosed his preserved nondelegation objection. The Supreme Court then granted review only on whether § 20913(d) unconstitutionally delegated legislative power. His earlier conviction identified the affected statutory category; the federal charge concerned his later failure to register after travel."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 695 F. App’x 639, 640–41; Kagan plurality 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Four Justices find Congress already chose comprehensive coverage",
+      "cue": "How does statutory interpretation determine the size of the delegation?",
+      "paragraphs": [
+        "Justice Kagan announced the judgment, joined in her opinion by Justices Ginsburg, Breyer, and Sotomayor. She first asked what power Congress had conferred. Gundy’s theory assumed that the Attorney General could cover all, some, or none of the pre-Act population for whatever reasons he selected. The plurality instead read the complete statute to require application to pre-Act offenders as soon as feasible. Those words are the plurality’s construction, not an express command written into subsection (d).",
+        "The plurality began with Reynolds v. United States, which held that pre-Act offenders’ duties did not arise automatically before the Attorney General acted. Kagan understood Reynolds to identify the reason for intervening action: newly registering or reregistering a large population posed practical problems, and past release dates made the ordinary deadlines impossible. A temporary implementation decision did not imply an option permanently to reject Congress’s coverage policy.",
+        "SORNA’s enacted declaration of a comprehensive system supported that reading. Giving the Attorney General unrestricted power to exclude the substantial existing population would undermine the announced program. The definition of an offender as someone who “was convicted” included existing convictions; legislative history confirmed Congress’s concern with previously convicted people missing from registries. Subsection (d)’s title, its reference to people unable to comply with initial deadlines, and its adjacent rule-prescription authority connected the applicability power to transition difficulties. Together, Kagan thought, these provisions instructed the Attorney General to bring pre-Act offenders into the system when feasible.",
+        "Gundy invoked Whitman’s rule that an agency or court cannot supply a standard Congress omitted. Kagan accepted that rule but said interpretation here identified Congress’s existing standard. The Attorney General could address genuine administrative obstacles, not indefinitely exempt offenders because he preferred a different policy. Broad application within months was consistent with that reading; voluntary executive restraint itself could not cure an unlimited delegation. Kagan also distinguished changes in state-compliance guidance invoked by the dissent from the individual duties underlying federal criminal liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Kagan plurality 4–15 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The plurality applies the existing test; Alito supplies the judgment",
+      "cue": "Which constitutional reasoning received four votes, and what supported the fifth?",
+      "paragraphs": [
+        "With the assignment thus limited, the plurality applied the intelligible-principle test: Congress must supply the general policy and boundaries guiding the official. SORNA already prescribed the registration system and identified the covered population. Bringing that population into the system as soon as administratively feasible was narrower than many delegations sustained under existing precedents, including Whitman’s health-protection standard. Practical feasibility is an ordinary implementation judgment because Congress cannot prescribe every operational detail.",
+        "Kagan warned that the dissent’s approach could unsettle much federal administration, but her conclusion did not validate every delegation. It rested on this statutory construction and established doctrine. Justice Alito concurred only in the judgment. He agreed that Article I prohibits transferring legislative power and said he would support reconsidering the Court’s permissive doctrine if a majority were willing. Without such a majority, he would not single out this provision under a new standard when the Court had repeatedly upheld very broad delegations since 1935. He could not find the requisite discernible standard absent under the existing approach. His vote upheld the result without adopting all of Kagan’s construction or Gorsuch’s proposed replacement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; Alito concurrence 1; Kagan plurality 15–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Gorsuch sees the prosecutor choosing the criminally enforceable rule",
+      "cue": "What did the dissent consider permissible administration, and why did SORNA fall outside it?",
+      "paragraphs": [
+        "Justice Gorsuch dissented with Chief Justice Roberts and Justice Thomas. He read the provision to let the nation’s chief prosecutor decide whether a large pre-Act population would face registration obligations backed by criminal punishment. Their past crimes did not remove Article I’s protection of the process for making binding rules. Bicameralism and presentment require deliberation, compromise, and responsibility across differently constituted institutions. Delegating the governing choice permits legislators to claim credit for an aspiration while shifting blame for its burdens. Courts must enforce the constitutional allocation even when both political branches accept it.",
+        "Gorsuch identified three permissible assignments: filling details after Congress makes governing policy choices; finding specified facts on which Congress makes its rule contingent; and exercising nonlegislative responsibilities, including another branch’s independent constitutional powers. Wayman’s procedural adjustments illustrated detail filling, and conditional embargo legislation illustrated executive factfinding. In each category Congress, rather than the official, supplied the operative policy.",
+        "He read J. W. Hampton as a constrained implementation case and argued that later decisions had detached “intelligible principle” from that foundation. He would ask who made important policy judgments, what facts or criteria Congress specified, and whether officials merely implemented them. Some existing precedents could survive as factfinding, details, or independent executive authority. His references to major-questions and vagueness doctrines supported that proposed account; they were not holdings in Gundy.",
+        "SORNA, he concluded, fit none of the permissible categories. Choosing which pre-Act offenders must register was a central coverage policy. Congress specified no factual condition controlling that choice, and domestic criminally enforceable duties were not within independent presidential power. Prosecutorial discretion to enforce existing duties could not authorize creation of the duties themselves."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Gorsuch dissent 1–27"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissent rejects the narrowing construction, but the conviction stands",
+      "cue": "What remained divided when the Court affirmed?",
+      "paragraphs": [
+        "Gorsuch separately challenged the plurality’s reading. Congress omitted a feasibility command it knew how to write. A comprehensive system could contain exceptions, as SORNA did, without being universal. A definition identifying an offender did not establish which duties applied to that person. The two clauses of subsection (d) conferred distinct powers to determine applicability and prescribe registration rules; the second did not silently narrow the first. Legislative history could not insert the missing constraint.",
+        "For the dissent, Reynolds established that Attorney General action was necessary, not that an as-soon-as-feasible requirement controlled it or that the delegation was constitutional. Even a feasibility formulation required scrutiny of whether it constrained policy and gave courts an enforceable standard. Gorsuch would have invalidated the delegation.",
+        "On June 20, 2019, the Court affirmed the Second Circuit and left Gundy’s conviction intact, five votes to three. Justice Kavanaugh did not participate. The judgment therefore did not make Kagan’s entire four-Justice analysis a majority opinion, adopt Gorsuch’s test, or resolve every objection to registration and custodial travel.",
+        "A later development supplied in the canonical brief must remain separate: in FCC v. Consumers’ Research on June 27, 2025, a six-Justice majority led by Kagan applied the intelligible-principle framework to uphold universal-service funding authority and rejected the challenge to its private administrator. Roberts, Kavanaugh, and Barrett joined that majority; Gorsuch dissented with Thomas and Alito. That later outcome shows why Alito’s Gundy concurrence and Kavanaugh’s absence did not themselves establish that the Court would replace its existing test."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; Gorsuch dissent 27–33; Consumers’ Research slip op. 1–2, 10–12"
+        }
+      ]
+    }
+  ]
+}

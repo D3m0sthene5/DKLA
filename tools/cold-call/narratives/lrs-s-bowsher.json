@@ -1,0 +1,152 @@
+{
+  "id": "lrs-s-bowsher",
+  "briefId": "LRS-ATLAS-S-BOWSHER",
+  "title": "Bowsher v. Synar",
+  "course": "Legislation and the Regulatory State",
+  "citation": "478 U.S. 714 (1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Congress creates automatic deficit reductions through an officer it can remove; a benefit recipient’s challenge exposes a dispute about execution, congressional agency, and which provision should fall.",
+  "actors": [
+    {
+      "name": "Comptroller General",
+      "role": "Head of the General Accounting Office, assigned binding deficit calculations."
+    },
+    {
+      "name": "OMB and CBO Directors",
+      "role": "Prepared deficit and program-reduction estimates."
+    },
+    {
+      "name": "President",
+      "role": "Required to issue the specified sequestration order."
+    },
+    {
+      "name": "Congressman Synar and other Members",
+      "role": "Challenged the Act shortly after enactment."
+    },
+    {
+      "name": "National Treasury Employees Union and individual member",
+      "role": "Challengers affected by suspended cost-of-living increases."
+    }
+  ],
+  "proceedings": [
+    "A three-judge district court rejected nondelegation but invalidated the reporting mechanism on separation-of-powers grounds.",
+    "The Comptroller General, Senate, and House leadership appealed directly.",
+    "The Supreme Court affirmed 7–2 and stayed its judgment no more than sixty days for the statutory fallback."
+  ],
+  "limits": "The five-Justice removal rationale did not decide every independent-agency arrangement, every GAO duty, or nondelegation. Stevens and Marshall joined the judgment on a different theory.",
+  "briefSha256": "7c7c9fa6d7553a94e8b0fc57cd372313a889c97c5236eabfcff953ae09ca44bd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-BOWSHER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress ties deficit estimates to mandatory spending cuts",
+      "cue": "How did the Comptroller General’s report become binding?",
+      "paragraphs": [
+        "The President signed the Balanced Budget and Emergency Deficit Control Act, commonly Gramm-Rudman-Hollings, on December 12, 1985. It set fiscal-year deficit ceilings for 1986 through 1991, reaching zero in 1991. A specified excess triggered generally across-the-board cuts, equally divided between defense and nondefense programs with exemptions.",
+        "The Office of Management and Budget and Congressional Budget Office Directors independently estimated deficits and program reductions, then submitted a joint § 251 report to the Comptroller General. He reviewed it, exercised independent judgment, and sent his own conclusions to the President with reasons for differences. Under § 252 the President had to issue a matching sequestration order without recalculating estimates or changing reductions. Congress could prevent cuts through legislation during an intervening period; otherwise they took effect.",
+        "Congress anticipated invalidation. Section 274(f) redirected the Directors’ report to a Temporary Joint Committee, which had five days to report a joint resolution containing it. Special rules prevented amendments. Bicameral approval and presidential signature would make that resolution the basis for a sequestration order. The fallback therefore required legislative action rather than continuing automatic control by the Comptroller General."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Deficit-control scheme; 478 U.S. 717–719, 732–733"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A benefit recipient supplies standing for the challenge",
+      "cue": "What did the district court decide, and which issues did the Supreme Court reach?",
+      "paragraphs": [
+        "Congressman Synar sued within hours of enactment, joined by eleven other Members. The National Treasury Employees Union brought a substantially identical suit and later added an individual member. The spending provisions suspended scheduled cost-of-living benefit increases. Judges Scalia, Johnson, and Gasch sat as a three-judge district court. They found standing and adequate nondelegation standards but invalidated executive duties assigned to an officer subject to congressional removal.",
+        "The Comptroller General, Senate, and House leadership took direct appeals under the Act. The Supreme Court found the individual member’s lost scheduled benefit sufficient for Article III and statutory standing, leaving the Union’s and legislators’ standing undecided. Chief Justice Burger’s majority also left nondelegation and other challenges unresolved after finding a structural violation. Affirmance did not adopt every district-court conclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and standing; 478 U.S. 719–721 & nn.1–2, 736 n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Burger sees removal authority as continuing control over execution",
+      "cue": "Why did appointment by the President and no actual removal fail to cure the defect?",
+      "paragraphs": [
+        "The President nominated the Comptroller General from congressional leaders’ recommendations, and the Senate confirmed him. He headed the General Accounting Office. Statute allowed impeachment or removal by congressional joint resolution, after notice and hearing, for permanent disability, inefficiency, neglect, malfeasance, felony, or moral-turpitude conduct. Presentment applied, but Congress could override a veto. The majority therefore saw removal possible against presidential opposition.",
+        "Congress could not reserve removal outside impeachment over an officer executing law. The continuing threat gave practical influence even without use; presidential appointment did not erase accountability to those able to terminate service. Burger relied on the 1789 debate and Myers, distinguishing Humphrey’s Executor and Wiener as restrictions on presidential removal rather than direct congressional removal. The Court expressly did not decide independent agencies with presidential for-cause removal or statutory silence.",
+        "Appellants stressed professionalism, independence, and no historic removals. The majority found the broad grounds capable of encompassing failure to meet legislative expectations, questioned whether they were exclusive and judicially reviewable, and refused to rest structure on a prediction of restraint. GAO’s history reinforced the relationship: created to check expenditure for Congress, repeatedly described as legislative, and understood by earlier Comptrollers General as Congress’s independent-of-executive agent.",
+        "The task was not mechanical advice. Projecting spending and revenue, interpreting statutory requirements, determining relevant facts, and choosing program cuts required judgment. His divergent report bound the President. Congress could enact or amend spending law, but could not control execution through its removable officer. Chadha supplied an analogy to influence outside ordinary lawmaking, without deciding every other Comptroller General responsibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Removal authority; accountability; execution reasoning; 478 U.S. 721–733 & nn.4–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Stevens and Marshall locate the defect in bypassed lawmaking",
+      "cue": "Why did they agree with affirmance without accepting the majority’s removal inference?",
+      "paragraphs": [
+        "Justice Stevens, joined by Marshall, did not think limited cause-based removal necessarily established subservience. Congress should be presumed to honor the stated grounds, no policy-removal threat had occurred, and similar restrictions could preserve FTC independence. Removal was evidence, but neither necessary nor sufficient to his conclusion.",
+        "The office’s longstanding investigative, evaluative, assistance, and reporting duties made the Comptroller General an agent of Congress despite some obligations to the Executive. Binding national policy decisions by Congress or its lesser representative required bicameralism and presentment. Congress could delegate implementation to the Executive or an independent agency, but not bypass its own lawmaking process through its agent. Calling the functions executive or legislative did not settle that institutional inquiry.",
+        "Stevens distinguished internal or ancillary legislative work and reserved other duties falling short of binding national policy. The fallback’s joint resolution demonstrated the proper process. His rationale joined the judgment while differing from Burger’s five-Justice opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens and Marshall; 478 U.S. 736–759"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White disputes control; Blackmun disputes the remedy",
+      "cue": "What alternatives did the dissenters propose?",
+      "paragraphs": [
+        "Justice White favored actual disruption and aggrandizement analysis. Detailed criteria minimized policy choices; spending was centrally congressional, and an independent implementation officer took away no rightful presidential discretion. He accepted the executive label and Congress’s inability to reserve execution for itself, but denied that limited removal made this officer its agent.",
+        "Unlike Chadha’s one-House veto, removal needed both Houses and presentment, plus statutory grounds, a hearing, and potentially judicial review. Presidential approval or a difficult override made domination unlikely. White criticized reliance on older legislative history concerning a proposed concurrent resolution without presentment. No Comptroller General had faced a removal threat; congressional reporting did not prove control over unrelated tasks. He would uphold the Act or, alternatively with Blackmun, sever the old removal provision.",
+        "Justice Blackmun acknowledged possible constitutional difficulty with congressional removal while rejecting assumed subservience. He found it unnecessary to decide the structural issue because these plaintiffs should not obtain destruction of the budget mechanism. Courts could refuse an attempted removal if it arose. The least disruptive remedy should serve congressional objectives, rather than let suit timing dictate which incompatible provision falls.",
+        "Drawing on Glidden and remedies for unequal benefit statutes, Blackmun considered the new budget mechanism more important than rarely used removal authority. The fallback preferred some deficit program to none but did not prove Congress preferred old removal power to the primary program. Severing removal would preserve independence and other responsibilities. White agreed that fallback language alone did not resolve that choice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "White dissent 759–776; Blackmun dissent 776–787"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The reporting mechanism falls and Congress receives time for the fallback",
+      "cue": "Why did the majority refuse to rewrite the old office instead?",
+      "paragraphs": [
+        "The majority rejected severing removal provisions from the 1921 law. Doing so could transform an office deliberately independent of the Executive and disturb balances underlying many later assignments. More decisively, Congress explicitly supplied a fully operative fallback if § 251 reporting procedures failed; the Court treated that instruction as controlling.",
+        "On July 7, 1986, it affirmed the district court, seven votes to two. Burger, Brennan, Powell, Rehnquist, and O’Connor supplied the removal-based opinion; Stevens and Marshall supplied the other affirming votes. A stay of no more than sixty days allowed implementation of the legislative fallback. The result did not automatically revive the invalid reporting mechanism or adjudicate all independent agencies or GAO functions. The assigned note’s citation to 412 U.S. 739 is erroneous; Stevens’s discussion is at 478 U.S. 739."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Remedy and fallback; Court and disposition; Assigned scope; 478 U.S. 734–736"
+        }
+      ]
+    }
+  ]
+}

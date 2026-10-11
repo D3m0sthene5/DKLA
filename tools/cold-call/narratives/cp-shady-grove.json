@@ -1,0 +1,159 @@
+{
+  "id": "cp-shady-grove",
+  "briefId": "CP-052",
+  "title": "Shady Grove Orthopedic Associates, P.A. v. Allstate Insurance Co.",
+  "course": "Civil Procedure",
+  "citation": "559 U.S. 393 (2010)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A medical provider’s roughly $500 assigned insurance-interest claim reaches federal court through a proposed class that New York law would prohibit.",
+  "actors": [
+    {
+      "name": "Shady Grove Orthopedic Associates",
+      "role": "Medical provider and assignee seeking statutory interest for itself and a proposed class."
+    },
+    {
+      "name": "Sonia Galvez",
+      "role": "Patient who assigned insurance rights in payment for care after an automobile accident."
+    },
+    {
+      "name": "Allstate Insurance Company",
+      "role": "Insurer accused of late benefit payments without required interest."
+    }
+  ],
+  "proceedings": [
+    "The Eastern District of New York dismissed after applying New York’s class-action bar and finding no adequate individual diversity amount.",
+    "The Second Circuit affirmed, distinguishing eligibility from certification.",
+    "The Supreme Court reversed and remanded without certifying a class or deciding liability."
+  ],
+  "limits": "Five Justices agreed Rule 23 and § 901(b) conflict and that the state restriction did not bar this action. They did not share a single Enabling Act rationale. Differently framed damages ceilings and later courts’ treatment of the fractured opinions require separate analysis.",
+  "briefSha256": "03ac61211197ccf5ff8947f15d069fea20352ccf5a0f91477ec4778f2a0c1998",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-052"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An assignment turns a patient’s insurance right into the provider’s claim",
+      "cue": "Why was Shady Grove suing Allstate?",
+      "paragraphs": [
+        "Shady Grove treated Sonia Galvez after an automobile accident. Galvez assigned part of her rights under an Allstate policy as payment. The provider alleged that it submitted an assigned benefits claim under a New York policy, that state law required payment or denial within thirty days, and that overdue benefits carried interest of two percent per month.",
+        "Allstate apparently paid the benefits late but refused the accrued interest. Shady Grove alleged a recurring practice affecting other claimants and sought class treatment. Those were allegations at dismissal, not Supreme Court findings that the proposed class was owed money.",
+        "Shady Grove’s own interest was about $500. It invoked Class Action Fairness Act (CAFA) diversity jurisdiction under § 1332(d)(2) based on aggregate proposed class claims exceeding $5 million. The larger figure described the aggregate claim, not an increase in its individual entitlement. Class treatment therefore affected both practical enforcement and the asserted basis for federal jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; Scalia Part I & n.3; Stevens n.18"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "New York’s class restriction defeats the case in the lower courts",
+      "cue": "How did the courts reconcile it with Rule 23?",
+      "paragraphs": [
+        "New York CPLR § 901(a) supplied ordinary class criteria, while § 901(b) barred class actions seeking statutory penalties or minimum recovery unless the creating statute expressly authorized class recovery. The lower courts classified the interest here as a penalty. Federal Rule of Civil Procedure 23 also stated conditions for maintaining a class, including its subdivision (a) prerequisites and subdivision (b) categories.",
+        "The Eastern District of New York applied the state prohibition, rejected the class vehicle, and dismissed for lack of jurisdiction because the approximately $500 individual claim could not satisfy ordinary diversity’s amount requirement. It did not decide that Allstate had paid the required interest.",
+        "The Second Circuit affirmed. It treated state eligibility for class treatment as antecedent to federal certification, found no direct conflict, and regarded the New York restriction as substantive under Erie. Shady Grove sought Supreme Court review of that division between eligibility and certification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; Scalia Parts I,II-A"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Five Justices conclude that both provisions answer the same question",
+      "cue": "Why did relabeling the state restriction fail?",
+      "paragraphs": [
+        "Scalia’s Parts I and II-A drew Roberts, Stevens, Thomas, and Sotomayor. Both provisions answered whether this action could be maintained as a class. Rule 23 authorized the vehicle when its requirements were met; § 901(b) denied it for specified claims. Rule 23’s own conditions could likewise be called eligibility rules, and its text did not await state permission.",
+        "Placing the additional prohibition in a separate subsection did not narrow Rule 23. Nor did congressional exceptions to federal class procedure imply similar state authority: Congress could override its Federal Rules, while state law remained subject to a valid applicable rule.",
+        "The majority also rejected treating § 901(b) as only a limit on remedies. Its words barred maintaining a class action rather than limiting recovery after certification. A purpose of preventing large aggregated penalties could not dissolve that conflict. The Court expressly reserved a differently framed statute actually capping recovery in an existing action. The collision required analysis under the Rules Enabling Act, not ordinary Erie outcome balancing alone."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; Scalia Part II-A & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Scalia’s plurality treats the class vehicle as procedure",
+      "cue": "Which portions lacked a fifth vote?",
+      "paragraphs": [
+        "Roberts, Thomas, and Sotomayor joined Scalia’s Parts II-B and II-D; only Roberts and Thomas joined II-C. In II-B, Scalia used Sibbach’s question whether a Federal Rule genuinely regulates procedure. Class actions resemble joinder and consolidation: they aggregate adjudication while leaving liability elements and each claimant’s entitlement intact. Making small claims economical could increase the claims actually pursued, but that consequence was incidental to procedure.",
+        "The plurality rejected assessing validity anew from the substantive character or purpose of each displaced state rule. That approach would destabilize uniform federal procedure whenever a state expressed a different policy. In II-C, Scalia defended this approach as compelled by Sibbach while acknowledging the difficulty of deciding whether a right is abridged without examining the right. Sotomayor did not join that response to Stevens.",
+        "The plurality accepted that different state and federal class availability might encourage forum shopping. It regarded that consequence as part of Congress’s authorized federal procedural system, not as proof that Rule 23 had altered substantive rights."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Scalia plurality Parts II-B–D"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens supplies the fifth vote but preserves a different limitation",
+      "cue": "Why did he apply Rule 23 here despite his disagreement?",
+      "paragraphs": [
+        "Stevens agreed there was a direct conflict, but read the Enabling Act’s authorization of procedure and prohibition on altering substantive rights as separate commands. A state could define an entitlement through an apparently procedural limit on proof or recovery. A Federal Rule’s generally procedural character would not authorize destruction of that aspect of the right. Courts should consider a reasonable saving construction; if none worked and the application altered the entitlement, the Federal Rule could not govern that application.",
+        "He read Sibbach as addressing a facial challenge to medical-examination rules, not resolving every possible application to state-created rights. Here, however, § 901(b) looked like a general rule for New York courts, applying to claims from any source rather than specifically defining New York rights. Its history could reflect a judgment about when class treatment was needed to motivate litigation; concern about aggregation alone did not conclusively define the underlying entitlement. The high threshold for refusing a facially applicable Federal Rule was unmet.",
+        "For Stevens, Erie’s forum-choice concerns would matter if no valid Federal Rule governed, but could not replace the Enabling Act inquiry once one did. His vote supported this result, not Scalia’s entire general theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens concurrence Parts I–III; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Ginsburg would avoid the initial conflict and apply Erie",
+      "cue": "What substantive compromise did the dissent see?",
+      "paragraphs": [
+        "Ginsburg, joined by Kennedy, Breyer, and Alito, would affirm. She read Rule 23 as regulating class procedure and § 901(b) as defining statutory remedies. Plaintiffs could pursue otherwise permissible class relief while forgoing penalties, or seek penalties individually. She thought focusing on the phrase prohibiting maintenance of a class was overly formal when New York could have expressed the same limit claim by claim.",
+        "The dissent emphasized a legislative compromise pairing broader class procedure with protection against excessive aggregation of penalties. It compared the restriction with the damages limit respected in Gasperini and invoked narrow constructions of Federal Rules that avoided unnecessary conflict. With no controlling federal collision, Erie’s forum-shopping and unequal-outcome considerations favored enforcing state law. Placement in a procedural code and application beyond New York claims did not defeat that substantive character in her view.",
+        "Ginsburg also questioned using CAFA’s expanded federal jurisdiction to facilitate relief unavailable in state court. That was her account of CAFA policy, not a separate holding limiting its jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ginsburg dissent Parts I–III"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court removes the New York bar without certifying the class",
+      "cue": "State what reversal leaves to be done.",
+      "paragraphs": [
+        "The Supreme Court reversed the Second Circuit and remanded. The jurisdictional dismissal based on § 901(b)’s class-action prohibition could not stand. Shady Grove still had to establish the requirements for the proposed class and its underlying claim; the Court neither certified the class nor awarded interest or damages.",
+        "The decision requires keeping applicability, Enabling Act validity, and any residual Erie analysis distinct. Five Justices agreed on this action’s ability to proceed past the state bar, while their reasons for treating Rule 23 as valid differed. The judgment did not invalidate every state limit related to class remedies or decide how another court must treat every differently written statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; Scalia concluding disposition; Stevens Part III"
+        }
+      ]
+    }
+  ]
+}

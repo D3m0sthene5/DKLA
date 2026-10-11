@@ -1,0 +1,163 @@
+{
+  "id": "lrs-s-arthrex",
+  "briefId": "LRS-CB-0156",
+  "title": "United States v. Arthrex, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "594 U.S. 1 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A patent owner’s challenge to an administrative cancellation turns on who can take final executive responsibility for the patent judges’ decision.",
+  "actors": [
+    {
+      "name": "Arthrex, Inc.",
+      "role": "Medical-device patent owner challenging cancellation of patent claims."
+    },
+    {
+      "name": "Smith & Nephew and ArthroCare",
+      "role": "Accused infringers who sought inter partes review; treated together as Smith & Nephew in the opinion."
+    },
+    {
+      "name": "United States",
+      "role": "Intervenor defending the appointment system."
+    },
+    {
+      "name": "Administrative patent judges and the PTO Director",
+      "role": "Secretary-appointed adjudicators and their presidentially appointed, Senate-confirmed superior."
+    }
+  ],
+  "proceedings": [
+    "A three-APJ panel found Arthrex’s claims anticipated.",
+    "The Federal Circuit found an Appointments Clause defect, removed statutory tenure protection as a cure, and ordered a new panel hearing.",
+    "The Supreme Court vacated and remanded for an opportunity to seek discretionary review by the Acting Director."
+  ],
+  "limits": "The decision concerns the 2021 inter partes review arrangement. It does not decide infringement or patentability, guarantee rehearing, invalidate the whole program, or establish a single exclusive test for every inferior office. The constitutional and remedial voting coalitions differ.",
+  "briefSha256": "65c7ce89b745aa051232f2a1aaf91002a404d589646135753b9047ee08efd702",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0156"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress gives patent judges a decision their Director cannot reverse",
+      "cue": "What authority did the Director possess, and what authority was missing?",
+      "paragraphs": [
+        "The Patent and Trademark Office (PTO) operates within the Commerce Department. Congress vested its powers and duties in a Director appointed by the President with Senate confirmation, with policy and management responsibilities. The Patent Trial and Appeal Board included the Director, other specified officials, and more than 200 administrative patent judges, or APJs. The Secretary of Commerce appointed APJs as inferior officers; each APJ did not undergo presidential nomination and Senate confirmation. Panels ordinarily contained at least three Board members.",
+        "Inter partes review permits adversarial reconsideration of an issued patent’s novelty and nonobviousness. The Director controlled institution, subject to conditions including a reasonable likelihood of success on at least one challenged claim, and had delegated institution to the Board. A designated panel ordinarily had twelve to eighteen months after institution to issue a final written decision.",
+        "The Director controlled regulations, prospective guidance, panel assignments, pay, and precedential designations. But 35 U.S.C. § 6(c) reserved rehearings to the Board. No superior executive officer could individually review and reverse a panel’s final result. A party could appeal to the Article III Federal Circuit. When appellate proceedings ended, the Director had to issue the implementing certificate; that ministerial duty carried no discretion to reject the panel’s decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Roberts Parts I-A,II-B"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Arthrex’s patent claims are cancelled",
+      "cue": "How did the institutional question arise from the parties’ dispute?",
+      "paragraphs": [
+        "Arthrex obtained a patent in 2015 for a device attaching soft tissue to bone without tying a knot. It accused Smith & Nephew and ArthroCare of infringement. Those companies sought inter partes review, and three APJs found the challenged claims anticipated by an earlier patent application.",
+        "Arthrex first raised its Appointments Clause objection on appeal to the Federal Circuit. The United States intervened to defend the appointments. The objection concerned the officials’ constitutional authority, not a claimed absence of technical expertise or an adversarial hearing. Whether Smith & Nephew infringed and whether the invention was patentable were not questions the Supreme Court undertook to decide."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Citation and parties; Material Facts; Procedural History; Roberts Part I-B"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Federal Circuit chooses a removal-based cure",
+      "cue": "Why did each side seek further review?",
+      "paragraphs": [
+        "The Federal Circuit held that APJs were principal officers because neither the Secretary nor the Director could review their decisions or remove them at will. Appointment by the Secretary therefore failed the method required for principal officers.",
+        "To cure the problem prospectively, the court made the APJs’ statutory removal protections unenforceable. It reasoned that at-will removal would make them inferior officers, vacated the Board decision, and directed a new hearing before different APJs. The government, Smith & Nephew, and Arthrex unsuccessfully sought rehearing en banc and then petitioned for Supreme Court review of different aspects of the judgment. The Supreme Court accepted the constitutional objection but did not adopt the appellate court’s remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Roberts Parts I-B,III"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Five Justices find administrative control insufficient for final decisions",
+      "cue": "Why did court review and indirect influence fail to supply the missing supervision?",
+      "paragraphs": [
+        "Chief Justice Roberts’s constitutional analysis drew Alito, Gorsuch, Kavanaugh, and Barrett. All parties accepted that APJs were officers exercising significant statutory authority, so the question was inferiority, not whether they were mere employees. The Appointments Clause’s principal-officer process assigns public responsibility through presidential nomination and Senate confirmation; its exception for inferior appointments still requires genuine subordination.",
+        "Applying Edmond, the majority compared military appellate judges who had both administrative oversight and review by a superior executive tribunal. Those judges could not finally bind the United States without permission from superior executive officers. APJs faced significant administrative control, but the Director could not correct the final patent ruling and was legally obliged to implement it. A superior’s influence over policy, institution, and assignments did not supply that decisional authority.",
+        "The government suggested selecting sympathetic judges, changing panels, placing the Director on a rehearing panel with two others, or withdrawing institution before an unwelcome decision. The majority found such indirect maneuvers inadequate substitutes for transparent responsibility. Reassignment after a decision would not change the result. APJs also enjoyed removal protection requiring cause promoting service efficiency. The Court did not decide that at-will removal could never suffice; it left that alternative unresolved when selecting its own cure.",
+        "Federal Circuit review operated in the judiciary’s separate constitutional capacity, not within the executive chain of command. Under the Court’s existing public-rights treatment of inter partes review, these adjudications exercised executive power despite their judicial form. The majority examined other modern agencies and historical patent arrangements without condemning all of them. Some had superior executive review; older patent systems often vested ultimate power in the presidentially appointed Commissioner or an executive reviewing tribunal. Temporary arbitrators and examiners presented different officeholding questions from permanent APJs. The varied history did not conclusively validate this arrangement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Rule and Holding; Roberts Parts II-A–II-C"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A different coalition permits review by the Director",
+      "cue": "How does the remedy address the specific constitutional defect?",
+      "paragraphs": [
+        "Roberts’s remedial Part III had Alito, Kavanaugh, and Barrett’s votes. Breyer, Sotomayor, and Kagan, while rejecting the constitutional holding, separately agreed with its remedy. That seven-Justice agreement cannot be treated as seven votes for the merits; Gorsuch joined the merits but rejected the remedy.",
+        "The remedial holding made § 6(c) unenforceable only insofar as it barred the Director from independently reviewing final Board decisions. The Director could issue a decision for the Board. Ordinary panel rules continued to govern the other Board members, and the Director need not review every case. The availability of discretionary review supplied the missing authority.",
+        "The statute already placed a Director over the Office and its APJs. Removing the review restriction fit that structure and preserved inter partes review, instead of adopting Arthrex’s request to invalidate the entire system or the Federal Circuit’s removal-based solution. APJs could validly perform initial adjudication. Arthrex therefore needed an opportunity for the Acting Director to decide whether to rehear Smith & Nephew’s petition, not a repeated hearing before replacement judges."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Judgment; Reasoning; Roberts Part III; Breyer Part II"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The separate writings disagree over inferiority and judicial repair",
+      "cue": "State each Justice’s disagreement without merging the coalitions.",
+      "paragraphs": [
+        "Gorsuch agreed on the constitutional defect but would set aside this Board decision and leave institutional choices to Congress. Permitting new Director review, in his view, selected a legislative solution among alternatives involving appointment, allocation of adjudication, and the review system itself. Congress had coupled cancellation power with decisional independence, and the Court could not confidently reconstruct the preferred alternative. He also reiterated his opposition to executive reconsideration of issued patents on private-property and impartial-adjudication grounds. The Court did not adopt that view or overrule its public-rights precedent.",
+        "Breyer, joined by Sotomayor and Kagan, rejected the merits and joined Parts I and II of Thomas’s dissent. He understood Congress to possess substantial latitude in allocating inferior appointments and duties. Edmond required direction and supervision at some level, not review of each category of decision. Technical expertise, decisional independence, and superior policy control could coexist. Once the majority identified a defect, however, he accepted Director review as a tailored response.",
+        "Thomas, joined by those three Justices in Parts I and II, would uphold the appointments because APJs ranked below the Director and Secretary and faced substantial actual direction over policy, institution, panels, and assignments. He rejected using final review as a single decisive criterion, disputed the majority’s patent history, and questioned its distinction between principal and inferior kinds of power rather than legislative, executive, and judicial power.",
+        "Writing alone in Part III, Thomas asked whether the supposed defect was an invalid appointment or impermissible duties assigned to a valid officer. The former ordinarily called for properly appointed adjudicators; the latter required attention to whether Arthrex had requested and been denied Director review. He thought the chosen relief followed neither account cleanly. His Part IV considered possible original understandings of inferior officers, each supporting APJs’ status in his view, without selecting an exclusive future test."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Gorsuch remedial discussion; Breyer Parts I–II; Thomas Parts I–IV"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court vacates the new-hearing order",
+      "cue": "What did Arthrex receive, and what remained for the agency?",
+      "paragraphs": [
+        "The Supreme Court vacated the Federal Circuit’s judgment and remanded. Arthrex received an opportunity for the Acting Director to consider rehearing, not a guarantee of review or a favorable patent outcome. The initial APJ proceeding did not have to be repeated before a different panel.",
+        "The case distinguishes officer status, inferior rank, and relief for a constitutional defect. It also separates removal authority from decisional review: the lower court used the first, while the Supreme Court selected the second and left the sufficiency of at-will removal unresolved. The account ends with the opportunity for discretionary Director review; subsequent implementation or the patent’s eventual fate requires a separate source."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; Roberts Part III"
+        }
+      ]
+    }
+  ]
+}

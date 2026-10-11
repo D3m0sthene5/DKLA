@@ -1,0 +1,143 @@
+{
+  "id": "cp-mallory",
+  "briefId": "CP-SUP-MALLORY",
+  "title": "Mallory v. Norfolk Southern Railway Co.",
+  "course": "Civil Procedure",
+  "citation": "143 S. Ct. 2028 (2023)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A former railroad worker brings an out-of-state injury claim in Pennsylvania. The railroad’s registration, and the legal consequence Pennsylvania expressly attaches to it, becomes the asserted basis for consent.",
+  "actors": [
+    {
+      "name": "Robert Mallory",
+      "role": "Former railroad employee; Virginia resident when he sued under FELA in 2017."
+    },
+    {
+      "name": "Norfolk Southern Railway Co.",
+      "role": "Railroad incorporated and headquartered in Virginia at the relevant time, with extensive Pennsylvania operations and registration."
+    }
+  ],
+  "proceedings": [
+    "Pennsylvania’s Supreme Court upheld dismissal because it found registration jurisdiction unconstitutional under due process.",
+    "The United States Supreme Court vacated and remanded, five to four, on June 27, 2023.",
+    "The dormant Commerce Clause objection remained available on remand."
+  ],
+  "limits": "This source-brief narrative states the historical 2023 decision without newly auditing the opinion or resolving subsequent law. Cancer causation and negligence were allegations, not merits findings. Only Parts I and III-B of Gorsuch’s opinion had five votes. The Court left the separate Commerce Clause challenge unresolved and did not approve every state registration scheme.",
+  "briefSha256": "f305e822b6c0460571caa945ef6ef1c7b4238d278e8da2ac22d1ac769148adda",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-MALLORY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Mallory works in Ohio and Virginia while the railroad registers in Pennsylvania",
+      "cue": "Which facts connect the parties to each state?",
+      "paragraphs": [
+        "Robert Mallory worked for Norfolk Southern for roughly twenty years in Ohio and Virginia. He alleged that freight-car repair exposed him to asbestos and other carcinogens in pipes, paint and demolition work and caused his cancer. His alleged exposure did not arise from Pennsylvania employment. After leaving the railroad he lived for a time in Pennsylvania, then returned to Virginia.",
+        "Norfolk Southern nevertheless maintained extensive Pennsylvania operations: more than 2,000 miles of track, eleven rail yards and three locomotive-repair shops. Pennsylvania required foreign corporations regularly conducting substantial intrastate business to register. Norfolk Southern registered in 1998 and maintained a registered office. Pennsylvania gave registered foreign corporations domestic corporations’ privileges and corresponding liabilities.",
+        "Under 42 Pa. Cons. Stat. § 5301(a)(2)(i), qualification as a foreign corporation supplied a basis for general personal jurisdiction, and subsection (b) permitted any cause of action against a corporation covered by the provision. The claimed jurisdictional consequence thus rested on an express registration statute and the company’s registration, not simply on the size of the railroad’s operations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and statutory setting; Gorsuch slip opinion 2–4, 10–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mallory files his unrelated FELA claim in Pennsylvania",
+      "cue": "What did Norfolk Southern challenge, and how did the state court rule?",
+      "paragraphs": [
+        "In 2017 Mallory, then a Virginia resident, sued Norfolk Southern under the Federal Employers’ Liability Act in Pennsylvania state court. Norfolk Southern was incorporated and headquartered in Virginia at the relevant time. Its later headquarters move to Georgia supplied no premise for this jurisdictional dispute. The Supreme Court opinion’s introductory Ohio-derailment illustration concerned a hypothetical conductor, not Mallory’s injury or service history.",
+        "Norfolk Southern argued that due process prohibited Pennsylvania from hearing a claim unrelated to the state. Under the modern contacts cases, general jurisdiction ordinarily belonged in a corporation’s place of incorporation or principal place of business, with exceptional additional forums. Pennsylvania was neither, and the injury lacked a claim-specific Pennsylvania connection. The Pennsylvania Supreme Court agreed, held the registration arrangement unconstitutional as applied, and affirmed dismissal.",
+        "Mallory sought Supreme Court review on consent, a distinct jurisdictional basis recognized in Pennsylvania Fire Insurance Co. v. Gold Issue Mining & Milling Co. Norfolk Southern also raised a dormant Commerce Clause objection. The state court had not decided it, and the Supreme Court granted review only of due process. The separate constitutional objection remained available for remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Procedure and competing positions; Gorsuch slip opinion 2–4 & nn.2–3; Alito slip opinion 1–2, 15"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Five Justices apply Pennsylvania Fire to the registration arrangement",
+      "cue": "What controlled the due-process result, and what did the judgment accomplish?",
+      "paragraphs": [
+        "Justice Gorsuch announced the judgment. Justices Thomas, Sotomayor and Jackson joined his entire opinion; Justice Alito joined Parts I and III-B only. Those portions therefore spoke for five Justices. Parts II, III-A and IV remained a four-Justice plurality.",
+        "As Gorsuch’s historical discussion recounted, Pennsylvania Fire involved an Arizona mining company suing a Pennsylvania insurer in Missouri over insurance for a Colorado facility damaged by fire. To receive a Missouri business license, the insurer had appointed a state official for service. Missouri construed the appointment to cover unrelated disputes, and Justice Holmes’s unanimous opinion rejected the due-process challenge. Accepting that identified consequence supported jurisdiction.",
+        "The five-vote Part III-B treated Pennsylvania Fire as controlling Pennsylvania’s explicit statute and Norfolk Southern’s registration. Lower courts must follow directly controlling Supreme Court precedent even if later cases appear to undermine its reasoning; overruling belongs to the Supreme Court. Pennsylvania’s court could not disregard Pennsylvania Fire as implicitly overruled. Five Justices also agreed that International Shoe had not overruled it, although the fuller supporting explanations appeared separately in Gorsuch’s plurality and Alito’s concurrence.",
+        "On June 27, 2023, the Court vacated the Pennsylvania Supreme Court judgment and remanded. Due process did not defeat this asserted registration-based jurisdiction. The decision neither decided railroad negligence nor awarded damages, and it did not resolve the Commerce Clause objection. The Court declined to speculate about other registration statutes and factual arrangements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Issue, holding, judgment; Controlling reasoning; Gorsuch Parts I, III-A, III-B, slip 2–4, 8–12, 24"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gorsuch’s plurality explains why consent survives the contacts cases",
+      "cue": "How did traditional jurisdiction, fairness and waiver support the plurality?",
+      "paragraphs": [
+        "Gorsuch’s four-Justice portions placed corporate consent alongside the tradition of jurisdiction over transitory claims. An individual physically present could be served on an unrelated claim; states developed corporate service and consent arrangements for entities without a physical body. Burnham’s preservation of in-state personal service supported treating International Shoe as an additional contacts route for nonconsenting corporations, rather than elimination of every traditional ground.",
+        "The plurality also rejected unfair surprise here. Norfolk Southern had thousands of Pennsylvania employees, long registration, a major locomotive shop and, according to its own public materials, more than 2,400 miles of track. It publicly identified itself with the Pennsylvania community. Those facts answered the claimed unfairness of accepting the registration consequence; they did not make Pennsylvania the railroad’s principal place of business or establish unlimited jurisdiction from business volume alone.",
+        "Personal jurisdiction protects an individual right capable of waiver. Parties accept procedural consequences through contracts, registration, litigation conduct or failure to object, without a constitutionally required special formula. Although jurisdiction also involves federalism, the plurality identified no due-process precedent invalidating genuine consent merely because the case involved out-of-state events. These were plurality explanations, not a five-vote adoption of every historical or federalism proposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "The plurality’s broader explanation; Gorsuch Parts II, III-A, IV, slip 4–10, 13–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Jackson emphasizes waiver; Alito preserves structural limits",
+      "cue": "Why could consent answer due process without settling interstate commerce?",
+      "paragraphs": [
+        "Justice Jackson separately invoked Insurance Corp. of Ireland: personal jurisdiction is a waivable individual right, and waiver can follow express agreement, acceptance of legal benefits or noncompliance with procedural requirements. Norfolk Southern chose substantial Pennsylvania business, registered under clear law and obtained the associated benefits. Jackson viewed it as voluntarily relinquishing its due-process objection. Her reasoning concerned that substantial-business choice, not a requirement that every passing train consent. Other constitutional limits remained available.",
+        "Justice Alito agreed that Pennsylvania Fire controlled and should not be overruled here. A sophisticated corporation with extensive operations had clear notice of the registration consequence, and this forum posed no special personal unfairness. He therefore joined the controlling portions and the judgment but not the entire Gorsuch opinion.",
+        "Alito’s reservation concerned a state’s power to condition market access on defending unrelated suits. Davis v. Farmers Co-operative Equity Co. had invalidated an expansive requirement on an interstate railroad. Dormant Commerce Clause doctrine can prohibit discrimination and, under Pike, evenhanded regulation whose interstate burdens clearly exceed local benefits. Waiver of a personal due-process right does not necessarily waive those structural restraints.",
+        "Unrelated suits could expose firms to different liability rules, litigation expense and unpredictable claims wherever they did business, potentially deterring smaller firms from entering a market. Pennsylvania’s interests in local residents and injuries were stronger than its interest in an unrelated dispute between outsiders. Alito considered the Commerce Clause objection substantial and potentially successful, but left it to the remand courts; he did not hold the statute invalid."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jackson concurrence, slip 1–4; Alito concurrence, slip 1–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Barrett rejects the premise that mandatory registration supplies consent",
+      "cue": "What danger did the dissent see for the at-home limits?",
+      "paragraphs": [
+        "Justice Barrett, joined by Chief Justice Roberts and Justices Kagan and Kavanaugh, would affirm dismissal. Mallory lacked both claim-linked contacts and an at-home basis. BNSF Railway v. Tyrrell had rejected general jurisdiction for comparable FELA claims despite substantial tracks and employees. Calling mandatory business registration consent, the dissent argued, could erase those limits.",
+        "The registration papers did not expressly accept all-purpose jurisdiction, and the statute separately identified qualification and consent as grounds. Knowing that a state attached an unconstitutional consequence to business activity did not make that consequence voluntary or valid; otherwise advance notice could convert any invalid long-arm law into consent. Barrett compared cases forbidding states to demand that foreign corporations surrender federal-court access, despite an individual party’s ability voluntarily to waive that right.",
+        "The dissent also disputed the history. Burnham involved an established continuing individual-service tradition, while broad modern registration jurisdiction was unusual and many older corporate regimes confined suits to local matters. International Shoe rejected fictional presence and implied consent based on business activity, and Shaffer required traditional assertions to satisfy modern due-process principles. Pennsylvania Fire was therefore inconsistent with later doctrine or distinguishable because it involved an express appointment of the relevant scope.",
+        "The five-to-four judgment preserved Pennsylvania Fire for this explicit arrangement, leaving the opposing consent theories clearly divided. Claim-related jurisdiction, at-home jurisdiction and consent remained distinct possible bases. The remand also kept the personal due-process defense separate from an independently asserted restraint on state regulation of interstate commerce."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Barrett dissent, slip 1–18; Significance and limits"
+        }
+      ]
+    }
+  ]
+}
