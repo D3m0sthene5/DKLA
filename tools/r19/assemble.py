@@ -38,7 +38,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 CHANGELOG_V221 = {
     "v": "v22.1",
     "date": "2026-10-11",
-    "text": "placeholder",
+    "text": "The \"Why it matters\" section is gone from every entry. A legal accuracy pass checked every case entry (rule line, issue, holding, plain-English takeaway, notes) and every doctrine-timeline step against its brief, and resolved each doubt against the opinion, the casebooks and the supplements: 86 statements corrected or cut (among them Bremen's tow company, Shamrock's Justice Stone, Dioguardi's bid, the Pan American bond, Walden's office, the Little Sisters majority, Nicastro and Weiss stated no more broadly than the Court held, Myers's own suit, the West Covina and Granfinanciera dates), and 44 flagged statements confirmed with a source. Version numbers are now written v22.1, back through the whole history, and the atlas is served as DKLA-v22.1.html; old addresses still open it. The orange foot of the L in the DKLA mark now runs to the D's bowl.",
 }
 CHANGELOG_R22 = {
     "v": "r22",
