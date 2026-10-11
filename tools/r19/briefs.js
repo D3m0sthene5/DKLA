@@ -135,7 +135,7 @@
   function entryHTML(e) {
     const conv = D.sections[e.id], main = e.main && nodesById.get(e.main);
     el('r19Title').innerHTML = `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
-    return `<div class="r19-line">${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Open this brief in the combined PDF">DKLA Case Briefs, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
+    return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Open this brief in the combined PDF">DKLA Case Briefs, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
       ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief</summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>${auditHTML(e.id)}`
         : `${auditHTML(e.id)}<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
   }
@@ -220,5 +220,5 @@
   if (D.build) R18.build = D.build; // v22.1: the version panel and the update check compare the served build, not the v18 base build
   document.title = 'DKLA · ' + D.version;
   try { const log = el('dklaR18Changelog'); if (log) log.textContent = JSON.stringify([].concat(D.changelog, JSON.parse(log.textContent))); } catch { /* changelog stays as it was */ }
-  window.DKLABriefs = { open, apply: applyBriefs, entries: () => D.entries.length, supporting: () => supporting.length, skipped: () => [...skipped], data: D };
+  window.DKLABriefs = { text: fullText, render: renderBrief, open, apply: applyBriefs, entries: () => D.entries.length, supporting: () => supporting.length, skipped: () => [...skipped], data: D };
 })();

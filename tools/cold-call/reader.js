@@ -20,23 +20,39 @@
   dialog.setAttribute('aria-labelledby', 'ccTitle');
   document.body.appendChild(dialog);
   const $ = id => dialog.querySelector('#' + id);
+  function sourceLink(source, label) {
+    if (source.briefId) return `<button type="button" data-cc-source-brief="${esc(source.briefId)}">${esc(label)}</button>`;
+    if (source.path) return `<button type="button" data-dkla-file="${esc(source.path)}">${esc(label)} ↗</button>`;
+    if (source.url?.startsWith('#')) return `<a href="${esc(source.url)}">${esc(label)} ↗</a>`;
+    return `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(label)} <span aria-hidden="true">↗</span><span class="cc-sr"> (opens a new tab)</span></a>`;
+  }
+  function hydrate(c) {
+    if (!c || c.origin !== 'brief' || c.hydrated) return c;
+    const lines = window.DKLABriefs.text(c.briefId).split('\n');
+    for (const s of c.sections) {
+      s.markdown = s.spans.map(([start,end]) => lines.slice(start,end).join('\n')).join('\n');
+      s.paragraphs = [s.markdown]; // Search the full account, not only its headings.
+    }
+    c.hydrated = true;
+    return c;
+  }
   function citations(refs) {
     return '<div class="cc-citations">' + refs.map(ref => {
       const s = current.sources.find(s => s.id === ref.id);
-      return `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Opinion · ${esc(ref.pinpoint)} <span aria-hidden="true">↗</span><span class="cc-sr"> (opens a new tab)</span></a>`;
+      return sourceLink(s, `${s.briefId ? 'Source brief' : s.path ? s.label : current.origin === 'narrative' ? 'Opinion' : 'Assigned source'} · ${ref.pinpoint}`);
     }).join('') + '</div>';
   }
-  function paragraphs(section) { return section.paragraphs.map(p => `<p>${esc(p)}</p>`).join(''); }
+  function paragraphs(section) { if (section.markdown) return window.DKLABriefs.render(section.markdown); return section.paragraphs.map(p => `<p>${esc(p)}</p>`).join(''); }
   function open(id, trigger) {
-    const c = cases.get(id);
+    const c = hydrate(cases.get(id));
     if (!c || dialog.open) return;
     current = c; active = 0; practice = false; bookmark = null;
     ratings = readRatings();
-    returnTo = {focus: trigger || document.activeElement, inspector: document.getElementById('inspector')?.scrollTop || 0};
+    returnTo = {focus: trigger || document.activeElement, inspector: document.getElementById('inspector')?.scrollTop || 0, supporting: document.getElementById('r19Body')?.scrollTop || 0};
     readingTop = memory.get(id)?.top || 0;
     dialog.dataset.course = c.course;
     dialog.innerHTML = `<header class="cc-header">
-      <div><span class="cc-kicker">${esc(c.course)} / Cold call</span><h2 id="ccTitle">${esc(c.title)}</h2><p class="cc-cite">${esc(c.citation)}</p></div>
+      <div><span class="cc-kicker">${esc(c.course)} / Cold call</span><h2 id="ccTitle">${esc(c.title)}</h2>${c.citation ? `<p class="cc-cite">${esc(c.citation)}</p>` : ''}</div>
       <button type="button" id="ccClose" autofocus>← Back to case</button>
       </header>
       <div class="cc-toolbar"><button type="button" id="ccPractice" aria-pressed="false">Practice aloud</button><button type="button" id="ccReturn" disabled>Return to where I was</button><span id="ccProgress" aria-live="polite"></span></div>
@@ -46,10 +62,10 @@
         <p id="ccMatches" role="status" class="cc-small"></p><nav aria-label="Case sections">${c.sections.map((s,i) => `<button type="button" data-cc-jump="${i}"><span class="cc-number">${String(i+1).padStart(2,'0')}</span><span>${esc(s.title)}</span><span class="cc-grade" data-cc-grade="${i}">${esc(grade(s))}</span></button>`).join('')}</nav>
         <p class="cc-small">${c.sections.length} sections · Read in order, or jump to a question.</p></div></details>
       <div id="ccScroll" tabindex="0" role="region" aria-label="Cold call reading area">
-        <article id="ccNarrative"><div class="cc-intro"><p class="cc-lead">${esc(c.lead)}</p>
-          <details class="cc-orientation"><summary>People &amp; path through the courts</summary><dl>${c.actors.map(a=>`<dt>${esc(a.name)}</dt><dd>${esc(a.role)}</dd>`).join('')}</dl><ol>${c.proceedings.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details></div>
+        <article id="ccNarrative"><div class="cc-intro">${c.notice ? `<p class="cc-notice">${esc(c.notice)}</p>` : ''}${c.lead ? `<p class="cc-lead">${esc(c.lead)}</p>` : ''}
+          ${c.actors.length ? `<details class="cc-orientation"><summary>People &amp; path through the courts</summary><dl>${c.actors.map(a=>`<dt>${esc(a.name)}</dt><dd>${esc(a.role)}</dd>`).join('')}</dl><ol>${c.proceedings.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></details>` : ''}</div>
           ${c.sections.map((s,i)=>`<section class="cc-section" id="cc-section-${s.id}" data-cc-section="${i}" aria-labelledby="cc-heading-${s.id}"><p class="cc-kicker">${String(i+1).padStart(2,'0')} / ${c.sections.length}</p><h3 id="cc-heading-${s.id}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s)}${citations(s.sources)}</section>`).join('')}
-          <footer class="cc-end"><h3>At the edge of the record</h3><p>${esc(c.limits)}</p>${c.sources.map(s=>s.path ? `<button type="button" data-dkla-file="${esc(s.path)}">${esc(s.label)} ↗</button>` : `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)} ↗<span class="cc-sr"> (opens a new tab)</span></a>`).join(' ')}<p class="cc-small">The narrative works offline with your saved atlas. External source links need a connection.</p></footer>
+          <footer class="cc-end">${c.limits ? `<h3>At the edge of the record</h3><p>${esc(c.limits)}</p>` : '<h3>Sources</h3>'}${c.sources.map(s => sourceLink(s,s.label)).join(' ')}<p class="cc-small">The account and full brief work offline with your saved atlas. External source links need a connection.</p></footer>
         </article><section id="ccRehearsal" hidden aria-label="Oral practice"></section>
       </div></div><div id="ccStatus" class="cc-sr" role="status"></div>`;
     $('ccClose').onclick = close;
@@ -73,6 +89,8 @@
     if (returnTo?.focus?.isConnected) returnTo.focus.focus({preventScroll:true});
     const inspector = document.getElementById('inspector');
     if (inspector && returnTo) inspector.scrollTop = returnTo.inspector;
+    const supporting = document.getElementById('r19Body');
+    if (supporting && returnTo) supporting.scrollTop = returnTo.supporting;
     returnTo = null;
   }
   function progress() {
@@ -153,7 +171,7 @@
       return;
     }
     const s = current.sections[active];
-    $('ccAnswer').innerHTML = `${paragraphs(s)}${citations(s.sources)}<details class="cc-followup"><summary>Follow-up: ${esc(s.followUp.question)}</summary><p>${esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>
+    $('ccAnswer').innerHTML = `${paragraphs(s)}${citations(s.sources)}${s.followUp ? `<details class="cc-followup"><summary>Follow-up: ${esc(s.followUp.question)}</summary><p>${esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}
       <fieldset class="cc-ratings"><legend>How did that account come out?</legend>${grades.map(g=>`<button type="button" data-cc-rate="${g}" aria-pressed="${grade(s) === g}">${g}</button>`).join('')}</fieldset><p id="ccRatingStatus" role="status" class="cc-small"></p>`;
     $('ccAnswer').hidden = false;
     $('ccReveal').setAttribute('aria-expanded','true');
@@ -176,6 +194,7 @@
     if (b.hasAttribute('data-cc-prev')) jump(active-1);
     if (b.hasAttribute('data-cc-next')) jump(active+1);
     if (b.hasAttribute('data-cc-rate')) rate(b.dataset.ccRate);
+    if (b.hasAttribute('data-cc-source-brief')) openSourceBrief(b.dataset.ccSourceBrief, b);
   });
   dialog.addEventListener('cancel', e => { e.preventDefault(); close(); });
   // Do not send typing, arrows or Escape to the atlas's global map shortcuts.
@@ -194,7 +213,6 @@
     b.type = 'button'; b.className = 'cc-launch'; b.dataset.coldCall = id;
     b.textContent = 'Cold call'; b.setAttribute('aria-haspopup','dialog');
     b.title = 'Read the full narrative and practice aloud';
-    b.onclick = () => open(id, b);
     heading.after(b);
   }
   function ready() {
@@ -203,6 +221,29 @@
     if (panel) new MutationObserver(paint).observe(panel, {childList:true, subtree:true});
     paint();
   }
-  window.DKLAColdCall = {open, close, cases: () => [...cases.keys()]};
+  document.addEventListener('click', e => {
+    const launch = e.target.closest('[data-cold-call]');
+    if (!launch || !cases.has(launch.dataset.coldCall)) return;
+    e.preventDefault(); open(launch.dataset.coldCall, launch);
+  });
+  const sourceDialog = document.createElement('dialog');
+  sourceDialog.id = 'ccBriefDialog'; sourceDialog.setAttribute('aria-labelledby','ccBriefTitle');
+  document.body.appendChild(sourceDialog);
+  let sourceReturn = null;
+  function openSourceBrief(id, trigger) {
+    const text = window.DKLABriefs.text(id); if (!text) return;
+    sourceReturn = trigger;
+    sourceDialog.innerHTML = `<header><h2 id="ccBriefTitle">${esc(current.title)} · Full case brief</h2><button type="button" id="ccBriefClose" autofocus>← Back to cold call</button></header><div class="cc-brief-body" tabindex="0">${window.DKLABriefs.render(text)}</div>`;
+    sourceDialog.querySelector('#ccBriefClose').onclick = closeSourceBrief;
+    sourceDialog.showModal();
+  }
+  function closeSourceBrief() {
+    sourceDialog.close(); sourceDialog.replaceChildren();
+    if (sourceReturn?.isConnected) sourceReturn.focus({preventScroll:true});
+    sourceReturn = null;
+  }
+  sourceDialog.addEventListener('cancel', e=>{e.preventDefault();closeSourceBrief();});
+  sourceDialog.addEventListener('keydown', e=>e.stopPropagation());
+  window.DKLAColdCall = {open, close, has: id => cases.has(id), cases: () => [...cases.keys()]};
   ready();
 })();

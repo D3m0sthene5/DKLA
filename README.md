@@ -1,6 +1,6 @@
-## v24 · Cold Call Mode
+## v25 · Cold Call Mode across the atlas
 
-Open **Cold call** beside Hamer, Pennoyer, or Chadha to read the complete narrative, jump between sections, or practice aloud. Reveal the account and rate your recall; **Return to narrative** restores your reading position. This pilot includes source pinpoints and separate opinions. [Build and content notes](tools/cold-call/README.md).
+Open **Cold call** beside any of the 392 illustrated cases, or from a supporting-case reader. Read the full case account, jump and return to your place, or practice aloud. The expanded coverage uses the detailed briefs already in the atlas, with source limitations retained; Hamer, Pennoyer, and Chadha keep their separately written narratives. [Build and content notes](tools/cold-call/README.md).
 
 # Danny Kind Legal Atlas
 

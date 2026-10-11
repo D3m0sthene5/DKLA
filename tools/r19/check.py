@@ -40,8 +40,9 @@ full = json.loads(r19["dklaR19Full"])
 graph = json.loads(r18["seedData"])
 nodes = {n["id"]: n for n in graph["nodes"]}
 cold = json.loads(r19["dklaColdCallData"])
-runpy.run_path(str(ROOT / "tools/cold-call/validate.py"))["validate"](cold, graph, full)
-require(cold == json.loads((ROOT / "tools/cold-call/cases.json").read_text()), "cold-call artifact differs from source")
+runpy.run_path(str(ROOT / "tools/cold-call/validate.py"))["validate"](cold, graph, full, data)
+expected_cold = runpy.run_path(str(ROOT / "tools/cold-call/compile.py"))["compile_cases"](json.loads((ROOT / "tools/cold-call/cases.json").read_text()), graph, data, full)
+require(cold == expected_cold, "cold-call artifact differs from source")
 ids = [e[0] for e in data["entries"]]
 require(len(ids) == len(set(ids)), "duplicate brief ids")
 require(all(full.get(i, "").strip() for i in ids), "a brief has no full text")
@@ -83,6 +84,8 @@ vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
 require(any(r.get("destination") == "/" + TARGET.name for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
 require(integrity.get("r19_sha256") == hashlib.sha256(TARGET.read_bytes()).hexdigest(), "integrity.json does not describe the current artifact")
+
+print(f"Cold Call coverage: {cold['coverage']['mapCases']} map cases, {cold['coverage']['supportingCases']} supporting cases; full source prose retained")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))

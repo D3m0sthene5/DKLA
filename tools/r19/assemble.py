@@ -22,10 +22,10 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v24.html"
+TARGET = ROOT / "DKLA-v25.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v24"
-LABEL = "v24"
+VERSION = "v25"
+LABEL = "v25"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -36,6 +36,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V25 = {
+    "v": "v25", "date": "2026-10-11",
+    "text": "Cold Call Mode now opens from every illustrated case on the map and every supporting case. The full existing briefs supply the remaining accounts, with facts before proceedings, complete reasoning and separate opinions, and source limitations retained. The three individually written narratives remain available. Open the full source brief without leaving your place. Source text is reused rather than duplicated or shortened, and coverage is checked against the entire case inventory on every build.",
+}
 CHANGELOG_V24 = {
     "v": "v24", "date": "2026-10-11",
     "text": "Cold Call Mode for Hamer, Pennoyer and Chadha: complete sourced narratives, case-specific section jumps with return to your place, searchable sections, and oral practice with revealable accounts and follow-up questions. Practice ratings stay separate from rule recall. Open Cold call beside a pilot case title. The existing map, briefs and personal edits are preserved.",
@@ -320,7 +324,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -530,7 +534,8 @@ def main() -> None:
     data, full = build_data()
     cold_dir = ROOT / "tools/cold-call"
     cold = json.loads((cold_dir / "cases.json").read_text(encoding="utf-8"))
-    runpy.run_path(str(cold_dir / "validate.py"))["validate"](cold, graph, full)
+    cold = runpy.run_path(str(cold_dir / "compile.py"))["compile_cases"](cold, graph, data, full)
+    runpy.run_path(str(cold_dir / "validate.py"))["validate"](cold, graph, full, data)
     nodes = {n["id"]: n for n in graph["nodes"]}
     missing = [a for a in data["map"] if a not in nodes]
     if missing:

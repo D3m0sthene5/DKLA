@@ -258,3 +258,8 @@ The owner asked whether the one-word turn labels on timeline steps ("expands", "
 ## v24 Cold Call Mode (2026-10-11)
 
 Pilot narratives and isolated reader live in `tools/cold-call/`; see its README before changing coverage or practice behavior. Build with `python3 tools/r19/assemble.py` and validate with `python3 tools/r19/check.py`. This now writes index and Vercel routing alongside the worker and version metadata. `validate.py` rejects stale source-brief fingerprints: recheck the account against the cited opinion before updating a fingerprint. Narratives are static and fully visible in reading mode. Practice ratings use `dkla.coldCall.v1`, separate from doctrinal study ratings. The GitHub Cold Call workflow can build the large artifact and commit generated output on the same branch; it must never force-push.
+
+
+## v25 full Cold Call coverage (2026-10-11)
+
+Cold Call availability must equal every `Case` in the map plus every supporting brief. `tools/cold-call/compile.py` indexes existing full-brief prose by line range; it does not summarize or generate legal facts. Every substantive source line must remain represented exactly once, with explicit gaps and separate opinions retained. The three custom narratives in cases.json still have their own source-fingerprint guard. The Swiss penalty decision uses its existing atlas account because it has no separate full brief. Reader text is loaded lazily through DKLABriefs.text/render. Test a supporting case, nested full-brief dialog, and the Swiss account alongside main-map cases. The workflow reads the generated filename from version.json instead of hardcoding a release.

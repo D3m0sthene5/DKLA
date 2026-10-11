@@ -48,6 +48,11 @@
 #coldCallDialog .cc-section{padding-top:30px;margin-top:30px;border-top:1px solid #324252}
 #coldCallDialog h3{font-size:24px;line-height:1.3;font-weight:650;letter-spacing:-.015em;color:#f0f4f8;margin:0 0 22px}
 #coldCallDialog .cc-citations{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;margin:18px 0 4px}
+#coldCallDialog .cc-citations button{font-size:11px;color:var(--cc-accent);border:0;background:none;padding:4px 0;text-align:left;text-decoration:underline;text-underline-offset:3px}
+#coldCallDialog .cc-notice{border-left:3px solid var(--cc-accent);padding:10px 14px;background:#192835;font-size:13px;color:#d0dce5}
+#coldCallDialog .cc-intro:not(:has(*)){display:none}
+#coldCallDialog .cc-intro:not(:has(*))+.cc-section{margin-top:0;padding-top:0;border-top:0}
+#coldCallDialog .cc-section h4,#coldCallDialog #ccAnswer h4{font-size:18px;line-height:1.4;margin:24px 0 12px;color:#e6edf3}
 #coldCallDialog .cc-small{font-size:12px;color:#a9b9c8;line-height:1.6;margin:12px 0}
 #coldCallDialog .cc-end{border-top:1px solid #324252;margin-top:36px;padding-top:28px;font-size:14px;color:#bdcad5}
 #coldCallDialog .cc-end h3{font-size:18px}
@@ -81,3 +86,15 @@
  #coldCallDialog h3{font-size:22px}
 }
 @media(prefers-reduced-motion:reduce){#coldCallDialog *{scroll-behavior:auto!important;transition:none!important}}
+#ccBriefDialog{box-sizing:border-box;width:min(860px,94vw);height:min(860px,92dvh);max-height:92dvh;margin:auto;padding:0;border:1px solid #465462;border-radius:10px;background:#111b25;color:#e6edf3;overflow:hidden;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#ccBriefDialog[open]{display:flex;flex-direction:column}
+#ccBriefDialog::backdrop{background:#050b13d9}
+#ccBriefDialog header{display:flex;align-items:center;gap:20px;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #465462;flex:none}
+#ccBriefDialog h2{font-size:20px;line-height:1.3;margin:0}
+#ccBriefDialog button{font:inherit;font-size:13px;white-space:nowrap;background:#1b2936;color:#e6edf3;border:1px solid #6a7e91;border-radius:5px;min-height:42px;padding:8px 12px;cursor:pointer}
+#ccBriefDialog :focus-visible{outline:2px solid #edac72;outline-offset:3px}
+#ccBriefDialog .cc-brief-body{padding:24px 30px 45px;overflow:auto;overscroll-behavior:contain;min-height:0}
+#ccBriefDialog p{margin:0 0 18px}
+#ccBriefDialog h3{font-size:23px;line-height:1.3;margin:12px 0 24px}
+#ccBriefDialog h4{font-size:18px;line-height:1.4;margin:28px 0 12px}
+@media(max-width:600px){#ccBriefDialog header{padding:14px;gap:12px}#ccBriefDialog h2{font-size:17px}#ccBriefDialog button{white-space:normal;min-width:92px}#ccBriefDialog .cc-brief-body{padding:20px}}
