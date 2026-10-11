@@ -1,9 +1,9 @@
 /* DKLA offline worker. The build id below changes whenever the atlas changes (tools/r18/assemble.py
    stamps it), which installs a new worker beside the old one. The new copy waits until the reader
    accepts the reload prompt, so the page is never swapped mid-session. */
-const BUILD = 'v2.4-986462f1b3';
+const BUILD = 'v2.5-7d835b177c';
 const CACHE = 'dkla-' + BUILD;
-const ATLAS = 'DKLA-v2.4.html';
+const ATLAS = 'DKLA-v2.5.html';
 const SHELL = [ATLAS, 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', event => {

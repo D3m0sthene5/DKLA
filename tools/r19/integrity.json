@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "7896611e1f34195dd4c0aee16660fdbd182f77fa09cfff5fe269e652eb68c177",
-  "build": "v2.4-986462f1b3",
+  "r19_sha256": "8e79281824510a88c718bc0a6c25131e703fc36dc7fa4739a0120e428ead0c4f",
+  "build": "v2.5-7d835b177c",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -19,5 +19,175 @@
     "corrected": 61,
     "could-not-audit": 0
   },
-  "preserved_script_blocks": 35
+  "preserved_script_blocks": 35,
+  "runtime_modules": [
+    {
+      "path": "tools/r19/briefs.js",
+      "kind": "javascript",
+      "sha256": "d15db3173b88fdaa97d4c70e5c84adb6952c3fa89e5f350c75fb7d9dedba0586",
+      "startLine": 1,
+      "sourceStartLine": 2,
+      "endLine": 226
+    },
+    {
+      "path": "tools/r19/rlcc.js",
+      "kind": "javascript",
+      "sha256": "eb2cf37d6f0d457ef54b23ad0ed3f8d270fd78dadafce3f6a8847d7c8245c175",
+      "startLine": 227,
+      "sourceStartLine": 228,
+      "endLine": 285
+    },
+    {
+      "path": "tools/r19/rules22.js",
+      "kind": "javascript",
+      "sha256": "76b310bf2c617bd6464e54fa90ea8fd00af7da4fb1d95e40ccb2f481e28168ae",
+      "startLine": 286,
+      "sourceStartLine": 287,
+      "endLine": 352
+    },
+    {
+      "path": "tools/r19/provisions.js",
+      "kind": "javascript",
+      "sha256": "6d5aad43d0718e3eaf072e165522db545fd256c89509b95b072287045c1de0da",
+      "startLine": 353,
+      "sourceStartLine": 354,
+      "endLine": 393
+    },
+    {
+      "path": "tools/r19/fit.js",
+      "kind": "javascript",
+      "sha256": "7f34a68a6700b59e48e110df5aa30d512b2769245a00b2f898ab72e26d638fd6",
+      "startLine": 394,
+      "sourceStartLine": 395,
+      "endLine": 498
+    },
+    {
+      "path": "tools/r19/plain.js",
+      "kind": "javascript",
+      "sha256": "51a10a122f9c2d3083c3284633375fadeb1cce848dde994a8854cd4919aa1aa7",
+      "startLine": 499,
+      "sourceStartLine": 500,
+      "endLine": 590
+    },
+    {
+      "path": "tools/r19/r20.js",
+      "kind": "javascript",
+      "sha256": "87eb8290f7aa60fa094ac37569c6c91ad4c9ed2f9d97572190cc8ed95accd806",
+      "startLine": 591,
+      "sourceStartLine": 592,
+      "endLine": 1127
+    },
+    {
+      "path": "tools/r19/timelines.js",
+      "kind": "javascript",
+      "sha256": "331e0c11590cb387b7cdd60b35847464e88af733830f2e79cf0c8234fbf12c28",
+      "startLine": 1128,
+      "sourceStartLine": 1129,
+      "endLine": 1329
+    },
+    {
+      "path": "tools/r19/audit.js",
+      "kind": "javascript",
+      "sha256": "61886f71bda8152143e06d6be40ffaf8ba75b0c67dd6d3aa98dc464b8a681723",
+      "startLine": 1330,
+      "sourceStartLine": 1331,
+      "endLine": 1391
+    },
+    {
+      "path": "tools/r19/takeaways.js",
+      "kind": "javascript",
+      "sha256": "873848e77a7df4b6bf0322bfc2b1965cfb56e6b29765f4a3a21b17f65b90cafb",
+      "startLine": 1392,
+      "sourceStartLine": 1393,
+      "endLine": 1426
+    },
+    {
+      "path": "tools/cold-call/reader.js",
+      "kind": "javascript",
+      "sha256": "6209e426b1bea9665cc849e45d4abb481a07b6bdc3a9421acc89e5347d1cac03",
+      "startLine": 1427,
+      "sourceStartLine": 1428,
+      "endLine": 1580
+    },
+    {
+      "path": "tools/v25/authorities.js",
+      "kind": "javascript",
+      "sha256": "d2d4e8fe77ad33d5ed1ab857f6ef85c21b6595355a5bce48b9f09ae181c1375e",
+      "startLine": 1581,
+      "sourceStartLine": 1582,
+      "endLine": 1723
+    },
+    {
+      "path": "tools/v25/reading.js",
+      "kind": "javascript",
+      "sha256": "f307eaef0268dbf4a29d370c2d0504ca43edcb2a93f064ead9a528b4e1a1db0c",
+      "startLine": 1724,
+      "sourceStartLine": 1725,
+      "endLine": 1842
+    },
+    {
+      "path": "tools/r19/briefs.css",
+      "kind": "stylesheets",
+      "sha256": "79638eb3646dfe036a3374403bb35241c1fde1004040701ed95f3691a6587659",
+      "startLine": 1,
+      "sourceStartLine": 2,
+      "endLine": 72
+    },
+    {
+      "path": "tools/r19/polish.css",
+      "kind": "stylesheets",
+      "sha256": "03cbceb0aecf9733664a4653f40616b3ede2d8f4ae22391bd7a0e1966ebf26c1",
+      "startLine": 73,
+      "sourceStartLine": 74,
+      "endLine": 843
+    },
+    {
+      "path": "tools/r19/r20.css",
+      "kind": "stylesheets",
+      "sha256": "a58730a6527c12a8c71f697605b64c432ec212b14de9b105ee08b0c56f171b32",
+      "startLine": 844,
+      "sourceStartLine": 845,
+      "endLine": 893
+    },
+    {
+      "path": "tools/r19/timelines.css",
+      "kind": "stylesheets",
+      "sha256": "fddfbe03962344926a856a366b5f4e1a02f7f7b9b980b7a9fa79a4bf2124d5c2",
+      "startLine": 894,
+      "sourceStartLine": 895,
+      "endLine": 976
+    },
+    {
+      "path": "tools/r19/r22.css",
+      "kind": "stylesheets",
+      "sha256": "aed9edb992bd101dbee04d640eb28e650698dbcc29cd64ea7f311818b3eaef50",
+      "startLine": 977,
+      "sourceStartLine": 978,
+      "endLine": 985
+    },
+    {
+      "path": "tools/cold-call/reader.css",
+      "kind": "stylesheets",
+      "sha256": "c36abb32d5af8ce0c42eb156a9fcb76c354c60bed9f1f25be6ecd1534ae6b09a",
+      "startLine": 986,
+      "sourceStartLine": 987,
+      "endLine": 1067
+    },
+    {
+      "path": "tools/v25/authorities.css",
+      "kind": "stylesheets",
+      "sha256": "b44c7c1b78d512c1638945d340aa5e9432e266735c8fac874a3230ddd59e05c9",
+      "startLine": 1068,
+      "sourceStartLine": 1069,
+      "endLine": 1152
+    },
+    {
+      "path": "tools/v25/reading.css",
+      "kind": "stylesheets",
+      "sha256": "b9dc9d69fffcb507727176cd7426cb31a7338665d958e286d2651246d1ddb3f9",
+      "startLine": 1153,
+      "sourceStartLine": 1154,
+      "endLine": 1231
+    }
+  ]
 }
