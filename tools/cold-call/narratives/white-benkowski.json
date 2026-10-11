@@ -1,0 +1,122 @@
+{
+  "id": "white-benkowski",
+  "briefId": "CT-CB-0030",
+  "title": "White v. Benkowski",
+  "course": "Contracts",
+  "citation": "37 Wis. 2d 285, 155 N.W.2d 74 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Neighbors’ brief but malicious water shutoffs produced both inconvenience and a punitive verdict. The appeal restored modest actual compensation while enforcing the separate limit on punishment in the contract-only action.",
+  "actors": [
+    {
+      "name": "Virgil and Gwynneth White",
+      "role": "Homeowners entitled to water from their neighbors’ well; plaintiffs and appellants."
+    },
+    {
+      "name": "Paul and Ruth Benkowski",
+      "role": "Neighbors controlling the well; defendants found to have interrupted service maliciously."
+    }
+  ],
+  "proceedings": [
+    "Jury awarded $10 compensation and $2,000 punitive damages.",
+    "Trial court reduced compensation to $1 and eliminated punitive damages.",
+    "Wisconsin Supreme Court on December 22, 1967 reinstated $10, otherwise affirmed, and awarded appellants costs."
+  ],
+  "limits": "Agreement details and interruption count come from the casebook’s bracketed factual account; the opinion supplies remedial reasoning. No tort was pleaded or proved. The $10 award was actual, not nominal or exemplary, compensation.",
+  "briefSha256": "b10903aa18cb1c36c544256e99b35106e4aab735dbaf65ac18571c61c155e201",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0030"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A water-sharing agreement becomes a neighbor dispute",
+      "cue": "What did the promised service include, and how was it interrupted?",
+      "paragraphs": [
+        "Virgil and Gwynneth White owned a home without an independent water supply, connected to the well on Paul and Ruth Benkowski’s property. The casebook’s bracketed account describes a written ten-year water agreement, subject to contingencies including municipal supply, inadequacy of the well, or the Whites obtaining their own well. The Whites promised $3 monthly and a share of future maintenance and repair costs.",
+        "The initially friendly relationship deteriorated, and the supply was interrupted repeatedly. The casebook identifies nine interruptions shorter than an hour and records the Benkowskis’ explanations of sand in pipes and excessive use. The jury ultimately found malicious shutoffs intended to harass the Whites; the explanations were not findings excusing the conduct.",
+        "The judicial opinion identifies practical consequences. Once, absent bathroom water created an odor. Twice, Mrs. White took her children to a neighbor for bathing. These inconveniences had no exact proved market price but were actual effects beyond the small prorated price of missing water."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; casebook pp.30–31; 37 Wis. 2d at 288–92"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial judge reduces both components of the verdict",
+      "cue": "Which instruction remained unchallenged?",
+      "paragraphs": [
+        "The Whites sued for breach and requested punitive damages based on malicious conduct. The case was pleaded and proved only in contract; no tort claim supplied an alternative foundation.",
+        "The judge instructed that compensation could include monetary loss and inconvenience naturally resulting from breach, while nominal damages were available if actual damage was unproved. The Whites did not object. The jury awarded $10 compensatory and $2,000 punitive damages.",
+        "Afterward the judge reduced compensation to $1 and struck punishment. By valuing missed service at about twenty-five cents, the judge treated the injury as nominal. The Whites appealed seeking restoration of both components. The Supreme Court would assess evidence favorably to them for compensation and independently determine whether their pleaded claim permitted punishment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; 37 Wis. 2d at 288–92"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Wilkie finds real inconvenience worth more than missing water’s price",
+      "cue": "Why did a small award remain actual compensation?",
+      "paragraphs": [
+        "Justice Wilkie explained that prorating the monthly charge ignored disruption of bathing and sanitation. The agreement supplied a household necessity. Testimony established injury even without receipts or a precise dollar value for inconvenience, permitting the jury’s modest reasonable estimate.",
+        "Mathematical certainty was unnecessary. Ten dollars could compensate real harm, while nominal damages recognize a violation without measuring demonstrated loss. The Court distinguished an earlier wrongful-entry case without proof of actual injury. Calling this award nominal merely because it was small would erase the evidence supporting it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Compensation reasoning; 37 Wis. 2d at 288–89"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Malicious motive does not create an unpleaded tort",
+      "cue": "Why did the restored actual injury not restore punitive damages?",
+      "paragraphs": [
+        "Punitive damages punish and deter beyond making a plaintiff whole. The Court reviewed their traditional availability in tort and the overwhelmingly compensatory approach to ordinary contract breach. Willfulness or malice did not itself supply a new cause of action or permit punishment here.",
+        "A contractual relationship can create a separate duty of care, and violating it might support a tort in an appropriate case. But the Whites had neither pleaded nor proved one. The appellate court could not convert their malicious-breach proof into a tort judgment simply to preserve the punitive award.",
+        "The opinion’s historical references, including breach-of-promise-to-marry authorities, formed part of its doctrinal discussion rather than a comprehensive statement of all present exceptions. The necessary holding concerned this willful water-supply breach pursued only in contract."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Punitive reasoning; 37 Wis. 2d at 290–92"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The mixed disposition restores ten dollars but not two thousand",
+      "cue": "What relief actually survived?",
+      "paragraphs": [
+        "On December 22, 1967, the Supreme Court reversed in part by restoring the jury’s $10 actual compensatory award and otherwise affirmed, leaving the $2,000 punitive award eliminated. It awarded costs to the Whites as appellants. No separate concurrence or dissent appeared.",
+        "The trial court had correctly denied punishment but undervalued compensatory proof. Actual injury therefore defeated the nominal-dollar reduction without providing a legal basis for punitive relief. The opinion’s classification controls over an online annotation that sometimes labels the $10 nominal or exemplary. No later payment history or current survey of Wisconsin punitive law is supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and source qualifications; 37 Wis. 2d at 289–92"
+        }
+      ]
+    }
+  ]
+}

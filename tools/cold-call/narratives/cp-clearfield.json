@@ -1,0 +1,129 @@
+{
+  "id": "cp-clearfield",
+  "briefId": "CP-054",
+  "title": "Clearfield Trust Co. v. United States",
+  "course": "Civil Procedure",
+  "citation": "318 U.S. 363 (1943)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A federal wage check reaches a forger instead of its payee, and the government’s later reimbursement suit turns on which law governs and whether delayed notice actually caused the collecting parties a loss.",
+  "actors": [
+    {
+      "name": "Clair A. Barner",
+      "role": "Works Progress Administration worker whose $24.20 check was intercepted."
+    },
+    {
+      "name": "J.C. Penney",
+      "role": "Store that accepted the forged endorsement and later intervened as a defendant."
+    },
+    {
+      "name": "Clearfield Trust Company",
+      "role": "Collecting bank that guaranteed earlier endorsements and obtained federal payment."
+    },
+    {
+      "name": "United States",
+      "role": "Issuer and payer suing for reimbursement on the endorsement guarantee."
+    }
+  ],
+  "proceedings": [
+    "The United States sued Clearfield in 1939; Penney intervened.",
+    "On stipulated facts, the district court dismissed under Pennsylvania law for delayed notice; the Third Circuit reversed.",
+    "The Supreme Court affirmed the Third Circuit on March 1, 1943."
+  ],
+  "limits": "No separate damages calculation was made by the Supreme Court. The governing rule permits a proved harmful-delay defense but not presumed damage; the Court reserved whether the express guarantee added to the presentment warranty.",
+  "briefSha256": "c0ed2bd241f3f495a42454299929838109eed374778ad388d41d91193e53b2a9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-054"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A relief-program payment is cashed on a forged endorsement",
+      "cue": "How did the check travel from the government to Clearfield?",
+      "paragraphs": [
+        "On April 28, 1936, the United States issued a $24.20 check for Clair A. Barner’s work on a Works Progress Administration project and mailed it to his Pennsylvania address. Barner never received it. An unidentified person obtained it, posed as Barner at a J.C. Penney store, signed Barner’s name, and exchanged it for cash and merchandise.",
+        "Penney endorsed the check to Clearfield Trust. The bank accepted it for collection, guaranteed prior endorsements, and collected federal payment through the Federal Reserve Bank of Philadelphia. Neither Penney nor Clearfield knew or suspected forgery, and Barner received none of the proceeds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 U.S. at 364–365; Parties and Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Nonreceipt, confirmation, bank notice, and repayment demand occur at different times",
+      "cue": "Why did that sequence become legally significant?",
+      "paragraphs": [
+        "By May 10, Barner had reported nonreceipt to project officials, and information reached other government agents. He executed a forgery affidavit November 30. Clearfield received notice January 12, 1937, then a reimbursement demand August 31. Each was a distinct step; knowledge that the check was missing did not occur simultaneously with the later demand.",
+        "The United States sued Clearfield in 1939 on the express endorsement guarantee. Federal jurisdiction arose because the United States brought the suit, not diversity. Penney intervened, and the district court decided on pleadings and stipulated facts. Applying Pennsylvania law, it dismissed for unreasonable delay in notice. The Third Circuit reversed, and the Supreme Court granted review amid circuit disagreement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 U.S. at 365–366; Material Facts; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Douglas identifies a federal source before choosing a uniform rule",
+      "cue": "Why did Erie not require applying Pennsylvania commercial law?",
+      "paragraphs": [
+        "Justice Douglas began with the federal character of paying for work under a federal relief program. Issuance of the check rested on constitutional and statutory powers, not Pennsylvania law, and the related governmental rights and duties arose from those same sources. Erie’s requirement to follow state law for state-governed matters therefore did not decide this transaction.",
+        "No applicable congressional rule supplied the answer, so federal courts could formulate one. That did not automatically exclude borrowing state rules: federal law sometimes adopted state content. Here enormous numbers of federal checks circulated across state boundaries between issuance and payment. Different treatment of identical instruments according to location would create uncertainty, making national uniformity appropriate.",
+        "Earlier commercial decisions could inform the choice without reviving Swift’s general federal common law. The power to select a rule came from this independently federal transaction, not a free-ranging judicial authority over all commercial disputes or every case involving the government."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 U.S. at 366–368; Federal-law and uniformity reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The right to recover exists at payment, subject to proved damage from delay",
+      "cue": "Why was a late demand not automatically fatal?",
+      "paragraphs": [
+        "A presenter warranted entitlement to payment. The forged payee endorsement defeated that entitlement, so the government’s recovery claim arose when it paid, without timely notice or demand as a condition to the claim’s existence. Forgery of a payee endorsement differed from a forged drawer signature: the drawee was not charged with knowing every payee’s signature.",
+        "Delay could nevertheless support a defense if Clearfield showed resulting damage after the government learned of forgery. Government status and the size of its operations did not excuse an established harmful delay. The rule thus imposed ordinary commercial responsibility while requiring causation rather than presuming harm.",
+        "The initial loss arose upon acceptance of the forgery. To shift that loss, defendants had to show the later delay made it unrecoverable or otherwise caused disadvantage. The Court left open whether the express guarantee created anything beyond the warranty implied on presentment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 U.S. at 368–369 & n.3; Rule and reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The stipulated record shows lost recollection but not a lost recovery",
+      "cue": "What did the appellate affirmance preserve?",
+      "paragraphs": [
+        "Penney’s employees no longer remembered the transaction. The stipulation said employees often could locate customers when checks were promptly returned, but it did not establish that this forger could have been identified or would have repaid. Clearfield’s recourse against Penney apparently remained available. A general possibility of better memory did not prove the required causal loss.",
+        "After February 5 argument, the Supreme Court affirmed the Third Circuit on March 1, 1943. The affirmance sustained reversal of the government’s dismissal, not a judgment against the United States. The stipulated record supplied no delay defense under the federal rule, and the Court made no independent damages assessment. No separate opinion appeared; Justices Murphy and Rutledge did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "318 U.S. at 369–370; Judgment; Separate Opinions"
+        }
+      ]
+    }
+  ]
+}

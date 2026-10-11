@@ -1,0 +1,122 @@
+{
+  "id": "cp-sibbach",
+  "briefId": "CP-ATLAS-SIBBACH",
+  "title": "Sibbach v. Wilson & Co., Inc.",
+  "course": "Civil Procedure",
+  "citation": "312 U.S. 1 (1941)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A personal-injury plaintiff refuses an ordered medical examination; the Court upholds the examination rules while reversing the imprisonment they expressly did not authorize.",
+  "actors": [
+    {
+      "name": "Sibbach",
+      "role": "Plaintiff seeking damages for bodily injuries suffered in Indiana."
+    },
+    {
+      "name": "Wilson & Co.",
+      "role": "Defendant requesting an examination of the claimed injuries."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of Illinois ordered examination, then contempt commitment after refusal.",
+    "The Seventh Circuit upheld Rule 35 and affirmed.",
+    "The Supreme Court upheld Rules 35 and 37 but reversed and remanded for unauthorized contempt punishment."
+  ],
+  "limits": "The rule-validity question divided the Court 5–4. Valid examination authority did not validate imprisonment. The analysis concerns the historical Rules and 1934 enabling statute.",
+  "briefSha256": "37f7ab6b06f8aaf4a7007938fd921cf7047f98163d258aa6fd9534d8523fa7ac",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SIBBACH"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The injury suit raises a request to examine the claimed condition",
+      "cue": "How did an examination order become confinement?",
+      "paragraphs": [
+        "Sibbach sued Wilson in the Northern District of Illinois for bodily injury suffered in Indiana. Wilson denied the allegations and requested medical examination of their nature and extent. The court appointed a physician and ordered examination. Sibbach refused, challenged the order as void, and was directed to show cause on contempt.",
+        "Indiana courts permitted such orders; Illinois courts did not, and neither had a controlling statute. The district court held Sibbach in contempt and ordered commitment until compliance or other lawful discharge. The Seventh Circuit upheld Rule 35 and affirmed. The Supreme Court accepted the important rulemaking question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 312 U.S. 6–7 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The enabling statute and Rules provide authority with different limits",
+      "cue": "What conditions and consequences did the actual texts allow?",
+      "paragraphs": [
+        "The 1934 statute authorized federal civil pleading, practice, and procedure rules without abridging, enlarging, or modifying substantive rights. It also protected jury rights during law-equity merger and required submission to Congress before effect.",
+        "Then-Rule 35 allowed examination when physical or mental condition was in controversy, upon motion, good cause, notice, and specified examination details. Rule 37 supplied litigation consequences for refusal: established facts, evidence restrictions, struck pleadings, stay, dismissal, or default. Its arrest provision expressly excepted refusal of a physical or mental examination.",
+        "Justice Roberts’s majority asked whether the rules genuinely regulated procedure—the process for enforcing substantive rights and administering remedies. A substantial interest affected by a procedural technique did not alone turn it into alteration of substantive law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statute and rules; Holding; 312 U.S. 7–9, 13–16"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Roberts rejects importance alone as the boundary of delegated power",
+      "cue": "Why did older examination cases and state differences not invalidate the Rules?",
+      "paragraphs": [
+        "Congress could regulate federal practice and delegate within constitutional and statutory bounds, without abolishing substantive state rights or changing statutory jurisdiction by rule. Sibbach acknowledged the rules were procedural but argued important bodily interests still placed them beyond the delegation.",
+        "The majority found that distinction unworkable because many procedures affect serious interests. If examination was procedural, a valid federal rule displaced old conformity to Illinois practice. If a substantive exemption governed, the majority said the Rules of Decision Act pointed to Indiana, which allowed examination.",
+        "Botsford had rejected an examination without authority, not denied legislation could authorize it. Stetson permitted examination under a state statute; its substantive-procedural distinction did not matter because injury and trial occurred in the same state. Neither compelled rejection of a valid later federal rule.",
+        "Examination gathered facts for existing negligence rights. Properly read, it did not permit imprisonment. Congress received drafts and advisory materials identifying prior practice, and committees discussed Rule 35. Failure to prevent effectiveness suggested at least no perceived legislative-policy violation, supporting rather than replacing the majority’s authority analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; 312 U.S. 9–16 & nn.6–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Frankfurter demands a clearer legislative choice for bodily intrusion",
+      "cue": "Why did he consider litigation sanctions coercive too?",
+      "paragraphs": [
+        "Frankfurter, joined in his views by Black, Douglas, and Murphy, rejected abstract substance-procedure classification as sufficient. Botsford reflected deeply rooted bodily immunity. It was not constitutionally immutable, but changing it needed clear legislation rather than a broad procedural delegation.",
+        "Dismissal or other litigation loss could coerce examination even without jail, potentially blocking enforcement of rights. Bodily intrusion differed from documents and routine pretrial management. Congressional inaction on automatically effective rules was not realistic evidence of express approval. Because Rule 35 also governed federal-right litigation, his concern extended beyond diversity suits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Frankfurter dissent; 312 U.S. 16–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court notices an unassigned contempt error and reverses",
+      "cue": "What result follows despite the five-Justice validity holding?",
+      "paragraphs": [
+        "Sibbach had not separately assigned contempt punishment as error on either appeal, but the Court treated it as fundamental plain error. Rule 37’s exception was explicit: litigation consequences were available, contempt imprisonment for this refusal was not.",
+        "On January 13, 1941, the Court reversed and remanded for further district-court proceedings. It upheld Rules 35 and 37 within delegated rulemaking power by five votes to four while rejecting the commitment order. Describing only the successful defense of Rule 35 misses why the judgment nevertheless went back."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contempt error; Judgment; 312 U.S. 16 & n.20"
+        }
+      ]
+    }
+  ]
+}

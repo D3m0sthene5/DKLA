@@ -1,0 +1,132 @@
+{
+  "id": "cp-tolan",
+  "briefId": "CP-ATLAS-TOLAN",
+  "title": "Tolan v. Cotton",
+  "course": "Civil Procedure",
+  "citation": "572 U.S. 650 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A mistaken stolen-car check escalates into a shooting at a family’s home. The Supreme Court corrects how disputed evidence was treated on summary judgment while leaving the officer’s ultimate liability unresolved.",
+  "actors": [
+    {
+      "name": "Robert Tolan",
+      "role": "Resident shot by Cotton; civil plaintiff opposing qualified immunity."
+    },
+    {
+      "name": "Anthony Cooper and Tolan’s parents",
+      "role": "Cousin and parents present during the encounter and co-plaintiffs."
+    },
+    {
+      "name": "Officer John Edwards",
+      "role": "Officer whose erroneous plate entry produced a stolen-vehicle match."
+    },
+    {
+      "name": "Sergeant Jeffrey Cotton",
+      "role": "Responding officer who shot Tolan and sought summary judgment."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of Texas granted Cotton summary judgment on the absence of a Fourth Amendment violation.",
+    "The Fifth Circuit affirmed on the absence of a clearly established right and denied en banc rehearing.",
+    "The Supreme Court summarily vacated and remanded on May 5, 2014; all nine agreed on the judgment, with Alito and Scalia separately concurring."
+  ],
+  "limits": "This account preserves allegations, testimony and the plaintiff-favorable summary-judgment lens without making merits findings. It follows the canonical historical brief without a new audit. Equal-protection claims and the mother’s excessive-force claim were outside review. The Supreme Court did not decide liability, clearly established law, damages or the additional prong-allocation argument.",
+  "briefSha256": "7f0cfbabd20fd39961e436bdc437afd58094205b6fcbf3edb13138f625b9affb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-TOLAN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A wrong plate character brings officers to the Tolan home",
+      "cue": "What was known before Cotton arrived?",
+      "paragraphs": [
+        "Around 2 a.m. on December 31, 2008, Officer John Edwards saw Robert Tolan and cousin Anthony Cooper park a black Nissan sport utility vehicle outside the Bellaire, Texas home Tolan shared with his parents. Edwards entered one plate character incorrectly. The mistaken number matched a stolen vehicle of the same make and color and automatically alerted other units. The actual vehicle belonged to the family.",
+        "Edwards drew his pistol, accused the men of theft and ordered them down. Tolan lay facedown on the porch. His parents emerged in pajamas. His father identified their home, son and nephew; his mother explained ownership. After Edwards requested help, Sergeant Jeffrey Cotton arrived, drew his pistol and was told the men had exited a stolen vehicle. Cotton directed the mother toward the garage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and competing accounts; 572 U.S. 651–653"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The encounter with Tolan’s mother and Tolan’s response are disputed",
+      "cue": "Which account had to be credited for the motion?",
+      "paragraphs": [
+        "The mother, Cooper and Tolan said Cotton pushed or slammed her into the garage and she fell. Testimony and photographs supported bruising lasting days. Cotton described her raising her arm and objecting during escort and believed he had not caused bruises.",
+        "Tolan said he rose to his knees after seeing the push; the officers said he stood. From about fifteen to twenty feet away he used profanity to tell Cotton to take his hands off his mother. Cotton fired three shots. One entered Tolan’s chest, collapsed his right lung and pierced his liver. He survived with lasting pain and interruption of a developing baseball career. Tolan and his mother said no verbal warning preceded the shots.",
+        "These accounts were evidence, not final findings. For Cotton’s summary-judgment motion, competent evidence and reasonable inferences had to be viewed favorably to Tolan. A trial factfinder could ultimately assess the competing accounts differently."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and competing accounts; 572 U.S. 653–654"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The civil courts grant immunity on different prongs",
+      "cue": "What did the Supreme Court agree to review?",
+      "paragraphs": [
+        "In May 2009 Tolan, Cooper and the parents sued under the federal civil-rights statute, 42 U.S.C. § 1983, in the Southern District of Texas. This review concerned Cotton’s alleged Fourth Amendment excessive force against Tolan. Dismissed equal-protection theories and the mother’s force claim were not before the Court. Cotton had also been indicted and acquitted of aggravated assault by a public servant; criminal-trial testimony entered the civil record, but acquittal did not resolve civil summary judgment.",
+        "After discovery Cotton sought qualified immunity. The district court found reasonable force and no constitutional violation. The Fifth Circuit assumed a possible violation but found no clearly established right, relying on a dim porch, an agitated mother, threatening words and Tolan’s movement. En banc rehearing failed with three judges favoring it.",
+        "Tolan challenged the treatment of disputed facts and separately argued that the appellate court placed analysis of Cotton’s beliefs under the wrong immunity prong. The Supreme Court resolved only the factual-standard error and expressly left the second argument undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; 572 U.S. 653 n.1, 654–655 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The legal immunity inquiry requires the proper factual setting",
+      "cue": "How did four errors favor the officer rather than the nonmovant?",
+      "paragraphs": [
+        "Qualified immunity asks whether plaintiff-favorable facts show a federal-right violation and whether that right was clearly established, giving a reasonable official fair warning. Courts can choose which prong comes first. In excessive force, the first inquiry balances Fourth Amendment intrusion against governmental justification. Neither prong permits weighing genuinely disputed facts on summary judgment. Rule 56 asks whether a material dispute exists, not whose testimony is true.",
+        "The Fifth Circuit credited Cotton’s dark-porch description while overlooking the father’s account, Tolan’s floodlight testimony and Cotton’s acknowledgment of motion lights. It accepted the characterization of the mother as agitated despite her denial; repeating accurate ownership information did not conclusively prove her manner.",
+        "Although Tolan’s words were agreed, their delivery and meaning were disputed. He denied screaming, and a jury could hear a plea to stop harming his mother rather than a threat of injury. Finally, officers’ standing or charging description conflicted with Tolan’s testimony that he stayed on his knees, was not moving anywhere and did not jump up, corroborated by his mother.",
+        "Specific factual context mattered to clearly established law, but the court could not create that context by resolving these central disputes against Tolan. Together the errors showed a clear misapprehension of summary-judgment requirements, not grounds for a new substantive excessive-force rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and reasoning; 572 U.S. 655–660"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Vacatur requires reconsideration, not a merits judgment for Tolan",
+      "cue": "Why did Alito agree with the result while questioning Supreme Court intervention?",
+      "paragraphs": [
+        "On May 5, 2014, the Court granted certiorari, summarily vacated the Fifth Circuit judgment and remanded. It also allowed the NAACP Legal Defense and Educational Fund’s amicus filing. The Fifth Circuit had to reconsider clearly established law using properly credited evidence and favorable reasonable inferences. Other facts could remain relevant to reasonableness; not every factual disagreement necessarily defeats immunity.",
+        "All nine Justices agreed on the judgment. Justice Alito, joined by Justice Scalia, concurred separately. He agreed genuine material disputes made summary judgment inappropriate but did not necessarily accept every characterization of the record. His concern was reviewing an ordinary sufficiency-of-evidence dispute when the Fifth Circuit had stated the correct standard. Such intervention could change customary certiorari practice under Rule 10’s caution about factual mistakes or misapplication of a correct rule. He did not dissent from the grant.",
+        "The Court awarded no damages and decided neither that Cotton violated the Constitution nor that clearly established law ultimately defeated his defense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition; Alito concurrence; 572 U.S. 660–662"
+        }
+      ]
+    }
+  ]
+}

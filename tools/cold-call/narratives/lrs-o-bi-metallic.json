@@ -1,0 +1,111 @@
+{
+  "id": "lrs-o-bi-metallic",
+  "briefId": "LRS-CB-0334",
+  "title": "Bi-Metallic Investment Co. v. State Board of Equalization of Colorado",
+  "course": "Legislation and the Regulatory State",
+  "citation": "239 U.S. 441 (1915)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Denver property owner seeks a personal hearing before a citywide valuation increase, and the Court distinguishes general tax policy from a parcel-specific allocation of liability.",
+  "actors": [
+    {
+      "name": "Bi-Metallic Investment Company",
+      "role": "Denver real-estate owner seeking to enjoin the valuation order."
+    },
+    {
+      "name": "Colorado State Board of Equalization and Tax Commission",
+      "role": "State bodies ordering a uniform forty-percent increase."
+    },
+    {
+      "name": "Pitcher, Denver assessor",
+      "role": "Named defendant asked to implement the order but aligned with the owner in Supreme Court briefing."
+    }
+  ],
+  "proceedings": [
+    "The Colorado Supreme Court sustained the order and directed dismissal of the injunction action.",
+    "The United States Supreme Court affirmed on December 20, 1915."
+  ],
+  "limits": "The Court assumed the strongest hearing objection and availability of ordinary parcel protest and appeal. It did not determine any parcel’s correct value, raise the nominal tax rate by forty percent, or interpret the later Administrative Procedure Act.",
+  "briefSha256": "454e01e910154c353a08e46e85688a6270ee5d36163a81aba420bd2d19350aad",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0334"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "State tax authorities order a general Denver valuation increase",
+      "cue": "What hearing did the property owner demand?",
+      "paragraphs": [
+        "The Colorado State Board of Equalization and Tax Commission ordered assessed valuation of all Denver taxable property increased forty percent. Bi-Metallic Investment Company owned Denver real estate and sought to prevent both state bodies and local assessor Pitcher from implementing the order. Although a named defendant, Pitcher filed on the owner’s side in the Supreme Court.",
+        "Bi-Metallic claimed no opportunity to be heard before the increase and argued that ensuing taxation would deprive it of property without Fourteenth Amendment due process. The order did not single out its parcel or determine its special liability.",
+        "The Colorado Supreme Court sustained the order and directed dismissal. Bi-Metallic obtained review by writ of error. Arguments about unexpected construction of local law or adequate legal remedies barring equity were state-law questions. Since the state court reached the merits, the Supreme Court did not manufacture another state ground to avoid the preserved federal hearing issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "239 U.S. at 443–444; Parties; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Holmes isolates a common valuation principle from individual mistakes",
+      "cue": "Which assumptions framed the constitutional question?",
+      "paragraphs": [
+        "Justice Holmes assumed for decision that neither Bi-Metallic, the assessor, nor a city-and-county representative had an opportunity beyond what the legally fixed board meeting time afforded. That strongest version of the objection was an assumption, not a detailed finding that nobody knew of the meeting.",
+        "The Court acknowledged possible injustice if a parcel already stood at full value while others were undervalued. It nevertheless assumed owners retained the ordinary protest-and-appeal route to correct individual departures from the prevailing rate. With those deviations separately addressable, owners stood alike regarding the general increase.",
+        "The issue was therefore whether each owner or the locality’s representative needed an individual voice before deciding Denver’s common valuation level relative to the rest of Colorado. The Court did not decide whether this particular property had been undervalued or every resulting bill was correct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "239 U.S. at 444–445; Material Facts; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court locates protection for general policy in representative government",
+      "cue": "Why did administrative decisionmaking not create a universal hearing right?",
+      "paragraphs": [
+        "General rules often substantially affect property without allowing every affected person to argue before adoption. Requiring individual hearings for all would transform governing decisions into an assembly of everyone interested, which due process did not demand. The nature of the shared determination, rather than the size of one owner’s loss, mattered.",
+        "Holmes identified immediate or indirect public control over officials as the protection suited to this setting. That explanation did not require proof that each person elected every official or won the policy debate.",
+        "A general increase in the tax rate, or an equivalent rule adopted through a state constitution, would not give every owner a personal right to be heard beforehand. Assuming proper state machinery, assigning the common decision to administrative tax bodies did not create a different constitutional demand. The actual order increased valuation, however; a nominal tax-rate increase was only an analogy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "239 U.S. at 445–446; Reasoning; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Londoner’s individualized assessment remains a different kind of decision",
+      "cue": "What boundary does the comparison establish?",
+      "paragraphs": [
+        "In Londoner, officials allocated a particular paving project’s cost among a relatively small group based on benefits to particular parcels. Individual argument and proof could affect that exceptional allocation. Bi-Metallic instead challenged the common basis of every assessment in the locality. Holmes expressly preserved Londoner rather than treating all taxation or all board action as hearing-free.",
+        "The distinction combined the group’s breadth with the absence of individual grounds in the challenged decision; it supplied no numerical cutoff. The assumed ability to protest a particular valuation error also mattered. The Court did not approve permanent removal of every route to challenge such a mistake.",
+        "On December 20, 1915, the Court affirmed, leaving dismissal of the injunction suit and the general order in place. It ordered no different percentage or hearing and determined no parcel’s proper value. No separate opinion was reported. The later casebook comparison with adjudication and rulemaking is useful, but this constitutional decision did not resolve procedures under the subsequently enacted federal Administrative Procedure Act or other statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "239 U.S. at 444–446; Judgment; Separate Opinions; Notes"
+        }
+      ]
+    }
+  ]
+}

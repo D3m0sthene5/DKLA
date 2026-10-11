@@ -1,0 +1,180 @@
+{
+  "id": "lrs-o-nova-scotia",
+  "briefId": "LRS-MAX-NOVASCOTIA",
+  "title": "United States v. Nova Scotia Food Products Corp.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "568 F.2d 240 (2d Cir. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "FDA prescribed fish-processing parameters to prevent botulism, but whitefish producers warned the rule would destroy their product. An enforcement appeal upheld regulatory authority while finding the scientific disclosure and explanation inadequate.",
+  "actors": [
+    {
+      "name": "Food and Drug Administration",
+      "role": "FDA; proposed and enforced time-temperature-salinity requirements for smoked fish."
+    },
+    {
+      "name": "Nova Scotia Food Products Corp. and two officers",
+      "role": "Whitefish processor and individual enforcement defendants appealing an injunction."
+    },
+    {
+      "name": "National Fisheries Institute",
+      "role": "Industry association that proposed an interim alternative and intervened in the enforcement action."
+    },
+    {
+      "name": "Interior Department’s Bureau of Commercial Fisheries",
+      "role": "Commenter advocating species-specific analysis and lower-temperature nitrite-and-salt alternatives."
+    },
+    {
+      "name": "United States",
+      "role": "Plaintiff seeking an injunction enforcing the FDA rule."
+    }
+  ],
+  "proceedings": [
+    "FDA proposed regulations in October 1969 and adopted them in November 1970.",
+    "After inspections and warnings, United States filed enforcement suit in April 1976; district court upheld the regulation and enjoined noncompliance.",
+    "Second Circuit on December 15, 1977 reversed the injunction and directed dismissal, holding the rule invalid as applied to non-vacuum-packed hot-smoked whitefish."
+  ],
+  "limits": "The court did not hold economic infeasibility an absolute veto, retry the science, remove FDA’s statutory authority, or exempt all smoked fish. Its enforcement posture required dismissal rather than a direct-review remand to the agency.",
+  "briefSha256": "97893b839e6e5eca98660542dcfbcfbb9a6950f50de8f37d5e9fe38e0c15f1a5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-NOVASCOTIA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Botulism research leads to uniform processing requirements",
+      "cue": "Which controls did FDA propose and eventually adopt?",
+      "paragraphs": [
+        "Botulism incidents in 1960 and 1963 prompted research into Clostridium botulinum Type E spores, which could occur naturally in fish and spread during preparation. The Food and Drug Administration (FDA) sought to prevent spore outgrowth and toxin production. Existing industry guidance was advisory, not enforceable substantive law.",
+        "Using informal notice and comment, the Commissioner proposed rules in October 1969 and adopted them in November 1970. The proposal required each fish brined to 3.5 percent water-phase salt to reach at least 180°F for thirty minutes. The final rule also permitted 150°F for thirty minutes with 5 percent water-phase salt.",
+        "The National Fisheries Institute had suggested that lower-temperature option as an interim measure while species-specific parameters were developed; FDA adopted it permanently. Because every fish had to reach the minimum, an entire batch could require still higher heating."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and rulemaking; 568 F.2d at 243–45"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Whitefish processors and another federal agency challenge feasibility",
+      "cue": "What important alternatives did the final rule leave unanswered?",
+      "paragraphs": [
+        "Nova Scotia Food Products received frozen or iced whitefish across state lines and brined, smoked, and cooked it for sale. It and its trade association warned that the proposed temperatures would ruin marketable whitefish and other products.",
+        "The Interior Department’s Bureau of Commercial Fisheries questioned uniform commercial feasibility and recommended lower temperatures with appropriate nitrite and salt. A separate regulation already allowed that combination for chub. Commenters requested different treatment where fish species required it.",
+        "FDA acknowledged that adequate parameters did not exist for every species but called its chosen requirements the safest known and urged immediate action. It did not meaningfully answer the alternative-preservative or commercial-feasibility objections. The record associated reported whitefish botulism with vacuum packing, which the industry had abandoned, and identified no case involving Nova Scotia’s product. Those facts heightened the need for explanation without proving future safety or eliminating the need for controls."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Comments and explanation; 568 F.2d at 243–45, 250–53"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Enforcement brings the regulation before a court",
+      "cue": "What did the processor admit, and what did it challenge?",
+      "paragraphs": [
+        "FDA inspections showed Nova Scotia failed the required time-temperature-salinity parameters. The company conceded noncompliance, arguing the requirements prevented a marketable product. No substantial claim involved other materially insanitary plant conditions.",
+        "After inspections and warnings, the United States sued in April 1976 for an injunction. The district court sustained the regulation and granted relief. Nova Scotia, two officers, and the intervening National Fisheries Institute appealed on statutory authority, undisclosed science, an inadequate record, and deficient explanation. Additional interpretive-rule and enforcement objections noted in the report did not become independent grounds of decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and enforcement posture; 568 F.2d at 242–45 & nn.1, 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gurfein sustains preventive-processing authority",
+      "cue": "Why was the statute not limited to dirt introduced inside the plant?",
+      "paragraphs": [
+        "Judge Gurfein, writing for Judges Waterman and Blumenfeld as well, first addressed 21 U.S.C. § 342(a)(4), which treats food prepared, packed, or held under insanitary conditions that may make it harmful as adulterated, together with § 371(a)’s rulemaking authority. Nova Scotia argued those provisions concerned dirty conditions and contamination introduced during processing, not destruction of organisms already present.",
+        "The court acknowledged textual force but read the language with the public-health purpose. Inadequate processing could leave dangerous spores alive. Comparable sanitation powers supported pork-temperature requirements, and the narrow interpretation threatened raw-material and pasteurization rules. Authority was fairly inferable from statutory purpose and language, not simply from an official’s desire to take initiative.",
+        "Some enumerated provisions, including emergency microorganism permit controls, required formal rulemaking, but this adulteration provision did not. The court required adherence to informal rulemaking’s minimum safeguards instead of converting the process into formal proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory authority; 568 F.2d at 245–48 & n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court reviews the agency record instead of retrying microbiology",
+      "cue": "Why did an inadequate record not open the door to new scientific proof?",
+      "paragraphs": [
+        "The Administrative Procedure Act (APA) § 706 required review of the whole record even under arbitrary-and-capricious review. Formal findings were unnecessary, but meaningful review required the material considered.",
+        "FDA had neither made nor certified a contemporaneous record. In enforcement discovery it reconstructed materials from files and participants’ memories. Exhibit D contained comments and scientific sources FDA said it relied on but had never disclosed to commenters. The court did not categorically prohibit later compilation of historical records; the concern was treatment and disclosure of the evidence and issues.",
+        "Nova Scotia also offered new science attacking study methods, including extremely high experimental spore concentrations. The district court properly excluded that material. Independent factfinding can sometimes address enforcement issues not previously before an agency, but these scientific issues had fairly been presented in rulemaking. Judicial review therefore examined FDA’s actual grounds instead of choosing optimal parameters through a new scientific trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Record scope; 568 F.2d at 248–50 & nn.11–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Undisclosed central studies prevent meaningful comment",
+      "cue": "What limits accompanied the disclosure requirement?",
+      "paragraphs": [
+        "Without the research underlying precise processing numbers, commenters could not test methods, collection, extrapolation, or interpretation. Nondisclosure impaired relevant comment and risked omission of important factors. Agencies may use expertise, but there was no justification here for hiding readily available research about parameters on which FDA lacked special expertise.",
+        "The court distinguished a case where interested parties themselves supplied the relevant information. Trade secrets or national security might justify withholding in another setting; neither applied. Exposing these studies would require a meaningful opportunity to comment, not an endless series of responses and counterresponses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disclosure; 568 F.2d at 250–52 & n.15"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "A concise explanation must still confront central objections",
+      "cue": "What missing choice about feasibility mattered?",
+      "paragraphs": [
+        "APA § 553(c)’s concise general statement had to explain major policy questions and agency responses. FDA need not address every fact or opinion, but species differences, nitrite-and-salt alternatives, and destruction of commercial whitefish went to the rule’s central justification.",
+        "Commercial infeasibility did not automatically defeat public-health regulation; overwhelming public interests could prevail despite economic injury. FDA needed to reveal whether it regarded the controls as feasible or deliberately chose stronger protection despite infeasibility. It explained neither. The deficiency was absent analysis, not a judicial rule preferring commercial survival to safety."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Explanation and feasibility; 568 F.2d at 250–53"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The enforcement injunction falls while rulemaking authority remains",
+      "cue": "Why was dismissal the actual remedy?",
+      "paragraphs": [
+        "On December 15, 1977, the unanimous Second Circuit held the regulation invalid as affecting non-vacuum-packed hot-smoked whitefish, reversed the injunction, and directed dismissal of the complaint. No separate writing appeared.",
+        "Because the appeal arose from enforcement, the court said it could not directly remand a review petition for further agency comments. FDA retained power to reconsider standards through proper procedures; the decision neither invalidated every sanitation regulation nor excluded all smoked fish from future regulation. No later revised rule or current food-safety conclusion is supplied by this historical account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and limits; 568 F.2d at 253"
+        }
+      ]
+    }
+  ]
+}

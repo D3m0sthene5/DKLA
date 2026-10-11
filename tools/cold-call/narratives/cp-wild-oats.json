@@ -1,0 +1,126 @@
+{
+  "id": "cp-wild-oats",
+  "briefId": "CP-ATLAS-WILD-OATS",
+  "title": "Lively v. Wild Oats Markets, Inc.",
+  "course": "Civil Procedure",
+  "citation": "456 F.3d 933 (9th Cir. 2006)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A diverse local defendant removes a California injury action, the plaintiff remains silent, and a judge later tries to remand on the forum-defendant ground.",
+  "actors": [
+    {
+      "name": "Emma C. Lively",
+      "role": "New York plaintiff alleging a California store slip and fall."
+    },
+    {
+      "name": "Wild Oats Markets",
+      "role": "Diverse store defendant whose California citizenship was uncontested on appeal."
+    },
+    {
+      "name": "Federal District Court",
+      "role": "Court ordering remand on its own eight months after removal."
+    }
+  ],
+  "proceedings": [
+    "Wild Oats removed; Lively made no timely remand motion.",
+    "The District Court remanded sua sponte after questioning the defendant’s principal place of business.",
+    "The Ninth Circuit reviewed the unauthorized remand, vacated it, and returned the case for further proceedings."
+  ],
+  "limits": "The decision did not decide negligence, actual principal-place-of-business facts, snap removal, or today’s circuit alignment. Its formal disposition was vacatur and remand, not the textbook’s shorthand reversal.",
+  "briefSha256": "78b5f2eee243077f5460cba9992f1c3cac095562033188e4d4477745955eb5e7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-WILD-OATS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A California store accident produces a removed diversity suit",
+      "cue": "What citizenship facts were disputed initially?",
+      "paragraphs": [
+        "Lively filed a state personal-injury action on September 26, 2003, alleging a slip and fall at a California Wild Oats store. Wild Oats removed January 8, 2004, asserting Delaware incorporation, a Colorado principal place of business, New York plaintiff citizenship, and more than $75,000 at stake. Lively did not object.",
+        "About eight months later, after discovery and a defense summary-judgment motion, the District Court questioned whether Wild Oats was actually principally based in California. Wild Oats answered that even California citizenship preserved diversity with a New Yorker. It would trigger the forum-defendant restriction on removal, but Lively’s thirty-day objection period had expired.",
+        "The judge treated that restriction as jurisdictional and remanded under § 1447(c). Wild Oats did not contest California citizenship on appeal. The appellate question was the consequence of local-defendant removal in an otherwise diverse case, not resolution of its headquarters or the accident."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Local defendant chronology; court PDF 3–6,9"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Ninth Circuit separates original jurisdiction from removal eligibility",
+      "cue": "Why could this citizenship defect be waived?",
+      "paragraphs": [
+        "The then-§ 1441(b) barred diversity removal by a properly joined and served forum citizen. That restriction differed from § 1332’s original diversity requirements. A California defendant and New York plaintiff could remain diverse despite improper California removal.",
+        "Paez’s panel used procedural and nonjurisdictional interchangeably for this classification, while acknowledging that citizenship was more substantive than ordinary filing mechanics. The statute’s restriction remained enforceable on a timely motion. Spencer, involving a local party added only after removal, had not previously resolved this question because no initial violation existed there.",
+        "The panel traced § 1447(c) from improvident removal without jurisdiction, through the 1988 deadline for defects in removal procedure, to the 1996 deadline for every defect other than subject-matter jurisdiction. The change addressed restrictions that did not fit narrow procedural mechanics but left original jurisdiction intact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jurisdiction and restriction; Statutory history; court PDF 3–4 & nn.2–4,9–11 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate-review bar does not protect every order citing § 1447(c)",
+      "cue": "How could the panel examine remand power?",
+      "paragraphs": [
+        "Lively argued § 1447(d) barred review because the District Court labeled its order jurisdictional. Under Thermtron and later cases, subsections (c) and (d) operated together: the bar protected remands within statutory authority, not every order invoking the section.",
+        "Nonjurisdictional defects required a motion within thirty days. Actual subject-matter absence required remand whenever discovered before final judgment. Classification therefore determined both district-court authority and appellate review. The panel could determine its own jurisdiction and the intertwined issue; § 1291 supplied affirmative jurisdiction because remand ended the federal proceeding despite no injury judgment. This did not authorize appeals from every allegedly erroneous jurisdictional remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reviewability; court PDF 6–8 & nn.5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Policy and precedent support the thirty-day limit",
+      "cue": "Why was there no special pretrial exception?",
+      "paragraphs": [
+        "Diversity removal guards against local prejudice to outsiders. A local defendant ordinarily needs no such protection, so the forum-defendant rule lets plaintiffs choose prompt return or accept federal court by silence. Mandatory sua sponte remand after waiver could defeat both parties’ preference and the plaintiff’s choice.",
+        "Eight of nine other circuits then addressing the issue agreed on nonjurisdictionality; the panel rejected the Eighth Circuit’s Hurt approach. That was the reported 2006 alignment, not a current survey. Not every removal restriction destroyed original jurisdiction.",
+        "The District Court had read Grubbs as curing the problem only after a merits judgment. The panel read it as distinguishing a defective route into federal court from original judicial power. Its own cases applied that reasoning to summary judgment too. A waivable defect did not remain jurisdictional until trial, and distinguishing complete silence from late objection did not repair Hurt’s premise: true jurisdictional absence demanded attention either way."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Policy; Other circuits and Grubbs; court PDF 11–15 & nn.9–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The order is vacated and the injury claim continues below",
+      "cue": "What did the appellate decision resolve?",
+      "paragraphs": [
+        "Lively had not timely invoked the restriction. The District Court therefore exceeded § 1447(c) by remanding on its own, allowing appellate review of that unauthorized order. The unanimous panel of Paez, Hawkins, and visiting District Judge Wake vacated and remanded for further proceedings.",
+        "The ruling preserved the distinction between diversity jurisdiction and a waivable removal defect. It decided no negligence or damages issue, and no separate opinions were filed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Result; court PDF 1–4,15"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "dorton",
+  "briefId": "CTR-032",
+  "title": "Dorton v. Collins & Aikman Corp.",
+  "course": "Contracts",
+  "citation": "453 F.2d 1161 (6th Cir. 1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Repeated carpet orders and seller acknowledgments establish sales, but a remand is needed to decide whether their arbitration clause became a term.",
+  "actors": [
+    {
+      "name": "Frank E. Dorton and partners / The Carpet Mart",
+      "role": "Tennessee carpet retailers alleging misrepresented fiber content."
+    },
+    {
+      "name": "Collins & Aikman Corporation",
+      "role": "Carpet seller seeking a litigation stay for New York arbitration."
+    }
+  ],
+  "proceedings": [
+    "The buyers sued in Tennessee state court; the seller removed under diversity and requested an FAA § 3 stay.",
+    "The district court denied the stay using UCC § 2-207(3).",
+    "The Sixth Circuit remanded for formation and material-alteration findings without finally ordering or rejecting arbitration."
+  ],
+  "limits": "Fiber substitution and fraud remained allegations. The historical interlocutory appeal rule supported review then; the opinion did not finally determine material alteration or formation of the arbitration agreement.",
+  "briefSha256": "ca2ab1df0905fa66457f00aeca106eafdf0a6bb3288839cbb948574c729d65e5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-032"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Telephone orders are followed by forms and performance",
+      "cue": "What had the parties actually communicated before each shipment?",
+      "paragraphs": [
+        "Frank E. Dorton and partners operated The Carpet Mart in Kingsport, Tennessee. They bought from Collins & Aikman, a Delaware corporation headquartered in New York with a Dalton, Georgia carpet plant. Both were merchants. From 1968 through 1970 they conducted more than fifty-five transactions, placing telephone orders with the Georgia department, directly or through a visiting salesman.",
+        "The parties disputed whether those conversations completed oral agreements. A buyer affidavit described staff or the salesman agreeing to sell during ordering; the seller’s position and forms suggested written acknowledgment supplied acceptance. After price and credit checks the seller mailed forms the same or next day, normally arriving before delivery apart from possible postal delay.",
+        "Various forms stated that both sides’ terms governed, including a reverse-side provision requiring New York City arbitration of connected disputes. They purported to bind buyers by signing, shipping directions, delivery acceptance, or sometimes ten days’ retention without objection. The buyers accepted carpet and paid without protesting the print. In May 1970 a customer complaint led them to allege that supposed all-Kodel polyester carpet contained cheaper inferior fiber. Sales plainly existed; assent to arbitration remained the distinct issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 453 F.2d 1163–1165"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The fraud suit meets a motion to stay for arbitration",
+      "cue": "Why did the court of appeals need further findings?",
+      "paragraphs": [
+        "The Carpet Mart sued in Tennessee state court for fraud, deceit, and misrepresentation, demanding $450,000 compensatory and punitive damages. Collins & Aikman removed on diversity and moved under § 3 of the Federal Arbitration Act to stay litigation. The district court found no binding arbitration agreement, treating contracts as formed by conduct under Uniform Commercial Code § 2-207(3) and omitting the added term.",
+        "The Sixth Circuit accepted interlocutory review under the then-applicable arbitration-stay doctrine and § 1292. Georgia and Tennessee had both adopted the Code before these transactions. Judge Celebrezze addressed the formation method, not whether substitution or fraud occurred. The findings did not permit a final arbitration decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 453 F.2d 1163–1164, 1169–1171"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Code separates contract formation from the terms that enter it",
+      "cue": "Why was subject-to language not an expressly conditional acceptance?",
+      "paragraphs": [
+        "Section 2-207 responds to mismatched commercial boilerplate, avoiding a mirror-image rule that turns varied responses into counteroffers and lets the final form win through performance. If telephone dealings already completed sales, the forms confirmed existing contracts. If not, the forms could accept oral offers. The provision applied either way; two written forms were unnecessary, but the sequence identified the bargain against which arbitration must be compared.",
+        "The district court also needed to find whether the oral dealings already included arbitration. If so, the print was no addition. If not, subsection (2), or an actual later agreement, determined its entry.",
+        "An acceptance was expressly conditional under subsection (1) only if it clearly communicated unwillingness to proceed without the offeror’s assent to the different or additional terms. Saying the transaction was subject to print and listing conduct or silence supposedly binding the buyer did not distinctly require that assurance. The forms were therefore effective acceptances or confirmations rather than grounds to bypass subsections (1) and (2) in favor of conduct-only formation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Rule and Holding; 453 F.2d 1166–1170"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Material alteration remains a different question from conditional acceptance",
+      "cue": "When would the fraud claims have to go to arbitration?",
+      "paragraphs": [
+        "If arbitration was added, the merchant rules of subsection (2) applied. A material alteration required express assent. If the term was not material, it could enter under the circumstances presented. The Sixth Circuit left that factual inquiry to the district court; repeated forms and transactions supplied context but did not resolve it automatically. A substantial change in terms was not, merely because substantial, an expressly conditional acceptance.",
+        "Under Prima Paint’s distinction between an arbitration-agreement challenge and fraud in the overall contract, a broad agreed clause would encompass the carpet-composition fraud claims. The buyers alleged fraud in the sale, not specifically procurement of arbitration. But that consequence depended first on proving an arbitration agreement. If established, the broad clause required a stay; without formation findings, the appellate court could not order it.",
+        "On January 6, 1972, the court remanded for findings on oral formation, any earlier arbitration agreement, and material alteration if the clause was additional. It neither finally ordered arbitration nor excluded it. No separate writing appeared; Judge Brooks participated but died before filing. The later comparison to C. Itoh concerns language that did satisfy the expressly-conditional proviso, highlighting the distinct inquiries rather than changing this remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Judgment; Separate Opinions; Notes; 453 F.2d 1168–1171"
+        }
+      ]
+    }
+  ]
+}

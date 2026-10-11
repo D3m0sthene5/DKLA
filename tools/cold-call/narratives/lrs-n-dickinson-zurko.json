@@ -1,0 +1,127 @@
+{
+  "id": "lrs-n-dickinson-zurko",
+  "briefId": "LRS-ATLAS-N-DICKINSON-ZURKO",
+  "title": "Dickinson v. Zurko",
+  "course": "Legislation and the Regulatory State",
+  "citation": "527 U.S. 150 (1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A patent rejection prompts a dispute over whether the specialized appellate court may preserve allegedly stricter pre-APA review of agency facts.",
+  "actors": [
+    {
+      "name": "Patent applicants, the respondents",
+      "role": "Sought a patent for improved computer security."
+    },
+    {
+      "name": "Patent and Trademark Office (PTO)",
+      "role": "Examiner and appellate board rejected the application as obvious."
+    },
+    {
+      "name": "Commissioner of Patents and Trademarks",
+      "role": "Sought Supreme Court review of the Federal Circuit’s fact-review standard."
+    }
+  ],
+  "proceedings": [
+    "The examiner rejected the application and the Board affirmed.",
+    "The Federal Circuit panel found clear error; the en banc court endorsed that review approach.",
+    "The Supreme Court reversed and remanded for review within the APA framework."
+  ],
+  "limits": "The Court did not select between substantial evidence and arbitrary-and-capricious review, grant a patent, or finally approve the obviousness determination. Historical labels alone did not establish a preserved exception.",
+  "briefSha256": "bdb671236db141b7ec89ddde4f70bdd098a5bca03a711a7b1802c723602beb61",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-DICKINSON-ZURKO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An obviousness rejection becomes a dispute over appellate review",
+      "cue": "What was the Federal Circuit reviewing?",
+      "paragraphs": [
+        "The applicants sought a patent on a method improving computer security. A Patent and Trademark Office examiner found it obvious over prior art under 35 U.S.C. § 103, and the Board of Patent Appeals and Interferences upheld rejection. A Federal Circuit panel treated what the prior art taught as factual and found the agency clearly erroneous.",
+        "The Federal Circuit heard the case en banc and endorsed that standard in 1998 to resolve an existing internal dispute. The Commissioner, represented by the Solicitor General, sought Supreme Court review. The disputed question was the review standard, not an independent Supreme Court assessment of technology or patentability.",
+        "All agreed the PTO was an Administrative Procedure Act agency, its determination factual, and its action ordinarily governed by § 706. The proposed exception came from § 559’s preservation of additional requirements recognized by law. The Federal Circuit said its predecessor, the Court of Customs and Patent Appeals, had used stricter judicial clear-error review before the APA’s 1946 enactment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 527 U.S. 153–154"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Breyer requires clear historical support for the claimed exception",
+      "cue": "How do the agency and judicial standards differ?",
+      "paragraphs": [
+        "Section 706 provides arbitrary-and-capricious review and, in specified on-record settings, substantial-evidence review, considering the whole record or cited portions. Federal Rule of Civil Procedure 52(a), by contrast, supplies clear-error review of district judges’ findings. Both defer, but court-to-court review traditionally permits somewhat closer scrutiny than court-to-agency review.",
+        "Justice Breyer’s majority required clear evidence that the stricter rule was legally established before the APA; possibility or a bare preponderance would not suffice. Statutory language and the requirement that later legislation expressly depart from the APA supported protecting uniformity. Grandfathered common law differed from later statutes, but ambiguous exemptions threatened the same uniform framework.",
+        "The Court examined eighty-nine pre-APA patent decisions offered by applicants and amici. Twenty-three used expressions like clearly wrong or clear case of error; most others used manifest error. None used the precise clear-error or clearly-erroneous formulation. Terminology had not yet acquired today’s settled distinctions: courts sometimes used clear-error language for agencies and substantial-evidence language for trial courts. Gradual congressional standardization and silence in patent statutes made modern-sounding phrases inconclusive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Standards; Historical analysis; 527 U.S. 152–158"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The underlying reasons point toward administrative deference",
+      "cue": "Why did Morgan and the earlier patent cases not establish judicial-style review?",
+      "paragraphs": [
+        "The Federal Circuit relied heavily on Morgan v. Daniels, an 1894 priority dispute between inventors in which a reviewing court reversed the Patent Office without new testimony. Its language about thorough conviction and clear mistake resembled later judicial review, but its explanation distinguished executive-department review from ordinary review of a trial judge and treated the latter as too strict. The majority refused to detach phrases from that reasoning.",
+        "Earlier patent opinions stressed technical expertise, complexity, and agreement among agency tribunals. Nearly half invoked expertise or complexity and over three-fourths invoked intra-agency agreement. Those justifications resembled administrative deference, not trial-judge advantages such as observing witnesses. The opinion’s appendix grouped all eighty-nine decisions by those features. The corpus therefore did not establish an additional stricter requirement preserved by § 559."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority historical analysis; 527 U.S. 158–161; appendix 165–170"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court rejects practical reasons to preserve an unsupported exception",
+      "cue": "What meaningful review and alternative routes remained?",
+      "paragraphs": [
+        "The Federal Circuit warned of disrupting settled patent practice. Breyer responded that the Supreme Court had never resolved the issue and that ambiguous exceptions could destabilize APA uniformity elsewhere. The practical difference was modest but real: substantial evidence asks whether a reasonable mind could accept the record, while clear error asks for a definite and firm conviction of mistake. The Court identified no other acknowledged outcome-changing example, without equating the tests or permitting rubber-stamping.",
+        "APA review still examined reasoning, and specialized Federal Circuit experience helped judges understand agency findings. Expertise, internal review, and the record could matter more than verbal formulations. Agency reasoning remained reviewable for arbitrariness or evidentiary support as appropriate.",
+        "Applicants could appeal directly under § 141 or proceed first in district court under § 145. The latter allowed new evidence, making a district judge a factfinder whose findings warranted appellate clear-error review. The Court acknowledged possible anomaly when no new evidence was introduced but left room to harmonize standards; it did not comprehensively settle those proceedings. Assertions that stricter review improved PTO records or patent boundaries did not show why this agency deserved exemption from Congress’s framework."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Policy objections; 527 U.S. 161–165"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Rehnquist would preserve the specialized court’s historical understanding",
+      "cue": "What did the reversal decide and reserve?",
+      "paragraphs": [
+        "Chief Justice Rehnquist dissented with Kennedy and Ginsburg. He viewed the APA as a floor preserving more rigorous old requirements, not a uniform ceiling. The patent bench and bar’s long understanding and unanimous en banc court’s plausible reading of its own history deserved respect. He noted apparent PTO acquiescence until a 1995 argument for APA review, a dissenting historical point rather than a majority finding.",
+        "Rehnquist also rejected adding a heightened clarity requirement to “recognized by law.” Express rules for later statutory departures need not govern antecedent common law: Congress could preserve old rigor while resisting later implied repeal. He would affirm for the Federal Circuit’s reasons.",
+        "Breyer, joined by Stevens, O’Connor, Scalia, Souter, and Thomas, instead reversed and remanded in 1999. The court had to use the APA framework, but the Supreme Court reserved whether substantial evidence or arbitrary-and-capricious review applied to the particular finding. It neither issued a patent nor finally sustained rejection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissent; Disposition; 527 U.S. 158, 165, 170–172"
+        }
+      ]
+    }
+  ]
+}

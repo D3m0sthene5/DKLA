@@ -1,0 +1,131 @@
+{
+  "id": "lrs-n-standing-brock",
+  "briefId": "LRS-ATLAS-N-STANDING-BROCK",
+  "title": "International Union, UAW v. Brock",
+  "course": "Legislation and the Regulatory State",
+  "citation": "477 U.S. 274 (1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The United Auto Workers challenged a federal rule excluding certain leave periods from trade benefits, while the Labor Secretary argued that individual state proceedings and individualized injuries prevented the union’s federal suit.",
+  "actors": [
+    {
+      "name": "International Union, United Automobile, Aerospace and Agricultural Implement Workers of America (UAW)",
+      "role": "Union seeking correction of federal eligibility guidance for its members"
+    },
+    {
+      "name": "Secretary of Labor",
+      "role": "Federal official responsible for the challenged trade-benefit interpretation"
+    },
+    {
+      "name": "Cooperating state unemployment agencies",
+      "role": "Federal agents deciding individual eligibility and paying federally financed benefits"
+    },
+    {
+      "name": "Justice Marshall",
+      "role": "Author of the five-Justice majority"
+    },
+    {
+      "name": "Justices White and Powell",
+      "role": "Authors of separate dissents"
+    }
+  ],
+  "proceedings": "District court rejected channeling objection, invalidated guideline, and ordered corrective directions; D.C. Circuit reversed on associational standing and absent state agencies; Supreme Court reversed 5–4 and remanded for merits and preserved procedural questions.",
+  "limits": "This is the trade-readjustment and associational-standing Brock case. The Supreme Court did not decide the statutory merits or award individual benefits. A 1981 amendment did not eliminate disputes over earlier claims.",
+  "briefSha256": "e8cf92f2f5b5f2733a561c85434e91649cec24782307116f1e7a7f591371df45",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-BROCK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A federal handbook excluded weeks that mattered to displaced workers",
+      "cue": "Introduce the program before explaining the union’s lawsuit.",
+      "paragraphs": [
+        "The Trade Act of 1974 supplied federally financed trade readjustment allowances to workers displaced by import competition. The Secretary of Labor certified affected groups. Cooperating state unemployment agencies acted as federal agents, determined individual eligibility, and administered payments, with federal funds covering both benefits and administration. Individual decisions followed the state review procedures identified in § 2311(d), but the state agencies had to apply federal law and regulations.",
+        "A worker generally needed twenty-six qualifying weeks in the fifty-two weeks before separation. A 1975 Labor Department handbook excluded periods without service, including sick leave, vacation, leave of absence, military service, and certain work for other employers. Congress amended the statute in 1981 to count specified leave periods, but only for benefits payable for unemployment weeks beginning after September 30, 1981. Earlier claims remained disputed.",
+        "The International Union, United Automobile, Aerospace and Agricultural Implement Workers of America, known as the UAW, and eleven members sued the Secretary. Some members had been denied benefits; others were defending awards against state-agency appeals. They sought a declaration invalidating the earlier interpretation and an injunction requiring the Secretary to notify cooperating agencies and direct reconsideration of wrongly denied claims. They did not ask the federal district court to calculate each worker’s allowance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "477 U.S. at 277–280"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts disagreed about who could bring the challenge",
+      "cue": "Keep the district court’s merits ruling separate from the Supreme Court’s review.",
+      "paragraphs": [
+        "The district court rejected the Secretary’s argument that the state-review provisions barred the federal challenge. It found the handbook inconsistent with the statutes and ordered corrective instructions and renewed processing of claims. The D.C. Circuit reversed without reaching that statutory conclusion. It held that differences among members’ injuries and benefit amounts defeated the union’s representational standing. It also concluded that relief for the individual plaintiffs required joining the state agencies that had denied their benefits.",
+        "Justice Marshall’s Supreme Court majority examined the three requirements established in Hunt, the Court’s precedent for an association suing on its members’ behalf: some members must have individual standing, the interests must be germane to the association’s purposes, and neither the claim nor the requested relief may require individual participation. The Secretary disputed all three."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 279–283"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The union sought one legal answer, leaving individual calculations to the states",
+      "cue": "Apply each standing requirement to the actual requested remedy.",
+      "paragraphs": [
+        "The Secretary tried to divide the workers into categories that would leave nobody eligible to sue federally: successful claimants were uninjured, final unsuccessful state judgments were preclusive, pending claims belonged in state review, and unappealed administrative denials were final. The majority answered that this action did not replace individual eligibility review. Members who lacked benefits allegedly due and were not foreclosed by final state judgments retained a stake in correcting the governing federal interpretation. Routing individual claims through state channels did not withdraw federal-question jurisdiction over statutory or constitutional attacks on the federal guideline itself.",
+        "The benefits also fell within the union’s purposes. Its constitution identified national social and unemployment insurance as an objective, its leaders had supported the legislation, and Congress gave unions a role in seeking group certification. The litigation was therefore germane to the UAW’s organizational work.",
+        "Finally, the legal challenge and requested correction did not require every worker to participate in federal court. State agencies would later assess employment histories and other eligibility facts before paying claims. The Court distinguished Warth, an earlier associational case seeking individualized damages whose injuries and amounts required member-specific proof in that suit. Here that individualized work belonged to the subsequent benefit process. Different eventual awards did not transform the union’s interpretation challenge into a federal damages proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 283–288"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Neither class-action rules nor missing state agencies barred relief",
+      "cue": "Explain why the existing association and federal defendant were adequate.",
+      "paragraphs": [
+        "The Secretary urged the Court to replace associational standing with class actions under Rule 23 and its representation safeguards. The majority reaffirmed Hunt. An existing association could supply expertise, research, financing, and continuing relationships, while a class might be an ad hoc collection of claims. Members often join organizations to advance common interests, providing some assurance of aligned representation.",
+        "The Court did not dismiss the possibility of inadequate representation. An association’s adverse judgment might not bind members consistently with due process if its representation were deficient, and actual evidence could call for protections. But the Secretary identified no reason to doubt the UAW’s representation here. Because associational standing sufficed, the Court did not decide whether class treatment would have been proper after the district court’s judgment.",
+        "The state agencies were not indispensable under Rule 19(b). This suit attacked a federal guideline, so state procedural requirements for reviewing individual agency decisions did not control. Nor did relief rest solely on voluntary cooperation. The agencies had agreed to act as federal agents and implement the program uniformly; the Secretary’s directions would bind them, and breach could affect employer tax credits. Federal reimbursement of benefits and administration further reduced likely resistance or prejudice. A slight risk that plaintiffs might not obtain every aspect of relief did not justify blocking the action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 288–293 & 288 n.*"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Two dissents challenged different parts of the majority’s approach",
+      "cue": "Conclude with the exact remand, not an award of benefits.",
+      "paragraphs": [
+        "Justice White, joined by Chief Justice Burger and Justice Rehnquist, read § 2311(d) and its history to assign all legal and factual issues concerning submitted benefit claims to state review. Since the old guideline had been superseded and only accrued claims remained, he thought separating the guideline from its applications made little sense. He distinguished prospective-relief decisions and questioned reliance on Christian, a precedent in which the relevant jurisdictional issue had not been squarely addressed. His objection concerned Congress’s state-review arrangement, not direct application of the Eleventh Amendment; he recognized that the benefit funds were federal.",
+        "Justice Powell separately questioned whether enough UAW members still had live claims to ensure effective representation. Germaneness, money, and expertise did not necessarily establish aligned interests. A union might seek publicity even when most members lacked a stake, unlike the alignment ordinarily required in a class action. He would have denied standing on this record.",
+        "On June 25, 1986, Marshall, Brennan, Blackmun, Stevens, and O’Connor formed the 5–4 majority reversing the D.C. Circuit and remanding. That court still had to consider the district court’s statutory merits ruling and any properly preserved procedural issues. The Supreme Court allowed the challenge to proceed; it did not itself invalidate the handbook on the merits or award anyone benefits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 282–298 & dissenting notes"
+        }
+      ]
+    }
+  ]
+}

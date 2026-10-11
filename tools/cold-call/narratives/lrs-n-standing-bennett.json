@@ -1,0 +1,130 @@
+{
+  "id": "lrs-n-standing-bennett",
+  "briefId": "LRS-ATLAS-N-STANDING-BENNETT",
+  "title": "Bennett v. Spear",
+  "course": "Legislation and the Regulatory State",
+  "citation": "520 U.S. 154 (1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Irrigators challenge a biological opinion that the project operator promises to follow, requiring separate answers about economic standing, citizen-suit coverage, and final administrative action.",
+  "actors": [
+    {
+      "name": "Bureau of Reclamation",
+      "role": "Operator of the Klamath Irrigation Project and recipient of the biological opinion."
+    },
+    {
+      "name": "Fish and Wildlife Service",
+      "role": "Agency finding jeopardy to two endangered fish and specifying alternatives and incidental-take conditions."
+    },
+    {
+      "name": "Two Oregon irrigation districts and two ranch operations",
+      "role": "Water users alleging reduced supply; plaintiffs in the challenge."
+    },
+    {
+      "name": "Service director, regional director, and Interior Secretary",
+      "role": "Defendants; the Bureau and its officials were not sued."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed for lack of jurisdiction, and the Ninth Circuit affirmed under an endangered-species-interest view of the statutory zone.",
+    "The Supreme Court rejected that view and the government’s alternative grounds, reversed, and remanded on March 19, 1997."
+  ],
+  "limits": "The Court found pleading-stage sufficiency, not scientific error or a guaranteed water increase. The unappealed NEPA claim was outside review. The § 1533 economic-impact claim used the ESA citizen-suit route; § 1536 claims proceeded through the APA.",
+  "briefSha256": "44a599287cbcac4e665e419785b45ba088e4ebc1cc96ca1a9f6c99b65a47e1fa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-BENNETT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An irrigation project’s consultation results in reservoir restrictions",
+      "cue": "How did an advisory opinion change the project’s legal position?",
+      "paragraphs": [
+        "The Bureau of Reclamation administered the Klamath Irrigation Project’s lakes, rivers, dams, and canals in northern California and southern Oregon. In 1992, it advised the Fish and Wildlife Service that operations could affect the endangered Lost River sucker and shortnose sucker. Section 7 of the Endangered Species Act required consultation, a biological jeopardy assessment, and, where necessary, reasonable and prudent alternatives. An incidental-take statement specified conditions for otherwise prohibited taking.",
+        "The Service found likely jeopardy from long-term operations and proposed minimum levels in Clear Lake and Gerber reservoirs. The Bureau announced compliance. Two Oregon irrigation districts and operators of two ranches alleged substantial resulting reductions in their irrigation water. They sued Service officials and the Interior Secretary rather than the Bureau."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 157–160; Facts and claims"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The irrigators challenge both science and an alleged habitat designation",
+      "cue": "Which claims reached the Supreme Court?",
+      "paragraphs": [
+        "Two claims under § 1536 alleged that available scientific and commercial data did not show existing operations harmed the fish or the restrictions would help. A third claimed the minimum levels effectively designated critical habitat without § 1533(b)(2)’s required economic-impact consideration. Each also invoked the Administrative Procedure Act. Those were allegations, not merits findings. A separate National Environmental Policy Act claim fell outside Supreme Court review because plaintiffs did not contest its appellate dismissal.",
+        "The district court dismissed, considering recreational, aesthetic, and commercial interests outside the Act’s protected zone. The Ninth Circuit affirmed, applying that restriction to both APA review and the citizen-suit provision and requiring an interest in species preservation.",
+        "The government did not defend that reasoning in the Supreme Court. It instead disputed Article III standing, statutory causes of action, and finality. Those preserved alternatives had been fully presented, so the Court decided them rather than leave every issue for remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 159–161, 165–166 & n.1; Procedure"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Scalia finds economic plaintiffs eligible but separates eligibility from a cause of action",
+      "cue": "How far did the citizen-suit language extend?",
+      "paragraphs": [
+        "Justice Scalia wrote for a unanimous Court. The Endangered Species Act’s authorization for “any person” to bring specified civil actions was unusually broad. Its private-enforcement design, costs provision, removal of ordinary citizenship and amount limits, and preservation of governmental enforcement supported a zone reaching Article III’s limits. Economic motives did not disqualify plaintiffs alleging overenforcement rather than underenforcement. Congress could relax the then-described prudential requirement, though not constitutional standing.",
+        "Broad eligibility did not create a claim for every administrative mistake. Section 1540(g)(1)(C) allowed suits against the Secretary for nondiscretionary § 1533 duties. The economic-impact claim qualified because discretion over final habitat designation did not permit omission of mandatory scientific and economic considerations.",
+        "The § 1536 claims did not fit subsection (C). Nor did subsection (A), directed to regulated persons’ substantive violations, cover every administration error by the Secretary. Otherwise the narrower subsection (C) and the APA’s finality restriction could be bypassed. Those claims needed another route."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 161–166, 171–174 & n.2; Statutory standing and causes of action"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The alleged water loss is sufficiently connected at the dismissal stage",
+      "cue": "Why did the Bureau’s intervening choice not break causation?",
+      "paragraphs": [
+        "The complaint alleged reduced available water and injury. General allegations sufficed at dismissal, with supporting specifics such as proportional reductions among customers presumed for that posture. The Court did not establish an actual allocation formula or excuse evidence at later stages.",
+        "The Service’s action need not be the last causal step. Though nominally advisory, the biological opinion exerted determinative or coercive influence: departure required justification and risked unlawful-taking liability for the Bureau and employees, while compliance with incidental-take terms supplied protection. It altered the Bureau’s legal situation.",
+        "Plaintiffs also alleged continuing past operational practices before the opinion and announced compliance afterward. At pleading stage, those facts connected restrictions to the opinion and made removal through judicial relief sufficiently likely. They did not guarantee additional water after final adjudication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 166–171; Constitutional standing"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The remaining claims meet the APA’s statutory-zone and finality requirements",
+      "cue": "What relief did the Court actually authorize?",
+      "paragraphs": [
+        "Nothing in the Endangered Species Act displaced APA review of the § 1536 claims. The relevant statutory zone came from the particular provision, not merely the Act’s general conservation purpose. Requiring the best scientific and commercial data also guarded against needless economic disruption through erroneous jeopardy findings, placing these asserted economic injuries within that provision’s zone.",
+        "Final action ordinarily required consummated decisionmaking and determined rights, obligations, or legal consequences. Completion was uncontested. The biological opinion and incidental-take statement’s direct, appreciable alteration of the Bureau’s legal regime supplied the second condition despite remaining choices. Finality was distinct from being the final causal act producing water loss.",
+        "On March 19, 1997, the Court reversed and remanded. The § 1533 claim could proceed under the citizen-suit provision and the other relevant claims under the APA. It awarded no damages, ordered no reservoir levels, and found no actual statutory violation. The result separated constitutional standing, statutory eligibility, a particular cause of action, and finality rather than treating success at any one step as victory on the merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 175–179; Finality and judgment"
+        }
+      ]
+    }
+  ]
+}

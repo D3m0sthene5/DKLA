@@ -1,0 +1,106 @@
+{
+  "id": "cp-mussat",
+  "briefId": "CP-ATLAS-MUSSAT",
+  "title": "Mussat v. IQVIA, Inc.",
+  "course": "Civil Procedure",
+  "citation": "953 F.3d 441 (7th Cir. 2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An Illinois medical corporation seeks a nationwide junk-fax class, and the court distinguishes absent class members from individually named mass-action plaintiffs.",
+  "actors": [
+    {
+      "name": "Florence Mussat’s professional services corporation",
+      "role": "Illinois plaintiff described in the opinion by the physician’s name."
+    },
+    {
+      "name": "IQVIA, Inc.",
+      "role": "Delaware corporation headquartered in Pennsylvania and alleged fax sender."
+    }
+  ],
+  "proceedings": [
+    "The district court struck the non-Illinois portion of the proposed class.",
+    "The Seventh Circuit permitted a Rule 23(f) appeal and rejected IQVIA’s appealability objection.",
+    "The unanimous panel reversed and remanded without certifying a class or deciding liability."
+  ],
+  "limits": "The plaintiff was a professional corporation, not simply the physician individually. The holding concerns this federal-statute Rule 23 action and does not turn Bristol-Myers into a Supreme Court decision on its reserved class or Fifth Amendment questions.",
+  "briefSha256": "7803d5b662929e69124787ce36528d85aaef2c2944624c67c971a6838d848dd9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-MUSSAT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two faxes prompt a proposed national representative action",
+      "cue": "Who sued, and why did IQVIA challenge the class’s geographic reach?",
+      "paragraphs": [
+        "Florence Mussat was an Illinois physician operating through a professional services corporation. After receiving two unsolicited IQVIA faxes without the required opt-out notice, the corporation sued in the Northern District of Illinois under the federal Telephone Consumer Protection Act, 47 U.S.C. § 227. The opinion used Mussat as shorthand for that corporate plaintiff. It proposed a class of similar recipients nationwide during the previous four years.",
+        "IQVIA, incorporated in Delaware and headquartered in Pennsylvania, was not subject to Illinois general jurisdiction. It argued that Bristol-Myers Squibb required specific jurisdiction for each absent member injured outside Illinois. The district court agreed and struck the non-Illinois class allegations, leaving an Illinois-only class possible. Mussat obtained discretionary review under Rule 23(f), which IQVIA contested along with the merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; slip 1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Wood treats elimination of the national class as partial denial of certification",
+      "cue": "Why did the motion’s label not bar immediate review?",
+      "paragraphs": [
+        "Chief Judge Wood wrote for Kanne and Barrett. Rule 23(f) allows discretionary appeals from grants or denials of certification. IQVIA emphasized that the ruling granted a Rule 12 motion to strike rather than a motion labeled certification and left a narrower class available.",
+        "The panel examined effect, reviewing the jurisdictional issue anew. Its Bemis precedent treated orders resolving representative-litigation disputes functionally, and Microsoft v. Baker had endorsed that approach to struck class allegations. Other circuit decisions likewise covered partial denials or material changes in class definition. This ruling foreclosed the national class actually requested; a remaining local possibility did not remove that denial. The panel therefore reaffirmed appeal permission. It did not make every preliminary class-related ruling appealable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Interlocutory review; slip 2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Named mass-action plaintiffs differ from represented absentees",
+      "cue": "How did Rule 23 change the jurisdictional question?",
+      "paragraphs": [
+        "Bristol-Myers involved individual Plavix plaintiffs whose nonresident claims lacked California purchase, use, or injury connections. They were named parties asserting their own cases, not unnamed members of a certified representative class. The Supreme Court had not decided the latter question. Longstanding nationwide-class practice, illustrated by Wal-Mart, Shutts, and Yamasaki, supplied context rather than holdings on this precise later dispute.",
+        "Rule 23 requires all four subdivision (a) safeguards and an applicable (b) category before representation binds absentees. Taylor v. Sturgell’s rejection of informal virtual representation underscored why a certified class differs from free-form aggregation. Devlin also showed that unnamed members can be parties for some purposes and not others.",
+        "Absent members’ citizenship ordinarily does not destroy complete diversity; supplemental jurisdiction can cover them where the representative meets the amount requirement; and venue does not require separate proof for each. The panel reasoned that personal jurisdiction likewise focuses on named representatives, each of whom must establish general or specific jurisdiction over the defendant. It did not declare absentees devoid of legal interests or other procedural protections."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Competing positions; Representative litigation; slip 5–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Rule 4(k) does not change who appears as a representative litigant",
+      "cue": "What did reversal allow without deciding certification?",
+      "paragraphs": [
+        "IQVIA separately invoked Rule 4(k), generally linking district-court personal jurisdiction to the forum state’s courts. The panel distinguished service and jurisdictional reach from whose claims a representative may assert. Rule 4(k) did not make each absentee a separately appearing party. Once jurisdiction existed for the representative’s claim, separate absentee contacts were unnecessary. Rule 17’s executors, guardians, administrators, and trustees illustrated representative litigation more broadly, while Rule 82 cautioned against treating procedural rules as extending or limiting jurisdiction or venue.",
+        "Rule 23(b)(3)’s forum-concentration factor and its Committee Note also contemplate bringing claims together instead of leaving them in individual ordinary forums. This permits interstate reach even without general jurisdiction, subject to certification safeguards.",
+        "On March 11, 2020, the unanimous panel reversed and remanded, rejecting both the Bristol-Myers and Rule 4(k) theories. It neither certified the class nor adjudicated fax liability. Bristol-Myers had reserved whether Fifth Amendment federal-court restrictions mirror Fourteenth Amendment state restrictions, and Sotomayor separately noted the unaddressed class question. The district court’s use of the Fourteenth rather than Fifth Amendment label was not dispositive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule 4(k); Judgment and reservations; slip 10–12"
+        }
+      ]
+    }
+  ]
+}

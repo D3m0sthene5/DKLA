@@ -1,0 +1,133 @@
+{
+  "id": "cp-smuck",
+  "briefId": "CP-088",
+  "title": "Smuck v. Hobson",
+  "course": "Civil Procedure",
+  "citation": "408 F.2d 175 (D.C. Cir. 1969) (en banc)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "When the school board accepted a desegregation decree, other participants tried to carry an appeal forward in its place.",
+  "actors": [
+    {
+      "name": "Carl Hansen",
+      "role": "Former superintendent who attempted to appeal"
+    },
+    {
+      "name": "Carl Smuck",
+      "role": "Dissenting appointed school-board member"
+    },
+    {
+      "name": "Parent applicants",
+      "role": "Parents seeking intervention to protect educational-policy discretion"
+    },
+    {
+      "name": "District of Columbia school board",
+      "role": "Institutional defendant that declined appeal"
+    }
+  ],
+  "proceedings": [
+    "District court: entered school-discrimination decree and allowed parents to intervene for appellate consideration.",
+    "D.C. Circuit en banc: rejected individual officials’ appeals, allowed limited parent participation under a divided rationale, and remanded for clarification."
+  ],
+  "limits": [
+    "The intervention rationale in Part I had three votes. Four judges joined Parts II–IV. The decree was not vacated and the court did not order a new trial."
+  ],
+  "briefSha256": "cbdd8bb2e5ce751d294a365c9a6961c5900257bebab7155ed54fb5dcf6484373",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-088"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A school decree outlives the appointed board",
+      "cue": "Introduce the dispute and the would-be appellants.",
+      "paragraphs": [
+        "Black and poor children brought a class action challenging the administration of Washington, D.C.’s public schools. The district court found racial and economic discrimination. Its decree addressed optional attendance zones, faculty integration, transportation from overcrowded schools, pupil-assignment planning, and the existing ability-based track system.",
+        "The appointed school board voted not to appeal and directed Superintendent Carl Hansen not to appeal either. Hansen resigned, but nevertheless appealed. Carl Smuck, a board member who disagreed with the board’s decision, also appealed. Parents sought intervention so they could pursue appellate review. The district court permitted intervention to let the appellate court determine its propriety. Meanwhile, Congress established an elected school board, which replaced the appointed board."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408 F.2d at 176–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The former superintendent and individual member cannot take over",
+      "cue": "Identify the interests the decree actually affected.",
+      "paragraphs": [
+        "Sitting en banc, the District of Columbia Circuit first considered whether Hansen or Smuck had an interest that an appeal could protect. Chief Judge Bazelon’s Part I explained that Hansen was no longer bound in an official capacity and was not personally bound by the decree. He did not contend that reversal would restore his job. Damage to his reputation or suggestions about his former tenure did not establish a continuing appealable interest.",
+        "Smuck had participated in the board’s defense and its decision not to appeal. The decree operated against the board collectively, whose policies were set by vote. Nothing showed how Smuck individually could violate it and face enforcement. Being a named trial defendant did not give him a separate right to overturn the institutional decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408 F.2d at 177–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The parents seek room for lawful educational choices",
+      "cue": "Explain the limited intervention rationale and its votes.",
+      "paragraphs": [
+        "The parents presented a different interest: preserving the board’s discretion to choose constitutionally permissible educational policies. Under the 1966 version of Rule 24(a)(2), intervention required a related interest, practical impairment of its protection, and inadequate representation by existing parties. Bazelon treated the interest requirement as a practical guide serving efficient proceedings and due process. An educational interest could qualify without a direct financial stake, but the requirement remained a prerequisite.",
+        "A final decree could practically impair these parents’ interest. A policy might be constitutionally permissible without being constitutionally required. The parents therefore might have no new constitutional violation to challenge in a later suit against policies complying with the decree. An appeal offered a way to argue that its restrictions exceeded constitutional necessity.",
+        "The board had adequately represented them at trial, but appellate representation raised a different question. The board served all parents and could weigh publicity, expense, delay, and institutional convenience differently from parents focused on their own children. No corruption or bad faith was needed to recognize a serious possibility of inadequate representation at that stage. Still, postjudgment timing required attention to the unusual circumstances; an institution’s refusal to appeal did not automatically entitle every dissatisfied citizen to intervene.",
+        "This analysis supported participation only to challenge provisions restraining educational-policy discretion. It did not allow the parents to vindicate Hansen’s reputation or reopen every finding. Bazelon, Leventhal, and Robinson joined Part I, making this intervention explanation a three-judge plurality, not a majority rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408 F.2d at 176, 178–182"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court construes the decree and narrows the review",
+      "cue": "Move from participation to the matters the parents could contest.",
+      "paragraphs": [
+        "Judge McGowan joined those three judges in Parts II–IV, giving those sections four votes. The court rejected the contention that the policy claims required a three-judge district court. It also upheld the trial judge’s refusal to recuse on a belated motion during trial.",
+        "The court sustained abolition of intentionally segregative optional attendance zones, requirements for faculty integration, and transportation for volunteers from overcrowded schools to schools with spare capacity. It construed faculty integration to permit alternative methods rather than categorically ordering compulsory teacher reassignment.",
+        "Long-range planning and abolition of the track system, as construed, did not materially restrict the policy discretion the parents sought to protect. Suggested assignment methods were not mandatory. Abolition concerned the track system as then operated, without prohibiting ability grouping generally. The court therefore did not decide the parents’ underlying constitutional, factual, and educational objections to those provisions on the merits.",
+        "No modification was necessary to answer challenges the parents had standing to present. Nevertheless, the court remanded to make clear that plans filed by the former board did not bar the elected board from developing new programs and proposals. It neither vacated the decree nor ordered a new trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408 F.2d at 182–190"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Other judges dispute who should decide whether to appeal",
+      "cue": "Preserve the separate positions behind the divided judgment.",
+      "paragraphs": [
+        "McGowan would have dismissed every appeal. Congress had entrusted the decision whether to appeal to the board, and disagreement with a good-faith decision did not establish inadequate representation. He rejected treating Flast v. Cohen, the Supreme Court’s taxpayer-standing decision, as a broad invitation to intervene. Because no colleague fully agreed with dismissal, he joined the procedural and merits dispositions to resolve the litigation and concurred in the result on matters outside the parents’ standing.",
+        "Judge Danaher, joined by Judges Burger and Tamm, would instead have remanded with instructions to vacate the decree, allowing the new elected board to address the identified problems through its statutory authority. He emphasized judicial restraint and the changed institution. His appendices included a judicial-conference resolution seeking removal of judges’ school-board appointment power and a contemporary report about Hobson’s plans as a board member.",
+        "Burger, joined by Tamm, separately emphasized judicial limits in contested educational policy and regarded the principal opinion’s narrowed construction as essentially advisory. Those proposed alternatives did not become the judgment: the decree remained in place, subject to the clarification on remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408 F.2d at 190–197"
+        }
+      ]
+    }
+  ]
+}

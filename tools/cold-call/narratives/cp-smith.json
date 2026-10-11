@@ -1,0 +1,128 @@
+{
+  "id": "cp-smith",
+  "briefId": "CP-ATLAS-SMITH",
+  "title": "Smith v. Kansas City Title & Trust Company",
+  "course": "Civil Procedure",
+  "citation": "255 U.S. 180 (1921)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A shareholder tries to stop proposed land-bank bond purchases by challenging the federal statute creating the banks. That constitutional issue brings the claim into federal court, but the challenge fails on its merits.",
+  "actors": [
+    {
+      "name": "Smith",
+      "role": "Shareholder seeking to prevent the proposed use of corporate funds."
+    },
+    {
+      "name": "Kansas City Title & Trust Company",
+      "role": "Missouri company whose directors proposed the investments."
+    },
+    {
+      "name": "Federal Land Bank of Wichita and First Joint Stock Land Bank of Chicago",
+      "role": "Banks intervening to defend the challenged statutory securities."
+    }
+  ],
+  "proceedings": [
+    "The federal district court dismissed the shareholder’s bill on a motion in the nature of a general demurrer.",
+    "The shareholder appealed directly to the Supreme Court.",
+    "The Supreme Court found federal jurisdiction but affirmed dismissal on the merits, six to two, on February 28, 1921."
+  ],
+  "limits": "This historical source-brief transformation makes no new audit or current-jurisdiction claim. Judicial Code § 24 governed, not the later § 1331 label used pedagogically. Holmes and McReynolds dissented only on jurisdiction and expressed no constitutional-merits view. Brandeis did not participate.",
+  "briefSha256": "d84676c5945c7c307a80348068800f603a2f5108eee50833d051c9a7258b4c07",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SMITH"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The directors plan two investments in federally authorized farm-loan bonds",
+      "cue": "Why did Smith consider the purchases contrary to corporate duty?",
+      "paragraphs": [
+        "Kansas City Title & Trust Company’s directors planned to invest $10,000 in bonds of each of two kinds of institutions under the Federal Farm Loan Act of 1916, amended in 1918: Federal Land Banks and Joint Stock Land Banks. Shareholder Smith sought to enjoin use of corporate money because, he argued, Congress lacked power to create those banks or exempt their securities from tax. If the statute was unconstitutional, the securities would be unauthorized investments under the directors’ corporate duties.",
+        "These were not ordinary Treasury bonds. Farm mortgages and notes deposited as collateral backed the land-bank securities. Federal Land Banks lent through cooperative borrower associations, while Joint Stock Land Banks used private capital. Smith’s bill described federal stock ownership and bond purchases but alleged little actual Treasury use as public-money depositaries. Three Federal Land Banks had served as financial agents making seed-grain loans to drought-stricken farmers in 1918. Those facts framed whether the system was a fiscal instrument or primarily private mortgage lending."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and relief; 255 U.S. 195–198"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court dismisses, and the Supreme Court first examines its own authority",
+      "cue": "How could a state-created shareholder action present a federal case?",
+      "paragraphs": [
+        "The Federal Land Bank of Wichita and First Joint Stock Land Bank of Chicago intervened. The trust company moved to dismiss in the nature of a general demurrer; the district court dismissed, and Smith appealed directly. No party objected to original or appellate jurisdiction, but the Supreme Court examined it. With no diversity, Judicial Code § 24 required a case arising under the Constitution or federal laws.",
+        "Justice Day concluded that the shareholder’s own claim necessarily presented a substantial constitutional issue. His sole objection to the investment was invalidity of the federal authorization; the directors asserted its validity. One federal-law conclusion sustained the proposed purchase against that objection, the other defeated it. This was not a possible federal defense added to an independent state controversy.",
+        "Drawing on earlier dependency formulations and shareholder proceedings in Pollock and Brushaber, Day required a federal issue with reasonable foundation rather than one merely colorable. The pleaded shareholding, threatened corporate misuse and constitutional challenge supported both district-court jurisdiction and direct review even if the federal challenge ultimately lost."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; Jurisdictional issue and reasoning; 255 U.S. 198–202"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Congress’s particular banking structure supplies the merits question",
+      "cue": "What public functions accompanied the private lending activity?",
+      "paragraphs": [
+        "The statute placed a Federal Farm Loan Bureau and supervisory Board within Treasury, created twelve districts and specified capitalization, organization, borrower associations, mortgages and collateral. Privately capitalized Joint Stock Land Banks differed from the Federal Land Banks. Both could be designated government depositaries and financial agents, owed reasonable service in those capacities, and could buy United States bonds.",
+        "Specified institutions, mortgages, bonds and income received tax exemptions, while certain real-property and Joint Stock Land Bank share taxation remained. The issue was this defined scheme, not universal immunity for everything connected with a federal charter.",
+        "Smith argued that long-term private farm loans did not perform indispensable fiscal functions of national banks. Merely allowing Treasury designation, he said, could not transform private corporations into federal instruments. Defenders relied on Congress’s power to select suitable fiscal agencies and protect their securities from taxation frustrating those purposes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory scheme; Competing merits positions; 255 U.S. 202–209"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority sustains both incorporation and the tax exemptions",
+      "cue": "Why did limited actual federal use not defeat the authorized public function?",
+      "paragraphs": [
+        "McCulloch and Osborn established that Congress could create banks as suitable means for enumerated fiscal and national powers despite private ownership and private activity. Congressional choices could respond to changing needs. Authorized depositary and financial-agent work, required reasonable service, and government-bond transactions brought these institutions within that power.",
+        "Limited actual use did not negate lawful authorization. The Court would not investigate an alleged legislative pretext once Congress acted within constitutional power. Restricted banking functions, absence of some ordinary banking operations and the additional goal of cheaper farm credit did not destroy a valid instrument’s public character. Congress could attach private-business powers to it.",
+        "Congress could also protect these instrumentalities’ securities from federal and state taxation that might obstruct raising operational funds. McCulloch’s supremacy and immunity reasoning supported that result. Agricultural or fiscal policy wisdom was distinct from constitutional power.",
+        "On February 28, 1921, the Court affirmed dismissal of Smith’s bill. Federal jurisdiction existed, but the constitutional premise failed, so the proposed purchases were not forbidden for his stated reason."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constitutional merits; Exact disposition; 255 U.S. 208–213"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Holmes would stop at the state-law source of the action",
+      "cue": "Why did his dissent say nothing about whether Congress could create the banks?",
+      "paragraphs": [
+        "Justice Holmes, joined by Justice McReynolds, considered Missouri law the source of Smith’s right to restrict directors. Missouri could permit the investment outright or incorporate a federal constitutional standard into corporate duties; either way federal law mattered only because state law selected it. Borrowing another body of law as a criterion did not make it the source of the suit.",
+        "Even assuming federal law could create part of an action, Holmes required it to operate by its own force: the suit, not merely a question inside it, had to arise federally. He relied on American Well Works and distinguished the majority’s Brushaber analogy. Lacking jurisdiction, he and McReynolds declined to address constitutional validity; their dissent did not find the banks unconstitutional.",
+        "The participating vote was six to two, and Justice Brandeis took no part. The distinction between the majority’s necessary substantial federal issue and Holmes’s creation approach explains the jurisdictional disagreement without converting later Merrell Dow comparisons into a test announced in 1921."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holmes dissent; Citation and significance; 255 U.S. 213–215"
+        }
+      ]
+    }
+  ]
+}

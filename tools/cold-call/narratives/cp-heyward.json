@@ -1,0 +1,127 @@
+{
+  "id": "cp-heyward",
+  "briefId": "CP-078",
+  "title": "United States v. Heyward-Robinson Co.",
+  "course": "Civil Procedure",
+  "citation": "430 F.2d 1077 (2d Cir. 1970)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two excavation jobs became one accounting dispute, and the appeal asked whether the private job belonged in the federal project’s lawsuit.",
+  "actors": [
+    {
+      "name": "D’Agostino Excavators",
+      "role": "Subcontractor on the Navy and Stelma projects"
+    },
+    {
+      "name": "Heyward-Robinson Company",
+      "role": "Prime contractor on both projects"
+    },
+    {
+      "name": "Maryland Casualty Company",
+      "role": "Surety on the Navy project"
+    }
+  ],
+  "proceedings": [
+    "District court: jury found Heyward first breached; judgment for subcontractor on both projects and allocated judgment against surety.",
+    "Second Circuit: affirmed; Friendly concurred in the jurisdictional result on a different theory."
+  ],
+  "limits": [
+    "This is the 1970 ancillary-jurisdiction analysis, not an application of the later supplemental-jurisdiction statute. Friendly’s permissive-counterclaim proposal was not the panel holding."
+  ],
+  "briefSha256": "841e689fea9c553c468fb77d2ebff92d0d1bee1b827c8e1e726334658a2b50f4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-078"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two projects share payments and an insurance policy",
+      "cue": "Introduce the contracts before the competing breach claims.",
+      "paragraphs": [
+        "D’Agostino Excavators undertook excavation for prime contractor Heyward-Robinson on two Connecticut projects: Navy barracks at the Groton submarine base and a private Stelma plant in Stamford. The same parties performed the same type of work over substantially the same period. Their subcontracts permitted cross-project termination or withholding, payments arrived in unallocated lump sums, and one insurance policy covered both jobs.",
+        "Each contractor accused the other of breaching first. D’Agostino said Heyward failed to make required progress payments. Heyward said D’Agostino let compensation and employee-liability insurance lapse, leading Heyward to terminate both subcontracts on October 19, 1965. The October letters threatening and carrying out termination treated the projects together."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶6–8, 22–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Navy payment action expands to the private job",
+      "cue": "Track how each claim entered the lawsuit.",
+      "paragraphs": [
+        "D’Agostino sued Heyward and Maryland Casualty, Heyward’s surety, for Navy-project payments under the Miller Act, which supplied the federal public-work basis for the action. Heyward denied liability and counterclaimed for overpayments and completion expenses on both jobs. D’Agostino responded with its own demand for the unpaid Stelma work. The private dispute thus entered through opposing counterclaims.",
+        "The jury answered a special question by finding that Heyward breached before October 19. The court permitted amendment of the complaint to seek quantum meruit, or the value of work performed, on both projects. The jury awarded a combined net recovery of $63,988.36 against Heyward. A formula the parties agreed on allocated $40,771.46 to the Navy job, producing judgment against Maryland Casualty for that amount. The court denied post-trial motions, and both defendants appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶6–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The defendants dispute jurisdiction they had supported below",
+      "cue": "Explain the majority’s compulsory-counterclaim decision.",
+      "paragraphs": [
+        "For the first time on appeal, Heyward and Maryland Casualty argued that the Stelma counterclaims were permissive and needed an independent jurisdictional basis. They had urged the opposite classification below, but subject-matter jurisdiction could not be created by their earlier position. Both contractors were New York corporations with New York offices, so diversity was absent; the private plant was not federal public work under the Miller Act. They also argued that the combined verdict could not survive excision of the private dispute.",
+        "Judge Frederick van Pelt Bryan, sitting by designation and joined by Judge Kaufman, applied the Second Circuit’s rule that compulsory counterclaims came within ancillary jurisdiction, while permissive claims generally required independent grounds. A limited exception allowed a purely defensive setoff that only reduced or defeated recovery, without affirmative relief.",
+        "Rule 13(a) made a counterclaim compulsory if it arose from the transaction or occurrence underlying the opposing claim. The majority used a broad logical-relationship test. Here, the parties, work, timing, cross-contract provisions, unallocated payments, shared insurance, and combined termination letters connected the jobs. The alleged defaults and payment evidence overlapped; even appellants had called the claims inseparable at trial. On the whole record, the private claims logically and immediately related to the Navy claim. They were compulsory and within ancillary jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶12–26 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The appellate court reviews the conduct of the trial",
+      "cue": "Keep the jurisdictional holding separate from the remaining objections.",
+      "paragraphs": [
+        "The court also rejected the grounds for a new trial. The trial judge should have heard proposed foundational testimony before excluding a memorandum as a settlement discussion. But the memorandum was peripheral to breach and of little relevance to quantum meruit, while substantial evidence supported the verdict, so the error was harmless.",
+        "Five of seven challenges to the instructions had not been preserved when the judge invited objections; the instructions were also adequate. The two preserved objections failed. A supplemental reasonable-time instruction sufficiently addressed payment timing. Heyward could not retrospectively excuse nonpayment by pointing to supplier debts it neither knew of nor withheld funds to cover.",
+        "Heyward also sought a credit of $36,250, the face value of promissory notes it had dishonored and later reacquired for $18,500. Whether the parties had accepted the notes as payment was for the jury; the underlying obligation was not necessarily discharged at face value. Amendment to quantum meruit caused no demonstrated prejudice, and Heyward never requested the additional preparation time offered. A request to poll the jury on its first special verdict came too late, after the second verdict. Complaints about trial recesses supplied no basis for retrial. The judgment was affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶27–63 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Friendly distinguishes permission from an obligation to plead",
+      "cue": "Preserve the concurrence’s preclusion concern.",
+      "paragraphs": [
+        "Judge Friendly agreed with the judgment and with the other trial rulings, but rejected the majority’s compulsory classification. That classification could bar a later suit if a contractor omitted the private-job claim. He therefore would decide it at pleading, asking whether one job’s claim truly originated in the other.",
+        "Shared parties, work, timing, insurance, and a combined termination letter did not make the separate projects one transaction for him. The boilerplate cross-default provisions might have mattered if exercised, but he said Heyward had not exercised them. The pleadings assigned amounts to each job, and ordinary payment rules could allocate lump sums. Trial entanglement should not unexpectedly create a compulsory-counterclaim forfeiture. He also read Southern Construction v. Pickard, a decision finding a counterclaim noncompulsory, as cutting against the majority’s use of that precedent.",
+        "Friendly would instead reconsider the circuit rule requiring independent jurisdiction for permissive counterclaims. Its defensive-setoff exception already weakened it, and Gibbs, the Supreme Court decision permitting related nonfederal claims, supported convenient joint adjudication. He would have sought en banc reconsideration if the case depended on that theory. Because the majority could affirm through Rule 13(a), he left his alternative for another case. The panel’s holding remained compulsory-counterclaim jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶66–72"
+        }
+      ]
+    }
+  ]
+}

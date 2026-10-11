@@ -1,0 +1,138 @@
+{
+  "id": "cp-erie-decision",
+  "briefId": "CP-045",
+  "title": "Erie Railroad Co. v. Tompkins",
+  "course": "Civil Procedure",
+  "citation": "304 U.S. 64 (1938)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Pennsylvania pedestrian wins a New York federal verdict under independently formulated general tort law, prompting the Supreme Court to reconsider the authority for disregarding the State’s own decisional law.",
+  "actors": [
+    {
+      "name": "Harry Tompkins",
+      "role": "Pennsylvania pedestrian injured beside railroad tracks; diversity plaintiff."
+    },
+    {
+      "name": "Erie Railroad Co.",
+      "role": "New York corporation defending the Pennsylvania accident claim and invoking Pennsylvania law."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of New York allowed the claim to reach a jury, which awarded Tompkins $30,000.",
+    "The Second Circuit affirmed under general law without resolving Pennsylvania-law disputes.",
+    "The Supreme Court reversed and remanded to the Second Circuit on April 25, 1938."
+  ],
+  "limits": "The Supreme Court did not finally decide Tompkins’s status under Pennsylvania law, the crossing-location contention, or Erie’s liability. Erie concerns substantive law in an existing diversity action, not abolition of diversity or a universal test for later procedural conflicts.",
+  "briefSha256": "47a57e643c8a349dfd2769b9b1f0013fbdfef5459ce6472414f50ad3d18300c9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-045"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An injury beside Pennsylvania tracks creates competing accounts of legal duty",
+      "cue": "What did each side say about the path?",
+      "paragraphs": [
+        "Harry Tompkins, a Pennsylvania citizen, walked along a commonly used path beside Erie Railroad’s tracks in Hughestown, Pennsylvania. An object resembling a projecting freight-car door struck him. The casebook introduction supplies July 27, 1934, as the date and reports that his right arm was severed.",
+        "Tompkins claimed longstanding open use made him a licensee entitled to ordinary care. Erie, a New York corporation, argued that Pennsylvania decisions treated users of a longitudinal railroad path as trespassers, owed only protection against willful or wanton harm while undiscovered. Tompkins disputed that reading and its application, including a contention that he was struck at a transverse crossing.",
+        "Tompkins filed a diversity tort suit in the Southern District of New York. He further argued that without a Pennsylvania statute, railroad duty was general law on which a federal court could exercise independent judgment. Jurisdiction itself was not the issue; the dispute concerned which source supplied substantive rights."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 69–70, 80 n.24; Casebook p. 445; Parties and Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial and appellate courts permit recovery under general law",
+      "cue": "What state-law question did the Second Circuit bypass?",
+      "paragraphs": [
+        "The district court declined to rule Pennsylvania law barred recovery. The jury awarded $30,000. The Second Circuit affirmed, treating railroad negligence as general jurisprudence. It used ordinary care for permissive path users and allowed jury consideration of negligence and contributory negligence without resolving the parties’ competing state-law authorities.",
+        "Erie obtained Supreme Court review. The Court heard argument on January 31, 1938, and reconsidered Swift v. Tyson, the precedent permitting independent federal formulation of rules in fields categorized as general law. The issue was whether a diversity court could bypass authoritative state decisions on a substantive state-created claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 70–71, 81–82; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brandeis rejects Swift’s interpretation and its promised uniformity",
+      "cue": "Why did the old rule change substantive rights through forum choice?",
+      "paragraphs": [
+        "Justice Brandeis explained that Swift had read § 34 of the Judiciary Act, the Rules of Decision Act, to include statutes, local usages, and fixed local matters while leaving broader commercial and common-law questions open to federal judgment. State decisions became informative rather than binding. Historical research into the original Act supported reading “laws” to include written and unwritten state law except where federal law governed.",
+        "The expected national uniformity had not materialized because state courts remained free to follow their own law. The same transaction inside one State could have different legal consequences depending on access to federal court. Disputes about what was local or general added uncertainty.",
+        "The Taxicab litigation illustrated the consequence: a Kentucky business reincorporated in Tennessee and obtained federal enforcement of an exclusive arrangement Kentucky common law would invalidate. Changing forum access changed substantive rights without changing the local transaction. Diversity’s response to possible local bias had become access to a distinct substantive law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 71–77; Statutory and practical reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority grounds state decisional authority in constitutional structure",
+      "cue": "What kind of federal lawmaking did the Court reject?",
+      "paragraphs": [
+        "Brandeis added a constitutional rationale. Law governing state-created relationships derived authority from the State whether made by legislature or judiciary; it was not an independent body of universal principles federal judges could discover differently with equal authority. Drawing on Field and Holmes dissents, the majority extended respect for state autonomy to authoritative state judgments as well as statutes.",
+        "The earlier practice represented an unconstitutional assumption of power over matters reserved to States. The Court expressly recognized substantive rules governed by the Federal Constitution or acts of Congress. It rejected a general power to prescribe state substantive common law merely because a lawsuit was federal, not every possible law grounded in distinct federal authority.",
+        "It also denied invalidating § 34 or another federal enactment. The fault lay in judicial application of Swift. That distinction mattered because the separate opinions questioned the necessity and procedural propriety of the constitutional discussion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 77–80, 87–92; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Reed agrees with the statutory correction but resists constitutional breadth",
+      "cue": "What question did he consider unnecessary?",
+      "paragraphs": [
+        "Justice Reed concurred in the result and much of the reasoning. The statute’s reference to state law included state decisions, which was sufficient to overrule Swift. He did not agree that the Constitution necessarily demanded the same outcome absent statutory direction.",
+        "Federal power over procedure was unquestioned, while the substance-procedure boundary was difficult. The Judiciary Article and Necessary and Proper Clause might support legislation relevant to these questions. Reed preferred correcting statutory interpretation without resolving the majority’s broader assertions about Congress’s powers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 90–92; Reed concurrence"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Butler also opposes Tompkins’s judgment but on a different ground",
+      "cue": "Why does his dissent not mean support for preserving the award?",
+      "paragraphs": [
+        "Justice Butler, joined by Justice McReynolds, objected that the constitutional question was neither presented nor argued. He emphasized Swift’s long acceptance, disputed the historical research’s weight, and would at least order reargument. In his view, declaring Congress unable to prescribe the longstanding rule effectively invalidated § 34 as previously understood, calling for United States participation under the 1937 intervention statute.",
+        "Butler would nevertheless reverse Tompkins’s judgment for contributory negligence under the governing law as he understood it. He opposed the majority’s constitutional rationale and remand, not reversal of the damages award. Justice Cardozo did not participate.",
+        "On April 25, 1938, the Court reversed the Second Circuit and remanded there. The immediate error was bypassing the Pennsylvania-law dispute. The Supreme Court chose neither party’s final interpretation, left the crossing contention open, and did not enter judgment absolving Erie. Later cases such as York, Byrd, and Hanna would develop federal-state procedural conflicts; this decision removed the unauthorized general-law foundation for Tompkins’s judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304 U.S. at 80 n.24, 82–90; Butler dissent; Judgment; Notes"
+        }
+      ]
+    }
+  ]
+}

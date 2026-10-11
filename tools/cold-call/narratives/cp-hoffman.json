@@ -1,0 +1,138 @@
+{
+  "id": "cp-hoffman",
+  "briefId": "CP-042",
+  "title": "Hoffman v. Blaski",
+  "course": "Civil Procedure",
+  "citation": "363 U.S. 335 (1960)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Defendants in two properly filed lawsuits prefer other federal districts and offer to waive objections there. The transfer statute’s original destination requirement, rather than the practical convenience findings, controls both cases.",
+  "actors": [
+    {
+      "name": "Blaski and other patent owners",
+      "role": "Illinois plaintiffs who sued for infringement in Texas."
+    },
+    {
+      "name": "Howell and his Texas corporation",
+      "role": "Patent defendants seeking transfer to Illinois."
+    },
+    {
+      "name": "Judge Hoffman",
+      "role": "Illinois federal judge ordered by mandamus to return the patent case to Texas."
+    },
+    {
+      "name": "Behimer and Roberts",
+      "role": "Minority shareholders in the companion action concerning Utah Oil Refining assets."
+    },
+    {
+      "name": "Standard Oil Company and Standard Oil Foundation",
+      "role": "Indiana corporate defendants seeking transfer of the shareholder action from Illinois to Utah."
+    }
+  ],
+  "proceedings": [
+    "The Texas court transferred the patent suit to Illinois; the Fifth Circuit denied leave to seek mandamus.",
+    "Judge Hoffman declined retransfer, but the Seventh Circuit granted mandamus directing return to Texas.",
+    "The Illinois court transferred the companion shareholder action to Utah; the Seventh Circuit ordered that transfer undone too.",
+    "The Supreme Court affirmed both Seventh Circuit judgments on June 13, 1960."
+  ],
+  "limits": "This source-brief account states the historical wording of § 1404(a), without a new audit. Later text permits an all-party-consent destination, distinct from the defendants’ unilateral consent here. Convenience and mandamus availability were unchallenged in Supreme Court review. Neither patent liability nor the shareholder merits were decided, and subject-matter jurisdiction was not made waivable.",
+  "briefSha256": "cb81bd147734c3a172104b93116c27273291b5143b52947dfc51d488919b5d81",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-042"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The patent defendants seek a forum where related litigation is pending",
+      "cue": "Why did Illinois look convenient even though the plaintiffs could not originally sue there?",
+      "paragraphs": [
+        "Blaski and other Illinois patent owners sued Howell and a Texas corporation he controlled in the Northern District of Texas. The defendants lived and had their only business in Dallas, where the alleged infringement occurred. Texas was a proper forum.",
+        "Other litigation on the patents was pending in the Northern District of Illinois, with discovery potentially useful here. After answering, defendants moved under 28 U.S.C. § 1404(a) to transfer there and offered to appear and waive venue objections. Plaintiffs objected that defendants neither resided nor maintained a business or infringed in Illinois and could not originally have been served there.",
+        "The Texas district court ordered transfer for convenience and justice without resolving that threshold objection. The Fifth Circuit denied leave to seek mandamus, relying on defendants’ willingness to waive venue. Once the suit reached Illinois, Judge Hoffman denied retransfer despite doubts about the original order. The Seventh Circuit granted mandamus requiring return to Texas. Hoffman became the captioned petitioner because the writ directed the judge, not because he was an infringement defendant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; Procedural History; 363 U.S. 336–338 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A separate shareholder dispute presents the same destination problem",
+      "cue": "Which facts belonged to Sullivan v. Behimer rather than the patent case?",
+      "paragraphs": [
+        "In the companion case, minority shareholders Behimer and Roberts sued Standard Oil Company and Standard Oil Foundation over allegedly acquiring Utah Oil Refining Corporation’s assets too cheaply. The defendants were Indiana corporations doing business in Illinois. They were not incorporated, licensed, doing business or amenable to process in Utah.",
+        "Utah nevertheless offered officers, records and many shareholders, governing Utah law and a less crowded court calendar. Defendants offered to appear and waive venue there. The Illinois district court transferred, but the Seventh Circuit issued mandamus undoing that transfer as well.",
+        "The Supreme Court reviewed both decisions to resolve disagreement about permitted § 1404(a) destinations. The parties did not challenge factual convenience or the availability of mandamus before it. Both disputes concerned whether later defendant consent could supply transfer authority despite the conceded original absence of venue and service reach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Companion facts and procedure; 363 U.S. 338–342 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats destination eligibility as a separate statutory condition",
+      "cue": "At what time, and from whose perspective, was availability measured?",
+      "paragraphs": [
+        "Justice Whittaker explained that § 1404(a) allowed a federal court to relieve inconvenient litigation without forum non conveniens dismissal. But convenience and justice were not its only conditions: transfer had to go where the action could have been brought. The majority read the past-tense language as the plaintiff’s right to sue when the action began, independent of defendants’ later preferences or waiver.",
+        "Defendants urged availability at transfer, through later residence, activity or consent. The majority rejected that approach. Venue and personal jurisdiction ordinarily were waivable in a suit actually filed in a court with subject-matter competence. These cases, however, originated elsewhere; their arrival depended on a statutorily authorized transfer. Waiving personal objections did not expand the transferor court’s power.",
+        "The proposed rule also created asymmetry: defendants could unlock a favored district by consenting, while plaintiffs with equally strong convenience grounds could not transfer there without consent. The Court found no evidence that Congress intended destination eligibility to depend on one side’s unilateral choice. Related Illinois litigation and Utah records explained practical attraction but did not cure the missing statutory prerequisite."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 363 U.S. 342–344"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court permits the Seventh Circuit to revisit the procedural authority",
+      "cue": "What was the effect of the Fifth Circuit’s earlier mandamus action?",
+      "paragraphs": [
+        "The majority rejected treating the Fifth Circuit’s earlier action in Blaski as a final barrier. The relevant orders were interlocutory, arose in the same litigation and did not decide the merits. Denial of leave to pursue mandamus had not finally established the receiving court’s authority. The Seventh Circuit could address the problem instead of allowing a trial it would later regard as unauthorized.",
+        "Justice Stewart separately agreed with the statutory result and treatment of the earlier proceedings. Movement between courts had been inefficient, but no preclusion contention was being pressed in the Supreme Court and ordinary res judicata principles did not bar reconsideration.",
+        "On June 13, 1960, the Court affirmed both Seventh Circuit judgments. The writs undoing transfer stood. The Court did not determine infringement or the shareholders’ entitlement; it fixed where those pending actions could proceed under the enactment before it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Prior procedural rulings; Stewart concurrence; 363 U.S. 340–345 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Frankfurter objects separately to relitigation and the transfer interpretation",
+      "cue": "Why would consent and judicial discretion have sufficed for the dissent?",
+      "paragraphs": [
+        "Justice Frankfurter, joined by Justices Harlan and Brennan, wrote separate dissents for the two cases. In Blaski he emphasized judicial administration: the Fifth Circuit had already considered the same transfer question between the same parties, and allowing a second circuit to redo it produced expense, duplicative appellate work and an impasse until Supreme Court intervention. He would require respect for that earlier decision apart from statutory disagreement.",
+        "His companion dissent regarded the destination language as ambiguous. Venue ordinarily protected a waivable interest in locality. Effective submission to the new federal court would preserve an available forum, while a judge still had to find convenience and justice, protecting plaintiffs against improper transfer. Forum non conveniens historically could condition dismissal on submission elsewhere; the transfer statute’s connection to that practice supported flexibility.",
+        "Frankfurter disputed the majority’s asymmetry concern because plaintiffs had chosen the original forum and defendants still bore the transfer burden. Federal adjudicatory power, effective submission and reasoned judicial assessment supplied his limits.",
+        "This holding concerns the earlier statutory language. As later quoted in Atlantic Marine, § 1404(a) gained an express alternative for a district to which all parties consent. That later unanimous-consent route is different from the defendants’ unilateral offers here. The historical inquiry keeps original propriety, statutory destination eligibility and convenience distinct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Frankfurter dissents; Notes; 363 U.S. 345–369; Atlantic Marine comparison in source brief"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "cp-bnsf",
+  "briefId": "CP-ATLAS-BNSF",
+  "title": "BNSF Railway Co. v. Tyrrell",
+  "course": "Civil Procedure",
+  "citation": "581 U.S. 402 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two railroad injury plaintiffs sued in Montana despite no connection between their claims and work there. The Court separated a federal venue statute from personal jurisdiction and tested BNSF’s substantial local operations against the at-home standard.",
+  "actors": [
+    {
+      "name": "Robert Nelson",
+      "role": "North Dakota resident alleging work-related knee injury; first Montana plaintiff."
+    },
+    {
+      "name": "Kelli Tyrrell",
+      "role": "South Dakota-appointed administrator of husband Brent’s estate; alleged work-related exposure caused fatal kidney cancer."
+    },
+    {
+      "name": "BNSF Railway Company",
+      "role": "Delaware corporation headquartered in Texas, operating in twenty-eight states; defendant challenging Montana jurisdiction."
+    }
+  ],
+  "proceedings": [
+    "Montana trial court dismissed Nelson’s suit but denied dismissal in Tyrrell’s.",
+    "Montana Supreme Court consolidated review and sustained general jurisdiction on FELA and state-rule grounds; McKinnon dissented.",
+    "United States Supreme Court on May 30, 2017 reversed and remanded both cases, reserving consent; statutory ruling was unanimous and constitutional disposition eight to one."
+  ],
+  "limits": "The Court did not adjudicate injuries or consent. Track, employee, and revenue figures informed an at-home inquiry, not a universal numerical threshold. Later consent law and remand outcomes are outside this account.",
+  "briefSha256": "93e83b1d72abd41fdae4abb2bc3770c2c99fbc0b826ad992b24653462013b4d7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-BNSF"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The claims arise away from Montana’s substantial railroad operations",
+      "cue": "Who sued, and what did they allege?",
+      "paragraphs": [
+        "BNSF Railway Company was incorporated in Delaware, headquartered in Texas, and operated in twenty-eight States. Its Montana business was significant: 2,061 track miles, about 2,100 employees, under ten percent of revenue, and one of twenty-four automotive facilities. Montana represented about six percent of total track and less than five percent of the workforce.",
+        "In March 2011, North Dakota resident Robert Nelson sued BNSF in Montana under the Federal Employers’ Liability Act (FELA), alleging knee injuries from fuel-truck-driving work. In May 2014, Kelli Tyrrell, appointed in South Dakota to administer husband Brent’s estate, filed another Montana FELA action alleging that workplace carcinogens caused his fatal kidney cancer.",
+        "Neither claim arose from or related to Montana work, and neither injured worker appeared ever to have worked there for BNSF. These were unadjudicated employment-injury allegations. The jurisdiction dispute concerned whether BNSF’s substantial Montana operations permitted unrelated claims there."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; 581 U.S. at 404–07"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Opposite trial rulings converge on two state supreme court theories",
+      "cue": "What questions required separate answers?",
+      "paragraphs": [
+        "BNSF moved to dismiss both cases for lack of personal jurisdiction. The trial court granted Nelson’s dismissal but denied Tyrrell’s. The Montana Supreme Court consolidated review and upheld general jurisdiction on two grounds: it read FELA’s 45 U.S.C. § 56 to authorize jurisdiction wherever a railroad did business and found BNSF a person “found within” Montana under state Rule 4(b)(1).",
+        "The state court distinguished Daimler’s at-home limitation because Daimler involved neither a railroad nor FELA. Justice McKinnon dissented, separating venue and subject-matter competence from personal jurisdiction and concluding Daimler applied.",
+        "Supreme Court review therefore required both statutory and constitutional analysis. Rejecting a federal statutory basis would not itself dispose of the independent state-rule ground, which Montana had expressly decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; 581 U.S. at 407–08, 412, 414–15 n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ginsburg identifies venue and subject-matter jurisdiction in section 56",
+      "cue": "Why did the word “jurisdiction” not authorize power over every defendant?",
+      "paragraphs": [
+        "Justice Ginsburg explained that the first relevant § 56 sentence permitted a federal action where the defendant resided, the cause arose, or the defendant did business when suit began. Those are venue choices, as the Court had previously interpreted them. Congress commonly states venue by where an action may be brought and personal jurisdiction by service-of-process authorization. The section’s actual opening limitations sentence was irrelevant to this dispute.",
+        "Plaintiffs pointed to reports discussing earlier jurisdictional dismissals. The Court answered that the predecessor provision had long governed venue and the Senate Report expressly used venue terminology. Plaintiffs’ construction of the predecessor would implausibly permit a diversity plaintiff to force litigation in the plaintiff’s own district despite no defendant or controversy connection.",
+        "The next relevant sentence made federal and state jurisdiction concurrent. That described shared subject-matter power, responding to a Connecticut decision treating FELA cases as exclusively federal. It allowed state courts to hear this type of claim without eliminating the separate need for authority over a particular railroad. Plaintiffs’ contrary reading also assumed a personal-jurisdiction grant in the preceding sentence that did not exist."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "FELA interpretation; 581 U.S. at 408–11 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Earlier FELA cases address different barriers",
+      "cue": "Which precedents did not settle personal jurisdiction?",
+      "paragraphs": [
+        "Montana had relied on Terte, Kepner, Miles, and Pope. Ginsburg distinguished their issues: Terte concerned an alleged interstate-commerce burden; Kepner and Miles addressed injunctions against residents pursuing FELA suits elsewhere; Pope asked whether federal transfer legislation altered that state-injunction rule.",
+        "None decided this personal-jurisdiction question, and most predated International Shoe’s transformation of contacts doctrine. Permission to sue, venue, interstate-commerce burdens, and authority over the defendant could not be combined into a single jurisdictional holding. All nine Justices agreed that § 56 did not confer the asserted personal jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Precedent distinctions; 581 U.S. at 411–12; voting at 404, 415–16"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The at-home inquiry considers the corporation as a whole",
+      "cue": "Why were miles of track and thousands of employees insufficient?",
+      "paragraphs": [
+        "BNSF did not dispute that the state rule treated it as found in Montana. Due process remained an independent limit. With no claim-specific Montana connection, these suits required general jurisdiction over unrelated claims. A corporation’s ordinary homes are incorporation and principal business location; exceptional circumstances may establish another. Perkins illustrated an exceptional wartime relocation that made Ohio the center of a Philippine company’s activities.",
+        "Eight Justices rejected an exception for railroads or FELA suits. General-jurisdiction limits apply to nonresident defendants regardless of business or cause of action. A venue provision could not make every railroad operating state a constitutional home.",
+        "Montana contacts were extensive but had to be evaluated in the context of BNSF’s activities as a whole. A multistate company does not become at home everywhere it has substantial operations. Those contacts could support specific jurisdiction over related injuries, but not these unrelated claims. The Court adopted no universal miles, employee, or revenue ceiling.",
+        "Answering Justice Sotomayor, the majority noted that International Shoe’s local activities generated the very liabilities sued upon; it did not decide authority over unrelated claims. These injuries had neither events nor principal effects in Montana."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constitutional analysis; 581 U.S. at 412–15 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Sotomayor challenges comparative contacts and would remand under the standard",
+      "cue": "What did her dissent actually seek?",
+      "paragraphs": [
+        "Sotomayor joined the facts and statutory analysis and agreed that being a railroad did not answer due process. She maintained her objection to Daimler’s restrictive at-home test. She read International Shoe as calling for contextual examination of whether continuous local operations were substantial enough for unrelated claims; meaningful local benefits could fairly bring corresponding litigation burdens.",
+        "She criticized measuring local activity against nationwide operations because greater size elsewhere could insulate a company despite major local business. Quality and quantity of local contacts mattered more than percentages. She also observed that Perkins and Helicopteros had not used this comparative approach.",
+        "Even accepting the majority’s standard, she preferred remand for Montana to conduct a factual inquiry. She thought the majority narrowed Daimler’s exceptional reservation to nearly Perkins-identical circumstances and then applied that narrow rule itself. Her dissent from the judgment did not declare plaintiffs had already established jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor separate opinion; 581 U.S. at 415–19 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Both cases return with consent still undecided",
+      "cue": "What survived the reversal?",
+      "paragraphs": [
+        "On May 30, 2017, the Court reversed the Montana Supreme Court and remanded both matters. Chief Justice Roberts and Justices Kennedy, Thomas, Breyer, Alito, Kagan, and Gorsuch joined Ginsburg throughout. Sotomayor joined Parts I and II but dissented from Part III and the judgment, producing unanimous statutory agreement and an eight-to-one constitutional disposition.",
+        "The Court rejected FELA and general contacts as the two grounds decided below. Plaintiffs separately asserted consent, but Montana had not addressed it, so the Supreme Court left it open. No injury merits or consent outcome was decided, and the source does not establish later remand results."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and reserved consent; 581 U.S. at 404–06, 412–15"
+        }
+      ]
+    }
+  ]
+}

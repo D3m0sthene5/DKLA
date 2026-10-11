@@ -1,0 +1,114 @@
+{
+  "id": "cp-hall",
+  "briefId": "CP-ATLAS-HALL",
+  "title": "Hall v. Hall",
+  "course": "Civil Procedure",
+  "citation": "138 S. Ct. 1118 (2018)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two consolidated lawsuits between siblings reached different stages after trial, forcing the Supreme Court to decide whether the finished lawsuit could be appealed while the other awaited a new trial.",
+  "actors": [
+    {
+      "name": "Ethlyn Hall",
+      "role": "Virgin Islands property owner and original plaintiff"
+    },
+    {
+      "name": "Samuel Hall",
+      "role": "Ethlyn’s son, lawyer, caretaker, and defendant in the trust case"
+    },
+    {
+      "name": "Elsa Hall",
+      "role": "Ethlyn’s daughter, successor trustee, and defendant individually in Samuel’s separate action"
+    },
+    {
+      "name": "Chief Justice Roberts",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "Consolidated trust and individual actions tried to one jury; final defense judgment in trust action and new-trial order in individual action; Third Circuit dismissed the trust appeal as premature; Supreme Court reversed and remanded.",
+  "limits": "The Supreme Court decided appealability, not the merits of the family dispute or the new-trial order. Its holding preserves each constituent case’s identity at least when a final judgment resolves that case and appellate review is sought.",
+  "briefSha256": "7b24b39b94a3bae9354f3e6166c3a3b5c164b96e30f6c87de3da2a6ae6d1236e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-HALL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A mother’s property dispute became two siblings’ lawsuits",
+      "cue": "Introduce the family members before their procedural roles multiply.",
+      "paragraphs": [
+        "Ethlyn Hall owned property in the United States Virgin Islands. Her son Samuel, a lawyer, served as her caretaker and legal adviser. After a disagreement over Samuel’s management of her real estate, Ethlyn created an inter vivos trust, transferred her property into it, and named her daughter Elsa as successor trustee. Ethlyn then moved to Miami to live with Elsa, although the parties disputed the circumstances of that move.",
+        "In May 2011, Ethlyn sued Samuel and his law firm in federal district court, individually and as trustee. She alleged breach of fiduciary duty, legal malpractice, conversion, fraud, and unjust enrichment. This action became the trust case. When Ethlyn died, Elsa succeeded her as trustee and plaintiff.",
+        "Samuel counterclaimed against Elsa in both her individual and representative capacities. He alleged that Elsa had exploited their mother’s mental frailty to turn her against him, asserting intentional infliction of emotional distress, fraud, breach of fiduciary duty, conversion, and tortious interference. But Elsa had entered the trust case only as a representative. Samuel therefore filed a separate complaint asserting the same claims against her individually. That second suit became the individual case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "One trial produced a finished case and a pending case",
+      "cue": "Explain why consolidation mattered only after the verdicts.",
+      "paragraphs": [
+        "The lawsuits initially proceeded separately. On Samuel’s motion, the district court consolidated them under Federal Rule of Civil Procedure 42(a) and directed that filings go on the trust case’s docket. Shortly before trial, it dismissed Samuel’s counterclaims from the trust case; his claims remained in the individual action. One jury then tried both cases together.",
+        "In the individual case, the jury found for Samuel on intentional infliction of emotional distress and awarded $500,000 in compensatory damages and $1.5 million in punitive damages. The district court entered judgment but granted Elsa a new trial, reopening that judgment and leaving the action pending. In the trust case, the jury rejected Elsa’s claims against Samuel and the firm. The clerk entered judgment that Elsa recover nothing and that the action be dismissed on the merits. That judgment resolved the entire trust case.",
+        "Elsa appealed the trust judgment. Samuel and his firm argued that consolidation had effectively created one case, so no final decision existed while the individual case remained unresolved. Applying a case-by-case approach to fully consolidated litigation and emphasizing the common scheduling and trial, the Third Circuit dismissed her appeal for lack of jurisdiction. The Supreme Court agreed to review that dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court looked to what consolidation had historically meant",
+      "cue": "Connect the older decisions to Elsa’s present appeal right.",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for a unanimous Supreme Court. Under 28 U.S.C. § 1291, courts of appeals review final district-court decisions—decisions ending the merits litigation and leaving only execution of judgment. Without consolidation, the trust judgment plainly met that standard. The question was whether Rule 42(a) changed its finality.",
+        "Samuel relied on ordinary definitions of “consolidate” as joining things into one whole. Roberts explained that ordinary usage was ambiguous: the word could also mean coordination without loss of separate identity. The Court therefore examined the established legal meaning of the term. The 1938 rule rested on a federal consolidation statute dating to 1813, and 125 years of decisions and treatises generally treated consolidation as case management that preserved the cases and their parties’ rights.",
+        "The older decisions supplied concrete consequences. Rich v. Lambert refused to aggregate consolidated admiralty claims to meet appellate jurisdiction’s required amount and treated the decrees as separately appealable. Hillmon preserved each defendant’s peremptory challenges in insurance actions tried together. Stone prevented an appeal in one consolidated case from becoming a vehicle to assert rights in another. Johnson v. Manhattan Railway reiterated that consolidation did not merge suits or automatically make a party to one a party to the others. The Court acknowledged isolated federal departures and different state practices rather than claiming absolute historical uniformity.",
+        "That history supported Elsa. If consolidation created one action, separate appellate-jurisdiction analysis would be unnecessary. Separate judgments ordinarily carried separate appeal rights, and a party’s right to appeal a completed case should not depend on the resolution of another action involving other parties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 4–12 & 10 n.*"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The rule’s different tools did not establish complete merger",
+      "cue": "Answer Samuel’s structural argument before announcing the result.",
+      "paragraphs": [
+        "Samuel argued that Rule 42(a)(1), which permits joint hearings or trials, already supplied limited consolidation. He reasoned that subsection (a)(2), authorizing consolidation of actions, must add complete merger or become redundant; subsection (a)(3) separately permitted other orders avoiding expense or delay.",
+        "The Court disagreed. Litigation includes discovery and motion practice as well as hearings and trials. Subsection (a)(2) authorized coordination of those other stages and therefore had independent work without merging constituent actions. More fundamentally, the rule borrowed a settled legal term without announcing a new meaning. The Advisory Committee described the rule as based on the old statute and, unlike notes identifying other changes in practice, identified no transformation of consolidation’s consequences. Contemporary commentary and subsequent Supreme Court decisions continued to recognize separate case identities.",
+        "District judges retained substantial discretion to consolidate cases and coordinate them for all purposes. The Court did not decide every consequence of consolidation before final judgment. It held that, at least when one constituent action is finally resolved, the losing party can appeal that decision immediately even if another consolidated case remains pending. Practical complications could be addressed through the rulemaking process.",
+        "On March 27, 2018, the Supreme Court reversed the Third Circuit’s dismissal and remanded. Elsa could pursue review of the completed trust case while the individual case awaited retrial. That ruling did not overturn the trust verdict, reinstate the reopened individual judgment, or decide either sibling’s substantive claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 12–18"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "id": "shoe",
+  "briefId": "CP-015",
+  "title": "International Shoe Co. v. Washington",
+  "course": "Civil Procedure",
+  "citation": "326 U.S. 310 (1945)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Washington seeks unemployment contributions arising from a continuing local sales force, although the employer manufactures, accepts orders, and ships from elsewhere.",
+  "actors": [
+    {
+      "name": "International Shoe Company",
+      "role": "Delaware corporation headquartered in St. Louis contesting the Washington assessment."
+    },
+    {
+      "name": "Washington unemployment-compensation authorities",
+      "role": "Officials assessing and collecting contributions measured by local employment wages."
+    },
+    {
+      "name": "Washington salesmen",
+      "role": "Resident solicitors whose activities and receipt of notice connected the company to the proceeding."
+    }
+  ],
+  "proceedings": [
+    "An appeal tribunal rejected International Shoe’s special-appearance objections.",
+    "The commissioner, Superior Court, and Washington Supreme Court affirmed.",
+    "The United States Supreme Court affirmed the assessment and collection proceeding."
+  ],
+  "limits": "The obligation arose directly from the local sales operation. The decision does not make every continuous business activity sufficient for unrelated claims or adopt later at-home terminology.",
+  "briefSha256": "ad2534ec112e77ea38a2c9fd8e46609771b526938dd1d7b03ea86e9572c4c947",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-015"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The company maintains a continuing Washington sales force",
+      "cue": "Which activities occurred in state and which remained elsewhere?",
+      "paragraphs": [
+        "International Shoe manufactured and distributed footwear outside Washington, with Delaware incorporation and a St. Louis principal place of business. It maintained no Washington office or merchandise stock, entered no local purchase or sales contracts, and made no intrastate deliveries.",
+        "Nevertheless, eleven to thirteen resident salesmen worked principally in Washington under St. Louis supervision. Their commissions exceeded $31,000 annually—a compensation figure, not revenue. They displayed single-shoe samples, solicited orders on company-set terms, and sometimes rented display rooms reimbursed by the company. Orders went to St. Louis for decision and were filled from out of state. Salesmen could not contract or collect, but their work generated a substantial continuing flow of goods into Washington."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 326 U.S. at 313–315"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Washington assesses contributions and serves notice locally and by mail",
+      "cue": "What objections did the company preserve?",
+      "paragraphs": [
+        "Washington financed unemployment benefits through employer contributions measured by wages for in-state services. The commissioner assessed International Shoe for 1937–1940, delivered notice to a local solicitor, and sent registered notice to headquarters.",
+        "The company appeared specially, contesting authority rather than making a general appearance. It challenged service on the salesman, corporate presence and business activity, absence of an authorized service agent, and its status as a covered employer. The appeal tribunal heard evidence and stipulated facts and upheld recovery. The commissioner, Superior Court, and state Supreme Court affirmed. The latter stressed regular solicitation and continuous shipments plus displays, rented rooms, and resident salesmen. International Shoe pursued due-process and interstate-commerce objections in the United States Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Procedural History; 326 U.S. at 311–316"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stone replaces fictional presence with the quality of contacts",
+      "cue": "How does the claim’s connection to the activity matter?",
+      "paragraphs": [
+        "Chief Justice Stone explained that a corporation has no physical body whose location resolves jurisdiction. “Presence” simply restates whether its authorized activity makes defense of this particular suit reasonable within the federal system. Minimum contacts must allow proceedings consistent with traditional fair play and substantial justice, considering nature, quality, relation to the claim, and the burden of litigating away from headquarters.",
+        "The Court described patterns rather than a mechanical count. Continuous local activity producing the liability ordinarily supported suit; casual activity ordinarily did not support unrelated claims. Some sustained operations still failed for unrelated litigation, while exceptionally substantial ones had sufficed. A single act might support a related claim depending on its character. No-contact defendants could not be bound merely through a court’s convenience judgment.",
+        "Here the regular operation continued throughout the assessment years, generated substantial commerce, and received Washington law’s protection, including courts. The employment-based obligation arose from precisely that activity. Out-of-state order acceptance and absence of an office did not make local defense unfair."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; 326 U.S. at 316–320"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Notice and the tax receive their own analysis",
+      "cue": "Why did jurisdiction not rest on notification alone?",
+      "paragraphs": [
+        "The solicitor whose conduct formed relevant contacts could reasonably convey a related proceeding, and registered mail to the home office was reasonably calculated to inform the company. These methods supplied adequate notice, distinct from the contacts establishing adjudicatory authority.",
+        "The Court accepted the state court’s construction of the contribution as a tax on employing Washington salesmen, measured by commissions. Local employment supplied both the taxable event and the basis to collect the resulting obligation. Congress had separately provided that interstate or foreign commerce did not excuse compliance with state unemployment-fund requirements, disposing of the commerce objection. The Court did not announce general state authority over every aspect of the company’s business."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; 326 U.S. at 315,320–322"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Black supports Washington but objects to the flexible standard",
+      "cue": "What judgment remained in force?",
+      "paragraphs": [
+        "Black regarded state authority to tax and sue corporations doing local business through agents as clear and actual notice as sufficient. He would dismiss the appeal as unsubstantial rather than create broad constitutional rules. Fairness and convenience criteria, he feared, gave judges excessive power over state legislation and protection of residents.",
+        "The Court affirmed the Washington Supreme Court, leaving the company subject to contributions and collection proceedings. Jackson took no part. The sustained, claim-connected sales operation drove the result; later labels of specific and general jurisdiction help describe the patterns but do not transform this holding into authority over every unrelated corporate claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinion; Judgment; 326 U.S. at 322–326"
+        }
+      ]
+    }
+  ]
+}

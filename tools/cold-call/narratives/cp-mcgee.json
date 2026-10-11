@@ -1,0 +1,110 @@
+{
+  "id": "cp-mcgee",
+  "briefId": "CP-ATLAS-MCGEE",
+  "title": "McGee v. International Life Insurance Co.",
+  "course": "Civil Procedure",
+  "citation": "355 U.S. 220 (1957)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An insurer’s single California policy produced a California judgment, but the beneficiary had to go to Texas to collect it and confront a jurisdiction objection.",
+  "actors": [
+    {
+      "name": "Lowell Franklin",
+      "role": "California insured"
+    },
+    {
+      "name": "Lulu B. McGee",
+      "role": "His mother and policy beneficiary"
+    },
+    {
+      "name": "International Life Insurance Company",
+      "role": "Texas insurer that assumed the policy"
+    }
+  ],
+  "proceedings": [
+    "California state court entered judgment for McGee after registered-mail service in Texas.",
+    "Texas courts refused enforcement for lack of California jurisdiction.",
+    "Supreme Court reversed and remanded to the Texas Court of Civil Appeals."
+  ],
+  "limits": "The insurer asserted suicide; the Supreme Court made no finding on that defense. The decision concerned the policy-connected claim, not general jurisdiction over unrelated claims. Eight Justices participated without dissent.",
+  "briefSha256": "6403e5056e30a0fb87c6ff4fdd3c3cba921f735a00fd74aed1670483a09aded7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-MCGEE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The policy relationship crosses state lines",
+      "cue": "The insurer offers continuing coverage in California",
+      "paragraphs": [
+        "Lowell Franklin lived in California when he bought a life insurance policy from Arizona’s Empire Mutual Insurance Company in 1944. In 1948, International Life Insurance Company, a Texas corporation, agreed to assume Empire Mutual’s obligations. International mailed Franklin a reinsurance certificate offering coverage on his existing terms. Franklin accepted in California and mailed premiums from home to International’s Texas office until he died in 1950.",
+        "Franklin’s mother, Lulu B. McGee, was the beneficiary. She submitted proof of death, but International refused payment, asserting suicide. Neither insurer had a California office or agent, and the record showed no other California insurance business by International. The dispute therefore concerned the significance of this particular policy relationship."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 221–222"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A California victory encounters a Texas obstacle",
+      "cue": "McGee sues on her existing judgment",
+      "paragraphs": [
+        "McGee sued in California under a statute allowing actions against foreign insurers on contracts with California residents even without in-state service. International received registered-mail process at its principal Texas office. McGee obtained judgment but could not collect in California, so she brought an enforcement action in Texas.",
+        "The Texas courts considered the California judgment void under the Fourteenth Amendment because out-of-state service did not give California personal jurisdiction. The Supreme Court reviewed the Texas Court of Civil Appeals’ refusal to enforce. The parties agreed that, if California had jurisdiction, full faith and credit under 28 U.S.C. § 1738 required Texas to recognize the judgment. The Supreme Court was thus reviewing enforceability, not trying the insurance claim itself.",
+        "International also objected that California enacted the forum statute in 1949, after it assumed the policy in 1948. It characterized the later forum requirement as an impairment of its contractual obligation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 221 & n.1, 224"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The insurance contract supplies the forum connection",
+      "cue": "A local remedy is consistent with due process",
+      "paragraphs": [
+        "Justice Black’s opinion traced the movement from Pennoyer’s territorial framework to International Shoe’s minimum-contacts inquiry into fair play and substantial justice. Interstate contracts increasingly formed through the mail, and improved transportation and communication reduced the burdens of distant defense. Economic participation no longer required a conventional local office.",
+        "This contract had a substantial California connection: delivery occurred there, premiums came from there, and Franklin resided there when he died. California had a substantial interest in an effective remedy for residents denied insurance benefits. Requiring a claimant to pursue a small or moderate claim in the insurer’s distant home state could make enforcement impractical. Relevant witnesses, including evidence bearing on the asserted suicide defense, also could be found where Franklin lived.",
+        "The Court acknowledged the insurer’s inconvenience but found no due-process violation. International did not claim inadequate notice or insufficient time to prepare a defense and appear. The conclusion rested on the insurer’s mailed offer and maintained California policy relationship, not simply the beneficiary’s preference for a convenient forum. It did not make International answerable in California for unrelated disputes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 222–224 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The later statute changes the remedy, not the obligation",
+      "cue": "The enforcement refusal is reversed",
+      "paragraphs": [
+        "The Court rejected the impairment argument because the 1949 law supplied a forum without enlarging or diminishing substantive contractual rights. International retained a reasonable opportunity to appear and contest liability. It had no vested right to escape a California suit merely because the remedial statute followed its assumption of the policy. That reasoning did not approve every retroactive alteration of a contract.",
+        "On December 16, 1957, the Court reversed and remanded to the Texas Court of Civil Appeals, First Supreme Judicial District. The decision removed the jurisdictional ground for refusing McGee’s California judgment; it neither determined suicide nor calculated proceeds. Justice Douglas announced Black’s opinion. Chief Justice Warren did not participate, and the eight participating Justices recorded no dissent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 224"
+        }
+      ]
+    }
+  ]
+}

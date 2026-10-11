@@ -1,0 +1,107 @@
+{
+  "id": "lake-river",
+  "briefId": "CT-NEXT-CM-0162",
+  "title": "Lake River Corp. v. Carborundum Co.",
+  "course": "Contracts",
+  "citation": "769 F.2d 1284 (7th Cir. 1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A minimum-tonnage shortfall leads a bagging company to demand unearned revenue and hold its customer’s product; both the damages formula and the conversion award need correction.",
+  "actors": [
+    {
+      "name": "Lake River Corporation",
+      "role": "Illinois bagger, warehouse, and distributor claiming shortfall payment."
+    },
+    {
+      "name": "Carborundum Company",
+      "role": "Owner and manufacturer of Ferro Carbo powder; conversion counterclaimant."
+    }
+  ],
+  "proceedings": [
+    "After a bench trial, both parties received damages, leaving Carborundum ahead on rounded figures.",
+    "Both appealed in a diversity action applying Illinois law.",
+    "The Seventh Circuit affirmed conversion and rejected the penalty clause, remanding for recalculation of both recoveries with additional evidence permitted."
+  ],
+  "limits": "The opinion’s figures are rounded; its hypothetical calculations test the formula rather than fix remand damages. Illinois law controlled despite Posner’s policy doubts about refusing commercial penalty clauses.",
+  "briefSha256": "2c64bac38746f7aed3d5cbe8654d87c0a39ea0500c333186d00dc509771c7138",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0162"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Lake River invests in equipment for a three-year tonnage promise",
+      "cue": "What did the shortfall formula pay without performance?",
+      "paragraphs": [
+        "Carborundum made Ferro Carbo abrasive powder for steel production. In 1979 it hired Lake River to receive bulk powder in Illinois, bag, store, and distribute it, while Carborundum retained ownership until delivery. A required new bagging system cost $89,000. To amortize it and earn expected twenty-percent profit, Lake River obtained a minimum 22,500 tons over three years, with any deficiency invoiced at prevailing bagging rates at expiration. Full revenue would be about $533,000.",
+        "A steel-market downturn reduced demand, and by late 1982 only 12,000 tons had arrived. Carborundum paid every performed service but refused Lake River’s roughly $241,000 shortfall demand as a penalty. Lake River held 500 tons of bagged product worth around $269,000, offering sale and escrow pending resolution. Carborundum declined and supplied customers from the East at $31,000 extra expense.",
+        "Lake River sued; Carborundum counterclaimed conversion for product value and delivery costs. The bench judgment granted both requested categories and about $17,000 interest to Lake River, leaving Carborundum approximately $42,000 ahead. The reported figures were rounded to thousands. Both appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and proceedings; 769 F.2d 1286–1287"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Holding fully paid-for goods is not an artisan’s lien for unperformed work",
+      "cue": "Why did invalidating the clause not itself decide conversion?",
+      "paragraphs": [
+        "Circuit Judge Posner first separated the lien from the formula: even an invalid stipulated sum could leave ordinary breach damages. An artisan’s possessory lien secures work already done on goods. Carborundum had fully paid that work. Lake River instead withheld existing product to collect for services never performed on powder never delivered, which did not support the lien and constituted conversion.",
+        "Equipment expense did not change matters. Lake River had nearly $300,000 service revenue and used the machine on another contract. It proved no urgent uncompensated outlay comparable to an unpaid artisan. Accounting amortization did not establish actual unrecovered cash. The claimed lien would restrict marketability without that urgent need. The court reserved whether a broader rule from another jurisdiction would become Illinois law because these facts failed regardless."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Lien and conversion; 769 F.2d 1287–1288"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Illinois requires a reasonable estimate rather than excessive pressure to perform",
+      "cue": "How did avoided costs expose the formula’s design?",
+      "paragraphs": [
+        "Illinois enforced formation-time estimates of likely damages when measurement was difficult, but treated easy-to-measure loss or sums exceeding a reasonable probable upper bound as penalties. Classification was legal, independently reviewed with respect for the trial judge, and doubtful cases went against enforcement. Posner discussed commercial reasons to choose penalties and questioned paternalism, but federal diversity courts could not substitute that policy preference for Illinois law.",
+        "The shortfall clause paid unearned gross revenue without saved bagging expenses. Immediate breach after the equipment purchase could yield $533,000 less $89,000 investment, a $444,000 gain against expected profit of $107,000. At the approximate fifty-five-percent performance actually involved, illustrative $293,000 revenue less $185,000 variable cost and $89,000 equipment left $19,000 before the $241,000 clause payment, or about $260,000 total. At ninety percent, $88,000 plus $53,000 yielded $141,000.",
+        "These rounded hypotheticals tested systematic excess, not remand findings. They conservatively assumed no remaining machine value and omitted initial expenditure’s time value. Mitigation did not repair failure to deduct saved costs; even equipment sale reduced both demanded loss and unrecovered investment. Natural-gas take-or-pay contracts differed where nearly all costs preceded delivery. Here substantial variable costs disappeared with the shortfall."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Liquidated damages and calculations; 769 F.2d 1288–1292"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Both recoveries require recalculation without allowing double recovery",
+      "cue": "What ordinary remedies survived?",
+      "paragraphs": [
+        "Lake River retained an ordinary contract claim for unpaid price less costs avoided on the unshipped roughly forty-five percent. The penalty’s failure did not erase breach.",
+        "Carborundum’s full-market-value conversion award also could not simply add every substitute-delivery cost while substitutes earned their full price. If those goods otherwise would have sold in the East at the same price and lower cost, diversion might lose a distinct margin; that alternative sale was unproved. Additional evidence could establish the proper counterclaim damages. Carborundum was not required to accept escrow to mitigate: a converter could not keep proceeds even temporarily as leverage.",
+        "The Seventh Circuit affirmed in part, reversed in part, and remanded both calculations, preserving conversion and the ordinary breach remedy. Each side bore its appellate costs; Circuit Rule 18 did not apply on remand. Posner sat with Eschbach and Gibson, the latter by designation, and no separate opinion appeared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Counterclaim damages; Final disposition; 769 F.2d 1292–1293"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "cp-hanson",
+  "briefId": "CP-ATLAS-HANSON",
+  "title": "Hanson v. Denckla",
+  "course": "Civil Procedure",
+  "citation": "357 U.S. 235 (1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Pennsylvania settlor creates a Delaware trust, moves to Florida, and leaves appointments that produce conflicting trust judgments in both states.",
+  "actors": [
+    {
+      "name": "Dora Browning Donner",
+      "role": "Settlor who retained lifetime income, control, and appointment powers before moving to Florida."
+    },
+    {
+      "name": "Wilmington Trust Company",
+      "role": "Delaware trustee with no purposeful Florida business activity found by the majority."
+    },
+    {
+      "name": "Elizabeth Hanson",
+      "role": "Daughter and executrix; her children benefited from the disputed appointments."
+    },
+    {
+      "name": "Katherine Denckla and Dorothy Stewart",
+      "role": "Daughters whose residuary shares would increase if those appointments failed."
+    }
+  ],
+  "proceedings": [
+    "Florida courts invalidated the appointment and asserted jurisdiction over absent trustees.",
+    "Delaware courts declined recognition and sustained the trust and appointment.",
+    "The Supreme Court reversed and remanded Florida’s judgment while affirming Delaware’s."
+  ],
+  "limits": "The Supreme Court did not itself distribute the estate or decide whether Florida had to recognize Delaware’s decree, a claim not timely raised. Adequacy of notice was distinct from authority to adjudicate.",
+  "briefSha256": "0c46d97ccbacb5a16704b7e0e039a77ca9c58c4307461ab6bdeca8de7427975f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-HANSON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Donner retains substantial control over a Delaware trust",
+      "cue": "How did later appointments affect her daughters differently?",
+      "paragraphs": [
+        "While domiciled in Pennsylvania, Dora Browning Donner created a revocable Delaware trust in 1935. Wilmington Trust held securities. Donner retained lifetime income, amendment and revocation powers, power to appoint remainders, and substantial investment control through an adviser whose consent was required for specified decisions.",
+        "She moved to Florida in 1944. On December 3, 1949, she executed a will and trust appointment giving $200,000 each to two trusts for two children of her daughter Elizabeth, with smaller appointments to a hospital and servants. The balance, exceeding $1 million at death, went to her executrix and through the will for daughters Katherine and Dorothy. Donner died November 20, 1952; Elizabeth Hanson became executrix.",
+        "The residuary clause captured property not effectively appointed. Katherine Denckla and Dorothy Stewart therefore would benefit if the $400,000 appointments to Elizabeth’s family failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Estate plan; 357 U.S. at 238–240 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Florida and Delaware litigation proceed on different jurisdictional premises",
+      "cue": "Which decree came first?",
+      "paragraphs": [
+        "Katherine and Dorothy sought a Florida declaration about the residue. Elizabeth and some children were personally served, but Wilmington Trust and other nonresidents received mailed notice and publication; the trust companies did not appear. The trial court first found no jurisdiction over them because neither personal service nor trust property was in Florida. Nevertheless, on January 14, 1955, it invalidated the appointment as testamentary and ineffective against the parties before it.",
+        "The Florida Supreme Court affirmed the result, also treating the original trust as invalid for retained control and the appointment as lacking testamentary formalities. It reversed the jurisdictional ruling because authority over the Florida will supposedly reached absent defendants.",
+        "After Florida litigation began but before its decree, Elizabeth brought a Delaware action. The companies and nearly all interested parties appeared. On January 13, 1956, Delaware sustained the trust and appointment and refused to treat Florida’s decree as binding. Its Supreme Court affirmed because Florida lacked jurisdiction over trustees and corpus. The United States Supreme Court reviewed both judgments together."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Estate plan and competing judgments; 357 U.S. at 240–243"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court resolves preliminary review and party objections",
+      "cue": "Why could appearing beneficiaries raise the trustee’s absence?",
+      "paragraphs": [
+        "The Florida matter’s direct appeal route was unavailable because the parties had attacked judicial exercise of jurisdiction rather than properly raising the statutory constitutional challenge required for that route. The Court dismissed the appeal but treated the papers as a certiorari petition and granted it. The reverse recognition claim—whether Florida must honor Delaware—had not been timely presented and was not decided.",
+        "Appearing beneficiaries had a direct interest in jurisdiction over an absent indispensable trustee. They therefore could raise the objection despite not asserting their own lack of notice. The problem was adjudicatory power, not whether notice and opportunity to appear had been reasonable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Questions reviewed; 357 U.S. at 243–246 & nn.4,6–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds neither the property nor the trustee within Florida’s authority",
+      "cue": "Why did Donner’s move not create the missing contact?",
+      "paragraphs": [
+        "Chief Justice Warren’s majority found the trust securities held in Delaware with no established Florida situs. A beneficiary’s interest and a possibility of enlarging a local probate estate did not move the corpus. Otherwise any will could justify adjudication of distant property.",
+        "Wilmington Trust had no Florida office, solicitation, business, or assets administered there. The agreement originated in Delaware with a Pennsylvania resident. Donner’s later move, income remittances, and her Florida administrative acts differed from the insurer’s purposeful solicitation in McGee.",
+        "The Court acknowledged modern transport and the movement from Pennoyer to International Shoe, but convenience did not exhaust due process. The defendant needed purposeful availment of forum activities and legal protection. Another person’s unilateral conduct could not supply that connection.",
+        "The majority understood the suit as attacking the original trust, a characterization the dissent disputed. Calling a Florida appointment republication might affect choice of law in a competent court, but could not itself create power over the Delaware trustee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and reasoning; 357 U.S. at 246–254 & nn.16–20,25"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Indispensability extends the defect to the Florida decree as a whole",
+      "cue": "Why did Delaware properly refuse full faith and credit?",
+      "paragraphs": [
+        "Florida could determine rights of parties properly before it, but the majority read earlier Florida decisions as requiring the trustee for a challenge to trust validity. Although Florida’s highest court had not resolved indispensability here after finding jurisdiction, those precedents sufficed. The judgment therefore fell even as to appearing parties.",
+        "Under § 1738, a judgment lacking constitutionally required jurisdiction did not acquire binding force elsewhere. Delaware properly refused recognition. The Court would not postpone Delaware review while Florida reconsidered indispensability; it reviewed judgments as entered rather than arranging a new litigation sequence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Indispensability and judgments; 357 U.S. at 254–256"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Black and Douglas understand the transaction and trustee differently",
+      "cue": "What disposition survives their objections?",
+      "paragraphs": [
+        "Black, joined by Burton and Brennan, focused on a Florida domiciliary’s Florida appointment benefiting Florida residents, not invalidation of the original trust. Eight years of trustee communications and business relations, Donner’s effective control, estate administration, adequate notice, and modest litigation burdens supported jurisdiction. Even assuming no trustee jurisdiction, he would hold Delaware’s case while Florida determined its own indispensability rule, rather than destroy the decree against appearing parties.",
+        "Douglas separately emphasized adjudication of intangible-property interests, not personal trustee liability. The trustee was a stakeholder or agent in privity with Donner and obligated to distribute as directed. Fair representation by the decedent’s representative, combined with Florida’s connections, could support the judgment in his view.",
+        "The five-to-four Court reversed and remanded Florida’s judgment and affirmed Delaware’s. Delaware’s ruling sustaining the appointments survived, without the Supreme Court prescribing a new estate distribution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissents; Judgment; 357 U.S. at 256–264"
+        }
+      ]
+    }
+  ]
+}

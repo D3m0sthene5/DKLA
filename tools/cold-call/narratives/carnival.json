@@ -1,0 +1,140 @@
+{
+  "id": "carnival",
+  "briefId": "CT-SUP-0076-CARNIVAL",
+  "title": "Carnival Cruise Lines, Inc. v. Shute",
+  "course": "Contracts",
+  "citation": "499 U.S. 585 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Washington passengers pay for a cruise before receiving a ticket naming Florida courts, then sue at home after an injury off Mexico; the Court decides the forum clause while reserving notice and personal-jurisdiction questions.",
+  "actors": [
+    {
+      "name": "Eulala and Russel Shute",
+      "role": "Washington passengers who purchased a seven-day cruise and brought the negligence action."
+    },
+    {
+      "name": "Carnival Cruise Lines, Inc.",
+      "role": "Miami-based cruise company invoking the Florida clause in its ticket."
+    }
+  ],
+  "proceedings": [
+    "The Western District of Washington granted Carnival summary judgment for lack of personal jurisdiction.",
+    "After certification to Washington’s Supreme Court, the Ninth Circuit reinstated a modified reversal in 1990.",
+    "The Supreme Court enforced the forum term and reversed the Ninth Circuit in 1991."
+  ],
+  "limits": "The Court reserved sufficient pre-contract notice because reasonable communication was essentially conceded, and did not decide constitutional personal jurisdiction, negligence, damages, or all ticket terms. Lower fares were an economic inference, not a proved discount to these passengers.",
+  "briefSha256": "db5f1860fd4af3e6e09fbb46f829456d8a5bd0cdccce304ff173eb9fe5a0837b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-SUP-0076-CARNIVAL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Shutes pay in Washington and later receive the printed passage terms",
+      "cue": "Which term became important after the injury?",
+      "paragraphs": [
+        "Eulala and Russel Shute bought a seven-day Tropicale cruise through a travel agent in Arlington, Washington. The agent sent payment to Carnival’s Miami headquarters; Carnival then prepared and mailed the tickets. The purchasers thus paid before the detailed terms arrived.",
+        "The ticket face directed passengers to three contract pages. Paragraph 3(a) treated ticket acceptance as agreement, and paragraph 8 required disputes arising under, connected with, or incident to the passage contract to be litigated exclusively in a Florida court. It selected a State, not one particular state or federal tribunal.",
+        "The Shutes boarded in Los Angeles for travel to Puerto Vallarta, Mexico, and back. In international waters off Mexico, Mrs. Shute slipped on a deck mat during a guided galley tour. They sued Carnival in the Western District of Washington for negligence by the line and its employees."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 587–588; Purchase, injury, and ticket term"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts decide personal jurisdiction and reject the ticket clause",
+      "cue": "Why did the Supreme Court not need to resolve Washington contacts?",
+      "paragraphs": [
+        "Carnival sought summary judgment based on both the Florida term and insufficient Washington contacts. The district court granted it on personal jurisdiction. The Ninth Circuit considered Washington solicitation a but-for cause of the trip and injury sufficient for contacts. It also refused the clause because it was unnegotiated and, in its view, the Shutes could not physically or financially sue in Florida.",
+        "An intermediate procedural step mattered: the Ninth Circuit withdrew its 1988 opinion while certifying the Washington long-arm statute question to the State Supreme Court. After an affirmative answer, it refiled with modifications in 1990. The Supreme Court reviewed that later judgment.",
+        "Federal admiralty law governed enforceability. Because the Florida clause resolved whether this suit should proceed in Washington, the Supreme Court did not decide constitutional contacts. It also declined to decide sufficient notice before contract formation: the Shutes essentially conceded reasonable communication, and the Ninth Circuit assumed knowledge despite expressing doubt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 588–590 & procedural note; Procedure"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Blackmun adapts the negotiated commercial precedent to a form ticket",
+      "cue": "Why did unequal bargaining power not automatically invalidate the term?",
+      "paragraphs": [
+        "Justice Blackmun wrote for Chief Justice Rehnquist and Justices White, O’Connor, Scalia, Kennedy, and Souter. The Bremen had enforced a forum clause in an individually negotiated international towage agreement between sophisticated corporations. Neither Carnival nor the Shutes could mechanically transfer all its language to this consumer purchase.",
+        "The majority acknowledged that an ordinary passenger lacked bargaining parity and ordinarily could not negotiate standardized ticket terms. It rejected only the categorical inference that every unnegotiated forum clause was invalid, requiring assessment of reasonableness in context.",
+        "Ships carried passengers from many places, creating exposure to many forums. Advance selection could reduce uncertainty and forum litigation, saving parties and courts expense; passengers might benefit through lower fares. That last proposition was an inference, not a factual finding of a particular fare reduction.",
+        "Fundamental fairness still mattered. Florida was Carnival’s principal place of business and the beginning or end of many cruises, with no indication it was chosen to deter legitimate claims. The record showed no fraud or overreaching in acceptance. Given the notice concession, the majority presumed rejection without adverse consequences was possible—a premise the dissent challenged against the actual ticket."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 590–595; Negotiation and reasonableness"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority rejects the particular inconvenience and statutory objections",
+      "cue": "Why was selecting a court different from waiving negligence liability?",
+      "paragraphs": [
+        "The district court had made no findings about physical or financial barriers to Florida litigation, and the Ninth Circuit’s conclusory reference did not establish them. The Bremen’s severe-inconvenience discussion involved a hypothetical local dispute sent to a remote foreign forum. Florida was domestic, and an accident off Mexico was not inherently local to Washington. With notice conceded, the Shutes had not met the heavy burden to defeat the clause. The Court did not say inconvenience could never suffice.",
+        "Former 46 U.S.C. App. § 183c barred passenger terms relieving negligence liability or weakening trial rights in a competent court. The majority read paragraph 8 as preserving liability and adjudication in a competent Florida court. Legislative concerns about liability limits and replacing court determinations through arbitration did not prohibit forum selection.",
+        "The Court therefore enforced a location provision, not an exculpation. The underlying negligence claim remained available in Florida. Other broad liability provisions appearing in the specimen ticket were not validated by deciding paragraph 8."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 594–597; Inconvenience and statutory objection"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens disputes both practical assent and the governing rule",
+      "cue": "What did the ticket facsimile add to the dissent?",
+      "paragraphs": [
+        "Justice Stevens, joined by Justice Marshall, appended the actual small-print ticket, placing paragraph 8 among twenty-five provisions. Purchasers often received terms after paying, and paragraph 16(a) disclaimed refunds for unused tickets. Without deciding that provision’s enforceability, Stevens reasoned ordinary buyers would accept distant-litigation risk rather than risk losing their vacation payment. Even prominent earlier notice would not cure his broader objections.",
+        "Traditional admiralty and adhesion-contract scrutiny considered unequal bargaining, weak assent, and deterrence of negligence. A forum restriction could impair practical recovery without formally eliminating a claim. The Bremen’s equal corporate parties and international negotiation supplied no sufficient analogy, in his view.",
+        "Stevens read the statute’s protection against weakened access to competent courts more broadly. Transporting a West Coast injury dispute and witnesses to Florida burdened individuals in a way proportionately comparable to corporations forced abroad under cargo clauses. He would invalidate the term under both the statute and traditional admiralty law.",
+        "His notes added that notice deadlines, limitations periods, and adverse governing-law terms could also impede recovery; fare savings could rationalize even a prohibited complete waiver if treated as sufficient alone. He noted that the majority did not decide a clause selecting Panama, Carnival’s place of incorporation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 597–605 and appendix; Stevens notes 1–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Florida clause determines the appeal without deciding the injury claim",
+      "cue": "What result closes the case?",
+      "paragraphs": [
+        "The Supreme Court reversed the Ninth Circuit. Seven Justices enforced this clause, while Stevens and Marshall dissented; there was no concurrence. The decision did not assess whether Carnival caused the fall, award damages, resolve constitutional personal jurisdiction, determine the reserved notice question, or approve every term in the ticket. Its result required the Shutes to pursue the dispute in the selected Florida forum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 586–587, 597; Judgment and alignment"
+        }
+      ]
+    }
+  ]
+}

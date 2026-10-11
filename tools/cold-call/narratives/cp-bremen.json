@@ -1,0 +1,126 @@
+{
+  "id": "cp-bremen",
+  "briefId": "CP-ATLAS-BREMEN",
+  "title": "The Bremen v. Zapata Off-Shore Co.",
+  "course": "Civil Procedure",
+  "citation": "407 U.S. 1 (1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A storm diverts an international tow to Florida, where litigation competes with the parties’ advance choice of London.",
+  "actors": [
+    {
+      "name": "Zapata Off-Shore",
+      "role": "Houston rig owner, negligence plaintiff, and opponent of the London forum."
+    },
+    {
+      "name": "Unterweser",
+      "role": "German towing company relying on the agreed forum."
+    },
+    {
+      "name": "Bremen and Chaparral",
+      "role": "The tug and the damaged drilling rig, respectively."
+    }
+  ],
+  "proceedings": [
+    "Zapata sued in Tampa; Unterweser sought London litigation and later filed a protective American limitation proceeding.",
+    "The District Court kept the cases and restrained London proceedings; the Fifth Circuit affirmed.",
+    "The Supreme Court vacated and remanded under a presumption favoring the negotiated forum."
+  ],
+  "limits": "The historical admiralty decision did not determine negligence, order a London merits judgment, or enforce every possible forum clause. White qualified agreement with commentary on remanded questions; Douglas dissented.",
+  "briefSha256": "f6a6fed132699bf1b69f65f1359a6c5126c6e9372a856172fdb3e9bf1891f88b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-BREMEN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties select London before a transoceanic tow",
+      "cue": "What did Zapata agree to and later experience?",
+      "paragraphs": [
+        "In November 1967 Houston-based Zapata selected low-bidder Unterweser, a German company, to tow the self-elevating drilling rig Chaparral from Louisiana to waters off Ravenna, Italy. The contract selected the London Court of Justice and included clauses excluding navigation-error responsibility and placing damage to the towed object on its owner. Zapata negotiated other changes but left those terms intact, and Unterweser accepted the revisions.",
+        "The tug Bremen departed January 5, 1968. Four days later a severe storm in international Gulf waters broke off the rig’s raised elevator legs and substantially damaged it. Zapata directed the tug to Tampa, the nearest refuge. It had self-insured, leaving this loss uncompensated by insurance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract and storm; 407 U.S. at 2–3 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Florida and English suits develop alongside a protective limitation filing",
+      "cue": "Did Unterweser abandon the clause by filing in Tampa?",
+      "paragraphs": [
+        "On January 12 Zapata sued Unterweser personally and Bremen in rem in Tampa admiralty court for $3.5 million in negligent-towage and contract damages. The tug was arrested and released on security. Unterweser sought dismissal or a stay for London, and sued Zapata for breach in the English High Court. English courts rejected Zapata’s forum objection under a presumption favoring the agreement.",
+        "With its American motion unresolved and the six-month limitation deadline approaching, Unterweser filed a Tampa limitation-of-liability proceeding in July, expressly reserving the clause. That court enjoined outside proceedings; Zapata refiled its claim there. Unterweser later counterclaimed for contract and salvage while maintaining the reservation.",
+        "The District Court denied dismissal and stay, followed traditional hostility to supposed contractual ouster of jurisdiction, and applied ordinary convenience balancing favoring Zapata’s choice. It later restrained London litigation and treated the limitation petition as another reason to require a complete Tampa resolution. A divided Fifth Circuit panel affirmed, then the en banc court adopted it with six of fourteen judges dissenting. The majority stressed Gulf events, nearby witnesses and repairs, depositions, and concerns about English enforcement of exculpatory terms and materially lower limitation exposure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and limitation; 407 U.S. at 3–8 & nn.3–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court gives the freely agreed forum presumptive force",
+      "cue": "Why was ordinary plaintiff-favoring balancing incorrect?",
+      "paragraphs": [
+        "Chief Justice Burger emphasized predictable arrangements for sophisticated international commerce. A neutral court with admiralty expertise could be chosen before a voyage created contingencies across many jurisdictions. London supplied that predictability; Tampa’s connection arose from an unplanned refuge. Zapata’s ability to alter the bargain supported meaningful choice, although whether the forum provision was specifically discussed remained disputed.",
+        "The clause did not remove the American court’s jurisdiction. It raised whether that court should exercise authority beyond honoring legitimate agreed expectations. Treating that as forbidden ouster obscured the question.",
+        "A freely negotiated clause was prima facie valid in admiralty. Zapata bore the burden to show unreasonable or unjust enforcement, fraud, overreaching, or another adequate ground. Unterweser did not have to prove London independently more convenient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding; Contractual certainty; 407 U.S. at 8–15 & nn.10–16"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Strong policy and grave inconvenience can still defeat enforcement",
+      "cue": "What limits did the majority preserve?",
+      "paragraphs": [
+        "A clause could conflict with strong policy stated in legislation or decisions. The Court distinguished Bisso’s domestic-towage rule against negligent-towage immunity from this freely negotiated international arrangement involving a foreign party’s international-waters conduct. It did not abolish Bisso for domestic towage.",
+        "Foreseeable inconvenience ordinarily belonged to the bargain. Zapata had to show London so gravely difficult as effectively to deny a meaningful day in court, not simply less favorable witness convenience. Depositions could assist Zapata abroad just as they could assist Unterweser in Florida. Two American parties sending an essentially local dispute to a remote foreign court might raise different concerns about adhesion, unforeseen controversies, or domestic-policy evasion; those were examples, not these facts.",
+        "Unterweser’s limitation filing was defensive protection against a deadline while its original motion remained unresolved, not surrender of the forum. Waiting to rely only on a limitation defense carried risk. The Court also rejected Zapata’s new Supreme Court arguments that this clause was nonexclusive or failed to cover in rem claims: its actual language was mandatory and comprehensive, without making every court-naming clause so."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Policy, inconvenience, limitation; 407 U.S. at 15–20 & nn.17–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White reserves remand issues and Douglas would preserve Tampa’s authority",
+      "cue": "What exactly happened to the Fifth Circuit judgment?",
+      "paragraphs": [
+        "White agreed with the judgment and general opinion but withheld agreement with commentary on matters for the District Court initially to assess. Douglas dissented, emphasizing a limitation court’s equitable authority to gather maritime claims after Unterweser itself invoked it. He viewed the forum and exculpatory terms as inseparable evasion of Bisso, whose negligence-deterrence policy survived equal bargaining power. Nearby witnesses, repairs, and available German depositions reinforced Tampa’s suitability in his view.",
+        "Eight Justices supported vacatur and remand, with White’s qualification; Douglas would affirm. Zapata could attempt to meet the demanding inconvenience standard below. The Supreme Court did not determine liability or direct a London merits judgment. The formal disposition was vacatur, not the assigned account’s loose description as reversal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate writings; Judgment; 407 U.S. at 19–24 & Douglas final note"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "id": "masterson",
+  "briefId": "CT-CB-0536",
+  "title": "Masterson v. Sine",
+  "course": "Contracts",
+  "citation": "68 Cal.2d 222, 436 P.2d 561 (1968)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A family deed reserved a repurchase option without saying whether it could be transferred. After bankruptcy brought a trustee to the option, relatives sought to prove an unwritten restriction meant to keep the ranch in the family.",
+  "actors": [
+    {
+      "name": "Dallas and Rebecca Masterson",
+      "role": "Tenants in common who conveyed the ranch and reserved a repurchase option."
+    },
+    {
+      "name": "Medora and Lu Sine",
+      "role": "Dallas’s sister and brother-in-law; grantees opposing the trustee’s exercise through a claimed personal-option agreement."
+    },
+    {
+      "name": "Dallas’s bankruptcy trustee",
+      "role": "Joined Rebecca in seeking declaratory relief to enforce the option for the bankruptcy estate."
+    }
+  ],
+  "proceedings": [
+    "Trial court admitted price explanations but excluded the alleged personal, nonassignable restriction; declared plaintiffs entitled to exercise.",
+    "California Supreme Court on February 6, 1968 reversed 5–2 for exclusion of the offer of proof.",
+    "Rehearing denied March 6 with the published modification; Burke and McComb favored rehearing."
+  ],
+  "limits": "The Supreme Court permitted evidence; it did not find the oral restriction actually made, defeat the trustee on the merits, or finally compute exercise price. The commercial-code discussion was analogy, not treatment of real estate as an Article 2 goods sale.",
+  "briefSha256": "380cb60e72fa0007e76ce8ced0ab5914f4dede8f57b99b305a1732d618bbd293",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0536"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Mastersons convey their ranch while reserving a ten-year option",
+      "cue": "Why did transferability become important after bankruptcy?",
+      "paragraphs": [
+        "Dallas and Rebecca Masterson owned a ranch as tenants in common. On February 25, 1958, they conveyed it by grant deed to Dallas’s sister Medora Sine and her husband Lu. The deed reserved a right for the grantors to repurchase by February 25, 1968.",
+        "The price referred to the consideration previously paid, augmented by depreciation value of improvements beginning two and one-half years after the conveyance. Dallas later became bankrupt. His trustee and Rebecca sought a declaration that they could exercise. Transferability determined whether the trustee could realize the option’s value for creditors.",
+        "The Sines asserted that the parties had separately agreed the option was personal to the grantors and nonassignable to preserve the ranch in the Masterson family. That asserted agreement was an offer of proof, not an established appellate fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Conveyance and claim; 68 Cal.2d at 224"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial judge explains the price but excludes the asserted transfer restriction",
+      "cue": "What did the initial declaration resolve?",
+      "paragraphs": [
+        "At the bench trial, extrinsic evidence explained that both sides meant a $50,000 base plus capital improvement expenditures less depreciation allowable under federal tax rules at exercise. The judge admitted that explanation but excluded evidence of the alleged personal restriction.",
+        "Judgment declared the plaintiffs entitled to exercise, prescribed how, and retained jurisdiction over exercise and improvement compensation. The Sines appealed, attacking uncertain price wording and the evidentiary rulings.",
+        "Chief Justice Traynor agreed that price explanations were proper. The evident intended option should not fail through an excessively demanding insistence on textual completeness, and the explanatory evidence supplied sufficient certainty for specific enforcement. Justice Burke’s eventual dissent agreed on that point. Reversal therefore would not invalidate the option for indefiniteness; it concerned the excluded assignment restriction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Trial and price ruling; 68 Cal.2d at 224–25, 232"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Traynor asks how much of the agreement the writing integrated",
+      "cue": "Why could the document’s appearance not answer the whole question?",
+      "paragraphs": [
+        "A writing adopted as the complete final embodiment bars additional or varying terms; a partially integrated writing protects its written portion while allowing proof of matters not recorded. The key was intended exclusivity. A merger clause could help, but courts also needed the alleged collateral agreement and circumstances to assess whether the writing included, excluded, or otherwise addressed that subject.",
+        "A facially complete instrument could memorialize only part of a transaction, as a promissory note might express one obligation without revealing all others. Traynor found contrary facial-only formulations inconsistently applied. He balanced written reliability and fabricated-memory risks against defeating actual intent, while retaining exclusion of direct contradictions.",
+        "For collateral terms he applied the first Restatement’s inquiry whether similarly situated parties might naturally agree separately. He also discussed the Uniform Commercial Code’s more permissive treatment of terms that certainly would appear in the writing, without applying goods law directly to this land option. A note discussed Corbin’s suggestion about convincingly proved unusual separate agreements, and another offered a deed-and-boat-space example. Neither displaced the operative natural-separation test or authorized contradiction of every deed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Integration reasoning; 68 Cal.2d at 225–28 & majority nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The family restriction could naturally remain outside this deed",
+      "cue": "How could evidence rebut transferability without contradicting express words?",
+      "paragraphs": [
+        "The option contained no entire-agreement statement and no assignability provision. The majority thought a deed’s formal structure made exhaustive collateral terms less natural. Recording the reservation could protect the grantors against later purchasers without stating personal character, and the record showed no warning to these family participants about omitting the whole bargain. The claimed family-retention term could naturally have been separate and was not necessarily one that would be written.",
+        "Options ordinarily are assignable absent prohibition or personal performance. But that was a legal presumption, not an express term. Evidence could rebut what law would supply without contradicting a written provision. The majority read several contrary authorities as complete-integration cases rather than rules making implied terms irrebuttable.",
+        "A statute could prohibit rebuttal, but none controlling did so here. Rights could be made nontransferable, and materially different substituted performance could sometimes imply personal obligations. The Sines therefore could offer their evidence. The Court did not decide whether it was credible or ultimately defeated the trustee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application and transferability; 68 Cal.2d at 228–31 & majority n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Burke views the oral restriction as subtracting a property right",
+      "cue": "Which transaction facts supported his disagreement?",
+      "paragraphs": [
+        "Justice Burke, joined by Justice McComb, would affirm. He viewed the unrestricted option as granting transferability reinforced by Civil Code rules favoring transfer of property and obligation rights. An oral restriction contradicted that substantive incident rather than supplied a missing detail. Examples about time, place, or duration and personal services did not justify limiting an ordinary option exercised by payment.",
+        "He also disputed the informal-family characterization. The transaction used written escrow instructions and a title company. Dallas testified to consulting an attorney, describing discussions, obtaining drafted language, and presenting it to the company. Neither deed nor escrow instructions included nonassignment, and a short clause would fit readily. Burke distinguished incomplete writings and genuinely noncontradictory evidence in the majority’s precedents.",
+        "For him, the statutory parol-evidence rule embodied an already-made legislative reliability judgment, not a policy balance for judges to redo. A natural-family-agreement test invited unpredictable results."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Burke dissent; 68 Cal.2d at 231–36, 239–42 & dissent nn.4–6, 12–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Creditor concerns do not turn into findings of fraud or final nonassignability",
+      "cue": "What exactly did reversal accomplish?",
+      "paragraphs": [
+        "Burke stressed that the excluded testimony came from the bankrupt optionee and was offered by his sister and brother-in-law. Unwritten family limitations could remove assets from creditors and unsettle title reliance. He questioned Rebecca’s interest, later resale following repurchase, and future purchasers’ positions. These were concerns and hypotheticals, not findings of family fraud.",
+        "On February 6, 1968, the Supreme Court reversed five to two because the evidence had wrongly been excluded. Peters, Tobriner, Mosk, and Sullivan joined Traynor; Burke and McComb dissented. Rehearing was denied March 6, with modification into the reported form; the dissenters favored rehearing.",
+        "The judgment did not find the alleged restriction proved, finally calculate the exercise price, or declare the trustee defeated. It allowed the excluded proof to be considered in the further course of the case. No subsequent factual resolution is supplied by this historical source."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissent concerns and judgment; 68 Cal.2d at 231–32, 236–42 & dissent nn.7–11, 14"
+        }
+      ]
+    }
+  ]
+}

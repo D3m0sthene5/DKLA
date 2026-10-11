@@ -1,0 +1,132 @@
+{
+  "id": "cp-kroger",
+  "briefId": "CP-ATLAS-KROGER",
+  "title": "Owen Equipment & Erection Co. v. Kroger",
+  "course": "Civil Procedure",
+  "citation": "437 U.S. 365 (1978)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A wrongful-death trial reached a verdict before the parties’ shared Iowa citizenship defeated the federal court’s power to hear the claim.",
+  "actors": [
+    {
+      "name": "James Kroger",
+      "role": "Worker killed near the crane"
+    },
+    {
+      "name": "Kroger’s widow",
+      "role": "Iowa estate administratrix and plaintiff"
+    },
+    {
+      "name": "Omaha Public Power District",
+      "role": "Nebraska defendant that impleaded the crane operator"
+    },
+    {
+      "name": "Owen Equipment & Erection Co.",
+      "role": "Crane operator and third-party defendant"
+    }
+  ],
+  "proceedings": [
+    "Federal district court: OPPD won summary judgment; jury found against Owen; jurisdictional dismissal denied.",
+    "Eighth Circuit: affirmed ancillary jurisdiction.",
+    "Supreme Court: reversed for lack of subject-matter jurisdiction, 7–2."
+  ],
+  "limits": [
+    "The decision applies the historical diversity statute before the later supplemental-jurisdiction statute. It did not decide Owen’s tort liability."
+  ],
+  "briefSha256": "07e90ac0608e2adcaf8789ab7f7cffedf39446922d5c3f5725df2106bac32677",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-KROGER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A crane reaches a power line",
+      "cue": "Begin with the accident and the original suit.",
+      "paragraphs": [
+        "On January 18, 1972, James Kroger was walking near a steel crane when its boom came too close to a high-voltage power line and he was electrocuted. His widow, an Iowa citizen administering his estate, sued Omaha Public Power District in federal court in Nebraska. She alleged negligent construction, maintenance, and operation of the line. The power district was a Nebraska corporation, so the original parties had diverse citizenship.",
+        "The power district brought in Owen Equipment & Erection Company, which owned and operated the crane, under Federal Rule of Civil Procedure 14. It alleged that Owen’s negligence caused the death. Impleader requires possible liability to the defendant for the plaintiff’s claim, rather than merely liability directly to the plaintiff. Although the pleading did not identify that derivative basis, the Supreme Court understood the power district apparently to rely on contribution; Owen had not challenged the impleader."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "437 U.S. at 367–368 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A direct claim survives after the original defendant leaves",
+      "cue": "Explain how the citizenship problem emerged.",
+      "paragraphs": [
+        "While the power district’s summary-judgment motion was pending, the widow amended her complaint to sue Owen directly. The power district then won summary judgment, a separate ruling later affirmed on appeal. The trial continued between the widow and Owen alone.",
+        "The widow alleged that Owen was incorporated and principally based in Nebraska. Owen admitted Nebraska incorporation but denied the other allegations. On the third day of trial, its principal place of business emerged as Iowa. The location was Carter Lake: west of the Missouri River and adjacent to Omaha, but legally in Iowa. Because corporate citizenship included the principal place of business as well as incorporation, both remaining litigants were Iowa citizens.",
+        "Owen moved to dismiss. The district court reserved decision, allowed the jury to return a verdict for the widow, and then denied the motion. The Eighth Circuit sustained ancillary jurisdiction because the claims shared operative facts and approved retention after finding that Owen had concealed its Iowa citizenship. An equally divided court denied rehearing en banc."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "437 U.S. at 368–369 & nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Permission to plead does not confer judicial power",
+      "cue": "Follow Justice Stewart’s statutory inquiry.",
+      "paragraphs": [
+        "The Supreme Court took up federal jurisdiction, not whether Owen negligently caused the death. Justice Stewart wrote for seven Justices. Rule 14 allowed a plaintiff to plead a related claim against an impleaded party, but a procedural rule could not itself supply subject-matter jurisdiction.",
+        "The Court’s earlier Gibbs decision supplied a common-nucleus test for constitutional capacity. That did not answer whether Congress authorized this claim. The Court assumed without deciding that Article III permitted the extension here. Its decisions in Aldinger and Zahn illustrated why a statutory grant could still exclude related claims. The Court acknowledged that Monell had meanwhile altered Aldinger’s premise about municipal liability under the civil-rights statute, while preserving the need to examine statutory limits separately.",
+        "The diversity statute, § 1332, required complete diversity under its settled interpretation, which Congress had repeatedly left intact. The widow could not have sued Owen and the power district together at the outset because she shared Iowa citizenship with Owen. Adding her direct claim after impleader created the same prohibited alignment. Otherwise, plaintiffs could sue diverse defendants and wait for them to bring in nondiverse tortfeasors. That route need not involve collusion, so a prohibition on collusive jurisdiction creation would not solve the statutory problem."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "437 U.S. at 370–375 & nn.7–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Related facts differ from a dependent claim",
+      "cue": "Explain why the majority rejected this use of ancillary jurisdiction.",
+      "paragraphs": [
+        "The power district’s contribution claim depended on the original suit: it sought to shift responsibility for liability the district might owe the widow. Her negligence claim against Owen had no comparable dependence. She could win against Owen even if the power district owed her nothing.",
+        "She had also chosen a federal forum for her state-law claim. That differed from a defendant involuntarily brought into court or a claimant forced to assert rights in a proceeding controlling property. Those settings could justify ancillary adjudication without a separate jurisdictional basis. Convenience and economy did not authorize this plaintiff to bypass complete diversity.",
+        "The Supreme Court reversed. This was an absence of power, not an abuse of discretion in retaining a permissible claim. Owen’s conduct, concealment, or consent could not confer the missing authority. Whether Iowa limitations law still permitted a new state action remained a state-law question. The federal judgment fell without a decision that Owen was free of tort liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "437 U.S. at 375–377 & nn.18–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent would retain the already-joined defendant",
+      "cue": "Close with the competing account of congressional limits.",
+      "paragraphs": [
+        "Justice White, joined by Justice Brennan, agreed that Congress could restrict Article III jurisdiction but found no restriction of this kind. He understood complete diversity to govern those the plaintiff brought into the action, not a related claim against a defendant already impleaded by someone else. Owen’s responsibility for the death was already before the court through the power district’s claim; another proceeding would duplicate that dispute.",
+        "The widow could not force the power district to implead Owen, had initially believed Owen diverse, and had not colluded to obtain federal jurisdiction. White would use § 1359 against actual collusion and the discretion recognized in Gibbs when fairness, convenience, and judicial economy counseled dismissal. Even though the power district had left before trial, Owen’s late citizenship disclosure made retention fair in these unusual circumstances. The majority instead imposed a jurisdictional bar."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "437 U.S. at 377–384 (White, J., dissenting)"
+        }
+      ]
+    }
+  ]
+}

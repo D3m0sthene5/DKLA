@@ -1,0 +1,144 @@
+{
+  "id": "lrs-k-small",
+  "briefId": "LRS-ATLAS-K-SMALL",
+  "title": "Small v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "544 U.S. 385 (2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Gary Small bought a gun after completing Japanese parole for concealed weapons shipments. His federal conviction turned on whether “any court” in a domestic firearm restriction included the Japanese tribunal.",
+  "actors": [
+    {
+      "name": "Gary Small",
+      "role": "Defendant with Japanese weapons and customs convictions who later bought and possessed firearms in Pennsylvania."
+    },
+    {
+      "name": "Japanese customs officers and three-judge court",
+      "role": "Discovered the concealed shipment and prosecuted the foreign offenses."
+    },
+    {
+      "name": "United States",
+      "role": "Prosecuted domestic firearm possession using the Japanese conviction as the disputed predicate."
+    }
+  ],
+  "proceedings": [
+    "Japanese court convicted Small April 14, 1994; parole ended May 26, 1998.",
+    "After a June 2, 1998 Pennsylvania purchase and later search, Small pleaded guilty while reserving foreign-predicate interpretation.",
+    "Western District of Pennsylvania rejected his argument; Third Circuit affirmed.",
+    "Supreme Court on April 26, 2005 reversed and remanded 5–3; Rehnquist did not participate."
+  ],
+  "limits": "The holding categorically construed the statute’s predicate as domestic; it did not invalidate Japan’s conviction, find procedural unfairness, decide dangerousness, or create a case-specific fairness exception. Current statutory treatment is outside this historical account.",
+  "briefSha256": "a54a5919f862fcb6c15993b3f44cd9302abf2916abcd7cce3eeea49463f11ac2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-K-SMALL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A purported gift conceals firearms destined for Okinawa",
+      "cue": "How long was the sentence, and when did parole end?",
+      "paragraphs": [
+        "In December 1992, Gary Small shipped a water heater from the United States to Okinawa, describing it as a gift. Japanese customs officers opened the suspicious shipment and found two rifles, eight semiautomatic pistols, and 410 rounds of ammunition.",
+        "A three-judge Japanese court convicted him April 14, 1994 of weapons-control and customs offenses, each punishable by more than a year in prison. It imposed five years with credit for 320 days already served. He was paroled November 22, 1996 and completed parole May 26, 1998. These details come from the dissent’s record account. A five-year sentence should not be confused with five actual years of incarceration, as the shorter assigned description might suggest."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; 544 U.S. at 395–96"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A Pennsylvania gun purchase produces a new domestic prosecution",
+      "cue": "Which argument did the guilty plea preserve?",
+      "paragraphs": [
+        "On June 2, 1998, one week after parole ended, Small bought a pistol from a Pennsylvania dealer. A later search located another pistol and more than 300 ammunition rounds. Federal prosecutors invoked 18 U.S.C. § 922(g)(1), restricting specified firearm possession after a qualifying conviction in “any court” for a crime punishable by more than a year.",
+        "Small pleaded guilty while reserving whether a foreign judgment qualified. The Western District of Pennsylvania rejected his interpretation, and the Third Circuit affirmed. The Supreme Court granted review of a circuit conflict: the Third, Fourth, and Sixth Circuits counted foreign judgments, while the Second Circuit’s Gayle and Tenth Circuit’s Concha excluded them. Small was a separate defendant and case from Gayle."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation; 544 U.S. at 387, 395–96"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Breyer asks which category the broad word “any” describes",
+      "cue": "Why was the domestic assumption not direct extraterritoriality doctrine?",
+      "paragraphs": [
+        "Justice Breyer, joined by Justices Stevens, O’Connor, Souter, and Ginsburg, accepted that “any” is broad but considered its domain contextual. A promise to see any film need not cover films in every city. Breadth within a class did not determine whether this class included foreign tribunals.",
+        "He began with the ordinary assumption that Congress legislates with domestic concerns in view. The presumption against extraterritorial application did not directly apply: the charged possession occurred in the United States. The majority instead used a related domestic assumption to interpret which earlier judgments the domestic restriction incorporated.",
+        "Foreign convictions can punish conduct permitted or encouraged here, employ procedures inconsistent with American fairness, or impose unusually severe sentences. As a group they might be less reliable proxies for dangerousness under American law. The statute supplied no workable individualized screening system; inventing one lacked textual support and would burden officials unfamiliar with foreign law while leaving potential possessors uncertain.",
+        "The majority described its default as an aid when Congress likely had not considered the problem and the remaining evidence was approximately balanced. Text, context, history, or purpose could rebut it. It did not require the express word “foreign” whenever legislation uses an overseas fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Context and domestic assumption; 544 U.S. at 388–91"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Structure and neutral history do not displace the assumption",
+      "cue": "How did the majority handle the government’s dangerousness purpose?",
+      "paragraphs": [
+        "The provision neither mentioned foreign judgments nor addressed a field such as immigration or terrorism where they were especially pertinent. Neighboring sections used domestic categories, creating odd differences if foreign convictions counted generally. A Canadian antitrust judgment could disable possession while its New York equivalent fell within a business-offense exception. Foreign equivalents of exempt state misdemeanors could count, while domestically defined domestic-violence misdemeanors and serious-drug enhancement predicates excluded foreign counterparts. Collectively these differences suggested inattention to the question.",
+        "The history was neutral, not proof of deliberate exclusion. A Senate version used federal-and-state felony language; Conference substituted punishment-based “any court” wording to simplify matters and avoid varying state felony labels. Nothing showed consideration of foreign convictions. Breyer therefore did not adopt Gayle’s stronger inference of affirmative domestic intent from reports.",
+        "Preventing dangerous people’s gun possession favored the government because serious foreign offenders might be equally dangerous. Yet the government identified only roughly ten to twelve foreign-predicate prosecutions since 1968, further suggesting Congress had not focused on the issue. The majority found insufficient rebuttal and left Congress free to amend."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Structure, history, purpose; 544 U.S. at 391–94"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas reads the unqualified text broadly and rejects the new default",
+      "cue": "Why did his dissent view the same evidence differently?",
+      "paragraphs": [
+        "Justice Thomas, joined by Justices Scalia and Kennedy, would affirm. Japan’s tribunal was a court and Small’s crimes met the seriousness threshold. Other firearm provisions expressly specified federal or state sources; omission here favored breadth. Thomas accepted context’s relevance but found no geographic limitation in it.",
+        "He viewed the majority’s domestic assumption as a newly invented clear-statement rule. Extraterritoriality concerned where federal law operates, not incorporation of foreign facts into a domestic prohibition; no conflicting foreign obligation arose here. He also objected that neither party had briefed that quasi-extraterritorial theory and disputed describing the other evidence as balanced.",
+        "Serious foreign convictions, particularly Small’s actual arms smuggling, reasonably indicated dangerousness. Thomas’s examples included foreign murder, rape, kidnapping, and weapons crimes, countering the majority’s selected repressive-law examples. Few prosecutions undermined predictions of widespread unfairness rather than the reason for coverage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas dissent; 544 U.S. at 394–403 & nn.1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissent treats anomalies and unforeseen applications as insufficient to narrow clear language",
+      "cue": "What did the Court ultimately reverse?",
+      "paragraphs": [
+        "Thomas accepted statutory asymmetries but thought Congress could rationally create familiar domestic exceptions incrementally. They were not sufficiently absurd to override clear text. The majority produced its own disparity by allowing grave foreign offenders while disabling relatively minor qualifying domestic offenders. Failure to foresee an application demonstrated breadth rather than ambiguity. He rejected reliance on legislative silence and, alternatively, read Conference’s removal of domestic limits as favoring coverage, while recognizing objections to unenacted history itself.",
+        "On April 26, 2005, the Supreme Court reversed the Third Circuit and remanded: § 922(g)(1)’s disputed predicate covered domestic convictions only. Chief Justice Rehnquist did not participate, making the division five to three. Scalia joined Thomas’s dissent rather than filing a separate concurrence.",
+        "The Japanese judgment could not supply this predicate, but the Court did not invalidate it, declare Small harmless, find its procedures unfair, or recognize an individualized fairness exception. The assigned author’s later reflection on drafting a different Gayle outcome illustrates interpretation debates, not an additional Supreme Court holding. No later remand result or current amendment status is supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissent, judgment, and course limits; 544 U.S. at 394, 403–07"
+        }
+      ]
+    }
+  ]
+}

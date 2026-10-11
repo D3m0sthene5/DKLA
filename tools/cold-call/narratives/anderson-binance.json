@@ -1,0 +1,173 @@
+{
+  "id": "anderson-binance",
+  "briefId": "CT-SUP-0094",
+  "title": "Anderson v. Binance",
+  "course": "Contracts",
+  "citation": "2026 WL 538293 (S.D.N.Y. Feb. 26, 2026), No. 20-cv-02803, ECF No. 164",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Users accept an initial account contract without arbitration, then challenge whether later posted terms can redirect already accrued claims into arbitration or eliminate class proceedings.",
+  "actors": [
+    {
+      "name": "The five named plaintiffs",
+      "role": "California, Nevada, and Texas users asserting securities-registration claims."
+    },
+    {
+      "name": "Binance",
+      "role": "Digital-token platform invoking its amended terms."
+    },
+    {
+      "name": "Judge Andrew Carter",
+      "role": "District judge deciding the remaining pre-amendment claims."
+    }
+  ],
+  "proceedings": [
+    "An April 2020 action was dismissed in 2022 and revived on appeal in March 2024.",
+    "After further pleading, Binance sought arbitration in July 2024.",
+    "The court vacated its March 2025 arbitration opinion and ordered further briefing.",
+    "Later-accruing claims were dismissed by stipulation; the February 2026 order denied arbitration and a court class-action waiver for the remaining earlier claims."
+  ],
+  "limits": "The ruling concerns only claims predating February 20, 2019. It does not decide securities liability, damages, certification, or arbitration of later claims dismissed by stipulation; no subsequent docket review is claimed.",
+  "briefSha256": "70644da18dd79dda2f9d91495ac47a4e7655a569e324d959e3f598ca8981a082",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-SUP-0094"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The users accept account terms containing no arbitration or class waiver",
+      "cue": "What amendment authority did the initial contract describe?",
+      "paragraphs": [
+        "Five eventual named plaintiffs, domiciled in California, Nevada, and Texas, created Binance accounts between September 27, 2017 and April 15, 2018. Their registration clickwrap assent to the July 6, 2017 Terms of Use was undisputed. Those terms contained no arbitration provision, choice-of-law clause, or class-action waiver.",
+        "The terms did authorize Binance to announce amendments on its website without individual notice, make amendments effective upon announcement, and treat continued use as acceptance unless the user stopped. That initial agreement later supplied Binance’s theory of amendment, but assent to it did not itself resolve acceptance or temporal reach of a later document."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Initial assent and later changes; slip pp.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Binance posts a new dispute section while some users continue trading",
+      "cue": "What did the 2019 document actually say?",
+      "paragraphs": [
+        "On February 20, 2019, Binance posted revised terms adding arbitration and Singapore law. The arbitration clause covered claims relating to the agreement, including existence and validity, incorporated Singapore International Arbitration Centre rules, and specified one arbitrator, English proceedings, and a Singapore seat.",
+        "A heading and warning prominently referred to a class-action waiver, including a reference to United States residents, but no operative provision detailed such a waiver. Some plaintiffs traded afterward, and Anderson still held assets in his account in July 2024. Binance relied on continued use and the original amendment clause; the users disputed notice, the meaning of the waiver language, and retroactive coverage. This involved amendment of an existing relationship, not initial assent on a fresh account-registration screen."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Initial assent and later changes; slip pp.3–6, 10–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The securities action reaches an arbitration motion, then narrows during briefing",
+      "cue": "Which claims remained for the February 2026 ruling?",
+      "paragraphs": [
+        "The plaintiffs alleged that Binance offered and sold digital tokens without required federal and state securities registration. The action began in April 2020. After a March 2022 dismissal, the Second Circuit reversed in March 2024, and the opinion dates the third amended complaint May 10, 2024. Binance moved to compel arbitration that July. Proposed subclasses included purchases both before and after February 20, 2019.",
+        "On March 28, 2025, the district court denied arbitration for earlier claims but left unresolved claims accruing after the amendment and before actual notice and the asserted class waiver. At every party’s request, the court vacated that opinion April 16 and required supplemental briefing. Before November argument, plaintiffs dismissed claims accruing on or after the amendment’s effective date; the court signed a joint stipulation November 25.",
+        "That dismissal mooted the later-claim issue. Judge Andrew Carter’s February 26, 2026 opinion addressed only claims predating February 20, 2019. It determined forum and manner of litigation, not whether the tokens were securities or defendants owed damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; slip pp.5–8 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Carter refuses to use an unaccepted law-selection clause to prove its own acceptance",
+      "cue": "Which formation law and evidentiary framework applied?",
+      "paragraphs": [
+        "The Federal Arbitration Act favors enforcement of actual agreements, leaving ordinary state law to establish formation. The court used a summary-judgment-like standard, considered admissible declarations and documents, and drew reasonable inferences for the nonmovants. An agreement and sufficiently clear delegation of arbitrability could not be assumed merely because the proposed clause addressed validity.",
+        "Binance urged Singapore law under the 2019 terms to decide whether those terms had been accepted. Carter rejected that circular approach. The undisputed 2017 contract had no such clause, and reliance on the contested amendment presupposed the very assent in dispute.",
+        "An interest analysis instead considered contracting, negotiation, performance, subject matter, and party location. The transaction was online and unnegotiated; Binance described itself as decentralized without headquarters; the identifiable users lived in California, Nevada, and Texas. Their states’ laws governed and were substantively similar on formation, consistent with the parties’ agreement that the result would be the same."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Formation law; slip pp.3–4 n.2, 8–13 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Posting alone fails to establish constructive notice, although litigation supplies actual notice later",
+      "cue": "How did the agreed amendment clause limit rather than resolve the inquiry?",
+      "paragraphs": [
+        "For passive assent through use, the question was whether a reasonably prudent user had actual or constructive notice. Binance relied on Needleman, involving an online-banking customer who accepted a defined statement-delivery system. There, individual messages announced a new statement, the statement page prominently linked arbitration notice, and an opt-out was available. Failure to read that agreed channel did not necessarily defeat reasonable notice.",
+        "Binance offered no comparable individual communication and no evidence that it announced arbitration as the initial contract prescribed or told users where to find amendments. The original clause did not obligate periodic inspection of the website’s contract. Unlimited unnoticed changes would undermine mutual assent. Posting plus continued activity was therefore insufficient on this record. The court did not impose a universal individual-notice requirement for every internet amendment.",
+        "Actual notice eventually arose. Williams, the only remaining plaintiff named in the original complaint, knew at least by April 3, 2020 because that complaint identified the arbitration amendment date. The other four knew by June 8, when they joined Williams’s lead-plaintiff motion. The court thus did not find perpetual ignorance. Later notice still left open whether the amendment reached claims already accrued."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constructive and actual notice; slip pp.13–17 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "An alternative temporal ground defeats arbitration of the remaining claims",
+      "cue": "Why did any claims not clearly include earlier claims?",
+      "paragraphs": [
+        "Even assuming constructive notice of the 2019 terms, the court held that they did not extend to claims accrued before their effective date. California’s implied covenant of good faith and fair dealing limited a unilateral amendment power silent about known or accrued claims. Carter distinguished Peleg’s treatment of express powers to affect accrued claims as illusory from a silent clause constrained by the covenant; he did not declare Binance’s entire contract illusory.",
+        "The phrase any claims contained no temporal direction. The amendment could have identified a reach-back period but did not. Later actual notice and continued use did not eliminate the limit for the pre-February 20, 2019 claims remaining before the court. This concerned unilateral amendment of an existing contract, not a general inability of parties to negotiate a new agreement addressing an existing dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Modification and retroactivity; slip pp.17–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The class-action heading does not clearly waive class litigation in federal court",
+      "cue": "Why did the court read the ambiguity against Binance?",
+      "paragraphs": [
+        "Binance separately sought to bar class relief in court even if arbitration failed. The heading and warning said the section involved waiver of certain rights, including class proceedings, but no operative clause defined the surrender or expressly barred federal-court class actions. Unlike Maldini’s explicit requirement of individual proceedings without class actions, this language was ambiguous.",
+        "The standardized, unnegotiated terms were adhesive, and the court construed ambiguity narrowly against Binance as drafter without declaring all adhesion contracts invalid. At most, the heading and ensuing six subsections concerned arbitration. The warning’s reference to that section did not extend a waiver to court litigation. Decisions addressing lack of consent to class arbitration did not establish a class-action bar in federal court.",
+        "Retroactivity supplied another reason. Initially agreed releases and indemnities did not govern this later unilateral change; the same temporal limits applicable to arbitration also defeated waiver of the remaining accrued claims. The ruling did not certify a class or find every class-action requirement satisfied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Class-action language; slip pp.18–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The court denies the forum restrictions and resolves ancillary confidentiality requests",
+      "cue": "What precisely did the order grant?",
+      "paragraphs": [
+        "Carter denied compelled arbitration of the remaining claims predating February 20, 2019 and held the purported class-action waiver unenforceable in federal court for those claims. Post-effective-date claims were already dismissed by stipulation, so their arbitrability was not decided on the merits.",
+        "The court also sealed exhibits containing users’ financial and identifying information and permitted redaction of Zhao’s personal email address from a service certificate. It instructed the clerk to file those exhibits under seal, make the redaction, and terminate the designated motions. Carter issued the opinion alone. The plaintiffs won a forum ruling, not securities liability, damages, or class certification, and the earlier vacated arbitration opinion does not replace this limited disposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact order and limits; slip pp.7–8, 22–23"
+        }
+      ]
+    }
+  ]
+}

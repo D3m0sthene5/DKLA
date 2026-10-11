@@ -1,0 +1,160 @@
+{
+  "id": "cp-lexecon",
+  "briefId": "CP-ATLAS-LEXECON",
+  "title": "Lexecon Inc. v. Milberg Weiss Bershad Hynes & Lerach",
+  "course": "Civil Procedure",
+  "citation": "523 U.S. 26 (1998)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A consulting firm’s Illinois lawsuit reaches Arizona for coordinated pretrial work, but the receiving judge keeps the surviving claim for trial over the plaintiff’s repeated objection.",
+  "actors": [
+    {
+      "name": "Lexecon and its principal",
+      "role": "Former defendants in Lincoln Savings litigation who later sued opposing law firms."
+    },
+    {
+      "name": "Milberg Weiss and Cotchett, Illston & Pitre",
+      "role": "Law firms defending Lexecon’s Illinois action."
+    },
+    {
+      "name": "Judicial Panel on Multidistrict Litigation",
+      "role": "Body transferring the new action for coordinated pretrial proceedings."
+    },
+    {
+      "name": "Judges Bilby and Roll",
+      "role": "Arizona judges involved at successive stages; Roll conducted the challenged trial."
+    }
+  ],
+  "proceedings": [
+    "The Panel transferred Lexecon’s Illinois suit to Arizona under § 1407.",
+    "After pretrial dispositions, the receiving court assigned the remaining defamation claim to itself and tried it.",
+    "The Ninth Circuit rejected mandamus and later affirmed the trial judgment.",
+    "The Supreme Court reversed for violation of the mandatory-remand requirement, leaving Cotchett’s proper pretrial judgment intact."
+  ],
+  "limits": "The issue was statutory trial venue, not subject-matter jurisdiction or an independent trial error. The Court did not find Lexecon’s substantive allegations true or decide that § 1407 remand could never be waived.",
+  "briefSha256": "11a53488c2e86519afca4f8b0da02921f0acca751a3e3525510d640ceeaf4b6c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-LEXECON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Lincoln Savings litigation brings Lexecon into Arizona as a defendant",
+      "cue": "How did the later Illinois action arise?",
+      "paragraphs": [
+        "Lexecon, a law-and-economics consulting business, and a principal were defendants in litigation over Lincoln Savings and Loan’s failure. They were accused of giving regulators misleading financial reports about Lincoln and parent American Continental Corporation. That litigation went to Arizona for coordinated pretrial work under 28 U.S.C. § 1407, the multidistrict-litigation statute. Claims against Lexecon were dismissed in August 1992 under a resolution agreement.",
+        "Lexecon then filed a diversity action in the Northern District of Illinois against plaintiff-side law firms Milberg Weiss and Cotchett, Illston & Pitre, alleging malicious prosecution, abuse of process, tortious interference, commercial disparagement, and defamation. It called the earlier case a meritless vendetta ending in its favor. Judge Bilby, who handled the Arizona litigation, issued a differently characterized account, which Lexecon appealed. The Supreme Court later recited those competing descriptions without adjudicating Lexecon’s version as true."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Background; 523 U.S. at 28–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The firms obtain a second transfer, then oppose returning the case",
+      "cue": "What changed before the surviving claim went to trial?",
+      "paragraphs": [
+        "The firms sought § 1407 transfer of Lexecon’s new suit to Arizona. Although Bilby recused, the Judicial Panel on Multidistrict Litigation transferred it in June 1993 to Judge Roll, citing common questions about the earlier resolution, an Arizona document repository, and the pending Ninth Circuit appeal. That appeal later ended, the repository closed, and the remaining Lincoln litigation settled with judgment in March 1994.",
+        "Lexecon repeatedly asked Roll to suggest remand to Illinois. The firms opposed and instead requested that he transfer the action under § 1404(a) to his own Arizona court for trial. Roll dismissed or granted summary judgment on every claim except defamation against Milberg, dismissed Milberg’s counterclaims, and assigned that surviving claim to himself. Cotchett received a separate Rule 54(b) judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transfer and pretrial history; 523 U.S. at 29–31"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Lexecon preserves the objection through unsuccessful mandamus and an adverse trial",
+      "cue": "Why was statutory compliance still at issue after judgment?",
+      "paragraphs": [
+        "Lexecon sought Ninth Circuit mandamus to undo self-assignment and secure remand. The majority left the question for direct appeal after any trial loss; Judge Kozinski dissented. Milberg then prevailed at the Arizona defamation trial. Lexecon appealed again on remand and self-assignment, but the Ninth Circuit affirmed, again over Kozinski’s dissent, relying on established practice, Panel rules, and efficiency.",
+        "Lexecon alleged no absence of subject-matter jurisdiction and no independent error in trial conduct. It objected to a trial district the MDL statute did not permit the receiving judge to retain over a preserved objection. The Supreme Court accepted that statutory question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Review posture; 523 U.S. at 31–32"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Souter reads pretrial authority together with the Panel’s mandatory duty to remand",
+      "cue": "Why could a transfer motion not defeat another statutory command?",
+      "paragraphs": [
+        "Justice Souter acknowledged the surface appeal of the practice. Panel Rule 14(b) recognized self-transfer, courts had used it for decades, and § 1404 motions ordinarily occurred before trial. Those points alone did not exclude such a motion from pretrial activity.",
+        "But § 1407(a) authorized coordinated or consolidated pretrial transfer and required the Panel to remand every uncompleted action to its original district at or before pretrial proceedings ended. Self-assignment made performance of that duty impossible. The firms’ attempt to distinguish the Panel’s duty from the judge’s power allowed one statutory actor to disable another’s mandatory obligation. Panel rules had to comply with statutes, and longstanding practice could not overcome the command.",
+        "Lexecon had not waived protection by requesting the judge’s remand suggestion rather than moving directly before the Panel. Panel rules strongly discouraged remand without that suggestion, and Roll refused it while making the forbidden assignment. The Court rejected waiver on these facts without deciding that waiver could never occur."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Mandatory remand and waiver; 523 U.S. at 32–37 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Neither changing case status nor a separate antitrust provision supplies trial authority",
+      "cue": "Which interpretive questions remained open?",
+      "paragraphs": [
+        "The firms argued that § 1404 self-transfer ended MDL status and thus removed the remand requirement. The statute instead referred to termination of the civil action, as by dismissal or summary judgment, not a change of venue label.",
+        "Section 1407(h) expressly authorized trial as well as pretrial transfer for certain Clayton Act actions. It supplied independent authority rather than an implied general trial-transfer power, showing Congress knew how to provide that power. An ordinary § 1404 transfer after remand might be possible, but ordinary venue limits—unlike § 1407’s broader transfer rules—would still govern.",
+        "Part II-C found legislative history consistent: statements preserving § 1404 did not specify transferee-court use, and other materials limited MDL transfer to pretrial location. Justice Scalia did not join this portion. The Court invalidated the Panel’s self-assignment rule and left efficiency proposals to Congress. It reserved whether § 1404 by itself allowed self-transfer despite referring to another district, because § 1407 resolved this case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alternative readings; 523 U.S. at 37–41 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "An otherwise proper trial does not make the preserved venue violation harmless",
+      "cue": "Why did Caterpillar not save the judgment?",
+      "paragraphs": [
+        "Milberg urged harmless error because Lexecon could initially have sued in Arizona and identified no independent trial mistake. Souter answered that Congress protected the entitlement to remand. Letting the impermissible trial justify itself would erase a substantial statutory venue interest despite a continuously preserved objection.",
+        "Caterpillar involved an improper-removal jurisdictional defect cured before judgment. This violation persisted through trial. Finality and efficiency could not excuse an uncorrected refusal to obey the remand mandate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Remedy; 523 U.S. at 41–43"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The trial judgment is reversed while valid pretrial work remains effective",
+      "cue": "What exactly did the unanimous result leave intact?",
+      "paragraphs": [
+        "On March 3, 1998, the Court reversed the Ninth Circuit and remanded for further proceedings. The judgment was unanimous; Scalia joined all except the legislative-history section, and no separate opinion was filed. The result required relief from the improper trial venue, not judgment that Lexecon had proved defamation.",
+        "Cotchett’s Rule 54(b) dismissal remained because it was a proper pretrial merits disposition. The Court did not address prospective-only application, raised too late, or Milberg’s argument that the surviving defamation claim should have been dismissed before trial, outside the review grant. The holding consequently did not undo all Arizona work or decide every later waiver and circuit-law question discussed around the case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and limits; 523 U.S. at 42–43 & nn.5–6"
+        }
+      ]
+    }
+  ]
+}

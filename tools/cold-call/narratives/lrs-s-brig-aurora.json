@@ -1,0 +1,126 @@
+{
+  "id": "lrs-s-brig-aurora",
+  "briefId": "LRS-CB-0045",
+  "title": "Cargo of the Brig Aurora v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "11 U.S. (7 Cranch) 382 (1813)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A cargo leaves Britain as a presidential proclamation triggers a congressionally specified revival of import restrictions; the claimant contests timing, legislative authority, and the proof needed for an American-ownership exception.",
+  "actors": [
+    {
+      "name": "United States",
+      "role": "Brought the forfeiture proceeding against merchandise aboard the brig Aurora."
+    },
+    {
+      "name": "Robert Burnside",
+      "role": "Orleans citizen claiming the merchandise and appealing its condemnation."
+    },
+    {
+      "name": "President of the United States",
+      "role": "Proclaimed the international fact Congress made a condition of revived restrictions."
+    }
+  ],
+  "proceedings": [
+    "The District Court for the District of Orleans condemned the cargo in a forfeiture libel.",
+    "The Supreme Court rejected the revival, exemption, and pleading objections and affirmed the sentence in 1813."
+  ],
+  "limits": "The authenticated report contains conflicting exact date entries, so no precise decision day is certified. Burnside’s citizenship did not prove the cargo’s national ownership. Counsel’s arguments are distinct from Johnson’s opinion, and no independent presidential revival power was recognized.",
+  "briefSha256": "17fbaa4ec965d08201466ba999f2ff6c3ba407ef95eca374bdc67474cad8357f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0045"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress replaces expired restrictions with a conditional revival mechanism",
+      "cue": "What did Congress decide and what did the President proclaim?",
+      "paragraphs": [
+        "The Nonintercourse Act of March 1, 1809, prohibited specified imports from Britain and France after May 20 and authorized forfeiture. After extensions, it expired May 1, 1810. Congress enacted another law that day specifying a revival mechanism.",
+        "If either foreign country changed restrictions so they no longer violated American neutral commerce, the President would proclaim that fact. If the other failed to follow within three months, specified earlier restrictions would revive against it. Congress supplied the event and domestic consequence; the President’s role operated within that legislative instruction.",
+        "On November 2, 1810, the President proclaimed France’s qualifying change. The asserted consequence was revival against Britain on February 2, 1811, three months later."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 U.S. at 382–384; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Aurora sails before the deadline and arrives when restrictions have revived",
+      "cue": "How did its voyage intersect with the later exception?",
+      "paragraphs": [
+        "The brig Aurora cleared Liverpool December 11, 1810, and sailed December 16. The proclamation became known there December 13. The vessel arrived in New Orleans between February 2 and February 20, 1811, and its cargo was seized February 20 under the revived British restrictions.",
+        "Congress enacted a March 2 exemption for qualifying wholly American-owned vessels departing British ports before February 2 and qualifying wholly American-owned merchandise aboard them. Robert Burnside, a citizen of Orleans claiming the goods, invoked that protection. His nationality and claim of ownership did not themselves prove the merchandise met the statutory condition.",
+        "The bill of lading said shipment was for a United States citizen and consigned to Burnside but did not identify the owner. Witness testimony identified a Liverpool shipper without establishing whose account he served. Those gaps became decisive when Burnside sought release of the cargo."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 U.S. at 382, 384–385, 387–388; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The condemnation appeal raises authority, effective date, and pleading",
+      "cue": "What did the opposing advocates argue?",
+      "paragraphs": [
+        "The District Court for the District of Orleans condemned the goods on the government’s forfeiture libel, the pleading commencing an action against cargo. Burnside appealed, arguing that the restrictions were not validly revived or not yet effective, that American ownership exempted the merchandise, and that the libel should have denied that ownership expressly.",
+        "Burnside’s counsel characterized revival through proclamation as a transfer of legislative power. The government answered that Congress merely prescribed evidence of a fact on which its own law operated. Those were advocates’ formulations. Justice Johnson’s opinion then located the lawmaking choice in Congress itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 U.S. at 382, 387–389; Procedural History; assigned pp. 45–46"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Johnson sustains conditional legislation and the February date",
+      "cue": "Why did the old May waiting period not restart?",
+      "paragraphs": [
+        "Congress could have revived the prohibition directly and could instead condition revival on specified events. The earlier expiration limited that enactment’s duration without exhausting Congress’s later authority. The 1810 Act supplied fresh authorization, so the proclamation did not rest on independent presidential power to revive a dead law.",
+        "Restoration with full force and effect meant restoration as the earlier Act stood when it expired. Its original May 20 waiting period had already elapsed. Carrying that calendar date into another year would frustrate the later statute’s three-month mechanism. Restrictions therefore operated against Britain from February 2, before the cargo’s importation.",
+        "This reasoning addressed Congress’s designated policy, condition, and consequence. It did not use the later “intelligible principle” formulation or confer a general presidential authority over expired statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 U.S. at 388–389; Rule and reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The claimant fails to prove the exception and cannot shift that burden into the libel",
+      "cue": "What exactly closes the report?",
+      "paragraphs": [
+        "Correspondence or testimony identifying the owner for whose account shipment occurred was readily obtainable but absent. An unnamed American in the bill of lading, a consignment to Burnside, and the Liverpool shipper’s identity did not establish beneficial ownership. The Court treated missing accessible proof as supporting non-American ownership; it did not declare British shipment itself incompatible with American ownership.",
+        "The government’s libel needed to plead prohibited importation, not negate the fact establishing a defense or statutory exception. Burnside bore the burden of proving that exception, and his failure of proof was not cured by a pleading objection.",
+        "The authenticated report ends “Sentence affirmed.” Cargo condemnation stood. No separate opinion was reported, and the assigned account identifies Justice Todd as absent. The report’s caption note gives February 23, 1813, while a line before the opinion prints February 26, 1812 under an 1813 header; that conflict leaves the precise day unresolved. The short online transcription’s omission of the closing sentence does not change the scanned report’s express affirmance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 U.S. at 387–389; Judgment; Citation; Separate Opinions"
+        }
+      ]
+    }
+  ]
+}

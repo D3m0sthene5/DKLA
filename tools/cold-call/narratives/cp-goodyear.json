@@ -1,0 +1,111 @@
+{
+  "id": "cp-goodyear",
+  "briefId": "CPR-006",
+  "title": "Goodyear Dunlop Tires Operations, S.A. v. Brown",
+  "course": "Civil Procedure",
+  "citation": "564 U.S. 915 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A fatal French bus crash leads to suit in the victims’ home state, but unrelated tire sales do not make three overseas subsidiaries at home there.",
+  "actors": [
+    {
+      "name": "Parents of Julian Brown and Matthew Helms",
+      "role": "North Carolina residents suing as estate administrators."
+    },
+    {
+      "name": "The Goodyear Tire and Rubber Company",
+      "role": "Ohio parent with North Carolina operations that did not contest jurisdiction."
+    },
+    {
+      "name": "Three foreign Goodyear subsidiaries",
+      "role": "Luxembourg, Turkish, and French entities contesting personal jurisdiction."
+    }
+  ],
+  "proceedings": [
+    "The Onslow County Superior Court denied subsidiaries’ dismissal motions.",
+    "The North Carolina Court of Appeals affirmed general jurisdiction; the state Supreme Court denied discretionary review.",
+    "The United States Supreme Court unanimously reversed the intermediate appellate judgment."
+  ],
+  "limits": "The parents’ enterprise-attribution theory was forfeited, not rejected categorically on its merits. The Court did not decide negligence, damages, parent-company liability, or absence of all alternative forums.",
+  "briefSha256": "502c806fb293d7ad162feab6d99a99b7302616ce36ba48aed2b45bb3261577cd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-006"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two North Carolina children die on a trip outside Paris",
+      "cue": "Which defendants and tire contacts related to the accident?",
+      "paragraphs": [
+        "In April 2004 thirteen-year-old soccer players Julian Brown and Matthew Helms died in a bus accident outside Paris on the way to the airport. Their parents, North Carolina residents like the boys, sued as estate administrators, alleging a defective tire made at Goodyear’s Turkish subsidiary caused the crash through deficient design, construction, testing, and inspection.",
+        "They sued the Ohio Goodyear parent and indirect subsidiaries organized and operating in Luxembourg, Turkey, and France. The parent did business in North Carolina and did not contest jurisdiction; only the foreign subsidiaries sought dismissal and later Supreme Court review. Manufacture, sale, and accident all occurred abroad, and that tire type was not distributed in North Carolina.",
+        "The subsidiaries principally served Europe and Asia and had no North Carolina business location, employees, accounts, registration, design, manufacture, solicitation, or direct shipments and sales. Other affiliates distributed some of their other tires there: tens of thousands from tens of millions made, a small fraction, often specialized special orders."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Facts; 564 U.S. 918–922"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "North Carolina treats distribution as enough for all-purpose authority",
+      "cue": "Why was specific jurisdiction unavailable?",
+      "paragraphs": [
+        "The Onslow County Superior Court denied dismissal. The North Carolina Court of Appeals recognized no link between forum contacts and this accident, ruling out specific jurisdiction. It nevertheless found general jurisdiction from an organized distribution stream carrying products into North Carolina without subsidiaries taking steps to stop it. Residents’ need for a local forum and difficulty suing abroad reinforced its conclusion.",
+        "The state Supreme Court denied discretionary review. In the United States Supreme Court the parents also urged treating all Goodyear entities as one enterprise, but had not timely raised that theory below or in opposition to certiorari. The Court declined it as forfeited. Accident liability and damages were not yet adjudicated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 564 U.S. 922–923, 930–931"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ginsburg distinguishes a product-related forum from a corporate home",
+      "cue": "What kind of affiliation can support an unrelated suit?",
+      "paragraphs": [
+        "Justice Ginsburg’s unanimous opinion explained that specific jurisdiction connects the forum to the underlying controversy; general jurisdiction permits any claim only when corporate affiliations are so continuous and systematic as to make it essentially at home. Incorporation and principal place of business are paradigm homes, with sufficiently substantial operations elsewhere illustrated by Perkins.",
+        "Product circulation might matter to an injury arising from local use, but does not itself establish home. Otherwise major manufacturers could face every claim anywhere goods reached customers. North Carolina had imported stream-of-commerce reasoning into the wrong inquiry. The victims’ residence gave a reason to prefer the forum without adding defendant contacts.",
+        "In Perkins, a president actually managed corporate affairs from Ohio while war interrupted overseas operations, making Ohio the activity center. Helicopteros found substantial Texas purchases and training insufficient for general jurisdiction. These indirect tire shipments fell far short of the management presence in Perkins and did not become a corporate home merely because sales occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule; Reasoning; 564 U.S. 919, 923–929"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The foreign subsidiaries cannot remain on this preserved theory",
+      "cue": "What limits accompanied reversal?",
+      "paragraphs": [
+        "On June 27, 2011, all nine Justices reversed the North Carolina Court of Appeals. The record did not support general jurisdiction over the three petitioning entities. The American parent’s accepted jurisdiction did not erase separately incorporated identities.",
+        "Because attribution was forfeited, the Court did not establish that affiliates’ contacts can never be attributed. Nor did it decide negligence, parent liability, or whether another forum existed. “Foreign” included out-of-state as well as international corporations; the focus was relationship to North Carolina, not nationality alone.",
+        "Later Daimler elaborated at-home limits, while Ford addressed specific jurisdiction tied to local markets, models, and injuries. This French accident lacked that forum-controversy link, the distinction on which this judgment rested."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; 564 U.S. 927–931"
+        }
+      ]
+    }
+  ]
+}

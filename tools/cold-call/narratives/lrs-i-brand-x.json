@@ -1,0 +1,162 @@
+{
+  "id": "lrs-i-brand-x",
+  "briefId": "LRS-ATLAS-I-BRAND-X",
+  "title": "National Cable & Telecommunications Association v. Brand X Internet Services",
+  "course": "Legislation and the Regulatory State",
+  "citation": "545 U.S. 967 (2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Federal Communications Commission classifies integrated cable Internet service after an appellate court has interpreted the same statute, producing a historical dispute about administrative deference, precedent, and the meaning of an offered service.",
+  "actors": [
+    {
+      "name": "Federal Communications Commission",
+      "role": "Agency issuing the 2002 cable-modem classification."
+    },
+    {
+      "name": "National Cable & Telecommunications Association and cable petitioners",
+      "role": "Industry parties seeking reversal of the Ninth Circuit’s decision against the agency classification."
+    },
+    {
+      "name": "Brand X and other challengers",
+      "role": "Parties contesting the classification’s exclusion of a separately offered telecommunications service."
+    },
+    {
+      "name": "MCI",
+      "role": "Challenger arguing inconsistent treatment of cable and telephone-network DSL."
+    }
+  ],
+  "proceedings": [
+    "The FCC issued a declaratory ruling in March 2002 after opening a proceeding in September 2000.",
+    "The Ninth Circuit partly vacated under its prior Portland interpretation instead of applying Chevron.",
+    "The Supreme Court reversed and remanded on June 27, 2005, by six votes to three."
+  ],
+  "limits": "This is the historical Chevron-era rule. The source separately notes that Loper Bright later overruled Chevron while retaining stare decisis for earlier holdings upholding particular agency actions. The case did not decide DSL’s proper classification or cable-access duties under ancillary authority.",
+  "briefSha256": "88d12cbcc8745bb13944efdf485fb037c33e62118c0dadcad56b3cc2e6953c26",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-BRAND-X"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An integrated broadband product confronts two statutory categories",
+      "cue": "Why did classification change regulatory obligations?",
+      "paragraphs": [
+        "Cable-modem service delivered fast Internet access over cable television networks. The Communications Act automatically imposed Title II common-carrier duties on telecommunications carriers, including nondiscriminatory and reasonable rates, interconnection, and universal-service contributions. Information-service providers did not automatically bear those obligations.",
+        "The Federal Communications Commission’s earlier Computer II regime distinguished essentially transparent basic transmission from enhanced processing or storage. The 1996 Act defined telecommunications, telecommunications service, and information service separately. Internet access used transmission but also browsing, email, file transfer, domain-name lookup, and other processing. The question was what service the company offered customers, not whether wires transmitted data at all.",
+        "After starting a proceeding in September 2000, the FCC issued its March 2002 declaratory ruling treating cable-modem access solely as an information service. Transmission and processing formed an integrated offer. An earlier Universal Service Report had classified providers leasing transmission facilities as information services; the agency saw no statutory reason to change the result because cable firms owned those facilities. It left open access duties for independent providers under ancillary Title I authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 974–979, 987–988; Facts and regulatory setting"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Ninth Circuit applies its earlier construction and the agency seeks review",
+      "cue": "What made the precedent problem different from an ordinary agency appeal?",
+      "paragraphs": [
+        "Many parties petitioned for review, and a judicial lottery placed the cases in the Ninth Circuit. That court partly vacated the rule by following AT&T Corp. v. Portland, its earlier classification of cable-modem service as telecommunications service. Portland had not reviewed an FCC proceeding, and the agency had not participated. The Ninth Circuit did not evaluate the new interpretation under Chevron.",
+        "The FCC and cable-industry parties separately sought Supreme Court review. Justice Thomas wrote for Chief Justice Rehnquist and Justices Stevens, O’Connor, Kennedy, and Breyer. The Court addressed the effect of precedent, the reasonableness of the classification, and the agency’s explanation for differing cable and DSL treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 967 note, 979–980; Questions and procedure"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority gives an ambiguous statute room for a later agency interpretation",
+      "cue": "What exactly was the historical Brand X precedent rule?",
+      "paragraphs": [
+        "Under the then-operative Chevron framework, an agency with delegated binding authority could reasonably interpret ambiguous language even if a court preferred another reading. The FCC used such authority here. A changed administrative interpretation did not automatically lose eligibility for deference; an unexplained change might instead fail arbitrary-or-capricious review.",
+        "The majority held that a judicial construction displaced a later Chevron-eligible agency interpretation only if the prior court held the statute unambiguously required its reading. Portland selected the best reading without excluding every other permissible one. Otherwise interpretive allocation would depend on which institution happened to act first.",
+        "The majority distinguished selecting a permissible interpretation within delegated discretion from declaring an earlier judgment legally wrong. It distinguished Neal, where an earlier interpretation had been understood as unambiguous. Though the Supreme Court itself was not bound by Portland, it resolved the question to settle lower-court confusion and prevent renewed invalidation on the same ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 980–986; Historical relationship between Chevron and precedent"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court accepts transmission as an integrated input rather than a necessary separate offer",
+      "cue": "How did statutory wording and technical functions support the agency?",
+      "paragraphs": [
+        "No one disputed that cable-modem access offered an information service. The contested question was whether the package necessarily offered telecommunications separately. The majority accepted a distinction between using transmission and offering transparent transmission independently to the public.",
+        "“Offering” did not unambiguously convert each integrated component into its own offered product. A dealership could offer a finished car without separately offering the engine or chassis. Some bundles did contain separate offers, but integration was a technical judgment the FCC could make reasonably. Parallel basic/enhanced concepts and longstanding treatment of providers without their own facilities reinforced that reading; facility ownership did not settle the category.",
+        "The majority denied that any telephone carrier could evade Title II merely by adding voicemail. Ordinary calls still supplied transparent transmission independent of storage. Cable Internet access, the FCC reasonably found, involved processing even when customers visited others’ websites: domain-name lookup matched addresses and caching accessed stored content. The majority’s treatment of those functions differed from Scalia’s view that they were incidental."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 987–1000 & nn.1–3; Integrated classification"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The agency explains why older telephone rules need not immediately govern cable",
+      "cue": "Which classifications remained undecided?",
+      "paragraphs": [
+        "MCI argued that excluding cable while imposing common-carrier duties on DSL over telephone networks was inconsistent. The FCC explained that earlier telephone rules addressed a bottleneck, while cable arose in a newer market with multiple transmission platforms. Fresh analysis for that setting was rational. Inconsistency called for explanation rather than automatically defeating the statutory interpretation.",
+        "The agency could revise its overall scheme incrementally. The Court expressly declined to determine how DSL should or lawfully could be classified, or whether ancillary authority should require cable access. It did not adopt a single legal classification for every broadband technology."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 1000–1003 & n.4; APA explanation"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Two concurrences qualify the rationale and Scalia attacks two distinct propositions",
+      "cue": "Which dissenting arguments had three votes and which only one?",
+      "paragraphs": [
+        "Justice Stevens joined but cautioned that the treatment of appellate precedent might differ for a Supreme Court interpretation, which he presumed removed prior ambiguity. That was his own caveat, not an express majority limit.",
+        "Justice Breyer considered the FCC within its delegation, barely. Defending Mead’s account of delegation against Scalia, he explained that formal process was neither invariably necessary nor sufficient for Chevron; several indicators could establish congressional assignment.",
+        "Scalia’s Part I, joined by Justices Souter and Ginsburg, found transmission separately identifiable. Pizza-delivery and puppy-and-leash analogies challenged the finished-car account: customers could perceive both access and applications as offered services. He contested history, domain names, and caching, and suggested statutory forbearance as a more candid route to lighter regulation.",
+        "Scalia alone wrote Part II, attacking the precedent rule as allowing executive displacement of definitive judicial constructions, destabilizing decisions that had not expressly labeled meaning unambiguous, and raising Article III concerns. He also thought the issue unnecessary. The majority rejected his characterization of agency reversal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 1003–1020 and Scalia notes 1–14; Separate opinions"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court reverses in 2005, while the assigned later note marks a doctrinal change",
+      "cue": "What should not be converted into a current rule?",
+      "paragraphs": [
+        "On June 27, 2005, the six-to-three Court reversed the Ninth Circuit and remanded the cases, sustaining the FCC’s interpretation and explanation. The source’s later assignment asks how a holding about permissibility relates to independent interpretation after Loper Bright.",
+        "As that separately verified later material explains, Loper Bright overruled Chevron while preserving statutory stare decisis for earlier holdings approving particular agency action. That later proposition is not part of Brand X’s 2005 holding and does not itself resolve every subsequent implication or establish the present broadband classification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545 U.S. at 1003; Assigned significance and later-law boundary"
+        }
+      ]
+    }
+  ]
+}

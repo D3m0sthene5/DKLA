@@ -1,0 +1,126 @@
+{
+  "id": "cp-ingraham",
+  "briefId": "CP-ATLAS-INGRAHAM",
+  "title": "Ingraham v. United States; Bonds v. United States",
+  "course": "Civil Procedure",
+  "citation": "808 F.2d 1075 (5th Cir. 1987)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two families recovered substantial malpractice judgments against the United States before the government invoked a Texas damages cap. The timing made notice and preservation decisive, while the separate challenges to the Bonds awards required review of the evidence.",
+  "actors": [
+    {
+      "name": "Ingraham",
+      "role": "Patient permanently injured during Air Force back surgery"
+    },
+    {
+      "name": "Jocelyn and Stephanie Bonds",
+      "role": "Mother and daughter injured by negligent obstetrical care"
+    },
+    {
+      "name": "United States",
+      "role": "Defendant responsible for the Air Force physicians"
+    },
+    {
+      "name": "Judge Politz",
+      "role": "Author of the Fifth Circuit panel opinion"
+    }
+  ],
+  "proceedings": "The district courts entered malpractice judgments. The government first invoked the cap in later motions whose denials it did not appeal. The Fifth Circuit affirmed both judgments and rejected the preserved Bonds damages objections.",
+  "limits": "The panel applied the procedural rules and Texas statute discussed in 1987. It did not decide the proposed constitutional attacks on the cap or impose an absolute bar against curing an unpleaded defense before judgment.",
+  "briefSha256": "3c811d50d131c1c4ebc91d61e0c542882f6d11edfdc19dadb8858e4a555d68d8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-INGRAHAM"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The operations left permanent injuries",
+      "cue": "Start with what happened to each family.",
+      "paragraphs": [
+        "On February 12, 1979, an Air Force physician negligently used a drill during Ingraham’s back surgery, severely and permanently injuring his spinal cord. Ingraham sued the United States under the Federal Tort Claims Act, the statute permitting specified tort claims against the federal government. The district court awarded him $1,264,000: $364,000 for lost wages and $900,000 for pain, suffering, and disability.",
+        "In a separate case, Air Force physicians mismanaged Jocelyn Bonds’s pregnancy and failed to perform a timely caesarean delivery in March 1979. Her daughter Stephanie suffered oxygen deprivation and extensive brain damage. Stephanie’s permanent disabilities included spastic quadriparesis, cortical blindness, and seizures. Jocelyn and Stephanie brought their own malpractice action against the United States. The district court awarded Stephanie $1,814,959.70 for medical expenses and $1,675,595.90 for other losses. It awarded Jocelyn $750,000 for her losses, including loss of her daughter’s society."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1077–1078"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The government raised the cap after judgment",
+      "cue": "Explain why the statutory defense arrived too late.",
+      "paragraphs": [
+        "Texas’s 1977 Medical Liability and Insurance Improvement Act limited medical-malpractice damages to $500,000, while excluding necessary medical, hospital, and custodial expenses incurred before judgment or needed for future treatment. Yet the government never invoked that statute in its pleadings or during either trial.",
+        "After the Ingraham judgment, the government filed a notice of appeal and then raised the cap in a motion under Federal Rule of Civil Procedure 60(b). The district court denied the motion; the government did not separately appeal that denial. In Bonds, even the government’s initial Rule 59 motion to amend the judgment omitted the cap. Three months after judgment, a motion labeled reconsideration finally raised it. The district court denied that motion too. The government appealed the judgment and the ruling on its initial amendment motion, but omitted the reconsideration denial. Because the Rule 59 period had expired, the Fifth Circuit treated that later request as a Rule 60 motion; its caption did not supply a separate procedural vehicle.",
+        "The consolidated appeals did not challenge negligence or liability. The government sought reductions under the cap and also preserved two independent objections to the Bonds damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1077–1078, 1080 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An avoidance required fair notice",
+      "cue": "Give the panel’s reason for classifying the cap as an affirmative defense.",
+      "paragraphs": [
+        "Judge Politz, writing for a panel that also included Chief Judge Clark and Judge Rubin, held that the cap was an affirmative defense under Rule 8(c). That rule covered both its enumerated defenses and other matters constituting an avoidance. Classification was a federal-law question, though state decisions could provide guidance. The court considered the defense’s relationship to the claim, access to evidence, policy, and unfair surprise.",
+        "The cap did not deny negligent treatment, injury, or the damages ordinarily available under tort law. It supplied an additional statutory reason to deny full recovery even after those elements were proved. That made it an avoidance. Notice also had practical consequences: the plaintiffs said they would have put greater effort into proving uncapped medical expenses and developed evidence for constitutional challenges to the statute. The court accepted those lost opportunities as concrete unfair surprise without deciding the constitutional questions.",
+        "The government’s failure to raise the cap before judgment therefore waived it in these cases. The court distinguished Lucas v. United States, an earlier decision allowing an unpleaded cap raised during trial through an effective amendment without unfair surprise. Rule 8(c) protected a fair opportunity to respond; it did not make every omission from an initial answer incurable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1078–1080 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The later rulings were not before the panel",
+      "cue": "Keep the two appellate-notice problems distinct.",
+      "paragraphs": [
+        "The motions presented a second, independent obstacle. In Bonds, the government knew reconsideration had been denied but expressly appealed only the judgment and the earlier amendment ruling, neither of which presented the cap. Liberal construction of a notice of appeal did not sweep in a distinct determination knowingly omitted from it.",
+        "In Ingraham, the government filed its Rule 60(b) motion after its notice of appeal from the judgment. A district court could consider that motion despite the pending appeal, and its denial could be separately appealed. But the government took no such appeal. Neither consolidated case therefore properly presented the denial of the motion that first asserted the cap."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1080–1081 & nn.6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Bonds awards survived independent review",
+      "cue": "Explain why the remaining objections did not reduce recovery.",
+      "paragraphs": [
+        "The government’s preserved excessiveness arguments required a different inquiry. State law supplied the components and measure of damages under the Federal Tort Claims Act, while the trial judge’s determination of amount was a factual finding reviewed for clear error under Rule 52(a). The panel could not substitute its preferred figure simply because an award was large.",
+        "During trial the judge had indicated that Stephanie’s future-care damages would use a less expensive institutional-care model, but the written findings instead adopted residential care. The final findings and judgment controlled. Preliminary oral comments did not irrevocably commit the judge, and the record amply supported residential care.",
+        "The government also challenged Jocelyn’s $750,000 award. The panel considered other Texas awards as guidance, not as fixed ceilings. Stephanie’s devastating injuries and their continuing effects on her mother supported the award sufficiently that appellate intervention was unwarranted. The Fifth Circuit affirmed both judgments. No judge wrote separately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1081–1082"
+        }
+      ]
+    }
+  ]
+}

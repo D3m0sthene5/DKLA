@@ -1,0 +1,127 @@
+{
+  "id": "cp-bechtel",
+  "briefId": "CP-ATLAS-BECHTEL",
+  "title": "Bright v. Bechtel Petroleum, Inc.",
+  "course": "Civil Procedure",
+  "citation": "780 F.2d 766 (9th Cir. 1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employee recasts required income-tax withholding as a contract shortfall. His complaint, prior letters and attempted narrowing lead the courts to address removal, both withholding claims and the cost of frivolous litigation.",
+  "actors": [
+    {
+      "name": "Willie D. Bright",
+      "role": "Employee alleging breach of his compensation contract."
+    },
+    {
+      "name": "Bechtel Petroleum and individual agents",
+      "role": "Employer and defendants that complied with the withholding direction."
+    },
+    {
+      "name": "Internal Revenue Service",
+      "role": "Federal agency that rejected Bright’s exemption certificate and directed withholding."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of California denied remand, dismissed both claims and awarded $3,300 fees on December 4, 1984.",
+    "Bright separately appealed the judgment and denial of his December 19 clarification motion.",
+    "The Ninth Circuit consolidated the appeals and affirmed on January 10, 1986, awarding appellate fees and double costs; the report records a February 21 amendment."
+  ],
+  "limits": "This narrative transforms the historical canonical brief without a new audit or current-law certification. The artful-pleading analysis and ten-day motion deadline describe that decision. The court did not adjudicate Bright’s ultimate taxes or the California regulation’s constitutionality, and did not specify the final appellate fee amount.",
+  "briefSha256": "b093e385ce42c5b1509c0338142f74d9fa9f5783dc19e2330bc87549a3a2f209",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-BECHTEL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The IRS rejects Bright’s withholding exemption",
+      "cue": "Why did Bechtel subtract both federal and state tax?",
+      "paragraphs": [
+        "Willie D. Bright entered an employment contract with Bechtel Petroleum on November 7, 1983, under a collective bargaining agreement. In January 1984 he submitted a W-4 claiming exemption from federal withholding. Bechtel sent it to the Internal Revenue Service, which rejected it in March and instructed the employer to withhold.",
+        "Federal regulations required forwarding specified exemption certificates and obedience to the rejection directive. A California regulation made the federal determination effective for state withholding too. During 1984 Bechtel withheld $2,486.18 federally and $736 for California.",
+        "Bright sent letters threatening a contract action because Bechtel followed the directive. Both disputed its legality through federal revenue statutes; one mentioned a prior Ninth Circuit dismissal of a similar suit as frivolous. These communications later helped identify the actual controversy beneath his complaint’s labels."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Withholding dispute; Removal facts; opinion paragraphs 2–3, 14–15 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Bright files a contract suit, and Bechtel removes it",
+      "cue": "What changed when Bright claimed to seek only state-tax relief?",
+      "paragraphs": [
+        "On June 1, 1984, Bright sued Bechtel and individual agents in California Superior Court, alleging paychecks below contractual amounts and invoking breach of contract and Christian principles. Bechtel removed to the Northern District of California, sought dismissal and fees, and characterized the claim as a frivolous challenge to required federal withholding.",
+        "Bright requested remand and asserted he now wanted to litigate only state withholding. The district court denied remand, dismissed the action and awarded $3,300 attorney fees on December 4. Bright moved December 19 for clarification of its grounds. He appealed the judgment before a ruling on that motion, then appealed its denial. The Ninth Circuit consolidated both appeals, reviewing jurisdiction and legal sufficiency de novo and state-claim retention and fees for abuse of discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; paragraphs 4–8, 25–27, 33"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The panel looks beyond the state-law label to the claim actually presented",
+      "cue": "Why was removal upheld under the court’s historical approach?",
+      "paragraphs": [
+        "Judge Beezer wrote for Judges Wright and Kennedy. Under the well-pleaded-complaint rule, federal jurisdiction had to arise from the claim rather than an anticipated defense, and plaintiffs normally chose their claims and forum. The panel’s artful-pleading doctrine nevertheless prevented concealing an actual federal claim behind state terminology.",
+        "The complaint and threatening letters attacked obedience to the federal directive, with federal statutes expressly invoked. Affidavits identified substantially identical, unusually phrased allegations in another recently dismissed Bechtel employee’s suit. The removal petition clarified the claim presented rather than simply introducing a federal defense.",
+        "The later state-only description did not fit the pleading and history. The panel regarded it as another attempt to avoid the court handling comparable withholding challenges and sustained removal under the relevant federal-question and internal-revenue jurisdiction provisions. This reasoning did not make every regulated contract dispute removable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Why contract label did not defeat removal; paragraphs 10–17 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Required withholding defeats both contract theories",
+      "cue": "Why could the federal court retain the related state claim after dismissing the federal one?",
+      "paragraphs": [
+        "Section 3402 and its regulations required Bechtel’s federal withholding. Circuit precedent treated payment of the remaining wages after required deductions as contractual performance. Section 3403 made the employer accountable to Treasury and protected it against another person’s claim for the withheld payment. The panel also treated this suit as restraining tax collection through withholding under the Anti-Injunction Act, § 7421(a). Those grounds supported dismissal without deciding Bright’s ultimate tax liability or immunizing withholding outside legal requirements.",
+        "The whole-case dismissal included the state claim. Pendent jurisdiction survived dismissal of the federal claim because both deductions arose from the same operative facts: the federal direction activated California’s rule. Allocation between governments did not create separate transactions, and judicial economy supported resolving employer responsibility together.",
+        "Bright invoked limits on federal state-tax adjudication and argued California impermissibly delegated authority. The panel distinguished an attack on the tax system from this employer-contract claim. Even assuming invalidity of the regulation, Bechtel justifiably relied on its command; constitutionality was left undecided. California precedent treated lawful balance payment as performance absent a no-withholding promise, and operation-of-law impossibility also excused contrary performance. The employer need not disobey a regulation to avoid breach; private agreement could not evade a regulation’s legal force."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Federal withholding; State claim; paragraphs 19–32 & nn.5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court affirms fees and denies clarification under the historical deadlines",
+      "cue": "What additional relief did the appeal produce?",
+      "paragraphs": [
+        "The panel found the suit frivolous, in bad faith and intended to harass. The record linked near-identical litigation to a campaign making compliance expensive enough to discourage employers from withholding. Bright demanded more than $100 million over roughly $3,222 withheld. The $3,300 district fee award was permissible deterrence, not a finding of tax underpayment.",
+        "Even generously viewed under Rule 52(b) or 59(e), the December 19 clarification request missed the then-applicable ten-day period after December 4. The panel also found it meritless if timely because Rule 52(a) required no findings and conclusions on motions. Those were historical deadlines, not current ones.",
+        "On January 10, 1986, with an amendment recorded February 21, the unanimous panel affirmed both rulings without a separate opinion. Under § 1912 and Appellate Rule 38 it awarded reasonable appellate attorney fees and double costs for the frivolous appeal, allowing Bechtel fifteen days to submit its fee declaration under the specified calculation factors. No final dollar amount for that additional award appeared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Fees, clarification and outcome; paragraphs 33–42 & n.8"
+        }
+      ]
+    }
+  ]
+}

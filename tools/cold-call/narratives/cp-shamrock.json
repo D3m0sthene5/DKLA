@@ -1,0 +1,105 @@
+{
+  "id": "cp-shamrock",
+  "briefId": "CP-ATLAS-SHAMROCK",
+  "title": "Shamrock Oil & Gas Corp. v. Sheets",
+  "course": "Civil Procedure",
+  "citation": "313 U.S. 100 (1941)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An original plaintiff facing a substantial independent counterclaim tries to remove its own state suit, but Congress’s defendant-only authorization sends the whole dispute back.",
+  "actors": [
+    {
+      "name": "Shamrock Oil & Gas Corporation",
+      "role": "Non-Texas plaintiff seeking to collect indebtedness and later seeking removal."
+    },
+    {
+      "name": "Sheets",
+      "role": "Texas defendant asserting an independent contract counterclaim and requesting remand."
+    }
+  ],
+  "proceedings": [
+    "The federal district court denied remand after Shamrock removed and entered judgment for it on both claims.",
+    "The Fifth Circuit reversed and ordered return to state court.",
+    "The Supreme Court affirmed that remand disposition."
+  ],
+  "limits": "The counterclaim was an independent contract claim supporting an asserted diversity route, not a federal cause of action. The Court interpreted historical Judicial Code § 28 and assumed timeliness, independence, and jurisdictional amount.",
+  "briefSha256": "751069913125e6e05939f3f7951c95a0e5e2b3ec042c22a45e23a649157c73e7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SHAMROCK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Shamrock chooses Texas court and receives a separate counterclaim",
+      "cue": "Why did it ask to change forums?",
+      "paragraphs": [
+        "Shamrock Oil & Gas Corporation, not a Texas citizen, sued in Texas state court for alleged indebtedness. The Texas defendant, Sheets, asserted a counterclaim or cross-action demanding more than $3,000 for breach of a separate contract. Shamrock therefore faced affirmative liability despite initiating the case. It removed to the Northern District of Texas on diversity grounds, not because the counterclaim arose under federal law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 313 U.S. 102–104"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two federal courts disagree about removal",
+      "cue": "Trace the federal judgment and the order returning the case to Texas court.",
+      "paragraphs": [
+        "The district court denied Sheets’s remand motion, tried the merits, and entered judgment for Shamrock on both original and counterclaims. The Fifth Circuit reversed and ordered state remand because an original plaintiff was not a defendant under Judicial Code § 28. The Supreme Court accepted review of conflicting lower-court interpretations.",
+        "The Court assumed removal otherwise timely and proper, the counterclaim independent, and its amount sufficient. Those matters were not decided. The question was whether Congress conferred any ordinary removal right on this original plaintiff."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 313 U.S. 102–104"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stone uses a federal classification rather than Texas pleading labels",
+      "cue": "Why did defending a cross-action not make Shamrock an eligible defendant?",
+      "paragraphs": [
+        "Shamrock argued that Texas treated its counterclaim position as defending an independent suit and that federal cases had permitted cross-action removal. Justice Stone answered that nationwide removal eligibility depended on federal statutory meaning, not variable state terminology.",
+        "The 1789 Act let defendants remove when appearing. West v. Aurora City had held that an original plaintiff defending a counterclaim could not invoke that permission after voluntarily choosing state court. Congress broadened removal in 1875 to either party before trial, but in 1887 restored defendant-or-defendants language and tied timing to the duty to plead. Coordinated changes indicated a deliberate return to narrower eligibility, with Congress presumed aware of the earlier judicial construction.",
+        "The House committee said a plaintiff should ordinarily abide by its chosen forum and described removal used to pressure defendants unable to afford federal litigation away from home. Congress could have preserved a counterclaim exception for original plaintiffs but did not. A distinct historical route for prejudice and local influence showed deliberate differentiation, so the ruling did not assert that no statute could ever authorize plaintiff removal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Arguments and statutory history; 313 U.S. 104–108 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Absence of waiver cannot create a right Congress withheld",
+      "cue": "What did respect for statutory boundaries require?",
+      "paragraphs": [
+        "Some lower courts reasoned that a plaintiff with a small original demand did not waive removal before facing a large counterclaim. Shamrock sought that logic even though its original demand exceeded the jurisdictional amount. Stone regarded original amount as immaterial: failure to waive a right cannot create one. Congress first had to grant it, and this authorization did not.",
+        "Congress’s restrictive removal policy also required respect for state courts’ independence. A counterclaim’s importance could not expand the federal boundary. The Court clarified that its earlier Wichita Royalty disposition had not decided this issue and reserved factors in that case absent here.",
+        "On April 28, 1941, the Supreme Court affirmed the Fifth Circuit, whose judgment reversed Shamrock’s federal victory and required remand. It did not affirm debt or contract merits. No separate writing or nonparticipation was reported. The operative statute was § 28; modern § 1441 terminology and the later Home Depot dispute concern different statutory settings or party configurations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Waiver, jurisdiction and judgment; 313 U.S. 108–109"
+        }
+      ]
+    }
+  ]
+}

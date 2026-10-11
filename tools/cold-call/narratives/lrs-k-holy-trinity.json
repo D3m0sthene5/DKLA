@@ -1,0 +1,142 @@
+{
+  "id": "lrs-k-holy-trinity",
+  "briefId": "LRS-SUP-0002",
+  "title": "Church of the Holy Trinity v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "143 U.S. 457 (1892)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A New York church recruits an English minister under an advance contract, concededly within broad statutory words, and defeats a federal penalty through the Court’s account of legislative purpose and intended limits.",
+  "actors": [
+    {
+      "name": "Church of the Holy Trinity",
+      "role": "New York religious corporation that contracted for a rector’s migration and service."
+    },
+    {
+      "name": "E. Walpole Warren",
+      "role": "Alien residing in England when hired; moved to New York and served as rector and pastor."
+    },
+    {
+      "name": "United States",
+      "role": "Brought the statutory penalty action under the 1885 Alien Contract Labor Act."
+    }
+  ],
+  "proceedings": [
+    "The federal Circuit Court for the Southern District of New York entered judgment for the United States.",
+    "The church obtained writ-of-error review.",
+    "The Supreme Court reversed and remanded on February 29, 1892."
+  ],
+  "limits": "The Court did not invalidate the Act constitutionally or decide Warren’s compensation. Religious-history passages describe Brewer’s historical reasoning, not a present constitutional authorization for religious tests or an established national religion. The alternate assigned caption identifies the same case.",
+  "briefSha256": "2654d563bd6a357acc8477cf38e0f562f37f02d59691e529fafe99f3f4ab6ec9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0002"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A church hires an English rector before he migrates",
+      "cue": "Why did the government seek a penalty?",
+      "paragraphs": [
+        "The Church of the Holy Trinity was a New York religious corporation. In September 1887, it contracted with E. Walpole Warren, an alien then residing in England, to move to New York City and serve as rector and pastor. Warren moved and performed.",
+        "The Alien Contract Labor Act of February 26, 1885, prohibited assisting or encouraging alien migration under advance contracts to perform labor or service of any kind. The United States sued the church for the statutory penalty. The federal Circuit Court for the Southern District of New York held the contract violated the Act and entered judgment, reported at 36 F. 303. The church sought review by writ of error; Warren’s compensation was not the dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143 U.S. at 457–458; Parties and procedure"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Brewer acknowledges that the literal text favors the government",
+      "cue": "Why could the Court not simply say pastoral work was no service?",
+      "paragraphs": [
+        "The prohibition covered persons and corporations, varied forms of assistance, and express or implied advance contracts. Paid pastoral work was service, and Warren’s agreement preceded migration. Congress expressly exempted actors, artists, lecturers, singers, and domestic servants without naming ministers, strengthening the inference that unlisted services remained covered.",
+        "Justice David J. Brewer conceded literal coverage and the force of the exception-based argument. The church prevailed instead on a claim that this application lay outside legislative intention and the targeted evil. The opinion did not erase the text problem by finding no advance contract or no service."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143 U.S. at 458–459; Textual problem"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court invokes sensible-operation precedents as an interpretive starting point",
+      "cue": "What work did the earlier examples do?",
+      "paragraphs": [
+        "Brewer reasoned that broad words could exceed legislative intention, with the legislation as a whole, its circumstances, and unreasonable consequences revealing limits. He described limitation as fidelity to legislative design, although the method raised an institutional question about identifying collective intention contrary to apparent text.",
+        "The cited fence example rejected reading a ban on intentionally damaging another’s fence to criminalize authorized access. United States v. Kirby allowed officers to arrest a mail carrier for murder despite broad protection against obstructing mail. Those examples illustrated implied limits necessary for sensible operation. They did not establish that the church’s contract was physically impossible or literally excluded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143 U.S. at 459–461; Literal-coverage reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Title, labor-market conditions, and reports point Brewer toward manual work",
+      "cue": "Why did an unenacted narrower phrase matter to the Court?",
+      "paragraphs": [
+        "The title described contracts for alien labor, which Brewer associated with manual rather than professional intellectual work. He acknowledged that a title could not simply alter the body but treated it as design evidence. The body’s broader “service of any kind” language remained contrary textual evidence.",
+        "The Court identified the mischief as imported cheap unskilled labor depressing existing workers’ wages. Contemporary circumstances and a lower-court description supported that account. Brewer perceived no corresponding problem of foreign clergy or professionals overcrowding their markets, inferring the church transaction lay outside the target rather than finding an explicit minister exemption.",
+        "A Senate committee reported it would have preferred “manual labor” or “manual service” but sought passage before adjournment and expected that construction anyway. A House report described imported workers and perceived wage and social effects. Brewer treated the title, history, and reports as converging on a manual-labor aim.",
+        "The narrower words were not enacted. The Court chose the reported expectation as evidence controlling broader language; a competing interpretation would emphasize Congress’s failure to insert the restriction. The committee’s preferred phrasing was not itself statutory text."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143 U.S. at 462–465; Title, mischief, and committee reports"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Religious history and a hypothetical congressional vote reinforce the inference",
+      "cue": "How did these reasons differ from actual legislative reports?",
+      "paragraphs": [
+        "Brewer surveyed colonial charters, the Mayflower compact, the Declaration of Independence, state constitutions, oaths, Sunday observance, prayer, and religious institutions. He used those materials to infer that Congress would not penalize a church for recruiting a foreign minister. Some included restrictive religious tests and older decisions privileging Christianity. Their presence records the opinion’s historical premises; it does not make them present constitutional rules.",
+        "The Court also imagined Congress considering an explicit ban on recruiting prominent Catholic, Episcopal, Baptist, or Jewish leaders and found approval inconceivable. That was imaginative reconstruction of a hypothetical legislative response, distinct from the actual committee-report evidence.",
+        "On February 29, 1892, the Supreme Court reversed and remanded, holding the Act inapplicable to Warren’s contract. No separate opinion appeared. The judgment neither declared the Act unconstitutional nor awarded the church damages. The supplement’s “Rector of Holy Trinity Church” caption names this same decision, not a second one."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143 U.S. at 465–472; Holding; Court and assigned scope"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The assigned editors question how purpose and enforcement were reconstructed",
+      "cue": "Which later observations are not judicial findings?",
+      "paragraphs": [
+        "The supplement criticizes aggregation of legislative intent and discusses scholarship about floor statements Brewer did not cite. Those are editorial challenges to selective history, not a separate judicial dissent. An editorial footnote also observes that the quoted Craig account supplies no sources.",
+        "A second note considers whether broad language may coexist with expected enforcement restraint. Drawing on Carol Chomsky’s historical scholarship, the editors describe this prosecution as an immigration-restriction opponent’s effort to discredit the statute. That is a later historical account, not Brewer’s factual finding or rationale.",
+        "The case therefore combines distinct approaches: committee expectations, the social problem Congress addressed, a predicted response to an unasked question, and a historically loaded religious presumption. Describing it merely as purpose defeating text would omit both the conceded broad words and enumerated exceptions the Court had to overcome."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supplement printed pp. 34, 36–38; Separate opinions, editorial material, and study significance"
+        }
+      ]
+    }
+  ]
+}

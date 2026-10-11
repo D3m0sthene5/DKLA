@@ -1,0 +1,110 @@
+{
+  "id": "cp-grable",
+  "briefId": "CP-035",
+  "title": "Grable & Sons Metal Products, Inc. v. Darue Engineering & Manufacturing",
+  "course": "Civil Procedure",
+  "citation": "545 U.S. 308 (2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A former owner attacks a federal tax-sale purchaser’s title under state law, placing the meaning of federal seizure notice at the center of a narrow federal-question case.",
+  "actors": [
+    {
+      "name": "Grable & Sons Metal Products",
+      "role": "Former Michigan landowner contesting the tax-sale title."
+    },
+    {
+      "name": "Darue Engineering & Manufacturing",
+      "role": "Purchaser defending title and removing the quiet-title action."
+    },
+    {
+      "name": "Internal Revenue Service",
+      "role": "Federal agency that seized and sold the land; not the purchaser-defendant."
+    }
+  ],
+  "proceedings": [
+    "The district court denied remand, then granted Darue summary judgment on its notice theory.",
+    "The Sixth Circuit affirmed.",
+    "The Supreme Court affirmed federal jurisdiction without deciding the statutory notice merits."
+  ],
+  "limits": "Grable actually received notice. The Supreme Court reviewed jurisdiction, not whether certified mail substantially complied with § 6335(a). Thomas’s suggested future restriction was not the holding.",
+  "briefSha256": "e40c5705ab7558f5b70fd61f8f853eb2db21b58a56f2966babacb94802e0ebc4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-035"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A tax seizure and unexercised redemption right lead to Darue’s deed",
+      "cue": "What defect did Grable later claim despite receiving notice?",
+      "paragraphs": [
+        "In 1994 the Internal Revenue Service seized Grable’s Michigan land for unpaid federal taxes. Grable received certified-mail notice before sale and also received sale notice. It did not redeem within the statutory 180 days. The Government then conveyed its interest to purchaser Darue by quitclaim deed.",
+        "Five years later Grable sued Darue in state court to quiet title, claiming its own title superior because 26 U.S.C. § 6335(a) required personal service of seizure notice. Its theory attacked the mode of federal notice, not lack of actual knowledge. The federal collection process was central, but Darue, not the Government, defended the title."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; casebook 342–345"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Darue removes a state-created claim between nondiverse parties",
+      "cue": "Which lower-court decision was under Supreme Court review?",
+      "paragraphs": [
+        "Darue invoked federal-question removal. The district court denied Grable’s request to return to state court because the title claim necessarily raised federal notice law even without a federal private quiet-title remedy against the purchaser. It then granted Darue summary judgment, reading the statute to require personal service but allowing substantial compliance. The Sixth Circuit affirmed.",
+        "The Supreme Court reviewed jurisdiction alone. Whether certified mail met the statute remained the lower courts’ merits determination, expressly outside the grant. Justice Souter’s unanimous opinion asked whether this state claim could originally fit 28 U.S.C. § 1331."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; full opinion n.1; casebook 343"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Souter identifies a limited path for important federal issues inside state claims",
+      "cue": "Why was federal importance greater than merely a federal fact in the title chain?",
+      "paragraphs": [
+        "Most federal-question suits involve federally created claims, but precedent also recognized a narrow embedded-issue category. Smith v. Kansas City Title & Trust supplied the classic state claim requiring a federal constitutional ruling. Such jurisdiction required a necessary, actually disputed, substantial federal question and compatibility with Congress’s division of state and federal judicial work. Federal words alone did not suffice.",
+        "Grable based superior title on defective federal notice, apparently the only contested legal or factual issue. Its content was necessary, not a remote historical federal transaction. Reliable, prompt federal tax collection depended on clear notice and stable purchaser titles. Government had an interest in a federal forum testing its administrative acts, and taxpayers and purchasers could benefit from federal tax experience. These concrete administrative interests supplied systemic importance.",
+        "Ordinary title litigation rarely presented this kind of federal dispute. Accepting the narrow category would not move the general body of state property cases into federal court. The expected jurisdictional effect therefore fit the state-federal balance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; casebook 343–345, 346–347"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The absence of a federal remedy is relevant but not an absolute bar",
+      "cue": "How did the Court distinguish Merrell Dow and dispose of the case?",
+      "paragraphs": [
+        "Grable read Merrell Dow as requiring a federal private cause of action in every case. Souter rejected that categorical interpretation: Merrell Dow retained contextual inquiry and accepted Smith. Congress’s omission of a remedy mattered as evidence of intent, not an automatic veto.",
+        "In Merrell Dow, federal jurisdiction whenever state negligence relied on a federal standard threatened to shift a large body of traditional tort work. That consequence made the missing remedy especially significant. This rare tax-title dispute presented strong specific federal interests without comparable displacement.",
+        "On June 13, 2005, the Court affirmed the Sixth Circuit’s jurisdiction judgment, leaving the notice merits unreviewed. Thomas concurred because existing precedents controlled and no party asked to overrule them. He expressed openness in a suitable future case, with better original-meaning evidence, to restricting § 1331 to federally created claims. That suggestion did not replace the Court’s four-part embedded-issue test or decide whether certified mail complied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Merrell Dow discussion; Judgment; Thomas concurrence; casebook 345–347; full opinion n.1"
+        }
+      ]
+    }
+  ]
+}

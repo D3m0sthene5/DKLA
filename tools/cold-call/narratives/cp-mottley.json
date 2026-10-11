@@ -1,0 +1,106 @@
+{
+  "id": "cp-mottley",
+  "briefId": "CP-033",
+  "title": "Louisville & Nashville Railroad Co. v. Mottley",
+  "course": "Civil Procedure",
+  "citation": "211 U.S. 149 (1908)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A railroad’s refusal to renew lifetime passes produced federal arguments, but the Mottleys’ claim still began with a contract.",
+  "actors": [
+    {
+      "name": "The Mottleys",
+      "role": "Kentucky spouses holding lifetime transportation promises"
+    },
+    {
+      "name": "Louisville & Nashville Railroad Company",
+      "role": "Kentucky railroad that stopped renewing the passes"
+    }
+  ],
+  "proceedings": [
+    "United States Circuit Court for the Western District of Kentucky: overruled the railroad’s demurrer and ordered relief.",
+    "Supreme Court: reversed and directed dismissal for want of jurisdiction."
+  ],
+  "limits": [
+    "The 1908 decision left the statutory and constitutional merits unanswered. The later Kentucky suit and 1911 Supreme Court proceeding were separate."
+  ],
+  "briefSha256": "d862f59e450dc2aeed5f48bd8991a57e912324b9d6e5bef96b52a4e3434ca9c7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-033"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Injury claims become a transportation promise",
+      "cue": "Start with the bargain that supported the suit.",
+      "paragraphs": [
+        "The Mottleys, a husband and wife from Kentucky, alleged that the Louisville & Nashville Railroad Company negligently injured them while they traveled as passengers in September 1871. They released their damage claims in return for transportation during their lives. The agreement called for annual renewal of the passes while either spouse remained alive.",
+        "According to their complaint, the railroad honored that agreement until January 1, 1907, when it refused to renew the passes. The Mottleys attributed the refusal solely to a federal statute enacted June 29, 1906, prohibiting free passes or free transportation. They maintained that the prohibition did not cover passes given for their settlement. Alternatively, they argued that taking away the promised transportation would deprive them of property without due process under the Fifth Amendment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "211 U.S. at 150–151"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The federal trial court orders performance",
+      "cue": "Explain what the plaintiffs asked the court to do.",
+      "paragraphs": [
+        "The Mottleys filed a bill in equity in the United States Circuit Court for the Western District of Kentucky, the federal trial court then hearing the case. They sought specific performance: an order requiring the railroad to keep its promise, rather than simply pay damages.",
+        "The railroad demurred, arguing that the allegations did not justify relief without going to a factual trial. The circuit court overruled that objection and granted the requested decree. The railroad appealed directly to the Supreme Court. Both sides argued the federal statute’s application and the constitutional objection. Neither challenged federal jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "211 U.S. at 150–152"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court asks an earlier question",
+      "cue": "Separate the affirmative claim from the anticipated defense.",
+      "paragraphs": [
+        "Justice Moody’s opinion explained that the Supreme Court had its own duty to examine the lower federal court’s limited statutory authority. Both the Mottleys and the railroad were Kentucky citizens, so diversity supplied no jurisdiction. The question was whether this contract suit arose under federal law within Congress’s jurisdictional grant.",
+        "It did not. The plaintiffs’ own cause of action sought enforcement of a promise exchanged for release of injury claims. Federal law entered through the railroad’s expected statutory defense and the Mottleys’ constitutional answer to that defense. Even writing both federal arguments into the complaint could not turn them into elements of the affirmative claim. The likelihood that federal questions would dominate the litigation was insufficient.",
+        "The Court used Tennessee v. Union & Planters’ Bank, a state tax-collection case, to illustrate the point: anticipating a federal constitutional objection did not make the state’s tax claim federal. It also relied on the pleading analysis in Boston & Montana Consolidated Copper & Silver Mining Co. A complaint had to establish the plaintiff’s claim; it could not manufacture jurisdiction by stating a hypothetical affirmative defense and an advance reply to it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "211 U.S. at 151–154"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Dismissal leaves the merits for a proper forum",
+      "cue": "Finish with the exact 1908 judgment.",
+      "paragraphs": [
+        "On November 16, 1908, the Supreme Court reversed the decree and sent the case back with instructions to dismiss for want of jurisdiction. The parties’ willingness to litigate the federal merits could not confer authority Congress had not granted. No separate opinion appears in the report.",
+        "The Court did not decide that the settlement was invalid, that the statute barred these passes, or that the Fifth Amendment defeated the railroad’s defense. Its well-pleaded-complaint rule addressed statutory original federal-question jurisdiction, rather than defining every possible reach of Article III. The Mottleys later sued in Kentucky court and the dispute returned to the Supreme Court in 1911, but that later proceeding was not the judgment entered here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "211 U.S. at 151–154; casebook pp. 331, 333–334"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "cp-moore",
+  "briefId": "CP-ATLAS-MOORE",
+  "title": "Moore v. Moore",
+  "course": "Civil Procedure",
+  "citation": "391 A.2d 762 (D.C. 1978)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A contested custody trial expands through a posttrial counterclaim, requiring separate scrutiny of consent to litigate child-related relief and spousal maintenance.",
+  "actors": [
+    {
+      "name": "Reuben Moore",
+      "role": "Father who filed the custody suit and challenged the later counterclaim and awards."
+    },
+    {
+      "name": "Sidney Moore",
+      "role": "Mother awarded custody who sought amendments conforming pleadings to trial evidence."
+    },
+    {
+      "name": "Jessica Moore",
+      "role": "Child whose placement, support, and safe visitation were at issue."
+    }
+  ],
+  "proceedings": [
+    "The Superior Court tried custody, announced child support and visitation security, then allowed a broader counterclaim after trial.",
+    "Its written order added separate maintenance and fees.",
+    "The Court of Appeals affirmed custody, reversed maintenance, and remanded financial and visitation determinations while continuing existing child support and bond pending resolution."
+  ],
+  "limits": "Authority to consider child support, fees, and security did not establish the particular dollar amounts. The appellate court did not decide the legality of a maternal presumption because none had been used.",
+  "briefSha256": "9efac103891e22bdd556f20c889723eeaf2b4809346b2ce2d76bb572d4f21171",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-MOORE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Conflicting custody efforts move between New York and Washington",
+      "cue": "What removal history shaped the later security order?",
+      "paragraphs": [
+        "Reuben and Sidney married in Washington in 1968, and Jessica was born in 1973. After deterioration of the marriage, Sidney took her to Schenectady in December 1975. Reuben sought custody there; the New York court orally gave Sidney temporary custody and Reuben visitation.",
+        "In February 1976 Reuben and a detective took Jessica from her maternal grandfather and brought her to Washington. Sidney followed and filed a custody habeas proceeding after he refused return. Reuben later traveled with Jessica to Europe and the Bahamas. Afterward Sidney and her parents took her back to Schenectady.",
+        "Reuben opposed habeas and filed this April custody suit. Sidney initially contested Washington jurisdiction, then withdrew the objection and answered after the New York court suggested resolving custody there."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Custody action; 391 A.2d at 765–766"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial order expands through a posttrial amendment",
+      "cue": "What notice objection did Reuben raise?",
+      "paragraphs": [
+        "The Family Division tried the case in October 1976. It orally awarded Sidney custody and $500 monthly child support, gave Reuben visitation conditioned on a $7,500 bond, and initially declined spousal support for lack of an affirmative claim. Fees were reserved for motions.",
+        "A week later Sidney invoked the domestic-relations version of Rule 15(b), seeking a counterclaim for custody, child support, maintenance, and fees conforming to the evidence. The February 1977 order allowed it and added $500 monthly separate maintenance and $5,916.65 fees, retaining the bond. After unsuccessful stay and new-trial motions, Reuben appealed, asserting lack of notice and opportunity as well as inadequate factual bases."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Custody action and appeal; 391 A.2d at 766–768"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court evaluates implied consent separately for each issue",
+      "cue": "Which additions had actually been tried?",
+      "paragraphs": [
+        "Ferren’s unanimous panel explained that Rule 15(b) treats matters tried with express or implied consent as pleaded, even without formal amendment or before a postjudgment amendment. Fair notice remained essential: the opponent had to recognize the added issue and have a chance to litigate or cure surprise. Unobjected-to evidence specifically relevant to a new issue could show consent; incidental evidence also fitting existing issues might not.",
+        "Custody was plainly contested, not merely whether Reuben could recover without deciding placement. Sidney’s answer invoked Jessica’s best interests, both presented parental-qualification evidence, and the earlier proceedings reinforced notice. Child support was inherent in the child-centered custody resolution, and financial-needs evidence came in without relevance objection. Those additions were permitted.",
+        "Visitation was conceded to fall within custody, and removal history justified authority to require security even without an express bond request. Legal help protecting a child could be a necessary child-related expense under District precedent. Fee evidence was admitted without objection, and motion, opposition, and hearing gave Reuben a chance to respond."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule 15(b); Custody, support, bond, fees; 391 A.2d at 768–770 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Separate maintenance was not signaled by overlapping financial evidence",
+      "cue": "Why did that award fail when child support survived in principle?",
+      "paragraphs": [
+        "No pleaded claim or feature of this custody contest put Sidney’s own spousal maintenance in issue. The marriage relationship itself was not being litigated. Her financial evidence also bore on custody and child support, so it did not uniquely notify Reuben of a separate personal support claim. Nothing else established consent. Allowing that amendment and award was an abuse of discretion.",
+        "This limit did not reject posttrial amendment generally. It distinguished proof actually litigating a new issue from proof relevant to an existing one that also might support another claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate maintenance; 391 A.2d at 770 & n.5,772"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Custody stands, but amounts need fuller findings",
+      "cue": "What remains effective during remand?",
+      "paragraphs": [
+        "The record supported Sidney’s custody without a maternal, tender-years, or possession presumption, leaving objections to such presumptions unresolved. A written New York order had been excluded for authentication and expressly disregarded. It postdated Reuben’s removal by a day, though the oral ruling preceded it; removal history mattered without finding violation of the written decree.",
+        "Support required Jessica’s needs and both parents’ ability to pay. Fees required attention to services and their relation to her interests, and bond amount to financial ability. Gross income, assistance, property transactions, shared home ownership, and family loans did not adequately establish disposable resources and legitimate obligations.",
+        "The panel affirmed custody, reversed separate maintenance, and remanded child support, fees, visitation, and bond for further proceedings and findings. Existing monthly child support and bond continued pending final resolution. It neither canceled all relief nor approved every amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Custody and financial review; Final disposition; 391 A.2d at 766–767 & nn.1–2,770–772"
+        }
+      ]
+    }
+  ]
+}

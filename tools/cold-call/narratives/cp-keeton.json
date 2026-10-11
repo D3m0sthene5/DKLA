@@ -1,0 +1,127 @@
+{
+  "id": "cp-keeton",
+  "briefId": "CP-ATLAS-KEETON",
+  "title": "Keeton v. Hustler Magazine, Inc.",
+  "course": "Civil Procedure",
+  "citation": "465 U.S. 770 (1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Hustler regularly sold magazines in New Hampshire, and a nonresident plaintiff used that market connection to pursue a libel claim there.",
+  "actors": [
+    {
+      "name": "Kathy Keeton",
+      "role": "New York plaintiff alleging libel"
+    },
+    {
+      "name": "Hustler Magazine, Inc.",
+      "role": "Publisher with monthly New Hampshire sales"
+    },
+    {
+      "name": "Larry Flynt and Hustler’s holding company",
+      "role": "Additional defendants whose jurisdictional status remained unresolved"
+    }
+  ],
+  "proceedings": [
+    "Ohio action: libel and privacy claims failed under limitations rules.",
+    "District court in New Hampshire: dismissed for lack of personal jurisdiction; First Circuit affirmed.",
+    "Supreme Court: reversed and remanded, unanimously in result."
+  ],
+  "limits": [
+    "The Court did not find the publications libelous, award nationwide damages, decide the governing limitations period, or establish jurisdiction over every named defendant."
+  ],
+  "briefSha256": "bce36988ef675a2d9a1b09dfdaebd85de234b28232079edaa70f2f71891bd53c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-KEETON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An unsuccessful Ohio suit leads to New Hampshire",
+      "cue": "Explain why this plaintiff selected this forum.",
+      "paragraphs": [
+        "Kathy Keeton, a New York resident, claimed that Hustler Magazine libeled her in five issues published between September 1975 and May 1976. Hustler was an Ohio corporation with its principal place of business in California. It sold about 10,000 to 15,000 magazines in New Hampshire each month. Keeton’s own only connection with that state was circulation of a different magazine she helped produce, which credited her in fine print.",
+        "Keeton first sued in Ohio for libel and invasion of privacy. Ohio’s limitations period barred libel, and the Ohio court applied New York’s limitation to the privacy claim. She then filed a diversity action in the federal district court in New Hampshire in October 1980. Its six-year period made New Hampshire the only state where the libel action was timely when filed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. at 772–773 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts find the nationwide action unfair",
+      "cue": "State the jurisdictional dismissal the Supreme Court reviewed.",
+      "paragraphs": [
+        "The New Hampshire district court dismissed for lack of personal jurisdiction under the Fourteenth Amendment. The First Circuit affirmed. Keeton lived elsewhere and most alleged injury occurred elsewhere, so the appeals court saw little New Hampshire interest in redressing the dispute.",
+        "The First Circuit also relied on the single publication rule, under which one action ordinarily addresses damages from a publication across jurisdictions. Combining nationwide damages, a small share of Hustler’s circulation, and New Hampshire’s unusually long limitations period seemed unfair. The Supreme Court reviewed that dismissal, without deciding whether any article was actually libelous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. at 772–774"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Hustler’s deliberate circulation connects it to this claim",
+      "cue": "Follow the majority’s defendant-focused analysis.",
+      "paragraphs": [
+        "Justice Rehnquist, writing for eight Justices, held that Hustler’s regular sales supported jurisdiction over this publication-based claim. Thousands of monthly copies represented purposeful exploitation of a market, not random or isolated contact. New Hampshire’s long-arm statute covered torts committed wholly or partly within the state and extended to constitutional limits. The asserted libel arose from the very publication activity Hustler conducted there.",
+        "The Court distinguished Perkins, its earlier decision sustaining jurisdiction over an unrelated claim because of much more substantial corporate activities. It did not hold that Hustler’s sales supported every possible lawsuit. The relationship between these sales and this claim mattered.",
+        "Nor did due process require Keeton herself to have minimum contacts with New Hampshire. The protection concerned Hustler’s relationship with the forum. A plaintiff’s residence could enhance that relationship when the defendant directed conduct toward the plaintiff there, but residence was no independent prerequisite. The Court also rejected a special First Amendment jurisdictional shield; speech protections operated through substantive law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. at 774–775, 779–781 & nn.4, 11–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A local connection can support one multistate proceeding",
+      "cue": "Explain the state interests without deciding the damages award.",
+      "paragraphs": [
+        "The Court evaluated the actual multistate suit, not an imaginary action limited to New Hampshire injury. New Hampshire could protect its readers from false statements; defamation could harm them as well as the person defamed. Keeton could suffer injury there even without a preexisting local reputation, because publication could create an unfavorable reputation where she was previously unknown. The state’s criminal defamation law and its removal of a resident-victim restriction from its long-arm statute confirmed that local protection extended beyond resident plaintiffs.",
+        "The single publication rule also supported one proceeding. A single action covering the publication, followed by a preclusive merits judgment between the parties, conserved resources and protected the publisher from repeated litigation. A state connected to the publication could cooperate with other states by providing that forum. This allowed the court to entertain the multistate suit; it did not award damages or resolve whether the single publication rule actually applied to these circumstances. That substantive issue remained open."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. at 773 n.2, 775–778 & nn.5–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Forum power leaves choice of law and other defendants unresolved",
+      "cue": "Finish with the remand and Brennan’s narrower explanation.",
+      "paragraphs": [
+        "The expiration of other states’ limitation periods did not alter the relationship among Hustler, New Hampshire, and the alleged libel. Keeton’s selection of an advantageous forum resembled ordinary litigation choices, while Hustler had deliberately entered the market and could be expected to know its laws. But the Court did not decide whether New Hampshire’s limitation governed every out-of-state injury or whether that choice would itself violate due process. Those questions followed jurisdiction rather than defeated it.",
+        "Justice Brennan concurred in the judgment. He agreed that regular circulation sufficiently important and related to the claim satisfied due process. He preferred that direct account to separately invoking state substantive-law or limitations interests. For him, those interests mattered insofar as they bore on the defendant’s liberty, not as independent assertions of sovereign power.",
+        "On March 20, 1984, the Court reversed the First Circuit and remanded. Larry Flynt and Hustler’s holding company were also named defendants, but jurisdiction over Hustler did not automatically establish jurisdiction over them. Each defendant’s contacts required separate assessment. Employment conferred no automatic immunity either. Their positions, liability, damages, and the reserved substantive-law questions remained for further proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. at 778–782 & nn.10, 13"
+        }
+      ]
+    }
+  ]
+}

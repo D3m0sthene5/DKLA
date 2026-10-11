@@ -1,0 +1,125 @@
+{
+  "id": "cp-dice",
+  "briefId": "CP-056",
+  "title": "Dice v. Akron, Canton & Youngstown Railroad Co.",
+  "course": "Civil Procedure",
+  "citation": "342 U.S. 359 (1952)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An injured railroad worker says a purported release was presented as a back-wage receipt. His jury verdict is set aside under state release law and judge-jury practice, bringing both rules into conflict with the federal injury remedy.",
+  "actors": [
+    {
+      "name": "Dice",
+      "role": "Railroad fireman injured in a derailment; plaintiff under the Federal Employers’ Liability Act."
+    },
+    {
+      "name": "Akron, Canton & Youngstown Railroad Co.",
+      "role": "Employer denying negligence and asserting a $924.63 release."
+    }
+  ],
+  "proceedings": [
+    "An Ohio common-pleas jury awarded Dice $25,000; the trial judge entered judgment notwithstanding the verdict.",
+    "The intermediate appellate court reversed under federal release law.",
+    "The Ohio Supreme Court reinstated judgment for the railroad using Ohio law and judicial factfinding.",
+    "The U.S. Supreme Court reversed and remanded on February 4, 1952, stating that the intermediate judgment had been correct."
+  ],
+  "limits": "This source-brief narrative states the historical FELA decision without a new audit or current-law certification. The majority did not directly impose every Seventh Amendment rule on states or decide the challenged fraud burden; Frankfurter’s preponderance formulation belongs to his separate opinion. Reversal did not create a new damages amount.",
+  "briefSha256": "a61992327e8e1c5bc7ff965096e609427e20b27e043687036ef0080ad4ba2f0d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-056"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Dice signs payment papers after a serious derailment injury",
+      "cue": "What did the railroad and employee say the document represented?",
+      "paragraphs": [
+        "Dice worked as a railroad fireman. He was seriously injured when the engine carrying him left the track and alleged that his employer, Akron, Canton & Youngstown Railroad, negligently caused the injury. He sought compensation under the Federal Employers’ Liability Act, or FELA.",
+        "The railroad denied negligence and produced a paper purporting to settle all claims for $924.63. Dice acknowledged signing receipts connected with postinjury payments but denied knowingly making a complete settlement. He alleged that authorized railroad representatives deliberately described the paper as a receipt for back wages. The evidence conflicted about what he was told. His literacy and failure to read the paper became decisive under the state courts’ approach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 342 U.S. 360–361"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury accepts Dice’s claim, but the trial judge sets the verdict aside",
+      "cue": "How did the case move through Ohio’s appellate courts?",
+      "paragraphs": [
+        "Dice sued in an Ohio court of common pleas. After both parties presented evidence, the jury returned $25,000 for Dice. The judge entered judgment notwithstanding the verdict, reassessed the fraud proof, characterized not reading as negligence, and found the evidence inadequate under a clear-and-convincing formulation.",
+        "The intermediate appellate court reversed, holding federal law governed the release and the evidence supported the jury’s fraud finding. The Ohio Supreme Court in turn reversed and reinstated the railroad’s judgment. It applied Ohio law, bound a literate signer despite the alleged deception and assigned the pertinent fraud issues to a judge under state practice.",
+        "The U.S. Supreme Court granted certiorari. The dispute was not an unrelated state contract controversy: this release could extinguish a federal employment-injury right. Review concerned both the law determining release validity and who decided the disputed procurement facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Issue; 342 U.S. 360–364 & starred note"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Federal law controls whether the release defeats the federal remedy",
+      "cue": "Why did failure to read not protect deliberate deception?",
+      "paragraphs": [
+        "Justice Black wrote the Court’s opinion, announced by Justice Douglas. Congress created a federal damages remedy for railroad workers injured through employer negligence. State rules could not determine its survival differently across jurisdictions by controlling a dispositive release defense. Releases liquidate or extinguish the statutory claim and therefore form an integral part of administering it, despite their contractual form.",
+        "The federal rule invalidated a release when authorized representatives induced the signature through deliberately false, material statements intended to deceive the employee about its contents. Allowing the railroad to rely on failure to read despite its own intentional deception conflicted with FELA’s compensatory purpose. That did not invalidate every unfavorable compromise; it addressed the specific fraud alleged and found by the jury.",
+        "Uniform release law prevented states from defeating federal rights indirectly through a defense. The majority and all four Justices in Frankfurter’s separate opinion agreed on that federal source of law, though they differed on the factfinder."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 342 U.S. 361–362, 364–370"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority treats this fraud issue as part of the jury’s federal role",
+      "cue": "Why did Ohio’s procedural label not resolve the allocation question?",
+      "paragraphs": [
+        "Ohio provided juries for negligence actions but used its law-equity distinction to assign some release-fraud disputes to judges. The railroad relied on Bombolis, which allowed state jury arrangements differing from federal practice in FELA suits. The majority distinguished removing a decisive issue where Ohio already furnished a jury for the negligence action.",
+        "Drawing on Bailey’s account of the jury as a substantial component of FELA, the Court held that Ohio could not withdraw this supported fraud issue and substitute a judge’s reassessment. The jury had heard conflicting evidence and found for Dice; calling the allocation local procedure did not immunize its effect on the federal remedy.",
+        "The reasoning did not directly apply every Seventh Amendment jury requirement to state courts. It concerned FELA’s statutory protection in a state already offering negligence juries and a release issue capable of defeating the entire recovery. On February 4, 1952, the Supreme Court reversed the Ohio Supreme Court and remanded, expressly saying the intermediate appellate judgment was correct and should not have been reversed. It rejected the grounds taking away Dice’s verdict rather than fixing a new amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Judgment; 342 U.S. 362–364"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Frankfurter agrees to reversal but would leave the issue with a judge",
+      "cue": "What remand and proof standard did the separate opinion propose?",
+      "paragraphs": [
+        "Justice Frankfurter, joined by Justices Reed, Jackson and Burton, concurred in reversal but dissented from the Court’s opinion. Ohio applied its traditional law-equity allocation to negligence generally, not specially against FELA. In his view, concurrent state jurisdiction permitted ordinary local arrangements unless they reduced the federal right’s substance. Bombolis preserved that institutional choice.",
+        "He saw the majority as requiring a hybrid procedure for federal railroad cases despite Congress’s permission to sue in either system. The disagreement was whether the jury determination itself constituted protected substance or merely one method of enforcement.",
+        "Frankfurter would nonetheless remand because Ohio used the wrong release law and the trial judge’s burden formulation did not ensure the proper federal approach. His opinion said a preponderance of relevant evidence sufficed and proposed further proceedings on fraud. The majority did not decide a challenge to the jury’s clear-and-convincing instruction: Dice won and did not object to it as overly demanding. The preponderance statement therefore cannot be attributed as an expressly decided majority rule.",
+        "The historical case requires separating federal control of release validity from the narrower contested jury consequence. It does not require a jury on every issue in every federal claim litigated in state court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Notes; 342 U.S. 364–370, 360 starred note"
+        }
+      ]
+    }
+  ]
+}

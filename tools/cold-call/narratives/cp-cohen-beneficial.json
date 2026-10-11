@@ -1,0 +1,142 @@
+{
+  "id": "cp-cohen-beneficial",
+  "briefId": "CP-ATLAS-COHEN-BENEFICIAL",
+  "title": "Cohen v. Beneficial Industrial Loan Corp.",
+  "course": "Civil Procedure",
+  "citation": "337 U.S. 541 (1949)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A small shareholder’s derivative suit encounters a new state security requirement, producing both an immediate-appeal question and a dispute over the rule a federal diversity court must apply.",
+  "actors": [
+    {
+      "name": "The shareholder and later representatives",
+      "role": "Plaintiff side asserting the corporation’s claims after the shareholder’s death."
+    },
+    {
+      "name": "Beneficial Industrial Loan Corporation",
+      "role": "Delaware corporation demanding security for defense expenses."
+    },
+    {
+      "name": "Managers and directors",
+      "role": "Defendants accused of longstanding wrongdoing, not adjudicated wrongdoers."
+    }
+  ],
+  "proceedings": [
+    "The federal district court declined to apply New Jersey’s security statute.",
+    "The Third Circuit reversed.",
+    "The Supreme Court upheld immediate appeal and affirmed application of the statute; the companion mandamus petition was dismissed."
+  ],
+  "limits": "The $125,000 bond was requested, not fixed by the Supreme Court. The Court found no corporate fraud, awarded no derivative recovery, and distinguished discretionary adjustments of security amounts from denial of the right itself.",
+  "briefSha256": "d0318642b5552c0267100efba1c7a2e0a75ef67483f8e6740342bbceac8ae391",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-COHEN-BENEFICIAL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A shareholder brings a derivative action over alleged diversion of corporate assets",
+      "cue": "How small was the suing shareholders’ position?",
+      "paragraphs": [
+        "In 1943 a shareholder sued in federal court in New Jersey, invoking diversity and pursuing Beneficial Industrial Loan Corporation’s rights against the Delaware corporation and managers and directors. He alleged eighteen years of fraud and mismanagement, more than $100 million in diversion or waste, and controllers’ refusal to act despite demand. These were pleaded allegations. After his death, representatives continued the plaintiff’s position.",
+        "He held one hundred shares and an intervenor another one hundred fifty out of more than two million outstanding—about 0.0125 percent, worth no more than $9,000. In 1945 New Jersey enacted an expense-security statute applying to pending cases without final judgment. Small holders below five percent of the statutory capital measure, unless their shares exceeded $50,000 in market value, could be required to secure reasonable defense expenses, including counsel fees and indemnification amounts the corporation might owe other defendants. Courts could revise security as circumstances changed.",
+        "Beneficial invoked its indemnification bylaws and requested a $125,000 bond. That request did not itself establish what security was reasonable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and facts; 337 U.S. at 543–45 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court rejects the state condition and the corporation seeks immediate review",
+      "cue": "Why was waiting for final judgment a problem?",
+      "paragraphs": [
+        "The district court held the state statute inapplicable in federal court and refused security. The Third Circuit reversed. The shareholder side sought certiorari, and Beneficial also pursued a companion mandamus petition to compel security.",
+        "Justice Jackson’s Supreme Court opinion first addressed appellate jurisdiction under § 1291. Ordinarily tentative rulings are not appealable and completed intermediate decisions await final judgment if they can be reviewed effectively then. Here denial of the asserted security right was conclusive, separate from the alleged corporate wrongdoing, and likely irreparable after unprotected expenses accumulated.",
+        "The serious, unsettled collateral right fell within a small class of immediately reviewable decisions. An order merely adjusting an amount where entitlement was conceded would present a different question. The Court did not make every bond ruling immediately appealable. Because appeal supplied review, it dismissed the companion mandamus request."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Appealability; 337 U.S. at 545–47"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court evaluates legislative power to regulate representative litigation",
+      "cue": "Why did possible deterrence not itself invalidate the statute?",
+      "paragraphs": [
+        "Derivative litigation developed in equity so shareholders could act when faithless managers would not enforce corporate rights. Jackson also recognized opportunities for nuisance-value settlements and abuse. A legislature could regulate that representative undertaking and impose accountability on its voluntary representative. The Court assessed constitutional power, not the wisdom of this policy or the proposition that all derivative actions were abusive.",
+        "The Contract Clause objection failed because no shareholder contractual right had been impaired. Reasonable defense-expense liability with adjustable security did not violate due process merely by discouraging some suits. Financial stake could serve as a legislative proxy for responsibility and good faith without denying equal protection, even though monetary lines inevitably fit imperfectly.",
+        "The pending-case application was limited. Without a controlling state construction, the Court did not interpret liability to cover pre-enactment expenses. It contemplated accrual after enactment or perhaps the security grant and reserved the constitutional implications of a different application. Delaware incorporation did not alone excuse compliance with New Jersey forum conditions; particular conflicts and full-faith-and-credit issues were not before it. State constitutional questions belonged ultimately to state courts, and compliance was presumed absent a contrary state decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constitutional reasoning; 337 U.S. at 547–55 & nn.2–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Defense-expense liability and its security can coexist with the Federal Rule",
+      "cue": "Why did the statute govern in diversity?",
+      "paragraphs": [
+        "Calling the statute procedural did not answer the question. Liability for defense expenses went beyond ordinary costs and created a new obligation; advance security made that obligation effective before the corporation incurred outlays. Ignoring that operation would disregard the statute’s substantive effect.",
+        "The historical Federal Rule 23 for derivative actions addressed shareholder status, verification, demand, collusion, and protection against improper dismissal or settlement. It neither imposed this expense liability nor exempted shareholders from it. Both requirements could operate together. Applying Guaranty Trust Co. v. York’s state-right enforcement reasoning, the Court required the federal diversity court to respect the New Jersey statute rather than treat the Rule’s silence as a conflict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Erie and Federal Rule reasoning; 337 U.S. at 555–57"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Douglas and Rutledge dispute the transfer of control over federal litigation",
+      "cue": "What did their dissents address?",
+      "paragraphs": [
+        "Justice Douglas, joined by Frankfurter, partly dissented. He regarded security as governing the method of enforcing the corporation’s existing cause of action rather than changing its claims against wrongdoers. He would use the federal procedural Rule instead of importing the state condition. His writing addressed the diversity issue, not a developed challenge to the collateral-order analysis.",
+        "Justice Rutledge’s shared dissent addressed Cohen, Woods, and Ragan. He agreed with Douglas here and Jackson in Woods, accepted Erie as an administrative rule for substantive state law, but questioned its constitutional basis and expansion into state control of federal litigation. He urged analysis of underlying policies rather than automatic federal closure whenever state courts were closed. His note contrasted Erie’s original remand with later conflicts doctrine.",
+        "For Rutledge, overlapping procedural and substantive effects did not extinguish Congress’s authority over litigation practices. Rule 23’s shareholder-status requirement and New Jersey’s bond both had substantive aspects while remaining closely linked to litigation conduct. He would reverse in Cohen and Ragan and affirm in Woods."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions; 337 U.S. at 557–61 and Rutledge note"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The statute must be applied, with a reasonable amount still for the district court",
+      "cue": "What did the judgment leave untouched?",
+      "paragraphs": [
+        "On June 20, 1949, after argument April 18, the Supreme Court affirmed the Third Circuit. The district court had to determine reasonable security as a condition of continuing suit. The Court did not itself impose the requested $125,000, find fraud or waste, or award the claimed corporate recovery. It dismissed the companion mandamus petition in Beneficial v. Smith because ordinary appeal had been available.",
+        "The opinion’s derivative-action rule was then numbered Rule 23; the later organizational counterpart is Rule 23.1. Its two holdings remain distinct: immediate review of the conclusive collateral right and application of compatible state expense liability in diversity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 337 U.S. at 547, 557"
+        }
+      ]
+    }
+  ]
+}

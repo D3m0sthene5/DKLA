@@ -1,0 +1,127 @@
+{
+  "id": "lrs-n-community-nutrition",
+  "briefId": "LRS-ATLAS-N-COMMUNITY-NUTRITION",
+  "title": "Community Nutrition Institute v. Young",
+  "course": "Legislation and the Regulatory State",
+  "citation": "818 F.2d 943 (D.C. Cir. 1987)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Food and Drug Administration’s contaminant limits survived one statutory challenge, but the agency’s own treatment of those limits created a second problem: it had made binding policy without public rulemaking.",
+  "actors": [
+    {
+      "name": "Food and Drug Administration (FDA)",
+      "role": "Federal food-safety regulator that established action levels and permitted particular blending plans"
+    },
+    {
+      "name": "Community Nutrition Institute and allied challengers",
+      "role": "Organizations and individuals challenging the action levels and blending policy"
+    },
+    {
+      "name": "Judges Mikva and Edwards",
+      "role": "Majority on the legislative-rule question"
+    },
+    {
+      "name": "Judge Starr",
+      "role": "Agreed on enforcement discretion but dissented on classification of the action levels"
+    }
+  ],
+  "proceedings": "District court summary judgment for FDA; first D.C. Circuit decision reversed on the organic statute; Supreme Court reversed that statutory interpretation in 1986; D.C. Circuit on remand invalidated the challenged action level for lack of notice and comment, rejected the blending challenge, and returned the case to the district court.",
+  "limits": "This account concerns the 1987 decision. The assigned selection omits important procedural history and Starr’s complete opinion; its inconsistent editorial description of whether challengers thought thresholds too high or too low is not a judicial finding.",
+  "briefSha256": "a38cbf5d5103a4f5fbbff2ea4ecc4b9732e64ee05bee4e25a733bdd8c2a61de9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-COMMUNITY-NUTRITION"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A numerical limit and a contaminated harvest",
+      "cue": "Begin with the regulatory practice that generated both claims.",
+      "paragraphs": [
+        "Aflatoxins are by-products of molds growing on crops, including corn. The Food and Drug Administration (FDA), administering the Food, Drug, and Cosmetic Act, addressed unavoidable poisonous or deleterious contaminants through announced “action levels.” For aflatoxins in corn, the challenged level was twenty parts per billion. FDA used that number to describe allowable contamination and guide enforcement, but had not adopted it through the Administrative Procedure Act’s notice-and-comment procedures.",
+        "FDA also sometimes permitted producers to blend contaminated corn with uncontaminated corn until the mixture reached an acceptable concentration. That practice mattered particularly when weather produced a heavily contaminated harvest. Community Nutrition Institute and associated organizations and individuals challenged the agency’s approach: they said the food statute required formal tolerances, the action levels independently required notice and comment, and intentional blending violated the statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "818 F.2d at 944–945 & nn.1–2, 949"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "One trip through the courts left two questions open",
+      "cue": "Separate the rejected statutory theory from the issues on remand.",
+      "paragraphs": [
+        "The district court granted FDA summary judgment on all three challenges. The D.C. Circuit initially accepted the argument that the food statute required formal tolerances. That ruling made the procedural challenge moot in the circuit’s view and prompted reconsideration of blending.",
+        "In 1986, the Supreme Court reversed the circuit’s statutory interpretation. FDA could use action levels under the food statute; the Supreme Court did not decide whether particular levels required notice and comment or whether FDA’s blending policy was lawful. Those unresolved questions returned to the D.C. Circuit in this 1987 decision. The circuit therefore began with FDA’s statutory authority to use action levels established, while asking how the agency had actually exercised that authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 944–945"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "FDA’s words and exceptions made its limit binding",
+      "cue": "Explain why the majority looked beyond the agency’s label.",
+      "paragraphs": [
+        "FDA acknowledged that its action levels were rules under the Administrative Procedure Act, but invoked the exception for interpretative rules and general policy statements. It characterized the levels as nonbinding enforcement guidance. The challengers answered that FDA had constrained its own discretion. The agency’s label deserved some weight, but did not control the classification.",
+        "Judges Mikva and Edwards applied the circuit’s American Bus precedent, which examined whether a pronouncement created a presently binding norm and genuinely left agency decisionmakers free to exercise discretion. “Present” did not mean that guidance became legislation simply by operating immediately: an agency could announce current intentions without binding itself.",
+        "Several features showed that FDA had crossed that line. Its regulations said action levels defined when food would be deemed adulterated and could prohibit detectable quantities. The regulations’ word “may” left the agency free to establish a level; it did not make an established level optional. The availability of an action level when circumstances made a formal tolerance subject to near-term change also connected the two devices.",
+        "FDA additionally granted exemptions allowing food it described as unlawfully contaminated to be marketed. An exemption was difficult to explain if no binding restriction existed. Letters approving particular blending plans and a Federal Register notice likewise said corn above twenty parts per billion was adulterated and could not move in interstate commerce. Publication location alone did not settle the matter: the level appeared in the Federal Register, while the authorizing regulations appeared in the Code of Federal Regulations. The court treated that mixed pattern as inconclusive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 945–948 & nn.2–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A rule could bind FDA without conclusively binding a producer",
+      "cue": "Account for the majority’s qualification and Starr’s disagreement.",
+      "paragraphs": [
+        "FDA apparently still had to prove statutory adulteration in an enforcement action, rather than establish only that corn exceeded the numerical level. The majority recognized that this distinguished the action level from a conventional legislative rule. But FDA also conceded that prosecuting a producer whose corn fell below the level would be daunting. Taken together, the agency’s words and conduct sufficiently constrained its own enforcement discretion to give the level substantive effect. Notice and comment were required, and the failure to use those procedures invalidated the challenged level. Genuine nonbinding written guidance remained available.",
+        "Judge Starr dissented from that classification. Although he acknowledged that the majority’s multifactor approach fit recent circuit cases, he preferred the force-of-law test associated with Pacific Gas, a precedent distinguishing policy statements from enforceable legal standards. Under that test, a legislative rule allows the agency to enforce a standard by showing its application and violation; policy requires independent justification of the standard under the governing statute and facts. Because FDA still needed scientific or other probative evidence of adulteration, Starr thought the level lacked legislative force.",
+        "Starr connected notice and comment with participation before coercive rules acquire legal status, while emphasizing Congress’s exceptions for statements below that status. He admitted that the exemptions created a troubling hybrid and that the majority’s result had commonsense support. He also acknowledged the danger of agencies disguising regulation as guidance. But later enforcement still required justification, and Congress could require formal rules when desired. The Supreme Court had already held that this food statute imposed no categorical requirement of that kind."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 948–949 & nn.9–10, 950–953 & Starr nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Unlawful blending did not compel prosecution",
+      "cue": "Finish with the separate, unanimous enforcement ruling.",
+      "paragraphs": [
+        "The court agreed that intentionally blending contaminated corn made the resulting feed adulterated under the provisions governing added poisonous substances. Diluting an intentionally added contaminant did not make it unavoidable, and FDA conceded the statutory violation. That conclusion did not mean FDA had to prosecute every instance. The statute authorized enforcement and expressly recognized discretion concerning minor violations.",
+        "The Supreme Court’s Heckler v. Chaney decision and related circuit precedent treated certain decisions not to enforce as committed to agency discretion. Here the substance of the blending challenge was FDA’s decision not to initiate enforcement. The circuit held that choice unreviewable in this setting and rejected the challenge. Judge Starr joined that part of the opinion.",
+        "The case returned to the district court for proceedings consistent with both rulings: the challenged binding action level required notice and comment, while the refusal to enforce against particular blending remained within FDA’s discretion. The second ruling neither declared the feed unadulterated nor made blending substantively lawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 949–950"
+        }
+      ]
+    }
+  ]
+}

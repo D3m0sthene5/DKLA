@@ -1,0 +1,181 @@
+{
+  "id": "lrs-s-freytag",
+  "briefId": "LRS-ATLAS-S-FREYTAG",
+  "title": "Freytag v. Commissioner of Internal Revenue",
+  "course": "Legislation and the Regulatory State",
+  "citation": "501 U.S. 868 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Taxpayers consented to a special trial judge’s work after their regular judge became ill, then challenged the assignment and appointment. Every Justice sustained the result, but they divided over forfeiture and the constitutional character of the Tax Court.",
+  "actors": [
+    {
+      "name": "The taxpayers",
+      "role": "Challenged deficiencies after deducting approximately $1.5 billion in asserted tax-shelter losses."
+    },
+    {
+      "name": "Commissioner of Internal Revenue",
+      "role": "Defended tax deficiencies and the validity of the Tax Court process."
+    },
+    {
+      "name": "Judge Wilbur",
+      "role": "Regular Tax Court judge who began trial, became ill, and later retired to senior status."
+    },
+    {
+      "name": "Special Trial Judge Powell",
+      "role": "Served first as evidentiary referee, then prepared proposed findings and an opinion."
+    },
+    {
+      "name": "Tax Court Chief Judge",
+      "role": "Appointed special trial judges, assigned the case, and adopted Powell’s opinion as the court’s decision."
+    }
+  ],
+  "proceedings": [
+    "Cases assigned to Wilbur in 1982; trial began 1984; Powell became referee in November 1985 and received the consented reassignment after Wilbur’s April 1986 retirement.",
+    "Chief Judge adopted Powell’s opinion finding sham transactions and additional taxes.",
+    "Fifth Circuit affirmed assignment and found the constitutional objection waived.",
+    "Supreme Court on June 27, 1991 unanimously affirmed, with a five-Justice court-of-law rationale and a four-Justice department/forfeiture rationale."
+  ],
+  "limits": "The Court did not decide the new Rule 183 review challenge, treat every structural objection as unwaivable, or settle all independent-agency department questions. The taxpayers did not challenge the Tax Court itself as an illegitimate tribunal.",
+  "briefSha256": "f297435b01675848dea776f1f7e8ebf714d53449f63da48df1b8376c2f851c22",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-FREYTAG"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress gives special trial judges different authority in different cases",
+      "cue": "Which power depended on the category of assignment?",
+      "paragraphs": [
+        "Congress established the Tax Court as an Article I court in 1969, with nineteen judges appointed by the President and Senate for fifteen-year terms. Its Chief Judge could appoint special trial judges under § 7443A.",
+        "Subsection (b) allowed assignment of declaratory-judgment matters, specified small-tax proceedings, cases within a $10,000 limit, and “any other proceeding” designated by the Chief Judge. Subsection (c) allowed special judges to decide the first three categories. In the catchall category they could hear evidence and prepare proposed findings and an opinion, but a regular Tax Court judge had to enter the decision. Broad hearing authority and final decision authority were therefore separate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory setting; 501 U.S. at 870–73"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A large tax case shifts judges during trial",
+      "cue": "What did the taxpayers consent to before challenging the process?",
+      "paragraphs": [
+        "The taxpayers sought review of deficiencies after deducting approximately $1.5 billion in claimed tax-shelter losses. Counsel described litigation potentially affecting 3,000 taxpayers, fourteen weeks of evidence, 9,000 transcript pages, and more than 3,000 exhibits. The $1.5 billion in the Court’s account referred to deducted losses; counsel’s separate description of deficiencies appeared in a note.",
+        "The cases went to Judge Wilbur in 1982, and trial began in 1984. When Wilbur became ill in November 1985, Special Trial Judge Powell served as evidentiary referee while proceedings were videotaped. Wilbur retired and assumed senior status in April 1986. The taxpayers expressly consented to reassignment to Powell for written findings and an opinion.",
+        "Powell found sham transactions and additional taxes due. The Chief Judge adopted his opinion as the Tax Court decision. The taxpayers then challenged both authority to assign such a large case and the special judge’s constitutional appointment. The Fifth Circuit affirmed statutory authority and treated consent as waiver of the constitutional objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 501 U.S. at 871–73 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Blackmun reads the catchall to include complex cases without final-decision power",
+      "cue": "Why did the earlier categories retain distinct work?",
+      "paragraphs": [
+        "The taxpayers urged limiting “any other proceeding” to minor matters resembling the listed categories. Justice Blackmun’s statutory opinion, joined by all nine Justices, rejected that restriction. The text imposed no amount, subject, or complexity ceiling, and history confirmed broad assignments with a regular judge retaining the decision. Calling the amendment technical reflected established assistance by special judges and earlier commissioners, not a narrowing of the enacted words.",
+        "The preceding categories were not redundant because they conferred greater decisional authority over narrower subjects. The catchall covered broader matters with lesser authority; limiting it to the same cases would instead make it superfluous. Gomez’s interpretation of a different Federal Magistrates Act catchall did not control.",
+        "Simultaneous filing and adoption of Powell’s lengthy report did not establish rubber-stamping. The record did not show how long the Chief Judge had studied it, and counsel acknowledged an earlier report. Taxpayers bore the burden of a negative inference. Their further objection to deference under Tax Court Rule 183 fell outside the granted question; the Court reiterated regular-judge final responsibility without deciding that new claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory holding; 501 U.S. at 872 n.2, 873–77 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Five Justices hear the structural objection despite express consent",
+      "cue": "Why was this discretionary review rather than a jurisdictional rule?",
+      "paragraphs": [
+        "Blackmun’s constitutional discussion had five votes: Chief Justice Rehnquist and Justices White, Marshall, and Stevens joined him. The Commissioner claimed waiver and no threat to executive prerogatives. The majority regarded the objection as nonjurisdictional but structural and, drawing on Glidden’s treatment of tribunal validity, exercised discretion to consider a serious challenge to the very proceeding under review.",
+        "It called this a rare case rather than allowing all structural objections at any time. The Executive’s willingness to accept the arrangement also could not settle validity: the Appointments Clause protects the Republic’s constitutional distribution of power, not merely an institution’s preferences. Congress and the Executive could not agree away those limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reaching the objection; 501 U.S. at 878–80"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Special trial judges exercise significant authority even when recommending",
+      "cue": "Why did employee status not vary with the day’s assignment?",
+      "paragraphs": [
+        "The Commissioner characterized a recommending special judge as an employee. The Court instead identified a statutory office with specified duties, salary, and appointment method. Its occupant tried cases, received testimony, ruled on evidence, enforced discovery, and exercised substantial discretion—unlike a temporary special master.",
+        "Lack of final authority in this large case did not erase that significant authority. Independently, the same office could enter final decisions in smaller statutory categories. One office did not alternate between officer and employee status based on assignments. All Justices accepted inferior-officer status; the remaining disagreement concerned the constitutionally eligible appointing source."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Officer status; 501 U.S. at 880–82"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The majority identifies an Article II court of law",
+      "cue": "How did it distinguish that conclusion from an executive-department theory?",
+      "paragraphs": [
+        "The majority rejected the Commissioner’s view that the Tax Court was an executive department. It read department heads as leaders of executive divisions resembling Cabinet-level departments, emphasizing limited dispersal of appointment and political accountability. Treating this institution as executive also conflicted with Congress’s stated 1969 decision to make it an Article I court. Footnote 4 nevertheless reserved principal independent agencies and did not simply adopt a closed statutory Cabinet list.",
+        "An amicus offered the ground the majority accepted: “courts of law” under the Appointments Clause need not be Article III courts. Legislative tribunals could exercise judicial power and appoint inferior officers. The Tax Court resolved government-taxpayer disputes, applied law, possessed familiar judicial powers, and produced decisions reviewed like district-court civil judgments. It served neither as advocate nor political rulemaker.",
+        "Those functions and independence made it a court of law capable of appointing assistant judges through its Chief Judge. The case did not involve an incongruous appointment into another executive department."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Permissible appointing authority; 501 U.S. at 882–92 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Scalia would enforce forfeiture but uphold the appointment through department status",
+      "cue": "What supported the four-Justice alternative?",
+      "paragraphs": [
+        "Justice Scalia, joined by Justices O’Connor, Kennedy, and Souter, joined the statutory reasoning and judgment. He distinguished declaring an arrangement unconstitutional prospectively from overturning a judgment after an unpreserved objection. Consent cannot legalize unconstitutional conduct, but forfeiture can bar a particular remedy and protect orderly trials, developed review, and avoidance of strategic silence. Tax Court jurisdiction itself was not challenged. Although exceptional review was possible, structural character and seriousness alone did not justify it here.",
+        "On merits, Scalia read “courts of law” as Article III tribunals protected by life tenure and salary security. Executive officers also find facts and apply law, so adjudication alone was insufficient. Term-limited judges, reducible salaries, and presidential removal placed the Tax Court in the Executive on his account; territorial-court history and the majority’s other precedents did not persuade him otherwise.",
+        "He nevertheless regarded it as a freestanding executive department headed by the Chief Judge. A department meant a separately organized executive establishment, not only a Cabinet division. Historical Postmaster General appointment, independent-agency practice, and distinctions between principal and subordinate officers supported appointment by the ultimate subpresidential supervisor. He criticized uncertainty in the majority’s Cabinet-like test and reservation, while recognizing that removal restrictions might weaken accountability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia concurrence; 501 U.S. at 892–922 & nn.1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The unanimous judgment leaves two competing constitutional descriptions",
+      "cue": "What was affirmed on June 27, 1991?",
+      "paragraphs": [
+        "The Supreme Court affirmed the Fifth Circuit. All nine accepted assignment under § 7443A(b)(4), inferior-officer status, and the ultimate result. Five entertained the otherwise unpreserved objection and upheld appointment by a court of law; four preferred forfeiture and, alternatively, appointment by an executive-department head.",
+        "The ruling did not determine all later independent-agency classifications, the new Rule 183 objection, or whether the Tax Court itself was an illegitimate tribunal, which taxpayers had never claimed. The assigned excerpt focuses on officer status and the five-to-four classification division; the complete source supplies the tax chronology, statutory limits, and forfeiture dispute preserved here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and scope; 501 U.S. at 869–70, 873–92, 922"
+        }
+      ]
+    }
+  ]
+}

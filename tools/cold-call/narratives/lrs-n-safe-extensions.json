@@ -1,0 +1,126 @@
+{
+  "id": "lrs-n-safe-extensions",
+  "briefId": "LRS-ATLAS-N-SAFE-EXTENSIONS",
+  "title": "Safe Extensions, Inc. v. Federal Aviation Administration",
+  "course": "Legislation and the Regulatory State",
+  "citation": "509 F.3d 593 (D.C. Cir. 2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A new airport-light test burdens adjustable extensions while exempting fixed ones, and the agency cannot substantiate its three reasons for the distinction.",
+  "actors": [
+    {
+      "name": "Safe Extensions",
+      "role": "Manufacturer seeking judicial review of the airport-light testing requirement."
+    },
+    {
+      "name": "Federal Aviation Administration (FAA)",
+      "role": "Agency imposing approved-product conditions through an advisory circular."
+    },
+    {
+      "name": "Olson and Siemens",
+      "role": "Manufacturers whose comments challenged the freestanding test and reported field experience without failures."
+    }
+  ],
+  "proceedings": [
+    "The FAA imposed and then retained the freestanding torque requirement in successive circulars.",
+    "Safe Extensions petitioned after final AC 42F; the D.C. Circuit rejected reviewability and deadline barriers.",
+    "The panel granted the petition for review for unsupported factual reasons."
+  ],
+  "limits": "The final paragraph grants review without expressly directing vacatur or remand. The court did not rely on the manufacturer’s new reply materials, declare all products safe, or prohibit a later supported distinction.",
+  "briefSha256": "050b59f063f2bf589517c78a2f3ecce61c3ce386ff4b3d32f7662bd5cb7914b9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-SAFE-EXTENSIONS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The agency changes a test with major purchasing consequences",
+      "cue": "Why did an “advisory” circular matter to a manufacturer?",
+      "paragraphs": [
+        "The Federal Aviation Administration, or FAA, prescribed airport-light component tests and maintained an approved-product list. Federally funded airports had to buy approved products, and virtually every public airport received federal funds. Exclusion could therefore remove a manufacturer’s market despite the circular’s advisory title.",
+        "Light bases had to survive aircraft and snowplows while keeping alignment. Resurfacing required height extensions: fixed models stacked parts, while adjustable ones used threads. Both ordinarily sat in concrete or grout. From 1970 to 2005 both were torque-tested as installed in that material.",
+        "April 2005 AC 42D apparently applied the established test only to adjustable products. The decisive change came in May 2006 AC 42E: adjustable products had to survive a more demanding freestanding test outside concrete or grout, while fixed ones were exempt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Setting and chronology; 509 F.3d at 595–596"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Selected manufacturers challenge the proposed replacement",
+      "cue": "What explanation did Safe Extensions have no chance to answer?",
+      "paragraphs": [
+        "In August the FAA circulated draft AC 42F to selected manufacturers, not Safe Extensions, retaining the requirement. Olson and Siemens said their adjustable extensions could not pass, fixed ones would also fail that test, and extensive use had shown no failures.",
+        "In September an employee asserted that fixed extensions had mechanical antirotation structures bearing against ground while adjustable ones relied on chemical shear strength. He cited failures, uncertain installation quality, and inability to perform desired installed testing. Those were assertions later found unsupported. The FAA distributed the response with final AC 42F on October 17, 2006. Safe Extensions had not received the draft or an opportunity to reply, a history agency counsel did not dispute. It petitioned December 15."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Chronology; 509 F.3d at 596–597,603"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court rejects barriers to review before reaching the testing reasons",
+      "cue": "How could a manufacturer challenge an order addressed to airports?",
+      "paragraphs": [
+        "Tatel wrote for Henderson, Kavanaugh, and himself. Section 46110 review reached this completed decision with legal purchasing consequences, unlike a warning producing only bad publicity. An inadequate record did not defeat appellate jurisdiction or shift the case to district-court factfinding; lack of documentation could require agency explanation, not immunity. This record sufficed to evaluate support.",
+        "Using the opinion’s historical prudential-standing terminology, manufacturers dependent on approved status fell within the safety scheme’s zone of interests despite indirect regulation through airport purchases. Air safety supplied a workable standard, and express statutory review defeated the Administrative Procedure Act (APA) § 701(a)(2) argument. Labels of managerial decision, resource burden, and analogies to military or massive rate-setting choices did not establish unreviewable discretion here.",
+        "The court itself raised timeliness because AC 42E had introduced the distinction more than sixty days earlier. Postargument affidavits addressed only timing, not missing merits evidence. Agency statements allegedly to disregard or forget AC 42E while replacement was pending remained ambiguous despite FAA denials that this particular requirement was reopened. Section 46110’s reasonable-grounds exception excused lateness on these facts, not every pending reconsideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Availability and timing; 509 F.3d at 598–604"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Informal procedure does not reduce the required factual support",
+      "cue": "Why did all three explanations fail?",
+      "paragraphs": [
+        "The court applied APA arbitrary-and-capricious review and § 46110(c)’s substantial-evidence requirement. It treated the circular as informal adjudication without mandatory formal hearing or notice and comment. Following ADAPSO, it distinguished the amount of support from its location: informal action could rely on information possessed when the agency acted, but new litigation reasons could not substitute for missing evidence.",
+        "First, the FAA called fixed products established and adjustable ones new. Such experience could justify different tests, but no evidence established the contrast. Second, its asserted mechanical-versus-chemical design difference lacked drawings, documentation, or affidavits. Safe Extensions offered contrary materials in reply, but the court neither examined nor relied on them after the agency objected. Failure of agency support did not establish that designs were identical or affirmatively false as described.",
+        "Third, alleged failures of adjustable chemical bonds lacked evidence. Existing Olson and Siemens comments instead described extensive problem-free experience. The court did not decide every product safe; it found these grounds unsupported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Evidentiary standard and reasons; 509 F.3d at 604–606"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The panel grants the petition on this record",
+      "cue": "What should not be added to the disposition?",
+      "paragraphs": [
+        "The unanimous panel granted Safe Extensions’ petition for review. The closing paragraph did not expressly order vacatur or remand, and no separate writing or numbered judicial footnote appeared.",
+        "The decision required substantiation for this differential requirement under the particular aviation statute. It left room for a future supported testing distinction and did not equate all statutes or agency review categories merely because a formal hearing record was unnecessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court and result; Assigned significance; 509 F.3d at 605–606"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "cp-walker",
+  "briefId": "CP-049",
+  "title": "Walker v. Armco Steel Corp.",
+  "course": "Civil Procedure",
+  "citation": "446 U.S. 740 (1980)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A complaint is timely filed but served too late under Oklahoma’s limitation scheme, and Rule 3’s federal commencement language does not supply the missing tolling event.",
+  "actors": [
+    {
+      "name": "Walker",
+      "role": "Oklahoma carpenter alleging permanent eye injury from a shattered nail."
+    },
+    {
+      "name": "Armco Steel Corporation",
+      "role": "Out-of-state nail manufacturer asserting limitations."
+    }
+  ],
+  "proceedings": [
+    "The Western District of Oklahoma dismissed under Oklahoma limitations law and Ragan.",
+    "The Tenth Circuit affirmed, considering itself bound despite a perceived conflict with Rule 3.",
+    "The Supreme Court unanimously affirmed while holding the provisions did not directly conflict."
+  ],
+  "limits": "Product defect, negligence, and damages remained allegations. Federal causes of action and validity of a hypothetical Rule 3 governing state tolling were expressly reserved.",
+  "briefSha256": "ca4c67d70ccef60278ccae2575376b06d897522a83fdd155ec60579c96445b04",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-049"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Walker files near the deadline but serves months later",
+      "cue": "Which event mattered under each rule?",
+      "paragraphs": [
+        "Walker alleged that on August 22, 1975, he drove a Sheffield nail into a cement wall in Oklahoma City; its head shattered into his right eye, causing permanent injury through negligent manufacture and design by Armco Steel. Those merits were not findings of the Supreme Court. Walker was an Oklahoma resident; Armco was out of state, with diversity accepted.",
+        "On August 19, 1977, Walker filed in the Western District of Oklahoma within the two-year period and obtained a summons. Armco’s agent was not served until December 1. Oklahoma treated service as commencement for limitations, allowing timely filing to relate back only if service followed within sixty days. Walker missed both the original deadline and that extension.",
+        "Federal Rule of Civil Procedure 3 said filing commenced a civil action. Walker argued that filing therefore tolled the state limitation, while expressly conceding the suit would be barred in state court. This was not uncertainty about whether state law would defeat his claim; it was whether federal filing displaced that law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Facts; 446 U.S. 741–743, 748–749"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts apply Ragan while differing on the federal conflict",
+      "cue": "What precedent did Walker ask the Supreme Court to reconsider?",
+      "paragraphs": [
+        "Armco moved to dismiss January 5, 1978. The district court found service integral to Oklahoma’s limitation scheme and applied Ragan v. Merchants Transfer & Warehouse Co., rejecting Walker’s claim that Hanna had implicitly overruled it. The Tenth Circuit affirmed, thinking Rule 3 and the statute conflicted but feeling bound by Ragan’s indistinguishable Kansas scheme.",
+        "Justice Marshall’s unanimous Supreme Court opinion began with Ragan’s close facts: filing within limitations, service beyond both the period and sixty-day extension, and conceded state-court untimeliness. Walker needed more than Hanna’s general Federal-Rule principles to escape it. Hanna itself had distinguished, not overruled, Ragan."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; Reasoning; 446 U.S. 743–750"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rule 3 and state tolling answer separate questions",
+      "cue": "Why did the shared word commencement not create a collision?",
+      "paragraphs": [
+        "Hanna’s analysis applies only after interpreting a Federal Rule to cover the issue. In Hanna the federal provision authorized the very service method state law rejected. Rule 3 here marked the starting point for federal procedural timing, without stating that filing tolled every state limitation. Nothing showed a design to replace that policy.",
+        "This was not a general command to shrink Federal Rules whenever state law differed. The Court required plain meaning; a genuinely governing Rule would trigger Hanna’s validity inquiry. It construed this Rule’s scope rather than balancing away a rule that concededly controlled.",
+        "Oklahoma’s service requirement served repose and preservation of evidence by telling a defendant that liability remained contested. It was part of the substantive limitation, not an unrelated formality. Oklahoma itself distinguished ordinary commencement by filing and summons from commencement for limitations through service. Multiple legal uses of one word could coexist without contradiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 446 U.S. 747–752 & nn.9, 12–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Erie supplies the answer once no Federal Rule controls tolling",
+      "cue": "What did affirmance preserve and reserve?",
+      "paragraphs": [
+        "With no governing federal conflict, Erie and Ragan required state limitations law. A federal forum could not prolong a state-created claim already barred by its own limitation. Even without actual forum-shopping intent, allowing this suit would give a diverse plaintiff an advantage over an otherwise identical state-court plaintiff, producing inequitable administration. Stare decisis also favored Hanna’s maintained distinction rather than revisiting both precedents without justification.",
+        "On June 2, 1980, the Supreme Court affirmed the Tenth Circuit, leaving dismissal intact. Unlike that court, it found no direct collision. No separate opinion appeared, and the judgment decided no nail defect, negligence, or damages question.",
+        "The Court reserved Rule 3’s tolling effect on federal claims, whether their periods came from federal law or borrowed state law. It also declined to decide whether a hypothetical Rule expressly controlling this tolling issue would violate the Enabling Act or Congress’s constitutional power. Valid service method and timely service under a limitation are different questions; the decision did not label all service law inherently procedural or substantive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Judgment; Notes; 446 U.S. 749–753 & nn.11, 14–15"
+        }
+      ]
+    }
+  ]
+}

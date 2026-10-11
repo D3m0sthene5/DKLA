@@ -1,0 +1,155 @@
+{
+  "id": "cp-swift",
+  "briefId": "CP-ATLAS-SWIFT",
+  "title": "Swift v. Tyson",
+  "course": "Civil Procedure",
+  "citation": "41 U.S. (16 Pet.) 1 (1842)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A good-faith recipient takes a bill in payment of an existing debt, and a land-sale defense leads the Court to its historical general-commercial-law doctrine.",
+  "actors": [
+    {
+      "name": "Nathaniel Norton and Jairus Keith",
+      "role": "Drawers of the bill and debtors who transferred it in payment."
+    },
+    {
+      "name": "Tyson",
+      "role": "Acceptor sued on the bill and proponent of fraud defenses concerning the underlying land sale."
+    },
+    {
+      "name": "Swift",
+      "role": "Holder who received the bill before maturity for an existing debt without notice of defects."
+    }
+  ],
+  "proceedings": [
+    "Swift sued Tyson on the dishonored accepted bill in the Southern District of New York.",
+    "The circuit judges divided over admissibility and availability of the underlying defense.",
+    "The Supreme Court certified a negative answer, rather than affirming or reversing a final judgment."
+  ],
+  "limits": "The land-fraud defense was offered proof, not an adjudicated fact. The result concerned payment of debt; Catron withheld agreement on collateral security. Erie later repudiated the general-law doctrine.",
+  "briefSha256": "170ad70c88a823a06db106468fc0e877474a2d6c3a1283e7451d55f11f005941",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SWIFT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Norton and Keith use Tyson’s accepted bill to pay Swift",
+      "cue": "What did Swift know when he received it?",
+      "paragraphs": [
+        "Nathaniel Norton and Jairus Keith drew a bill of exchange at Portland, Maine, dated May 1, 1836, payable six months later with the additional grace period described in the opinion. Tyson accepted it in New York. Norton endorsed it to Swift to pay an existing promissory-note debt Norton and Keith owed him.",
+        "Swift took the accepted bill before maturity, without notice of any defect in the land transaction underlying Tyson’s acceptance, and believed it properly payable. The instrument was dishonored at maturity. Those admitted circumstances made the legal significance of the existing debt, rather than Swift’s dishonest knowledge, the central issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; 41 U.S. at 14–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Tyson offers a land-fraud defense to Swift’s collection suit",
+      "cue": "Why did the circuit court send a certified question?",
+      "paragraphs": [
+        "Swift sued Tyson as acceptor in the federal circuit court for Southern New York. Acceptance and endorsement were admitted. Tyson introduced Swift’s answer to a bill of discovery describing how he acquired the instrument, then offered proof that Tyson accepted as part payment for Maine land Norton and Keith claimed to own, that their ownership and value representations were fraudulent, and that they lacked title.",
+        "Swift objected that defenses between the original parties could not be asserted against him. The alleged fraud remained proposed defense evidence, not a final finding. The circuit judges divided on whether Tyson could use the same defenses against Swift as against Norton or both drawers and whether the proof was admissible. Their certificate of division brought that legal question to the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; 41 U.S. at 14–15, 23–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Story examines the state authorities but does not rest solely on their uncertainty",
+      "cue": "What competing source-of-law arguments did the parties make?",
+      "paragraphs": [
+        "Tyson urged New York law because acceptance occurred there, treating the Rules of Decision Act’s reference to state laws as including judicial decisions about whether old debt counted as value. Swift argued for independent determination of commercial principle and for the sufficiency of taking paper in payment of an existing obligation.",
+        "Justice Story reviewed New York cases: earlier decisions supported existing debt as consideration, later ones suggested restriction, and newer cases again undermined it. He doubted a final settlement of the rule, particularly without definitive adoption by the Court of Errors. But he went on to assume the restrictive doctrine was settled and ask whether it bound the federal court. The holding therefore did not simply exploit an unsettled state precedent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties’ positions and New York cases; 41 U.S. at 16–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court distinguishes state enactments and local law from general commercial principles",
+      "cue": "Why did the Maine land transaction not control that classification?",
+      "paragraphs": [
+        "Section 34 of the Judiciary Act of 1789 required applicable state laws as rules of decision unless the Constitution, treaties, or federal statutes otherwise supplied the rule. Story interpreted state laws to include positive enactments, their state-court construction, fixed local usages, and local matters such as land rights and title. He treated judicial opinions on general commercial law as evidence of law, capable of reconsideration, rather than conclusively binding law.",
+        "On that historical account, state and federal courts used reasoning and analogy to ascertain the same general commercial principles. State opinions merited deliberate respect, while negotiable-instrument law belonged to a wider commercial world rather than a single locality. The federal court could independently assess it.",
+        "The certified issue concerned a later holder’s rights on an accepted negotiable instrument, not ownership of the Maine land. The underlying sale supplied Tyson’s defense but did not transform the holder question into an adjudication of local title. This general-law approach is the doctrine later repudiated by Erie, not a rule presented as current federal authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Historical Rules of Decision Act reading; 41 U.S. at 18–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Taking paper for an existing debt supplies value in ordinary commercial practice",
+      "cue": "What reasoning protected Swift from the offered defense?",
+      "paragraphs": [
+        "Story began with protection for a good-faith holder taking negotiable paper for value before maturity and without notice of earlier defects. A holder ordinarily had prima facie entitlement without first proving every favorable circumstance, leaving the defendant to rebut it. Here Swift’s good faith and lack of notice were established; the question was value.",
+        "Using negotiable securities to pay or secure debts allowed creditors to realize obligations, extend credit, or forbear collection. Debtors could transfer paper directly instead of selling it at a potentially unfavorable discount and paying the proceeds. Exclusion would hamper circulation and banks’ ordinary renewal and security arrangements.",
+        "Drawing on the Court’s precedents, English decisions and commentary, and state decisions, while acknowledging disagreement among American authorities, Story concluded that existing debt constituted valuable consideration. Swift’s payment transaction therefore insulated him from the antecedent equities Tyson sought to prove."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Existing debt analysis; 41 U.S. at 15–16, 19–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Catron agrees on payment but refuses to decide the collateral-security extension",
+      "cue": "How far was the result unanimous?",
+      "paragraphs": [
+        "Justice Catron agreed that a transfer extinguishing debt, as this record showed, protected the recipient against earlier infirmities. He did not endorse the further proposition that taking paper merely as collateral for an existing debt produced identical protection. That question lay outside the record and counsel’s arguments, contrary state authority required attention, and he had not been prepared to decide it.",
+        "All Justices agreed on Swift’s result, but Catron expressly withheld concurrence in the broader collateral discussion. No separate judicial dissent or footnote accompanied the complete report."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Catron writing; 41 U.S. at 23"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The answer returns to the circuit court rather than ending with a damages judgment",
+      "cue": "What did the certification establish?",
+      "paragraphs": [
+        "During January Term 1842, the Supreme Court directed certification that Tyson could not assert against Swift the same defense available against the original parties and that the offered proof was inadmissible against Swift on the stated facts. It did not enter a separate damages judgment or resolve the land allegations.",
+        "The later Erie discussion criticizes the general-law system’s failure to achieve hoped-for uniformity and the forum-dependent differences it produced. Those later objections explain the historical doctrine’s rejection, not Story’s own reasoning in 1842. The precise result here concerns an innocent holder taking the bill in payment under the admitted circumstances."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and assigned significance; 41 U.S. at 23–24"
+        }
+      ]
+    }
+  ]
+}

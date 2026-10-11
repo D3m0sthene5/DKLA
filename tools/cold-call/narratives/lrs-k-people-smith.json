@@ -1,0 +1,130 @@
+{
+  "id": "lrs-k-people-smith",
+  "briefId": "LRS-SUP-0005C",
+  "title": "People v. Smith",
+  "course": "Legislation and the Regulatory State",
+  "citation": "393 Mich. 432, 225 N.W.2d 165 (1975)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Police found a long military rifle in a van and charged its occupants under a concealed-weapons provision. Smith’s pretrial appeal required identifying the category described by the statute rather than deciding whether the rifle was dangerous.",
+  "actors": [
+    {
+      "name": "Smith",
+      "role": "Passenger charged with three other van occupants; sought to quash the information before trial."
+    },
+    {
+      "name": "Officer Ward and partner",
+      "role": "Detroit officers who stopped the van and recovered an M-1 rifle."
+    },
+    {
+      "name": "Gaut and Turner",
+      "role": "Other defendants seated beside the recovered ammunition on the front seat."
+    },
+    {
+      "name": "People of Michigan",
+      "role": "Prosecuted the concealed-weapons charge under section 227."
+    }
+  ],
+  "proceedings": [
+    "Preliminary examination resulted in bindover for trial.",
+    "Trial court denied Smith’s motion to quash; Michigan Court of Appeals affirmed.",
+    "Michigan Supreme Court on January 21, 1975 reversed and directed quashing of the information, leaving probable cause and knowledge undecided."
+  ],
+  "limits": "This was an interlocutory statutory ruling, not an acquittal after trial or a finding about Smith’s possession or intent. Other firearm restrictions remained distinct. The statutory account is historical rather than current Michigan weapons guidance.",
+  "briefSha256": "d69f14c41a3e8c4b5883d5074e4601cbdbcd61dd9d355dd78b64d0ed15528b6c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0005C"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An erratically driven van contains a rifle and ammunition",
+      "cue": "What did the preliminary testimony establish as the prosecution’s account?",
+      "paragraphs": [
+        "Detroit officer Ward testified at preliminary examination that he and his partner saw a Ford Econoline making repeated erratic U-turns and stopped it. Through the right window Ward saw what appeared to be a rifle stock. He opened the door and removed an M-1 rifle beneath the second seat.",
+        "Smith sat on the third seat with his feet up. Officers also found a cartridge belt and ammunition clips on the front seat between defendants Gaut and Turner. Smith and three other occupants were charged under Michigan’s carrying-concealed-weapons statute, MCLA 750.227, and bound over for trial.",
+        "These were preliminary-examination accounts, not jury findings that Smith knowingly possessed the weapon or meant to use it unlawfully. The military rifle’s capacity for harm did not itself decide whether this particular statute covered it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and charge; 393 Mich. at 434"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Smith challenges both statutory coverage and probable cause",
+      "cue": "How did the lower courts answer the weapon question?",
+      "paragraphs": [
+        "Smith moved to quash the information, the formal charge. He argued that an M-1 was outside § 227’s covered weapons and that the evidence failed to show probable cause he knowingly carried it. The trial judge denied relief based on the rifle’s military dangerousness. The Court of Appeals affirmed, noting the forty-three-inch rifle’s weight and potential use as a club.",
+        "Smith obtained an interlocutory Supreme Court appeal before final conviction. Although his first question also referred to legislative intent and the Michigan Constitution, the court would resolve statutory meaning without constitutional invalidation. His separate knowledge question could remain unanswered if the charged statute did not reach the rifle."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; 393 Mich. at 434–36"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kavanagh reads the general words alongside the named stabbing weapons",
+      "cue": "Why did ordinary dangerousness not define the statutory class?",
+      "paragraphs": [
+        "Chief Justice Thomas Giles Kavanagh examined § 227’s two clauses. The first concerned daggers, dirks, stilettos, or other dangerous weapons, except hunting knives adapted and carried as such, concealed on a person or concealed or otherwise in an occupied vehicle, subject to location exceptions. A separate clause prohibited unlicensed pistols.",
+        "Applying ejusdem generis, the Court read a general phrase following particular items as extending to things of the same kind. Daggers, dirks, and stilettos were stabbing weapons; the catchall covered comparable weapons rather than every dangerous object. The hunting-knife exception fit that setting. Treating dangerousness itself as the category would largely erase the specific enumeration.",
+        "The Court did not claim rifles less dangerous than knives. It concluded that physical danger answered a different question from the legislature’s selected class. The pistol clause also failed: the companion definition covered firearms thirty inches or shorter or designed in construction and appearance to conceal their firearm character. The long M-1 did not qualify simply because it was a firearm."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory framework and category analysis; 393 Mich. at 435–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The broader scheme reaches firearms through different requirements",
+      "cue": "Why could courts not shift the rifle into the easier charge?",
+      "paragraphs": [
+        "Section 226 separately prohibited going armed with a pistol, other firearm, or specified weapons with intent to use it unlawfully against another. The rifle unquestionably was a firearm there. The Michigan legislature had not ignored long guns; it had regulated them with an additional intent requirement.",
+        "Reading § 227 broadly would permit a serious felony without that extra proof and could sweep in hunters transporting rifles. Difficulty proving the more specific offense did not authorize moving conduct into the easier one. The provisions came from the same 1931 enactment, reinforcing attention to their distinct work.",
+        "The Court’s second footnote also identified separate vehicle-transport restrictions generally requiring affected long guns to be taken down, cased, or carried in a trunk, and separate regulation of weapons such as machine guns and silencers. Those qualifications did not produce an alternative conviction; they showed that excluding this charge did not legalize every manner of carrying rifles. Any strengthening of the scheme belonged to the legislature."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Wider scheme; 393 Mich. at 437–38 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The information must be quashed without resolving knowledge",
+      "cue": "Who joined the January 1975 result?",
+      "paragraphs": [
+        "On January 21, 1975, the Michigan Supreme Court reversed the lower rulings and directed that the information be quashed. Section 227 did not cover this M-1, making it unnecessary to decide probable cause or Smith’s knowledge. It was a pretrial victory on statutory coverage, not an appellate acquittal based on factual innocence or a bar to every possible other-law charge.",
+        "Thomas Matthew Kavanagh, Swainson, Williams, and Mary S. Coleman joined the Chief Justice. Levin and John W. Fitzgerald did not sit, and no dissent appeared. The comparison with McBoyle in the assigned discussion concerns how a residual phrase preserves an enumerated category; it is not another adjudication of Smith’s conduct. The source does not report subsequent proceedings under another statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding, disposition, and participation; 393 Mich. at 432–38"
+        }
+      ]
+    }
+  ]
+}

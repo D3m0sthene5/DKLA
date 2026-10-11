@@ -1,0 +1,177 @@
+{
+  "id": "lrs-n-little-sisters",
+  "briefId": "LRS-MAX-LITTLESISTERS",
+  "title": "Little Sisters of the Poor Saints Peter and Paul Home v. Pennsylvania",
+  "course": "Legislation and the Regulatory State",
+  "citation": "591 U.S. 657 (2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After objections to an insurance accommodation remained unresolved, federal agencies expanded exemptions from contraceptive coverage. States challenged their authority and rulemaking process, producing a decision that preserved separate questions about the exemptions’ substantive justification.",
+  "actors": [
+    {
+      "name": "Little Sisters of the Poor",
+      "role": "Catholic organizations serving elderly poor people; intervened to defend religious exemptions."
+    },
+    {
+      "name": "Health Resources and Services Administration",
+      "role": "HRSA, the health agency whose preventive-care guidelines included contraception."
+    },
+    {
+      "name": "Departments of Health and Human Services, Labor, and Treasury",
+      "role": "Joint administrators issuing the interim and final exemption rules."
+    },
+    {
+      "name": "Pennsylvania and New Jersey",
+      "role": "States challenging authority and procedure and defending the nationwide injunction."
+    }
+  ],
+  "proceedings": [
+    "Pennsylvania obtained preliminary relief against 2017 interim rules; New Jersey joined after 2018 final rules.",
+    "District court preliminarily enjoined the final rules nationwide; Third Circuit affirmed.",
+    "Supreme Court on July 8, 2020 reversed and remanded, requiring dissolution of the injunction; judgment was 7–2 with differing statutory rationales."
+  ],
+  "limits": "The Court upheld statutory authority and final-rule procedure, not an independent RFRA basis, good cause for the earlier interim rules, substantive arbitrary-and-capricious review, or nondelegation validity. Later proceedings are not supplied.",
+  "briefSha256": "4e82dd78d6678ea8bcd4fc81535f8c51ffb2c31412f9c2cfc091d0de185a6e56",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-LITTLESISTERS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The preventive-care mandate generates an exemption and an accommodation",
+      "cue": "Why did some religious employers still object?",
+      "paragraphs": [
+        "The Affordable Care Act (ACA) required covered health plans to provide women’s preventive care without cost sharing as specified in comprehensive guidelines supported by the Health Resources and Services Administration (HRSA). Congress did not expressly list contraception; HRSA’s guidelines added it. The Departments of Health and Human Services, Labor, and Treasury jointly administered the provisions. Separate statutory rules exempted grandfathered plans.",
+        "An initial church exemption was followed by an accommodation for other eligible religious employers. An objecting employer could certify its objection, after which its insurer or administrator would separately provide contraceptive services without charging the employer or beneficiaries. Some employers nevertheless believed certification and the plan mechanism made them complicit in conduct their faith prohibited. The Little Sisters of the Poor, Catholic organizations serving elderly poor people, held that objection.",
+        "Hobby Lobby held the unaccommodated mandate inconsistent with the Religious Freedom Restoration Act (RFRA) for the closely held corporate objectors there. Zubik later remanded challenges to the accommodation without deciding RFRA, permitting efforts to respect religious exercise while preserving coverage. The agencies subsequently reported no feasible alternative from those efforts. The unresolved concern was participation and complicity, not merely an abstract objection to contraception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Background; Thomas slip op. 2–10 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The agencies broaden exemptions, receive comments, and issue final rules",
+      "cue": "How did the states’ challenge develop?",
+      "paragraphs": [
+        "In 2017, the agencies issued two immediately effective interim final rules, invoking good cause to proceed without advance comment while also soliciting comments. One enlarged religious exemptions, including publicly traded employers with sincere objections. The other recognized moral objections for certain nonprofits and businesses without publicly traded components. The existing accommodation remained available.",
+        "After considering comments, the agencies issued 2018 final rules largely preserving those exemptions. Pennsylvania had challenged the interim rules and obtained preliminary relief; New Jersey joined after the final rules. The states asserted lack of authority and defective Administrative Procedure Act (APA) procedure.",
+        "The district court preliminarily enjoined the final rules nationwide. The Third Circuit affirmed, finding no ACA or RFRA authority, no good cause for the interim rules, and insufficient evidence of an open mind in the later comment process. The Little Sisters intervened and appealed alongside the federal government.",
+        "The Supreme Court rejected the circuit’s demand for independent appellate standing from the Little Sisters: the government had standing and both requested the same dissolution. An intervenor seeking broader or different relief would need independent standing; the Court did not dispense with that requirement universally."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rules and proceedings; Thomas 10–14 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Thomas reads the guideline delegation to encompass exceptions",
+      "cue": "What statutory holding commanded five votes?",
+      "paragraphs": [
+        "Justice Thomas, joined by Chief Justice Roberts and Justices Alito, Gorsuch, and Kavanaugh, read HRSA’s guideline authority broadly. Congress neither specified particular women’s services nor imposed limitations found elsewhere. In the majority’s reading, authority to determine preventive coverage included exceptions to the requirements the agency itself created. Restricting discretion to the service list while prohibiting exemptions would add words to the statute.",
+        "The majority did not resolve competing empirical claims about effects on women. Policy objections could not displace its reading of plain text. It also noted tension between the states’ position and the earlier church exemption and accommodation. No party pressed a constitutional attack on the delegation’s breadth, so the Court did not decide nondelegation. Its contextual discussion of changing guidelines was not blanket approval of every future removal of coverage without rulemaking."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "ACA authority; Thomas 14–18 & nn.7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "RFRA must be considered, but its independent force remains undecided",
+      "cue": "Why did authority not settle substantive reasonableness?",
+      "paragraphs": [
+        "Because the ACA itself supplied authority, the majority did not decide whether RFRA independently compelled or permitted the exemptions. It did reject the view that agencies could not consider RFRA. That law applied to federal statutes and implementation, and the ACA did not exclude it. Hobby Lobby and Zubik gave the agencies substantial reason to address sincere complicity objections.",
+        "Ignoring RFRA entirely could overlook an important aspect of the problem and expose a rule to arbitrary-and-capricious review. But recognizing its relevance did not establish that these particular exemptions satisfied that review. The majority also reserved an unpresented constitutional claim. Authority, required considerations, and a reasoned exercise of authority remained separate inquiries."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "RFRA discussion; Thomas 19–22 & nn.10–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court finds the final rulemaking objectively sufficient",
+      "cue": "Why did the interim title and unchanged substance not defeat notice and comment?",
+      "paragraphs": [
+        "The states argued that an interim final rule requesting comments was not a notice of proposed rulemaking. The Court examined substance: the published documents identified legal authority, explained the issues and proposed substance, and invited comments on permanence or changes. A title did not negate meaningful notice. Even assuming a formally titled notice was necessary, the states showed no prejudice from the label.",
+        "The Court rejected the Third Circuit’s additional open-mindedness requirement. The APA prescribes objective procedures, not an extra obligation to demonstrate subjective flexibility by changing the proposal. Under Vermont Yankee and Perez, courts cannot add procedures beyond the statute. Similarity between interim and final rules did not establish invalidity.",
+        "The agencies supplied adequate notice, sixty days for written comments, statements of basis and purpose, and publication more than thirty days before effectiveness. The 2018 rules therefore satisfied procedure. The Court expressly left open good cause for issuing the 2017 rules immediately; later compliance did not retroactively validate earlier enforcement if unlawful. Nor did the holding excuse inadequate responses to significant comments or substantive irrationality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "APA procedure; Thomas 22–26 & nn.13–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Alito would also find RFRA compulsion; Kagan leaves substantive concerns open",
+      "cue": "Why did seven votes not endorse one statutory rationale?",
+      "paragraphs": [
+        "Justice Alito, joined by Justice Gorsuch, joined the majority and would go further. He thought RFRA required the religious exemption or something close for employers sharing the Little Sisters’ objections. Sincere complicity concerns and severe penalties imposed a substantial burden; courts could test sincerity but not redraw religious moral causation. Existing exceptions undermined the asserted compelling interest, and less restrictive alternatives remained even if the interest were compelling. He opposed requiring the narrowest imaginable RFRA remedy and disputed treating loss of an otherwise unrequired benefit as a government-imposed burden. Only two Justices joined that independent RFRA theory.",
+        "Justice Kagan, joined by Justice Breyer, agreed on procedural validity and the judgment but found statutory authority through the then-applicable Chevron deference framework. She regarded who must provide coverage as ambiguous and the longstanding agency interpretation as reasonable, unlike Thomas’s unambiguous reading.",
+        "Kagan stressed that authority did not guarantee reasoned decisionmaking. The exemptions included employers satisfied with the accommodation, extending beyond the unresolved complicity problem. She questioned that mismatch, publicly traded company coverage, and the separately justified moral exemption. Those concerns remained for lower courts rather than becoming a final invalidity ruling in her concurrence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito and Kagan separate writings; Alito 1–19; Kagan 1–7, especially n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Ginsburg views the agency’s task as selecting services, not exempting employers",
+      "cue": "What did the dissent say about employees and third-party conduct?",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Justice Sotomayor, would affirm on the merits. She read Congress as specifying who provides coverage while assigning HRSA which preventive services to include. Text, the parallel children’s provision, and HRSA’s access mission did not authorize broad employer exemptions. The original church exemption rested on a constitutional rationale distinct from the challenged blanket rules.",
+        "Ginsburg also thought RFRA did not permit disregarding employees’ interests. In her view the accommodation shifted the obligation to insurers without substantially burdening employers’ own religious conduct. Sincerity did not convey control over third parties’ actions. She emphasized lost coverage and obstacles to governmental programs or personal purchase. She did not reach procedural validity and separately defended nationwide preliminary relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ginsburg dissent; Ginsburg 1–22, especially nn.17, 27–28"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The injunction must dissolve while remaining challenges return below",
+      "cue": "What did the July 2020 judgment actually settle?",
+      "paragraphs": [
+        "On July 8, 2020, the Supreme Court reversed and remanded, specifying dissolution of the nationwide preliminary injunction. Thomas’s reasoning had five votes; Kagan and Breyer added two votes for the judgment and objective procedural conclusion on a different statutory rationale; Ginsburg and Sotomayor dissented.",
+        "The final rules had statutory authority and sufficient APA procedure. Good cause for interim effectiveness, RFRA’s independent compulsion or authorization, and arbitrary-and-capricious objections remained distinct unresolved matters. The judgment did not merge every substantive challenge into procedure or foreclose examination of poorly explained exemptions. The source supplies this historical disposition, not later merits outcomes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and limits; Thomas 25–26; separate opinion alignment"
+        }
+      ]
+    }
+  ]
+}

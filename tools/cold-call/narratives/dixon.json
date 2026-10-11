@@ -1,0 +1,128 @@
+{
+  "id": "dixon",
+  "briefId": "CT-CB-0333",
+  "title": "Dixon v. Wells Fargo Bank, N.A.",
+  "course": "Contracts",
+  "citation": "798 F. Supp. 2d 336 (D. Mass. 2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Borrowers allege that a lender told them to stop paying while it considered modification, then used the resulting default to pursue foreclosure; the surviving claim protects induced reliance rather than a completed new loan bargain.",
+  "actors": [
+    {
+      "name": "Frank and Deana Dixon",
+      "role": "Homeowners alleging reliance on instructions to stop mortgage payments and provide financial information."
+    },
+    {
+      "name": "Wachovia Mortgage and successor Wells Fargo",
+      "role": "The alleged conduct involved a federal savings-bank predecessor; Wells Fargo defended the suit."
+    },
+    {
+      "name": "Judge William G. Young",
+      "role": "Federal district judge deciding the remaining dismissal issues."
+    }
+  ],
+  "proceedings": [
+    "The Dixons sued in Massachusetts Superior Court on January 6, 2011, and received a preliminary injunction on February 14.",
+    "Wells Fargo removed on March 4; on May 9 the federal court denied remand and dismissed the ordinary contract claim.",
+    "The July 22 opinion denied dismissal of the reliance claim and rejected preemption, setting the case for September trial."
+  ],
+  "limits": "The court accepted allegations for a dismissal motion and awarded no final relief. Its state-law analysis was a federal district court prediction with acknowledged uncertainty. A suggested restoration of nondefault status was illustrative, not an ordered modification.",
+  "briefSha256": "4fb18670e179858665c1998c3db005468e6db2e94aa0e79d9327c4f928af8eef",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0333"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Dixons say a modification discussion caused them to stop paying",
+      "cue": "What precise commitment and loss did they allege?",
+      "paragraphs": [
+        "Frank and Deana Dixon owned and occupied a mortgaged home in Scituate, Massachusetts. Their allegations involved Wachovia Mortgage, a federal savings bank that preceded defendant Wells Fargo. On or about June 8, 2009, they said, the bank orally agreed to take steps toward a modification, directed them to stop payments and submit financial information, and received their prompt compliance. They understood missed installments would be added to the modified loan.",
+        "The Dixons alleged that the bank then failed or effectively refused to follow through and proceeded toward foreclosure. On December 8, 2010, they received notice of a Land Court proceeding with a January 10, 2011 return date. They alleged on information and belief that the home’s value exceeded the balance and arrears.",
+        "Although their initial phrasing suggested an agreement to enter a modification, they clarified that the relevant promise was to consider them and negotiate after the requested steps. The theory did not ask a court to supply all terms of an unmade loan. The claimed injury arose from entering default in reliance before honest consideration occurred. None of those allegations was yet a factual finding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "798 F. Supp. 2d at 339; Promise and alleged change"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The ordinary contract claim ends while reliance and preemption remain",
+      "cue": "Which issues did the July opinion actually decide?",
+      "paragraphs": [
+        "The Dixons sued in Massachusetts Superior Court on January 6, 2011, seeking to stop foreclosure, obtain specific performance, and recover damages. The court issued a preliminary injunction on February 14. Wells Fargo removed on March 4 and moved to dismiss on April 11.",
+        "At a May 9 hearing, Judge William G. Young denied remand and dismissed the insufficiently pleaded ordinary contract claim. He reserved promissory estoppel and the Home Owners’ Loan Act preemption defense for supplemental briefing. His July 22 opinion addressed those remaining issues; it did not revive the bargain-based claim.",
+        "The federal pleading question was plausibility, leaving promise, reasonable reliance, and injury for proof. The bank contended that an indefinite agreement to agree supplied no obligation and, independently, that federal banking regulation displaced any state claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "798 F. Supp. 2d at 338–339; Procedural posture"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Young treats an honest-consideration promise separately from an unfinished bargain",
+      "cue": "Why did indefiniteness present a real but not fatal objection?",
+      "paragraphs": [
+        "Massachusetts decisions including Loranger Construction and Rhode Island Hospital Trust v. Varadian treated reliance enforcement as contractual, requiring contract elements apart from consideration. A genuine objective commitment, not a prediction or invitation to talk, was necessary. Ordinarily, unresolved essential terms made an agreement to agree unenforceable because courts lacked a standard to know the final bargain and parties retained freedom to reject it.",
+        "Young acknowledged that a promise to supply a completed unspecified modification would ordinarily fail. But inducing missed payments and then exploiting default without promised consideration presented a narrower wrong. Requiring honest dealing after a requested detrimental change did not compel either side to accept unknown loan terms.",
+        "The court drew analogies from Massachusetts assurances cases: Greenstein involved a prospective tenant strung along as though only a formality remained; McLearn involved inducing abandonment of a timely suit before asserting limitations; Cohoon involved mortgage assurances and threatened foreclosure. The recurring concern was inducing a foreseeable loss of position and then exploiting it by disavowal.",
+        "The court did not impose a general good-faith negotiation duty whenever discussions began or require fraudulent intent at the instant of promising. It also acknowledged that much support came from lower state courts and would entertain a request to certify to Massachusetts’s Supreme Judicial Court, though it did not itself do so. This remained a federal prediction, not a new high-court state holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "798 F. Supp. 2d at 340–348, 352–353 & n.5; Reliance law"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Limiting the remedy to reliance avoids inventing new mortgage terms",
+      "cue": "What example did the judge offer without ordering it?",
+      "paragraphs": [
+        "The Dixons would have to prove the claim by a preponderance. Genuine consideration ending without agreement would not itself require imposition of a new mortgage. The remedy’s aim was restoring the lost position rather than awarding benefits of a hypothetical modification.",
+        "Footnote 2 illustrated that the bank might amortize missed installments to restore nondefault status while requiring original monthly payments to resume. If the borrowers could not meet those payments, foreclosure could follow. That was neither a judgment ordering modification nor a guarantee that they could keep the house irrespective of payment capacity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "798 F. Supp. 2d at 348–349 & n.2; Remedy"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court tests preemption against the claim as applied",
+      "cue": "Why did the predecessor bank’s federal status not defeat this claim?",
+      "paragraphs": [
+        "Wachovia’s status brought the then-applicable Office of Thrift Supervision regulation, 12 C.F.R. § 560.2, into the Home Owners’ Loan Act analysis. The regulation occupied specified lending fields, including credit terms and servicing, while allowing contract and tort rules incidentally affecting lending. A common-law label alone did not establish survival.",
+        "Young found this claim enforced the bank’s voluntary undertaking rather than prescribed loan terms or generally required modifications. Honoring a promise after inducing harmful reliance was ordinary commercial conduct with only incidental effects on lending. The absence of a private action under the federal statute did not eliminate an independent state claim. The opinion recognized divided authority and distinguished other modification and regulatory claims instead of immunizing all mortgage contract or tort suits from preemption.",
+        "The court denied the remaining dismissal request and placed the case on the September trial list, requiring readiness September 6, 2011. It awarded no damages and found no final liability. Comments on distressed borrowers and prompt trials explained the setting, not additional estoppel elements or a present banking-preemption certification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "798 F. Supp. 2d at 353–362 & n.7; HOLA preemption; Holding and judgment"
+        }
+      ]
+    }
+  ]
+}

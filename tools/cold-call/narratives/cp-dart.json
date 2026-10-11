@@ -1,0 +1,143 @@
+{
+  "id": "cp-dart",
+  "briefId": "CP-ATLAS-DART",
+  "title": "Dart Cherokee Basin Operating Co., LLC v. Owens",
+  "course": "Civil Procedure",
+  "citation": "574 U.S. 81 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A royalty class action returned to state court because its removal notice alleged millions in controversy without attaching proof. Supreme Court review then turned both on the proper pleading rule and on whether an unexplained discretionary refusal to hear an appeal could be disturbed.",
+  "actors": [
+    {
+      "name": "Brandon Owens",
+      "role": "Putative class representative alleging unpaid oil-and-gas royalties; sought remand."
+    },
+    {
+      "name": "Dart Cherokee Basin Operating Company and Cherokee Basin Pipeline",
+      "role": "Defendants collectively referred to as Dart; removed under the Class Action Fairness Act."
+    },
+    {
+      "name": "Public Citizen",
+      "role": "Amicus that raised the distinct problem of reviewing the circuit’s discretionary denial of permission to appeal."
+    }
+  ],
+  "proceedings": [
+    "Dart removed Kansas royalty action and later supplied an executive’s declaration after Owens challenged the notice.",
+    "District court remanded because evidence had not accompanied the original notice.",
+    "Tenth Circuit denied permission to appeal and, by equal division, rehearing en banc.",
+    "Supreme Court on December 15, 2014 vacated that appellate judgment and remanded 5–4, allowing the circuit to articulate a lawful reason to decline review."
+  ],
+  "limits": "The Court required plausible allegation initially, proof when genuinely challenged, and no antiremoval presumption under CAFA. It reserved ordinary diversity presumptions and assumed without deciding certain § 1332(a)-worded procedures applied to CAFA. No royalty merits or class certification was decided.",
+  "briefSha256": "a937eff615d5093dce6caa7a972e07ed758b05a83e85e40e5382a32b179368bf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-DART"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An unspecified royalty demand prompts removal with a dollar allegation",
+      "cue": "What changed after Owens objected?",
+      "paragraphs": [
+        "Brandon Owens filed a putative Kansas state-court class action against Dart Cherokee Basin Operating Company and Cherokee Basin Pipeline for allegedly underpaid oil-and-gas lease royalties. He requested fair and reasonable compensation without a dollar figure.",
+        "Dart removed under the Class Action Fairness Act (CAFA), alleging required class size and minimal diversity and more than $8.2 million in underpayments. Owens sought remand because the notice attached no evidence establishing the $5 million threshold.",
+        "Dart responded with a detailed executive declaration calculating more than $11 million excluding interest. Owens did not dispute that calculation; he said proof arrived too late to cure the notice. The district court, reading Tenth Circuit precedent as requiring evidence in the notice, agreed and remanded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and remand; 574 U.S. at 84–85"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The circuit declines its special permission to review remand",
+      "cue": "Why did an amicus later complicate Supreme Court review?",
+      "paragraphs": [
+        "CAFA permits discretionary appellate review of orders granting or denying remand notwithstanding ordinary review restrictions. A divided Tenth Circuit panel denied Dart permission, and an equally divided court denied rehearing en banc. Judge Hartz’s dissent warned that defendants would comply with the proof demand rather than risk remand, entrenching an erroneous rule without future review.",
+        "The Supreme Court granted certiorari on notice contents. Public Citizen, appearing as amicus, identified a prior issue: the judgment before the Court was the circuit’s discretionary denial, not a merits decision on the district court’s remand. Unless that denial itself warranted disturbance, reaching the underlying pleading question would be improper."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and review problem; 574 U.S. at 85–90"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ginsburg applies ordinary pleading to removal allegations",
+      "cue": "When must the parties supply evidence?",
+      "paragraphs": [
+        "Justice Ginsburg read § 1446(a)’s “short and plain statement” through its deliberate borrowing from Federal Rule of Civil Procedure 8. A plausible allegation of jurisdictional amount suffices without evidence attached. Legislative history corroborated use of liberal pleading rather than detailed evidentiary submissions. A plaintiff can invoke jurisdiction with a good-faith amount allegation; imposing proof in a defendant’s removal notice would create an unexplained asymmetry.",
+        "If the plaintiff contests the amount or the court questions it, evidence becomes necessary. Section 1446(c)(2)(B) provides a preponderance standard, with both sides submitting proof for judicial determination. The opinion did not erase the threshold or replace proof with pleading after a genuine challenge.",
+        "The referenced provisions expressly concern § 1332(a), while CAFA jurisdiction arises under § 1332(d). Because the parties did not contest their application here, the Court assumed that point without deciding it. It also rejected a presumption against CAFA removal, enacted to facilitate certain interstate class cases, while reserving whether such a presumption applies to ordinary diversity suits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Removal rule; 574 U.S. at 87–89 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority infers an erroneous legal premise in the denial of permission",
+      "cue": "Why could discretionary review still be an abuse of discretion?",
+      "paragraphs": [
+        "The majority held that Dart’s application made a case “in” the court of appeals under § 1254, permitting Supreme Court review of its disposition. Discretion must rest on legally sound grounds, and reliance on a legal error can abuse it.",
+        "The Court inferred that the denial accepted the district court’s evidentiary requirement. The submissions focused on whether evidence belonged in the notice, and the denial said it considered the submissions and applicable law. The circuit’s own guidance favored important recurring CAFA questions likely to evade review; leaving the remand intact would predictably cause careful defendants to attach evidence and avoid testing the requirement.",
+        "This was an inference from an unexplained order, not an express adoption by the Tenth Circuit. The majority acknowledged caution but considered the record sufficient. Crucially, it left the circuit free on remand to identify a permissible explanation for declining review. It did not compel discretionary acceptance regardless of a lawful ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appellate jurisdiction and discretion; 574 U.S. at 90–96 & nn.2–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Scalia disputes the inference, while Thomas disputes jurisdiction itself",
+      "cue": "What did the dissents not decide about initial pleading?",
+      "paragraphs": [
+        "Justice Scalia, joined by Justices Kennedy and Kagan and by Justice Thomas except for the final sentence, would dismiss certiorari as improvidently granted. Alternatively, all but Thomas would affirm the circuit because no abuse was established. An unexplained discretionary denial could rest on a poor vehicle, inability to meet CAFA’s expedited timetable, or a view that the issue concerned general removal law rather than CAFA specifically. Considering arguments did not mean accepting the wrong one.",
+        "Scalia also rejected inevitability of evasion: lawyers might err, or a later sufficiency-of-evidence case might present whether evidence was needed at all. He criticized faulting Owens for not rebutting an abuse argument that Dart meaningfully raised only in reply. His objection concerned the route to merits, not a holding requiring evidence in notices.",
+        "Thomas separately read § 1254 to exclude an unsuccessful discretionary application from cases in the courts of appeals. He rejected extending certificate-of-appealability precedent, which he also considered incorrect, because a remand appeal could be declined without evaluating merits. As the circuit never accepted this appeal, he would dismiss for lack of jurisdiction rather than affirm."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia and Thomas dissents; 574 U.S. at 96–104"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The appellate denial is vacated, with pleading clarified and discretion preserved",
+      "cue": "What remains outside the judgment?",
+      "paragraphs": [
+        "On December 15, 2014, the Court vacated the Tenth Circuit judgment and remanded. Chief Justice Roberts and Justices Breyer, Alito, and Sotomayor joined Ginsburg, producing five votes against four dissenters with the different positions described above.",
+        "The district court’s attached-proof requirement was wrong, but evidence remained necessary for a genuinely disputed amount, and the circuit could still explain a lawful refusal to accept review. The Court awarded no royalties, certified no class, and decided no underpayment allegations. The source supplies this 2014 procedural resolution, not a later remand outcome."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and limits; 574 U.S. at 89, 96 & n.8"
+        }
+      ]
+    }
+  ]
+}

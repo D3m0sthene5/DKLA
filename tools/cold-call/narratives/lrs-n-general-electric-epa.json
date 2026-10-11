@@ -1,0 +1,123 @@
+{
+  "id": "lrs-n-general-electric-epa",
+  "briefId": "LRS-MAX-GE",
+  "title": "General Electric Co. v. Environmental Protection Agency",
+  "course": "Legislation and the Regulatory State",
+  "citation": "290 F.3d 377 (D.C. Cir. 2002)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "EPA publishes guidance for evaluating PCB disposal proposals. Its mandatory assessment methods and promised default treatment make the document binding enough for immediate review and required rulemaking procedures.",
+  "actors": [
+    {
+      "name": "General Electric Company",
+      "role": "Petitioner challenging the risk-assessment document."
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Agency issuing and defending the purported guidance."
+    }
+  ],
+  "proceedings": [
+    "GE sought direct review under Toxic Substances Control Act § 19(a).",
+    "The D.C. Circuit found finality, ripeness and statutory review jurisdiction.",
+    "On May 17, 2002, the unanimous panel granted the petition and vacated the document for conceded procedural failures."
+  ],
+  "limits": "This historical source-brief transformation makes no new audit or current PCB advice claim. The court reserved the full scope of direct review of nonlegislative guidance and did not decide the scientific substantial-evidence challenge. The specified informal hearing came from TSCA, not a universal APA hearing requirement.",
+  "briefSha256": "585e95e1041c7bd053e20ca58b756948813310396d6b46eebcdc6bb8f58151a5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-GE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "EPA adds assessment instructions to an existing approval process",
+      "cue": "What choices did the guidance give applicants?",
+      "paragraphs": [
+        "The Toxic Substances Control Act, or TSCA, restricted manufacture, processing, distribution and use of polychlorinated biphenyls, PCBs, absent an Environmental Protection Agency finding of no unreasonable health or environmental risk. EPA rules supplied standard cleanup and disposal options and permitted alternative methods for remediation and bulk-product waste under 40 C.F.R. §§ 761.61(c) and 761.62(c). The regulations required a risk showing without specifying its assessment method.",
+        "EPA’s Guidance Document prescribed two routes. One separately calculated cancer and noncancer risk using an EPA-recognized cancer potency factor and specified noncancer endpoints. The other combined them through a total toxicity factor of 4.0 (mg/kg/day)⁻¹. EPA promised to accept that default without further justification, presenting it as a way to save cost and time.",
+        "General Electric challenged the document as a legislative rule issued without required procedure and alternatively as unsupported by substantial evidence. EPA called it flexible policy revisable with scientific developments and disputed ripeness and direct appellate jurisdiction. The scientific factor was agency policy, not a judicial finding of scientific truth."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and regulatory setting; background and first starred note"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The court permits review before GE submits and loses an application",
+      "cue": "Why did future scientific revision not defeat finality or fitness?",
+      "paragraphs": [
+        "GE petitioned under TSCA § 19(a). Chief Judge Douglas Ginsburg wrote for Judges Randolph and Tatel. Whether the text bound applicants and EPA was largely legal, requiring no particular-site application record. The document consummated decisionmaking and determined obligations. A possibility of revision, including anticipated noncancer research, did not render current commands tentative; otherwise routinely updated scientific rules could evade review indefinitely.",
+        "EPA cited an earlier Fifth Circuit remand concerning PCB regulations. That court had simply granted agreed reassessment, not found nonfinality or unripeness. Its disposition did not bar this challenge.",
+        "The court required no additional hardship showing after finding fitness because TSCA’s sixty-day deadline for review demonstrated a preference for immediate litigation. Delay served no statutory purpose here; the opinion did not eliminate hardship inquiry in every agency case.",
+        "GE urged that a broad APA definition of rule governed direct review; EPA limited it to legislative rules. The court reserved that general dispute because this document was legislative under either interpretation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Posture; Ripeness and finality; Legislative-rule jurisdiction; second starred note"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Mandatory options and a dependable default bind both sides",
+      "cue": "Why did two methods and exceptional cases not make the document merely advisory?",
+      "paragraphs": [
+        "Classification turned on imposed rights and duties versus genuine retained discretion, informed by wording, agency characterization, publication and binding effect. The guidance label and absence of Federal Register publication did not settle it. Binding administration could matter, but mandatory text itself sufficed before an application demonstrated enforcement.",
+        "Applicants had to address cancer and noncancer effects. Declining the combined factor required specified endpoints: neurotoxicity, reproductive and developmental toxicity, immune suppression, liver damage, skin irritation and endocrine disruption. Choice between two compulsory routes did not permit a third or omission of endpoints.",
+        "Case-specific treatment for unusual components or unconventional scenarios did not loosen ordinary mandatory commands. Nor was EPA free under the document to question the default factor within that framework. Its later litigation assertion that policy could change anytime was absent from the unqualified assurance applicants could rely on. That agency obligation mattered even if the same number appeared in generic 1998 regulations. It did not mean any plan mentioning 4.0 automatically satisfied all other approval requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Legislative rule or policy; binding-effect application"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Application examples do not answer the text’s restrictions",
+      "cue": "How did this document differ from publication of scientific information alone?",
+      "paragraphs": [
+        "EPA said it had approved applications under both listed methods; GE disputed that. The court considered the disagreement immaterial because either way applicants remained limited to the prescribed routes and endpoints. EPA did not claim acceptance of a third approach, omitted endpoints or rejection of the promised default.",
+        "Chemical Manufacturers Association had addressed informational risk data that constrained nobody until incorporated into a particular rule. Here the document directly controlled an application’s method and EPA’s treatment. That distinction prevented treating all scientific values or informational publications as automatically subject to notice and comment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application evidence and scientific-data distinction"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Conceded procedural omissions require vacatur",
+      "cue": "What remained undecided about the scientific merits?",
+      "paragraphs": [
+        "Once the court classified the document as legislative and established jurisdiction, EPA conceded it had not published a proposed rule, allowed comments or held the informal hearing required by the applicable TSCA provisions. Both TSCA and Administrative Procedure Act § 553 supplied procedural requirements; the hearing obligation did not become a universal APA rule.",
+        "On May 17, 2002, the panel granted GE’s petition and vacated the Guidance Document without a separate opinion. It expressly left GE’s alternative substantial-evidence claim unresolved. Thus it neither found the default toxicity value scientifically wrong nor invalidated the underlying cleanup and disposal regulations. Immediate review and procedural invalidity followed the binding commands, not a judicial resolution of disputed science."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure, judgment and limits; Court and date"
+        }
+      ]
+    }
+  ]
+}

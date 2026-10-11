@@ -1,0 +1,125 @@
+{
+  "id": "cp-livingston",
+  "briefId": "CP-ATLAS-LIVINGSTON",
+  "title": "Livingston v. Jefferson",
+  "course": "Civil Procedure",
+  "citation": "15 F. Cas. 660, No. 8,411 (C.C.D. Va. 1811)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A claimant sues a former President where the defendant lives for alleged trespass to Louisiana land, but the local-action rule defeats that forum.",
+  "actors": [
+    {
+      "name": "Edward Livingston",
+      "role": "New York citizen claiming rights in New Orleans batture land."
+    },
+    {
+      "name": "Thomas Jefferson",
+      "role": "Virginia defendant accused of directing acts while President; sued after leaving office."
+    },
+    {
+      "name": "John Tyler and John Marshall",
+      "role": "District Judge and Circuit Justice who separately explained the same jurisdictional result."
+    }
+  ],
+  "proceedings": [
+    "Livingston filed in Virginia in 1810 using a fictional Virginia venue for alleged New Orleans trespasses.",
+    "Jefferson pleaded lack of jurisdiction; Livingston replied that Jefferson could not be reached in Orleans.",
+    "The court sustained Jefferson’s position on demurrer in 1811."
+  ],
+  "limits": "The decision adjudicated jurisdiction, not title, wrongdoing, presidential immunity, or statutory justification. Later venue legislation and an 1819 Virginia enactment in reporter commentary were not applied in 1811.",
+  "briefSha256": "ac0d077c505722c393862ead58ec67629aa9f1549b553e1e5f3aa62db97338a1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-LIVINGSTON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Livingston attributes New Orleans land injuries to presidential action",
+      "cue": "What did the declaration allege?",
+      "paragraphs": [
+        "In 1810 New Yorker Edward Livingston sued Virginian Thomas Jefferson, after Jefferson’s presidency, over alleged acts directed while he was President. Livingston claimed the Batture of the Suburb St. Mary in New Orleans, then the Territory of Orleans. Eight counts alleged entry, destruction of tools and materials, soil removal, expulsion, interference with canal and embankment work, and damage. These were pleading allegations, not findings of ownership or illegal conduct.",
+        "The counts placed events in New Orleans but appended the traditional fictional venue of Richmond in Henrico County. Jefferson demurred to some counts and pleaded denials and justifications, including congressional authority and lack of malice. The court did not resolve those merits defenses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Land dispute and pleadings; 15 F. Cas. at 660–661"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A jurisdictional plea isolates the land’s location",
+      "cue": "Why did Livingston say Virginia was his only effective forum?",
+      "paragraphs": [
+        "Jefferson separately pleaded that the entire land lay in Orleans, where a competent trespass court existed. Livingston replied that Jefferson had remained beyond those courts’ reach since the claim arose and instead resided within the Virginia court’s authority. Jefferson demurred to that reply, bringing its legal sufficiency before District Judge Tyler and Circuit Justice Marshall.",
+        "Both concluded that trespass to land remained a local action. Personal access to Jefferson in Virginia did not convert the claim to a transitory one."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jurisdictional posture; Issue and result; 15 F. Cas. at 661–665"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Tyler defends the settled local-action rule",
+      "cue": "Which practical and institutional concerns support his conclusion?",
+      "paragraphs": [
+        "Tyler explained that many once-local claims had become transitory, but land trespass, traditionally quare clausum fregit, had not. A venue fiction useful for contract litigation could not relocate an actual New Orleans parcel.",
+        "Title, boundaries, local knowledge, or a survey might become important, and process might need to reach local jurors, sheriffs, or surveyors beyond the Virginia court’s control. He cited a Virginia waste action in the wrong district to show that pleadings could not supply missing authority even after verdict.",
+        "General or natural law did not identify a competent court or displace established procedure. A competent court existed where the land lay, and a defendant’s possible evasion did not authorize judicial creation of jurisdiction merely to prevent a remedial gap."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Tyler explanation; 15 F. Cas. at 661–663"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marshall doubts the logic but regards precedent as controlling",
+      "cue": "Why did personal damages not overcome the historical category?",
+      "paragraphs": [
+        "Marshall traced locality to juries of the vicinity and the later fictions permitting foreign personal torts and contracts. Those fictions protected transitory actions but did not cover every jurisdictional objection or negate a location material to the merits.",
+        "A contract involving land could be transitory despite raising the same title and survey difficulties. For damages against a reachable defendant, Marshall saw no satisfactory nontechnical reason for treating trespass differently; proceedings against the property itself presented a more obvious control problem.",
+        "Still, authorities firmly distinguished transactions possible anywhere from causes necessarily tied to a place. Mansfield’s broad comments in Mostyn arose in personal injury, his land-trespass experiments lacked reviewed-court approval, and Doulson rejected the expansion. Later English cases evidenced the ancient rule rather than independently binding American courts. Virginia’s common-law adoption and a state rule allowing bystander juries did not determine federal jurisdiction, which depended on Constitution and federal statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Marshall explanation; 15 F. Cas. at 663–665"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Both judges uphold the jurisdictional objection despite a possible remedial gap",
+      "cue": "What does the decision leave undecided?",
+      "paragraphs": [
+        "Marshall recognized the serious problem of combining party-based federal jurisdiction with a requirement to find the defendant in the land’s district. A substantive right might lack an effective remedy if the defendant never went there. His dissatisfaction was not a dissent: precedent still required judgment for Jefferson on the demurrer. Tyler likewise said the cause must leave the court.",
+        "Livingston suffered a jurisdictional defeat. The court did not declare Jefferson immune as a former President, validate the asserted acts, decide title to the batture, or classify every land-connected claim as local; Marshall expressly distinguished contracts. Later casebook questions about § 1391 and the reporter’s 1819 statutory note remain subsequent commentary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Result; Assigned limits; 15 F. Cas. at 665"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "cp-eisen",
+  "briefId": "CP-ATLAS-EISEN",
+  "title": "Eisen v. Carlisle & Jacquelin",
+  "course": "Civil Procedure",
+  "citation": "417 U.S. 156 (1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A seventy-dollar investor claim could proceed economically only as a class, but identifiable members still needed individual notice financed by the representative.",
+  "actors": [
+    {
+      "name": "Morton Eisen",
+      "role": "Odd-lot trader bringing antitrust and securities claims."
+    },
+    {
+      "name": "Carlisle & Jacquelin and DeCoppet & Doremus",
+      "role": "Dealers handling ninety-nine percent of relevant odd-lot trading."
+    },
+    {
+      "name": "New York Stock Exchange",
+      "role": "Defendant accused of failing to regulate the differential."
+    }
+  ],
+  "proceedings": [
+    "The first class denial produced Eisen I and II appeals and further district-court proceedings.",
+    "The district court approved a reduced notice plan and shifted ninety percent of its cost after a preliminary merits hearing.",
+    "Eisen III directed class dismissal; the Supreme Court vacated and remanded to dismiss the original class without prejudice to redefinition."
+  ],
+  "limits": "The Supreme Court did not decide manageability or fluid recovery. Its appealability ruling concerned the collateral notice-cost order, and its individual-notice ruling concerned Rule 23(b)(3), not every class type.",
+  "briefSha256": "36e15ef61e56ae123667e6d2bc22f7e1f51b019644bf20d14437734502ae862a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-EISEN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Small trades generate a proposed class with millions of members",
+      "cue": "What was Eisen’s alleged injury and why did class treatment matter?",
+      "paragraphs": [
+        "Morton Eisen sued in the Southern District of New York on May 2, 1966, over New York Stock Exchange odd-lot trading, involving fewer than one hundred shares. Special dealers handled those trades as principals rather than ordinary round-lot arrangements. Carlisle & Jacquelin and DeCoppet & Doremus handled ninety-nine percent of the business, collecting an odd-lot differential besides brokerage commissions.",
+        "Eisen alleged monopoly and excessive differentials under Sherman Act §§ 1 and 2, sought treble damages, fees, and prospective relief, and asserted securities-law damages against the Exchange for failing to regulate. The class eventually covered traders from May 1, 1962, through June 30, 1966. His own alleged loss was only $70, making complex individual litigation unrealistic. After eight years no trial had established the violations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Underlying claims; 417 U.S. 159–162 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Repeated appeals lead to a cheaper notice plan and a preliminary merits hearing",
+      "cue": "What costs and alternatives did the district court consider?",
+      "paragraphs": [
+        "The district court first rejected class treatment. In Eisen I the Second Circuit allowed immediate appeal under its death-knell rationale; Eisen II reversed for renewed consideration of representation, manageability, notice, and other issues, rejected subdivisions (b)(1) and (b)(2), and purported to retain appellate jurisdiction. Only a Rule 23(b)(3) damages class remained possible.",
+        "After hearings and submissions, the district court found the action maintainable and proposed fluid recovery: unclaimed money would lower future traders’ differentials. The class numbered roughly six million people, institutions, and intermediaries. Trading records identified about two million by name and address, and special investment programs another 250,000. Full individual notice cost an estimated $225,000, later $315,000 after a postage increase.",
+        "The judge instead devised a $21,720 package of individual notice to Exchange firms and major trust departments, about 2,000 frequent traders and 5,000 random members, plus publication. Eisen refused even that expense. After a preliminary hearing predicting more-likely-than-not success, the judge charged defendants ninety percent, or $19,548. Eisen III rejected the reduced notice, merits hearing, cost shift, fluid recovery, and manageability, directing class dismissal. Eisen challenged both appellate jurisdiction and those rulings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Three appellate stages; 417 U.S. 161–169 & nn.3–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Powell finds an appealable cost decision without approving every earlier appeal theory",
+      "cue": "Which collateral right made immediate review available?",
+      "paragraphs": [
+        "Justice Powell’s majority applied § 1291 and Cohen’s collateral-order reasoning. Defendants’ claimed right not to finance their opponent’s class notice had been conclusively rejected on an issue separate from substantive liability, like Cohen’s security-for-expenses issue. The integrated notice questions could be reviewed with that cost order.",
+        "The Court did not rely on the Second Circuit’s claimed continuing jurisdiction after Eisen II and expressly reserved it. Nor did it endorse death-knell appeals for all class decisions. Because notice resolved this class as defined, it left manageability and fluid recovery, and jurisdiction to review them, undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appealability; 417 U.S. 169–172 & nn.8–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Individual notice cannot be scaled down to match Eisen’s resources",
+      "cue": "Why did representation and small stakes not substitute for notice?",
+      "paragraphs": [
+        "The historical Rule 23(c)(2) required best-practicable notice in (b)(3) actions, including individual notice to everyone identifiable through reasonable effort. It informed members of exclusion rights, binding effect if they stayed, and appearance through counsel. The text and Advisory Committee explanation made direct notice mandatory; Mullane and Schroeder reinforced its superiority to publication for known addresses.",
+        "Expense and an expectation that tiny claims would produce few opt-outs did not eliminate members’ choices to litigate separately or participate. Adequate representation and notice were both required. The Court also answered Eisen’s limitations concern by referring to American Pipe’s class tolling rule. The Rule itself decided the issue without relying solely on constitutional minimums. Footnote 14 confined this specific requirement to (b)(3), not by its terms (b)(2) injunction or declaratory classes.",
+        "Rule 23 likewise supplied no preliminary merits hearing as a device for establishing class treatment or shifting notice costs. Certification requirements, not probable ultimate victory, were the inquiry. A tentative liability decision without full trial safeguards could prejudice defendants and color later proceedings. Initial notice ordinarily belonged to the representative financing a genuinely adversarial suit. The Court reserved settings involving preexisting fiduciary relationships, such as derivative litigation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Notice and costs; 417 U.S. 173–179 & nn.11–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The original class is dismissed while a narrower class remains possible",
+      "cue": "How did the partial dissent seek greater flexibility?",
+      "paragraphs": [
+        "On May 28, 1974, the Court vacated the Second Circuit judgment and remanded for dismissal of the original class because Eisen consistently refused its notice costs. The order was without prejudice to redefinition under Rule 23(c)(4) or Rule 15. The Court did not approve a particular smaller class or assume Eisen would finance it.",
+        "Douglas, joined by Brennan and Marshall, generally agreed with addressed issues but emphasized possible subclasses: monthly or payroll investors, frequent traders, or particular periods. Existing brokerage mailings might reduce marginal cost; Eisen’s membership in a viable subclass remained unknown. Douglas favored flexible judicial boundary adjustment without unnecessarily amending the full complaint, while acknowledging unresolved tolling and preclusion consequences for outsiders. These were proposals to preserve remedies for diffuse small injuries, not findings certifying a subclass.",
+        "Powell was joined by Burger, Stewart, White, Blackmun, and Rehnquist. The assigned account’s $20,000-plus number describes the reduced plan, and its reversal shorthand compresses the actual vacatur. Later Oppenheimer, Larson, and Hunt accounts are separate decisions rather than additions to this 1974 holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and partial dissent; Assignment reconciliation; 417 U.S. 179–186 & n.16"
+        }
+      ]
+    }
+  ]
+}

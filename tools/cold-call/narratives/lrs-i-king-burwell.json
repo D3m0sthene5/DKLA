@@ -1,0 +1,130 @@
+{
+  "id": "lrs-i-king-burwell",
+  "briefId": "LRS-ATLAS-I-KING-BURWELL",
+  "title": "King v. Burwell",
+  "course": "Legislation and the Regulatory State",
+  "citation": "576 U.S. 473 (2015)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Virginia residents challenge tax credits because the credits make insurance affordable enough to trigger their coverage obligation. The Court independently interprets the statute and upholds credits on the federal exchange.",
+  "actors": [
+    {
+      "name": "Four Virginia residents",
+      "role": "Plaintiffs who did not want insurance and challenged credits that removed their affordability exemption."
+    },
+    {
+      "name": "Internal Revenue Service",
+      "role": "Agency whose regulation extended premium credits to state and federal exchanges."
+    },
+    {
+      "name": "Secretary of Health and Human Services",
+      "role": "Federal official responsible for fallback exchanges where states declined to establish one."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed, finding credits on federal exchanges unambiguously authorized.",
+    "The Fourth Circuit affirmed through Chevron deference after finding ambiguity.",
+    "The Supreme Court affirmed six to three on June 25, 2015, independently interpreting § 36B."
+  ],
+  "limits": "This account follows the canonical source brief without a fresh audit or current tax-advice claim. Thresholds and coverage duties describe the 2015 scheme. Predicted premium and enrollment changes were projections, not events established after this judgment. Halbig was separate litigation, and similar statutory phrases in other provisions were expressly left open.",
+  "briefSha256": "f9306a72bc92b1d219ca909db36b7e0acbcc003c8bd79388630bea11e7426ea2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-KING-BURWELL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The insurance statute links coverage rules, purchase requirements and tax credits",
+      "cue": "Why did the federal fallback matter to the plaintiffs?",
+      "paragraphs": [
+        "The Affordable Care Act combined guaranteed issue and community rating, generally preventing health-based denial or price increases; a requirement generally to obtain insurance or make an Internal Revenue Service payment; and refundable premium tax credits for qualifying households. The majority later described these as interdependent responses to adverse selection: if healthy people could wait until illness, rising average costs could drive others out. Prior market experience and Massachusetts reforms explained that design without proving every market would inevitably collapse.",
+        "States could establish insurance exchanges. Where a state declined, the Secretary of Health and Human Services had to establish and operate a fallback. Section 36B’s credit calculation referred to coverage through an exchange established by the state under the designated provision. The IRS regulation allowed credits on both types. Virginia used a federal exchange.",
+        "Four Virginia residents did not want insurance. They asserted that without credits, premiums exceeded eight percent of income and exempted them from the coverage requirement; with credits, premiums fell below the threshold and they had to obtain insurance or pay. Their alleged injury therefore came from the credit’s interaction with the exemption, not denial of a desired benefit. They argued that federal-exchange credits exceeded statutory authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete facts; 576 U.S. 478–485"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts uphold the rule on different grounds",
+      "cue": "Why did the Supreme Court decline to use Chevron?",
+      "paragraphs": [
+        "The district court dismissed because it thought the Act unambiguously authorized federal-exchange credits. The Fourth Circuit affirmed after finding ambiguity and deferring under Chevron, which then required acceptance of certain reasonable agency constructions. On the same day the D.C. Circuit’s separate Halbig case reached the opposite result. Supreme Court review here concerned the Fourth Circuit’s King judgment, not a second judgment in Halbig.",
+        "Chief Justice Roberts wrote for Justices Kennedy, Ginsburg, Breyer, Sotomayor and Kagan. Even under the 2015 Chevron regime, ambiguity did not always imply delegation. Credits worth billions and affecting insurance prices for millions were central to the statutory scheme; Congress would have expressly assigned that extraordinary policy choice if it intended agency control. Delegation to the IRS was especially unlikely because it lacked expertise crafting this kind of health-insurance policy.",
+        "The Court therefore determined the statute’s correct meaning itself. Importance did not make the credits unlawful; nor did a merely reasonable agency interpretation make them lawful. The judicial interpretation could agree with the agency while rejecting its entitlement to binding deference."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and judgment; Independent interpretation; 576 U.S. 484–486"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority reads the disputed phrase with the fallback and exchange provisions",
+      "cue": "What contextual problems qualified the ordinary-language argument?",
+      "paragraphs": [
+        "Roberts acknowledged that the Act defined state as the fifty states and District of Columbia, excluding the federal government. But he examined the complete tax-credit phrase in context. The fallback required the Secretary to establish such exchange, referring to the exchange states were directed to create. The statutory definition and operating requirements pointed to that same provision. A strictly narrow reading would remove federal exchanges from the definition and associated requirements.",
+        "A similar literal problem affected qualified individuals, defined by residence in the state establishing the exchange. That approach would leave federal exchanges without qualified individuals despite provisions governing service to them. Other sections directed all exchanges to provide credit information, show after-credit calculators and send credit-related reports to Treasury. The majority found contextual ambiguity, not a universal redefinition of the federal government as a state. Footnote 3 reserved similar language in other provisions.",
+        "The surplusage canon was not absolute. The opinion noted inartful drafting and an unusual legislative process while reading the text as a whole. It claimed a broader reading permitted by these provisions, not general judicial authority to discard inconvenient words."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reading words within scheme; 576 U.S. 486–493 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The interlocking reforms resolve the ambiguity for the majority",
+      "cue": "Why did limiting credits to state exchanges undermine the intended fallback?",
+      "paragraphs": [
+        "Without credits, many federal-exchange customers would qualify for the affordability exemption, weakening healthy participation while guaranteed issue and community rating remained. The majority cited studies projecting significant premium increases and enrollment losses; the individual-market pool extended beyond exchange purchasers. Those were predictions used to interpret structure, not harms already caused and adjudicated.",
+        "Plaintiffs argued Congress intended to induce states to create exchanges. The majority responded that Congress explicitly provided an operational federal fallback for refusal, inconsistent with using refusal to undermine that fallback. It distinguished the dissent’s territory and separate long-term-care-program comparisons because territorial definitions were uncertain and the smaller program differed from these central reforms.",
+        "Section 36B’s opening language granted credits to applicable taxpayers within income and other eligibility criteria. Under plaintiffs’ reading, lower-level calculations would make that promise zero in federal-exchange states. The majority doubted Congress conditioned the entire reform’s viability through that mechanism, distinguishing other credits capable of computing to zero from this comprehensive program.",
+        "On June 25, 2015, the Court held § 36B authorized credits on either kind of exchange and affirmed the Fourth Circuit judgment. It acknowledged the danger of interpretation becoming legislation but found this result justified by text, context and structure. Because the Court supplied the statutory meaning, it did not leave the IRS free simply to choose the opposite answer as another reasonable construction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Broader structure; Judgment; Assigned significance; 576 U.S. 492–498 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Scalia accuses the majority of rewriting a clear limitation",
+      "cue": "What alternative explanation did the dissent give for the surrounding provisions?",
+      "paragraphs": [
+        "Justice Scalia dissented with Justices Thomas and Alito. Context could clarify but not replace established-by-the-state language, reinforced by the definition, separate creation provisions and repeated contrasts between exchanges generally and state-established exchanges. He thought the majority erased an operative condition and gave the same phrase inconsistent meanings.",
+        "Calculators could display zero credits, outreach could explain their absence, and instructions with unsatisfied predicates could be inapplicable. The calculation structure was normal tax drafting accommodating midyear moves or family coverage in different states. Those possibilities undercut the claimed contextual contradiction.",
+        "The dissent also considered state participation a possible independent objective. Harmful market consequences might show a legislative flaw, not permission for judicial repair. Congress should decide whether to alter the repeatedly chosen words. Scalia’s closing comparisons with other Affordable Care Act cases were criticism, not additional holdings here.",
+        "The vote was six to three, with no concurrence or appendix. The assigned later expertise discussion reiterates why this specific IRS question was unsuitable for presumed delegation; it does not turn every economically important issue into a categorical ban on agency action. The coverage duties, percentages and threshold recounted here belong to the 2015 scheme, not current eligibility advice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia dissent; Assigned significance and boundary; 576 U.S. 498–518"
+        }
+      ]
+    }
+  ]
+}

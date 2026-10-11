@@ -1,0 +1,111 @@
+{
+  "id": "cp-gunn",
+  "briefId": "CP-036",
+  "title": "Gunn v. Minton",
+  "course": "Civil Procedure",
+  "citation": "568 U.S. 251 (2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A patent owner tries to restart a lost malpractice case in federal court, but the embedded patent question cannot change the completed patent judgment or supply sufficient federal-system importance.",
+  "actors": [
+    {
+      "name": "Vernon F. Minton",
+      "role": "Patent owner and malpractice plaintiff."
+    },
+    {
+      "name": "Jerry W. Gunn and other attorneys",
+      "role": "Minton’s former patent lawyers and malpractice defendants."
+    },
+    {
+      "name": "NASD and NASDAQ",
+      "role": "Defendants in the earlier federal infringement suit."
+    }
+  ],
+  "proceedings": [
+    "The federal patent judgment of invalidity was affirmed after experimental use was raised too late.",
+    "Texas trial and intermediate appellate courts rejected malpractice; the Texas Supreme Court reversed for exclusive federal jurisdiction.",
+    "The United States Supreme Court unanimously reversed the jurisdictional decision and remanded."
+  ],
+  "limits": "The Court did not decide whether the lawyers committed malpractice or revive Minton’s patent. The earlier patent facts come from the full opinion’s Part I, omitted in the assigned excerpt.",
+  "briefSha256": "6a88f08d2c819ccb68abd68231e018f2c381a521d71681bdaad48d0d10d2d1d4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-036"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An early lease defeats the patent suit before the malpractice case begins",
+      "cue": "What argument did the lawyers allegedly fail to raise in time?",
+      "paragraphs": [
+        "Vernon Minton developed TEXCEN, a securities-trading system, leased it to a brokerage in March 1995, and applied for a related patent a little over a year later. The patent issued in January 2000. In his infringement suit against NASD and NASDAQ, those defendants invoked the lease under the on-sale bar, which prevented patenting after an invention had been on sale more than a year before application.",
+        "The federal district court invalidated the patent. Minton first argued experimental use on reconsideration, asserting the lease was ongoing testing rather than a disqualifying sale. Reconsideration was denied, and the Federal Circuit affirmed with that argument waived as untimely. Minton then sued his former lawyers, Jerry Gunn and others, in Texas for malpractice, claiming the omission caused his loss. They disputed whether experimental use would have succeeded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; Full opinion Part I; casebook 347–349"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "After losing in state court, Minton challenges its power to hear the case",
+      "cue": "Why did the malpractice claim contain a patent question?",
+      "paragraphs": [
+        "The attorneys obtained state summary judgment because the court found insufficient evidence of an experimental lease. Minton appealed, arguing that 28 U.S.C. § 1338(a) reserved the case to federal courts and allowed him to begin again. The intermediate Texas court rejected that jurisdictional theory and affirmed on the merits, but the Texas Supreme Court reversed, finding the patent issue substantial and federal uniformity important.",
+        "Chief Justice Roberts’s unanimous Supreme Court opinion treated the claim as state-created malpractice, requiring duty, breach, causation, and damages. Causation demanded a case within a case: would timely presentation of experimental use have changed the earlier patent result? Federal patent law was necessarily raised and actually disputed. Those two features, however, did not alone establish exclusive federal jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; Necessity and dispute; Full opinion Part I; casebook 347–349"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Substantiality concerns the federal system rather than the parties’ stakes",
+      "cue": "Why could the hypothetical result not carry the case into federal court?",
+      "paragraphs": [
+        "Under Grable’s framework, a state claim needed a necessarily raised, actually disputed federal question substantial to the federal system and capable of federal resolution without disturbing Congress’s state-federal allocation. All four requirements applied. The same arising-under analysis governed general § 1331 and patent § 1338(a), although the latter excluded state jurisdiction over qualifying patent claims.",
+        "The Texas Supreme Court had relied on centrality and importance to these parties, which already explained necessity and dispute. Grable’s tax case implicated federal collection and tax-sale titles more broadly. Minton’s retrospective hypothetical could not change the actual invalid patent even if a state judge concluded the timely argument should have saved it.",
+        "Federal courts deciding actual patent controversies would not be bound by state hypothetical patent reasoning, and state judges ordinarily would follow governing federal precedents. A recurrent novel question would eventually receive authoritative federal resolution; a rarely arising one was unlikely to be systemically important. Expertise or potential state error alone could not create jurisdiction.",
+        "Minton proposed possible issue-preclusive effects on related patents, but supplied no concrete example. Even assuming some effect, party- and patent-specific consequences remained too fact-bound for arising-under jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule; Substantiality reasoning; casebook 347–350"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "States retain their professional-regulation role",
+      "cue": "What did the Supreme Court reverse without deciding malpractice?",
+      "paragraphs": [
+        "No substantial federal interest required moving this ordinary malpractice dispute, while states had a special responsibility for professional standards and regulating lawyers. Exclusive jurisdiction for actual patent cases did not show congressional intent to remove state malpractice actions whenever a hypothetical federal issue appeared.",
+        "On February 20, 2013, the Supreme Court reversed the Texas Supreme Court and remanded. Section 1338(a) did not deprive Texas courts of jurisdiction. The actual patent-invalidity judgment remained unchanged, and the Supreme Court resolved no ultimate malpractice liability. Its opinion and judgment were unanimous; the dissent mentioned in the procedural history belonged to the Texas court.",
+        "The narrow holding addresses this completed patent-case reconstruction. The broader framework keeps substantiality distinct from importance to a litigant, without declaring that every conceivable malpractice case touching federal law must always remain outside federal jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Balance; Judgment; Separate Opinions; Notes; casebook 350–351"
+        }
+      ]
+    }
+  ]
+}

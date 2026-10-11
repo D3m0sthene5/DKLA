@@ -1,0 +1,136 @@
+{
+  "id": "cp-tashire",
+  "briefId": "CP-087",
+  "title": "State Farm Fire & Casualty Co. v. Tashire",
+  "course": "Civil Procedure",
+  "citation": "386 U.S. 523 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A $20,000 insurance fund justified protecting the money, but not gathering every lawsuit from a deadly bus collision into one federal court.",
+  "actors": [
+    {
+      "name": "State Farm Fire & Casualty Company",
+      "role": "Insurer seeking statutory interpleader"
+    },
+    {
+      "name": "Ellis Clark",
+      "role": "Insured pickup driver"
+    },
+    {
+      "name": "Kenneth Glasgow",
+      "role": "Apparent pickup owner"
+    },
+    {
+      "name": "Greyhound Lines and Theron Nauta",
+      "role": "Bus company and bus driver"
+    },
+    {
+      "name": "Accident claimants",
+      "role": "Injured people and death claimants competing for compensation"
+    }
+  ],
+  "proceedings": [
+    "Oregon federal district court: enjoined underlying accident litigation and expanded protection to bus company and driver.",
+    "Ninth Circuit: ordered dissolution and dismissal.",
+    "Supreme Court: reversed and remanded for statutory interpleader with a substantially narrower injunction."
+  ],
+  "limits": [
+    "Fault, coverage, and entitlement to proceeds were not decided. Rule 22, Canadian service, indispensability, and aspects of statutory service remained open."
+  ],
+  "briefSha256": "59ccb33991a3d4f24a710c7515aed30bbc7169ad155c57ae3274033cf5bf859c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-087"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Many injuries confront a small insurance fund",
+      "cue": "Introduce the collision and the potential liabilities.",
+      "paragraphs": [
+        "In September 1964, a Greyhound bus collided with a pickup truck in California. Two bus passengers died and thirty-three were injured. Both drivers and the pickup passenger were injured as well. The affected people included Canadians and citizens of five states.",
+        "Ellis Clark drove the pickup, whose apparent owner was Kenneth Glasgow. Theron Nauta drove for Greyhound Lines. Four injured passengers filed California state-court suits seeking more than $1 million from the bus company, the drivers, and Glasgow. The individual alleged tortfeasors were Oregon citizens; Greyhound was a California corporation.",
+        "State Farm Fire & Casualty Company, an Illinois insurer, asserted that its policy covered Clark up to $10,000 per person and $20,000 per occurrence. It deposited $20,000 in federal court in Oregon and invoked statutory interpleader to bring competing claimants to the limited fund into one proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. at 525–527"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The injunction expands beyond the insurer’s money",
+      "cue": "Trace the orders that reached the Supreme Court.",
+      "paragraphs": [
+        "State Farm sought to require every claimant to proceed in Oregon against Clark and the insurer, and to obtain discharge from policy obligations, including its defense duties. Alternatively, it asserted an exclusion and sought return of the deposit. These requests did not establish either coverage or fault.",
+        "The district court issued an injunction and eventually broadened it to require claims against State Farm, Clark, Greyhound, and Nauta to proceed within the interpleader action. Greyhound had come to seek the injunction’s protection for itself and its driver. Several claimants opposed that use of interpleader.",
+        "On interlocutory appeal, the Ninth Circuit ordered dissolution of the injunction and dismissal. It reasoned that, without a state direct-action right, tort victims were not claimants against the insurer until they obtained judgments against its insured. The Supreme Court accepted review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. at 526–529"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Minimal diversity and contingent claims permit interpleader",
+      "cue": "Explain why the action itself could survive.",
+      "paragraphs": [
+        "Justice Fortas’s opinion first addressed diversity, an issue the Court raised itself. Section 1335 required minimal diversity: at least two adverse claimants had to differ in citizenship, even if other rival claimants shared citizenship. The statutory text, the purpose of resolving competition for one fund, and consistent interpretation supported that reading. Strawbridge, the earlier complete-diversity decision, had interpreted a statute rather than fixed Article III’s outer limit. The Constitution allowed this arrangement.",
+        "The statute also included people who might claim policy benefits. Congress restored that language in 1948. Requiring final tort judgments would let the first successful claimant consume all or too much of a small fund before other claimants could establish their rights. Early interpleader protected both the insurer and competing claimants, even though their substantive entitlement was still contingent. The absence of judgments therefore did not require dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. at 530–533"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The fund cannot become a device to control the whole accident",
+      "cue": "Explain why the broad injunction still failed.",
+      "paragraphs": [
+        "A dispute entirely about one fund might be fully resolved by an order protecting that fund. This collision produced a much broader controversy: personal-injury claims against several defendants, many claims that State Farm’s policy could not satisfy, and potential liability beyond the deposit.",
+        "State Farm could require enforcement against it of judgments against Clark to occur through the interpleader proceeding. That protected orderly allocation of its $20,000 against competing enforcement efforts. Enjoining adjudication of the underlying tort suits went farther than necessary. Section 2361 did not give a relatively small stakeholder control over all claimants’ choice of forum for separate claims. Congress had not made interpleader a general mechanism for centralizing mass-tort litigation.",
+        "The Court reversed the Ninth Circuit and remanded to the district court on April 10, 1967. Statutory interpleader could proceed, but the injunction had to be substantially narrowed. The deposit did not extinguish Clark’s possible personal liability or determine anyone’s ultimate entitlement to the money."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. at 533–538"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Douglas would wait until claimants acquired rights against the policy",
+      "cue": "Close with the disagreement and questions left open.",
+      "paragraphs": [
+        "Justice Douglas dissented in part. He agreed about minimal diversity and the need to limit any injunction, but would have affirmed dismissal because these victims were not yet claimants against State Farm. The policy and applicable state law required a judgment or agreed settlement before suing the insurer. He found the majority’s interpretation of the restored statutory language unsupported.",
+        "The Court left other questions unresolved: service on Canadian claimants, their asserted indispensability, and the reach or exclusivity of § 2361’s service provisions. It also declined to decide the Ninth Circuit’s interpretation of Rule 22, a separate interpleader route with different procedural limits, because State Farm had properly invoked statutory interpleader. The judgment accordingly resolved eligibility for this statutory fund proceeding while preserving substantial limits on what that proceeding could control."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386 U.S. at 528 n.3, 537 n.18, 538–541"
+        }
+      ]
+    }
+  ]
+}

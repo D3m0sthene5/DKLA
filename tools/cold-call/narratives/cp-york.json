@@ -1,0 +1,156 @@
+{
+  "id": "cp-york",
+  "briefId": "CP-046",
+  "title": "Guaranty Trust Co. v. York",
+  "course": "Civil Procedure",
+  "citation": "326 U.S. 99 (1945)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A noteholder seeks equitable relief from an allegedly conflicted trustee, and the Court decides whether a diversity court may bypass a state limitations bar without deciding that the bar actually applies.",
+  "actors": [
+    {
+      "name": "York",
+      "role": "Holder of notes and plaintiff representing holders who declined an exchange."
+    },
+    {
+      "name": "Guaranty Trust Company",
+      "role": "Indenture trustee and lender alleged to have acted under conflicting interests."
+    },
+    {
+      "name": "Van Sweringen Corporation",
+      "role": "Issuer of the notes and sponsor of the exchange during financial distress."
+    }
+  ],
+  "proceedings": [
+    "York unsuccessfully sought intervention in earlier litigation, then filed her own action.",
+    "The district court granted Guaranty summary judgment; the Second Circuit reversed and recognized an independent federal-equity approach to limitations.",
+    "The Supreme Court rejected that approach, reversed, and remanded with actual timeliness unresolved."
+  ],
+  "limits": "The Court did not find York’s claim time-barred or establish the alleged trustee breach. Its conditional choice-of-law ruling does not require identical federal and state procedures or remedies in every case.",
+  "briefSha256": "19440710d90d67e2046f4c0cd9abb4d09c13f3613b3116ae683b76a7b99835d5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-046"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Guaranty serves as trustee while banks finance affiliated companies",
+      "cue": "What conflict did York later allege?",
+      "paragraphs": [
+        "In 1930 Van Sweringen Corporation issued $30 million in notes under an indenture naming Guaranty Trust Company trustee. Guaranty and other banks also advanced substantial funds to affiliated companies. When financial trouble became evident in 1931, Guaranty cooperated in an exchange offering noteholders cash equal to half face value and shares of the corporation.",
+        "York received $6,000 in notes as a gift in 1934 from a donor who had declined the exchange. She alleged that Guaranty failed to protect noteholders and failed to disclose its lender interests while sponsoring the offer. The potential conflict was between its own lending position and trustee duties. These were allegations underlying state-created rights, not findings of breach by the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 326 U.S. at 100–01"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "York files a separate diversity action after intervention is denied",
+      "cue": "Which appellate issue did the Supreme Court agree to decide?",
+      "paragraphs": [
+        "Other noteholders had sued Guaranty in the Hackner litigation, and York unsuccessfully sought intervention. In January 1942 she brought this action on behalf of nonaccepting noteholders, seeking equitable enforcement of the trustee’s obligations. Federal jurisdiction rested only on diversity.",
+        "The district court granted Guaranty summary judgment on Hackner’s authority. The Second Circuit concluded that the prior decision did not foreclose York and that a federal court in equity need not follow the state limitations rule governing an equivalent state action. The Supreme Court granted review of the second proposition.",
+        "It expressly did not determine whether New York law actually barred this suit. That application had not been decided on the basis under review. The question was whether an otherwise applicable state bar could be avoided merely by invoking independent federal equity, not whether every element of that bar was present."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 326 U.S. at 100–01, 112–13 and dissent n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Frankfurter ties enforcement in diversity to the source of the right",
+      "cue": "How did Erie change the role of general equity?",
+      "paragraphs": [
+        "Justice Frankfurter situated the case within Erie’s allocation of authority. Under Swift v. Tyson, federal judges had sometimes treated state decisions as evidence of an independently ascertainable general law. Erie rejected that approach for state-created rights. Access to a federal court because of diverse citizenship did not transfer power to create a different substantive entitlement.",
+        "York’s trustee claim arose under state law. A federal forum therefore could not treat it as a product of its own general equity to escape substantive constraints. But Frankfurter preserved federal equity’s institutional rules: traditional limits on relief, the adequacy of a legal remedy, federal statutes, and constitutional jury protections remained relevant. A state’s alteration of its courts’ remedial powers did not automatically change federal powers. The opinion did not make diversity courts identical to state tribunals for every procedural purpose."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: Erie and federal equity; 326 U.S. at 101–07"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A rule wholly barring recovery changes more than the method of enforcement",
+      "cue": "Why did the label procedural not resolve the limitations question?",
+      "paragraphs": [
+        "The critical distinction was what ignoring the state rule would accomplish. Different methods of enforcing a state right could be permissible. Allowing recovery where state law denied it changed the practical content of that right. A complete limitations bar was therefore not a minor procedural incident simply because other contexts called limitations remedial.",
+        "Substance and procedure were not universal categories. A rule could be classified differently for retroactivity, conflicts, enforcement of federal rights in state courts, or division of state and federal authority. For Erie, the comparison asked whether the legal rules would permit substantially the same result on the same claim between the same parties in the two forums. It did not demand identical factual verdicts from different judges or juries.",
+        "If a state court could grant nothing because the claim was late, a federal court’s contrary approach could turn defeat into success. That material difference persisted even if state law treated limitations as remedial, allowed waiver, or preserved other legal consequences of a barred obligation. Those features were part of state law, not a license to disregard its bar."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 326 U.S. at 107–11 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The federal-equity exception would alter litigants’ forum incentives",
+      "cue": "What unequal treatment concerned the majority?",
+      "paragraphs": [
+        "An independent federal-equity approach would invite eligible litigants to choose diversity jurisdiction specifically to escape unfavorable state limitations. People asserting the same state-created rights would receive different legal treatment depending on whether diversity was available. Providing a forum against feared local prejudice did not justify that difference in enforcement.",
+        "The majority accordingly required respect for a state limitations rule if it barred the equivalent state-court recovery. Nothing in that conclusion established how New York’s law treated York’s dates, theories, or possible exceptions; that work remained after remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Forum choice and reserved application; 326 U.S. at 101, 111–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Rutledge would first resolve timeliness and preserve federal equitable independence",
+      "cue": "Why did he view the majority as intruding on Congress’s remedial choices?",
+      "paragraphs": [
+        "Justice Rutledge, joined by Justice Murphy, first objected to deciding the broad federalism question before knowing whether New York actually barred York. If her action remained timely, the larger ruling could have no practical significance. He preferred remand on that narrower issue.",
+        "On the broader point, he accepted Erie for substantive state rights but emphasized Congress’s grant of historically independent federal equity, under which limitations statutes were not invariably absolute barriers. Extending Erie into this mixed remedial area threatened Congress’s power over federal remedies. Congress, he argued, should make any change to that longstanding arrangement.",
+        "He also noted that the forum’s limitations law could differ from the law creating the right. A shorter forum period could defeat a right enforceable where it arose, particularly when personal jurisdiction limited available places to sue. That possibility reinforced his resistance to treating every remedial difference as compelled state-law control."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rutledge dissent; 326 U.S. at 112–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The case returns under a state-law rule whose actual effect remains open",
+      "cue": "What must be kept conditional in stating the result?",
+      "paragraphs": [
+        "After argument January 3–4, the Supreme Court decided June 18, 1945, reversed the Second Circuit, and remanded. Justices Roberts and Douglas did not participate. Federal equity could not bypass an applicable New York limitations bar, but the Court did not hold York’s action untimely or decide the underlying alleged breach.",
+        "The case rejects a particular independent-equity exception and asks whether ignoring state law materially changes enforcement of state-created rights. Later Hanna and Byrd decisions address valid Federal Rules and countervailing federal interests. York is not an unqualified instruction to follow every state rule capable of affecting a result; its precise holding remains conditional on the state bar actually applying."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 326 U.S. at 101, 105–12"
+        }
+      ]
+    }
+  ]
+}

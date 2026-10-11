@@ -41,10 +41,15 @@
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CT-ADDITIONAL-CM-B1-040"
+    },
+    {
+      "id": "erc-clarification",
+      "label": "Texaco opinion excerpt: ERC identification",
+      "url": "https://ocw.mit.edu/courses/15-649-the-law-of-mergers-and-acquisitions-spring-2003/2522a1c4f81b544ba854e8751de95374_class1texacopennzoilexcerpts.pdf"
     }
   ],
   "review": {
-    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed. ERC identification supplemented from a primary opinion excerpt verified by the integration reviewer; no additional full-opinion audit claimed.",
     "checkedOn": "2026-10-11",
     "chronology": true,
     "antecedents": true,
@@ -72,13 +77,17 @@
       "title": "Price negotiations lead to a board vote and asserted acceptance",
       "cue": "Why did the parties later dispute the significance of formal papers?",
       "paragraphs": [
-        "On January 3 Pennzoil offered $110 per share plus a contingent payment related to Getty Oil’s ERC interest. The Museum’s lawyer indicated acceptance of $110 and a deferred $5 if the deal was firm. The board voted fifteen to one for a proposal involving that $5 payment. During a recess, Pennzoil chief executive Hugh Liedtke accepted the counterproposal, and that acceptance reached the board before adjournment.",
+        "On January 3 Pennzoil offered $110 per share plus a contingent payment tied to the sale of ERC Corporation, Getty Oil’s subsidiary. The Museum’s lawyer indicated acceptance of $110 and a deferred $5 if the deal was firm. The board voted fifteen to one for a proposal involving that $5 payment. During a recess, Pennzoil chief executive Hugh Liedtke accepted the counterproposal, and that acceptance reached the board before adjournment.",
         "Participants also discussed management protections. Pennzoil relied on congratulations and public announcements as manifestations of a completed agreement. Getty’s January 4 release called it an agreement in principle, subject to a definitive merger agreement, shareholder approval, and regulatory requirements. Lawyers continued drafting implementation documents. Pennzoil regarded those papers as implementing a present obligation; Texaco later argued that execution and unresolved details prevented any obligation."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "Facts; Positions; 729 S.W.2d at 785–795"
+        },
+        {
+          "id": "erc-clarification",
+          "pinpoint": "729 S.W.2d at 785, 790; limited clarification verified by integration reviewer, not a second full-opinion audit"
         }
       ]
     },

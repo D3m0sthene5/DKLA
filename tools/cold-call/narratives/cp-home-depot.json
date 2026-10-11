@@ -1,0 +1,132 @@
+{
+  "id": "cp-home-depot",
+  "briefId": "CP-ATLAS-HOME-DEPOT",
+  "title": "Home Depot U.S.A., Inc. v. Jackson",
+  "course": "Civil Procedure",
+  "citation": "139 S. Ct. 1743 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A credit-card collection suit turns into class counterclaims against new parties, and the Court holds that those additional counterclaim defendants cannot use the general or CAFA removal routes.",
+  "actors": [
+    {
+      "name": "Citibank",
+      "role": "Original collection plaintiff."
+    },
+    {
+      "name": "George Jackson",
+      "role": "Original defendant who asserted counterclaims and third-party class claims."
+    },
+    {
+      "name": "Home Depot U.S.A., Inc.",
+      "role": "New counterclaim defendant attempting removal."
+    },
+    {
+      "name": "Carolina Water Systems",
+      "role": "Additional counterclaim defendant accused in the alleged sales scheme."
+    }
+  ],
+  "proceedings": [
+    "The district court remanded the removed action.",
+    "The Fourth Circuit accepted CAFA review and affirmed remand.",
+    "The Supreme Court affirmed, 5–4, under both § 1441(a) and § 1453(b)."
+  ],
+  "limits": "Unlawful sales, debt invalidity, and class certification were not decided. Home Depot’s third-party counterclaim status differs from both an original defendant and an original plaintiff facing a counterclaim.",
+  "briefSha256": "fcb48b59738b8301a1fba27fb14e8defd740299d5a2dd5b4bc27384fbc3512e6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-HOME-DEPOT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A collection complaint produces new claims against the seller and installer",
+      "cue": "How did Home Depot become a party without choosing the state forum?",
+      "paragraphs": [
+        "Citibank sued George Jackson in North Carolina state court in June 2016 to collect Home Depot credit-card charges. In August Jackson answered with an individual counterclaim against Citibank and third-party class claims against Home Depot and Carolina Water Systems. He alleged unlawful referral sales and deceptive or unfair practices inducing homeowners to buy overpriced water-treatment systems, asserted Citibank’s joint liability, and sought to void his obligations. None of that misconduct was a Supreme Court finding.",
+        "Citibank dismissed its collection claims in September. A month later Home Depot removed, invoking diversity, general removal, removal procedure, and the Class Action Fairness Act, or CAFA. Jackson sought remand because Home Depot had entered as an additional defendant to his counterclaim, not to Citibank’s original complaint. He later amended away Citibank references.",
+        "The district court remanded. The Fourth Circuit accepted the authorized CAFA appeal and affirmed. Home Depot stressed that, unlike the original plaintiff denied counterclaim-based removal in Shamrock Oil, it had never selected state court. The Supreme Court considered whether statutory text nevertheless excluded it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedure; Court slip 3–5 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Thomas reads defendant in the setting of the original civil action",
+      "cue": "Why did § 1441(a) exclude the newly sued party?",
+      "paragraphs": [
+        "Justice Thomas’s five-Justice majority began with § 1441(a)’s civil action over which a district court would have original jurisdiction. That inquiry examines the plaintiff’s operative complaint; counterclaims do not create the original jurisdiction contemplated there. The defendant to that action therefore meant the defendant to that complaint, not every later counterclaim target.",
+        "Federal Rules separately describe defendants, third-party defendants, and obligations to answer complaints or counterclaims. Other statutes used broader terms: bankruptcy permits a party to remove a claim, and patent and copyright legislation permits any party to remove qualifying actions. Congress knew how to extend eligibility beyond original defendants.",
+        "Shamrock Oil did not specifically decide a newly joined involuntary party, and Home Depot had not chosen the forum. Still, no textual basis distinguished kinds of counterclaim defendants. In Shamrock Oil an original plaintiff remained plaintiff despite a counterclaim; a counterclaim did not initiate a new civil action with rearranged roles. Adding Home Depot likewise created no new action for removal purposes.",
+        "Protective purposes did not entitle everyone involuntarily sued to remove; ordinary diversity removal itself contains a forum-defendant limit. Broader role switching also complicated whose consent § 1446 required and when an original defendant became plaintiff. Consistent statutory roles avoided those problems."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; Court slip 5–9 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "CAFA’s any defendant relaxes restrictions within the same category",
+      "cue": "What did the majority think each clause changed?",
+      "paragraphs": [
+        "Home Depot argued § 1453(b)’s any-defendant language broadened eligibility for qualifying class claims. Thomas called this closer but read the words in context. One clause disregards a defendant’s forum citizenship, lifting the forum-defendant bar. Another permits any defendant to act without everyone’s consent, lifting unanimity. Neither redefined who qualified as a defendant.",
+        "CAFA and § 1441 also both referred to § 1446 procedure. Inconsistent meanings across that scheme would create confusion. Litigants’ ability to structure class counterclaims to avoid removal did not authorize rewriting the categories. Congress could amend an undesirable consequence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "CAFA analysis; Court slip 9–11 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Alito sees an involuntary defendant within the broader words and purpose",
+      "cue": "Why did the dissent distinguish Home Depot from the Shamrock Oil plaintiff?",
+      "paragraphs": [
+        "Justice Alito dissented with Roberts, Gorsuch, and Kavanaugh. CAFA addressed perceived state-court abuse in interstate class litigation by relaxing complete diversity, unanimity, forum citizenship, and the one-year limit. A newly sued party had not chosen state court any more than an original defendant. Exclusion because claims appeared later frustrated that objective.",
+        "Ordinary usage called Home Depot a defendant: it was sued and was no plaintiff. Third-party identified a subset and any broadened the noun. An original plaintiff facing counterclaims remained different because it voluntarily chose the forum; Alito did not need to overrule Shamrock Oil.",
+        "He also thought CAFA could be broader even if § 1441 were narrow. It had no ordinary antiremoval presumption, alleged earlier consensus excluding third-party defendants was incomplete, and congressional silence did not prove adoption. Bankruptcy and patent statutes used party partly to include original plaintiffs too, so their breadth did not show CAFA excluded newly sued defendants. CAFA’s operative language and § 1332(d) connection supplied its own authorization.",
+        "Finally, the well-pleaded complaint rule addressed whether federal jurisdiction existed, distinct from who could remove an action already satisfying jurisdictional requirements. His reading preserved those requirements while recognizing broader defendants, with consequences for consent and separately removable federal claims as well."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito dissent 1–26 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The remand remains in place",
+      "cue": "What did the judgment leave to the state proceeding?",
+      "paragraphs": [
+        "On May 28, 2019, the Court affirmed the Fourth Circuit. Thomas, Ginsburg, Breyer, Sotomayor, and Kagan held that neither § 1441(a) nor CAFA § 1453(b) allowed removal by this additional counterclaim defendant. The class allegations did not change that statutory position.",
+        "The Court did not determine whether Jackson owed the debt, whether the water-system allegations violated North Carolina law, or whether any class should be certified. Its decision preserved remand and resolved removal eligibility, not the underlying claims or all later developments in removal law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Court slip 11"
+        }
+      ]
+    }
+  ]
+}

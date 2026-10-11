@@ -1,0 +1,140 @@
+{
+  "id": "cp-krupski",
+  "briefId": "CP-ATLAS-KRUPSKI",
+  "title": "Krupski v. Costa Crociere S.p.A.",
+  "course": "Civil Procedure",
+  "citation": "560 U.S. 538 (2010)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A passenger sues a cruise marketing company rather than the related carrier, and relation back turns on what the carrier understood about that mistake.",
+  "actors": [
+    {
+      "name": "Wanda Krupski",
+      "role": "Passenger injured aboard Costa Magica and plaintiff seeking relation back."
+    },
+    {
+      "name": "Costa Cruise Lines",
+      "role": "Florida-addressed sales and marketing agent initially sued."
+    },
+    {
+      "name": "Costa Crociere S.p.A.",
+      "role": "Italian carrier later named and served; shared counsel with the initial defendant."
+    }
+  ],
+  "proceedings": [
+    "The District Court permitted amendment but dismissed the carrier claim as untimely.",
+    "The Eleventh Circuit affirmed based on Krupski’s knowledge and delay.",
+    "The Supreme Court reversed and remanded, unanimously in result."
+  ],
+  "limits": "The relevant Rule 4(m) period was historically 120 days, not the later ninety-day period in surrounding course commentary. The judgment did not decide negligence or compensation.",
+  "briefSha256": "2d9692907d3fb6f21b5ae7773a796dff815edb28b5a5a24d597bbca3311679a2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-KRUPSKI"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A ticket identifies related cruise entities in different roles",
+      "cue": "Why did counsel initially approach the marketing company?",
+      "paragraphs": [
+        "On February 21, 2007, Wanda Krupski tripped over a cable on Costa Magica and fractured her femur. The ticket identified Italian Costa Crociere as carrier, but Costa Cruise Lines issued it as sales and marketing agent. Its face showed Costa Cruise’s Florida address and advertised ambiguously named Costa Cruises.",
+        "The ticket required injury notice within 185 days, suit within a year, and carrier service within 120 days after filing, and selected the Southern District of Florida for this category of claim. Counsel notified Costa Cruise in July; its administrator pursued potential settlement without disclaiming responsibility. No settlement followed.",
+        "On February 1, 2008, three weeks before the deadline, Krupski sued Costa Cruise in diversity and served it three days later. The negligence complaint described ownership, operation, management, supervision, and control of the ship—carrier functions assigned in the pleading to the agent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Wrong related company; 560 U.S. at 541–543"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The corporate distinction emerges after the filing period",
+      "cue": "When did amendment and dismissal occur?",
+      "paragraphs": [
+        "After the year expired, Costa Cruise identified Costa Crociere in its answer, disclosure, and summary-judgment motion. Krupski requested limited discovery and amendment, explaining reliance on travel documents, website, Florida registration, and the claims response.",
+        "The court allowed amendment July 2, 2008; she filed July 11 and served Costa Crociere August 21 within the court’s deadline. Costa Cruise was dismissed by stipulation that same August day, after amendment, not before. The carrier, represented by the same counsel, moved to dismiss as untimely."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Chronology; 560 U.S. at 543–545"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The lower courts treat knowledge and delay as defeating mistake",
+      "cue": "Which relation-back conditions were already satisfied?",
+      "paragraphs": [
+        "Rule 15(c)(1)(C) required the same conduct or occurrence, sufficient timely notice to avoid defense prejudice, and knowledge by the added party within the Rule 4(m) period that it would have been sued but for an identity mistake. The period applied here was 120 days.",
+        "The District Court found the same occurrence, constructive notice, and no unfair prejudice. It nevertheless regarded the initial naming as deliberate rather than mistaken, stressing later disclosures and delay. The Eleventh Circuit affirmed because Krupski had given counsel the ticket and thus knew or should have known the carrier’s identity; it also relied on delay in seeking and filing amendment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Lower courts; 560 U.S. at 545–547"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Sotomayor places the focus on the prospective defendant’s understanding",
+      "cue": "Why is knowing a name different from an informed choice?",
+      "paragraphs": [
+        "The rule asked what Costa Crociere knew or should have known within the notice period, not whether Krupski had information from which she could identify it. Knowing two entities exist does not establish correct understanding of their roles. An informed choice between them defeats mistake, but deliberately choosing on a mistaken understanding does not. The plaintiff’s information matters only as evidence of the prospective defendant’s reasonable understanding, and reasonableness of her mistake is not an independent requirement.",
+        "This balances merits adjudication with repose. A defendant unaware of any attempt to sue it can reasonably rely on expiration; one recognizing that mistaken identity spared it naming has a weaker claim. Notice and prejudice conditions still protect finality. The Court also used the 1966 amendment’s history of benefits cases mistakenly naming governmental entities or former officials despite documents identifying the correct official.",
+        "Nelson differed because the later effort to add an owner arose from collection concerns after judgment against a corporation, not an initial misconception of the owner’s role. The Court did not resolve every other unknown- or misidentified-defendant case, and its plaintiff-defendant language was shorthand for a rule applying generally to changes in parties and pleadings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and distinctions; 560 U.S. at 546–552 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Diligence is not an extra requirement under Rule 15(c)",
+      "cue": "How can later conduct still matter?",
+      "paragraphs": [
+        "Once stated relation-back conditions are met, Rule 15(c) mandates that treatment. It differs from Rule 15(a)’s discretionary permission to amend, where undue delay can matter. Postfiling conduct may reveal whether the initial omission was understood as a mistake, but does not supply a separate diligence penalty.",
+        "The rule also requires timely sufficient notice of the action, not amendment or formal service of the amended pleading within Rule 4(m). Krupski had moved within the scheduling order and did not have to accept the initial defendant’s unproved assertions immediately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Diligence; 560 U.S. at 552–556 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Costa Crociere should have recognized its own activities in the complaint",
+      "cue": "What result follows without deciding the injury claim?",
+      "paragraphs": [
+        "The carrier did not contest constructive notice. The complaint plainly targeted the ship’s operator, describing Costa Crociere’s functions under Costa Cruise’s name. It offered no persuasive strategy explaining an informed decision to sue only an entity unable to supply relief. Shared relationships, similar names, and confusing ticket presentation reinforced mistake; knowledge of ticket contents and later conduct did not establish informed omission.",
+        "The Court reversed the Eleventh Circuit and remanded. Scalia agreed except with using Advisory Committee intentions as authority for meaning; he accepted commentary as useful but treated the enacted text as controlling. All nine agreed in result. The carrier claim escaped the lower courts’ erroneous relation-back grounds, without a negligence finding, compensation order, or restoration of Costa Cruise as liable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application; Scalia; Judgment; 560 U.S. at 554–557"
+        }
+      ]
+    }
+  ]
+}

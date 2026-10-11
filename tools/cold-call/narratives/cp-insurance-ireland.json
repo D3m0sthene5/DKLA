@@ -1,0 +1,131 @@
+{
+  "id": "cp-insurance-ireland",
+  "briefId": "CP-ATLAS-INSURANCE-IRELAND",
+  "title": "Insurance Corporation of Ireland, Ltd. v. Compagnie des Bauxites de Guinee",
+  "course": "Civil Procedure",
+  "citation": "456 U.S. 694 (1982)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Foreign insurers challenge Pennsylvania jurisdiction but withhold ordered contact evidence; the Court sustains a sanction establishing the very facts their objection put in dispute.",
+  "actors": [
+    {
+      "name": "Compagnie des Bauxites de Guinee (CBG)",
+      "role": "Delaware corporation operating Guinean mines and claiming interruption losses."
+    },
+    {
+      "name": "Halco Mining",
+      "role": "Pennsylvania administrator and majority owner arranging insurance."
+    },
+    {
+      "name": "Insurance Company of North America (INA)",
+      "role": "Primary insurer providing the first $10 million."
+    },
+    {
+      "name": "Foreign excess insurers",
+      "role": "Subscribers to the additional layer; fourteen sought Supreme Court review."
+    }
+  ],
+  "proceedings": [
+    "The district court repeatedly ordered contact discovery and imposed a Rule 37 sanction after express warning.",
+    "The Third Circuit affirmed the petitioning insurers’ jurisdiction ruling on sanctions alone.",
+    "The Supreme Court affirmed unanimously in result; Powell used a narrower rationale."
+  ],
+  "limits": "Coverage and damages remained disputed. The Court reviewed the sanction, not the separate English-litigation injunction or compliant insurers’ disposition. The source contains differing dates for the first request, which are retained as a qualification.",
+  "briefSha256": "86ccede063a41b4884dfecef533e2db607f4792ca2c8b7171209d17d29068578",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-INSURANCE-IRELAND"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Pennsylvania administrators arrange insurance for the Guinean operation",
+      "cue": "Why did foreign insurers face suit in Pennsylvania?",
+      "paragraphs": [
+        "Compagnie des Bauxites de Guinee, or CBG, operated Guinean bauxite mines and processing facilities but incorporated in Delaware. Guinea owned forty-nine percent and Halco Mining fifty-one percent. Halco operated in Pennsylvania and supplied administrative services, including insurance procurement. In 1973 it instructed a broker to obtain $20 million business-interruption coverage. Insurance Company of North America, or INA, covered the first $10 million; twenty-one foreign insurers subscribed to the excess through London.",
+        "The foreign insurers initialed placing slips effective February 12, 1974, showing their shares. A cover note followed, without separate policies; they adopted INA’s terms insofar as applicable. CBG later alleged mechanical failures causing interruption losses above $10 million, and insurers refused indemnity. In December 1975 CBG sued in the Western District of Pennsylvania under diversity, with separate primary and excess counts. INA accepted jurisdiction, while the foreign insurers contested it. Fourteen became the Supreme Court petitioners. Policy liability was not decided in the jurisdiction appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Insurance arrangement; 456 U.S. 696–698 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The insurers repeatedly fail to produce evidence of Pennsylvania business",
+      "cue": "What notice preceded the sanction?",
+      "paragraphs": [
+        "CBG sought policies showing the foreign insurers’ Pennsylvania contacts. The opinion’s detailed narrative dates the first request August 1976, while later application says July 1977; that internal discrepancy does not change the sequence. Insurers first objected to burden, then said London brokers controlled the records. CBG narrowed the request to policies delivered in Pennsylvania or covering its risks.",
+        "The judge overruled objections, directed requests to brokers, and repeatedly extended deadlines. Offering inspection of roughly four million London files did not satisfy the required production. In December 1978 the court found no conscientious effort, expressly warned that continued failure would establish personal jurisdiction under Rule 37, and invited statistics or other evidence negating jurisdiction.",
+        "After further nonproduction, the court imposed the sanction in April 1979, treating sufficient business contacts as established for this litigation. It independently found actual contacts sufficient under Pennsylvania law and inferred submission from adopting INA’s contract. The Third Circuit affirmed the petitioners solely on sanction grounds, reversed as to three compliant insurers lacking contacts, and reversed an injunction against parallel English proceedings. Only the sanction ruling came before the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Discovery orders; 456 U.S. 698–701, 707–708 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White distinguishes personal jurisdiction from federal subject-matter power",
+      "cue": "Why did the insurers have to follow procedures for resolving their objection?",
+      "paragraphs": [
+        "The insurers argued that a court without proven jurisdiction could neither create it nor command their obedience. Justice White’s eight-Justice opinion distinguished Article III and statutory subject-matter limits from personal jurisdiction’s protection of individual liberty. Parties generally cannot create subject-matter power by consent, waive it by silence, or stop courts examining it, though the opinion recognized preclusion limits after an opportunity to litigate jurisdiction.",
+        "Personal jurisdiction can be waived or affected by conduct, including contractual submission, stipulation, participation, and failure to raise a timely Rule 12 objection. Its federalism dimension ultimately served individual due-process liberty, rather than an unwaivable independent sovereign restriction. Footnote 10 did not abolish minimum contacts; the issue was how facts demonstrating them could be established after obstructed discovery.",
+        "By submitting the objection for decision, a defendant accepts lawful procedures for resolving it, including appropriate factual presumptions. A limited appearance did not automatically concede contacts or waive all objections. It differed from refusing participation, risking default, and later challenging jurisdiction collaterally. Once litigated, the determination could have preclusive force."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jurisdiction distinction; Evidentiary connection; 456 U.S. 701–707 & nn.9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The sanction tracks evidence the insurers themselves withheld",
+      "cue": "Why was it a permissible inference rather than unrelated punishment?",
+      "paragraphs": [
+        "Hammond Packing permitted a presumption against a defense when a party withheld material proof; Hovey rejected striking a defense simply to punish violation of an unrelated deposit order. Rule 37 implemented the former evidentiary principle, not denial of a hearing merely for disobedience.",
+        "The Rule required a just sanction specifically related to the discovery issue. Review was for abuse of discretion, not whether the Supreme Court would select the same response. Repeated delay, unfulfilled compliance promises, extended deadlines, explicit warning, and missed opportunities to provide contrary information supported the judge’s choice. CBG’s jurisdiction claim was substantial, and the independent contacts finding reinforced that point.",
+        "The nexus was direct: discovery sought the extent of Pennsylvania business, the same contacts placed in dispute by the defense. Refusal blocked that proof, and the sanction established those facts. Their legal consequence—personal jurisdiction—did not make the inference unrelated. The holding did not authorize invented contacts as punishment for any discovery violation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Evidentiary connection; Just and related sanction; 456 U.S. 705–709 & nn.11–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Powell accepts this evidence but rejects a broader jurisdictional account",
+      "cue": "What exactly did the unanimous result leave intact?",
+      "paragraphs": [
+        "Justice Powell concurred only in the judgment. In a diversity case, he emphasized, personal jurisdiction must arise under the forum’s long-arm statute and constitutional limits. Rule 37 was no independent grant, and Rule 82 cautioned against extending jurisdiction through procedural rules. He feared the majority’s liberty theory could loosen contacts for an unconsenting defendant or imply a new federal jurisdictional basis.",
+        "Here CBG had made a prima facie contacts showing, and the district court considered the evidence independently sufficient. Powell would authorize discovery on that basis and accept the unrebutted showing after refusal. He warned against speculative foreign fishing expeditions but found this record adequate. The Third Circuit had not reviewed the alternative actual-contacts holding.",
+        "On June 1, 1982, the Supreme Court affirmed the Third Circuit as to these petitioners. White was joined by Burger, Brennan, Marshall, Blackmun, Rehnquist, Stevens, and O’Connor; Powell supplied the ninth result vote. No insurance damages were awarded and the English injunction issue remained outside review. The opinion applied historical Rule 37(b)(2)(A); later numbering in the assignment does not change the provision analyzed here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Powell concurrence; Judgment and scope; 456 U.S. 709–716 & concurrence nn.1–8"
+        }
+      ]
+    }
+  ]
+}

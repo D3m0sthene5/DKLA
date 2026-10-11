@@ -1,0 +1,105 @@
+{
+  "id": "gianni",
+  "briefId": "CT-SUP-0037",
+  "title": "Gianni v. R. Russel & Co., Inc.",
+  "course": "Contracts",
+  "citation": "281 Pa. 320, 126 A. 791 (1924)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A tenant claimed his landlord promised exclusive soft-drink sales, but the signed lease already regulated his merchandise without including that promise.",
+  "actors": [
+    {
+      "name": "Gianni",
+      "role": "Store tenant claiming an oral exclusivity agreement"
+    },
+    {
+      "name": "R. Russel & Co.",
+      "role": "Landlord disputing the alleged promise"
+    }
+  ],
+  "proceedings": [
+    "Jury awarded Gianni $3,694; judgment entered in the Court of Common Pleas.",
+    "Pennsylvania Supreme Court reversed and entered judgment for the landlord."
+  ],
+  "limits": "The Supreme Court resolved integration, not whether the agent actually made the promise. Gianni disavowed reformation for fraud, accident, or mistake. The account describes historical Pennsylvania doctrine.",
+  "briefSha256": "3159fd09ca377e28ff9f060322f83ee2320794867c24a1d5e4b8d671d5314e3b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-SUP-0037"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A new lease changes the store’s business",
+      "cue": "Tobacco is forbidden in writing",
+      "paragraphs": [
+        "Gianni operated a small store in a Pittsburgh office building, selling tobacco, fruit, candy, and soft drinks. When R. Russel & Co. acquired the building, it negotiated a new three-year lease with him. The document permitted merchandise including fruit, candy, and soda water, but prohibited tobacco sales on pain of immediate forfeiture. Prepared after the negotiations, the lease remained in Gianni’s possession and was read to him by two people, including his daughter, before he signed.",
+        "Gianni later said the landlord’s agent promised him the exclusive right to sell soft drinks in the building. He described that promise as consideration for higher rent, abandoning tobacco sales, and entering the lease. The document did not mention exclusivity. Soon afterward the landlord rented the adjacent room to a drug company without restricting its soft-drink sales, and Gianni claimed the resulting competition substantially reduced his receipts and profits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "281 Pa. at 321–322"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The tenant wins on the oral undertaking",
+      "cue": "The landlord challenges the legal basis",
+      "paragraphs": [
+        "Gianni sued for breach of the alleged oral agreement. He testified that the promise was made at least two days before execution and repeated at signing. Another witness corroborated an earlier conversation, but nobody present at signing corroborated that repetition. The landlord’s agent denied making the promise on either occasion.",
+        "A jury returned a $3,694 verdict for Gianni, and the Allegheny County Court of Common Pleas entered judgment. The landlord appealed, challenging, among other rulings, the refusal to enter judgment notwithstanding the verdict. It argued that the written lease superseded negotiations on the same subject.",
+        "Gianni expressly declined to seek reformation for fraud, accident, or mistake. His position was that exclusivity formed an independent oral contract outside the lease. The Pennsylvania Supreme Court therefore considered whether that theory could preserve the verdict, rather than resolving the witnesses’ credibility or deciding a properly asserted reformation claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "281 Pa. at 321–323"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court places exclusivity inside the written transaction",
+      "cue": "Consistency alone cannot preserve an omitted term",
+      "paragraphs": [
+        "Writing for the court, Justice Schaffer did not treat every signed document as automatically containing every agreement between its parties. The first question was whether the writing was the entire agreement on the relevant subject. That scope was for the court to determine by comparing the alleged oral bargain with the written one: would similarly situated parties naturally and normally include the term in the same instrument?",
+        "Here, the lease expressly governed the store’s use and merchandise. An exclusive right to sell soft drinks concerned the same commercial arrangement. Gianni himself tied the unwritten benefit to his written promise to stop selling tobacco. The supposed benefit was so closely connected to the preserved restriction that the court considered it especially natural to put both in one document.",
+        "Exclusivity did not necessarily contradict permission to sell soft drinks. But, once the writing was complete on that subject, the parol evidence rule barred adding related terms as well as contradicting express ones. A subject entirely absent from a document could present a different case; store use and sales restrictions were present here. Calling the promise a separate contract could not evade the effect of integration by splitting one transaction into written and oral causes of action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "281 Pa. at 323–325"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The verdict loses its foundation",
+      "cue": "Judgment goes to the landlord",
+      "paragraphs": [
+        "The court recognized fraud, accident, or mistake as possible grounds for reformation under the historical doctrine it applied, including equitable relief through Pennsylvania’s common-law forms. Gianni’s lawyer had expressly rejected that path. The ruling thus did not find fraudulent inducement disproved or declare every oral promise by a landlord unenforceable. It concerned this complete lease and an alleged promise directly related to its sales provisions.",
+        "On November 24, 1924, the Supreme Court reversed the tenant’s judgment and entered judgment for the landlord. It ordered neither a credibility retrial nor a reduced recovery. The legal inability to enforce the omitted term alongside the integrated lease disposed of the verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "281 Pa. at 325"
+        }
+      ]
+    }
+  ]
+}

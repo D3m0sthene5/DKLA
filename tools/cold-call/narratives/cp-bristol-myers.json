@@ -1,0 +1,145 @@
+{
+  "id": "cp-bristol-myers",
+  "briefId": "CP-ATLAS-BRISTOL-MYERS",
+  "title": "Bristol-Myers Squibb Co. v. Superior Court of California, San Francisco County",
+  "course": "Civil Procedure",
+  "citation": "582 U.S. 255 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Patients from many States join California residents in a California drug suit, but extensive local business does not supply the missing connection between that forum and the nonresidents’ particular injuries.",
+  "actors": [
+    {
+      "name": "Bristol-Myers Squibb (BMS)",
+      "role": "Delaware-incorporated, New York-headquartered seller of Plavix, with substantial California operations."
+    },
+    {
+      "name": "86 California and 592 nonresident plaintiffs",
+      "role": "Patients alleging harm from Plavix in eight California complaints."
+    },
+    {
+      "name": "McKesson",
+      "role": "California-based national distributor and codefendant whose contract plaintiffs invoked as a forum connection."
+    }
+  ],
+  "proceedings": [
+    "The superior court denied BMS’s motion to quash based on general jurisdiction.",
+    "After reconsideration following Daimler, the California courts rejected general jurisdiction but sustained specific jurisdiction on a divided sliding-scale approach.",
+    "The Supreme Court reversed and remanded on June 19, 2017, with eight Justices in the majority and Sotomayor dissenting."
+  ],
+  "limits": "The Court did not determine drug safety or liability, impose a comprehensive strict-causation test, decide Fifth Amendment limits in federal court, or resolve a nationwide class action with unnamed members. Judicial-report figures control: 86 California plaintiffs and more than $900 million local sales.",
+  "briefSha256": "b27c60ec102964ac46686867042c712582713e6e52b704ff387790fa5d02b1aa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-BRISTOL-MYERS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A nationwide prescription-drug dispute is assembled in California",
+      "cue": "Which events connected to California and which did not?",
+      "paragraphs": [
+        "Eight California state-court complaints alleged that Plavix, Bristol-Myers Squibb’s prescription blood thinner, injured 678 people: eighty-six California residents and 592 residents of thirty-three other States. Thirteen California-law theories included products liability, negligent misrepresentation, and misleading advertising. These remained allegations, not judicial findings about safety or wrongdoing.",
+        "Bristol-Myers Squibb, or BMS, was incorporated in Delaware and headquartered in New York, with substantial New York and New Jersey operations. California housed five research and laboratory facilities with approximately 160 employees, about 250 sales representatives, and a small advocacy office. BMS sold nearly 187 million Plavix pills there from 2006 to 2012 for over $900 million.",
+        "But BMS did not develop Plavix, devise its marketing, manufacture or package it, or seek approval in California; those activities occurred in New York or New Jersey. The nonresidents did not allege California prescriptions or purchases, ingestion or injury there, or treatment there. Their similar product claims arose from experiences elsewhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 258–259; Nationwide drug controversy"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "BMS challenges nonresident service and the state courts change jurisdictional theories",
+      "cue": "How did the sliding scale enter the case?",
+      "paragraphs": [
+        "BMS moved to quash service on the nonresidents’ claims. The superior court denied relief through general jurisdiction based on extensive local operations, and the court of appeal denied mandamus. After Daimler narrowed the corporate general-jurisdiction analysis around where a corporation is at home, the California Supreme Court ordered reconsideration. The court of appeal rejected general jurisdiction but sustained specific jurisdiction.",
+        "The California Supreme Court unanimously found no general jurisdiction but divided over specific jurisdiction. Its majority used a sliding scale: broader unrelated forum contacts allowed a less direct link between the forum and individual claims. It emphasized similarity to residents’ Plavix claims and California research unrelated to the drug. Three dissenters found that similarity could not cause out-of-state injuries to arise from local sales or marketing.",
+        "California’s jurisdictional statute reached the constitutional limit. The federal question therefore concerned Fourteenth Amendment limits on state-court authority. BMS did not contest jurisdiction over the California residents’ claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 259–261 & n.1; Procedural history"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Alito preserves the connection required for each specific claim",
+      "cue": "Why could convenience and substantial unrelated activity not substitute?",
+      "paragraphs": [
+        "Justice Alito wrote for Chief Justice Roberts and Justices Kennedy, Thomas, Ginsburg, Breyer, Kagan, and Gorsuch. General jurisdiction ordinarily allowed any claim against a corporation at home in the forum; specific jurisdiction required claims arising out of or relating to forum contacts. Relaxing the latter connection because unrelated business was extensive would collapse the distinction into a substitute general jurisdiction.",
+        "The nonresidents were neither prescribed Plavix nor buyers, users, or injured patients in California. The residents’ parallel experiences and unrelated local research could not establish the missing link. Relationships with third parties did not by themselves create the required defendant–forum–controversy affiliation.",
+        "Walden illustrated the limit: plaintiffs’ Nevada connections and foreseeable harm did not connect a Georgia-centered episode to Nevada. Here the asserted connection was weaker because these plaintiffs neither lived nor alleged harm in California. The majority did not set a comprehensive requirement of strict causation for all specific-jurisdiction cases.",
+        "Due process protected against a State’s coercive authority as well as travel burdens. Interstate federalism could restrict authority even where consolidated litigation was convenient and the forum had interests. Efficiency alone did not cure the absent connection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 261–266; Sliding-scale reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Prior cases and the distributor do not connect the nonresidents’ claims",
+      "cue": "How did the Court distinguish nationwide damages and plaintiff-class rights?",
+      "paragraphs": [
+        "In Keeton, a nonresident’s libel claim included injury from distribution in New Hampshire, permitting adjudication of nationwide damages on that already-connected claim. The Plavix nonresident claims lacked California injury. Plaintiff residence was therefore not a categorical prerequisite; a claim-linked forum injury was present in Keeton and absent here.",
+        "Phillips Petroleum v. Shutts concerned absent class plaintiffs’ due-process protections, not a defendant’s challenge to jurisdiction over itself. The Court would not infer an unannounced defendant-jurisdiction holding. Its notes distinguished the defendant’s ability to assert absent plaintiffs’ rights because of preclusion effects from the defendant’s own unasserted rights.",
+        "McKesson, a California-based distributor and codefendant, had a national Plavix distribution contract with BMS. Plaintiffs alleged neither relevant joint California acts nor derivative BMS liability for McKesson’s California conduct, and supplied no evidence identifying how their own pills reached pharmacies. Jurisdiction had to be established separately for BMS; the distributor’s address alone was insufficient. A materially different claim connecting the distribution relationship to injury was not decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 266–268 & nn.2–3; Precedents and distributor"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Sotomayor sees related nationwide conduct and practical fairness",
+      "cue": "What burdens did the sole dissenter foresee?",
+      "paragraphs": [
+        "Justice Sotomayor accepted the absence of general jurisdiction for this case while retaining her criticism of Daimler. She separated purposeful availment, relatedness, and reasonableness. BMS deliberately sought California’s market, and materially identical national advertising and distribution linked the claims to local business in her view. This differed from an unrelated accident outside the New York headquarters.",
+        "BMS already had to defend identical resident claims, and division among many States might increase burdens. Shared counsel and discovery allowed small claims to be pursued effectively; California had interests in efficient resident litigation and regulation of BMS and McKesson. Her reference to residency was shorthand for the different places of injury.",
+        "Sotomayor understood Walden as a purposeful-availment case, a requirement already satisfied here, and Keeton as allowing nationwide-course-of-conduct liability in a deliberately exploited forum. She found federalism concerns weak where affected States shared interests. She foresaw aggregation barriers involving defendants with different corporate homes or foreign corporations lacking an American home. Her notes distinguished this holding from BMS’s proposed strict-causation rule and identified the unresolved nationwide class-action question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 269–279 & dissent nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Supreme Court reverses while identifying possible alternative forums",
+      "cue": "Which questions remained open after remand?",
+      "paragraphs": [
+        "On June 19, 2017, the Supreme Court reversed the California Supreme Court and remanded. It did not determine products liability. BMS conceded general jurisdiction in New York and Delaware, where resident and nonresident claims could be consolidated; same-state plaintiffs probably could sue together at home, subject to their actual jurisdictional facts.",
+        "The Court expressly reserved whether the Fifth Amendment imposed the same limits in federal court. Sotomayor separately noted that this case did not involve an injured forum plaintiff representing unnamed nationwide class members. Neither reservation resolved that distinct situation.",
+        "The judicial report identifies eighty-six California plaintiffs and more than $900 million in California sales. The assigned editorial account’s eighty-eight and over-$1-billion figures should not replace those judicial facts. The result concerned missing claim connections on this record, not elimination of every form of nationwide litigation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "582 U.S. at 268–269; dissent at 278 n.4; Assigned-source reconciliation"
+        }
+      ]
+    }
+  ]
+}

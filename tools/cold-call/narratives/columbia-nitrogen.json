@@ -1,0 +1,173 @@
+{
+  "id": "columbia-nitrogen",
+  "briefId": "CT-CB-0596",
+  "title": "Columbia Nitrogen Corp. v. Royster Co.",
+  "course": "Contracts",
+  "citation": "451 F.2d 3 (4th Cir. 1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A falling phosphate market exposes competing understandings of a detailed supply contract, and exclusion of commercial context requires a new contract trial while the antitrust rulings stand.",
+  "actors": [
+    {
+      "name": "Royster Company",
+      "role": "Mixed-fertilizer producer and phosphate seller suing for breach."
+    },
+    {
+      "name": "Columbia Nitrogen Corporation",
+      "role": "Primarily a nitrogen producer, phosphate buyer, and antitrust counterclaimant."
+    },
+    {
+      "name": "Mobil",
+      "role": "Buyer at Royster’s resale of rejected phosphate."
+    }
+  ],
+  "proceedings": [
+    "A jury awarded Royster $750,000 on contract and rejected Columbia’s coercive-reciprocity claim.",
+    "The district court excluded commercial-context evidence and declined the noncoercive antitrust theory.",
+    "The Fourth Circuit affirmed all antitrust rulings, vacated the contract judgment, and remanded for a new contract trial."
+  ],
+  "limits": "Industry customs and prior dealings were offers of proof, not appellate findings. The court did not excuse Columbia’s purchase obligation, condemn the Mobil resale, or validate all reciprocal purchasing arrangements.",
+  "briefSha256": "d50551a62c45ab22a35a5322331414d919bfb155ac1fcdc8ac964902fc23b885",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0596"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A new phosphate plant changes the companies’ longstanding trading relationship",
+      "cue": "What did the negotiated writing require?",
+      "paragraphs": [
+        "Royster made mixed fertilizer from nitrogen, phosphate, and potash. Columbia principally produced nitrogen and some mixed fertilizer. For years Royster bought substantial amounts from Columbia while Columbia bought relatively little from Royster. In fall 1966, Royster built a phosphate facility with capacity beyond its own needs.",
+        "After extensive negotiations, a May 8, 1967 agreement required Columbia to buy at least 31,000 tons annually over an initial July 1, 1967–June 30, 1970 term, with extension and renewal provisions. The minimum comprised 15,000 tons each of diammonium phosphate and granular triple superphosphate and 1,000 tons of run-of-pile triple superphosphate. Listed prices included an escalation mechanism tied to raw-material and labor costs."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supply contract; 451 F.2d at 6–7, 12 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A price collapse leads to reduced orders, resale, and competing claims",
+      "cue": "Why did Columbia resist the written minimum?",
+      "paragraphs": [
+        "Phosphate market prices fell sharply. At Columbia’s request, Royster reduced the diammonium-phosphate price for three months in 1967 while reserving the original price afterward. Even the reduced price substantially exceeded market. Columbia ordered less than one-tenth of the first year’s scheduled quantity and offered to take the balance at market and resell without a brokerage fee. Royster insisted on the contract price and, after refusal of delivery, resold the goods for Columbia’s account below that price.",
+        "Royster sued for breach in diversity. Columbia contended that trade usage and six years of dealings meant the document did not impose inflexible quantities and prices. It also alleged unlawful reciprocal purchasing under federal antitrust law as both a defense and a treble-damages counterclaim.",
+        "The district court excluded Columbia’s commercial-context evidence, submitted only coercive reciprocity to the jury, and rejected the alternative noncoercive theory. The jury found for Royster on contract and against Columbia on antitrust, yielding a $750,000 contract judgment. Columbia appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supply dispute and proceedings; 451 F.2d at 6–8 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The rejected evidence described customary adjustment rather than unilateral cancellation",
+      "cue": "What would the witnesses have said?",
+      "paragraphs": [
+        "Experienced trade witnesses offered to describe fertilizer-material price and quantity figures as projections adjusted for weather, crops, farming practices, government programs, and market changes. Their proposed testimony included releasing buyers when a seller declined to meet competitors’ prices and treating written quantities as estimates. These were proffers to be evaluated at retrial, not appellate findings that industry contracts had no legal force.",
+        "Columbia also offered six years of dealings, mainly nitrogen sales and inventory exchanges, with substantial departures from written prices and quantities. It claimed four transactions in which Royster took none of the specified goods and more than $500,000 in reduced sales. An officer would describe how that history shaped Columbia’s negotiating understanding. The trial court excluded all of it because the detailed writing appeared clear and could not, in its view, be contradicted by usage or dealing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Excluded offers of proof; 451 F.2d at 7–8 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Butzner applies the Code’s commercial-context rule without demanding facial ambiguity",
+      "cue": "How could the evidence reasonably coexist with express terms?",
+      "paragraphs": [
+        "Judge Butzner held that Virginia’s Uniform Commercial Code displaced the older ambiguity prerequisite. Sections 8.1-102 and 8.2-202 promoted commercial practice and permitted usage and course of dealing to explain or supplement a final writing. Official comments expressly rejected facial ambiguity as a precondition.",
+        "Consistency still constrained admission. Under § 8.1-205(4), express terms prevailed where reasonable reconciliation was impossible, and prior dealing prevailed over usage. The inquiry therefore concerned reasonable consistency, not simply completeness or detail.",
+        "Several features permitted reconciliation here. The writing did not specifically exclude commercial-context interpretation or address adjustment in a declining market. Its quantity heading described products supplied under contract rather than simply purchased. The express default provision addressed unpaid delivered goods. Columbia rejected a proposed $10-per-ton charge for refused quantities, while Royster rejected an express competitor-price clause. Neither proposal became an agreed term; the final writing left consequences of refusal unresolved. Commercially understood meaning should be considered before deciding breach.",
+        "Columbia’s proffer sought a prevalent practice of mutual adjustment incorporated into the agreement, not a unilateral right to revise any term. The court did not authorize custom to defeat all specifically negotiated provisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "UCC interpretation; 451 F.2d at 8–10 & nn.4–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The merger clause does not specifically exclude the assumed commercial background",
+      "cue": "Why did integration not justify blanket exclusion?",
+      "paragraphs": [
+        "The contract rejected verbal understandings, declared itself complete, and required duplicate signatures and written seller approval. But § 8.2-202 distinguished consistent additional terms from usage and dealing that inform language. Integration can exclude further terms without excluding the context the parties assumed. Official commentary treated established usage and prior dealing as part of that background unless carefully negated.",
+        "The stereotyped merger language did not specifically negate those categories. Excluding the offered evidence therefore required vacatur and a new contract trial. This did not establish that every merger clause fails, disregard a specific exclusion of usage, or enter judgment that Columbia owed nothing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Merger clause; 451 F.2d at 10–11 & nn.9–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "A later purchase-order form supplies no independent escape from the contract",
+      "cue": "How did the court distinguish formation and modification?",
+      "paragraphs": [
+        "Columbia also sought judgment based on a purchase order sent ten days after execution and acknowledged by Royster. Reverse-side boilerplate reserved changes and claimed priority over inconsistent seller terms. Section 8.2-207 did not make that a new acceptance or confirmation of the kind in Columbia’s cited formation cases: the bargain already existed, and the order expressly referred to the May 8 contract.",
+        "Section 8.2-209’s elimination of a consideration requirement did not prove modification either. The reserved power addressed shipping and invoicing, with equitable adjustment of resulting seller costs, not alteration of the main contract. Those operational matters were not disputed. Nor did the form corroborate usage or dealing, neither of which authorized unilateral changes regardless of markets. Its exclusion was within discretion, although admission with a limiting instruction would also have been possible."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Later purchase order; 451 F.2d at 11–12 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Retrial requires fuller resale guidance, but antitrust findings remain intact",
+      "cue": "What did the panel decide about the different antitrust theories?",
+      "paragraphs": [
+        "Recovery of the contract-resale difference under § 8.2-706 required a good-faith, commercially reasonable resale to Mobil. The damages instruction was not independently reversible, but on retrial the jury needed fuller direction to seek as high a price as circumstances allowed and dispose of the goods to best advantage. Conflicting evidence about market, storage, and a large quantity made that important. The court did not find the Mobil sale unreasonable.",
+        "All antitrust rulings stood. The jury rejected the claim that Royster used nitrogen purchases to coerce Columbia into buying phosphate. Columbia had not distinctly preserved an objection to the interstate-commerce instruction and had sought and obtained a favorable supplement within the same per se framework. It could not switch theories on appeal, and the verdict showed no prejudice. Whether coercive reciprocity should initially have gone to the jury was not directly at issue because Royster won.",
+        "For noncoercive reciprocity, the panel assumed without deciding a Sherman Act § 1 violation but rejected the contract defense under Kelly v. Kosuga. The phosphate sale was an intelligible, voluntarily accepted exchange for fair consideration, and reciprocity ended before suit. Enforcing damages would not itself compel the forbidden practice or exclude rivals. The court reserved the different situation of coercion.",
+        "The treble-damages counterclaim also failed under the panel’s reading of Perma Life. That precedent involved unequal parties without meaningful voluntary participation and left complete involvement unresolved. After coercion failed here, the remaining theory involved economically comparable actors equally and voluntarily responsible. Columbia could not shift the consequences of a market-driven unprofitable bargain to its partner through treble damages. Government or outsider challenges and the arrangement’s underlying legality remained reserved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages and antitrust; 451 F.2d at 12–16 & nn.13–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The contract returns for trial while the antitrust disposition is affirmed",
+      "cue": "What was the precise partial result?",
+      "paragraphs": [
+        "On October 26, 1971, the Fourth Circuit affirmed all antitrust issues, vacated Royster’s contract judgment, and remanded for further proceedings including a new contract trial. Each party bore its own costs. Chief Judge Haynsworth and Judge Winter joined Butzner without a separate writing or recorded dissent.",
+        "The holding opens the evidentiary inquiry into this bargain’s commercial meaning. It does not declare Columbia free of its purchase duties or approve reciprocal purchasing generally."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition and source scope; 451 F.2d at 6, 16"
+        }
+      ]
+    }
+  ]
+}

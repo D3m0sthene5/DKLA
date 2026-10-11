@@ -1,0 +1,149 @@
+{
+  "id": "lrs-s-lucia",
+  "briefId": "LRS-ATLAS-S-LUCIA",
+  "title": "Lucia v. Securities and Exchange Commission",
+  "course": "Legislation and the Regulatory State",
+  "citation": "585 U.S. 237 (2018)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A securities defendant challenges the appointment of the administrative judge who sanctioned him. The Court compares that judge’s actual responsibilities with established officer precedent and requires a new hearing before another properly appointed decisionmaker.",
+  "actors": [
+    {
+      "name": "Raymond Lucia and his investment company",
+      "role": "Respondents in the securities enforcement proceeding and challengers to the judge’s appointment."
+    },
+    {
+      "name": "Securities and Exchange Commission",
+      "role": "Federal agency that instituted charges, reviewed the initial decision and defended staff selection below."
+    },
+    {
+      "name": "Cameron Elliot",
+      "role": "Administrative law judge selected by SEC staff who heard and decided the charges."
+    },
+    {
+      "name": "Court-appointed amicus",
+      "role": "Defended the appellate judgment after the government changed its position."
+    }
+  ],
+  "proceedings": [
+    "Elliot imposed penalties and a lifetime bar, then added findings after a Commission remand; the Commission rejected Lucia’s appointment objection.",
+    "A D.C. Circuit panel rejected the objection; ten en banc judges divided evenly, leaving a judgment against Lucia.",
+    "The Supreme Court reversed and remanded on June 21, 2018, requiring a fresh hearing before a different properly appointed ALJ or the Commission."
+  ],
+  "limits": "This historical source-brief transformation makes no new audit or current appointment/removal-law certification. The securities findings were administrative, not Supreme Court merits findings. The Court reserved removal protections and validity of the SEC’s 2017 ratification. Its different-adjudicator remedy was qualified by available alternatives and did not dismiss the charges.",
+  "briefSha256": "5e826f616c108020afaa7da22661a994f597f2fcbba7849eed1763d563bb2832",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-LUCIA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Commission assigns the securities charges to a staff-selected judge",
+      "cue": "What authority did Elliot exercise over the alleged misleading presentations?",
+      "paragraphs": [
+        "Raymond Lucia and his investment company marketed the retirement strategy called Buckets of Money. The Securities and Exchange Commission, or SEC, charged misleading slideshow presentations under the Investment Advisers Act and assigned the enforcement matter to administrative law judge Cameron Elliot. Agency staff, rather than the Commissioners, had selected Elliot, as they had the other four SEC administrative law judges.",
+        "An SEC ALJ supervised discovery, issued or modified subpoenas, resolved motions and evidence questions, administered oaths, examined witnesses, managed proceedings and sanctioned misconduct. After a hearing the judge issued an initial decision with findings, legal conclusions and a remedy. The Commission could review on request or on its own. If it declined review and issued a finality order, the initial decision became final as Commission action.",
+        "After nine days of testimony and argument, Elliot found violations and imposed $300,000 in civil penalties and a lifetime industry bar. His decision addressed only one of four asserted ways the presentations deceived investors. The Commission remanded for the others, emphasizing his witness experience and ability to resolve evidentiary conflicts. Elliot added findings and issued a revised decision with the same sanctions. These were administrative findings; the Supreme Court did not decide whether the presentations violated securities law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Staff-appointed proceeding; Court slip 1–3, 8–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Lucia preserves an appointment objection through administrative and judicial review",
+      "cue": "Why did the government no longer defend its original position in the Supreme Court?",
+      "paragraphs": [
+        "Before the Commission, Lucia argued that ALJs were officers of the United States requiring appointment under the Appointments Clause. The Commission qualified as a department head able to appoint inferior officers but had not appointed Elliot. The SEC rejected the challenge because it viewed ALJs as employees lacking significant authority independent of its supervision.",
+        "A D.C. Circuit panel agreed. On rehearing, ten judges split evenly, leaving a per curiam judgment rejecting the claim, in conflict with the Tenth Circuit’s Bandimere decision. At certiorari the federal government changed position and supported officer status, so the Supreme Court appointed an amicus to defend the judgment.",
+        "The government also sought review of statutory removal protections. The Supreme Court declined both at the grant and on the merits, because no lower court had addressed that question. The inferior-versus-principal classification was not disputed: the parties treated these judges as inferior officers the Commission itself could appoint."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appointment objection; Court slip 3–5 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority applies Freytag to the judges’ continuing adjudicative offices",
+      "cue": "Why was final decisionmaking not an indispensable condition?",
+      "paragraphs": [
+        "Justice Kagan wrote for Chief Justice Roberts and Justices Kennedy, Thomas, Alito and Gorsuch. Germaine required a continuing legal position, and Buckley required significant authority under federal law. Everyone agreed SEC ALJs had continuing statutory offices with career appointments, legally supplied duties, salaries and an appointment framework. Instead of defining significant authority exhaustively, the majority used Freytag’s treatment of Tax Court special trial judges as officers.",
+        "Both kinds of judge took testimony, ran trials, decided evidence and enforced discovery, exercising substantial discretion. Both prepared findings, conclusions and remedies. In a major Tax Court case a special trial judge’s proposal needed a regular judge’s adoption; an SEC initial decision could itself become final after nonreview and a finality order. The SEC arrangement carried at least as much independent effect.",
+        "The defending amicus identified stronger Tax Court contempt authority and a regulatory presumption favoring trial findings. The majority found neither decisive. Excluding a participant or suspending counsel supplied substantial control without jail or fines, and Freytag did not make review deference essential. SEC practice also respected ALJ credibility findings, ordinarily requiring overwhelming contrary evidence to reject them.",
+        "Freytag’s main analysis concerned adjudicative duties even without final-decision authority; its additional observation that special trial judges could decide smaller cases reinforced rather than displaced that rationale. The majority neither required every listed power individually nor adopted a universal new definition of officer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Freytag comparison; Court slip 5–11 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The timely challenge earns a new hearing before a different lawful appointee",
+      "cue": "What was the precise remedy and what was left open?",
+      "paragraphs": [
+        "Under Ryder, a timely challenger to an adjudicator’s appointment receives a hearing before a properly appointed official. Lucia preserved the objection before the agency and throughout review. Elliot had not been constitutionally appointed when he heard and decided the case.",
+        "The majority required a different adjudicator because Elliot had already heard the evidence and reached conclusions; he could not realistically approach the matter as entirely fresh. Meaningful relief also encouraged appointment objections. Other judges or the Commission were available here. The Court did not require replacement for every conceivable defect; if the Commission itself were affected and no substitute existed, necessity would presumably permit rehearing.",
+        "The Court also reserved validity of the SEC’s November 2017 ratification of past appointments. The Commission could hear the case or select a different ALJ independently appointed through proper constitutional procedure. On June 21, 2018, it reversed the D.C. Circuit and remanded. Lucia obtained another hearing, not erasure of the charges or a merits victory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and judgment; New hearing; Court slip 12–13 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas proposes a broader historical definition while Breyer prefers a statutory ruling",
+      "cue": "How did their separate approaches differ from the majority?",
+      "paragraphs": [
+        "Justice Thomas, joined by Justice Gorsuch, agreed Freytag controlled but urged that federal civil officials continuously responsible for statutory duties counted as officers regardless of importance. Historical clerks and customs personnel supported inclusion of ministerial posts without major discretion. He limited the argument to officers versus employees, leaving principal/inferior status and other constitutional uses of officer untouched.",
+        "Justice Breyer would hold the selection unlawful under the Administrative Procedure Act’s instruction that each agency appoint its ALJs. For the SEC, the agency was the Commission. No published order delegated this power to staff, and constitutional avoidance favored construing general delegation authority to exclude it. Other agencies could have different statutes and functions.",
+        "Breyer also regarded appointment and removal as connected. ALJs had good-cause protection administered by the Merit Systems Protection Board, whose members had their own protections. Applying Free Enterprise Fund’s limits after calling ALJs officers might undermine adjudicative independence Congress intended. He did not find the protections unconstitutional; adjudicative duties and protection strength could distinguish the case. His proposed constitutional approach would give substantial weight to statutory design."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas concurrence slip 1–4 & nn.1–2; Breyer slip 1–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Three Justices oppose excluding Elliot, and two reject constitutional officer status",
+      "cue": "Why do the joins matter to the outcome?",
+      "paragraphs": [
+        "In Part III, joined by Justices Ginsburg and Sotomayor, Breyer opposed mandatory exclusion of Elliot. Courts regularly return cases to the same judge after reversal, and an appointment flaw showed neither misconduct nor inability. He would at least leave the inadequately argued remedial issue for remand rather than decide it immediately.",
+        "Justice Sotomayor, joined by Justice Ginsburg, separately required final binding authority as part of significant authority. SEC ALJs merely recommended under plenary de novo Commission review; even an unreviewed decision required a finality order and became the Commission’s action. They read Freytag through special trial judges’ ability to decide some cases finally, treating the broader discussion as unnecessary. The majority expressly rejected that interpretation.",
+        "Thus six Justices joined the constitutional officer holding, while Breyer agreed the challenged appointment was unlawful on another ground and disagreed with part of the remedy. Ginsburg and Sotomayor joined only his remedial Part III, not all his reasoning. The assigned discussion of a broader Thomas–Mascott theory records a proposal the Court did not adopt; the majority principally left a more elaborate test for another case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Participation; Separate writings; Assigned limits; Breyer slip 13–14; Sotomayor slip 1–5; Court slip 8 n.4"
+        }
+      ]
+    }
+  ]
+}

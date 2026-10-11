@@ -1,0 +1,125 @@
+{
+  "id": "cp-gray",
+  "briefId": "CPR-001",
+  "title": "Gray v. American Radiator & Standard Sanitary Corp.",
+  "course": "Civil Procedure",
+  "citation": "22 Ill. 2d 432, 176 N.E.2d 761 (1961)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An Ohio-made valve entered a Pennsylvania water heater that later exploded in Illinois. The injured resident and the heater manufacturer sought to keep the valve maker in the Illinois suit despite its lack of local personnel or direct sales.",
+  "actors": [
+    {
+      "name": "Phyllis Gray",
+      "role": "Illinois resident injured by the exploding water heater; plaintiff and appellant."
+    },
+    {
+      "name": "Titan Valve Manufacturing Company",
+      "role": "Ohio component maker challenging Illinois jurisdiction after service on its Ohio registered agent."
+    },
+    {
+      "name": "American Radiator & Standard Sanitary Corporation",
+      "role": "Heater manufacturer; defendant and cross-claimant seeking contractual indemnification from Titan."
+    }
+  ],
+  "proceedings": [
+    "Cook County circuit court quashed service and dismissed Gray’s complaint and American Radiator’s cross-claim against Titan.",
+    "Gray took a direct constitutional appeal; American Radiator also sought reversal.",
+    "Illinois Supreme Court on June 14, 1961 reversed and remanded with directions to deny the motion to quash; rehearing denied September 20."
+  ],
+  "limits": "Negligent construction, warranty obligations, indemnity, and damages remained unresolved. Substantial Illinois use was an inference from commercial distribution, not a quantified sales finding. Later World-Wide Volkswagen references are subsequent context.",
+  "briefSha256": "712676325a009c04b94711693d2bd42526e43169000a54e7b872bc33ad96daf4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-001"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A component passes through ordinary distribution into an Illinois home",
+      "cue": "Which contacts were established and which were inferred?",
+      "paragraphs": [
+        "Titan Valve Manufacturing Company made a safety valve in Ohio and sold it outside Illinois to American Radiator & Standard Sanitary Corporation. American Radiator incorporated the valve into a water heater in Pennsylvania. Through ordinary commercial distribution the heater reached an Illinois consumer, exploded there, and injured Illinois resident Phyllis Gray.",
+        "Gray alleged negligent valve manufacture proximately caused the explosion. The record identified no Titan Illinois office, employee, agent, or direct sale and no numerical volume of Illinois business. Titan also did not describe this Illinois use as isolated. The court later inferred substantial local use from the ordinary distribution of components manufactured for appliances expected to reach consumers in multiple states. That inference was not a measured sales finding or an adjudication that the valve was defective."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; 22 Ill. 2d at 432–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Gray serves Titan in Ohio, and American Radiator seeks indemnity",
+      "cue": "Why did the trial court’s ruling remove two claims?",
+      "paragraphs": [
+        "Gray sued Titan, American Radiator, and others in Cook County for damages. Illinois Civil Practice Act § 17(1)(b) treated commission of a tortious act within Illinois as submission to jurisdiction; § 16 permitted personal delivery outside the State to a nonresident so subject. Gray served Titan’s registered agent in Cleveland.",
+        "Titan specially appeared to contest jurisdiction and moved to quash. Its affidavit denied Illinois business or an agent physically there and described out-of-state sales to American Radiator. It argued the relevant manufacturing conduct occurred in Ohio and that jurisdiction based on later Illinois injury exceeded due process. For appeal it conceded adequacy and statutory regularity of the § 16 notice, preserving its challenge to adjudicatory authority.",
+        "American Radiator answered and cross-claimed that Titan had warranted its valves and owed indemnity if Gray recovered. The circuit court quashed service and dismissed both Gray’s complaint and American Radiator’s cross-claim against Titan without deciding negligence, causation, warranty, indemnity, or damages. Gray appealed directly because the due-process objection raised a constitutional question, and American Radiator likewise sought restoration of its cross-claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; 22 Ill. 2d at 432–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Klingbiel locates the complete alleged tort where injury occurs",
+      "cue": "How did statutory reach differ from notice and constitutional power?",
+      "paragraphs": [
+        "Justice Klingbiel’s opinion first read the long-arm statute. A “tortious act” encompassed the complete tort, including injury that made negligent conduct actionable. Under the then-used place-of-wrong approach in Restatement of Conflict of Laws § 377, the last necessary event fixed the tort’s location. Gray’s Illinois injury completed the alleged wrong despite manufacturing elsewhere.",
+        "Illinois construed § 17 broadly to the due-process boundary, but constitutional authority still required separate analysis. Section 17 supplied asserted jurisdiction; § 16 supplied service; the Fourteenth Amendment limited a binding personal judgment. Personal delivery to Titan’s registered agent gave a realistic chance to defend, and Titan conceded that notification point. Good notice alone did not answer whether Illinois legitimately could adjudicate against it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory meaning and notice; 22 Ill. 2d at 435–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court connects Titan’s distribution choice to this local claim",
+      "cue": "Why was physical delivery by another company not decisive?",
+      "paragraphs": [
+        "Klingbiel traced movement from Pennoyer’s territorial service approach to International Shoe’s contacts, fair play, and substantial justice. International Shoe supported jurisdiction over systematic claim-producing business; Perkins addressed sufficiently substantial activity supporting unrelated claims; Hanson required a defendant-created invocation of forum benefits. McGee illustrated that even one deliberate, continuing transaction can support a claim arising from it.",
+        "The court applied that claim-centered logic to components. Titan chose to make valves for incorporation in heaters distributed interstate. Assemblers and middlemen commonly delivered such products to consumers. The court inferred substantial Illinois use and benefits from Illinois protections for marketing and consumption. Indirect delivery did not sever the commercial connection between Titan’s conduct and the state.",
+        "The particular claim arose directly from Illinois use and injury. Illinois had regulatory and remedial interests, its law governed the occurrence, and explosion, injury, and damages witnesses were likely nearby. Modern travel and communication reduced the defense burden. Quantified continuous business was one route to contacts, but this substantially connected product transaction supplied another under the court’s analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constitutional reasoning; 22 Ill. 2d at 437–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Both claims return to Cook County without a merits decision",
+      "cue": "How did later cases use Gray?",
+      "paragraphs": [
+        "On June 14, 1961, the Illinois Supreme Court reversed and remanded with directions to deny Titan’s motion to quash. Gray’s injury claim and American Radiator’s contractual cross-claim could proceed against Titan. Rehearing was denied September 20. The court decided authority to hear them, not their merits or damages.",
+        "Later World-Wide Volkswagen litigation used Gray in different ways. Oklahoma’s highest court declined to import its injury-location statutory construction because Oklahoma separately addressed out-of-state acts causing local injury. The United States Supreme Court cited Gray in discussing manufacturers or distributors placing goods into commercial distribution with an expectation of forum purchases. Those are later comparisons emphasizing distribution directed toward a market, not further events or holdings in Gray itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and later comparison; 22 Ill. 2d at 443–44; full brief’s World-Wide Volkswagen discussion"
+        }
+      ]
+    }
+  ]
+}

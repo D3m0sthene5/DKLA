@@ -1,0 +1,140 @@
+{
+  "id": "lrs-i-chevron",
+  "briefId": "LRS-ATLAS-I-CHEVRON",
+  "title": "Chevron U.S.A. Inc. v. Natural Resources Defense Council, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "467 U.S. 837 (1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "EPA allows states to treat a plant as one pollution source, and the Supreme Court reviews the agency’s accommodation of environmental and economic objectives.",
+  "actors": [
+    {
+      "name": "Environmental Protection Agency (EPA)",
+      "role": "Agency adopting the plantwide source option."
+    },
+    {
+      "name": "NRDC and two environmental organizations",
+      "role": "Petitioners challenging the regulation in the D.C. Circuit."
+    },
+    {
+      "name": "Chevron, American Iron and Steel Institute, and EPA Administrator Ruckelshaus",
+      "role": "Parties obtaining Supreme Court review through three petitions."
+    }
+  ],
+  "proceedings": [
+    "EPA adopted the challenged source definition in October 1981.",
+    "The D.C. Circuit set it aside despite finding no clear statutory or legislative-history answer.",
+    "The Supreme Court reversed, sustaining the permissible interpretation under the framework then adopted."
+  ],
+  "limits": "Chevron’s deference framework was overruled in 2024 according to the canonical brief’s limited Loper Bright comparison. The 1984 regulation addressed a permit trigger, not all emissions obligations; no individual plant permit was awarded.",
+  "briefSha256": "6bb9b9a710eb5d1c3adfe218fa1019200627c60c601d09df276e2b3ce89ef971",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-CHEVRON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Clean Air Act creates a source-definition problem inside existing plants",
+      "cue": "Why did the unit of regulation matter?",
+      "paragraphs": [
+        "The 1970 Clean Air Act paired national air standards with state implementation plans and defined sources for a separate new-source performance program. When many areas failed to attain the standards, the Environmental Protection Agency, or EPA, developed offsets to allow growth alongside reductions elsewhere. The 1977 amendments structured nonattainment permitting with demanding conditions, including the lowest achievable emission rate, while preserving economic development and state flexibility.",
+        "The question was whether a major source meant each emitting component or an entire existing plant. A plantwide “bubble” would let a component be modified or replaced without triggering these permit requirements if total plant emissions did not rise. That did not remove other limits or the new-source performance standards."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete dispute; Statutory history; 467 U.S. at 839–841,845–853 & nn.1–3,15–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "EPA changes its approach and permits the bubble",
+      "cue": "What reasons did the agency offer for the 1981 rule?",
+      "paragraphs": [
+        "EPA’s 1979 approach allowed a plantwide definition where adequate implementation plans existed, with stricter treatment elsewhere. Its 1980 rule used both plant and component definitions, influenced by a judicial distinction between maintaining and improving air quality.",
+        "A new administration reconsidered in 1981. EPA thought the dual definition discouraged replacing old equipment with cleaner machinery and complicated administration. The October rule permitted a common-control, contiguous-or-adjacent industrial grouping to count plantwide, excluding vessel activity. Modernization could proceed while implementation plans still advanced attainment, performance standards remained, and a net emissions increase at a major plant triggered review. States could retain narrower unit-based definitions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Regulatory history; 467 U.S. at 853–862 & nn.26–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Environmental groups prevail in the D.C. Circuit",
+      "cue": "Why did the Supreme Court reject its method?",
+      "paragraphs": [
+        "The Natural Resources Defense Council, Citizens for a Better Environment, and North Western Ohio Lung Association sought review, with industry intervening. The D.C. Circuit set the rule aside in 1982. It acknowledged that text and legislative history did not clearly resolve the issue but used its precedents to permit bubbles for maintaining clean air and prohibit them for improving dirty air.",
+        "Chevron, the American Iron and Steel Institute, and Administrator Ruckelshaus obtained Supreme Court review through three petitions addressed in this one opinion. The respondents did not defend the circuit’s precise rationale; they offered text, history, and pollution-reduction purpose as alternative grounds to sustain its judgment. Those alternatives were properly considered because review concerned the judgment, not only its explanation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete dispute and procedure; 467 U.S. at 837,840–842 & nn.4–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Stevens frames the historical two-question inquiry",
+      "cue": "What role remained for judicial statutory interpretation?",
+      "paragraphs": [
+        "Stevens asked first whether Congress directly answered the precise issue. Courts and agencies had to obey that answer, using traditional interpretive tools as footnote 9 emphasized. If Congress had not answered, the then-adopted framework asked whether the agency construction was permissible, not whether it was the court’s preferred or only reading, as footnote 11 explained.",
+        "An express grant to fill a gap gave implementing regulations controlling weight unless arbitrary, capricious, or manifestly contrary to statute; implicit delegation likewise displaced an independent judicial preference for another reasonable reading. The D.C. Circuit could not acknowledge an unresolved definition and then impose its own static one without assessing the agency’s permissible accommodation. Extensive statutory analysis still had to establish that interpretive space."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Original framework; 467 U.S. at 842–859 & nn.9–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The statute leaves room for the plantwide accommodation",
+      "cue": "Why did the environmental purpose not compel unit-by-unit permits?",
+      "paragraphs": [
+        "Words such as building, structure, facility, and installation could overlap or describe an integrated operation. The threshold of at least 100 tons annually did not itself identify the physical unit to which it applied. Legislative calls for stringent treatment of new sources similarly assumed rather than resolved that definition. The separate 1970 program’s definition did not conclusively determine the later nonattainment provision.",
+        "EPA’s modernization incentives reasonably accommodated Congress’s environmental and economic compromise, supported by agency comments and economic studies. The Court did not make growth superior to pollution control. It recognized room to pursue both under a permissible definition.",
+        "Changing an interpretation did not itself defeat deference in the historical framework. EPA had examined a technical scheme, explained incentives under its earlier policy, and adopted a construction the statute could bear. That did not excuse unreasoned changes or disregard of ascertainable congressional commands."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "History; Text and policy; 467 U.S. at 845–866 & nn.31–41"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Court reverses, and later law changes the interpretive framework",
+      "cue": "What survives as the historical result?",
+      "paragraphs": [
+        "The Court linked permissible policy choices to agency expertise and presidential electoral accountability, in contrast to judges’ lack of a policy constituency. Whether Congress left the question open deliberately, inadvertently, or through inability to agree, the reasonable accommodation controlled under the approach announced.",
+        "All six participating Justices—Stevens, Burger, Brennan, White, Blackmun, and Powell—joined. Marshall and Rehnquist did not participate in consideration or decision; O’Connor did not participate in decision. No separate opinion appeared. The formal mandate was reversal of the D.C. Circuit, without a separately announced remand or permit for an individual plant.",
+        "In 2024, Loper Bright overruled the deference framework and requires independent judgment on statutory authority while respecting actual delegations and informed expertise. It also preserved statutory stare decisis for earlier holdings sustaining specific actions, including Chevron’s Clean Air Act holding; use of the former methodology alone does not overturn them. That distinction preserves the difference between overruling a method and overturning the earlier decision on this regulation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Policy accountability; Judgment; Verified later treatment; 467 U.S. at 865–866; canonical brief’s Loper Bright slip 34–35 comparison"
+        }
+      ]
+    }
+  ]
+}

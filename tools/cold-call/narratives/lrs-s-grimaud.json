@@ -1,0 +1,160 @@
+{
+  "id": "lrs-s-grimaud",
+  "briefId": "LRS-CB-0052",
+  "title": "United States v. Grimaud",
+  "course": "Legislation and the Regulatory State",
+  "citation": "220 U.S. 506 (1911)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Unauthorized-grazing indictments test whether Congress can attach a statutory criminal penalty to forest-use details specified by an administrator.",
+  "actors": [
+    {
+      "name": "United States",
+      "role": "Prosecutor seeking reinstatement of the indictments."
+    },
+    {
+      "name": "Pierre Grimaud and J. P. Carajous",
+      "role": "Defendants charged with unauthorized sheep grazing in the Sierra Forest Reserve."
+    },
+    {
+      "name": "Inda",
+      "role": "Defendant in the companion indictment."
+    },
+    {
+      "name": "Secretary of Agriculture",
+      "role": "Administrator issuing the permit rule, distinct from Congress’s role in fixing punishment."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of California sustained demurrers to the grazing indictments.",
+    "An equally divided Supreme Court initially affirmed in 1910, then restored the cases for reargument.",
+    "In 1911 the Court set aside those affirmances and reversed the demurrer judgments."
+  ],
+  "limits": "The facts were allegations accepted to test legal sufficiency, not trial findings. The Court convicted no defendant, imposed no sentence, and did not authorize regulations beyond Congress’s defined subjects.",
+  "briefSha256": "d5cc344543f28b50037029a38f9a81d7a1685cfe1a5fe76ff0aeadb6562b191e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-0052"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress creates forest reserves and defines the terms of lawful use",
+      "cue": "What decisions did the statutes make before the Secretary acted?",
+      "paragraphs": [
+        "Federal forest-reservation laws sought forest protection, favorable water flows, and a continuous timber supply. They allowed lawful entry and use, including settlers’ access, subject to reserve regulations. Administrative authority originally assigned to the Interior Secretary moved to the Agriculture Secretary in 1905, with power to regulate occupancy and use and guard against destruction and harmful activities.",
+        "Congress expressly made violation of the Act or authorized rules punishable under a statutory provision. The maximum was a $500 fine, twelve months’ imprisonment, or both, within the sentencing court’s discretion. Congress also addressed receipts from forest products and use of land and resources, directing Treasury payment and designated application to forest expenses and state or local purposes. These provisions later mattered to the separate objection to grazing charges."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 220 U.S. at 507–09, 515–16, 522"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Regulation 45 requires permits and the Government alleges a knowing violation",
+      "cue": "What facts were assumed at the demurrer stage?",
+      "paragraphs": [
+        "On June 12, 1906, the Secretary of Agriculture issued Regulation 45, generally requiring permission before grazing livestock in a reserve. Limited exceptions covered specified animals used by prospectors, campers, travelers, and resident settlers.",
+        "An indictment charged Pierre Grimaud and J. P. Carajous with knowingly and willfully grazing sheep without permission in the Sierra Forest Reserve on April 26, 1907, outside the exceptions. A similar indictment named Inda. The charge also treated the regulation as directed to occupancy and forest preservation. Those were allegations admitted for purposes of testing the indictment’s legal sufficiency, not findings after trial.",
+        "The defendants demurred, arguing that no federal offense had been alleged and that Congress unlawfully delegated legislative power by allowing an administrator to prescribe rules carrying criminal consequences. The Southern District of California sustained the demurrers. The United States obtained Supreme Court review by writ of error under the Criminal Appeals Act’s provision for decisions based on a statute’s invalidity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; 220 U.S. at 509–10, 514, 522–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An initial equal division gives way to reargument",
+      "cue": "Which Supreme Court judgment became final?",
+      "paragraphs": [
+        "The Court heard the cases February 28, 1910 and affirmed by an equally divided Court March 14. On April 18 it restored them for reargument, which occurred March 3, 1911. Justice Lamar wrote the reported opinion on reargument.",
+        "The earlier division supplied no reported reasoning or identified positions of individual Justices. The ultimate 1911 disposition expressly displaced those affirmances; it was not review of convictions and did not itself determine guilt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Citation; Procedural History; Separate Opinions; 220 U.S. at 506, 510, 523"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Lamar treats local grazing conditions as details within Congress’s management program",
+      "cue": "Why did administrative choice not amount to surrender of legislative power?",
+      "paragraphs": [
+        "The Court read lawful reserve use together with Congress’s protective objectives and requirement of regulatory compliance. Unrestricted grazing might impair forests and water flows, while managed grazing could remain compatible. The legislation therefore contemplated decisions about permitted conditions of use.",
+        "Those conditions varied by forest, season, and timber growth. Conduct harmless in one setting might be destructive in another, making a universal congressional prescription impractical. Congress selected the resource, objectives, regulated subjects, and duty to comply; the Secretary managed details within that field.",
+        "Lamar acknowledged a difficult boundary between lawmaking and execution. He relied on Wayman v. Southard’s distinction between matters requiring legislative regulation and details left to administrators implementing a general provision. Comparisons involving rates, safety equipment, bridges, labeling, and import quality illustrated statutes establishing duties or prohibited conditions while officers determined particular applications. The officer still had to stay within the statutory field."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: statutory scheme, local variation, administrative details; 220 U.S. at 515–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Congress supplies the criminal consequence, while the rule supplies operational detail",
+      "cue": "Why did Eaton not defeat this indictment?",
+      "paragraphs": [
+        "The criminal penalty did not itself transform the Secretary’s authorized management task into forbidden legislation. Congress expressly made violations of authorized rules offenses and fixed punishment. The Secretary required permits; congressional law attached the criminal consequence. The prosecution was for an offense against the United States under that law, not an offense resting solely on administrative discretion.",
+        "The Court distinguished United States v. Eaton, where an administrator demanded records beyond the statutory duty and Congress had not distinctly made breach of that additional requirement punishable. Grimaud’s statute expressly included authorized regulations. Thus power to issue a rule and authority to punish its violation were separate statutory questions, both answered here.",
+        "Prior tolerated grazing likewise did not establish an unconditional right to the public domain. Congress qualified any implied license by requiring compliance with reserve rules. With statute and valid rule in force, disregard of the permit condition was unlawful use of federal property; the Court did not declare grazing inherently forbidden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: criminal sanction, Eaton, implied license; 220 U.S. at 518–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The grazing charge finds support in the revenue provisions",
+      "cue": "Why was this not a general executive power to tax?",
+      "paragraphs": [
+        "Grazing fees could discourage excessive use and contribute to management expense, but administrative convenience alone did not establish the authority. Legislation predating Regulation 45 expressly contemplated money from use of forest land and resources and directed its disposition. Later revenue provisions reinforced that reading. The Court grounded charges in the specific statutes and management grant, not an implied general executive taxing power.",
+        "On the allegations accepted by the demurrers, Regulation 45 served occupancy regulation and forest preservation within those directions. A rule pursuing an unrelated aim would raise a different question. The statutory objectives, scope, compliance obligation, and penalty together supported legal sufficiency."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Fee reasoning and narrowed application; 220 U.S. at 522–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The indictments survive without a finding that the defendants committed the offense",
+      "cue": "What is the precise result and doctrinal limit?",
+      "paragraphs": [
+        "On May 3, 1911, the Supreme Court set aside the earlier equally divided affirmances and reversed both district-court judgments. The constitutional and legal objections raised by demurrer did not defeat the indictments. No sentence or post-trial finding of unauthorized grazing followed from this opinion itself, and no separate writing accompanied Lamar’s reported decision.",
+        "Compared with the conditional-legislation models in Aurora and Field, Grimaud illustrates administrative specification of details inside Congress’s established program. It does not resolve all later issues of notice, statutory ambiguity, or validity of a particular criminal regulation. The separate authorization of penalties and the specific basis for fees remain essential to its historical holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; 220 U.S. at 515–18, 522–23"
+        }
+      ]
+    }
+  ]
+}

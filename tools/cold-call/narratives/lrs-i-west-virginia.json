@@ -1,0 +1,130 @@
+{
+  "id": "lrs-i-west-virginia",
+  "briefId": "LRS-MAX-WV",
+  "title": "West Virginia v. Environmental Protection Agency",
+  "course": "Legislation and the Regulatory State",
+  "citation": "597 U.S. 697 (2022)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An emissions plan derives its limits from a national shift away from coal generation. After stays, repeal and appellate reinstatement, the Supreme Court asks whether Congress clearly authorized that particular regulatory power.",
+  "actors": [
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Agency that issued the Clean Power Plan, repealed it and adopted a replacement."
+    },
+    {
+      "name": "State and company petitioners",
+      "role": "Parties defending repeal and seeking reversal of the D.C. Circuit judgment."
+    },
+    {
+      "name": "Challenging states and private parties",
+      "role": "Litigants who contested repeal and the Affordable Clean Energy replacement."
+    }
+  ],
+  "proceedings": [
+    "The Supreme Court stayed the Clean Power Plan in 2016.",
+    "EPA repealed it in 2019 and adopted the Affordable Clean Energy rule; the D.C. Circuit vacated both actions and remanded.",
+    "EPA obtained a partial mandate stay during new rule development.",
+    "The Supreme Court reversed and remanded the consolidated cases six to three on June 30, 2022."
+  ],
+  "limits": "This historical source-brief narrative makes no new audit or current regulatory claim. The Plan never took effect; costs, retirements, employment effects and benefits were projections. The Court decided this generation-shifting basis, not every beyond-plant measure, every trading mechanism, or a future replacement rule.",
+  "briefSha256": "4159ade195d227110e69abe1532c609f79c4f1bc3d27915c8dfb245210b4bed9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-WV"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "EPA bases the 2015 plan on changing the sources of electricity generation",
+      "cue": "How did generation shifting determine the emissions limits?",
+      "paragraphs": [
+        "Clean Air Act § 111 addressed stationary-source categories. The Environmental Protection Agency selected the best adequately demonstrated system of emission reduction while considering cost, nonair health and environmental effects, and energy requirements. Performance standards reflected reductions achievable through that system. For existing sources under § 111(d), EPA established the degree of reduction and states supplied implementing plans; this program filled gaps left by other pollution programs.",
+        "The 2015 Clean Power Plan regulated carbon dioxide from existing coal and gas plants. Its first building block improved coal-plant heat rates. The second shifted generation from coal to gas; the third shifted coal and gas generation to renewables. Operators could reduce their output, invest in cleaner generation or buy allowances and credits. EPA modeled moving coal’s share from thirty-eight percent in 2014 to twenty-seven percent by 2030 and derived caps existing coal plants could not meet without that shift.",
+        "Projected costs, retirements and employment effects later supported the majority’s account of scale. The dissent emphasized projected benefits and later market changes meeting the national target without implementation. None was a finding that an enforced Plan had produced those results: it never took effect."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Regulatory structure and facts; Roberts slip 2–10; Kagan slip 23–24 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Successive administrations change course and the D.C. Circuit rejects repeal",
+      "cue": "Why did a stayed and repealed rule remain before the Supreme Court?",
+      "paragraphs": [
+        "The Supreme Court stayed the Plan in 2016. After an administration change, EPA repealed it in 2019, interpreting § 111 to permit only systems applicable at individual facilities. Its Affordable Clean Energy replacement relied on equipment and operating heat-rate improvements.",
+        "States and private parties challenged both actions, while others intervened in support. The D.C. Circuit concluded EPA misunderstood its authority, vacated repeal and replacement, and remanded. Following another administration change, EPA obtained a partial stay of the mandate to prevent the old Plan returning while it wrote a new rule. Parties defending repeal petitioned for Supreme Court review.",
+        "State petitioners had appellate standing because the judgment purported to restore requirements that they regulate plant emissions more stringently; reversal would redress that burden. EPA’s later nonenforcement intentions implicated mootness. Under voluntary-cessation principles the government bore the burden, continued defending generation-shifting authority and disclaimed no future use. Planned replacement and the mandate stay did not end the controversy. The Court did not decide every petitioner’s independent standing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; Standing and mootness; Roberts slip 10–16"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats this claimed power as a major question",
+      "cue": "What made a plausible reading of system insufficient?",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for Justices Thomas, Alito, Gorsuch, Kavanaugh and Barrett. Decisions including Brown & Williamson, Utility Air and Gonzales involved extraordinary agency claims whose history, breadth and economic or political importance warranted more than an ordinary plausible reading. Separation of powers and legislative intent required clear congressional authorization. The majority expressly distinguished that inquiry from ordinary statutory interpretation without making every important regulation invalid.",
+        "Here EPA used a longstanding, rarely used gap-filling provision to restructure national electricity generation. Earlier § 111 standards made sources operate more cleanly. Trading to satisfy a cap derived from source-level controls differed from using generation shifting itself to set the cap. Likewise, incidental changes in market share from pollution costs differed from a limit premised on a desired national generation mix.",
+        "Cost, feasibility and grid-reliability constraints did not cure the breadth of national energy choices on EPA’s reading. The majority questioned whether EPA’s assigned expertise extended across all resulting transmission, distribution, storage and energy-policy choices. Repeated unsuccessful congressional attempts at comparable carbon cap-and-trade legislation reinforced skepticism, though those failures were not themselves an enacted prohibition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Major questions; Extraordinary assertion; Roberts slip 16–28 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The statutory phrase does not clearly authorize the chosen system",
+      "cue": "Which broader questions did the majority leave unresolved?",
+      "paragraphs": [
+        "System was broad enough linguistically to include generation shifting, but that possibility did not clearly authorize this extraordinary power. Other provisions expressly allowed trading or market compliance under independently established caps. They did not establish authority to derive these caps from generation shifting itself.",
+        "The Court rejected this particular best system under § 111(d), while declining to decide whether every lawful system must stay inside the individual plant’s pollution performance. It did not categorically endorse the repealing administration’s at-source-only interpretation or prohibit all emissions trading.",
+        "On June 30, 2022, the Court reversed the D.C. Circuit and remanded the consolidated cases. It decided no replacement regulation not before it. The distinction between the method setting a cap and the flexibility allowed to meet one remained central."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Insufficient authorization; Judgment; Roberts slip 28–31 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Gorsuch supplies a broader framework, while Kagan sees ordinary broad delegation",
+      "cue": "How did the separate opinions characterize Congress’s role?",
+      "paragraphs": [
+        "Justice Gorsuch, joined by Justice Alito, treated the doctrine as a clear-statement safeguard for Article I, democratic accountability, federalism and fair notice. His nonexclusive indicators included great political importance, substantial economic reach or expenditures and intrusion on traditional state domains. Context, statutory age and focus, prior interpretations and an expertise mismatch informed authorization. Older statutes could still govern new circumstances. Those lists and constitutional explanations belonged to a two-Justice concurrence, not mandatory separate elements adopted by the Court.",
+        "Justice Kagan dissented with Justices Breyer and Sotomayor. She thought Congress deliberately used broad system language encompassing coordinated market mechanisms, meaningfully constrained by cost, effectiveness and energy considerations. Other provisions expressly imposed technological limits and amendments had removed relevant technology language. For her, broad authorization was not vague authorization.",
+        "She read earlier cases as ordinary contextual interpretation rejecting a mismatch with agency mission or statutory structure. EPA regulating plant greenhouse gases through pollution tools fit its assignment. Conventional controls and generation shifting both changed costs and grid composition; she disputed novelty, scale, failed-legislation inferences and the majority’s constitutional delegation account. Congress could entrust evolving problems to expert agencies. She also questioned discretionary review of a defunct rule while conceding the majority might be right under strict mootness law.",
+        "The six-to-three result denied this claimed authority, with those disagreements left distinctly attributed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate writings; Standing discussion; Gorsuch slip 1–19; Kagan slip 4–33"
+        }
+      ]
+    }
+  ]
+}

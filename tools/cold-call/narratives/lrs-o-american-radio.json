@@ -1,0 +1,159 @@
+{
+  "id": "lrs-o-american-radio",
+  "briefId": "LRS-ATLAS-O-AMERICAN-RADIO",
+  "title": "American Radio Relay League, Inc. v. FCC",
+  "course": "Legislation and the Regulatory State",
+  "citation": "524 F.3d 227 (D.C. Cir. 2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The FCC promoted broadband over power lines while attempting to protect radio users. Amateur-radio representatives challenged both the interference rules and the agency’s selective disclosure of scientific studies supporting them.",
+  "actors": [
+    {
+      "name": "Federal Communications Commission",
+      "role": "FCC; regulated Access Broadband over Power Line and defended its technical choices."
+    },
+    {
+      "name": "American Radio Relay League",
+      "role": "Organization representing amateur radio operators; petitioner challenging interference protections and rulemaking disclosures."
+    },
+    {
+      "name": "Broadband operators and licensed radio users",
+      "role": "Users of potentially competing technologies affected by emission limits and mitigation requirements."
+    }
+  ],
+  "proceedings": [
+    "FCC issued original and reconsideration orders regulating power-line broadband; five partially redacted staff studies entered the record in December 2004 after promulgation.",
+    "League petitioned for review after seeking reconsideration.",
+    "D.C. Circuit granted review in part and remanded without vacatur for disclosure, comments, and a reasoned extrapolation-factor decision; other challenges failed."
+  ],
+  "limits": "All three judges supported the disclosure-remand result; only Rogers and Tatel ordered reconsideration of extrapolation. No twenty-decibel factor was judicially selected. The late partial-release claim and sliding-scale alternative remained undecided. Deference discussions reflect the 2008 framework.",
+  "briefSha256": "90ba32e6198721a15736eb2340ee95e7e1fa6f3db7f1391298bb3dc50aca0e1f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-AMERICAN-RADIO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Power-line broadband creates benefits and radio-interference risks",
+      "cue": "Which protections did the rules add?",
+      "paragraphs": [
+        "Access Broadband over Power Line (BPL) carries communications through electrical lines but emits radio-frequency energy that may affect licensed radio users. It promised broader access and competition, including rural service. The Federal Communications Commission (FCC) had to accommodate those benefits and harmful-interference protections under Communications Act §§ 301 and 302.",
+        "Existing Part 15 rules allowed some unlicensed devices if emissions lacked significant potential for harmful interference. That term covered danger to safety services or serious degradation, obstruction, or repeated interruption, not every interference. Operators had to avoid harmful interference and stop operations if it occurred.",
+        "The BPL rules added certification, emission limits, a national operations database, frequency and geographical exclusions, and ways to reduce power, shift frequencies, or stop segments. Public-safety complaints received special handling. The American Radio Relay League, representing amateur operators, disputed whether the resulting protection was adequate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and regulatory setting; majority slip op. 2–5, 8–11, 24"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two technical choices and partially disclosed studies become flashpoints",
+      "cue": "What could the League not examine before commenting?",
+      "paragraphs": [
+        "For mobile reception, FCC concluded that reducing power twenty decibels below the emission limit would leave interference comparable to background noise at relevant distances. On reconsideration it said operators making that reduction need not take additional steps for mobile complaints.",
+        "FCC also retained forty decibels per decade as the extrapolation factor below thirty megahertz, estimating how fast signals weakened with distance. Using twenty instead would yield a higher estimated emission level at the regulatory measurement distance. The factor therefore affected practical protection, not just arithmetic presentation.",
+        "FCC cited its field studies for low, manageable risks. After an unsuccessful disclosure request and another request following the final rule, it released five staff studies only partially and placed them in the record in December 2004 after promulgation. The studies involved particular companies and locations in New York, North Carolina, and Pennsylvania. FCC called withheld sections preliminary results or deliberative opinions and denied relying on those portions. The League sought reconsideration and then review of both orders."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Technical choices and disclosure chronology; majority 5–7 & nn.1–2, 14–15, 20–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rogers rejects the shutdown and alternative-frequency attacks",
+      "cue": "Why did technical disagreement not invalidate every choice?",
+      "paragraphs": [
+        "The League sought vacatur for abandoned shutdown protection, inadequate disclosure, unsupported extrapolation, and insufficient response to confining BPL to thirty-to-fifty megahertz. Judge Rogers’s opinion applied Administrative Procedure Act (APA) review, allowing substantial technical deference while requiring a discernible connection between facts and choices. Its statutory and regulatory deference discussion reflected law as understood in 2008.",
+        "The court rejected abandonment of shutdown protection. FCC retained the harmful-interference definition and found residual emissions after the prescribed reduction would not meet it for mobile communication. The League conceded policy never guaranteed elimination of all interference everywhere. Reference to mobile users repositioning equipment reflected reception characteristics, not a new legal burden. Shorthand reference to § 302 did not abandon § 301; devices below licensing triggers remained subject to public-interest regulation.",
+        "The thirty-to-fifty-megahertz restriction deserved a response and received one. FCC explained reduced capacity and flexibility and higher public cost despite existing mitigation, including exclusion of amateur frequencies where no amateur users were nearby. It also distinguished safety-critical services from routine amateur or hobby communications. The court accepted that explanation without requiring the League’s preferred option."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rejected challenges; majority 7–11 & nn.3–4, 23–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Selective withholding undermines useful comment and review",
+      "cue": "Why did disclosure require more than the passages the agency favored?",
+      "paragraphs": [
+        "Applying Portland Cement’s technical-disclosure precedents under APA § 553, the court reviewed unredacted pages in camera and found test-data summaries, scientific recommendations, and methodology analysis. Undisclosed pieces of relied-on studies might qualify results or explain weaknesses essential to evaluating published portions. FCC could ultimately credit particular passages, but could not use intertwined studies as central support while preventing scrutiny of the rest.",
+        "The League also showed prejudice by identifying useful comments on recommendations and methods, including material about new information urging caution and spectrum tradeoffs. Those could credibly challenge manageable-risk conclusions. It need not prove that unknown comments would certainly change the result before obtaining the evidence needed to formulate them.",
+        "EchoStar differed because its study was available before reconsideration and withheld staff thoughts addressed already disclosed evidence without a timely record objection. Here the five never-fully-disclosed studies were central data sources. The Freedom of Information Act’s deliberative-process privilege did not justify blanket secrecy for scientific facts adopted or incorporated into public action. FCC asserted neither another confidentiality interest nor merely supplemental character.",
+        "Rogers treated disclosure as enforcing the selected notice-and-comment process, not an additional procedural device prohibited by Vermont Yankee. The separate challenge to late release of even the partial studies remained undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disclosure reasoning; majority 12–20, 25"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The forty-decibel choice lacks a sufficient explanation",
+      "cue": "What response did the majority require without choosing its own factor?",
+      "paragraphs": [
+        "Rogers and Judge Tatel found technical deference insufficient to cure the unexplained extrapolation choice. Cited modeling did not satisfactorily confront empirical results, and a National Telecommunications and Information Administration study itself questioned the existing factor for BPL. Later modeling was outside the record. Invoking inconclusive experiments did not explain carrying a factor from technologies different in scale, power, and frequency into this context, especially when the earlier rule called it interim.",
+        "The League supplied three 2005 British regulatory studies and its own analysis favoring twenty decibels. FCC’s conclusory assertion that no persuasive new information warranted change did not engage them. On remand it had to justify forty while addressing the evidence or reasonably explain a different factor. The court did not order twenty decibels and left the sliding-scale alternative and its presentation unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Extrapolation reasoning; majority 20–23 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Tatel supports full-record access while Kavanaugh criticizes the doctrine",
+      "cue": "Where did the panel’s agreement end?",
+      "paragraphs": [
+        "Tatel separately relied on APA § 706’s whole-record requirement. Parties and courts must see evidence detracting from an agency’s support; unilateral deletions could conceal contrary evidence. A mutually limited record after full access would differ from one side’s selective withholding.",
+        "Judge Kavanaugh agreed that circuit precedent compelled disclosure but thought Portland Cement lacked § 553 textual support and conflicted with Vermont Yankee’s limits on added judicial procedures. He therefore concurred only in that result. He dissented from extrapolation remand: conflicting technical evidence, inconclusive studies, and openness to revisiting the factor supplied a sufficient expert rationale in his view. He warned that expanded procedures and demanding substantive review could make rulemaking prolonged and unpredictable.",
+        "Kavanaugh joined background, interference analysis, and rejection of the alternative-frequency challenge. His criticisms featured in the assigned excerpt but were not the court’s disclosure reasoning or its extrapolation holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate writings; Tatel 1–5; Kavanaugh 1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The rule remains while the agency must disclose and explain",
+      "cue": "What did the court’s remand order require?",
+      "paragraphs": [
+        "The D.C. Circuit granted the petition in part and remanded with instructions to disclose employed technical material, permit a reasonable comment opportunity, include the studies in the record, and provide a reasoned extrapolation decision. It ordered no vacatur.",
+        "All three judges supported the disclosure-remand outcome, while Rogers and Tatel supplied the extrapolation majority. The source establishes those instructions and reserved issues, not a later technical resolution or current status of deference and disclosure doctrines."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition; majority 24–25; Kavanaugh 1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "id": "cp-taxicab",
+  "briefId": "CP-ATLAS-TAXICAB",
+  "title": "Black & White Taxicab & Transfer Co. v. Brown & Yellow Taxicab & Transfer Co.",
+  "course": "Civil Procedure",
+  "citation": "276 U.S. 518 (1928)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Kentucky taxi company genuinely reincorporated in Tennessee to seek a federal court’s different common-law answer about exclusive station privileges. The Court upheld the resulting injunction, over a dissent challenging that conception of general law.",
+  "actors": [
+    {
+      "name": "Brown & Yellow Taxicab & Transfer Co.",
+      "role": "Exclusive station-service contractor; original Kentucky corporation replaced by a Tennessee successor that sued."
+    },
+    {
+      "name": "Black & White Taxicab & Transfer Co.",
+      "role": "Kentucky competitor accused of interference; sole appellant after the railroad declined to appeal."
+    },
+    {
+      "name": "Louisville & Nashville Railroad",
+      "role": "Kentucky railroad granting the privilege and cooperating with reincorporation; also named as defendant."
+    }
+  ],
+  "proceedings": [
+    "Tennessee successor sued the competitor and railroad in the Western District of Kentucky.",
+    "District court sustained jurisdiction and contract validity and enjoined the competitor; Sixth Circuit affirmed.",
+    "Supreme Court on April 9, 1928 affirmed 6–3; Holmes dissented with Brandeis and Stone."
+  ],
+  "limits": "The 1928 majority applied the then-prevailing Swift general-law framework. Erie’s later rejection is subsequent course context, not part of this judgment. The Court sustained a genuine transfer on these facts, not every device to manufacture diversity.",
+  "briefSha256": "642b7cb887074394beacf9744f1a1074b0f7546ee3d599397a38fe88fe2854bf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-TAXICAB"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A railroad gives one taxi company station privileges",
+      "cue": "What was exclusive, and what remained open to passengers?",
+      "paragraphs": [
+        "Brown & Yellow and Black & White competed for taxi and baggage-transfer business in Bowling Green, Kentucky. Brown & Yellow arranged with the Louisville & Nashville Railroad to enter trains, the depot, and surrounding railroad property to solicit passengers and baggage business. It also received a designated taxi waiting area. In return it promised services and monthly payments. The contract lasted a year, renewed annually, and allowed termination on thirty days’ notice.",
+        "Exclusivity concerned solicitation and use of railroad premises. Passengers remained free to hire another carrier. That distinction later mattered to the Court’s rejection of monopoly and common-carrier objections."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and contract; 276 U.S. at 522–23, 528–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The shareholders change corporate citizenship to obtain a different legal rule",
+      "cue": "Why was the federal-forum purpose established rather than inferred?",
+      "paragraphs": [
+        "The original Brown & Yellow, its competitor Black & White, and the railroad were Kentucky corporations. Kentucky’s highest court had invalidated comparable exclusive arrangements. To obtain a federal forum applying a different general-common-law rule, Brown & Yellow’s shareholders organized a Tennessee corporation of the same name in September 1925, transferred the Kentucky company’s business and property, and dissolved it. The Tennessee successor entered the disputed contract.",
+        "The railroad cooperated in this deliberate creation of diversity. The record established the purpose and the genuine corporate transactions, rather than merely an adversary’s accusation of forum shopping. Their legal effect nevertheless remained contested."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reincorporation; 276 U.S. at 523–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brown & Yellow sues over competing solicitation and obstruction",
+      "cue": "Which parties appealed the injunction?",
+      "paragraphs": [
+        "The Tennessee company sued both Black & White and the railroad in the Western District of Kentucky. It alleged that the railroad allowed competitors to solicit and park on its property despite the agreement. It also alleged that Black & White used designated premises and parked on an adjacent street so as to obstruct Brown & Yellow’s taxis.",
+        "Black & White challenged the incorporation as fraudulent jurisdiction creation and evasion of Kentucky law. It also attacked the agreement as monopolistic, contrary to state public policy, outside the railroad’s charter powers, and forbidden by the Kentucky Constitution.",
+        "The district court found a valid federal controversy, upheld the agreement, found interference substantially as alleged, and enjoined Black & White. The railroad declined to appeal. Black & White alone sought review, and the Sixth Circuit affirmed before the Supreme Court granted certiorari."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Complaint, defenses, proceedings; 276 U.S. at 522–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Butler distinguishes genuine succession from sham jurisdiction",
+      "cue": "Why did the motive not defeat diversity here?",
+      "paragraphs": [
+        "Justice Butler applied Judicial Code § 37, requiring dismissal for absence of a real substantial federal controversy or improper or collusive party creation or joinder. The dispute concerned valuable actual privileges, and the Tennessee corporation genuinely owned the transferred business and contract. Transfer and dissolution were real rather than fictitious or merely colorable.",
+        "The forum-seeking motive did not invalidate otherwise unimpeached incorporation and ownership. Railroad cooperation in those genuine steps was therefore not improper collusion under the statute. Butler distinguished arrangements that only appeared to alter parties; the decision did not endorse every attempted manufacture of jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jurisdiction reasoning; 276 U.S. at 524–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Court finds charter power and no forbidden carrier preference",
+      "cue": "How did it classify the railroad’s property use?",
+      "paragraphs": [
+        "Black & White relied on a Kentucky decision treating a similar grant as beyond railroad powers. Butler answered that it construed no particular charter term and instead stated general law. Another Kentucky decision recognized implied power to provide hotels, restaurants, parks, and similar amenities. The station arrangement fit that broader property-use authority.",
+        "Kentucky Constitution § 214 prohibited exclusive or preferential arrangements for freight handling or common-carrier business. The Court concluded that this privilege did not involve railroad business in that capacity. The railroad owed no onward carriage from the station, and independent transfer companies had no inherent right to its premises for parking or solicitation. Granting permission to one company therefore did not violate the provision as applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Charter and state constitution; 276 U.S. at 525–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Federal general law supplies a different public-policy answer from Kentucky’s",
+      "cue": "Why could that difference decide the contract in 1928?",
+      "paragraphs": [
+        "Kentucky had condemned such privileges for restricting competition, discriminating among transfer operators, and producing a practical monopoly. Because those rulings rested on common-law policy rather than a governing statute or constitutional provision, the majority treated validity as general law. Under Swift v. Tyson’s then-prevailing framework, a federal court could reach its own answer.",
+        "The Court consulted its precedents, other states’ decisions, and English authority and found such agreements generally valid. It acknowledged contrary Kentucky, Indiana, and Mississippi rulings. The premise was independent judgment about general common law, not unanimity across jurisdictions.",
+        "On policy, the railroad could use its property consistently with carrier duties, passengers retained choice, and the record showed no deficient service, unreasonable price, or public inconvenience. Exclusivity could promote order, safety, and convenience. Competitive advantage alone did not establish public injury. Compelling rival access would also disregard ownership; a public hack stand could not be required there without compensation.",
+        "The Court considered the Rules of Decision Act objection despite uncertainty whether Black & White’s brief actually raised it. Finding no land-title issue, governing local statute or constitution, or ancient fixed usage, it invoked Swift and subsequent cases allowing federal judges to consult the same sources and independently decide general-law questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "General common law and property reasoning; 276 U.S. at 526–31"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Holmes insists that state common law gets authority from the state",
+      "cue": "Why was his dissent more than a different view of taxi competition?",
+      "paragraphs": [
+        "Justice Holmes, joined by Justices Brandeis and Stone, accepted that precedent supported the lower court’s method but attacked its underlying premise. Common law was not an external body merely discovered by judges. Rules enforced within a State derived authority from that State, whose highest court spoke authoritatively just as its legislature did. Judicial form did not make law less binding.",
+        "A federal disagreement over sensible taxi policy therefore supplied no authority to replace governing state law. Holmes cited historical research challenging Swift’s interpretation of the Rules of Decision Act, but expressly proposed leaving Swift itself undisturbed while preventing expansion into new fields. It would overstate this dissent to say he demanded Swift’s overruling here.",
+        "He also offered a narrower answer: use of Kentucky land by a Kentucky-chartered railroad, subject to over thirty-five years of settled state policy, was sufficiently local. Even general-law precedents respected state property rules and settled local public policy. That ground independently favored reversal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holmes dissent; 276 U.S. at 532–36"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The injunction survives, and later Erie discussion gives the case another role",
+      "cue": "What did the actual judgment leave in place?",
+      "paragraphs": [
+        "On April 9, 1928, the Supreme Court affirmed 6–3. Brown & Yellow retained the injunction protecting its contractual station privileges against Black & White’s interference. The Court did not order retrial or invalidate the agreement, and the railroad’s decision not to appeal remained distinct from Black & White’s challenge.",
+        "The assigned later Erie discussion uses this reincorporation to illustrate different substantive rights obtainable through federal forum choice and reproduces Holmes’s source-of-law objection. Editorial questions ask whether the problem could have been addressed without overruling Swift. Those later treatments explain the case’s instructional role but are not holdings of its 1928 majority, whose framework Erie subsequently rejected."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and assigned later treatment; 276 U.S. at 522, 531; assigned printed pp.447, 449–50, 453"
+        }
+      ]
+    }
+  ]
+}

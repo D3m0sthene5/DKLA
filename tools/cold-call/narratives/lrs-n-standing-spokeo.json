@@ -1,0 +1,123 @@
+{
+  "id": "lrs-n-standing-spokeo",
+  "briefId": "LRS-ATLAS-N-STANDING-SPOKEO",
+  "title": "Spokeo, Inc. v. Robins",
+  "course": "Legislation and the Regulatory State",
+  "citation": "578 U.S. 330 (2016)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A man alleges an inaccurate online profile threatens his employment prospects, but the appellate standing decision needs a separate inquiry into concrete harm.",
+  "actors": [
+    {
+      "name": "Thomas Robins",
+      "role": "Consumer alleging inaccurate information and threatened employment consequences."
+    },
+    {
+      "name": "Spokeo, Inc.",
+      "role": "People-search website sued under the Fair Credit Reporting Act."
+    }
+  ],
+  "proceedings": [
+    "The district court initially denied dismissal, reconsidered, then dismissed with prejudice for insufficient injury allegations.",
+    "The Ninth Circuit reversed based on Robins’s individualized statutory rights.",
+    "The Supreme Court vacated and remanded without deciding whether Robins ultimately had standing."
+  ],
+  "limits": "The Court assumed, without deciding, consumer-reporting-agency status. It did not find the allegations harmless, decide statutory liability, certify a class, or adopt a tangible-injury-only rule.",
+  "briefSha256": "302bedbcf69c12c3d659f55dcc73afcca9de328ee868285d19175fed6c7fb47d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-SPOKEO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Spokeo assembles a profile Robins says misdescribes his life",
+      "cue": "What alleged harm could apparently favorable errors cause?",
+      "paragraphs": [
+        "Spokeo operated a people-search website assembling database information from a name, telephone number, or email address. Employers might use it to investigate applicants, alongside people researching personal relationships or other matters. Thomas Robins’s complaint did not identify who requested his profile or exactly how he discovered it.",
+        "Robins alleged false statements that he was married with children, in his fifties, employed, affluent, and graduate-educated. The dissent described his further allegations that he was unemployed and job-seeking, the profile used someone else’s photograph, and inaccuracies threatened his prospects. His briefing explained that employers might infer he was overqualified, costly, or unable to relocate. Those were asserted risks, not adjudicated employment losses.",
+        "The Fair Credit Reporting Act required covered agencies to use reasonable procedures for maximum possible accuracy and comply with other notice, employment-reporting, and disclosure duties. Willful violations permitted actual damages or $100–$1,000 statutory damages, fees and costs, and potentially punitive damages. The Court assumed Spokeo qualified as a consumer reporting agency solely for this opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and statute; 578 U.S. 333–336 & nn.1–4, 350"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts disagree over the injury allegation",
+      "cue": "Why did the class label not relieve Robins of his own burden?",
+      "paragraphs": [
+        "Robins filed a class complaint in the Central District of California alleging willful statutory violations. The district court initially declined jurisdictional dismissal, reconsidered, and dismissed with prejudice for inadequate injury in fact. The Ninth Circuit reversed under precedent usually treating violation of a statutory right as sufficient, emphasizing that Robins’s own rights and individualized information were involved.",
+        "Justice Alito’s six-Justice Supreme Court opinion examined that reasoning. A named plaintiff proposing a class still had to plead his own concrete and particularized, actual or imminent injury, along with traceability and likely redressability. The opinion focused on the first requirement at the pleading stage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; 578 U.S. 336–339 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Particularization does not establish concreteness",
+      "cue": "What role do history and Congress play for intangible harm?",
+      "paragraphs": [
+        "Particularization asks whether harm affects the person individually; the Ninth Circuit’s own-rights and individualized-data discussion addressed that. Harm shared by many, such as mass-tort injuries, can still be personal. Concreteness separately asks whether a real rather than abstract injury exists.",
+        "Concrete need not mean physical, monetary, or otherwise tangible. Historically recognized intangible injuries can qualify. For statutory intangible interests, the Court looked to a close relationship with harms traditionally supporting English or American lawsuits and to Congress’s judgment. Congress could recognize inadequately protected harms and create preventive rights, but could not eliminate Article III’s concrete-injury requirement.",
+        "A bare procedural violation disconnected from concrete harm was not enough merely because legislation supplied a cause of action. Conversely, some procedural violations could themselves constitute the harm Congress identified, without an additional injury. Informational-rights cases and libel or slander principles illustrated why intangible or hard-to-measure harm was not automatically excluded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Particularization and concreteness; 578 U.S. 339–342 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Some inaccuracies are harmless, but the Court does not classify Robins’s allegations that way",
+      "cue": "What exactly remained for the Ninth Circuit?",
+      "paragraphs": [
+        "Congress designed the procedures to curb false information, yet not every failure caused harm or material risk. An omitted notice accompanying wholly accurate information might cause none; an incorrect ZIP code without more might likewise lack concrete consequence. The Court expressly reserved other inaccuracies rather than treating that example as equivalent to every false profile.",
+        "The Ninth Circuit needed to ask whether Robins’s particular alleged violations created a sufficient degree of risk. The Supreme Court took no position on whether his allegations ultimately met injury in fact. On May 16, 2016, it vacated and remanded rather than affirming the district court’s dismissal. No statutory merits, class certification, or damages decision followed from that mandate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application and limits; 578 U.S. 342–343 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas distinguishes rights; Ginsburg would find these allegations sufficient already",
+      "cue": "How did the separate writings apply the general principles?",
+      "paragraphs": [
+        "Justice Thomas joined the Court but distinguished private from public rights historically. Invasion of one’s property, contract, or other private right could support suit without separately proved damages, while private enforcement of public duties ordinarily needed special individual injury, subject to his preserved qui tam exception. Those limits guarded political enforcement functions more directly than ordinary private-right disputes.",
+        "He contrasted generalized reporting duties, such as a toll-free disclosure number, with accuracy obligations focused on a particular person. On remand the circuit could decide whether the relevant duty was private to Robins or merely authorized general procedural policing. Thomas did not conclusively resolve that classification.",
+        "Justice Ginsburg, joined by Sotomayor, agreed with much of the general discussion but would affirm the Ninth Circuit. False personal information with alleged consequences for an unemployed job seeker differed materially from a wrong ZIP code. Congress connected procedures to protection against inaccurate reporting; accepting the allegations made concrete threatened harm apparent. She did not find a proven violation or lost job.",
+        "Roberts, Kennedy, Thomas, Breyer, and Kagan joined Alito’s majority. The assignment’s brief discussion of bare violations must retain the qualification that some procedural injuries suffice. Its later TransUnion reference supplies context, not a claim that this 2016 decision states every subsequent standing limit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Assignment significance; 578 U.S. 343–354"
+        }
+      ]
+    }
+  ]
+}

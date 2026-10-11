@@ -1,0 +1,158 @@
+{
+  "id": "cp-fuentes",
+  "briefId": "CP-ATLAS-FUENTES",
+  "title": "Fuentes v. Shevin; Parham v. Cortese",
+  "course": "Civil Procedure",
+  "citation": "407 U.S. 67 (1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Household possessions are seized on private creditors’ applications before their possessors can answer, leading two sets of litigants to challenge the timing of due process.",
+  "actors": [
+    {
+      "name": "Margarita Fuentes",
+      "role": "Florida buyer whose stove and stereo were seized."
+    },
+    {
+      "name": "Firestone",
+      "role": "Installment seller invoking Florida replevin."
+    },
+    {
+      "name": "The Pennsylvania appellants",
+      "role": "Possessors of household goods, including Rosa Washington in a family property dispute."
+    }
+  ],
+  "proceedings": [
+    "Florida and Pennsylvania claimants obtained prejudgment seizure through clerks and state officials.",
+    "Three-judge federal district courts sustained the procedures against constitutional challenges.",
+    "The Supreme Court vacated both judgments and remanded."
+  ],
+  "limits": "The Court did not decide the underlying defaults, award damages, require a complete merits trial before every provisional remedy, or abolish all prejudgment repossession. The Fourth Amendment claim remained undecided.",
+  "briefSha256": "7d83fc00880385321546b04bc9cd999ede23ead4a768fd5d2c46aa7b1b8e6685",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-FUENTES"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Fuentes’s installment purchases end in a service and payment dispute",
+      "cue": "Why did legal title not tell the whole property story?",
+      "paragraphs": [
+        "Margarita Fuentes bought a gas stove, a service policy, and later a stereo from Firestone on installment contracts. The goods cost about $500, with over $100 in financing charges. Firestone retained title, but Fuentes was entitled to possession until default. After more than a year of payments, approximately $200 remained and a dispute arose over servicing the stove.",
+        "Firestone asserted that required payments had stopped, filed a small-claims repossession action, and simultaneously obtained a replevin writ. A clerk issued it from completed forms without first hearing Fuentes. A deputy sheriff and Firestone agent seized the stove and stereo later that day. Her opportunity to learn of and respond to the suit did not precede loss of possession."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transactions; 407 U.S. at 70–71"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Pennsylvania seizures involve both installment goods and family possessions",
+      "cue": "How did the companion procedure differ?",
+      "paragraphs": [
+        "The Pennsylvania appellants lost household items bought on credit, including a bed and table. Rosa Washington also disputed her child’s clothes, furniture, and toys with her former husband, a deputy sheriff. Her claim to possession arose from ordinary property law, not an installment agreement. The constitutional interest therefore extended beyond purchasers’ contract rights.",
+        "Florida required a complaint claiming entitlement and a bond of at least twice the goods’ value, without a convincing preliminary showing of wrongful detention. The writ directed seizure and complaint service, and officials could force entry after a delivery demand was refused. The sheriff held the goods three days, allowing the possessor to regain them through a double-value counterbond; otherwise the claimant received them pending judgment.",
+        "Pennsylvania similarly permitted application to a prothonotary, a court clerk, with a valuation affidavit and double-value bond. But the route used did not require a complaint or a claimant-initiated merits hearing. A dispossessed party could demand a complaint to begin judicial resolution or post a counterbond within the specified period. None of these appellants had demanded the complaint. Despite those differences, both states authorized seizure without adversarial evaluation first."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transactions and statutes; 407 U.S. at 71–78 & nn.6–9, 86–87 n.16"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The possessors challenge the seizure machinery in federal court",
+      "cue": "What issues came before the Supreme Court?",
+      "paragraphs": [
+        "Fuentes and the Pennsylvania litigants sued under 42 U.S.C. § 1983 and the jurisdictional provision then identified as § 1343(3), seeking declaratory and injunctive relief from the summary procedures. Three-judge district courts sustained both laws, and the Supreme Court combined their direct appeals.",
+        "The majority distinguished attacking summary seizure machinery from enjoining the underlying pending or future state judicial proceedings. A Fourth Amendment challenge was also presented, but the Court did not decide it because procedural due process resolved the relevant issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transactions and proceedings; 407 U.S. at 71–72 & nn.2–5, 96 n.32"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Stewart explains why later recovery cannot replace a prior opportunity to answer",
+      "cue": "Why were bonds and possible damages insufficient?",
+      "paragraphs": [
+        "Justice Stewart’s opinion treated timely notice and a hearing opportunity as protection against mistaken or unjustified deprivation. A possessor’s account could inform a neutral decision before state force changed possession. Later return or damages could not prevent the period of loss already suffered. The hearing’s form could vary, but these statutes supplied no opportunity at all before seizure.",
+        "A claimant’s bond might discourage wholly baseless claims but mostly measured willingness to act on a self-interested belief. A sincere creditor could still be wrong; an informed neutral assessment required more. The Court also noted that a claimant might expect an uninformed consumer never to contest even an unjustified seizure. Bonds and remedies could influence procedural form without removing the need for timely response.",
+        "Temporary deprivation counted, and surrendering other property for a counterbond did not erase it. Significant use and possession were protected even where a seller retained title. A possessor need not first prove ultimate success in the contract dispute to have a procedural right. Nor must a stove, stereo, or consumer item be as indispensable as wages or welfare to count as property. Importance and duration affected suitable process, not whether all opportunity could be omitted.",
+        "History did not automatically validate the statutes. Common-law replevin often restored goods distrained by landlords, and contested ownership could trigger a summary official determination before delivery. Modern creditor seizure was not simply continuation of an entirely one-sided ancient procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Hearing requirement and property; 407 U.S. at 78–90 & nn.10–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Neither ordinary debt collection nor generic repossession language supplies an exception",
+      "cue": "When could immediate seizure still occur?",
+      "paragraphs": [
+        "Extraordinary situations could permit seizure first when an important public interest, special need for prompt action, and strict official control under a narrow standard coincided. The opinion discussed taxes, wartime needs, bank failure, and health measures. Ordinary private debt collection presented no comparable public interest, and these statutes required neither a demonstrated concealment or destruction risk nor official appraisal of urgency. The Court separately limited inferences from an unexplained attachment precedent concerning jurisdiction.",
+        "The sellers’ forms permitted taking back or repossessing goods upon default. Unlike the specifically negotiated corporate waiver in Overmyer, they did not clearly waive a prior hearing. The Court did not have to resolve every issue about bargaining inequality or knowledge: a substantive repossession right did not specify judgment, self-help, or prejudgment writ, much less whether a hearing was relinquished.",
+        "States could provide efficient hearings genuinely testing the asserted right’s validity or probable validity. No full merits trial was invariably required, and a notified possessor could decline the opportunity. The opinion also distinguished search warrants, with public purpose, urgency, and probable-cause safeguards, rather than requiring an adversarial hearing before every warrant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Extraordinary situations and waiver; 407 U.S. at 90–97 & nn.22–33"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "White favors state proceedings and a different balance between debtor and creditor",
+      "cue": "How did his default evidence bear on his view?",
+      "paragraphs": [
+        "Justice White, joined by Chief Justice Burger and Justice Blackmun, first would remand for reconsideration under Younger and related decisions concerning federal interference with state proceedings. He regarded Pennsylvania’s writ as commencing a state action despite the missing complaint and thought existing state avenues adequate for constitutional objections. The majority did not adopt that procedural position.",
+        "On due process, White emphasized creditors’ interests in avoiding deterioration and use of collateral during litigation. Bonds protected against ultimate loss and commercial incentives discouraged unjustified repossession. His note reported Fuentes’s and the Parhams’ stipulated delinquency, Epps’s disputed default, and dissolution of Washington’s temporary restraining order after the lower court found supporting representations incorrect. The majority nevertheless regarded a prior response as a right independent of eventual success on a defense.",
+        "White proposed contextual accommodation, including requiring payments on which possession depended. He doubted the added hearing’s benefit, anticipated higher credit costs or reduced access, and invoked recent legislative and Uniform Commercial Code treatment of secured credit. His prediction that clearer contractual language might avoid the decision was not a majority endorsement of future waivers or self-help terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "White dissent; 407 U.S. at 97–103 & note at 101"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Both judgments are vacated, leaving merits disputes for further proceedings",
+      "cue": "What did the four-to-three judgment decide?",
+      "paragraphs": [
+        "On June 12, 1972, the Supreme Court vacated both district-court judgments and remanded. Stewart wrote for four participating Justices; White’s dissent had three. Justices Powell and Rehnquist did not participate.",
+        "The challenged state-assisted procedures could not take significant possession on these private applications without a prior opportunity to contest the claim. The Court did not resolve payment disputes, grant damages, or eliminate all repossession before final judgment. The later Mitchell discussion in the course materials concerns a separate decision, not another holding of these consolidated appeals."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Assigned source and result; 407 U.S. at 68, 84–97"
+        }
+      ]
+    }
+  ]
+}

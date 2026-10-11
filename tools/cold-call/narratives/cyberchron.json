@@ -1,0 +1,136 @@
+{
+  "id": "cyberchron",
+  "briefId": "CT-CB-0340",
+  "title": "Cyberchron Corp. v. Calldata Systems Development, Inc.",
+  "course": "Contracts",
+  "citation": "47 F.3d 39 (2d Cir. 1995)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Computer-equipment negotiations never produce a final purchase contract, but repeated directions to continue costly work generate a separate reliance claim and a remand over what losses that reliance caused.",
+  "actors": [
+    {
+      "name": "Cyberchron Corporation",
+      "role": "Specialized computer manufacturer asked to supply workstation components."
+    },
+    {
+      "name": "Calldata Systems Development",
+      "role": "Grumman subsidiary developing a Marine Corps command system and negotiating with Cyberchron."
+    },
+    {
+      "name": "Paul, Cyberchron representative",
+      "role": "Understood a disputed termination clause as reimbursement protection."
+    },
+    {
+      "name": "Wilhelm and Drost",
+      "role": "Representatives giving the later directions and reassurances to proceed; Wilhelm was with Grumman."
+    },
+    {
+      "name": "Codar",
+      "role": "Alternative supplier Calldata engaged after terminating Cyberchron."
+    }
+  ],
+  "proceedings": [
+    "After a bench trial, the Eastern District of New York rejected contract and restitution claims but awarded reliance damages.",
+    "Cyberchron appealed the termination-clause ruling and damages; Calldata cross-appealed promissory estoppel.",
+    "The Second Circuit sustained estoppel liability, rejected independent termination-clause recovery, and vacated for redetermination of reliance damages."
+  ],
+  "limits": "No final equipment contract arose, no equipment was delivered, and rejected contract and quantum-meruit claims were not appealed. The remand allowed proof of attributable overhead and shutdown costs without awarding a new amount or lost profits.",
+  "briefSha256": "c763438d3f0c8dde5b159804be4003e8ca48e2dff210b7f6b674df2f92ebd753",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0340"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Weight limits remain unresolved as the parties negotiate equipment and termination terms",
+      "cue": "What promises had not become a purchase contract?",
+      "paragraphs": [
+        "Cyberchron made specialized computers. Calldata Systems Development, a Grumman subsidiary, sought three workstation components for a Marine Corps Advanced Tactical Air Command Central system. The proposed combined weight ceiling was 145 pounds with penalties for excess. Cyberchron never accepted that specification and penalty arrangement. Negotiations never yielded the contemplated purchase contract; no equipment was delivered or purchase payment made.",
+        "A May 15, 1990 purchase order contained a termination-liability provision capping exposure at $200,000, including termination expenses and cost changes. A June modification raised the cap to $700,000. Cyberchron later sought $1 million, which Calldata refused. Cyberchron representative Paul understood the clause as assuring reimbursement if the transaction ended; Calldata viewed it as termination for convenience of a valid purchase order, not default. Grumman retained unilateral power to delete it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "47 F.3d at 41–43; Unfinished equipment contract"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Specific assurances induce continued work despite the unresolved terms",
+      "cue": "How did the relationship deteriorate?",
+      "paragraphs": [
+        "Beginning in mid-July, Grumman’s Wilhelm told Cyberchron to proceed as though weight had been approved and that differences would be settled later. He repeatedly pressed continued performance and timely delivery. Cyberchron sought written confirmation without obtaining it, but received more directions to proceed. After an August 8 conversation, Drost continued reassuring Cyberchron that matters were fine and work should continue.",
+        "Cyberchron requested a substantial progress payment on July 30 for costs through July 20 and received none. Meanwhile, Calldata explored alternative supplier Codar during August while pressing Cyberchron onward. Calldata issued a September 6 show-cause notice, received Cyberchron’s response, and terminated for asserted default on September 25. It contracted with Codar the next day.",
+        "The record described Codar’s equipment as heavier and inferior. That comparison gave significance to Calldata’s continuing insistence on Cyberchron’s unresolved weight requirement. After hearing evidence, the trial court found Cyberchron reasonably understood the later assurances as promises of payment for work while negotiations continued."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "47 F.3d at 42–45; Unfinished equipment contract"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The bench trial separates failed bargain claims from successful reliance",
+      "cue": "Which rulings remained outside the appeal?",
+      "paragraphs": [
+        "Judge Arthur Spatt in the Eastern District of New York rejected Cyberchron’s contract claim, Calldata’s contract counterclaim, and Cyberchron’s quantum-meruit claim. Missing agreement on essential weight and penalties defeated contract recovery. Restitution failed because Cyberchron had not fully performed and Calldata received no unjustly enriching benefit. Neither party appealed those dismissals.",
+        "The court awarded labor and materials incurred from July 15 to September 25 in reliance on the assurances. The September 1, 1993 judgment was $162,824.19: $53,588.40 materials and $109,235.79 labor, with interest from the December 18, 1990 filing. Although one background passage prints $162,824.10, the components and stated judgment support $162,824.19. Overhead and lost profits were excluded, and shutdown costs were not addressed.",
+        "Cyberchron sought independent termination-clause recovery and fuller damages; Calldata attacked estoppel and its scope. Judge Mahoney wrote with Judges Walker and Sprouse, the latter sitting by designation from the Fourth Circuit. New York law governed; Rule 52(a) clear-error review applied to relevant findings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "47 F.3d at 40–43, 46; Trial and cross-appeals"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The termination clause fails while the later assurances support estoppel",
+      "cue": "Why did one asserted promise survive without the final contract?",
+      "paragraphs": [
+        "Paul’s testimony preserved the independent termination-liability theory despite Calldata’s abandonment objection. It failed on the merits because it contemplated ending a valid purchase order, which never arose. The reserved unilateral deletion power also prevented treating that clause itself as a clear, reasonably relied-on guarantee covering every termination.",
+        "The later oral assurances were different. New York estoppel required a clear promise, reasonable foreseeable reliance, and resulting injury. The court discussed cases demanding unconscionable injury or emphasizing injustice without resolving every variation, finding the trial findings satisfied both ordinary elements and that added concern.",
+        "Directions to act as though weight were settled, coupled with pressure to meet the deadline, supported a promise to pay for induced work. Labor and materials followed those assurances. Continued pressure while seeking a replacement, then termination, supported unconscionability. July 15 properly began the compensable period; earlier spending did not result from the later promise.",
+        "Calldata’s reliance on Swerdloff’s narrow categories of estoppel was unpersuasive dictum inconsistent with later New York and Second Circuit authority. Nor did the August 28 delivery date end recovery: the findings did not make that date a condition of every promise to pay for continued work. September 25 remained the end of the induced-work period."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "47 F.3d at 43–45; Termination provision; Promissory estoppel"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The appellate court rejects a blanket exclusion of indirect and shutdown costs",
+      "cue": "What causal proof did the remand require?",
+      "paragraphs": [
+        "Reliance could include real indirect expenses, not only labor and materials. Cyberchron could establish an appropriate share of actual overhead attributable to induced work using operating history and rational allocation. It need not necessarily identify a lost alternative project. The court distinguished the Seventh Circuit’s Autotrol approach under Texas law that emphasized alternative-use proof.",
+        "Post-September 25 shutdown expenses could also result from work undertaken on the protected promises. Payment timing alone did not break causation, but only costs caused by reliance beginning in July could be included; expenses tied to earlier unprotected work were excluded. The court authorized proof, not all overhead or all shutdown costs, and did not grant lost profits.",
+        "The Second Circuit affirmed estoppel entitlement, rejected independent termination-clause recovery, and vacated the judgment for damages redetermination on existing or additional evidence. It set no replacement amount, restored no abandoned contract claim, and ordered no equipment purchase. No separate opinion was reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "47 F.3d at 45–47 & n.1; Damages and exact disposition"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "id": "lrs-o-wirtz",
+  "briefId": "LRS-ATLAS-O-WIRTZ",
+  "title": "Wirtz v. Baldor Electric Co.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "337 F.2d 518 (D.C. Cir. 1963), supplemented June 29, 1964",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Manufacturers cannot meaningfully test the confidential survey behind a federal wage determination, but the court must establish standing before completing the remedy.",
+  "actors": [
+    {
+      "name": "Labor Secretary Goldberg, succeeded in this litigation by Wirtz",
+      "role": "Department officials responsible for the challenged wage determination."
+    },
+    {
+      "name": "Bureau of Labor Statistics",
+      "role": "Conducted the industry survey under a confidentiality pledge."
+    },
+    {
+      "name": "NEMA, the manufacturers’ association",
+      "role": "Challenged the data and sought access for rebuttal and cross-examination."
+    },
+    {
+      "name": "Baldor and the other plaintiff manufacturers",
+      "role": "Companies seeking review of wage requirements affecting federal contracts."
+    }
+  ],
+  "proceedings": [
+    "The Department adopted the wage determination after an on-the-record hearing.",
+    "In December 1963 the D.C. Circuit found defects but retained jurisdiction and returned the record for standing findings.",
+    "In June 1964 it accepted five plaintiffs’ standing, rejected supplementation, and struck down the determination subject to a stay for possible Supreme Court review."
+  ],
+  "limits": "No later Supreme Court disposition is inferred. The decision does not compel public disclosure of every confidential response or invalidate unrelated wage surveys; it concerns this impeached, unrehabilitated record.",
+  "briefSha256": "96f152c55a5f3d23108571d35185470f8be5b48f3bf0588e6b69b9520b5aaedc",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-WIRTZ"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress requires a formal record for prevailing-wage determinations",
+      "cue": "Why did the manufacturers have statutory procedural rights?",
+      "paragraphs": [
+        "The Walsh-Healey Public Contracts Act required specified federal contracts to include minimum wages the Labor Secretary determined prevailed for comparable work in the relevant industry and locality. After Perkins v. Lukens Steel denied prospective contractors litigable rights under the earlier statute, Congress enacted the 1952 Fulbright Amendment. It made the Administrative Procedure Act, or APA, applicable, required an on-the-record determination after an opportunity for hearing, and allowed adversely affected or aggrieved persons, including qualifying manufacturers and dealers, to seek review.",
+        "Then-APA § 7(c) placed the burden on a rule’s proponent, demanded reliable, probative, substantial evidence, and protected rebuttal and cross-examination necessary for full disclosure. These safeguards applied because Congress expressly required formal rulemaking, not because every informal rule must receive a trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Governing statute; 337 F.2d at 520–22 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A confidential wage survey produces tables that manufacturers attempt to check",
+      "cue": "What did the Department keep from the hearing participants?",
+      "paragraphs": [
+        "The Bureau of Labor Statistics, or BLS, surveyed electric-motor and generator production in fractional equipment below one horsepower and integral equipment of at least one horsepower. It sent questionnaires to 775 establishments, principally identified from confidential state unemployment-insurance lists, seeking wage and covered-worker figures for the payroll nearest October 15, 1960. The pledge restricted access to sworn Bureau employees and promised no company-identified disclosure. Six tables ultimately summarized 216 firms, including estimates for four nonrespondents.",
+        "NEMA, the manufacturers’ association, received the tables about five weeks before the hearing. It obtained responses from seventy-two establishments and comparative information from sixty-one. Eight days before the hearing it reported discrepancies, two of which BLS accepted and used to reduce estimates. The day before the hearing it sought a subpoena for questionnaires, recipient and respondent lists, and correspondence, offering confidential inspection by counsel. The examiner denied access because of the pledge and possible harm to future voluntary surveys.",
+        "At the hearing, the BLS supervisor could not answer some questions without consulting the underlying material, and government counsel successfully opposed that consultation. NEMA sought to introduce error-identifying affidavits and strike the tables. Striking was denied; the affidavits were eventually admitted by agreement and generated further corrections. Neither the examiner nor Secretary Goldberg consulted the responses. Goldberg upheld the procedural rulings and revised survey, reasoning that discovered errors had been corrected and confidentiality was essential. He set prevailing rates of $1.45 and $1.70, increased by three cents for intervening changes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Survey, hearing, and determination; 337 F.2d at 522–25 & nn.5–11, 530 n.20"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Washington permits statistical summaries but requires meaningful testing",
+      "cue": "Why did confidentiality not cure the evidentiary problem?",
+      "paragraphs": [
+        "Judge Washington’s December 31, 1963 panel opinion accepted use of statistical tables. Convenient summaries need not place every underlying document into the record if adequate access permits testing and resolves objections. Here, however, the parties lacked material needed to test authenticity, accuracy, and meaning, even under their offered confidentiality arrangement.",
+        "The Department’s concern about future collection could be substantial but did not override express rebuttal and cross-examination rights. Lack of a vested right to a government contract likewise did not answer those statutory protections. The court distinguished cases lacking comparable hearing requirements or presenting different privilege issues.",
+        "It nevertheless declined to order production of the confidential files. The Government could withhold information and risk failure of proof, or disclose enough to permit testing. The holding was therefore not an unconditional direction to publish each company’s response."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "December disclosure analysis; 337 F.2d at 525–29 & nn.12–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Actual corrections leave the tables unable to carry the Secretary’s burden",
+      "cue": "Why was this more than a theoretical demand for access?",
+      "paragraphs": [
+        "Eight accepted corrections affected a significant share of workers and lowered estimated prevailing rates by three and four cents in the respective branches. Evidence suggested widespread possible misunderstanding of who counted as a covered worker, and government witnesses conceded omitted categories and potentially erroneous exclusions. The Secretary offered no adequate corroboration to rehabilitate the challenged data. Standing alone, the tables failed the statutory substantial-evidence requirement.",
+        "The court reserved situations without impeachment, with rehabilitation, or with different disclosure, and disclaimed effects on other industries’ determinations. It did not decide whether disclosure would violate the Federal Reports Act because the evidentiary ruling made that unnecessary. Other survey methods, including possible subpoena authority discussed in a note, remained outside this specific failure of proof."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Unrehabilitated evidence; Assigned limits; 337 F.2d at 529–31 & nn.19–24, note 15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Standing must be resolved before the industrywide remedy takes effect",
+      "cue": "What did the first mandate leave unfinished?",
+      "paragraphs": [
+        "The Fulbright Amendment displaced Perkins’s denial of litigable rights but still demanded actual adversity. Firms already paying at or above the minimum could not establish injury through speculation about future labor competition; forcing competitors to raise wages might improve their current position. Firms actually paying below the prescribed rates appeared injured even without prior government contracts, but the Secretary contested those facts.",
+        "The D.C. Circuit returned the record to the district court to identify plaintiffs with standing, retained appellate jurisdiction, and continued the stay. It left the Rule 23 issue unresolved. If even one plaintiff had standing, it contemplated enjoining the whole determination because firm-specific relief would create unfair bidding advantages and undermine an industrywide rule. That conclusion rested on this quasi-legislative measure, its review statute, and competitive effects rather than a universal remedial rule. Note 36 allowed the Secretary to propose supplementation through the district court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Standing and conditional remedy; 337 F.2d at 531–35 & nn.25–36"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Five companies establish immediate injury, but a new survey cannot validate the old one",
+      "cue": "How did the June supplement complete the case?",
+      "paragraphs": [
+        "On remand, affidavits established that Baldor, Holtzer-Cabot, Westinghouse, Louis Allis, and Northwestern Electric operated in the industry, obtained or sought federal contracts, and actually paid at least some covered employees below the prescribed minimum. The court accepted direct, immediate injury through wage increases or abandonment of government contracting. Even a small increase was real. It reserved the situation involving only unused starting or hiring rates.",
+        "The Secretary proposed plant visits and 1964 wage and job information under a clarified worker definition while retaining confidentiality and releasing anonymous tabulations and descriptions. One proposal would preserve the existing determination if current rates equaled or exceeded it, or lower rates if warranted. The alternative contemplated a new survey and formal hearing while the appellate court retained jurisdiction.",
+        "The per curiam June 29, 1964 supplement rejected either as rehabilitation. The Secretary conceded that records and memories no longer reliably tested the 1960 survey. 1964 wages could not establish 1960 wages and had themselves been influenced by the disputed order. Proposed disclosure still provided no meaningful means to test sources against the identified weaknesses. Disclosure needs could vary with evidentiary strength, but no meaningful disclosure was inadequate here. The Department could commence a lawful new determination, not maintain the invalid one until replacement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "June 1964 supplement; 337 F.2d at 535–38 and Appendix"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The completed remedy includes time to seek further review",
+      "cue": "What later events are not established?",
+      "paragraphs": [
+        "The supplemental decision struck down the determination and stayed the injunction for sixty further days to permit seeking Supreme Court review. If review was sought, the stay would continue until the Supreme Court acted; denial would make the injunction immediately effective. New APA-compliant proceedings remained possible. The report does not establish whether review was sought or what happened afterward.",
+        "Chief Judge Bazelon and Judge Wright sat with Washington in the first stage, and neither stage contains a separate concurrence or dissent. Stopping at the December standing remand would omit the completed inquiry and final remedial direction. The assigned discussion of later implementation difficulties is editorial history, not an additional finding of these two opinions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Two stages; Final order and assigned scope; 337 F.2d at 518, 520, 535–37"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "id": "cp-scott",
+  "briefId": "CP-ATLAS-SCOTT",
+  "title": "Scott v. Harris",
+  "course": "Civil Procedure",
+  "citation": "550 U.S. 372 (2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A recorded high-speed pursuit ended when a deputy struck the fleeing car and left its driver catastrophically injured. The Justices disagreed about whether that same recording eliminated a genuine factual dispute and justified the intervention as a matter of law.",
+  "actors": [
+    {
+      "name": "Harris",
+      "role": "Driver who fled a speeding stop and became quadriplegic after the police intervention; civil-rights plaintiff."
+    },
+    {
+      "name": "Deputy Timothy Scott",
+      "role": "Georgia deputy who joined the pursuit and deliberately struck Harris’s car; defendant seeking summary judgment."
+    },
+    {
+      "name": "Initial deputy and supervising officer",
+      "role": "The first clocked Harris’s speed and began pursuit; the supervisor authorized Scott to intervene."
+    }
+  ],
+  "proceedings": [
+    "District court denied Scott qualified-immunity summary judgment because of factual disputes.",
+    "Eleventh Circuit affirmed on interlocutory appeal.",
+    "Supreme Court on April 30, 2007 reversed 8–1 and held Scott entitled to summary judgment on the Fourth Amendment claim for absence of a constitutional violation."
+  ],
+  "limits": "The account reports judicial descriptions of the video, not an independent viewing. The ruling concerned the reviewed Fourth Amendment claim and did not resolve other claims. Saucier sequencing is historical; neither the Court nor concurrences adopted blanket permission for every fast chase.",
+  "briefSha256": "99a815ba2eac684366580e4bcdf4dd778508c4e5de77ed69f22e0b56fcef45b9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SCOTT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A speeding stop develops into a dangerous disputed pursuit",
+      "cue": "What happened before Scott struck the car?",
+      "paragraphs": [
+        "In March 2001, a Georgia deputy clocked Harris at 73 miles per hour in a 55 zone and activated police lights. Harris fled. Deputy Timothy Scott joined after radio communications. The pursuit exceeded 85 miles per hour and covered almost ten miles in approximately six minutes.",
+        "In a shopping-center lot, Harris escaped police attempts to contain him, collided with Scott’s car, and returned to the highway. Scott requested permission for a Precision Intervention Technique intended to spin the car to a stop. A supervisor approved intervention. Scott instead pushed the rear with his bumper, later explaining that speed made the planned technique unsafe. The exact scope of that permission did not decide constitutional reasonableness.",
+        "Harris lost control, left the road, overturned, and suffered injuries producing quadriplegia. The chase was recorded, creating the central evidence for later disagreement about its danger."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts; 550 U.S. at 374–75 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Harris sues, and the lower courts preserve factual questions",
+      "cue": "Which account did they accept for the motion?",
+      "paragraphs": [
+        "Harris sued Scott and others under 42 U.S.C. § 1983. The claim reviewed by the Supreme Court alleged excessive force constituting an unreasonable Fourth Amendment seizure; other claims and defendants remained outside review.",
+        "The district court denied Scott’s qualified-immunity summary-judgment motion. On interlocutory appeal, the Eleventh Circuit agreed a jury could find unconstitutional deadly force and sufficiently established unlawfulness to defeat immunity. For that motion, they accepted an account of fast but controlled driving, little actual danger to others, and a largely clear roadway at intervention.",
+        "Under the then-mandatory Saucier sequence, the Supreme Court addressed constitutional violation first. Its note acknowledged criticism of that order but reserved reconsideration because it found this constitutional question readily answerable. That procedural history is not a current mandatory-sequencing instruction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; 550 U.S. at 375–78 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Scalia finds the recording defeats the low-danger account",
+      "cue": "What demanding summary-judgment premise did the Court apply?",
+      "paragraphs": [
+        "Justice Scalia’s eight-Justice opinion reaffirmed favorable treatment of a nonmovant’s evidence and reasonable inferences. But a verbal disagreement is not necessarily genuine. An account plainly contradicted by the record so that no reasonable jury could believe it need not govern. No party alleged alteration or disputed that the video depicted the events.",
+        "The majority saw repeated movement among numerous vehicles, center-line crossings, red-light violations, and substantial danger to drivers and police. It concluded the entire record could not support a rational verdict based on Harris posing little threat. This was not permission to prefer defendants whenever video exists; the stated condition was that no reasonable jury could accept the relevant account.",
+        "The recording also confirmed that no vehicle or pedestrian was threatened at the precise instant Scott struck the car. The majority relied on the ongoing pursuit’s broader danger, not a claim that every lower-court observation was false. After selecting supportable facts and inferences, it treated constitutional reasonableness as legal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Video and summary judgment; 550 U.S. at 378–81 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority balances the maneuver’s serious harm against the chase’s danger",
+      "cue": "Why did Garner and possible withdrawal not control?",
+      "paragraphs": [
+        "Scott conceded a seizure because he deliberately terminated movement by hitting Harris’s car. Harris called it deadly force and invoked Tennessee v. Garner’s requirements, including necessity and warning. The Court rejected treating that label as a mechanical trigger. Garner involved shooting an unarmed person fleeing on foot without comparable danger; here the flight itself created serious risk despite the minor original offense.",
+        "The majority balanced catastrophic risk to Harris against imminent danger to motorists, possible pedestrians, and pursuing officers. It considered numbers exposed and relative responsibility: Harris intentionally created the danger, while potential victims had not. That reasoning evaluated an admitted seizure rather than denying one occurred.",
+        "The Court also rejected a constitutional duty to abandon pursuit. Withdrawal might not reliably tell Harris it was safe to stop fleeing, and a rule rewarding the most reckless flight would be problematic. The opinion’s note emphasized uncertainty about withdrawal’s effects, not a factual finding that Harris necessarily would keep driving dangerously. On the majority’s established facts, intervention was reasonable and no Fourth Amendment violation occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasonableness; 550 U.S. at 381–86 & nn.9–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Ginsburg and Breyer caution against an absolute chase rule",
+      "cue": "Which proposed procedural reform remained only a concurrence?",
+      "paragraphs": [
+        "Justice Ginsburg joined the Court but stressed actual danger and safer alternatives in the circumstances. The judgment was not a mechanical authorization for all high-speed chases. Reconsidering Saucier was unnecessary because the constitutional question deserved resolution here.",
+        "Justice Breyer also joined and said viewing the recording changed his assessment. He proposed ending mandatory Saucier sequencing because unnecessary constitutional decisions could consume resources, rest on poor records, or evade review when immunity still protected defendants. Scott did not adopt that reform. Breyer likewise rejected reading its concluding formulation as absolute and agreed with Ginsburg that additional circumstances could matter."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concurrences; 550 U.S. at 386–89"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Stevens sees reasonable disagreement in the same pictures",
+      "cue": "What alternatives did he think a jury should evaluate?",
+      "paragraphs": [
+        "Justice Stevens read the recording as controlled passing rather than the near collisions the majority inferred. Other drivers might have moved for police lights and sirens, red-light and traffic conditions were less conclusive, the shopping center was closed, late-night roads lacked pedestrians, and police had blocked intersections. He agreed flight deserved punishment but thought those facts did not establish potentially lethal intervention’s necessity as a matter of law.",
+        "Police possessed the plate number and might arrest later, cease pursuit, warn Harris, or use stop sticks. Stevens thought speculation about continued dangerous flight denied the favorable inferences due Harris. Disagreement among judges viewing the same recordings suggested reasonable jurors could disagree as well.",
+        "His dissent challenged both the no-genuine-dispute finding and constitutional evaluation. Where the majority saw established extreme danger and a legal question, he saw remaining questions of danger, necessity, and alternatives appropriate for jurors."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens dissent; 550 U.S. at 389–97 & nn.1–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Scott receives summary judgment because the Court finds no violation",
+      "cue": "What did the eight-to-one disposition leave outside review?",
+      "paragraphs": [
+        "On April 30, 2007, the Supreme Court reversed the Eleventh Circuit and held Scott entitled to summary judgment on the reviewed Fourth Amendment claim. Chief Justice Roberts and Justices Kennedy, Souter, Thomas, Ginsburg, Breyer, and Alito joined Scalia; Ginsburg and Breyer additionally concurred, and Stevens alone dissented.",
+        "The result rested on no constitutional violation, not a separate conclusion excusing an established violation through qualified immunity. Other claims were outside the case presented. The majority and Stevens read the same recordings differently. Later outcomes on the other claims are not reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and source scope; 550 U.S. at 373, 377–78, 386"
+        }
+      ]
+    }
+  ]
+}

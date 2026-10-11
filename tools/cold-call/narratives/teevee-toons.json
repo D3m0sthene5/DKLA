@@ -1,0 +1,165 @@
+{
+  "id": "teevee-toons",
+  "briefId": "CT-SUP-0040",
+  "title": "TeeVee Toons, Inc. v. Gerhard Schubert GmbH",
+  "course": "Contracts",
+  "citation": "2006 WL 2463537 (S.D.N.Y.), No. 00 Civ. 5189",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A custom packaging system fails, and disputed assurances about the fine print prevent the seller from ending all warranty claims before trial.",
+  "actors": [
+    {
+      "name": "Steve Gottlieb",
+      "role": "Inventor of Biobox and president of TeeVee Toons."
+    },
+    {
+      "name": "TeeVee Toons (TVT)",
+      "role": "Buyer of the manufacturing system."
+    },
+    {
+      "name": "Gerhard Schubert GmbH",
+      "role": "German manufacturer and summary-judgment movant."
+    },
+    {
+      "name": "Rodico and its agent Neuber",
+      "role": "Schubert’s exclusive United States sales representative and negotiating agent."
+    },
+    {
+      "name": "Steve Gottlieb, Inc. (SGI)",
+      "role": "Later-created affiliate attempting to assert claims."
+    }
+  ],
+  "proceedings": [
+    "TVT and SGI sued in July 2000; an earlier dismissal motion failed in 2002.",
+    "Judge Richard Casey partly granted and partly denied Schubert’s summary-judgment motion.",
+    "Remaining TVT Convention claims were set for a trial-planning conference."
+  ],
+  "limits": "The order did not find the boilerplate definitively excluded or award damages. The assigned source and UNILEX date the decision August 23, 2006; the alternate reproduction labels August 22, a retained metadata discrepancy.",
+  "briefSha256": "71e6e6de9d5f549263af00180d31a7a95078abd5e51c889538036951adc2fd4e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-SUP-0040"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Gottlieb seeks a machine to mass-produce his biodegradable cassette package",
+      "cue": "Which negotiations later became disputed?",
+      "paragraphs": [
+        "Steve Gottlieb, founder and president of the record company TeeVee Toons, or TVT, invented and patented Biobox, a biodegradable cardboard audio- and video-cassette package. In 1994 he sought a mass-production system and selected German manufacturer Gerhard Schubert GmbH, marketed in the United States through exclusive agent Rodico.",
+        "A written quotation dated February 3, 1995 became the contract when TVT accepted February 13. Attached terms limited the warranty to six months’ replacement for defective materials and workmanship, excluded other warranties including merchantability and fitness, and stated that the quotation and incorporated writings exhausted the agreement. Schubert later relied on those terms and a claimed damages cap of the $862,160 machinery price.",
+        "TVT said Rodico’s agent Neuber expressly assured Gottlieb between quotation and acceptance that the fine print did not apply to this deal. Neuber admitted advising him not to worry about or overemphasize it but denied saying to ignore it. That disagreement about their exchange and intentions remained unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Failed system; Disputed fine print; full opinion §§ I, II.C; assigned pp.40–45"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Delays end in delivery of a system with persistent production defects",
+      "cue": "What litigation followed?",
+      "paragraphs": [
+        "The project ran almost two years late. The completed system reached TVT’s contracted Cinram production facility in Richmond, Indiana, in late August 1997, but serious speed and quality defects persisted. TVT began notifying Schubert by October.",
+        "TVT and its affiliate Steve Gottlieb, Inc., or SGI, sued in July 2000 for the machine, repair and support costs, facility and administration costs, lost profits, fraud, and negligence. A 2002 dismissal motion failed. Judge Richard Casey then considered Schubert’s summary-judgment motion, not a verdict after trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Failed system and proceedings; full opinion §§ I–II, II.C.2.a.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The international sales convention requires consideration of the negotiations",
+      "cue": "Why did a written merger clause not conclusively settle assent?",
+      "paragraphs": [
+        "The United States and Germany were parties to the United Nations Convention on Contracts for the International Sale of Goods, or CISG, and the businesses were located there. Article 1(1)(a) applied. No listed exclusion fit; manufacturing predominated over design and installation services under Article 3, and neither party expressly opted out. New York law separately governed the common-law tort claims.",
+        "Article 11 permitted contract proof without a writing, while Article 8 looked to intent known or necessarily apparent to the other party, or otherwise a comparable reasonable person’s understanding. Article 8(3) required relevant circumstances, including negotiations, practices, usage, and later conduct. A domestic parol-evidence exclusion therefore could not foreclose evidence contradicting fine print.",
+        "The specific interaction with a merger clause appeared novel in American CISG decisions. MCC-Marble supplied Article 8 reasoning without deciding this exact issue. Casey used CISG Advisory Council Opinion No. 3 as interpretive assistance, not binding law: the clause’s effect depended on the parties’ actual intention.",
+        "TVT had not conclusively proved exclusion of the terms, but its evidence created a genuine question whether Neuber could have been unaware of Gottlieb’s interpretation at acceptance. The factfinder had to examine subjective intentions. If both intended the writing and merger clause to govern, Article 6 permitted variation and the disclaimers would undermine the pleaded Convention warranties. Otherwise the clauses could drop out and Article 35’s protections remain. Oral assurances did not automatically defeat every merger clause."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "CISG framework and merger analysis; full opinion §§ II.C.1–3; assigned pp.41–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Conformity and timely notice do not eliminate the disclaimer issue",
+      "cue": "Which warranty questions remained connected?",
+      "paragraphs": [
+        "TVT invoked Article 35’s ordinary-purpose, particular-purpose, and sample-or-model protections and Article 36’s guarantee provisions. No genuine dispute remained that the system failed to produce at proper speed and quality. October notice after late-August delivery was reasonable under Article 39 in these manufacturing circumstances; shorter-notice foreign cases did not control the particular facts.",
+        "Those conclusions did not establish final recovery because valid contractual variations might remove the Convention protections. A valid disclaimer could defeat the pleaded Article 36 theory despite a similar contractual replacement guarantee, since TVT pleaded the Convention warranty rather than recovery on the contract’s guarantee. Summary judgment could not determine incorporation adversely to TVT on this record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disputed protections; full opinion §§ II.C.2–3 and explanatory footnote"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "SGI cannot assert a contract and inducements predating its existence",
+      "cue": "Why did the affiliate leave the case?",
+      "paragraphs": [
+        "SGI was incorporated in 1997, after the agreement and relevant inducements. It was neither a contracting party nor an intended beneficiary known or contemplated by Schubert and could not rely on statements made before it existed. Claimed later service contracts were supported by neither pleading nor record.",
+        "The court dismissed all SGI claims for lack of standing. It also rejected a late attempt to substitute Gottlieb personally, which would not make him a party to the quotation, would reopen completed discovery, and was unnecessary given TVT’s continuing participation and his ownership. These were the court’s historical standing rulings, not a universal classification of present third-party-contract objections."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full-opinion rulings; § II.B"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Two facility measures fail, while four other damages categories survive",
+      "cue": "What did survival on summary judgment actually mean?",
+      "paragraphs": [
+        "CISG Articles 45 and 74 permitted breach loss, including lost profits, limited by foreseeability at formation and sufficiently certain computation. Fixed expenses that would also arise with a working system were not loss caused by defects. TVT supplied no adequate calculation of recoverable Cinram facility and service costs, and neither need nor foreseeability supported a replacement facility. Schubert obtained summary judgment against those two measures under all three Convention theories.",
+        "The machine price, defect-related labor and services, increased project administration, and foreseeable sales and licensing profits survived. Service allocation and payment of some invoices were disputed. Administrative estimates could provide sufficient certainty without mathematical precision. Evidence of actual orders supported at least some profit loss despite absence of the orders themselves from the record, under the inference favoring TVT on this motion. These rulings set no amount, accepted no unlimited projection, and left the disclaimers unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages rulings; full opinion §§ II.C.2.a.2, II.C.2.b, II.C.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The tort claims fail for reasons separate from the Convention claims",
+      "cue": "What remained for trial after the partial order?",
+      "paragraphs": [
+        "Fraud was not automatically duplicative because TVT alleged misrepresentations of existing capabilities before contracting. It nevertheless lacked justifiable reliance under New York law. TVT had retained certified packaging consultant Kelsey, who held technical discussions, received specifications, and recommended Schubert. Gottlieb’s personal lack of expertise did not excuse failure to use information accessible through that adviser.",
+        "Negligence also failed because the complaint sought economic loss from defective goods and contractual failures without adequately alleging an independent duty. Casey consequently granted summary judgment on every SGI claim, TVT’s fraud and negligence claims, and its two rejected facility damages measures. He denied the motion on remaining TVT Convention claims and their four surviving damages categories and scheduled a trial-planning conference.",
+        "No judgment for TVT, damages award, or definitive exclusion of boilerplate followed. Casey wrote alone. The historical sources retain a one-day metadata difference between August 23, 2006 in the assignment and UNILEX and August 22 in the alternate reproduction; no later proceedings are inferred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Tort rulings; Exact order; Sources and comparison notes; full opinion §§ II.D.2–3, III"
+        }
+      ]
+    }
+  ]
+}

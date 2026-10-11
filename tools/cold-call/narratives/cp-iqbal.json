@@ -1,0 +1,110 @@
+{
+  "id": "cp-iqbal",
+  "briefId": "CP-066",
+  "title": "Ashcroft v. Iqbal",
+  "course": "Civil Procedure",
+  "citation": "556 U.S. 662 (2009)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A former detainee’s damages suit reached the Supreme Court on whether his complaint plausibly attributed purposeful discrimination to two senior federal officials.",
+  "actors": [
+    {
+      "name": "Javaid Iqbal",
+      "role": "Pakistani Muslim former detainee and damages plaintiff"
+    },
+    {
+      "name": "John Ashcroft",
+      "role": "Former Attorney General"
+    },
+    {
+      "name": "Robert Mueller",
+      "role": "FBI Director"
+    }
+  ],
+  "proceedings": [
+    "District court denied the two officials’ qualified-immunity dismissal motion.",
+    "Second Circuit affirmed on interlocutory appeal.",
+    "Supreme Court reversed 5–4 and remanded, leaving possible amendment for initial consideration below."
+  ],
+  "limits": "Allegations are not findings. Only claims against Ashcroft and Mueller were decided. The Court assumed without deciding the availability of the particular First Amendment Bivens claim and did not recognize a new damages remedy.",
+  "briefSha256": "540f88c0c88cb01cd9804001ea64f5cbf8f2ffa35abf9a1352882c0df697f14b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-066"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Detention after September 11",
+      "cue": "Iqbal later attributes restrictive treatment to discrimination",
+      "paragraphs": [
+        "Javaid Iqbal, a Pakistani Muslim, was arrested in November 2001 on identification-document fraud and conspiracy charges. He initially entered the general population of Brooklyn’s Metropolitan Detention Center, then moved to its highly restrictive administrative maximum-security unit after officials classified him as a detainee of high interest. He later pleaded guilty, served his sentence, and was removed to Pakistan.",
+        "Iqbal sued federal officials for damages. His complaint alleged that Federal Bureau of Investigation officials detained numerous Arab Muslim men and classified some as high interest because of race, religion, or national origin rather than evidence of terrorist involvement. It linked Attorney General John Ashcroft and FBI Director Robert Mueller to approval of restrictive detention pending FBI clearance and alleged that they knowingly created or condoned a discriminatory policy. The complaint also alleged guard abuse involving other defendants, but those claims were not the ones the Supreme Court decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part I; casebook 628–631, 636–638"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two senior officials seek dismissal",
+      "cue": "Their immunity appeal presents a legal pleading question",
+      "paragraphs": [
+        "Ashcroft and Mueller moved to dismiss on qualified-immunity grounds. The Eastern District of New York denied their motion, and the Second Circuit affirmed on an interlocutory appeal. The Supreme Court held that the appeal was within appellate jurisdiction because it presented the legal sufficiency of the pleaded constitutional violation, not a dispute over what evidence a summary-judgment record could establish.",
+        "For the majority, Justice Kennedy first identified what Iqbal had to plead about these particular defendants. Supervisory status did not itself create liability. Each official had to be responsible through his own misconduct, and the asserted discrimination required purpose; knowing that a subordinate discriminated was insufficient. The Court assumed without deciding that this particular First Amendment claim was available under Bivens. Its analysis did not affirmatively establish a new constitutional damages remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts II–III; casebook 628–631"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority applies plausibility to the allegations",
+      "cue": "A possible discriminatory explanation is insufficient",
+      "paragraphs": [
+        "Kennedy, joined by Chief Justice Roberts and Justices Scalia, Thomas, and Alito, read Federal Rule of Civil Procedure 8 to require facts plausibly supporting relief. Courts need not presume legal conclusions or unsupported element recitations true. They must assess the remaining factual allegations in context. Plausibility exceeds sheer possibility but does not require probability.",
+        "The majority treated the assertions that Ashcroft and Mueller knowingly and maliciously imposed confinement solely because of protected characteristics as conclusions. It did not reject them because they were inherently fantastic. Accepting that officials detained Arab Muslim men and that these defendants approved restrictive detention pending clearance, the Court found an obvious alternative explanation in the security investigation. Those pleaded measures did not plausibly show that the two officials selected the classification because of protected characteristics. That was an inference assessment at the pleading stage, not a trial finding that the alternative explanation actually motivated everyone.",
+        "The Court rejected limiting Twombly to antitrust: its interpretation of Rule 8 applied across civil actions. Rule 9(b)’s permission to plead mental states generally relaxed the special particularity requirement for fraud or mistake; it did not excuse factual support under Rule 8. Nor could planned discovery controls cure the complaint. Qualified immunity protected against litigation burdens, and senior officials could have to participate even in discovery initially directed at subordinates."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts IV.A–C; casebook 629–634"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent reads the complaint as a whole",
+      "cue": "Possible amendment remains for the lower courts",
+      "paragraphs": [
+        "Justice Souter, joined by Justices Stevens, Ginsburg, and Breyer, objected that the officials had conceded possible liability for actual knowledge and deliberate indifference. The majority rejected that concession without full briefing. He also found that the complaint as a whole described a specific discriminatory policy and connected the officials to it. The isolated allegations would be insufficient alone, but their context mattered. Assessing entitlement assuming alleged facts true differed from assessing whether those facts probably happened.",
+        "Breyer separately argued that sequencing discovery and other management tools had not been shown incapable of protecting officials against improper burdens.",
+        "On May 18, 2009, the Court reversed the Second Circuit and remanded. The court of appeals was to consider initially whether to send the case back so Iqbal could seek leave to amend. That neither automatically authorized amendment nor decided all claims against all defendants. It held this complaint insufficient to support purposeful discrimination by Ashcroft and Mueller under the majority’s substantive standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Souter dissent Parts I–II; Breyer dissent; Opinion Part V; casebook 634–639"
+        }
+      ]
+    }
+  ]
+}

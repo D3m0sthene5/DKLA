@@ -1,0 +1,128 @@
+{
+  "id": "cp-finley",
+  "briefId": "CP-ATLAS-FINLEY",
+  "title": "Finley v. United States",
+  "course": "Civil Procedure",
+  "citation": "490 U.S. 545 (1989)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A fatal aircraft crash produces claims against local defendants and the United States. The plaintiff seeks one federal proceeding, but the Court separates constitutional relatedness from the statute’s authority to bring in additional parties.",
+  "actors": [
+    {
+      "name": "Finley",
+      "role": "Surviving spouse and parent pursuing negligence claims after a fatal plane crash."
+    },
+    {
+      "name": "United States and Federal Aviation Administration",
+      "role": "Federal defendant and agency allegedly responsible for runway lights and air-traffic control."
+    },
+    {
+      "name": "City and electric utility",
+      "role": "Original state-court defendants later proposed as additional federal defendants."
+    }
+  ],
+  "proceedings": [
+    "Finley first sued the city and utility in state court, then the United States federally.",
+    "The district court permitted adding the state defendants and certified an interlocutory appeal.",
+    "The Ninth Circuit summarily reversed; the Supreme Court affirmed five to four on May 22, 1989."
+  ],
+  "limits": "This historical source-brief transformation makes no new audit or present FTCA advice claim. Article III capacity was assumed, not decided; negligence remained alleged. The statutory holding preceded Congress’s 1990 supplemental-jurisdiction enactment and does not describe its additional-party grant or exceptions.",
+  "briefSha256": "10f8372ff22817aa2438047dd1120e2d880693099bb0fc8d40263ac63b1a5e3b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-FINLEY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A crash leads Finley first to local defendants, then to the federal government",
+      "cue": "Why did she need two forums before seeking joinder?",
+      "paragraphs": [
+        "On November 11, 1983, a twin-engine aircraft carrying Finley’s husband and two children struck electrical lines approaching a San Diego airfield. No one survived. Finley first sued in state court, alleging that the utility negligently located and insufficiently lit the lines and that the city negligently maintained runway lights inoperative that night.",
+        "She later learned the Federal Aviation Administration was responsible for the runway lights and sued the United States under the Federal Tort Claims Act, or FTCA. That complaint alleged negligent light operation and maintenance and air-traffic-control functions. These were liability allegations, not findings by the Supreme Court.",
+        "Almost a year later Finley requested amendment to add the city and utility federally, lacking any independent federal jurisdictional basis for their claims. The district court relied on United Mine Workers v. Gibbs, shared operative facts and trial efficiency, allowed amendment and certified under § 1292(b). The Ninth Circuit summarily reversed under precedent rejecting pendent-party jurisdiction in FTCA cases. Supreme Court review addressed that circuit conflict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; 490 U.S. 546–547"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The majority requires statutory authority beyond one constitutional case",
+      "cue": "Why did Gibbs not automatically authorize these additional defendants?",
+      "paragraphs": [
+        "Justice Scalia wrote for Chief Justice Rehnquist and Justices White, O’Connor and Kennedy. Lower federal courts require both Article III capacity and a congressional grant. The Court assumed without deciding that related claims could constitute one constitutional case, but refused to extend Gibbs’s treatment of additional claims between existing parties automatically to new defendants. No independently cognizable federal claim named the city or utility.",
+        "The majority read Zahn, Aldinger and Kroger as requiring attention to the statute and claim posture when new parties are added. A counterclaim between already-present parties posed a different question. Its note acknowledged Monell’s change to the municipal-liability premise underlying Aldinger.",
+        "Narrow ancillary situations involving controlled property or measures necessary to protect a judgment also differed. Dewey’s fraudulent-transfer counterclaim illustrated recovery of assets needed to make judgment effective. Finley offered shared accident facts and convenience, not that protective necessity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Constitutional versus statutory power; Precedents; 490 U.S. 547–552 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The FTCA text does not extend to any action containing one federal claim",
+      "cue": "Why did exclusivity and joinder rules not close the gap?",
+      "paragraphs": [
+        "Section 1346(b) granted jurisdiction over civil actions on claims against the United States. The majority read that as specifying defendants rather than authorizing every lawsuit containing at least one such claim. Federal exclusivity for the FTCA portion could make consolidation impossible elsewhere, but could not change the enacted grant. Sherwood’s exclusion of private defendants under the Tucker Act supported that reading.",
+        "Rules 14 and 20 permitted procedural impleader and joinder but did not enlarge subject-matter power; Rule 82 expressly preserved the distinction. Adding an unsupported claim would not destroy jurisdiction over Finley’s United States claim—it meant the court lacked jurisdiction over the addition.",
+        "Finley argued the 1948 change from jurisdiction over any claim to civil actions on claims broadened authority. The Court regarded it as stylistic conformity with unified civil-action terminology, without a clearly expressed substantive change. Congress had explicitly authorized related unfair-competition claims in § 1338(b). The majority wanted a stable background rule for legislation and left Congress free to change it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Text, exclusivity and rules; 1948 revision; 490 U.S. 552–556 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Blackmun asks whether Congress excluded the parties rather than expressly included them",
+      "cue": "How did he distinguish Aldinger and Sherwood?",
+      "paragraphs": [
+        "Justice Blackmun dissented. Aldinger, he argued, asked whether Congress excluded a proposed additional party. Municipalities were then treated as substantively outside § 1983; the FTCA contained no corresponding exclusion of private tort defendants. Mere omission could not establish exclusion because every pendent-party problem began with absence of an independent grant.",
+        "Sherwood rested on the specific history of Court of Claims jurisdiction, not an equivalent restriction in tort litigation. Federal exclusivity strengthened rather than weakened combined jurisdiction because only the federal court could hear the whole constitutional controversy. He would allow that proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Blackmun dissent; 490 U.S. 556–558"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens treats practical complications as management questions",
+      "cue": "What result did the Court reach, and what changed later?",
+      "paragraphs": [
+        "Justice Stevens, joined by Justices Brennan and Marshall, likewise required congressional negation of otherwise available pendent power. He distinguished constitutional case jurisdiction from personal jurisdiction and drew on historical ancillary practice, the Federal Rules, Gibbs and lower-court decisions, including Judge Friendly’s, treating related additional parties as familiar.",
+        "Diversity precedents involved specific limits—amount in Zahn and complete diversity in Kroger—not an equivalent barrier in an exclusively federal tort case. Splitting claims could diminish the practical value of that forum. Different jury rights, administrative prerequisites, defenses or damages rules might justify separate trials or declining jurisdiction, but did not categorically eliminate power. He also used Yellow Cab and contribution practice to question the majority’s restrictive sovereign-immunity analogy.",
+        "On May 22, 1989, the Court affirmed the Ninth Circuit five to four, excluding the city and utility claims under the then-governing grant while preserving Gibbs’s existing-party line. It decided neither negligence nor an Article III prohibition.",
+        "Congress responded in 1990 with § 1367, expressly reaching sufficiently related claims involving additional parties, subject to exceptions, diversity restrictions and discretionary grounds. That later grant supplied what Finley would not infer; it did not retroactively change the judgment or remove every jurisdictional limit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens dissent; Disposition and later context; 490 U.S. 556, 558–580 & dissent nn.1–37"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "id": "lrs-n-standing-california-texas",
+  "briefId": "LRS-ATLAS-N-STANDING-CALIFORNIA-TEXAS",
+  "title": "California v. Texas",
+  "course": "Legislation and the Regulatory State",
+  "citation": "593 U.S. 659 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Congress reduces the insurance mandate’s monetary consequence to zero, and a challenge seeking to invalidate the wider Affordable Care Act fails over the link between the plaintiffs’ expenses and enforceable official conduct.",
+  "actors": [
+    {
+      "name": "Texas and seventeen other States",
+      "role": "Challengers asserting program, administrative, and employment costs."
+    },
+    {
+      "name": "Neill Hurley and John Nantz",
+      "role": "Individuals who said they bought insurance because the remaining statute directed it."
+    },
+    {
+      "name": "California, fifteen other States, and the District of Columbia",
+      "role": "Intervenors defending the Act; the House joined on appeal."
+    },
+    {
+      "name": "Federal officials",
+      "role": "Defendants with no remaining power to impose a payment for noncompliance with the challenged command."
+    }
+  ],
+  "proceedings": [
+    "The district court found individual standing and declared the coverage requirement unconstitutional and inseverable from the Act, staying judgment.",
+    "The Fifth Circuit agreed on standing and constitutionality but remanded severability.",
+    "The Supreme Court reversed as to standing, vacated, and remanded with instructions to dismiss on June 17, 2021."
+  ],
+  "limits": "The Court did not decide constitutionality or severability. It declined undeveloped alternative inseverability-based standing theories rather than categorically rejecting every such theory. Thomas and Alito disputed whether the States adequately presented that route.",
+  "briefSha256": "942030d49d59d60de1a77889df1d98e4cdfa0526c8fb7320cfa0ad9da7524412",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-CALIFORNIA-TEXAS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress leaves the coverage language but eliminates its payment consequence",
+      "cue": "What change prompted the new challenge?",
+      "paragraphs": [
+        "The Affordable Care Act originally directed most individuals to maintain minimum essential insurance and imposed a shared-responsibility payment for noncompliance. In 2017, Congress reduced that payment to zero starting in tax year 2019 but retained § 5000A(a)’s coverage language. The Internal Revenue Service stopped requiring individuals to report whether they maintained coverage.",
+        "Texas and seventeen other States sued federal officials, arguing that the remaining provision could no longer rest on the taxing power, exceeded other enumerated powers, and could not be severed from the rest of the Act. Neill Hurley and John Nantz joined, saying they purchased insurance because the provision directed them to do so.",
+        "Federal defendants initially supported the constitutional challenge. California, fifteen other States, and the District of Columbia intervened to defend the statute; the House of Representatives joined at the appellate stage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 1–4; Alito slip 6–7; Facts and procedural history"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts reach constitutionality before the Supreme Court stops at standing",
+      "cue": "Which rulings were under review?",
+      "paragraphs": [
+        "The district court found the individuals had standing, declared the coverage requirement unconstitutional and inseverable from the entire Act, and stayed judgment pending appeal. The Fifth Circuit agreed on standing and unconstitutionality but found insufficient justification for invalidating the whole statute and remanded severability analysis.",
+        "The Supreme Court granted the defenders’ petition and challengers’ conditional cross-petition. Justice Breyer wrote for Chief Justice Roberts and Justices Thomas, Sotomayor, Kagan, Kavanaugh, and Barrett. The seven-Justice majority reached neither constitutional power nor severability: the plaintiffs had not connected their asserted injuries to unlawful conduct by the officials sued."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 1–4, 16; Court, posture, and judgment"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The individuals identify spending but no actual or threatened enforcement",
+      "cue": "Why would a declaration alone fail to redress their asserted injury?",
+      "paragraphs": [
+        "The Court assumed insurance expenditures could be pocketbook injuries. But the zero payment left the IRS unable to penalize noncompliance, and Hurley and Nantz identified no actual or threatened enforcement by the Commissioner, the Health and Human Services Secretary, or another defendant. Even if statutory language influenced their choices, that influence was not traceable to challenged official conduct. Decisions concerning the earlier enforceable mandate did not solve the problem.",
+        "There was no enforcement of § 5000A(a) to enjoin. The Declaratory Judgment Act did not create otherwise missing Article III jurisdiction. Merely declaring unenforceable language unconstitutional would provide an advisory legal pronouncement rather than relief against these officials redressing the alleged harm.",
+        "The Court declined a different theory the federal respondents first advanced in their merits brief and the dissent’s proposed state theory, finding those routes not directly argued below or presented at certiorari. This was a preservation ruling, not a conclusion that all conceivable inseverability theories necessarily failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 4–10; Individuals’ standing analysis"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The States’ indirect and direct expenditures face different causal gaps",
+      "cue": "Why did the evidence fail to connect the costs to subsection (a)?",
+      "paragraphs": [
+        "The States first claimed that the coverage direction caused residents to enroll in Medicaid, the Children’s Health Insurance Program, and other state-supported benefits, raising expenditure. Again, no possible federal enforcement of subsection (a) supplied the link. The States also failed adequately to show that people would decline valuable benefits absent the now-unenforceable command.",
+        "Independent third-party choices could support causation if evidence showed predictable responses. The declarations largely concerned times when a penalty remained: four attributed enrollment to the mandate but described the earlier period, and an employer-cost declaration was vague about timing. A Congressional Budget Office prediction that some people might buy coverage to obey the law did not identify enrollment in the particular state programs. The attenuated claim needed stronger support.",
+        "The States separately identified reporting to beneficiaries and the IRS, employee insurance, coverage for some thirty-to-thirty-nine-hour workers, and continuing coverage for some people leaving foster care. Other provisions independently imposed those costs. Some used § 5000A(f)’s definition of coverage, but incorporating that definition differed from depending on subsection (a)’s command. Invalidity of the command did not itself establish invalidity of the cost-producing provisions under the theories presented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 10–16; States’ expenditure theories"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas separates his earlier ACA objections from this case’s undeveloped theory",
+      "cue": "What did he leave open?",
+      "paragraphs": [
+        "Justice Thomas joined while criticizing the Court’s earlier ACA decisions. Those objections did not supply missing traceability here. He acknowledged that a properly framed inseverability-based standing theory might receive support from history and precedent but declined to decide it.",
+        "Thomas emphasized lack of development below and in the opening brief, limited force of older decisions that never expressly considered standing, and uncertainty whether inseverability was a merits inquiry or available judicial remedy. His notes distinguished the actual cost theories from the alternative and explained that ordinary statutory interpretation would be needed to show a plausible connection. He did not categorically exclude every such claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas slip 1–6 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Alito would connect enforceable cost provisions through inseverability",
+      "cue": "Which merits conclusions belonged only to the dissent?",
+      "paragraphs": [
+        "Justice Alito, joined by Gorsuch, would find state standing. Actual reporting and employer-coverage costs could be redressed by preventing enforcement of those provisions. The required link, in his view, ran to the government conduct challenged as unlawful, not necessarily directly to the constitutional defect; otherwise standing and merits would blur.",
+        "He read the States’ theory as making enforcement of burdensome provisions unlawful because they were inseverable from an unconstitutional mandate. Comparisons with removal, treaty, and statutory cases supported injury through an allegedly invalid linked provision. He disputed forfeiture by pointing to the complaint and briefing. That disagreement with Thomas about presentation remained explicit.",
+        "Alito then reached questions the Court did not. He regarded the zero-dollar command as no tax, unsupported by the Commerce and Necessary and Proper Clauses, and still a command rather than advice. He found the provisions burdening these States inseverable under his earlier approach or ordinary interpretation and would bar their enforcement against plaintiff States, not erase statutory text abstractly.",
+        "On June 17, 2021, the Court reversed the Fifth Circuit in respect to standing, vacated the judgment, and remanded with instructions to dismiss. The seven-to-two result ended the litigation without a Supreme Court decision about the mandate’s constitutionality or the Act’s severability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip 8–32 & nn.5–10; Court slip 16; Exact disposition"
+        }
+      ]
+    }
+  ]
+}

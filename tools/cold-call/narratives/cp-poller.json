@@ -1,0 +1,137 @@
+{
+  "id": "cp-poller",
+  "briefId": "CP-ATLAS-POLLER",
+  "title": "Poller v. Columbia Broadcasting System, Inc.",
+  "course": "Civil Procedure",
+  "citation": "368 U.S. 464 (1962)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A television network buys a competing station and cancels its affiliate’s contract. The former affiliate alleges a coordinated effort to destroy competition, and the Court divides over what discovery permits a jury to infer.",
+  "actors": [
+    {
+      "name": "Lou Poller",
+      "role": "Holder of dissolved Midwest Broadcasting’s rights; antitrust plaintiff."
+    },
+    {
+      "name": "Midwest Broadcasting and WCAN",
+      "role": "Milwaukee UHF broadcaster formerly affiliated with CBS."
+    },
+    {
+      "name": "CBS, its division and officers",
+      "role": "Network defendants accused of coordinating the acquisition and cancellation."
+    },
+    {
+      "name": "Thad Holt",
+      "role": "Consultant who obtained an option on competing WOKY."
+    },
+    {
+      "name": "Bartell Broadcasters and WOKY",
+      "role": "Owner and competing UHF station acquired for CBS’s Milwaukee operations."
+    }
+  ],
+  "proceedings": [
+    "The district court granted summary judgment for defendants.",
+    "The D.C. Circuit affirmed with Judge Washington dissenting.",
+    "The Supreme Court reversed five to four and remanded for trial on February 19, 1962."
+  ],
+  "limits": "This account transforms the canonical historical brief without a fresh audit or later-law claim. Conspiracy, losses and anticompetitive inferences remained disputed. Reversal established no Sherman Act violation, treble damages or definitive relevant market. The intracorporate-conspiracy issue was not decided.",
+  "briefSha256": "ab2bb78deb04ee5b171680ae5b5c9174633639b024dbe0615e6ea138cd3060d3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-POLLER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "WCAN develops a UHF audience under a cancellable network affiliation",
+      "cue": "What did Poller say the competing-station acquisition was designed to accomplish?",
+      "paragraphs": [
+        "Lou Poller held the rights of Midwest Broadcasting, a dissolved corporation that operated WCAN in Milwaukee. The station used ultra high frequency, or UHF, and affiliated with Columbia Broadcasting System, or CBS. Ordinary receivers initially received very high frequency, VHF, and needed modification for the newer UHF technology. Poller claimed WCAN became a profitable $2 million business, but CBS could terminate affiliation on six months’ notice.",
+        "As the Federal Communications Commission considered allowing networks additional UHF ownership, consultant Thad Holt obtained an option on competing WOKY, owned by Bartell Broadcasters. The arrangement contemplated CBS taking the option after regulatory change. Poller alleged a coordinated plan among Holt, Bartell, CBS, its television division and officers: acquire WOKY, cancel WCAN’s affiliation, deprive WCAN of network programs and force a cheap sale of its recently improved equipment, then operate under WOKY’s license using those superior facilities.",
+        "Poller claimed a $1.45 million corporate loss and an exchange forcing purchase of inferior WOKY equipment at excessive prices. WCAN survived only ten days after CBS broadcasts began February 17, 1955. CBS later abandoned Milwaukee UHF in 1959 and affiliated with a VHF station. Poller viewed the sequence as broader protection of CBS’s VHF interests through suppression of UHF competition; defendants disputed that inference."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and alleged scheme; 368 U.S. 465–467, 471–472, 481 n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts treat purchase and cancellation as lawful choices",
+      "cue": "Why did Poller insist the combined course mattered?",
+      "paragraphs": [
+        "Poller sought treble damages under Clayton Act § 4, alleging Sherman Act §§ 1 and 2 restraint and monopolization. The district court granted summary judgment because CBS could buy WOKY with regulatory approval and exercise its cancellation right; economic injury from those steps did not establish illegality. The D.C. Circuit affirmed over Judge Washington’s dissent.",
+        "CBS denied evidence of conspiracy, characterized Holt as its agent and Bartell as innocent, invoked freedom to select an outlet and called monopolization frivolous. Poller answered that independently lawful acts could implement an unlawful scheme, citing relationships, transaction circumstances, CBS market studies and the destruction of WCAN.",
+        "The Supreme Court reviewed whether the record left a genuine material dispute under then-Rule 56(c), rather than trying the antitrust claims or fixing damages and market definition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and positions; 368 U.S. 465 n.1, 467–474"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds a permissible inference of coordination and forbidden purpose",
+      "cue": "Which circumstances warranted trial despite the contractual cancellation right?",
+      "paragraphs": [
+        "Justice Clark wrote for Chief Justice Warren and Justices Black, Douglas and Brennan. A contractual privilege did not authorize its use within an agreement to restrain competition or monopolize. Purchase and cancellation could be lawful alone without resolving the purpose of their combination.",
+        "Holt participated in CBS plans, had executive relationships and obtained an option anticipating CBS acquisition while retaining it if CBS declined. The majority thought independent participation could be found, leaving unnecessary the separate claim that a corporation could not conspire with its own division or subsidiary.",
+        "WCAN’s profitability and development of a UHF-equipped audience contrasted with CBS’s later losses and withdrawal. Parts of CBS’s analysis could suggest a temporary UHF venture protecting its VHF position. The whole sequence was more than fanciful accusation, though proof might fail or a jury accept defendants’ explanation.",
+        "That evidentiary setting supported caution with summary judgment in complex antitrust disputes: intent mattered, much proof lay with alleged participants and credibility could be important. Plaintiff-favorable reading left material issues for trial. The Court did not make an allegation of improper motive alone sufficient in every antitrust case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; 368 U.S. 468–473 & nn.4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The remaining defenses do not justify judgment without trial",
+      "cue": "What exactly remained open after reversal?",
+      "paragraphs": [
+        "Continued television service elsewhere did not itself negate a restraint on competition, and contractual cancellation remained subject to the asserted illegal scheme. The broader claim of UHF suppression was factually disputed. The record and market allegations were too undeveloped to determine monopolization, so the Court left § 2 questions for trial rather than finding monopoly power.",
+        "On February 19, 1962, the Court reversed the D.C. Circuit five to four and remanded for trial. It reopened Poller’s opportunity to prove the claims, without awarding damages, establishing conspiracy or finally defining the relevant market."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority final defenses; Judgment; 368 U.S. 473–474"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Harlan finds completed discovery insufficient for the proposed inference",
+      "cue": "Why did the dissent think summary judgment properly ended the suit?",
+      "paragraphs": [
+        "Justice Harlan, joined by Justices Frankfurter, Whittaker and Stewart, agreed a genuine suppression dispute would require trial but disagreed about evidence. The record included depositions of CBS president Frank Stanton, vice president Richard Salant, Holt and Poller, plus Poller’s affidavits and interrogatory responses. No denied witness access was suggested. This was not merely four interested affidavits awaiting examination.",
+        "Drawing on Dyer v. MacDougall, Harlan rejected allegations, hoped-for new testimony and disbelief as substitutes for affirmative unlawful-intent proof. He saw no antitrust exception restricting Rule 56 and emphasized the cost and potential harassment of treble-damage suits.",
+        "Poller wanted $2 million for WCAN, while CBS paid $335,000 for inferior WOKY. Poller initiated later equipment negotiations; CBS had independent improvement plans, and the sale contemplated WCAN continuing with smaller facilities. Investment despite known cancellation risk could explain loss. The full market report, Harlan thought, favored promising longer-term UHF investment rather than destruction.",
+        "Changing affiliates and vertical integration were not inherently unreasonable restraints. Regulatory approval did not immunize antitrust wrongdoing, but agency experience supported no inherent illegality in network ownership. He viewed UHF and VHF as competitors for viewers and advertisers, with CBS not monopolizing that combined market, and would reject both statutory theories on this record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Harlan dissent; 368 U.S. 474–486 & nn.1–9"
+        }
+      ]
+    }
+  ]
+}

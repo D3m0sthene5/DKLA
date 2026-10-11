@@ -1,0 +1,107 @@
+{
+  "id": "cp-walmart",
+  "briefId": "CP-090",
+  "title": "Wal-Mart Stores, Inc. v. Dukes",
+  "course": "Civil Procedure",
+  "citation": "564 U.S. 338 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Female employees sought one nationwide discrimination class, requiring the Court to decide what connected their claims and whether individualized backpay fit a class for injunctive relief.",
+  "actors": [
+    {
+      "name": "Betty Dukes, Christine Kwapnoski, and Edith Arana",
+      "role": "Remaining named employee representatives"
+    },
+    {
+      "name": "Wal-Mart Stores, Inc.",
+      "role": "Employer opposing nationwide class certification"
+    }
+  ],
+  "proceedings": [
+    "District court certified under Rules 23(a) and 23(b)(2).",
+    "En banc Ninth Circuit substantially affirmed.",
+    "Supreme Court reversed: five Justices rejected commonality, all nine rejected this use of Rule 23(b)(2)."
+  ],
+  "limits": "Certification did not decide individual discrimination claims. The Court did not separately resolve typicality or adequacy, the Daubert question, or whether genuinely incidental monetary relief can ever accompany a Rule 23(b)(2) class.",
+  "briefSha256": "bb0ea23552096eb33fe77028907e377ea53a4cb12630e3b7f0773f2e020eee22",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-090"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Managers make pay and promotion decisions",
+      "cue": "Employees allege a companywide source of discrimination",
+      "paragraphs": [
+        "Wal-Mart operated about 3,400 stores and gave local managers substantial discretion over pay and promotions within general limits. Female employees alleged that a common corporate culture let gender stereotypes shape those decisions. They claimed both disparate impact from discretionary practices and disparate treatment through the company’s awareness and failure to control them. They did not allege an express company rule barring women’s advancement; Wal-Mart formally prohibited sex discrimination.",
+        "Betty Dukes alleged discriminatory pay and discipline, Christine Kwapnoski described sex-specific mistreatment and appearance-related comments, and Edith Arana attributed lost management opportunities to sex discrimination. Seeking to represent approximately 1.5 million current and former female employees, they offered statistical comparisons, around 120 anecdotal accounts, and sociologist William Bielby’s assessment that the company was vulnerable to bias. Wal-Mart disputed the evidence and the inferences drawn from it. Those competing positions had not become findings that each proposed class member suffered discrimination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts I.A–C, II.B; casebook 810–812"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts approve a nationwide class",
+      "cue": "Backpay accompanies prospective relief",
+      "paragraphs": [
+        "The district court certified the class under Federal Rule of Civil Procedure 23(a) and Rule 23(b)(2), which concerns injunctive or declaratory relief. The en banc Ninth Circuit substantially affirmed. It found a common question about corporate policies and allowed backpay claims because monetary relief did not predominate over prospective relief. It also accepted possible use of sample claims and extrapolation to calculate classwide relief.",
+        "The Supreme Court took up both commonality and whether this backpay request belonged in Rule 23(b)(2). Justice Scalia wrote the opinion, but the Justices divided differently on those two questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts I.C–D; casebook 812–813"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Five Justices find no common answer",
+      "cue": "The evidence does not connect the reasons for the decisions",
+      "paragraphs": [
+        "Scalia, joined on commonality by Chief Justice Roberts and Justices Kennedy, Thomas, and Alito, required a common contention whose resolution would answer an issue central to every member’s claim. An allegation that everyone suffered a violation of the same statute was insufficient. Plaintiffs had to affirmatively establish the certification requirements through rigorous analysis, even when that analysis overlapped with the merits.",
+        "A common biased test or significant proof of a general discriminatory policy could connect many decisions. Discretionary systems also could violate Title VII. But these plaintiffs had not shown a common method of exercising discretion throughout Wal-Mart. Bielby described susceptibility to stereotypes without estimating how often stereotypes actually influenced decisions. His evidence was inadequate even assuming admissibility; the Court questioned the refusal to apply Daubert at certification but did not decide that evidentiary issue.",
+        "The national and regional statistics did not identify the same challenged cause at individual stores. The anecdotes were too few and unevenly distributed to establish the alleged nationwide practice, without the Court needing to declare each account false. Both sides agreed that one qualifying common question could suffice. The majority said employee differences defeated the proposed common answer, rather than importing the separate predominance requirement of Rule 23(b)(3)."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts II.A–C & n.5; casebook 813–818"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "All nine reject the backpay procedure",
+      "cue": "Ginsburg would leave another certification route open",
+      "paragraphs": [
+        "All nine Justices agreed that individualized backpay could not proceed through this Rule 23(b)(2) class. That provision concerns an indivisible injunction or corresponding declaration benefiting the class together. Individual monetary claims required the protections of Rule 23(b)(3), including predominance, superiority, notice, and an opportunity to opt out. Labeling backpay equitable or making the injunction request larger did not remove those protections. Former employees’ lack of a prospective claim also complicated the proposed arrangement.",
+        "Even after a pattern-or-practice showing, Title VII allowed Wal-Mart to present individual defenses to backpay. Sampling and extrapolation could not replace those proceedings and eliminate a substantive defense right consistently with the Rules Enabling Act. The Court reserved whether genuinely incidental monetary relief could ever accompany Rule 23(b)(2) relief.",
+        "Justice Ginsburg, joined by Justices Breyer, Sotomayor, and Kagan, agreed with that monetary-relief holding but dissented on commonality. She regarded the common discretionary system, corporate culture, and supporting evidence as a disputed issue capable of advancing all claims. She emphasized the district court’s findings and accused the majority of demanding too much at the commonality stage. She would have permitted consideration of Rule 23(b)(3) on remand without deciding that predominance or superiority was satisfied.",
+        "On June 20, 2011, the Court reversed the Ninth Circuit’s certification judgment. It rejected this nationwide class as certified, not the merits of any particular employee’s discrimination claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part III and conclusion; Ginsburg opinion Parts I–II; casebook 818–822"
+        }
+      ]
+    }
+  ]
+}

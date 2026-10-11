@@ -1,0 +1,127 @@
+{
+  "id": "citoh",
+  "briefId": "CTR-033",
+  "title": "C. Itoh & Co. (America) Inc. v. Jordan International Co.",
+  "course": "Contracts",
+  "citation": "552 F.2d 1228 (7th Cir. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A steel seller conditions acceptance on its added terms but delivers without obtaining assent. The buyer pays, then sues, leaving the court to identify which terms govern their completed transaction.",
+  "actors": [
+    {
+      "name": "C. Itoh & Co. (America), Inc.",
+      "role": "Steel buyer and plaintiff alleging defects and late delivery."
+    },
+    {
+      "name": "Jordan International Co.",
+      "role": "Seller seeking a stay under its acknowledgment’s arbitration clause."
+    },
+    {
+      "name": "Riverview Steel Corporation",
+      "role": "Itoh’s resale customer, whose separate contract excluded quality issues from arbitration."
+    }
+  ],
+  "proceedings": [
+    "Itoh sued Jordan for defects and delay and Riverview for nonpayment.",
+    "The district court denied Jordan’s arbitration stay to keep all issues in one judicial forum.",
+    "The Seventh Circuit rejected that rationale but affirmed on April 4, 1977, because Itoh and Jordan had not agreed to arbitration."
+  ],
+  "limits": "This historical source-brief transformation makes no fresh audit or current citator claim. Defects, delay and breach damages were not decided. The appeal used the historical interlocutory-review doctrine. Arbitration’s exclusion followed the conduct-contract route, not a material-alteration finding under the alternative formation route.",
+  "briefSha256": "edae5f883bd6427bc3e2d3cfc0809654ccd7acbc479f51ad4eac0772db23e241",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-033"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The forms disagree about arbitration, but the parties perform",
+      "cue": "What exactly did Jordan condition on further assent?",
+      "paragraphs": [
+        "C. Itoh sent Jordan International a steel-coil purchase order dated August 15, 1974. Jordan’s August 19 acknowledgment expressly conditioned acceptance on Itoh’s assent to additional or different terms on the form and reverse side and requested immediate notice of unacceptable terms. A reverse-side provision required arbitration. Itoh’s order contained no matching clause, and Jordan never obtained the requested assent.",
+        "Jordan nevertheless delivered the steel and Itoh paid. Before litigation Itoh resold it to Riverview Steel under a separate agreement with arbitration that excluded quality disputes. Riverview refused payment, alleging defects and improper late tender. Itoh sued Riverview for nonpayment and Jordan for defects and delay. These were allegations, not established breaches."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 552 F.2d 1230 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Jordan asks to stay the litigation, and the district court prioritizes one forum",
+      "cue": "Why did the appellate court reject the district court’s reason yet preserve its result?",
+      "paragraphs": [
+        "Jordan requested a stay under § 3 of the Federal Arbitration Act, or FAA. The district court apparently assumed an arbitration agreement between Jordan and Itoh but denied a stay because Riverview’s quality exclusion left issues in court. It considered one forum sound judicial administration.",
+        "Under the historical interlocutory doctrine, denial was reviewable under 28 U.S.C. § 1292(a)(1) because the underlying suit was at law. Itoh’s objection that no written agreement had yet been determined concerned the stay’s merits, not appealability.",
+        "Judge Sprecher, writing for Chief Judge Fairchild and Judge Wood, rejected the judicial-economy rationale. Section 3 mandated a stay where a written agreement referred the dispute to arbitration and the applicant was not in default. Another defendant or fragmented issues could not override that command. Affirmance therefore required a different ground: the missing agreement to arbitrate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Reasoning; Separate Opinions; 552 F.2d 1230–1232 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Statute of Frauds cannot supply assent to an added term",
+      "cue": "Which Code provision actually determined formation?",
+      "paragraphs": [
+        "Jordan invoked New York decisions applying Uniform Commercial Code § 2-201. The court separated removal of a Statute of Frauds defense from proof of agreement. A merchant’s failure to object to a confirmation could remove the writing defense without establishing every term. Section 2-207 controlled additional terms, and Jordan claimed formation through the forms rather than confirmation of an earlier oral agreement. The court predicted New York’s highest court would reject effectively writing § 2-207 out of the Code.",
+        "Jordan’s acknowledgment expressly made acceptance dependent on assent to the extra terms, satisfying § 2-207(1)’s conditional proviso. Unlike the forms considered in Dorton, it did not operate as an ordinary nonmatching acceptance. The writings therefore failed to make a contract; Jordan’s response was a counteroffer. Jordan could not simultaneously deny acceptance pending assent and invoke the ordinary rule converting its response into acceptance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Section 2-201 and conditional formation reasoning; 552 F.2d 1232–1236 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Delivery and payment create a sales contract without the arbitration clause",
+      "cue": "Why did neither silence nor the seller’s last form control the terms?",
+      "paragraphs": [
+        "Section 2-207(3) recognized a contract through both parties’ conduct. Delivery and payment objectively established their sales relationship even though the forms failed to create it. That prevented a completed commercial transaction from becoming legally nonexistent.",
+        "The same subsection limited terms to those agreed in the writings plus applicable supplementary Code provisions. Itoh’s order did not agree to arbitration. An express contradiction was unnecessary; a clause appearing only in Jordan’s form was still unagreed. Neither the seller’s last word nor ordinary receipt and payment adopted it.",
+        "Supplementary terms meant Article 2’s standardized gap fillers, not a route to reinsert disputed boilerplate just excluded. Arbitration was not a Code-supplied necessity, and the sale could function with judicial resolution.",
+        "Express conditional drafting initially protected Jordan from commitment before assent. If arbitration was essential, it could withhold delivery until agreement. Performing without assent risked a conduct-based contract omitting its additions. Jordan could not retain freedom to withdraw before performance while automatically obtaining all boilerplate afterward."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; conduct and terms reasoning; 552 F.2d 1235–1238"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court distinguishes negotiated assent and adds an independent federal reason",
+      "cue": "What exactly did the final affirmance decide?",
+      "paragraphs": [
+        "Construction Aggregates involved more than receipt and payment: the buyer objected to selected terms and the seller accepted the changes, demonstrating negotiated assent. Nothing comparable was suggested here. Rejecting Roto-Lith’s common-law approach did not make receipt and payment irrelevant within a fuller factual agreement; those acts alone did not accept Jordan’s clause.",
+        "Even assuming custom or usage could introduce an unagreed term into a subsection (3) contract in ordinary diversity litigation, the FAA independently required a written arbitration agreement. Signature was unnecessary, but agreement in writing remained essential. The performance-created contract contained no written arbitration provision. This alternative ground did not find that trade usage actually supplied arbitration.",
+        "On April 4, 1977, the Seventh Circuit affirmed denial of the stay, permitting Itoh’s judicial claims to continue. The panel issued no separate writing and determined neither quality, timeliness nor damages. Unlike Dorton’s route through subsections (1) and (2), this decision excluded arbitration under subsection (3) for lack of agreement and a Code gap filler without deciding material alteration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Final reasoning; Judgment; Notes; 552 F.2d 1236 n.8, 1237 n.9, 1238"
+        }
+      ]
+    }
+  ]
+}
