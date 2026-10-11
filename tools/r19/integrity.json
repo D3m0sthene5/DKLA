@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "000407d2fc4f6d05c31522b9065fa58b17cf86975400686e2cdaf3547e5076be",
-  "build": "v2.5-1c33b8f3cc",
+  "r19_sha256": "7126b3eb1d2d5cba423dcdd79b40f118c8b2fd80862ab040a71169abc9ced6fb",
+  "build": "v2.5-c4954c771f",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -214,12 +214,20 @@
       "endLine": 1181
     },
     {
+      "path": "tools/cold-call/frost.css",
+      "kind": "stylesheets",
+      "sha256": "3dc12bca305295a18945449f2b09ed94f61e721f8adc0833aaf733da123e4f75",
+      "startLine": 1182,
+      "sourceStartLine": 1183,
+      "endLine": 1242
+    },
+    {
       "path": "tools/analytics/tracker.css",
       "kind": "stylesheets",
       "sha256": "83fe19e919827fcd6f53c569559247aa15641b9fafa4ae2288a5b4ad28fd616a",
-      "startLine": 1182,
-      "sourceStartLine": 1183,
-      "endLine": 1185
+      "startLine": 1243,
+      "sourceStartLine": 1244,
+      "endLine": 1246
     }
   ],
   "design_assets": [
