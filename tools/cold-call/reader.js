@@ -184,7 +184,7 @@
     if (old?.dataset.coldCall === id) return;
     old?.remove();
     if (!cases.has(id)) return;
-    const heading = panel.querySelector('h1'); if (!heading) return;
+    const heading = panel.querySelector('.dkla-record-title') || panel.querySelector('h1,h2'); if (!heading) return;
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'cc-launch'; b.dataset.coldCall = id;
     b.textContent = 'Cold call'; b.setAttribute('aria-haspopup','dialog');
