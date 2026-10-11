@@ -61,6 +61,8 @@ def validate(data, graph, full, briefs=None):
         if origin == 'brief':
             substantive = {i for i,line in enumerate(source_lines) if line.strip() and not re.match(r'^#{1,4}\s|^\*\*(?:Course|ID):\*\*\s',line)}
             assert substantive <= set(covered), f'{cid}: source prose omitted'
+            nested = {i for i,line in enumerate(source_lines) if re.match(r'^#{3,4}\s',line)}
+            assert nested <= set(covered), f'{cid}: nested opinion heading omitted'
             assert len(covered) == len(set(covered)), f'{cid}: source prose duplicated'
             phases = [s['phase'] for s in case['sections']]
             assert phases == sorted(phases), f'{cid}: events and proceedings are out of order'

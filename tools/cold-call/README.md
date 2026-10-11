@@ -1,6 +1,6 @@
 # Cold Call Mode
 
-v25 covers all 392 illustrated map cases and 1,077 supporting cases. It is opened
+v2.4 covers all 392 illustrated map cases and 1,077 supporting cases. It is opened
 from a main case heading or the supporting-case reader. Hamer, Pennoyer and Chadha
 retain their individually written v24 narratives. The other cases reuse the full
 existing briefs; the Swiss penalty case uses its existing atlas account. This
@@ -71,3 +71,7 @@ every main case has a launch button, including the Swiss source-limited account.
 Open supporting cases and their full source briefs, and check nested-dialog return
 focus. Use `tools/cold-call/preview.html` for a 390px, 768px or 1100px viewport. Keep all critical narrative paragraphs visible
 in reading mode. Do not put them inside disclosures.
+
+## v2.4 audit correction
+
+Nested headings are retained inside their parent passage. They must never be sorted independently: doing so had displaced 62 headings in 15 briefs and could separate a dissent or a lower-court decision from its context. Run `python3 tools/cold-call/check_index.py` for attribution and multi-court chronology regressions. See the root `AUDIT_V2.4.md` for the precise scope of the legal audit; index integrity is not independent verification of every fact or event order.

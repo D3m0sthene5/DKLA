@@ -68,11 +68,11 @@
   }
   // A brief Codex left unreviewed may have been audited here against the saved opinion; say so, and say what was found.
   const AUDIT = D.audit || {};
-  const AUDIT_LABEL = a => a.v === 'clean' ? 'Audited by Claude: no errors found' : a.v === 'corrected' ? `Audited by Claude: ${a.f.length} correction${a.f.length === 1 ? '' : 's'} made` : 'Claude could not audit this from the saved sources';
+  const AUDIT_LABEL = a => a.v === 'clean' ? 'Source review: no errors found' : a.v === 'corrected' ? `Source review: ${a.f.length} correction${a.f.length === 1 ? '' : 's'} made` : 'Insufficient sources for review';
   const chip = e => { const a = AUDIT[e.id]; return (e.k === 'pending' || e.k === 'limited' ? `<span class="r19-status r19-${e.k}" title="${esc(e.status.replace(/_/g, ' ').toLowerCase())}">${STATUS[e.k]}</span>` : '') + (a ? `<span class="r19-status r19-audit-${a.v === 'could-not-audit' ? 'none' : a.v}">${AUDIT_LABEL(a)}</span>` : ''); };
   function auditHTML(id) {
     const a = AUDIT[id]; if (!a) return '';
-    return `<details class="r19-full r19-auditbox"><summary>Claude's audit <small>${esc(AUDIT_LABEL(a).replace(/^Audited by Claude: /, ''))}</small></summary><div class="r19-text"><p>${esc(a.c)}</p>${a.f.length ? '<ul>' + a.f.map(f => `<li><strong>${esc(f[1])}</strong> (${esc(f[0])}): ${f[3] === 'removed' ? `removed “${esc(f[2])}”` : `“${esc(f[2])}” now reads “${esc(f[3])}”`}</li>`).join('') + '</ul>' : ''}${a.n ? `<p>${esc(a.n)}</p>` : ''}</div></details>`;
+    return `<details class="r19-full r19-auditbox"><summary>Source review <small>${esc(AUDIT_LABEL(a).replace(/^Source review: /, ''))}</small></summary><div class="r19-text"><p>${esc(a.c)}</p>${a.f.length ? '<ul>' + a.f.map(f => `<li><strong>${esc(f[1])}</strong> (${esc(f[0])}): ${f[3] === 'removed' ? `removed “${esc(f[2])}”` : `“${esc(f[2])}” now reads “${esc(f[3])}”`}</li>`).join('') + '</ul>' : ''}${a.n ? `<p>${esc(a.n)}</p>` : ''}</div></details>`;
   }
 
   /* ---------- reading panel: status and full brief under a mainline case ---------- */
@@ -86,8 +86,8 @@
     if (chip && chip.dataset.dklaFile === file && (!row || chip.parentNode === row)) return;
     chip?.remove(); panel.querySelector('.r19-chiprow')?.remove();
     chip = document.createElement('button'); chip.type = 'button'; chip.className = 'r19-pdfchip'; chip.dataset.dklaFile = file;
-    chip.title = 'This case in the combined PDF of briefs, ' + (pg[1] > pg[0] ? `pages ${pg[0]}–${pg[1]}` : `page ${pg[0]}`);
-    chip.textContent = 'DKLA Case Briefs p. ' + pg[0] + ' ↗';
+    chip.title = 'Archived compilation; use Full brief or Cold call for current corrections. PDF ' + (pg[1] > pg[0] ? `pages ${pg[0]}–${pg[1]}` : `page ${pg[0]}`);
+    chip.textContent = 'Archived briefs PDF p. ' + pg[0] + ' ↗';
     if (row) { row.appendChild(chip); return; }
     const head = panel.querySelector('.dkla-rule-label') || panel.querySelector('.takeaway') || panel.querySelector('h1'); if (!head) return;
     const own = document.createElement('div'); own.className = 'r19-chiprow'; own.appendChild(chip); head.before(own);
@@ -135,7 +135,7 @@
   function entryHTML(e) {
     const conv = D.sections[e.id], main = e.main && nodesById.get(e.main);
     el('r19Title').innerHTML = `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
-    return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Open this brief in the combined PDF">DKLA Case Briefs, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
+    return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Archived compilation; use Full brief or Cold call for current corrections">Archived briefs PDF, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
       ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief</summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>${auditHTML(e.id)}`
         : `${auditHTML(e.id)}<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
   }

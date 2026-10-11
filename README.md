@@ -1,10 +1,10 @@
-## v25 · Cold Call Mode across the atlas
+## v2.4 · Cold Call Mode and accuracy corrections
 
-Open **Cold call** beside any of the 392 illustrated cases, or from a supporting-case reader. Read the full case account, jump and return to your place, or practice aloud. The expanded coverage uses the detailed briefs already in the atlas, with source limitations retained; Hamer, Pennoyer, and Chadha keep their separately written narratives. [Build and content notes](tools/cold-call/README.md).
+Open **Cold call** beside any of the 392 illustrated cases, or from a supporting-case reader. Read the full case account, jump and return to your place, or practice aloud. The expanded coverage uses the detailed briefs already in the atlas, with source limitations retained; Hamer, Pennoyer, and Chadha keep their separately written narratives. [Build and content notes](tools/cold-call/README.md). [Audit scope and findings](AUDIT_V2.4.md).
 
 # Danny Kind Legal Atlas
 
-**Open `DKLA-v23.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
+**Open `DKLA-v2.4.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.
 
 In v17, a Supreme Court case's reading panel gives its sourced vote breakdown and a direct button to that case in SCOTUS History. The atlas header and center use the interlocking DKLA mark. Assigned textbook, Contracts supplement, Civil Procedure, LRS and Katzmann source links open the original supplied PDFs at their physical page. Sixty-one full court opinions open original PDFs; sixteen remaining opinion text citations open the actual assigned packet excerpt and are labeled as such. The small number of outside web or Word citations retain their stated format.
 

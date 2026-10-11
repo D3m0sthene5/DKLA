@@ -43,3 +43,6 @@
 #r20Guide{animation:r20GuideIn .35s ease-out both,r20GuideRing 1.6s ease-in-out .6s 2}
 @media (prefers-reduced-motion:reduce){#r20Guide{animation:none}}
 @media (max-width:640px){#r20Guide{bottom:120px}}
+/* Prominent release label next to the mark; retain room for phone controls. */
+#atlasHome .dkla-release{display:inline-block;flex:none;margin-left:10px;font-size:28px;font-weight:750;line-height:1;letter-spacing:-.04em;color:var(--ink,#e3ebeb)}
+@media(max-width:620px){#atlasHome .dkla-wordmark{display:none}#atlasHome .dkla-release{font-size:23px;margin-left:3px}}

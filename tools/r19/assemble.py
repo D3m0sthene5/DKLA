@@ -22,10 +22,10 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v25.html"
+TARGET = ROOT / "DKLA-v2.4.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v25"
-LABEL = "v25"
+VERSION = "v2.4"
+LABEL = "v2.4"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -36,6 +36,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V24_AUDIT = {
+    "v": "v2.4", "date": "2026-10-11",
+    "text": "Release label changed to v2.4, shown beside the DKLA logo. The content audit corrects errors that survived in full briefs after their compact summaries were fixed. Cold Call now keeps nested reasoning and separate-opinion headings with their parent accounts. Source limitations remain visible; the audit records distinguish full-inventory checks from fresh source comparisons.",
+}
 CHANGELOG_V25 = {
     "v": "v25", "date": "2026-10-11",
     "text": "Cold Call Mode now opens from every illustrated case on the map and every supporting case. The full existing briefs supply the remaining accounts, with facts before proceedings, complete reasoning and separate opinions, and source limitations retained. The three individually written narratives remain available. Open the full source brief without leaving your place. Source text is reused rather than duplicated or shortened, and coverage is checked against the entire case inventory on every build.",
@@ -324,7 +328,36 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    corrections_path = DATA / "accuracy24.json"
+    if corrections_path.is_file():
+        corrections = json.loads(corrections_path.read_text(encoding="utf-8"))
+        audit.update(corrections.get("reviews", {}))
+        for correction in corrections["changes"]:
+            cid, field = correction["id"], correction["field"]
+            old, new = correction["from"], correction["to"]
+            if field == "full":
+                current = full[cid]
+            elif field == "rule":
+                current = sections[cid]["rule"]
+            else:
+                current = sections[cid]["sections"][field]
+            if not old or current.count(old) != 1:
+                raise ValueError(f"{cid}/{field}: accuracy correction no longer matches exactly once")
+            corrected = current.replace(old, new, 1)
+            if field == "full":
+                full[cid] = corrected
+            else:
+                if field == "rule":
+                    sections[cid]["rule"] = corrected
+                else:
+                    sections[cid]["sections"][field] = corrected
+                sections[cid]["rev"] = sections[cid].get("rev", "") + ".audit24"
+    for entry in entries:
+        review = audit.get(entry[0], {})
+        if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
+            entry[3] = "repaired" if review["v"] == "corrected" else "pass"
+            entry[4] = "SOURCE_REVIEW_COMPLETED"
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -648,7 +681,7 @@ def main() -> None:
         "mapped_without_conversion": sorted(a for a, c in data["map"].items() if c not in data["sections"]),
         "supporting": sum(1 for e in data["entries"] if not e[6]), "review": kinds,
         "supporting_with_sections": sum(1 for e in data["entries"] if not e[6] and e[0] in data["sections"]),
-        "audited_by_claude": {v: sum(1 for a in data["audit"].values() if a["v"] == v) for v in ("clean", "corrected", "could-not-audit")},
+        "additional_source_reviews": {v: sum(1 for a in data["audit"].values() if a["v"] == v) for v in ("clean", "corrected", "could-not-audit")},
         "preserved_script_blocks": len(old),
     }
     (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8")

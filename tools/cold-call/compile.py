@@ -67,6 +67,10 @@ def phase_for(title, previous, substantive):
 
 def index_brief(text, title):
     lines = text.split('\n')
+    # A heading inside Reasoning or a separate opinion belongs to that account.
+    # Sorting every heading independently can turn a dissent into a holding or
+    # move an analysis of procedural injury into the procedural history.
+    section_depth = min((len(m[1]) for line in lines if (m := HEADING.match(line)) and len(m[1]) > 1), default=2)
     titles = Counter(clean_heading(m[2]) for line in lines if (m := HEADING.match(line)))
     caption = normalize(title)
     blocks, current = [], {'title': 'Case context', 'lines': []}
@@ -83,6 +87,9 @@ def index_brief(text, title):
                                 (caption.startswith(norm) or norm.startswith(caption)))
             if match[1] == '#' or repeated_caption or norm == caption:
                 ignored.add(index)
+                continue
+            if len(match[1]) > section_depth:
+                current['lines'].append(index)
                 continue
             if current['lines']:
                 blocks.append(current)

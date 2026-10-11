@@ -499,6 +499,15 @@
   function fixHeader() {
     const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
     shapeMark(h, 'dklaDclipHeader');
+    const home = document.getElementById('atlasHome');
+    if (!home.querySelector('.dkla-release')) {
+      const release = document.createElement('span');
+      release.className = 'dkla-release';
+      const version = window.DKLABriefs.data.version;
+      release.textContent = version;
+      home.appendChild(release);
+      home.setAttribute('aria-label', `DKLA ${version} — Danny Kind Legal Atlas. Open the atlas.`);
+    }
     return true;
   }
   (function headerSoon(n) { if (!fixHeader() && n < 100) setTimeout(() => headerSoon(n + 1), 100); })(0);

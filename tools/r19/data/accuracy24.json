@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-11",
+  "changes": [
+    {
+      "id": "CP-ATLAS-CALDER",
+      "field": "full",
+      "from": "president and editor John Calder",
+      "to": "president and editor Iain Calder",
+      "kind": "error",
+      "evidence": "The opinion caption identifies Iain Calder and John South. The short summary had already corrected this name.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/465/783"
+      ]
+    },
+    {
+      "id": "CP-038",
+      "field": "full",
+      "from": "The dealers filed in the Northern District of Florida in 1991.",
+      "to": "The dealers filed in the Southern District of Florida in 1991.",
+      "kind": "error",
+      "evidence": "The Eleventh Circuit opinion identifies the Southern District of Florida and describes the May 1991 filing at report pp. 2 and 5. The short summary already had the correct district.",
+      "sources": [
+        "https://media.ca11.uscourts.gov/opinions/pub/files/200115575.pdf"
+      ]
+    },
+    {
+      "id": "CP-ATLAS-PIMENTEL",
+      "field": "full",
+      "from": "The Republic and its Presidential Commission on Good Governance claimed",
+      "to": "The Republic and its Presidential Commission on Good Government (PCGG) claimed",
+      "kind": "clarification",
+      "evidence": "The agency’s canonical name is Good Government, as stated in Swezey, 19 N.Y.3d at 547. Pimentel itself calls it Good Governance at 855: that source variant is not evidence of a different agency. Align the paraphrase with the canonical name already used in the compact brief.",
+      "sources": [
+        "https://www.nycourts.gov/reporter/3dseries/2012/2012_05093.htm",
+        "https://tile.loc.gov/storage-services/service/ll/usrep/usrep553/usrep553851/usrep553851.pdf"
+      ]
+    },
+    {
+      "id": "LRS-ATLAS-N-OHIO-EPA",
+      "field": "Procedural History",
+      "from": "In 2022 EPA proposed disapproving nineteen state implementation plans, then two more; two further States had submitted none, and EPA proposed a single federal plan for all twenty-three. The final 2023 plan covered twenty-three States.",
+      "to": "In 2022 EPA proposed disapproving nineteen state implementation plans, then four more. The final 2023 federal plan covered twenty-three States, with additions and exclusions that differed from the initial proposed-disapproval list.",
+      "kind": "error",
+      "evidence": "An earlier audit incorrectly changed four later proposed disapprovals to two. The official opinion, slip pp. 4–5 and nn. 1–3, lists California, Utah, Nevada and Wyoming; final coverage is a distinct set. The full brief already retained the correct four.",
+      "sources": [
+        "https://www.supremecourt.gov/opinions/23pdf/23a349_0813.pdf"
+      ]
+    },
+    {
+      "id": "CP-DKLA-HURN",
+      "field": "full",
+      "from": "*Written for the atlas on 7 October 2026 from the full opinion (Legal Information Institute text of 289 U.S. 238). It is not in the casebook's assigned pages and has not had an independent review.*",
+      "to": "*Historical decision of April 17, 1933, by Justice Sutherland. This case is included for doctrinal context and is not in the assigned casebook pages. The account was compared with the complete Hurn opinion on October 11, 2026; its later-history discussion was checked against Gibbs and the cited statutes.*",
+      "kind": "review-status",
+      "evidence": "Read all paragraphs 1–24 and the judicial footnote in the LII reproduction; facts, procedural stages, quotations, the modified affirmance and the Brandeis–Stone position match. Separate later-law checks cover Gibbs and §§ 1338(b), 1367.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/289/238"
+      ]
+    },
+    {
+      "id": "CP-DKLA-HURN",
+      "field": "full",
+      "from": "*United Mine Workers v. Gibbs* (1966) called Hurn's approach \"unnecessarily grudging\" and replaced it with the common-nucleus-of-operative-fact test, and 28 U.S.C. § 1367 now governs.",
+      "to": "*United Mine Workers v. Gibbs* (1966) called the restrictive application of Hurn's approach \"unnecessarily grudging\" and articulated the common-nucleus-of-operative-fact test. Supplemental jurisdiction is now governed by 28 U.S.C. § 1367, including its limits and grounds for declining jurisdiction.",
+      "kind": "precision",
+      "evidence": "Gibbs, 383 U.S. at 724–726, addresses the restrictive approach developed after Hurn and states that discretion had consistently been recognized. Section 1367 supplies the statutory limits.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/383/715",
+        "https://www.law.cornell.edu/uscode/text/28/1367"
+      ]
+    },
+    {
+      "id": "CP-DKLA-HURN",
+      "field": "full",
+      "from": "replaced the single-cause-of-action test with the common nucleus of operative fact and made the exercise of pendent jurisdiction discretionary.",
+      "to": "replaced the single-cause-of-action test with the common nucleus of operative fact and reaffirmed that the exercise of pendent jurisdiction is discretionary.",
+      "kind": "precision",
+      "evidence": "Gibbs at 726 says discretion had consistently been recognized; Gibbs did not first create that discretion.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/383/715"
+      ]
+    },
+    {
+      "id": "CP-DKLA-HURN",
+      "field": "full",
+      "from": "These three statements are from general knowledge of the later law, not from the Hurn opinion.",
+      "to": "This later history is supported by Gibbs, 383 U.S. at 724–727, and the text and enactment notes of 28 U.S.C. §§ 1338(b) and 1367; it is separate from Hurn’s 1933 holding.",
+      "kind": "source-support",
+      "evidence": "Fresh primary-source checks replace reliance on unspecified general knowledge.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/383/715",
+        "https://www.law.cornell.edu/uscode/text/28/1338",
+        "https://www.law.cornell.edu/uscode/text/28/1367"
+      ]
+    },
+    {
+      "id": "CP-DKLA-HURN",
+      "field": "rule",
+      "from": "A federal court with a substantial federal claim may also decide a non-federal ground for the same cause of action, even if the federal ground fails, but not a separate non-federal cause of action joined with it.",
+      "to": "Under Hurn’s pre-Gibbs test, a court with a substantial federal claim could decide a non-federal ground for the same cause of action, even after the federal ground failed, but not a separate non-federal cause of action.",
+      "kind": "historical-qualification",
+      "evidence": "Identify the historical test in the rule line so it cannot be mistaken for the present § 1367 standard.",
+      "sources": [
+        "https://www.law.cornell.edu/supremecourt/text/289/238",
+        "https://www.law.cornell.edu/supremecourt/text/383/715"
+      ]
+    }
+  ],
+  "reviews": {
+    "CP-DKLA-HURN": {
+      "v": "corrected",
+      "c": "Complete Hurn opinion (paragraphs 1–24 and judicial footnote), Gibbs at 724–727, and 28 U.S.C. §§ 1338(b), 1367. Review performed 2026-10-11.",
+      "n": "Historical holding and later statutory law are identified separately. No current-law citator certification.",
+      "f": [
+        [
+          "review-status",
+          "full",
+          "*Written for the atlas on 7 October 2026 from the full opinion (Legal Information Institute text of 289 U.S. 238). It is not in the casebook's assigned pages and has not had an independent review.*",
+          "*Historical decision of April 17, 1933, by Justice Sutherland. This case is included for doctrinal context and is not in the assigned casebook pages. The account was compared with the complete Hurn opinion on October 11, 2026; its later-history discussion was checked against Gibbs and the cited statutes.*"
+        ],
+        [
+          "precision",
+          "full",
+          "*United Mine Workers v. Gibbs* (1966) called Hurn's approach \"unnecessarily grudging\" and replaced it with the common-nucleus-of-operative-fact test, and 28 U.S.C. § 1367 now governs.",
+          "*United Mine Workers v. Gibbs* (1966) called the restrictive application of Hurn's approach \"unnecessarily grudging\" and articulated the common-nucleus-of-operative-fact test. Supplemental jurisdiction is now governed by 28 U.S.C. § 1367, including its limits and grounds for declining jurisdiction."
+        ],
+        [
+          "precision",
+          "full",
+          "replaced the single-cause-of-action test with the common nucleus of operative fact and made the exercise of pendent jurisdiction discretionary.",
+          "replaced the single-cause-of-action test with the common nucleus of operative fact and reaffirmed that the exercise of pendent jurisdiction is discretionary."
+        ],
+        [
+          "source-support",
+          "full",
+          "These three statements are from general knowledge of the later law, not from the Hurn opinion.",
+          "This later history is supported by Gibbs, 383 U.S. at 724–727, and the text and enactment notes of 28 U.S.C. §§ 1338(b) and 1367; it is separate from Hurn’s 1933 holding."
+        ],
+        [
+          "historical-qualification",
+          "rule",
+          "A federal court with a substantial federal claim may also decide a non-federal ground for the same cause of action, even if the federal ground fails, but not a separate non-federal cause of action joined with it.",
+          "Under Hurn’s pre-Gibbs test, a court with a substantial federal claim could decide a non-federal ground for the same cause of action, even after the federal ground failed, but not a separate non-federal cause of action."
+        ]
+      ]
+    }
+  }
+}
