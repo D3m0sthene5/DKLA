@@ -7,13 +7,13 @@ button[data-cold-call]{
   padding:8px 18px!important;
   color:#e8f4fa!important;
   background:
-    linear-gradient(135deg,#c7f5ff20 0 5px,transparent 5px) left top/18px 12px no-repeat,
-    linear-gradient(315deg,#9ceaff15 0 5px,transparent 5px) right bottom/18px 12px no-repeat,
-    linear-gradient(180deg,#203b4c,#172b3c)!important;
+    linear-gradient(135deg,#c7f5ff2b 0 5px,transparent 5px) left top/18px 12px no-repeat,
+    linear-gradient(315deg,#9ceaff1c 0 5px,transparent 5px) right bottom/18px 12px no-repeat,
+    linear-gradient(180deg,#234457,#162e41)!important;
   border:1px solid!important;
-  border-color:#94c1d0 #497789 #416478 #659bad!important;
+  border-color:#b2dbe5 #6494a5 #50758d #85bacb!important;
   border-radius:7px!important;
-  box-shadow:inset 0 1px 0 #e6faff0d,inset 0 -1px 0 #06152033,0 2px 5px #06101926;
+  box-shadow:inset 0 1px 0 #e6faff12,inset 0 -1px 0 #06152033,0 2px 5px #06101926;
   text-shadow:none;
 }
 button[data-cold-call]::before{
@@ -23,8 +23,8 @@ button[data-cold-call]::before{
   inset:0;
   /* Fine crystal branches occupy only the outer 9px of each side. */
   background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M0 2 4 5 3 9 7 12M3 9 0 11M4 5 8 4M0 38 3 34 3 28 6 25M3 34 8 35M3 28 0 26' stroke='%23d4f7ff' stroke-opacity='.45' stroke-width='.7'/%3E%3Cpath d='M0 2 4 5 8 4 3 9Z' fill='%23c3f1ff' fill-opacity='.08'/%3E%3C/svg%3E") left center/12px 40px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M12 1 8 4 9 8 5 11M9 8 12 10M8 4 4 3M12 39 9 35 9 30 6 27M9 35 4 36M9 30 12 28' stroke='%23beeafa' stroke-opacity='.35' stroke-width='.7'/%3E%3C/svg%3E") right center/12px 40px no-repeat;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M0 2 4 5 3 9 7 12M3 9 0 11M4 5 8 4M0 38 3 34 3 28 6 25M3 34 8 35M3 28 0 26' stroke='%23d4f7ff' stroke-opacity='.61' stroke-width='.95'/%3E%3Cpath d='M0 2 4 5 8 4 3 9Z' fill='%23c3f1ff' fill-opacity='.11'/%3E%3C/svg%3E") left center/16px 40px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M12 1 8 4 9 8 5 11M9 8 12 10M8 4 4 3M12 39 9 35 9 30 6 27M9 35 4 36M9 30 12 28' stroke='%23beeafa' stroke-opacity='.47' stroke-width='.95'/%3E%3C/svg%3E") right center/16px 40px no-repeat;
 }
 button[data-cold-call]::after{
   content:"";
@@ -33,8 +33,8 @@ button[data-cold-call]::after{
   inset:0;
   /* Transparent everywhere except two hairline glints, above and below the text. */
   background:
-    linear-gradient(90deg,transparent 24%,#a7e5f24d 42%,#f0fdff 50%,#a7e5f24d 58%,transparent 76%) left top/100% 1px no-repeat,
-    linear-gradient(90deg,transparent 26%,#a7e5f21a 44%,#c5f2ff80 50%,#a7e5f21a 56%,transparent 74%) left bottom/100% 1px no-repeat;
+    linear-gradient(90deg,transparent 24%,#a7e5f268 42%,#f0fdff 50%,#a7e5f24d 58%,transparent 76%) left top/100% 1px no-repeat,
+    linear-gradient(90deg,transparent 26%,#a7e5f223 44%,#c5f2ffad 50%,#a7e5f21a 56%,transparent 74%) left bottom/100% 1px no-repeat;
   animation:cc-frost-glint 6.4s linear infinite;
   animation-delay:-2s;
 }
