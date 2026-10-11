@@ -4,10 +4,11 @@
 .dkla-timeline-track .r21-step{display:block;width:100%;text-align:left;border:0;background:transparent;padding:0;border-radius:8px;font:inherit;color:inherit}
 .dkla-timeline-track .r21-static{cursor:default}
 .dkla-timeline-track .r21-turn,#r21Timelines .r21-turn{display:inline-block;margin:0 0 5px;font:600 10px/1.3 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#93a7b7}
-.r21-turn.r21-overrules,.r21-turn.r21-narrows{color:#f0c36a}
-.r21-turn.r21-origin,.r21-turn.r21-expands{color:#7fd6a2}
+.r21-turn.r21-overrules,.r21-turn.r21-displaces,.r21-turn.r21-limits{color:#f0c36a}
+.r21-turn.r21-origin,.r21-turn.r21-widens,.r21-turn.r21-extends{color:#7fd6a2}
 .r21-turn.r21-codifies{color:#8fc0e8}
 .r21-turn.r21-divided,.r21-turn.r21-counterpoint{color:#d9a6c8}
+.r21-turn.r21-sharpens,.r21-turn.r21-reaffirms,.r21-turn.r21-applies{color:#a9bccb}
 .dkla-timeline-track .r21-fate,#r21Timelines .r21-fate{display:block;margin-top:5px;padding-left:8px;border-left:2px solid #f0c36a;font-size:11px;line-height:1.4;color:#d8c39a}
 /* a supporting case (opens its brief) and a statute or rule change (no entry) read as different from map cases */
 .dkla-timeline-track li.r21-sup .dkla-tl-year{background:transparent;color:#c9d5de;box-shadow:inset 0 0 0 1.5px #8fa3b3}

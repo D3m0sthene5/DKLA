@@ -21,10 +21,10 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v22.1.html"
+TARGET = ROOT / "DKLA-v23.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v22.1"
-LABEL = "v22.1"
+VERSION = "v23"
+LABEL = "v23"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -35,6 +35,11 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V23 = {
+    "v": "v23",
+    "date": "2026-10-11",
+    "text": "Every doctrine-timeline step now carries a short label of its own saying what the step did and to what (\"Overrules Chevron\", \"Hearing before wage garnishment\", \"The Fed set apart\") in place of the one-word bucket (\"Expands\", \"Narrows\", \"Refines\"). The buckets had no fixed reference point, so in several timelines the same word marked opposite moves: in the removal-power line Wiener and Free Enterprise Fund were both \"narrows\"; in the parol-evidence line Bollinger was \"narrows\" and Masterson \"expands\" for the same move. Each timeline now states what wider and narrower measure, and each step is sorted into one of twelve kinds (starts the line, widens, limits, extends, sharpens, reaffirms, applies, overrules, displaces, statute or rule, no majority, counterpoint), shown as the colour and explained on hover. All 505 steps were relabelled and checked against the briefs.",
+}
 CHANGELOG_V221 = {
     "v": "v22.1",
     "date": "2026-10-11",
@@ -310,7 +315,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -330,7 +335,8 @@ def embed_json(block_id: str, value) -> str:
 
 
 
-TURNS = {"origin", "expands", "narrows", "refines", "reaffirms", "overrules", "codifies", "divided", "counterpoint", "applies"}
+# v23: twelve moves. The relationship to earlier law, measured (for widens and limits) against the timeline's anchor.
+TURNS = {"origin", "widens", "limits", "extends", "sharpens", "reaffirms", "applies", "overrules", "displaces", "codifies", "divided", "counterpoint"}
 
 
 def load_timelines(nodes: dict, supporting: set) -> dict:
@@ -343,7 +349,7 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
         if not tid or tid in seen:
             problems.append(f"timeline id missing or repeated: {tid}")
         seen.add(tid)
-        for key in ("course", "title", "question", "now", "steps"):
+        for key in ("course", "title", "question", "now", "steps", "anchor"):
             if not t.get(key):
                 problems.append(f"{tid}: no {key}")
         if t.get("course") not in ("Contracts", "Civil Procedure", "Legislation and the Regulatory State"):
@@ -368,6 +374,10 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
                 problems.append(f"{tid}: link {s.get('link')} must sit on an event and name a case or rule on the map")
             if s.get("turn") not in TURNS:
                 problems.append(f"{tid}: {key} has turn {s.get('turn')!r}")
+            if not s.get("tag") or len(s["tag"].split()) > 7 or len(s["tag"]) > 48:
+                problems.append(f"{tid}: {key} needs a tag of at most seven words and 48 characters")
+            if s.get("turn") == "origin" and s is not t["steps"][0] or s.get("turn") != "origin" and s is t["steps"][0]:
+                problems.append(f"{tid}: {key}: origin must be the first step and only the first")
             if not s.get("note") or not isinstance(s.get("year"), int):
                 problems.append(f"{tid}: {key} lacks a note or a year")
                 continue
