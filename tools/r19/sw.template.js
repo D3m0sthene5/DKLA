@@ -31,7 +31,7 @@ self.addEventListener('fetch', event => {
   const path = url.pathname.slice(scope.length);
   // Sync, version checks, source PDFs and page scans always go to the network: they are large, they are
   // fetched in byte ranges, and the atlas already shows their text when they cannot be reached.
-  if (path.startsWith('api/') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
+  if (path.startsWith('api/') || path === 'admin' || path.startsWith('assets/admin/') || path.startsWith('__analytics_identity') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
   const isAtlas = path === '' || path === 'index.html' || path === ATLAS;
   if (!isAtlas && !SHELL.includes(path)) return;
   event.respondWith((async () => {

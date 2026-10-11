@@ -1,0 +1,3191 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-11",
+  "purpose": "Explicit, reversible visibility filter for disconnected or prompt-only textbook exercises. It does not delete source archives, rewrite law, or invent relationships.",
+  "scan": {
+    "nodes": 1079,
+    "edges": 2746,
+    "nodeKinds": {
+      "Case": 392,
+      "Concept": 333,
+      "Rule": 75,
+      "Note": 235,
+      "Hypothetical": 44
+    },
+    "hypotheticals": 44,
+    "keywordCandidateRecords": 146,
+    "zeroDegreeRecords": 45,
+    "method": "All effective node identifiers, kinds, graph endpoints/degrees and keyword candidates screened; complete summary/notes/source metadata and incident edges read for every Hypothetical. All zero-degree records screened by title, summary and source role. Earlier v2.5 noncase prose screening is inherited context, not a fresh reread of every textbook page."
+  },
+  "counts": {
+    "excluded": 27,
+    "excludedContracts": 23,
+    "excludedLRS": 4,
+    "retainedExamples": 17,
+    "retainedContracts": 10,
+    "retainedLRS": 7,
+    "incidentEdgesHidden": 78,
+    "casesPreserved": 392
+  },
+  "excluded": [
+    {
+      "id": "problem-interests",
+      "title": "Applying the Interests — surgery damages",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered numerical damages exercise. Links repeat instructions to identify baselines or copy its factual summary; no worked result or explained application is supplied.",
+      "rawDegree": 5,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 18–19. Open assigned page 18.",
+          "url": "#book=18"
+        }
+      ],
+      "printedRanges": [
+        [
+          18,
+          19
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The problem varies the promised improvement, the actual worsening, expenses, and pain across three operations. Its baseline includes $20,000 of promised enhancement, $10,000 deterioration, $3,000 pain per operation, and specified doctor and hospital charges.",
+      "notesRead": "Calculate and distinguish expectation, reliance, and restitution. Which costs were part of the contemplated performance? Which operation was additional? Recalculate under the higher-pain variation. Consider the alternatives forgone and explain possible double counting. Use the exact fee assumptions on the page rather than importing the figures from Sullivan itself.",
+      "sourceFingerprint": "307b9b65d6cf07872aa3656e4b5802c398ef5bf067cb1dfdac2c2d6fb0230c7f",
+      "edges": [
+        {
+          "id": "contracts-r3-0001",
+          "source": "problem-interests",
+          "target": "expectation-interest",
+          "label": "Identify the promised-performance baseline",
+          "explanation": "Identify the promised-performance baseline.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0002",
+          "source": "problem-interests",
+          "target": "reliance-interest",
+          "label": "Identify the no-reliance baseline",
+          "explanation": "Identify the no-reliance baseline.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0003",
+          "source": "problem-interests",
+          "target": "restitution-interest",
+          "label": "Identify benefits transferred to the defendant",
+          "explanation": "Identify benefits transferred to the defendant.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0191",
+          "source": "problem-interests",
+          "target": "expectation-interest",
+          "label": "develops expectation interest",
+          "explanation": "The problem varies the promised improvement, the actual worsening, expenses, and pain across three operations. Its baseline includes $20,000 of promised enhancement, $10,000 deterioration, $3,000 pain per operation, and specified doctor and hospital charges.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0320",
+          "source": "contracts-class-02",
+          "target": "problem-interests",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 2.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-opportunity",
+      "title": "Lost opportunities, investment, and duplicated recovery",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered set of investment and recovery variants. Links tell the reader to avoid duplication or trace an opportunity; they do not explain a resolved doctrinal comparison.",
+      "rawDegree": 5,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 19–21. Open assigned page 19.",
+          "url": "#book=19"
+        }
+      ],
+      "printedRanges": [
+        [
+          19,
+          21
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The notes contrast sunk expenditures, promised profits, alternative opportunities, and the value of a payment returned.",
+      "notesRead": "In the Mount Pleasant discussion, which proposed awards would compensate the same expenditure twice? How do the Pond and other examples treat opportunities forgone? In the land and lottery variants, does a later change in value change the chosen interest? Keep the cause of action and remedy measure separate.",
+      "sourceFingerprint": "c3ff07c558baf168ecce7a2afb8704a4daab2799cee40b41969b88f7c04382a2",
+      "edges": [
+        {
+          "id": "contracts-r3-0004",
+          "source": "problem-opportunity",
+          "target": "expectation-interest",
+          "label": "Avoid duplicate expectation components",
+          "explanation": "Avoid duplicate expectation components.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0005",
+          "source": "problem-opportunity",
+          "target": "reliance-interest",
+          "label": "Trace an opportunity forgone",
+          "explanation": "Trace an opportunity forgone.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0006",
+          "source": "problem-opportunity",
+          "target": "restitution-interest",
+          "label": "Analyze a payment independently of expected profits",
+          "explanation": "Analyze a payment independently of expected profits.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0192",
+          "source": "problem-opportunity",
+          "target": "expectation-interest",
+          "label": "develops expectation interest",
+          "explanation": "The notes contrast sunk expenditures, promised profits, alternative opportunities, and the value of a payment returned.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0321",
+          "source": "contracts-class-02",
+          "target": "problem-opportunity",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 2.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-retirement-discount",
+      "title": "Retirement Discount — Marine Contractors",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open consideration questions about a retirement benefit. Its general topic/assignment links supply no result or explained comparison with a mapped authority.",
+      "rawDegree": 4,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 60–61. Open assigned page 60.",
+          "url": "#book=60"
+        }
+      ],
+      "printedRanges": [
+        [
+          60,
+          61
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An employer accelerates an employee’s enjoyment of a retirement-related benefit in connection with an undertaking not to compete.",
+      "notesRead": "Identify what right the employee already had, what earlier or additional enjoyment the employer promised, and whether that change was bargained for. Does the presence of a pre-existing benefit eliminate every possible new exchange? The problem points to Marine Contractors Co. v. Hurley.",
+      "sourceFingerprint": "33c736a4b673ae6394280b701e4b191a77c6da69603b8476fd4de103afd4f857",
+      "edges": [
+        {
+          "id": "contracts-r3-0007",
+          "source": "problem-retirement-discount",
+          "target": "consideration",
+          "label": "Identify the actual exchange",
+          "explanation": "Identify the actual exchange.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0008",
+          "source": "problem-retirement-discount",
+          "target": "adequacy-consideration",
+          "label": "Separate sufficiency from value",
+          "explanation": "Separate sufficiency from value.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0204",
+          "source": "problem-retirement-discount",
+          "target": "consideration",
+          "label": "develops consideration",
+          "explanation": "An employer accelerates an employee’s enjoyment of a retirement-related benefit in connection with an undertaking not to compete.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0354",
+          "source": "contracts-class-03",
+          "target": "problem-retirement-discount",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 3.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-prentis",
+      "title": "Past gift and a later naming assurance",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open questions about the timing of a gift and naming assurance. Links repeat the timing/donation prompts or copy facts without supplying a developed application.",
+      "rawDegree": 4,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 73–74. Open assigned page 73.",
+          "url": "#book=73"
+        }
+      ],
+      "printedRanges": [
+        [
+          73,
+          74
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A benefactor’s completed contribution and a later assurance about an institution’s name raise the timing problem associated with past consideration.",
+      "notesRead": "What was promised at each stage, and what conduct was sought in exchange for each promise? Is the old gift being used as the price of a later undertaking, or is there a separate later exchange? Read the Prentis problem in full before assigning a final result.",
+      "sourceFingerprint": "00696f994b25715146a86d7aef7e5b46d974d42d19fa8daaae521461e4dd9253",
+      "edges": [
+        {
+          "id": "contracts-r3-0009",
+          "source": "problem-prentis",
+          "target": "past-consideration",
+          "label": "Test the timing of exchange",
+          "explanation": "Test the timing of exchange.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0010",
+          "source": "problem-prentis",
+          "target": "charitable-pledges",
+          "label": "Distinguish donation from naming obligations",
+          "explanation": "Distinguish donation from naming obligations.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0208",
+          "source": "problem-prentis",
+          "target": "past-consideration",
+          "label": "develops past action and the requirement of exchange",
+          "explanation": "A benefactor’s completed contribution and a later assurance about an institution’s name raise the timing problem associated with past consideration.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0404",
+          "source": "contracts-class-05",
+          "target": "problem-prentis",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-unexpected-heir",
+      "title": "Unexpected Heir",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open questions about retained testamentary discretion. Links identify a return promise or discretion but do not explain a resolved legal relation.",
+      "rawDegree": 4,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 101–102. Open assigned page 101.",
+          "url": "#book=101"
+        }
+      ],
+      "printedRanges": [
+        [
+          101,
+          102
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A family arrangement concerning a farm and testamentary plans includes a promise associated with mortgage payments and possible changes in the family.",
+      "notesRead": "What obligation has each party actually undertaken? Does the retained ability to change the testamentary arrangement make the promise illusory, or does the agreement constrain that power? Identify all conditions and timing before deciding consideration.",
+      "sourceFingerprint": "aa4fe62426da4c0da3b51bdf8d75f68ec8ca1ac8b2dd8f482d200f74a529d323",
+      "edges": [
+        {
+          "id": "contracts-r3-0011",
+          "source": "problem-unexpected-heir",
+          "target": "illusory-promise",
+          "label": "Identify limits on discretion",
+          "explanation": "Identify limits on discretion.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0012",
+          "source": "problem-unexpected-heir",
+          "target": "consideration",
+          "label": "Identify a return promise",
+          "explanation": "Identify a return promise.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0210",
+          "source": "problem-unexpected-heir",
+          "target": "illusory-promise",
+          "label": "develops illusory promises and constrained discretion",
+          "explanation": "A family arrangement concerning a farm and testamentary plans includes a promise associated with mortgage payments and possible changes in the family.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0377",
+          "source": "contracts-class-04",
+          "target": "problem-unexpected-heir",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 4.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-toast",
+      "title": "This Contract Is Toast — output and shutdown",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open output/shutdown questions. Links ask the reader to test good faith or identify evasion; the named outside case is not itself a mapped comparison here.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 112–113. Open assigned page 112.",
+          "url": "#book=112"
+        }
+      ],
+      "printedRanges": [
+        [
+          112,
+          113
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An output arrangement for breadcrumbs raises the question whether the producer may stop production after losses.",
+      "notesRead": "What is the output commitment? How should good faith, commercial reasons for shutting down, and the effect on the buyer be considered? The problem points to Feld v. Henry S. Levy & Sons.",
+      "sourceFingerprint": "43fbc563317cd00c9832f1c29eba7bbd2afb330107792fadb88f2396f3803486",
+      "edges": [
+        {
+          "id": "contracts-r3-0013",
+          "source": "problem-toast",
+          "target": "requirements-output",
+          "label": "Test good-faith changes in quantity",
+          "explanation": "Test good-faith changes in quantity.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0014",
+          "source": "problem-toast",
+          "target": "good-faith-early",
+          "label": "Distinguish genuine operational reasons from evasion",
+          "explanation": "Distinguish genuine operational reasons from evasion.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0378",
+          "source": "contracts-class-04",
+          "target": "problem-toast",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 4.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-dementas",
+      "title": "The memorandum promise — DeMentas v. Tallas",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open writing/past-consideration questions. Topic edges merely request a test of form or prior conduct; no worked analysis or distinct connected case account is supplied.",
+      "rawDegree": 5,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 120. Open assigned page 120.",
+          "url": "#book=120"
+        }
+      ],
+      "printedRanges": [
+        [
+          120,
+          120
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A written and notarized memorandum promises $50,000 in recognition of assistance already rendered.",
+      "notesRead": "Does the writing, its formality, the past assistance, or any additional undertaking supply enforceability? Distinguish evidence of a promise from a substantive substitute for consideration. Apply the relevant jurisdiction rather than treating notarization as universally conclusive.",
+      "sourceFingerprint": "41d17cb999c6db172db494d9d73ffbbec45de10725e13e27b71b85aa55ab9e5c",
+      "edges": [
+        {
+          "id": "contracts-r3-0015",
+          "source": "problem-dementas",
+          "target": "formalities",
+          "label": "Identify a substantive effect of form",
+          "explanation": "Identify a substantive effect of form.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0016",
+          "source": "problem-dementas",
+          "target": "past-consideration",
+          "label": "Test prior conduct",
+          "explanation": "Test prior conduct.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0212",
+          "source": "problem-dementas",
+          "target": "formalities",
+          "label": "develops formalities and substitutes for consideration",
+          "explanation": "A written and notarized memorandum promises $50,000 in recognition of assistance already rendered.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0355",
+          "source": "contracts-class-03",
+          "target": "problem-dementas",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 3.",
+          "classification": "assignment navigation"
+        },
+        {
+          "id": "contracts-r3-0405",
+          "source": "contracts-class-05",
+          "target": "problem-dementas",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-nephew-shop",
+      "title": "The nephew’s shop and a $1,000 promise",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Unanswered remedy calculation under two section 90 formulations. Links direct comparison and separation of amounts without stating the result or explanatory distinction.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 128–129. Open assigned page 128.",
+          "url": "#book=128"
+        }
+      ],
+      "printedRanges": [
+        [
+          128,
+          129
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A nephew incurs a $2,000 stock-related loss in reliance on a $1,000 promise.",
+      "notesRead": "What does each version of § 90 permit or require as a remedy? Distinguish enforcing the promised payment from compensating all reliance, and examine the later formulation’s language about limiting relief as justice requires.",
+      "sourceFingerprint": "39e900b3bf6a32a1c0be930c7b2cccbeff49a2edc0aa58ba29b132225e4426b8",
+      "edges": [
+        {
+          "id": "contracts-r3-0019",
+          "source": "problem-nephew-shop",
+          "target": "rest90",
+          "label": "Compare the two remedy formulations",
+          "explanation": "Compare the two remedy formulations.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0020",
+          "source": "problem-nephew-shop",
+          "target": "reliance-interest",
+          "label": "Separate reliance loss from the promised sum",
+          "explanation": "Separate reliance loss from the promised sum.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0407",
+          "source": "contracts-class-05",
+          "target": "problem-nephew-shop",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-reliance-measures",
+      "title": "Comparing reliance remedies across the gift and pension cases",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "A list of unanswered comparisons across gift/pension examples. Links request separation or recognition of measures without identifying actual case outcomes.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 130. Open assigned page 130.",
+          "url": "#book=130"
+        }
+      ],
+      "printedRanges": [
+        [
+          130,
+          130
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The notes ask the reader to compare the relief and interests in Scothorn, Feinberg, and other family-promise examples.",
+      "notesRead": "What was the induced action, and what measure actually followed? Can an award resemble expectation even when reliance supplies the basis of enforcement? Do not treat the unassigned Kirksey opinion as fully read merely because the question cites it.",
+      "sourceFingerprint": "aa53d5168bdf51e91c4bd857c6474c6f5626019719dc11e75c0cd2f9b228dd21",
+      "edges": [
+        {
+          "id": "contracts-r3-0021",
+          "source": "problem-reliance-measures",
+          "target": "reliance-interest",
+          "label": "Separate an enforcement basis from a measure",
+          "explanation": "Separate an enforcement basis from a measure.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0022",
+          "source": "problem-reliance-measures",
+          "target": "expectation-interest",
+          "label": "Recognize overlapping measures",
+          "explanation": "Recognize overlapping measures.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0408",
+          "source": "contracts-class-05",
+          "target": "problem-reliance-measures",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-ypsilanti",
+      "title": "The Ear of the Beholder — Ypsilanti and General Motors",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "A factual prompt asking each side to argue promise and reliance. The develops edge copies its facts; the other legal edge only says to identify elements.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 137–138. Open assigned page 137.",
+          "url": "#book=137"
+        }
+      ],
+      "printedRanges": [
+        [
+          137,
+          138
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A township granted industrial tax abatements after a plant presentation about new investment and continued employment, subject to favorable demand. General Motors later planned to transfer production.",
+      "notesRead": "Identify the exact language alleged to be a promise and the significance of its conditions. What action did it invite or induce? Present the competing interpretations without substituting the desirability of continued employment for the elements of the claim. The casebook reports an injunction and appeal and asks how each side should argue.",
+      "sourceFingerprint": "74cfc8cd597bf77487be3e276452fd87fb58c9e3206b925d6369bbb6e7393cfa",
+      "edges": [
+        {
+          "id": "contracts-r3-0024",
+          "source": "problem-ypsilanti",
+          "target": "promissory-estoppel",
+          "label": "Identify promise and reliance",
+          "explanation": "Identify promise and reliance.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0189",
+          "source": "problem-ypsilanti",
+          "target": "promise-or-prediction",
+          "label": "develops promise, prediction, description, and commendation",
+          "explanation": "A township granted industrial tax abatements after a plant presentation about new investment and continued employment, subject to favorable demand. General Motors later planned to transfer production.",
+          "classification": "copied factual summary"
+        },
+        {
+          "id": "contracts-r3-0409",
+          "source": "contracts-class-05",
+          "target": "problem-ypsilanti",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-social",
+      "title": "Social promises, dinners, and preparation costs",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "Open social-promise/context questions. Links say to evaluate context or distinguish expense from justified reliance without a developed application.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 186–187. Open assigned page 186.",
+          "url": "#book=186"
+        }
+      ],
+      "printedRanges": [
+        [
+          186,
+          187
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "Ordinary social invitations and arrangements can induce expenditures without an express discussion of legal enforcement.",
+      "notesRead": "When does the context communicate an intended legal commitment? What role do the scale of preparation, words of assurance, and the relationship play? The notes also ask how a lawyer should identify relevant facts while avoiding manufacturing a client’s account.",
+      "sourceFingerprint": "eaa63c3cac5e27e448c17f2cd0b469f0c8b65e023a073596ad2a50574136589c",
+      "edges": [
+        {
+          "id": "contracts-r3-0027",
+          "source": "problem-social",
+          "target": "social-intent",
+          "label": "Evaluate relational context",
+          "explanation": "Evaluate relational context.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0028",
+          "source": "problem-social",
+          "target": "reliance-interest",
+          "label": "Distinguish expense from justified reliance",
+          "explanation": "Distinguish expense from justified reliance.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0437",
+          "source": "contracts-class-06",
+          "target": "problem-social",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 6.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-mint",
+      "title": "Midas Touch — the Mint coin orders",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered coin-order scenario. Links only request identifying the offeror and interpreting limits; no mapped case comparison or result is supplied.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 204–205. Open assigned page 204.",
+          "url": "#book=204"
+        }
+      ],
+      "printedRanges": [
+        [
+          204,
+          205
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "Demand for a limited coin issue exceeded the Mint’s available quantity; ordering materials and confirmation language affect the alleged agreement.",
+      "notesRead": "Which document was an offer and which was an invitation for orders? Did receipt or acknowledgment of payment or an order constitute acceptance? What effect should stated allocation and quantity limits have? The reference to Mesaros does not replace the requested analysis.",
+      "sourceFingerprint": "73fe3871810978a7adea4f766c43ec7dff88f7d720a546cb9839fa00e32d5632",
+      "edges": [
+        {
+          "id": "contracts-r3-0029",
+          "source": "problem-mint",
+          "target": "offer",
+          "label": "Identify the offeror",
+          "explanation": "Identify the offeror.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0030",
+          "source": "problem-mint",
+          "target": "advertisements",
+          "label": "Interpret allocation and quantity limits",
+          "explanation": "Interpret allocation and quantity limits.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0489",
+          "source": "contracts-class-07",
+          "target": "problem-mint",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-foley",
+      "title": "Mistaken no-reserve yacht listing — Foley",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered auction/mistake scenario. Links request identifying a mechanism or reading manifestations; the outside yacht citation is not a developed mapped comparison.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 213. Open assigned page 213.",
+          "url": "#book=213"
+        }
+      ],
+      "printedRanges": [
+        [
+          213,
+          213
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An auction listing allegedly lost its intended reserve limitation after earlier failed attempts to sell, and a bidder asserted a completed sale.",
+      "notesRead": "Whose words and acts define the auction terms? What significance do the listing, bid, closing notification, and mistake have? Use the exact sequence on the assigned page; the citation to a yacht case is not a provided answer.",
+      "sourceFingerprint": "958b0c71ec27e6f5e5c11edfc978ef2a78532ad254ba34c34f9bc83c69f74151",
+      "edges": [
+        {
+          "id": "contracts-r3-0031",
+          "source": "problem-foley",
+          "target": "auctions",
+          "label": "Identify the invited auction mechanism",
+          "explanation": "Identify the invited auction mechanism.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0032",
+          "source": "problem-foley",
+          "target": "objective-assent",
+          "label": "Read the public manifestation in context",
+          "explanation": "Read the public manifestation in context.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0490",
+          "source": "contracts-class-07",
+          "target": "problem-foley",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-kendel",
+      "title": "A privately signed acceptance — Kendel v. Pontious",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered private-signature/notice scenario. The White comparison link only asks the reader to compare uncommunicated conduct; the prose leaves acceptance unresolved.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 220–221. Open assigned page 220.",
+          "url": "#book=220"
+        }
+      ],
+      "printedRanges": [
+        [
+          220,
+          221
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The notes describe signing an agreement without immediately communicating it to the other party.",
+      "notesRead": "Did the offer make execution alone sufficient, or did it invite a communicated promise? Identify when the act of acceptance and any required notification occurred. Compare private intention with an act placed in a proper course of transmission.",
+      "sourceFingerprint": "f1fbac18c7673a373007cf6e08edce8322c791335c5518496b35a0ddad3bbfb7",
+      "edges": [
+        {
+          "id": "contracts-r3-0035",
+          "source": "problem-kendel",
+          "target": "acceptance-notice",
+          "label": "Identify any notice requirement",
+          "explanation": "Identify any notice requirement.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0036",
+          "source": "problem-kendel",
+          "target": "white-corlies",
+          "label": "Compare uncommunicated conduct",
+          "explanation": "Compare uncommunicated conduct.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0492",
+          "source": "contracts-class-07",
+          "target": "problem-kendel",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-awesome",
+      "title": "“Awesome” — electronic assent and quantity",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered electronic quantity exchange. Both doctrinal links repeat interpretive tasks and the prose supplies no resolved application.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 221–222. Open assigned page 221.",
+          "url": "#book=221"
+        }
+      ],
+      "printedRanges": [
+        [
+          221,
+          222
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An electronic exchange concerning leads moves from an expected daily quantity to much higher quantities and an asserted absence of a limit.",
+      "notesRead": "Does the response “awesome” assent to the proposed quantity or merely express approval? What exactly is the offer, and how does the surrounding conversation give the response meaning? The problem asks for interpretation of the exchange rather than a categorical rule about informal words or symbols.",
+      "sourceFingerprint": "d3de30b1c74b271983b1d8c92d07254dc44e53971bb4b719d74ba3035c1fe3da",
+      "edges": [
+        {
+          "id": "contracts-r3-0037",
+          "source": "problem-awesome",
+          "target": "objective-assent",
+          "label": "Interpret informal language",
+          "explanation": "Interpret informal language.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0038",
+          "source": "problem-awesome",
+          "target": "acceptance",
+          "label": "Identify assent to the proposed quantity",
+          "explanation": "Identify assent to the proposed quantity.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0493",
+          "source": "contracts-class-07",
+          "target": "problem-awesome",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-steinberg",
+      "title": "Application fee and admissions criteria — Steinberg",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered fee/admissions scenario. Links ask the reader to identify the undertaking and acceptance; they do not supply the doctrinal consequence.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 229. Open assigned page 229.",
+          "url": "#book=229"
+        }
+      ],
+      "printedRanges": [
+        [
+          229,
+          229
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A medical-school applicant pays a fee in reliance on stated evaluation criteria and alleges that different criteria were used.",
+      "notesRead": "What performance did the institution promise in exchange for the fee? Distinguish a promise to evaluate in a particular way from a promise to admit. Identify the alleged acceptance and the effect of the published terms.",
+      "sourceFingerprint": "a0f6849464abf062749cd8ac5835b5ce9d706bcefda0d8f66aa0e24406daa41d",
+      "edges": [
+        {
+          "id": "contracts-r3-0039",
+          "source": "problem-steinberg",
+          "target": "offer",
+          "label": "Identify the proposed undertaking",
+          "explanation": "Identify the proposed undertaking.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0040",
+          "source": "problem-steinberg",
+          "target": "acceptance",
+          "label": "Identify acceptance by application and payment",
+          "explanation": "Identify acceptance by application and payment.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0494",
+          "source": "contracts-class-07",
+          "target": "problem-steinberg",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-newman",
+      "title": "A broadcast challenge and its rebroadcast — Newman",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered reward/rebroadcast scenario. Links request identifying a period or offer without resolving the relation or supplying a mapped case comparison.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 240. Open assigned page 240.",
+          "url": "#book=240"
+        }
+      ],
+      "printedRanges": [
+        [
+          240,
+          240
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A reward-like challenge tied to calling during a particular program is later heard through a rebroadcast.",
+      "notesRead": "Did the later transmission repeat a continuing offer, create a new one, or merely report an expired challenge? How should the stated time and program context control?",
+      "sourceFingerprint": "40cf210d2cd82352fbdf6342f70476e03cad11e2969b7f76dabc73559f79ae87",
+      "edges": [
+        {
+          "id": "contracts-r3-0043",
+          "source": "problem-newman",
+          "target": "lapse",
+          "label": "Interpret the acceptance period",
+          "explanation": "Interpret the acceptance period.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0044",
+          "source": "problem-newman",
+          "target": "reward-knowledge",
+          "label": "Identify the communicated reward offer",
+          "explanation": "Identify the communicated reward offer.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0496",
+          "source": "contracts-class-07",
+          "target": "problem-newman",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-yaro",
+      "title": "A settlement countdown — Yaro",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered settlement-countdown scenario. Both topic links restate tasks about lapse and withdrawal rather than explain a legal application.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 240. Open assigned page 240.",
+          "url": "#book=240"
+        }
+      ],
+      "printedRanges": [
+        [
+          240,
+          240
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A settlement offer with a short time limit is followed by a recess and an attempted acceptance after additional proceedings.",
+      "notesRead": "What period was stated, and did later words or conduct extend it? Analyze lapse independently from revocation, and explain how the procedural sequence affects the meaning of the offer.",
+      "sourceFingerprint": "3137d3af41591cd5cdd5f88c2af913803bc63097c34b8bb35084e8466b265e4e",
+      "edges": [
+        {
+          "id": "contracts-r3-0045",
+          "source": "problem-yaro",
+          "target": "lapse",
+          "label": "Apply the stated period in context",
+          "explanation": "Apply the stated period in context.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0046",
+          "source": "problem-yaro",
+          "target": "termination-offer",
+          "label": "Distinguish lapse from withdrawal",
+          "explanation": "Distinguish lapse from withdrawal.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0497",
+          "source": "contracts-class-07",
+          "target": "problem-yaro",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-hedging",
+      "title": "Hedging One’s Bets — an erroneous recorder’s report",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered erroneous-report/option scenario. Its links only request evaluating indirect communication and testing hold-open protection.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 246. Open assigned page 246.",
+          "url": "#book=246"
+        }
+      ],
+      "printedRanges": [
+        [
+          246,
+          246
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "B receives what appears to be a reliable report that A conveyed Greenacre to C, then accepts A’s earlier offer within its stated five-day period. The report proves wrong.",
+      "notesRead": "Does reliability rather than truth control indirect revocation under the provision cited by the problem? Was the promise to hold open independently enforceable? Separate those inquiries before deciding whether an acceptance power remained.",
+      "sourceFingerprint": "63b139b01215fddb30013108b4468c55c08318613d9495c452926910d3b29827",
+      "edges": [
+        {
+          "id": "contracts-r3-0047",
+          "source": "problem-hedging",
+          "target": "revocation",
+          "label": "Evaluate indirect communication",
+          "explanation": "Evaluate indirect communication.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0048",
+          "source": "problem-hedging",
+          "target": "option-contract",
+          "label": "Test a promise to hold open",
+          "explanation": "Test a promise to hold open.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0544",
+          "source": "contracts-class-08",
+          "target": "problem-hedging",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 8.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-maine",
+      "title": "The Move to Maine",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered farm/care scenario with language and death variants. All legal links ask the reader to identify or distinguish options rather than explain a resolved relation.",
+      "rawDegree": 4,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 252. Open assigned page 252.",
+          "url": "#book=252"
+        }
+      ],
+      "printedRanges": [
+        [
+          252,
+          252
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A mother offers the use and eventual ownership of her farm to a daughter and son-in-law who move and care for her, then tries to end the arrangement.",
+      "notesRead": "Does the language invite a promise or performance? When did the relevant acceptance or option arise? Vary the language to “agree to move” and consider death after preparations but before arrival. The Brackenbury and Davis citations guide comparison rather than provide the answer.",
+      "sourceFingerprint": "b509951a020e1f1006cca77a65e731bb226d2006bf9ca72f3ac5f60d736c114d",
+      "edges": [
+        {
+          "id": "contracts-r3-0051",
+          "source": "problem-maine",
+          "target": "rest45",
+          "label": "Identify invited performance",
+          "explanation": "Identify invited performance.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0052",
+          "source": "problem-maine",
+          "target": "acceptance",
+          "label": "Compare a return promise",
+          "explanation": "Compare a return promise.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0053",
+          "source": "problem-maine",
+          "target": "death-offer",
+          "label": "Distinguish an ordinary offer from an option",
+          "explanation": "Distinguish an ordinary offer from an option.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0546",
+          "source": "contracts-class-08",
+          "target": "problem-maine",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 8.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-funeral",
+      "title": "In Memoriam",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "The imported prompt expressly lacks its continuation on unassigned page 260. Its sole topic link identifies the timing question without an answer.",
+      "rawDegree": 2,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 259. Open assigned page 259.",
+          "url": "#book=259"
+        }
+      ],
+      "printedRanges": [
+        [
+          259,
+          259
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The assigned page begins an aunt’s promise to pay funeral travel expenses and $5,000 to a nephew.",
+      "notesRead": "The fact pattern continues on unassigned p. 260. It raises the relationship between the offer’s contemplated performance and the death rule, but the missing continuation should be read before supplying an answer.",
+      "sourceFingerprint": "b295168f4b5672fecdbb99d7d9399ca848d78272716dfff1114fe88fa3543cc3",
+      "edges": [
+        {
+          "id": "contracts-r3-0056",
+          "source": "problem-funeral",
+          "target": "death-offer",
+          "label": "Identify the timing problem",
+          "explanation": "Identify the timing problem.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0548",
+          "source": "contracts-class-08",
+          "target": "problem-funeral",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 8.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-humble",
+      "title": "Humble Oil option and a proposed amendment",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unanswered option/amendment variant. Links request characterizing rejection and conditional response; no distinct explained case relationship is supplied.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 261. Open assigned page 261.",
+          "url": "#book=261"
+        }
+      ],
+      "printedRanges": [
+        [
+          261,
+          261
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An option holder purports to exercise an option while proposing an added utility obligation, then sends an unqualified exercise before the option expires.",
+      "notesRead": "How does an option affect the consequences of a counteroffer or outright rejection? Compare a consideration-supported option with an Article 2 firm offer. In the variant, consider the offeror’s intervening commitment after rejection. The page’s reference to § 37 identifies the issue without supplying the full provision.",
+      "sourceFingerprint": "7c23781c8c3bca0d5d50ae528249d8e845023ee46d674c5eddf2aa1c33acb279",
+      "edges": [
+        {
+          "id": "contracts-r3-0057",
+          "source": "problem-humble",
+          "target": "option-contract",
+          "label": "Distinguish rejection of an option",
+          "explanation": "Distinguish rejection of an option.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0058",
+          "source": "problem-humble",
+          "target": "mirror-image",
+          "label": "Characterize the conditional response",
+          "explanation": "Characterize the conditional response.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0498",
+          "source": "contracts-class-07",
+          "target": "problem-humble",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-sof-categories",
+      "title": "Statutes of Frauds — comparison problems",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "A collection of unanswered jurisdiction-dependent writing problems. Links instruct the reader to identify text and duration without resolving the exact variants.",
+      "rawDegree": 3,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 378–379. Open assigned page 378.",
+          "url": "#book=378"
+        }
+      ],
+      "printedRanges": [
+        [
+          378,
+          379
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The problems compare state writing requirements and vary agreements for services, land-related transactions, and other undertakings.",
+      "notesRead": "For each exact fact pattern, first identify the governing state text, then its coverage, the relevant duration or interest, the sufficiency of any writing, and an applicable exception. A hotel scenario and variations across jurisdictions test whether the traditional categories have been changed. Use the statutory text in the Selections or supplement rather than a remembered statute.",
+      "sourceFingerprint": "4ddc77f0be82528d36ac7208d1a07f161545d737a4fef1bb7c76476a6024d7a7",
+      "edges": [
+        {
+          "id": "contracts-r3-0069",
+          "source": "problem-sof-categories",
+          "target": "statute-frauds",
+          "label": "Identify the governing text",
+          "explanation": "Identify the governing text.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0070",
+          "source": "problem-sof-categories",
+          "target": "one-year-intro",
+          "label": "Identify the time from making to performance",
+          "explanation": "Identify the time from making to performance.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0356",
+          "source": "contracts-class-03",
+          "target": "problem-sof-categories",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 3.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "lrs-n-problem-safety-discretion",
+      "title": "Problem: What reasons could justify changing the restraint rule?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unresolved safety-policy exercise with zero graph edges and no node topic links.",
+      "rawDegree": 0,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 609–610 · physical PDF pp. 35–36",
+          "url": "#lrs=lrs-november-a:35"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-a",
+          "pdfStart": 35,
+          "pdfEnd": 36,
+          "printedPages": "609–610"
+        }
+      ],
+      "summaryRead": "The assigned questions test which reasons and facts could support a change in safety policy.",
+      "notesRead": "The casebook asks whether NHTSA could justify rescission through its assessment of unreasonable risk, individual choice, equity between people who already wear belts and those who do not, or innovation. It asks what facts would matter for each rationale. A study response should identify the Safety Act’s text, explain whether each consideration belongs within its discretion, and connect evidence to the proposed choice while addressing retained alternatives.",
+      "sourceFingerprint": "f934d0ee7f24dba7e6715915f763a3afab925693273b0b69345ba65bd54c5362",
+      "edges": []
+    },
+    {
+      "id": "lrs-n-problem-guidance-binding",
+      "title": "Problem: How can a court tell whether guidance binds?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unresolved binding-guidance exercise with zero graph edges and no node topic links.",
+      "rawDegree": 0,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 636–637 · physical PDF pp. 61–62",
+          "url": "#lrs=lrs-november-a:61"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-a",
+          "pdfStart": 61,
+          "pdfEnd": 62,
+          "printedPages": "636–637"
+        }
+      ],
+      "summaryRead": "The notes ask which evidence distinguishes a tentative policy from a binding norm.",
+      "notesRead": "The General Electric notes ask what agency practice could overcome mandatory language, whether compliance by regulated people alone establishes binding effect, and whether safe harbors or rebuttable presumptions necessarily count as legislation. The examples contrast boilerplate disclaimers attached to commands with repeated caveats and genuinely open decisions. The issue requires examination of text and practice, including whether the agency will hear challenges to its position.",
+      "sourceFingerprint": "e053f27e528efa203a5ba53f24ebac72478b5ee9b25b4c61d6286c630da8ac87",
+      "edges": []
+    },
+    {
+      "id": "lrs-n-problem-review-history",
+      "title": "Problem: Can the meaning of evidentiary review evolve?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An unresolved historical evidentiary-review exercise with zero graph edges and no node topic links.",
+      "rawDegree": 0,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 927 · physical PDF pp. 147–147",
+          "url": "#lrs=lrs-november-a:147"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-a",
+          "pdfStart": 147,
+          "pdfEnd": 147,
+          "printedPages": "927"
+        }
+      ],
+      "summaryRead": "The ADAPSO note asks how later convergence of review standards relates to the APA’s original understanding.",
+      "notesRead": "Kenneth Culp Davis described a shift from treating substantial evidence and arbitrary-and-capricious review as materially different to treating their evidentiary demands as equivalent. The note asks whether a modern court may follow that later understanding if the original understanding differed. A response should separate the historical claim, the statutory text and structure, the role of precedent, and the institutional reasons for convergence. The question remains an interpretive problem in the assigned text.",
+      "sourceFingerprint": "da900f817b4257e6ced80413729d0d40bf3e31c7f6293d445923345332b28559",
+      "edges": []
+    },
+    {
+      "id": "lrs-i-express-regulatory-problem",
+      "title": "Problem: expressly delegating the meaning of a regulation",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "hide from visible atlas",
+      "reason": "An expressly unresolved delegated-regulatory-interpretation hypothetical with zero graph edges and no node topic links.",
+      "rawDegree": 0,
+      "meaningfulDegree": 0,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1002 · physical PDF pp. 58–58",
+          "url": "#lrs=lrs-november-b:58"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 58,
+          "pdfEnd": 58,
+          "printedPages": "1002"
+        }
+      ],
+      "summaryRead": "The assigned problem asks whether a regulation could authorize a future Secretary to define and delimit its ambiguous terms through interpretive rules.",
+      "notesRead": "Assume a regulation states that its ambiguous terms will have the meanings defined and delimited in later interpretive rules issued by the Secretary. The prompt asks whether that instruction would expressly delegate interpretive authority, by analogy to the statutory language acknowledged in Loper Bright. If it did, an agency might preserve something like Auer’s approach by express drafting even if the general presumption were later rejected. (Printed 1002.)\n\nAn analysis must identify the source and limits of the agency’s authority to make the first regulation, whether later definitions exercise policy discretion or change binding requirements, which § 553 procedures apply, and what judicial review under § 706 requires. It must also confront the constitutional objection discussed in Decker and Kisor rather than assume that explicit wording cures every problem. The assigned source leaves the hypothetical unresolved; no outcome is recorded as doctrine.",
+      "sourceFingerprint": "e86ecf9122b0f5e3c018d984c5e14befdb5b965c2565dd0dd554d88184900c07",
+      "edges": []
+    }
+  ],
+  "retained": [
+    {
+      "id": "problem-hayes",
+      "title": "Retirement already planned — Hayes comparison",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The factual comparison identifies why the retirement decision in Hayes differs from Feinberg: the decision preceded the assurance rather than being induced by it.",
+      "rawDegree": 3,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 127–128. Open assigned page 127.",
+          "url": "#book=127"
+        }
+      ],
+      "printedRanges": [
+        [
+          127,
+          128
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The employee had decided to retire before receiving the pension assurance, unlike the causal account accepted in Feinberg.",
+      "notesRead": "Which decision or action was induced by the promise? Would changing plans, remaining at work, or foregoing another opportunity alter the analysis? Do not infer reliance merely from receiving the promise before the final retirement date.",
+      "sourceFingerprint": "9435136e5559ebdd8207af51619675dcc7a3b1d793aadb775a208db99c6e54ee",
+      "edges": [
+        {
+          "id": "contracts-r3-0017",
+          "source": "problem-hayes",
+          "target": "promissory-estoppel",
+          "label": "Identify induced conduct",
+          "explanation": "Identify induced conduct.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0018",
+          "source": "problem-hayes",
+          "target": "feinberg",
+          "label": "Compare the retirement decision",
+          "explanation": "Compare the retirement decision.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0406",
+          "source": "contracts-class-05",
+          "target": "problem-hayes",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-barnes",
+      "title": "Promising to Undo Harm — Barnes v. Yahoo",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "It separates the reported statutory-bar result from proof of the section 90 elements and links to the distinct Barnes undertaking/promise account.",
+      "rawDegree": 3,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 143–144. Open assigned page 143.",
+          "url": "#book=143"
+        }
+      ],
+      "printedRanges": [
+        [
+          143,
+          144
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A representative’s promise to address abusive false profiles raises a reliance claim distinct from an asserted negligent undertaking.",
+      "notesRead": "Apply each component of § 90: the content and clarity of the promise, expected and actual reliance, detriment, and the need to avoid injustice. The reported conclusion about the statutory bar is not proof that each state-law element is satisfied.",
+      "sourceFingerprint": "7cf352bbe6d05dfa2f153013544f9ba486d64ad70a1ef77525fcfd0dddd42c2f",
+      "edges": [
+        {
+          "id": "contracts-r3-0025",
+          "source": "problem-barnes",
+          "target": "note-barnes",
+          "label": "Separate the two theories in the reported case",
+          "explanation": "Separate the two theories in the reported case.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0026",
+          "source": "problem-barnes",
+          "target": "promissory-estoppel",
+          "label": "Test every element",
+          "explanation": "Test every element.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0410",
+          "source": "contracts-class-05",
+          "target": "problem-barnes",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 5.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-kessler",
+      "title": "Order acknowledgment — Hill’s v. Kessler",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The wording-specific acknowledgment comparison distinguishes attention to an order from a commitment, linked to International Filter.",
+      "rawDegree": 3,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 216–217. Open assigned page 216.",
+          "url": "#book=216"
+        }
+      ],
+      "printedRanges": [
+        [
+          216,
+          217
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A seller’s reply promises attention to an order rather than using an express commitment to fill it.",
+      "notesRead": "What, exactly, would a reasonable recipient understand as accepted? Compare the wording to International Filter and distinguish an acknowledgment of receipt from assent to a bargain.",
+      "sourceFingerprint": "f5cf1353c503ab3ca82551cf0596325c24f29a7f1eb92c6c1f76ddbad89401d9",
+      "edges": [
+        {
+          "id": "contracts-r3-0033",
+          "source": "problem-kessler",
+          "target": "acceptance",
+          "label": "Distinguish interest from assent",
+          "explanation": "Distinguish interest from assent.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0034",
+          "source": "problem-kessler",
+          "target": "international-filter",
+          "label": "Compare the significance of the acknowledgment",
+          "explanation": "Compare the significance of the acknowledgment.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0491",
+          "source": "contracts-class-07",
+          "target": "problem-kessler",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-barfield",
+      "title": "Change for a $50 bill — Barfield",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The explanation expressly connects contract formation at refusal of service with the section 1981 claim rather than just listing a topic.",
+      "rawDegree": 3,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 237–238. Open assigned page 237.",
+          "url": "#book=237"
+        }
+      ],
+      "printedRanges": [
+        [
+          237,
+          238
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A non-account-holder seeks change at a bank; the example places consideration in the context of an alleged discriminatory refusal.",
+      "notesRead": "Is there an exchange sufficient for a contract, and what precisely does each party give? How does the statutory claim’s coverage interact with contract formation? Keep the book’s historical Perry discussion and its express account of the 1991 amendment together.",
+      "sourceFingerprint": "be56e454fdac69221b1db2b581de88f625b0af53f86b33b11ce96222551f528c",
+      "edges": [
+        {
+          "id": "contracts-r3-0041",
+          "source": "problem-barfield",
+          "target": "consideration",
+          "label": "Identify an exchange",
+          "explanation": "Identify an exchange.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0042",
+          "source": "problem-barfield",
+          "target": "formation-civil-rights",
+          "label": "Connect formation to the stated statutory question",
+          "explanation": "The problem asks whether a contract had formed when the bank refused service, and how that bears on the § 1981 claim.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0495",
+          "source": "contracts-class-07",
+          "target": "problem-barfield",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-bridge",
+      "title": "Crossing the Brooklyn Bridge",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The classic started-performance example compares section 45 option protection with section 87 preparatory reliance, preserving the completion condition.",
+      "rawDegree": 3,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 251–252. Open assigned page 251.",
+          "url": "#book=251"
+        }
+      ],
+      "printedRanges": [
+        [
+          251,
+          252
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "A promises $100 for crossing the bridge and attempts to withdraw the offer after B has gone halfway.",
+      "notesRead": "Compare the older completed-performance analysis with § 45’s option protection. What does beginning earn immediately, and what remains conditional on completion? How would the result change if the offer invited a promise or the claimant had merely prepared to begin?",
+      "sourceFingerprint": "6bf48d8cad3718fdd1941580fc6146b90dadfac2cfefad67566c03ef92b8bcb8",
+      "edges": [
+        {
+          "id": "contracts-r3-0049",
+          "source": "problem-bridge",
+          "target": "rest45",
+          "label": "Identify beginning of invited performance",
+          "explanation": "Identify beginning of invited performance.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0050",
+          "source": "problem-bridge",
+          "target": "rest87",
+          "label": "Distinguish preparatory reliance",
+          "explanation": "Distinguish preparatory reliance.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0545",
+          "source": "contracts-class-08",
+          "target": "problem-bridge",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 8.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-preparing-bridge",
+      "title": "Preparing to cross — reliance before performance",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The prose explains that reliance expenditures need not themselves be the invited performance, with separate section 45 and section 87 routes.",
+      "rawDegree": 3,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 258. Open assigned page 258.",
+          "url": "#book=258"
+        }
+      ],
+      "printedRanges": [
+        [
+          258,
+          258
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The notes vary the bridge example so that the offeree has spent time and money but has not yet begun the requested crossing.",
+      "notesRead": "Would § 45 apply? What additional inquiry does § 87(2) require? Explain why expenditures can matter to reliance without automatically being the performance requested in the offer.",
+      "sourceFingerprint": "2f6154837873a8d25e0f8c9630178fc1ce7c2edce93ef198a2d37f2c16457a18",
+      "edges": [
+        {
+          "id": "contracts-r3-0054",
+          "source": "problem-preparing-bridge",
+          "target": "rest45",
+          "label": "Distinguish performance from preparation",
+          "explanation": "Distinguish performance from preparation.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0055",
+          "source": "problem-preparing-bridge",
+          "target": "rest87",
+          "label": "Test reliance-based protection",
+          "explanation": "Test reliance-based protection.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0547",
+          "source": "contracts-class-08",
+          "target": "problem-preparing-bridge",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 8.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-overtaking",
+      "title": "The overtaking rejection",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "It retains a substantive warning against first-receipt control and connects dispatch timing with reliance-based estoppel.",
+      "rawDegree": 3,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 262–263. Open assigned page 262.",
+          "url": "#book=262"
+        }
+      ],
+      "printedRanges": [
+        [
+          262,
+          263
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "An acceptance is mailed before a rejection, but the rejection reaches the offeror first.",
+      "notesRead": "When did acceptance take effect under the invited medium? Does the rejection explain that an acceptance is in transit? Did the offeror rely on the earlier-arriving rejection? The commentary raises estoppel; do not turn the example into a blanket rule that the first communication received always controls.",
+      "sourceFingerprint": "a90a98dd4957e604d41ef48a482f409537078fd612080b3131652112d83aebf5",
+      "edges": [
+        {
+          "id": "contracts-r3-0059",
+          "source": "problem-overtaking",
+          "target": "mailbox",
+          "label": "Apply dispatch and receipt timing",
+          "explanation": "Apply dispatch and receipt timing.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0060",
+          "source": "problem-overtaking",
+          "target": "equitable-estoppel",
+          "label": "Consider reliance on the earlier-arriving message",
+          "explanation": "Consider reliance on the earlier-arriving message.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0499",
+          "source": "contracts-class-07",
+          "target": "problem-overtaking",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 7.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-misplaced",
+      "title": "Misplaced Strategies — Commerce & Industry v. Bayer",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "The explicit conduct-formation edge identifies section 2-207(3) as the route determining which agreed terms survive.",
+      "rawDegree": 5,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 293–294. Open assigned page 293.",
+          "url": "#book=293"
+        }
+      ],
+      "printedRanges": [
+        [
+          293,
+          294
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The buyer’s purchase order includes arbitration. The seller’s form is silent on arbitration but expressly conditional and disclaims being an acceptance or confirmation. After performance and a fire, the seller invokes the buyer’s arbitration term.",
+      "notesRead": "Which formation route applies? Does arbitration appear among the terms on which the writings agree? Explain how a party’s drafting strategy can prevent inclusion of a term that party later wishes to enforce. The casebook gives the dispute and asks for the result.",
+      "sourceFingerprint": "0455fffebefb67292ae4ad28b5502fc3f69688ddcbaff91a22e5b5834deb6741",
+      "edges": [
+        {
+          "id": "contracts-r3-0061",
+          "source": "problem-misplaced",
+          "target": "conditional-acceptance",
+          "label": "Identify the effect of the seller’s condition",
+          "explanation": "Identify the effect of the seller’s condition.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0062",
+          "source": "problem-misplaced",
+          "target": "knockout",
+          "label": "Determine terms of a conduct-based contract",
+          "explanation": "Determine terms of a conduct-based contract.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0063",
+          "source": "problem-misplaced",
+          "target": "arbitration-formation",
+          "label": "Identify actual agreement to the forum",
+          "explanation": "Identify actual agreement to the forum.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0578",
+          "source": "contracts-class-09",
+          "target": "problem-misplaced",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 9.",
+          "classification": "assignment navigation"
+        },
+        {
+          "id": "r21-problem-misplaced--ucc207-conduct",
+          "source": "problem-misplaced",
+          "target": "ucc207-conduct",
+          "label": "Bears on",
+          "explanation": "The problem turns on whether conduct under subsection (3) establishes a contract and which terms it carries.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "problem-price-increase",
+      "title": "Rolling Too Far? A price increase before delivery",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "It exposes the tension between Hill’s delayed-formation theory and an earlier sale commitment, while distinguishing an implication from a decided holding.",
+      "rawDegree": 3,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 298. Open assigned page 298.",
+          "url": "#book=298"
+        }
+      ],
+      "printedRanges": [
+        [
+          298,
+          298
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "After charging the customer’s card at the agreed price but before delivery, the seller demands more money.",
+      "notesRead": "If Hill places formation after the review period, what explains a binding obligation to ship at the earlier price? Does the proposed resolution fit § 2-207’s treatment of formation? Distinguish an implication of a theory from a result the court actually decided.",
+      "sourceFingerprint": "6fe0279dfc79739309ca8c3698d591e89fd5a64d2ba7bbf6d01e87470f14af64",
+      "edges": [
+        {
+          "id": "contracts-r3-0064",
+          "source": "problem-price-increase",
+          "target": "rolling-formation",
+          "label": "Test the timing theory",
+          "explanation": "Test the timing theory.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0065",
+          "source": "problem-price-increase",
+          "target": "formation-vs-terms",
+          "label": "Separate the sale commitment from later standard terms",
+          "explanation": "Separate the sale commitment from later standard terms.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0579",
+          "source": "contracts-class-09",
+          "target": "problem-price-increase",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 9.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "problem-hill-klocek",
+      "title": "Hill and Klocek — case comparison",
+      "kind": "Hypothetical",
+      "courses": [
+        "Contracts"
+      ],
+      "decision": "retain",
+      "reason": "It supplies an actual contrast in arbitration outcomes and the competing timing/section 2-207 reasoning, with links to both cases.",
+      "rawDegree": 4,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Farnsworth et al., Contracts: Cases and Materials, 10th ed. (2023), pp. 303–304. Open assigned page 303.",
+          "url": "#book=303"
+        }
+      ],
+      "printedRanges": [
+        [
+          303,
+          304
+        ]
+      ],
+      "sourceRefs": [],
+      "summaryRead": "The cases reach different arbitration outcomes in consumer computer transactions involving terms in the box.",
+      "notesRead": "Compare the applicable state law, procedural burden, evidence, offeror identity, prior notice, return period, and use of § 2-207. Which differences are factual and which reflect competing legal interpretations? Do online transactions alter the practical arguments for postponed disclosure? The book asks for reasoned positions; it provides no universal reconciliation.",
+      "sourceFingerprint": "7c386c558794ac4c819a1ca24fe9c77c9b32010a7f6b5dd7214669408dbccd1d",
+      "edges": [
+        {
+          "id": "contracts-r3-0066",
+          "source": "problem-hill-klocek",
+          "target": "hill-gateway",
+          "label": "Identify the rolling-formation reasoning",
+          "explanation": "Identify the rolling-formation reasoning.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0067",
+          "source": "problem-hill-klocek",
+          "target": "klocek",
+          "label": "Identify the earlier-contract reasoning",
+          "explanation": "Identify the earlier-contract reasoning.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "contracts-r3-0068",
+          "source": "problem-hill-klocek",
+          "target": "arbitration-formation",
+          "label": "Compare proof of assent",
+          "explanation": "Compare proof of assent.",
+          "classification": "instruction or topical prompt"
+        },
+        {
+          "id": "contracts-r3-0580",
+          "source": "contracts-class-09",
+          "target": "problem-hill-klocek",
+          "label": "includes in assigned reading",
+          "explanation": "Part of assignment 9.",
+          "classification": "assignment navigation"
+        }
+      ]
+    },
+    {
+      "id": "lrs-k-raila-hypotheticals",
+      "title": "Raila’s comparative postal-accident hypotheticals",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "These are the judges’ own comparative reasoning examples in a mapped decided case, with an explained absurdity relation.",
+      "rawDegree": 2,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "Katzmann 50-70(2).pdf · printed pp. 63–64 · physical PDF pp. 14–15",
+          "url": "#lrs=katzmann-50-70:14"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "katzmann-50-70",
+          "pdfStart": 14,
+          "pdfEnd": 15,
+          "printedPages": "63–64"
+        }
+      ],
+      "summaryRead": "The panel tested the government’s proposed immunity rule by comparing injuries whose differences appeared unrelated to the statute’s purpose.",
+      "notesRead": "First compare two pedestrians: a postal driver throws a parcel that strikes one, while the driver’s simultaneous inattention causes the truck to strike the other. Next compare two post-office customers: one slips on liquid spilled from a mishandled parcel and another slips on water negligently left by a janitor. Ask whether the postal-matter exception supplies a reason to immunize one injury in each pair while allowing suit for the other.\n\nThe government acknowledged that its reading would distinguish the paired injuries. The panel regarded those distinctions as absurd in context and as a reason to reject that interpretation. These are the judges’ hypothetical examples, not findings about Raila’s accident, and no separate negligence judgment follows from them. A careful answer should tie the anomaly argument to the text, neighboring terms, and overall waiver rather than invoke fairness alone.",
+      "sourceFingerprint": "5e72b38413bdeeeab32107c8181276ab1e30be563abe99194d3ac7461e0ebd2a",
+      "edges": [
+        {
+          "id": "r21-lrs-k-raila-hypotheticals--lrs-k-raila",
+          "source": "lrs-k-raila-hypotheticals",
+          "target": "lrs-k-raila",
+          "label": "Bears on",
+          "explanation": "The hypotheticals are the panel's own test of the government's proposed immunity rule in Raila.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "r21-lrs-k-raila-hypotheticals--lrs-k-absurdity",
+          "source": "lrs-k-raila-hypotheticals",
+          "target": "lrs-k-absurdity",
+          "label": "Illustrates",
+          "explanation": "Comparing injuries whose differences have nothing to do with the statute is a way of testing an interpretation by its anomalous results.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-o-problem-supervision",
+      "title": "Study problem: presidential cost priorities and bilingual-education duties",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "The developed explanation distinguishes discretion within an enacted criterion from presidential substitution of that criterion.",
+      "rawDegree": 1,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-october-1-100(2).pdf · printed pp. 269–270 · physical PDF pp. 25–26",
+          "url": "#lrs=lrs-october-a:25"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-october-a",
+          "pdfStart": 25,
+          "pdfEnd": 26,
+          "printedPages": "269–270"
+        }
+      ],
+      "summaryRead": "Test the difference between directing a lawful choice and replacing the criterion Congress required.",
+      "notesRead": "The classroom hypothetical asks what follows if a bilingual-education statute directs an agency to select the educationally most effective program regardless of expense, while the President directs use of the most cost-effective program regardless of educational efficacy. Start with the enacted criterion and identify the factual or policy discretion it leaves. A supervisory instruction that selects within that discretion differs from an instruction that changes the controlling criterion.\n\nMarbury and Kendall support enforcing a lawful mandatory duty; they do not eliminate the need to identify which choices the statute actually settles. Wirt and Taney expose the further institutional question of who may direct discretion assigned to a subordinate. Sierra Club and the OLC regulatory-review memorandum add the possibility of presidential advice or coordination while preserving the officer’s duty to meet the statute. This is a casebook problem, not a decided case.",
+      "sourceFingerprint": "95134b56c153c6d1baa0129476a6ed12279c6aea7489dd0223a8170af5940895",
+      "edges": [
+        {
+          "id": "r8-b5b7cd7409d9b4bc8cc4",
+          "source": "lrs-o-problem-supervision",
+          "target": "lrs-o-ministerial-duties",
+          "label": "Explains Ministerial duties, statutory discretion, and the Take Care Clause",
+          "explanation": "The hypothetical separates discretion left by the education statute from substituting a presidential cost criterion for the mandated efficacy criterion.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-o-problem-entitlement",
+      "title": "Study problem: can a legislature disclaim the property it creates?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "The developed source comparison separates mandatory eligibility, disclaimers, and constitutional procedure, preserving divided Arnett reasoning.",
+      "rawDegree": 1,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-october-100-end(2).pdf · printed pp. 484–487 · physical PDF pp. 55–58",
+          "url": "#lrs=lrs-october-b:55"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-october-b",
+          "pdfStart": 55,
+          "pdfEnd": 58,
+          "printedPages": "484–487"
+        }
+      ],
+      "summaryRead": "Compare substantive eligibility criteria, a no-entitlement clause, and statutory hearing procedures before deciding whether due process applies.",
+      "notesRead": "The notes ask whether a legislature can prescribe mandatory eligibility criteria while declaring that the law creates no property interest under the Fourteenth Amendment. Identify first whether the operative criteria actually confine administrative discretion. Then determine what the disclaimer is about: unconditional receipt, conditional program funding, or the constitutional effect of individually enforceable eligibility standards.\n\nBarry found no mandatory shelter entitlement and therefore did not need to give the disclaimer independent effect. Weston found mandatory welfare rights and interpreted the federal disclaimer in context. Arnett then presents a distinct question: may a legislature define the substantive right as including only the procedural protections it chose? Rehnquist’s plurality answered in that direction; Powell and Blackmun, joined in rejecting that rationale by the dissenters, treated constitutional procedure as an independent guarantee. These are questions for comparing sources, not a categorical assertion that every disclaimer succeeds or fails.",
+      "sourceFingerprint": "8408cdd56fffb32e8c7e920eb1ce4eed1fcc09d4b63db05bbfde2bef8d11ebb5",
+      "edges": [
+        {
+          "id": "r8-45c65b27b520b01b0dda",
+          "source": "lrs-o-problem-entitlement",
+          "target": "lrs-o-new-property",
+          "label": "Explains From the right–privilege distinction to claims of entitlement",
+          "explanation": "The problem compares operative limits on discretion, disclaimer language, and procedural provisions to identify the asserted entitlement.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-o-problem-procedure-support",
+      "title": "Study problem: a defective record after Vermont Yankee",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "It explains the Vermont Yankee distinction between actual failure of support and a preference for extra procedures, with two substantive relations.",
+      "rawDegree": 2,
+      "meaningfulDegree": 2,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-october-100-end(2).pdf · printed pp. 702–706 · physical PDF pp. 124–128",
+          "url": "#lrs=lrs-october-b:124"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-october-b",
+          "pdfStart": 124,
+          "pdfEnd": 128,
+          "printedPages": "702–706"
+        }
+      ],
+      "summaryRead": "A challenger must distinguish an actual defect in a rule’s evidentiary justification from a preference for additional procedures that might reveal a defect.",
+      "notesRead": "Assume participants wanted cross-examination of a technical study and the agency refused. One proposed argument is that a better hearing might have produced a better record. Another identifies a concrete unresolved flaw in the study that leaves the final rule inadequately supported. The notes ask how these arguments differ after Vermont Yankee.\n\nThe decision bars courts from routinely adding preferred procedural devices to § 553, but leaves review of the rule’s justification intact. The substantive argument therefore requires identifying a real deficiency, while an abstract demand for extra procedures may only hypothesize one. Nova Scotia and American Radio Relay raise the adjacent question whether disclosing the critical study is already part of statutory meaningful comment. Kavanaugh and Levin offer opposing accounts of that interpretive boundary. This is a casebook problem, not a decided case.",
+      "sourceFingerprint": "eacc9a7a6f8070e8529f89efb543bab99bdb5bcf5b710f778ada14a6529e5ce2",
+      "edges": [
+        {
+          "id": "r8-586e4181ab4e4cdb489f",
+          "source": "lrs-o-problem-procedure-support",
+          "target": "lrs-o-rulemaking-record",
+          "label": "Explains Disclosure of studies, the administrative record, and significant comments",
+          "explanation": "The exercise asks for a concrete failure of support rather than speculation that more process might expose one.",
+          "classification": "explained comparison/application in node and edge context"
+        },
+        {
+          "id": "lrs-o-edge-99",
+          "source": "lrs-o-problem-procedure-support",
+          "target": "lrs-o-vermont-yankee",
+          "label": "Explained relationship between these accounts",
+          "explanation": "The retained substantive-review issue and the restriction on judicially prescribed devices create distinct grounds the challenger must separate.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-n-standing-problem-injury",
+      "title": "Study questions: Personal injury and public information",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "The developed comparison distinguishes statutory informational rights from generalized grievances and retains the independent constitutional injury limit.",
+      "rawDegree": 1,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1168–1171 · physical PDF pp. 111–114",
+          "url": "#lrs=lrs-november-b:111"
+        },
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1178–1180 · physical PDF pp. 121–123",
+          "url": "#lrs=lrs-november-b:121"
+        },
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1240 · physical PDF pp. 156–156",
+          "url": "#lrs=lrs-november-b:156"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 111,
+          "pdfEnd": 114,
+          "printedPages": "1168–1171"
+        },
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 121,
+          "pdfEnd": 123,
+          "printedPages": "1178–1180"
+        },
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 156,
+          "pdfEnd": 156,
+          "printedPages": "1240"
+        }
+      ],
+      "summaryRead": "The assigned notes ask how courts should distinguish shared constitutional grievances from statutory informational injuries.",
+      "notesRead": "The casebook asks why a Black housing tester’s statutory right to truthful information supports a claim while a citizen’s interest in CIA-budget information under a constitutional provision did not support Richardson’s suit. It also compares contractors’ equal opportunity to compete with a taxpayer’s interest in an informed electoral process. Analyze the interest asserted, the relevant text, the claimant’s relation to it, and whether Congress expressly authorized review.\n\nA second question follows Sunstein’s discussion: if Congress can create an enforceable informational interest, how far can it recognize interests in preservation of distant landscapes or endangered species? State Sunstein’s argument and then test it against the assigned TransUnion and Spokeo limits. The notes frame this as a disputed question.",
+      "sourceFingerprint": "3ab30e5a1702954bbc85911ae389f7f2c323cb8d26a0e488eb1625e6dd2550bd",
+      "edges": [
+        {
+          "id": "r8-7e2948bceb73bba1c276",
+          "source": "lrs-n-standing-problem-injury",
+          "target": "lrs-n-standing-congress",
+          "label": "Explains Congressional creation of rights and standing",
+          "explanation": "The questions test how statutory recognition interacts with an independent constitutional injury requirement.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-n-standing-problem-state",
+      "title": "Study questions: What work does special solicitude do?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "It compares the different Massachusetts rationales with later state suits rather than supplying a floating scenario.",
+      "rawDegree": 1,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1239–1243 · physical PDF pp. 155–159",
+          "url": "#lrs=lrs-november-b:155"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 155,
+          "pdfEnd": 159,
+          "printedPages": "1239–1243"
+        }
+      ],
+      "summaryRead": "The notes ask whether Massachusetts rests on a procedural right, property injury, increased risk, or sovereign status, and how each explanation changes the rule’s reach.",
+      "notesRead": "Identify each possible basis in Massachusetts: the state’s ownership of coastal land, the sovereign powers displaced by the Union, the statutory route for review of a rulemaking petition, and a reduction in future climate risk. Explain what each contributes to injury, causation, or redressability. Then assess Roberts’s objection that the remedy must address the particular land injury actually identified.\n\nUse the assigned later cases to test the proposed rule. California v. Texas rejects an unsupported causal link; United States v. Texas distinguishes enforcement discretion; Biden v. Nebraska divides over the relationship between a state and its instrumentality. Explain which reading of Massachusetts survives each comparison.",
+      "sourceFingerprint": "3092dc16f979b135ddc108377e77843b4e8f2f37b6f82d8a8058b3fcc98bbfb9",
+      "edges": [
+        {
+          "id": "r8-bae6a9256aa40082a8b2",
+          "source": "lrs-n-standing-problem-state",
+          "target": "lrs-n-standing-state",
+          "label": "Explains State plaintiffs and special solicitude",
+          "explanation": "Different rationales produce different limits for later state suits.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    },
+    {
+      "id": "lrs-n-standing-problem-zone",
+      "title": "Study questions: How broadly should the statutory interest be defined?",
+      "kind": "Hypothetical",
+      "courses": [
+        "Legislation and the Regulatory State"
+      ],
+      "decision": "retain",
+      "reason": "It preserves the competing descriptions of NCUA’s protected interest and explains their effect on the zone inquiry.",
+      "rawDegree": 1,
+      "meaningfulDegree": 1,
+      "topicLinks": [],
+      "sources": [
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 1253–1259 · physical PDF pp. 163–169",
+          "url": "#lrs=lrs-november-b:163"
+        }
+      ],
+      "printedRanges": [],
+      "sourceRefs": [
+        {
+          "sourceId": "lrs-november-b",
+          "pdfStart": 163,
+          "pdfEnd": 169,
+          "printedPages": "1253–1259"
+        }
+      ],
+      "summaryRead": "Compare NCUA’s market-limitation rationale with the dissent’s concern that incidental benefits would erase the zone-of-interests requirement.",
+      "notesRead": "NCUA identifies an interest in limiting credit-union customer markets. Its dissent identifies the provision’s internal cooperative and financial-stability purposes. Explain why the chosen level of description matters and what evidence in the statutory text and operation supports each account.\n\nApply both approaches to Air Courier’s postal employees, the hypothetical stenographer harmed by omitted on-the-record hearings, and Twin Rivers’s paper companies. Then explain why Thompson and Patchak satisfied the test under the supplied descriptions. Distinguish injury in fact from membership in the statutory zone at every step.",
+      "sourceFingerprint": "ed9ac80b516976aca274df32ea8eb370d10361dc68788d90cab8a7c0e4ce2e89",
+      "edges": [
+        {
+          "id": "r8-0117a81b4a2726be6357",
+          "source": "lrs-n-standing-problem-zone",
+          "target": "lrs-n-standing-zone",
+          "label": "Explains Zone of interests under the APA",
+          "explanation": "The examples test whether the protected interest is defined too broadly or too narrowly.",
+          "classification": "explained comparison/application in node and edge context"
+        }
+      ]
+    }
+  ],
+  "otherZeroDegreeRecords": [
+    {
+      "id": "gap-peevyhouse-contract",
+      "title": "Agreement in Peevyhouse (Selections)",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Contract in Peevyhouse v. Garland Coal · Contracts Selections (Farnsworth et al., 2021), PDF page 699 of 713 (retyped at page 703)",
+          "url": "added-sources/Contracts- Selections.pdf#page=699"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "2e2da0ec659fd10871c38d567ad4d9ab8981e2662c285e807a27f69fcc2a0169"
+    },
+    {
+      "id": "gap-eu-directive",
+      "title": "EU Directive and associated Notifications",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Missing-source/status record; report the gap without deleting its trace.",
+      "sources": [],
+      "status": "Not among the supplied files",
+      "sourceFingerprint": "2ae5897c5f52d48b509f25a333acbf118be87d3aa686c1931b99d4c4989d54a1"
+    },
+    {
+      "id": "gap-remedies-video",
+      "title": "Assigned video lecture on remedies",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Missing-source/status record; report the gap without deleting its trace.",
+      "sources": [],
+      "status": "Not among the supplied files",
+      "sourceFingerprint": "6e7213254c932c630cfd8b1aa56eab7eae4b6fb17fe2c08e9e32305790dc62ff"
+    },
+    {
+      "id": "cp-berk-gap",
+      "title": "Berk",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Berk v. Choy, slip opinion (27 pages)",
+          "url": "added-sources/Berk v Choy.pdf"
+        },
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "f81480d070455ca4c6a0508bc980df314b7817c5d8dd9fd7b40c90ed64956161"
+    },
+    {
+      "id": "cp-cross-gap",
+      "title": "Cross",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Cross v. United States, 336 F.2d 431 (2d Cir. 1964)",
+          "url": "added-sources/Cross v. United States, 336 F.2d 431 (2d Cir. 1964) __ Justia.pdf"
+        },
+        {
+          "label": "Miller syllabus, PDF p. 4",
+          "url": "#civil-syllabus=4"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "87cde69def5d9a263387cb0aae84a287147f496ca8af90e8e586a164a8241360"
+    },
+    {
+      "id": "cp-supplement-gap",
+      "title": "Civil Procedure supplement 2026–27",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Civil Procedure supplement 2026–27, full OCR (354 pages: Federal Rules, Title 28 provisions, constitutional provisions)",
+          "url": "added-sources/Civ Pro Supplement FULL OCR 26-27.pdf"
+        },
+        {
+          "label": "Miller syllabus, PDF p. 1",
+          "url": "#civil-syllabus=1"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "8a83c41879472782b46508199350a1376d6ca3470e9a7fc999a8146183623dfc"
+    },
+    {
+      "id": "cp-week-1",
+      "title": "Week 1 — The civil action and the territorial starting point",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 2",
+          "url": "#civil-syllabus=2"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 1–36",
+          "url": "#civ=1"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 79–90",
+          "url": "#civ=79"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "97062546ec55c876e25087a1669d62c37bfcb4e97fbf13cd5f94ba7570e17f9a"
+    },
+    {
+      "id": "cp-week-2",
+      "title": "Week 2 — From territorial presence to minimum contacts",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 2",
+          "url": "#civil-syllabus=2"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 90–114",
+          "url": "#civ=90"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "117533f0f757e9b46fb284aca86e945aedb40a939aa6772b1c880c4852f76ce3"
+    },
+    {
+      "id": "cp-week-3",
+      "title": "Week 3 — Purposeful activity, products, and claim-linked jurisdiction",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 2",
+          "url": "#civil-syllabus=2"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 114–162",
+          "url": "#civ=114"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 173–175",
+          "url": "#civ=173"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "3a950448047ae321943d7367541e26164a029b8e82b0d203d8fdf3d7ada053c9"
+    },
+    {
+      "id": "cp-week-4",
+      "title": "Week 4 — Relatedness, general jurisdiction, consent, and property",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 2",
+          "url": "#civil-syllabus=2"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 162–173",
+          "url": "#civ=162"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 175–237",
+          "url": "#civ=175"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "47e24834837b44e1ffee3f7c5d8abe5d91b10443f4e35d341d5b91322d1c0335"
+    },
+    {
+      "id": "cp-week-5",
+      "title": "Week 5 — Notice, service, and an opportunity to be heard",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 2",
+          "url": "#civil-syllabus=2"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 237–296",
+          "url": "#civ=237"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "17cc14e62ec5267af4a36112e50109fdea81092b9c747a4cce482c68fe3cec70"
+    },
+    {
+      "id": "cp-week-6",
+      "title": "Week 6 — Subject-matter jurisdiction and diversity",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 297–328",
+          "url": "#civ=297"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "5c62505dbfc78e38ff073a848ded18845d7e2fbbe2a2b125206cfd170953e8d6"
+    },
+    {
+      "id": "cp-week-7",
+      "title": "Week 7 — Federal questions, supplemental jurisdiction, and removal",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 328–393",
+          "url": "#civ=328"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "609bf426f212cd02cb76ec32e874f9cd44d0fa6ac95d28f0b1a6b00c3e9af13a"
+    },
+    {
+      "id": "cp-week-8",
+      "title": "Week 8 — Venue, transfer, and forum non conveniens",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 395–439",
+          "url": "#civ=395"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "081249916c997238199df94c06aaa96fccf36be7783db49a518e594dacbda569"
+    },
+    {
+      "id": "cp-week-9",
+      "title": "Week 9 — Erie and the law applied in federal court",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 441–480",
+          "url": "#civ=441"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "4d44d8f61871e158b0ae42b06310f197320387c38b25e6d2c6c93ad9a9e807fc"
+    },
+    {
+      "id": "cp-week-10",
+      "title": "Week 10 — Completing governing law; beginning modern pleading",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 3",
+          "url": "#civil-syllabus=3"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 480–546",
+          "url": "#civ=480"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 603–617",
+          "url": "#civ=603"
+        },
+        {
+          "label": "Berk v. Choy, slip opinion (27 pages)",
+          "url": "added-sources/Berk v Choy.pdf"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "1888163c9fbf3a52827a35d29e81e954937baf34e783e557939aaabb823e9029"
+    },
+    {
+      "id": "cp-week-11",
+      "title": "Week 11 — Modern pleading: the entire chapter",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 4",
+          "url": "#civil-syllabus=4"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 603–716",
+          "url": "#civ=603"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "ca885ceefc511ef85ad10522683a51fd5acd3551da8cc0cfa53944e076abfc87"
+    },
+    {
+      "id": "cp-week-12",
+      "title": "Week 12 — Joinder and the assigned class-action chapter",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 4",
+          "url": "#civil-syllabus=4"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 717–896",
+          "url": "#civ=717"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "1cb021be7528dc5364e10cc775b38a3d097fd2155b2ec0894cd295ffd0508c53"
+    },
+    {
+      "id": "cp-week-13",
+      "title": "Week 13 — Class actions and multidistrict litigation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Miller syllabus, PDF p. 4",
+          "url": "#civil-syllabus=4"
+        },
+        {
+          "label": "Civil Procedure casebook, printed pp. 799–896",
+          "url": "#civ=799"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "7713221400699bfac72be67a86c9bfa1925baad27ea4b36725bcd7c353b3cac9"
+    },
+    {
+      "id": "lrs-s-jaffe",
+      "title": "Jaffe’s critique of Hampton’s supposedly determinate tariff policy",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 61 · physical PDF pp. 20–20",
+          "url": "#lrs=lrs-september:20"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "d90a010544d98f5d02b85e88b9d36855445d4cede2ae720b28f70ae469404133"
+    },
+    {
+      "id": "lrs-s-coglianese",
+      "title": "Coglianese: Dimensions of Delegation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 93–95 · physical PDF pp. 51–53",
+          "url": "#lrs=lrs-september:51"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "a939fe53bc7d8e7905b6023de51e5f83d369d15c11ef5cb5c551b444f3b0255c"
+    },
+    {
+      "id": "lrs-s-originalism",
+      "title": "The historical debate over nondelegation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 95–99 · physical PDF pp. 53–57",
+          "url": "#lrs=lrs-september:53"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "09c62dbff5eb2522743817799835e3f22a27bbdca390d1b7cf58d346bf11fbe8"
+    },
+    {
+      "id": "lrs-s-delegation-democracy",
+      "title": "Delegation, representation, and effective government",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 100–106 · physical PDF pp. 58–64",
+          "url": "#lrs=lrs-september:58"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "6b32cae81307828fa11405887c7acd4a26fe9728dceba375b33961b049e49e91"
+    },
+    {
+      "id": "lrs-s-reins-mqd",
+      "title": "Proposed congressional approval of major rules and the major-questions connection",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 99 · physical PDF pp. 57–57",
+          "url": "#lrs=lrs-september:57"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "676e85466516a696f241b860abf95bbaf5a7f7997bcc443afd43d9f8aa75e849"
+    },
+    {
+      "id": "lrs-s-organization",
+      "title": "Agency organization, reorganization, and competing political control",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 135–146 · physical PDF pp. 65–76",
+          "url": "#lrs=lrs-september:65"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "0763bf64ebde95de692d62b45c6781d9464ac1ba17ac1d7afda13e8673b44272"
+    },
+    {
+      "id": "lrs-s-removal-history",
+      "title": "Removal disputes before Myers",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-september(2).pdf · printed pp. 178–181 · physical PDF pp. 108–111",
+          "url": "#lrs=lrs-september:108"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "b9fa0c11ba9ef495bf3928a4d6e467ec1abd074b75c8897ec7e07e5da00119cb"
+    },
+    {
+      "id": "lrs-o-midnight-rules",
+      "title": "Regulatory transitions and midnight rules",
+      "kind": "Concept",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-october-1-100(2).pdf · printed pp. 290–292 · physical PDF pp. 40–42",
+          "url": "#lrs=lrs-october-a:40"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "04bc69d707aa6e3be68e5f0b68eb5384e68d91e20cd12b8ff39e070b22f4c2b6"
+    },
+    {
+      "id": "lrs-n-politics-and-reasons",
+      "title": "Political change, statutory factors, and explanation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 608–610 · physical PDF pp. 34–36",
+          "url": "#lrs=lrs-november-a:34"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "942fc4a33400836da4689d6e76e0897f41a891418e2225b5c06db104e9a2591b"
+    },
+    {
+      "id": "lrs-n-guidance-line-personnel",
+      "title": "Cox and Rodríguez on guidance and control of immigration personnel",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 649–650 · physical PDF pp. 74–75",
+          "url": "#lrs=lrs-november-a:74"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "fd1c06d6eb7788dfe720d1ece2788545db58ea22d97ca3ef0153f8117f4cdb49"
+    },
+    {
+      "id": "lrs-n-guidance-participation",
+      "title": "Guidance reform: participation, judicial review, and regulatory beneficiaries",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 660–664 · physical PDF pp. 85–89",
+          "url": "#lrs=lrs-november-a:85"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "5a5fc95c8c861e8d6a7f92d05c1797a7c0e9588ef1c8c19a2b3534bda4c4b6f8"
+    },
+    {
+      "id": "lrs-i-empirical-chevron",
+      "title": "What the assigned empirical studies say about Chevron",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 964–965 · physical PDF pp. 20–21",
+          "url": "#lrs=lrs-november-b:20"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "ced6a848e8b00bb7a75a755931d230259645a932d0b9fac6a4c14146540e5382"
+    },
+    {
+      "id": "lrs-i-pre-apa-history",
+      "title": "The disputed history of judicial respect for agency interpretation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 928–932 · physical PDF pp. 148–152",
+          "url": "#lrs=lrs-november-a:148"
+        },
+        {
+          "label": "LRS-november-1-165(2).pdf · printed pp. 940–944 · physical PDF pp. 161–165",
+          "url": "#lrs=lrs-november-a:161"
+        },
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 957–959 · physical PDF pp. 13–15",
+          "url": "#lrs=lrs-november-b:13"
+        },
+        {
+          "label": "lrs-november-165-end(2).pdf · printed pp. 961–963 · physical PDF pp. 17–19",
+          "url": "#lrs=lrs-november-b:17"
+        }
+      ],
+      "status": "Source-grounded study account",
+      "sourceFingerprint": "5f7a2d19ab8732fb29f267bc838512f8a3783056d7fb041583e3c71a4fbf7f7a"
+    },
+    {
+      "id": "lrs-gap-01-02",
+      "title": "U.S. Constitution, Articles I–III",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "U.S. Constitution, Article I · National Constitution Center text, PDF page 2 of 19",
+          "url": "added-sources/US Constitution.pdf#page=2"
+        },
+        {
+          "label": "U.S. Constitution, Article II · PDF page 6 of 19",
+          "url": "added-sources/US Constitution.pdf#page=6"
+        },
+        {
+          "label": "U.S. Constitution, Article III · PDF page 8 of 19",
+          "url": "added-sources/US Constitution.pdf#page=8"
+        },
+        {
+          "label": "Amendments · PDF page 12 of 19",
+          "url": "added-sources/US Constitution.pdf#page=12"
+        },
+        {
+          "label": "Constitution excerpts (Art. I § 8, III, IV, VI, selected amendments) · Civil Procedure supplement 2026–27, PDF pages 136–137",
+          "url": "added-sources/Civ Pro Supplement FULL OCR 26-27.pdf#page=136"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "09bb9ebe37dd67d5da9361f81540c986efa4affb45f4ab8baa887b963bcb517f"
+    },
+    {
+      "id": "lrs-gap-01-03",
+      "title": "First Day Questions handout",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Missing-source/status record; report the gap without deleting its trace.",
+      "sources": [
+        {
+          "label": "Shane, corrected Fall 2026 LRS syllabus, class 1: First Day Questions handout",
+          "url": ""
+        }
+      ],
+      "status": "Not among the supplied files",
+      "sourceFingerprint": "80f00ae6fc9132cdb950c852395a6a7cffe4bf66b3ab79056aa876bc0157a5ce"
+    },
+    {
+      "id": "lrs-gap-01-06",
+      "title": "Parrillo–Shane Supplement on Legislation, recommended pages 1–31",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Parrillo–Shane Supplement on Legislation, complete (48 pages); class 1 assigns pages 1–31",
+          "url": "added-sources/Complete Parrillo-Shane Supplement on Legislation.pdf"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "77909df2a41eba77421d1c9d425ad79c5e86627bc6a2b9512c9d2defb643b681"
+    },
+    {
+      "id": "lrs-gap-02-01",
+      "title": "Introduction to Regulation and the Administrative State",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Missing-source/status record; report the gap without deleting its trace.",
+      "sources": [
+        {
+          "label": "Shane, corrected Fall 2026 LRS syllabus, class 2: Introduction to Regulation and the Administrative State",
+          "url": ""
+        }
+      ],
+      "status": "Not among the supplied files",
+      "sourceFingerprint": "a1eb50791c51a1e98d5b902fecb971f99604e86ca1ab0414f6826dd3fcdffb45"
+    },
+    {
+      "id": "lrs-gap-03-01",
+      "title": "Parrillo–Shane Supplement on Legislation [Church of the Holy Trinity]",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Parrillo–Shane Supplement on Legislation, complete (48 pages)",
+          "url": "added-sources/Complete Parrillo-Shane Supplement on Legislation.pdf"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "d31ac7427371c0b6e6462cc1e4192d13f921bcbee8759618d7ce3b3a9fd0e78c"
+    },
+    {
+      "id": "lrs-gap-04-01",
+      "title": "Parrillo–Shane Supplement on Legislation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Parrillo–Shane Supplement on Legislation, complete (48 pages)",
+          "url": "added-sources/Complete Parrillo-Shane Supplement on Legislation.pdf"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "f73a01d4d1c73bf8f33de1342f12cf5f37c677b23efd74829c00088dda743a7d"
+    },
+    {
+      "id": "lrs-gap-05-01",
+      "title": "Parrillo–Shane Supplement on Legislation",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Parrillo–Shane Supplement on Legislation, complete (48 pages)",
+          "url": "added-sources/Complete Parrillo-Shane Supplement on Legislation.pdf"
+        }
+      ],
+      "status": "Source received",
+      "sourceFingerprint": "c3367e3bfd4653b51a32e64c3e6de62880969cb2c5e843429ae1d861515b7a44"
+    },
+    {
+      "id": "lrs-gap-07-01",
+      "title": "Agency dependence on statutes: pages 68–69",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Missing-source/status record; report the gap without deleting its trace.",
+      "sources": [
+        {
+          "label": "Shane, corrected Fall 2026 LRS syllabus, class 7: Agency dependence on statutes (nondelegation)",
+          "url": ""
+        }
+      ],
+      "status": "Not among the supplied files",
+      "sourceFingerprint": "5a6ac23cff051344173d14ac26d840520fab1768366745a78b36f277e382e3de"
+    },
+    {
+      "id": "lrs-framework",
+      "title": "Legislation and the Regulatory State: the semester",
+      "kind": "Note",
+      "rawDegree": 0,
+      "decision": "retain source/status or substantive record",
+      "reason": "Zero graph degree alone does not make a legal explanation, rule, reading schedule or available source into a disposable exercise.",
+      "sources": [
+        {
+          "label": "Peter M. Shane, corrected Fall 2026 Legislation and the Regulatory State syllabus, complete schedule.",
+          "url": ""
+        }
+      ],
+      "status": "Reading plan",
+      "sourceFingerprint": "03bf97ab34d2c6abbbde974142349c0aeecd45ecfe05c0457d7e6665c6df594d"
+    }
+  ],
+  "floatingSourceStubs": [
+    {
+      "id": "gap-classroom",
+      "title": "Classroom notes and Brightspace problems",
+      "kind": "Note",
+      "rawDegree": 1,
+      "decision": "retain source/status record; no fabricated connection",
+      "reason": "The classroom/Brightspace content has not been supplied; this is a coverage record, not an authored practice scenario.",
+      "summary": "Classroom-only problems, lecture notes and Brightspace problem sheets are not in the atlas. Add them to added-sources to link them here.",
+      "notes": "Class 9 (22 September 2026) covered Bayway and Northrop.",
+      "sources": [
+        {
+          "label": "Kevin Davis, Contracts, Fall 2026 syllabus, assignment 9.",
+          "url": ""
+        }
+      ],
+      "sourceFingerprint": "02f47e9888c883ca0ab21e2ff1a86aeec7d3b4a9fc2f76315c3d3356bef1488f"
+    }
+  ],
+  "limitations": [
+    "Meaningful degree is a contextual editorial classification, not a mechanical graph property or a current-law certification.",
+    "The archive/page references identify the inherited supplied source. Original textbook pages were not freshly reread for every exercise in this visibility audit.",
+    "Prompt-only records can have nonzero raw degree because assignment links, imperative prompts and copied factual summaries are present; those are recorded rather than falsely called absent.",
+    "Saved owner edits on hidden records are preserved in the runtime practiceArchive and portable/master exports. A record repurposed to a non-Hypothetical kind is retained."
+  ],
+  "runtime": {
+    "embeddedId": "dklaPracticeFilter",
+    "module": "tools/v25/practice-filter.js",
+    "archiveField": "practiceArchive",
+    "sourceArchivesUnchanged": true,
+    "restoreMethods": [
+      "Export master JSON or portable HTML; recover hidden records and relationships from practiceArchive.",
+      "window.DKLAPracticeFilter.archived(id) reads a recoverable record without displaying it in the atlas."
+    ]
+  }
+}

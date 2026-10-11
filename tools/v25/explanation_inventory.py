@@ -138,6 +138,40 @@ def effective():
                 graph['edges'] = [e for e in graph['edges'] if e['id'] not in drop]
                 have = {e['id'] for e in graph['edges']}
                 graph['edges'] += [e for e in overlay.get('addEdges', []) if e['id'] not in have]
+    # These relationships are constructed by the rule adapters, rather than
+    # stored in seedData. Keep their actual runtime IDs and provenance so the
+    # bounded inventory represents the complete default graph. Append here to
+    # retain the order of previously recorded review packs.
+    edge_ids = {edge['id'] for edge in graph['edges']}
+    generated_edges = {}
+    for source, prefix, separator, status, basis in [
+        ('tools/r19/data/rlcc.json', 'r19-rlcc-', '-', 'Proposed', 'Black-letter text of the Official Text (2024) and the syllabus assignment list.'),
+        ('tools/r19/data/rules22.json', 'r22-', '--', 'Reviewed', 'Black-letter text in the Contracts Selections; added with the doctrine timelines (r22).'),
+    ]:
+        addition = read(source)
+        records = addition['rules'] + ([addition['hub']] if 'hub' in addition else [])
+        for record in records:
+            for target, label, explanation in record.get('links', []):
+                eid = prefix + record['id'] + separator + target
+                if eid in edge_ids or record['id'] not in nodes or target not in nodes:
+                    continue
+                graph['edges'].append(dict(id=eid, source=record['id'], target=target,
+                    label=label, kind='Study link', explanation=explanation, status=status,
+                    supports=[], sources=[], createdAt=addition['updatedAt'], updatedAt=addition['updatedAt'],
+                    provenance=dict(basis=basis, input=source + ' :: links')))
+                edge_ids.add(eid)
+                generated_edges[eid] = graph['edges'][-1]
+    # Rule adapters can finish after the first audit pass. The runtime audit
+    # reapplies later; mirror its exact-value guards on newly generated links.
+    # Saved owner prose that differs from the recorded old value stays intact.
+    for iteration in range(3):
+        for source in ['tools/r19/data/plain.json', 'tools/r19/data/r21-audit.json']:
+            for eid, edits in read(source).get('edges', {}).items():
+                obj = generated_edges.get(eid)
+                if obj:
+                    for field, before, after in edits:
+                        if obj.get(field) == before:
+                            obj[field] = after
     return graph, nodes, data, full, origins, applied
 
 

@@ -2,6 +2,22 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": false,
   "trailingSlash": false,
+  "buildCommand": "node tools/analytics/prepare.mjs",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "functions": {
+    "api/analytics.js": {
+      "includeFiles": "lib/analytics/**",
+      "maxDuration": 30
+    },
+    "api/admin.js": {
+      "includeFiles": "{lib/analytics/**,assets/admin/index.html}",
+      "maxDuration": 30
+    },
+    "api/sync.js": {
+      "includeFiles": "lib/analytics/schema.sql",
+      "maxDuration": 30
+    }
+  },
   "redirects": [
     {
       "source": "/DKLA-r17.html",
@@ -61,11 +77,41 @@
   ],
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/api/admin?action=page"
+    },
+    {
       "source": "/",
       "destination": "/DKLA-v2.5.html"
     }
   ],
   "headers": [
+    {
+      "source": "/admin",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/assets/admin/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
     {
       "source": "/(.*)\\.html",
       "headers": [

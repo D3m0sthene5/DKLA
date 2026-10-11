@@ -1,6 +1,19 @@
 /* Authority navigation uses geoCanvas and the existing inspector. */
 .authority-map-entrance,.authority-map-tile,.authority-map-case{cursor:pointer}
-.authority-map-entrance:hover>rect,.authority-map-tile:hover>rect,.authority-map-case:hover>rect{stroke-opacity:1;fill:#304550}
+.authority-map-entrance:hover>rect,.authority-map-tile:hover>rect,.authority-map-case:hover>rect{stroke-opacity:1}
+.authority-map-tile:hover>.authority-cover-bg{filter:brightness(1.12)}
+.authority-preview{cursor:pointer}
+.authority-title-control{cursor:pointer}
+.authority-title-control:focus{outline:none}
+.authority-title-control:focus>rect{stroke:#f1daba;stroke-width:2;vector-effect:non-scaling-stroke}
+.authority-preview:hover>rect,.authority-preview:focus>rect{stroke-opacity:1;filter:brightness(1.2)}
+.authority-preview:focus{outline:none}
+.authority-volume-title{font-family:Georgia,Cambria,"Times New Roman",serif;letter-spacing:-.015em}
+.authority-map-heading,.authority-document-label{font-family:Inter,"Segoe UI",Arial,sans-serif;letter-spacing:.015em}
+.authority-preview-code{font-family:Consolas,"SFMono-Regular",monospace;font-variant-numeric:tabular-nums}
+.authority-preamble-excerpt{font-family:Georgia,Cambria,serif;font-style:italic}
+.authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
+.authority-identity{opacity:.85}
 .authority-map-entrance:focus,.authority-map-tile:focus,.authority-map-case:focus{outline:none}
 .authority-map-entrance:focus>rect,.authority-map-tile:focus>rect,.authority-map-case:focus>rect{stroke:#f1daba;stroke-opacity:1}
 #geoBreadcrumb button[data-authority-group]{max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

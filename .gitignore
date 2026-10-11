@@ -1,5 +1,11 @@
-DKLA-standalone.html
 node_modules/
+DKLA-standalone.html
 .DS_Store
 .claude/
 __pycache__/
+.env
+.env.*
+!.env.example
+lib/analytics/asn/*.gz
+lib/analytics/asn/version.json
+tools/analytics/.qa/
