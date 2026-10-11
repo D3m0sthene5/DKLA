@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "77bc9b150c3b2df95280d5b1e5ee43bb4b6b753196d2d923fab04e9c390d0473",
-  "build": "v2.5-b56fc73f25",
+  "r19_sha256": "000407d2fc4f6d05c31522b9065fa58b17cf86975400686e2cdaf3547e5076be",
+  "build": "v2.5-1c33b8f3cc",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -142,6 +142,14 @@
       "endLine": 2423
     },
     {
+      "path": "tools/analytics/tracker.js",
+      "kind": "javascript",
+      "sha256": "588e61618519b7c229cc85711fcdd2e618b985691fc21f558aee6ae57df09a8b",
+      "startLine": 2424,
+      "sourceStartLine": 2425,
+      "endLine": 2617
+    },
+    {
       "path": "tools/r19/briefs.css",
       "kind": "stylesheets",
       "sha256": "79638eb3646dfe036a3374403bb35241c1fde1004040701ed95f3691a6587659",
@@ -204,6 +212,14 @@
       "startLine": 1113,
       "sourceStartLine": 1114,
       "endLine": 1181
+    },
+    {
+      "path": "tools/analytics/tracker.css",
+      "kind": "stylesheets",
+      "sha256": "83fe19e919827fcd6f53c569559247aa15641b9fafa4ae2288a5b4ad28fd616a",
+      "startLine": 1182,
+      "sourceStartLine": 1183,
+      "endLine": 1185
     }
   ],
   "design_assets": [

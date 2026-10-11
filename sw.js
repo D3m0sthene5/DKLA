@@ -1,7 +1,7 @@
 /* DKLA offline worker. The build id below changes whenever the atlas changes (tools/r18/assemble.py
    stamps it), which installs a new worker beside the old one. The new copy waits until the reader
    accepts the reload prompt, so the page is never swapped mid-session. */
-const BUILD = 'v2.5-b56fc73f25';
+const BUILD = 'v2.5-1c33b8f3cc';
 const CACHE = 'dkla-' + BUILD;
 const ATLAS = 'DKLA-v2.5.html';
 const SHELL = [ATLAS, 'manifest.webmanifest', 'icons/icon.svg', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'];
@@ -31,7 +31,7 @@ self.addEventListener('fetch', event => {
   const path = url.pathname.slice(scope.length);
   // Sync, version checks, source PDFs and page scans always go to the network: they are large, they are
   // fetched in byte ranges, and the atlas already shows their text when they cannot be reached.
-  if (path.startsWith('api/') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
+  if (path.startsWith('api/') || path === 'admin' || path.startsWith('assets/admin/') || path.startsWith('__analytics_identity') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
   const isAtlas = path === '' || path === 'index.html' || path === ATLAS;
   if (!isAtlas && !SHELL.includes(path)) return;
   event.respondWith((async () => {
