@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "3d00003fab05eb2007458ba6078e8b37c5f3e9cb9294eba6e7b2bb9abd254923",
-  "build": "v25-c5ad0c9776",
+  "r19_sha256": "dc5d9d8e8914d72539ba42e8474de18fe5c5de50f4a2629aeb08076343fd0833",
+  "build": "v2.4-cf533f2e93",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -9,15 +9,14 @@
   "mapped_without_conversion": [],
   "supporting": 1077,
   "review": {
-    "pass": 1044,
-    "repaired": 300,
-    "limited": 44,
-    "pending": 80
+    "pass": 1063,
+    "repaired": 361,
+    "limited": 44
   },
   "supporting_with_sections": 1073,
-  "audited_by_claude": {
+  "additional_source_reviews": {
     "clean": 19,
-    "corrected": 60,
+    "corrected": 61,
     "could-not-audit": 0
   },
   "preserved_script_blocks": 35
