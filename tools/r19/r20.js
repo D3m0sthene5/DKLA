@@ -466,11 +466,29 @@
      header mark; the map mark is drawn larger on the three-course view. r17 redraws the map mark on every
      draw, so this runs after each. */
   // r20.10: the L has its own stem, an orange sliver over the lower part of the D's bar, so it reads as an L.
-  const K = 'M25.5 52 57 17M25.5 52 57 86', L = 'M22 13.5V85H54', A = 'M76 31 36 52 76 73M60 39.4V64.6';
+  // r21 hotfix 2: the coloured strokes are circumscribed by the D. The K and the A are clipped to the D's
+  // centreline and the D is drawn last, open on its left side, so every arm ends flush with the D's inner edge;
+  // the K's lower arm ends under the L's foot, which sits inside the D; the L's stem is the D's left side.
+  const K = 'M25.5 52 62 11.4M25.5 52 52.5 81.1', L = 'M22.5 13.5V86.5M22.5 81H54', A = 'M92 22.6 36 52 92 81.4M60 42.5V61.5';
+  const D_OPEN = 'M22 13H44C71 13 86 29 86 50S71 87 44 87H22', D_CLOSED = 'M22 13H44C71 13 86 29 86 50S71 87 44 87H22V13Z';
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  function shapeMark(svg, clipId) {
+    const d = svg.querySelector('.dkla-letter-d'), k = svg.querySelector('.dkla-letter-k'), l = svg.querySelector('.dkla-letter-l'), a = svg.querySelector('.dkla-letter-a');
+    if (!(d && k && l && a) || d.dataset.r21Shaped) return;
+    d.dataset.r21Shaped = '1'; // the map observer watches childList: shape each set of letters once
+    let clip = svg.querySelector('#' + clipId);
+    if (!clip) {
+      const defs = document.createElementNS(SVG_NS, 'defs'); clip = document.createElementNS(SVG_NS, 'clipPath'); clip.id = clipId;
+      const cp = document.createElementNS(SVG_NS, 'path'); cp.setAttribute('d', D_CLOSED); clip.appendChild(cp); defs.appendChild(clip); svg.insertBefore(defs, svg.firstChild);
+    }
+    k.setAttribute('d', K); l.setAttribute('d', L); a.setAttribute('d', A); d.setAttribute('d', D_OPEN);
+    for (const el of [k, a]) { el.setAttribute('clip-path', `url(#${clipId})`); el.style.strokeLinecap = 'butt'; }
+    d.style.strokeLinecap = 'butt'; l.style.strokeLinecap = 'square';
+    svg.append(a, k, l, d);
+  }
   function fixHeader() {
     const h = document.querySelector('#atlasHome .dkla-header-monogram'); if (!h) return false;
-    const k = h.querySelector('.dkla-letter-k'), l = h.querySelector('.dkla-letter-l'), a = h.querySelector('.dkla-letter-a');
-    if (k) k.setAttribute('d', K); if (l) l.setAttribute('d', L); if (a) a.setAttribute('d', A);
+    shapeMark(h, 'dklaDclipHeader');
     return true;
   }
   (function headerSoon(n) { if (!fixHeader() && n < 100) setTimeout(() => headerSoon(n + 1), 100); })(0);
@@ -484,8 +502,7 @@
     const mark = document.querySelector('#geoCanvas .dkla-map-monogram');
     if (!mark) return;
     mark.setAttribute('x', '-3100'); mark.setAttribute('y', '-5300'); mark.setAttribute('width', '6200'); mark.setAttribute('height', '4300');
-    const k = mark.querySelector('.dkla-letter-k'), l = mark.querySelector('.dkla-letter-l'), a = mark.querySelector('.dkla-letter-a');
-    if (k) k.setAttribute('d', K); if (l) l.setAttribute('d', L); if (a) a.setAttribute('d', A);
+    shapeMark(mark, 'dklaDclipMap');
     mark.dataset.r20 = '1';
   }
   if (window.R18 && Array.isArray(R18.afterDraw)) R18.afterDraw.push(() => {
