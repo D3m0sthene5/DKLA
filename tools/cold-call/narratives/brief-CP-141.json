@@ -1,0 +1,105 @@
+{
+  "id": "brief-CP-141",
+  "briefId": "CP-141",
+  "title": "Russell v. Place",
+  "course": "Civil Procedure",
+  "citation": "94 U.S. (4 Otto) 606 (reported 1876)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A general patent-infringement verdict failed to identify which of two patent claims supported it, preventing the patentee from carrying an uncertain issue determination into a later suit.",
+  "actors": [
+    {
+      "name": "Russell",
+      "role": "Patentee relying on his earlier damages recovery"
+    },
+    {
+      "name": "Place and other defendants",
+      "role": "Accused infringers contesting the prior judgment’s scope"
+    }
+  ],
+  "proceedings": [
+    "Earlier jury awarded Russell infringement damages on a general verdict.",
+    "Circuit Court entered an adverse decree in the later equity action.",
+    "Supreme Court affirmed; Clifford dissented without reported reasons."
+  ],
+  "limits": "The earlier damages judgment remained intact. The opinion did not identify precise decision dates, supply Clifford’s rationale, or restate the incorporated merits analysis from Russell v. Dodge.",
+  "briefSha256": "8188bb5ecac7db126158bf86ad90827c9ca97b62326d6adfc11db7d598f1dc40",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-141"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The leather patent contains two distinct claims",
+      "cue": "The first infringement action produces a general verdict",
+      "paragraphs": [
+        "Russell held a patent claiming improvements in preparing leather. One claim concerned use of fat liquor generally; another concerned a particular compound and method for bark-tanned lamb or sheepskin. The original patent had been surrendered for an allegedly defective or insufficient description and reissued with an amended specification.",
+        "In an earlier damages action against Place and others, Russell generally alleged manufacture, use, and procurement of use of the invention. Defendants pleaded the general issue and statutory notice of novelty and prior-use defenses. A jury awarded damages and judgment followed, but neither pleadings nor verdict identified whether the first claim, second, or both supported recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "94 U.S. at 607–609"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A later suit seeks injunction and profits for subsequent conduct",
+      "cue": "Russell argues every available validity defense is foreclosed",
+      "paragraphs": [
+        "Russell then sued in equity over further unlicensed manufacture, use, and sales, seeking an injunction and an accounting. Defendants challenged novelty, public use more than two years before application, and a reissue different from the original invention. Russell invoked the earlier judgment, arguing those defenses had been or could have been presented before.",
+        "The Circuit Court entered a decree adverse to his requested relief. On appeal the Supreme Court said other questions resembled Russell v. Dodge on substantially the same testimony; this opinion addressed the distinct prior-judgment issue rather than repeating that technical merits analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "94 U.S. at 606–608"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Field requires identification of the precise necessary issue",
+      "cue": "Possible prior defenses do not establish actual determinations",
+      "paragraphs": [
+        "Justice Field accepted that a directly determined question could not be relitigated between the parties. But the proponent had to show the precise issue from the record or consistent outside evidence. Several possible paths to a judgment left uncertainty unless that proof removed it.",
+        "The Sickles litigation illustrated why a general verdict on multiple counts might rest on ordinary money demands instead of the special contract whose validity a party later claimed settled. Extrinsic evidence could explain what was submitted and necessarily decided, not enlarge the judgment by proving what could have been raised.",
+        "Russell’s verdict could rest on either patent claim. A patent might be valid on one and invalid on another, so the recovery did not necessarily establish both validity and infringement across both. Defendants’ chance to attack the patent broadly did not prove the jury resolved each question. No extrinsic evidence supplied the missing link; conjecture was insufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "94 U.S. at 608–610"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The second decree is affirmed",
+      "cue": "The first recovery is not undone",
+      "paragraphs": [
+        "The Supreme Court affirmed the Circuit Court. Russell could not use the unexplained general verdict as conclusive proof of the particular patent issues in the later action. This distinguished an issue actually determined from every defense that might have been raised against a different demand based on subsequent conduct.",
+        "The earlier damages judgment remained binding as a recovery; the Court neither vacated it nor said the jury decided nothing. Justice Clifford dissented, but no separate explanation appears, so no particular theory can be attributed to him. The report supplies no precise argument or decision date beyond its reported term identification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "94 U.S. at 609–610"
+        }
+      ]
+    }
+  ]
+}

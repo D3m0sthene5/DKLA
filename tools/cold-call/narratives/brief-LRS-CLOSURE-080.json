@@ -1,0 +1,147 @@
+{
+  "id": "brief-LRS-CLOSURE-080",
+  "briefId": "LRS-CLOSURE-080",
+  "title": "Arizona State Legislature v. Arizona Independent Redistricting Commission",
+  "course": "Legislation and the Regulatory State",
+  "citation": "576 U.S. 787 (2015)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Arizona voters transferred redistricting to an independent commission, and the elected Legislature challenged the loss of its congressional-map authority; it had standing to sue but lost on the constitutional and statutory merits.",
+  "actors": [
+    {
+      "name": "Arizona electorate",
+      "role": "Voters adopting Proposition 106 through the state initiative process"
+    },
+    {
+      "name": "Arizona Legislature",
+      "role": "Institutional plaintiff asserting an exclusive federal constitutional role"
+    },
+    {
+      "name": "Arizona Independent Redistricting Commission",
+      "role": "Body drawing and certifying the challenged maps"
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the five-Justice majority"
+    },
+    {
+      "name": "Chief Justice Roberts, Justices Scalia and Thomas",
+      "role": "Authors of three dissents"
+    }
+  ],
+  "proceedings": "Three-judge district court unanimously found standing and dismissed merits claim 2–1; Supreme Court affirmed, with a 5–4 merits division and separate jurisdictional dissents by Scalia and Thomas.",
+  "limits": "The decision upheld Arizona’s process, not every resulting map. Federal constitutional and Voting Rights Act challenges remained available. It did not decide the separate Harris equal-population controversy or whether Congress may sue the President.",
+  "briefSha256": "8269fb2a678e6388d1788e9db5d48355c32674baa37bbb04e35583e68a7896a4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-080"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Arizona voters gave a commission the decisive mapmaking role",
+      "cue": "Introduce the state lawmaking structure and the initiative.",
+      "paragraphs": [
+        "Arizona’s Constitution makes the electorate a coordinate source of legislation through initiatives and referenda. Amid disputed redistricting, voters adopted Proposition 106 in 2000 to reduce gerrymandering and broaden participation. It transferred congressional and state-legislative districting to the Arizona Independent Redistricting Commission.",
+        "Legislative majority and minority leaders select four commissioners from a prescribed list; those commissioners select a fifth, independent chair. Restrictions govern party composition, officeholding, and removal. The commission draws and certifies maps after each census. The Legislature must appropriate funds and may offer nonbinding recommendations, but does not enact the binding plan.",
+        "The commission approved its 2010-census maps January 17, 2012. On June 6, the Legislature sued for a declaration and an injunction against using commission congressional maps after the 2012 election. It conceded voter authority over state-legislative districts but argued that the federal Elections Clause specifically assigned congressional districting to the elected assembly. The commission read “Legislature” as the state’s lawmaking authority defined by state law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "576 U.S. at 791–799"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The institutional plaintiff could litigate its alleged loss of authority",
+      "cue": "Keep standing distinct from the later rejection of exclusivity.",
+      "paragraphs": [
+        "A three-judge district court unanimously found standing and dismissed the merits claim by two to one. The Supreme Court examined both jurisdiction and merits. Justice Ginsburg’s majority applied injury, traceability, and redressability: the alleged loss of a constitutional mapmaking prerogative was an institutional injury an injunction could redress, even though the Court would reject the asserted exclusive right on the merits.",
+        "The commission urged an actual frustrated legislative act, and the United States suggested waiting until the secretary of state rejected a competing legislative map. Neither was needed. State constitutional restrictions prevented legislative measures undermining an initiative and required use of the certified commission map. Passing and attempting to implement a competing map would disregard those rules rather than clarify a speculative injury.",
+        "Raines v. Byrd involved individual Congressmembers claiming a widely shared institutional harm without authorization from houses that opposed the suit. Here both chambers authorized their institution to sue. Coleman v. Miller supplied the closer example of completely nullified legislative votes: any competing-map vote would be nullified under Proposition 106 and initiative protections. The Court reserved a congressional suit against the President, which lacked a federal initiative counterpart and raised additional separation-of-powers concerns. It applied ordinary standing principles rather than a special state-plaintiff exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 799–804 & nn.10–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treated congressional districting as an exercise of state lawmaking",
+      "cue": "Connect precedent and history to the initiative’s role.",
+      "paragraphs": [
+        "Hildebrant had allowed a referendum to reject a congressional map, and Smiley required a mapmaking bill to comply with a governor’s veto. Those precedents treated districting as legislative work conducted through the state’s prescribed process. Hawke, by contrast, excluded referendum from constitutional-amendment ratification, a distinct federal function rather than ordinary lawmaking. Pre-Seventeenth Amendment selection of senators was likewise electoral. The function mattered; each constitutional reference to a legislature need not have identical institutional scope.",
+        "Although those cases had not decided initiative power itself, their principle supported Arizona. Founding-era definitions included the authority making laws, and Arizona placed such authority in voters who could delegate districting as an elected assembly could. The Elections Clause chiefly enabled Congress to override manipulated state election rules rather than freeze internal lawmaking machinery. The absence of modern initiatives at the founding did not prohibit later democratic arrangements compatible with popular sovereignty.",
+        "The majority disputed the contrary nineteenth-century congressional election contest Baldwin v. Trowbridge, considering its minority view, tension with an earlier congressional decision, and partisan setting. State control over governmental structure and the goal of checking self-interested maps reinforced its reading. Ginsburg and Roberts disagreed about evidence in the separate Harris litigation—good-faith Voting Rights Act compliance versus partisan influence—but this case did not decide Harris’s equal-population issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 805–809 & nn.16–17, 813–822 & nn.23–25; 848–849"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The federal statute also respected state-created districting procedures",
+      "cue": "State the statutory conclusion without insulating any map from federal law.",
+      "paragraphs": [
+        "Under 2 U.S.C. § 2a(c), default election procedures continued until redistricting in the manner provided by state law. Earlier statutes referred to districting by legislatures, but Congress changed the language in 1911 while discussing initiative and referendum, and used substantially identical wording in 1941. The majority read that development as recognizing each state’s chosen districting process. Arizona’s commission therefore produced the presumptively governing map.",
+        "Later one-person, one-vote decisions had rendered four default rules practically obsolete, but did not erase recognition of state-law processes. The holding preserved challenges under the federal Constitution, Voting Rights Act, and other federal law. The Court independently found the commission compatible with the Elections Clause; it did not rely solely on Congress’s power to impose its own map. It also warned that the Legislature’s reading could unsettle other initiative election rules and provisions adopted at constitutional conventions without elected legislative approval."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 809–813 & nn.18–22, 822–824"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Roberts would preserve an elected assembly’s role under the federal text",
+      "cue": "Explain his distinction between constraint and replacement.",
+      "paragraphs": [
+        "Chief Justice Roberts, joined by Scalia, Thomas, and Alito, read “Legislature” as the elected representative institution. Contextual dictionaries, drafting history, other constitutional provisions, and the Seventeenth Amendment’s move to popular senatorial election supported that identity; his appendix collected seventeen constitutional references to state legislatures. Different functions did not transform a body’s identity, and state law could not override a particular federal allocation.",
+        "Hildebrant’s referendum and Smiley’s veto constrained the assembly but returned it to work. Arizona instead permanently excluded it from the decisive role. Popular sovereignty and useful reform could not displace the Constitution’s specific compromise. Congress or constitutional amendment supplied legitimate reform routes, while auxiliary commissions elsewhere could remain compatible if legislatures retained a role.",
+        "Roberts also treated § 2a(c) as a default provision ending after lawful redistricting, not affirmative federal approval of any state-selected process. Legislative history could not supply that meaning. He identified constitutional concerns with using congressional preemption to eliminate the Clause’s initial assignment or delegate it away."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 824–854 & dissent nn.4–5 and appendix"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Scalia and Thomas separately would dismiss the institutional suit",
+      "cue": "End with distinct jurisdictional objections and the exact affirmance.",
+      "paragraphs": [
+        "Scalia, joined by Thomas, viewed direct interbranch power disputes as outside the historical judicial case or controversy. Structural issues could arise through private suits involving concrete personal harm, but an institution’s abstract usurpation complaint differed. He invoked Raines and Mellon and questioned Coleman’s force through its unusual votes and political-question rationale. The majority disputed his Coleman account. He would dismiss for want of jurisdiction while also joining Roberts on the merits.",
+        "Thomas, joined by Scalia, criticized perceived inconsistency in deference to initiatives in other cases and argued that transferring continuing authority to an unelected commission could reduce future democratic control. He thought the Elections Clause contradicted the arrangement but agreed Article III barred this institutional suit.",
+        "On June 29, 2015, Ginsburg, Kennedy, Breyer, Sotomayor, and Kagan affirmed dismissal on the merits. The Legislature had standing but no exclusive mapmaking right under the Elections Clause and § 2a(c). The four merits dissenters and two separate jurisdictional objectors did not speak through a single undifferentiated rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 790, 793, 824, 854–862; majority nn.12–14"
+        }
+      ]
+    }
+  ]
+}

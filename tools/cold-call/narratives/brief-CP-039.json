@@ -1,0 +1,112 @@
+{
+  "id": "brief-CP-039",
+  "briefId": "CP-039",
+  "title": "Executive Software North America, Inc. v. United States District Court",
+  "course": "Civil Procedure",
+  "citation": "24 F.3d 1545 (9th Cir. 1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An unexplained partial remand rested on a mistaken view of supplemental jurisdiction, leading to a writ requiring statutory reconsideration rather than mandatory retention of every state claim.",
+  "actors": [
+    {
+      "name": "Donna Page",
+      "role": "Employee alleging discriminatory termination"
+    },
+    {
+      "name": "Executive Software and Craig and Sally Jensen",
+      "role": "Defendants seeking review of partial remand"
+    },
+    {
+      "name": "District court",
+      "role": "Court retaining federal claims while remanding state claims"
+    }
+  ],
+  "proceedings": [
+    "Defendants removed Page’s state action.",
+    "District court remanded three state claims while retaining federal claims.",
+    "Revised Ninth Circuit opinion granted mandamus and vacated remand, 2–1."
+  ],
+  "limits": "This is the revised May 16 opinion replacing withdrawn January writings. The assigned material reports later overruling of this mandamus route by Powerex in 2008, without a new independent review of that decision. Employment merits remained allegations.",
+  "briefSha256": "402cadb12ebb48b5c3b5b4c105e1712bcb6fcf3d6a451aeb597ec2d2daf95cd4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-039"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Page alleges consequences for rejecting required religious study",
+      "cue": "Removal brings federal and state claims together",
+      "paragraphs": [
+        "Donna Page, a Black woman employed by Executive Software, alleged required study of Church of Scientology writings by L. Ron Hubbard. She said refusal led to work-error accusations she could not contest and then firing, concealing religious, racial, and sex discrimination.",
+        "On April 8, 1993 she sued the company and Craig and Sally Jensen in state court under Title VII and § 1983 and three state theories: California Fair Employment and Housing Act religious and racial discrimination, constitutional-policy wrongful discharge, and negligent supervision. Defendants removed on the federal claims.",
+        "A May 20 district order asked why the state claims should not return separately. It listed predominance, novel or complex state law, jury confusion, and added judicial time, but said the 1990 supplemental-jurisdiction statute merely repaired Finley’s additional-party restriction without limiting Gibbs discretion. It then remanded all state claims without specifying its actual ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority ¶¶2–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mandamus challenges the statutory method",
+      "cue": "The majority locates discretion within four categories",
+      "paragraphs": [
+        "Defendants sought mandamus, substantially supported by Page, arguing § 1367 required case-specific statutory analysis and reasons and could not justify this remand. Judge D. W. Nelson, joined by Tang, accepted the method objection without deciding the outcome of proper reconsideration.",
+        "Section 1367(a) covered related claims within the same Article III case. Neither diversity restrictions in subsection (b) nor another express statutory bar prevented jurisdiction here. The question was declining existing power under subsection (c): novel or complex state law, substantial predominance, dismissal of all original-jurisdiction claims, or exceptional circumstances with other compelling reasons.",
+        "The majority held those grounds exclusive. The mandatory grant and express exceptions would otherwise do little work. Gibbs’s economy, convenience, fairness, and comity remained important after a factual predicate within a category was identified. Categories one through three required no extra exceptional-circumstances finding; satisfying one allowed discretion but did not command remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority ¶¶1,38–49,63,70 & nn.1,7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The fourth category requires a genuinely unusual situation",
+      "cue": "The record cannot reveal a permissible choice under the announced wrong rule",
+      "paragraphs": [
+        "Under (c)(4), compelling reasons had to resemble the values behind established categories, while exceptional circumstances independently explained why the situation justified going beyond them. Mere convenience could not collapse both requirements. Ordinary added work was common in supplemental claims, and docket congestion alone was impermissible. The majority reserved whether jury confusion fit predominance, the fourth category, or another theory.",
+        "Not every failure to write reasons automatically violated the statute; a permissible ground might be clear from the record. Here, however, the judge expressly announced the wrong law, mixed authorized and potentially improper grounds, and failed to identify the chosen basis. Together those defects established clear error rather than an ordinary disagreement about balance.",
+        "Under the court’s 1994 procedural analysis, this discretionary remand lay outside § 1447(d), did not qualify for ordinary collateral-order appeal, and could be corrected through mandamus. Failure to request § 1292(b) certification did not automatically bar the writ. Applying Bauman, the majority emphasized burdens of divided litigation not repairable after final judgment and an important first-impression question. It did not decide whether certification actually was available."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority ¶¶7–18,50–69 & nn.14–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Leavy would deny the extraordinary remedy",
+      "cue": "The writ requires reconsideration, not a fixed jurisdiction result",
+      "paragraphs": [
+        "Judge Leavy thought uncertainty about grounds could not prove clear error. The order listed statutory reasons, and jury confusion or unusually great work could be compelling. He also distinguished shall have jurisdiction from shall exercise it, reading Congress as codifying broad existing discretion. He feared intrusive mandamus supervision of ordinary jurisdiction choices.",
+        "The revised opinion filed May 16, 1994 granted the writ and vacated the partial remand. The district court had to reassess supplemental jurisdiction at each stage under the statute; it was not ordered unconditionally to keep all claims, and no discrimination merits were decided.",
+        "The assigned material reports that California Department of Water Resources v. Powerex in 2008 later displaced this mandamus route in favor of § 1291 appeal. That subsequent procedural qualification is distinct from the historical route used in Executive Software."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority ¶¶70–72; Leavy ¶¶74–97; assigned editorial note n, citing 533 F.3d1087"
+        }
+      ]
+    }
+  ]
+}

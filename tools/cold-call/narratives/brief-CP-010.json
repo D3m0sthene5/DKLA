@@ -1,0 +1,130 @@
+{
+  "id": "brief-CP-010",
+  "briefId": "CP-010",
+  "title": "Lavender v. Kurn",
+  "course": "Civil Procedure",
+  "citation": "327 U.S. 645 (1946)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A switch-tender dies without an eyewitness to the fatal blow. A jury accepts a railroad-negligence theory supported by disputed physical evidence, but the state appellate court calls the inference speculative.",
+  "actors": [
+    {
+      "name": "L. E. Haney",
+      "role": "Switch-tender fatally injured near a backing train."
+    },
+    {
+      "name": "Lavender",
+      "role": "Administrator pursuing Haney’s estate claim."
+    },
+    {
+      "name": "St. Louis-San Francisco Railway trustees (Frisco)",
+      "role": "Defendants responsible for the train."
+    },
+    {
+      "name": "Illinois Central Railroad",
+      "role": "Station owner and Haney’s employer, responsible for workplace conditions."
+    }
+  ],
+  "proceedings": [
+    "A Missouri trial jury awarded the estate $30,000.",
+    "The Missouri Supreme Court reversed for insufficient evidence and also rejected a hearsay statement.",
+    "The U.S. Supreme Court reversed and remanded, finding independent evidentiary support without deciding hearsay admissibility."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current evidence-law certification. Circumstantial possibilities are not converted into findings of how Haney died. The sufficiency holding concerns this Federal Employers’ Liability Act verdict. Separate votes without printed reasoning remain unexplained.",
+  "briefSha256": "1adbee39278dd7dc7417bdad783863b859a562f39e397ede6738b3ee8d19cbab",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-010"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Haney opens a switch for a backing passenger train",
+      "cue": "What was known about the fatal event?",
+      "paragraphs": [
+        "L. E. Haney worked as a switch-tender near Memphis’s Grand Central Station. Illinois Central owned the station and employed him; the St. Louis-San Francisco Railway, called Frisco, paid part of his wages for switching services.",
+        "On the very dark evening of December 21, 1939, Haney opened a switch so a Frisco passenger train could back toward the station at about eight to ten miles per hour. The train passed, but the switch remained open and signals red. Haney was found unconscious north of the tracks and died from a skull fracture. No known witness saw the blow."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "327 U.S. 646–648"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The estate and railroads offer different explanations",
+      "cue": "What evidence supported each possibility?",
+      "paragraphs": [
+        "Lavender, administrator of Haney’s estate, alleged that a loosely hanging mail hook swung from the train and struck the back of Haney’s head. Witnesses disputed the hook’s possible reach and the location and height of a cinder-and-dirt mound. On evidence favorable to the estate, the mound could raise Haney into its path while he performed his duties. The wound’s location and shape fit that possibility. A physician said a fast-moving train object could cause it, but so could a person wielding a pipe or club.",
+        "The railroads argued murder, citing contrary measurements and photographs, darkness, people riding freight trains, Haney’s pistol beneath him, and a wallet later found without cash. Against that theory were no signs of struggle, no other weapon, retained watch and ring, and testimony that the pistol could have fallen from clothing. Body position and blood away from the head left uncertainty about where the injury began.",
+        "A Frisco foreman also repeated an unknown switchman’s belief that something protruding from the train struck Haney. The switchman had not seen the event. The railroads objected to this hearsay, but the trial judge admitted it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "327 U.S. 648–651"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A jury awards damages, but the state appellate court rejects its inference",
+      "cue": "Which theories had the jury been permitted to consider?",
+      "paragraphs": [
+        "Lavender sued under the Federal Employers’ Liability Act, allowing covered workers recovery for harm caused wholly or partly by railroad negligence. In the Circuit Court of the City of St. Louis, the jury was instructed that Frisco could be liable for negligently allowing a protruding object and Illinois Central for an unsafe workplace caused by uneven ground and inadequate lighting. The latter instruction did not require a finding that the train struck Haney.",
+        "The jury awarded $30,000, and judgment followed. The Missouri Supreme Court reversed. It acknowledged a possible mail-hook inference but called it speculation and found no substantial evidence connecting either the hook or workplace conditions to death. It also deemed the switchman’s reported statement outside the res gestae exception for event-connected statements. The U.S. Supreme Court granted certiorari."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "327 U.S. 646–647, 651–652"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Murphy finds a reasonable evidentiary basis that appellate judges cannot reweigh",
+      "cue": "Why did conflicting measurements not invalidate the verdict?",
+      "paragraphs": [
+        "Justice Murphy’s opinion held that hook movement, mound evidence, Haney’s height and duties, and the wound together allowed the jury’s inference. Direct proof of every intermediate event was unnecessary. The body’s eventual position did not make contact impossible: Haney could have moved after injury before falling, a possibility consistent with blood away from his head. The Court did not find that movement actually occurred.",
+        "Murder evidence and measurements against contact remained matters for the jury. Once probative facts reasonably supported its conclusion, the reviewing court could not choose its preferred witnesses or inference. Fair-minded disagreement is inherent in resolving circumstantial evidence and does not itself turn inference into speculation. Reversal for want of evidentiary support was reserved for complete absence of probative facts, not appellate belief in a competing account.",
+        "Illinois Central’s exposure also had support. Darkness and elevated uneven ground were undisputed workplace conditions under its control. The jury could view them as unsafe and contributory on the mail-hook account. The Court therefore upheld a foundation for both railroads’ liability rather than only the train operator’s."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "327 U.S. 648–649, 652–653"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The hearsay issue is left open, and the state reversal is undone",
+      "cue": "What did the Supreme Court itself decide?",
+      "paragraphs": [
+        "Adequate evidence existed without the unknown switchman’s statement. Although admissibility in these actions ordinarily involved trial discretion, the Court did not decide whether admission abused it or whether the state court’s exclusion analysis was right.",
+        "On March 25, 1946, the Supreme Court reversed the Missouri Supreme Court and remanded for further proceedings consistent with its opinion. It rejected the stated basis for setting aside the verdict without conducting a new trial or determining historically which object struck Haney.",
+        "The Chief Justice and Justice Frankfurter concurred in the result, Justice Reed dissented, and Justice Jackson did not participate. No separate reasons were printed for those positions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "327 U.S. 654"
+        }
+      ]
+    }
+  ]
+}

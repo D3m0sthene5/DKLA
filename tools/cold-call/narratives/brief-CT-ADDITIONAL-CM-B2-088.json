@@ -1,0 +1,109 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B2-088",
+  "briefId": "CT-ADDITIONAL-CM-B2-088",
+  "title": "Wilcox v. Wilcox",
+  "course": "Contracts",
+  "citation": "406 S.W.2d 152 (Ky. 1966)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A father’s settlement promises support until majority or self-support; a later statute lowering majority does not shorten the promise made when majority meant twenty-one.",
+  "actors": [
+    {
+      "name": "Alberta Wilcox",
+      "role": "Mother who received custody under the divorce judgment."
+    },
+    {
+      "name": "Garland Wilcox",
+      "role": "Father seeking termination of his agreed maintenance payments."
+    },
+    {
+      "name": "Brenda Sue Wilcox",
+      "role": "Daughter attending college and not supporting herself at age eighteen."
+    }
+  ],
+  "proceedings": [
+    "The divorce judgment incorporated the support settlement.",
+    "The trial court later relieved Garland of payment at eighteen.",
+    "The Court of Appeals reversed for further proceedings consistent with the original contractual endpoint."
+  ],
+  "limits": "The case interprets a historical settlement, not current child-support law or a universal duty to fund adult college students. Self-support was an alternative endpoint. The $1,440 amount-in-controversy figure was not an appellate damages award.",
+  "briefSha256": "38ab62cc921c13b8bf4e56248a53dfe6c1f87133efa9caba677a0413d48257dc",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B2-088"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The divorce settlement uses the legal age of majority as one endpoint",
+      "cue": "What did the parents agree in 1951?",
+      "paragraphs": [
+        "Alberta and Garland Wilcox’s divorce action began on November 14, 1951, and judgment was entered November 24. Alberta received custody and control of their daughter, Brenda Sue. Their settlement required Garland to make maintenance payments until Brenda reached majority or became self-supporting, and the court approved and incorporated the agreement into its judgment.",
+        "Kentucky’s legal age of majority at the time was twenty-one. The obligation thus originated in the parents’ agreement under that legal background."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Agreement and divorce judgment;406 S.W.2d 153"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The legislature changes the general age, and Garland asks to stop paying",
+      "cue": "Why did the trial court grant his request?",
+      "paragraphs": [
+        "Effective January 1, 1965, Kentucky lowered the general age of majority to eighteen through KRS 2.015, retaining twenty-one for alcoholic-beverage purchases and the care and treatment of children with disabilities. Brenda was eighteen, attended college full time and was not self-supporting when Garland moved for relief from further payments.",
+        "The trial court identified the prior obligation as $40 monthly and the amount in controversy as $1,440 for thirty-six months. It concluded that the statutory change ended support at eighteen, except that its policy would continue payments for a child still in high school until graduation. Brenda’s college attendance did not satisfy that exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Intervening statute and trial ruling;406 S.W.2d 153"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Hill interprets the promise by its meaning when made",
+      "cue": "Why did the new statute not replace the contractual endpoint?",
+      "paragraphs": [
+        "Judge Hill explained for Kentucky’s Court of Appeals that contractual intention governs and must be determined as of the time the parties entered the agreement. Constitutional and statutory provisions then in force form part of the contract’s legal setting.",
+        "In 1951, majority meant twenty-one. The later reduction did not substitute eighteen as the endpoint of this existing promise. Garland therefore remained obligated until Brenda reached twenty-one or became self-supporting. The trial court’s high-school policy could not replace the agreement’s original terms.",
+        "That conclusion did not deny that eighteen had become the statutory age generally. It identified the duration of this historical contractual undertaking, including its distinct self-support condition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contractual intention and incorporated law;406 S.W.2d 153"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The earlier release from payments is reversed",
+      "cue": "What did the appellate disposition require?",
+      "paragraphs": [
+        "On March 25, 1966, the Court of Appeals reversed the judgment relieving Garland at eighteen and returned the case for proceedings consistent with its opinion. Rehearing was denied October 7, 1966. The report contains no dissent, separate writing or numerical voting lineup.",
+        "The court did not separately award an itemized $1,440 in arrears. Nor did it establish that every reference to outside law freezes every provision forever; it resolved the meaning of this parents’ settlement when made."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and limits;406 S.W.2d 152–153"
+        }
+      ]
+    }
+  ]
+}

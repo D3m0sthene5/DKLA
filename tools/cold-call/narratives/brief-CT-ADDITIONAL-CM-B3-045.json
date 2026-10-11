@@ -1,0 +1,140 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-045",
+  "briefId": "CT-ADDITIONAL-CM-B3-045",
+  "title": "Howard v. Babcock",
+  "course": "Contracts",
+  "citation": "6 Cal. 4th 409, 863 P.2d 150 (1993)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A departing law partner could face a reasonable financial consequence for competing, but the California Supreme Court left this agreement’s actual reasonableness for further proceedings.",
+  "actors": [
+    {
+      "name": "Howard, Moss, Loveder, and Strickroth",
+      "role": "Lawyers who left and formed a competing firm"
+    },
+    {
+      "name": "Parker, Stanbury, McGee, Babcock & Combs partners",
+      "role": "Former-firm partners disputing withdrawal benefits and accounting"
+    }
+  ],
+  "proceedings": [
+    "Trial court: held provision valid and entered net judgment for remaining partners.",
+    "Court of Appeal: held provision void and ordered additional accounting while otherwise preserving and remanding matters.",
+    "California Supreme Court: partially reversed facial invalidity ruling and remanded reasonableness; otherwise affirmed, 6–1."
+  ],
+  "limits": [
+    "The holding concerns law partners under the then-existing rule, with employee agreements reserved. It does not approve the specific amount or reinstate every aspect of the trial judgment."
+  ],
+  "briefSha256": "c4148a5e5d4c2ecc09b06100b1ef982427ae5bf079a9a4bab1ce682bf00a0d1a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-045"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The partners agree to benefits and a competition-related forfeiture",
+      "cue": "Introduce the agreement before the departures.",
+      "paragraphs": [
+        "In 1982, partners of Parker, Stanbury, McGee, Babcock & Combs adopted withdrawal provisions. Article V ordinarily paid a departing general partner capital plus the share of profits the partner would have received over the next twelve months.",
+        "Article X covered more than one partner, associate, or other person leaving before sixty-five and, within a year, practicing together or with others in liability-insurance defense in the Los Angeles or Orange County courts. Remaining partners could forfeit withdrawal benefits other than capital. A separate single-partner term imposed seventy-five-percent forfeiture for competition in those counties and twenty-five percent in specified others.",
+        "New partners joined in 1984–1986 without signing, and some participating partners became general partners. In December 1986, Howard, Moss, Loveder, and Strickroth announced departure and competition in January. They challenged article X and later claimed the agreement no longer governed. The remaining partners announced withholding. The departing lawyers published dissolution effective December 31 and opened January 2, 1987; clients substituted them in about 200 matters."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 412–413 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The ensuing accounting involves more than the competition clause",
+      "cue": "Trace the trial and appellate dispositions.",
+      "paragraphs": [
+        "Capital, billed-but-unpaid receivables, and unfinished cases needing future work were disputed. Remaining partners tendered capital but contested other proceeds. Departing lawyers sought accounting, declarations, and relief for fiduciary breaches, including refusal to release lease guarantees. The others cross-claimed on contract, fiduciary, conversion, fraud, and accounting theories.",
+        "The parties stipulated to try agreement validity first and waived a jury only for that issue. The trial court upheld article X. It found the original partnership dissolved by operation of law when partners were added in 1984, but signatories continued under the same agreement. Strickroth was neither bound nor benefited. An interlocutory judgment required departing partners to account for profits from former-firm work and remaining partners to account for unpaid 1986 profit shares.",
+        "After an unsuccessful writ challenge to accounting scope, final judgment required plaintiffs to pay $382,686 and found nothing due them. On their appeal and a conditional defense cross-appeal, the Court of Appeal held article X void under professional-conduct rule 1-500, affirmed the award to defendants, and remanded an accounting for plaintiffs and unresolved claims. The Supreme Court focused on the facial-invalidity premise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 413–416 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority distinguishes a reasonable financial charge from a ban on practice",
+      "cue": "Explain statutory permission and the independent ethical question.",
+      "paragraphs": [
+        "Justice Mosk began with California’s competition policy and Business and Professions Code § 16602, allowing geographically limited partnership noncompetition agreements on or in anticipation of dissolution. It referred to any partner, without a lawyer exception in text or demonstrated history. Physician and accountant applications showed that compensation for competitive loss need not withhold the right to practice. The court reserved restrictions involving employees.",
+        "That statute did not remove judicial power to impose higher professional duties. The question was whether then-existing rule 1-500 already barred this arrangement. It prohibited agreements restricting practice with specified exceptions, including restrictions ending with the relationship and certain retirement provisions.",
+        "The majority adopted Haight, an earlier law-partner decision, distinguishing an absolute practice ban from a reasonable economic consequence of choosing competition. On that reading, client choice and lawyer mobility could coexist with protection for the continuing firm. Other jurisdictions had interpreted similar rules differently; this was California’s interpretation, not a claim of national uniformity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 416–422 & nn.4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Firm investments support a potential remedy only within reasonableness limits",
+      "cue": "State the economic rationale and what remains for trial.",
+      "paragraphs": [
+        "The majority considered capital invested in clients, support services, and training, and departures that removed revenue while leaving debts and overhead. Professional obligations coexisted with commercial realities. Client choice and willingness to represent already operated alongside affordability, conflicts, withdrawal rules, and lack of entitlement to a particular partnership.",
+        "Protecting stability could avoid client disruption and preserve incentives for shared investment. Comparisons to other professions and permitted law-practice goodwill sales supported the policy judgment. The court did not find every departing lawyer unfairly took clients or every restriction benefited them.",
+        "An absolute competition ban would be per se unreasonable. A geographical financial consequence could operate like liquidated damages only if, at formation, it reasonably estimated fair compensation for anticipated competitive loss. A disproportionate payment or benefits forfeiture would be an ineffective penalty. Article X’s actual reasonableness required trial-court determination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 420–426"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Kennard sees a restriction on willing lawyers and willing clients",
+      "cue": "Preserve the dissent’s textual and policy objections.",
+      "paragraphs": [
+        "Justice Kennard would affirm the Court of Appeal. Rule 1-500 and its discussion allowed restrictions during the professional relationship but barred them afterward. A financial disincentive restricted practice even without an absolute prohibition. The trial judgment surrendered 82.5 percent of the departing firm’s relevant profits, potentially deterring representation desired by clients. Calling the cost reasonable did not answer the rule’s language.",
+        "For her, fiduciary duties and client choice were paramount. Affordability, conflicts, unwillingness to represent, or lack of a partnership right did not answer whether a willing attorney could serve a willing client. Departures could respond to unfair income allocation; client loyalty could come from the departing lawyer’s work and trustworthiness rather than firm capital. Commercial practices elsewhere and existing disregard of restrictions justified no reduction in ethical standards. Commercial pressure instead strengthened the need to protect professional duties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 426–434 (Kennard, J., dissenting)"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court reverses only the premise that the clause is automatically void",
+      "cue": "Give the qualified judgment and later review entry.",
+      "paragraphs": [
+        "On December 6, 1993, six Justices joined the partial reversal: Chief Justice Lucas and Justices Panelli, Arabian, Baxter, and George joined Mosk. The Court of Appeal was reversed insofar as it treated article X as unenforceable and required an accounting on that basis; it was otherwise affirmed. Remand had to determine reasonableness and any resulting additional accounting award, not automatically restore the entire trial judgment.",
+        "Rehearing was denied February 3, 1994, with Kennard favoring it but no separate rehearing opinion. The court had permitted examination of a reasonable financial consequence, not conclusively approved this forfeiture. The four named departing plaintiffs also remained distinct from the signatories actually governed by the agreement, particularly Strickroth."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 Cal. 4th at 425–426 & n.9, 434"
+        }
+      ]
+    }
+  ]
+}

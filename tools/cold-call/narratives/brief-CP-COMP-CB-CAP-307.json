@@ -1,0 +1,106 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-307",
+  "briefId": "CP-COMP-CB-CAP-307",
+  "title": "Sprint Communications Co., L. P. v. APCC Services, Inc.",
+  "course": "Civil Procedure",
+  "citation": "554 U.S. 269 (2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Payphone operators transferred their unpaid-compensation claims to collection firms that promised to return every dollar recovered. The Supreme Court divided over whether ownership of the claims supplied standing without a share of the proceeds.",
+  "actors": [
+    {
+      "name": "APCC Services and other aggregators",
+      "role": "Collection firms holding the operators’ assigned claims"
+    },
+    {
+      "name": "Sprint, AT&T, and other carriers",
+      "role": "Long-distance carriers sued for unpaid dial-around compensation"
+    }
+  ],
+  "proceedings": [
+    "District court reconsidered its initial standing ruling and allowed the suits.",
+    "After an intervening Supreme Court remand concerning the cause of action, the D.C. Circuit allowed the litigation.",
+    "Supreme Court affirmed, five to four, on Article III standing."
+  ],
+  "limits": "Historical 2008 standing decision; neither unpaid compensation nor the statutory cause of action was newly adjudicated. Actual agreements required remittance of all proceeds, with separate service fees.",
+  "briefSha256": "d5177c414532b538a5aef6e1bc030f3757a630f266afb29e00c081300af43b34",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-307"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Calls and collection assignments",
+      "cue": "The underlying injury",
+      "paragraphs": [
+        "When a customer placed a long-distance call from a payphone using an access code or an 800 number, the carrier received payment even though the payphone operator initially connected the call. Federal law required compensation to the operator. Individual collection suits could cost too much for their small, factually demanding claims.",
+        "About 1,400 operators assigned claims to billing and collection firms, including APCC Services. Their agreements transferred all rights, title, and interest in dial-around compensation claims arising since October 1, 1997, appointed the firms attorneys-in-fact, required litigation in the operators’ interests, and prohibited revocation without written consent. Separate agreements required remittance of all recovered proceeds. Operators paid for collection services, typically through quarterly charges; the firms retained no share of the substantive recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "271–272"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Carriers challenge the collectors",
+      "cue": "The proceedings reach the Supreme Court",
+      "paragraphs": [
+        "The aggregators sued Sprint, AT&T, and other carriers. The district court initially accepted AT&T’s standing objection but reconsidered because collection assignees had long been allowed to sue. A divided D.C. Circuit panel accepted standing while rejecting a private statutory cause of action. After Global Crossing recognized the relevant cause of action, the Supreme Court vacated for reconsideration. On remand, the D.C. Circuit affirmed the orders allowing these suits. The carriers obtained Supreme Court review of standing.",
+        "Justice Breyer’s majority accepted that unpaid compensation was a concrete injury caused by the carriers and remediable by payment. The question was whether complete assignment enabled the aggregators to assert that injury despite their obligation to remit the recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "272–275"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Legal title carries the claim",
+      "cue": "The majority’s explanation",
+      "paragraphs": [
+        "Breyer traced the development from English restrictions on assignments, through equitable assignments and suits using powers of attorney, to American recognition of suits by holders of legal title. Numerous nineteenth-century decisions accepted collection-only assignments, although state decisions were not uniform. An appendix developed twenty-eight examples. Waite, Spiller, and Titus did not conclusively decide this constitutional question, but supported the tradition of judicially resolving collection-assignee suits.",
+        "Modern doctrine also allowed an assigned injury to travel with a claim, as Vermont Agency illustrated. Redressability asked whether judgment would remedy the injury asserted, not how the plaintiff would later spend the recovery. Payment would remedy these assigned claims. Trustees, guardians, receivers, and executors likewise litigated for others’ benefit, and these aggregators had contractual duties to their assignors.",
+        "An actual assignment differed from hiring an attorney: it conveyed property that creditors could attach. A rule demanding a retained financial interest would also permit trivial changes, such as retaining a small recovery share or using a trust, to alter standing without altering the dispute. That practical concern supplemented the historical and doctrinal grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "275–289, 292–298"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Aggregation objections and disagreement",
+      "cue": "Five Justices permit the suits to continue",
+      "paragraphs": [
+        "The majority rejected the third-party-rights objection because complete assignment made these the aggregators’ own legal claims. Federal Rule of Civil Procedure 23 did not make class actions the exclusive aggregation method. Discovery, preclusion, and counterclaim difficulties could be addressed through ordinary procedural tools, although the Court did not prescribe any particular device here. These assignments served ordinary business purposes; no bad faith was alleged, and different prudential questions were reserved.",
+        "Chief Justice Roberts, joined by Justices Scalia, Thomas, and Alito, dissented on Article III grounds without reaching prudential limits. He required a personal, tangible stake in the recovery. Fees based on payphones and lines were independent of success, and resulting goodwill was insufficient. Unlike Vermont Agency’s relator, these firms received no recovery share. Unlike an injured plaintiff who later promised a donation, they obtained rights only on condition of remitting everything. He distinguished independent fiduciaries and regarded contractual litigation duties as circular.",
+        "Roberts also found the historical tradition divided and too late to establish the asserted constitutional rule. He read the three federal precedents as involving statutory collusion, an agency award, and state assignment law and full faith and credit, respectively, rather than this standing question. Breyer, joined by Stevens, Kennedy, Souter, and Ginsburg, nevertheless affirmed the D.C. Circuit, five to four. The litigation could continue; no unpaid compensation was awarded by this decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "289–292, 298–315"
+        }
+      ]
+    }
+  ]
+}

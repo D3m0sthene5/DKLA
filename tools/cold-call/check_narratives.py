@@ -67,7 +67,11 @@ for story in stories['cases']:
         # context. Validation above requires its own current fingerprint.
         source_ids = {story['briefId']} | {s['briefId'] for s in story['sources'] if s.get('briefId')}
         source_text = '\n'.join(full[bid] for bid in sorted(source_ids))
-        source = re.sub(r'[,\s]', '', source_text)
+        # A source such as "$140–160 million" also explicitly supplies the
+        # $160 endpoint. Writers may repeat the currency sign for clarity.
+        source_amounts = re.sub(r'(\$[\d,]+(?:\.\d+)?)\s*[–—-]\s*(\d[\d,]*(?:\.\d+)?)',
+                               r'\1–$\2', source_text)
+        source = re.sub(r'[,\s]', '', source_amounts)
         for value in sorted({v.rstrip(',') for v in re.findall(r'(?<![\w§])(?:\$[\d,]+(?:\.\d+)?|\b(?:18|19|20)\d{2}\b)', text)}):
             if re.sub(r'[,\s]', '', value) not in source:
                 resolution = number_resolutions.get((story['id'],value))

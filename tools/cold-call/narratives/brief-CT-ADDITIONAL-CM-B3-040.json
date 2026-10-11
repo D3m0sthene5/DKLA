@@ -1,0 +1,140 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-040",
+  "briefId": "CT-ADDITIONAL-CM-B3-040",
+  "title": "McConnell v. Commonwealth Pictures Corp.",
+  "course": "Contracts",
+  "citation": "7 N.Y.2d 465, 166 N.E.2d 494 (1960)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A film-rights negotiator sued for commissions under a lawful agreement, and the distributor alleged he had obtained the rights through secret bribery. The court reinstated the defenses because dominant corruption in performance could bar recovery, leaving the allegations to be proved.",
+  "actors": [
+    {
+      "name": "McConnell",
+      "role": "Negotiator claiming commissions and an accounting"
+    },
+    {
+      "name": "Commonwealth Pictures Corporation",
+      "role": "Distributor alleging procurement through a secret payment"
+    },
+    {
+      "name": "Chief Judge Desmond",
+      "role": "Author of the five-judge majority"
+    },
+    {
+      "name": "Judges Froessel and Van Voorhis",
+      "role": "Dissenters concerned about forfeiture of lawful compensation"
+    }
+  ],
+  "proceedings": "Special Term struck two bribery and public-policy defenses, and the First Department affirmed. The Court of Appeals reversed, reinstated the defenses, remitted to the Appellate Division, and answered the certified question negatively, with costs in all courts.",
+  "limits": "The decision tested pleaded defenses, not whether a bribe actually occurred. The return-of-payment counterclaim was outside the appeal. Minor or incidental illegality did not automatically forfeit a contract, and no disgorgement remedy was ordered.",
+  "briefSha256": "433aa5fffaa655a763930e6729666ced084039c3ff1092f26531657b6eff5cbb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-040"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Film rights generated an initial fee and a later commission claim",
+      "cue": "Introduce the lawful agreement and alleged corrupt performance.",
+      "paragraphs": [
+        "Commonwealth Pictures Corporation agreed in writing to pay McConnell $10,000 for negotiating a motion-picture distribution agreement, followed by a share of gross receipts. The rights involved forty western features and four serial films associated with Universal Pictures. As described in the dissent, the later payment was twenty percent of gross receipts after Commonwealth recouped $100,000 from sixty percent of receipts.",
+        "McConnell obtained the rights, Commonwealth paid the initial $10,000, and it later refused further commissions and an accounting. McConnell sued. Commonwealth answered that he had secretly promised and paid $10,000 to a producer’s representative, without either Commonwealth’s or the producer’s knowledge, to secure the rights. One affirmative defense invoked commercial bribery under Penal Law section 439; another relied on public policy. McConnell disputed the allegations, but his motion to strike required their acceptance solely to test legal sufficiency."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority opening, “Plaintiff sues,” “Plaintiff negotiated,” and “Defendant’s answer”; Froessel opening"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts treated facial legality as decisive",
+      "cue": "Explain what the appeal could resolve.",
+      "paragraphs": [
+        "Special Term struck both defenses because the compensation agreement called for lawful negotiation rather than crime. It distinguished an inherently illegal bargain from lawful services performed through later misconduct. The First Department affirmed that part of the order over a dissent, and Commonwealth appealed.",
+        "Commonwealth also counterclaimed, including for recovery of the first $10,000, but the sufficiency of those claims was not before the Court of Appeals. The issue was whether central bribery during performance could defend against compensation on a facially lawful promise, even when Commonwealth had not directed it and McConnell could prove his basic contract elements without revealing it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority opening, “The courts below,” and “The sufficiency”; Froessel “Two defenses”"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Desmond connected the compensation to the alleged corruption",
+      "cue": "Explain the majority’s rule and precedent use.",
+      "paragraphs": [
+        "Chief Judge Desmond reasoned that courts should not enable collection of crime’s rewards or profit from fraud. Restricting that policy to contracts illegal on their face would let a plaintiff draft a lawful promise and fulfill it through dominant corruption. Assuming proof of the defenses, these commissions resulted directly from the bribe used to obtain the rights.",
+        "The payment appeared within section 439, but its technical elements were not the exclusive foundation. Sirkin, which denied a seller recovery after secretly paying the buyer’s purchasing agent, supplied a close analogy. Reiner denied compensation for services carried out through fraud on a third party. Bribing a producer’s agent to obtain rights for a distributor did not materially differ from bribing a purchaser’s agent to secure a sale.",
+        "Nor could a plaintiff avoid the policy merely by presenting a prima facie claim without mentioning wrongdoing. Once the defense disclosed and proved the transaction, the court could consider it as a whole. The inquiry protected public policy rather than deciding whether the defendant morally deserved the benefit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority “New York’s policy,” “We must either,” “The issue is not,” “Sirkin is the case closest,” “In the Reiner case,” and “On the whole case”"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The rule required a direct and dominant connection",
+      "cue": "Preserve the boundary against automatic forfeiture.",
+      "paragraphs": [
+        "The majority confronted the risk of a windfall to an innocent defendant and forfeiture for small transgressions. It required at least a direct connection between the illegality and obligation, with wrongdoing central or dominant in performance. Peripheral misconduct did not automatically destroy compensation. The court declined to settle every point along that spectrum, but placed the pleaded procurement bribe at its dominant end, even if doing so extended earlier cases.",
+        "Southwestern Shipping, a precedent involving a custodian, did not compel enforcement. Its exception prevented a mere depository or escrow holder outside the underlying transaction from keeping another’s property by invoking illegality. Commonwealth was the contracting obligor, not an outside custodian. The exception did not require recovery whenever the defendant had been uninvolved in the plaintiff’s corruption."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority “It is argued,” “There must at least,” “We cannot now,” “There is no pertinence,” and “That exception”"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Froessel would preserve payment under the lawful undertaking",
+      "cue": "Give both dissenting writings separately.",
+      "paragraphs": [
+        "Judge Froessel would affirm striking the defenses. The compensation contract was lawful when made, contemplated lawful services, and was not itself procured by bribery. Commonwealth retained the rights and benefits, described by the dissent as extending roughly twelve years. No allegation showed corruption of Commonwealth’s agent or a producer challenge to the distribution agreement.",
+        "He distinguished Sirkin because that bribe procured the very contract sued upon. A lawful contract followed by misconduct in performance was different from an illegally procured bargain or one requiring illegal services. He found the majority’s major/minor and direct/peripheral gradations unworkable. His hypothetical builder bribing an inspector to expedite inspection illustrated an owner keeping a building without paying, not an event in this case.",
+        "Froessel also read Southwestern Shipping broadly to prevent a party uninvolved in a separate unlawful arrangement from exploiting it for a windfall. Judge Van Voorhis joined and wrote separately. While accepting that courts should not divide criminal spoils, he feared encouraging misappropriation and broken faith between parties not in a corrupt relationship. Opportunistic avoidance might drive enforcement outside lawful channels instead of deterring bribery. Neither dissent determined that the alleged payment had not occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Froessel complete dissent; Van Voorhis complete memorandum"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The defenses returned for proof",
+      "cue": "State the exact order and the vote.",
+      "paragraphs": [
+        "On March 31, 1960, Desmond, joined by Dye, Fuld, Burke, and Foster, reversed the appealed order, with Froessel and Van Voorhis dissenting. The court awarded costs in all courts, remitted to the Appellate Division for consistent proceedings, and answered the certified question negatively. McConnell’s motion against the two defenses was to be denied.",
+        "Commonwealth still had to prove them. The ruling neither finally established bribery nor adjudicated recovery of the already-paid $10,000. It ordered no alternative disgorgement or redistribution of the alleged payment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority final paragraph; voting statement and final order"
+        }
+      ]
+    }
+  ]
+}

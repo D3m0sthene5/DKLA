@@ -1,0 +1,139 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-083",
+  "briefId": "CT-ADDITIONAL-CM-B4-083",
+  "title": "Peterson v. Meritain Health, Inc.",
+  "course": "Contracts",
+  "citation": "2022 WY 54, 508 P.3d 696",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A health-plan administrator described as ministerial allegedly made all claim and appeal decisions itself, leaving factual questions about authority, beneficiary intent, and an insurer-like duty.",
+  "actors": [
+    {
+      "name": "David Peterson and his estate representative Janet",
+      "role": "Plan participant and successor plaintiff"
+    },
+    {
+      "name": "Memorial Hospital of Converse County",
+      "role": "Employer, plan sponsor, and named fiduciary"
+    },
+    {
+      "name": "Meritain Health",
+      "role": "Plan drafter and administrator defending the claims"
+    }
+  ],
+  "proceedings": [
+    "District court granted Meritain summary judgment and rejected additional discovery requests.",
+    "Wyoming Supreme Court reversed claim dispositions, affirmed discovery rulings, and remanded."
+  ],
+  "limits": "The appellate court did not establish coverage, agency excess, beneficiary status, breach, bad faith, or damages. The hospital dismissal reason was undisclosed. New York choice of law was waived; governmental-plan ERISA theory failed.",
+  "briefSha256": "9c699a898b3f1636c7e5fc400f7bcd7f9ac9ef5b21fc01c18c810b3e3e00dfe8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-083"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The written plan reserves authority to the hospital",
+      "cue": "Meritain nevertheless decides the disputed benefits",
+      "paragraphs": [
+        "Memorial Hospital of Converse County offered employees a self-funded health plan. Meritain drafted both it and an Administrative Services Agreement, or ASA. The plan named the hospital sponsor, administrator, and fiduciary with discretion over interpretation, eligibility, and disputes. Meritain was a third-party processor of ministerial tasks. The ASA denied it discretionary interpretation or adjudication and required questionable claims and appeals to go to the hospital for exclusive final resolution.",
+        "David Peterson began work in February 2013 and joined the plan that August. After cardiac treatment in 2012, he later received diagnoses of congestive heart failure and cardiomyopathy and a defibrillator in November 2013. Bills totaled $247,934.74. Meritain paid some but denied $207,423.67 as preexisting-condition expenses, then denied two appeals without hospital involvement. A later collection action sought $188,328.85 for surgery, a different figure from denied benefits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶4–8 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The coverage dispute becomes a suit against the administrator",
+      "cue": "Summary judgment treats missing contractual status as decisive",
+      "paragraphs": [
+        "Peterson sued in March 2017. The hospital was dismissed for a reason the record did not reveal. After he died in March 2018, Janet continued for his estate. The September 2020 third amended complaint alleged plan breach, ASA breach as a beneficiary, and breach of good faith and fair dealing, seeking punitive damages and attorney fees.",
+        "An expert opposing summary judgment described Meritain’s actual discretionary control and criticized assumptions from medication without adequate records, inadequate inquiry into creditable prior coverage, inconsistent payments, delay, and failure to obtain hospital appeal decisions. Those were submissions supporting factual disputes, not findings that all expenses were covered. The district court nevertheless treated lack of privity and beneficiary status as dispositive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶1, 9–13 & nn.1–2, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Wyoming law supplies possible routes beyond a ministerial label",
+      "cue": "ERISA references do not create the statutory remedy",
+      "paragraphs": [
+        "Justice Gray’s opinion reviewed summary judgment de novo, requiring admissible evidence and favorable reasonable inferences for Peterson. Meritain first invoked the ASA’s New York choice-of-law clause on appeal; that nonjurisdictional, nonfundamental issue was waived, so Wyoming law applied.",
+        "Mere administration ordinarily did not make Meritain liable for breach of the hospital-employee plan. The governmental plan was exempt from the Employee Retirement Income Security Act, or ERISA, and could not opt into the statute. Contractual adoption of lawful ERISA terms was possible, but references to procedures, definitions, and discretion did not incorporate a fiduciary cause of action against this administrator.",
+        "Agency remained different. An authorized agent for a disclosed principal normally was no party to the principal’s contract, but exceeding authority could support liability under principles the court applied. It acknowledged their more familiar use in unauthorized formation and considered an insurance-adjustment analogue. Meritain’s apparent control over investigation, payment, decisions, and two appeal levels without hospital participation raised factual questions about agency and excess of the described ministerial authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶14–47 & nn.6–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The ASA’s exclusion does not end the whole-agreement inquiry",
+      "cue": "Conduct may also have modified its stated limits",
+      "paragraphs": [
+        "The ASA unambiguously excluded third-party rights, expressly including participants. The court did not erase or call that clause ambiguous. But specific promises concerned processing, payment, eligibility, coverage, disputes, denial explanations, and hospital appeals, alongside the plan’s purpose of meeting employee medical expenses. Wyoming law examined the whole agreement and execution circumstances for intended benefit. Those provisions left a factual question despite the express exclusion, rather than conclusively establishing beneficiary status.",
+        "The agreement’s actual scope also remained disputed. Meritain invoked a signed-writing modification requirement, while Peterson relied on possible hospital assent to its expanded role. Wyoming law permitted oral or conduct-based waiver or modification despite such language, but demanded clear and convincing evidence. The factfinder still had to decide modification, beneficiary intent, and breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶48–61"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "An insurer-like function may carry a good-faith duty",
+      "cue": "Evidence of control and incentives prevents categorical dismissal",
+      "paragraphs": [
+        "The court examined unequal bargaining power, the insurer relationship, and incentives for faithful claim investigation and payment. Other jurisdictions differed on whether administrators needed financial risk as well as insurer-like functions. It adopted a duty for an administrator acting sufficiently like an insurer without making direct privity indispensable.",
+        "Actual conduct, not the ministerial label, controlled that inquiry. Evidence included exclusive claim and appeal decisions, provider lists, absent hospital participation, and finality of Meritain’s determinations. Contingent fees for negotiated savings or reductions, though disputed in connection with decisions, and market incentives also mattered. They created issues over its role, not a finding of bad faith. Punitive damages and fee claims, dismissed with the substantive claims, likewise returned for determination under applicable evidence and requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶62–83 & nn.10–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Discovery rulings survive the appeal",
+      "cue": "The merits return for factual resolution",
+      "paragraphs": [
+        "The court affirmed denial of additional discovery sanctions concerning delayed analyst identification and a further claims manual. Earlier fee sanctions already existed, and disputed prejudice, explanations, and culpability left the additional request within trial discretion.",
+        "It also upheld refusal of wholesale personnel files. Sensitive information and proportionality constrained relevance; training, qualifications, and incentives could be explored by interrogatories or deposition, and exclusive need for files was not shown. The district court could reconsider particular documents on remand with protective measures or in camera review, so the ruling created no permanent personnel-file immunity.",
+        "On April 20, 2022, the Wyoming Supreme Court reversed the contract, beneficiary, and bad-faith summary judgments, affirmed the challenged discovery rulings, and remanded. Gray wrote with no separate opinion. Peterson had won an opportunity to prove the disputed routes to liability, not adjudicated benefits or damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶84–97 & n.16"
+        }
+      ]
+    }
+  ]
+}

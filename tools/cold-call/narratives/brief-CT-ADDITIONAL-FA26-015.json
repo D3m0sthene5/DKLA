@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-015",
+  "briefId": "CT-ADDITIONAL-FA26-015",
+  "title": "Approchim v. Eurocollect",
+  "course": "Contracts",
+  "citation": "Cour de cassation, Commercial Chamber, October 22, 1996, no.94-15.410; Bull.IV, no.260, p.222",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A transport customer terminates after five trips, and the higher court requires a damages inquiry instead of automatic recovery of the unperformed annual price.",
+  "actors": [
+    {
+      "name": "Approchim",
+      "role": "Customer contracting for transport of dangerous products and later terminating."
+    },
+    {
+      "name": "Eurocollect",
+      "role": "Carrier seeking payment after completing five trips."
+    }
+  ],
+  "proceedings": [
+    "Paris ordered payment of the annual price less payments for completed trips.",
+    "The Court of Cassation quashed all provisions and remanded to Orléans for further adjudication."
+  ],
+  "limits": "The judgment does not calculate loss, declare that nothing is owed, find an actual penalty clause or recognize a general at-will termination right. It is distinct from Chronopost, decided the same day, and the unrelated student-fee example.",
+  "briefSha256": "8d35d142af952cdc5ded62e509baf00c5361444e382528ecf1bc3be21314f0f8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-015"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties agree to a year of transport with payment on each trip",
+      "cue": "What price and renewal terms were specified?",
+      "paragraphs": [
+        "On February 22, 1990, Approchim entrusted Eurocollect with transporting dangerous products. The contract ran for one year with tacit renewal and provided for fifty trips annually at a fixed price of 892,500 francs, although payment was to occur on each trip.",
+        "After five trips had been performed, Approchim terminated on August 17, 1990. The published account does not give the reasons for termination or the carrier’s costs saved by not completing the remaining trips."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract and termination; first factual recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Paris orders the full annual price after deducting prior payments",
+      "cue": "How did the lower court characterize the payment obligation?",
+      "paragraphs": [
+        "On September 21, 1993, the Paris Court of Appeal ordered Approchim to pay 892,500 francs less the amounts already paid for the five trips. It reasoned that the obligation to pay the agreed price could not be treated merely as an obligation to act whose breach gave rise only to damages.",
+        "Approchim challenged that judgment. The Court of Cassation’s Commercial Chamber considered a single ground under former Civil Code article 1184. The published decision does not separately reproduce detailed submissions by the appellant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Paris judgment and review posture; second recital and statutory visa"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The reviewing court distinguishes the price from termination damages",
+      "cue": "Why did a lump sum not settle the amount due?",
+      "paragraphs": [
+        "The agreed price was payable for performance even though fixed as a lump sum. The Court of Appeal had itself found that Approchim terminated the agreement. On that premise, absent a penalty clause, it had to determine the damages owed to Eurocollect instead of awarding the full price for the unperformed balance. Its contrary judgment violated article 1184.",
+        "A price claim enforces the payment owed for contractual performance; damages compensate consequences of ending the agreement. Fixing the annual price in advance did not merge those distinct bases for relief. The Court neither found a penalty clause nor held that Eurocollect had suffered no recoverable loss. It also did not announce that every fixed-term contract could be terminated at will."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and reasoning; third recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The damages inquiry is left to the remand court",
+      "cue": "What did cassation change without finally calculating liability?",
+      "paragraphs": [
+        "On October 22, 1996, the Court quashed the Paris judgment in all provisions, restored the case and parties to their earlier position, and referred the matter to the Orléans Court of Appeal. It did not set a smaller damages award or declare that Approchim owed nothing.",
+        "Bézard presided, Grimaldi was rapporteur and Piniot was avocat général. No numerical vote or separate writing appeared. The decision addressed the consequences of the termination recognized below; the assignment’s suggestion that accepting termination may itself have been wrong is editorial explanation, not an express finding in the Court’s reasoning."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition, identifying material and assigned distinction"
+        }
+      ]
+    }
+  ]
+}

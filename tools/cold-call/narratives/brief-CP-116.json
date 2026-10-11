@@ -1,0 +1,167 @@
+{
+  "id": "brief-CP-116",
+  "briefId": "CP-116",
+  "title": "Reeves v. Sanderson Plumbing Products, Inc.",
+  "course": "Civil Procedure",
+  "citation": "530 U.S. 133 (2000)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Roger Reeves won an age-discrimination verdict after challenging his employer’s explanation for firing him. The court of appeals set that verdict aside, but the Supreme Court held that the jury could infer discrimination from the whole record, including evidence that the stated reason was false.",
+  "actors": [
+    {
+      "name": "Roger Reeves",
+      "role": "Fifty-seven-year-old supervisor dismissed after approximately forty years at Sanderson."
+    },
+    {
+      "name": "Sanderson Plumbing Products, Inc.",
+      "role": "Employer manufacturing toilet seats and covers."
+    },
+    {
+      "name": "Joe Oswalt",
+      "role": "Younger supervisor of the Hinge Room’s special production line."
+    },
+    {
+      "name": "Russell Caldwell",
+      "role": "Hinge Room department manager discharged with Reeves."
+    },
+    {
+      "name": "Powe Chesnut",
+      "role": "Manufacturing director and participant in the termination recommendation."
+    },
+    {
+      "name": "Sandra Sanderson",
+      "role": "Company president who formally decided the dismissal and Chesnut’s wife."
+    }
+  ],
+  "proceedings": "The jury found willful age discrimination, and the district court denied the employer’s Rule 50 and new-trial motions. The Fifth Circuit reversed. The Supreme Court reversed that judgment and itself held the evidence sufficient to sustain this verdict.",
+  "limits": "The Court did not make disbelief of an employer’s explanation automatically sufficient in every case. It assumed the McDonnell Douglas framework applied because the parties did not dispute it. Its evidentiary account follows review favorable to the verdict, not independent credibility findings.",
+  "briefSha256": "dd005b2b51e364089a4d0410c186fc48483e439c7aa0020fe90e5dbc7d34b284",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-116"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A longtime supervisor loses his job after an attendance audit",
+      "cue": "Who participated in the decision?",
+      "paragraphs": [
+        "Sanderson Plumbing Products, Inc. manufactured toilet seats and covers. Roger Reeves supervised the regular production line in its Hinge Room. Joe Oswalt, in his mid-thirties, supervised a special line, and forty-five-year-old Russell Caldwell managed the department. The supervisors maintained attendance information used to track work and pay.",
+        "An audit supplied the company’s stated reason for discharging Reeves and Caldwell in 1995 while retaining Oswalt. Reeves was fifty-seven and had worked there about forty years. Powe Chesnut, the manufacturing director and husband of company president Sandra Sanderson, participated in the audit and recommended dismissal with other officials. Sandra Sanderson formally made the termination decision.",
+        "Reeves offered evidence that Chesnut held substantial practical authority and was the real force behind the firing. Three employees in their thirties successively took over Reeves’s duties. Those circumstances supported both the initial discrimination showing and his contention that the formal decisionmaker’s asserted neutrality did not settle whose motives drove the result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "137–142, 151–152"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Reeves challenges the explanation and describes age-related treatment",
+      "cue": "What evidence did he offer beyond the timing of his dismissal?",
+      "paragraphs": [
+        "Reeves disputed the audit’s conclusions and his responsibility for the alleged problems. The automated clock could fail to register work, he explained, and he entered a 7 a.m. arrival when he personally saw an employee working then. Some alleged mistakes occurred while he was hospitalized. Other evidence assigned responsibility for disciplining lateness to Caldwell rather than Reeves.",
+        "Sanderson had never calculated the overpayments supposedly resulting from Reeves’s mistakes. No union grievance or employee complaint concerned his recordkeeping. The evidence also distinguished an inaccurate record from an intentionally falsified one, allowing the jury to question both the factual charge and its genuineness as the reason for discharge.",
+        "Reeves testified that Chesnut disparaged his age and said he was too old for the job. Oswalt corroborated markedly different treatment of the two supervisors. Their recorded productivity was almost identical, but the company studied only Reeves’s line for efficiency and placed him on probation. Chesnut’s involvement in that episode and the firing connected the alleged hostility to the challenged decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143–145, 151–153"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The jury finds willful discrimination, but the appellate court demands more proof",
+      "cue": "How did the case reach the Supreme Court?",
+      "paragraphs": [
+        "Reeves sued in federal district court in Mississippi in 1996 under the Age Discrimination in Employment Act (ADEA). Sanderson sought judgment as a matter of law under Federal Rule of Civil Procedure 50, asserting insufficient evidence of intentional age discrimination. The district court denied the motion and submitted the case to the jury.",
+        "The jury awarded $35,000 in compensatory damages and found the violation willful. The court entered judgment including an equal amount in liquidated damages, separately awarded front pay, and denied renewed judgment as a matter of law or a new trial.",
+        "The Fifth Circuit reversed. It acknowledged that a reasonable jury could find the explanation pretextual but required additional proof of discriminatory motivation beyond that finding and the initial discrimination case. It discounted Chesnut’s remarks because they were outside the immediate discharge context and emphasized the absence of demonstrated age bias among other decisionmakers. The Supreme Court granted review of that evidentiary approach and whether the verdict could survive the proper Rule 50 inquiry."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "138–140, 145–146, 149–154"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court separates production of an explanation from persuasion about motive",
+      "cue": "What does proof of falsity permit a jury to infer?",
+      "paragraphs": [
+        "Justice O’Connor wrote for a unanimous Court. It used McDonnell Douglas, the burden-of-production framework for circumstantial discrimination proof, while assuming its application to this ADEA case because the parties did not contest it. Reeves’s protected age, qualifications, discharge, and younger replacements established the initial showing. Sanderson then met its production burden by offering deficient recordkeeping as a legitimate explanation; the judge did not have to believe it.",
+        "That production eliminated the prima facie presumption, but the underlying evidence remained for the jury. Reeves always retained the ultimate burden to prove intentional discrimination. He could try to carry that burden by showing the explanation was unworthy of belief.",
+        "An employer ordinarily knows its reason for acting. Evidence that it supplies a false one may suggest concealment of an unlawful reason. Together with the initial circumstances, that could permit a rational discrimination inference. The Fifth Circuit had confused the rule that disbelief did not compel liability with a rule that disbelief could not help establish it. No categorical additional, independent category of evidence was required."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "141–148"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A permissible inference remains subject to the whole record",
+      "cue": "When could judgment for the employer still be proper?",
+      "paragraphs": [
+        "The Court did not make proof of pretext an automatic employee victory. A factfinder might reject the employer’s stated explanation yet conclude that another nondiscriminatory consideration actually motivated the decision.",
+        "Judgment as a matter of law could still be warranted if other evidence conclusively showed a different, lawful reason. It might also be proper where falsity evidence was weak and abundant, uncontroverted independent evidence showed no discrimination. Courts should consider the initial showing’s strength, the probative value of falsity evidence, and the other employer evidence properly credited. That case-specific inquiry preserved both the plaintiff’s persuasion burden and meaningful judicial sufficiency review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "143, 146–149"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Rule 50 requires reviewing all evidence without retrying credibility",
+      "cue": "How did that standard protect the jury’s role here?",
+      "paragraphs": [
+        "The Court reconciled formulations referring to the whole record with those emphasizing the nonmovant’s evidence. Judges review all the evidence, but may not weigh it, resolve credibility, or select among reasonable disputed inferences. They draw reasonable inferences for the party opposing judgment.",
+        "They must credit that party’s evidence and disregard evidence favoring the movant that the jury was entitled to reject. Uncontradicted, unimpeached evidence for the movant must also receive credence, at least when supplied by disinterested witnesses. Interested managers’ accounts did not become conclusive simply because they described the formal decision process. The same distinction between review and belief fit the parallel summary-judgment standard.",
+        "Reeves’s evidence met this threshold. It challenged the accuracy of the records charge, responsibility for discipline, intentional falsification, and the alleged practical consequences. Chesnut’s comments, differential treatment, selective efficiency study, and influence supported an inference that age affected the firing. The apparent neutrality of other participants and timing of the remarks were matters for jury argument, not grounds eliminating that inference. Other managers’ ages and criticism of other supervisors likewise did not conclusively disprove discrimination against Reeves."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "149–153"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Supreme Court sustains this verdict rather than ordering another sufficiency review",
+      "cue": "What did the instructions and concurrence clarify?",
+      "paragraphs": [
+        "The jury had been instructed that Reeves had to prove both that the stated reasons were not the true reasons and that age discrimination was the actual reason. It had not been told that pretext automatically established liability. On the full supporting record, a reasonable jury could find intentional discrimination, and the Fifth Circuit had substituted its own assessment of weight.",
+        "On June 12, 2000, the Supreme Court reversed the Fifth Circuit. It resolved sufficiency itself: the district court properly sent the case to the jury, and this verdict stood. It did not require a new trial or direct an inference of discrimination whenever an employer was disbelieved.",
+        "Justice Ginsburg joined fully and concurred separately. She expected cases requiring more than an initial showing and a dishonest explanation to be uncommon. In her view, the inference ordinarily remained rational unless evidence the court had to credit conclusively showed discrimination could not be the true motive. She welcomed later elaboration. That expectation about frequency was her observation, not a new categorical rule of the Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "153–155"
+        }
+      ]
+    }
+  ]
+}

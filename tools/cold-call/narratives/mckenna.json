@@ -1,0 +1,109 @@
+{
+  "id": "mckenna",
+  "briefId": "CT-NEXT-CM-0134",
+  "title": "McKenna v. Vernon",
+  "course": "Contracts",
+  "citation": "258 Pa. 18, 101 A. 919 (1917)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A theatre owner repeatedly paid his builder without obtaining the architect’s certificates the contract required. When the builder sought the remaining balance, the owner invoked the missing final certificate as a complete bar, despite the architect’s testimony approving the work.",
+  "actors": [
+    {
+      "name": "McKenna",
+      "role": "Builder seeking the unpaid theatre-construction balance."
+    },
+    {
+      "name": "Vernon",
+      "role": "Owner asserting construction defects, delay, and absence of a final certificate."
+    },
+    {
+      "name": "The architect",
+      "role": "Unnamed professional supervising construction and authorizing variations."
+    },
+    {
+      "name": "Justice Stewart",
+      "role": "Author of the Pennsylvania Supreme Court opinion."
+    }
+  ],
+  "proceedings": "A jury awarded McKenna $2,500. Vernon appealed refusals of nonsuit, binding instructions, and judgment notwithstanding the verdict, together with other objections. The Supreme Court affirmed the judgment because the course of performance supported waiver of certification.",
+  "limits": "The decision concerns repeated disregard of the same certificate condition in this contract, not automatic waiver from any isolated accommodation. The architect said no final certificate was requested; counsel’s different suggestion about withholding was not the court’s operative explanation. Possible later reinstatement was not decided.",
+  "briefSha256": "54ca46ba65c05581c77601f36dcf57741bdb1263bb489d4e45b768fc51af9286",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0134"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties enlarge a theatre project and its price",
+      "cue": "What payment terms governed the work?",
+      "paragraphs": [
+        "On January 20, 1914, McKenna agreed to construct a moving-picture theatre for Vernon at 1526–28 Cumberland Street in Philadelphia for $7,750. Attached plans and specifications governed the work under an architect’s direction. Payment required the architect’s certificates, with eighty percent of work in place payable as construction progressed and payment also contemplated after completion.",
+        "A March 24 enlargement agreement added $1,000 and extended the completion date from April 20 to May 11. The agreed total became $8,750. Vernon paid $6,000 during construction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The unpaid balance becomes a dispute over defects, delay, and certification",
+      "cue": "What did the jury and the architect contribute?",
+      "paragraphs": [
+        "McKenna sued on August 28 for $2,750, with interest from June 30. Vernon alleged inferior and substituted materials, defective workmanship requiring expensive correction, and late completion. He sought a $283.35 delay offset. The jury awarded McKenna $2,500.",
+        "On appeal, Vernon chiefly argued that no action could proceed without a final architect’s certificate of compliance. He challenged the refusals of compulsory nonsuit, binding instructions, and judgment notwithstanding the verdict, as well as evidence and charge rulings.",
+        "The architect had testified that McKenna substantially complied with the contract and that he had authorized and directed the variations. He had not issued a completion certificate because none was requested. The court relied on that explanation, distinct from counsel’s reported suggestion that the owner requested withholding. Vernon had observed construction almost daily without objecting to materials or performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "19, 21–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Repeated payments without certificates support waiver of the condition",
+      "cue": "Why could Vernon not invoke it only against the final balance?",
+      "paragraphs": [
+        "Justice Stewart found no special contractual distinction between certificates for progress payments and the certificate associated with final payment. All payments required certification, yet six of seven were made without even requesting it.",
+        "The condition protected the owner. His constant and repeated disregard of it, coupled with the architect’s substantive approval and his own observation without protest, prevented him from using the missing certificate as a complete defense to payment for honestly and substantially performed work. The reasoning depended on that actual course of performance; it did not declare certificates irrelevant in every construction contract or make one isolated exception a waiver of all future conditions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "21–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The verdict stands",
+      "cue": "What did the appellate judgment leave outside its decision?",
+      "paragraphs": [
+        "The Pennsylvania Supreme Court held that nonsuit and binding instructions had properly been refused. On the theory presented, the remaining assignments failed for the same reason, and the Court affirmed the $2,500 judgment.",
+        "The report lists Brown, Mestrezat, Stewart, Frazer, and Walling without a separate opinion or numerical division. It does not decide whether an owner could later reinstate the certification requirement after waiver; that question appears in editorial discussion, not the judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "19, 22"
+        }
+      ]
+    }
+  ]
+}

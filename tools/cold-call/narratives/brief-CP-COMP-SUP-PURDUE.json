@@ -1,0 +1,161 @@
+{
+  "id": "brief-CP-COMP-SUP-PURDUE",
+  "briefId": "CP-COMP-SUP-PURDUE",
+  "title": "Harrington v. Purdue Pharma L.P.",
+  "course": "Civil Procedure",
+  "citation": "603 U.S. 204 (2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Purdue’s bankruptcy plan proposed exchanging Sackler contributions for broad releases of victims’ claims against family members who had not filed bankruptcy. The Supreme Court held that Chapter 11 lacked authority to impose those releases without consent, despite strong voting support and competing predictions about recovery.",
+  "actors": [
+    {
+      "name": "Purdue Pharma",
+      "role": "OxyContin company seeking Chapter 11 reorganization"
+    },
+    {
+      "name": "Sackler family members",
+      "role": "Nondebtor owners seeking releases in exchange for contributions"
+    },
+    {
+      "name": "Opioid victims and other creditors",
+      "role": "Claimants divided over the proposed plan"
+    },
+    {
+      "name": "United States Trustee",
+      "role": "Objector challenging statutory authority"
+    },
+    {
+      "name": "Justices Gorsuch and Kavanaugh",
+      "role": "Majority author and dissent author"
+    }
+  ],
+  "proceedings": "The bankruptcy court confirmed the plan; the district court vacated it. A divided Second Circuit revived a modified plan after increased contributions. The Supreme Court stayed, reviewed, reversed, and remanded June 27, 2024.",
+  "limits": "The decision addressed nonconsensual nondebtor releases, not tort liability or later settlement developments. It reserved consent’s meaning, consensual or fully satisfying releases, and already substantially consummated plans. Proposed contributions were not payments awarded here.",
+  "briefSha256": "329bfa7f09b0d063219f4797edb93c06d411ecec03e4fb49cd6513a2c70dc2d3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-SUP-PURDUE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Opioid litigation followed Purdue’s marketing and distributions",
+      "cue": "Introduce the financial history behind bankruptcy.",
+      "paragraphs": [
+        "Purdue marketed OxyContin’s time-release formula as reducing addiction risks and expanded promotion beyond traditional opioid applications, earning about $34 billion between 1996 and 2019. Sackler family members owned and controlled the company and participated in business and marketing decisions. A Purdue affiliate pleaded guilty to felony misbranding in 2007, and thousands of civil suits followed, including against family members. The majority recounted approximately $11 billion in distributions to them from 2008 to 2016, draining roughly seventy-five percent of Purdue’s assets. Those were historical figures, not damages awarded in this case.",
+        "Purdue entered Chapter 11 in 2019; the Sacklers did not. They initially offered $4.325 billion over a decade to settle estate claims and obtain release and permanent injunction of victims’ current and future opioid-related claims. The protection reached negligence, fraud, and willful misconduct claims against numerous family members and controlled entities without every claimant’s consent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "209–212"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The plan won most votes but not universal consent",
+      "cue": "Trace confirmation, modification, and review.",
+      "paragraphs": [
+        "The plan would convert Purdue to a public-benefit company and provide individual base recoveries of $3,500 to $48,000 before fees and expenses, with larger amounts paid over years. Most returned ballots favored it, but fewer than twenty percent of eligible creditors voted and thousands objected. The United States Trustee, some governments, and victims opposed.",
+        "The bankruptcy court confirmed. The district court vacated because the Code did not authorize extinguishing claims against nondebtors without consent. During appeal, the Sacklers increased the proposed contribution by $1.175 to $1.675 billion, reaching approximately $5.5–$6 billion. Eight objecting states and the District of Columbia withdrew objections; others remained. A divided Second Circuit revived the modified plan, with Judge Wesley separately criticizing statutory authority.",
+        "The Supreme Court stayed the decision and treated the stay request as a certiorari petition to resolve the circuit division. The enhanced contribution remained a proposal, not a completed payment or Supreme Court award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212–214 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The catchall did not authorize a radically different discharge",
+      "cue": "Explain Gorsuch’s textual holding.",
+      "paragraphs": [
+        "Justice Gorsuch’s majority contrasted ordinary debtor submission of virtually all assets for a limited discharge with Sacklers seeking comparable protection without bankruptcy or anything close to all assets. Section 1123(b)’s first five optional-plan paragraphs addressed debtor claims, property, contracts, and creditor relations. Paragraph six permitted other appropriate provisions consistent with the Code.",
+        "Applying ejusdem generis, which reads residual language with the preceding category, the majority found other linked the catchall to those provisions. It added powers but not the fundamentally different power to extinguish victims’ independent nondebtor claims without consent. Appropriate did not mean anything not expressly forbidden. Section 105(a)’s authority to carry out Code provisions could not create that missing substantive power.",
+        "Paragraph three’s authority to settle derivative claims was no answer. Such a claim substantively belonged to the corporation or estate even if someone else asserted it. A victim’s direct Sackler claim did not become estate property because Purdue’s conduct mattered. Bankruptcy’s collective purpose did not dissolve textual limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "214–221 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The rest of the Code reinforced the limitation",
+      "cue": "Explain statutory protections and history.",
+      "paragraphs": [
+        "Ordinary discharge reserved benefits for debtors surrendering assets and retained protections involving fraud, willful injury, and jury rights for personal-injury and wrongful-death claims. The proposed releases supplied more protection for less submission. Congress expressly authorized certain third-party injunctions for asbestos bankruptcy in section 524(g), demonstrating how to provide such power. The majority did not read that enactment as impairing authority genuinely present elsewhere.",
+        "Pre-Code practice likewise generally confined discharge to debtors surrendering property. The majority regarded the text as clear and used history to confirm it. Divided modern lower-court practice did not establish a settled contrary rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "221–224 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Predicted recovery consequences did not settle statutory power",
+      "cue": "Preserve the majority’s reservations.",
+      "paragraphs": [
+        "Proponents predicted loss of the releases would destroy victim recovery. The Trustee argued continuing exposure could produce better consensual terms and warned against shielding mass-tort nondebtors through another’s bankruptcy. The majority left those policy choices to Congress instead of selecting an interpretation based on predicted returns. Competing indemnification arguments, including good-faith conditions and disallowance or subordination, did not result in a universal ruling on indemnity claims.",
+        "The decision left consensual third-party releases undisturbed without defining consent, did not address plans fully satisfying nondebtor claims, and did not decide whether effective, substantially consummated plans must be unwound. This plan had been stayed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "224–227 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Kavanaugh defended discretion to preserve collective recovery",
+      "cue": "Give the dissent’s safeguards and application.",
+      "paragraphs": [
+        "Justice Kavanaugh, joined by Chief Justice Roberts and Justices Sotomayor and Kagan, would uphold the plan under a broad contextual meaning of appropriate. Bankruptcy prevented races to exhaust assets, and nondebtor releases could preserve or enlarge a shared estate where indemnification, insurance, and settlement contributions intertwined interests. He cited decades of mass-tort practice involving asbestos, Dalkon Shield, breast implants, the Boy Scouts, and religious entities.",
+        "He defended seven lower-court safeguards: close debtor relationship, intertwined claims, tailored scope, reorganization necessity, substantial contribution, fair payments, and overwhelming creditor support. Those remained the dissent’s proposed approach, not the Court’s adopted test.",
+        "Here he stressed Sackler indemnification, Purdue’s roughly $1.8 billion estate, a $2 billion government superpriority claim, and contributions enlarging total assets to about $7 billion. Bankruptcy findings described serious litigation and collection obstacles and the plan as the best fair-recovery prospect. More than ninety-five percent of voting victims and creditors favored it, and all states ultimately agreed. He did not thereby establish that no other recovery was possible."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "227–256 & dissent nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The dissent read the surrounding provisions more broadly",
+      "cue": "State its textual response and the actual disposition.",
+      "paragraphs": [
+        "Kavanaugh argued paragraph three already affected derivative creditor claims by settling estate actions against nondebtors, so paragraph six could reach direct claims threatening the estate. Consensual and full-payment releases, exculpation, and Energy Resources, a precedent recognizing plan-related authority, supported breadth. Protecting the estate and fair recovery supplied the relevant common purpose.",
+        "He invoked asbestos savings language and read section 524(e) to say debtor discharge did not automatically release others, not to prohibit an additional negotiated release. A limited release differed from complete bankruptcy discharge. Modern practice and related-to jurisdiction, including stays of third-party litigation, were more useful than superseded early practice. He predicted losses, delay, and renewed races and urged Congress to act.",
+        "On June 27, 2024, Gorsuch, joined by Thomas, Alito, Barrett, and Jackson, prevailed five to four. The Court reversed the Second Circuit and remanded. It imposed no tort judgment on the Sacklers, fixed no replacement payment, and decided no final lawful reorganization."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "256–278 & dissent nn.5–8; majority 227"
+        }
+      ]
+    }
+  ]
+}

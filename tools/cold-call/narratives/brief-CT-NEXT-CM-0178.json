@@ -1,0 +1,104 @@
+{
+  "id": "brief-CT-NEXT-CM-0178",
+  "briefId": "CT-NEXT-CM-0178",
+  "title": "Young v. City of Chicopee",
+  "course": "Contracts",
+  "citation": "186 Mass. 518, 72 N.E. 63 (1904)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A bridge fire excuses further repairs, but the contractor bears the loss of unused lumber even though the contract required him to stock it at the job site.",
+  "actors": [
+    {
+      "name": "Young",
+      "role": "Contractor repairing the wooden highway bridge and seeking payment after fire."
+    },
+    {
+      "name": "City of Chicopee",
+      "role": "Owner accepting payment liability for incorporated work but contesting unused lumber."
+    }
+  ],
+  "proceedings": [
+    "The jury awarded Young $1,312.43 after the city’s requested exclusion of unused lumber was refused.",
+    "The Supreme Judicial Court sustained the city’s exceptions and directed the smaller stipulated recovery."
+  ],
+  "limits": "The report gives $584.77 in its procedural alternative but $584 in its final judicial sentence; both are preserved. The ruling concerns repair of an existing structure, not all construction or reliance-loss claims.",
+  "briefSha256": "7739df75e57058cc935cb85d2c5ca504d9c55a3edca56dfcc4ffab2f51596180",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0178"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Young repairs the bridge and stocks lumber ahead of the work",
+      "cue": "How did the contract measure payment?",
+      "paragraphs": [
+        "Young contracted in writing with the City of Chicopee to repair a wooden highway bridge across the Connecticut River. Decayed timber and woodwork were to be replaced with sound material securely fastened into the carriageway. Payment covered labor and materials at a specified amount per thousand feet of lumber, measured after installation and certified by engineers.",
+        "To limit disruption to travelers, the contract required material for at least half the repairs to be at the job before work began. Young placed lumber along the bridge and riverbanks. During performance, a fire without either party’s fault destroyed the bridge and some lumber not yet incorporated, making completion impossible."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Arrangement and destruction;186 Mass.518–519"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The city accepts payment for completed work but contests unused stock",
+      "cue": "What did the jury’s award include?",
+      "paragraphs": [
+        "Young sought payment for labor and materials. The city accepted liability for work performed and material incorporated into the bridge but denied liability for unused lumber destroyed nearby. The Superior Court refused its requested ruling excluding that loss, and the jury returned $1,312.43 for Young.",
+        "The city’s bill of exceptions provided that the verdict would stand if unused lumber was compensable; otherwise Young would receive a smaller agreed amount. The dispute on review concerned that preparatory stock, not whether all payment for incorporated work vanished with the bridge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Claim, trial and stipulated alternative;186 Mass.518–519"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Hammond distinguishes work identified with the bridge from the contractor’s inventory",
+      "cue": "Why did the advance-stocking requirement not shift the risk?",
+      "paragraphs": [
+        "Justice Hammond held that destruction discharged further performance of the entire repair contract while allowing recovery for qualifying partial performance. The owner’s obligation covered work sufficiently identified with the existing structure that it would have benefited the owner in the contemplated way absent destruction. Installed labor and materials qualified; lumber positioned for later use did not.",
+        "Young retained title, care and control of the unused stock and could exchange it for other lumber. The city could not appropriate it against his will if he refused to continue; had it survived, it would still have belonged to him. Advance stocking accelerated repairs without transferring ownership or insuring inventory. The payment formula likewise measured installation, not accumulation.",
+        "The court discussed both an implied undertaking that the structure would survive and an implied obligation to pay for proper work done at the owner’s request. It did not make the result depend on choosing one theoretical explanation. Even though the fire erased the installed work’s physical benefit, the city owed for qualifying performance without becoming insurer of every preparatory expense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Recovery boundary and alternative explanations;186 Mass.519–520"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The larger verdict is set aside but Young retains a smaller judgment",
+      "cue": "Why are two different smaller figures preserved?",
+      "paragraphs": [
+        "On October 18, 1904, the Supreme Judicial Court sustained the city’s exceptions, set aside the verdict and directed entry of the smaller stipulated judgment for Young. The report’s procedural introduction states that alternative as $584.77; the final judicial sentence states $584 damages. The source contains that internal difference.",
+        "Hammond wrote the only reported opinion, with no separate writing or numerical vote stated. The result did not deny Young every recovery. It excluded the unused-lumber loss while preserving payment for the labor and materials properly incorporated before the fire."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition and amount discrepancy;186 Mass.518,520"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "id": "brief-CP-140",
+  "briefId": "CP-140",
+  "title": "Cromwell v. County of Sac",
+  "course": "Civil Procedure",
+  "citation": "94 U.S. (4 Otto) 351 (reported 1876)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A failed suit on county interest coupons established defects in the bonds’ issuance. When the same beneficial owner later sued on different instruments, the Supreme Court had to decide whether that loss also barred proof that he bought these particular obligations for value before maturity.",
+  "actors": [
+    {
+      "name": "Cromwell",
+      "role": "Holder suing on four county bonds and four interest coupons."
+    },
+    {
+      "name": "County of Sac, Iowa",
+      "role": "Issuer defending on the prior judgment."
+    },
+    {
+      "name": "Samuel C. Smith",
+      "role": "Named plaintiff in the earlier coupon suit, allegedly acting for Cromwell’s sole benefit."
+    },
+    {
+      "name": "Meserey",
+      "role": "Courthouse contractor who received the bonds."
+    },
+    {
+      "name": "Justice Field",
+      "role": "Majority author."
+    },
+    {
+      "name": "Justice Clifford",
+      "role": "Sole reported dissenter."
+    }
+  ],
+  "proceedings": "The prior Smith judgment for the county was affirmed and remained final. In Cromwell’s later action, the trial court excluded proof of value based on that judgment. The Supreme Court reversed and remanded for a new trial without awarding payment.",
+  "limits": "The report gives the decision as reported in 1876 without precise argument or decision dates. The original issuance defect and first judgment remained binding. The treatment of these negotiable instruments as distinct demands does not supply a universal later-law definition of separate claims.",
+  "briefSha256": "0e265f2e7e06e330fe4b78aad11304c6bcbe29c584772359bb31c9cc6e06fecf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-140"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Courthouse bonds are issued, but the courthouse is never built",
+      "cue": "What defect affected the obligations?",
+      "paragraphs": [
+        "Voters in Sac County, Iowa, authorized $10,000 in bonds for a courthouse. The county judge issued them to the contractor, Meserey. Immediately upon receiving them, Meserey gave one bond to the judge as a gratuity. The courthouse was never built under the agreement.",
+        "Those circumstances were later held sufficient to establish fraud and illegality at issuance. A holder seeking payment therefore had to show protected acquisition for value before maturity rather than rely solely on possession of the instruments.",
+        "The bonds issued in 1860 were payable to bearer in New York and bore annual interest of ten percent. Interest coupons represented separate promises to pay interest and could be sued upon individually."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352, 359–362"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The first holder’s suit fails for lack of proof of value",
+      "cue": "What remained final after that litigation?",
+      "paragraphs": [
+        "Samuel C. Smith first sued the county on twenty-five earlier-maturing coupons. The court made findings concerning the courthouse transaction and the claimant’s failure to prove payment of value. It entered judgment for the county, and the Supreme Court affirmed in that proceeding.",
+        "That judgment became final. Cromwell’s later action was not a motion to reopen the lost coupon claims. Instead, he sued on four $1,000 bonds payable in successive years from 1868 through 1871 and four $100 coupons—different demands from the instruments in Smith’s suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352, 359–362"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The county connects Cromwell to the earlier suit and invokes its judgment",
+      "cue": "Why was his new evidence excluded?",
+      "paragraphs": [
+        "In the later federal Circuit Court action in Iowa, the county introduced the Smith judgment and evidence that Smith had litigated solely for Cromwell’s use and benefit. Cromwell offered proof that he acquired the bonds and coupons now in suit for value before maturity.",
+        "The trial court treated the earlier judgment as conclusive and excluded that offer. It again entered judgment for the county. Cromwell sought Supreme Court review by writ of error, raising both the scope of the prior adjudication and the use of evidence identifying him as the first suit’s beneficial litigant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352, 359–360"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority separates a repeated demand from a different demand sharing an issue",
+      "cue": "How far does the first judgment reach?",
+      "paragraphs": [
+        "Justice Field distinguished two effects often combined under res judicata. A final merits judgment on the same claim settled the whole demand, including grounds of recovery or defense available but omitted. A party generally could not reopen a judgment on a promissory note by later presenting payment, forgery, or lack of consideration.",
+        "When a later suit involved a different claim, only matters actually litigated and determined as a basis of the first judgment were conclusive. Potential relevance to earlier pleadings was insufficient. Otherwise the judgment would settle hypothetical controversies the first court never resolved.",
+        "The opinion’s examples illustrated the difference. A judgment concerning one trespass barred another recovery for that same trespass. A title finding necessary to that judgment might also settle title in a second suit over a different trespass. Conversely, a general verdict resting on several possible counts might not settle the validity of a contract appearing in only one. Evidence of what was actually submitted and decided could therefore be necessary.",
+        "Practical considerations supported the narrower effect across different demands. A small initial claim, difficult evidence, expense, or personal circumstances might discourage a complete contest. Those choices did not ordinarily determine every omitted issue for later distinct litigation. Finality still protected the first demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352–358"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The issuance defect remains established, but acquisition of each instrument differs",
+      "cue": "Why could Cromwell prove value this time?",
+      "paragraphs": [
+        "The first judgment established the fraudulent or illegal issuance and the need for protected holder status. That determination affected the series and could not be relitigated. Cromwell was not free to prove the courthouse transaction regular.",
+        "But the earlier failure of proof concerned the specific coupons then sued upon. Payment of value for another bond or coupon was a different fact. Failure to prove acquisition for value of the first instruments did not even presumptively establish nonpayment for all others.",
+        "The county obligations were negotiable, issued under voter authorization, and carried the relevant recitals. A bona fide holder who acquired these particular instruments for value before maturity could enforce them despite the original defect. Excluding that proof treated an unadjudicated question as settled."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359–360"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Cromwell can be the same beneficial litigant without every question being precluded",
+      "cue": "Why was the county’s identity evidence admissible?",
+      "paragraphs": [
+        "The majority did not reach its result by treating Cromwell as a stranger to Smith’s action. The county could prove that Smith had sued for his sole benefit. An earlier finding that Smith held and owned the coupons established legal title sufficient to maintain that suit, but was compatible with Cromwell holding the equitable or beneficial interest.",
+        "Thus the real-party connection and the reach of the adjudication were separate. Establishing that Cromwell had benefited from the first litigation did not enlarge the issues it actually decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "360"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Clifford regards both suits as the same essential title controversy",
+      "cue": "Why did the dissent think the later proof should be barred?",
+      "paragraphs": [
+        "Justice Clifford first stated that the original evidence of irregularity should not have overcome the usual presumption that a bearer acquired negotiable obligations for value. Nevertheless, the adverse judgment remained unreversed and binding. He did not suggest ignoring finality simply because he considered the earlier result wrong.",
+        "Clifford viewed the bonds and coupons as dependent on the same title and underlying transaction. He collected decisions in which a finding about title, a common defense, or a transaction controlled later litigation concerning another instrument or property item. The second suit, in his analysis, presented the same essential controversy over enforceable title despite seeking another portion of the debt.",
+        "The first claimant had alleged acquisition for value and could have proved it. A mistaken strategy about the burden should have been addressed by objection or a new-trial request. Reserving proof for successive suits threatened repeated litigation. The majority instead regarded value paid for each separate instrument as a distinct fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "360–371 (Clifford dissent); 359–360 (majority)"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "A new trial permits proof without reopening the first loss",
+      "cue": "What did the Supreme Court award?",
+      "paragraphs": [
+        "The Court reversed the county’s judgment in this second action and remanded for a new trial. Cromwell gained an opportunity to prove the facts needed to enforce the instruments, not a Supreme Court money judgment.",
+        "The Smith judgment remained undisturbed, and fraud or illegality in the original issuance remained conclusively established. The result illustrated the distinction between a bar on repeating the same claim and the narrower preclusion of actually decided issues in another claim. It did not declare that every obligation from one transaction must be treated as a separate claim under all later procedural rules."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359–360"
+        }
+      ]
+    }
+  ]
+}

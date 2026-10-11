@@ -1,0 +1,130 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-109",
+  "briefId": "CP-COMP-CB-CAP-109",
+  "title": "Turner v. Rogers",
+  "course": "Civil Procedure",
+  "citation": "564 U.S. 431 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A father facing civil contempt had no automatic right to appointed counsel in this setting, yet his imprisonment violated due process because neither counsel nor adequate substitute safeguards protected the ability-to-pay decision.",
+  "actors": [
+    {
+      "name": "Michael Turner",
+      "role": "Parent imprisoned for unpaid child support"
+    },
+    {
+      "name": "Rebecca Rogers",
+      "role": "Support recipient who appeared without counsel"
+    },
+    {
+      "name": "Larry Price",
+      "role": "Rogers’s father, later custodian and respondent"
+    }
+  ],
+  "proceedings": [
+    "Family court: imposed twelve months’ coercive confinement without express ability-to-pay finding.",
+    "South Carolina Supreme Court: rejected automatic appointed-counsel claim.",
+    "United States Supreme Court: vacated and remanded 5–4 because safeguards were inadequate."
+  ],
+  "limits": [
+    "The Court did not find Turner actually unable to pay or erase support obligations. Government-creditor and unusually complex proceedings were expressly reserved. Dissenting Justices joined different portions of Thomas’s opinion."
+  ],
+  "briefSha256": "ac0044d3bf0b6566caa886f24054334217a2598f503db018a53ffdeb196a0def",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-109"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Repeated nonpayment leads to escalating contempt confinement",
+      "cue": "Introduce the support obligation before the challenged hearing.",
+      "paragraphs": [
+        "In June 2003, a South Carolina family court ordered Michael Turner to pay Rebecca Rogers $51.73 weekly in child support. Rogers’s father, Larry Price, later held custody and also became a Supreme Court respondent. Over three years, Turner repeatedly defaulted. Four contempt findings produced ninety-day sentences, but he paid before confinement or after a few days. On the fifth, he did not pay and served six months.",
+        "Arrears continued after release. A March 2006 show-cause order, delayed when Turner failed to appear, culminated in a January 3, 2008 hearing. Both Turner and Rogers were unrepresented. A clerk reported $5,728.76 due. Asked if he wished to speak, Turner discussed drugs, intermittent work and payments, a broken back, and disability applications, apologized, and requested another chance.",
+        "After briefly hearing Rogers, the judge found willful contempt, imposed twelve months in jail, allowed release only after reducing arrears to zero, and placed a lien on benefits. He did not expressly find ability to pay, investigate finances after Turner’s wife voluntarily submitted a disability application, or select the standardized form’s alternatives about employment and ability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "564 U.S. at 436–438"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appeal remains live after Turner serves the sentence",
+      "cue": "Explain both the state ruling and the repetition exception.",
+      "paragraphs": [
+        "With pro bono counsel, Turner appealed while confined, claiming a constitutional right to counsel. After he served the sentence, the South Carolina Supreme Court rejected the claim because civil contempt did not require every criminal safeguard. The United States Supreme Court granted review amid divided lower courts.",
+        "Respondents asserted mootness because confinement ended without alleged collateral consequences. The Court instead applied capable-of-repetition-yet-evading-review principles. At most a year was too short for the full review path, and repetition was likely for Turner himself: within months he faced another proceeding, served six more months, and retained large arrears with another hearing scheduled. This was more than a possibility that someone else might encounter the issue. Failure to stay a federal contempt order differed from state proceedings not readily subject to immediate Supreme Court review. Justice Thomas agreed the case was not moot."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "564 U.S. at 437–441, 450 n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Coercive civil confinement makes accurate ability assessment essential",
+      "cue": "Explain why the Court declines an automatic counsel rule.",
+      "paragraphs": [
+        "Justice Breyer’s five-Justice majority distinguished Sixth Amendment criminal counsel from civil contempt. Civil confinement coerced compliance and ended when contempt was purged. A person clearly unable to comply could not properly be imprisoned on that rationale; accuracy preserved liberty and the civil-criminal distinction.",
+        "Earlier cases did not establish counsel whenever jail was possible. Lassiter’s liberty discussion identified a setting where rights had been recognized, not a universal rule. Gagnon allowed case-specific counsel decisions in probation revocation, and the controlling Vitek position allowed suitable professional help rather than invariably an attorney. The Court applied Mathews balancing: private liberty, risk and value of safeguards, and countervailing interests.",
+        "Freedom from jail weighed heavily, but ability to pay often permitted straightforward financial inquiry, as courts already made to determine indigence for counsel. Rogers was also unrepresented; giving only the obligor a lawyer might add imbalance, delay, and formality while children and custodial families needed support. These considerations did not mean every financial dispute was simple or counsel could never be required."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "564 U.S. at 441–447"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Alternative safeguards could suffice, but Turner did not receive them",
+      "cue": "Connect the limited no-automatic-counsel holding to his successful appeal.",
+      "paragraphs": [
+        "The United States proposed coordinated protections: notice that ability to pay was critical, a form or equivalent method obtaining financial information, opportunity to answer financial statements and questions at the hearing, and an express ability-to-pay finding. Together, these or equivalent safeguards and appropriate nonlegal assistance could materially reduce wrongful confinement without an automatic-lawyer requirement.",
+        "The holding concerned an unrepresented custodial parent or other support custodian on the opposing side, with adequate alternatives, even when up to a year’s imprisonment was possible. It left open collection of government reimbursement, where government would likely have counsel or a competent representative, and unusually complex matters requiring trained advocacy.",
+        "Turner nevertheless prevailed. He lacked counsel and these substitutes: no clear issue notice, no financial form or equivalent procedure, and no express finding before jail. The voluntarily supplied disability application did not establish adequate process. The Court did not decide his actual resources or eliminate the support duty. It vacated the state Supreme Court judgment and remanded on June 20, 2011."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "564 U.S. at 447–449"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent disputes reaching a new safeguards theory",
+      "cue": "Preserve the different joinders and the competing enforcement concerns.",
+      "paragraphs": [
+        "Justice Thomas would affirm. Justice Scalia alone joined his Part I–A original-understanding and historical rejection of appointed civil-contempt counsel. Chief Justice Roberts and Justice Alito joined them in Part I–B’s conclusion that modern precedent likewise did not categorically require counsel in every civil proceeding threatening confinement.",
+        "All four joined Part II objecting to the alternative-safeguards ground. Turner had litigated counsel, while the United States as amicus introduced a different procedural theory unaddressed below, without a developed record or fully tested boundaries. Thomas noted a financial document had reached the judge and questioned whether the issue was merely a hearing-specific factual assessment. Adopting an amicus argument on an existing issue differed from vacating on a new constitutional basis.",
+        "Only Scalia joined Part III, criticizing Mathews balancing as insufficiently attentive to recipients and children. Thomas emphasized enforcement problems and confinement threats’ effectiveness, illustrated by Turner’s earlier payments, while leaving policy choices to lawmakers. The majority had expressly considered those family interests; the dispute was whether its treatment was adequate.",
+        "Breyer’s opinion was joined by Kennedy, Ginsburg, Sotomayor, and Kagan. The resulting five-to-four judgment combined rejection of an automatic counsel entitlement with relief from this inadequately safeguarded incarceration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "564 U.S. at 450–461 & dissent nn.1–6; majority 447"
+        }
+      ]
+    }
+  ]
+}

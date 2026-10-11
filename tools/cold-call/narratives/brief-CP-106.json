@@ -1,0 +1,126 @@
+{
+  "id": "brief-CP-106",
+  "briefId": "CP-106",
+  "title": "In re Peterson (Ex parte Peterson)",
+  "course": "Civil Procedure",
+  "citation": "253 U.S. 300 (1920)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Hundreds of disputed coal-account entries justified a court-appointed auditor to prepare tentative findings for a jury, although the order gave the judge excessive discretion over who would bear the expense.",
+  "actors": [
+    {
+      "name": "Walter Peterson",
+      "role": "Receiver of Interstate Coal Company and plaintiff seeking an unpaid coal balance"
+    },
+    {
+      "name": "Arthur Sidney Davison",
+      "role": "Defendant asserting omitted credits and counterclaiming for nonperformance"
+    },
+    {
+      "name": "District Judge Augustus N. Hand",
+      "role": "Judge appointing the auditor and respondent to the writ petition"
+    },
+    {
+      "name": "Justice Brandeis",
+      "role": "Author of the Supreme Court opinion"
+    }
+  ],
+  "proceedings": "District judge appointed auditor over plaintiff’s objection; Supreme Court entertained petition for mandamus or prohibition and denied it, approving assistance while identifying a correctable error in cost allocation.",
+  "limits": "This 1920 decision predates the Federal Rules. The report’s prima facie effect was assumed because the order did not specify it. Final jury authority remained intact. Three Justices dissented without published reasons.",
+  "briefSha256": "5c70bdadee15e5aca3c9147c83f2f4513711b6792181fd8687f11084930e9d14",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-106"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The coal dispute presented hundreds of interlocking account entries",
+      "cue": "Introduce the debt, counterclaim, and reason for preliminary help.",
+      "paragraphs": [
+        "Walter Peterson, receiver of the Interstate Coal Company, sued Arthur Sidney Davison for $21,014.43 for coal sold and delivered. Davison substantially admitted the listed transactions but said Peterson omitted deliveries, payments, and allowances. He counterclaimed for $9,999.10 for unperformed coal contracts.",
+        "Peterson’s account contained 298 items and Davison’s 402. They involved 123 deliveries on ninety-one days over eleven months, varying prices, penalties, commissions, cash discounts, freight allowances, and uncredited payments. At Davison’s request and over Peterson’s objection, District Judge Augustus N. Hand appointed an auditor to hear witnesses, examine accounts, and identify conceded and contested entries. The auditor could express tentative views on disputed deductions and net amounts.",
+        "The order expressly reserved every ultimate factual issue for the jury. It did not define the report’s evidentiary effect; the Supreme Court later assumed that, if accepted by the trial court, it would be admissible as prima facie evidence. The order also permitted the judge to charge auditor and stenographer expenses to either or both parties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "253 U.S. at 303–307"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Peterson sought an extraordinary writ before final trial",
+      "cue": "Explain why the Court considered the jury objection immediately.",
+      "paragraphs": [
+        "Peterson petitioned the Supreme Court for mandamus or prohibition to stop the audit and restore the action to the ordinary trial calendar. On January 12, 1920, the Court granted leave to file and ordered a response. No jury verdict or final money judgment yet existed. Hand was the respondent because the writ would control case management, not because he owed the coal debt.",
+        "The respondent argued that the district court had jurisdiction and objections could await review after judgment. The Court nevertheless addressed the claimed loss of jury trial immediately: if the preliminary process itself unlawfully displaced that right, compelling participation could cause avoidable expense and difficulty. Justice Brandeis then separated appointment power, jury safeguards, and costs."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 303–306"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Tentative assistance did not displace the jury’s ultimate responsibility",
+      "cue": "Describe the retained procedural rights and the historical analysis.",
+      "paragraphs": [
+        "The hundreds of changing charges and allowances justified assistance if such assistance was lawful. An auditor could isolate genuine disagreements and their supporting facts, exposing mistakes, misunderstandings, and abandoned positions before the jury trial. Even assessment of conflicting testimony remained preliminary. The parties could present their own evidence, examine and cross-examine witnesses, and challenge the report; the jury retained final determination.",
+        "The Court acknowledged that this precise auditor practice was not established in England or the colonies before the Constitution. Earlier auditors had different roles, and the closest model developed in Massachusetts after 1818. But the Seventh Amendment protected jury trial without freezing every rule of pleading, evidence, or preparation. New methods could clarify disputes if they did not obstruct the right or intrude on final factual authority.",
+        "Prima facie effect also did not make the report conclusive. A supervised court officer’s findings could receive rebuttable evidentiary status, and the report could be used only to the extent the court accepted it. The report might suffice if unchallenged, but neither acceptance nor evidentiary use transferred ultimate factfinding to an independent substitute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 306–312"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Inherent authority supplied the power absent an express statute",
+      "cue": "Identify the boundary between assistance and compulsory final decision.",
+      "paragraphs": [
+        "No statute expressly authorized the appointment. The Court separately located inherent authority to obtain appropriate help necessary to perform judicial duties unless legislation said otherwise. Courts long used masters, examiners, and similar officers to organize complex evidence in equity. Voluminous accounts could require comparable assistance in actions at law; institutional power did not depend on that historical division.",
+        "The limit was substantive. A compulsory reference finally deciding disputed facts would interfere with jury trial. This order instead sought clarification and tentative findings under judicial supervision, preserving judge and jury responsibilities. The absence of consent therefore did not invalidate this appointment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 312–314"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Taxable expense was authorized, but unrestricted allocation was not",
+      "cue": "Conclude with the identified error and denial of the writs.",
+      "paragraphs": [
+        "Congress supplied no public funds for auditor or stenographer. Historical practice allowed necessary court-ordered litigation expenditures to be taxed as costs, unlike expenses incurred only for one party’s convenience. No applicable law excluded these fees. That made assistance workable without yet deciding who would pay.",
+        "In a federal action at law, however, the prevailing party ordinarily had a right to taxable costs, unlike the flexible allocation customary in equity. The clause letting the judge charge either or both parties at unrestricted discretion was erroneous. Peterson could seek modification in district court or review after final judgment; that ordinary correctable error did not require stopping the audit through an extraordinary writ.",
+        "On June 1, 1920, the Supreme Court denied mandamus and prohibition. The appointment and duties remained authorized, but denial did not approve every clause of the order or decide the coal balance. Justices McKenna, Pitney, and McReynolds dissented without written explanations, so the report supplies no basis to attribute a particular objection to them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 314–319"
+        }
+      ]
+    }
+  ]
+}

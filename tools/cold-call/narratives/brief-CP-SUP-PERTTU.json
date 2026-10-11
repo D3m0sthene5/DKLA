@@ -1,0 +1,159 @@
+{
+  "id": "brief-CP-SUP-PERTTU",
+  "briefId": "CP-SUP-PERTTU",
+  "title": "Perttu v. Richards",
+  "course": "Civil Procedure",
+  "citation": "605 U.S. 460 (2025)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A prisoner alleged that an employee both abused him and destroyed grievances, making the same conduct relevant to retaliation liability and exhaustion. The Supreme Court interpreted the prison-litigation statute to preserve a jury’s decision on those intertwined facts without reaching the broader constitutional question.",
+  "actors": [
+    {
+      "name": "Kyle Richards",
+      "role": "Michigan prisoner bringing constitutional damages claims"
+    },
+    {
+      "name": "Thomas Perttu",
+      "role": "Prison employee denying abuse-related grievance interference"
+    },
+    {
+      "name": "Chief Justice Roberts",
+      "role": "Author of the five-Justice majority"
+    },
+    {
+      "name": "Justice Barrett",
+      "role": "Dissenter joined by Thomas, Alito, and Kavanaugh"
+    }
+  ],
+  "proceedings": "A magistrate held an exhaustion hearing and recommended dismissal; the district court adopted it. The Sixth Circuit reversed on a Seventh Amendment rationale. The Supreme Court affirmed five to four on statutory grounds.",
+  "limits": "The Court decided no allegation’s truth, actual exhaustion, or damages. It reserved a jury right for nonintertwined exhaustion disputes, constitutionality of an express contrary command, and the disputed reach of Michigan’s grievance policies.",
+  "briefSha256": "dcbc094c181eec8d57a15dad64d47f0fcb02f9a3bd1686ad6e7926e9b056cc77",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-PERTTU"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The complaint alleged both abuse and suppression of grievances",
+      "cue": "Show why merits and exhaustion overlapped.",
+      "paragraphs": [
+        "In 2020, Michigan prisoner Kyle Richards and two other prisoners sued prison employee Thomas Perttu under 42 U.S.C. section 1983. They alleged repeated sexual abuse and interference with reporting: intercepting, tearing up, and discarding grievance forms, death threats for further filings, and retaliation through administrative segregation and other measures.",
+        "Richards’s First Amendment damages claim included retaliation against grievance activity. Whether Perttu destroyed forms and retaliated thus mattered both to liability and whether administrative remedies were available. The parties agreed those factual issues were intertwined. The Supreme Court later considered their proper decisionmaker, not their truth."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A judicial credibility finding ended the suit before a jury",
+      "cue": "Trace the evidentiary hearing and appeal.",
+      "paragraphs": [
+        "Perttu sought summary judgment for failure to exhaust under the Prison Litigation Reform Act, or PLRA. A grievance coordinator reported no relevant sexual-abuse grievances in 2019 or 2020. Plaintiffs answered that Perttu’s interference explained the absence. A magistrate found a genuine dispute and held a November 2021 videoconference hearing.",
+        "Representing himself, Richards questioned witnesses describing destruction and retaliation. Perttu denied both. The magistrate discredited plaintiffs’ witnesses as substantially guided by Richards’s questions or conclusory and recommended dismissal without prejudice. The district court adopted that recommendation.",
+        "On appeal, Richards argued the judge had decided substantive facts reserved for a jury. After appointing counsel and obtaining briefing, the Sixth Circuit reversed. It retained ordinary judicial determination of exhaustion facts but recognized a Seventh Amendment exception where deciding exhaustion also decided a genuine material merits dispute. That conflicted with the Seventh Circuit’s Pavey v. Conley approach, and the Supreme Court granted review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Statutory silence left ordinary adjudicatory practice in place",
+      "cue": "Explain the narrower basis for affirmance.",
+      "paragraphs": [
+        "The PLRA required exhaustion of available administrative remedies, normally according to grievance-system procedures. Ross v. Blake, the precedent defining availability, recognized that interference or threats could make a process unavailable. Jones v. Bock treated exhaustion as an affirmative defense under ordinary federal procedure, not jurisdiction or a special pleading burden. Woodford v. Ngo also permitted dismissal of an obviously meritless claim before resolving complicated exhaustion.",
+        "Chief Justice Roberts’s majority noted that Congress assigned no exhaustion factfinder. The introductory ban on bringing an unexhausted action resembled language used for defenses such as limitations that juries can decide, and Congress did not add exhaustion to judicial screening provisions.",
+        "Richards argued alternatively for juries in all disputed exhaustion matters based on history. The Court reserved that broader claim. It instead adopted a fairly possible statutory reading avoiding the constitutional issue: intertwined exhaustion facts go to the jury when the underlying claim carries a Seventh Amendment jury right. It did not decide whether Congress could constitutionally direct otherwise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 2–3, 5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Earlier cases protected jury resolution of common facts",
+      "cue": "Describe the analogies without extending every one into a new holding.",
+      "paragraphs": [
+        "The majority examined the background when Congress enacted the PLRA in 1996. Beacon Theatres v. Westover, involving legal and equitable antitrust claims, required sequencing that preserved jury determination of common facts. Dairy Queen v. Wood similarly protected shared factual questions concerning contract-based legal and equitable relief. Those precedents showed that judges sometimes defer issues ordinarily theirs to preserve jury adjudication of merits facts. Here, grievance interference drove both exhaustion and retaliation.",
+        "Jurisdiction cases supplied another analogy. Smithers v. Smith disapproved using an amount-in-controversy inquiry to decide whether defendants jointly took the plaintiff’s land, an essential merits issue. Land v. Dollar involved stock ownership affecting both sovereign immunity and substantive entitlement. Proceeding to merits resolution rather than preliminary dismissal protected the shared question. That principle reasonably applied to a nonjurisdictional affirmative defense too.",
+        "Other pre-1996 cases and treatises used intertwinement for personal jurisdiction, venue, choice of law, and forum non conveniens. The Court treated them as background without approving every extension or deciding all threshold questions sharing merits facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 8–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Dismissal without prejudice did not preserve a realistic jury opportunity",
+      "cue": "Answer the defendant’s preclusion and efficiency arguments.",
+      "paragraphs": [
+        "Perttu argued Beacon Theatres concerned estoppel, while exhaustion findings would not bind a later jury. The majority questioned that assumption: lower-court denials of preclusion had limited analysis, and treatises and the Restatement contemplated some effects from threshold dismissals. Findings favorable to Richards might also invoke law of the case against Perttu. The Court left those preclusion questions open.",
+        "More fundamentally, an adverse exhaustion finding ended the whole suit before any jury. Without-prejudice dismissal might offer no practical return because grievance deadlines often lasted days and had expired by dismissal. Perttu supplied no tolling argument or showing that discretionary late acceptance generally solved that problem.",
+        "Perttu pointed to Michigan’s Prison Rape Elimination Act policy for sexual-abuse grievances. Richards disputed its coverage of his separate retaliation claim. The Court decided neither that issue nor the effect of a later revision, and Perttu did not propose a prisoner-specific intertwinement rule based on eventual access to a jury.",
+        "Efficiency did not override this practice. Katchen v. Landy permitted nonjury bankruptcy adjudication under a specialized scheme designed for prompt resolution. The PLRA contemplated a jury on substantive damages while remaining silent on exhaustion; its general resource-saving aim did not establish displacement of ordinary treatment of common facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 12–17 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Barrett rejected both the historical exception and the statutory route",
+      "cue": "Give the dissent’s distinct objections.",
+      "paragraphs": [
+        "Justice Barrett, joined by Thomas, Alito, and Kavanaugh, would reverse. Factual overlap alone did not create a Seventh Amendment right under historical inquiry. Richards analogized exhaustion to common-law pleas in bar or discharge, while Perttu analogized equitable injunctions against litigation. Those positions might bear on all exhaustion disputes, but neither established a historical rule keyed to intertwinement. Barrett too considered the broader question premature.",
+        "She objected that the majority adopted a statutory theory the parties and lower courts had not advanced. The majority answered that statutory avoidance before constitutional adjudication was a cardinal principle, exemplified by Tull v. United States, and amici had briefed it using the same authorities.",
+        "Barrett read Tull, Feltner, and Monterey as rejecting statutory jury rights in silent enactments even where the Constitution independently supplied one. Beacon Theatres was a prudential sequencing rule responding to estoppel, not general statutory interpretation. She believed exhaustion findings did not bind a later merits jury, distinguishing preclusion of a threshold issue from merits facts after the plaintiff prevailed on exhaustion.",
+        "She read Smithers as ordinary protection against prematurely deciding damages and Land as judicial administration without a jury issue, ultimately tried to a judge. Finally, she saw an arbitrary, manipulable distinction: allegations of abuse and destroyed grievances would produce no exhaustion jury on an Eighth Amendment claim alone but could if a plaintiff added intertwined First Amendment retaliation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "dissent 3–17 & nn.1–4; majority 6 n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Affirmance preserved the jury opportunity without establishing the claim",
+      "cue": "State the vote and limited outcome.",
+      "paragraphs": [
+        "Roberts was joined by Sotomayor, Kagan, Gorsuch, and Jackson in affirming the Sixth Circuit five to four. The statutory basis differed from the circuit’s constitutional rationale. Richards retained an opportunity for a jury to resolve the shared facts, but the Court found neither exhaustion nor unavailable remedies, imposed no liability on Perttu, and awarded no damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority 16–17; disposition and vote"
+        }
+      ]
+    }
+  ]
+}

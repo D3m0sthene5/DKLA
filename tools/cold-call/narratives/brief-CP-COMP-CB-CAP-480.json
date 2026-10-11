@@ -1,0 +1,114 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-480",
+  "briefId": "CP-COMP-CB-CAP-480",
+  "title": "Netsphere, Inc. v. Baron",
+  "course": "Civil Procedure",
+  "citation": "703 F.3d 296 (5th Cir. 2012)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A domain-name dispute led to a receiver taking control of a litigant’s broader property to manage unpaid lawyers and disruptive conduct. The Fifth Circuit reversed the appointment but allowed reconsidered expenses to be paid from cash already held.",
+  "actors": [
+    {
+      "name": "Jeffrey Baron",
+      "role": "Domain-name entrepreneur whose property entered receivership"
+    },
+    {
+      "name": "Munish Krishan and Netsphere",
+      "role": "Parties seeking enforcement of the business settlement"
+    },
+    {
+      "name": "Daniel Sherman",
+      "role": "Ondova’s Chapter 11 trustee"
+    },
+    {
+      "name": "Peter Vogel",
+      "role": "Receiver and earlier special master"
+    }
+  ],
+  "proceedings": [
+    "District court appointed receiver on November 24, 2010 and later denied vacatur.",
+    "Twelve consolidated appellate proceedings reached the Fifth Circuit.",
+    "Appointment reversed; winding up directed, with limited existing-cash fee payments permitted."
+  ],
+  "limits": "No final fee amount was fixed. Baron’s $1.6 million cash figure was his assertion. No further sales were permitted, but the decision did not order all earlier sales unwound.",
+  "briefSha256": "a7c6fa28ea6ec89da5684db1f892786327f7cee07ec8bbc2d1f39005e4f7263a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-480"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A domain venture reaches settlement and bankruptcy",
+      "cue": "The property originally in dispute",
+      "paragraphs": [
+        "Jeffrey Baron and Munish Krishan had a joint venture involving internet domain names. After at least seven lawsuits and four mediations, an April 2009 memorandum purported to settle their disputes. Krishan and Netsphere sued in May alleging breaches by Baron and Ondova Limited Company. A June injunction required compliance and later included a $50,000 daily penalty. On the eve of a contempt hearing, Baron caused Ondova to file bankruptcy, staying the district litigation.",
+        "Daniel Sherman became Chapter 11 trustee. A July 2010 global settlement divided domain portfolios: odd-numbered names went to Quantec for Baron’s benefit, and even-numbered names to Krishan-controlled Manila Industries. The bankruptcy court approved it July 28 and ordered execution by July 30. A signed dismissal stipulation was attached but never entered by the district court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "302–303"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Unpaid lawyers become the focus",
+      "cue": "The receivership expands beyond the domains",
+      "paragraphs": [
+        "Baron repeatedly hired and fired lawyers. At a September hearing the trustee’s lawyer identified forty-five unpaid lawyers; former counsel Gerrit Pronske described six months of unpaid work and planned offshore transfers. The Cook Islands Village Trust owned Novo Point and Quantec, with Baron its beneficiary. The bankruptcy court ordered $330,000 security and later recommended Peter Vogel as special master to mediate fees.",
+        "After another firing, the trustee moved for a receiver on November 24, 2010. The district court granted the motion that day without notice to Baron. Later orders clarified that Novo Point, LLC and Quantec, LLC were covered, correcting references to distinct similarly named corporations. Following a January 2011 evidentiary hearing, the court refused vacatur, citing delay, expense, unpaid counsel, disobedience, and possible offshore transfers. It did not find that Baron had failed to transfer the settlement domains. The receivership extended to phones, computers, mail, home keys, accounts, and requests for medical-care money."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "303–305, 310–311"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court limits the remedy",
+      "cue": "Disruption does not supply a property interest",
+      "paragraphs": [
+        "The Fifth Circuit reviewed the appointment for abuse of discretion under its interlocutory jurisdiction. Judge Southwick’s unanimous panel described receivership as extraordinary protection for an interest in property when lesser remedies were inadequate and benefits exceeded burdens. Rule 66 and traditional uses did not authorize seizure of unrelated personal assets merely to secure possible judgments or control a litigant.",
+        "The All Writs Act could protect jurisdiction being exercised, but the underlying dispute concerned settlement enforcement and domain transfers. Neither trustee nor receiver identified evidence of failure to transfer those names or a threat to remove the disputed names. Concern over other assets and attorneys’ fees did not supply that missing connection.",
+        "The lawyers were unsecured contract creditors, without judgments or a substantive interest in the seized property. They could bring collection suits or bankruptcy claims. The equitable restrictions on freezing unrelated assets for potential money judgments applied to receivership too. Novo Point and Quantec had signed the settlement but were not named parties in the district suit or bankruptcy. Statutory tax receiverships furnished no general power here. Contempt sanctions for sufficiently clear lawful orders, or requiring existing counsel or self-representation, offered narrower tools. The panel did not need to decide whether a clear no-hiring order had existed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "305–311"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Expenses survive in a restricted form",
+      "cue": "Reversal and the accompanying rulings",
+      "paragraphs": [
+        "Although the receiver had conferred no benefit on Baron, his conduct substantially created the costly circumstances. The trustee had acted on the bankruptcy court’s recommendation; the panel found no malice, collusion, bad faith, or wrongful provocation. Vogel’s prior party-paid special-master role did not establish prohibited federal or judicial employment. Equity therefore permitted reasonable expenses from cash already held. Every fee had to be reconsidered because earlier calculations assumed a valid receivership, and meaningful reductions or reconsideration of other payments might be appropriate.",
+        "The court reversed and directed vacatur, discharge, and expeditious release of noncash property under a winding-up schedule. Additional approved fees could use existing cash only; any deficiency would remain unpaid. No more asset sales were authorized, and the stay of domain-auction closings became permanent.",
+        "The panel separately dismissed Carrington, Coleman, Sloman & Blumenthal’s appeal concerning its $224,232.69 bankruptcy-estate fee claim, where it conceded no jurisdiction while reconsideration remained pending. The challenge to already-produced and reviewed lawyer trust-account records was moot. A recusal-affidavit issue was waived because compliant affidavits were not supplied after opportunities to replace them, rather than because every bias allegation was adjudged false. Remaining motions and Novo Point’s mandamus request required no decision in light of the vacated receivership."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "305 n.1, 311–315 & n.2"
+        }
+      ]
+    }
+  ]
+}

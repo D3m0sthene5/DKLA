@@ -1,0 +1,167 @@
+{
+  "id": "brief-CP-SUP-HAIN",
+  "briefId": "CP-SUP-HAIN",
+  "title": "Hain Celestial Group, Inc. v. Palmquist",
+  "course": "Civil Procedure",
+  "citation": "607 U.S. 421 (2026)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Palmquists sued a baby-food maker and retailer together in Texas state court. A federal court removed the retailer from the case and later ruled for the manufacturer, but reversal of that initial dismissal exposed a diversity defect the trial itself could not cure.",
+  "actors": [
+    {
+      "name": "Sarah and Grant Palmquist",
+      "role": "Parents pursuing claims concerning baby food fed to their son."
+    },
+    {
+      "name": "E. P.",
+      "role": "Their son, whose conditions they attributed to heavy metals."
+    },
+    {
+      "name": "Hain Celestial Group, Inc.",
+      "role": "Baby-food manufacturer and removing defendant."
+    },
+    {
+      "name": "Whole Foods",
+      "role": "Retail defendant sharing the Palmquists’ Texas citizenship."
+    },
+    {
+      "name": "Justice Sotomayor",
+      "role": "Author of the unanimous Supreme Court opinion."
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Concurrence author questioning, but not invalidating, improper-joinder doctrine."
+    }
+  ],
+  "proceedings": "The district court dismissed Whole Foods, denied remand, and entered judgment as a matter of law for Hain at trial. The Fifth Circuit reversed the joinder dismissal and vacated the merits judgment. The Supreme Court affirmed and remanded because the jurisdictional defect was not validly cured.",
+  "limits": "The Court accepted that Whole Foods was properly joined and did not reconsider the underlying state-law pleading standard. It decided jurisdiction and the fate of the federal judgment, not causation or either defendant’s liability. Thomas’s criticism of improper joinder did not become a holding invalidating that doctrine.",
+  "briefSha256": "504352dda0a42c65897a6bf991e736bf637a3c95d5207c138ae3daba0777fbe1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-HAIN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parents link their son’s conditions to baby food purchased at Whole Foods",
+      "cue": "What did they allege in state court?",
+      "paragraphs": [
+        "Sarah and Grant Palmquist fed their son E. P. baby food made by Hain Celestial and purchased at Whole Foods during his first two years. At about two and a half, he developed serious disorders and received physical and mental diagnoses. Testing showed high arsenic, lead, and mercury levels, and some doctors attributed the conditions to heavy-metal poisoning.",
+        "After a 2021 congressional staff report identified elevated heavy-metal levels in some baby foods, including Hain’s, the parents sued both companies in Texas state court. They asserted product-liability and negligence claims against Hain and warranty and negligence claims against Whole Foods, including alleged representations that the food was safe. That medical background and those allegations did not establish before the Supreme Court that the products caused E. P.’s conditions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hain removes despite a Texas defendant, and the trial court dismisses that defendant",
+      "cue": "How did the federal case proceed to judgment?",
+      "paragraphs": [
+        "Hain was incorporated in Delaware and had its principal place of business in New York. Both the Palmquists and Whole Foods were Texas citizens. Complete diversity therefore was absent when Hain removed under 28 U.S.C. §1332. Hain argued that Whole Foods was improperly joined because the complaint did not plausibly state a claim against it. The parents promptly sought remand.",
+        "Applying the Fifth Circuit’s improper-joinder standard, the district court dismissed Whole Foods and denied remand. The remaining case against Hain proceeded to a federal jury trial. After the parents rested, the court granted Hain judgment as a matter of law on every claim for insufficient causation evidence, including whether ingested heavy metals could cause the symptoms and at what levels.",
+        "The parents appealed both the merits judgment and Whole Foods’s dismissal. The Fifth Circuit held that plausible state-law claims had been pleaded against the retailer, reversed its dismissal, and vacated Hain’s victory for lack of diversity. After rehearing was denied, both companies sought Supreme Court review of that required vacatur."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 2–4 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Review assumes the removal and dismissal errors, then asks whether anything cured them",
+      "cue": "What did Caterpillar permit in a different case?",
+      "paragraphs": [
+        "The Supreme Court accepted that Whole Foods was wrongly dismissed and correct joinder analysis would have required remand. It did not revisit state-law plausibility or the improper-joinder test.",
+        "Justice Sotomayor wrote for a unanimous Court. Section 1332 ordinarily required more than $75,000 in controversy and complete diversity, with no plaintiff sharing citizenship with a defendant. Appellate courts had to examine lower-court jurisdiction as well as their own. Jurisdiction generally followed the facts at filing or removal, and an unsupported merits judgment ordinarily required vacatur.",
+        "Caterpillar Inc. v. Lewis recognized an exception where a defect was properly cured before judgment. There, a Kentucky plaintiff sued an out-of-state manufacturer and a Kentucky servicing company; an intervening insurer also sued both. The plaintiff settled with the servicer, but the insurer’s claim kept it in the case when removal occurred prematurely. Although remand was wrongly denied, the servicer later settled with the insurer and was voluntarily dismissed through a consented Rule 54(b) partial final judgment. Complete diversity existed before trial. The manufacturer’s eventual judgment could stand.",
+        "Finality and efficiency thus excused a removal violation after a genuine jurisdictional cure. Caterpillar expressly required vacatur when the underlying defect persisted through judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "An erroneous interlocutory dismissal cannot manufacture the necessary cure",
+      "cue": "Why was the moment-of-judgment snapshot insufficient?",
+      "paragraphs": [
+        "Whole Foods’s dismissal was interlocutory. Ordinary final-judgment and merger rules made it reviewable after the final Hain judgment. Its reversal established that the retailer should have remained a party from the beginning. Its temporary absence reflected reversible error, unlike Caterpillar’s proper, final dismissal.",
+        "Hain argued that only diverse parties appeared at the literal moment of judgment. The Court rejected that snapshot. A judge could not create jurisdiction through a mistake and then shield the mistake by deciding the merits. A purported cure had to withstand appellate review; otherwise judicial error would enlarge Congress’s jurisdictional grant.",
+        "The cost of another trial did not change the analysis. Caterpillar’s economy considerations arose only after a valid cure, not as a substitute for §1332 jurisdiction. Rule 54(b) partial final judgments and §1292(b) certification might sometimes permit earlier review and reduce that risk, but did not make every joinder ruling immediately appealable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 7–9 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Rule 21 does not justify dropping the properly joined retailer over persistent objection",
+      "cue": "Why did the alternative request fail?",
+      "paragraphs": [
+        "Hain alternatively asked the Supreme Court to drop Whole Foods under Rule 21, which allowed adding or dropping parties on just terms. The parents asserted forfeiture, but the request had been included fairly in the question presented, raised in the petition, and pressed below. The Court therefore reached its merits.",
+        "Newman-Green v. Alfonzo-Larrain permitted dismissal of a dispensable nondiverse party in suitable circumstances, with careful attention to prejudice and tactical effects. The plaintiff there sought dismissal to preserve federal jurisdiction. Here the defendants wanted to eliminate a properly joined defendant over the plaintiffs’ continuing objections.",
+        "Plaintiffs ordinarily selected their claims and parties and could choose state court through proper joinder of a nondiverse defendant. The Palmquists had made and diligently defended that choice from the outset. Removing Whole Foods now would force a federal forum on an action that never should have left state court and prejudice their legitimate arrangement. The Court reserved Rule 21 in original federal actions and cases where a nondiverse party was added after proper removal; it did not prohibit all jurisdictional cures under the rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 9–11 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas questions the doctrine that produced the original dismissal",
+      "cue": "What issue did his concurrence reserve for another case?",
+      "paragraphs": [
+        "Justice Thomas joined fully but separately questioned modern improper joinder. Federal courts must establish jurisdiction before adjudicating merits. Yet this doctrine allowed a court without complete diversity to examine the strength of a state-law claim, dismiss the nondiverse defendant through a Rule 12(b)(6)-type inquiry, and thereby create jurisdiction. Thomas saw possible conflict with that sequence and statutory limits.",
+        "He read early fraudulent-joinder decisions as addressing real fraud or bad faith, such as false citizenship or conduct allegations, rather than merely weak claims. Modern merits-based practice could transfer state questions to a court lacking authority to decide them. Some circuits retained fraudulent-joinder terminology for that broader inquiry, but nobody alleged fraud by these parents.",
+        "Thomas invited reconsideration when squarely presented and briefed. The Court did not invalidate the doctrine in this case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas concurrence slip 1–4 & *; majority slip 3 n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The federal merits victory cannot survive the restored defendant",
+      "cue": "What did the unanimous judgment determine?",
+      "paragraphs": [
+        "On February 24, 2026, the Supreme Court affirmed the Fifth Circuit and remanded. Reversal of Whole Foods’s erroneous dismissal left the original diversity defect uncured, requiring vacatur of Hain’s merits judgment. No Justice dissented.",
+        "Hain lost that federal judgment, but the Supreme Court did not find either company liable or determine that the parents’ causation evidence would suffice in later proceedings. A proper jurisdictional foundation, not the expense or duration of federal litigation, controlled whether the judgment could remain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 7–11; official decision date"
+        }
+      ]
+    }
+  ]
+}

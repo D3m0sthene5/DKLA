@@ -1,0 +1,183 @@
+{
+  "id": "brief-CP-111",
+  "briefId": "CP-111",
+  "title": "Chauffeurs, Teamsters and Helpers Local No. 391 v. Terry",
+  "course": "Civil Procedure",
+  "citation": "494 U.S. 558 (1990)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Truckdrivers claimed their employer undermined promised seniority and their union mishandled the ensuing grievances. After the employer entered bankruptcy, the remaining suit sought money from the union, and the Supreme Court had to decide whether a jury would hear it.",
+  "actors": [
+    {
+      "name": "Terry and twenty-six other drivers",
+      "role": "Local 391 members alleging lost wages and benefits after repeated layoffs."
+    },
+    {
+      "name": "McLean Trucking Company",
+      "role": "Employer alleged to have violated its collective bargaining agreement."
+    },
+    {
+      "name": "Chauffeurs, Teamsters and Helpers Local No. 391",
+      "role": "Union accused of breaching its duty of fair representation."
+    },
+    {
+      "name": "Justice Marshall",
+      "role": "Author announcing the Court’s judgment and the principal opinion."
+    },
+    {
+      "name": "Justices Brennan and Stevens",
+      "role": "Separate concurrence authors who did not join the four-Justice historical comparison."
+    },
+    {
+      "name": "Justice Kennedy",
+      "role": "Dissenter joined by O’Connor and Scalia."
+    }
+  ],
+  "proceedings": "After the employer and injunction claims were dismissed, the district court denied the union’s motion to strike the jury demand. The Fourth Circuit affirmed on interlocutory appeal, and the Supreme Court affirmed the right to a jury on the remaining suit.",
+  "limits": "The decision resolved entitlement to a jury before trial, not liability or any wage award. Six Justices joined the remedial analysis and result, but only four joined Marshall’s historical comparison. The treatment of Title VII backpay was assumed without deciding that separate jury-right question.",
+  "briefSha256": "c3be50f86795c1c0c03791ffd0d390256cce6a62149c503b2be69616d5f62036",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-111"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Transferred drivers receive special seniority and then face repeated layoffs",
+      "cue": "How did the first grievance change their position?",
+      "paragraphs": [
+        "In 1982, McLean Trucking Company reorganized and transferred Terry and twenty-six other drivers to its Winston-Salem terminal. All belonged to Chauffeurs, Teamsters and Helpers Local No. 391. McLean agreed to give them special seniority relative to inactive drivers who had previously been laid off.",
+        "About six weeks later, the transferred employees began experiencing repeated layoffs and recalls. They disputed both their placement in the seniority order and McLean’s practice of stripping a transferred driver’s special rights upon layoff.",
+        "The first grievance proceeding directed McLean to recall affected transferred drivers, lay off certain recalled inactive drivers, and preserve the special rights until the inactive drivers were properly recalled. McLean initially complied. It then recalled inactive drivers in a way that restored their superior seniority, leaving transferred employees first in line for subsequent layoffs."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "561–562"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Further grievances lead to a suit against employer and union",
+      "cue": "Why did only a damages claim against the union remain?",
+      "paragraphs": [
+        "The transferred employees filed a second grievance alleging circumvention of the first decision. A union representative presented both groups’ competing positions, and the grievance committee concluded that McLean had not violated its earlier ruling.",
+        "As layoffs and recalls continued, the drivers filed a third grievance. The union declined to refer it to a committee, saying the relevant questions had been decided. The drivers alleged that deficient representation cost them wages and health benefits.",
+        "In July 1983, they sued McLean for breach of the collective bargaining agreement under §301 of the Labor Management Relations Act and Local 391 for breach of its fair-representation duty. They requested proper seniority, an injunction against further unlawful conduct, and compensation for lost wages and benefits.",
+        "McLean entered bankruptcy in 1986. The drivers voluntarily dismissed the employer and all injunctive requests, leaving only monetary relief against the union. Local 391 moved to strike the jury demand. The district court denied the motion, and the Fourth Circuit affirmed on interlocutory appeal. The Supreme Court granted review of a circuit disagreement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "562–564"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The remaining claim still requires proof of two breaches",
+      "cue": "What inquiry governed the jury right?",
+      "paragraphs": [
+        "A union’s exclusive authority over bargaining representation carried a duty to act honestly, in good faith, and without hostility, discrimination, or arbitrary conduct. Because grievance procedures ordinarily produced final decisions, the drivers had to prove both McLean’s contractual breach and the union’s deficient representation. Dismissing the bankrupt employer did not remove the contract issue from their case.",
+        "The Seventh Amendment inquiry examined the historical nature of the action or issues and the nature of the remedy, giving the remedy greater weight. Justice Marshall announced the judgment. Chief Justice Rehnquist and Justices Brennan, White, Blackmun, and Stevens joined the general framework, remedial analysis, and result. Only Rehnquist, White, and Blackmun joined his specific historical comparison, making that section a four-Justice plurality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "558, 563–565"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The historical comparison points in more than one direction",
+      "cue": "Why did Marshall not classify the whole dispute as equitable?",
+      "paragraphs": [
+        "Marshall first rejected the union’s analogy to an equitable action setting aside an arbitration award. The grievance committee had considered McLean’s conduct, not whether Local 391 mishandled representation. That distinct claim had never been adjudicated there.",
+        "The trust analogy was more persuasive to the four Justices joining this part. A trustee and a union both exercised discretion for people whose individual preferences did not control each decision. An employee generally could not fire the union and select a personal replacement. The union’s power to pursue or settle claims against a third party also resembled a trustee’s, distinguishing the relationship from ordinary client control of a lawyer.",
+        "Yet the entire case also required proving McLean’s contract breach, an issue analogous to a legal action. The employees should not lose that feature merely because bankruptcy prevented proceeding against both defendants. Marshall therefore found the historical inquiry inconclusive for this combined representation-and-contract dispute, rather than treating the trust analogy as decisive for everything."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "565–570 & nn.6–7 (plurality)"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Six Justices classify the requested compensation as legal relief",
+      "cue": "Why did the word backpay not make the remedy equitable?",
+      "paragraphs": [
+        "The union would pay compensation for injury allegedly caused by its inadequate representation. It did not hold the wages or benefits for the employees; McLean would have supplied them if the grievances had succeeded. The request therefore lacked the restitutionary character of recovering money wrongfully held by the defendant.",
+        "Nor was the money incidental to a remaining injunction. All injunctive claims had been dismissed. Calling the relationship trust-like could not automatically make every monetary remedy equitable, because that would collapse the separate remedial inquiry into the historical analogy despite the greater weight given to remedy.",
+        "Local 391 invoked the equitable treatment of Title VII backpay and its relationship to National Labor Relations Act remedies. The Court distinguished the statutes’ language, the defendant responsible for payment, and the remedy’s purpose. Congress expressly described Title VII relief in equitable terms; no comparable designation governed this fair-representation remedy. This award would compensate individual employees for loss caused by a union, not simply duplicate a public enforcement scheme against an employer.",
+        "The Court assumed without deciding the absence of a jury right for Title VII backpay in that context. The shared label did not transfer another remedy’s classification to this one. These damages were legal, supporting a jury on all issues in the remaining suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570–574 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan and Stevens reach the jury result through different historical approaches",
+      "cue": "What did their concurrences propose?",
+      "paragraphs": [
+        "Justice Brennan would stop searching for an eighteenth-century cause of action analogous to a modern right. He favored classifying the remedy through historical law-and-equity categories, subject to questions about permissible specialized adjudication. Because the Court already gave remedies greater weight, he found the additional cause-of-action comparison burdensome and unreliable.",
+        "Brennan did not abandon history. He considered remedial categories historically meaningful and more manageable than matching modern collective representation to ancient institutions. If an unusual remedy remained genuinely balanced between categories, he favored a jury. That proposal did not replace the Court’s two-part test.",
+        "Justice Stevens instead preferred the legal-malpractice analogy. Unions represented workers against an adverse employer, and members collectively could direct or replace representatives. Those features resembled legal representation more than paternalistic trust management. He also emphasized fair-representation law’s development through jury trials and juries’ ability to decide familiar employment, contract, and representation issues. An exact eighteenth-century counterpart was unnecessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "574–584 & Brennan nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Kennedy regards the trust analogy as controlling the action and remedy together",
+      "cue": "Why would the dissent deny a jury?",
+      "paragraphs": [
+        "Justice Kennedy, joined by Justices O’Connor and Scalia, would deny the jury demand. Trustees and unions exercised independent discretion and reconciled competing beneficiaries’ interests. A lawyer ordinarily could not represent opposing interests without consent. Equity historically awarded money to make trust beneficiaries whole, so requesting compensation did not make this relationship legal.",
+        "Kennedy also rejected extracting the employer’s contract breach from the claim against the union. Precedents separating independent legal claims from equitable procedures did not require a jury whenever an equitable case contained a contract-like predicate. A beneficiary suing a trustee might need to establish an underlying contract’s merit without receiving a jury. The Amendment’s preservation language required historical classification. He reserved the question of a suit where the employer remained a defendant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "584–595"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The employees retain their jury demand, not an adjudicated recovery",
+      "cue": "What did the affirmance accomplish?",
+      "paragraphs": [
+        "On March 20, 1990, the Supreme Court affirmed the Fourth Circuit. The district court’s denial of the motion to strike stood, and the drivers were entitled to have a jury decide the remaining claims against Local 391.",
+        "No backpay award followed from the Supreme Court’s decision itself. Whether McLean breached the agreement and whether the union breached its representation duty remained matters to be tried. The six-Justice remedial holding supported the result without making the four-Justice trust comparison a unanimous or majority characterization of the entire claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "563, 573–574"
+        }
+      ]
+    }
+  ]
+}

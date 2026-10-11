@@ -1,0 +1,127 @@
+{
+  "id": "brief-CP-COMP-CB-REF-347",
+  "briefId": "CP-COMP-CB-REF-347",
+  "title": "Walker v. City of Hutchinson",
+  "course": "Civil Procedure",
+  "citation": "352 U.S. 112 (1956)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A known landowner missed the hearing fixing condemnation compensation because the city used only a newspaper notice, and the Court required a feasible method directed to him.",
+  "actors": [
+    {
+      "name": "Lee Walker",
+      "role": "Hutchinson landowner challenging notice"
+    },
+    {
+      "name": "City of Hutchinson",
+      "role": "Kansas municipality condemning land for streets"
+    },
+    {
+      "name": "Three commissioners",
+      "role": "Appraisers appointed to assess compensation"
+    }
+  ],
+  "proceedings": [
+    "Kansas trial court: denied equitable relief; Kansas Supreme Court affirmed.",
+    "United States Supreme Court: reversed and remanded 6–2, with Brennan not participating."
+  ],
+  "limits": [
+    "The Court addressed compensation-hearing notice, not invalidity of the taking itself. It awarded no greater compensation and did not direct a permanent injunction."
+  ],
+  "briefSha256": "55f8c4d8a15b490a94c1dce5c106af8c3ea6bacae43ce3745989b5522e7db0a7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-REF-347"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The city fixes compensation while Walker says he knows nothing of the case",
+      "cue": "Introduce the notice method and missed appeal.",
+      "paragraphs": [
+        "In 1954, Hutchinson, Kansas, began condemnation in Reno County district court for street opening, widening, and extension over Lee Walker’s land. The court appointed three commissioners to value the land and other appropriation damage. Section 26-202 required at least ten days’ hearing notice but allowed written notice or one official-newspaper publication. The City chose publication and sent Walker no writing.",
+        "Commissioners awarded $725, deposited with the city treasurer for Walker. He missed the thirty-day period to appeal their filed report. He later sought equitable relief, alleging no notice or knowledge until that period expired and requesting restraint against City entry and other appropriate relief.",
+        "His amended petition said he had owned the property since 1905, the application was filed April 12, 1954, publication occurred April 14, and he learned of the taking only around mid-August. It described a sports-arena bypass and threatened irreparable harm. These were pleading allegations, not independent Supreme Court findings about value or project purpose."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352 U.S. at 112–114 & nn.1–2; appendix 122–126"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The majority treats the pleading as a compensation challenge",
+      "cue": "Explain the procedural path and disputed characterization.",
+      "paragraphs": [
+        "After a hearing, the trial court denied relief because statutory publication was constitutionally sufficient. The Kansas Supreme Court affirmed. The United States Supreme Court heard the appeal under the then-applicable § 1257(2).",
+        "Justice Black’s opinion, announced by Justice Douglas, focused on notice for fixing compensation. Although Walker requested an injunction, the Kansas court had addressed the statute governing that hearing, and Kansas equitable suits required actual damage. The majority inferred that the state court treated the pleading as adequately alleging monetary harm from lack of compensation notice. It accepted that construction rather than treating the case solely as an attempt to defeat the taking.",
+        "A meaningful compensation hearing mattered independently of whether Walker could stop the street project. The Court did not need to decide every aspect of the City’s taking power or calculate a new award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352 U.S. at 114–115 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A known resident could readily receive a letter",
+      "cue": "Follow the notice analysis and distinguish the precedents.",
+      "paragraphs": [
+        "Applying Mullane, the earlier decision requiring notice reasonably calculated to inform affected persons, the Court rejected a fixed formula for every circumstance. Unknown or missing persons could make direct notice impracticable. Walker presented no such obstacle: the City knew his name, and official records identified him. No compelling or persuasive reason prevented direct notice. Newspaper publication rarely reached the individual whose property was affected; even a letter would alert him to the taking and need to appear about value.",
+        "Kansas amended the statute in 1955 to require mailing to the last known residence unless diligent inquiry failed, but Walker’s 1954 procedure predated that amendment. The Court cited it as context, not as the law governing his notice.",
+        "The City’s principal precedent, Huling, upheld publication for a nonresident owner; Walker was a Kansas resident. The Court reserved how far Mullane had undermined Huling. North Laramie involved both publication and registered mailing, while Bragg provided written notification and thirty days to obtain a full reviewing-court hearing. Neither sustained publication alone here. Governmental condemnation did not reduce the owner’s hearing right, and meaningful compensation notice need not obstruct orderly acquisition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352 U.S. at 115–117 & nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Frankfurter sees an unpleaded compensation injury",
+      "cue": "Preserve the first dissent’s distinct procedural concern.",
+      "paragraphs": [
+        "Justice Frankfurter did not decide notice sufficiency for a properly presented compensation challenge. He read Walker as asking to retain possession and permanently prevent entry because defective notice invalidated the taking. Walker never alleged $725 undervalued the land or sought restraint only until a proper compensation hearing. A general irreparable-harm allegation following threatened entry did not establish monetary shortfall.",
+        "His appendix reproduced the complete amended petition, whose specific prayer sought immediate and permanent restraint and whose general prayer sought other equitable relief. He thought the Kansas court had upheld the statute without construing the pleading, so the majority’s inference lacked support. Article III demanded an actual particular injury, not abstract constitutional review. A state could take before payment if adequate compensation arrangements existed. He would affirm or at least return for state pleading construction, and emphasized that the majority had not invalidated the taking or necessarily required an injunction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352 U.S. at 117–126 & Frankfurter nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Burton would allow broader legislative latitude, but the notice ruling reverses",
+      "cue": "Finish with alignment and the remedy actually ordered.",
+      "paragraphs": [
+        "Justice Burton separately assumed the compensation issue was properly presented but regarded notice method and duration as largely legislative choices balancing public acquisition and hearing opportunity. An undesirable or short procedure need not be unconstitutional. He relied on Huling, other historical cases, and the Tenth Circuit’s similar Collins decision, in which certiorari had been denied the previous term. He feared national uncertainty and would affirm.",
+        "On December 10, 1956, the Court reversed and remanded. Six Justices supported the judgment, Frankfurter and Burton dissented, and Justice Brennan did not participate. Publication alone was inadequate for this known resident’s compensation hearing. The order did not award more money, void the condemnation, or require the requested permanent injunction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "352 U.S. at 117, 122, 126–127"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-007",
+  "briefId": "CT-ADDITIONAL-FA26-007",
+  "title": "Homeowners v Les Bâtisseurs du Grand Delta",
+  "course": "Contracts",
+  "citation": "Cour de cassation,3e civ., May 11, 2005, no.03-21.136; Bull.III, no.103, p.96",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Homeowners demand correction of a house built below the agreed level; continued usability does not justify rejecting promised conformity under the historical statute.",
+  "actors": [
+    {
+      "name": "M. and Mme X…Y…",
+      "role": "Anonymized homeowners who paid the price but refused acceptance."
+    },
+    {
+      "name": "Les Bâtisseurs du Grand Delta",
+      "role": "Builder sued for demolition and reconstruction or their equivalent cost."
+    }
+  ],
+  "proceedings": [
+    "Aix-en-Provence rejected the requested remedy on September 23, 2003.",
+    "The Court of Cassation quashed all provisions and remanded to Grenoble, with procedural costs orders."
+  ],
+  "limits": "Cassation and remand are not a final reconstruction decree. The €2,000 award concerns article 700 procedural expenses, not rebuilding damages. The judgment does not apply later proportionality reforms or supply a reconstruction price.",
+  "briefSha256": "e062a23051baf724e629241c9bc34f26a3cd0e7f3020026bd4edde7c96f3cfa7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-007"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The homeowners pay but refuse to accept the completed house",
+      "cue": "What did they identify as nonconforming?",
+      "paragraphs": [
+        "Homeowners anonymized as M. and Mme X…Y… contracted with Les Bâtisseurs du Grand Delta to construct a single-family house. They paid the entire price but refused to sign the acceptance record because the construction level did not match the agreement.",
+        "They sought an order requiring demolition and reconstruction or, alternatively, payment of the equivalent cost. The published judgment does not state the total contract price, rebuilding estimate or intended use of any substitute monetary award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract and demand; factual recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appellate court finds a shortfall but considers it insufficiently important",
+      "cue": "Why did the homeowners lose at that stage?",
+      "paragraphs": [
+        "The Aix-en-Provence Court of Appeal found that the construction level was 0.33 metres short of the contractual specification. On September 23, 2003, it nevertheless rejected the demand because the departure did not make the house unfit for its intended use and did not concern essential and determining elements of the agreement.",
+        "The owners challenged that reasoning. Their demand concerned the configuration actually promised, despite the structure’s continuing usefulness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appellate reasons and found departure; lower-ruling recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court of Cassation requires the legal consequences of the found breach",
+      "cue": "Which historical rule controlled?",
+      "paragraphs": [
+        "The Third Civil Chamber invoked former Civil Code article 1184: a party whose counterparty had not performed could compel performance when it was possible. Having found the 0.33-metre departure, the lower court had not drawn the legal consequences of its own finding. Its usability and nonessentiality reasons for refusal violated that provision.",
+        "The judgment did not make a separate proportionality calculation, identify bad faith or find impossibility. Nor did it calculate and finally award the alternative rebuilding cost. Its reasoning rejected the stated grounds for denying enforcement in that historical statutory setting."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory rule and cassation reasoning; visa and final reasoning paragraph"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Cassation sends the dispute to Grenoble with distinct procedural awards",
+      "cue": "What did the final orders require?",
+      "paragraphs": [
+        "On May 11, 2005, the Court quashed the September 2003 judgment in all provisions, restored the parties to their prior position and remanded to the Grenoble Court of Appeal. It ordered the builder to bear costs and pay the homeowners €2,000 under article 700 of the Code of Civil Procedure, rejected the builder’s request under that article, and directed annotation of the quashed judgment.",
+        "The €2,000 was a procedural award, not the reconstruction price or contract damages. The Court itself did not enter an operative rebuilding order. Weber presided, Paloque was rapporteur and Gariazzo was avocat général; no numerical vote or separate writing was recorded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Complete disposition and identifying material"
+        }
+      ]
+    }
+  ]
+}

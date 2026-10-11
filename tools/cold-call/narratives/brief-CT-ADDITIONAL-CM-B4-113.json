@@ -1,0 +1,88 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-113",
+  "briefId": "CT-ADDITIONAL-CM-B4-113",
+  "title": "Westinghouse Richmond consolidated uranium litigation — assigned interim account, source-limited",
+  "course": "Contracts",
+  "citation": "Assigned Richmond interim ruling; no judicial report citation supplied",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A uranium supplier claims a market surge excuses its delivery promises, loses the claim to a complete excuse, and pursues remedial adjustment before settlement.",
+  "actors": [
+    {
+      "name": "Westinghouse",
+      "role": "Supplier promising uranium oxide for utilities’ nuclear-power plants."
+    },
+    {
+      "name": "The utilities",
+      "role": "Customers seeking performance or relief after the supplier’s claimed excuse."
+    }
+  ],
+  "proceedings": [
+    "Several utility suits were consolidated in Richmond, where an interim ruling denied a complete excuse.",
+    "Remedial submissions followed; the assignment reports eventual settlement of all claims."
+  ],
+  "limits": "The precise interim ruling and hearing transcript remain unavailable. Figures and stages come from the assigned account; no final quantified judicial remedy or appellate approval is established.",
+  "briefSha256": "d1315943145e70a1611a3f7d1d766e3e1a915b136d924f968cd96b84f20414ab",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-113"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A rising uranium market strains Westinghouse’s delivery promises",
+      "cue": "What did the supplier tell its customers it could deliver?",
+      "paragraphs": [
+        "Westinghouse contracted to supply uranium oxide for utilities’ nuclear-power plants. The assigned account describes prices rising from about $6 per pound in 1972 to about $40 in 1976. Late in 1975, Westinghouse wrote seventeen utilities claiming commercial impracticability excused delivery of approximately eighty million promised pounds.",
+        "The company proposed prorating approximately fifteen million pounds it could command. Multiple suits and settlements followed, and several utilities’ actions were consolidated for trial in Richmond. These figures describe the textbook’s reported history, not independently recovered findings from the interim ruling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned printed 1132; contracts and claimed excuse"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Available uranium is delivered while the consolidated case proceeds",
+      "cue": "What did the judge decide after the hearings?",
+      "paragraphs": [
+        "With court approval, Westinghouse arranged to deliver its available uranium subject to later determination. After nine months of hearings, the judge concluded that the company was not wholly excused from its obligations.",
+        "The judge remained willing to hear argument for limiting the remedy. Denial of a complete excuse and openness to remedial adjustment were separate steps: the latter did not itself rewrite every obligation, fix damages or declare that the utilities were entitled to nothing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned 1132; deliveries and interim ruling"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Remedial submissions end in reported settlements",
+      "cue": "Which outcome is known without supplying the missing judicial reasoning?",
+      "paragraphs": [
+        "Submissions addressing damages and an equitable adjustment followed. The assignment reports that all claims ultimately settled on terms relatively favorable to Westinghouse. It supplies neither a quantified judicial remedy nor an appellate merits affirmance of the interim reasoning.",
+        "An editorial footnote points to the later Florida Power & Light litigation, but that distinct appellate stage does not supply this ruling’s missing text. The Richmond judge’s exact test, price-risk allocation, causation findings, ruling date and full order remain unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned 1132 and editorial note o; subsequent submissions and source limits"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "id": "brief-CP-COMP-CB-ZIGLAR-ABBASI",
+  "briefId": "CP-COMP-CB-ZIGLAR-ABBASI",
+  "title": "Ziglar v. Abbasi",
+  "course": "Civil Procedure",
+  "citation": "582 U.S. 120 (2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Detainees alleging discriminatory restrictions and guard abuse after September 11 reached the Supreme Court with several claims revived on appeal. The Court held that plausible constitutional allegations did not themselves supply an implied damages remedy and separately granted immunity on the statutory conspiracy claim.",
+  "actors": [
+    {
+      "name": "Six detainee respondents",
+      "role": "Arab or South Asian men held on immigration charges, five of them Muslim"
+    },
+    {
+      "name": "Ashcroft, Mueller, and Ziglar",
+      "role": "Former Attorney General, FBI Director, and immigration commissioner"
+    },
+    {
+      "name": "Hasty and Sherman",
+      "role": "Warden and associate warden at the Metropolitan Detention Center"
+    },
+    {
+      "name": "Justice Kennedy",
+      "role": "Author of the principal opinion"
+    },
+    {
+      "name": "Justices Thomas and Breyer",
+      "role": "Authors of separate writings"
+    }
+  ],
+  "proceedings": "The district court dismissed senior officials but retained warden claims. The Second Circuit reinstated and largely sustained those claims. The Supreme Court reversed all except Hasty’s prisoner-abuse claim, vacated that portion, and remanded on June 19, 2017.",
+  "limits": "The Court did not overrule Bivens, determine that alleged abuse occurred, or finally permit damages against Hasty. Only three Justices joined Part IV-B’s reason for remanding his claim, though four supported that disposition. Three Justices did not participate.",
+  "briefSha256": "f04d617b2fd373d42d4ae43798065b0217d1ae2f0803b32fba45df2166e85169",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-ZIGLAR-ABBASI"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Immigration detention produced two kinds of alleged mistreatment",
+      "cue": "Distinguish policy restrictions from guard abuse.",
+      "paragraphs": [
+        "After September 11, the federal government arrested hundreds for immigration-law violations and held some under restrictions pending clearance of terrorism connections. Six men of Arab or South Asian descent, five Muslim, were held for three to eight months in the Administrative Maximum Special Housing Unit of Brooklyn’s Metropolitan Detention Center and removed from the country after release.",
+        "They alleged tiny cells occupied more than twenty-three hours daily, constant illumination, denial of hygiene products, shackles and four-guard escorts, restricted communications, and frequent strip searches. Separate allegations described guards slamming them into walls, twisting limbs, breaking bones, threatening violence, and making sexual and religious insults. These were allegations on dismissal motions, not findings after trial. The distinction between official conditions and unofficial abuse mattered to the eventual judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The fourth amended complaint attributed conduct to named officials",
+      "cue": "Trace claims and lower-court treatment.",
+      "paragraphs": [
+        "The men sought compensatory and punitive damages and other litigation relief against former Attorney General John Ashcroft, former Federal Bureau of Investigation Director Robert Mueller, former Immigration and Naturalization Service Commissioner James Ziglar, Warden Dennis Hasty, and Associate Warden James Sherman. They alleged Fifth Amendment punishment and discrimination, Fourth and Fifth Amendment strip-search violations, and the wardens’ knowing allowance of abuse. A separate 42 U.S.C. section 1985(3) claim alleged discriminatory conspiracy. They acknowledged immigration violations could support some detention.",
+        "After Ashcroft v. Iqbal, the Supreme Court’s plausibility and individual-responsibility decision, the fourth amended complaint incorporated Justice Department Inspector General investigations. The district court dismissed senior officials but retained warden claims. The Second Circuit largely sustained those claims except Sherman’s abuse claim and reinstated claims against the senior officials. Judge Raggi dissented except as to Hasty’s abuse claim. The Supreme Court reviewed that judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court asked who should authorize a damages remedy",
+      "cue": "Explain the recognized precedents and new-context inquiry.",
+      "paragraphs": [
+        "Justice Kennedy separated plausible constitutional wrongdoing from judicial authority to imply damages. Congress expressly provided a general state-officer remedy in section 1983 but no equivalent general federal-officer action. The Supreme Court had recognized damages in Bivens for a Fourth Amendment violation, Davis v. Passman for Fifth Amendment sex discrimination, and Carlson v. Green for Eighth Amendment indifference to medical needs. It preserved those decisions but called expansion disfavored.",
+        "A context was new if it differed meaningfully from those Supreme Court settings. Differences could involve rank, constitutional provision, specificity of conduct, judicial guidance, legal mandate, intrusion on another branch, or unexamined special factors. A common right and injury mechanism—the Second Circuit’s approach—were insufficient. A modest extension could be new, although trivial differences need not be.",
+        "For a new context, special factors asked whether courts or Congress should authorize litigation with its systemwide consequences. An alternative remedial structure could independently counsel hesitation without supplying equivalent damages. Sound reasons why Congress might doubt efficacy or necessity required judicial restraint."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 6–17, 24–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "High-level detention policy presented a new context",
+      "cue": "Explain why the policy claims could not proceed.",
+      "paragraphs": [
+        "The detention-policy claims attacked executive choices after a major terrorist attack, unlike the three recognized settings. They included confinement restrictions and warden strip-search practices, but excluded Hasty’s alleged allowance of unofficial abuse. Litigation could expose deliberations, sensitive communications, and policy formation. Alleging officials’ own decisions rather than vicarious liability did not remove that concern.",
+        "National security primarily belonged to the political branches. Invoking it could not excuse every wrong, but balancing damages litigation against examination of emergency policy was for Congress. Congress had received extensive Inspector General findings and had not created the requested remedy in nearly sixteen years; that silence could be deliberate.",
+        "Potential injunctive and habeas relief also mattered. The Court expressly left open whether habeas actually reached these conditions claims because the issue was unbriefed. It did not find the detainees had a successful habeas remedy. The possible avenues, together with separation-of-powers and policy concerns, nevertheless counseled against implying these policy damages actions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 14–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Hasty’s abuse allegations were plausible only conditionally actionable",
+      "cue": "Preserve the difference between pleading and remedy.",
+      "paragraphs": [
+        "The parties appeared to accept deliberate indifference as the abuse standard, which the Court assumed for this case. The complaint alleged routine guard abuse, Hasty’s encouragement through terrorist labels, blocked grievances, deliberate avoidance of the unit, notice through complaints, hunger strikes, suicide attempts and official records, and failure to intervene. Taken as true, that plausibly alleged a constitutional violation if a Bivens remedy existed.",
+        "The claim still presented a new context. Its Fifth Amendment basis differed from Carlson’s Eighth Amendment medical-care claim; supervisory guidance was less developed, alternative relief might exist, and the Prison Litigation Reform Act supplied no standalone federal-jailer damages action. Substantial parallels did not eliminate the required special-factors inquiry.",
+        "Part IV-B, joined by Kennedy, Chief Justice Roberts, and Justice Alito, declined to conduct that inquiry first because briefing had focused elsewhere and lower courts had not undertaken it. Justice Thomas supported vacatur and remand for a different reason. Four Justices thus supported the disposition, but only three its stated Part IV-B rationale. Remand did not finally authorize suit against Hasty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 23–26, 33; Thomas 1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Unsettled conspiracy law supplied qualified immunity",
+      "cue": "State what was assumed and what remained undecided.",
+      "paragraphs": [
+        "The statutory conspiracy claim alleged agreement to impose discriminatory conditions based on race, religion, and national origin. Assuming truth and adequate pleading, the Court granted qualified immunity to all petitioners. An identical precedent was unnecessary, but an abstract prohibition did not establish that these particular official consultations violated section 1985(3).",
+        "Courts disagreed about the intracorporate-conspiracy doctrine: whether agents consulting for one entity could count as separate conspirators. That division denied sufficiently clear notice that these consultations and policies were a statutory conspiracy. Concern about chilling necessary departmental discussion reinforced the result. The Court neither adopted nor rejected the doctrine for civil-rights conspiracies and did not hold that colleagues could never conspire."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy 26–32"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Thomas and Breyer offered different routes through the controversy",
+      "cue": "Describe both separate writings and the votes.",
+      "paragraphs": [
+        "Thomas joined all but Part IV-B and concurred in the judgment. He would confine Bivens to its precise recognized circumstances and ordinarily reverse Hasty’s claim too, but accepted vacatur and remand as the controlling disposition closest to his view. Applying existing conspiracy-immunity precedent, he criticized modern immunity for departing from the historical immunities understood in 1871. His note traced importation of the clearly-established standard from federal constitutional damages cases into 1871 Act litigation. He urged later reconsideration rather than abolishing immunity here.",
+        "Justice Breyer, joined by Ginsburg, would affirm. He regarded these as familiar applications of Bivens, Davis, and Carlson; rank and emergency could affect violation or immunity without erasing the remedy. Congress had accepted Bivens, including through the Westfall Act’s constitutional-claim exception, while the Prison Litigation Reform Act’s prisoner definition excluded immigration detainees. Prospective relief could not compensate completed injury, and alleged communication blackouts undermined access. Plausibility, personal responsibility, immunity, and controlled discovery could protect officials. He also rejected conspiracy immunity and emphasized damages review after emergency passions receded.",
+        "On June 19, 2017, Kennedy, Roberts, Thomas, and Alito supported reversal of every claim except Hasty’s prisoner-abuse claim, whose appellate judgment was vacated and remanded. Breyer and Ginsburg dissented. Sotomayor, Kagan, and Gorsuch did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas 1–6 & n.*; Breyer 1–24; Kennedy 33"
+        }
+      ]
+    }
+  ]
+}

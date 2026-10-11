@@ -1,0 +1,162 @@
+{
+  "id": "brief-CT-CB-0493",
+  "briefId": "CT-CB-0493",
+  "title": "Martinez-Gonzalez v. Elkhorn Packing Co. LLC",
+  "course": "Contracts",
+  "citation": "25 F.4th 613 (9th Cir. 2022) (amended opinion)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A seasonal agricultural worker signs arbitration papers in a rushed group orientation after fieldwork. A bench trial finds duress and undue influence, but the appellate majority and dissent disagree over California law and the deference owed those findings.",
+  "actors": [
+    {
+      "name": "Dario Martinez-Gonzalez",
+      "role": "Mexican seasonal worker asserting labor claims and challenging arbitration."
+    },
+    {
+      "name": "Elkhorn Packing Company",
+      "role": "Labor contractor arranging work, visa, housing, transportation, and employment packets."
+    },
+    {
+      "name": "D’Arrigo Brothers",
+      "role": "Agricultural enterprise for which Elkhorn supplied labor."
+    },
+    {
+      "name": "Judge Edward Chen",
+      "role": "District judge who heard witnesses at a two-day bench trial."
+    }
+  ],
+  "proceedings": [
+    "After removal of the worker’s suit, the district court denied arbitration based on economic duress and undue influence.",
+    "The Ninth Circuit reversed and remanded for agreement-scope determination.",
+    "The panel amended its opinion and denied rehearing; no en banc vote was requested."
+  ],
+  "limits": "This transforms the canonical amended-opinion brief without a fresh audit or later-treatment certification. The two assigned excerpts belong to one decision; the Arizona season was not a third California arbitration agreement. Majority and dissent descriptions of reading opportunity and coercion are competing assessments, not merged findings. Pinpoints use amended slip pages.",
+  "briefSha256": "c515af706bf379905b9da9713fea0eb6358156ae667dd5c70e87d841c554f00e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0493"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A seasonal job brings Martinez-Gonzalez to California",
+      "cue": "Why did the relationship carry economic importance?",
+      "paragraphs": [
+        "Dario Martinez-Gonzalez supported his wife and family members in Mexico and sought seasonal employment paying substantially more than work there. In 2016, Elkhorn Packing, a labor contractor for D’Arrigo Brothers, accepted his application, helped secure an H-2A visa, and transported him to Monterey County, California.",
+        "He harvested lettuce and depended on employer housing and transportation. Between two California seasons he worked an Arizona season, then quit during the 2017 California season. These were three successive harvesting seasons, while the disputed arbitration agreements concerned 2016 and 2017."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 6–8 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Arbitration agreements appear in group employment packets",
+      "cue": "What conditions surrounded signing?",
+      "paragraphs": [
+        "A few days after work began, Elkhorn conducted an orientation around 4 p.m. in the hotel parking lot after a day of field labor. About 150 workers stood in signing lines; findings recounted by the dissent put Martinez-Gonzalez’s wait at roughly forty minutes. Seated supervisors turned packet pages, directed signatures, and urged speed for those waiting.",
+        "The arbitration agreements were in Spanish. Martinez-Gonzalez signed without reading, received no explanation or copy, and was not affirmatively told he could consult counsel. He did not ask for a copy, more reading time, or consultation. Nobody expressly threatened termination for refusal. The district judge nevertheless later found that he reasonably understood signing as necessary to retain work and rejected employer testimony that it was optional. Lack of an express threat and that credited understanding were distinct parts of the dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 6–8, 27–30, 38–42"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A two-day trial produces a refusal to compel arbitration",
+      "cue": "What did the appellate court review?",
+      "paragraphs": [
+        "In 2018, Martinez-Gonzalez sued in state court for federal minimum-wage and state wage, meal, rest, and privacy violations, for himself and similarly situated workers. After removal, the employers invoked the two arbitration agreements. Judge Edward Chen conducted a two-day bench trial and found economic duress and undue influence, denying the motion to compel.",
+        "Federal Arbitration Act § 2 permitted generally applicable defenses, and California law governed these. The Ninth Circuit reviewed enforceability de novo and underlying factual findings for clear error. Judge Bumatay wrote for himself and Sixth Circuit Judge Siler, sitting by designation; Judge Rawlinson dissented. Their disagreement concerned both legal requirements and the treatment of Chen’s findings and credibility decisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 8, 26–27"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds economic duress unproved",
+      "cue": "Why did inquiry and revocation count as alternatives?",
+      "paragraphs": [
+        "California economic duress required a wrongful act coercing a reasonably prudent person without reasonable alternatives, with causation linking pressure and assent. Wrongfulness need not be criminal or tortious; bad-faith threats, false claims, withholding acknowledged debt, and improper threats could suffice. The defense, borne by the rescinding party, did not invalidate ordinary hard bargaining.",
+        "The majority found neither wrongfulness nor absence of alternatives. It read the trial findings as an unfavorable setting without coercive purpose or bad faith. Gathering workers after arrival served practical business needs, and no earned-wage threat or comparable economic-disaster threat appeared. Rich & Whillock, a precedent involving deliberate withholding of an undisputed debt from a subcontractor near bankruptcy, differed. Obtaining ordinary arbitration without reducing wages or releasing substantive claims also raised doubt about the disproportionate economic loss contemplated by the cases; this was not categorical immunity for coercively obtained arbitration.",
+        "No express dismissal threat or written mandatory-signing term appeared, and Martinez-Gonzalez acknowledged assuming compulsion. The majority thought a prudent person could ask. General wage need and a feared but uncertain adverse result did not eliminate alternatives. The agreements also allowed ten-day revocation, with no employer interference found by the majority; ordinary failure to read did not defeat enforcement. Its identified alternatives were inquiry and revocation, not simply purchasing travel home or new housing. Having rejected two elements, it expressly did not decide causation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 9–19 & nn.3–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority also finds no overborne will under undue influence",
+      "cue": "How did it evaluate vulnerability and pressure together?",
+      "paragraphs": [
+        "Civil Code § 1575 addressed abuse of confidence or authority, weakness of mind, and grossly oppressive exploitation of necessity or distress. Odorizzi supplied a balancing approach: heightened susceptibility could make lesser pressure sufficient, while extraordinary force could overcome ordinary capacity. The ultimate question was whether will was overborne.",
+        "The majority found no explicit finding or evidentiary basis for heightened susceptibility. Martinez-Gonzalez had secondary schooling, could read Spanish, had farmed since childhood, supported family before this job, and later left voluntarily. Modest means and family responsibilities alone did not show inability to choose independently, so extraordinary pressure was needed.",
+        "Odorizzi’s contextual indicators included unusual time or place, urgency, consequences of delay, multiple persuaders, absent advisers, and assertions that consultation was unavailable. The majority rejected mechanical counting. A hotel parking lot conveniently gathered workers; arrival timing had business reasons; hunger and fatigue did not establish oppression; no one prevented a request to read or consult. Hurrying accommodated the line, while work-rule admonishments were not arbitration demands.",
+        "The court left an allegation that papers were falsely described as Social Security documents undecided because it was disputed and Chen made no false-statement finding. Dramatic Odorizzi examples such as bereavement, hospitalized pain, and a late-night ultimatum were illustrative, not exhaustive. Even so, the majority held the contrary undue-influence finding clearly erroneous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 19–26 & nn.8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Rawlinson would preserve both trial defenses",
+      "cue": "Why did she view the same proposed alternatives as unrealistic?",
+      "paragraphs": [
+        "Rawlinson emphasized clear-error deference to supported findings after live testimony. Chen credited tired, hungry workers far from home, dependent on employer housing and transport, standing in a long line without meaningful review or explanation, and rejected optional-signing testimony. In her view, the majority substituted its own assessment.",
+        "The wrongful act was the combined coercive environment, not requesting arbitration by itself. Lawful conduct could be coercive under California law, and unequal power, known family dependence, and findings of coercion captured purpose without special terminology. No one among thousands had refused, and supervisors described signing as required or inevitable. An omitted express threat did not make the process voluntary.",
+        "The credited practices, she read them, prevented informed reading, discouraged questions, and supplied no retained copy; an unknown revocation clause was no realistic alternative. Majority and dissent specifically disputed what the findings showed about those opportunities.",
+        "For undue influence she identified five supported Odorizzi factors: time, place, rushed completion, multiple supervisors, and absent advisers. She did not claim findings of extreme delay consequences or an express no-consultation warning. More dramatic precedents did not exhaust the doctrine, and unlike Myers, which reversed unsupported findings, this trial record supplied support. Either defense independently justified refusing arbitration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 26–49 & dissent nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Reversal leaves the agreements’ coverage for the district court",
+      "cue": "What did amendment and rehearing change procedurally?",
+      "paragraphs": [
+        "The panel reversed and remanded specifically to decide whether the asserted claims fell within the arbitration agreements’ scope. It did not determine wage liability or settle scope itself.",
+        "The November 3, 2021 opinion was amended February 14, 2022. Bumatay and Siler favored denying panel rehearing; Bumatay voted and Siler recommended against en banc rehearing; Rawlinson favored both. The full court was advised and no judge requested an en banc vote. That denial was not a substantive en banc opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Amended slip 1, 5, 26"
+        }
+      ]
+    }
+  ]
+}

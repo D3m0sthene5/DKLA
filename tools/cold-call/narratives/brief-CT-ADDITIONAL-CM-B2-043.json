@@ -1,0 +1,164 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B2-043",
+  "briefId": "CT-ADDITIONAL-CM-B2-043",
+  "title": "Foakes v. Beer",
+  "course": "Contracts",
+  "citation": "(1884) 9 App. Cas. 605 (H.L.)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Julia Beer accepted an immediate part payment and installments on a judgment against John Foakes. After he paid the stated principal and costs, she pursued interest, and the Lords considered both what her written concession meant and whether the debtor had supplied consideration for it.",
+  "actors": [
+    {
+      "name": "Julia Beer",
+      "role": "Judgment creditor pursuing statutory interest after receiving principal and costs."
+    },
+    {
+      "name": "John Weston Foakes",
+      "role": "Judgment debtor relying on the installment memorandum."
+    },
+    {
+      "name": "Earl of Selborne",
+      "role": "Lord who read a conditional interest waiver but found it unsupported by consideration."
+    },
+    {
+      "name": "Lord Blackburn",
+      "role": "Lord criticizing the traditional rule but concurring in the result."
+    },
+    {
+      "name": "Lords Watson and Fitzgerald",
+      "role": "Lords reading the memorandum as an extension of time and alternatively finding no consideration for waiver."
+    }
+  ],
+  "proceedings": "Cave J. treated compliant payments as barring further execution, and the Queen’s Bench Division refused a new trial. The Court of Appeal reversed and entered judgment for interest. The House of Lords affirmed and dismissed Foakes’s appeal with costs.",
+  "limits": "All four Lords supported the result; Blackburn did not dissent. The memorandum was unsealed and contained Beer’s conditional undertaking, not a new installment promise or security from Foakes. The final order did not independently fix the approximately £350 interest mentioned in discussion.",
+  "briefSha256": "4a0f0b208618ce9e2a2bd37addf8dd0dc4e8ca745d8c9d1fc0424c7d7306d282",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B2-043"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A judgment carries interest before the creditor agrees to time",
+      "cue": "What did Foakes already owe?",
+      "paragraphs": [
+        "On August 11, 1875, Julia Beer obtained judgment against John Weston Foakes for £2,077 17s. 2d. in debt and £13 1s. 10d. in costs, totaling £2,090 19s. The judgment carried statutory interest at four percent under §17 of 1 & 2 Vict. c.110. Lord Fitzgerald later calculated £113 16s. 2d. in accrued interest by the agreement date. Interest was a legal incident of the judgment, not discretionary damages for a jury.",
+        "On December 21, 1876, the parties signed an unsealed memorandum reciting the judgment and Foakes’s request for time. Beer acknowledged an immediate £500 part payment. She promised not to take proceedings if Foakes paid £150 each July 1 and January 1, or within one calendar month afterward, beginning the next July, until the stated £2,090 19s. had been fully paid. Payments could go to Beer or her designated successors or nominee.",
+        "Foakes already owed the whole judgment immediately. The memorandum expressed Beer’s conditional undertaking, not a new promise by Foakes to make installments. He furnished no additional security or negotiable instrument."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "605–606, 611, 624–626"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Payment compliance is established, but interest remains disputed",
+      "cue": "How did the lower courts divide?",
+      "paragraphs": [
+        "Beer sought leave to proceed on the judgment in June 1882. An issue was directed to determine whether any amount remained due on July 1. At trial before Cave J., principal and costs were proved paid, and the jury found compliance with the stipulated amounts and times.",
+        "Cave held that the agreement barred execution for any balance. Watkin Williams and Mathew JJ., sitting in the Queen’s Bench Division, discharged an order for a new trial based on alleged misdirection. The Court of Appeal—Brett M.R., Lindley L.J., and Fry L.J.—reversed and entered judgment for Beer for interest, with costs.",
+        "Foakes appealed. The dispute no longer concerned whether he made the promised-condition payments on schedule; it concerned their legal effect and the writing’s treatment of interest."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "605–606"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Counsel debate practical benefit and the existing debt",
+      "cue": "What alternatives did each side present?",
+      "paragraphs": [
+        "Foakes’s counsel argued that prompt recovery of part could be more useful than demanding all, especially if insistence led to delay or bankruptcy. The law recognized different performances, including negotiable paper, as satisfaction even at a smaller face value. Counsel questioned why a trivial different object could suffice while commercially valuable money could not, disputed the foundations of Pinnel’s Case and Cumber v. Wane, and invoked payment to a nominee.",
+        "Beer’s counsel answered that the agreement granted time without forgiving interest. Alternatively, forgiveness lacked consideration because Foakes only performed an existing duty. Settled authorities rejected less money paid in the same way as satisfaction of a greater liquidated obligation, and analogous rules governed demands for additional pay for an existing duty.",
+        "Foakes replied that some precedents involved incomplete satisfaction or defective pleading. These were legal arguments; they did not establish that Beer actually faced Foakes’s insolvency or received a new security."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "606–610"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Selborne reads a waiver but finds no new consideration",
+      "cue": "Why did later completion not create a binding discharge?",
+      "paragraphs": [
+        "The Earl of Selborne agreed with the lower courts that the writing could conditionally waive interest. It named the specific principal-and-cost sum and promised no proceedings after the prescribed payments. Adding accrued and future interest would insert missing words and narrow the operative promise. Although doubtful Beer subjectively intended forgiveness, he found the language capable of that effect if enforceable.",
+        "The £500 was part of money already due, and later installments were delayed payment of more of that same obligation by Beer’s indulgence. Neither supplied an independent benefit or new detriment. Later compliance did not manufacture accord and satisfaction absent at formation: satisfaction was incomplete while installments remained, and Beer gave no new binding acquittance when the final payment arrived.",
+        "Selborne retained the principle associated with Pinnel that less money, paid when due in the same manner, could not alone satisfy the larger obligation. Creditor compositions, sealed releases, or different performance or security were distinguishable. Cumber might have mishandled negotiable-paper distinctions without defeating the underlying principle. Convenience of prompt collection or avoidance of future insolvency was not the independent benefit the rule recognized.",
+        "He acknowledged an apparently arbitrary boundary between an unsealed concession and a deed and thought some written concessions might beneficially be binding without a seal. That reform could not be achieved by treating ordinary part payment as new consideration. He proposed affirmance and dismissal with costs."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "610–614"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Blackburn questions the rule’s commercial premise but joins the judgment",
+      "cue": "How did his historical analysis differ?",
+      "paragraphs": [
+        "Lord Blackburn likewise read a conditional surrender of interest. The language could not fairly be rewritten to require interest beyond the specified sum or reserve proceedings solely for it. He contrasted payment of £500 with giving a horse or promissory note of equal value.",
+        "Examining Pinnel, he distinguished its pleading issue and recognition of beneficial early payment from the broader dictum about money paid when due. Different performance might offer an advantage without courts weighing adequacy, but he doubted that prompt part payment could never benefit a creditor. He discussed sham pleas involving hats or wine, the fiction of paying in full and returning part, and Cumber’s actual pleading record. Other decisions involved incomplete accord or conditional acceptance, weakening their support for an absolute rule, though lower courts remained constrained by the established line.",
+        "Blackburn considered the House free to reconsider. Even a solvent debtor’s prompt part payment could be commercially preferable, especially where credit was doubtful. He had prepared reasons favoring that conclusion, but the other Lords were unpersuaded. He expressly declined to persist and assented to the proposed judgment despite his original view. His criticism was not a dissenting vote or an adopted practical-benefit exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "614–623"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Watson and Fitzgerald interpret the concession more narrowly",
+      "cue": "Why did their different reading still yield the same result?",
+      "paragraphs": [
+        "Lord Watson read the identified amount as a judgment debt bearing interest by law. Beer granted time, not reduction of her rights. Even assuming Selborne and Blackburn’s conditional-release construction, however, Foakes furnished no consideration. Watson declined to disturb settled doctrine.",
+        "Lord Fitzgerald stressed that the recitals concerned time and Foakes requested no remission. Foakes’s solicitor drafted the agreement, Beer’s solicitor approved it, and interest was not mentioned during negotiation. The general undertaking should be read through those specific recitals. Foakes had not assumed a new duty to pay a nominee or given new written security, contrary to suggestions below.",
+        "Alternatively, full payment of principal and costs to the last farthing conferred no additional legal advantage supporting surrender of interest. Fitzgerald acknowledged Blackburn’s criticism and the artificiality of some distinctions but would not overturn the long-received rule. His references to approximately £350 in interest explained the stakes without themselves fixing a new award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "623–630"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The debtor’s appeal fails unanimously despite disagreement about meaning",
+      "cue": "What was the final order?",
+      "paragraphs": [
+        "After argument on March 31 and April 1, the House of Lords decided the appeal May 16, 1884. Selborne, Blackburn, Watson, and Fitzgerald all supported affirmance. The House affirmed the order appealed from and dismissed Foakes’s appeal with costs.",
+        "Beer could recover the interest under the Court of Appeal’s order. The House did not unanimously construe the memorandum as expressly preserving interest; two Lords read a possible waiver and rejected its enforceability, while two favored an extension-of-time reading and also rejected waiver on the alternative assumption. The decision states the historical consideration rule rather than resolving later English contract-law developments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "605, 610–614, 623–630; report final order"
+        }
+      ]
+    }
+  ]
+}

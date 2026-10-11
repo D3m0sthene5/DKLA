@@ -1,0 +1,136 @@
+{
+  "id": "brief-CP-153",
+  "briefId": "CP-153",
+  "title": "Semtek International Inc. v. Lockheed Martin Corp.",
+  "course": "Civil Procedure",
+  "citation": "531 U.S. 497 (2001)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After losing a California diversity action as untimely, Semtek tried a Maryland forum with a longer limitations period. The Supreme Court held that the first judgment’s merits label did not automatically bar the second action everywhere; federal common law ordinarily incorporated the rendering state’s preclusion rules.",
+  "actors": [
+    {
+      "name": "Semtek International",
+      "role": "Business-tort plaintiff seeking to proceed in Maryland"
+    },
+    {
+      "name": "Lockheed Martin",
+      "role": "Defendant invoking the earlier federal dismissal"
+    },
+    {
+      "name": "Justice Scalia",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The California federal dismissal was affirmed. Maryland courts later treated it as categorically preclusive. The Supreme Court reversed the Maryland judgment and remanded without reopening California or deciding California preclusion law’s actual content.",
+  "limits": "The Court did not guarantee Semtek’s Maryland claim or award damages. Rule 41(b) barred refiling in the rendering court but did not alone determine every external preclusive effect. Incorporation of state law remained subject to relevant federal interests.",
+  "briefSha256": "a09b71e234424198dfe6497aa32fabbc0fa1da64ebcf993ca977748ab73706a5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-153"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A California limitations dismissal preceded the Maryland suit",
+      "cue": "Identify the two actions and the significance of the wording.",
+      "paragraphs": [
+        "Semtek International sued Lockheed Martin in California state court for inducement of breach of contract and other business torts. Lockheed removed to the Central District of California through diversity jurisdiction and obtained dismissal under California’s two-year limitation. The court adopted Lockheed’s proposed language dismissing the claims entirely on the merits and with prejudice, although it had decided timeliness rather than substantive wrongdoing. The Ninth Circuit affirmed.",
+        "Semtek then brought the same causes in Maryland state court, where the applicable three-year period remained open. Traditionally a limitations dismissal might bar a local remedy without extinguishing a claim in a jurisdiction with more time. Whether California preclusion law did so here was disputed. Lockheed argued that the federal judgment’s express wording and Federal Rule of Civil Procedure 41(b) instead extinguished the claim everywhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499–500, 504"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Efforts to stop or relocate the second action failed before Maryland dismissed it",
+      "cue": "Trace the procedural path to the judgment under review.",
+      "paragraphs": [
+        "Semtek initially had not challenged the first order’s merits label. During the Maryland litigation, Lockheed unsuccessfully sought a California federal injunction against the second action. It also removed that action on federal-question grounds, but the Maryland federal court remanded because the federal issue appeared only in a defense. Diversity removal was unavailable because Lockheed was a Maryland citizen.",
+        "The Maryland trial court dismissed for claim preclusion. Semtek unsuccessfully sought amendment of the California order in the district court and Ninth Circuit, then appealed in Maryland. The Court of Special Appeals affirmed on the view that federal law gave the federal merits dismissal preclusive effect regardless of California’s treatment of its own limitations judgments. Maryland’s highest court declined review. The Supreme Court reviewed that Maryland judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499–500"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A procedural merits label did not prescribe universal preclusion",
+      "cue": "Explain the narrower construction of Rule 41.",
+      "paragraphs": [
+        "Justice Scalia’s unanimous opinion declined to treat Dupasseur, an older diversity-preclusion decision, as dispositive because it arose under the superseded Conformity Act requiring relevant state procedure. A contemporary explanation was needed.",
+        "On the merits had several meanings. It originally denoted substantive adjudication, but courts also used it for limitations dismissals without deciding liability. Rule 41(b) supplied a default for specified dismissals unless the court directed otherwise; it was unlikely that such an instruction about a court’s procedure silently created comprehensive rules governing other courts’ judgments.",
+        "Rule 41(a)’s without-prejudice wording offered the coherent comparison: it primarily preserved return to the same court. The opposite barred refiling there. Thus the order had force in the Central District of California, but its Maryland consequences still required judgment-effect law. Federal-question preclusion precedents likewise had not treated Rule 41(b) as their source."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "500–503, 505–506"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Universal extinguishment would distort state-created rights",
+      "cue": "Explain the Enabling Act and Erie concerns.",
+      "paragraphs": [
+        "A nationwide-preclusion construction risked violating the Rules Enabling Act by extinguishing a right state law might preserve for litigation elsewhere merely because the initial case reached federal court. The Court used that concern to limit interpretation, not invalidate Rule 41. It reserved a narrower possible problem where even barring return to the same federal court exceeded what state procedure allowed.",
+        "The broad reading also threatened Erie’s policies against forum shopping and unequal treatment of state-law claims. An out-of-state defendant could remove a stale claim and obtain nationwide extinguishment that a state limitations dismissal would not confer. Equivalent state rights would then receive materially different consequences solely from the forum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "503–506 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Federal common law selected California’s preclusion rules",
+      "cue": "Distinguish the source of law from its incorporated content.",
+      "paragraphs": [
+        "Neither the Constitution’s Full Faith and Credit Clause nor 28 U.S.C. section 1738 directly governed because they addressed state judgments, while the first judgment here was federal. The Supreme Court had long prescribed the effect state courts must give federal judgments; federal common law supplied the source, with the Supreme Court having the final word.",
+        "A federal source did not require nationally uniform content. For state-law claims, the more relevant uniformity was between state and federal courts within the rendering state. Ordinarily the federal rule therefore incorporated the preclusion law applied by that state’s courts. California’s law, not Maryland’s merely because it hosted the second suit, provided the incorporated rule.",
+        "Relevant federal interests could justify departure. A hypothetical state refusal to recognize dismissal for willful disobedience of discovery orders might undermine federal control of proceedings. That was not a finding about Semtek. This dismissal implemented California limitations policy, with no federal interest in making it extinguish more rights elsewhere than California intended."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "506–509"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Maryland had to reconsider the effect, not the underlying merits",
+      "cue": "State the unanimous remand and remaining question.",
+      "paragraphs": [
+        "On February 27, 2001, the Supreme Court reversed the Maryland Court of Special Appeals and remanded. It left California preclusion law’s actual content undecided for further proceedings.",
+        "The decision neither reopened the California case nor changed its limitations ruling. It removed Maryland’s automatic federal-preclusion rationale without guaranteeing that Semtek would overcome the applicable state-derived rule or other defenses. No business-tort liability or damages were decided, and no Justice wrote separately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "509"
+        }
+      ]
+    }
+  ]
+}

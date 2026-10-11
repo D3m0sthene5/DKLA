@@ -1,0 +1,110 @@
+{
+  "id": "bollinger",
+  "briefId": "CT-CB-0543",
+  "title": "Bollinger v. Central Pennsylvania Quarry Stripping and Construction Co.",
+  "course": "Contracts",
+  "citation": "425 Pa. 430, 229 A.2d 741 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Bollingers said a contractor could dump construction waste on their land only if it buried the waste beneath replaced topsoil. The contractor initially followed that sequence, then stopped and pointed to a signed writing that omitted the promise.",
+  "actors": [
+    {
+      "name": "Mahlon and Vinetta Bollinger",
+      "role": "Landowners seeking correction and enforcement of the written agreement."
+    },
+    {
+      "name": "Central Pennsylvania Quarry Stripping and Construction Company",
+      "role": "Turnpike contractor permitted to deposit waste on the property."
+    },
+    {
+      "name": "Beltzner",
+      "role": "Neighbor whose property received similar topsoil treatment."
+    },
+    {
+      "name": "Justice Musmanno",
+      "role": "Author of the Pennsylvania Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The chancellor reformed the writing and granted enforcement after testimony. The company challenged the decree and sought rehearing based on purported new evidence. The Pennsylvania Supreme Court affirmed with costs against the company.",
+  "limits": "The report supplies no price, waste quantity, damages award, or property dimensions. Reformation rested on proof of an actual shared mistake, not failure to read alone. The rehearing evidence was assumed newly discovered without deciding that characterization.",
+  "briefSha256": "d14eff879e9514a2f78d0c918d8d08c30cb19db88e2042e71717aa86119f03f6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0543"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Landowners permit waste deposits on an asserted protective condition",
+      "cue": "What was missing from the signed paper?",
+      "paragraphs": [
+        "Mahlon and Vinetta Bollinger allowed Central Pennsylvania Quarry Stripping and Construction Company to deposit waste on their land while working on the nearby Pennsylvania Turnpike. They maintained that the agreed method required the company first to remove and set aside topsoil, then deposit waste on the exposed ground, and finally replace the topsoil over it.",
+        "The Bollingers signed the writing without reading because they assumed that requirement had been included. It was absent. Their claim was that the paper failed to record a bargain already reached, rather than that an accurately recorded provision should be disregarded merely because they had not read it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "431"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Initial performance corroborates the landowners before the practice changes",
+      "cue": "How did the contractor respond to their protest?",
+      "paragraphs": [
+        "At first, the contractor removed and set aside topsoil, deposited waste below it, and replaced the soil. Later it stopped following that sequence. When the Bollingers complained, the company relied on the absence of a topsoil requirement in the writing.",
+        "The superintendent also said the relevant equipment had been removed. When reminded of the original understanding, he responded that he could not help that. Similar treatment of topsoil on neighbor Beltzner’s property provided additional corroboration of the Bollingers’ account.",
+        "The landowners brought an equity action to reform the document by adding the omitted paragraph and to enforce the corrected agreement. After testimony, the chancellor found the heavy burden of proving the shared understanding met through corroborating conduct and granted relief. The company appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "431–432"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Equity corrects the document when evidence establishes a shared mistake",
+      "cue": "Why did the company’s denial not foreclose relief?",
+      "paragraphs": [
+        "Justice Musmanno explained that equity could reform written evidence of a contract to match the parties’ actual agreement, but the mistake had to be mutual. A party’s later denial did not itself defeat a finding that the shared bargain had mistakenly been omitted. Otherwise the party benefiting from the deficient writing could prevent correction simply by denying the defect.",
+        "The Court preserved the ordinary force of a signed document. Failure to understand what one signed was not enough; reformation required proper evidence of an actual shared mistake rather than a hypothetical or contrived claim.",
+        "The crucial evidence was the company’s performance, not the owners’ failure to read. It initially did the very topsoil work they said had been promised and followed the same practice next door. The chancellor reasonably inferred that the company would not have undertaken that work without agreeing to it. The court was correcting an instrument that failed to record the agreement, not first accepting a fully accurate writing and then adding a separate oral promise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "432"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The asserted new evidence does not undermine the findings",
+      "cue": "What did the final decree preserve?",
+      "paragraphs": [
+        "After the decree nisi, the company requested rehearing based on purportedly after-discovered evidence. The Supreme Court assumed without deciding that the material qualified as newly discovered. It nevertheless found no showing that the evidence was sufficiently material or relevant to change the outcome, and it was not inconsistent with the chancellor’s findings. The ruling did not reject after-discovered-evidence motions as a category.",
+        "On May 24, 1967, the Court affirmed the decree with costs against the contractor. Chief Justice Bell dissented without a written explanation; Justice Cohen did not participate. Musmanno’s opinion, with Jones, Eagen, O’Brien, and Roberts participating in the majority, produced a five-to-one alignment. The reformation and enforcement relief stood; the report states no monetary damages award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "430–433"
+        }
+      ]
+    }
+  ]
+}

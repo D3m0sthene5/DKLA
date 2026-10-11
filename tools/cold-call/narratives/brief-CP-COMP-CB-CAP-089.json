@@ -1,0 +1,130 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-089",
+  "briefId": "CP-COMP-CB-CAP-089",
+  "title": "Republic of Sudan v. Harrison",
+  "course": "Civil Procedure",
+  "citation": "587 U.S. 1, 139 S. Ct. 1048 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Terrorism plaintiffs mailed process to Sudan’s foreign minister at its American embassy, but the statutory method required the minister’s office in Sudan.",
+  "actors": [
+    {
+      "name": "USS Cole victims and family members",
+      "role": "Plaintiffs enforcing a default judgment"
+    },
+    {
+      "name": "Republic of Sudan",
+      "role": "Foreign-state defendant contesting statutory service"
+    },
+    {
+      "name": "Sudanese foreign minister",
+      "role": "Specified recipient of the mailed process"
+    }
+  ],
+  "proceedings": [
+    "District of Columbia district court: entered $314 million default judgment.",
+    "Southern District of New York: entered bank turnover orders to enforce registered judgment.",
+    "Second Circuit: upheld embassy mailing; Supreme Court reversed and remanded 8–1."
+  ],
+  "limits": [
+    "The Court assumed disputed minister identification and delivery facts favorably to plaintiffs but did not decide them. It resolved service destination, not terrorism liability or treaty inviolability, and allowed renewed proper service."
+  ],
+  "briefSha256": "173d2c17d26c77774fb02c38e96cff40d2a806cd0ec5bf875611718985d13e9a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-089"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The bombing victims obtain a default judgment without Sudan’s appearance",
+      "cue": "Introduce the claim and the actual mailing.",
+      "paragraphs": [
+        "Victims of the October 2000 USS Cole bombing and family members sued Sudan in 2010, alleging material support for al Qaeda’s attack, which killed seventeen crewmembers and injured dozens. They invoked the terrorism provisions of the Foreign Sovereign Immunities Act, or FSIA.",
+        "At their request, the court clerk sent a summons, complaint, and other papers by return-receipt mail addressed to the named foreign minister at Sudan’s Washington embassy. The clerk certified mailing and return of a signed receipt. Sudan later disputed the correct minister’s name and whether the embassy received the packet. The Supreme Court assumed both points for plaintiffs without resolving them because destination independently failed.",
+        "Sudan did not appear. After an evidentiary hearing, the District of Columbia district court entered a $314 million default judgment, mailed by the same method. Plaintiffs registered it in the Southern District of New York and obtained three bank turnover orders after that court found sufficient time elapsed following judgment and notice. Sudan appeared to challenge jurisdiction and appealed the orders."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip opinion 3–4 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appeals expose a strict statutory sequence for serving a state",
+      "cue": "Explain the hierarchy before the destination issue.",
+      "paragraphs": [
+        "The Second Circuit upheld mailing, reasoning that the statute did not specify place and embassy transmission could reasonably reach the minister. It adhered on rehearing after additional briefing and argument, with the United States supporting Sudan. A conflicting Fourth Circuit decision prompted Supreme Court review.",
+        "Under the FSIA, an immunity exception allowed subject-matter jurisdiction, while § 1330(b) tied personal jurisdiction to § 1608 service. Section 1608(a) required a hierarchy for foreign states: special service arrangement, then applicable international convention, then prescribed mailing, and finally diplomatic channels through the Secretary of State if mailing could not be completed within thirty days. A served state had sixty days to respond.",
+        "The parties agreed the first two methods were unavailable. The third required the clerk to address and dispatch translated materials by signed-receipt mail to the head of the foreign-affairs ministry. The question was whether naming that person at the Washington embassy sufficed, not whether likely actual notice excused the statutory method."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip opinion 1–5, 9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority reads the address as the minister’s own foreign office",
+      "cue": "Follow text, receipt, and statutory comparisons.",
+      "paragraphs": [
+        "Justice Alito’s eight-Justice majority adopted the most natural, though not sole linguistically possible, reading: direct mail to the minister’s office in the foreign state. An address ordinarily identified a residence or customary workplace, and dispatch indicated direct prompt sending rather than a third-party office. The embassy ordinarily was neither the minister’s residence nor usual workplace.",
+        "A ministry subordinate presumably knew how to route official mail; an embassy mailroom gave less assurance of prompt handling by the appropriate officials. The minister need not personally sign. The requirement concerned the proper office.",
+        "Section 1608(b), for agencies or instrumentalities, expressly allowed reasonable-actual-notice measures and specified agents, including domestic recipients. Their omission from state service mattered, and substituting general notice would make other language redundant. An earlier proposal explicitly naming ambassadors or mission chiefs had not become the enacted formulation. Section 1608(c)’s receipt and certification completion dates also supported routing likely to reach the right official promptly. Reopening a later default was no substitute for proper initial service."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip opinion 5–13 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Diplomatic context supports the reading while competing text retains force",
+      "cue": "Preserve the majority’s concessions and treaty reservation.",
+      "paragraphs": [
+        "The majority sought to avoid anomalies under Rule 4, where serving a state might otherwise appear easier than comparable mail service on a person abroad. The State Department had long opposed embassy-directed service and warned of reciprocal effects on American embassies. Its interpretation of diplomatic inviolability under the Vienna Convention informed context, but the Court did not decide that interpretation independently; statutory construction avoided the potential conflict.",
+        "A proposed direct-communication-line test could extend unpredictably to consulates, ambassadors’ residences, and United Nations missions. An office rule was clearer. Alito acknowledged plaintiffs’ strongest textual point: subsection (4) expressly named Washington for mailing to the Secretary of State, while subsection (3) named no location. That contrast favored plaintiffs but was outweighed by ordinary meaning and structure.",
+        "Public awareness of the suit and understandable victim frustration could not replace consistent compliance in diplomatically sensitive litigation. Proper renewed mailing under subsection (3), or diplomatic service under (4) if it failed, remained available."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip opinion 13–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas treats the embassy as a place where the minister can be reached",
+      "cue": "Close with the dissent and limited reversal.",
+      "paragraphs": [
+        "Justice Thomas agreed that notice likelihood alone was insufficient, that this was not simply agent service, and that personal receipt by the minister was unnecessary. He disagreed that the statute imposed an exclusive foreign-office address. An embassy’s secure communications made it a suitable place to reach the minister absent contrary proof or rejected delivery. He relied on the receipt and record, not an assumption every embassy must accept process.",
+        "Thomas emphasized the express location in subsection (4), disputed the majority’s routing analogies, and observed that diplomatic channels might be more direct than physically sending papers abroad. On the Vienna Convention, he distinguished physical inviolability from immunity to judicial authority; ordinary service mail did not invade premises. He added that, even if conflict existed, the later FSIA would control. The majority did not adopt those treaty propositions.",
+        "On March 26, 2019, the Court reversed the Second Circuit and remanded under its § 1608(a)(3) construction. Roberts, Ginsburg, Breyer, Sotomayor, Kagan, Gorsuch, and Kavanaugh joined Alito; Thomas alone would affirm. No terrorism merits, replacement damages sum, or bar on proper renewed service was decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip opinion 17; Thomas slip opinion 1–9 & nn.1–2"
+        }
+      ]
+    }
+  ]
+}

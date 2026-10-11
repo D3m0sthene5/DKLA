@@ -1,0 +1,146 @@
+{
+  "id": "brief-CP-COMP-CB-LOWER-289",
+  "briefId": "CP-COMP-CB-LOWER-289",
+  "title": "Shaw v. Toshiba America Information Systems, Inc.",
+  "course": "Civil Procedure",
+  "citation": "91 F. Supp. 2d 942 (E.D. Tex. 2000)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A disputed laptop-controller defect led to a settlement combining repairs, cash, coupons, and residual charity, requiring separate class, fairness, and fee review.",
+  "actors": [
+    {
+      "name": "Ethan Shaw and Clive Moon",
+      "role": "Named computer-owner plaintiffs"
+    },
+    {
+      "name": "Toshiba and NEC entities",
+      "role": "Defendants disputing defect and liability"
+    },
+    {
+      "name": "Class and objectors’ counsel",
+      "role": "Lawyers seeking fees and challenging settlement terms"
+    }
+  ],
+  "proceedings": [
+    "Suit and contested summary-judgment proceedings led to mediated settlement.",
+    "Court conditionally certified and held a January 19, 2000 fairness hearing.",
+    "January 28 order certified the settlement class and approved relief, fees, expenses, representative payments, and specified objector rulings."
+  ],
+  "limits": "The package’s approximately $2.1 billion face value was not an all-cash distribution. Toshiba admitted no liability. Residual charity followed class claims. Later foundation history is not part of this approval.",
+  "briefSha256": "aa569d0703732fcc7a225d3d3bef9d9bd724c3de666e9ed78b1a6668bc01cc32",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-LOWER-289"
+    },
+    {
+      "id": "amchem-context",
+      "label": "Reviewed companion brief identifying precedent setting",
+      "briefId": "CP-ATLAS-AMCHEM",
+      "sha256": "7be196158c36fe65c2103b5b59b2fecfe38535ce6a26a3079e7584207f0523c2"
+    },
+    {
+      "id": "castano-context",
+      "label": "Reviewed companion brief identifying precedent setting",
+      "briefId": "CP-COMP-CB-CAP-347",
+      "sha256": "b75f71eb9dbbaaf25d82fb23d96e5f63b4077494b357cf861e33752765068ad4"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A controller allegation generates technical discovery",
+      "cue": "Mediation follows contested motions",
+      "paragraphs": [
+        "Ethan Shaw and Clive Moon sued Toshiba America Information Systems and NEC Electronics in the Eastern District of Texas on March 5, 1999, later adding related entities. They alleged floppy-disk controller microcode failed to signal overruns or underruns occurring only on a sector’s last byte, risking silent data loss, corruption, or failure. Claims invoked the Computer Fraud and Abuse Act and warranties. Toshiba denied defect, actual resulting user loss, and liability.",
+        "After extensive briefing, the court denied partial-summary-judgment motions in August and ordered mediation. Discovery continued on an accelerated schedule through millions of pages, Japanese records needing translation, electronic materials, and depositions. Settlement was announced October 28. Conditional class certification, preliminary approval, protection against competing proceedings, and a January 19, 2000 hearing preceded this final decision; no defect trial occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 F. Supp.2d at 945–946, 960, 969, 977–980, 987 & nn.2–3; findings10–25,95–98"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The class receives different benefits by objective criteria",
+      "cue": "Repairs and coupons are distinct from cash",
+      "paragraphs": [
+        "The settlement covered qualifying United States citizens and residents, including businesses, governments, and other entities, owning or leasing Toshiba laptops or notebooks. It excluded Librettos without internal drives and post-November 8, 1999 acquisitions with serial numbers ending U indicating a hardware fix. About five million units qualified, roughly three million under manufacturer warranty. Serial numbers established membership and warranty without prior registration. Lease terms determined recipient entitlement, with disputes going to the administrator and court.",
+        "Units bought new from March 5, 1998 generated cash by purchase date. Units warranted on or after March 5, 1999 qualified for a software solution and $225 Toshiba coupon. Dissatisfied owners could choose a hardware solution or external drive and $200 coupon, returning the earlier coupon or paying $25. Other members received the patch and $100 coupon, and some qualified for both cash and warranty benefits. Toshiba would eliminate the condition in production and maintain a free patch. Consequential losses were reserved except physical floppy-disk damage.",
+        "Coupons were transferable, combinable, and usable on discounted products, but still Toshiba-only and therefore worth somewhat less than cash. Objectors extended redemption from six months to one year."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 F. Supp.2d at 953, 961, 978–984; findings26–41,66–68"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Heartfield applies certification requirements despite settlement",
+      "cue": "The shared defect and reserved consequential losses shape the result",
+      "paragraphs": [
+        "District Judge Heartfield applied Federal Rule of Civil Procedure 23 and Amchem, the Supreme Court’s asbestos settlement-class decision, principally certifying under Rule 23(b)(3), while also finding injunctive and warranty claims sufficient for (b)(2). Millions of owners made joinder impractical; the common controller, federal theory, and materially similar warranties supplied common issues and typical claims. Active representatives had no identified conflict, and experienced counsel prosecuted vigorously.",
+        "The single alleged source of economic loss and common liability predominated despite varying amounts. The court found pertinent warranty law sufficiently uniform and distinguished the injury, applicable-law, and future-conflict problems in Amchem and in Castano, the Fifth Circuit’s cigarette-addiction class-action decision. Reserving consequential claims limited those concerns. Small individual values and costly repeated technical proof supported superiority; this was a record-specific conclusion, not automatic certification of all defective products.",
+        "For fairness, the court considered collusion, complexity and duration, progress and discovery, success prospects, possible recovery, and participant views. It found arm’s-length negotiation, meaningful discovery, technical and novel statutory risks, repair-replacement limits, and difficulties collecting Japanese assets. Fewer than thirty objections and objective purchase/warranty distinctions supported approval without conflicting subclasses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 F. Supp.2d at 951–961 & n.13"
+        },
+        {
+          "id": "amchem-context",
+          "pinpoint": "Case setting and class-certification posture"
+        },
+        {
+          "id": "castano-context",
+          "pinpoint": "Case setting and class-certification posture"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Different valuation figures serve different purposes",
+      "cue": "Only unclaimed cash moves to charity",
+      "paragraphs": [
+        "The approximately $2.1 billion figure measured aggregate face-value benefits. Fee analysis conservatively valued a $1–$1.1 billion fund and also discussed a $1.4 billion median net-present estimate. Toshiba had to establish $597.5 million cash for class claims. Those figures were not interchangeable or a promise of immediate cash to every owner.",
+        "Only remaining cash after claims would fund a charity buying Toshiba computers for schools, churches, nonprofits, libraries, hospitals, and poor recipients, without reversion. The judge connected that use to the digital divide and workforce computer skills useful to member businesses. Reversion could encourage depressed claims, extra fees could create similar incentives, and additional owner payments could exceed computer value. Charity therefore supplemented the fulfilled individual scheme rather than replacing it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 F. Supp.2d at 961, 972, 981, 984–986; findings42–43,72–74,78,81–83"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Fees and objectors receive separate scrutiny",
+      "cue": "The settlement is approved without admitting the defect",
+      "paragraphs": [
+        "Heartfield preferred a percentage method but addressed uncertain circuit practice by also checking an hours-and-rates fee calculation, called the lodestar, with fee-evaluation factors, and a hybrid approach combining methods. The lodestar analysis supported $140–$160 million; 15% of conservative fund value and the hybrid each supported $150–$165 million. The $147.5 million fee plus up to $3 million expenses totaled $150.5 million within all ranges. Each representative received $25,000. Toshiba’s fee payment was independent of class cash, with contractual post-notice advice and oversight reimbursement also recognized.",
+        "Objectors’ lawyers who improved coupon validity received $6 million paid as agreed by class counsel and Toshiba without reducing class benefits. Conversely, inconsistent papers for purported objector Robert Demyanovich led to admonishment of Lawrence Schonbrun, revocation of his pro hac vice admission, and advance-motion and verified-client requirements for future district appearances. That did not amount to rejection of all objections.",
+        "On January 28, 2000, the court certified the opt-out settlement class and approved the agreement as fair, adequate, and reasonable and the fees as fair, just, and reasonable, adopting its appended 126 findings and associated orders. The compromise imposed no admission of Toshiba liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 F. Supp.2d at 961–976, 981, 992 & nn.16,19–20; findings44–46"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-365",
+  "briefId": "CP-COMP-CB-CAP-365",
+  "title": "American Express Co. v. Italian Colors Restaurant",
+  "course": "Civil Procedure",
+  "citation": "570 U.S. 228 (2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Merchants said expert costs made individual antitrust arbitration uneconomic, but the majority enforced their class waiver against that particular proof-cost objection.",
+  "actors": [
+    {
+      "name": "Italian Colors and other merchants",
+      "role": "Businesses alleging unlawful tying"
+    },
+    {
+      "name": "American Express",
+      "role": "Card company seeking individual arbitration"
+    }
+  ],
+  "proceedings": [
+    "District court compelled arbitration and dismissed.",
+    "Second Circuit repeatedly rejected enforcement after intervening Supreme Court remands and precedent.",
+    "Supreme Court reversed the 2012 appellate judgment 5–3; Sotomayor did not participate."
+  ],
+  "limits": "The mandate states reversal without an express remand. Other cost-sharing restrictions were disputed and chiefly described by the dissent. Possible excessive forum fees or express right waivers were examples, not adjudicated defects here.",
+  "briefSha256": "f2b4088e4cef7f666344889d92e96c9f5f9fdebd5f85cad3ee4196c4b460dd61",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-365"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Card acceptance produces an antitrust claim",
+      "cue": "The merchants quantify the cost of proving it individually",
+      "paragraphs": [
+        "Merchants accepting American Express cards agreed to arbitration without class proceedings. They alleged the company used charge-card market power to force acceptance of credit cards at fees about 30% above competitors. Charge cards required full billing-cycle payment, while credit cards permitted a balance with interest. The merchants asserted Sherman Act tying and sought Clayton Act treble damages; no violation had been adjudicated.",
+        "American Express sought individual arbitration. An economist estimated proof would cost several hundred thousand dollars, perhaps over $1 million, against a reported maximum individual recovery of $12,850, or $38,549 trebled. The merchants said that disparity made individual pursuit irrational and defeated effective vindication of federal rights."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570 U.S. at 231, 235 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appellate dispute survives intervening arbitration decisions",
+      "cue": "The Court addresses federal proof costs rather than state unconscionability",
+      "paragraphs": [
+        "The district court compelled arbitration and dismissed. The Second Circuit reversed for prohibitive individual costs. After the Supreme Court vacated in light of Stolt-Nielsen’s prohibition on unagreed class arbitration, the circuit adhered to its result, saying it had not ordered a class proceeding. It reconsidered again after Concepcion but distinguished that state-preemption decision from effective vindication of federal rights. The Supreme Court reviewed the resulting 2012 judgment.",
+        "Justice Scalia, joined by Chief Justice Roberts and Justices Kennedy, Thomas, and Alito, emphasized Federal Arbitration Act enforcement of agreed parties and procedures, including federal statutory claims absent a contrary congressional command. Neither antitrust statute guaranteed affordable prosecution of every claim or forbade class waivers. Trebling helped enforcement without authorizing every useful procedural departure. The statutes predated Rule 23, and congressional approval of that rule did not guarantee aggregation whenever financially necessary; Eisen had not excused notice expenses simply because they frustrated an antitrust plaintiff."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570 U.S. at 231–235"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority distinguishes substantive foreclosure from uneconomic proof",
+      "cue": "Thomas adds a formation-focused ground",
+      "paragraphs": [
+        "The Court described Mitsubishi’s effective-vindication discussion as dictum while recognizing its concern with prospective waiver of statutory remedies. Expressly barring a statutory right, or perhaps filing and administrative fees making forum access impracticable, presented different questions. The cost of proving a claim beyond its expected recovery did not itself eliminate the ability to pursue the remedy.",
+        "The Court reserved whether a hypothetical ban on essential economic testimony would invalidate a clause. It distinguished potential impossibility of individual proof from loss of aggregation. Gilmer, Vimar Seguros, and Concepcion supported enforcing procedural choices; investigating every theory’s cost and recovery before arbitration would undermine streamlined resolution.",
+        "Thomas joined fully but separately read the FAA contract-revocation exception as limited to formation defects such as fraud or duress. These merchants offered no such challenge to their bilateral agreement. That additional textual rationale was his concurrence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570 U.S. at 235–239 & nn.2–3, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kagan evaluates the combined practical barriers",
+      "cue": "The majority disputes both the premise and the scope before it",
+      "paragraphs": [
+        "Justice Kagan, joined by Ginsburg and Breyer, treated indirect foreclosure like express waiver. She illustrated excessive forum fees, impossible deadlines, excluded proof, meaningless remedies, or bias, without claiming each occurred here. In her reading, Mitsubishi conditioned arbitration on meaningful enforcement and Randolph rejected a cost objection for lack of evidence, not irrelevance of expense. Here the economic declaration was concrete and essentially unchallenged; theoretical cheaper proof did not replace the presented record.",
+        "Her concern was the agreement as a whole, not a necessary right to class arbitration. She described no joinder or consolidation, confidentiality preventing a shared report, no shifted costs, and rejected cost-saving stipulations as blocking every means of sharing or shrinking expense. A class waiver with adequate alternatives could stand. The majority noted American Express disputed those additional restrictions and that the reviewed judgment relied on class treatment as the only economical route. Kagan relied on reasoning from an earlier vacated appellate opinion as still informing that judgment.",
+        "She distinguished Concepcion’s state rule from reconciliation of federal antitrust and arbitration statutes and would reject compulsion upon concrete practical foreclosure. On June 20, 2013, the Court reversed the Second Circuit, enforcing the waiver against the proof-cost objection without deciding the alleged tying. Five Justices joined, three dissented, and Sotomayor did not participate; the mandate did not expressly add a remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570 U.S. at 237 n.4, 239–253 & Kagan nn.1–5"
+        }
+      ]
+    }
+  ]
+}

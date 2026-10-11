@@ -1,0 +1,113 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-421",
+  "briefId": "CP-COMP-CB-CAP-421",
+  "title": "Merck Sharp & Dohme Corp. v. Albrecht",
+  "course": "Civil Procedure",
+  "citation": "139 S. Ct. 1668 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Fosamax users alleged missing fracture warnings, and the Court clarified that a judge must decide whether binding federal requirements actually prevented an adequate state-law warning.",
+  "actors": [
+    {
+      "name": "Merck Sharp & Dohme",
+      "role": "Fosamax manufacturer asserting impossibility preemption"
+    },
+    {
+      "name": "Albrecht and other Fosamax users",
+      "role": "Failure-to-warn plaintiffs with alleged atypical femoral fractures"
+    },
+    {
+      "name": "Food and Drug Administration",
+      "role": "Federal regulator reviewing label changes"
+    }
+  ],
+  "proceedings": [
+    "District court granted Merck summary judgment on preemption.",
+    "Third Circuit vacated and treated FDA rejection as a jury fact question.",
+    "Supreme Court vacated and remanded under a judicial legal-conflict framework."
+  ],
+  "limits": "The Court did not decide ultimate preemption or state liability. Thomas would reject Merck’s defense, but that was separate application. The precise method of binding agency disapproval was reserved.",
+  "briefSha256": "b7859f60b818e92e1a8a6b4e6b1088a65f63d7cfb5ca016aebd6950c5a22e8c6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-421"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Fosamax’s mechanism raises a developing risk question",
+      "cue": "The proposed wording does not resolve the agency’s concern",
+      "paragraphs": [
+        "Merck made Fosamax to prevent and treat postmenopausal osteoporosis. Slowing breakdown of old bone preserved mass but raised concern that microscopic cracks would not heal and could become serious low-energy fractures, including atypical femoral fractures. The evidence and uncertainty developed over time; the Court did not decide each patient’s causation or every use’s safety.",
+        "The Food and Drug Administration, or FDA, approved the drug in 1995 without an atypical-fracture warning, after Merck disclosed theoretical concerns. Later adverse-event reports, studies, and analysis strengthened concern. In 2008 Merck proposed an Adverse Reactions addition and a longer Precautions discussion of stress fractures. FDA accepted the former but rejected the latter as inadequately supported and potentially unclear about the atypical fractures in the literature, inviting correction.",
+        "Merck withdrew the application and used changes-being-effected procedures for the adverse-reaction addition, without the disputed precautions text. FDA began the process for a stronger warning in 2010, with agreed language in January 2011. It again rejected stress-fracture wording that could suggest a minor injury. Communications and investigation continued during the interval."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer slip opinion pp.4–7; Alito pp.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Patients sue over earlier fractures",
+      "cue": "The lower courts disagree over preemption and the factfinder",
+      "paragraphs": [
+        "More than 500 users with atypical fractures between 1999 and 2010 filed separate diversity actions under state warning law. One alleged a fracture while turning to unlock a door, surgical repair, and that adequate information would have changed her duration of use. These remained allegations.",
+        "Merck conceded that changes-being-effected rules permitted an attempted warning before 2010 but argued FDA would reject it, relying particularly on the 2008 proposal’s rejection. The district court granted summary judgment for impossibility preemption.",
+        "The Third Circuit vacated, reading Wyeth v. Levine’s clear-evidence language as an elevated probability burden requiring a factfinder to find rejection highly probable, and assigned that question to a jury. Merck sought review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer pp.7–9, 13"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Breyer identifies a legal conflict rather than a probability standard",
+      "cue": "The judge resolves tightly connected subsidiary facts too",
+      "paragraphs": [
+        "Justice Breyer’s six-Justice opinion explained that, in a Wyeth-type case, the manufacturer must show it fully informed FDA of the justification for the state-required warning and FDA said that adequate warning would not be approved. Rejection of one wording differed from prohibition of any sufficient warning. The Court assumed, without deciding, adequate evidence of a state violation.",
+        "Initial approval did not automatically preempt later warnings because manufacturers retained responsibility and qualifying newly acquired information could permit changes before advance approval, subject to later rejection. Clear evidence was not recast as preponderance, clear-and-convincing proof, or another factual likelihood threshold. The question was irreconcilable legal requirements, not predicted possible rejection.",
+        "Agency action had to operate within delegated authority and carry legal force, such as rulemaking or formal label rejection. The precise method of disapproval was not before the Court, and not every informal communication became independently preemptive.",
+        "Judges interpret agency instruments, scope, and governing law and promote uniform federal meaning. Disputes about what information Merck supplied could affect scope, but remained subsidiary to this tightly circumscribed legal inquiry. The Court compared Markman and confession-voluntariness analysis rather than sending isolated brute facts to a jury. It did not withdraw all patient tort facts from juries."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer pp.9–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The concurrences disagree about how the defense may fare",
+      "cue": "The Court remands without deciding the ultimate conflict",
+      "paragraphs": [
+        "Justice Thomas joined Breyer and separately preferred logical contradiction over a physical-impossibility formulation. Even under existing doctrine he thought Merck failed: the 2009 response letter invited more process, and hypothetical rejection was not binding law. Merck could seek another application or hearing or make a qualifying immediate change. His note allowed that binding agency action could preempt without manufacturer-supplied information, but he found none here.",
+        "Justice Alito, joined by Chief Justice Roberts and Justice Kavanaugh, concurred in judgment and judicial allocation but questioned parts of the account. FDA’s 2007 statutory duty to initiate necessary label changes could make a considered decision not to require one relevant even without Merck supplying the rationale or an express rejection. He emphasized the prior-approval route and continuing agency communications, announcements, and task-force work. He did not hold Merck had established preemption.",
+        "On May 20, 2019, all nine agreed to vacate the Third Circuit and remand; Breyer’s reasoning had Thomas, Ginsburg, Sotomayor, Kagan, and Gorsuch. The Court neither reinstated Merck’s summary judgment nor decided warning liability. The lower court would apply the clarified judicial framework."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas pp.1–6 & starred note; Alito pp.1–6 & starred note; Breyer p.17"
+        }
+      ]
+    }
+  ]
+}

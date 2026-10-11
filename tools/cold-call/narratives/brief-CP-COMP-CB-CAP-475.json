@@ -1,0 +1,134 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-475",
+  "briefId": "CP-COMP-CB-CAP-475",
+  "title": "Winter v. Natural Resources Defense Council, Inc.",
+  "course": "Civil Procedure",
+  "citation": "555 U.S. 7 (2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Environmental plaintiffs obtained limits on Navy sonar exercises, but the Supreme Court removed two challenged restrictions because the training and public-interest burdens outweighed the asserted harms on this record.",
+  "actors": [
+    {
+      "name": "Natural Resources Defense Council and other plaintiffs",
+      "role": "Environmental organizations and individuals seeking protection for marine mammals"
+    },
+    {
+      "name": "United States Navy",
+      "role": "Military service conducting integrated sonar training"
+    },
+    {
+      "name": "President and Council on Environmental Quality",
+      "role": "Executive decisionmakers granting exemption and alternative environmental arrangements"
+    },
+    {
+      "name": "Chief Justice Roberts",
+      "role": "Author of the majority opinion"
+    },
+    {
+      "name": "Justices Breyer and Ginsburg",
+      "role": "Authors of separate opinions"
+    }
+  ],
+  "proceedings": "District court first barred sonar; Ninth Circuit required narrower relief; district court imposed six restrictions and later refused dissolution; Ninth Circuit affirmed; Supreme Court reversed and vacated only the two restrictions the Navy challenged.",
+  "limits": "Environmental merits and validity of executive arrangements were left undecided. The Court did not find sonar universally harmless or eliminate four unchallenged measures. Breyer agreed the restrictions lacked support but separately proposed an interim remedy not accepted by the majority.",
+  "briefSha256": "497b3617c438668e8139267c6c084a8eceb9d954899fa483d82371e5e9913992",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-475"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Integrated training brought sonar and marine mammals into the same waters",
+      "cue": "Introduce the operational purpose and disputed environmental risk.",
+      "paragraphs": [
+        "The Navy trained ships, submarines, and aircraft to operate together in strike groups. Detecting quiet diesel-electric submarines was critical. Active sonar emits sound and analyzes echoes, unlike passive listening; quiet submarines could evade passive detection. The Navy considered mid-frequency active-sonar practice essential before deployment because operators needed experience with ocean conditions, coordination, interference, and tactics.",
+        "Southern California waters were especially useful but supported at least thirty-seven marine-mammal species. The Natural Resources Defense Council, other organizations, and individuals cited scientific material and strandings elsewhere as evidence of serious injury and behavioral disruption. The Navy disputed those claims and cited forty years of regional training without a documented sonar-related mammal injury. The litigation did not establish a universal scientific conclusion of harmlessness.",
+        "A 2007 national-defense exemption under the Marine Mammal Protection Act required lookouts, graduated reductions as mammals approached, and shutdown within 200 yards. For fourteen exercises through January 2009, the Navy separately prepared an environmental assessment and found no significant impact instead of first completing an environmental impact statement. Its harm modeling and classifications were disputed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "555 U.S. at 12–16 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The initial sonar ban became six additional mitigation conditions",
+      "cue": "Track judicial and executive responses before Supreme Court review.",
+      "paragraphs": [
+        "The plaintiffs sued under the National Environmental Policy Act (NEPA) and other environmental laws. The district court initially barred active sonar. The Ninth Circuit considered that overbroad and directed narrower relief allowing training with mitigation. On remand, the district court added six restrictions.",
+        "The Navy challenged two in the Supreme Court: shutdown upon detecting a mammal within 2,200 yards, and a six-decibel reduction during significant surface ducting, an ocean condition affecting sound propagation. Four other restrictions were not challenged in the majority’s review.",
+        "Meanwhile, the President exempted the training from Coastal Zone Management Act requirements, and the Council on Environmental Quality approved alternative NEPA arrangements based on emergency circumstances. They allowed the Navy’s existing mitigation with additional notice, research, and reporting. The district court declined to dissolve the contested conditions, and the Ninth Circuit affirmed, questioning the emergency arrangements, finding likely NEPA success, and accepting possible irreparable injury where merits prospects were strong."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 17–20 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court required likely harm but decided independently on the remaining factors",
+      "cue": "Avoid treating the ruling as a final environmental finding.",
+      "paragraphs": [
+        "Chief Justice Roberts required likely merits success, likely irreparable harm without relief, favorable equities, and consistency with the public interest. Preliminary injunctions were extraordinary, and merely possible harm was too permissive.",
+        "The Court did not conclude simply that the plaintiffs proved no environmental danger. It acknowledged uncertainty about the effect of the Ninth Circuit’s verbal error because that court had also endorsed a near-certain-harm finding. The lower court had not reassessed residual harm after the four unchallenged measures. Even assuming irreparable environmental injury and a successful NEPA claim, the balance and public interest independently defeated these two restrictions.",
+        "NEPA required informed consideration rather than a prescribed substantive result. The existing assessment and training history mattered, but the majority left open whether an impact statement was required and whether executive alternatives were valid. It did not hold that an assessment always substitutes for a required statement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 20–24, 31 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Navy supplied detailed reasons the two measures impaired realistic exercises",
+      "cue": "Explain the concrete balance rather than a categorical military priority.",
+      "paragraphs": [
+        "The majority credited senior officers’ detailed predictive assessments of readiness with appropriate military deference. It expressly denied that military interests always prevail and recognized serious scientific, recreational, and ecological concerns. On this record, effective crew training outweighed the asserted injury.",
+        "A 2,200-yard radius covered over one hundred times the area of the existing 200-yard shutdown rule. One interruption could waste a scenario developed over days. Earlier voluntary longer-range shutdowns occurred at tactically insignificant moments and did not establish that mandatory interruption during a critical phase was tolerable. Low-frequency sonar’s different operating characteristics also prevented its larger shutdown area from controlling this training.",
+        "Surface ducting created conditions submarines could exploit. Its rarity made realistic opportunities less replaceable, not less important. A six-decibel reduction cut power seventy-five percent and changed the interference operators needed to encounter. Acceptance of other mitigation did not show these measures were equally manageable, and the Navy need not await actual training failure before challenging a predictably harmful order.",
+        "The same balance would preclude permanent imposition of these restrictions on this record. Merits success would not automatically require them; declaratory relief or relief directed to preparation of an impact statement could be considered instead."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 24–33 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Breyer sought a different interim compromise; Ginsburg would affirm",
+      "cue": "Preserve the separate joinders and exact mandate.",
+      "paragraphs": [
+        "Roberts was joined by Scalia, Kennedy, Thomas, and Alito. Justice Breyer, joined by Stevens only in Part I, also found inadequate support for the injunction because residual environmental harm was uncertain and the lower courts insufficiently answered detailed Navy evidence. He nevertheless stressed injury to NEPA’s purposes from action before informed review.",
+        "In Part II, without Stevens, Breyer would retain modified conditions from the Ninth Circuit’s temporary stay until an acceptable impact statement was completed, considering the short remaining exercise schedule. The majority rejected converting unexamined stay conditions into a new preliminary injunction after the underlying appeal ended.",
+        "Justice Ginsburg, joined by Souter, would affirm. She emphasized review before action and denied the environmental council could erase a statutory duty. She defended the district court’s revised balance, predicted injuries, the difficulty detecting harm to beaked whales, and increased training intensity. She favored equitable flexibility and a sliding scale while agreeing that remote hypothetical harm alone was insufficient.",
+        "On November 12, 2008, the Court reversed the Ninth Circuit and vacated the preliminary injunction only to the extent the Navy challenged it. It did not remove every mitigation requirement or adjudicate NEPA compliance or the legality of the alternative executive arrangements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 31–33 n.5, 34–54 & Ginsburg nn.1–4"
+        }
+      ]
+    }
+  ]
+}

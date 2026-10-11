@@ -1,0 +1,93 @@
+{
+  "id": "brief-CP-COMP-CB-483-CERTIFY",
+  "briefId": "CP-COMP-CB-483-CERTIFY",
+  "title": "Northern Mariana Islands v. Canadian Imperial Bank of Commerce — certification",
+  "course": "Civil Procedure",
+  "citation": "693 F.3d 274 (2d Cir. 2012)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A tax creditor seeks a subsidiary’s accounts through its parent bank; the federal appeal pauses for New York’s highest court to interpret possession and custody.",
+  "actors": [
+    {
+      "name": "Commonwealth of the Northern Mariana Islands",
+      "role": "Judgment creditor seeking to enforce tax judgments against the Millards."
+    },
+    {
+      "name": "The Millards",
+      "role": "Tax judgment debtors whose foreign accounts were sought."
+    },
+    {
+      "name": "Canadian Imperial Bank of Commerce",
+      "role": "Parent bank asked to turn over accounts held at a foreign subsidiary."
+    }
+  ],
+  "proceedings": [
+    "The district court denied turnover while preserving interim protection.",
+    "The Second Circuit certified two state-law questions and retained the appeal for later consideration."
+  ],
+  "limits": "This 2012 certification is separate from the later state-law answer and final federal disposition. It supplies neither a parent-subsidiary control test nor a final turnover ruling. The fuller background is reported in the later state answer cited by the canonical brief.",
+  "briefSha256": "371da913fd7700e251f178cbd762fe69a450a08764a736a7482c05b8e43e5310",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-483-CERTIFY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Commonwealth seeks foreign accounts to satisfy tax judgments",
+      "cue": "Why is the parent-subsidiary relationship central?",
+      "paragraphs": [
+        "The Commonwealth of the Northern Mariana Islands sought to enforce tax judgments against the Millards by reaching accounts held at a foreign subsidiary of Canadian Imperial Bank of Commerce. It argued that the parent’s ownership and practical influence could support a turnover order under New York Civil Practice Law and Rules § 5225(b).",
+        "The district court denied turnover but maintained interim protection against movement of the accounts. The Commonwealth appealed. The problem was not only personal jurisdiction over the parent: the statute referred to a third party’s possession or custody of the debtor’s assets, which the parent might lack even though its subsidiary held the money."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dispute and posture;693 F.3d 275; background identified at 21 N.Y.3d 58–59"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Second Circuit asks the state court to settle the statutory meaning",
+      "cue": "Why was certification appropriate?",
+      "paragraphs": [
+        "The Second Circuit adopted the district court’s explanation that unresolved interpretation of § 5225(b) controlled the appeal. It considered the New York Court of Appeals better placed to interpret the provision within the state’s statutory scheme, including legislative intent and the significance of matching language in § 5225(a).",
+        "Under New York Court of Appeals Rule 500.27 and Second Circuit Local Rule 27.2, the panel certified two questions. Could a court order an entity lacking actual possession or custody to turn over assets that its subsidiary might possess or hold? If so, what factual considerations determined whether that order was permissible?",
+        "The second question depended on an affirmative answer to the first. The panel invited the state court to expand or alter the questions, rather than restricting its analysis to their wording. It did not itself decide whether practical control was sufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Certification reasoning and questions;693 F.3d 275"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appeal remains pending while the record is transmitted",
+      "cue": "What happened to interim protection and the eventual merits decision?",
+      "paragraphs": [
+        "The per curiam panel of Judges Cabranes, Straub and Hall certified the questions in a decision dated September 5, 2012 and amended September 6. It directed transmission of the opinion, briefs, appendix and record to the New York Court of Appeals, with certification fees and costs shared equally.",
+        "The same federal panel would resume the appeal after the state court answered. The district court’s stay would remain effective at least until disposition of the returned case. No separate opinion or numerical vote was reported. The later prohibition on the requested turnover order belongs to the subsequent state answer and final federal disposition, not this certification order."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Operative order and distinct stages;693 F.3d 275–276"
+        }
+      ]
+    }
+  ]
+}

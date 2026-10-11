@@ -1,0 +1,196 @@
+{
+  "id": "brief-LRS-COMP-SLAUGHTER-SEILA",
+  "briefId": "LRS-COMP-SLAUGHTER-SEILA",
+  "title": "Seila Law LLC v. Consumer Financial Protection Bureau",
+  "course": "Legislation and the Regulatory State",
+  "citation": "591 U.S. 197 (2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A law firm resisted a federal consumer-finance investigation by challenging the investigator’s leadership structure. The Supreme Court invalidated the Director’s protection from removal, preserved the agency, and sent the enforcement dispute back for an unresolved question about ratification.",
+  "actors": [
+    {
+      "name": "Consumer Financial Protection Bureau (CFPB)",
+      "role": "Agency created in 2010 to regulate and enforce consumer-finance law."
+    },
+    {
+      "name": "Seila Law LLC",
+      "role": "California debt-services law firm resisting a 2017 investigative demand."
+    },
+    {
+      "name": "Chief Justice Roberts",
+      "role": "Author of the five-Justice constitutional opinion and three-Justice severability analysis."
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Partial concurrence and dissent author, joined by Gorsuch."
+    },
+    {
+      "name": "Justice Kagan",
+      "role": "Constitutional dissent author, joined by Ginsburg, Breyer, and Sotomayor."
+    }
+  ],
+  "proceedings": "The district court enforced the investigative demand with an immaterial modification; the Ninth Circuit affirmed. The Supreme Court vacated and remanded, holding the removal protection unconstitutional but severable, with valid ratification left for lower-court consideration.",
+  "limits": "This is the 2020 decision, not a determination of Seila Law’s underlying consumer-law compliance or later agency arrangements. Five Justices joined the constitutional rationale, three joined Roberts’s severability analysis, and seven supported preserving the agency. Ratification and the enforcement petition were not finally resolved.",
+  "briefSha256": "7ee58ff0190db3ea823654713e7e73d1a36c308528927decef895f03e45eb19d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-COMP-SLAUGHTER-SEILA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress creates a powerful agency under one protected Director",
+      "cue": "What institutional design followed the financial collapse?",
+      "paragraphs": [
+        "After the housing and financial collapse, Congress created the Consumer Financial Protection Bureau (CFPB) in the 2010 Dodd-Frank Act. It consolidated administration of eighteen existing consumer-finance statutes and added a prohibition on unfair, deceptive, or abusive practices. The Bureau could issue rules, investigate, serve subpoenas and civil investigative demands, bring civil actions, adjudicate disputes, and order legal or equitable relief. The Court later recounted more than $11 billion in consumer relief, including a $1 billion bank penalty, as evidence of the agency’s reach.",
+        "Congress placed those responsibilities in a single Senate-confirmed Director serving a five-year term. The President could remove the Director only for inefficiency, neglect of duty, or malfeasance. Funding came from the Federal Reserve subject to a statutory ceiling, rather than annual appropriations. Earlier proposals had contemplated a multimember body."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "205–208"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An investigative demand produces a constitutional defense",
+      "cue": "Why did Seila Law refuse to comply?",
+      "paragraphs": [
+        "Seila Law LLC, a California firm providing debt-related legal services, received a civil investigative demand in 2017 concerning potentially unlawful advertising, marketing, or sales of debt-relief services. It refused compliance on the ground that the Director’s removal protection violated the constitutional separation of powers.",
+        "The CFPB petitioned a federal district court to enforce the demand. The court ordered compliance with a modification immaterial to the Supreme Court dispute. The Ninth Circuit affirmed, regarding Humphrey’s Executor, which upheld protection for Federal Trade Commission members, and Morrison, which upheld protection for an independent counsel, as controlling despite institutional differences.",
+        "By Supreme Court review, the Government agreed that the removal restriction was unconstitutional. A court-appointed friend of the Court defended the judgment, while the parties continued to dispute whether Seila Law had to comply. No court ruling at this stage established that the firm had committed unlawful consumer practices."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "208–213"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court finds a live dispute without waiting for a presidential firing",
+      "cue": "Which threshold objections did it reject?",
+      "paragraphs": [
+        "Seila Law had not invoked district-court jurisdiction; it was defending the agency’s enforcement suit. It also had standing to appeal: compelled disclosure was a concrete injury attributable to the judgment and redressable by rejecting enforcement. The Court did not require proof that a President with unrestricted removal power would have stopped this particular demand.",
+        "Later Directors and asserted ratification did not eliminate jurisdiction. The current Director’s agreement with the Government’s constitutional position did not establish that she would disregard the statutory protection if a President tried to remove her.",
+        "Nor did review require an actual contested removal. An affected private party could challenge executive power exercised by an officer allegedly insulated from presidential control. Finally, agreement about the constitutional issue did not erase the concrete dispute over compliance. Appointed adversarial briefing addressed prudential concerns about the presentation of the issue. These conclusions permitted review; they did not declare all earlier agency acts void."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "209–213 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Five Justices decline to extend the existing removal exceptions",
+      "cue": "How did the majority classify the Director’s authority?",
+      "paragraphs": [
+        "Chief Justice Roberts wrote the constitutional opinion for Justices Thomas, Alito, Gorsuch, and Kavanaugh. Article II vested executive power in the President, who needed authority to supervise subordinate officers carrying out executive responsibilities. The majority traced general removal authority through the congressional Decision of 1789, Myers, and Free Enterprise Fund.",
+        "It identified two recognized categories of protected officers: the expert multimember body described in Humphrey’s Executor and certain inferior officers with limited duties described in Perkins and Morrison. Wiener, involving an adjudicatory commission, fit the institutional precedent. The majority acknowledged that the 1935 Federal Trade Commission’s work would now be understood as executive to some degree, but treated the powers and structural features relied on in Humphrey’s Executor as defining that decision’s reach. Officer status depended on duties and supervision, not one universal criterion.",
+        "The CFPB Director fit neither category. The Director was a principal officer exercising broad policymaking, enforcement, and adjudication powers over private parties. The Bureau lacked the partisan balance and staggered membership of the commission described in Humphrey’s Executor and could impose final relief or seek substantial judicial penalties, not merely recommend action. Its jurisdiction and administration were far broader than Morrison’s independent counsel. The majority declined to extend the exceptions, while expressly leaving those earlier precedents formally intact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "204–205, 213–220 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "History and accountability reinforce the majority’s structural objection",
+      "cue": "Why did other oversight mechanisms not cure the problem?",
+      "paragraphs": [
+        "The majority found four examples of protected single agency heads insufficient: the Civil War Comptroller of the Currency, Office of Special Counsel, Social Security Administration, and Federal Housing Finance Agency. In its account, these examples were brief, modern, contested, or materially different in powers. The Office of Special Counsel was distinct from both Morrison’s independent counsel and later investigatory special counsel. The general tradition of independent financial regulators did not justify this combination of authority.",
+        "The President’s singular power carried electoral accountability; an unelected subordinate making major policy without removable supervision did not. A five-year term could prevent a President from selecting the Bureau’s leadership, while independent funding reduced another avenue of influence. The Financial Stability Oversight Council could veto rules threatening financial stability, but that limited control did not reach enforcement or adjudication. The funding discussion supported the removal analysis; it did not independently invalidate the funding statute.",
+        "The majority rejected a general rule allowing modest removal restrictions unless Congress participated in removal or eliminated it altogether. It also rejected an expansive construction of inefficiency, neglect, or malfeasance to avoid the constitutional issue. No workable text-based alternative was offered, and Humphrey’s Executor had not treated policy disagreement as enough under the same language. Constitutional avoidance could not rewrite the statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "220–232 & nn.5–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas would end this enforcement case and revisit the precedent later",
+      "cue": "What did his partial concurrence and dissent add?",
+      "paragraphs": [
+        "Justice Thomas, joined by Justice Gorsuch, agreed with the constitutional holding and urged future reconsideration of Humphrey’s Executor in its entirety. Agencies could not exercise quasi-legislative or quasi-judicial authority outside the Constitution’s three branches. In his view, Morrison, Free Enterprise Fund, and this decision had undermined the older precedent’s rationale. His account of Humphrey’s removal and later salary suit explained that criticism, not a new disposition of the earlier case.",
+        "Thomas would deny the enforcement petition without deciding severability. Courts decided concrete disputes and disregarded unconstitutional laws; they did not erase statutory text. Even if a removable Acting Director had ratified the demand, Thomas argued that a successor still protected by statute could not continue its enforcement. The Government had disclaimed treating the current Director’s constitutional position alone as her ratification.",
+        "He also challenged modern severability’s hypothetical inquiry into congressional intent. The defect involved the combination of enforcement powers and removal protection. The severability clause did not necessarily identify which provision to disregard and might address an unconstitutional application instead. Drawing comparisons to Booker and Free Enterprise Fund, he disputed the plurality’s choice to preserve enforcement powers by severing tenure protection. Those objections did not control the remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "238–261 & Thomas nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Kagan would sustain Congress’s choice under a functional approach",
+      "cue": "How did the four dissenters read text, history, and precedent?",
+      "paragraphs": [
+        "Justice Kagan, joined by Justices Ginsburg, Breyer, and Sotomayor, dissented from the constitutional holding. The Constitution’s silence on removal, Necessary and Proper Clause, Appointments Clause, and interdependent branch design left Congress broad organizational choices so long as the President retained the ability to perform constitutional duties. Faithful execution meant compliance with law, not agreement with every presidential preference. The Opinions Clause also cast doubt on an already exhaustive supervisory power.",
+        "Kagan disputed that 1789 settled unrestricted removal. She described competing positions and a decision rejecting mandatory Senate participation without settling Congress’s power to impose other limits. Treasury arrangements, the Second Bank, Comptroller legislation, the Interstate Commerce Commission, and later financial regulators supported an independence tradition. She recognized distinct limits concerning the President’s own military and diplomatic responsibilities and treated the broad Tenure of Office Act differently.",
+        "She read Humphrey’s Executor, Wiener, and Morrison as limiting Myers through a functional inquiry into interference with presidential duties. Agency acts could take legislative or judicial forms while remaining executive; that character alone did not defeat removal protection. Executing statutes differed from the President’s independent constitutional military and foreign-affairs responsibilities."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "261–282 & Kagan nn.1–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Kagan disputes that one Director necessarily defeats presidential control",
+      "cue": "Why did she nevertheless join the result preserving the Bureau?",
+      "paragraphs": [
+        "Kagan viewed the Bureau’s powers as comparable to those of other independent financial regulators using familiar removal language. She disputed the majority’s description of the 1935 Federal Trade Commission’s enforcement authority, noted the common use of long terms and independent funding, and challenged its characterization of Morrison’s duties and office status. Novelty alone did not invalidate an institutional choice.",
+        "A single official might be easier to monitor and influence than multiple commissioners. Oversight, rule review, appointments, budgets, organizational rules, and informal relationships mattered alongside removal. The Financial Stability Oversight Council could influence proposed rules through threatened vetoes even without formal action. Scholarship and institutional reports suggested that multimember structures themselves buffered presidential control.",
+        "Although she would uphold the protection, Kagan agreed that if unconstitutional it should be severed so the agency survived. Her four-Justice opinion supplied support for that result without joining Roberts’s separate severability rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "284–298 & Kagan nn.10–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "A different coalition preserves the agency and leaves ratification unresolved",
+      "cue": "What did vacatur and remand accomplish?",
+      "paragraphs": [
+        "The Government contended that an Acting Director removable at will had ratified the demand. Whether ratification occurred and cured the problem had neither been resolved below nor fully briefed. Those matters went back for initial lower-court consideration.",
+        "Roberts’s Part IV, joined only by Alito and Kavanaugh, addressed severability because ratification would be futile if the Bureau’s powers fell with its structure. The remaining provisions could operate independently, and Dodd-Frank expressly preserved the remainder when a provision was invalid. Neither the clause’s early placement in a long statute nor a redundant subtitle clause negated it. Congress’s preference for independence did not establish a preference for no agency over a presidentially controlled one. Abolition would disrupt transferred statutory duties, including powers no predecessor possessed.",
+        "Seven Justices therefore supported preserving the Bureau by severing removal protection, though only three joined that analysis. Congress could consider other designs, including a multimember body. The plurality did not decide Thomas’s distinct objection to continuing enforcement by the protected successor.",
+        "On June 29, 2020, the Court vacated the Ninth Circuit and remanded. The Bureau survived with a Director removable at will. The Court did not affirm enforcement, dismiss the petition outright, validate ratification, decide the firm’s underlying conduct, or categorically undo all earlier agency actions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "232–238 & n.12, 296–298"
+        }
+      ]
+    }
+  ]
+}

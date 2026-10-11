@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-087",
+  "briefId": "CP-COMP-CB-CAP-087",
+  "title": "Volkswagenwerk Aktiengesellschaft v. Schlunk",
+  "course": "Civil Procedure",
+  "citation": "486 U.S. 694 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Serving a German carmaker through a domestic subsidiary did not trigger the Hague Service Convention when the accepted state-law method completed service inside the United States.",
+  "actors": [
+    {
+      "name": "Herwig Schlunk",
+      "role": "Administrator suing after his parents’ deaths"
+    },
+    {
+      "name": "Volkswagen of America",
+      "role": "Domestic subsidiary served as agent"
+    },
+    {
+      "name": "Volkswagen Aktiengesellschaft",
+      "role": "German parent contesting service under the treaty"
+    }
+  ],
+  "proceedings": [
+    "Illinois circuit court: found domestic subsidiary an involuntary service agent.",
+    "Illinois Appellate Court: affirmed on certified questions; state Supreme Court denied review.",
+    "United States Supreme Court: affirmed unanimously in result, with six-Justice majority and three-Justice concurrence."
+  ],
+  "limits": [
+    "The Illinois-law agency holding was not challenged in the Supreme Court. The Court did not make every subsidiary its parent’s agent, determine constitutional sufficiency of this relationship, or decide accident liability."
+  ],
+  "briefSha256": "d47c05173a6073281ebcbd6497e4c37c7e5424171b2922c759e0490277b2dd1e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-087"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An accident suit adds the German parent after the American subsidiary answers",
+      "cue": "Introduce the parties before the domestic-service dispute.",
+      "paragraphs": [
+        "Herwig Schlunk’s parents died in a 1983 automobile accident. As administrator, he sued in Illinois state court alleging vehicle defects caused or contributed to their deaths. He named Volkswagen of America, alleging design and sale, and the other driver for negligence. The driver defaulted and no longer participated. When the American company denied designing or assembling the car, Schlunk added its German parent, Volkswagen Aktiengesellschaft.",
+        "Rather than transmit process to Germany, he served the American subsidiary as the parent’s domestic agent. The parent appeared specially, contending that the Hague Service Convention provided the exclusive permissible method and had not been followed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "486 U.S. at 696–697"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Illinois recognizes complete domestic service on this relationship",
+      "cue": "Define the premise accepted on Supreme Court review.",
+      "paragraphs": [
+        "The Cook County circuit court found an involuntary agency under Illinois law based on complete ownership, overlapping directors, and the subsidiary’s exclusive American importer-distributor role. The parent’s lack of formal appointment did not defeat that agency. The subsidiary was registered in Illinois and had its own registered service agent.",
+        "On certified questions, the Illinois Appellate Court affirmed agency and found no treaty violation; the state Supreme Court denied leave. The United States Supreme Court granted the treaty question. The parent did not seek review of Illinois-law validity, so the Court did not decide that every subsidiary necessarily could receive service for its parent.",
+        "Article 1 made the Convention applicable when documents had to be transmitted for service abroad. Where applicable, it was mandatory and displaced inconsistent state methods. Central authorities arranged service and certificates; other channels were available under conditions, and Articles 15 and 16 addressed defaults and relief. Facilitating international service and ensuring timely notice explained the treaty, but the dispute was whether its threshold was met."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "486 U.S. at 697–700, 706"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority distinguishes legal service from later private communication",
+      "cue": "Explain the text and history supporting domestic completion.",
+      "paragraphs": [
+        "Justice O’Connor’s six-Justice majority treated service as formal delivery legally sufficient to charge a defendant with notice. Because the treaty did not supply a complete sufficiency standard, forum law identified when that act required sending papers abroad. If service was already complete domestically, an agent’s later communication to its foreign principal was not itself transmission abroad for service.",
+        "Drafting history distinguished service from broader transmission and delivery and rejected wording potentially covering foreign sending without service there. Failure to expressly name the requesting state’s law was read as omitting a redundant clarification, not rejecting its role. Explanatory materials recognized reduced compulsory reach in exchange for clarity.",
+        "The parent feared states could evade notice protections with domestic labels and invoked notification au parquet, deposit with a local official that could count as service before effective foreign notice. The majority recognized negotiating concern but reserved whether the Convention governed that practice. It found no comparable evidence prohibiting service on a domestic subsidiary of the kind Illinois recognized."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "486 U.S. at 700–704, 707"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Due process and actual completion limit the majority’s rule",
+      "cue": "Apply the threshold without making treaty compliance optional.",
+      "paragraphs": [
+        "Domestic-agent service did not obstruct central authorities’ operation. The majority admitted its interpretation did not necessarily advance every notice objective but expected states not deliberately to evade appropriate foreign service. Due process independently required a method reasonably calculated to inform and allow response. Voluntary treaty use might improve certainty or foreign enforcement, but compliance remained mandatory whenever Article 1 applied.",
+        "The parent argued the subsidiary inevitably would send papers to Germany and constitutional notice required that communication. The majority distinguished such internal notification from a necessary legal step in service. Once domestic service was valid and complete under state law and due process, the treaty inquiry ended; foreign status did not invariably require official transmission abroad.",
+        "The Court’s note separately warned that subsidiary activity did not automatically establish jurisdiction over a parent and that constitutional sufficiency of substituted service could demand factual inquiry. It did not decide whether this relationship itself satisfied that constitutional question. On the unchallenged domestic-service premise, the Convention did not apply."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "486 U.S. at 704–708 & n.*"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Brennan concurs under a treaty-based notice standard",
+      "cue": "Close with the alternative rationale and judgment.",
+      "paragraphs": [
+        "Justice Brennan, joined by Marshall and Blackmun, agreed with affirmance but resisted leaving treaty reach entirely to local classifications. Foreign forums could revive inadequate practices by declaring service complete, and American due process did not protect Americans litigating in other countries.",
+        "He relied on the final explanatory report, concern over notification au parquet, and United States delegation explanations of minimum protections. His inquiry asked whether the domestic method was designed to deliver papers to the foreign addressee in sufficient time. This wholly owned, closely controlled subsidiary was reasonably calculated to reach the parent promptly, and history did not suggest abolishing that established method. The majority questioned his standard’s text, contours, and administrability.",
+        "On June 15, 1988, the Court affirmed the Illinois Appellate Court unanimously in outcome. Rehnquist, White, Stevens, Scalia, and Kennedy joined O’Connor. The treaty objection failed and the wrongful-death litigation could proceed; neither defects, fault, nor damages was decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "486 U.S. at 705–706 n.*, 708–716 & Brennan nn.1–6"
+        }
+      ]
+    }
+  ]
+}

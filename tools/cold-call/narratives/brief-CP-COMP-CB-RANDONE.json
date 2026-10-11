@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-COMP-CB-RANDONE",
+  "briefId": "CP-COMP-CB-RANDONE",
+  "title": "Randone v. Appellate Department of the Superior Court of Sacramento County",
+  "course": "Civil Procedure",
+  "citation": "5 Cal. 3d 536, 96 Cal. Rptr. 709 (1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A collection agency froze an unemployed family’s checking account before any hearing on its debt claim, exposing constitutional defects in California’s broad attachment procedure.",
+  "actors": [
+    {
+      "name": "Joseph Randone and his wife",
+      "role": "Debtors and trucking-business owners challenging the levy"
+    },
+    {
+      "name": "Collection agency",
+      "role": "Assignee suing for legal-services charges"
+    },
+    {
+      "name": "Municipal court and superior court appellate department",
+      "role": "Courts maintaining the prejudgment attachment"
+    }
+  ],
+  "proceedings": [
+    "Municipal court: denied dissolution; appellate department affirmed and refused certification.",
+    "California Supreme Court in original writ proceeding: ordered mandamus directing dissolution of the attachment."
+  ],
+  "limits": [
+    "The unanimous 1971 decision concerns § 537(1), not every possible property restraint or present California attachment law. It does not decide the alleged debt or enact a replacement procedure."
+  ],
+  "briefSha256": "e505a77fd408a3df3a37abc8412cec872275e20a046f3432ab24315c1834e47b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-RANDONE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The account is frozen before the debt is adjudicated",
+      "cue": "Introduce the claim, levy, and failed ordinary review.",
+      "paragraphs": [
+        "On February 16, 1970, a collection agency sued Joseph Randone and his wife, individually and doing business as Randone Trucking, alleging an assigned $490 legal-services debt plus $130 interest. On March 17, it obtained a writ from the municipal court clerk and attached their checking account. The bank withheld $176.20 pending release, without a prior judicial determination of the debt.",
+        "On March 31, the Randones moved to dissolve for denial of due process. Their affidavit said unemployment insurance was their only income and sought an expedited hearing because of hardship. The municipal court heard and denied the motion April 3. The superior court’s appellate department affirmed without opinion October 29 and refused Court of Appeal certification November 5.",
+        "The Randones then sought an original California Supreme Court writ. The court issued an alternative writ because the constitutional issue was important, lower courts disagreed, and municipal proceedings could otherwise evade its review. Exercising original jurisdiction entailed finding no adequate ordinary remedy. It considered whether continuing this attachment was an abuse of discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5 Cal. 3d at 541–543"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The statute permits broad creditor-selected restraint without prior scrutiny",
+      "cue": "Explain the lost property interest and delayed remedies.",
+      "paragraphs": [
+        "Code of Civil Procedure § 537(1) generally permitted attachment in qualifying unsecured express or implied contract actions for direct money payment. A declaration and undertaking let the clerk issue a writ without judicial scrutiny, notice, or a debtor’s opportunity to contest. The creditor selected property. A 1970 amendment excluded earnings, but almost every other kind remained reachable.",
+        "The restraint deprived use even when a bank balance stayed physically in place and could last three years unless released. Posting security, winning the suit, or seeking exemptions placed initiative and burden on the debtor. Exemption delay could leave essentials unavailable.",
+        "The collection agency argued that Sniadach v. Family Finance Corporation, the Supreme Court wage-garnishment decision, was limited to wages. It defended ordinary attachment as less harmful and useful for collection, available credit, and prevention of asset concealment. The Randones invoked the more general right to prior process before significant deprivation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5 Cal. 3d at 540–548, 555–557 & nn.1, 4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Temporary loss of use ordinarily calls for a prior hearing",
+      "cue": "Follow the broader principle and its genuine exceptions.",
+      "paragraphs": [
+        "Justice Tobriner rejected a wage-only reading. California’s recent Blair v. Pitchess applied the same reasoning to prejudgment claim and delivery, and federal welfare and access-to-court cases and state notice precedents reflected a wider principle. Temporary deprivation still mattered; a potentially lengthy denial of use was not negligible because title had not finally changed. The older unexplained McKay v. McInnes affirmance did not overcome the subsequently developed Sniadach principles.",
+        "Summary measures could address exceptional need. Banking and public-health precedents involved urgent public protection, responsible officials, and tailored statutes. Historical nonresident attachment also served a jurisdictional function under the framework then prevailing and might less directly affect necessities. Those settings did not make every private collection interest an emergency.",
+        "Section 537(1) required no showing that delay would frustrate collection. Claims that attachment was essential to affordable credit lacked record support; even a possible effect on credit did not establish overriding public need. Actual flight or concealment might justify safeguarded immediate relief, but neither particular facts nor proof of such danger was required or shown here. Bank accounts’ general mobility did not establish an emergency for each owner."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5 Cal. 3d at 548–557 & nn.13–14, 20"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Taking necessities undermines both subsistence and a meaningful later defense",
+      "cue": "Explain the additional constitutional defect and reservations.",
+      "paragraphs": [
+        "Deposited earnings and an unemployed family’s bank funds could be as vital as unpaid wages. Household essentials, tools, and subsistence assets raised similar hardship. Allowing creditors to select property could maximize settlement pressure. A debtor unable to maintain the family or ordinary affairs might abandon even a meritorious defense, undermining the later hearing itself.",
+        "The court concluded that private security interests, including concealment concerns, did not justify taking necessities before a hearing establishing actual claim validity. Post-levy exemptions could fail because of ignorance, expense, and delay. Necessities needed initial protection, not only a later release route.",
+        "Not all restraints imposed that harm. A real-estate lien ordinarily left use intact, and the court reserved a statute confined to restraints without significant impairment. It also reserved definitive bankruptcy-priority questions for federal proceedings, seeing no inherent constitutional obstacle to using an attachment date for priority. It did not comprehensively adjudicate exemption statutes; on this record even the $176.20 apparently did not qualify despite its subsistence importance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5 Cal. 3d at 544–545 n.4, 557 n.21, 557–563 & n.28"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The statute fails facially and the specific levy must be dissolved",
+      "cue": "Close with possible legislative alternatives and the actual writ.",
+      "paragraphs": [
+        "The court held § 537(1) facially unconstitutional under state and federal due process because it broadly allowed seizure without notice and hearing, lacked extraordinary-need limits, and exposed necessities. It declined the wholesale rewriting required to cure it.",
+        "A legislature could protect essentials, ordinarily require notice and a probable-validity hearing, and allow carefully limited pre-hearing relief on an actual flight or concealment showing to a magistrate. Prompt later challenge and recovery would still be needed in exceptional cases. These were possible constitutional alternatives, not a judicially enacted replacement.",
+        "On August 26, 1971, the unanimous court directed a peremptory writ of mandamus ordering the appellate department to require the trial court to dissolve this attachment. The report records a September 23 modification. Chief Justice Wright and Justices McComb, Peters, Mosk, Burke, and Sullivan joined Tobriner without separate writings. Whether the Randones owed the legal-services bill remained undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "5 Cal. 3d at 557, 563–564 & n.29"
+        }
+      ]
+    }
+  ]
+}

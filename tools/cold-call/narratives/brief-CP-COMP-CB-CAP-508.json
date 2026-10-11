@@ -1,0 +1,144 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-508",
+  "briefId": "CP-COMP-CB-CAP-508",
+  "title": "Cheney v. United States District Court",
+  "course": "Civil Procedure",
+  "citation": "542 U.S. 367 (2004)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Groups seeking energy-task-force records request discovery into presidential advisers to establish whether an open-government statute applies. The Vice President seeks extraordinary review before cataloguing documents and asserting privilege one by one.",
+  "actors": [
+    {
+      "name": "President George W. Bush and Vice President Dick Cheney",
+      "role": "Creator and chair of the federal energy-policy advisory group."
+    },
+    {
+      "name": "Judicial Watch and Sierra Club",
+      "role": "Organizations seeking disclosure based on alleged private committee membership."
+    },
+    {
+      "name": "National Energy Policy Development Group",
+      "role": "Presidential advisory body formally composed of federal officials."
+    }
+  ],
+  "proceedings": [
+    "The district court allowed official-capacity and agency claims to proceed and approved broad discovery while deferring threshold questions.",
+    "The D.C. Circuit denied mandamus and dismissed an interlocutory appeal.",
+    "The Supreme Court vacated and remanded the mandamus judgment without ordering issuance of the writ."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current-law certification. Private membership remained alleged. Seven Justices joined the common discussions, but only five supported discretionary remand. The Court neither decided statutory coverage nor conferred absolute discovery immunity, and did not itself vacate the underlying discovery orders.",
+  "briefSha256": "2a8574dc198e28ab60a5558ffcb233e01e8370713c90b36fea5e46eaa6dbcadd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-508"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A presidential advisory group prepares an energy report",
+      "cue": "Why did alleged private participation matter?",
+      "paragraphs": [
+        "Shortly after taking office, President George W. Bush created the National Energy Policy Development Group to advise him. Its appointed members were federal officials; Vice President Dick Cheney chaired it and could invite other federal officers. Five months later, the group issued its report and, according to the government, ceased operating.",
+        "Judicial Watch and Sierra Club brought separate, later consolidated suits alleging that private individuals and lobbyists functioned as members despite no formal appointment. The Federal Advisory Committee Act imposed public-meeting and disclosure obligations on covered groups but excluded committees composed entirely of qualifying federal personnel.",
+        "Their theory relied on Association of American Physicians & Surgeons v. Clinton, a D.C. Circuit precedent recognizing possible de facto membership. The organizations sought discovery of actual participation; the government disputed coverage and argued that investigating presidential consultation itself burdened protected deliberation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 373–377"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court postpones threshold issues and authorizes discovery",
+      "cue": "What records did the requests reach?",
+      "paragraphs": [
+        "The district court dismissed private defendants because the statute provided no private cause of action and dismissed the defunct group itself. It nevertheless allowed claims against executive officials under the federal mandamus statute, 28 U.S.C. § 1361, and against agencies under the Administrative Procedure Act.",
+        "It deferred whether a clear nondiscretionary duty supported mandamus, whether requisite agency action existed, and constitutional objections, expecting discovery to develop membership facts. Although described as controlled, approved requests extended across meetings, participants, communications, staffs, and subgroups, reaching well beyond specific membership evidence.",
+        "The government sought protection and interlocutory certification under § 1292(b). Certification was denied. It then filed an appeal and an All Writs Act § 1651 mandamus petition, seeking vacation of discovery, decision on administrative materials and suitable affidavits, and dismissal of Cheney."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 374–377, 387–388"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court of appeals requires particularized privilege claims first",
+      "cue": "Why did the government challenge that sequence?",
+      "paragraphs": [
+        "A divided D.C. Circuit denied mandamus. Reading United States v. Nixon, the presidential-evidence precedent, it required formal particularized executive-privilege assertions first. Sustained privilege would protect officials; rejected privilege might then support mandamus. It also dismissed the interlocutory appeal.",
+        "The organizations defended discovery as necessary to determine coverage and said the government had neither exhausted available protection nor petitioned in time. The government answered that examining and logging expansive records before statutory coverage was established already imposed the institutional injury. The Supreme Court reviewed the mandamus denial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 376–383"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court rejects the categorical timing and privilege barriers",
+      "cue": "How do extraordinary-writ requirements account for separation of powers?",
+      "paragraphs": [
+        "Justice Kennedy first rejected timing objections. Appellate Rule 4(a) governed notices of appeal, not All Writs petitions. Collateral-order appeal availability and timing remained undecided. Laches did not apply because the government actively sought less drastic remedies; doing so was consistent with mandamus’s demand for inadequate alternatives.",
+        "A petitioner still needed no adequate other remedy, a clear and indisputable entitlement, and a showing that issuance was appropriate even if the first two conditions were met. Here those requirements had to reflect the burden on the Vice President and senior advisers performing another branch’s constitutional work. Officials remained subject to law, but presidential consultation was not ordinary private litigation activity.",
+        "Nixon did not require privilege invocation before every separation-of-powers objection. It involved identified evidence in a criminal prosecution, with judicial responsibilities and fair-trial interests of exceptional weight. This civil discovery sought to establish whether a statutory duty existed, without the same criminal safeguards or specific evidentiary need. Breadth and litigation purpose both mattered; the Court did not categorically reject civil requests.",
+        "The requested discovery would give plaintiffs their ultimate sought records and more before entitlement was decided. Identifying and logging everything for individual claims could itself burden the Executive. Constitutional privilege was consequential, and courts could consider narrower resolution before forcing that confrontation. The majority also found actual scope-and-burden objections in the government’s filings, despite its principal opposition to any discovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 378–391"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Justices disagree over the consequence of that error",
+      "cue": "Who would issue the writ, and who would deny it?",
+      "paragraphs": [
+        "Justice Stevens joined remand because the D.C. Circuit originated de facto membership doctrine and should direct next steps, though he thought the discovery order should be vacated. Ordinary broad discovery could hand plaintiffs the disclosure remedy before proving their mandamus right. He suggested narrow interrogatories or depositions about substantive functions, such as voting or drafting, not a finding that particular outsiders were members.",
+        "Justice Thomas, joined by Justice Scalia, would require issuance of the writ. Plaintiffs seeking § 1361 mandamus nevertheless needed sweeping discovery to establish entitlement, undermining the clear-right requirement and risking a freestanding enforcement vehicle for statutes lacking private remedies.",
+        "Justice Ginsburg, joined by Justice Souter, would affirm denial. She agreed discovery was overbroad but thought the government sought wholesale protection rather than meaningful narrowing invited below, leaving an adequate alternative. She distinguished a clear legal duty from facts proving violation and saw no clear error in a judge awaiting a narrowing request rather than redrafting discovery unasked. Her review of prior disclosure, actual burden, and possible limited membership inquiry reinforced that procedural assessment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 392–405 & separate-opinion notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court of appeals must exercise its discretion on a fuller legal basis",
+      "cue": "What did vacatur leave open?",
+      "paragraphs": [
+        "On June 24, 2004, the Supreme Court vacated the D.C. Circuit’s judgment and remanded. The appellate court had ended its inquiry prematurely under a mistaken Nixon reading and now had to consider separation-of-powers and other arguments, including unwarranted impairment of executive duties, before deciding whether to issue mandamus.",
+        "Kennedy, Chief Justice Rehnquist, and Justices Stevens, O’Connor, and Breyer supported that disposition. Scalia and Thomas joined Parts I–IV but wanted direct issuance, while Ginsburg and Souter dissented, making remand five to four despite seven votes for the common analysis.",
+        "The Supreme Court did not itself dissolve discovery, issue the writ, decide de facto membership, establish disclosure entitlement, or recognize absolute immunity. It also urged sensitivity to governmental requests for interlocutory review of these constitutional questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "542 U.S. 372, 391–405"
+        }
+      ]
+    }
+  ]
+}

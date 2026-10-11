@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-JOHNSON-HUFFPOST",
+  "briefId": "CP-COMP-CB-JOHNSON-HUFFPOST",
+  "title": "Johnson v. TheHuffingtonPost.com, Inc.",
+  "course": "Civil Procedure",
+  "citation": "21 F.4th 314 (5th Cir. 2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Texas libel plaintiff relied on an online publisher’s commercial contacts, while the panel divided over whether those contacts connected his article to the forum.",
+  "actors": [
+    {
+      "name": "Charles Johnson",
+      "role": "Texas plaintiff alleging libel"
+    },
+    {
+      "name": "TheHuffingtonPost.com",
+      "role": "Online publisher disputing Texas jurisdiction"
+    }
+  ],
+  "proceedings": [
+    "District court dismissed for lack of personal jurisdiction and denied jurisdictional discovery.",
+    "Fifth Circuit affirmed 2–1; Haynes would vacate and remand."
+  ],
+  "limits": "No ruling determined whether the article’s characterizations were true or defamatory. Majority and dissent offered competing readings of Revell, Calder, Keeton, and Ford. The account describes this 2021 panel judgment.",
+  "briefSha256": "6af49e789db37ab4458ff5939ea573585bc66fcd3c24aa4c5681b35f8c416dee",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-JOHNSON-HUFFPOST"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A Washington meeting becomes an online story",
+      "cue": "Johnson sues in Texas and adds virtual contacts",
+      "paragraphs": [
+        "HuffPost published a story about Charles Johnson meeting two members of Congress in Washington, describing him as a Holocaust denier and white nationalist. He alleged libel in the Southern District of Texas. The story mentioned no Texas events, conduct, or sources.",
+        "Johnson initially relied on Texas citizenship and injury there. HuffPost was a Delaware and New York citizen with no Texas office, personnel, or property. His amended complaint emphasized Texans’ ability to read the story, sales of merchandise and optional ad-free use, Texas advertisers, and collection of visitor locations for relevant advertising. Reading itself was free; payment removed ads rather than unlocking articles.",
+        "The district court dismissed because the story was not Texas-directed or based there. Johnson appealed, emphasizing website features and alternatively seeking jurisdictional discovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court opinion pp.1–3 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The majority requires a connection to this libel claim",
+      "cue": "Interactive features do not alone establish purposeful targeting",
+      "paragraphs": [
+        "Judge Jerry E. Smith, joined by Judge King, reviewed de novo with uncontroverted nonconclusory allegations accepted and the burden on Johnson. General jurisdiction was conceded unavailable. Specific jurisdiction required purposeful contacts, a claim arising out of or relating to them, and fairness.",
+        "The majority found Revell controlling. Interactivity initiated rather than completed Internet-libel analysis; Calder’s story-and-harm connection still mattered. Johnson’s distinction between commerce adjacent to the article and commerce on other pages was not pleaded and did not substantively connect unrelated features to this claim.",
+        "Merchandise sales did not concern reputational injury, and advertisers’ Texas citizenship did not connect their products to the libel. The majority distinguished soliciting Texas readers from tailoring third-party ads after they independently visited a universal site. Johnson alleged no geographically directed solicitation elsewhere drawing Texans to this story or website. A New York store’s compensated referral to a visiting Texan would not alone allow another Texan’s unrelated tort suit in Texas.",
+        "The opinion did not comprehensively decide what extra online targeting would suffice. HuffPost need not block Texans or all commerce to avoid this claim; the absent connection was purposeful direction of the alleged wrong. Using unrelated contacts would collapse specific into general jurisdiction and disregard other states’ authority over the publisher at home."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court opinion pp.3–14 & nn.4–5, 7–13, 18"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ford and Keeton do not change the majority’s result",
+      "cue": "Haynes sees a separate publication-market route",
+      "paragraphs": [
+        "The majority accepted that Ford rejected strict causation, but its local sales, marketing, and servicing concerned the same vehicle models involved in injury. Unrelated ads and merchandise lacked that relation to Johnson’s claim. Keeton’s regular magazine shipments represented affirmative forum distribution; mere national website accessibility did not, as pleaded, establish equivalent targeting. The majority said technology did not change first principles but refused to infer missing targeting from local visits and unrelated revenue.",
+        "Judge Haynes dissented. Keeton’s circulation route differed from Calder’s effects test for individual writers or editors; the National Enquirer itself had not contested jurisdiction in Calder. Circuit precedent Fielding recognized publication circulation as well as story-specific targeting. Focusing only on the article’s subject erased that first route.",
+        "For Haynes, substantial Texas readership and state-specific ads showed deliberate commercial cultivation, not a passive personal blog accidentally accessed there. Keeton had not required its article to concern New Hampshire, and Revell lacked comparable deliberately cultivated circulation. Under Ford, the publisher’s articles were its core product, and this article reached readers in the market it exploited. Requiring the ad itself to cause libel restored an improper strict-causation rule. Her view rested on the publication-market relation, not every accessible site or unrelated merchandise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court opinion pp.15–18 & nn.19–24; Haynes pp.20–29 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "More of the same contacts would not cure the majority’s defect",
+      "cue": "Dismissal and discovery denial stand",
+      "paragraphs": [
+        "The majority also found no abuse in denying jurisdictional discovery. Johnson needed specific likely jurisdiction-establishing facts, but requested only the extent of contacts the majority already considered legally insufficient. Greater volume would not supply its missing relationship.",
+        "On December 23, 2021, the Fifth Circuit affirmed. Haynes would vacate and remand under her publication-focused reading without deciding defamation merits. Neither side’s opinion established whether the article’s descriptions were true, defamatory, or otherwise actionable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court opinion p.19; Haynes pp.26–29"
+        }
+      ]
+    }
+  ]
+}

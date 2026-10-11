@@ -1,0 +1,162 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-056",
+  "briefId": "CT-ADDITIONAL-CM-B4-056",
+  "title": "United States v. Winstar Corp.",
+  "course": "Contracts",
+  "citation": "518 U.S. 839 (1996)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Federal regulators induced private buyers to rescue failing thrifts with favorable accounting promises; when Congress later barred that treatment, seven Justices agreed the United States bore contractual liability, though their sovereign-power reasoning differed.",
+  "actors": [
+    {
+      "name": "United States and federal thrift regulators",
+      "role": "Government contracting party and later defender of the statutory change"
+    },
+    {
+      "name": "Federal Savings and Loan Insurance Corporation (FSLIC)",
+      "role": "Federal insurer arranging assistance for supervisory mergers"
+    },
+    {
+      "name": "Glendale, Winstar, and Statesman",
+      "role": "Acquirers relying on negotiated accounting treatment"
+    },
+    {
+      "name": "Justice Souter",
+      "role": "Author announcing judgment in a divided opinion"
+    },
+    {
+      "name": "Justices Breyer and Scalia, Chief Justice Rehnquist",
+      "role": "Authors of separate concurrence, concurrence in judgment, and dissent"
+    }
+  ],
+  "proceedings": "Claims Court found contracts and liability; Federal Circuit panel reversed; en banc Federal Circuit affirmed liability; Supreme Court affirmed seven to two and remanded for damages proceedings.",
+  "limits": "This was interlocutory liability review with no quantified award. The new statute remained effective. Souter’s sovereign-act classification had three votes, alternative impossibility reasoning four, and Scalia’s distinct approach three; seven liability votes did not endorse every rationale.",
+  "briefSha256": "9c9ec397f73772ed561719a8de121efb5fba466ad4fcd3b8ac6e8cdb6a9d745d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-056"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Regulators needed private buyers for insolvent thrifts",
+      "cue": "Introduce the crisis and the value of the accounting concessions.",
+      "paragraphs": [
+        "In the early 1980s, rising interest rates increased thrift institutions’ deposit costs while older fixed-rate mortgages yielded relatively little. Many thrifts became insolvent, and the Federal Savings and Loan Insurance Corporation (FSLIC) lacked reserves to close and liquidate all of them. Federal regulators encouraged supervisory mergers: private acquirers assumed failed institutions’ liabilities in exchange for financial help and favorable regulatory accounting.",
+        "Purchase accounting produced “supervisory goodwill,” the excess of acquisition price over the fair value of identifiable net assets. Regulators allowed that intangible to count toward required capital and amortize over long periods. Without it, acquired liabilities could immediately drive the combined institutions below capital requirements. Other arrangements supplied capital credits linked to federal cash assistance. Generally accepted accounting principles differed from regulatory accounting, and 1983 changes restricted favorable amortization and credit treatment. The concessions therefore addressed valuable and changeable regulatory treatment, not routine assurances of permanently fixed law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "518 U.S. at 844–856"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Three acquisitions contained specific accounting bargains",
+      "cue": "Keep each transaction’s commitments identifiable.",
+      "paragraphs": [
+        "Glendale’s 1981 acquisition of Broward involved about a $734 million asset shortfall. Its assistance agreement incorporated a Bank Board resolution and accountant’s letter permitting forty-year goodwill amortization. Without the concession, even Glendale’s existing capital would have left the merged institution insolvent.",
+        "Winstar’s 1984 Windom acquisition included $2.8 million of private investment, $5.6 million of FSLIC assistance, and thirty-five-year goodwill amortization. Its accounting-principles clause gave negotiated documents priority over conflicting regulatory changes.",
+        "Statesman’s 1988 deal expanded at the government’s insistence to take additional failing institutions. It included $21 million in private investment, $60 million in federal assistance including a $26 million capital credit, twenty-five-year goodwill amortization, and related capital-maintenance documents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 861–869"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Congress changed the capital rules, and the acquirers sued for the lost bargain",
+      "cue": "Distinguish compensation from permission to disregard legislation.",
+      "paragraphs": [
+        "The Financial Institutions Reform, Recovery, and Enforcement Act of 1989, known as FIRREA, reorganized federal thrift regulation and imposed stricter capital standards. Goodwill could not count as tangible capital, and limited transitional treatment of qualifying supervisory goodwill as core capital ended by 1995. Winstar and Statesman were seized and liquidated after failing the new standards. Glendale survived through private recapitalization.",
+        "All remained subject to the statute; they sought contractual compensation rather than an exemption. The Claims Court recognized Winstar’s implied-in-fact contract in 1990 and liability in 1992, and entered corresponding liability rulings for Statesman and Glendale. A Federal Circuit panel reversed for lack of an unmistakable promise limiting future regulation, but the en banc court vacated that result and affirmed liability. Damages remained undetermined.",
+        "The government argued that its documents supplied current regulatory permission rather than protection against change. It invoked unmistakability, reserved sovereign powers, lack of express delegation to surrender sovereignty, and the sovereign-acts doctrine. The acquirers relied on the agreements, incorporated resolutions and letters, and the rescue transactions’ economic circumstances."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 856–870"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Souter treated the promises as compensation-backed risk allocation",
+      "cue": "Explain why binding contracts did not necessarily surrender lawmaking authority.",
+      "paragraphs": [
+        "Justice Souter’s opinion found contractual accounting commitments in the incorporated documents. General duties to obey applicable law did not erase those negotiated terms. The interpretation also made economic sense: buyers had taken liabilities whose specified accounting treatment was crucial to solvency. The government assumed consequences if law later prevented the promised treatment, while Congress retained authority to regulate.",
+        "The unmistakability doctrine demanded unmistakable terms before interpreting a contract as surrendering sovereign power. Souter distinguished a legal restriction on regulation from a promise leaving regulation effective but requiring compensation for nonperformance. Yet he rejected a blanket damages exception: reimbursement of taxes or equivalent compensation might effectively recreate an exemption. The asserted obligation’s effect, not the remedy’s label, controlled.",
+        "Financial cost alone did not impermissibly deter legislation; sovereign choices routinely cost money, and treating every cost as surrender would impair credible government contracting. Reserved-powers and express-delegation objections likewise failed on this understanding. FSLIC had general contracting authority and specific power to guarantee acquirers against supervisory-merger losses, while the statutory framework recognized goodwill. It assumed financial risk within that authority, not power to forbid Congress to legislate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 861–891, 884 n.27"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The principal opinion offered two sovereign-acts analyses with different votes",
+      "cue": "Separate the classification of the law from ordinary impossibility.",
+      "paragraphs": [
+        "The sovereign-acts doctrine distinguished the government as contractor from government as lawgiver when public and general action interfered with performance. It could remove the usual obstacle to invoking impossibility caused by one’s own action, but did not establish all other elements of excuse.",
+        "Only Souter, Stevens, and Breyer joined Parts IV-A and IV-B, finding FIRREA insufficiently public and general for exculpation here. They emphasized its substantial release of the government’s accounting commitments and Congress’s express attention to those merger bargains. General public purpose or uniform application did not erase contractual self-relief. That conclusion had three votes, not seven.",
+        "O’Connor joined the alternative Part IV-C analysis. Even assuming a public and general act, ordinary impossibility failed. Unchanged regulation was not a basic assumption: rules had repeatedly changed, and these commitments addressed the consequences. Foreseeability was not made an absolute test for every contract; the analysis focused on central, readily allocable risk. More decisively, the government had accepted that risk. An agency’s lack of control over Congress did not prevent a financial obligation contingent on congressional action. No court ordered illegal accounting performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 891–910, particularly 905–906 n.53, 908–909 & nn.56–58"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Breyer and Scalia agreed on liability through different explanations",
+      "cue": "Identify what each concurrence added.",
+      "paragraphs": [
+        "Justice Breyer joined Souter and separately explained that language and circumstances could establish a promise to hold the counterparty harmless from legal change. Government identity affected the inference, but did not categorically bar the commitment. Earlier decisions involved different undertakings, including exemptions from sovereign authority or express statutory reservations of amendment. A narrow compensation obligation differed from a promise never to legislate. He did not require an express indemnity clause.",
+        "Justice Scalia, joined by Kennedy and Thomas, concurred in the judgment but rejected treating the risk-shifting label as enough to bypass sovereign defenses. Almost every contract creates potential nonperformance liability. Instead, he applied unmistakability and found it satisfied: specified future accounting treatment was essential consideration for taking the troubled institutions. A promise lasting only until the government chose otherwise would be illusory. The other defenses did not authorize repudiation of that essential bargain or erase the monetary risk assumed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 910–924"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Rehnquist disputed the interpretation and the sovereign distinction",
+      "cue": "Preserve Ginsburg’s limited joinder and the damages remand.",
+      "paragraphs": [
+        "Chief Justice Rehnquist dissented, arguing that damages could operate like an injunction and their amount had not yet been calculated. Unmistakability needed to guide interpretation before finding a compensable promise. In Part II, which Justice Ginsburg did not join, he regarded FIRREA as public industry legislation satisfying sovereign acts and rejected tests centered on motivation or contract effects.",
+        "Ginsburg joined Parts I, III, and IV. In III and IV, Rehnquist disputed Scalia and Breyer: temporary regulatory advantages could supply consideration without protected long-term treatment, and lower-court findings did not resolve heightened unmistakability. His unjoined Part V would reverse outright or remand under his tests.",
+        "On July 1, 1996, seven Justices affirmed federal contractual liability and remanded because the Court of Federal Claims had not determined damages. Stevens and Breyer joined Souter throughout, O’Connor except IV-A and IV-B, and Scalia, Kennedy, and Thomas concurred in judgment. Rehnquist and Ginsburg dissented with the stated limits. The result neither invalidated FIRREA nor awarded a sum, and did not make all regulatory changes affecting contracts compensable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 842–843, 910, 919, 924–937"
+        }
+      ]
+    }
+  ]
+}

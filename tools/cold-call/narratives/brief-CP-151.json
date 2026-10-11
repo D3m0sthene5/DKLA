@@ -1,0 +1,140 @@
+{
+  "id": "brief-CP-151",
+  "briefId": "CP-151",
+  "title": "Thompson v. Thompson",
+  "course": "Civil Procedure",
+  "citation": "484 U.S. 174 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Parents obtain apparently conflicting custody decrees in California and Louisiana. The father asks a federal district court to select the controlling decree, relying on the federal statute governing interstate custody recognition.",
+  "actors": [
+    {
+      "name": "David Thompson",
+      "role": "Father seeking federal declaratory and injunctive relief."
+    },
+    {
+      "name": "Susan Clay, formerly Susan Thompson",
+      "role": "Mother opposing that federal action."
+    },
+    {
+      "name": "Matthew Thompson",
+      "role": "Child whose custody was addressed by the state decrees."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed on subject-matter and personal-jurisdiction grounds.",
+    "The Ninth Circuit disagreed with those grounds but affirmed for failure to state a statutory claim.",
+    "The Supreme Court affirmed the absence of an implied private district-court cause of action."
+  ],
+  "limits": "This transforms the canonical historical brief without a new audit or current custody-remedies survey. July 1978 dates the dissolution petition, not a final divorce decree. The Court made no abduction finding, custody award, or decree-validity determination. State enforcement was a distinct remedy, not exhaustion that would create the unavailable federal cause of action.",
+  "briefSha256": "9f9046597ce292309428a6c05141c20c6b1988940003805cb2c36f1b10a64801",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-151"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "California grants provisional custody before the move to Louisiana",
+      "cue": "How did competing decrees arise?",
+      "paragraphs": [
+        "In July 1978, Susan Thompson, later Susan Clay, petitioned a California court to dissolve her marriage to David Thompson and sought custody of their son Matthew. The court initially granted joint custody, providing that Susan would have sole custody once she departed for Louisiana pending a court investigator’s report. She moved with Matthew in December 1980.",
+        "On April 7, 1981, a Louisiana court enforced the existing California award favoring the mother and modified visitation. After receiving its investigator’s report, the California court later awarded sole custody to the father. The decrees thus appeared to confer conflicting rights. The Supreme Court’s account did not characterize Susan’s authorized relocation and provisional award as an unlawful abduction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 177–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The father seeks a federal ruling without first pursuing Louisiana enforcement",
+      "cue": "What source of action did he assert?",
+      "paragraphs": [
+        "In 1983, David sued in federal district court to invalidate the Louisiana decree, require recognition of California’s later decree, and obtain corresponding injunctive relief. He relied on the Parental Kidnaping Prevention Act of 1980, codified at 28 U.S.C. § 1738A. That statute directs states to recognize qualifying sister-state custody determinations and limits competing jurisdiction and modification.",
+        "The district court dismissed for lack of subject-matter and personal jurisdiction. The Ninth Circuit rejected that analysis but affirmed because the Act supplied no private federal cause of action of the kind asserted. The Supreme Court granted review to resolve disagreement over that implied remedy, rather than to determine Matthew’s best interests or select a valid decree."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 178–179"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court asks what remedy Congress intended",
+      "cue": "Why did a binding federal rule not necessarily create a district-court suit?",
+      "paragraphs": [
+        "Justice Marshall’s opinion treated congressional intent as controlling. The Act did not expressly authorize this suit. Considerations from implied-right precedents informed legislative intent rather than independently licensing a court to invent a helpful remedy.",
+        "Historically, custody orders presented special full-faith-and-credit problems because changed circumstances permitted modification. Different jurisdictional rules and competing modifications encouraged forum selection and instability. The Act addressed that problem by specifying qualifying jurisdiction, limiting simultaneous proceedings, preserving continuing jurisdiction, and controlling when another state could modify an order.",
+        "These provisions imposed duties on adjudicating states. They did not designate federal district courts as a new custody-review forum. Congress placed § 1738A beside § 1738’s general full-faith-and-credit rule, which ordinarily governs recognition without creating an independent federal action to relitigate judgment effects. Text and placement therefore favored a state-court rule of decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 175–177 & nn.1–2; 179–183"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Congress had considered and rejected a federal-forum solution",
+      "cue": "Why did the father’s narrower proposed suit still fail?",
+      "paragraphs": [
+        "Legislative materials showed consideration of Representative Fish’s proposal for federal diversity jurisdiction in specified custody-enforcement disputes. Objections concerned federal courts’ lack of domestic-relations expertise, added complexity, and burdens. Congress instead selected state-court enforcement. That choice weighed against implying the omitted federal remedy.",
+        "David argued that his action was narrower because it applied only after conflicting state decrees existed. Even those disputes could force district judges to examine state jurisdiction and custody issues, including best interests, abandonment, or abuse. The limited label did not avoid the field Congress had left primarily to state courts and risked turning district courts into direct reviewers of state judgments.",
+        "The father had not asked Louisiana to enforce California’s later order under the Act. The Court treated that state process as meaningful, not a futile preliminary step. Refusing the implied suit did not leave the statute ineffective: state courts had to apply federal recognition duties, and genuinely intractable federal conflicts could reach the Supreme Court through the proper review route. The Court would not presume state judges unable or unwilling to do their work."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 183–187 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "O’Connor and Scalia insist on actual legislative intent",
+      "cue": "What broader proposal did the Court decline to adopt?",
+      "paragraphs": [
+        "Justice O’Connor joined except the first full paragraph of Part II and adopted Part I of Justice Scalia’s concurrence. They emphasized that earlier implied-right factors were tools for discerning actual congressional intent, not separate grounds for creating a remedy when intent was absent.",
+        "Scalia objected to the majority’s suggestion that Congress need not actually have contemplated creating the remedy. Context detached from an indication in text or history, he feared, could substitute judges’ preferred remedies for legislative choice. In Part II, which O’Connor did not adopt, he urged a prospective rule refusing to imply private actions in statutes enacted thereafter, citing legislative authority and uncertainty about unexpressed intent. That categorical proposal was not the Court’s rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 188–192"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The federal cause of action is unavailable, but the custody conflict is not decided",
+      "cue": "What exactly was affirmed?",
+      "paragraphs": [
+        "On January 12, 1988, the Court affirmed the Ninth Circuit’s failure-to-state-a-claim judgment. Chief Justice Rehnquist and Justices Brennan, White, Blackmun, and Stevens joined Marshall; O’Connor concurred in part and in the judgment, and Scalia concurred in the judgment. No dissent was recorded.",
+        "The Court did not approve Louisiana’s decree, invalidate California’s, or award custody. Nor did further state proceedings promise eventual access to this nonexistent implied district-court action. The federal recognition rule remained binding through state proceedings and appropriate Supreme Court review, distinct from the remedy David sought."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "484 U.S. 174, 186–192"
+        }
+      ]
+    }
+  ]
+}

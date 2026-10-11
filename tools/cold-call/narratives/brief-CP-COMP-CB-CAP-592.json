@@ -1,0 +1,109 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-592",
+  "briefId": "CP-COMP-CB-CAP-592",
+  "title": "Moses H. Cone Memorial Hospital v. Mercury Construction Corp.",
+  "course": "Civil Procedure",
+  "citation": "460 U.S. 1 (1983)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A hospital’s state-court suit and its contractor’s federal arbitration petition presented the same threshold question. The Supreme Court held that this federal stay effectively surrendered the petition and lacked the exceptional justification required.",
+  "actors": [
+    {
+      "name": "Moses H. Cone Memorial Hospital",
+      "role": "North Carolina owner resisting construction claims and arbitration"
+    },
+    {
+      "name": "Mercury Construction",
+      "role": "Alabama contractor seeking arbitration"
+    },
+    {
+      "name": "Independent architect",
+      "role": "Contract administrator and defendant in the hospital’s indemnity claim"
+    }
+  ],
+  "proceedings": [
+    "Hospital sued in state court; Mercury filed federal arbitration petition.",
+    "District court stayed the petition; en banc Fourth Circuit reversed and effectively directed arbitration.",
+    "Supreme Court affirmed, six to three."
+  ],
+  "limits": "No construction damages or architect indemnity liability was adjudicated. Federal Arbitration Act policy did not independently confer federal jurisdiction. Ordinary stays are not automatically appealable.",
+  "briefSha256": "af5bf11290b00fb52ce052f13e8b40221fc9b935c033d5e9e71ccd17e6981356",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-592"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Construction claims follow an agreed review process",
+      "cue": "The 1975 contract and delayed claims",
+      "paragraphs": [
+        "In July 1975, North Carolina’s Moses H. Cone Memorial Hospital hired Alabama contractor Mercury Construction to build additions. Disputes first went to an independent architect, then could proceed to binding arbitration under a broad clause with timing conditions. During construction, Mercury agreed at the architect’s request to defer delay-and-impact claims until substantial completion. The hospital later disputed the architect’s authority to arrange that deferral.",
+        "Mercury submitted claims in January 1980. After months of discussions and an August presentation, the hospital announced it would pay nothing. On October 8 it sued Mercury and the architect in North Carolina court, disputing liability and arbitrability and seeking indemnity from the architect if liable. Mercury mailed an arbitration demand the next day. The hospital obtained an ex parte injunction against arbitration steps, but it was dissolved October 27 on Mercury’s objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "4–7 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two courts face arbitrability",
+      "cue": "The federal stay becomes appealable",
+      "paragraphs": [
+        "Mercury petitioned under section 4 of the Federal Arbitration Act to compel arbitration in federal court, relying on diversity jurisdiction. Its separate attempt to remove the state action failed because the hospital and architect were both North Carolina corporations; that remand was not under review. The district court stayed Mercury’s petition because the state action raised the same arbitrability issue. Mercury sought appeal and mandamus. The en banc Fourth Circuit reversed and effectively directed an arbitration order.",
+        "Justice Brennan’s Supreme Court majority held the stay appealable as a final decision. Arbitrability was the federal suit’s sole substantive issue, and the state judgment would bind the federal court. The order thus operated as a dismissal surrendering federal jurisdiction, not simply an ordinary pause or an economically discouraging ruling. It alternatively qualified as a collateral order: the refusal to proceed was conclusive, separate from the merits, and unreviewable effectively after preclusion attached. Formal revisability did not make the decision tentative. Because ordinary appeal existed, mandamus’s demanding standard did not control."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "7–13 & nn.4–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Parallel proceedings are insufficient",
+      "cue": "The majority’s exceptional-circumstances analysis",
+      "paragraphs": [
+        "The majority applied Colorado River, the precedent requiring exceptional circumstances to defer federal litigation for judicial administration. Balancing strongly favored exercising jurisdiction, and no traditional abstention category was invoked. A later divided decision about mandamus, Will v. Calvert Fire, had not displaced that standard.",
+        "Neither court controlled property, and the federal forum was not inconvenient. Separate proceedings involving the architect followed from an arbitration agreement that did not bind the architect; that unavoidable division could not defeat Mercury’s agreed arbitration, although related nonarbitrating litigation might be stayed. The state complaint’s nineteen-day lead was less important than actual progress. Mercury’s federal claim depended on refusal to arbitrate, which occurred shortly before the state filing, and the temporary injunction also explained timing. The state case had progressed little while federal submissions substantially prepared arbitrability for decision. No finding of bad faith was necessary.",
+        "Federal law favoring enforcement of covered arbitration agreements and resolution of scope doubts supported prompt disposition. That policy supplied substantive law, not federal-question jurisdiction; diversity or another independent basis remained necessary. Substantial doubt also existed whether the state action could affirmatively compel arbitration, rather than merely stop litigation and leave Mercury without payment or arbitration. This did not disparage state courts or resolve whether section 4 itself required them to compel arbitration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "13–28 & nn.16–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The arbitration direction stands",
+      "cue": "Judgment and dissent",
+      "paragraphs": [
+        "The hospital challenged the appellate court’s decision to resolve arbitrability before the district court had done so, rather than disputing its substantive correctness in the Supreme Court. Although appellate courts ordinarily should leave such issues for initial district-court decision, full briefing and evidence, no factual dispute requiring a jury, the interest in prompt arbitration, and no apparent prejudice justified the direction here. The Court affirmed, six to three.",
+        "Justice Rehnquist, joined by Chief Justice Burger and Justice O’Connor, viewed the stay as revisable docket management, not a final or collateral order. Potential preclusion did not establish finality, and piecemeal appeals threatened disruption. He would dismiss the appeal for lack of jurisdiction without deciding the stay’s substantive propriety. Alternatively, he would return arbitrability to the district court, whose factual and jury responsibilities the appellate court could not simply assume. He also doubted that intervention had actually accelerated arbitration. The majority’s affirmance nevertheless left the direction effectively requiring an arbitration order intact, without resolving construction damages or the architect’s liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "29–36"
+        }
+      ]
+    }
+  ]
+}

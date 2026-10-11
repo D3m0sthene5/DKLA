@@ -1,0 +1,146 @@
+{
+  "id": "brief-LRS-CLOSURE-001",
+  "briefId": "LRS-CLOSURE-001",
+  "title": "Federal Election Commission v. NRA Political Victory Fund",
+  "course": "Legislation and the Regulatory State",
+  "citation": "6 F.3d 821 (D.C. Cir. 1993); 513 U.S. 88 (1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A disputed campaign-fund transfer led to sanctions imposed through a commission containing congressional agents. The court of appeals reversed for unconstitutional composition, but Supreme Court review ended on the separate question whether the agency had timely authority to petition.",
+  "actors": [
+    {
+      "name": "Federal Election Commission",
+      "role": "Campaign-finance enforcement agency seeking sanctions and review"
+    },
+    {
+      "name": "NRA Political Victory Fund",
+      "role": "Political committee accepting the disputed transfer"
+    },
+    {
+      "name": "National Rifle Association Institute for Legislative Action",
+      "role": "Organization making the transfer"
+    },
+    {
+      "name": "Grant Wills",
+      "role": "Fund treasurer sued over facilitation"
+    },
+    {
+      "name": "Judge Silberman and Chief Justice Rehnquist",
+      "role": "Authors of the circuit and Supreme Court principal opinions"
+    }
+  ],
+  "proceedings": "The district court imposed sanctions and an injunction. The D.C. Circuit reversed on structural grounds in 1993. The Supreme Court dismissed the FEC’s petition for want of jurisdiction in 1994 without deciding those constitutional merits.",
+  "limits": "The circuit did not resolve contribution legality or the First Amendment defense, nor definitively fix removal protection. The Supreme Court’s dismissal left that judgment standing without affirming its reasoning. This account retains the historical statutory setting.",
+  "briefSha256": "6612ea5665f33457253e6658f5034f0995ba3bf3209ef9ebfc431b541cd2f730",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-001"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Three transfers produced the enforcement dispute",
+      "cue": "Distinguish the transaction the agency challenged.",
+      "paragraphs": [
+        "In March and July 1988, the NRA Political Victory Fund mailed fundraising letters to National Rifle Association members. The Institute for Legislative Action paid $415,744.72 for them. The Fund reimbursed it August 1 but later faced a shortage, and on October 20 the Institute returned that reimbursement. The Fund used resources including those funds for independent candidate-support expenditures and direct contributions before November elections.",
+        "The Federal Election Commission, or FEC, accepted the first two steps as lawful: the Federal Election Campaign Act allowed corporate payment of committee member-solicitation costs and did not bar repayment. It treated the third as an unlawful corporate contribution. Defendants argued the lawful sequence should be considered together. After unsuccessful statutory negotiations, the agency sued the Institute for making, the Fund for accepting, and treasurer Grant Wills for facilitating the transfer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 F.3d 822"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court enforced, but the appeal focused on structure",
+      "cue": "Identify the objections and the reconstituted commission.",
+      "paragraphs": [
+        "On cross-motions for summary judgment, defendants disputed statutory coverage, raised the First Amendment, and challenged separation of powers. The district court found a violation, regarded structural objections as nonjusticiable, rejected the speech defense, imposed a civil penalty measured by investigation and litigation expense, and enjoined similar transfers.",
+        "After Buckley v. Valeo invalidated the original voting-member appointment method, Congress created six presidentially appointed, Senate-confirmed commissioners, no more than three from one party. The Senate Secretary and House Clerk or designees remained nonvoting ex officio members. Buckley mentioned them without deciding their constitutional status. Defendants now attacked the partisan ceiling, inadequate presidential control of enforcement, and congressional membership. Judge Silberman’s appellate opinion reached structure first rather than deciding intertwined statutory and speech merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 F.3d 823–824 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Some structural objections were justiciable but only one prevailed",
+      "cue": "Explain standing, party limits, and presidential control.",
+      "paragraphs": [
+        "The agency argued defendants must prove a differently constituted commission would have treated them better. Civil sanctions supplied injury, vacatur redress, and direct exposure to government authority sufficed for the independence and congressional-agent challenges. Defendants need not prove an unknowable lawful-agency counterfactual.",
+        "The partisan-limit theory differed: no evidence showed a President wanted a fourth same-party member or that a nomination changed because of the statute, and the Senate could refuse on the same ground. The court rejected that challenge as nonjusticiable while leaving an actual constrained nomination dispute open.",
+        "Morrison v. Olson and Humphrey’s Executor, precedents concerning executive control over officials, defeated the independent-enforcement objection. Silence on removal did not prove the President lacked power. The court thought an implied good-cause limit likely but assumed only that good-cause removal was available at minimum, without finally deciding its scope."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 F.3d 824–826 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Nonvoting membership still inserted congressional influence",
+      "cue": "Give the constitutional holding and remedy.",
+      "paragraphs": [
+        "Congressional agents could not chair, convene, adjourn, vote, or count toward a quorum, but membership could affect deliberations. Legislative statements contemplated Congress’s viewpoint, and even silence could convey a message, like an improperly present alternate juror.",
+        "Using the anti-encroachment reasoning of Metropolitan Washington Airports Authority and Bowsher, despite their actors’ express decision powers, the court held congressional membership crossed the boundary into execution. Oversight, appropriations, authorization, and ordinary communication remained available; complete institutional isolation was unnecessary. Questioning about a particular pending case could separately raise due-process concerns.",
+        "The Act’s severability clause allowed removal of ex officio positions without destroying the system. The de facto officer argument did not justify denying these enforcement defendants relief: Buckley’s prospective posture was different, and declaring composition invalid while preserving their sanctions would be inadequate. The court reversed, deciding neither the transfer nor speech merits. Silberman and Wald participated; Ruth Bader Ginsburg, who heard argument before joining the Supreme Court, did not decide. The October 22, 1993 opinion was amended October 25, without dissent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "6 F.3d 826–828 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The agency filed in time but without the Solicitor General’s authority",
+      "cue": "Trace the separate Supreme Court problem.",
+      "paragraphs": [
+        "The FEC petitioned in its own name January 18, 1994, two days before the ninety-day deadline, without seeking or obtaining Solicitor General approval. After the Supreme Court requested the United States’ views, the Solicitor General authorized the petition on May 26, over 120 days after the January 20 deadline. The agency claimed independent authority; the United States disagreed but relied on later approval.",
+        "Chief Justice Rehnquist’s majority held that 28 U.S.C. section 518(a) and implementing regulation ordinarily assigned Supreme Court litigation for the United States to the Solicitor General. General authority to initiate, defend, or appeal enforcement cases did not expressly exempt certiorari petitions. Presidential-public-funding statutes expressly mentioned both appeals and certiorari, one enacted with the general enforcement provision in 1974. That contrast was intentional. District and circuit litigation authority remained undisputed.",
+        "Independence could support broader authority, but Congress also valued centralized Supreme Court litigation. Prior unchallenged appearances did not silently resolve jurisdiction, and enforcement expertise did not make the agency’s view of litigation authority controlling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 U.S. 90–97 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Late ratification could not extend the jurisdictional deadline",
+      "cue": "Explain the dismissal and Stevens’s contrary reading.",
+      "paragraphs": [
+        "Under the agency-law principles applied, ratification could not defeat intervening rights after the act’s deadline. The principal needed power to act both initially and when ratifying. By May 26, the Solicitor General could not himself file timely, so retroactive approval would impermissibly extend the mandatory period.",
+        "Justice Stevens dissented, reading appeal naturally to include discretionary review, as section 518 itself did. It seemed anomalous that the FEC could formerly invoke mandatory Supreme Court jurisdiction but lacked discretionary access. Watergate-era concern about independent enforcement, including the Solicitor General’s Saturday Night Massacre role, and longstanding practice supported authority. He regarded public-funding language as copied rather than deliberately restrictive, noted both schemes could concern presidential campaigns, and questioned implications for opposition briefs. His position rested on independent statutory power, not separate approval of ratification analysis.",
+        "On December 6, 1994, Rehnquist, O’Connor, Scalia, Kennedy, Souter, Thomas, and Breyer dismissed for want of jurisdiction. Stevens dissented and Ginsburg did not participate. The seven-to-one ruling left the circuit judgment intact without deciding its separation-of-powers merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513 U.S. 98–105 & Stevens nn.1–7"
+        }
+      ]
+    }
+  ]
+}

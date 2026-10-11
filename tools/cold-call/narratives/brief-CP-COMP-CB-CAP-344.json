@@ -1,0 +1,110 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-344",
+  "briefId": "CP-COMP-CB-CAP-344",
+  "title": "General Telephone Co. of the Southwest v. Falcon",
+  "course": "Civil Procedure",
+  "citation": "457 U.S. 147 (1982)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employee alleging a discriminatory promotion denial represented rejected job applicants under an across-the-board class theory. The Supreme Court required an evidentiary connection between those different employment decisions.",
+  "actors": [
+    {
+      "name": "General Telephone Company of the Southwest",
+      "role": "Employer challenging the class certification"
+    },
+    {
+      "name": "Falcon",
+      "role": "Mexican-American employee denied a requested promotion"
+    },
+    {
+      "name": "Rejected Mexican-American applicants",
+      "role": "Members of the certified hiring class"
+    }
+  ],
+  "proceedings": [
+    "District court certified an employment class and entered different individual and class merits results.",
+    "Fifth Circuit upheld certification; intervening remand led it to vacate individual merits while reinstating certification.",
+    "Supreme Court reversed certification judgment and remanded."
+  ],
+  "limits": "The Supreme Court did not resolve individual or class discrimination merits or prohibit every combined hiring/promotion class. Burger alone sought dismissal of the class claim.",
+  "briefSha256": "c07b98fb7b3e724d2fedef5bd6472730e19e7a77d471e4d064fe4639e7bf1061",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-344"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An employee seeks further promotion",
+      "cue": "Falcon’s individual grievance",
+      "paragraphs": [
+        "General Telephone began a minority-recruitment program in 1969 and hired Falcon, a Mexican-American, as a groundman that July. Within a year he became a lineman and then lineman-in-charge, but later promotions eluded him. In October 1972 he sought a field-inspector position; the company chose white employees with less seniority. Falcon charged national-origin discrimination and discriminatory promotion policies before the Equal Employment Opportunity Commission. After receiving permission to sue, he filed a federal Title VII action in April 1975.",
+        "He sought to represent both Mexican-American employees and unsuccessful applicants. His complaint attacked employment discrimination broadly without particular hiring allegations. His proposed class, developed through interrogatories and a memorandum, encompassed employees and potential employees in the Irving division. Applying the Fifth Circuit’s across-the-board approach, the district court certified a class without an evidentiary hearing and later refused decertification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "147–152 & nn.1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Trial produces opposite individual and class results",
+      "cue": "The path to Supreme Court review",
+      "paragraphs": [
+        "The district court found Falcon personally suffered promotion discrimination but rejected his individual hiring claim. For the class, it found hiring discrimination but rejected promotion discrimination. His individual claim depended on intentional discrimination; the hiring class principally used statistical disparate-impact proof.",
+        "The court ordered affirmative-action changes and monetary relief for Falcon and thirteen rejected applicants. Its reported total was $67,925.49 with costs and interest, including Falcon’s $1,040.33 and $28,827.50 in class-related attorney fees, not entirely class damages or backpay. Both sides appealed. The Fifth Circuit declined to expand the class across divisions with different hiring and management arrangements, upheld certification, addressed Falcon’s claim, and found problems with the hiring statistics.",
+        "After an earlier Supreme Court remand under the Burdine employment-discrimination precedent, the Fifth Circuit vacated the individual merits ruling while reinstating certification. The present review concerned certification, not a final endorsement of either discrimination judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "151–155 & nn.6–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Identity does not supply the missing connection",
+      "cue": "Stevens requires examination of representative fit",
+      "paragraphs": [
+        "Justice Stevens wrote for eight Justices that private Title VII plaintiffs must meet Federal Rule of Civil Procedure 23, just as other private class representatives must. The enforcement agency’s independent statutory action was different. Shared national origin did not make every grievance against the employer common or typical.",
+        "Proof that Falcon suffered one discriminatory promotion denial did not itself establish discriminatory promotion practices generally, a division-wide policy, or hiring discrimination produced by that policy. Each inference needed support. His complaint identified no common question that would resolve both his promotion grievance and the applicants’ hiring claims.",
+        "Commonality and typicality tested whether claims were interrelated enough for economical litigation and protection of absent members. Adequacy added counsel and conflict concerns. The Court left undecided the company’s suggestion that hiring additional employees might reduce Falcon’s promotion prospects. The opposite trial results illustrated the assumed connection’s weakness, but the initial failure to examine Rule 23 compliance—not hindsight alone—was the certification error."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "155–160 & n.13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A remand rather than categorical exclusion",
+      "cue": "The rule’s limits and Burger’s separate position",
+      "paragraphs": [
+        "The Court recognized possible bridges between hiring and promotion claims: a biased examination used for both, or significant proof of a general discriminatory policy operating in both processes in the same manner, perhaps through wholly subjective decisions. These were examples requiring proof, not automatic grounds for certification. Some cases could be assessed from pleadings, while others required inquiry into intertwined facts and law. Revisable certification orders still required rigorous initial analysis and careful definition protecting members bound by a loss.",
+        "The Court reversed the judgment affirming certification and remanded for consistent proceedings, without deciding Falcon’s personal merits or dismissing every possible revised class. Chief Justice Burger agreed with the governing principles but would have directed dismissal. He saw no common question connecting Falcon’s comparative qualifications with hiring statistics, and no allegation of common decisionmakers. He cited evidence that Mexican-Americans comprised 7.7 percent of hires during 1972–1976 versus 5.2 percent of the relevant workforce, along with unchallenged application and hiring evidence. In his view, further class proceedings served no economy. That proposed merits-based end to the class was not the Court’s disposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "159–163 & nn.15–16, Burger n.*"
+        }
+      ]
+    }
+  ]
+}

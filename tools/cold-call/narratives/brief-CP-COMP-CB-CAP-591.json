@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-591",
+  "briefId": "CP-COMP-CB-CAP-591",
+  "title": "Wilko v. Swan",
+  "course": "Civil Procedure",
+  "citation": "346 U.S. 427 (1953)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A securities purchaser resisted a predispute arbitration clause, and the historical Court treated advance surrender of the statutory judicial forum as a prohibited waiver.",
+  "actors": [
+    {
+      "name": "Wilko",
+      "role": "Purchaser asserting a Securities Act damages claim"
+    },
+    {
+      "name": "Hayden, Stone & Co. brokers",
+      "role": "Defendants seeking a stay for arbitration"
+    },
+    {
+      "name": "Haven B. Page",
+      "role": "Alleged selling insider, not a party to Supreme Court review"
+    }
+  ],
+  "proceedings": [
+    "District court refused the arbitration stay.",
+    "Second Circuit reversed.",
+    "Supreme Court reversed 7–2; Jackson concurred separately and Frankfurter dissented with Minton."
+  ],
+  "limits": "This is the historical 1953 decision, not current securities-arbitration law. No arbitration or award had occurred. Postcontroversy agreements and exact review of a completed award were not collectively resolved.",
+  "briefSha256": "bade1c072baa47f257f84fa1389a06554321088818bf9af601ed95699599d06c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-591"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The purchaser alleges concealed insider selling and merger claims",
+      "cue": "Existing margin terms direct future disputes to arbitration",
+      "paragraphs": [
+        "Wilko alleged that on January 17, 1951, he bought 1,600 Air Associates shares after false statements about a proposed Borg Warner merger and an attractive share price. He said the brokers hid that company director and counsel Haven B. Page was selling his own stock, including the shares he bought. He allegedly sold about two weeks later at a loss. Page was a defendant below but not in Supreme Court review; no fraud finding had occurred.",
+        "Wilko sued Hayden, Stone & Co. members under Securities Act of 1933 § 12(2). His signed margin agreements broadly sent future account controversies to arbitration under New York law before designated organizations or exchanges; the reproduced agreement required at least three arbitrators. Before answering, the brokers sought a Federal Arbitration Act § 3 stay, expressing willingness to arbitrate and citing his failure to pursue that route."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "346 U.S. at 428–430, 432 n.15 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts disagree over whether forum choice is protected",
+      "cue": "Reed weighs two statutory policies",
+      "paragraphs": [
+        "The district court refused the stay because Securities Act § 14 invalidated waiver of compliance through advance arbitration of this statutory claim. The Second Circuit reversed, reasoning that substantive protections remained and judicial review could correct failure to apply them.",
+        "Justice Reed recognized the Federal Arbitration Act’s conceded coverage and Congress’s purpose of overcoming judicial hostility through prompt, economical commercial resolution. But the Securities Act addressed investors’ informational disadvantages and enforcement difficulties. Section 12(2) supplied special misrepresentation remedies with purchaser-knowledge and seller reasonable-care requirements. Section 22 broadened judicial forums, removed the ordinary federal amount restriction, provided favorable venue and service, and barred removal of covered state actions. Reed treated those procedural advantages as part of protected compliance, not dispensable detail."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "346 U.S. at 429–434 & nn.4–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats advance arbitration as surrender of a statutory advantage",
+      "cue": "Limited review affects practical enforcement",
+      "paragraphs": [
+        "The brokers said arbitration changed only forum. Their agreement expressly preserved 1934 Exchange Act obligations, and the Court accepted that arbitrators also had to apply 1933 Act duties. The majority’s objection was therefore not formal deletion of law or burdens, but practical enforcement before any controversy was known.",
+        "At contracting the purchaser could not adequately assess the disadvantage of surrendering the chosen courts. Even if some parties bargained equally, Congress addressed typical informational inequality. Securities disputes required legal decisions about materiality, knowledge, reasonable care, and proof, while arbitrators could proceed without judicial instruction, reasons, or a complete record.",
+        "Federal vacatur grounds for corruption, partiality, procedural misconduct, and excess of powers were limited. The majority distinguished ordinary legal error from manifest disregard and noted lack of routine merits review of unrestricted submissions, contrasting English legal-question procedures. These were anticipatory concerns, not review of an actual award.",
+        "Boyd’s protection of statutory venue choice supported treating forum selection as a meaningful statutory benefit. The Court limited decision to an advance agreement before a controversy, without reaching the full post-liability reach of that analogy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "346 U.S. at 432–438 & nn.15–31"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Jackson narrows his agreement; Frankfurter disputes the assumptions",
+      "cue": "The purchaser’s court action is not stayed under this holding",
+      "paragraphs": [
+        "Justice Jackson agreed that a precontroversy agreement could not waive the judicial remedy and believed a later agreement could submit an existing dispute to arbitration. With no arbitration yet held, he declined to endorse an unnecessary conclusion foreclosing judicial relief for an arbitrator’s statutory error.",
+        "Justice Frankfurter, joined by Minton, accepted that arbitration inherently depriving statutory protections would fail, but found no such showing. New York arbitration with federal supervision, qualified selection procedures, and party objections gave no basis to assume lost rights. Speed and economy could aid enforcement. If statutory violations warranted vacatur, adequate scrutiny through a record or explanation should be implied. This record did not establish forced acceptance of an unconscionable clause, and the Securities and Exchange Commission as amicus did not assert that particular theory.",
+        "On December 7, 1953, the Supreme Court reversed the Second Circuit seven to two. Its historical holding invalidated the predispute clause as applied to this § 12(2) controversy. It awarded no damages, determined no misrepresentation, and reviewed no arbitral award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "346 U.S. at 438–440; Frankfurter starred note"
+        }
+      ]
+    }
+  ]
+}

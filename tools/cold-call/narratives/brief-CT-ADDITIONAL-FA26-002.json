@@ -1,0 +1,128 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-002",
+  "briefId": "CT-ADDITIONAL-FA26-002",
+  "title": "Properties of the Villages, Inc. v. Federal Trade Commission",
+  "course": "Contracts",
+  "citation": "2024 WL 3870380 (M.D. Fla. Aug. 15, 2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Florida broker obtained protection from the FTC’s nationwide noncompete rule because the court found likely authority for some competition rules but not clear authority for this extraordinary one.",
+  "actors": [
+    {
+      "name": "Properties of the Villages",
+      "role": "Real-estate broker whose agents had noncompete clauses"
+    },
+    {
+      "name": "Federal Trade Commission",
+      "role": "Agency adopting and defending the Non-Compete Clause Rule"
+    },
+    {
+      "name": "Judge Timothy J. Corrigan",
+      "role": "District judge granting plaintiff-specific interim relief"
+    }
+  ],
+  "proceedings": [
+    "Broker filed June 21, 2024 and moved July 2 for preliminary injunction and stay.",
+    "District court: August 15 order incorporated bench reasons and barred implementation or enforcement against this plaintiff until further order."
+  ],
+  "limits": [
+    "Interim relief was plaintiff-specific, not nationwide vacatur or final merits judgment. The order and transcript disagree on the hearing date; the operative order is August 15. Later appeal withdrawal and regulatory removal are distinct assigned developments."
+  ],
+  "briefSha256": "9a02fcb5c06bcf32b125ca186409ad9901c218652751535c7db6e193e81ebbde",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-002"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The broker challenges a rule about to take effect",
+      "cue": "Introduce the business, claims, and interim request.",
+      "paragraphs": [
+        "Properties of the Villages, a real-estate broker in The Villages, used noncompete clauses with its agents. The Federal Trade Commission, or FTC, adopted a 2024 Non-Compete Clause Rule prohibiting nearly all existing and future employment noncompetes, scheduled for September 4 effectiveness.",
+        "The broker sued June 21 and moved July 2 for a preliminary injunction and stay. Its four counts challenged substantive competition-rulemaking authority, excess of any such authority, retroactivity, and the Commerce Clause. Judge Timothy J. Corrigan found federal-question jurisdiction, Ocala venue, and standing because the broker was subject to the rule. He specifically noted that arbitrary-and-capricious rulemaking was not pleaded.",
+        "After briefing and amici participation, he delivered reasons from the bench to avoid delay. The August 15 written order incorporated the attached transcript. The order refers to an August 13 hearing, while the transcript identifies August 14; the operative written order’s date is unambiguous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 1–2; transcript 3–6; canonical hearing-date discrepancy"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "General rulemaking challenges do not establish likely success",
+      "cue": "State the preliminary standard and arguments the judge rejected.",
+      "paragraphs": [
+        "The broker had to clearly establish substantial likely success, imminent irreparable injury, favorable equities, and public interest; the latter two merged because government opposed relief. A merely plausible theory did not suffice. Applying Loper Bright, the Supreme Court decision requiring independent statutory judgment while respecting actual delegations, Corrigan treated injunction and stay standards as essentially alike.",
+        "He initially rejected likely success on a claim that the FTC possessed no substantive competition-rulemaking authority. Sections 5 and 6(g) linked preventing unfair competition and rulemaking. The broker stressed § 6(g)’s placement among ministerial powers, absent penalties and procedures, the more detailed unfair-or-deceptive-practices regime, and decades without comparable rules. Those points had force but did not overcome language unrestricted to procedure, the 1975 preservation of competition-rule authority, 1980 contemplation of substantial economic effects, and the substantive-authority precedents National Petroleum Refiners and JS&A. The contemporary ATS noncompete-rule decision also supported acting preventively before an unlawful practice occurred.",
+        "Standalone commerce, separation-of-powers, and nondelegation theories likewise lacked demonstrated likely success. Invoking the Sherman Act, traditional state authority, or retroactivity alone did not establish it. These were preliminary assessments, leaving the scope of this particular rule a separate question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transcript 6–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The breadth of this rule presents a major question",
+      "cue": "Explain the specific power claim rather than the policy’s desirability.",
+      "paragraphs": [
+        "The major-questions doctrine required clear congressional authorization for extraordinary assertions of economic and political power. Corrigan discussed both a constitutional clear-statement account and a contextual interpretive account; either demanded skepticism even if an agency offered plausible text. Congress could delegate, but had to make this consequential choice clearly.",
+        "By the FTC’s estimates, the rule affected about thirty million workers, one fifth of the workforce, and anticipated $400–$488 billion in higher wages over ten years, besides compliance and other financial effects. Higher wages might help workers; the point was the scale of transferred value, not judicial disapproval of the benefit.",
+        "The rule displaced a disputed field long shaped by state contract law and varied legislation, including some state bans, while federal legislative attempts had not produced comparable regulation. Competition was admittedly the FTC’s central mission, and its statute contemplated substantial economic effects. Even so, nationwide scope and existing-contract reach made a major question substantially likely. A general mission did not supply authority proportionate to every assertion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transcript 14–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "General statutory wording does not clearly authorize the comprehensive ban",
+      "cue": "Identify the count supporting interim relief.",
+      "paragraphs": [
+        "Section 5 described prevention through adjudication, while § 6(g)’s rulemaking language sat beside classification, reports, and investigation. No earlier competition rule matched this magnitude. Recent noncompete consent decrees announced just before the proposal did not make it an ordinary incremental step. Corrigan acknowledged an older 1963 Snap-on matter he understood had been reversed, rather than ignoring it as nonexistent.",
+        "He agreed with ATS that major questions arose only exceptionally and that competition belonged to the agency’s mandate, but disagreed that the FTC had previously exercised power in this scope and manner. Text, placement, context, and history did not clearly authorize this comprehensive measure. The broker showed likely success on Count II, excessive statutory authority. The judge did not decide whether a narrower hourly-worker or industry-specific rule would be valid, or whether noncompetes were desirable policy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transcript 20–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Unrecoverable compliance costs justify temporary protection for this plaintiff",
+      "cue": "End with exact relief and separate later events.",
+      "paragraphs": [
+        "The broker had not forfeited irreparable harm by waiting briefly to sue before the effective date. Reviewing contracts, revising agreements, and changing business arrangements necessarily imposed more-than-minimal costs. Even disregarding a contested reply affidavit, common sense and the agency’s own rulemaking established them. They would not readily be recovered from government after invalidation. Eleventh Circuit authority supported imminent injury, differing from ATS’s treatment of ordinary expenses under Third Circuit precedent.",
+        "The combined equities and public interest favored preserving the status quo where statutory authorization was likely lacking. Temporary nonenforcement against this broker would not substantially harm the FTC. Corrigan expressly rejected nationwide relief.",
+        "The August 15 order enjoined the FTC and its agents from implementing or enforcing the rule against Properties of the Villages until further order, with no bond. It neither set aside the rule for everyone nor awarded damages or final merits judgment. The later assigned account reports the FTC’s September 2025 withdrawal of Properties and Ryan appeals and acceptance of vacatur, followed by regulatory removal in February 2026. Those developments were not this preliminary order’s judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 1–2; transcript 23–26; assigned Federal Register account and note 20"
+        }
+      ]
+    }
+  ]
+}

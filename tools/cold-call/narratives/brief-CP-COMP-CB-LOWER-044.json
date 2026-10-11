@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-LOWER-044",
+  "briefId": "CP-COMP-CB-LOWER-044",
+  "title": "California Packing Corp. v. Kelly Storage & Distributing Co.",
+  "course": "Civil Procedure",
+  "citation": "228 N.Y. 49, 126 N.E. 269 (1920)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A bank successfully claims the right to challenge an attachment but loses its argument that pleading valuable consideration is only a legal conclusion.",
+  "actors": [
+    {
+      "name": "California Packing Corporation",
+      "role": "Plaintiff alleging an accepted draft and seeking attachment."
+    },
+    {
+      "name": "Kelly Storage and Distributing Company",
+      "role": "Company alleged to have accepted the draft for valuable consideration."
+    },
+    {
+      "name": "Phoenix and Third National Bank of Lexington, Kentucky",
+      "role": "Third party moving to vacate the attachment."
+    }
+  ],
+  "proceedings": [
+    "Special Term denied the bank’s motion; the First Department vacated the attachment.",
+    "The Court of Appeals reversed the appellate order and affirmed Special Term on January 27, 1920."
+  ],
+  "limits": "The decision addresses historical Code pleading and attachment papers, not proof of the underlying debt at trial. No transaction amount or particular consideration is supplied.",
+  "briefSha256": "0a6bd81aca4f45baacce3f6761aa895a8282faec88e43c9b976c6bca739498d3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-LOWER-044"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "California Packing obtains attachment on its contract papers",
+      "cue": "What transaction did it allege without detailing the exchange?",
+      "paragraphs": [
+        "California Packing Corporation alleged that it drew a draft on Kelly Storage and Distributing Company, which accepted it for valuable consideration. The draft was not alleged to be negotiable. California Packing used its complaint and an accompanying affidavit to obtain a warrant of attachment in the contract action.",
+        "Phoenix and Third National Bank of Lexington, Kentucky, a third party, moved under Code of Civil Procedure § 682 to vacate the attachment. The bank argued that the papers did not adequately establish the elements of a cause of action; California Packing disputed both that objection and the bank’s right to make the motion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "228 N.Y. 50–53; transaction, attachment and challenge"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Conflicting views of pleading bring three questions to the Court of Appeals",
+      "cue": "What changed in the lower courts?",
+      "paragraphs": [
+        "Special Term denied the motion. The First Department reversed and vacated the attachment. California Packing obtained permission to appeal with three certified questions: could the bank move, did the consideration allegation state fact or legal conclusion, and did the papers sufficiently show a cause of action?",
+        "The First Department had repeatedly treated valuable consideration as a conclusion requiring more detail, whereas the Third Department considered a detailed recital unnecessary. The Court of Appeals therefore had to decide how the historical Code’s plain and concise statement of facts applied to this allegation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "50, 52–53; procedure and competing pleading approaches"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Pound treats valuable consideration as an ultimate fact",
+      "cue": "Why did the summarized allegation suffice?",
+      "paragraphs": [
+        "Judge Pound adopted the less demanding view. Section 519 required liberal construction toward substantial justice, and established common-law forms allowed pleading a transaction’s legal effect. Precedent accepted value received on a nonnegotiable note; a litigant could rely on that settled form without inventing an elaborate recital.",
+        "Valuable consideration conveyed an exchange for something of value and permitted proof of the particulars. Negotiable instruments provided a comparison because statute presumed their consideration and permitted pleading by copy; the comparison did not make this draft negotiable. The complaint and affidavit sufficiently showed a contract claim and liquidated damages for jurisdiction to issue the warrant. Evidence would still matter, and vague, inconclusive allegations were not universally sufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "52–54; ultimate fact, liberal construction and attachment sufficiency"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The attachment survives although the bank had standing to challenge it",
+      "cue": "How did the court answer each certified question?",
+      "paragraphs": [
+        "On January 27, 1920, the Court of Appeals reversed the First Department, awarded costs in that court and the Court of Appeals, and affirmed Special Term. It answered the first and third questions yes: the bank could make the motion, but the papers supported the attachment. It answered the second by declaring the allegation factual rather than merely a legal conclusion.",
+        "Chief Judge Hiscock and Judges Chase, Collin, Cardozo, Crane and Andrews concurred with Pound, without separate writings. California Packing thus prevailed on sufficiency while losing its standing objection. The ruling did not decide the actual debt after trial or transform later scholarly criticism of the fact-law distinction into the court’s own reasoning."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "54; certified answers, costs and concurrence"
+        }
+      ]
+    }
+  ]
+}

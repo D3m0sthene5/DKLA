@@ -1,0 +1,173 @@
+{
+  "id": "brief-CT-NEXT-CM-0141",
+  "briefId": "CT-NEXT-CM-0141",
+  "title": "Snow Phipps Group, LLC v. KCAKE Acquisition, Inc.",
+  "course": "Contracts",
+  "citation": "2021 WL 1714202 (Del. Ch. Apr. 30, 2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Pandemic disruption struck DecoPac just after its sale agreement was signed. After trial, the court found that the buyer lacked a contractual excuse to abandon the deal and had materially prevented the financing condition on which it relied to resist specific performance.",
+  "actors": [
+    {
+      "name": "Snow Phipps Group and seller plaintiffs",
+      "role": "Owners seeking to enforce the sale of DecoPac"
+    },
+    {
+      "name": "DecoPac",
+      "role": "Supplier of cake-decorating products and technology to supermarket bakeries"
+    },
+    {
+      "name": "KCAKE and related Kohlberg funds",
+      "role": "Buyers seeking to terminate the acquisition"
+    },
+    {
+      "name": "Vice Chancellor McCormick",
+      "role": "Trial judge ordering closing"
+    }
+  ],
+  "proceedings": "After the buyer refused to close April 8, 2020, sellers sued April 14; the buyer purported to terminate April 20. Following a five-day trial, the Court of Chancery entered specific-performance judgment April 30, 2021, requesting further submissions on deadline and interest.",
+  "limits": "The opinion did not fix the requested fifteen-day closing deadline or finally award prejudgment interest. It did not decide that a later prospective lender was obligated to fund or make all pandemic changes immaterial under every acquisition contract.",
+  "briefSha256": "645e07ca2d4448dbed4891cdd9cfb28b55672ca0ecf435c8c604be4933202e31",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0141"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A negotiated sale allocated pandemic and financing risk",
+      "cue": "Begin with the price and contractual protections.",
+      "paragraphs": [
+        "Snow Phipps bought DecoPac, a supplier of cake-decorating products and technology to supermarket bakeries, in 2017 and pursued a sale in 2019. In February 2020, Kohlberg offered $580 million, then $600 million, emphasizing familiarity, speed, and closing certainty. Before signing it demanded $550 million. The trial court later found pandemic volatility and negotiating leverage, not solely earnings-quality adjustments, drove that reduction. KCAKE and related Kohlberg funds signed the stock purchase agreement on March 6, 2020.",
+        "Kohlberg investigated emerging supply-chain, market, and demand risks but underestimated the pandemic. It rejected the seller’s proposed express pandemic exclusion from the material-adverse-effect definition. Existing broad exclusions nevertheless remained, including effects arising from or related to government-law or order changes unless materially disproportionate compared with comparable businesses. Lawyers viewed the proposed addition as further protection, not a replacement for existing carveouts.",
+        "Representations addressed material adverse effects and top-ten customers, with inaccuracies excusing closing only at the material-adverse-effect level. A separate ordinary-course covenant measured past custom and practice and required compliance in all material respects, a different standard. Termination for breach required notice and opportunity to cure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "4–24, 63–67, 78–84"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Funding duties and the performance remedy had distinct conditions",
+      "cue": "Explain the agreed financing floor.",
+      "paragraphs": [
+        "The buyer promised reasonable best efforts to secure financing, including definitive terms no less favorable than a heavily negotiated debt commitment letter, and restricted changes jeopardizing funds. The letter committed $365 million, with quarterly leverage testing, a detailed earnings definition, documentation principles, and a May 12, 2020 expiration.",
+        "Debt financing was expressly not a condition to closing. Yet the specific-performance clause separately required funded debt or debt that would fund substantially contemporaneously with equity. A $33 million termination fee was the exclusive monetary remedy, unavailable together with specific performance. The sale agreement’s outside date conferred a termination right, not automatic expiration, and withheld that right from a party whose own failure caused nonclosing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "21–27 & nn.132–146, 92–94, 114–115"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The buyer rejected management’s forecast and demanded new terms",
+      "cue": "Trace the conduct found at trial.",
+      "paragraphs": [
+        "Regular sales dropped sharply as shutdown orders spread, while preorders and total sales had different trajectories. DecoPac expected recovery and adjusted spending to activity. Kohlberg initially modeled a survivable downturn, but senior personnel developed buyer’s remorse and considered alternative investments. After consulting litigation counsel, they generated increasingly pessimistic forecasts without meaningful management input, abandoning a milder model the deal team considered a reasonable starting point.",
+        "Management supplied a detailed forecast grounded in customers, actual orders, and its experienced budgeting process. Kohlberg rejected it seventeen minutes after receipt and neither incorporated nor sent it to lenders. Its March 26 model used largely unsupported assumptions about canceled celebrations and extended shutdowns to project severe decline and covenant breach. It coupled that model with demands for a bigger revolver, extraordinary lost-revenue additions to earnings before interest, taxes, depreciation, and amortization, or EBITDA, and a covenant-testing holiday.",
+        "Lenders rejected the new terms but remained willing to fund under the commitment letter. None declared a material adverse effect. Kohlberg nevertheless said financing was unavailable, explored alternatives through Houlihan Lokey and Madison Capital for four days, rejected seller assistance, and refused to close April 8."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "28–52"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The seller sued while the financing commitment ran out",
+      "cue": "Complete the procedural chronology and recovery evidence.",
+      "paragraphs": [
+        "Plaintiffs sued April 14. On April 20, Kohlberg purported to terminate for representation and covenant failures and absent funding. Plaintiffs contested the grounds and reaffirmed readiness. The debt commitment later expired after the court declined an initially extreme trial timetable and subsequently expedited proceedings. An October ruling dismissed a duplicative implied-covenant count and addressed remedy limits; the remaining dispute went to a five-day trial.",
+        "DecoPac’s sales recovered. Completed 2020 results showed revenue down fourteen percent and adjusted EBITDA down twenty-five percent from 2019, followed by a positive outlook. Debt markets reopened, and plaintiffs offered financing assistance and a lender indication of interest. Those developments did not establish that a new lender already had a binding obligation to fund."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "49–62"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The economic decline did not establish a closing excuse",
+      "cue": "Explain material adverse effect, exclusions, and customer representations.",
+      "paragraphs": [
+        "Vice Chancellor McCormick allocated successive burdens: buyer to establish a qualifying effect, seller an exclusion, then buyer materially disproportionate harm restoring coverage. A reasonably expected future effect did not require already-realized damage but needed an objective factual and legal foundation. For long-term earnings, duration normally meant years rather than a short interruption; the court reserved broader questions about leveraged-private-equity horizons.",
+        "Weekly declines did not prove durational significance. Recovery began before termination and credible contemporaneous forecasts predicted more. The buyer’s expert theories about permanent thaw-and-sell cakes and online shopping changes overlooked DecoPac’s role in those channels and improving results. The March 26 model was not reliable. Comparisons with earlier cases supplied no universal percentage rule.",
+        "Even assuming an adverse effect, the government-order exclusion applied. Broad relation language did not require orders to be the sole cause, and regression evidence linked most decline to them. Comparing DecoPac with all supermarkets was overbroad; decorated-cake and in-store-bakery measures better matched it and showed no materially disproportionate harm. The top-customer argument also failed the contractual adverse-effect threshold."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "65–84 & n.410"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Ordinary-course objections failed on their separate standard",
+      "cue": "Explain the draw, spending, and cure protections.",
+      "paragraphs": [
+        "The ordinary-course covenant had a less demanding standard than a material adverse effect, but the asserted departures still failed. A $15 million revolver draw followed previous draws and a portfolio-wide counterparty-risk precaution. DecoPac disclosed it, never spent it, offered repayment, and ultimately repaid. It was not materially noncompliant. Its easy reversibility also made notice and cure meaningful, and Kohlberg had not honored that right.",
+        "Spending reductions followed past adjustments to sales and varied only in expected or minor ways. Kohlberg additionally waived that theory by first raising it in pretrial briefing. The court decided these acts under this covenant, not that every pandemic response necessarily satisfied ordinary course."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "84–91"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The buyer breached its efforts promise by rejecting the agreed financing",
+      "cue": "Connect contract interpretation to its actual conduct.",
+      "paragraphs": [
+        "The commitment letter established a floor for the buyer, while efforts and preservation covenants protected the seller’s closing. Kohlberg could seek improvement but could not insist on new terms and reject the agreed loan when improvement failed. A larger revolver and testing holiday changed negotiated terms. Neither limited unusual-loss language nor general documentation principles conferred unilateral entitlement to the requested EBITDA addbacks. The belated entitlement theory was also waived.",
+        "Acceptable-to-buyer language allowed resolution of genuinely open terms subject to efforts duties, not unrestricted power to block funding. Even assuming some addbacks were open, the unsupported model, ignored management forecast and improving sales, and failure to cooperate breached section 6.15(a).",
+        "The court initially found a separate alternative-financing breach inquiry unnecessary given that established failure. In addressing remedies, it also recognized specific performance of the alternative-financing obligation, likely overtaken by the closing order. It did not announce that every four-day financing search was inherently inadequate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91–113, 123"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Prevention excused the remedial condition the buyer helped defeat",
+      "cue": "State the order and unresolved details.",
+      "paragraphs": [
+        "Under prevention principles, a breach materially contributing to a condition’s failure excused that condition. Plaintiffs need not prove strict but-for inevitability; the buyer had to show funding would have failed anyway. Refusal while lenders remained ready materially contributed to nonfunding, and letting the letter expire did not cleanse the breach.",
+        "No additional subjective bad-faith finding was necessary because express financing promises supplied the wrongful conduct. Cases relying on implied good faith to establish wrongfulness were distinguishable. With the debt condition excused and clear and convincing evidence supporting relief, McCormick ordered specific performance obligating the buyers to close.",
+        "The April 30, 2021 opinion requested submissions within five business days on a closing deadline, prejudgment interest, and remaining trial-level issues. It did not adopt plaintiffs’ proposed fifteen-day deadline or finally award interest. As a single-judge trial ruling it had no separate opinion or appellate vote."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "115–125"
+        }
+      ]
+    }
+  ]
+}

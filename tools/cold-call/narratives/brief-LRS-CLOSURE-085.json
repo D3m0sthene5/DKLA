@@ -1,0 +1,88 @@
+{
+  "id": "brief-LRS-CLOSURE-085",
+  "briefId": "LRS-CLOSURE-085",
+  "title": "Raila v. United States — district dismissal",
+  "course": "Legislation and the Regulatory State",
+  "citation": "District of Connecticut, February 26, 2003; distinct district stage described in 355 F.3d 118",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A couple alleges injury from a package left below their doorstep; the district judge reads the postal exception broadly and dismisses, before the appellate court reverses.",
+  "actors": [
+    {
+      "name": "Lenore and Whitton Raila",
+      "role": "Connecticut residents asserting injury and loss of consortium."
+    },
+    {
+      "name": "The United States",
+      "role": "Defendant invoking the Federal Tort Claims Act’s postal exception."
+    }
+  ],
+  "proceedings": [
+    "Judge Covello dismissed for lack of subject-matter jurisdiction on February 26, 2003.",
+    "The Second Circuit unanimously reversed and remanded on January 14, 2004."
+  ],
+  "limits": "The original district order is missing. Its rationale is recoverable only through the assigned discussion and complete later appellate opinion; neither court determined ultimate tort liability in the described rulings.",
+  "briefSha256": "326165a9a24f4e4facfb8136f24efe3771e407d0acd43fd4fd0c1991f4a2e107",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-085"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A package below a doorstep leads to alleged injury",
+      "cue": "Whose conduct and harm formed the claim?",
+      "paragraphs": [
+        "Lenore and Whitton Raila alleged that a Postal Service employee left a package immediately below the front doorstep of their Norwalk, Connecticut home on November 26, 2001. Lenore allegedly slipped on the package while leaving and was injured; Whitton claimed loss of consortium.",
+        "They sued the United States on September 11, 2002, under the Federal Tort Claims Act, alleging negligent placement and failure to warn. These remained complaint allegations, not trial findings about the worker’s conduct or the extent of injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Later appellate opinion 119, paragraphs 5 and 8; alleged events and filing"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Government invokes retained immunity for postal matter",
+      "cue": "How did the district judge understand transmission?",
+      "paragraphs": [
+        "The Act permits specified tort claims against the Government but preserves enumerated exceptions. Under 28 U.S.C. § 2680(b), the Government argued that claims arising from loss, miscarriage or negligent transmission of letters or postal matter remained immune. It moved under Rule 12(b)(1) to dismiss for lack of subject-matter jurisdiction.",
+        "Judge Covello used an ordinary dictionary understanding of transmitting something to another person or place. He also relied on district precedents: Robinson v. United States treated transmission as continuing from deposit through delivery, and Bono v. United States addressed a slip from negligent package placement. On that reading, delivery negligence fell within the postal exception even though the alleged injury was to a person rather than the mail."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned 59–60; appellate 119–120, paragraphs 7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Dismissal is followed by a contrary appellate interpretation",
+      "cue": "Which conclusions belong to each stage?",
+      "paragraphs": [
+        "On February 26, 2003, Covello dismissed the complaint on jurisdictional grounds. That was not a finding that the postal employee acted carefully or that Lenore had suffered no injury. The missing original order prevents reconstruction of its complete reasoning, notes or exact ordering language.",
+        "On January 14, 2004, the Second Circuit unanimously reversed and remanded. Reading transmission in statutory context, including its neighboring terms, the panel concluded the exception did not bar these claims. That contextual conclusion belongs to the appellate stage, not the district ruling. Reversal likewise did not establish negligence, causation, damages or ultimate government liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appellate 120–123, paragraphs 10 and 13–27; district result and later reversal"
+        }
+      ]
+    }
+  ]
+}

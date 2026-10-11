@@ -1,0 +1,151 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B3-042",
+  "briefId": "CT-ADDITIONAL-CM-B3-042",
+  "title": "Town Planning and Engineering Associates, Inc. v. Amesbury Specialty Co., Inc.",
+  "course": "Contracts",
+  "citation": "369 Mass. 737, 342 N.E.2d 706 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A company commissions industrial-building plans from a firm supervised by an experienced but unregistered designer. After bids exceed estimates, the client cancels and argues that a licensing violation forfeits all compensation, even though registered consultants supplied substantial engineering work.",
+  "actors": [
+    {
+      "name": "Town Planning and Engineering Associates",
+      "role": "Design-services firm seeking contract compensation."
+    },
+    {
+      "name": "Alfred Amato",
+      "role": "Firm president, treasurer, employee, and project supervisor, unregistered as an engineer."
+    },
+    {
+      "name": "Amesbury Specialty Company and Arthur Willette",
+      "role": "Client and its president who commissioned and terminated the project."
+    },
+    {
+      "name": "Frank Gallagher, Rocco Blasi, and Frank Kent",
+      "role": "Registered independent engineers supplying project components."
+    },
+    {
+      "name": "Channel Building Company and LaMont",
+      "role": "Pre-engineered building firms involved in plans and bidding."
+    }
+  ],
+  "proceedings": [
+    "An auditor favored Town Planning’s compensation claim and rejected Amesbury’s companion repayment claim.",
+    "A jury returned corresponding verdicts after considering the report and additional evidence.",
+    "The Massachusetts Supreme Judicial Court affirmed both judgments on direct appellate review."
+  ],
+  "limits": "This transforms the canonical historical brief without a fresh audit or current licensing-law certification. The court assumed a coordination-registration violation without resolving task classifications. The decision date is 1976, correcting source metadata errors. The companion repayment case was part of the same appeal, and no separate writing was reported.",
+  "briefSha256": "1062f4d04cb87d45462333e346d61b205fb23a5b04cc641fc664dc59e11ae31d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B3-042"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Amesbury hires Town Planning for an industrial building",
+      "cue": "Who performed the different kinds of design work?",
+      "paragraphs": [
+        "In late 1968, Amesbury Specialty president Arthur Willette asked Alfred Amato about a building site. Amato supervised projects for Town Planning and Engineering Associates as its president, treasurer, and employee. He had substantial practical design experience but no professional-engineer registration. Town Planning retained registered engineer Frank Gallagher, who advised against the first site, and attention moved to Newburyport in January 1969.",
+        "The project included test borings, a registered surveyor’s site plan, and registered engineering consultants. Willette supplied Channel Building Company’s pre-engineered building plans. Town Planning commissioned Rocco Blasi for concrete, Gallagher for mechanical systems, and Frank Kent for electrical work. Amato and about six draftsmen integrated that material, designed interiors and other components, and prepared specifications. Their output exceeded consultants’ work in bulk, but bulk did not establish which tasks legally constituted engineering."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 739–740, 744"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Estimates support financing, but final bids prompt cancellation",
+      "cue": "Did the financing amount become a guaranteed construction price?",
+      "paragraphs": [
+        "Preliminary plans were ready for informal bidding by late March. Town Planning sent an April 7 estimate of $499,972 and billed $9,837 for completed work, which Amesbury paid. At the Small Business Administration’s request, the parties signed an April 16 agreement memorializing earlier understanding and compensation.",
+        "Services included detailed plans and specifications, estimates, bidding and contract help, drawing review, construction consultation, payment review, and final inspection and reporting. In early May the agency approved $500,000 for the building and $100,000 for equipment.",
+        "June 25 final bids were higher: Channel proposed $577,790 and LaMont $602,207, both excluding electrical work. Amesbury rejected them. Willette did not know an increased federal loan could be sought. He told Amato on June 26 to renegotiate or find lower bids, and Amato began doing so. Within days, Amesbury terminated through counsel, principally asserting illegality.",
+        "It then negotiated directly with LaMont for a less elaborate $484,000 building. The auditor later found the design resembled Town Planning’s and that LaMont used its plans, propositions or implications LaMont disputed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 740–741 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Compensation and repayment claims are tried together",
+      "cue": "Which defenses failed on the evidence?",
+      "paragraphs": [
+        "Town Planning sued on the express agreement and alternatively an account annexed for $30,388 calculated under the contract. Amesbury asserted misrepresentation, unsatisfactory work, illegality, and failure of consideration. Its companion suit sought the paid $9,837 back from Town Planning and Amato.",
+        "A Superior Court auditor recommended recovery and rejection of repayment. A jury then considered the report and more evidence and returned corresponding verdicts. The Supreme Judicial Court took direct review after appeal was sought in the Appeals Court.",
+        "There was no evidence Amato called himself a registered engineer; the auditor found no fraud. Nor was there proof that roughly $500,000 was a contract ceiling rather than an estimate and financing amount. Proper work was found by the auditor and resolved favorably by the jury. The trial judge allowed missing registration as rebuttable evidence of inadequate qualifications or lack of good-faith performance, not conclusive proof of defects."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 737–742 & nn.1, 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court assumes a statutory violation to decide its civil consequence",
+      "cue": "Why did illegal performance not automatically erase the contract?",
+      "paragraphs": [
+        "General Laws chapter 112, § 81T generally required registration for engineering practice; § 81R(f) permitted corporate practice with a registered engineer or surveyor in charge. Amesbury argued Amato was that person. Town Planning answered that registered consultants performed actual engineering and either other work was nonengineering or each consultant controlled his own segment.",
+        "Amesbury bore the illegality burden without a serious expert effort to classify tasks. Nevertheless, Justice Kaplan assumed that a registered professional acting for the corporation had to coordinate the independent engineers. The contract’s terms were lawful; the assumed problem concerned performance.",
+        "The scheme protected public safety and made violations misdemeanors, but did not expressly forfeit compensation, unlike the real-estate-broker statute. The court therefore asked whether to add that civil consequence. Registration was neither optional nor merely revenue-producing, and lawful contract wording did not categorically immunize illegal performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 742–745 & nn.4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The developed record weighs against giving Amesbury the services for free",
+      "cue": "What safeguards and proportionality concerns mattered?",
+      "paragraphs": [
+        "Kaplan assessed the transaction’s nature, unlawful conduct’s extent and centrality, its relation to valuable services, the protective policy, the effect of withholding further sanctions, and plaintiff forfeiture against defendant gain. Registered professionals had done important substantive work; fraud and deficient performance were rejected; the assumed violation concerned unregistered coordination. Total nonpayment would confer a substantial unearned benefit.",
+        "Chapter 143, § 54A supplied a further protection by generally preventing public building authorities from accepting unsealed plans, subject to exceptions. That was a statutory backstop, not a finding that every particular plan carried a proved seal. Massachusetts precedents resisted automatically accumulating sanctions and gifting valuable services unless policy required it. A developed record here also differed from summary disposition with inadequate professional-services information.",
+        "With material illegality circumstances substantially undisputed, the judge could decide their civil consequences as law. Reduced quantum meruit could sometimes fit illegality too serious for full contract recovery but insufficient to bar all relief. Amesbury had not urged that intermediate result, and these facts did not justify imposing it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 744–747 & nn.6–16"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Both judgments are affirmed",
+      "cue": "What compensation survived?",
+      "paragraphs": [
+        "On February 13, 1976, the Supreme Judicial Court affirmed Town Planning’s $30,388 contract recovery and rejected Amesbury’s attempt to recover the earlier $9,837 from the firm and Amato. It awarded no additional quantum-meruit amount.",
+        "Chief Justice Hennessey and Justices Quirico and Wilkins sat with Kaplan, without separate opinions. The result applied the statutory policy to this record rather than creating automatic forfeiture or unrestricted recovery for every licensing violation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "369 Mass. 737–739, 747"
+        }
+      ]
+    }
+  ]
+}

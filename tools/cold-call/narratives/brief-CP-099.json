@@ -1,0 +1,152 @@
+{
+  "id": "brief-CP-099",
+  "briefId": "CP-099",
+  "title": "Schlagenhauf v. Holder",
+  "course": "Civil Procedure",
+  "citation": "379 U.S. 104 (1964)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Other defendants seek four kinds of medical examination of a bus driver after a rear-end collision. His extraordinary-writ petition asks whether a defendant can be examined at all and whether allegations of poor driving justify each intrusive inquiry.",
+  "actors": [
+    {
+      "name": "Robert L. Schlagenhauf",
+      "role": "Greyhound driver and defendant opposing examinations."
+    },
+    {
+      "name": "Greyhound",
+      "role": "Bus company and property-damage cross-claimant."
+    },
+    {
+      "name": "Contract Carriers and Joseph McCorkhill",
+      "role": "Tractor owner and its driver, defendants in the passengers’ action."
+    },
+    {
+      "name": "National Lead",
+      "role": "Trailer owner joining the examination request."
+    },
+    {
+      "name": "District Judge Holder",
+      "role": "Judge whose examination order was challenged by mandamus."
+    }
+  ],
+  "proceedings": [
+    "The district court initially ordered nine examinations though four were requested; the Seventh Circuit denied mandamus.",
+    "The district court then corrected the number to four.",
+    "The Supreme Court vacated the appellate judgment and remanded to the district court for reconsideration under particularized Rule 35 standards."
+  ],
+  "limits": "This account transforms the canonical historical brief without a fresh audit or current-discovery-law certification. It describes the 1964 Rules, including historical party and good-cause provisions. Medical conditions were alleged, not adjudicated. The corrected nine-examination issue was moot for specific relief but still informed scrutiny of the order.",
+  "briefSha256": "070ecec7c4581dcfc51b293d3edf8c952fde6907b95105e0d947f66d72709d88",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-099"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A bus hits a tractor-trailer and passengers sue",
+      "cue": "How did the driver’s condition enter the litigation?",
+      "paragraphs": [
+        "A Greyhound bus driven by Robert Schlagenhauf struck the rear of a tractor-trailer and injured passengers. They sued in federal court under diversity jurisdiction. Defendants included Greyhound and Schlagenhauf, tractor owner Contract Carriers, tractor driver Joseph McCorkhill, and trailer owner National Lead.",
+        "Greyhound alleged that the truck moved too slowly, failed to remain in its lane, and lacked adequate rear lights, and filed a property-damage cross-claim. Contract Carriers denied negligence and blamed the bus driver. A letter treated as part of its answer alleged that he lacked mental or physical capacity to drive. National Lead later specifically alleged impaired eyesight in seeking trailer damages.",
+        "Schlagenhauf claimed no damages for an injury and relied on no medical condition as a defense. Other parties sought to make his health an issue based on their explanation of the collision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 106–108, 119–120"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A four-specialty request produces a nine-examination order",
+      "cue": "What evidence supported the request?",
+      "paragraphs": [
+        "Contract Carriers and National Lead requested one examination each in internal medicine, ophthalmology, neurology, and psychiatry, listing nine alternative doctors from whom the judge could select. Counsel’s affidavit said Schlagenhauf admitted seeing red lights for ten to fifteen seconds without slowing or turning, another witness could see trailer lights from one-half to three-quarters of a mile, and Schlagenhauf had experienced a similar earlier collision. It identified no specific mental, neurological, or internal illness.",
+        "National Lead filed its cross-claim against Greyhound and Schlagenhauf after the initial request. Without a hearing, District Judge Holder ordered all nine listed examinations rather than four. A materially identical second order followed supplemental petitions.",
+        "Schlagenhauf sought mandamus to set the order aside. The Seventh Circuit denied relief with one dissent, treating defendant status and the in-controversy condition as reviewable but not deciding good cause. Afterward Holder corrected the number to four. That correction mooted relief specifically from nine examinations, though the initial mistake remained relevant to careful review. The Supreme Court granted certiorari before any final negligence adjudication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 106–112 & nn.1, 3, 7; 115–116"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court accepts exceptional review but rejects immunity for defendants",
+      "cue": "Why did Rule 35 reach this party?",
+      "paragraphs": [
+        "Justice Goldberg explained that mandamus normally cannot replace a final-judgment appeal, and ordinary disagreement about good cause is insufficient absent clear abuse. Here a substantial, apparently unprecedented challenge concerned power to order a defendant’s examination at all. The appellate court could also resolve connected interpretation questions to avoid fragmented treatment of that new problem. The Court cautioned that later allegations of misapplied guidelines would not automatically justify mandamus.",
+        "Rule 35’s reference to parties naturally included defendants. Sibbach had upheld examination of a plaintiff as procedural and valid under the Constitution and Rules Enabling Act. Its rationale was not voluntary waiver of bodily privacy by suing: seeking redress can be practically involuntary, and removal by a defendant would complicate that theory. No principled distinction limited the rule to plaintiffs.",
+        "The examinee had to be a party under the then-existing rule, but not an opposing party to the movant. Schlagenhauf already was named in the passengers’ action. Requiring a direct cross-claim would encourage unnecessary pleadings; National Lead’s later claim satisfied even the narrower approach, but no such prerequisite was adopted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 109–116 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Each condition and examination requires an affirmative showing",
+      "cue": "Why was general relevance insufficient?",
+      "paragraphs": [
+        "Rule 35’s in-controversy and good-cause requirements exceeded ordinary relevance. Otherwise their express restrictions would add nothing. The movant had to identify a genuinely disputed condition and justify the particular examination, including attention to information available by other means. Evidence supporting eyesight examination would not automatically support psychiatry.",
+        "This did not require proving the merits before discovery or holding an evidentiary hearing every time; affidavits and other suitable materials could suffice. Pleadings themselves might establish need when a plaintiff claimed an identified injury or a defendant affirmatively invoked a medical condition. Schlagenhauf had done neither, so the requesting defendants needed a more particularized showing.",
+        "Accidents and apparent failure to react identified no internal, neurological, or mental condition. Presuming an underlying illness from a collision would make broad examinations routine. The specific eyesight allegation and conflicting visibility accounts were stronger, but even that examination required reassessment rather than automatic approval.",
+        "Scope also mattered. Broad specialty labels might permit blood tests, imaging, and other investigations unrelated to a demonstrated need. Selecting every alternative physician initially reinforced concern that the order lacked discriminating scrutiny despite the later numerical correction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 117–122 & n.16"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The separate opinions disagree about both evidence and the review route",
+      "cue": "What relief did each prefer?",
+      "paragraphs": [
+        "Justice Black, joined by Justice Clark, agreed that defendants could be examined with controversy, good cause, and notice. He thought the two similar collisions, visible lights, and lack of express denial of impairment established enough controversy for some inquiry, criticizing dismissal of allegations as merely conclusory. Yet he agreed the order was too broad and joined remand for a properly limited order after relevant facts were received.",
+        "Justice Douglas supported setting it aside but would deny the requested examinations entirely. Examining an injury a plaintiff affirmatively claimed differed from searching a defendant for conditions that might explain conduct. He feared coercive adversarial medical investigation and distortion of jury assessment and preferred rulemaking with safeguards. He did not deny Congress’s constitutional power to authorize examinations.",
+        "Justice Harlan would affirm denial of mandamus. Once authority over defendants was established, ordinary application questions without clear abuse should await normal appeal. Novelty and desire for guidelines did not justify evading finality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 122–129"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The existing order is vacated for reconsideration",
+      "cue": "What remains for the district judge?",
+      "paragraphs": [
+        "On November 23, 1964, the Supreme Court vacated the Seventh Circuit’s judgment and remanded to the district court for reconsideration and consistent proceedings. Internal-medicine, neurological, and psychiatric examinations lacked support on this record; the possible eye examination also had to be carefully reassessed.",
+        "The Court neither approved the current four-examination order nor permanently forbade every examination. It decided no accident liability or damages. The caption’s respondent was the judge in the extraordinary-writ proceeding, not a defendant accused of causing the passengers’ injuries."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "379 U.S. 121–122"
+        }
+      ]
+    }
+  ]
+}

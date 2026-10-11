@@ -1,0 +1,163 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-507",
+  "briefId": "CP-COMP-CB-CAP-507",
+  "title": "Nixon v. Sirica",
+  "course": "Civil Procedure",
+  "citation": "487 F.2d 700 (D.C. Cir. 1973) (en banc)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Watergate grand jury seeks particular White House recordings, and President Nixon refuses them. Before any contempt proceeding, the court of appeals reviews an order for private judicial inspection and determines how qualified presidential confidentiality must be protected.",
+  "actors": [
+    {
+      "name": "President Richard Nixon",
+      "role": "Holder of the recordings asserting presidential immunity and executive privilege."
+    },
+    {
+      "name": "Chief Judge John Sirica",
+      "role": "District judge ordering in camera inspection before deciding grand-jury disclosure."
+    },
+    {
+      "name": "Archibald Cox",
+      "role": "Special Prosecutor seeking the recordings for the Watergate grand jury."
+    },
+    {
+      "name": "Charles Alan Wright",
+      "role": "Presidential counsel participating in unsuccessful accommodation efforts."
+    }
+  ],
+  "proceedings": [
+    "Sirica ordered submission for private inspection rather than immediate delivery to the grand jury.",
+    "Nixon sought mandamus; the United States separately sought mandamus and appealed.",
+    "The en banc D.C. Circuit dismissed the government proceedings and denied Nixon’s petition except for required modifications and further proceedings, staying its mandate five days."
+  ],
+  "limits": "This transforms the canonical historical brief without a new audit or current privilege-law certification. It concerns the 1973 grand-jury judgment, not United States v. Nixon in 1974. Evidentiary contentions about criminality were not findings of presidential guilt. The reported decision includes October 12 and October 25 amendments and both appendices.",
+  "briefSha256": "6527ab24cca030f288ba4f4cfe77eff2f84f4ea8e11d377f048a0c25bc975856",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-507"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The grand jury requests specific presidential communications",
+      "cue": "Why were contemporary recordings potentially important?",
+      "paragraphs": [
+        "A federal grand jury investigating Watergate subpoenaed nine recordings of presidential meetings and telephone conversations between June 20, 1972, and April 15, 1973. Its July 23, 1973 demand also sought two memoranda, which President Richard Nixon supplied. In a July 25 letter to Chief Judge John Sirica, Nixon refused the tapes based on public interest and the Presidency’s constitutional position.",
+        "Special Prosecutor Archibald Cox sought enforcement, and the grand jury expressed its desire for the evidence. Nixon specially appeared to challenge jurisdiction and formally claimed executive privilege. The request identified communications rather than demanding a general search of presidential files. Conflicting White House accounts suggested the tapes might resolve obstruction, conspiracy, and perjury questions, and Nixon had permitted current and former officials to testify publicly about their discussions.",
+        "Cox’s August 13 memorandum explained each recording’s relevance. The communications concerned post-break-in meetings, John Mitchell’s resignation discussions, the September 15 post-indictment conversation, March 13 and 21 discussions of the developing cover-up and money demands, the March 22 Senate-investigation meeting, and the April 15 conversation with White House counsel John Dean. Cox argued recordings could corroborate, refute, or reveal perjury in disputed accounts; these were prosecutorial contentions, not findings that Dean’s version or alleged crimes were proved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 704–706, 716–719; Appendix II, 726–729"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Sirica orders private review, and both sides seek appellate intervention",
+      "cue": "Did attempted accommodation resolve the dispute?",
+      "paragraphs": [
+        "On August 29, Sirica ordered Nixon to submit the material for in camera inspection so the judge could decide what, if anything, the grand jury should receive. He did not order immediate grand-jury delivery. Nixon petitioned for mandamus to vacate the order. The United States filed its own mandamus petition seeking immediate production or other relief and also appealed.",
+        "The en banc court first proposed a negotiated process in which presidential and prosecutorial counsel would inspect and analyze the materials together. Its September 13 proposal and September 20 responses from Nixon’s counsel Charles Alan Wright and Cox recorded lengthy, sincere negotiations without agreement. Their substance remained confidential; there was no settlement mooting judicial review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 704–708; Appendix I, 723–726"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "All seven judges accept extraordinary review of Nixon’s petition",
+      "cue": "Why was contempt not a necessary first step here?",
+      "paragraphs": [
+        "Ordinary subpoena recipients generally obtain review by refusing compliance and appealing contempt, not immediately appealing enforcement. Initial private inspection did not broadly change that rule. But Nixon raised a basic, undecided jurisdictional question about judicial power to compel an incumbent President to submit records. Requiring presidential disobedience and contempt could be clearly inadequate, and prompt resolution had unusual public importance. The All Writs Act permitted consideration of his petition.",
+        "The court also did not discard direct appeal as a possible alternative in this exceptional presidential setting, stressing constitutional interests and the unseemliness of contempt. That reservation created no general right to appeal discovery orders.",
+        "Cox’s posture differed. Sirica had not finally withheld evidence, and preliminary inspection was not yet suppression or exclusion under the Criminal Appeals Act. The majority doubted prosecution mandamus for immediate production but left jurisdiction over that petition undecided because Nixon’s petition already presented the inspection issues."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 706–708 & nn.21, 23–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Five judges reject categorical immunity and conclusive executive privilege",
+      "cue": "What justified overcoming presumptive confidentiality?",
+      "paragraphs": [
+        "The per curiam majority consisted of Chief Judge Bazelon and Judges Wright, McGowan, Leventhal, and Robinson. It rejected both a complete immunity from judicial process and Nixon’s exclusive power to decide privilege. The Burr proceedings showed presidential evidence was not categorically beyond process; Youngstown’s limits on executive action did not depend on formally naming a subordinate. Nixon’s personal possession did not eliminate judicial authority, and possible physical enforcement was distinct from a legal duty.",
+        "The majority did not decide whether a sitting President could be prosecuted before impeachment. Seeking evidence relevant to others’ alleged crimes was not that prosecution. A legitimate privilege could defeat production, but presidential status alone did not foreclose inquiry.",
+        "Confidential advice and tentative positions concerning official duties deserved a strong presumption of protection. Yet privilege precedents, including Reynolds and the court’s Seaborg decision, left courts responsible for legal validity and scope. Here the lawful grand-jury inquiry, precise events, potentially decisive recordings, conflicting recollections, and public testimony created exceptionally compelling need. Permission for officials to testify affected the confidentiality balance without automatically waiving all privilege over fuller recordings. The presumption yielded to this particular showing, not every grand-jury demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 708–719; 722 n.101"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority requires particularized claims and controlled inspection",
+      "cue": "What protections precede any grand-jury disclosure?",
+      "paragraphs": [
+        "Nixon could identify and index manageable portions and connect each to specific withholding grounds. For national-defense or foreign-relations material, he could initially withhold the portion and ask Sirica to reconsider whether even private inspection was needed. Cox could examine the claim and supporting showing and be heard in chambers; sustained claims would remain sealed.",
+        "Other ordered items had to be submitted with specifications of permissible and disputed disclosure. At either counsel’s request, Sirica would hold a chambers hearing and then inspect disputed material himself. He could allow limited prosecutorial access to help determine relevance, but on request had to stay that access long enough for an appellate stay application.",
+        "After review, Sirica could sustain privilege, disclose all or part to the grand jury, or, if separation was impossible, prepare a complete statement of portions bearing on possible criminality. A reasonable stay would preserve Nixon’s appeal opportunity. Unlike initial inspection, later particular disclosure rulings were treated as appealable by Nixon under § 1291 and Cox under § 3731, with sealed records preserving confidentiality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 720–721 & n.100"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "MacKinnon and Wilkey reject the majority’s constitutional balancing",
+      "cue": "Where did their objections differ?",
+      "paragraphs": [
+        "Judge MacKinnon accepted review but would recognize an absolute constitutional privilege for confidential communications between the President and close advisers about Article II duties, not every privately held presidential document. Historical refusals, including Truman-era requests and responses, and other branches’ deliberative confidentiality supported that protection. Courts could determine whether privilege was properly invoked, but he read Reynolds to forbid inspection merely to discover content when protected character was already apparent.",
+        "He distinguished a criminal defendant’s compulsory-process claim in Burr from a grand jury’s demand. Suspected adviser misconduct did not destroy institutional privilege, and permitting public testimony did not necessarily surrender every additional recorded detail. He developed an impeachment-before-prosecution theory the majority left undecided, favored voluntary disclosure and political responsibility, and discussed judicial confidentiality during the Court-packing controversy in his amended final note.",
+        "Judge Wilkey also accepted jurisdiction but organized his dissent around who decides. Courts could balance ordinary statutory or common-law confidentiality; a constitutional interbranch privilege instead left the President final authority, comparable to other branches’ control of their own protected deliberations. His historical account, including 1789 debates and Jefferson’s response in Burr, portrayed avoidance of coercive confrontation rather than judicial supremacy.",
+        "The grand jury was not a fourth branch: despite investigatory independence, it operated within the judiciary under judicial supervision. Inspection practices from Freedom of Information Act cases did not authorize balancing constitutional presidential privilege. Inspection could spread to staff and successive reviewing courts, undermining promised secrecy. Wilkey relied instead on political accountability and tension among coequal branches."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 729–799; MacKinnon n.130 and Wilkey’s discussion at 789–792"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The court preserves inspection subject to modifications",
+      "cue": "What did the three proceedings produce?",
+      "paragraphs": [
+        "On October 12, 1973, the court dismissed the United States’ petition and appeal. It denied Nixon’s mandamus petition except insofar as it directed modification of Sirica’s order and proceedings consistent with its opinion. The mandate was stayed five days to allow an application for Supreme Court review.",
+        "All seven judges agreed that Nixon’s petition could be heard, while the merits divided five to two. The result allowed safeguarded judicial inspection, not unconditional immediate transfer of all recordings to the grand jury. It illustrates that an extraordinary means of review can be appropriate even when the applicant does not obtain the requested merits relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "487 F.2d 703, 722, 729, 762–763"
+        }
+      ]
+    }
+  ]
+}

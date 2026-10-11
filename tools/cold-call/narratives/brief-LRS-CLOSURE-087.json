@@ -1,0 +1,146 @@
+{
+  "id": "brief-LRS-CLOSURE-087",
+  "briefId": "LRS-CLOSURE-087",
+  "title": "West Virginia University Hospitals, Inc. v. Casey",
+  "course": "Legislation and the Regulatory State",
+  "citation": "499 U.S. 83 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A hospital won its Medicaid-rate challenge but could not shift more than statutory witness compensation for its experts under the then-existing civil-rights attorney-fee provision.",
+  "actors": [
+    {
+      "name": "West Virginia University Hospitals",
+      "role": "Morgantown hospital prevailing in the underlying civil-rights suit"
+    },
+    {
+      "name": "Pennsylvania Department of Public Welfare and officials",
+      "role": "Reimbursement authorities and defendants resisting expert fees"
+    },
+    {
+      "name": "Coopers & Lybrand and three hospital-finance doctors",
+      "role": "Experts hired to prepare and present the hospital’s case"
+    },
+    {
+      "name": "Justice Scalia",
+      "role": "Author of the six-Justice majority"
+    },
+    {
+      "name": "Justices Marshall and Stevens",
+      "role": "Authors of separate dissents"
+    }
+  ],
+  "proceedings": "Hospital prevailed at trial and received attorney and expert fees; Third Circuit affirmed merits but disallowed expert compensation above statutory attendance fees; Supreme Court affirmed that disallowance 6–3.",
+  "limits": "The Court construed § 1988 before the later congressional response. Its IDEA-related footnote was not an IDEA expert-fee holding. The reviewed attendance rate was $30, while the opinion noted the 1990 increase to $40. The hospital’s merits and ordinary attorney-fee victories survived.",
+  "briefSha256": "4e41d232b085bdf4dbfb8d51765e7c1af64a029808fdc8a7f00b472862e64e4d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-087"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A cross-border Medicaid dispute required financial experts",
+      "cue": "Introduce the underlying litigation before the fee question.",
+      "paragraphs": [
+        "West Virginia University Hospitals operated in Morgantown near Pennsylvania and treated Medicaid patients from southwestern Pennsylvania. In January 1986, Pennsylvania’s Department of Public Welfare announced new reimbursement schedules. The hospital unsuccessfully challenged them administratively on federal statutory and constitutional grounds, then sued Pennsylvania officials under 42 U.S.C. § 1983.",
+        "Its lawyers hired Coopers & Lybrand and three doctors specializing in hospital finance to prepare and testify. The hospital won at trial in May 1988. The district court awarded fees under § 1988, including over $100,000 for experts it found essential; the officials did not contest essentiality.",
+        "The Third Circuit affirmed the merits but reversed expert reimbursement beyond the witness-attendance amount allowed by 28 U.S.C. § 1821(b), then $30 a day. Supreme Court review concerned whether a reasonable attorney’s fee under § 1988 also covered testimonial and advisory experts, not the legality of the reimbursement schedules already defeated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "499 U.S. at 85–87"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The majority found no authority for the added category of expense",
+      "cue": "Distinguish witnesses from advisers and ordinary costs from fee shifting.",
+      "paragraphs": [
+        "Justice Scalia’s opinion began with §§ 1920 and 1821, defining taxable costs and attendance compensation. Crawford Fitting Co. v. J. T. Gibbons, an earlier expert-cost decision, required contractual or explicit statutory authorization to exceed the witness limit. Advisory experts did not attend and thus were not directly capped by the attendance rule, but § 1920 provided no category authorizing their expenses either. Both needed another legal basis.",
+        "Section 1988’s attorney-fee language supplied none. Calling attorney fees part of costs did not enlarge ordinary costs to include experts. Across the statutory corpus, Congress separately authorized attorneys and expert witnesses, sometimes also expressly naming studies, analyses, and advisory work. Several examples were enacted near § 1988 in 1976. Separate detailed authorizations would be unnecessary if attorneys’ fees already encompassed these categories.",
+        "Pre-1976 judicial practice likewise distinguished legal and expert expenses even when equitable doctrines shifted both. Decisions under the Clayton Act and patent attorney-fee provisions generally excluded expert charges. The hospital’s contrary examples were ambiguous in authority or rested on mistaken precedent, rather than establishing that the enacted term itself included the expenses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 86–97 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Remedial purpose did not restore every part of earlier equitable practice",
+      "cue": "Explain the Alyeska and Jenkins comparisons.",
+      "paragraphs": [
+        "The hospital argued that § 1988 responded to Alyeska Pipeline Service Co. v. Wilderness Society, which curtailed judicial fee shifting, and should restore the prior regime. The majority accepted that some legislators intended a response but rejected restoration in every respect. The statute was broader than prior private-attorney-general doctrine in some ways and narrower in limiting coverage to designated civil-rights provisions. A general enforcement objective could not identify every reimbursable expense.",
+        "Missouri v. Jenkins had allowed paralegal and law-clerk compensation. Those services traditionally contributed to lawyers’ work product and were incorporated into hourly charges; separate billing did not change their character. Expert fees had not traditionally been included in those rates, and statutes repeatedly treated them separately. Jenkins resolved application of the attorney-fee concept rather than authorizing policy-driven expansion beyond its established meaning.",
+        "Nor could courts complete a supposedly forgotten provision because Congress might have been more generous if it considered the matter. Ambiguous language could be construed sensibly within the statutory scheme, but clear terms could not be replaced by another enactment’s policy. Later legislative choices did not prove an earlier Congress forgot something."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 97–102 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The conference-report footnote addressed a different statute only by comparison",
+      "cue": "Preserve the distinction used in the assigned reading.",
+      "paragraphs": [
+        "The fifth note discussed a 1986 conference report on the Handicapped Children’s Protection Act, which said attorney fees as costs should include experts and necessary tests or evaluations. Scalia described that as an apparent attempt to depart from ordinary meaning and create a term of art. In this case it supported his view that ordinary attorney-fee wording did not automatically include experts.",
+        "The Court was deciding § 1988, not finally resolving expert reimbursement under the Individuals with Disabilities Education Act. The assigned commentary describes a later Second Circuit use of the footnote and Congress’s post-Casey changes to § 1988 without a comparable education-law change. Those subsequent interpretive arguments were not Casey’s own holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 91–92 n.5; assigned printed pp.83–85"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Marshall and Stevens viewed expert work as part of effective civil-rights representation",
+      "cue": "Explain the distinct dissent and its practical and interpretive basis.",
+      "paragraphs": [
+        "Justice Marshall separately warned that inaccessible representation could undermine civil rights without formally repealing them. He joined Stevens and saw the majority’s approach as frustrating congressional authority and effective enforcement.",
+        "Justice Stevens, joined by Marshall and Blackmun, read the phrase through fee-shifting practice and earlier § 1988 decisions. Ordinary taxable costs and compensatory litigation expenses were not necessarily identical. Travel and telephone reimbursement was uncontested, and Jenkins recognized the lawyer’s work product. Essential expert assistance could replace attorney time, improve quality, and reduce cost just as paralegals did. He considered paying one but not the other arbitrary and inconsistent with compensation.",
+        "Stevens read House and Senate reports, approved examples, and hearings as seeking to remedy Alyeska’s disruption and restore necessary expert expenses in successful private enforcement. He identified $104,133 in undisputedly essential expert work left with the hospital. His closing section contrasted purposive interpretations Congress accepted with restrictive ones it legislatively corrected. Although Congress could amend, he thought needless demands for precision wasted its effort and disregarded purpose. The majority answered that later correction did not establish earlier textual meaning."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 102–116; majority 102 n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The expert-fee disallowance stood while the hospital’s merits victory remained",
+      "cue": "State the historical rates and exact vote.",
+      "paragraphs": [
+        "On March 19, 1991, Scalia, Chief Justice Rehnquist, White, O’Connor, Kennedy, and Souter affirmed; Marshall, Blackmun, and Stevens dissented. Testifying experts remained eligible for ordinary statutory attendance compensation, but § 1988 did not authorize their full charges or advisory-expert expenses. The merits judgment and entitlement to attorney fees were untouched.",
+        "The $30 daily rate described the award reviewed. The opinion itself noted that a 1990 amendment had raised it to $40, so the decision did not announce $30 as a perpetual allowance. Its construction likewise preceded the later congressional response discussed in the assignment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 83, 86–88 n.2, 102–103"
+        }
+      ]
+    }
+  ]
+}

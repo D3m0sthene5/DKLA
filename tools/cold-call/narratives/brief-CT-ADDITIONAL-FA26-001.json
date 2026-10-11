@@ -1,0 +1,128 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-001",
+  "briefId": "CT-ADDITIONAL-FA26-001",
+  "title": "ATS Tree Services, LLC v. Federal Trade Commission",
+  "course": "Contracts",
+  "citation": "2024 WL 3511630 (E.D. Pa. July 23, 2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A small tree-care business failed to show imminent harm or likely success needed to stop the FTC’s noncompete rule while its lawsuit proceeded.",
+  "actors": [
+    {
+      "name": "ATS Tree Services, LLC",
+      "role": "Twelve-employee Pennsylvania tree-care business"
+    },
+    {
+      "name": "Federal Trade Commission",
+      "role": "Agency adopting the challenged noncompete rule"
+    },
+    {
+      "name": "Judge Kelley B. Hodge",
+      "role": "District judge denying interim relief"
+    }
+  ],
+  "proceedings": [
+    "ATS filed suit April 25, 2024 and moved May 14 for a stay and preliminary injunction.",
+    "After July 10 argument on stipulated written facts, the court denied interim relief July 23."
+  ],
+  "limits": [
+    "No final judgment on the whole complaint was entered. Actual noncompete text was not submitted, enforceability under Pennsylvania law was not decided, and the arbitrary-and-capricious count was outside the motion."
+  ],
+  "briefSha256": "25e691f5806fde3acc94dddf47668fd40aab749a9cfdb9890c33bf166f31ea4e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-001"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The employer seeks to preserve restrictions tied to training investment",
+      "cue": "Introduce the business and what the court actually had in its record.",
+      "paragraphs": [
+        "ATS Tree Services employed twelve people in Bucks County, Pennsylvania, and required noncompetes it said protected specialized training. It described one-year restrictions on the same work for nearby direct competitors, but qualified that description: terms had narrowed over time and either contained those limits or would be enforced only within them. ATS supplied no actual contract language. Judge Kelley B. Hodge therefore declined to decide Pennsylvania enforceability.",
+        "On April 23, 2024, the Federal Trade Commission, or FTC, adopted a rule against most employment noncompetes effective September 4. It barred new restrictions, generally invalidated existing ones except for qualifying senior executives, and required employer notice to affected current and former workers. Agency labor-market research and competitive-harm findings supported its rulemaking, distinct from proof that an ATS employee intended to depart.",
+        "ATS sued two days later, alleging no substantive authority, excess of authority, arbitrary-and-capricious treatment of existing agreements, and unconstitutional delegation. Its May 14 preliminary-injunction and stay request deliberately omitted the arbitrary-and-capricious count. At July 10 oral argument, parties stipulated that written-record facts would be the same if presented live; there was no witness hearing. A later supplementation request was denied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum 2–4, 12–13 & nn.1–4, 9"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ordinary expenses and hypothetical departures do not establish imminent irreparable harm",
+      "cue": "Explain the independently sufficient threshold failure.",
+      "paragraphs": [
+        "ATS needed both likely success and likely immediate irreparable injury before balancing equities and public interest. Speculation, ordinary compensable loss, or a constitutional label alone did not suffice.",
+        "It identified notice, contract revisions, business changes, and training adjustments. ATS conceded a $27.78 notice estimate was minimal; estimated contract revisions reached $1,211.58. Under A.O. Smith, the Third Circuit’s compliance-cost precedent, ordinary required business expense did not become irreparable merely because government reimbursement was unavailable. ATS proved no exceptional disruption. The court distinguished Ohio v. EPA, a Supreme Court stay decision focused on likely success and vastly greater asserted costs, from this estimate below $1,250.",
+        "Lost training investment depended on further events. No employee had left, planned to leave, or was shown likely to leave because of the rule. An employer’s possible decision to reduce training in anticipation was too attenuated. Loss of contract rights did not itself satisfy the case-specific imminence requirement. Cases involving actual competitive employment or identified personnel facing discharge differed. Tailored nondisclosure agreements offered another way to protect confidential information, and ATS had not shown why inadequate. This failure alone warranted denial, although the court also addressed extensively litigated merits questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum 13–22 & nn.10–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court independently reads authority to prevent unfair competition through rules",
+      "cue": "Follow text and legislative changes without agency deference.",
+      "paragraphs": [
+        "Applying Loper Bright, the Supreme Court’s independent-interpretation rule, Hodge read § 5’s instruction to prevent unfair competition with § 6(g)’s authority for implementing rules. Neither limited rules to procedure, and an express adjudication mechanism did not make adjudication exclusive. ATS’s Schechter Poultry argument confused that decision’s comparison of delegations with a ruling about exclusive FTC procedure.",
+        "Prevention could reach incipient restraints rather than only react after harm. Substantive rules could carry out that function. National Petroleum Refiners and the Seventh Circuit’s adoption of its rulemaking analysis supported statutory authority, without having decided this particular 2024 rule.",
+        "Congress’s 1975 amendments created § 18 procedures for unfair-or-deceptive-act rules while expressly preserving competition-rule authority and cross-referencing them in § 6(g). A purely procedural reading would deprive that distinction of work. Congress knew National Petroleum and left the pertinent authority materially unchanged, even though other text changed. The 1980 definition of rules referred to § 6 while excluding procedural and interpretive measures. Agency delay in using available power did not extinguish it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum 10–11, 22–32 & nn.15–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Challenges to this broad rule also fail the preliminary showing",
+      "cue": "Preserve the omitted claim and the specific constitutional conclusions.",
+      "paragraphs": [
+        "ATS urged case-by-case reasonableness, state primacy, major questions, and nondelegation. The court read § 5 prevention more broadly than completed antitrust violations. The cited du Pont decision did not require a rule-of-reason test for every noncompete. For this interim authority inquiry, it accepted the agency’s research-based unfair-competition characterization without separately deciding the omitted arbitrary-and-capricious challenge.",
+        "State regulation was not exclusive. Federal and state competition authority overlapped; stricter parallel state rules could remain while conflicting provisions yielded. Competition regulation lay at the FTC’s core, substantive § 6(g) authority had previously been exercised and sustained, and the court found no novelty or mismatch like West Virginia v. EPA’s major-questions setting.",
+        "Finally, preventing unfair competition supplied an intelligible principle. Schechter’s invalidation of the much broader National Industrial Recovery Act contrasted it with the FTC Act; it did not show an adequate adjudicatory standard became unconstitutional when used for rules. ATS therefore failed likely success as well as irreparable harm."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum 23 n.15, 32–38"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Denial of interim protection is not a final endorsement of the rule’s continued operation",
+      "cue": "Finish with this order and distinct later developments.",
+      "paragraphs": [
+        "On July 23, 2024, Hodge denied the requested stay and preliminary injunction, stating an appropriate order would follow. Because both threshold factors failed, she did not weigh equities or public interest. No separate opinion or panel vote existed. The memorandum neither enforced ATS’s agreements nor finally resolved its full complaint.",
+        "The later assigned account reports that the FTC voted in September 2025 to dismiss the separate Ryan and Properties of the Villages appeals and accept the rule’s vacatur, followed by removal of regulatory provisions in February 2026. Those later events remain distinct from this July 2024 interim denial and prevent treating it as a statement that the nationwide rule remained operative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Memorandum 38–39; assigned Federal Register account and note 19"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "brief-LRS-CLOSURE-010",
+  "briefId": "LRS-CLOSURE-010",
+  "title": "Pereira v. Sessions",
+  "course": "Legislation and the Regulatory State",
+  "citation": "585 U.S. 198 (2018)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Pereira received a removal charging document with no hearing date or time; the Supreme Court held that it did not stop the continuous-presence clock for his cancellation application.",
+  "actors": [
+    {
+      "name": "Wescley Fonseca Pereira",
+      "role": "Brazilian citizen seeking cancellation of removal"
+    },
+    {
+      "name": "Department of Homeland Security (DHS)",
+      "role": "Agency serving the incomplete charging document"
+    },
+    {
+      "name": "Immigration court and Board of Immigration Appeals (BIA)",
+      "role": "Administrative adjudicators rejecting eligibility under the stop-time rule"
+    },
+    {
+      "name": "Justice Sotomayor",
+      "role": "Author of the eight-Justice majority"
+    },
+    {
+      "name": "Justices Kennedy and Alito",
+      "role": "Separate concurrence and dissent authors"
+    }
+  ],
+  "proceedings": "Immigration judge found stop time and ineligibility; BIA dismissed appeal under Camarillo; First Circuit deferred to agency and denied review; Supreme Court reversed 8–1 and remanded.",
+  "limits": "The holding concerns missing hearing time or place in the statutory stop-time trigger. It did not grant cancellation, invalidate every defective notice for every purpose, resolve every omission, or decide constitutional due process. Chevron discussion reflects the 2018 decision.",
+  "briefSha256": "ec8f58e212d4ae667874e127635a0d54ccecff40bc376bdc0ae910c4450f2463",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-010"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Pereira’s first document omitted when he was to appear",
+      "cue": "Follow personal service and the later undelivered hearing notice.",
+      "paragraphs": [
+        "Wescley Fonseca Pereira entered the United States from Brazil in 2000 at nineteen on a temporary visitor visa and remained after expiration. By this litigation he was married, worked as a handyman, and had two U.S.-citizen daughters. After a Massachusetts arrest for operating under the influence in 2006, the Department of Homeland Security (DHS) personally served him May 31 with a document charging removability for overstay. It described proceedings, rights, and failure-to-appear consequences and directed him to an immigration judge in Boston, but gave no date or time.",
+        "DHS filed it with immigration court on August 9, 2007. The court then mailed a notice setting October 31 at 9:30 a.m., using Pereira’s street address instead of the post-office box he had provided DHS. It returned undeliverable. He missed the hearing, was ordered removed in absentia, and did not know of the order.",
+        "Following a 2013 arrest for driving without headlights and renewed DHS detention, the court reopened because Pereira had not received the 2007 notice. He sought cancellation of removal based in part on more than ten years’ continuous physical presence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "585 U.S. at 205–206"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The stop-time rule made the 2006 document decisive below",
+      "cue": "Explain the statutory eligibility framework and agency interpretation.",
+      "paragraphs": [
+        "The 1996 immigration legislation authorized discretionary cancellation for certain nonpermanent residents meeting conditions including ten years of continuous physical presence before application. Eligibility did not guarantee relief. Section 1229b(d)(1)(A) stopped accrual upon service of a notice to appear under § 1229(a). A separate offense-based trigger was not at issue.",
+        "Section 1229(a)(1) identified a written notice specifying the nature and authority of proceedings, allegations and charges, counsel information, address duties and consequences, hearing time and place, and consequences of absence. Paragraph (2) addressed new notice for changed or postponed hearings, subject to an address exception. Related provisions addressed in-absentia removal, rescission, and certain discretionary-relief bars after oral notice.",
+        "The immigration judge held the 2006 paper stopped Pereira’s clock. The Board of Immigration Appeals (BIA) dismissed his appeal under Matter of Camarillo, which treated the cross-reference as identifying a document category without importing all content requirements. The First Circuit found ambiguity and deferred under Chevron, the then-governing agency-interpretation precedent. The Supreme Court took the circuit conflict but confined review to missing time and place rather than every possible omission. Identifying Boston did not cure the absent date and time."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 201–209 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority read the cross-reference as a substantive definition",
+      "cue": "Connect the text to rescheduling and time to obtain counsel.",
+      "paragraphs": [
+        "Justice Sotomayor’s majority held that Congress directed readers to § 1229(a)’s definition. Paragraph (1) described a notice to appear that specified hearing time and place; those particulars were essential to stop time. Although the reference reached the whole subsection, only paragraph (1) used and described that term. Paragraph (2)’s new time-or-place requirement presupposed an earlier scheduled hearing and reinforced that reading.",
+        "Section 1229(b)(1) generally allowed at least ten days between service and first hearing to obtain counsel. A detail-free document followed years later by scheduling just before court would frustrate preparation. The same statutory term ordinarily meant the same thing for both that protection and stop time. Accurate initial scheduling could later change lawfully; the statute did not necessarily require government guesswork.",
+        "The notice served an appearance function as well as charging. The government conceded a blank page could not stop time because charges mattered, but supplied no textual reason that made charges essential and hearing details dispensable. The definitional language did more than attach a name to a category."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 208–214 & nn.5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Administrative practice and alternative wording did not override the text",
+      "cue": "Explain the rejected interpretations and narrow scope.",
+      "paragraphs": [
+        "The government argued that an incomplete document could remain a notice in ordinary usage, as an unsigned appeal notice might retain legal effect. The majority considered when to attend essential to this statutory document. Reserving other omissions reflected restraint rather than agreement with the government’s category theory.",
+        "The word “under” could vary by context, but here linked the trigger to compliance with substantive criteria. Different phrasing in in-absentia provisions could likewise refer to compliant notice and did not defeat that link. Extra consequences for specified oral notice did not alter the written trigger. Retroactive treatment of older orders to show cause under a different regime did not control the newly defined notice.",
+        "A 1997 regulation required scheduling information only where practicable, and the government said almost all notices over the prior three years lacked time and date. Administrative practice could not supersede clear statutory requirements. Congress allowed rescheduling, and DHS and immigration courts had coordinated calendars before. Proper service would stop accrual despite later delay, consistent with the policy against exploiting administrative delay. Because the text was clear, the majority did not proceed to Chevron deference."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 204–205, 213–219 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Kennedy criticized reflexive deference while Alito would apply it",
+      "cue": "Attribute each separate theory and preserve the statutory result.",
+      "paragraphs": [
+        "Justice Kennedy joined fully but criticized courts’ reflexive deference after Camarillo, sometimes without independent analysis of ambiguity or reasonableness. Earlier courts had treated notice as perfected only upon receipt of statutory information. He suggested reexamining Chevron’s premises and implementation in an appropriate case, especially where agencies construed their own authority. That was a separate invitation, not a majority overruling in 2018.",
+        "Justice Alito dissented. He agreed notices were required to contain time and place but distinguished that duty from whether a defective notice still stopped time. “Under” could reasonably mean authorized by, and reference to all subsection (a) suggested a category rather than perfect compliance. Treatment of older show-cause orders supported the agency. He found the majority’s construction plausible but not uniquely permissible.",
+        "Alito used imperfect appeal notices and ordinary language to distinguish required contents from identity and effect. Although some omissions could destroy essential character, he denied hearing details necessarily did so for this purpose. He viewed reservation of other omissions as tension in the majority’s definition, and neither rescheduling assumptions nor the counsel interval resolved the separate consequence.",
+        "He also emphasized institutional separation: DHS issued notices, while Justice Department courts controlled calendars. Estimated dates could cause confusion and repeated changes. Treating the document primarily as a charging instrument was a permissible functional choice, and Chevron in his view required deference.",
+        "On June 21, 2018, Sotomayor and seven other Justices reversed the First Circuit and remanded, with Alito alone dissenting. The incomplete 2006 document did not trigger stop time. The Court did not itself grant cancellation, announce a due-process violation, or decide every immigration consequence of defective notice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 201–202, 207–209 & n.5, 219–236 & separate-opinion notes"
+        }
+      ]
+    }
+  ]
+}

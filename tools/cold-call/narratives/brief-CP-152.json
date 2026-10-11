@@ -1,0 +1,158 @@
+{
+  "id": "brief-CP-152",
+  "briefId": "CP-152",
+  "title": "Allen v. McCurry",
+  "course": "Civil Procedure",
+  "citation": "449 U.S. 90 (1980)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After a state court partly suppressed evidence and a jury convicted McCurry, he sued the police for damages. The Supreme Court rejected an automatic right to relitigate the already-decided constitutional issue in federal court, while leaving the scope of ordinary preclusion and the complaint’s additional allegations for remand.",
+  "actors": [
+    {
+      "name": "Willie McCurry",
+      "role": "Convicted state defendant and later federal civil-rights plaintiff"
+    },
+    {
+      "name": "Officers Allen and Jacobsmeyer",
+      "role": "Undercover officers injured in the encounter and defendants invoking preclusion"
+    },
+    {
+      "name": "Justice Stewart",
+      "role": "Author of the six-Justice majority"
+    },
+    {
+      "name": "Justice Blackmun",
+      "role": "Dissenter joined by Brennan and Marshall"
+    }
+  ],
+  "proceedings": "The federal district court entered summary judgment for officers on collateral-estoppel grounds. The Eighth Circuit reversed to preserve a federal forum unavailable through habeas. The Supreme Court reversed that categorical exception and remanded on December 9, 1980.",
+  "limits": "The Court did not decide preclusion issue by issue, establish every officer’s lawfulness, or reject damages for conduct already found unlawful or for other alleged acts. Federal issues not raised earlier and later civil-rights or habeas doctrines were outside the holding.",
+  "briefSha256": "667081725a8b149914b9bd0408e7708ebe70583730e3383898e8a4520419f5e3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-152"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A gun battle led to a partly successful suppression motion",
+      "cue": "Preserve which evidence the state court excluded.",
+      "paragraphs": [
+        "An informant reported heroin dealing at Willie McCurry’s house. Undercover officers Allen and Jacobsmeyer went there and asked to buy heroin. McCurry returned from inside firing a pistol and seriously wounded both officers. After a gun battle and surrender, officers entered without a warrant, purportedly seeking other people. They seized contraband in plain view and other evidence from dresser drawers and tires on the porch. The Supreme Court recounted the appellate account rather than hearing the evidence anew.",
+        "In Missouri criminal proceedings, McCurry moved to suppress under the Fourth and Fourteenth Amendments. The judge excluded evidence from drawers and tires but admitted the plain-view material, treating emergency circumstances as justification for entry while rejecting part of the seizure. A jury convicted McCurry of heroin possession and assault with intent to kill, and the conviction was affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91–93 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The damages complaint extended beyond the adverse suppression ruling",
+      "cue": "Explain the federal claim and disputed scope.",
+      "paragraphs": [
+        "McCurry sought $1 million in a federal civil-rights action against Allen, Jacobsmeyer, unidentified officers, St. Louis, and its police department. He alleged conspiracy to violate Fourth Amendment rights, unconstitutional seizure of his house, and assault after arrest and handcuffing. Those matters were not necessarily all resolved in the criminal proceeding. He also argued that damages could follow conduct the suppression judge had already found unlawful. The officers disputed the complaint’s scope.",
+        "The district court read it principally as challenging search and seizure and granted officers summary judgment on collateral-estoppel grounds. The Eighth Circuit reversed. It recognized ordinary preclusion in civil-rights cases but reasoned that Stone v. Powell, the Supreme Court decision limiting federal habeas review of Fourth Amendment claims after a full and fair state opportunity, otherwise deprived McCurry of a federal forum. It directed litigation free of estoppel, subject to a separate abstention instruction concerning remaining state review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "92–94 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stewart distinguished issue preclusion from loss of an entire claim",
+      "cue": "Identify the ordinary framework the majority preserved.",
+      "paragraphs": [
+        "Justice Stewart’s majority explained that claim preclusion can bar another action on the same claim, including grounds that could have been offered, while issue preclusion concerns a factual or legal matter actually decided and necessary to an earlier judgment when it recurs in another claim. This case involved the latter use of the suppression ruling. Questions about unraised federal issues were reserved.",
+        "Finality protected reliance, prevented inconsistent decisions, and reduced repeated litigation, as well as supporting state-federal judicial relations. Congress reinforced those values through 28 U.S.C. section 1738, requiring federal courts to give state judgments the effect they receive in their rendering state. A general preference for federal adjudication could not simply override that instruction.",
+        "A full and fair prior opportunity was necessary, but not the only requirement. Identity of the issue, state-law conditions, and ordinary exceptions remained relevant. The state prosecutor and individual police defendants were distinct actors; the proposed bar was an issue-preclusion argument, not a claim that the two suits were identical."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "94–97 & nn.5, 7, 10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The civil-rights remedy did not silently repeal recognition of judgments",
+      "cue": "Explain the statutory history and procedural safeguard.",
+      "paragraphs": [
+        "Section 1983 created a remedy against persons acting under color of state law who deprived others of federal rights. Its text neither addressed preclusion nor purported to repeal the predecessor of section 1738. Creating a cause of action did not determine what effect an existing judgment retained. Because implied repeal was disfavored, silence and a broad remedial purpose did not suffice.",
+        "The majority acknowledged that the 1871 legislation responded to grave failures of state institutions to protect federal rights. It understood Congress to add federal protection while retaining state jurisdiction over federal questions, not to erase every competent state adjudication. A fairly heard issue did not become freely retryable because the claimant preferred federal court or thought the ruling mistaken.",
+        "The full-and-fair-opportunity requirement addressed inadequate state procedures. A tribunal unable adequately to hear a constitutional claim, or refusing to recognize its governing principle, might justify denial of preclusion. Ordinary error within an adequate proceeding was different. The holding neither insulated defective procedures nor made every disagreement grounds for a new trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "97–101"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Unavailable habeas did not remove other remedies’ defenses",
+      "cue": "Explain why the Eighth Circuit’s exception failed.",
+      "paragraphs": [
+        "Stone balanced the exclusionary rule’s costs and benefits in federal habeas. It neither amended section 1983 nor decided state judgments’ preclusive effect. Habeas and damages served different functions under different statutory conditions. Losing one avenue therefore did not turn another into a substitute stripped of otherwise applicable defenses.",
+        "The Constitution did not guarantee every federal-right claimant an unrestricted district-court adjudication. Article III left Congress substantial authority over lower federal jurisdiction, and state judges had to apply federal law. A criminal defendant’s involuntary presence in state court did not itself negate the normal effect of actually litigated issues.",
+        "The majority rejected the suggestion that it had created a novel, single-factor estoppel rule. It decided only that conventional preclusion could coexist with section 1983, leaving its precise application open."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "102–105 & nn.7, 24–25"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Blackmun saw a conflict with the federal remedial purpose",
+      "cue": "Give the dissent’s historical and institutional objections.",
+      "paragraphs": [
+        "Justice Blackmun, joined by Brennan and Marshall, would affirm without excluding preclusion from every civil-rights case. He argued that its application had to respect Congress’s decision to interpose federal courts against failures of state justice. Protection exceeded access only when state procedures were facially inadequate.",
+        "Modern nonmutual issue preclusion differed from doctrines familiar in 1871. Mutuality and narrower understandings would generally have prevented officers absent from the prosecution from using its ruling this way. Congressional silence therefore did not plainly approve this expanded defense.",
+        "Suppression also differed from damages: excluding reliable evidence affected prosecution’s truth-seeking, whereas damages did not directly undo the conviction. A criminal defendant pressured to raise every defense had not freely selected the state forum. Requiring a choice between suppression and later federal damages review, Blackmun thought, conflicted with the statute.",
+        "The majority answered that ordinary preclusion remained qualified. England, a precedent permitting reservation of federal issues in a distinct abstention setting, did not create a general exception for involuntary criminal defendants."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "101 n.17, 104 n.23, 105–116"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Remand required the issue-specific work still undone",
+      "cue": "State the judgment without reinstating every defense ruling.",
+      "paragraphs": [
+        "On December 9, 1980, Stewart’s opinion for Chief Justice Burger and Justices White, Powell, Rehnquist, and Stevens reversed the Eighth Circuit and remanded. Blackmun’s three-Justice dissent opposed that result.",
+        "The Court rejected the categorical habeas-based escape from preclusion but did not decide Missouri law, section 1738, or ordinary exceptions as applied to each allegation. Claims concerning suppressed evidence, conspiracy, or post-arrest assault remained unadjudicated at this level. The judgment was neither a merits finding that all police conduct was lawful nor unconditional reinstatement of summary judgment against every claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "93 nn.2–3, 105 n.25"
+        }
+      ]
+    }
+  ]
+}

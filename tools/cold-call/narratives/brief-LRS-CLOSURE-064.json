@@ -1,0 +1,149 @@
+{
+  "id": "brief-LRS-CLOSURE-064",
+  "briefId": "LRS-CLOSURE-064",
+  "title": "American Textile Manufacturers Institute, Inc. v. Donovan",
+  "course": "Legislation and the Regulatory State",
+  "citation": "452 U.S. 490 (1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Cotton-dust protection had to reach the most protective feasible level without a separate cost-benefit tradeoff, but OSHA still had to explain why its wage guarantee served worker health.",
+  "actors": [
+    {
+      "name": "Occupational Safety and Health Administration",
+      "role": "Agency issuing the Cotton Dust Standard"
+    },
+    {
+      "name": "Textile manufacturers and trade groups",
+      "role": "Industry petitioners challenging costs and transfer-pay protection"
+    },
+    {
+      "name": "Labor organizations",
+      "role": "Participants advocating stronger worker protection"
+    },
+    {
+      "name": "Secretary of Labor",
+      "role": "Official defending the standard"
+    }
+  ],
+  "proceedings": [
+    "D.C. Circuit: largely upheld standard, remanding cottonseed-oil feasibility.",
+    "Supreme Court: affirmed except wage guarantee, which was vacated and remanded to the Secretary; 5–3, Powell not participating."
+  ],
+  "limits": [
+    "This is the 1981 cotton-dust case, distinct from the 1980 benzene case. Technological feasibility was not pursued on Supreme Court review; wage guarantees were not declared categorically beyond statutory authority."
+  ],
+  "briefSha256": "1b43eb44b6e54369025cd75f71988511a501449b303303d0820d6918b94d5dcb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-064"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Cotton processing exposes workers to a documented disabling disease",
+      "cue": "Introduce the hazard and the rulemaking.",
+      "paragraphs": [
+        "Airborne cotton-processing particles caused byssinosis, or brown lung disease, ranging from acute breathing problems to irreversible disabling impairment. The administrative record estimated at least 35,000 current and former workers with its most disabling form and about 100,000 with some form, supported by experts and worker accounts.",
+        "The Occupational Safety and Health Administration, or OSHA, moved from an older total-dust limit toward respirable-dust measurement. Recommendations, public comments, and over fourteen hearing days produced roughly 105,000 record pages. In 1978, OSHA adopted eight-hour limits of 200 micrograms per cubic meter for yarn manufacturing, 750 for slashing and weaving, and 500 for other covered processes. These relaxed the proposed uniform 200 limit in some sectors. OSHA rejected industry’s weaker yarn alternative as insufficiently protective and labor’s 100 proposal as technologically infeasible.",
+        "Engineering and work-practice controls were primary, with four years for compliance and infeasibility provisions. Interim and other specified circumstances required respirators, alongside monitoring, medical surveillance, training, and warnings. A worker medically unable to use any respirator had to be offered an available job at acceptable dust levels without losing earnings, rights, or benefits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 494–504 & nn.6–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Industry contests the health-cost rule and transfer wage protection",
+      "cue": "Trace the litigation and distinguish the questions presented.",
+      "paragraphs": [
+        "Manufacturers, their association, and the National Cotton Council sought direct D.C. Circuit review under § 6(f) of the Occupational Safety and Health Act. Labor organizations participated and had argued for greater stringency. The circuit largely upheld the rule but remanded cottonseed-oil coverage for deficient economic-feasibility support.",
+        "Supreme Court review concerned whether OSHA had to compare costs and health benefits, whether economic feasibility had substantial evidentiary support, and the wage guarantee. Industry challenged pay protection, not the transfer opportunity itself, and did not pursue technological feasibility in the Supreme Court.",
+        "Section 6(b)(5) required the standard most adequately assuring, to the extent feasible and on the best available evidence, avoidance of material health impairment over a working lifetime. Industry wanted a reasonable relationship between risk reduction and expense without insisting on a dollar value for every life. The Secretary and unions answered that Congress had already chosen maximum significant-risk reduction limited by technological and economic feasibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 494–495, 504–508, 529, 536–537 & nn.2–5, 24–28, 53, 69–71"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority reads feasibility as capability rather than a new balancing choice",
+      "cue": "Explain the text, retained limits, and legislative history.",
+      "paragraphs": [
+        "Justice Brennan’s majority agreed with the Secretary. Feasible meant capable of accomplishment, not worthwhile after a separate health-cost comparison. Congress put health first except where protection was unachievable. Choosing less protection because achievable additional benefits seemed too expensive would replace Congress’s balance. Other laws expressly demanded cost-benefit comparison; this one did not.",
+        "Section 3(8)’s general reasonably-necessary-or-appropriate language did not override the specific toxic-hazard command. It still had work: a standard needed significant risk, and a redundant, unnecessarily burdensome method adding no protection might fail it. The Court left possible balancing for other standard types and priority choices among hazards open.",
+        "Legislative history showed concern that absolute safety could prohibit nearly every occupation. Congress limited the provision to toxic materials and harmful physical agents, required material impairment, and retained feasibility. It expected substantial compliance costs as a cost of doing business and offered small-business assistance rather than authorizing a different agency tradeoff. The majority found the overall history supportive without claiming every passage unambiguous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 508–522 & nn.29–39"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Feasibility review still requires serious consideration of cost evidence",
+      "cue": "Apply the deferential standard to disputed estimates.",
+      "paragraphs": [
+        "Section 6(f) made findings conclusive if supported by substantial evidence on the whole record, including contrary evidence. Because Congress assigned that review to courts of appeals, the Supreme Court would intervene only for misapprehension or gross misapplication, not independently reweigh the evidence.",
+        "OSHA rejected the Research Triangle Institute’s roughly $1.1 billion engineering estimate because it included synthetic-only machinery, inadequately credited existing controls, and lacked current data. It adopted a $543 million industry estimate and other costs totaling $656.5 million, while identifying potential overstatements from existing compliance, modernization, developing technology, and possible synthetic-machine inclusion.",
+        "Petitioners stressed that the adopted estimate covered weaker limits for some operations than the final rule. OSHA acknowledged imprecision and limited access to confidential underlying industry data. An estimate matching the final limits would have been preferable, but its reasoned use of available evidence satisfied review.",
+        "For overall industry impact, OSHA used a different, materially unflawed portion of the Institute’s study. Even a stricter uniform standard costing about $2.7 billion was projected not to seriously threaten the industry. The study considered demand, prices, finance, returns, competition, jobs, energy, and other effects. Some marginal firms might close, but OSHA predicted continued long-term profitability and competitiveness overall. Accepting that assessment was not gross misapplication. The Court reserved whether a standard threatening those characteristics could be feasible."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 522–536 & nn.40–68"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The wage guarantee lacks the agency’s own health explanation",
+      "cue": "Identify the one part requiring further agency proceedings.",
+      "paragraphs": [
+        "Whatever OSHA’s power to protect transfer pay, the chosen means needed a justified link to safety or health. OSHA stated a goal of minimizing the employee’s economic disadvantage. Litigation counsel later argued that wage loss could make workers conceal symptoms or refuse safer transfers. The Court recognized a possible valid health rationale and evidence for it, but counsel’s post hoc explanation could not replace agency findings and reasons.",
+        "Courts could not search the record to construct that missing explanation. A boilerplate prediction of improved respiratory measures did not cure an articulated fairness rationale. The Court affirmed in all other respects, vacated approval of the wage guarantee, and remanded for further proceedings before the Secretary. A properly explained health-related guarantee was not categorically forbidden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 537–541 & nn.72–74"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissenters disagree for two different reasons",
+      "cue": "Close with evidence, delegation, and alignment.",
+      "paragraphs": [
+        "Justice Stewart would reverse for insufficient evidence without reaching cost-benefit interpretation. Neither rejected Institute figures nor an overestimate for a weaker standard rationally estimated the actual final rule. Assuming the overestimate happened to absorb stricter limits’ added expense was speculation, and he regarded the circuit’s acceptance as the rare gross error warranting intervention.",
+        "Justice Rehnquist, joined by Chief Justice Burger, instead saw an unlawful delegation. Feasibility concealed Congress’s failure to decide whether balancing health against cost was required, allowed, or prohibited. The missing fundamental choice between statistical lives and industrial resources went to unelected officials. The majority answered that competing interpretations alone did not establish delegation; Rehnquist clarified that his objection was the omitted basic legislative choice, not ambiguity itself. He suggested agreement on that choice could have prevented enactment.",
+        "Brennan’s opinion was joined by White, Marshall, Blackmun, and Stevens. With Powell not participating, the June 17, 1981 judgment was five to three, preserving the separate grounds of the two dissents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452 U.S. at 541–548 & majority n.75, Rehnquist closing note"
+        }
+      ]
+    }
+  ]
+}

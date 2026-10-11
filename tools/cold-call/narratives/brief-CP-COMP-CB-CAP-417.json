@@ -1,0 +1,122 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-417",
+  "briefId": "CP-COMP-CB-CAP-417",
+  "title": "Granfinanciera, S.A. v. Nordberg",
+  "course": "Civil Procedure",
+  "citation": "492 U.S. 33 (1989)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A bankruptcy trustee sought fixed sums from defendants who had filed no estate claims, and the Court held that the core-proceeding designation did not eliminate their jury right.",
+  "actors": [
+    {
+      "name": "Nordberg",
+      "role": "Chase & Sanborn bankruptcy trustee"
+    },
+    {
+      "name": "Granfinanciera and Medex",
+      "role": "Transfer recipients and defendants demanding a jury"
+    }
+  ],
+  "proceedings": [
+    "Bankruptcy judge denied jury, rejected actual fraud, and awarded constructive-fraud recovery.",
+    "District court and Eleventh Circuit affirmed.",
+    "Supreme Court reversed 6–3 and remanded for proceedings respecting the jury entitlement."
+  ],
+  "limits": "The Court reserved foreign-state jury questions, bankruptcy judges’ jury authority, constitutional forum architecture, and whether debtor-creditor restructuring itself is a public right. It did not absolve defendants of liability.",
+  "briefSha256": "065cc6b8eedd09e3063fe337427112bbef0ba09c270189a95805195193057513",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-417"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The reorganization plan vests recovery claims in the trustee",
+      "cue": "The defendants demand a jury without filing estate claims",
+      "paragraphs": [
+        "Chase & Sanborn filed Chapter 11 in 1983. Its approved plan vested fraudulent-conveyance claims in trustee Nordberg, who sued Granfinanciera and Medex in federal district court in 1985. He alleged about $1.7 million transferred by the debtor’s predecessor within the preceding year without adequate consideration and sought transfer recovery, damages, expenses, costs, and interest on actual- and constructive-fraud theories.",
+        "The district court referred the suit to bankruptcy court. Around service, Colombia nationalized Granfinanciera. Both defendants demanded a jury in their answer. Neither had submitted a claim against the bankruptcy estate, so the trustee was pursuing outsiders to augment assets rather than deciding their shares."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492 U.S. at 36–38, 57–59"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The bankruptcy court treats the core proceeding as nonjury",
+      "cue": "The appeal raises a constitutional entitlement",
+      "paragraphs": [
+        "The bankruptcy judge denied the demand on the view that this core proceeding was historically nonjury. After trial he dismissed actual fraud with prejudice but awarded $1.5 million against Granfinanciera and $180,000 against Medex for constructive fraud. The district court affirmed without addressing jury rights; the Eleventh Circuit treated bankruptcy recovery as equitable and the core designation as displacing a jury.",
+        "In the Supreme Court, Nordberg newly argued that Colombia’s instrumentality lacked a jury right under the Foreign Sovereign Immunities Act and historical immunity principles. The Court declined the unpreserved, inadequately briefed issue, also noting an unrebutted plausible concern that it would enlarge enforcement rights beyond the judgment. Timing and statutory consequences of nationalization remained open.",
+        "Defendants relied on the Seventh Amendment, not statutory jury language. The bankruptcy was pending at the 1984 amendments, and the lower court’s cited provision did not supply their statutory right; the Court did not settle that provision’s entire meaning."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492 U.S. at 37–42 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brennan identifies a legal money action",
+      "cue": "The public-rights exception does not cover these outsider defendants",
+      "paragraphs": [
+        "Justice Brennan compared the statutory action to eighteenth-century English claims and, with greater weight, classified the remedy. Trustees historically recovered fraudulent money transfers through actions such as money had and received. Equity also heard some conveyance disputes, but the trustee’s examples concerned future receivables or trust land, not a definite sum without accounting. Fungible dollars fully compensable at law did not become equitable merely through the words avoidance or restitution.",
+        "Congress could assign some legal public-rights matters to nonjury administrative tribunals, but could not remove traditional private-right jury protection by calling a case core. Five Justices joined Part IV’s view that closely integrated federal regulatory rights between private parties could qualify as public rights. The trustee’s action nevertheless resembled an ordinary suit to increase the estate, not ordering existing assets among claimants. The Court assumed without deciding that debtor-creditor restructuring itself might be a public right.",
+        "Katchen differed because a creditor filed estate claims and the preference issue had to be decided in allowance or disallowance. These defendants filed none. That was the substantive distinction, not a rule that any appearance waived jury rights. Congressional relabeling, delay, or expense could not overcome the constitutional command, and earlier regimes had accommodated juries in comparable recovery suits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492 U.S. at 41–64 & nn.4–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Scalia reaches the same result through a narrower exception",
+      "cue": "The dissents give greater weight to bankruptcy integration",
+      "paragraphs": [
+        "Justice Scalia joined all but Part IV and concurred in judgment. He required the United States as a party for public rights, grounding the exception in sovereign immunity and revenue collection and rejecting flexible balancing. This private dispute therefore warranted a jury under his narrower rule too.",
+        "Justice White dissented alone. He considered Katchen and bankruptcy’s equitable character controlling, regarded congressional integration as substantive reform rather than a label, found the historical record ambiguous, and emphasized Bankruptcy Clause judgment. His dissent disputed that monetary restitution necessarily was legal and feared juries would disrupt the scheme.",
+        "Justice Blackmun, joined by O’Connor, initially would resolve historical doubt in favor of a legal claim but still allow its assignment to equitable bankruptcy adjudication as integral to fair distribution. He recognized limits on core labels, including ordinary state contract actions, but found this recovery within congressional authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492 U.S. at 65–95; White nn.1–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The defendants win a jury entitlement, not a merits judgment",
+      "cue": "The forum’s full architecture remains reserved",
+      "paragraphs": [
+        "On June 23, 1989, the Court reversed the Eleventh Circuit six to three and remanded. Chief Justice Rehnquist and Justices Marshall, Stevens, and Kennedy joined Brennan throughout; Scalia supplied the sixth result vote without joining the broader public-rights discussion.",
+        "The Court did not decide whether bankruptcy judges had statutory or constitutional authority to conduct the jury trial, or how district review would respect the bar on reexamining jury-found facts. It also did not exonerate either defendant from transfer liability. Their timely jury demand had to be honored in further proceedings consistent with the decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "492 U.S. at 35, 50, 64–65 & n.19"
+        }
+      ]
+    }
+  ]
+}

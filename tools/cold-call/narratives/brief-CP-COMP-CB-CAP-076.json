@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-076",
+  "briefId": "CP-COMP-CB-CAP-076",
+  "title": "Dusenbery v. United States",
+  "course": "Civil Procedure",
+  "citation": "534 U.S. 161 (2002)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A prisoner challenged forfeiture notice sent by certified mail to his institution without proof it reached him personally. Five Justices found the described delivery system constitutionally reasonable; four questioned its internal prison link.",
+  "actors": [
+    {
+      "name": "Larry Dean Dusenbery",
+      "role": "Federal prisoner claiming seized cash"
+    },
+    {
+      "name": "Federal Bureau of Investigation",
+      "role": "Agency conducting administrative forfeiture"
+    },
+    {
+      "name": "James Lawson",
+      "role": "Prison mail officer who received the certified notice"
+    }
+  ],
+  "proceedings": [
+    "District court initially rejected a return-of-property motion; Sixth Circuit required treatment as a civil notice challenge.",
+    "After discovery, government obtained summary judgment on cash notice, affirmed by Sixth Circuit.",
+    "Supreme Court affirmed, five to four."
+  ],
+  "limits": "Cash-only notice holding; no ruling that cash was traceable to drugs or that all prison-addressed letters suffice. Historical procedures and reforms do not describe present prison policy.",
+  "briefSha256": "941a52b6e77308f2fd31a3f9457c0750d8f493a113ccf3091027cbcd0a854fe7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-076"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Seizure is followed by administrative forfeiture",
+      "cue": "Arrest, conviction, and the mailed notices",
+      "paragraphs": [
+        "Federal officers arrested Larry Dean Dusenbery at an Atwater, Ohio house trailer in April 1986. A warranted search yielded drugs, weapons, an automobile registered to his stepmother, and other property. They seized $21,939: $394 from him, $7,500 from a coat, and $14,045 from a briefcase. He pleaded guilty to cocaine possession with intent to distribute and received twelve years’ imprisonment followed by six years’ special parole.",
+        "In 1988 the Federal Bureau of Investigation began administrative forfeiture of cash and car. The then-applicable procedure allowed forfeiture of covered property worth no more than $100,000 without a judicial case if nobody timely claimed it after publication, with written notice to apparent interested persons.",
+        "The agency sent certified cash notices to Dusenbery at the federal prison in Milan, Michigan, his arrest address, and an address in the town where his mother lived. It published in three consecutive Sunday editions of the Cleveland Plain Dealer. After no timely response, it declared forfeiture and transferred the cash to the Marshals Service December 13, 1988. Similar car proceedings occurred, but only the cash notice ultimately reached Supreme Court review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "163–167"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The missing proof of personal receipt",
+      "cue": "A return request becomes a civil case",
+      "paragraphs": [
+        "Nearly five years later, Dusenbery sought return under Federal Rule of Criminal Procedure 41(e). The district court rejected the motion as inappropriate in a closed prosecution. The Sixth Circuit required construing it as a civil complaint for equitable relief concerning notice.",
+        "On remand, prison mail officer James Lawson testified that he had signed the agency’s certified-mail receipt. Staff collected institutional mail daily, signed for certified items, logged them in the mailroom, and obtained a Unit Team member’s signature when taking an item for distribution. A team member or other staff then distributed mail at mail call. Lawson said that procedure would have applied. The old logs were unavailable under the then-existing one-year retention practice; retention later increased. No evidence proved Dusenbery personally received the letter. The district court nevertheless granted the government summary judgment on cash notice, and the Sixth Circuit affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "165–166 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Reasonable effort rather than guaranteed receipt",
+      "cue": "Rehnquist’s majority",
+      "paragraphs": [
+        "Chief Justice Rehnquist, joined by O’Connor, Scalia, Kennedy, and Thomas, applied the notice standard from Mullane: a method reasonably calculated under the circumstances to inform the interested person. He rejected Dusenbery’s proposed use of Mathews v. Eldridge’s broader procedural balancing framework as an all-purpose formula. The federal action implicated the Fifth Amendment, though the notice principle also governed state proceedings.",
+        "Direct notice as a method differed from actual receipt. Prior mailed-notice decisions required reasonable efforts, not guaranteed delivery. The described postal and prison chain met that standard. Dusenbery proposed an employee observing him open the letter, obtaining his signature, and reporting back. The majority regarded that chiefly as proving receipt, which was not constitutionally indispensable. Years-later reconstruction would also produce uncertainty in property titles.",
+        "The majority separately rejected the claimed improvement in delivery reliability from requiring signatures, finding neither persuasive explanation nor probative record evidence. Later government improvements did not prove the earlier system unconstitutional, much as later remedial measures did not automatically establish prior fault."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167–173 & nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent focuses on the final link",
+      "cue": "The cash-notice judgment stands",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Stevens, Souter, and Breyer, agreed on the Mullane standard and did not require guaranteed receipt in every case. Her concern was prison delivery after ordinary postal service ended. Lawson knew little about that stage, and no Unit Team employee filled the evidentiary gap. The government controlled Dusenbery’s location and movements; he could supervise neither delivery system.",
+        "She distinguished the common-trust proceeding in Mullane, where another beneficiary might raise a shared objection and a court reviewed the accounting. Dusenbery’s claimed ownership stood alone, and without notice he could not argue the cash was unconnected to drugs. Later signature-or-refusal documentation and special-mail handling in the inmate’s presence showed, for her, feasible safeguards. They could identify failed delivery, permit follow-up, and encourage careful handling, not merely establish liability whenever mail went astray.",
+        "The five-to-four Court affirmed the Sixth Circuit. It upheld this record’s notice method without deciding the substantive source of the cash or declaring every letter addressed to a prison adequate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "173–183 & dissent nn.1–5"
+        }
+      ]
+    }
+  ]
+}

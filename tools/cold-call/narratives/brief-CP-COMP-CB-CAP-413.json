@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-413",
+  "briefId": "CP-COMP-CB-CAP-413",
+  "title": "Ross v. Bernhard",
+  "course": "Civil Procedure",
+  "citation": "396 U.S. 531 (1970)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Shareholders using an equitable derivative procedure sought a jury on the corporation’s legal damages claims, requiring the Court to separate representative access from the underlying wrong.",
+  "actors": [
+    {
+      "name": "Lehman Corporation shareholders",
+      "role": "Derivative plaintiffs seeking recovery for the corporation"
+    },
+    {
+      "name": "Lehman directors and Lehman Brothers",
+      "role": "Defendants accused of excessive charges and misconduct"
+    }
+  ],
+  "proceedings": [
+    "District court refused to strike the jury demand and certified an interlocutory appeal.",
+    "Second Circuit reversed, treating the suit as wholly equitable.",
+    "Supreme Court reversed that categorical denial."
+  ],
+  "limits": "The Court did not decide every claim’s jury status, shareholder entitlement to proceed, liability, or a general complexity exception. Stewart dissented with Burger and Harlan; the assigned source reports 5–3.",
+  "briefSha256": "0ac69f9e38f92f3bdc60898e2ebaa620fb65d107952892cf91923eeffc7f90dd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-413"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Shareholders allege injury to their investment company",
+      "cue": "The requested money belongs to the corporation",
+      "paragraphs": [
+        "Lehman Corporation shareholders alleged that broker Lehman Brothers controlled their closed-end investment company through excessive board representation prohibited by the Investment Company Act of 1940 and extracted excessive brokerage charges. They accused directors of conversion and serious misconduct and both groups of fiduciary breaches, corporate waste, and violation of the brokerage contract.",
+        "They sought an accounting and payment to the corporation of defendants’ gains and corporate losses. Their jury demand concerned the corporation’s claims, not individual shareholder recovery. They used a derivative action because managers allegedly would not enforce the corporate rights."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "396 U.S. at 531–532, 534–535, 538–539"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court separates standing to represent from the merits",
+      "cue": "The appellate court views one historically equitable action",
+      "paragraphs": [
+        "The district court refused to strike the demand. It treated the shareholder’s entitlement to act for the corporation as equitable for the judge, but the underlying claims as receiving the jury treatment they would have if the corporation sued directly. It certified a substantial controlling dispute under 28 U.S.C. § 1292(b).",
+        "The Second Circuit reversed, considering the derivative action entirely equitable with no jury right on any part. That conflicted with the Ninth Circuit’s DePinto approach. The Supreme Court reviewed the categorical jury denial, not whether overcharges or misconduct actually occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "396 U.S. at 532–533"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White follows the nature of the corporate issues",
+      "cue": "Procedural merger resolves the old barrier to a legal forum",
+      "paragraphs": [
+        "Justice White explained two aspects: entitlement to sue for the corporation, including a valid corporate cause and demand or excuse, and adjudication of that corporate claim. The corporation remained necessary and the real party in interest despite formal defendant alignment, receiving proceeds and being bound. If its claim was equitable, shareholders gained no new jury right; legal issues did not lose one through their representative route.",
+        "Historically, shareholders could not ordinarily sue at law for corporate injury, so equity supplied a derivative remedy and could decide legal issues for lack of an adequate alternative. The majority acknowledged that traditional nonjury treatment. The Federal Rules’ single action and issue-separation procedures now allowed a judge to decide representative entitlement and a jury to hear legal damages claims.",
+        "Beacon Theatres and Dairy Queen prevented equity from absorbing legal claims as incidental or preempting common facts. Historical equitable devices such as class procedures likewise could carry legal claims to juries. Fleitmann’s rejection of a derivative equity route for antitrust damages and United Copper’s rejection of a shareholder’s law action exposed the old procedural dilemma; merger removed it.",
+        "At minimum, the pleaded brokerage-contract and director-negligence damages claims would be jury-triable if the corporation sued. Other claims’ classification was unnecessary. Note 10 listed history, remedy, and practical jury abilities, but did not deny a jury for complexity or establish unrestricted judicial discretion to do so."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "396 U.S. at 533–543 & nn.3–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Stewart regards the derivative action as an indivisible equitable creation",
+      "cue": "Reversal removes only the categorical obstacle",
+      "paragraphs": [
+        "Justice Stewart, joined by Chief Justice Burger and Justice Harlan, viewed the decision as enlargement rather than preservation of the Seventh Amendment. Rule 38 and the Rules Enabling Act could not expand substantive rights through merger. In his account, early shareholder litigation enforced beneficiaries’ equitable rights, and the modern corporate-claim description did not establish a separate historical legal action.",
+        "Earlier equity rules already allowed legal modes where appropriate, yet derivative actions remained equitable. He read Fleitmann as confirming that limit and distinguished Beacon and Dairy Queen’s genuinely separable claims. Dissecting every equitable suit into factual issues that might appear in a damages case threatened equity generally; availability of advisory juries did not create constitutional entitlement.",
+        "On February 2, 1970, the Court reversed the Second Circuit. The corporation’s jury-triable legal issues retained that status through the derivative suit, without deciding liability, awarding money, or classifying every remaining claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "396 U.S. at 543–551 & dissent nn.1–13"
+        }
+      ]
+    }
+  ]
+}

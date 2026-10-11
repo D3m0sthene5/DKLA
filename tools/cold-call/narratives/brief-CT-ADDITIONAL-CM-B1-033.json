@@ -1,0 +1,88 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-033",
+  "briefId": "CT-ADDITIONAL-CM-B1-033",
+  "title": "Keller v. Holderman",
+  "course": "Contracts",
+  "citation": "11 Mich. 248 (1863)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A check for far more than a watch’s value follows mutual joking; a finding that neither side intended the purchase defeats enforcement despite the check writer’s possession of the watch.",
+  "actors": [
+    {
+      "name": "Keller",
+      "role": "Wrote the $300 check, received the watch and sought reversal."
+    },
+    {
+      "name": "Holderman",
+      "role": "Held the check and sued for its payment."
+    }
+  ],
+  "proceedings": [
+    "After a bench trial, the Berrien Circuit Court entered judgment for the check’s amount.",
+    "The Michigan Supreme Court reversed with costs in both courts on May 12, 1863."
+  ],
+  "limits": "The complete report supplies the parties’ roles, which the assigned textbook reverses. The decision turns on mutual banter, not a unilateral secret joke or a general rule against disproportionate prices.",
+  "briefSha256": "f0660a3e2adca1d90b216bf35e3851e734fb09c9c74220788f727d672426c7c9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-033"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Keller takes a watch and writes a check during mutual banter",
+      "cue": "Who gave what, and how did both participants understand it?",
+      "paragraphs": [
+        "Keller wrote a $300 check on a banker in Niles and took an old silver watch belonging to Holderman. The watch was worth about $15. Keller had no money with that banker and intended to place a condition on the check preventing liability, but omitted the condition.",
+        "The trial judge later found that the transaction was playful banter on both sides: Holderman did not expect to sell the watch, and Keller did not intend to buy it for the stated price. Keller nevertheless kept the watch until trial, when he offered to return it and Holderman refused."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 Mich. 248–249; reported trial facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Holderman obtains judgment on the dishonored check",
+      "cue": "Why did the trial judge enforce it despite finding mutual joking?",
+      "paragraphs": [
+        "After the check was dishonored, Holderman sued Keller in the Berrien Circuit Court. The case was tried without a jury. Although the judge found that neither participant contemplated a serious purchase and sale, he held Keller liable because the check lacked the intended condition and Keller had retained the watch.",
+        "The resulting judgment was for the check’s amount. Keller sought review by writ of error, putting the legal consequence of the judge’s own factual findings before the Michigan Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 Mich. 248; trial and review posture"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court gives the finding of mutual banter its legal consequence",
+      "cue": "What did reversal decide about the check and the watch?",
+      "paragraphs": [
+        "Chief Justice Martin explained that the finding of mutual banter meant no contract had been made. Holderman therefore had no cause of action on the check. On May 12, 1863, the court reversed and awarded costs in both the Supreme Court and the court below; the other justices concurred without a separate writing.",
+        "The court did not order a new trial, award the watch’s reasonable value or decide a separate restitution action. Nor did it authorize escape from a reasonably understood serious promise through a secret intention to joke. The decisive fact was the shared understanding, not merely the difference between the $300 check and the watch’s $15 value."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "11 Mich. 249; opinion and exact disposition"
+        }
+      ]
+    }
+  ]
+}

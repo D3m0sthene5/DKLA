@@ -1,0 +1,154 @@
+{
+  "id": "brief-CP-SUP-ROYALCANIN",
+  "briefId": "CP-SUP-ROYALCANIN",
+  "title": "Royal Canin U. S. A., Inc. v. Wullschleger",
+  "course": "Civil Procedure",
+  "citation": "604 U.S. 22 (2025)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A dog-food purchaser’s state-law suit reached federal court because her complaint incorporated federal-law violations. She then properly amended those references out, leaving the Supreme Court to decide whether federal jurisdiction followed the operative complaint or remained fixed at removal.",
+  "actors": [
+    {
+      "name": "Anastasia Wullschleger",
+      "role": "Purchaser asserting Missouri consumer-protection and antitrust claims."
+    },
+    {
+      "name": "Royal Canin U.S.A., Inc.",
+      "role": "Prescription dog-food manufacturer that removed the action."
+    },
+    {
+      "name": "Justice Kagan",
+      "role": "Author of the unanimous Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The district court denied remand after amendment and later dismissed on the merits. The Eighth Circuit reversed and ordered remand. The Supreme Court affirmed because eliminating every federal question from the operative complaint removed both original and supplemental jurisdiction.",
+  "limits": "The original federal issues were embedded in state claims, not a freestanding federal statutory claim. Their sufficiency to support initial jurisdiction was accepted rather than reviewed. The holding assumes a proper amendment and no other original-jurisdiction basis; it does not decide marketing liability.",
+  "briefSha256": "4d4341f32b9f6fecc0f4db49d5c70f519e74e2211517c00c2af5443afeff7e81",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-ROYALCANIN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A purchaser challenges the prescription requirement and premium price",
+      "cue": "What federal question appeared in a state-law complaint?",
+      "paragraphs": [
+        "Royal Canin manufactured dog food sold only with a veterinarian’s prescription and at a premium price. Anastasia Wullschleger bought it believing that it contained medication absent from ordinary dog food. After learning that it did not, she sued in Missouri state court. She alleged that the prescription requirement made ordinary food seem medically necessary and induced customers to pay more.",
+        "Her complaint asserted Missouri Merchandising Practices Act and state antitrust claims supported by alleged violations of the Federal Food, Drug, and Cosmetic Act (FDCA). It did not assert a freestanding FDCA cause of action. In an earlier appeal, the Eighth Circuit held that those embedded federal questions were sufficiently substantial and integral to support federal-question jurisdiction. The Supreme Court later accepted that determination as given, using federal-claims shorthand without expanding the embedded-question doctrine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 4–5 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Removal is followed by an amendment eliminating the federal questions",
+      "cue": "How did the remand dispute become appealable?",
+      "paragraphs": [
+        "Royal Canin removed under 28 U.S.C. §1441(a). The federal issues supplied original jurisdiction, and factually related state claims fell within supplemental jurisdiction. Wullschleger then properly amended the complaint to delete every FDCA reference and requested remand of the exclusively state-law action.",
+        "The district court refused. It measured jurisdiction at removal and concluded that the later deletion did not extinguish supplemental power. It subsequently dismissed the amended complaint on the merits. The remand denial itself was not immediately appealable; the jurisdictional issue reached the Eighth Circuit through appeal after the merits dismissal.",
+        "The Eighth Circuit reversed and ordered remand. It held that the superseding complaint removed both federal-question and supplemental jurisdiction. Other circuits had allowed jurisdiction acquired on removal to persist despite such amendments, and the Supreme Court granted review of that conflict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 5–6 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Supplemental claims need a claim within original jurisdiction",
+      "cue": "What did the statutory structure distinguish?",
+      "paragraphs": [
+        "Justice Kagan wrote for all nine Justices. Federal courts possessed only authority permitted by the Constitution and granted by Congress. Section 1331 covered claims arising under federal law, usually because federal law created them and exceptionally through a substantial, disputed federal issue necessarily embedded in a state claim. The well-pleaded complaint, not a federal defense, controlled. Section 1441 permitted removal within original jurisdiction, while §1447(c) required remand when subject-matter jurisdiction was absent before final judgment.",
+        "Section 1367(a) extended supplemental authority to claims sufficiently related to an original-jurisdiction claim to form the same constitutional case. United Mine Workers v. Gibbs described the common nucleus of operative fact supporting that relationship. This derivative power still depended on something in the action supplying original jurisdiction.",
+        "Section 1367(c) addressed discretion to decline power that otherwise existed, including novel or complex state issues, substantial predominance, or judicial dismissal of all original-jurisdiction claims. Its separate exceptional-circumstances provision played no relevant role in the parties’ positions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 1–3, 7–8 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The same statute applies whether the case began in state or federal court",
+      "cue": "Why did removal-time jurisdiction not survive this amendment?",
+      "paragraphs": [
+        "Royal Canin argued that §1367(a)’s broad grant contained no express instruction ending jurisdiction when a plaintiff removed federal questions. Its proposed rule distinguished removed suits from cases filed originally in federal court.",
+        "But the statute drew no such distinction. Rockwell International Corp. v. United States had held that jurisdiction in an original federal action followed the amended complaint. Royal Canin conceded that deleting the federal basis there would eliminate authority over the remaining state claims. The same statutory language could not produce the opposite result solely because this case started in state court. With no remaining original-jurisdiction claim, the state claims were supplemental to nothing.",
+        "Section 1367(c) reinforced the point. Congress expressly preserved discretion after a court dismissed the federal claims, which could be revived on appeal. A proper plaintiff amendment instead withdrew them from the operative pleading. If jurisdiction survived that withdrawal under subsection (a), subsection (c) would have addressed this especially strong reason for discretionary remand. The contrast supported absence of power, not an unmentioned retention discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 8–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Superseding pleadings can change claims, parties, and jurisdiction",
+      "cue": "Which analogies supported the operative-complaint rule?",
+      "paragraphs": [
+        "An amended complaint replaced the original. Plaintiffs controlled the claims and parties included, and changes could alter jurisdiction. Section 1653 permitted correction of defective jurisdictional allegations; §1446(b)(3) recognized that amendments could make a previously nonremovable suit removable; and §1332(d)(7) addressed jurisdiction created by amended class pleadings. Congress did not universally freeze jurisdiction at the first complaint.",
+        "Adding federal claims could create jurisdiction. Adding a nondiverse party ordinarily defeated complete diversity, and eliminating such a party could cure it. After removal, a new federal claim could support jurisdiction going forward, while §1447(e) required remand when permitted joinder destroyed diversity.",
+        "The Court preserved qualifications. The time-of-filing rule ordinarily fixed actual citizenship facts rather than the claims and parties selected in superseding pleadings. A successor in interest could step into an original party’s position without defeating diversity. Reducing the amount in controversy generally did not remove jurisdiction, reflecting fluctuating, difficult-to-measure case value and the waste of continual remeasurement. The Court did not say every later change defeated jurisdiction and knew of no appellate decision on the specific removed-case scenario of deleting a nondiverse party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 10–15 & nn.5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Earlier language suggesting retention did not control the question presented",
+      "cue": "How did the Court treat Cohill and its own Rockwell footnote?",
+      "paragraphs": [
+        "Royal Canin relied on Carnegie-Mellon University v. Cohill, where federal claims were withdrawn after removal and the Court spoke of discretion over the remaining claims. Cohill actually asked whether a court choosing to relinquish a case could remand instead of dismissing it, because expired limitations might prevent a new state suit. The assumed power to retain had not been analyzed and supported neither the result nor the remand-versus-dismissal reasoning. Section 1367 and Rockwell also came later.",
+        "A Rockwell footnote was stronger support: it said deletion generally did not defeat removed-case jurisdiction because of forum manipulation concerns. Kagan nevertheless identified it as dictum. Rockwell was an original federal action, so the footnote addressed an unpresented, unnecessary issue with little reasoning. Unexamined jurisdictional assertions deserved particular caution in that setting.",
+        "Forum concerns could not override equal statutory treatment of original and removed cases. Plaintiffs often could voluntarily dismiss and refile solely state claims, absent a limitations obstacle; §1447(e) already allowed jurisdiction-destroying amendments in another removal setting. The Court did not fault lower courts for following the earlier footnote. Its power to reconsider its own dictum did not make their reliance improper."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 15–19 & nn.9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The state-law action must return to state court",
+      "cue": "What did the unanimous affirmance leave undecided?",
+      "paragraphs": [
+        "The Supreme Court affirmed the Eighth Circuit. The proper amendment removed every federal question, leaving no original-jurisdiction anchor and therefore no supplemental jurisdiction. The district court had to remand rather than exercise discretion to retain the exclusively state-law case.",
+        "The decision did not decide whether Wullschleger’s marketing, consumer-protection, or antitrust allegations were true or legally successful. It did not determine when amendment must be permitted, or reassess the original embedded federal question. The central distinction remained judicial dismissal of federal claims, where §1367(c)(3) allows discretion, and their removal through a proper superseding complaint with no other original-jurisdiction basis. No separate opinion was issued."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip 6, 19–20"
+        }
+      ]
+    }
+  ]
+}

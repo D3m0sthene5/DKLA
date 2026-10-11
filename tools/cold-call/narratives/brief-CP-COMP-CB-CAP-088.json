@@ -1,0 +1,127 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-088",
+  "briefId": "CP-COMP-CB-CAP-088",
+  "title": "Rio Properties, Inc. v. Rio International Interlink",
+  "course": "Civil Procedure",
+  "citation": "284 F.3d 1007 (9th Cir. 2002)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An elusive online wagering business received court-directed service through email and intermediaries, then defaulted because it repeatedly disobeyed discovery orders.",
+  "actors": [
+    {
+      "name": "Rio Properties",
+      "role": "Las Vegas casino and trademark owner"
+    },
+    {
+      "name": "Rio International Interlink",
+      "role": "Costa Rican online sports-gambling defendant"
+    },
+    {
+      "name": "IEC and John Carpenter",
+      "role": "Courier and attorney used as service channels"
+    }
+  ],
+  "proceedings": [
+    "District court authorized alternative service and rejected service and jurisdiction objections.",
+    "Defendant answered but later defaulted as a discovery sanction.",
+    "Ninth Circuit affirmed all rulings and fee/cost awards."
+  ],
+  "limits": "Treaty status, jurisdiction tests, Rule 37 numbering, and fee standard are historical. Service did not alone establish jurisdiction. Default arose from discovery noncompliance after appearance, not mere failure to answer an email.",
+  "briefSha256": "afe7da9c50e7495f00ad3a1b81387e334e8e8eeb9c22501488f0d5972798d213",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-088"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The casino challenges use of its name online",
+      "cue": "Conventional location efforts lead to courier and attorney contacts",
+      "paragraphs": [
+        "Rio Properties ran the Rio casino resort and sports book in Las Vegas, owned registered RIO marks, and promoted reservations online. Costa Rican Rio International Interlink took Internet and toll-free sports wagers and advertised through Las Vegas radio and the Nevada Daily Racing Form. After a cease-and-desist demand over riosports.com, it disabled that domain but opened an equivalent operation elsewhere. The casino sued for statutory and common-law infringement and an injunction.",
+        "Its listed Florida domain-registration address belonged to international courier IEC, which lacked authority to accept ordinary service but forwarded the complaint to a Costa Rican courier. Los Angeles attorney John Carpenter then contacted the casino about his client’s partly illegible copy and requested another. He declined voluntary acceptance while asking to be told when service occurred. An investigator found no usable Costa Rican street address, but learned the business preferred email and routed mail and customer payments through IEC."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preserved opinion lines65–73"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Court-directed channels deliver the suit",
+      "cue": "The defendant appears before later refusing meaningful discovery",
+      "paragraphs": [
+        "On an emergency request, the district court authorized service under Rules 4(h)(2) and 4(f)(3) by mail to Carpenter, mail to IEC, and the company’s email. The defendant appeared, challenged service and personal jurisdiction, lost on written submissions, and answered with twenty-two affirmative defenses.",
+        "It then supplied nearly useless discovery responses, often N/A, despite two informal extensions. After an order compelling responses and explicit warning that money was inadequate and preclusive sanctions would follow, it again failed to comply and later supplied only partial answers. The court entered default and awarded $88,761.50 attorney fees and $7,859.52 costs. The appeal challenged service, jurisdiction, default, and those awards."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preserved opinion lines74–79"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rule 4(f)(3) has no exhaustion hierarchy",
+      "cue": "Each chosen method must still provide constitutionally adequate notice",
+      "paragraphs": [
+        "Judge Trott, with Goodwin and Sneed, rejected mandatory exhaustion of other foreign-service procedures before court-directed methods. The alternatives were joined by or, and text and advisory notes imposed no sequence. The panel disapproved Graval’s reliance on commentary concerning another subsection. Court-directed service was neither extraordinary nor a last resort, although a plaintiff still needed circumstances justifying intervention. Failed domestic inquiries, the unavailable foreign address, and evasiveness supplied them here.",
+        "Methods had to be court-directed, not prohibited by international agreement, and reasonably calculated to notify and allow objections. The parties agreed the Hague Convention did not apply because Costa Rica was not a member then, a historical premise rather than current treaty status. Potential inconsistency with foreign domestic law differed from a prohibitory international agreement.",
+        "IEC was a demonstrated practical conduit for documents and payments. Carpenter had been retained for this litigation and communicated with the client. The court’s authorization made those channels permissible despite prior refusals to accept voluntarily. Email directly reached a business using it as its preferred contact with no discoverable street location, unlike unilateral unauthorized email in another case.",
+        "The panel acknowledged receipt-confirmation, signature, system-compatibility, and attachment difficulties and left contextual balancing to trial judges. Consent-based electronic service under then-recent Rule 5 differed from initial Rule 4 process. This defendant claimed no missing, incomplete, delayed, or prejudicial notice, which supported practical adequacy without replacing authorization requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preserved opinion lines84–126 & nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Nevada-directed advertising separately supports specific jurisdiction",
+      "cue": "The written-record finding remains prima facie",
+      "paragraphs": [
+        "Reviewing jurisdiction de novo under Nevada’s then-coextensive long-arm law, the panel required purposeful contacts, connection to the claim, and reasonableness. General jurisdiction was not at issue. On written submissions the casino needed only a prima facie showing, with uncontroverted allegations accepted and conflicts resolved in its favor.",
+        "This was more than a universally accessible website: Nevada radio and print advertising, including the attached racing-paper ad, supported targeted competition and foreseeable local trademark harm. The panel applied its historical effects and but-for approaches. If litigation continued, the casino still would have to prove contested jurisdictional facts, including the extent of Nevada business.",
+        "Balancing purposeful interjection, burden, sovereignty, Nevada’s interest, efficiency, convenience, and alternatives also favored jurisdiction. The company identified no pertinent sovereignty conflict or alternative forum; directed marketing, the local casino and gambling dispute, and available documents outweighed its foreign-defense burden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preserved opinion lines128–155 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Repeated discovery disobedience supports default",
+      "cue": "The historical trademark fee award also stands",
+      "paragraphs": [
+        "Under then-Rule 37(b)(2)(C), the panel considered timely resolution, docket management, prejudice, merits adjudication, and lesser sanctions. Only merits resolution favored the company; repeated disobedience, warnings, and consideration of ineffective alternatives supported default without abuse of discretion.",
+        "Default established the complaint’s knowing, malicious, oppressive-conduct allegations for the historical trademark exceptional-case fee inquiry. Objections to staff work, rates, hours, duplication, and travel showed no abuse.",
+        "On March 20, 2002, the Ninth Circuit affirmed in all respects, including service, specific jurisdiction, the discovery default, and the specified fees and costs. The eventual default did not arise merely from the first email notice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preserved opinion lines157–171 & n.10"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-300",
+  "briefId": "CP-COMP-CB-CAP-300",
+  "title": "Business Guides, Inc. v. Chromatic Communications Enterprises, Inc.",
+  "course": "Civil Procedure",
+  "citation": "498 U.S. 533 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A publisher that signed court papers could not rely on its lawyers to excuse failure to verify its own supposed evidence of copying under the 1983 version of Rule 11.",
+  "actors": [
+    {
+      "name": "Business Guides, Inc.",
+      "role": "Directory publisher and sanctioned plaintiff"
+    },
+    {
+      "name": "Chromatic Communications Enterprises",
+      "role": "Competing publisher and defendant"
+    },
+    {
+      "name": "Finley, Kumble",
+      "role": "Law firm retained by Business Guides"
+    },
+    {
+      "name": "Michael Lambe",
+      "role": "Research director supplying the copying declarations"
+    }
+  ],
+  "proceedings": [
+    "District court: adopted sanctions findings, dismissed with prejudice, and imposed $13,865.66.",
+    "Ninth Circuit: upheld signed-paper inquiry standard but rejected oral-testimony ground and required reconsideration; district court reaffirmed sanction.",
+    "Supreme Court: affirmed the challenged standard and disposition 5–4."
+  ],
+  "limits": [
+    "The case applies the 1983 rule to signing represented parties. Nonsigning-party sanctions, unpreserved corporate-attribution issues, and directory copyrightability were reserved. Later Rule 11 amendments are separate."
+  ],
+  "briefSha256": "61d8ca120c957b6db66a6bdb3e993379a88fbae889653e87605950649e67aa8a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-300"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The publisher seeks urgent relief based on alleged planted errors",
+      "cue": "Introduce the publications and the signed submissions.",
+      "paragraphs": [
+        "Business Guides published directories for eighteen specialized retail trades and planted false entries to detect copying, including altered real listings and wholly fictitious businesses. It hired Finley, Kumble to sue competing publisher Chromatic for copyright infringement, conversion, and unfair competition.",
+        "On October 31, 1986, it sought an immediate temporary restraining order. A lawyer and the company president signed the application, with supporting affidavits sealed. A declaration identified ten purported seeds. Before the November 7 hearing, the judge’s clerk asked what was false. After counsel contacted research director Michael Lambe, Business Guides withdrew three entries. The clerk spent about an hour investigating and found nine of ten accurate.",
+        "The judge denied temporary relief, stayed the case, and referred possible Rule 11 violations to a magistrate. Lambe’s supplemental affidavit listed seven seeds; before signing he crossed out a fourth erroneous allegation because that listing too was accurate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498 U.S. at 535–538"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Three hearings reveal that proofreading corrections were mistaken for seeds",
+      "cue": "Trace factual responsibility and the sanctions path.",
+      "paragraphs": [
+        "At the first two evidentiary hearings, publisher and counsel defended the accurate entries as coincidences. At the third they explained that the master seed list had been compiled after publication by comparing original customer questionnaires with the directory, assuming questionnaires correct. Proofreading had fixed input errors, so the discrepancies were accurate final entries, not planted mistakes. The magistrate accepted that explanation but found inadequate prefiling inquiry.",
+        "Urgency and the client’s experience let counsel initially rely on its facts, but the publisher had to verify its own evidence. After three withdrawals, both should have checked the rest. The magistrate also criticized later oral coincidence arguments, and the district court adopted the recommendations. By sanctions proceedings, Finley, Kumble had dissolved and entered bankruptcy; Chromatic withdrew its firm-directed motion without prejudice because of the automatic stay.",
+        "The remaining fictitious entry also lacked sound copying force. Chromatic said a Business Guides employee had planted it by submitting a questionnaire to Chromatic; the district court treated the publisher’s failure to deny that account as tacit admission. It dismissed with prejudice and imposed $13,865.66 in legal expenses and costs. The Ninth Circuit upheld the inquiry standard and signed-paper findings but rejected oral testimony as an independent Rule 11 basis and vacated for reconsideration. The district court reaffirmed dismissal and money sanctions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498 U.S. at 537–541"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Signing brings the rule’s certification home to the represented party",
+      "cue": "Explain the majority’s text and objective standard.",
+      "paragraphs": [
+        "Justice O’Connor’s five-Justice majority examined the 1983 Rule 11. Business Guides relied on opening sentences requiring attorneys to sign for represented parties and individuals to sign when unrepresented. But the certification sentence referred broadly to an attorney or party without repeating that distinction. A voluntary party signature could therefore certify factual and legal foundation.",
+        "Pavelic & LeFlore, the earlier signature-responsibility case, emphasized personal responsibility for submission validity. A represented signer could not delegate away factual verification. The majority discussed corporations’ need to act through agents as different from an attorney’s expressly personal signature, but declined definitely to resolve the corporate-signature objection because not preserved below.",
+        "Subjective good faith was insufficient. The 1983 amendment replaced the old subjective test with reasonable inquiry for lawyers and parties; the distinct then-Rule 56(g) affidavit treatment did not rewrite it. Reasonableness remained contextual. This publisher, operating since 1948 and knowing its own factual records, was not a small inexperienced litigant. Lawyers could reasonably rely on facts that the sophisticated client itself failed reasonably to investigate. The rule did not demand that every client possess a lawyer’s legal expertise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498 U.S. at 541–551"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The rule regulates discrete litigation submissions rather than creating a general tort",
+      "cue": "State the enabling-act holding and reservations.",
+      "paragraphs": [
+        "Business Guides argued that objective sanctions changed substantive rights under the Rules Enabling Act, effectively shifting fees or creating negligent prosecution. The majority treated Rule 11 as procedural regulation serving deterrence and the integrity of federal litigation, not prevailing-party compensation or a substitute damages tort. Incidental substantive effects did not invalidate a rule reasonably necessary to that system. Appellate correction, illustrated by rejection of the oral-testimony rationale, addressed misapplication.",
+        "On February 26, 1991, the Court affirmed the Ninth Circuit judgment, sustaining the challenged standard and resulting disposition. Rehnquist, White, Blackmun, and Souter joined O’Connor. The Court reserved nonsigning-party sanctions and the directories’ copyrightability. Affirmance did not resurrect every original sanctions rationale or impose the withdrawn firm-directed sanction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498 U.S. at 535 n.†, 551–554"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Kennedy would limit the rule’s reach and require subjective fault here",
+      "cue": "Preserve the dissent’s different joinders and factual objections.",
+      "paragraphs": [
+        "Justice Kennedy dissented, with Marshall and Stevens throughout and Scalia only in Parts I, III, and IV. He read certification with the specified attorney and unrepresented-party signatures, the history of regulating courtroom practitioners, and lawyer-focused Advisory Committee explanations. Evidentiary affidavits differed from papers asking judicial action, and he found corporate attribution inconsistent with Pavelic & LeFlore.",
+        "Part II, without Scalia, argued that objective duties on ordinary represented people intruded on substantive policy, access to courts in good faith, federalism, and litigation-cost allocation. Part III supplied narrower reasons: no initial attorney violation was established; Lambe’s declaration bore no attorney signature and was not necessarily corporate; sealing papers did not depend on the declaration’s truth. Kennedy would require subjective bad faith for a represented party and declined an unbriefed continuing-duty theory.",
+        "The later assigned Rule 11 history describes 1993 changes, including discretionary sanctions, a twenty-one-day motion safe harbor, law-firm responsibility subject to exceptional circumstances, and limits on monetary sanctions against represented parties for legal-contention violations. Those provisions remain distinct from this decision’s historical interpretation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "498 U.S. at 555–570 & dissent n.5; assigned later-rule discussion"
+        }
+      ]
+    }
+  ]
+}

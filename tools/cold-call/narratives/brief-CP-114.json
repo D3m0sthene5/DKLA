@@ -1,0 +1,179 @@
+{
+  "id": "brief-CP-114",
+  "briefId": "CP-114",
+  "title": "Edmonson v. Leesville Concrete Co., Inc.",
+  "course": "Civil Procedure",
+  "citation": "500 U.S. 614 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An injured construction worker challenged a private defendant’s removal of two Black prospective jurors. The trial judge refused to require explanations because the suit was civil, forcing the Supreme Court to decide whether this private use of courtroom authority implicated the jurors’ constitutional rights.",
+  "actors": [
+    {
+      "name": "Thaddeus Donald Edmonson",
+      "role": "Black construction worker bringing a negligence action and challenging jury selection."
+    },
+    {
+      "name": "Leesville Concrete Company, Inc.",
+      "role": "Private corporate defendant exercising the disputed peremptory strikes."
+    },
+    {
+      "name": "Excluded prospective jurors",
+      "role": "People whose equal-protection rights Edmonson asserted."
+    },
+    {
+      "name": "Justice Kennedy",
+      "role": "Author of the six-Justice majority opinion."
+    },
+    {
+      "name": "Justice O’Connor",
+      "role": "Dissenter joined by Rehnquist and Scalia; Scalia also wrote separately."
+    }
+  ],
+  "proceedings": "The trial court rejected the jury-selection objection and a jury awarded reduced negligence damages. A Fifth Circuit panel reversed, but the en banc court affirmed for lack of governmental action. The Supreme Court reversed and remanded for the initial discrimination inquiry.",
+  "limits": "The Court did not find purposeful discrimination, order an unconditional new trial, or change fault or damages. Governmental attribution concerned peremptory challenges, not every private litigation decision. Racial composition alone did not establish illegality or a right to jurors of a particular race.",
+  "briefSha256": "e81f7c93e247373a8f4337ffc03d42f22590146e2a7eda12ebf58b364ee903cb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-114"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A construction injury leads to a federal civil jury trial",
+      "cue": "What private dispute brought the parties to court?",
+      "paragraphs": [
+        "Thaddeus Donald Edmonson was injured at Fort Polk, Louisiana, a federal enclave. He alleged that a Leesville Concrete Company employee allowed a truck to roll backward and pin him against construction equipment. Edmonson sued the company for negligence in the Western District of Louisiana and invoked his Seventh Amendment right to a jury trial.",
+        "The Government was not a party. Its relevant role arose in organizing and selecting the jury that would decide this dispute between a worker and a private corporation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "616"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two peremptory strikes prompt an objection the judge declines to hear",
+      "cue": "What verdict followed the disputed selection?",
+      "paragraphs": [
+        "During voir dire, Leesville used two of its three statutorily authorized peremptory challenges to remove Black prospective jurors. A peremptory challenge allowed removal of an otherwise qualified candidate without showing a particular disqualifying ground.",
+        "Edmonson, who was Black, requested race-neutral explanations under Batson v. Kentucky, the decision prohibiting racial peremptory strikes in criminal prosecution. The trial judge understood Batson as limited to criminal proceedings and declined. The jury consisted of eleven white jurors and one Black juror.",
+        "That jury found for Edmonson and valued his injuries at $90,000, but assigned him eighty percent of the fault. His recovery was therefore $18,000. His objection was to the fairness and constitutional integrity of the selection process producing that reduced award, not a complete defense verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "616–617, 620–621"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Fifth Circuit changes course on rehearing",
+      "cue": "Which questions came before the Supreme Court?",
+      "paragraphs": [
+        "A divided Fifth Circuit panel reversed. It considered private litigants governmental actors when exercising peremptories and would have remanded to determine whether Edmonson made a prima facie discrimination showing.",
+        "The en banc court displaced that ruling and affirmed. It held that private civil litigants’ strikes were not governmental action and therefore escaped the constitutional restriction. The Supreme Court granted review to resolve conflicting circuit views.",
+        "Two legal prerequisites required separate answers: whether Leesville’s exercise of a peremptory challenge was attributable to government, and whether Edmonson could assert rights belonging directly to the excluded prospective jurors. The factual sufficiency of his discrimination showing would remain a further question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "617–620, 628–631"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority identifies a government-created privilege used with judicial assistance",
+      "cue": "Why did the private company’s strike meet the attribution test?",
+      "paragraphs": [
+        "Justice Kennedy wrote for Justices White, Marshall, Blackmun, Stevens, and Souter. Racial exclusion injured a prospective juror equally in civil and criminal cases. Because the case was federal, the applicable protection came from the equal-protection component of the Fifth Amendment’s Due Process Clause, though the familiar state-action framework guided attribution.",
+        "Constitutional limits ordinarily did not govern private choices. The objectionable nature of discrimination alone did not dispense with attributing it to government. Under Lugar v. Edmondson Oil Co., the majority asked whether the claimed deprivation arose from governmental authority and whether the private participant fairly counted as a government actor for this conduct.",
+        "The first requirement was met because peremptories operated only within the judicial selection system and existed by law. Section 1870 gave Leesville three challenges. Their long history did not make them constitutionally required.",
+        "Government participation also made a strike effective. Public officials located and summoned jurors, established qualifications and procedures, compelled attendance, and regulated questioning. The judge controlled voir dire and cause challenges, allocated peremptories among parties, and discharged the struck juror. The majority regarded that assistance as direct and indispensable, beyond merely providing a forum or generally available remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "618–624"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Selecting the jury is a delegated governmental function",
+      "cue": "How did the Court distinguish other private choices in litigation?",
+      "paragraphs": [
+        "A civil jury was a governmental decisionmaking body: it found facts, assessed credibility, and delivered verdicts capable of becoming enforceable judgments with preclusive effects. Government could not avoid constitutional limits on its composition by delegating part of selection to private parties. A party’s private motive did not change the public character of that power.",
+        "Polk County v. Dodson had treated a public defender as a private actor when representing an accused person because the professional function was independent of and adversarial to government. Here, by contrast, litigants and officials shared the institutional task of selecting the jury. Attribution remained confined to that function. Decisions whether to sue, whom to hire as counsel, and many discovery and trial choices could remain private.",
+        "The governmental setting also intensified the harm: people compelled to attend court were exposed to racial exclusion as a condition of public participation. That injured their dignity and confidence in adjudication. Location alone did not carry the analysis; it reinforced the judicial assistance and public-function considerations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "624–628"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Edmonson may assert the jurors’ rights in his own case",
+      "cue": "Why were separate suits by excluded jurors unnecessary?",
+      "paragraphs": [
+        "Third-party standing required more than governmental action. Edmonson suffered a cognizable injury because discriminatory selection cast doubt on the proceeding’s integrity. Voir dire created a sufficiently close relationship between litigants and potential jurors, which exclusion severed through the challenged classification. Prospective jurors also faced substantial practical obstacles to bringing their own separate suits.",
+        "The analysis did not assume that a juror would favor a litigant of the same race. It protected neutral selection and legitimate adjudication, not racial entitlement to a particular jury.",
+        "Having established those prerequisites, Edmonson still needed the ordinary initial showing under Batson. A court would consider all relevant circumstances, including a pattern of strikes, before requiring race-neutral explanations. The Supreme Court left that inquiry and its evidentiary procedures to the lower courts in the first instance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "628–631"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "O’Connor sees adversarial private choice rather than a government decision",
+      "cue": "Why did three Justices reject attribution?",
+      "paragraphs": [
+        "Justice O’Connor dissented, joined by Chief Justice Rehnquist and Justice Scalia. She considered peremptories a preserved sphere of private adversarial choice within a publicly administered trial. Summoning jurors, setting qualifications, and supervising questions occurred regardless of private peremptories. Those actions provided the setting without making government responsible for a lawyer’s motive. The judge’s discharge of the candidate was acquiescence rather than coercion or significant encouragement.",
+        "The public-function inquiry, she argued, concerned functions traditionally exclusive to government. The longstanding private role in peremptories defeated that description. Dodson’s treatment of adversarial representation controlled her analysis, and opposing counsel did not pursue the same ends as the Government. She condemned racial discrimination while insisting that its courtroom occurrence did not alone satisfy constitutional attribution.",
+        "Scalia joined her opinion and wrote separately about expected consequences: added jury-selection litigation, burdens on trial judges, limits on minority litigants’ own race-conscious strikes, and implications for criminal defendants’ challenges. Those were dissenting predictions, not additional holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "631–645"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The civil-case exemption falls, but discrimination remains to be proved",
+      "cue": "What did reversal require?",
+      "paragraphs": [
+        "On June 3, 1991, the Supreme Court reversed the en banc Fifth Circuit and remanded. A private civil litigant could not use peremptories to exclude jurors because of race, and Edmonson could assert their rights. The lower courts had to decide whether the circumstances established a prima facie case requiring Leesville’s neutral explanations.",
+        "The Court did not infer discrimination conclusively from the jury’s composition, order an unconditional new trial, reallocate fault, or increase the $18,000 recovery. It removed the categorical civil-case barrier that had prevented consideration of the objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "630–631"
+        }
+      ]
+    }
+  ]
+}

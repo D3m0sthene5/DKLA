@@ -1,0 +1,103 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-376",
+  "briefId": "CP-COMP-CB-CAP-376",
+  "title": "Pyle v. Selective Insurance Co. of America",
+  "course": "Civil Procedure",
+  "citation": "2016 WL 5661749 (W.D. Pa. September 30, 2016), No. 2:16-cv-335, Document 29",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employment plaintiff faces two discovery motions: one arrives before her response deadline, while the other addresses her refusal to help select email search terms.",
+  "actors": [
+    {
+      "name": "Pyle",
+      "role": "Employment-discrimination plaintiff whose work, benefits, termination and medical treatment were subjects of discovery."
+    },
+    {
+      "name": "Selective Insurance Company of America",
+      "role": "Defendant seeking medical materials and cooperation over electronic searches."
+    }
+  ],
+  "proceedings": [
+    "Selective moved to compel medical records and authorizations and separately to compel search-term cooperation.",
+    "The court denied the first motion as premature and required consultation and agreement on the second."
+  ],
+  "limits": "The order decides discovery, not employment liability. It fixes neither actual search terms nor a specific agreement deadline and grants no blanket exemption from electronic production.",
+  "briefSha256": "d77a0b532c03f3141c83b1dc1d62302c9c3ba8170b5523c6ba4c4d076ce14c96",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-376"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Medical records are requested but the response period remains open",
+      "cue": "What had happened before the motion to compel?",
+      "paragraphs": [
+        "Pyle brought an employment-discrimination action against Selective Insurance Company of America in the Western District of Pennsylvania. Discovery concerned her employment, disability benefits, termination and medical treatment. Her initial disclosures named three treating doctors; Selective learned of a fourth.",
+        "Selective requested medical records by letter on July 7, supplied authorizations on August 30 and served a formal document request on September 6. No records or executed releases had been produced when Selective moved to compel them, but the thirty-day response period had not expired. Pyle represented that she would supply both within the prescribed time."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 1–2; medical-discovery sequence"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A separate document request produces disagreement over email searches",
+      "cue": "What cooperation did Selective seek?",
+      "paragraphs": [
+        "Pyle’s July 28 request sought emails, correspondence, memoranda and other documents from Selective employees concerning her work and benefits. Selective produced some material and retrieved additional email archives. It asked her counsel to agree on search terms and renewed that request September 6.",
+        "Counsel refused, arguing that Pyle had not requested direct access to accounts needing a protocol and that Selective had shown neither supporting authority nor burden. Selective then asked the court to compel cooperation or alternatively excuse all electronically stored information production. Pyle opposed both discovery motions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 2–3; requested documents, refusal and alternative relief"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The judge distinguishes an unexpired deadline from a refusal to cooperate",
+      "cue": "Why did the two motions receive different treatment?",
+      "paragraphs": [
+        "Senior District Judge Terrence McVerry denied the medical motion as premature. Expected timely compliance was not yet a failure warranting an advance production order. Selective could return to court if Pyle failed to comply when the materials became due; the court did not approve permanent withholding or resolve a particular privilege objection.",
+        "The electronic-search refusal was different. Rule 26(f)(3)(C) required discussion of electronic disclosure, discovery and preservation, including production forms. Local Rule 26.2(C) specifically required efforts to agree on protocols such as search terms and dates. Prior discovery decisions, Romero quoting Trusz, reinforced practical agreement about terms, periods and relevant people. Counsel’s claim that no authority supported cooperation therefore failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 2–3; timing limit and conference obligations"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The final order requires agreement without managing each search detail",
+      "cue": "What did the court require, and what remained for counsel?",
+      "paragraphs": [
+        "On September 30, 2016, the court denied the medical motion and granted the electronic motion insofar as it required Pyle to confer and reach agreement on terms for the additional archives. It expected prompt resolution but set no specific agreement deadline. It did not excuse Selective from all electronic production.",
+        "The order prescribed no particular terms, assessed no completed search, required no predictive coding and did not declare every keyword match producible. It resolved a refusal to participate in methodology, leaving the parties to perform their discovery duties. No merits judgment, sanction, judicial footnote or separate writing accompanied it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Order 3–4; exact direction and limits"
+        }
+      ]
+    }
+  ]
+}

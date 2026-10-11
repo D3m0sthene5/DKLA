@@ -1,0 +1,148 @@
+{
+  "id": "brief-CP-101",
+  "briefId": "CP-101",
+  "title": "Upjohn Co. v. United States",
+  "course": "Civil Procedure",
+  "citation": "449 U.S. 383 (1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An internal investigation of foreign payments gathered confidential information from employees outside senior management. When tax investigators sought counsel’s files, the Supreme Court protected the communications without shielding the underlying events and required stronger protection for counsel’s mental work.",
+  "actors": [
+    {
+      "name": "Upjohn Company",
+      "role": "Pharmaceutical manufacturer resisting an investigative summons"
+    },
+    {
+      "name": "Gerard Thomas",
+      "role": "Vice president, secretary, and general counsel directing the inquiry"
+    },
+    {
+      "name": "R. T. Parfet Jr.",
+      "role": "Chairman authorizing employee questionnaires"
+    },
+    {
+      "name": "Internal Revenue Service",
+      "role": "Agency investigating tax consequences of foreign payments"
+    },
+    {
+      "name": "Justice Rehnquist and Chief Justice Burger",
+      "role": "Principal opinion author and separately concurring Justice"
+    }
+  ],
+  "proceedings": "The district court enforced the summons. The Sixth Circuit rejected waiver but limited corporate privilege to a management control group and excluded work-product protection from administrative summonses. The Supreme Court reversed and remanded on January 13, 1981.",
+  "limits": "The Court resolved federal privilege in these circumstances, not every corporate investigation or state-law dispute. It reserved former-employee communications and absolute immunity for mental-process work product, and decided no tax liability or legality of the payments.",
+  "briefSha256": "459b731fa499090ce48394272e5ea58cfc7f106945c0d6589caca40cc8eca091",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-101"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Accountants discovered payments and counsel investigated",
+      "cue": "Show why the communications sought legal advice.",
+      "paragraphs": [
+        "In January 1976, independent accountants auditing a foreign subsidiary of pharmaceutical manufacturer Upjohn discovered payments to or for foreign officials to obtain government business. Gerard Thomas, the company’s vice president, secretary, and general counsel, consulted outside lawyers and chairman R. T. Parfet Jr. They launched an internal legal investigation.",
+        "Counsel prepared a questionnaire sent under Parfet’s signature to foreign general and area managers. It identified Thomas as counsel, explained possible illegality, requested details, and required confidential replies to him. Thomas and outside counsel also interviewed employees. A worldwide policy stressed compliance, prohibited disguised bribes, and referred legal questions to Thomas, helping show the legal purpose even to interviewees who had not received questionnaires.",
+        "The inquiry concerned employees’ corporate duties. Many transactions were known to lower-ranking personnel rather than senior managers, and responses and notes remained confidential within investigating counsel. This was not merely routine accounting copied to a lawyer. Seven of eighty-six interviewees had already left the company, an issue the Court would expressly reserve."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "386–387, 394–395 & nn.3, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Voluntary disclosure led to a summons for counsel’s files",
+      "cue": "Trace enforcement and the two lower-court restrictions.",
+      "paragraphs": [
+        "On March 26, 1976, Upjohn voluntarily made a preliminary disclosure to the Securities and Exchange Commission and gave the Internal Revenue Service, or IRS, a copy. The IRS investigated and received lists of questionnaire recipients and interviewees. Its November 23 summons sought files concerning payments and accounting since January 1, 1971, including questionnaires and counsel’s interview notes. Upjohn invoked attorney-client privilege and work product. The IRS remained able to investigate directly and had interviewed about twenty-five listed employees.",
+        "The United States petitioned the Western District of Michigan to enforce the summons on August 31, 1977. The district court adopted a magistrate’s recommendation, including privilege waiver and sufficient governmental need to overcome work product.",
+        "The Sixth Circuit rejected waiver but restricted corporate privilege to the management group controlling corporate action in response to advice, remanding to identify qualifying interviewees. It also held work-product protection unavailable against administrative tax summonses. The Supreme Court reviewed both limitations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "387–389, 395–399"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The control-group test obstructed informed corporate advice",
+      "cue": "Explain the privilege holding and concrete safeguards.",
+      "paragraphs": [
+        "Justice Rehnquist applied Federal Rule of Evidence 501’s development of common-law privilege through reason and experience. Candor supports sound legal advice, which requires facts flowing to counsel as well as instructions flowing to decisionmakers. In a corporation, knowledgeable employees often cannot decide the legal response. Limiting confidential fact gathering to senior managers could keep counsel ignorant of the very acts generating exposure and discourage knowledgeable employees from answering. Those employees might also implement the resulting advice.",
+        "Here authorized lawyers acted professionally at management’s direction, asking about employment conduct for legal advice. The questionnaire and policy conveyed that purpose, and confidentiality was requested and maintained. Securities, tax, foreign-law, shareholder-duty, and possible litigation issues supported the legal character. Rank did not defeat protection, but the Court did not privilege every conversation merely because in-house counsel attended.",
+        "The control-group rule was also unpredictably applied. Still, Rule 501 allowed case-specific development, so the Court rejected that restriction without prescribing an exhaustive replacement formula. It protected these communications while leaving former employees’ status open. The corporate client’s privilege did not establish that counsel personally represented each employee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "389–397 & nn.3, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Privilege protected communications without concealing events",
+      "cue": "Explain the government’s continued access to facts.",
+      "paragraphs": [
+        "The Sixth Circuit worried about hiding corporate wrongdoing. The Supreme Court distinguished facts from confidential reports of facts. Investigators could ask an employee what payments were made, to whom, and why; telling a lawyer did not immunize those events. Compelling reproduction of the report to counsel or counsel’s record of it would instead disclose protected communications.",
+        "Upjohn had supplied witness lists, and the IRS had already interviewed employees. The convenience of obtaining counsel’s collected answers did not override privilege. Questionnaire answers and notes revealing covered employee communications were protected, not every item in the investigation file automatically."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "395–397"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Counsel’s analysis required separate work-product protection",
+      "cue": "Explain why ordinary need and hardship did not suffice.",
+      "paragraphs": [
+        "Thomas’s notes selected significant questions and answers, evaluated importance, connected information, and proposed further inquiry rather than merely transcribing speech. Work product therefore presented an additional question beyond communications privilege.",
+        "The tax-summons statute showed no congressional displacement of the established protection recognized in Hickman, the Supreme Court precedent protecting litigation preparation. Civil rules governed enforcement proceedings, and Rule 26(b)(3) incorporated safeguards. The government conceded the Sixth Circuit’s categorical exclusion was wrong.",
+        "Distant witnesses and Upjohn’s restrictions on questions it considered irrelevant might establish practical difficulty, but they did not adequately account for mental processes exposed by selection, wording, evaluation, and connections. Even factual memoranda could reveal counsel’s thinking. Rule 26(b)(3) separately required protection of impressions, conclusions, opinions, and theories when disclosure otherwise was ordered.",
+        "The magistrate’s substantial-need and undue-hardship analysis did not give that additional protection effect. The Court required a substantially stronger showing than the government made, while reserving whether mental-process material was absolutely protected. Remaining work-product questions returned for application of that instruction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "397–402 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Burger wanted a clearer minimum rule",
+      "cue": "State his proposal and the unanimous disposition.",
+      "paragraphs": [
+        "Chief Justice Burger joined Parts I and III and the judgment, agreeing on protection here and the work-product analysis. He separately objected to Part II’s refusal to give a clearer privilege standard. At minimum, he would protect current or former employees communicating at management’s direction with authorized counsel about employment conduct so counsel could determine whether it bound the corporation, assess legal consequences, or formulate a response. Such a minimum could coexist with open boundaries elsewhere.",
+        "Burger thought acknowledging the need for predictability without articulating a rule prolonged uncertainty. His inclusion of former employees was his proposal, not the Court’s decision of that reserved issue.",
+        "On January 13, 1981, the Supreme Court reversed the Sixth Circuit and remanded, with no dissent from disposition. It decided neither Upjohn’s tax liability nor whether the foreign payments were lawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "394 n.3, 402–404"
+        }
+      ]
+    }
+  ]
+}

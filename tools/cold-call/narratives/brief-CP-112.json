@@ -1,0 +1,127 @@
+{
+  "id": "brief-CP-112",
+  "briefId": "CP-112",
+  "title": "Markman v. Westview Instruments, Inc.",
+  "course": "Civil Procedure",
+  "citation": "517 U.S. 370 (1996)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The word “inventory” determined a patent’s reach, and the Supreme Court held that construing it belonged to the judge even when experts explained technical usage.",
+  "actors": [
+    {
+      "name": "Markman",
+      "role": "Owner of the dry-cleaning inventory-control patent"
+    },
+    {
+      "name": "Westview Instruments",
+      "role": "Supplier of the accused system"
+    },
+    {
+      "name": "Althon Enterprises",
+      "role": "Dry-cleaning operator using that system"
+    }
+  ],
+  "proceedings": [
+    "Jury: found infringement of patent claims 1 and 10.",
+    "District court: entered judgment as a matter of law for defendants after construing the patent.",
+    "Federal Circuit and Supreme Court: affirmed judicial responsibility for construction and the resulting defense judgment."
+  ],
+  "limits": [
+    "The 1996 holding allocates construction at trial. It does not resolve later appellate-review standards, prescribe a universal evidence hierarchy, or remove every infringement fact question from juries."
+  ],
+  "briefSha256": "ecc51b26ae31c0946d2631fa1f984f141fbdf8264c3753595427009334ccd183",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-112"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two dry-cleaning systems track different kinds of information",
+      "cue": "Introduce the patent and the disputed term.",
+      "paragraphs": [
+        "Markman owned a patent for a system monitoring the status, location, and movement of clothing through a dry cleaner. A keyboard and data processor generated transaction records and bar codes; optical detectors recorded garments’ progress. He sued Westview Instruments, the supplier of an accused system, and Althon Enterprises, a cleaner using it. The opinion collectively called them Westview.",
+        "Westview’s system also used a keyboard, processor, bar-coded tickets, and optical readers, but the defense said it tracked invoices, charges, and receivables rather than garments. The disputed patent word was “inventory.” Patent claims are the instrument’s provisions defining its protected scope, not causes of action in a complaint. Independent claim 1 described an inventory total and detection of improper additions and deletions. A Markman witness explained the terminology. Whether inventory required physical-clothing tracking could determine whether Westview’s system fell within the patent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517 U.S. at 373–375"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury’s infringement verdict gives way to the judge’s construction",
+      "cue": "Trace the allocation dispute through appeal.",
+      "paragraphs": [
+        "A jury in the Eastern District of Pennsylvania found infringement of claim 1 and dependent claim 10. The judge granted Westview’s deferred motion for judgment as a matter of law. One ground was his construction requiring physical clothing as well as cash inventory. Westview’s system could not track garments through cleaning or report their location and status, so it lacked that required capability.",
+        "Markman argued on appeal that the judge displaced the interpretation the jury presumably adopted. The Federal Circuit affirmed, assigning construction to the court and rejecting a Seventh Amendment objection. The Supreme Court reviewed who should perform that task, including technical terms addressed through testimony, rather than a dispute over ownership of competing patents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517 U.S. at 374–376 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The historical jury right does not allocate every subsidiary question",
+      "cue": "Explain the limited historical record and its closest analogy.",
+      "paragraphs": [
+        "Justice Souter’s unanimous opinion accepted that legal patent-infringement actions descended from suits tried to juries. The separate question was who construed claim language within such an action. Preserving a jury’s substantive role did not require giving it every interpretive step.",
+        "Modern claims acquired their statutory role in the nineteenth century, so there was no exact 1791 counterpart. The Court examined earlier patent specifications, which often raised novelty or whether a skilled person could reproduce the invention. Jury decisions on those matters did not establish jury construction of every word. Judges ordinarily construed written instruments elsewhere, and the more informative early patent cases showed judges construing specifications. The Court acknowledged the record’s limits rather than claimed an unbroken founding-era rule for modern claims.",
+        "Nineteenth-century statements suggesting technical terms could go to juries did not establish controlling founding practice. The Court reserved whether its treatment of patent terms of art should extend to other written instruments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517 U.S. at 376–384 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Precedent and the interpretive task favor judicial construction",
+      "cue": "Distinguish patent meaning from comparison of physical inventions.",
+      "paragraphs": [
+        "Winans v. Denmead, the earlier patent decision, separated judicial construction from jury determination of infringement. Markman relied on Bischoff v. Wethered and Tucker v. Spalding, where expert testimony assisted juries comparing inventions or identifying physical characteristics. Souter distinguished that use from giving the jury responsibility for the patent document’s meaning; those decisions preserved construction by the judge.",
+        "Experts could explain technical usage without deciding the institutional allocation. Judges experienced in legal documents could test a proposed trade meaning against the whole patent—its structure, specification, and claims. Conflicting experts might require credibility assessments, but the Court expected most to be embedded in internal coherence rather than turn solely on demeanor. That functional conclusion did not declare juries unable to evaluate technical evidence generally.",
+        "Uniformity reinforced it. A patent defined boundaries for its owner and for other inventors and businesses. Different constructions created uncertainty. Judicial interpretation allowed precedent and appellate supervision to promote consistency; issue preclusion alone did not bind every new independent defendant. The Court sought greater certainty without promising perfect uniformity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517 U.S. at 384–391"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The defense judgment remains because the judge could construe inventory",
+      "cue": "Finish with the limited holding and result.",
+      "paragraphs": [
+        "On April 23, 1996, the Court affirmed the Federal Circuit unanimously, with no separate opinion or nonparticipation reported. Patent construction, including technical claim terms, was exclusively for the court. History, analogy, precedent, institutional competence, and statutory policy supported that conclusion rather than an unexplained initial label of law.",
+        "The judgment for Westview remained. The Court did not restore the infringement verdict or order a jury to interpret inventory. It maintained the distinction between identifying the patent’s scope and determining infringement under that construction, without deciding every subsidiary factual issue or later standards of appellate review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517 U.S. at 376–391"
+        }
+      ]
+    }
+  ]
+}

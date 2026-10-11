@@ -1,0 +1,142 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-343",
+  "briefId": "CP-COMP-CB-CAP-343",
+  "title": "Amgen Inc. v. Connecticut Retirement Plans and Trust Funds",
+  "course": "Civil Procedure",
+  "citation": "568 U.S. 455 (2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Investors alleging Amgen’s public statements inflated its stock price did not have to prove materiality before class certification, because failure on that objective issue would defeat everyone’s claims together.",
+  "actors": [
+    {
+      "name": "Connecticut Retirement Plans and Trust Funds",
+      "role": "Amgen stock purchaser and proposed class representative"
+    },
+    {
+      "name": "Amgen Inc. and executives",
+      "role": "Securities-fraud defendants challenging certification"
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the six-Justice majority"
+    },
+    {
+      "name": "Justices Alito, Scalia, and Thomas",
+      "role": "Authors of concurrence and two dissents"
+    }
+  ],
+  "proceedings": "District court certified purchaser class; Ninth Circuit accepted Rule 23(f) appeal and affirmed; Supreme Court affirmed 6–3, holding materiality proof and the particular materiality rebuttal unnecessary at certification.",
+  "limits": "Materiality remained essential to the claim and the presumption. Efficiency was conceded and publicity uncontested. Basic was not reconsidered, and the ruling did not postpone every possible presumption rebuttal until trial.",
+  "briefSha256": "0eb980d4d76836c09c96501111f7f9ce97a6797f2c1d9e63eacee68395dbe9e5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-343"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The pension fund alleged public statements inflated Amgen’s stock",
+      "cue": "Introduce the fraud claim and why reliance mattered to class treatment.",
+      "paragraphs": [
+        "Connecticut Retirement Plans and Trust Funds purchased Amgen stock and sought to represent other purchasers under § 10(b) of the Securities Exchange Act and Securities and Exchange Commission Rule 10b-5. It alleged that Amgen and executives misstated or omitted information about two leading drugs’ safety, efficacy, and marketing, inflating the price until corrective disclosures caused losses. The Supreme Court did not adjudicate those allegations as fact.",
+        "Amgen traded on NASDAQ, conceded an efficient market in its answer, and did not contest that the challenged statements were public. Basic Inc. v. Levinson, the governing fraud-on-the-market precedent, permitted a rebuttable inference of reliance because an efficient market incorporated public material information into price. Investors relying on price integrity could use that inference without individually reading the statements. It was a method of proving reliance in individual as well as class cases, not elimination of other fraud elements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568 U.S. at 460–465, 470–471 n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts certified without first trying materiality",
+      "cue": "Frame the two issues presented on interlocutory review.",
+      "paragraphs": [
+        "The district court certified a Rule 23(b)(3) class of purchasers between the first alleged misrepresentation and last alleged corrective disclosure. Amgen argued that the fund had to prove materiality first and that the court should consider its evidence that public information already rendered the statements immaterial. The court rejected both certification arguments.",
+        "The Ninth Circuit permitted an interlocutory appeal under Rule 23(f) and affirmed. Compliance with Rule 23(a) was undisputed. The Supreme Court reviewed when materiality had to be proved and whether Amgen’s particular rebuttal evidence required consideration before certification, not whether fraud had ultimately occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 459, 464–465; Thomas dissent 491 n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority asked whether the issue would stay common even if plaintiffs lost",
+      "cue": "Explain why materiality differed from failed publicity or market efficiency.",
+      "paragraphs": [
+        "Justice Ginsburg’s opinion emphasized that certification selects a fair, efficient method for resolving a controversy rather than proving the class will win. Courts must rigorously apply Rule 23 and may examine merits bearing on its requirements, but cannot turn certification into an unrestricted preliminary merits trial. The question was whether proving materiality was necessary to decide predominance.",
+        "It was not. Materiality objectively asked what a reasonable investor would consider significant in the total mix of information, making it a common issue independent of particular investors’ subjective reactions. If the challenged statement was immaterial, every claimant would fail an indispensable element. Direct reliance could not save any member’s immateriality-based claim. Failure would therefore produce a common merits defeat, not many surviving individual claims.",
+        "By contrast, an inefficient market or nonpublic statement could defeat the presumption while leaving direct-reliance claims viable, potentially making individual inquiries significant. Trade and disclosure timing also affected class definition, typicality, and adequacy. Because efficiency and publicity were not contested here, Amgen’s economic objections did not provide a suitable basis to reconsider Basic."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 465–474 & nn.4–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Settlement pressure and efficiency did not create an extra certification hurdle",
+      "cue": "Place the ruling alongside congressional safeguards and Basic itself.",
+      "paragraphs": [
+        "Amgen warned that certification generated substantial settlement pressure. The majority acknowledged the concern but found no Rule 23 basis for this advance merits requirement. Other decisive elements, such as falsity or loss causation, likewise need not invariably be resolved at certification. Congress addressed securities abuses through the Private Securities Litigation Reform Act’s pleading rules, discovery stay, and protections and through the Securities Litigation Uniform Standards Act without adding this hurdle. Meritorious private actions also supplemented public enforcement.",
+        "A materiality minitrial could duplicate later proceedings, while denial of certification would not bind absent investors against another attempt. The requirement to decide certification at an early practicable time did not demand that additional trial.",
+        "The majority also rejected Justice Scalia’s reading that Basic independently required proof of all predicates at certification. Basic had left certification intact while remanding materiality for merits proceedings. Later adjustment was ordinary certification flexibility; elimination of formally conditional certification did not remove the authority to alter or amend certification before final judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 474–480 & nn.9–10, 482 n.11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Amgen’s agenda evidence addressed the same classwide merits issue",
+      "cue": "Define the rebuttal question the Court actually decided.",
+      "paragraphs": [
+        "An Amgen executive allegedly downplayed a Food and Drug Administration advisory meeting by saying it would not focus on an Amgen drug. Amgen offered a public agenda showing that the drug’s safety would be discussed. Its theory was that investors already had the truth, so the statement did not materially alter available information.",
+        "The Ninth Circuit called that a truth-on-the-market materiality defense, and Amgen did not dispute the characterization. Even conclusive immateriality would defeat all claims together without undermining predominance. This evidence therefore belonged at summary judgment or trial. The Court did not decide that every kind of evidence rebutting fraud on the market must await those stages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 480–482"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The separate writings disputed Basic’s certification role and future foundation",
+      "cue": "End with votes and the unchanged merits burden.",
+      "paragraphs": [
+        "Justice Alito joined Ginsburg along with Chief Justice Roberts, Breyer, Sotomayor, and Kagan. He separately emphasized that reconsideration of Basic was not requested and suggested newer economic evidence might justify it in an appropriate case. His concurrence did not qualify his vote for this holding.",
+        "Justice Scalia separately dissented and joined Thomas except Part I-B. He accepted that the majority’s Rule 23 logic could follow if Basic concerned only substantive liability, but read Basic’s certification question, materiality language, and adjustable order as independently governing certification. He distinguished Basic’s older pleading approach from later rigorous analysis and stressed settlement pressure.",
+        "Justice Thomas, joined throughout by Kennedy and except I-B by Scalia, required proof of all predicates before reliance became common. A later common merits loss could not retroactively justify an improperly certified class. His unjoined-by-Scalia Part I-B distinguished materiality as a common merits element from materiality as foundation for the common-reliance presumption. He traced the doctrine through Blackie, scholarship, the Sixth Circuit’s Basic decision, and its briefs. Although critical of Basic’s basis, he too recognized reconsideration was not presented.",
+        "On February 27, 2013, the Court affirmed six to three. Materiality remained essential to eventual liability and to the presumption, but proof before certification and this materiality rebuttal were unnecessary to establish predominance. No securities-fraud judgment was entered."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 482–502 & separate-opinion notes"
+        }
+      ]
+    }
+  ]
+}

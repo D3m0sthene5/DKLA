@@ -1,0 +1,159 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-345",
+  "briefId": "CP-COMP-CB-CAP-345",
+  "title": "Gratz v. Bollinger",
+  "course": "Civil Procedure",
+  "citation": "539 U.S. 244 (2003)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two rejected Michigan applicants challenge racial preferences in undergraduate admissions. One applicant’s stated intention to transfer becomes central to class representation, while the current point system faces a separate narrow-tailoring inquiry.",
+  "actors": [
+    {
+      "name": "Jennifer Gratz and Patrick Hamacher",
+      "role": "White Michigan applicants rejected for freshman admission."
+    },
+    {
+      "name": "University of Michigan Regents and officials",
+      "role": "Defendants administering undergraduate admissions."
+    },
+    {
+      "name": "College of Literature, Science, and the Arts",
+      "role": "University college whose admissions policies were challenged."
+    }
+  ],
+  "proceedings": [
+    "The district court certified a class represented by Hamacher, invalidated older policies, and upheld the 1999–2000 policies on summary judgment.",
+    "The Supreme Court granted review before Sixth Circuit judgment.",
+    "The Supreme Court reversed the liability judgment favoring the University and remanded, six to three."
+  ],
+  "limits": "This transforms the canonical historical 2003 brief without a fresh audit or claim that its admissions framework remains current law. Hamacher alleged an intention to transfer, not an actual transfer application. Shared diversity criteria did not mean identical freshman and transfer mechanisms. Damages, immunity rulings, and a separate transfer narrow-tailoring claim were outside the decision.",
+  "briefSha256": "f6e4b85197c0549bb3d7dc19829d13c367d2c4312183c8822aee62a8ec9faea4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-345"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Gratz and Hamacher apply under the University’s admissions policies",
+      "cue": "What happened to their applications?",
+      "paragraphs": [
+        "Jennifer Gratz and Patrick Hamacher were white Michigan residents qualified for consideration by the University of Michigan’s College of Literature, Science, and the Arts. Gratz sought freshman admission in 1995, was deferred and rejected, and attended the University’s Dearborn campus. Hamacher applied in 1997, was likewise deferred and rejected, and attended Michigan State.",
+        "They alleged less favorable treatment because of race. Hamacher also stated he would apply to transfer if the challenged discrimination ended, without establishing that he actually submitted a transfer application. Both eventually graduated elsewhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 250–251, 260–263 & n.15"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The admissions system changes while the lawsuit proceeds",
+      "cue": "How did the twenty-point preference operate?",
+      "paragraphs": [
+        "Earlier policies used tables and supplementary categories, and from 1995 through 1998 protected seats for several groups, including underrepresented minorities. In 1998, the University adopted a 150-point index. Academics supplied up to 110 points; residence, alumni ties, essays, accomplishments, and other traits supplied more. African-American, Hispanic, and Native-American applicants automatically received twenty points for underrepresented-group membership. A score of 100 generally guaranteed admission.",
+        "The racial award preceded any individualized assessment of a particular applicant’s contribution. In 1999, an Admissions Review Committee added a discretionary route: counselors could flag academically prepared applicants meeting index thresholds and showing unusual experience, hardship, talent, underrepresentation, or other specified traits, with exceptional referrals below thresholds. Only a portion received committee review; most decisions remained index-driven after racial points were added."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 253–257, 270–274, 277–280"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The class challenge reaches the Supreme Court before appellate judgment",
+      "cue": "What relief and rulings were actually under review?",
+      "paragraphs": [
+        "The applicants sued Regents and officials in October 1997 under equal protection, Title VI, and 42 U.S.C. § 1981. They requested damages, declarations, injunctions, and an opportunity to transfer. The district court certified a Rule 23(b)(2) class represented by Hamacher and separated liability from damages.",
+        "On cross-motions, it invalidated the 1995–1998 policies but upheld the 1999–2000 approach as pursuing educational diversity. The University did not challenge the adverse older-policy ruling. Before the Sixth Circuit entered judgment on appeals, the Supreme Court granted certiorari before judgment and considered this case alongside the distinct law-school case Grutter. Officials’ qualified immunity and the University’s Eleventh Amendment rulings were outside requested review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 251–252, 257–260 & n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds a sufficient personal stake and common class challenge",
+      "cue": "Why did different admission routes not defeat representation?",
+      "paragraphs": [
+        "Chief Justice Rehnquist treated injury as unequal competition, not proof that equal treatment guaranteed admission. Hamacher’s rejection and stated readiness to transfer supplied a stake at certification, and subsequent graduation did not erase the certified class controversy.",
+        "Though the University had challenged standing at certification, it had not then asserted materially different freshman and transfer concerns. Transfer guidelines cross-referenced freshman diversity criteria. Both treated underrepresented racial membership as a diversity contribution, although virtually all minimally qualified minority freshmen benefited decisively from points while minimally qualified minority transfers generally received outright admission. Those differences could affect tailoring but not the shared challenge to the justification.",
+        "General Telephone v. Falcon, a class-representation precedent, had separated an individual promotion claim based on intentional discrimination from hiring claims resting on different statistical proof. Merely accusing an employer of discrimination did not bridge that gap. Here the same express rationale supplied a common legal issue, and class treatment guarded against recurring individual mootness.",
+        "The majority acknowledged possible overlap between Article III standing and Rule 23 adequacy without choosing the proper doctrinal category because both were satisfied. It did not permit any injured person to attack every related practice or decide a separate tailoring claim against transfer admissions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 260–268 & nn.15–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The automatic racial award fails the historical narrow-tailoring test",
+      "cue": "Why was exceptional individualized review insufficient?",
+      "paragraphs": [
+        "The applicants argued diversity could never justify race-conscious admission. The Court rejected that categorical contention for the reasons given in Grutter, while requiring narrow tailoring under strict scrutiny.",
+        "The undergraduate mechanism awarded twenty points without individual assessment. It could not differentiate unusual experience between applicants of the same race or compare that experience meaningfully with exceptional artistic talent, which earned at most five points. Race was decisive for virtually every minimally qualified underrepresented applicant.",
+        "Committee review did not cure the general rule: it was exceptional, followed the point award, and was not shown to reach a meaningful share of applicants. Application volume and administrative difficulty did not relax strict scrutiny. The equal-protection violation also violated Title VI and § 1981 under the principles the Court applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 268–276 & nn.19–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The separate opinions divide over representation and the preference’s character",
+      "cue": "Why did Breyer join reversal while endorsing part of a dissent?",
+      "paragraphs": [
+        "Justice O’Connor contrasted the law school’s individualized process with the undergraduate system and found the committee record inadequate to offset mechanical presumptions. Justice Breyer joined her concurrence except its final sentence joining the Court’s opinion. Justice Thomas joined the Court while favoring a categorical ban on state racial discrimination and distinguishing equal treatment among minority groups from missing individual nonracial distinctions.",
+        "Breyer concurred in the judgment, accepting O’Connor’s assessment, but also joined Part I of Justice Ginsburg’s dissent distinguishing inclusion from exclusion. That broader perspective did not change his vote to reverse.",
+        "Justice Stevens, joined by Justice Souter, would dismiss for lack of jurisdiction. Neither plaintiff intended to reapply as a freshman, past rejection supported damages rather than an injunction against a different future system, and conditional transfer interest was speculative. Unnamed members could not create a representative’s initial stake. Later class mootness rules could preserve a properly begun action, but he found that premise absent.",
+        "Souter separately argued that even the majority’s theory supported only challenging diversity as a justification. Once Grutter rejected that attack, Hamacher had no stake in freshman tailoring. On the merits, Souter saw a plus-factor system rather than a quota: all competed for all places, other traits could outweigh race, and explicit numbers resembled implicit holistic weights. At minimum he wanted more committee factfinding. He would vacate for want of jurisdiction, but affirm if a proper plaintiff presented the merits. Ginsburg joined his merits Part II.",
+        "Ginsburg, joined by Souter, would affirm. Continuing inequalities justified distinguishing inclusive policies from oppressive exclusion while scrutinizing both carefully. No seats were reserved, admitted students were qualified, and undue foreclosure was unproved. Transparent race consideration was preferable to concealed substitutes; she did not advocate changing the Constitution to fit university conduct. Breyer joined only her Part I."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 276–305; all separate writings and notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The liability judgment is reversed without deciding admission or damages",
+      "cue": "What was the exact outcome?",
+      "paragraphs": [
+        "On June 23, 2003, the Court reversed the portion granting the University summary judgment on liability and remanded. Rehnquist’s opinion was joined by O’Connor, Scalia, Kennedy, and Thomas; Breyer’s concurrence in the judgment supplied the sixth vote. Stevens, Souter, and Ginsburg dissented.",
+        "The Court ordered neither plaintiff admitted, awarded no damages, and decided no separate transfer-policy tailoring challenge. The ruling addressed the historical undergraduate system and the representative’s connection to the common challenged rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "539 U.S. 244, 276"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "brief-CT-NEXT-CM-0093",
+  "briefId": "CT-NEXT-CM-0093",
+  "title": "Lewis v. Mobil Oil Corporation",
+  "course": "Contracts",
+  "citation": "438 F.2d 500 (8th Cir. 1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A sawmill owner relied on Mobil to select hydraulic oil and endured repeated equipment failures; the warranty verdict survived, but unsupported lost-profit amounts required a new trial limited to damages.",
+  "actors": [
+    {
+      "name": "Lewis",
+      "role": "Arkansas sawmill operator relying on a lubricant recommendation"
+    },
+    {
+      "name": "Mobil Oil Corporation",
+      "role": "Supplier defending warranty liability and damages"
+    },
+    {
+      "name": "Frank Rowe",
+      "role": "Mobil’s local dealer relaying the request and supplying oil"
+    },
+    {
+      "name": "Ted Klock",
+      "role": "Mobil engineer who later repeated the recommendation"
+    },
+    {
+      "name": "Edwards",
+      "role": "Lewis’s engineering expert on cavitation"
+    },
+    {
+      "name": "Judge Gibson",
+      "role": "Author for the Eighth Circuit panel"
+    }
+  ],
+  "proceedings": "Jury awarded $89,250; Eighth Circuit preserved liability but reversed and remanded for a damages-only new trial; February 16, 1971 memorandum denied both rehearing petitions and clarified excessiveness.",
+  "limits": "The assigned excerpt stops before causation, damages, and rehearing. The final excessiveness ruling did not depend solely on supposed post-use losses. The court reviewed engineering evidence favorably to the verdict rather than making new trial findings.",
+  "briefSha256": "3c6a4608f234d5899fef136acb8b4f3596d8752ec7c316a1eef6b1b1033192e2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0093"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Lewis asked Mobil to make the technical choice he could not make",
+      "cue": "Introduce the sawmill system and the recommendation.",
+      "paragraphs": [
+        "Lewis had operated an Arkansas sawmill since 1956. Seeking to remain competitive, he bought a functioning used hydraulic system in May 1963, stored it, and installed it in a new building in November 1964. A longtime Mobil customer, he asked local dealer Frank Rowe for the proper hydraulic fluid, identified the pump, and explained that he did not know its requirements. Rowe also did not know, so he relayed the request within Mobil and supplied its recommendation, Ambrex 810, a straight mineral oil without chemical additives. Mobil did not contest Rowe’s authority to act for it.",
+        "Within days the oil discolored, foamed, and heated. Repeated changes failed to cure the trouble. The system failed and was replaced in April 1965, with its initial cause undetermined. Lewis asked Rowe to verify the oil, but Mobil continued recommending Ambrex. Six Commercial-brand pumps failed over the next two years despite Lewis’s daily cleaning of the specified metal strainer. In April 1967 he installed a Tyrone pump with an additional disposable filter. Mobil engineer Ted Klock again recommended Ambrex, and that pump failed after three weeks."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full opinion, introductory facts and Part I"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Additive-containing oil accompanied successful operation, followed by a jury verdict",
+      "cue": "Preserve the later product change and disputed explanations.",
+      "paragraphs": [
+        "On May 9, 1967, Mobil and Tyrone representatives visited, flushed and cleaned the system, installed a new Tyrone pump, and recommended DTE-23 with Del Vac Special additives including defoamant. The system then worked satisfactorily through trial about two and a half years later. Lewis used the additive-containing Mobil oil only until July 25, 1967, then changed to Cities Service Pacemaker XD-15, which also contained antiwear, oxidation, and foam-control additives. Successful operation did not involve uninterrupted use of one Mobil product.",
+        "Lewis claimed a warranty of suitability for his particular system, breach through lack of additives, and resulting repair costs and lost profits. Mobil denied the warranty, attributed breakdowns to filtration and air entrainment, and challenged notice, mitigation, causation, and damages. A jury awarded $89,250, and Mobil appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full opinion, facts & n.1; Part I; damages discussion"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The buyer’s lack of technical knowledge supported rather than defeated the warranty",
+      "cue": "Apply the particular-purpose rule to the actual request.",
+      "paragraphs": [
+        "Judge Gibson’s Eighth Circuit opinion applied Arkansas’s Uniform Commercial Code § 2-315. The seller needed reason to know the buyer’s particular purpose and reliance on its skill or judgment. Mobil knew it was choosing oil for Lewis’s actual system and knew he depended on that choice. The circumstances could supply that knowledge without his communicating every detail; the court did not need to decide a separate merchantability theory.",
+        "Mobil argued that Lewis never requested additives and gave too little technical information. The court answered that selecting a suitable product was precisely the expertise he sought. If Mobil needed more information, it should have obtained it; the later inspection showed that was feasible. Allegedly abnormal filtration and air entrainment primarily concerned causation. Evidence of satisfactory operation for the prior owner and after cleaning and additive oil allowed the jury to reject an abnormal-system explanation. The ruling did not make every lubricant sale a fitness warranty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Part I; casebook pp. 617–619"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The competing engineering evidence permitted the jury’s causal finding",
+      "cue": "Explain the cavitation theory and why alternatives were not conclusive.",
+      "paragraphs": [
+        "Lewis’s qualified expert Edwards testified that inadequate additives permitted cavitation: air bubbles interrupted lubrication, metal met metal, and particles spread to cause further failures. Defoaming agents dispersed the bubbles. Other testimony and equipment evidence supported that account. Mobil’s new-oil tests did not conclusively explain used oil after chemical changes, and its comparison mill using inexpensive pipeline-drip oil was unhelpful because that oil contained additives.",
+        "Commercial pumps used the manufacturer-specified metal strainers; the later Tyrone model had the disposable filtration Mobil emphasized. Failure in a wholly new system weakened the claim that old pump debris necessarily caused every breakdown. Ordinary conditions, including packing glands and reservoir drainage during shutdowns, could admit air. Those points allowed a reasonable jury to accept the oil explanation without declaring that filtration, cleaning, and additives never interact. Liability therefore had sufficient evidentiary support."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Part II, “Breach of Warranty as the Cause of Plaintiff’s Damage”"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Notice and reasonable efforts did not bar consequential loss recovery",
+      "cue": "Separate recoverable categories from the still-disputed amount.",
+      "paragraphs": [
+        "The usual § 2-714 difference between goods as delivered and warranted did not adequately capture harm caused by unsuitable operating oil. Extra oil, repairs, and replacement expenses were recoverable incidental consequences; production profits required separate treatment under § 2-715.",
+        "Lewis’s suspicion did not establish knowledge that Ambrex was unsuitable. He repeatedly consulted Mobil and equipment representatives while Mobil kept recommending it. An independent expert might have helped, but reasonable mitigation did not invariably require one. The jury received a reasonable-diligence instruction. Section 2-712’s cover provision concerned nondelivery or a buyer able to reject known defects, rather than automatically governing continued use under uncertainty, while the general duty to avoid preventable loss still applied.",
+        "Repeated communications also supplied § 2-607 notice that the transaction was troublesome; Lewis need not list every legal objection or prove bad faith. Reasonable timing after actual or expected discovery belonged to the jury. Arkansas’s older tacit-agreement approach did not control Code consequential damages: § 2-715’s comments rejected requiring a conscious promise to insure losses. Mobil knew it supplied a productive sawmill, making lost output foreseeable. Customers, markets, and inability to supply close-tolerance bridge timbers supported some lost profits for this established business, subject to reasonable approximation rather than speculation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages discussion, archived reproduction lines 121–185"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The amount failed even after rehearing corrected the court’s first understanding",
+      "cue": "Preserve the clarification and exact damages-only remand.",
+      "paragraphs": [
+        "The January 7, 1971 opinion initially understood the lump verdict to include losses during thirty months of Ambrex use and later losses caused by capital shortages despite successful equipment operation. It rejected treating Mobil as Lewis’s source of business financing. Unable to separate permissible and impermissible sums, the court reversed for a new trial on damages only, leaving liability intact.",
+        "On rehearing, Lewis said his claimed $80,000 profits concerned only the thirty months of Ambrex. The court accepted that interpretation for analysis but still found excessiveness. About $9,250 in direct losses plus $80,000 in lost profits, added to roughly $12,000 actually earned during that period, implied annual profits near $37,000. The record did not support that level. Earlier annual results varied considerably; two post-change years produced about $41,000, or $20,500 per year. Extrapolating later results from claimed fifty-to-sixty-percent capacity to full capacity would indirectly shift financing limitations back to Mobil.",
+        "Actual prior and subsequent profits were guides, not exclusive measures. The damages factfinder should consider lumber prices, markets, capacity, efficiency, and periods relevant to the injury rather than mechanically use a four-year average. On February 16, both rehearing petitions were denied and the damages-only remand remained. Gibson wrote for Chief Judge Matthes, Judge Mehaffy, and himself without separate opinion. The final excessiveness ruling thus did not rest solely on an assumed separate category of post-use losses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages disposition, reproduction lines 184–185; rehearing memorandum, lines 186–205"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-COMP-CB-PFAU-2011",
+  "briefId": "CP-COMP-CB-PFAU-2011",
+  "title": "Matter of Pfau v. Forster & Garbus — 2011 account",
+  "course": "Civil Procedure",
+  "citation": "Supreme Court, Erie County, Index No.2166/11 (2011), assigned account",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A proceeding over allegedly false service affidavits produces a reported process for vacating suspect defaults, but the complete consent order and its conditions remain unavailable.",
+  "actors": [
+    {
+      "name": "New York’s Chief Administrative Judge",
+      "role": "Initiator of the special proceeding described in the assignment."
+    },
+    {
+      "name": "Debt-collection attorneys",
+      "role": "Respondents in the proceeding over alleged defects in default-judgment service."
+    },
+    {
+      "name": "Affected defendants",
+      "role": "Debtors potentially seeking vacatur and an opportunity to answer."
+    }
+  ],
+  "proceedings": [
+    "The assignment identifies a 2009 commencement and a later consent procedure cited under a 2011 index number.",
+    "The complete 2011 order has not been recovered; Porri and Lunghi provide distinct corroborating proceedings."
+  ],
+  "limits": "Source-limited account. The exact consent terms, signing judge, date and complete disposition remain unresolved. Separate 2009 requests and rulings in individual debt cases are not relief established by the unavailable 2011 order.",
+  "briefSha256": "750b9dac1f199a77b2761072fc1854b908b19363844254194e19bc4afaf7313c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-PFAU-2011"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Allegedly false service affidavits prompt a special proceeding",
+      "cue": "What problem did the litigation address?",
+      "paragraphs": [
+        "The assigned textbook account describes New York’s Chief Administrative Judge beginning a special proceeding against debt-collection attorneys over default judgments allegedly supported by false affidavits of service. It identifies a 2009 commencement.",
+        "The editors then describe settlement through a consent order, with a procedure for vacating illegally obtained defaults, and cite the 2011 Erie County index number 2166/11 for that procedure. The account does not reproduce the order or establish that every challenged judgment was invalid."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned account; CivPro printed 270"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A separate debtor’s case describes a consent-related form",
+      "cue": "What does Porri corroborate without supplying the entire Pfau order?",
+      "paragraphs": [
+        "In North Fork Bank v. Porri, decided February 24, 2011, Judge Hirsh described an affidavit and stipulation sent to defendants in cases involving service by American Legal Process. The form linked requested vacatur with renewed service, time to answer, limitations concessions and release of certain claims.",
+        "Porri changed proposed terms. Hirsh refused the proposed consent-based order and separately evaluated defective service and insufficient support for the default judgment. Those were rulings in Porri’s individual case. The opinion does not establish that its quoted form was the complete order under the Pfau 2011 index number."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Corroborating Porri judicial account; reproduced pp.*1–*8 and three notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Another filed opinion identifies the same proceeding",
+      "cue": "What remains distinct about that later defendant’s motion?",
+      "paragraphs": [
+        "A filed opinion in Legal Servicing, LLC v. Lunghi expressly referred to papers in the Pfau proceeding under index 2166/11. Its first page described a process server’s affidavits purporting to place him at different locations at the same time.",
+        "That passage corroborates the proceeding’s identity and service-related subject, but Lunghi involved another defendant’s motion to vacate in another court. It was not a reproduction of the Pfau consent order, and the available-source comparison here extends only to that identifying passage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Legal Servicing filed opinion, p.1; source limitation"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The available account establishes a remedial procedure, not debt merits",
+      "cue": "What result and conditions remain uncertain?",
+      "paragraphs": [
+        "The textbook reports a process for addressing suspect defaults through vacatur and a fresh opportunity to answer. That does not establish that the underlying debts did not exist. Effective service and a valid default procedure are distinct from the substantive merits of the debts.",
+        "The exact 2011 order, operative conditions, judicial authorship, reasons and relationship of all papers under the different index numbers remain unresolved. The eight requests in the separate July 2009 order to show cause cannot be counted as relief granted by the later consent disposition. Requests, consent terms and individual later rulings remain separate stages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned significance and unresolved judicial scope; printed 270"
+        }
+      ]
+    }
+  ]
+}

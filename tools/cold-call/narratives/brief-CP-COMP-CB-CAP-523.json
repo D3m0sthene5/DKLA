@@ -1,0 +1,88 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-523",
+  "briefId": "CP-COMP-CB-CAP-523",
+  "title": "New York Telephone Co. v. Maltbie",
+  "course": "Civil Procedure",
+  "citation": "291 U.S. 645 (1934)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A utility wins a complete injunction but dislikes accompanying valuation findings; its appeal is dismissed while those findings are expressly denied preclusive effect in future rate proceedings.",
+  "actors": [
+    {
+      "name": "New York Telephone Company",
+      "role": "Utility obtaining an unqualified injunction and then appealing accompanying determinations."
+    },
+    {
+      "name": "Public Service Commission",
+      "role": "Rate-setting body whose future legislative action and related proceedings were addressed by the preclusion limitation."
+    }
+  ],
+  "proceedings": [
+    "A specially constituted federal district court permanently enjoined the challenged rate orders.",
+    "The Supreme Court dismissed the company’s appeal from its favorable decree."
+  ],
+  "limits": "The short order supplies no valuation amounts or return percentages. Its future-rate limitation is specific; it does not erase the decree or resolve every possible appeal by a prevailing party. No separate opinion or numerical vote is reported.",
+  "briefSha256": "047c38c5c75ec8b627446e3b2f127ac7e7efd2a2001193306d839b7ba213871d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-523"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The company wins the injunction it requested",
+      "cue": "Which determinations nevertheless prompted an appeal?",
+      "paragraphs": [
+        "New York Telephone Company challenged public-utility rate orders in the Southern District of New York. A federal district court specially constituted under the then-applicable three-judge-court statute permanently enjoined enforcement as confiscatory. The injunction was unqualified, giving the company the relief it sought.",
+        "The decree also fixed the company’s property values for 1924, 1926 and 1928 and the allowed rate of return. The company appealed to challenge those portions despite winning the injunction. The short report gives no dollar valuations, particular return percentages or further evidentiary account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "District decree and appeal;291 U.S.645"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Supreme Court refuses an appeal aimed only at accompanying findings",
+      "cue": "What happened to the motion to dismiss?",
+      "paragraphs": [
+        "A motion to dismiss the company’s appeal was submitted on February 3, 1934. The Supreme Court held that having received an unqualified injunction against the rate orders, the company could not prosecute an appeal from its favorable decree merely to revise those valuation and return determinations.",
+        "On February 19, 1934, the Court granted the motion in a per curiam order. It dismissed the appeal rather than reversing the injunction or newly deciding that the challenged rates were lawful. No separate writing or numerical vote was reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appeal by prevailing company and dismissal;291 U.S.645"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court limits the future effect of the contested determinations",
+      "cue": "How did it address the company’s concern about later rate disputes?",
+      "paragraphs": [
+        "The Court expressly stated that the valuation and return portions of this decree would not operate as res judicata concerning later legislative action by the Public Service Commission fixing future rates or judicial proceedings involving those future rates.",
+        "The company therefore could not use this appeal to revise findings accompanying complete present relief, but those findings would not bind it in the specified later rate-setting disputes. The ruling did not erase the decree, reopen the original controversy or declare that all favorable judgments lack preclusive effect."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Specified future-rate preclusion limit;291 U.S.645"
+        }
+      ]
+    }
+  ]
+}

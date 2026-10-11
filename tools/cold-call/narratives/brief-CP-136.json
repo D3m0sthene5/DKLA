@@ -1,0 +1,103 @@
+{
+  "id": "brief-CP-136",
+  "briefId": "CP-136",
+  "title": "Rush v. City of Maple Heights",
+  "course": "Civil Procedure",
+  "citation": "167 Ohio St. 221, 147 N.E.2d 599 (1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A plaintiff wins property damages and then personal-injury damages from one accident, but claim preclusion defeats the second suit despite her favorable first negligence finding.",
+  "actors": [
+    {
+      "name": "Rush",
+      "role": "Motorcycle accident plaintiff who pursued property and bodily injuries in separate actions."
+    },
+    {
+      "name": "City of Maple Heights",
+      "role": "Defendant asserting that the two suits split one tort claim."
+    }
+  ],
+  "proceedings": [
+    "A $100 property-damage judgment and a later $12,000 personal-injury judgment were each affirmed below.",
+    "The Ohio Supreme Court reversed the second judgment and entered final judgment for the city."
+  ],
+  "limits": "The decision overruled paragraph four of Vasu’s syllabus while preserving the distinct insurer-assignment or subrogation setting. It ordered final judgment, not a new trial.",
+  "briefSha256": "ef2cfadc755c04e4f07df2a3a537c2a66ffd27d642ad025c680b61fb5859132f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-136"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "One accident produces two successive damage actions",
+      "cue": "How did the plaintiff try to use her first victory?",
+      "paragraphs": [
+        "Rush fell from a motorcycle in an accident attributed to negligent street maintenance by the City of Maple Heights. She first obtained a $100 municipal-court judgment for property damage, which was affirmed.",
+        "She then brought a separate personal-injury action arising from the same accident. Invoking the earlier negligence determination, she obtained a trial limited to damages and recovered $12,000; that judgment too was affirmed. The city argued that allowing separate property and personal-injury suits impermissibly divided one cause of action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned 1262; 167 Ohio St. 224, 235; background and dispositive objection"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An earlier insurance case appears to permit separate claims",
+      "cue": "Why did Vasu create difficulty?",
+      "paragraphs": [
+        "The earlier Ohio case Vasu v. Kohlers involved an insurer that paid automobile damage, took an assignment and lost its suit against the alleged tortfeasor. The insured later sought personal-injury damages. Vasu held that the insurer’s adverse judgment did not bar the insured and also declared in its syllabus that property and bodily injuries were distinct causes of action.",
+        "Later cases had not displaced that declaration. One, Mansker, applied preclusion to a controlling issue actually decided earlier even though another cause of action was asserted. Rush sought the favorable side of that distinction: preserve a second action while using the earlier negligence finding in it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "224–229; Vasu and subsequent issue-preclusion treatment"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority defines the claim by the wrongful act",
+      "cue": "Why did different injury evidence not create another cause of action?",
+      "paragraphs": [
+        "Justice Herbert’s majority adopted the prevailing rule elsewhere: one wrongful act supplies one cause of action, with personal and property injuries as different damage items. Requiring all available damages in one suit avoids repeated litigation, expense and delay. Distinct protected interests or different damage evidence did not multiply the underlying wrong under modern code pleading.",
+        "The majority distinguished Vasu’s actual insurance setting. An insurer’s separately acquired interest and suit raised a different problem from one plaintiff splitting personal recovery. Assignment and subrogation could permit an insurer to recover its paid portion or join the action, consistently with Ohio’s real-party-in-interest statute. Rush had no insurer, so deciding her case did not require eliminating that protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "230–235; single-wrong reasoning and insurance distinction"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court changes the syllabus rule over a stability-based dissent",
+      "cue": "What did the separate writings and final order say?",
+      "paragraphs": [
+        "On January 29, 1958, the court expressly overruled paragraph four of Vasu’s syllabus. Winning the first suit did not preserve omitted damages from the same claim. Claim preclusion barred Rush’s second action before favorable issue preclusion could assist her. The court reversed and entered final judgment for the city without reaching its other assignments of error.",
+        "Herbert, Chief Justice Weygandt and Justices Stewart, Taft, Matthias and Bell supported reversal. Stewart separately emphasized that Vasu’s two-claim discussion had been unnecessary to its result; displacing a necessary holding would trouble him more. Justice Zimmerman dissented, stressing the unanimous earlier guidance, announced less than thirteen years before, and the absence of compelling change warranting its abandonment. A quoted Lord Coleridge dissent belonged to the older English Brunsden case, not this court’s dissent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "235–237; exact judgment, concurrence and dissent"
+        }
+      ]
+    }
+  ]
+}

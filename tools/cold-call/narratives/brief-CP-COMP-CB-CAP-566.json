@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-566",
+  "briefId": "CP-COMP-CB-CAP-566",
+  "title": "Blonder-Tongue Laboratories, Inc. v. University of Illinois Foundation",
+  "course": "Civil Procedure",
+  "citation": "402 U.S. 313 (1971)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two courts disagreed about the same antenna patent, prompting reconsideration of whether a patent owner could repeatedly litigate validity against new defendants.",
+  "actors": [
+    {
+      "name": "University of Illinois Foundation",
+      "role": "Assignee of the Isbell antenna patent"
+    },
+    {
+      "name": "Blonder-Tongue Laboratories",
+      "role": "Manufacturer defending its customer and asserting preclusion"
+    },
+    {
+      "name": "Winegard",
+      "role": "Defendant in the earlier invalidity action"
+    },
+    {
+      "name": "JFD Electronics",
+      "role": "Foundation licensee and counterclaim defendant"
+    }
+  ],
+  "proceedings": [
+    "Iowa court invalidated Isbell; Eighth Circuit affirmed and certiorari was denied.",
+    "Illinois court found Isbell and Mayes valid; Seventh Circuit affirmed Isbell but reversed Mayes.",
+    "Supreme Court vacated and remanded for a fair-opportunity inquiry under a newly available estoppel defense."
+  ],
+  "limits": "The Court did not automatically apply preclusion, freshly adjudicate Isbell validity, or decide other patent/counterclaim issues. The holding concerns defensive use against a party that actually litigated, with full-and-fair-opportunity protection.",
+  "briefSha256": "b91233258de2ad859b8a6f1db470507b6e608e0474a3e446ece0e040c7366484",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-566"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A commercially useful antenna patent produces multiple suits",
+      "cue": "The Iowa case ends in invalidity",
+      "paragraphs": [
+        "The University of Illinois Foundation owned Dwight Isbell’s patent by assignment. Issued in October 1965, it covered frequency-independent unidirectional antennas for transmitting and receiving radio signals, with high-quality color-television reception an important market. The Foundation pursued several infringement actions.",
+        "In Iowa, antenna manufacturer Winegard defeated the patent on obviousness. Applying Graham v. John Deere, the district court found that a person ordinarily skilled in antenna design would combine three features suggested by prior art. The Eighth Circuit affirmed, and the Supreme Court denied certiorari. This was a litigated technical invalidity determination, not a default."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "402 U.S. at 314–315 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Illinois litigation reaches the opposite Isbell result",
+      "cue": "Existing precedent permits a fresh contest against another defendant",
+      "paragraphs": [
+        "In March 1966, before the Iowa ruling, the Foundation sued a Chicago customer of Blonder-Tongue over Isbell and a separate Mayes antenna patent. Blonder-Tongue voluntarily submitted to jurisdiction to defend its customer. It challenged validity and infringement, counterclaimed against the Foundation and licensee JFD Electronics for unfair competition and antitrust violations, and asserted its own antenna patent.",
+        "The Illinois district court found Isbell and Mayes valid and infringed, dismissed the unfair-competition and antitrust claims, and held claim 5 of Blonder-Tongue’s patent obvious. Although aware of Iowa, it followed Triplett v. Lowell, permitting another validity contest against a different defendant. The Seventh Circuit affirmed those Isbell, counterclaim, and claim-5 rulings, but reversed Mayes validity and the accompanying injunction and damages.",
+        "Blonder-Tongue sought Supreme Court review chiefly over the conflicting Isbell decisions. The Court added questions about retaining Triplett and binding the Foundation to the Winegard result. Both parties initially defended Triplett in briefing; the United States urged reconsideration with individualized fairness safeguards, and Blonder-Tongue accepted limited change at argument. The added question had been briefed and argued."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "402 U.S. at 315–321 & nn.4, 6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White relaxes mutuality for this defensive use",
+      "cue": "A prior opportunity matters more than the new opponent’s absence",
+      "paragraphs": [
+        "Justice White’s unanimous opinion overruled Triplett insofar as it foreclosed an estoppel defense by one accused of infringing a previously invalidated patent. Traditional mutuality required both later parties to have been bound by the earlier outcome. Its erosion reflected the unfair burden of giving a plaintiff repeated chances against unrelated defendants after a fair loss, while each defendant paid to duplicate a merits defense.",
+        "A person absent from the first case could not simply be bound by someone else’s defeat. That due-process concern, and offensive use by a new plaintiff, were distinct. Here the proposed defense ran against the patent owner that itself litigated and lost. It was issue preclusion on validity, not automatic claim preclusion of every dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "402 U.S. at 320–334, 349–350"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The patent owner may challenge the fairness of its first opportunity",
+      "cue": "Technical complexity does not require perpetual relitigation",
+      "paragraphs": [
+        "A final identical-issue loss alone was not sufficient. The owner could show procedural, evidentiary, or substantive deficiencies in its opportunity, including forum choice and incentives. For obviousness, a later court could examine whether the earlier tribunal purported to apply Graham, whether the opinions revealed a rare wholesale technical misunderstanding, or whether crucial evidence or witnesses were lost without the owner’s fault. Fairness and equity required judgment rather than a mechanical checklist.",
+        "Patent complexity created error risks but did not justify unrestricted new trials. The Court considered possible jury compromise while noting most patent cases were tried to judges. Meaningful inquiry into the prior opportunity protected against unfair outcomes without presuming every loss unreliable.",
+        "Patent policy reinforced the change. Lengthy expensive litigation could make royalties cheaper than defending even a previously invalidated patent. Repeated suits could suppress entry and shift costs to consumers. Lear’s elimination of licensee estoppel did not remove financial barriers or guarantee competitive pricing, and fee remedies arrived only after litigation. A pretrial estoppel defense could reduce that burden while preserving a fair-opportunity exception. Proposed broader legislation reproduced in the opinion was not enacted law and lacked this qualification; docket savings were additional rather than the sole justification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "402 U.S. at 330–349 & nn.26, 28–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The parties receive a chance to litigate the new defense",
+      "cue": "The Supreme Court does not itself apply it conclusively",
+      "paragraphs": [
+        "On May 3, 1971, the Court vacated the Seventh Circuit’s judgment and remanded the cause to the district court. Triplett had prevented Blonder-Tongue from pleading estoppel, so the Foundation had not yet litigated whether imposing it would be fair. Blonder-Tongue could amend, the respondents could amend and supplement evidence against estoppel, and Blonder-Tongue could supplement as necessary.",
+        "The Court expressed no view on the other issues and did not independently declare Isbell invalid in this suit. The remand made defensive nonmutual preclusion available with its fairness safeguard, rather than automatically ending every claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "402 U.S. at 350"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B2-092",
+  "briefId": "CT-ADDITIONAL-CM-B2-092",
+  "title": "Garlock Sealing Technologies, LLC v. NAK Sealing Technologies Corp.",
+  "course": "Contracts",
+  "citation": "148 Cal. App. 4th 937, 56 Cal. Rptr. 3d 177 (2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A hidden abrasive in brown industrial seals damaged customers’ gearboxes despite samples meeting the buyer’s specifications. The appellate court sustained merchantability and consequential damages, but required reconsideration of contractual indemnity without an erroneous negligence prerequisite.",
+  "actors": [
+    {
+      "name": "Garlock Sealing Technologies",
+      "role": "Seal designer and reseller seeking recovery from its supplier"
+    },
+    {
+      "name": "Mao Shun, later NAK Sealing Technologies",
+      "role": "Taiwan manufacturer formulating the seals"
+    },
+    {
+      "name": "Sunrise Trading",
+      "role": "American intermediary found to be the manufacturer’s actual agent"
+    },
+    {
+      "name": "Rockwell",
+      "role": "Gearbox manufacturer buying seals from Garlock"
+    },
+    {
+      "name": "Justice Cantil-Sakauye",
+      "role": "Author of the unanimous appellate opinion"
+    }
+  ],
+  "proceedings": "After settling Rockwell’s federal suit, Garlock prevailed in a California bench trial on warranty damages but lost indemnity. The Court of Appeal affirmed damages and agent defense-cost reimbursement, reversed only the indemnity denial, and remanded for equitable reconsideration.",
+  "limits": "The court did not itself award indemnity or decide its ultimate equities. It reserved alternative property-injury, ostensible-agency, discovery-accrual, and superseding-cause theories unnecessary to the result.",
+  "briefSha256": "aaae2fa38ec18cf9b68a6256d82d140144c520308fd98ff7baee849ec9603f94",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B2-092"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A standard material addressed earlier heat failures",
+      "cue": "Introduce the supply chain and what the buyer specified.",
+      "paragraphs": [
+        "Garlock Sealing Technologies designed and sold industrial seals. Taiwan manufacturer Mao Shun, later named NAK, supplied them through American intermediary Sunrise Trading. Garlock resold to Rockwell for gear reducers in conveyors. Earlier nitrile-rubber seals had suffered heat failures, and Rockwell wanted compatibility with synthetic lubricant. A radial lip seal of viton suited that ordinary application.",
+        "Garlock’s RA-37 specifications set physical properties and dimensions and requested the manufacturer’s standard brown viton compound, not a chemical formula or particular iron-oxide pigment. Mao Shun supplied seals and a material slab. Garlock tested dimensions, configuration, and standard ASTM physical properties, all satisfactory. It did not run an operating-gearbox test despite having facilities. Its engineer explained that such functional testing normally concerned a new configuration with a new compound, unlike this familiar design and standard material.",
+        "Mao Shun formulated the compound using pigment from a reputable source. Its purchasing specifications did not regulate particle size, and it neither sifted nor tested for it. Garlock had no reason to suspect abrasive contents."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "941–943 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hidden particles cut grooves in steel shafts",
+      "cue": "Trace discovery of the defect and the first lawsuit.",
+      "paragraphs": [
+        "The brown seals produced nearly thirty-percent leakage, sometimes after 150 hours. Investigators found unusual grooves in hardened steel. Even a gearbox submerged in oil developed grooves, ruling out insufficient lubrication. Specialized laboratory work identified hard, sharp magnetite particles in the brown pigment. Green viton replacements reduced leakage to one or two percent and eliminated grooves.",
+        "While the cause was investigated, brown seals remained in service because alternatives were unavailable and Rockwell still had to supply customers. Early reports of a few leaks did not establish knowledge of the pigment defect.",
+        "Rockwell sued Garlock federally in August 2001. Garlock could not bring Mao Shun into that South Carolina case for lack of personal jurisdiction. After discovery and expert exchanges, it settled through $2.2 million cash, $150,000 in refunds and discounts, and potential further discounts of $530,000, a stated $2.88 million package."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "944–947"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Garlock recovered warranty damages but initially lost indemnity",
+      "cue": "Identify the judgment both parties appealed.",
+      "paragraphs": [
+        "Garlock sued Mao Shun and Sunrise in October 2002. A bench trial yielded $1,870,424 in lost profits and consequential and incidental damages, plus interest and costs, against Mao Shun. The trial court denied Garlock’s indemnity claim, found Sunrise the manufacturer’s agent, ordered Garlock to take nothing from Sunrise, and required Mao Shun to reimburse Sunrise’s defense costs, expenses, and fees. Garlock and Mao Shun both appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "946–947"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Specifications and inspection did not eliminate this warranty",
+      "cue": "Explain the cumulative warranties and latent-defect findings.",
+      "paragraphs": [
+        "Justice Cantil-Sakauye rejected the claim that conformity to buyer specifications displaced merchantability. The trial court had expressly identified a sample warranty, not labeled RA-37 itself a warranty. Even assuming another express warranty, California Uniform Commercial Code section 2317 made reasonably consistent warranties cumulative. Garlock chose dimensions and standard material while leaving formulation to Mao Shun; it did not knowingly prescribe a defective recipe. A case involving buyer-specified chemical composition of wire therefore differed. The conclusion concerned a standard component with ingredients and potential flaws unknown to the buyer, not every specification.",
+        "Section 2316(3)(b) excluded implied warranty only for defects an examination ought to reveal in the circumstances. Abrasiveness was found latent under applicable testing practice. Mao Shun styled the challenge as law but actually attacked a factual finding. Its selective, incomplete evidence presentation forfeited substantial-evidence review and failed on the merits. Standard tests, a reasonable explanation for omitting functional tests, and the later extensive investigation supported the finding. Later-learned practices and the label custom-manufactured did not establish a new compound or design requiring more testing beforehand.",
+        "Merchantability was breached too. Rockwell used the seals under ordinary operating conditions, despite their specific gearbox destination. Abrading shafts and prematurely losing oil defeated a seal’s ordinary purpose. High failures, laboratory results, and successful replacements supported that finding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "948–954 & nn.6–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Foreseeable machinery damage justified consequential recovery",
+      "cue": "Explain the amount and remaining objections.",
+      "paragraphs": [
+        "Replacement seals did not repair damaged gear reducers. Under section 2715(2)(a), Mao Shun needed reason at contracting to know requirements and potential loss, not foresight of the precise hidden flaw. An experienced manufacturer could anticipate shaft damage and replacement from abrasive seals. A roughly one-dollar seal damaging a four-hundred-dollar gearbox was not unforeseeable, and Garlock’s extra promises to Rockwell did not break responsibility because merchantability alone supported its liability. The alternative property-injury and superseding-cause theories were reserved.",
+        "The court sustained $1,678,267 in consequential damages within the total. Accounting evidence identified sufficiently proved attributable Rockwell losses, applying a 73.79-percent share to $2,274,383 in valued actual settlement payments, including $74,383 in discounts. It did not simply pass through the nominal $2.88 million package.",
+        "Mao Shun failed to link earlier purchases to particular damages, defeating its four-year limitation objection without decision of Garlock’s discovery-accrual alternative. Continued use without replacement material supported no mitigation reduction on this record. A statistical-sampling challenge first raised in reply was untimely without good explanation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "955–961 & nn.12–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Sunrise’s actual agency survived the appellate challenge",
+      "cue": "Describe the relationship rather than relying on transaction labels.",
+      "paragraphs": [
+        "A 1981 agreement made Sunrise Mao Shun’s representative to locate buyers and facilitate communication while leaving product quality to the manufacturer. Changes in 1986 to shipment and compensation accommodated freight, customs, and efficiency without necessarily changing that agency. Sunrise paid after receiving Garlock’s payment and referred warranty issues back to Mao Shun. Its own order forms and markup did not outweigh evidence of continued representation.",
+        "The relationship’s facts, including whose benefit was served, controlled whether Sunrise represented the manufacturer or bought independently. Mao Shun’s selective summary again forfeited the challenge, which also failed on the record. Actual agency sufficed, so the court reserved ostensible agency and sustained reimbursement of Sunrise’s defense expenses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "962–967 & n.14"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Indemnity did not require proof of negligent conduct",
+      "cue": "State the narrow reversal and remaining equitable task.",
+      "paragraphs": [
+        "The trial court had denied Garlock indemnity because it failed to prove Mao Shun negligently breached its duties. The appellate court explained that past cases involving negligence did not make it indispensable. Implied contractual indemnity arose from contractual responsibilities and breach foreseeably causing third-party loss, allocated according to contractual equities. Breach of merchantability could supply that basis without unreasonable care.",
+        "Garlock’s settlement reduced potential exposure to Rockwell, which could not recover twice, but the ultimate allocation or denial remained for the trial court. The Court of Appeal reversed only the indemnity denial and remanded for reconsideration, expressly declining to award it.",
+        "Acting Presiding Justice Raye and Justice Butz joined Cantil-Sakauye. The March 21, 2007 decision, modified when rehearing was denied April 17, otherwise affirmed the warranty damages and agent reimbursement. No separate opinion appeared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "937, 967–975 & nn.15–17"
+        }
+      ]
+    }
+  ]
+}

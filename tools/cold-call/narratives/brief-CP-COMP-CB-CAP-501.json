@@ -1,0 +1,157 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-501",
+  "briefId": "CP-COMP-CB-CAP-501",
+  "title": "Brown Shoe Co., Inc. v. United States",
+  "course": "Civil Procedure",
+  "citation": "370 U.S. 294 (1962)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Brown Shoe acquires a major retail customer of independent manufacturers while the government seeks to stop the merger. An unconditional divestiture decree reaches the Supreme Court before its implementation plan, raising both appellate finality and the merger’s competitive effects.",
+  "actors": [
+    {
+      "name": "Brown Shoe Company",
+      "role": "Integrated shoe manufacturer and retailer acquiring Kinney."
+    },
+    {
+      "name": "G.R. Kinney Company",
+      "role": "National retailer and some-time manufacturer with about 400 stores by trial."
+    },
+    {
+      "name": "United States",
+      "role": "Government plaintiff challenging the acquisition under Clayton Act § 7."
+    }
+  ],
+  "proceedings": [
+    "The district court denied preliminary relief, allowed the merger subject to preservation terms, and later ordered complete divestiture with a plan still to be submitted.",
+    "The Supreme Court accepted direct appellate jurisdiction and affirmed; Harlan dissented on jurisdiction but agreed with affirmance on the merits."
+  ],
+  "limits": "This account transforms the canonical historical brief without a fresh opinion audit or current antitrust/appellate-law certification. It covers the full opinion rather than only the assigned finality account. The 1974 statutory change and corrected Harlan pinpoint come from the canonical source comparison, not from the 1962 holding. No implementation plan was approved by the Supreme Court.",
+  "briefSha256": "429d7002d2a8c065f66b79e5283f2c5852ed3ca77001ac6b6833c9464164ebe6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-501"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An integrated shoe producer acquires a nationwide retailer",
+      "cue": "Why did independent manufacturers have a stake?",
+      "paragraphs": [
+        "Brown Shoe was the country’s third-largest shoe seller by dollar volume and fourth-largest manufacturer, producing about four percent of domestic shoes. Its retail system included company stores, franchises, and outlets through its Wohl subsidiary. Kinney had about 400 retail stores by trial and manufactured some shoes, but bought substantially from independent producers. Before merger, it supplied about twenty percent of its own needs and bought none from Brown.",
+        "In November 1955, the United States sued under § 7 of the Clayton Act, as amended in 1950, to prevent Brown’s stock-exchange acquisition. The statute addressed acquisitions whose effect might substantially lessen competition or tend to create monopoly. The district court denied preliminary relief, and the merger proceeded May 1, 1956, under an agreement preserving separate books and Kinney’s asset identity. By 1957, Brown supplied 7.9 percent of Kinney’s purchases."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 296–304, 331–334"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court orders complete divestiture but leaves its plan open",
+      "cue": "Which parts of the case remained contested?",
+      "paragraphs": [
+        "The government attacked horizontal combinations in manufacturing and retailing and vertical integration of manufacturing with retail outlets. The district court rejected the manufacturing-competition theory, and the government did not appeal it. It found unlawful threats from vertical foreclosure and greater retail concentration, permanently prohibited Brown’s interest in Kinney, and ordered full divestiture. Brown had ninety days to submit an implementation plan.",
+        "Brown appealed before that plan existed. It argued that its generally medium-priced shoes and Kinney’s lower-priced goods occupied different markets, that local areas were too narrow, and that modest shares in a vigorous national industry did not show the required threat. Both sides wanted immediate Supreme Court review, but their agreement could not confer jurisdiction.",
+        "The Expediting Act then allowed direct Supreme Court appeal from final district-court judgments in government civil antitrust suits, without a general interlocutory route to the courts of appeals. The Court therefore had to determine whether this decree was final."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 304–308, 326–328, 335–342"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds a final basic obligation, while Harlan sees unfinished relief",
+      "cue": "Why did the outstanding plan not defeat jurisdiction for six Justices?",
+      "paragraphs": [
+        "Chief Justice Warren applied finality practically while acknowledging the policy against piecemeal appeals. The district court had resolved the entire complaint and the government’s requested substantive relief: Brown must divest all Kinney interests. Its current objections concerned condemnation of the merger, not whether complete divestiture would follow if unlawful. The remaining plan was subordinate implementation, and deciding legality now need not be repeated later.",
+        "Delay could also impair implementation. Negotiations with buyers and financial institutions depended on changing markets and were harder while the duty itself remained uncertain. A plan might become obsolete during deferred appellate review. Earlier comparable antitrust appeals, though not conclusive because jurisdiction had not been discussed, supplied consistent supporting practice.",
+        "Justice Harlan dissented on jurisdiction. The transfer method and relief’s effectiveness could determine substantial rights and generate another appeal; they were not merely execution of a fully specified decree. The statute called for one appeal after adjudication was complete. Neither collateral-order analogies nor exceptional execution orders fit, and Brown had already been allowed to merge rather than suffering irreparable harm from waiting. Undiscussed jurisdiction in earlier cases and administrative convenience could not rewrite the statute.",
+        "Harlan thought direct Supreme Court review of enormous trial records inefficient and favored legislation assigning initial review to courts of appeals, with qualifying injunction appeals available there. That was a reason for congressional amendment, not judicial departure from existing law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 306–311, 357–365"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Section 7 addresses probable competitive deterioration before monopoly",
+      "cue": "How did the Court define the vertical markets?",
+      "paragraphs": [
+        "Having accepted jurisdiction, the Court read the 1950 amendments to reach anticompetitive tendencies in their incipiency, including vertical acquisitions. The standard was reasonable probability in the industry’s setting, neither certain future monopoly nor remote possibility. Legislative history favored decentralized markets and viable independent firms while allowing combinations that helped small firms compete or preserved failing businesses. No percentage mechanically decided every merger.",
+        "For vertical analysis, men’s, women’s, and children’s shoes were relevant product lines within a national geographic market. Practical indicators such as uses, customers, price, facilities, and industry recognition could establish submarkets. Brown’s and Kinney’s price differences did not erase competition; tiny price distinctions could not arbitrarily fragment competing goods. Finer children’s-age subdivisions would not materially change the record’s comparison.",
+        "A manufacturer’s acquisition of outlets could foreclose rivals, especially if those outlets shifted purchasing toward the acquirer. Foreclosed share mattered alongside purpose, permanence, history, and integration trends. Brown’s past acquisitions, efforts to direct outlets to its shoes, Kinney’s significance to independent suppliers, and emerging substitution supported threatened foreclosure. No sufficient competitive, economic, or social advantage offset that threat. Existing competition did not immunize acceleration of a harmful trend."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 311–334"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Local retail evidence supports an independent competition ground",
+      "cue": "Why were national shares insufficient to answer that question?",
+      "paragraphs": [
+        "The Court also upheld retail markets covering cities of at least 10,000 residents and immediately contiguous areas where both companies operated. Boundaries reflected realistic shopping, including downtown-suburban movement, rather than political lines alone. Brown’s substantial franchise controls, including termination on thirty days’ notice, justified treating franchise stores as part of its network.",
+        "Local evidence and tables supported findings beyond cities represented by particular witnesses. The Court acknowledged imperfect conversion of pair sales into dollars and imperfect boundaries, but found the statistics adequate to describe structure. Its appendices compared women’s, children’s, and men’s markets and alternative geographic measures. In Dodge City, for example, combined shares were 57.7 percent of women’s shoes and 49 percent of children’s shoes, illustrating why small national percentages did not resolve local harm.",
+        "Injury to an individual competitor alone did not establish illegality. Still, Congress valued competition maintained through viable independent local businesses even where integrated chains offered efficiencies. Internal growth could add capacity and opportunities; absorbing an existing seller or buyer eliminated an independent choice. The government had proved the statutory probability in the relevant markets."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 335–346 & nn.66, 69, 72; Appendices A–D, 347–354"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Clark and Harlan support affirmance through narrower merits views",
+      "cue": "What did the judgment leave for implementation?",
+      "paragraphs": [
+        "Justice Clark accepted jurisdiction but criticized years of supposedly expedited procedure. He preferred a single national ordinary-shoe market over product subdivisions and local retail analysis. Nevertheless, Brown’s integration history, Kinney’s importance, and probable displacement of independent producers justified affirmance. An alternative monopoly theory was unnecessary once the competition ground sufficed.",
+        "Harlan, despite his jurisdictional dissent, also found vertical evidence sufficient. Kinney’s small share of all national retailing understated its importance to suppliers competing for its business. Brown’s integration intent and likely effects provided a sound basis without endorsing horizontal analysis or broad industry conclusions. He cautioned against arbitrary thresholds and outcome-driven market definitions; statistics with differing bases and declining shares for some major producers did not establish the claimed oligopolistic trend.",
+        "On June 25, 1962, the Court affirmed complete divestiture and the prohibition on continuing interests without devising or approving a plan. Six participating Justices accepted jurisdiction; all seven supported merits affirmance, though Harlan did not join the majority’s merits reasoning. Justices Frankfurter and White did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "370 U.S. 346, 355–374; Clark starred note and Harlan n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Congress later changes the appellate route",
+      "cue": "What historical development followed the finality dispute?",
+      "paragraphs": [
+        "In 1974, Congress amended the Expediting Act to provide court-of-appeals review while retaining a specified direct-review route for matters of general public importance, with a transition rule. That later change was not part of Brown Shoe’s holding. The decision itself concerned an unconditional liability and basic-remedy determination with implementation outstanding; it did not authorize immediate review whenever delay seemed inconvenient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Pub. L. 93-528 §§ 5, 7, 88 Stat. 1709; canonical brief’s later-history comparison"
+        }
+      ]
+    }
+  ]
+}

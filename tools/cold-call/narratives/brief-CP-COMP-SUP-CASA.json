@@ -1,0 +1,207 @@
+{
+  "id": "brief-CP-COMP-SUP-CASA",
+  "briefId": "CP-COMP-SUP-CASA",
+  "title": "Trump v. CASA, Inc.",
+  "course": "Civil Procedure",
+  "citation": "606 U.S. 831 (2025)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Three courts blocked a federal birthright-citizenship policy for everyone it would affect. The Government asked the Supreme Court to limit who those injunctions could protect, and the Court partially stayed the orders without deciding whether the citizenship policy itself was lawful.",
+  "actors": [
+    {
+      "name": "Federal Government",
+      "role": "Applicant seeking partial stays of three injunctions against Executive Order 14160."
+    },
+    {
+      "name": "Individual and organizational plaintiffs, including CASA, Inc.",
+      "role": "Challengers to the citizenship policy in the consolidated applications."
+    },
+    {
+      "name": "State plaintiffs",
+      "role": "Challengers asserting effects on benefits and public administration."
+    },
+    {
+      "name": "Justice Barrett",
+      "role": "Author of the six-Justice majority."
+    },
+    {
+      "name": "Justices Sotomayor and Jackson",
+      "role": "Authors of separate dissents; Kagan joined Sotomayor, as did Jackson."
+    }
+  ],
+  "proceedings": "District courts in Maryland, Washington, and Massachusetts entered preliminary injunctions protecting all affected people; the Fourth, Ninth, and First Circuits declined stays. The Supreme Court granted partial stays only for relief exceeding complete relief to plaintiffs with standing and directed prompt tailoring.",
+  "limits": "The 2025 decision concerned interim remedial authority, not the citizenship policy’s merits or later implementation. Article III limits on authorized universal injunctions, certain organizational and state standing theories, and universal vacatur under APA §706(2) were expressly reserved. The separate opinions’ broader views are attributed.",
+  "briefSha256": "84d0b66e5e0db8e38707f5ff95e3782512f1edd3d5a666becd2b0678608b246b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-SUP-CASA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A citizenship directive produces three suits and broad preliminary orders",
+      "cue": "What did the policy and the first courts do?",
+      "paragraphs": [
+        "Executive Order 14160 directed federal officials not to issue or accept citizenship documents for certain children born in the United States. It covered children whose mothers were unlawfully present or lawfully present only temporarily when their fathers were neither citizens nor lawful permanent residents. The policy would apply to covered births after its prospective implementation date.",
+        "Individuals, organizations, and States brought three suits in Maryland, Washington, and Massachusetts. Each district court found the order likely contrary to the Fourteenth Amendment’s Citizenship Clause and §201 of the Nationality Act of 1940, codified at 8 U.S.C. §1401. Each entered a preliminary injunction protecting everyone subject to the policy. The Fourth, Ninth, and First Circuits declined to stay those orders.",
+        "The Government sought Supreme Court relief only from the injunctions’ breadth. The legality of the citizenship policy was not the question accepted for decision. The district courts’ merits assessments remained part of the procedural history, not a Supreme Court merits judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "837–839 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court asks who may receive protection, not simply where an order operates",
+      "cue": "What statutory power did the majority examine?",
+      "paragraphs": [
+        "Justice Barrett wrote for Chief Justice Roberts and Justices Thomas, Alito, Gorsuch, and Kavanaugh. The majority distinguished universal injunctions, which protect nonparties, from nationwide injunctions, which describe geographic reach. An order protecting identified parties could validly operate throughout the country.",
+        "The question was whether the Judiciary Act of 1789’s general grant of equitable authority allowed relief beyond what was necessary to afford complete relief to each plaintiff with standing. Under Grupo Mexicano, the precedent defining that grant by historical equitable remedies, the relevant forms of relief were those traditionally administered by England’s Court of Chancery at the founding. The Government was likely to succeed in showing that the challenged universal relief exceeded that authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "837–838 n.1, 839–842"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds no adequate historical analogue for universal relief",
+      "cue": "How did it distinguish the authorities offered for broader power?",
+      "paragraphs": [
+        "Chancery ordinarily resolved the rights of parties before it. The majority found no sufficient founding-era counterpart to an injunction protecting everyone potentially affected by executive action regardless of party status. Early American decisions, including Scott, Perkins, Frothingham, and Doran, reinforced its party-oriented understanding.",
+        "The historical absence mattered even though a court’s failure to reject universal relief was not itself a holding denying power. Scott was illustrative rather than independently decisive. The majority read Smyth’s actual decree as protecting the railroad parties, and found later examples involving Lewis, Pierce, Barnette, and Wirtz inadequate to supply the necessary historical analogue. Ex parte Young’s officer relief followed historical antisuit principles rather than a free-ranging authority to invent remedies.",
+        "Bills of peace, the historic representative proceedings invoked by the plaintiffs, concerned cohesive groups whose members could be bound even by an adverse outcome. Universal injunctions could benefit nonparties who would not be bound when the plaintiff lost. Modern Federal Rule of Civil Procedure 23 preserved representative safeguards through numerosity, commonality, typicality, and adequacy. Universal relief could not serve as a substitute for satisfying them; properly certified classes remained a route to nationwide protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "841–850 & nn.6–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Complete relief can have wider effects without becoming unlimited relief",
+      "cue": "How did the individual and state plaintiffs differ?",
+      "paragraphs": [
+        "The majority treated complete relief as a ceiling: enough to remedy the plaintiffs’ injuries, not the maximum they requested. Nonparties could receive incidental benefits, and an indivisible injury could require an order with broad practical effects, as some nuisance or districting examples illustrated.",
+        "Protecting the pregnant individual plaintiffs’ children would give those plaintiffs complete relief. Adding unrelated families did not supply something further necessary for them. The States presented a harder question. They described effects on benefit programs, administration, and children moving across state lines. The lower courts would decide whether narrower orders could protect each State fully. The Supreme Court did not resolve every State’s standing or rule out nationwide effects from plaintiff-specific relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "850–854 & nn.11–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Policy disputes and a general duty to obey law do not supply missing remedial authority",
+      "cue": "Why did the majority grant interim relief?",
+      "paragraphs": [
+        "The parties disputed uniformity, forum shopping, overlapping orders, and the harm of leaving some people unprotected during appeals. For the majority, competing practical considerations could not create statutory authority. Universal injunctions also allowed one district judge to provide widespread benefits without making all beneficiaries bear the consequences of an adverse judgment.",
+        "The Executive’s obligation to obey the Constitution and laws did not give courts unlimited power to select remedies in individual cases. A district court’s reasoning did not bind every other court or the Executive everywhere. This distinction concerned judicial authority, not permission for unconstitutional executive action.",
+        "Applying Nken, the precedent governing stays, the Court found irreparable harm from enforcement of orders exceeding judicial power and held the balance favored a partial stay. Likelihood of success concerned remedial scope, so the Court did not first resolve the citizenship merits. Lower courts could still protect plaintiffs with properly tailored relief. The Solicitor General’s representations about seeking review and respecting judgments were recorded, not guarantees of every future litigation event."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "854–861 & nn.15–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Three concurrences emphasize additional limits and available procedural routes",
+      "cue": "What did Thomas, Alito, and Kavanaugh add?",
+      "paragraphs": [
+        "Justice Thomas, joined by Justice Gorsuch, stressed that complete relief was only one limit on equity. A plaintiff could not secure universal relief simply by calling compliance indivisible or tailoring impractical. His discussion of Frothingham connected standing and equitable limits, and he raised serious Article III concerns even if Congress authorized broader remedies. The Court itself did not decide that constitutional question.",
+        "Justice Alito, joined by Thomas, warned against avoiding the ruling through expansive third-party standing or casual class certification. Injury to a State itself differed from asserting residents’ rights, and Rule 23 requirements had to be established, not merely alleged. He did not adjudicate a State’s standing or reject a particular class here.",
+        "Justice Kavanaugh joined the majority in full and described how nationwide interim rules could emerge through certified classes, Administrative Procedure Act (APA) litigation where available, and Supreme Court emergency review. In major cases, district-court interim decisions often preceded the Supreme Court’s interim ruling and eventual merits review. He distinguished incidental benefits, recognized statutory direct-review routes, and explained that Supreme Court stays included likely review and a fair prospect of reversal alongside harm and equitable considerations. His discussion of APA vacatur remained separate from the Court’s reservation of that issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "862–879; Thomas asterisk note; Kavanaugh nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Sotomayor would deny the applications on merits, history, and equity",
+      "cue": "Why did she reject the majority’s route to a stay?",
+      "paragraphs": [
+        "Justice Sotomayor dissented with Justices Kagan and Jackson. She regarded the citizenship order as plainly unconstitutional and contrary to longstanding statute and practice. Her analysis drew on the Citizenship Clause’s text and history, the Civil Rights Act of 1866, Wong Kim Ark’s citizenship holding, and later citizenship and immigration decisions. She acknowledged historical exceptions for diplomats and hostile occupation and the historical tribal exclusion later addressed by legislation. Those conclusions belonged to the dissent, not the Court’s merits holding.",
+        "Preventing likely unlawful action did not, in her view, establish governmental irreparable harm; the longstanding legal regime was the proper status quo. She rejected a demand for a precise founding-era remedial match, reading equity as adapting established principles to new conditions. Bills of peace, taxpayer litigation, Smyth, Lewis, Pierce, Barnette, and Ex parte Young supported broader authority in her account. Prudential restraint differed from a categorical lack of power, and she disputed the majority’s uses of Frothingham and Grupo Mexicano."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "879–908 & Sotomayor nn.1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Sotomayor also finds broader protection necessary for these plaintiffs",
+      "cue": "What practical harms did she identify?",
+      "paragraphs": [
+        "Even under the majority’s complete-relief test, Sotomayor considered the records sufficient. State administration depended on citizenship documentation, Social Security numbers, benefit programs, and families crossing borders. She argued that the Government had forfeited particular narrowing proposals and had not demonstrated workable alternatives or abuse of discretion below. Protecting large organizational memberships created additional difficulties.",
+        "She recognized that the stay covered only relief exceeding complete relief, but disputed the majority’s description of the Washington court’s reasoning. Potential statelessness, removal, administrative burdens, and unequal access to litigation threatened newborns and families. The Government’s promise to seek review did not adequately assure timely merits resolution. Rule 23(b)(2) remained available, but certification and interlocutory proceedings could produce delay and expense. These were dissenting assessments of harms and administration, not determinations of every child’s citizenship."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "908–921 & Sotomayor nn.8–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "Jackson distinguishes a universal legal duty from a remedy limited to those able to sue",
+      "cue": "What was her separate objection?",
+      "paragraphs": [
+        "Justice Jackson joined Sotomayor’s dissent in full and wrote separately. She argued that restricting protection to litigants weakened judicial enforcement of generally binding constitutional restraints. A lawsuit invoked tools to enforce an existing universal duty; it did not create the duty. She emphasized the position of people unable to sue and the risk that practical protection would depend on individual resources and executive discretion.",
+        "Jackson expressly disclaimed the proposition that a district court’s reasoning alone operated as a judgment everywhere. The Executive’s independent duty to obey law was a separate point. She also disputed the majority’s distinction between nonparty benefits and formal relief under Rule 71. Her historical warnings, constitutional arguments, and suggestions such as focused venue rules and expedited review remained separate views rather than the statutory holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "921–941 & Jackson nn.1–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-10",
+      "title": "The partial stays require tailoring and postpone implementation",
+      "cue": "What exactly did the June 27 order permit?",
+      "paragraphs": [
+        "On June 27, 2025, the Court granted all three applications only insofar as the injunctions exceeded what was necessary to afford complete relief to each plaintiff with standing. It directed the lower courts to tailor relief expeditiously under the opinion and equitable principles.",
+        "The Court also stayed the orders insofar as they prohibited agencies from developing and issuing public implementation guidance. Section 2 of the Executive Order could not take effect until thirty days after the opinion, consistent with the Solicitor General’s representation. The suits continued; the Court did not vacate every injunction or decide the citizenship policy lawful.",
+        "Several questions remained expressly open: whether Article III independently prohibited statutorily authorized universal injunctions, the organizations’ standing for unidentified members, the States’ third-party standing, and whether APA §706(2) authorized vacatur with universal effect. Class relief remained available subject to Rule 23."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 n.2, 839, 841 n.4, 847 n.10, 861–862"
+        }
+      ]
+    }
+  ]
+}

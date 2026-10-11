@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-079",
+  "briefId": "CT-ADDITIONAL-CM-B1-079",
+  "title": "Adams v. Lindsell",
+  "course": "Contracts",
+  "citation": "1 B. & Ald. 681, 106 Eng. Rep. 250 (K.B. 1818); report reproduced in Keener, volume 1, 93–94",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Sellers misaddress a postal offer, sell the wool before the reply reaches them, and fail to overturn the buyers’ verdict when timely posted acceptance completes the bargain.",
+  "actors": [
+    {
+      "name": "The sellers",
+      "role": "Wool dealers in St. Ives who misdirected their offer and later resold the wool."
+    },
+    {
+      "name": "The buyers",
+      "role": "Woollen manufacturers in Bromsgrove who accepted on receiving the offer."
+    }
+  ],
+  "proceedings": [
+    "The buyers obtained a verdict for nondelivery at the Worcester Lent assizes.",
+    "On June 5, 1818, King’s Bench discharged the sellers’ rule for a new trial."
+  ],
+  "limits": "The source says 800 tods, not tons. No damages amount, individual opinion author, numerical vote or separate writing is reported; later questions about electronic communications and options are outside this decision.",
+  "briefSha256": "8a1c0f2705668624761ffed3d1c01a47f65ab4ae1140078dd8489ae88fad9fb5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-079"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A detailed wool offer is sent to the wrong county",
+      "cue": "What timing and terms did the sellers propose?",
+      "paragraphs": [
+        "On Tuesday, September 2, 1817, wool dealers in St. Ives, Huntingdonshire, wrote to woollen manufacturers at Bromsgrove, Worcestershire. They offered 800 tods of specified-quality wether fleeces at 35 shillings and sixpence per tod, deliverable at Leicester. Payment was to be by a two-month bill in two months, with weighing by the buyers’ agent within fourteen days. They requested an answer in the course of post.",
+        "The sellers addressed the letter to Bromsgrove in Leicestershire. It consequently reached the intended buyers only at 7 p.m. on Friday, September 5. The buyers wrote an acceptance on the offered terms that same evening."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Keener reproduction 93; offer and addressing mistake"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The sellers resell before the acceptance reaches them",
+      "cue": "How did the postal route and mistake affect the sequence?",
+      "paragraphs": [
+        "Mail between Bromsgrove and St. Ives traveled through London, so the acceptance reached the sellers on Tuesday, September 9. Had the offer been correctly addressed, they ordinarily would have expected a reply on Sunday, September 7.",
+        "Receiving no answer by their expected time, the sellers sold the wool to someone else on Monday, September 8. The buyers then sued for nondelivery under the agreement, placing the effect of their posted acceptance in issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Keener reproduction 93; receipt, resale and action"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A buyers’ verdict prompts the sellers to demand actual receipt",
+      "cue": "What legal argument supported their new-trial request?",
+      "paragraphs": [
+        "At the Worcester Lent assizes, Justice Burrough directed the jury to regard the answer as arriving in due course because the delay resulted from the sellers’ mistake. The buyers won a verdict; its amount is not reported. The sellers obtained a conditional rule for a new trial in Easter Term.",
+        "In King’s Bench, the buyers argued that Friday’s acceptance bound the sellers before circumstances changed. The court stopped that presentation and called on the sellers. Relying on the offer decisions Payne v. Cave and Cooke v. Oxley, they argued that no contract bound them until actual receipt on Tuesday and that Monday’s resale had withdrawn the offer. That was their argument, not a holding that an undisclosed resale necessarily communicates revocation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Keener reproduction 93–94; trial and new-trial arguments"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Postal acceptance completes the contract despite the later resale",
+      "cue": "Why did the court reject the proposed receipt requirement?",
+      "paragraphs": [
+        "The court reasoned that requiring receipt in the proposed manner could generate endless confirmations: buyers could likewise demand notice that sellers had received and assented to acceptance, and so on. It treated the offer as continuing throughout the letter’s journey and the buyers’ acceptance as completing the bargain.",
+        "The sellers also bore the consequence of their own addressing error. Against them, the reply counted as received in the course of post, satisfying the stipulated timing. On June 5, 1818, the court discharged the rule. The sellers obtained no new trial, and the buyers’ verdict remained undisturbed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Keener reproduction 94; reasoning and rule discharged"
+        }
+      ]
+    }
+  ]
+}

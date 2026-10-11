@@ -1,0 +1,162 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-528",
+  "briefId": "CP-COMP-CB-CAP-528",
+  "title": "Google LLC v. Oracle America, Inc.",
+  "course": "Civil Procedure",
+  "citation": "141 S. Ct. 1183 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Google copied familiar Java interface declarations while writing its own Android implementations. After two trials and two appellate reversals, the Supreme Court treated ultimate fair use as a legal question but held this particular reimplementation fair, preserving jury authority over subsidiary facts.",
+  "actors": [
+    {
+      "name": "Google",
+      "role": "Android developer copying selected Java interface declarations"
+    },
+    {
+      "name": "Sun Microsystems",
+      "role": "Original Java owner and unsuccessful licensing counterpart"
+    },
+    {
+      "name": "Oracle America",
+      "role": "Sun acquirer suing for infringement"
+    },
+    {
+      "name": "Justice Breyer",
+      "role": "Author of the six-Justice majority"
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Dissenter joined by Alito"
+    }
+  ],
+  "proceedings": "An initial copyrightability ruling for Google was reversed; a second jury found fair use and the Federal Circuit reversed again. The Supreme Court assumed copyrightability, held the copying fair as a matter of law, and reversed and remanded April 5, 2021.",
+  "limits": "The Court did not declare application programming interfaces categorically uncopyrightable or all commercial reuse fair. It left the general place of good faith in fair use unresolved and did not alter precedents involving other types of works. Barrett did not participate.",
+  "briefSha256": "f2c2e35169028e859e0044b9a323deb7f9d2528dee2b07c975f6937760125c2b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-528"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Android reused commands programmers already knew",
+      "cue": "Explain the kinds of code before the litigation.",
+      "paragraphs": [
+        "Google acquired Android in 2005 and developed a smartphone-application platform. Millions of programmers knew Java and its system for calling prewritten functions. Google wanted them to use those skills on Android. Licensing discussions with Sun Microsystems failed, apparently over restrictions including interoperability. Google wrote its own platform and implementing code but copied about 11,500 lines of declaring code and organization for thirty-seven Java application programming interface, or API, packages.",
+        "Implementing code told the computer how to perform a task. A method call requested it. Declaring code named and organized methods, classes, and packages to connect familiar calls with the programs performing them. The copied interface thus connected programmers to new implementations. It was about 0.4 percent of the Java API’s 2.86 million lines overall but extensive within the selected declaring-code packages. Oracle acquired Sun in 2010 and sued Google."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 1–9, 28–30"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two juries and two appeals produced different answers",
+      "cue": "Trace patent, copyrightability, and fair-use stages separately.",
+      "paragraphs": [
+        "The first jury rejected Oracle’s patent claims, found limited copyright infringement, and deadlocked on fair use. The district judge held the relevant declaring code and organization uncopyrightable. The Federal Circuit reversed and remanded for a fair-use trial, and the Supreme Court denied review at that point.",
+        "After a weeklong retrial, a second jury found Google had proved fair use by a preponderance of evidence. The Federal Circuit again reversed. It resolved factual issues favorably to Google but deemed the use legally unfair and directed a damages trial. The Supreme Court granted review of copyrightability and fair use.",
+        "Google argued both unprotectable method of operation and fair use, and maintained that substantial-evidence review and the Seventh Amendment protected the jury’s ultimate verdict. Oracle defended protection and characterized the copying as commercial, verbatim, and unfair."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 9–11, 18–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The ultimate mixed question required legal review",
+      "cue": "Explain the agreement with the appellate framework.",
+      "paragraphs": [
+        "Justice Breyer’s majority separated factual issues from the legal conclusion in fair use. When a mixed question resisted further division, review depended on whether its resolution chiefly involved facts or law. Applying statutory interpretations and developing guidance for future cases made ultimate fair use predominantly legal, even though extent of copying and market effects could require jury factfinding.",
+        "Substantial evidence supporting the verdict therefore did not make its final answer conclusive. Review anew did not permit appellate courts to decide contested subsidiary facts against the jury; the majority credited the Federal Circuit for respecting that boundary despite reaching the wrong legal result.",
+        "The Seventh Amendment’s Reexamination Clause protected jury-found facts, not judicial determination of controlling law, as in judgment as a matter of law. The Court also found no historical entitlement to jury determination of the ultimate defense: eighteenth-century abridgment and infringement cases concerned different questions, and contemporary fair use had been described as equitable. Thomas agreed precedent made legal work predominant and required favorable factual inferences for Google, but reserved a definitive constitutional answer on limited briefing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 18–21; Thomas 8 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The interface’s nature and reuse favored fair use",
+      "cue": "Explain the first two factors without deciding copyrightability.",
+      "paragraphs": [
+        "The Court assumed copyrightability solely for argument and applied section 107’s contextual factors: nature, purpose and character, amount, and market effects. They were not independent votes. Software’s functional character made fair use important to preserving incentives without suppressing new expression.",
+        "The declarations formed a user interface intertwined with unprotectable task organization, familiar commands, and Google’s new implementing code. Much of their value came from programmers’ learned skills. Those features placed this code farther from copyright’s core than many implementations, without deciding it unprotected.",
+        "Google reused familiar commands in a new smartphone environment so programmers could create applications without abandoning acquired knowledge. The majority found that reimplementation transformative despite the same basic task-calling function. Commercial purpose did not defeat it. Nor did the Court settle whether good faith always belongs in fair-use analysis; other factors and jury treatment of contested evidence made it nondeterminative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 11–18, 21–28"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Amount and market effects were assessed in relation to the purpose",
+      "cue": "Give the remaining grounds and limits.",
+      "paragraphs": [
+        "Although 11,500 lines were substantial alone, they were a small part of the complete API. The relevant amount also depended on legitimate purpose. Limiting Google to the 170 lines necessary for Java-language use, as the Federal Circuit suggested, would not necessarily preserve knowledge of the familiar interface. The copied declarations served those skills on the new platform rather than being selected for intrinsic creative beauty.",
+        "The jury could find Android and Java SE served materially different markets and Sun was not positioned to succeed in smartphones even absent copying. Evidence also supported benefit to Sun from more Java-trained programmers. The majority did not deny contrary evidence or Google’s enormous revenue. But negotiations covered more than these declarations, and treating every unauthorized use as a lost license risked circularity.",
+        "Because much value came from third-party skills, enforcement could lock up those skills and future innovations rather than solely protect the creator’s expression. Considering uncertain competition losses, their source, and public creativity together, the court found the fourth factor favorable too. It expressly disclaimed changing prior fair-use decisions involving other works."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 28–36"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas considered the copying commercially central and nontransformative",
+      "cue": "Attribute the competing assessment to the dissent.",
+      "paragraphs": [
+        "Justice Thomas, joined by Alito, would first hold the declarations copyrightable. Statutory protection for direct or indirect instructions included both declaring and implementing code; the method-of-operation exclusion removed ideas, not original expression. Oracle could organize declarations differently, and Apple and Microsoft demonstrated alternatives. Assuming protection while discounting this code, he argued, distorted the analysis.",
+        "He accepted that functionality could favor Google on nature but regarded the other factors as decisively favoring Oracle. The declarations attracted programmers and formed the commercial heart; using the same functions on a new platform was derivative, not transformative. Merely enabling new products otherwise could excuse widespread software piracy.",
+        "He emphasized Google’s commercial gain and licensing harm, including Amazon’s 97.5-percent discount and reduced Samsung payments. Oracle could license a smartphone developer without making its own phone. Alternative interfaces, freely available declarations for programmers, and the limited Android versions at issue undercut lock-in concerns. He would compare the taking with declaring code rather than the whole platform."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas 4–19 & nn.7–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Court resolved this copying in Google’s favor",
+      "cue": "State the lineup and disposition.",
+      "paragraphs": [
+        "On April 5, 2021, Breyer, joined by Chief Justice Roberts and Justices Sotomayor, Kagan, Gorsuch, and Kavanaugh, held this copying fair as a matter of law, reversed the Federal Circuit, and remanded. Thomas and Alito dissented; Barrett did not participate. There was no concurrence.",
+        "The opinion’s explanatory appendices distinguished general computer hardware and software, then diagrammed calls, declarations, and implementations, emphasizing that Google wrote Android’s implementing code. The general-system diagram represented no particular disputed technology. The judgment combined legal review of ultimate fair use with protection of underlying jury findings and did not categorically free all interfaces or commercial reuse from copyright."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer 35–39; participation statement"
+        }
+      ]
+    }
+  ]
+}

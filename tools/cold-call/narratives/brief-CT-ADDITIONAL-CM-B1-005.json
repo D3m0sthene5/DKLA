@@ -1,0 +1,146 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-005",
+  "briefId": "CT-ADDITIONAL-CM-B1-005",
+  "title": "Kansas v. Nebraska",
+  "course": "Contracts",
+  "citation": "574 U.S. 445 (2015)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Nebraska’s excess Republican River consumption deprived Kansas of its compact share, while a technical model also charged Nebraska for water outside the compact. The Supreme Court enforced the agreed allocation through compensation, partial disgorgement, and an accounting correction, with different judicial coalitions on the remedies.",
+  "actors": [
+    {
+      "name": "Kansas",
+      "role": "Downstream state seeking compensation, gains, and an injunction"
+    },
+    {
+      "name": "Nebraska",
+      "role": "State responsible for excess consumption and seeking accounting correction"
+    },
+    {
+      "name": "Colorado",
+      "role": "Third compact state supporting one Nebraska exception"
+    },
+    {
+      "name": "Special Master",
+      "role": "Court-appointed adjudicator recommending facts and remedies"
+    },
+    {
+      "name": "Justice Kagan",
+      "role": "Author of the principal opinion"
+    }
+  ],
+  "proceedings": "Following a 1998 original action and 2002 settlement, renewed disputes reached the Supreme Court after administration and arbitration failed. The Court adopted all recommendations: $3.7 million loss compensation, $1.8 million partial disgorgement, no injunction, and corrected accounting.",
+  "limits": "The Court enforced a congressionally approved compact, not a general power to rewrite private bargains. The opinion did not include a later decree’s payment deadline. Hypothetical classroom profit figures were not adjudicated gains.",
+  "briefSha256": "3bd5387f30f50e41c4d224b4b1058e04977d647a94b99ab7fc418e47c95e1e5d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-005"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Three states allocated the river through federal law",
+      "cue": "Introduce the physical and legal arrangement.",
+      "paragraphs": [
+        "The Republican River begins in Colorado, passes through Kansas into Nebraska, and returns to Kansas. Its roughly 24,900-square-mile basin includes substantial farmland. Following Dust Bowl drought and floods, federal reservoir and irrigation projects prompted an interstate allocation. Congress approved the Republican River Compact in 1943, making it federal law. It divided virgin supply—water originating within the basin before human depletion—approximately forty-nine percent to Nebraska, forty percent to Kansas, and eleven percent to Colorado. Joint administrators measured annual supply and use retrospectively.",
+        "Kansas’s 1998 original Supreme Court action challenged increased Nebraska groundwater pumping. The Court accepted that pumping counted insofar as it depleted stream flow. A 2002 settlement added Accounting Procedures and a Groundwater Model, generally using five-year averages and two-year averages in water-short periods. It expressly excluded imported water and could implement, not alter, compact allocations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "449–451 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The first compliance period produced competing complaints",
+      "cue": "Trace the findings and exceptions.",
+      "paragraphs": [
+        "Kansas alleged excess consumption in 2005–2006. Nebraska argued the model wrongly counted water imported from the Platte River Basin. Joint administration and nonbinding arbitration failed, and Kansas returned for money and an injunction while Nebraska sought corrected procedures.",
+        "After evidence and hearings, the Special Master found 70,869 acre-feet of excess use and $3.7 million in Kansas losses, recommended another $1.8 million in partial disgorgement, denied an injunction, and proposed an imported-water correction. Nebraska disputed culpability and disgorgement; Kansas sought more money and an injunction and opposed correction. Colorado supported one Nebraska exception. Both principal states accepted the excess volume and Kansas’s loss, and Nebraska agreed to pay that compensation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "452–453 & nn.2–3, 456"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Nebraska knowingly exposed Kansas to the risk",
+      "cue": "Explain the breach characterization and equitable authority.",
+      "paragraphs": [
+        "Justice Kagan’s majority respected the Master’s facts with a presumption of correctness while independently reviewing and retaining responsibility. Original jurisdiction between sovereigns was equitable, substituting for diplomacy or force. Once states made a compact, the Court had to enforce its terms rather than choose a fairer allocation. Within them, remedies could protect rights and deter abuse; congressional approval also made breach a violation of federal law implicating public interest.",
+        "Nebraska’s response was too late and small. Legislation lagged; initial plans called for only five-percent pumping reductions without evidence of sufficiency; local boards lacked effective compliance accountability. Reduced pumping would take time to restore flow, and prior calculations repeatedly warned of overuse. Drought did not excuse measures effective only with unusually favorable rain.",
+        "The Court agreed that Nebraska knowingly exposed Kansas to substantial risk and recklessly disregarded its rights, while retaining the Master’s finding that it had not purposefully set out to breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "453–462 & nn.4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Compensation alone could leave overuse profitable",
+      "cue": "Explain partial disgorgement and rejection of more relief.",
+      "paragraphs": [
+        "Water was substantially more valuable on Nebraska farmland, making its gain likely several multiples of Kansas’s loss. Paying only loss could leave an upstream state better off after taking downstream water. Partial disgorgement therefore protected compact stability and deterred repetition. The discussion of deliberate breach in the Restatement did not erase distinctions among purpose, conscious disregard, and negligence; conscious disregard supported relief in this interstate setting. Both states agreed replacing the lost water posed difficult timing and delivery problems, favoring money.",
+        "Kansas nevertheless was not entitled to all gains. Since 2006 Nebraska improved forecasts, strengthened reduction plans, and added a state regulatory backstop. The Master found those measures effective even in extraordinary drought if implemented in good faith. Though the report did not fully explain the exact $1.8 million selection, the Court approved balancing past conduct, incentives, and improved compliance.",
+        "Those developments and deterrence also defeated a cognizable danger of recurrence needed for an injunction. The Court did not license profitable breach; it found additional preventive relief unnecessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "461–467 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The model counted imported water that the compact excluded",
+      "cue": "Explain why the majority approved correction.",
+      "paragraphs": [
+        "When pumping exhausted native stream flow in dry conditions, further pumping could not deplete absent basin water. Imported Platte water might still flow through that channel, and the model wrongly charged its depletion as basin consumption. In 2006 it charged Nebraska 7,797 acre-feet of imported water. The Master found designers intended exclusion and had not traded away an unknown systematic error. Awareness that a problem was intellectually possible differed from believing the model would actually create a material mistake.",
+        "The majority approved a five-run formula aligning subsidiary procedures with the compact and settlement. Earlier water-compact implementation corrections supported the approach. Charging imported water both regulated water outside the agreement and reduced Nebraska’s basin entitlement. In the majority’s view, correction enforced rather than rewrote the allocation. Kansas offered no workable alternative or demonstrated inaccuracy and agreed further dispute resolution would be futile."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "467–475 & nn.9–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Justices divided differently on gains and accounting",
+      "cue": "Preserve all separate positions and exact result.",
+      "paragraphs": [
+        "Kagan wrote for Kennedy, Ginsburg, Breyer, and Sotomayor. Chief Justice Roberts joined Parts I and III, including disgorgement, generally accepted the equitable discussion without joining Part II, and opposed changing the accounting bargain. He joined Part III of Justice Thomas’s separate opinion on that issue.",
+        "Thomas, joined by Scalia and Alito, agreed Nebraska knowingly breached and no injunction was needed but opposed both additional remedies. He urged restraint under ordinary contract principles, found disgorgement unsupported for nondeliberate breach, considered $1.8 million arbitrary rather than reasonably measured profit, and opposed absorbing litigation expense contrary to fee rules.",
+        "On accounting, Thomas distinguished mistaken expression of an actual bargain from mistaken belief that deliberately chosen procedures would work well. The states chose those procedures, not the five-run formula, without a drafting error. Rescission might address a basic-assumption mistake, though nobody sought it. He disputed that imperfect modeling itself violated the compact. Scalia also wrote separately warning that modern Restatements can propose change rather than reliably state existing law, particularly the disgorgement formulation.",
+        "The Court overruled all exceptions and adopted the Master’s recommendations: $3.7 million compensation, $1.8 million partial disgorgement, no injunction, and accounting reform. Disgorgement had six votes and modification five. No later decree’s deadline or hypothetical bargaining valuation was part of this opinion’s result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "447–448, 474–493"
+        }
+      ]
+    }
+  ]
+}

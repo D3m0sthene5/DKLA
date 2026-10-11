@@ -1,0 +1,118 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-039",
+  "briefId": "CT-ADDITIONAL-CM-B4-039",
+  "title": "Sherwood v. Walker",
+  "course": "Contracts",
+  "citation": "66 Mich. 568, 33 N.W. 919 (1887)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The sale identified the same cow throughout, but a divided court required a new jury to decide whether both sides had mistakenly treated her as permanently incapable of breeding.",
+  "actors": [
+    {
+      "name": "Theodore C. Sherwood",
+      "role": "Banker buying the cow"
+    },
+    {
+      "name": "The Walkers",
+      "role": "Breeders selling imported Polled Angus cattle"
+    },
+    {
+      "name": "Graham",
+      "role": "Farm manager instructed to withhold delivery"
+    },
+    {
+      "name": "Justice Sherwood",
+      "role": "Dissenting judge, distinct from the buyer"
+    }
+  ],
+  "proceedings": [
+    "Justice’s court and circuit-court jury trial: buyer prevailed in replevin.",
+    "Michigan Supreme Court: reversed for new trial on the conditional mutual-mistake issue, 3–1."
+  ],
+  "limits": [
+    "The Court did not finally award the cow to sellers or find concealment by the buyer. The actual bargain was weight-based, and shared belief about breeding capacity remained for the new jury."
+  ],
+  "briefSha256": "ab2ec151bc85994fcdac59ebe699fbdbf006a649ab61549b006abf9508b8e681",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-039"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The buyer selects Rose under a weight-based bargain",
+      "cue": "Introduce the animal and terms before the discovery.",
+      "paragraphs": [
+        "The Walkers bred imported Polled Angus cattle at Greenfield. Theodore C. Sherwood, a Plymouth banker, approached them for an animal and was told available cattle probably were barren and would not breed. After a May 5, 1886 farm visit, he negotiated by telephone for Rose 2d of Aberlone, catalogue lot 56.",
+        "The price was five-and-a-half cents per pound live weight, minus fifty pounds shrinkage. A May 15 writing provided weighing and delivery at King’s cattle yard, a halter, and payment to the manager or by mailed check. It was a bargain for an identified animal at a weight-based price, not simply any cow for a flat eighty dollars.",
+        "After confirmation, manager Graham told the sellers he thought Rose was pregnant. They instructed him to withhold her and telegraphed the buyer May 20 about the suspicion and refusal. On May 21, Graham rejected the delivery order. Sherwood tendered eighty dollars, which the sellers refused, then obtained possession under a replevin writ; a constable weighed her elsewhere at 1,420 pounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "66 Mich. at 569–572"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer wins possession while the sellers assert mistake and incomplete performance",
+      "cue": "Trace the evidence and rulings below.",
+      "paragraphs": [
+        "The sellers said both sides had believed Rose incapable of breeding. They had paid about $850, and a breeding cow of her kind was worth $750–$1,000. She calved in October. But the dissent read the buyer as thinking she could be made to breed, unlike the sellers. Present pregnancy, enduring fertility, and each side’s expectations were distinct questions.",
+        "Sherwood won in a justice’s court and after an appealed jury trial in Wayne County Circuit Court. Sellers argued the sale was still executory because weighing and payment had not occurred and alternatively could be avoided for mistake. The judge let the jury infer intent from letters, said weighing need not precede possession or occur at the named yard, and treated pregnancy as immaterial. Requested condition-precedent and barren-cow instructions were refused.",
+        "On review, the majority rejected an identity objection from Sherwood’s hasty May 19 reference to “Rose or Lucy.” He lacked the order while writing, and surrounding letters identified Rose as already bought. His no-water-before-weighing request also concerned performance of that sale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "66 Mich. at 568–572, 578–581"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Ordinary formation objections fail, but the majority sees a possible basic mistake",
+      "cue": "Explain the precise basis for the new trial.",
+      "paragraphs": [
+        "Justice Morse, joined by Chief Justice Campbell and Justice Champlin, accepted much of the trial court’s formation analysis. Signed correspondence met the statute for sales over fifty dollars. Neither payment nor weighing necessarily preceded transfer of title, and physical delivery was not invariably required. Intention could transfer ownership of the identified animal before those acts.",
+        "The decisive error concerned mutual mistake. Apparent assent could be avoided before or after completion when both parties misunderstood a material fact going to the substance of the bargain, rather than mere quality or an incidental attribute—even a motivating quality mistake might leave a sale binding.",
+        "The majority acknowledged the same physical cow but treated permanent inability to breed as a fundamental difference in nature and use. A barren cow was chiefly beef; a breeding cow possessed lasting reproductive value beyond a current pregnancy or season. If both priced and exchanged her on the former basis, their bargain’s substance could fail.",
+        "The required instruction was conditional: if both believed her barren and useless for breeding when contracting, but she was capable, sellers could rescind and the verdict should favor them. The old instruction prevented a jury decision on that shared belief. The majority therefore ordered a new trial, not a final seller victory or a finding that the buyer concealed pregnancy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "66 Mich. at 573–578"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent sees differing judgments about an unguaranteed quality",
+      "cue": "Preserve the alternative reading and actual judgment.",
+      "paragraphs": [
+        "Justice Sherwood—the judge, not plaintiff Theodore Sherwood—agreed title could pass without advance weighing or payment but rejected mutuality of mistake. In his account, buyer and sellers exercised opposing judgments about breeding prospects. Both intended the same existing animal without warranty of that uncertain quality. One judgment proving better did not create a common mistaken premise, and there was no basis to impute buyer fraud.",
+        "He used a horse later discovered exceptionally fast to illustrate converting valuation errors into rescission. The majority’s authorities instead involved nonexistent interests, hidden property not included in a sale, assignment of the wrong judgment, or delivery of a different article or grade. They did not support reclaiming the precise cow bargained for because an unwarranted quality increased value. If anyone had better information, it was the breeders. He would affirm.",
+        "On July 7, 1887, the three-to-one court reversed and ordered a new trial, with Supreme Court costs to defendants. The shared barren-cow belief remained a factual condition of the majority’s instruction. Later mistake cases in the assigned comparisons did not become part of this historical judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "66 Mich. at 578–585"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "brief-CT-CB-0195",
+  "briefId": "CT-CB-0195",
+  "title": "Fairmount Glass Works v. Crunden-Martin Woodenware Co.",
+  "course": "Contracts",
+  "citation": "106 Ky. 659, 51 S.W. 196 (1899)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A manufacturer’s targeted price quotation invited immediate acceptance, and the buyer’s prompt telegram made a contract before the seller refused to book the order.",
+  "actors": [
+    {
+      "name": "Fairmount Glass Works",
+      "role": "Mason-jar manufacturer and seller"
+    },
+    {
+      "name": "Crunden-Martin Woodenware Company",
+      "role": "Commercial buyer ordering ten carloads"
+    }
+  ],
+  "proceedings": [
+    "Trial court: judgment for the buyer for breach.",
+    "Kentucky Court of Appeals: affirmed on May 24, 1899."
+  ],
+  "limits": [
+    "The reported opinion gives no damages amount. It applies pre-UCC common law and trade meaning, not § 2-207 or a detailed mailbox-rule holding."
+  ],
+  "briefSha256": "0879a3a320dc63320413e34d3ea8e252a08b1de194037b701dc4a86d002da763",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0195"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A buyer asks for prices on a specific ten-carload order",
+      "cue": "Set out the offer in the context of its inquiry.",
+      "paragraphs": [
+        "On April 20, 1895, Crunden-Martin Woodenware Company asked Fairmount Glass Works for its lowest price on ten carloads of Mason green jars, complete with caps and packed a dozen per case. It requested terms and a cash discount and allowed either delivered pricing or free-on-board pricing at the manufacturer. This identified a quantity and proposed order, rather than asking for a general catalogue.",
+        "On April 23, Fairmount quoted per-gross prices of $4.50 for pints, $5 for quarts, and $6.50 for half gallons, delivered to East St. Louis and shipped by May 15. It offered credit terms and a two-percent discount for cash within ten days. The quotation was for immediate acceptance, with a reservation for agency or transportation contingencies, delays, and accidents beyond the seller’s control."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "106 Ky. at 662–663"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer accepts, then the seller says its output is sold",
+      "cue": "Trace the telegram and the specifications separately.",
+      "paragraphs": [
+        "On April 24, the buyer telegraphed an order for ten carloads according to the quotation and said specifications had been mailed. Fairmount responded that it could not book the order because its output was sold.",
+        "The mailed confirmation repeated the prices, terms, deadline, and delivery place. It requested caps and rubbers and described jars and caps as strictly first quality. The first carload comprised five gross pints, fifty-five gross quarts, and forty gross half gallons; specifications for the other nine would follow. Trade evidence established a carload as one hundred gross, so the order totaled one thousand gross.",
+        "Fairmount refused before receiving those specifications. Later correspondence initially relied on other grounds, unsupported by the evidence, rather than objecting to the first-quality phrase. The buyer obtained a breach judgment, and the seller appealed formation, conformity, and definiteness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "106 Ky. at 663, 665–666"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The whole exchange makes the quotation a present offer",
+      "cue": "Explain why the label did not control commitment.",
+      "paragraphs": [
+        "Judge Hobson accepted that price quotations often invite orders the seller can later accept or reject. Their effect nevertheless depends on language and context. Fairmount answered a specific ten-carload inquiry; reading the response as disconnected general information ignored that setting.",
+        "The immediate-acceptance invitation indicated that the buyer could close the transaction by responding now. An unrestricted right to reconsider afterward would sit poorly with that invitation. Together, context and wording made this a definite offer, and the prompt telegram accepted it before Fairmount could withdraw. The later sold-output message therefore refused an existing obligation.",
+        "The court did not make every immediate-acceptance phrase conclusive, render the word quote irrelevant, or resolve an exact transmission-time dispute for all telegrams. It determined commitment from these communications."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "106 Ky. at 664–665"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Trade meaning and authorized choices resolve the claimed variations",
+      "cue": "Finish with conformity and affirmance.",
+      "paragraphs": [
+        "Fairmount argued that first-quality wording added a condition, individual size quantities remained unsettled, carloads were indefinite, and separate delivery dates were impermissible. Under the common-law analysis, a material new condition could matter; the court did not simply excuse changes between merchants. Trade evidence showed the quality expressions meant the same thing. Refusal before receiving the letter and subsequent failure to complain about quality reinforced interpreting it as elaboration of the agreed description, rather than a new bargain. That did not establish forfeiture of every initially unmentioned defense.",
+        "Trade usage fixed total quantity. Quoted prices for each size allowed the buyer to select the mix, and the shipment deadline permitted selecting dates before May 15. Those were authorized performance choices, not further negotiations needing new mutual assent.",
+        "On May 24, 1899, the Kentucky Court of Appeals affirmed the buyer’s existing recovery. It treated any pleading defect as cured by judgment and supporting evidence, rather than remanding to see whether an offer might exist. No separate opinion or vote count was reported, and the judgment amount was not supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "106 Ky. at 665–666"
+        }
+      ]
+    }
+  ]
+}

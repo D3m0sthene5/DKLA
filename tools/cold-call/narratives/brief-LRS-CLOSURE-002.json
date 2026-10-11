@@ -1,0 +1,190 @@
+{
+  "id": "brief-LRS-CLOSURE-002",
+  "briefId": "LRS-CLOSURE-002",
+  "title": "Panama Refining Co. v. Ryan; Amazon Petroleum Corp. v. Ryan",
+  "course": "Legislation and the Regulatory State",
+  "citation": "293 U.S. 388 (1935)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Congress authorized the President to block interstate transport of oil produced beyond state limits, and executive orders made violations criminal. Oil businesses challenged that system, while changes to a separate petroleum code required the Supreme Court to identify which restrictions were actually before it.",
+  "actors": [
+    {
+      "name": "Panama Refining Company and its coplaintiff",
+      "role": "Texas refiner and leaseholder challenging federal oil restrictions."
+    },
+    {
+      "name": "Amazon Petroleum Corporation and other producers",
+      "role": "Texas producers challenging state orders and federal restrictions in a separate suit."
+    },
+    {
+      "name": "President and Secretary of the Interior",
+      "role": "Officials who imposed and administered the transportation prohibition."
+    },
+    {
+      "name": "Chief Justice Hughes",
+      "role": "Author of the eight-Justice majority."
+    },
+    {
+      "name": "Justice Cardozo",
+      "role": "Sole dissenter."
+    }
+  ],
+  "proceedings": "The district judge enjoined federal enforcement; the Fifth Circuit reversed and directed dismissal. The Supreme Court reversed and remanded for modified decrees permanently enjoining identified executive orders and regulations, while reserving the separate Petroleum Code issue.",
+  "limits": "The Court invalidated §9(c)’s delegation and its implementation, not the entire Recovery Act or the separate state-order judgment. It assumed Congress’s own commerce authority without deciding it. The findings discussion concerned delegated penal legislative orders, not every presidential act.",
+  "briefSha256": "190e150aa7ec8a25bfee952788d4ccadd0a6505473837bbe1f96d73ec28d4e2f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-002"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress authorizes a transportation ban tied to state production limits",
+      "cue": "What choices did §9(c) leave to the President?",
+      "paragraphs": [
+        "Section 9(c) of the National Industrial Recovery Act authorized the President to prohibit interstate and foreign transportation of petroleum and petroleum products produced or withdrawn from storage beyond state-law or valid state-regulatory allowances. It identified the commodity and its connection to state limits but did not itself impose the prohibition. Violating an implementing order could bring up to a $1,000 fine, six months’ imprisonment, or both.",
+        "The President imposed the ban on July 11, 1933. On July 14, invoking §10(a), he empowered the Secretary of the Interior to enforce it, appoint agents and boards, and issue regulations. Regulations IV and V required sworn monthly reports from producers, purchasers, shippers, refiners, and processors on production, receipts, storage, deliveries, and compliance with state limits. Regulation VII required accessible transaction records."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "405–408 & nn.1–2, 414–415"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A separate petroleum code changes while the lawsuits proceed",
+      "cue": "How did those changes complicate the lower-court decrees?",
+      "paragraphs": [
+        "A Petroleum Code approved in August contemplated production estimates, state allocations, and property quotas. Its provision labeling production above quotas an unfair trade practice was removed September 13, 1933, before these suits began in October. It was restored in September 1934. Litigants and lower courts initially did not know it had been withdrawn.",
+        "Panama Refining owned a Texas refinery, and its coplaintiff held Texas oil-and-gas leases. They challenged the transportation delegation under nondelegation and commerce principles and complained that entry onto property, tank gauging, and pipeline digging violated the Fourth and Fifth Amendments. Amazon Petroleum and other Texas producers also attacked state production orders and the federal code’s quotas.",
+        "In Amazon, a three-judge district court upheld state orders and dismissed that branch. By agreement, federal claims went separately to the district judge. That judge permanently enjoined federal enforcement in both suits and expressly enjoined the withdrawn code provision in Amazon. The Fifth Circuit reversed the federal decrees and directed dismissal. Supreme Court review concerned those federal judgments, not the distinct state-order branch."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "408–412 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court separates a withdrawn code claim from continuing reporting duties",
+      "cue": "Why did part of the dispute remain live?",
+      "paragraphs": [
+        "Chief Justice Hughes, writing for eight Justices, declined to decide the removed code provision. Threatened prosecution under its later restoration could not introduce a new claim into suits begun and heard when the prohibition did not exist. Affected parties could challenge later enforcement on the facts then presented. The code’s construction and validity remained reserved.",
+        "The reporting and records requirements stood differently. Amendments continued and enlarged substantially the same obligations and constitutional issue, preserving a live dispute. Repeated criminal penalties justified equitable intervention if the underlying authority was invalid. These were civil enforcement challenges, not appeals from criminal convictions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "412–414 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds no policy directing whether transportation should be prohibited",
+      "cue": "Why did state quotas not supply the missing standard?",
+      "paragraphs": [
+        "The Court assumed, without deciding, that Congress itself could prohibit transportation of oil produced beyond state allowances. The question was who made that policy choice. Section 9(c) neither directed a ban nor identified when, on what circumstances, or following which findings the President should impose one. State limits defined eligible oil but did not supply a federal criterion for choosing prohibition. The President’s choice would carry criminal consequences.",
+        "Hughes searched the surrounding Act. Other §9 provisions regulated pipeline rates and monopolistic practices under their own restrictions, without constraining this power. Section 1 listed broad purposes: free commerce, fair competition, industrial cooperation, fuller production, temporary restriction, purchasing power, employment, labor standards, rehabilitation, and conservation. For the majority, that menu gave no governing policy or conditions for excess-oil transportation.",
+        "Other sections on codes, imports, licenses, trade organizations, and labor sometimes required findings or standards, but action under §9(c) did not depend on a code. The July prohibition preceded code approval. Treating all the general objectives as sufficient would leave the President choosing legislative policy rather than implementing it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "414–420 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Permissible detail and factfinding differ from transferring the legislative choice",
+      "cue": "How did Hughes distinguish prior delegations?",
+      "paragraphs": [
+        "Congress could announce policy and primary standards, authorize subordinate rules within limits, and make legislation operate on specified contingencies. Administrative judgment was practically necessary. It could not replace the essential legislative decision, and good motives or presumed public purposes supplied no missing constitutional authority. Upholding unrestricted choice here would permit similar transfers concerning other commodities to other officials or boards.",
+        "The majority reviewed the precedents in detail. Early embargo statutes contained stated circumstances and policies and implicated presidential foreign relations. The Brig Aurora and Field v. Clark entrusted ascertainment of contingencies carrying out legislative will. Tea-import standards, bridge obstructions, railway rates, enemy property, radio allocation, and forest management involved policies implemented through practical subordinate choices. Hampton sustained tariff adjustments under an intelligible principle. Section 9(c), by contrast, supplied no transportation policy, rule, or defined conditions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "420–430 & nn.7–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The absence of findings supplies another objection to this penal order",
+      "cue": "What kind of presidential action did the reasoning address?",
+      "paragraphs": [
+        "The July 11 order recited no findings or grounds. Even if statutory context could yield prerequisites, the President had to demonstrate compliance rather than choose among objectives without findings. In a delegated legislative order carrying criminal punishment, due process required the action to appear within its authority and any conditioning factual determinations to be shown.",
+        "The majority applied administrative-findings reasoning from Wichita Railroad and Mahler. It distinguished matters inherently executive and the ordinary presumptions attached to them; the point was not that every presidential act required formal findings. The disputed delegation and penal legislative order carried the relevant restrictions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "431–433 & nn.14–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Cardozo reads a confined power guided by the Act’s recovery purposes",
+      "cue": "Why did he find the delegation constitutional?",
+      "paragraphs": [
+        "Justice Cardozo agreed that the withdrawn code provision was outside the case and that a reasonably clear standard was necessary. He differed on reading the statute as a whole. Power concerned one commodity, unlawfully produced or withdrawn under state quotas, and one specified transportation remedy. It was not authority to identify any evil and invent any solution. Section 1 implicitly required action advancing the declared recovery policies.",
+        "The record linked excess oil to unfair competition, waste, destabilized prices, and unemployment. Those concerns could work together toward recovery rather than authorize arbitrary preference. Changing conditions made complete advance specification impracticable; the President could determine when this defined prohibition would advance Congress’s objectives. Reading all provisions together and favoring a reasonable constitutional construction supplied the policy connection.",
+        "Cardozo considered subject and occasion meaningful constraints, comparing embargo, tariff, forest, and Interstate Commerce Commission delegations. Temporary restraint could promote long-term productive capacity. Giving an official the timing decision did not abandon constitutional structure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "433–443 & dissent nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Cardozo also rejects an unwritten requirement of recited reasons",
+      "cue": "What safeguards did he recognize instead?",
+      "paragraphs": [
+        "For Cardozo, missing recitals were at most a subsidiary defect curable through another order, not grounds to invalidate the statute. He thought the existing order valid. Neither statutory language nor Constitution demanded formal reasons; presidential action within a valid grant carried a presumption of inquiry and adequate grounds, illustrated by Martin v. Mott.",
+        "Arbitrary oppression or the absence of any rational connection to statutory purposes could still be challenged, but the oil order’s relationship to recovery was apparent. Cardozo distinguished supervised administrative adjudication and statutes expressly requiring findings from legislative rule formulation. Delegation alone did not create an unwritten constitutional recital requirement. He would affirm both appellate decrees."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "444–448 & dissent n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "The mandate targets the transportation orders and preserves separate questions",
+      "cue": "What enforcement did the Court permanently restrain?",
+      "paragraphs": [
+        "On January 7, 1935, the Supreme Court reversed by an 8–1 vote and remanded to modify the district decrees. Enforcement of the July 11 and July 14, 1933 orders and implementing Interior regulations was to be permanently enjoined because §9(c)’s delegation was unconstitutional.",
+        "The Court did not invalidate every Recovery Act provision, decide the restored Petroleum Code’s production-quota rule, or reverse the separate judgment sustaining state orders. No other separate writing or nonparticipation was reported. Later scholarly criticism of the decision’s consistency is commentary distinct from Hughes’s and Cardozo’s analyses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "388, 430–433; assigned scope"
+        }
+      ]
+    }
+  ]
+}

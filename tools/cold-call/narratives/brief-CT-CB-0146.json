@@ -1,0 +1,128 @@
+{
+  "id": "brief-CT-CB-0146",
+  "briefId": "CT-CB-0146",
+  "title": "Cotnam v. Wisdom",
+  "course": "Contracts",
+  "citation": "83 Ark. 601, 104 S.W. 164 (1907)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Physicians tried unsuccessfully to save an unconscious accident victim who could not consent to treatment. The court recognized a legal obligation to pay reasonable value but reversed a fee determined with improper consideration of wealth and collateral heirs.",
+  "actors": [
+    {
+      "name": "A. M. Harrison",
+      "role": "Unconscious streetcar accident victim"
+    },
+    {
+      "name": "The physicians",
+      "role": "Professionals summoned by bystanders to attempt lifesaving treatment"
+    },
+    {
+      "name": "Cotnam",
+      "role": "Administrator defending Harrison’s estate"
+    },
+    {
+      "name": "Chief Justice Hill",
+      "role": "Author of the Arkansas Supreme Court opinion"
+    },
+    {
+      "name": "Justices Battle and Wood",
+      "role": "Judges disagreeing only about wealth as a fee factor"
+    }
+  ],
+  "proceedings": "The estate appealed a compensation judgment. The Arkansas Supreme Court sustained the basis for emergency-service recovery but reversed the award and remanded because improper financial evidence could have affected its amount.",
+  "limits": "The obligation was imposed by law, not actual or inferred consent. The court did not require a cure, authorize every unsolicited service, or establish a contemporary nationwide billing rule. Battle and Wood’s limited disagreement had no extended separate rationale.",
+  "briefSha256": "11a7a65ba2f6c4850a4b082079355e2bb231f98238720f5f4ba6b7f1a49bc89b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0146"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Bystanders summoned doctors for a helpless accident victim",
+      "cue": "Begin with the emergency and unsuccessful treatment.",
+      "paragraphs": [
+        "A. M. Harrison was thrown from a streetcar and seriously injured. Bystanders called physicians, who undertook a difficult operation to save his life. He died without regaining consciousness. He could not request their services, choose them, agree on price, or assent to treatment.",
+        "The physicians sought compensation from his estate, represented by administrator Cotnam. At trial, evidence described a professional custom of adjusting fees to ability to pay. The jury also learned that Harrison was a bachelor whose property would pass to nieces and nephews. An instruction allowed consideration of the operation’s character and importance, the surgeon’s responsibility, training and experience, and Harrison’s means. The jury awarded compensation, and the estate appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion pts.1, 3; casebook 146–149"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Absence of consent did not foreclose a legal obligation",
+      "cue": "Explain the distinction between actual agreement and quasi-contract.",
+      "paragraphs": [
+        "Chief Justice Hill accepted the administrator’s premise that Harrison had not agreed, but rejected its proposed consequence. Drawing on Sceva v. True, a precedent distinguishing actual promises from duties imposed by law, the court explained that implied-in-fact contract rests on conduct demonstrating agreement, while quasi-contract can impose an obligation without a meeting of minds.",
+        "Necessary professional services supplied in good faith to a person helpless through injury justified reasonable compensation. The court did not pretend that unconsciousness concealed consent; it recognized a settled legal remedy comparable to necessary services for others unable to contract. Urgency and inability to make arrangements distinguished this intervention from imposing an unwanted service on a capable person who could first be asked."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion pt.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Death did not make the professional effort uncompensable",
+      "cue": "Answer the separate objection about benefit.",
+      "paragraphs": [
+        "The estate argued that recovery required proof of actual benefit despite the failed operation. The court rejected making payment depend on survival. A physician ordinarily undertook professional skill and care, not a guaranteed cure unless specially promised. Failure to save a gravely injured patient did not itself erase the value of the reasonable professional attempt.",
+        "Appropriate skill and care remained required. The ruling neither enforced a cure guarantee nor excused negligent treatment; neither supplied the basis for denying compensation here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion pt.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Reasonable value could not include an unagreed wealth premium",
+      "cue": "Explain why the amount required a new determination.",
+      "paragraphs": [
+        "A fee custom might illuminate an actual agreement through the parties’ shared circumstances and expectations. These doctors, however, were called by others to treat an unconscious stranger who could not contemplate an estate-based charge. A legal obligation for fair time, services, and skill did not import every advantageous price term a physician might have negotiated. The work was no more valuable because Harrison was wealthy.",
+        "The collateral heirs were even less relevant. Having no spouse or children did not increase treatment’s value and risked inviting the jury to divert money because it regarded the heirs as less deserving. That evidence and the wealth instruction should not have influenced the award.",
+        "Although the verdict fell within the upper range of testimony, it substantially exceeded other fee evidence. The court could not deem error harmless merely because one estimate supported the amount; improper factors might explain the jury’s choice within the range."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion pt.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The claim survived but the award did not",
+      "cue": "State the disposition and limited separate position.",
+      "paragraphs": [
+        "The Arkansas Supreme Court reversed and remanded. The physicians retained a right to reasonable compensation for emergency services, while the amount had to be reconsidered under proper standards.",
+        "Justices Battle and Wood agreed with liability and exclusion of the collateral-heir evidence but disagreed that estate value and a related instruction were erroneous. The report recorded that position without an extended separate explanation. It did not convert the reversal into rejection of the physicians’ claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion conclusion and separate position after pt.3"
+        }
+      ]
+    }
+  ]
+}

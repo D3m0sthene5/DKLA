@@ -1,0 +1,126 @@
+{
+  "id": "brief-CT-CB-0230",
+  "briefId": "CT-CB-0230",
+  "title": "Corinthian Pharmaceutical Systems, Inc. v. Lederle Laboratories",
+  "course": "Contracts",
+  "citation": "724 F. Supp. 605 (S.D. Ind. 1989)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A distributor rushed to order a thousand vaccine vials before a price increase, but an automated tracking number and an expressly limited fifty-vial accommodation did not accept the claimed thousand-vial bargain.",
+  "actors": [
+    {
+      "name": "Corinthian Pharmaceutical Systems, Inc.",
+      "role": "Distributor buying vaccine for resale"
+    },
+    {
+      "name": "Lederle Laboratories",
+      "role": "Manufacturer controlling acceptance and shipment-date prices"
+    },
+    {
+      "name": "Corinthian’s president",
+      "role": "Officer aware invoice conditions existed"
+    },
+    {
+      "name": "Judge McKinney",
+      "role": "District judge deciding summary judgment"
+    }
+  ],
+  "proceedings": "Lederle sought summary judgment in diversity action; district court granted it, rejecting formation of the asserted bargain and alternatively applying prior agreed seller conditions.",
+  "limits": "Corinthian’s summary-judgment submission sought specific performance only. The ruling involved quantity nonconformity, not defective vaccine, and a particular tracking acknowledgment rather than a categorical rule against automated acceptance. Choice-of-law differences were not established.",
+  "briefSha256": "9fd4c0dd46dfdeb06be0e8b7475fd110c74bca0c990f04cd97933d8ecbe3c8ec",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0230"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A prior settlement governed additional orders while prices remained changeable",
+      "cue": "Introduce the parties’ established terms before the disputed order.",
+      "paragraphs": [
+        "Corinthian Pharmaceutical Systems distributed vaccine for resale to physicians and other providers. Lederle Laboratories manufactured pharmaceuticals including diphtheria, tetanus, and pertussis vaccine. The companies had litigated a large vaccine order in 1984 and settled in writing. Lederle completed the specified supply obligation, and Corinthian agreed that additional orders would use market prices and seller terms effective on the order date.",
+        "Lederle’s price lists expressly were submitted without offer, reserved price changes without notice, and required home-office acceptance. Unfilled orders would be invoiced at shipment-date prices. Invoices repeated conditions and made acceptance conditional on the buyer’s assent. Corinthian’s president knew conditions appeared there but had not read them. The largest intervening individual order was one hundred vials."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "724 F. Supp. at 606–607 & n.3, 611"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Advance news of the increase prompted an unusually large order",
+      "cue": "Keep the separate old-price figures and later accommodation distinct.",
+      "paragraphs": [
+        "Growing vaccine litigation and insurance problems led Lederle to self-insure and raise prices. A May 19, 1986 internal sales-force letter described an increase from $51 to $171 effective May 20. Corinthian did not receive it until weeks later, but on May 19 obtained advance knowledge of a customer announcement dated May 20.",
+        "That day Corinthian ordered one thousand vials through the automated Telgo telephone system, which returned a tracking number. It also sent two confirmations insisting on $64.32 per vial, its requested purchase price distinct from the internal letter’s $51 figure. No communication then said Lederle agreed to the whole quantity at that price. Corinthian had no identified downstream resale contracts.",
+        "On June 3, Lederle shipped fifty vials at $64.32 each with a letter explaining a limited exception to normal shipment-date pricing because of the increase’s magnitude. The balance would cost $171 and ship the week of June 16; Corinthian could cancel by June 13. It accepted the fifty but claimed the other 950 at the lower price."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 607–608 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The buyer sued to compel the balance at its selected price",
+      "cue": "Identify the governing posture and the first offer.",
+      "paragraphs": [
+        "Corinthian’s amended complaint referred generally to damages, costs, and fees, but its summary-judgment brief sought only specific performance. Lederle moved for summary judgment, denying acceptance and invoking accommodation and the established conditions. Judge McKinney treated material facts as undisputed and drew permissible inferences for Corinthian; allegations and conclusory affidavits did not create a factual issue merely because intent mattered.",
+        "Both parties were merchants and vaccine was goods, so the court applied the Uniform Commercial Code, principally Indiana authorities. It acknowledged Lederle’s New Jersey choice clause but found no demonstrated relevant difference, without conclusively deciding that Indiana law overrode it.",
+        "Corinthian’s order was the first offer. Price lists reserving acceptance did not empower every recipient to demand any quantity. The customer notice announced a change, not a special old-price right for those learning early. The internal memorandum was not directed to Corinthian and was unknown when it ordered. Prior dealings likewise did not establish an unlimited standing offer. The tracking number merely recorded and administered receipt; in context it did not assent to quantity or price."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 606 n.1, 608–610 & nn.8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The shipment’s accompanying notice prevented acceptance of the entire order",
+      "cue": "Explain the statutory exception through the actual communication.",
+      "paragraphs": [
+        "Under Code § 2-206(1)(b), an order inviting prompt shipment ordinarily could be accepted by conforming or nonconforming goods. But seasonable notice that a nonconforming shipment was only an accommodation prevented that result.",
+        "Fifty vials were only one-twentieth of the order, so the nonconformity was quantity, not vaccine quality. Read with the contemporaneous letter, the shipment extended a limited low-price accommodation and proposed the remainder at the new price. It was a counteroffer, not acceptance exposing Lederle to liability for the missing 950. The buyer could accept or reject that proposal. The fifty vials were sold, not given away; “accommodation” explained formation consequences rather than absence of a commercial exchange."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 610–611"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The prior settlement supplied an alternative reason to deny the requested bargain",
+      "cue": "Preserve the conditional analysis and final order.",
+      "paragraphs": [
+        "Assuming formation only for argument, the court also held that the 1984 settlement and applicable seller conditions preserved shipment-date pricing and allocation defenses. Corinthian’s president was charged with knowledge of the signed settlement. Corinthian could not insist that the order date alone fixed the low price after agreeing to those conditions.",
+        "The court additionally invoked the invoices’ expressly conditional acceptance wording under § 2-207. That alternative arose with a preexisting settlement agreeing to seller conditions, not merely a first-time exchange in which one seller’s boilerplate automatically governs all terms.",
+        "On October 30, 1989, McKinney granted Lederle summary judgment. Corinthian obtained no order requiring 950 more vials at $64.32. The decision involved no jury verdict or appellate remand and did not decide pharmaceutical-pricing policy; it resolved the particular supply commitment Corinthian asserted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 611, pt. III.B"
+        }
+      ]
+    }
+  ]
+}

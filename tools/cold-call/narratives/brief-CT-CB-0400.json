@@ -1,0 +1,133 @@
+{
+  "id": "brief-CT-CB-0400",
+  "briefId": "CT-CB-0400",
+  "title": "Langman v. Alumni Association of the University of Virginia",
+  "course": "Contracts",
+  "citation": "247 Va. 491, 442 S.E.2d 669 (1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A charitable grantee accepted commercial property through its conduct and became bound by the deed’s mortgage assumption despite never signing it.",
+  "actors": [
+    {
+      "name": "Dr. Margaretha Langman",
+      "role": "Co-owner donating equity and seeking enforcement of the mortgage promise"
+    },
+    {
+      "name": "Caleb Stowe",
+      "role": "Co-owner, broker, and property manager"
+    },
+    {
+      "name": "University of Virginia Alumni Association",
+      "role": "Grantee accepting property with an assumption clause"
+    },
+    {
+      "name": "Dominion Federal and successor lender",
+      "role": "Mortgage creditors"
+    }
+  ],
+  "proceedings": [
+    "Trial court after three-day hearing: declared conveyance ineffective and assumption unenforceable.",
+    "Virginia Supreme Court: reversed and remanded for further proceedings without calculating final reimbursement."
+  ],
+  "limits": [
+    "The promise was an original property-acquisition undertaking, not suretyship. Evidence could address genuine fraud or mistake, but could not contradict this unambiguous deed merely by asserting different intent."
+  ],
+  "briefSha256": "6612747f5e951cc413d91ef91ad6d64cbd482158f63c022ccf3fae3cbb6db2ef",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0400"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The owners propose donating equity in a mortgaged property",
+      "cue": "Introduce the acquisition and the intended charitable transfer.",
+      "paragraphs": [
+        "In June 1986, Dr. Margaretha Langman and broker Caleb Stowe bought Ferdinand’s Arcade, a Maryland commercial property, for $780,000. They gave Dominion Federal a $600,000 secured note. The seller guaranteed specified rental income until actual receipts reached that level.",
+        "Later, Stowe sought to fulfill a university pledge and Langman to support an endowed medical-school chair. University officials suggested the University of Virginia Alumni Association because it could more readily liquidate assets. Correspondence placed Langman’s equity gift around $86,000.",
+        "A December 30 deed conveyed fee-simple ownership, recited love and respect for the university, identified the mortgage, and expressly required the grantee to assume payment and hold the grantors harmless. No Association representative signed, and the form had no grantee signature line. Langman testified she read it carefully, understood assumption differed from taking subject to debt, and would not donate equity without that protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "247 Va. at 494–495"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Association acts as owner until cash shortfalls become its problem",
+      "cue": "Trace acceptance and the default dispute.",
+      "paragraphs": [
+        "The Association’s director acknowledged the gift. Early in 1987, its comptroller received the deed, sent it for Maryland recording, and received the original back. Accounting and audited statements listed the mortgage as its liability, including footnotes saying it assumed debt on donated property. The director said he objected internally to that entry, but accountants denied receiving complaints. The Association also signed as owner and lessor.",
+        "Stowe managed the property, collected rent, and sought a sale. When revenue failed to cover expenses and mortgage payments, he paid deficits, initially recorded as debts to him. He later forgave them and they were treated as charitable contributions. After his business entered bankruptcy in 1989, he could no longer cover shortages.",
+        "The successor lender notified Langman of default. When the Association denied responsibility, she cured while reserving rights and sued for a declaration. After a three-day hearing, the trial court found no knowing acceptance of contractual conditions, mistaken insertion by an unidentified draftsman, and sufficient repudiation. It declared the conveyance ineffective and the assumption unenforceable, relieving the Association from paid amounts and remaining debt."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "247 Va. at 495–497"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Gift language and assumed debt are compatible parts of the same transfer",
+      "cue": "Explain interpretation before acceptance.",
+      "paragraphs": [
+        "Langman appealed use of parol evidence and attempted rejection after more than two years of ownership. The Association asserted lack of signature, suretyship, fraud, mutual mistake, inequitable inducement of unilateral mistake, and failure of consideration.",
+        "Justice Barbara Milano Keenan explained that factual findings normally received deference, but ambiguity was legal and improperly admitted evidence could not insulate findings. The deed plainly imposed assumption and indemnity. Its gift recital did not contradict payment: an encumbered portion supplied consideration through assumption, while unencumbered equity could be donated. A transfer could be partly gift and partly exchange.",
+        "Prior negotiations or claimed ignorance could not rewrite clear terms. Evidence genuinely bearing on fraud or mistake could fall within exceptions, however. The error was contradicting an unambiguous instrument through extrinsic intent, not excluding every challenge to validity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "247 Va. at 497–499, 504 n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Acceptance by conduct binds the grantee without its signature",
+      "cue": "Connect ownership acts to the original debt undertaking.",
+      "paragraphs": [
+        "A grantee accepting a deed became bound by its provisions, including mortgage assumption. Acceptance could be behavioral, and a beneficial conveyance was presumed accepted absent renunciation. Delivery followed intended transfer and receipt by Association agents.",
+        "For about thirty months, the Association recorded ownership, booked the asset and liability, acted as lessor and owner, and accepted Stowe’s contributions. It did not resist title. The director’s alleged private objections concerned debt alone, not rejecting the property. Those facts could not support timely renunciation of the whole deed while claiming its benefits.",
+        "Virginia Code § 11-2(4) required a signed writing for a promise to answer for another’s default. This promise was different: the grantee owed the grantor payment to the lender as part of acquiring the property. It received a direct benefit and made an original undertaking, rather than merely guaranteeing someone else’s payment. The lender’s continuing ability to pursue Langman did not change the character of the Association’s promise to her. The asserted suretyship provision therefore did not bar enforcement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "247 Va. at 499–502"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The remaining validity defenses fail on the record",
+      "cue": "Finish with the limited remedial remand.",
+      "paragraphs": [
+        "The Association claimed overstated equity. Lower tax valuation and the rental guarantee suggested possible overvaluation, but a recent independent appraisal supported the represented purchase value. Conflicting proof did not clearly and convincingly establish all elements of actual or constructive fraud. The same accusations supplied no separate inequitable-inducement theory.",
+        "Mutual mistake required a shared error. The trial court had credited Langman’s knowing understanding of assumption, a supported finding defeating mutuality. The Association’s misunderstanding alone was insufficient. Failure of consideration likewise depended on a valuation contention not accepted below, and the Association had in any event received all Langman’s interest in return for assumption. A later financial burden did not undo that benefit.",
+        "The Supreme Court of Virginia reversed the decree nullifying the transfer, rejecting assumption, and relieving liability to Langman and the lender’s successor. It remanded further proceedings on her bill without fixing reimbursement or a final monetary award. Keenan’s opinion had no separate writing. The accepted transfer included its clear debt obligation as well as its favorable property interest."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "247 Va. at 502–505"
+        }
+      ]
+    }
+  ]
+}
