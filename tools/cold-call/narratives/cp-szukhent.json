@@ -1,0 +1,140 @@
+{
+  "id": "cp-szukhent",
+  "briefId": "CPR-011",
+  "title": "National Equipment Rental, Ltd. v. Szukhent",
+  "course": "Civil Procedure",
+  "citation": "375 U.S. 311 (1964)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Michigan equipment lessees designate an unfamiliar New York process agent in a printed lease, then contest the appointment after she promptly forwards the lessor’s summons and complaint.",
+  "actors": [
+    {
+      "name": "National Equipment Rental, Ltd.",
+      "role": "Equipment lessor with its principal business in New York; sued for unpaid rent."
+    },
+    {
+      "name": "The Szukhents",
+      "role": "Michigan farmers who signed the lease and sought to quash New York service."
+    },
+    {
+      "name": "Florence Weinberg",
+      "role": "Nonparty named to receive process in New York; promptly forwarded it to the lessees."
+    }
+  ],
+  "proceedings": [
+    "The Eastern District of New York quashed service because the appointment contained no express duty to forward process.",
+    "The Second Circuit affirmed.",
+    "The Supreme Court reversed and remanded on January 6, 1964, finding valid service under the Federal Rule."
+  ],
+  "limits": "The holding depends on actual prompt notice and addresses an appointed agent under the Federal Rule, not subject-matter jurisdiction, venue, the unpaid-rent merits, or a case where no notice reached defendants. The majority did not decide a due-process question.",
+  "briefSha256": "47d3afcd056c2e7705656ac2f9c3ca128d52e366f29b3117e17d530a8c5a5133",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-011"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A printed equipment lease names a stranger to receive New York process",
+      "cue": "What did the farmers sign?",
+      "paragraphs": [
+        "In 1961, National Equipment Rental, whose principal place of business was New York, leased farm machinery to the Szukhents, Michigan farmers. Their printed form was under a page and a half, with eighteen numbered paragraphs. The final paragraph, just above the signatures and in the same type as the rest, deemed the agreement made in Nassau County and selected New York law.",
+        "That paragraph designated Florence Weinberg of 47-21 Forty-first Street, Long Island City, as the lessees’ agent to accept any process within New York. The Szukhents did not know her. The lease did not expressly require forwarding process. Justice Black’s later dissent emphasized that the company chose Weinberg, she had never met the farmers, received nothing from them, and assumed no express obligation to them; after suit, she was revealed as an officer’s wife."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 312–314, 319; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Weinberg receives the lawsuit and sends the papers the same day",
+      "cue": "Why did the courts below still reject service?",
+      "paragraphs": [
+        "In 1962, the lessor sued in the Eastern District of New York, alleging unpaid periodic rent. A United States marshal delivered two copies of the summons and complaint to Weinberg. She mailed them that same day to the Szukhents, explaining service on her as their lease-appointed agent. The company independently sent certified-mail notice that service had occurred.",
+        "The farmers moved to quash. The district court acknowledged actual prompt forwarding but found the absence of an express forwarding obligation meant the agency lacked intrinsic and continuing reality. The Second Circuit affirmed. The Supreme Court granted review, heard argument on November 20, 1963, and considered whether Weinberg was an agent authorized by appointment under then-Rule 4(d)(1), the provision later located at Rule 4(e)(2)(C)."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 313–314; Citation; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stewart treats the dispute as a private appointment under a federal rule",
+      "cue": "Why did the public-official notice precedent not decide it?",
+      "paragraphs": [
+        "Justice Stewart wrote for five Justices. The farmers relied on Wuchter v. Pizzutti, which addressed constitutional limits on a state statute designating a public official to receive nonresident process. This case concerned a private contractual appointment under the Federal Rules where prompt notice actually reached the defendants.",
+        "The clause’s purpose was to place litigation under the lease in New York. Contracting parties could agree beforehand to jurisdiction, service through an opposing party, or waiver of notice. The question presented was whether this named person satisfied the Rule’s agency requirement; subject-matter jurisdiction and venue were not disputed.",
+        "Under general agency principles, Weinberg’s acceptance and prompt transmission pursuant to the lease’s authority validated the appointment despite no advance promise to transmit. Rule 4 supplied a uniform federal standard. Even assuming contrary state policy might matter, the majority found no relevant conflict: neither the cited Michigan service statute nor New York law required an express forwarding undertaking."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 315–317; Rule and Holding; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority finds the narrow task compatible with both parties’ notice interests",
+      "cue": "What limitation accompanied the validation?",
+      "paragraphs": [
+        "The farmers argued that Weinberg’s relationship to the company and unfamiliarity with them created a conflict. The majority focused on the limited job of receiving and transmitting process. Both sides had an interest in adequate timely notice, a prerequisite to a valid judgment. No pecuniary interest of Weinberg in the litigation was alleged.",
+        "Actual prompt notice was central. The Court expressly reserved a case where the agent failed to forward papers and the defendant received no personal notice; such failure might invalidate the agency. It did not approve an unattended mailbox appointment regardless of what happened afterward.",
+        "On January 6, 1964, the Court reversed the Second Circuit and remanded, permitting the New York suit to proceed against the farmers on valid service. It did not decide whether they owed the alleged rent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 315, 317–318 & n.9; Judgment"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Black challenges the reality of consent and the cost of a distant forum",
+      "cue": "Why did actual notice not answer his objection?",
+      "paragraphs": [
+        "Justice Black would hold the agency invalid. He considered New York law controlling and agreed with the lower courts’ reading; alternatively, he thought a federal agency standard should exclude this arrangement. He also saw serious due-process concerns.",
+        "Black stressed that Weinberg was a company-selected stranger, later disclosed as an officer’s wife, and that a signature on this printed form did not establish meaningful knowing agreement to defend away from home. He feared widespread use of comparable clauses in equipment leases and conditional sales, forcing individuals to litigate in distant commercial centers or default. His central objection concerned consent and burdens, not a claim that the farmers lacked actual notice after Weinberg’s mailing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 318–333; Black dissent; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan proposes safeguards beyond a signature",
+      "cue": "Which federal requirements would the other dissent impose?",
+      "paragraphs": [
+        "Justice Brennan, joined by Chief Justice Warren and Justice Goldberg, also favored a federal definition but would require three protections. The agent could not hold interests conflicting with the principal’s. The appointment had to expressly require immediate transmission, drawing on Wuchter’s notice concern. And a company drafting a printed form had to show, beyond the purchaser’s signature, an understanding agreement to suit outside the purchaser’s home State.",
+        "The majority adopted none of those additional prerequisites on these facts. The resulting holding remains narrow: a contractual process appointment was effective under the Rule when the appointed person promptly delivered notice. The assigned questions connect consent to later consumer forum and standard-form disputes, including Hill’s rolling-contract issue, but those comparisons do not turn this Rule 4 decision into a general validation of all consumer notice or forum terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "375 U.S. at 333–334; Brennan dissent; Notes"
+        }
+      ]
+    }
+  ]
+}

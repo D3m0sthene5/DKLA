@@ -1,0 +1,149 @@
+{
+  "id": "cp-shaffer",
+  "briefId": "CPR-008",
+  "title": "Shaffer v. Heitner",
+  "course": "Civil Procedure",
+  "citation": "433 U.S. 186 (1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A shareholder uses Delaware’s statutory location of stock to force nonresident corporate officers and directors into court. The stock secures appearance, while the alleged managerial misconduct occurred elsewhere.",
+  "actors": [
+    {
+      "name": "Arnold Heitner",
+      "role": "Nonresident owner of one Greyhound share; brought a derivative claim for the corporation."
+    },
+    {
+      "name": "Greyhound Corporation",
+      "role": "Delaware corporation headquartered in Phoenix, Arizona."
+    },
+    {
+      "name": "Greyhound Lines, Inc.",
+      "role": "Wholly owned California subsidiary, also headquartered in Phoenix."
+    },
+    {
+      "name": "Twenty-eight current or former officers and directors",
+      "role": "Named individual defendants; twenty-one with sequestered interests pursued the jurisdictional appeal."
+    }
+  ],
+  "proceedings": [
+    "The Delaware Court of Chancery ordered sequestration on May 22, 1974, and rejected the individuals’ challenges.",
+    "The Delaware Supreme Court affirmed, 361 A.2d 225 (1976), treating property jurisdiction as outside International Shoe.",
+    "The United States Supreme Court reversed on June 24, 1977, before trial of the derivative claims."
+  ],
+  "limits": "This narrative follows the source brief’s historical 1977 account, without a new audit. Liability, indemnification and the independent seizure-safeguards challenge were undecided. Actual notice was not disputed. The account of Delaware consent law describes the law then before the Court, and the decision reserved enforcement of established obligations and the possible absence of another forum.",
+  "briefSha256": "71bcd0a1fc53f6a7f4a307ee49a80a155a4cb12379552b0236c0db46e52101ef",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-008"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Corporate losses lead Heitner to sue on Greyhound’s behalf",
+      "cue": "What was the alleged injury, and why was the stock not the subject of the lawsuit?",
+      "paragraphs": [
+        "Arnold Heitner lived outside Delaware and owned one share of Greyhound Corporation. Greyhound was incorporated in Delaware and headquartered in Phoenix, Arizona. Its wholly owned subsidiary, Greyhound Lines, was incorporated in California and also headquartered in Phoenix. Heitner alleged that current or former officers and directors caused conduct in Oregon that produced an antitrust judgment exceeding $13 million and $600,000 in criminal-contempt fines against the corporations.",
+        "Heitner brought a shareholder derivative action: the asserted claim belonged to the corporation, and he sought to hold fiduciaries responsible for corporate losses rather than a separate injury to his one share. He named Greyhound, Greyhound Lines and twenty-eight officers and directors. The individuals were not Delaware residents. The complaint did not dispute title to their stock or seek determination of rights in that stock."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Delaware’s sequestration laws attach the defendants’ shares",
+      "cue": "How did intangible property become the asserted basis for jurisdiction?",
+      "paragraphs": [
+        "Delaware allowed sequestration of a nonresident’s local property to compel a personal appearance. A separate statute deemed shares in a Delaware corporation located in Delaware for attachment and jurisdiction even if the owner and certificates were elsewhere. On May 22, 1974, Heitner filed in the Delaware Court of Chancery for New Castle County and simultaneously sought sequestration under title 10, § 366. The court ordered it that day.",
+        "The sequestrator placed stop-transfer orders on Greyhound’s books covering approximately 82,000 shares held by nineteen defendants and options held by two others. No certificate was shown physically present in Delaware. The parent corporation’s incorporation supplied the statutory stock location; it did not automatically subject its officers and directors personally to jurisdiction.",
+        "The mechanism ordinarily released property when a defendant appeared generally unless the plaintiff justified continued seizure. A special appearance permitted a jurisdictional challenge, but defendants could not contest the merits while limiting exposure to the attached property. The procedure therefore pressured them to accept full personal jurisdiction to protect their assets. Notice went by certified mail and newspaper publication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History; 433 U.S. 189–195 & nn.2–9, 12"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The state courts uphold jurisdiction based on property alone",
+      "cue": "Why could the Supreme Court review the issue before a merits judgment?",
+      "paragraphs": [
+        "The twenty-one affected individuals specially appeared, moved to quash service and sought to vacate sequestration. They challenged the ex parte safeguards, attachability of the property and their Delaware contacts under International Shoe, the decision requiring minimum contacts for corporate personal jurisdiction.",
+        "The Court of Chancery rejected the objections. It viewed sequestration as primarily compelling appearance, found the statutory stock location adequate for quasi in rem jurisdiction, and approved the procedure’s purpose and limits. The Delaware Supreme Court affirmed in 1976, expressly treating International Shoe as inapplicable because jurisdiction rested on local property rather than defendants’ prior state contacts.",
+        "The U.S. Supreme Court took an appeal under the then-existing jurisdictional statute. Under Cox Broadcasting’s pragmatic finality approach, the federal issue was conclusively resolved while the remaining options forced defendants to default or appear generally and litigate. A later merits victory could prevent further review after a trial they should never have faced. That made the state ruling sufficiently final for review before the derivative trial. Notice itself was undisputed; authority over the individuals and fairness of the seizure remained different questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 433 U.S. 189–196 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court applies minimum contacts to property-based adjudication",
+      "cue": "Why could the asset’s statutory location not carry this unrelated claim?",
+      "paragraphs": [
+        "Justice Marshall’s opinion reconsidered the territorial model associated with Pennoyer. International Shoe focused on the relationship among defendant, forum and litigation. A personal claim could not escape that inquiry merely because the plaintiff attached an asset and used a property label.",
+        "An in rem proceeding determines interests in a thing; quasi in rem jurisdiction traditionally reaches a defendant’s interest in property to satisfy a claim. Both ultimately adjudicate people’s rights. The presence of property therefore had to be evaluated as part of the relevant relationship, rather than accepted as a self-sufficient constitutional answer.",
+        "Where litigation concerns ownership or possession of local land, the property and the state’s interests ordinarily supply strong connections, so many traditional cases could meet minimum contacts readily. Here the stock was unrelated security used to force appearance. The alleged managerial misconduct caused liability for Oregon events. Stock ownership did not connect that wrong to Delaware, and assigning intangible shares a situs by statute could not manufacture the missing relationship.",
+        "Preventing debtors from evading obligations did not require first adjudicating liability wherever an unrelated asset happened to be. Attachment could preserve assets for a judgment pursued in a competent forum, and a valid personal judgment could receive full faith and credit elsewhere. The Court distinguished enforcing an already established obligation from using property alone to establish one, and reserved whether property could support jurisdiction when no other forum existed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 433 U.S. 207–217 & nn.36–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Delaware’s corporate-regulation interest does not cure this statutory method",
+      "cue": "Why were incorporation, fiduciary positions and applicable law insufficient here?",
+      "paragraphs": [
+        "Heitner alternatively stressed Delaware’s interest in fiduciaries of its corporations. The majority found the sequestration statute poorly fitted to that goal: it reached nonresident property owners generally yet missed seven named fiduciaries with no attachable assets. A law directed to corporate responsibilities would work differently.",
+        "An interest in applying Delaware corporate law did not itself create adjudicatory authority. Choice of law and personal jurisdiction were separate. Nor did the majority find adequate purposeful affiliation merely from these positions or share purchases on the record. Delaware had not then enacted a law making acceptance of a directorship consent to jurisdiction; individuals need not own stock to hold office, and buying stock did not consent to suit on any claim.",
+        "The Court considered historical practice but refused to make longevity decisive where the old method lacked sufficient contemporary justification. On June 24, 1977, it reversed the Delaware Supreme Court. The sequestration-based assertion against these appellants failed. It did not determine fiduciary breach, corporate indemnification, or invalidity of every attachment procedure. Because lack of jurisdiction resolved the appeal, the separate challenge to the ex parte seizure’s safeguards remained undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Judgment; 433 U.S. 213–217 & n.40"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The separate opinions reserve property questions and dispute the immediate result",
+      "cue": "Who joined the general principle but wanted a different next step?",
+      "paragraphs": [
+        "Chief Justice Burger and Justices Stewart, White, Blackmun and Powell joined Marshall. Powell also wrote to reserve whether property with a fixed, unmistakable situs—especially real estate—could alone support jurisdiction limited to its value, unlike legislatively located shares. Justice Stevens concurred in the judgment because ordinary securities purchasers lacked fair warning of unrelated Delaware litigation. Artificial situs combined with a required general appearance was decisive for him; he cautioned against invalidating established procedures involving adequate notice and predictable local activity.",
+        "Justice Brennan joined Parts I–III and agreed that International Shoe governed property jurisdiction, but opposed the Court’s immediate insufficiency ruling. The parties had litigated under a framework saying contacts were irrelevant, leaving Heitner without the ordinary discovery opportunity to develop them. Brennan would allow Delaware to reconsider its law and permit factual development.",
+        "Brennan also viewed accepting fiduciary responsibilities under Delaware law, the state’s accountability interest and the derivative nature of the claim as ordinarily supplying a substantial relationship. His disagreement thus concerned both procedural opportunity and evaluation of the corporate connection. Justice Rehnquist took no part.",
+        "The historical decision separates notice, seizure safeguards and power to adjudicate. Later Burnham disagreement about personal service and Mallory’s consent analysis address distinct grounds; they do not convert unrelated stock ownership into universal jurisdiction. Nor does the 1977 discussion establish the content of later Delaware consent statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Notes; Citation; 433 U.S. 217–228"
+        }
+      ]
+    }
+  ]
+}

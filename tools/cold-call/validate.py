@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 def validate(data, graph, full, briefs=None):
     assert data['schemaVersion'] in (1, 2, 3), 'Unsupported cold-call schema'
     nodes = {n['id']: n for n in graph['nodes']}
+    mapped = {e[6] or 'brief-'+e[0]:e[0] for e in briefs['entries']} if briefs else {}
     known_paths = {s.get('url','').split('#')[0] for n in nodes.values() for s in n.get('sources', [])}
     ids = set()
     for case in data['cases']:
@@ -25,6 +26,8 @@ def validate(data, graph, full, briefs=None):
             assert nodes[cid]['kind'] == 'Case' and nodes[cid].get('mnemonic'), f'{cid}: requires an illustrated case'
         if case.get('briefId'):
             assert case['briefSha256'] == hashlib.sha256(full[case['briefId']].encode()).hexdigest(), f'{cid}: source brief changed; recheck the narrative and update its fingerprint'
+        if briefs:
+            assert case.get('briefId') == mapped.get(cid), f'{cid}: narrative uses another case’s source brief'
         if origin == 'narrative':
             assert case['revision'] >= 1 and case['actors'] and case['proceedings'] and case['limits'], f'{cid}: incomplete orientation'
             if cid not in ('hamer', 'cp-pennoyer', 'lrs-s-chadha'):
@@ -95,4 +98,6 @@ def validate(data, graph, full, briefs=None):
         else:
             assert ids == expected, f'Cold-call coverage mismatch: missing {sorted(expected-ids)}, extra {sorted(ids-expected)}'
         assert data['coverage']['total'] == len(ids), 'Incorrect coverage count'
+        assert data['coverage']['mapCases'] == sum(not cid.startswith('brief-') for cid in ids), 'Incorrect map narrative count'
+        assert data['coverage']['supportingCases'] == sum(cid.startswith('brief-') for cid in ids), 'Incorrect supporting narrative count'
     return data

@@ -1,0 +1,108 @@
+{
+  "id": "cp-lacks",
+  "briefId": "CPR-014",
+  "title": "Lacks v. Lacks",
+  "course": "Civil Procedure",
+  "citation": "41 N.Y.2d 71 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Years after divorce litigation ends, a former spouse calls a residence requirement jurisdictional to reopen the judgment; the Court distinguishes a mistaken decision from absence of power to decide.",
+  "actors": [
+    {
+      "name": "Harold G. Lacks",
+      "role": "Husband and original matrimonial plaintiff seeking to preserve the divorce."
+    },
+    {
+      "name": "Irene R. Lacks",
+      "role": "Wife and postjudgment movant seeking to vacate it."
+    }
+  ],
+  "proceedings": [
+    "The original separation dismissal was reversed; the second trial produced a divorce affirmed on ordinary appeal.",
+    "Special Term granted the wife’s later jurisdictional motion in 1975.",
+    "The Appellate Division reinstated the divorce, and the Court of Appeals affirmed without costs."
+  ],
+  "limits": "The Court did not find a residence violation. It held that even the asserted error would not void this judgment for lack of subject-matter competence. Distinct federal constitutional connections to the marital status were satisfied.",
+  "briefSha256": "c4eb6575f0d0f85ff380b80b9c4e3e9b53da1021f632a176ce2d4da56967ae3c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-014"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Repeated marital litigation produces a final divorce",
+      "cue": "How did a separation claim become a divorce judgment?",
+      "paragraphs": [
+        "Harold G. Lacks and Irene R. Lacks married in New York in 1938 and litigated marital disputes repeatedly beginning in 1953. On August 10, 1965, Harold brought the action at issue for separation based on cruelty. After a nonjury trial, New York’s Supreme Court dismissed on June 28, 1967. The Appellate Division reversed on March 26, 1968, and ordered a new trial.",
+        "New York liberalized divorce law while the case remained pending. At the second trial Harold added absolute divorce on the same allegations and proof used for separation. A March 16, 1970 divorce judgment followed. The Appellate Division affirmed on October 26, 1972, with modifications irrelevant here; both it and the Court of Appeals denied further review. Ordinary appeals were exhausted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; Procedural History; casebook 297–298"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Irene returns through a jurisdictional postjudgment motion",
+      "cue": "What did the residence allegation need to establish to overcome finality?",
+      "paragraphs": [
+        "Almost two years after appellate review ended, Irene moved under Civil Practice Law and Rules 5015(a)(4), permitting relief from a judgment entered without jurisdiction. She asserted that Harold had not lived in New York for a full year before the original action, as Domestic Relations Law § 230 required, and that the omission deprived the court of power to grant divorce.",
+        "This was not another timely merits appeal. Her jurisdictional classification was the route around the final judgment. Special Term granted the motion in 1975; the Appellate Division modified by denying it and restoring the divorce. Irene appealed that postjudgment order to the Court of Appeals.",
+        "Chief Judge Breitel refused to assume the original residence decision was wrong. Considerable evidence supported Harold’s residence, and earlier courts might already have decided the questions. The controlling issue was the consequence even of the asserted error, not a fresh factual residence determination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Material Facts; 41 N.Y.2d 74–77; full-opinion additions"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Breitel asks whether the requirement restricts relief or adjudicative competence",
+      "cue": "Why does calling a rule jurisdictional fail to answer the question?",
+      "paragraphs": [
+        "Judicial usage sometimes calls failure to state a claim, inability to grant a remedy, and fundamental lack of adjudicative competence “jurisdiction.” The postjudgment provision addressed the last. Subject-matter competence concerned authority over a category of action, distinct from whether a claimant proved the necessary elements for success.",
+        "New York’s Supreme Court possessed general original jurisdiction. Although matrimonial relief was statutory, failure to satisfy a statutory condition did not necessarily remove power over matrimonial suits. A competent court could correctly or incorrectly decide whether a fact was established without losing competence through error.",
+        "Section 230 stated conditions under which a divorce or separation action could be maintained. Read against the broader constitutional jurisdictional grant, it restricted entitlement to relief rather than withdrawing jurisdiction over the category. That conclusion rested on function and context, not a search for a magic word. The residence rule remained mandatory, but its violation would make a decision erroneous rather than void under this remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; casebook 298–300; 41 N.Y.2d 74–77"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court preserves the judgment without excusing statutory mistakes",
+      "cue": "What is the difference between this result and treating every limit as nonjurisdictional?",
+      "paragraphs": [
+        "Irene’s theory made competence depend on correctly deciding an element. Every failure of proof could then reopen a completed case as a supposed absence of power. The extraordinary nonwaivable, void-judgment consequences of genuine jurisdictional defects made that expansion disruptive. Ordinary errors belonged in the procedures for correcting them, not perpetual challenges after years of finality.",
+        "The Court’s concern included res judicata, the binding effect of completed adjudication. It did not say residence requirements were optional, consent could create subject-matter power, or all statutory conditions lacked jurisdictional force. A specialized court deciding a category beyond its assigned authority would present a different question. The Court also stated that federal constitutional connections necessary to protect this divorce against interstate attack were satisfied; classifying statutory duration did not eliminate separate constitutional limits.",
+        "On December 20, 1976, the Court of Appeals affirmed the Appellate Division without costs. Irene’s motion remained denied and the divorce effective. This affirmance concerned the collateral postjudgment proceeding, distinct from the earlier appeal of the divorce itself. Jasen, Gabrielli, Jones, Wachtler, Fuchsberg, and Cooke joined Breitel; no separate opinion appeared.",
+        "The casebook later compares Arbaugh’s treatment of Title VII’s employee threshold as a merits ingredient rather than a late jurisdictional objection. That analogy does not export New York discussion of standing or mootness into federal Article III law. Different systems retain their own constitutional and statutory limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Reasoning; Separate Opinions; Notes; casebook 299–304; full opinion"
+        }
+      ]
+    }
+  ]
+}

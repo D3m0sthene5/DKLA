@@ -1,0 +1,126 @@
+{
+  "id": "hawkins",
+  "briefId": "CT-CB-0002",
+  "title": "Hawkins v. McGee",
+  "course": "Contracts",
+  "citation": "84 N.H. 114, 146 A. 641 (1929)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A patient alleges a promised perfect hand, and the appeal separates enforceable assurances from medical predictions before correcting the damages baseline.",
+  "actors": [
+    {
+      "name": "Hawkins",
+      "role": "Patient seeking compensation for an allegedly guaranteed surgical result."
+    },
+    {
+      "name": "McGee",
+      "role": "Surgeon disputing the contract theory and jury instructions."
+    },
+    {
+      "name": "Hawkins’s father",
+      "role": "Participant whose understanding of the alleged assurance helped frame the formation evidence."
+    }
+  ],
+  "proceedings": [
+    "The trial court submitted formation to a jury and instructed damages using operative pain and injury beyond the preexisting hand.",
+    "The trial judge set aside the verdict and regarded more than $500 as excessive.",
+    "The New Hampshire Supreme Court ordered a new trial under a promised-versus-actual damages measure."
+  ],
+  "limits": "The alleged guarantee and suggested motive were matters for the jury, not appellate fact findings. The Court did not award $500, decide final recovery, or report a later operation.",
+  "briefSha256": "88bf32c3f8c0479e2dec378483e117a8920cd933bb9dea3d9ddc5f4ff5988399",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0002"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An old burn leads to an operation and alleged guarantee",
+      "cue": "Which statements could create a promise?",
+      "paragraphs": [
+        "An electric-wire burn about nine years earlier had scarred the palm of Hawkins’s right hand. McGee proposed treatment and later removed substantial scar tissue and grafted skin from Hawkins’s chest. The resulting hand supplied the actual condition against which any promised improvement would be measured.",
+        "The evidence distinguished two sets of preoperative statements. Asked about hospitalization, McGee predicted three or four hospital days and return to work a few days later. Separately, witnesses attributed a guarantee of a completely good or perfect hand to him, made before the decision to operate and in Hawkins’s presence. Evidence suggested that Hawkins and his father took that guarantee seriously.",
+        "McGee had allegedly solicited the operation repeatedly. Cross-examination advanced a theory that he wanted skin-grafting experience. That was a possible explanation for unusually strong assurances if the jury accepted the evidence, not a historical motive independently found by the appellate court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; 84 N.H. at 115–116,118"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The contract theory reaches the jury with disputed instructions",
+      "cue": "Why did the verdict not settle damages?",
+      "paragraphs": [
+        "Hawkins sought contractual compensation for failure to deliver the alleged result. The judge allowed the jury to decide formation and instructed it to consider operative pain and suffering and injury beyond the hand’s prior condition. McGee objected. The judge later set the verdict aside and regarded an award above $500 as excessive.",
+        "McGee also sought instructions demanding identical internal understandings of the guarantee and barring recovery unless further surgery could not repair the result. Those requests, the formation threshold, and the damages instruction reached the New Hampshire Supreme Court. The appeal was about a particular alleged result warranty, not a rule that unsuccessful surgery automatically constitutes malpractice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Procedural history; 84 N.H. at 115–119"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court leaves the alleged result warranty for the jury",
+      "cue": "How did objective assent answer the doctor’s argument?",
+      "paragraphs": [
+        "Justice Branch distinguished language capable of a promissory interpretation from forecasts. The judge initially decides whether words can reasonably bear the asserted contractual meaning; the jury then decides whether they were spoken and what the circumstances establish. The explicit alleged guarantee met that threshold; the hospitalization and recovery estimates did not on this record.",
+        "McGee argued that surgical uncertainty made literal reliance on a guarantee unreasonable. The court did not determine that argument’s force in every case. Here solicitation and the possible incentive to gain experience supplied circumstances making a result warranty plausible if the jury accepted them.",
+        "An instruction requiring matching undisclosed subjective understandings was erroneous. If McGee objectively promised the result and Hawkins relied on that manifestation, a private reservation did not undo it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Rules; 84 N.H. at 115–116,119"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The promise defines the damages baseline",
+      "cue": "Why is preoperative condition an incomplete comparison?",
+      "paragraphs": [
+        "If McGee promised a good or perfect hand, damages measured the value to Hawkins of that hand against the actual hand, with incidental consequences fairly within the parties’ contemplation. Merely comparing before and after could miss a breach when no improvement occurred without additional deterioration. Conversely, if the hand became worse, the promised-versus-actual difference already included that worsening; adding it separately duplicated recovery.",
+        "The court used an analogy to a machine warranted to perform a specified function: the bargain protects the promised performance, rather than merely returning the recipient’s contribution. The analogy did not apply sales legislation to medicine.",
+        "Ordinary pain necessarily incident to the contemplated operation would have occurred even with complete success. It was part of the burden Hawkins agreed to bear for the result, not a separate loss from its absence. That reasoning did not categorically exclude every physical or psychological consequence from every contract case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages reasoning; 84 N.H. at 117–118"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The remaining requests do not bar a new contract trial",
+      "cue": "What exactly did the court order?",
+      "paragraphs": [
+        "The corrective-surgery instruction also failed. Evidence that McGee refused another operation was inconsistent with making recovery depend on proof that no further procedure could correct the hand. Even on his theory, the evidence could support an amount covering such an operation. Hawkins did not have to prove all future correction impossible.",
+        "Because the legal damages measure was wrong, the court did not decide whether evidence otherwise supported the trial judge’s $500 assessment. It left counsel-argument disputes unlikely to recur unaddressed. The Supreme Court ordered a new trial, sustaining the possibility of a contract while requiring a different damages assessment. Marble did not sit; the remaining judges concurred, with no separate writings. No final amount or later treatment outcome was reported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Judgment; Reasoning; 84 N.H. at 118–119"
+        }
+      ]
+    }
+  ]
+}

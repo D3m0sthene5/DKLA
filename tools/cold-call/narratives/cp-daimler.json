@@ -1,0 +1,162 @@
+{
+  "id": "cp-daimler",
+  "briefId": "CP-ATLAS-DAIMLER",
+  "title": "Daimler AG v. Bauman",
+  "course": "Civil Procedure",
+  "citation": "571 U.S. 117 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Argentine residents sue a German parent company in California for alleged Argentine abuses, relying entirely on a United States distributor’s business to establish general jurisdiction.",
+  "actors": [
+    {
+      "name": "Twenty-two Argentine residents",
+      "role": "Plaintiffs alleging abuses against themselves or relatives; all but one were Argentine citizens, and one was Chilean."
+    },
+    {
+      "name": "Daimler AG",
+      "role": "German public stock company headquartered in Stuttgart and the sole named defendant."
+    },
+    {
+      "name": "Mercedes-Benz Argentina",
+      "role": "Subsidiary of Daimler’s predecessor accused of collaboration with security forces."
+    },
+    {
+      "name": "Mercedes-Benz USA (MBUSA)",
+      "role": "United States importer and distributor whose contacts plaintiffs sought to attribute to Daimler; not a defendant."
+    }
+  ],
+  "proceedings": [
+    "The Northern District of California dismissed after jurisdictional discovery.",
+    "A Ninth Circuit panel initially affirmed, then on rehearing withdrew that opinion and accepted an agency theory of general jurisdiction.",
+    "The Supreme Court reversed, with eight Justices joining the at-home rationale and Sotomayor concurring in the result."
+  ],
+  "limits": "The abuses remained allegations. MBUSA’s own amenability was assumed because Daimler had not contested it below; attribution was also assumed for the decisive analysis. The Court did not impose an absolute two-forum rule or decide all agency-attribution questions.",
+  "briefSha256": "2d718709f97a959d59f63488ec792d99a4811b706646baeec9d31808680720f7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-DAIMLER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Alleged dictatorship-era abuses lead to an Argentina-centered claim",
+      "cue": "Who was sued, where, and for what conduct?",
+      "paragraphs": [
+        "During Argentina’s 1976–1983 military dictatorship, Mercedes-Benz Argentina allegedly collaborated with security forces to kidnap, detain, torture, and kill workers. In 2004 twenty-two residents of Argentina sued Daimler in the Northern District of California over injuries to themselves or relatives. Twenty-one were Argentine citizens and one was Chilean. They sought vicarious liability under the Alien Tort Statute, Torture Victim Protection Act, and California and Argentine law. The alleged conduct centered on an Argentine plant; none occurred in the United States. These were allegations, not established abuses by either corporation.",
+        "Daimler, the only defendant, was a German public stock company headquartered in Stuttgart and manufacturing mainly in Germany. Plaintiffs never pursued specific jurisdiction. They instead invoked general jurisdiction, which would allow unrelated claims, by attributing a United States distributor’s California business to the German parent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Argentina-centered suit; 571 U.S. at 120–123,133–134 & nn.1–2,12"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The distributor has substantial California sales but is based elsewhere",
+      "cue": "What relationship supported the proposed attribution?",
+      "paragraphs": [
+        "Mercedes-Benz USA, or MBUSA, was a Delaware entity with its principal place of business in New Jersey. It bought vehicles in Germany as Daimler’s exclusive United States importer and distributor and sold through independent dealers nationally. Its California regional office, preparation center, and classic center supported the largest luxury-vehicle supply in that market. California accounted for 2.4 percent of Daimler’s worldwide sales.",
+        "The distribution contract nevertheless described MBUSA as an independent contractor buying and selling for its own account, denied general or special agency, and denied power to bind Daimler. Affiliation, sales, and supervision therefore raised the attribution question rather than automatically establishing the parent’s presence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Argentina-centered suit; 571 U.S. at 123–124 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The lower courts divide over agency and general jurisdiction",
+      "cue": "What issues were conceded or left unasserted?",
+      "paragraphs": [
+        "After jurisdictional discovery, the District Court found Daimler’s own contacts insufficient and declined agency attribution. A Ninth Circuit panel affirmed over Reinhardt’s dissent, then withdrew that decision on rehearing and adopted his contrary approach. Rehearing and rehearing en banc were later denied over eight judges’ dissent.",
+        "Plaintiffs did not challenge the finding about Daimler’s direct contacts or assert alter ego. Daimler had not contested MBUSA’s own California general jurisdiction below, so the Supreme Court assumed the distributor was at home there for this case. That assumption did not establish that its sales actually sufficed.",
+        "Federal Rule of Civil Procedure 4(k)(1)(A) ordinarily incorporated state jurisdictional limits, and California’s long-arm statute reached the constitutional boundary. The dispute therefore concerned due process limits on all-purpose jurisdiction over Daimler."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings and issues; 571 U.S. at 124–125,133–134"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court rejects the circuit’s expansive agency test",
+      "cue": "Why was the importance of distribution insufficient?",
+      "paragraphs": [
+        "Ginsburg wrote for eight Justices. The Ninth Circuit asked whether MBUSA’s services were important enough that Daimler would perform substantially similar functions without it. Most corporations would arrange another way to accomplish work currently handled by an affiliate or contractor, making that test predisposed to find agency. Contractual supervision did not adequately limit the resulting exposure to all-purpose jurisdiction wherever an affiliate operated.",
+        "The Court did not forbid every attribution theory or decide whether agency could ever support general jurisdiction. It recognized that agents and distributors could show purposeful forum activity for specific jurisdiction when the claims related to it. This case invoked authority over unrelated worldwide claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Agency theory; 571 U.S. at 134–136 & nn.13–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Even attributed contacts do not make Daimler at home",
+      "cue": "How did the Court distinguish substantial commerce from all-purpose jurisdiction?",
+      "paragraphs": [
+        "Following International Shoe, specific jurisdiction expanded through the connection among defendant, forum, and dispute, leaving general jurisdiction a narrower role. Perkins illustrated an exceptional home: a Philippine mining company’s president directed wartime operations from Ohio as its temporary principal place of business. Helicopteros and Goodyear rejected dispersed purchasing or sales as sufficient for unrelated claims.",
+        "Incorporation and principal place of business were clear paradigm homes, not an exclusive two-place list. Exceptional operations elsewhere might be so substantial and of such a nature as to create another home; Daimler’s California activities did not approach that situation. The Court rejected treating any substantial, continuous, systematic business as enough. International Shoe used such descriptions for connected claims while demanding more for unrelated ones.",
+        "The inquiry appraised activities nationwide and worldwide. A widely operating corporation could not ordinarily be at home everywhere it sold substantial volumes. Neither Daimler nor MBUSA was incorporated or headquartered in California. Even assuming attribution and the distributor’s own California home, those contacts did not make Daimler at home there. Otherwise comparable sales states could hear every unrelated claim worldwide.",
+        "For the majority, a second free-standing reasonableness balance was unnecessary when a corporation was truly at home; familiar burden and interest balancing arose after a basis for specific jurisdiction. That point separated its reasoning from Sotomayor’s."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "At-home reasoning; 571 U.S. at 125–133,137–141 & nn.17–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "International concerns reinforce, but do not replace, the constitutional analysis",
+      "cue": "Were the human-rights claims decided on the merits?",
+      "paragraphs": [
+        "The Ninth Circuit had emphasized an American interest in redressing abuses. The Court noted that Kiobel’s extraterritoriality treatment of the Alien Tort Statute and Mohamad’s restriction of Torture Victim Protection Act defendants to natural persons had undermined the asserted federal claims. It did not enter a separate merits judgment resolving them all.",
+        "Narrower foreign jurisdictional practices and the Solicitor General’s warnings about international friction, judgment-recognition negotiations, and investment reinforced the at-home conclusion. They did not establish a sales-percentage limit or automatic foreign-corporation immunity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "International context; 571 U.S. at 140–142"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Sotomayor would reject jurisdiction as unreasonable on these particular facts",
+      "cue": "What aspects of the majority’s approach did she contest?",
+      "paragraphs": [
+        "Sotomayor concurred in the judgment alone. Assuming the conceded contacts, she would use Asahi’s reasonableness approach without deciding its role in every general-jurisdiction case. Argentine plaintiffs, a German defendant, and Argentine events had no shown convenience advantage in California over Germany, which had a greater interest.",
+        "She also objected that the decisive argument about attributed contacts had not been developed below and appeared only in a Supreme Court brief footnote, leaving management and other activities underexplored after Daimler’s concession. The majority answered that the granted question, amici, and Goodyear fairly presented it. Those remained competing accounts of decisional scope.",
+        "Sotomayor read precedent as emphasizing quality and quantity of forum contacts, not their proportion of a global enterprise, and disputed the majority’s treatment of Perkins. She feared advantages for multinationals, broader worldwide discovery, restrictions on state authority, and loss of American forums. She contrasted transient individual service and suggested reasonableness, transfer, forum non conveniens, and legislation as narrower responses.",
+        "All nine rejected jurisdiction. The Court reversed the Ninth Circuit without deciding whether the alleged Argentine abuses occurred or whether any defendant was liable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor concurrence; Judgment; 571 U.S. at 136–137 n.16,142–160"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "id": "specht",
+  "briefId": "CTR-026",
+  "title": "Specht v. Netscape Communications Corp.",
+  "course": "Contracts",
+  "citation": "306 F.3d 17 (2d Cir. 2002)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A visible button offers a free download while a license notice lies below it, and alleged software tracking leads users and a separate website operator into an arbitration dispute.",
+  "actors": [
+    {
+      "name": "Netscape Communications and America Online",
+      "role": "Software provider and corporate parent, collectively Netscape."
+    },
+    {
+      "name": "Gibson, Fagan, Kelly, Gruber, and Weindorf",
+      "role": "Software users alleging unlawful collection of download information."
+    },
+    {
+      "name": "Christopher Specht",
+      "role": "Website operator who neither acquired nor used SmartDownload."
+    }
+  ],
+  "proceedings": [
+    "Three proposed class actions were filed in the Southern District of New York.",
+    "After targeted discovery and a developed record, the district court denied arbitration.",
+    "The Second Circuit consolidated the immediate appeals and affirmed."
+  ],
+  "limits": "The decision concerns arbitration, not liability for the alleged privacy violations. The user-download paths and Specht’s nonsignatory position are separate, and tracking allegations are not findings of liability.",
+  "briefSha256": "a6183649ab9cf5d85c20966f0c8262a57d516d00196b5f77687582e45658f46e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-026"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Netscape distributes a browser and a separate downloading plug-in",
+      "cue": "Which installation process actually demanded acceptance?",
+      "paragraphs": [
+        "Netscape Communications Corporation and its parent, America Online, supplied the Communicator browser and a separate plug-in, SmartDownload, which enhanced file downloading. Five eventual plaintiffs—John Gibson, Michael Fagan, Sean Kelly, Mark Gruber, and Sherry Weindorf—downloaded Communicator. Installation automatically displayed a scrollable license and required clicking Yes to finish; another choice aborted installation.",
+        "That license defined its programs as Communicator and Navigator, contained an integration clause, and required arbitration in Santa Clara County for disputes relating to the agreement. SmartDownload operated separately and was not included in those defined programs. The browser’s visible assent mechanism did not itself establish assent to every other Netscape product’s terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 306 F.3d at 21–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The SmartDownload page invites immediate action before showing contractual notice",
+      "cue": "What did the four Netscape-site users see when they clicked?",
+      "paragraphs": [
+        "Gibson, Gruber, Kelly, and Weindorf obtained SmartDownload from a page captioned SmartDownload Communicator. The visible screen promoted the product and placed Start Download beside a tinted Download button. Clicking immediately started the download; the visible presentation assigned no other meaning to the act.",
+        "A license reference appeared below the button on the next screen, accessible by scrolling. It invited review and agreement before downloading and using the software, linked to a License & Support Agreements page, and from there linked to the full product-family license. That license stated that clicking acceptance or installing or using the product meant consent and included arbitration. The actual SmartDownload sequence contained no acceptance button and supplied no later notice during operation.",
+        "All four users swore they had not seen the reference when they clicked. Three attached screenshots showed none; Weindorf’s showed a partly visible, almost illegible reference. Some deposition testimony acknowledged incomplete recollection and that monitor settings could affect the visible area. The record nevertheless established the design’s relationship between the download invitation and submerged notice, without requiring a finding that every historical display was identical."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 306 F.3d at 22–23 & n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Fagan follows another route, and Specht never downloads the plug-in",
+      "cue": "Why were their positions distinct?",
+      "paragraphs": [
+        "Fagan said he acquired SmartDownload from the unrelated shareware site ZDNet. It offered only a more-information link leading to a Netscape page with another license link. A user could complete the download without entering a path that displayed any contractual reference. That route supplied still less notice than the Netscape page.",
+        "Christopher Specht operated a website with files connected to the WhyWeb internet service. He neither acquired nor used SmartDownload. Some visitors who already had the plug-in used it to download files from his site. Netscape later contended that more successful downloads increased his chance of commissions from subsequent WhyWeb subscriptions. Specht said he received no commissions from those files."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 306 F.3d at 23–24, direct-benefit discussion"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Alleged tracking leads to three suits and a developed arbitration record",
+      "cue": "What were the courts asked to decide before the privacy merits?",
+      "paragraphs": [
+        "The plaintiffs alleged that Communicator placed a cookie on users’ computers and SmartDownload added a separate identifying Key. When the plug-in handled downloads, it allegedly sent Netscape the file address, cookie, and Key, connecting identity to download activity. Three related proposed class actions asserted violations of the Electronic Communications Privacy Act and Computer Fraud and Abuse Act in the Southern District of New York.",
+        "Netscape sought compelled arbitration and a stay under Federal Arbitration Act § 4. It invoked both software licenses and, against Specht, direct-benefit estoppel. Over weeks of targeted discovery the record acquired affidavits, depositions, declarations, screenshots, other visual exhibits, a computer demonstration at argument, and supplemental briefs. The district court kept the suits separate but applied its arbitrability opinion equally to each.",
+        "The court denied the motion: SmartDownload lacked reasonable notice and clear assent; Communicator covered a distinct product; Fagan’s route supplied even less notice; and Specht received no direct contractual benefit. Netscape took an immediate appeal under § 16(a)(1)(B), and the underlying actions were stayed. The Second Circuit consolidated the appeals August 10, 2001. California formation law became fixed on appeal. Legal formation, scope, and estoppel issues received fresh review; subsidiary factual findings were reviewed for clear error."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Material Facts; 150 F. Supp. 2d 585; 306 F.3d 17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Sotomayor asks what the page made the download click mean",
+      "cue": "Why did a scroll bar not provide reasonable contractual notice?",
+      "paragraphs": [
+        "Judge Sotomayor’s opinion, joined by McLaughlin and Leval, began with formation. The Federal Arbitration Act makes written arbitration terms enforceable as contracts, subject to ordinary contract principles. Favorable treatment of disputes within an existing clause could not answer whether these parties ever made the agreement containing it.",
+        "California law allowed assent by words, writing, or conduct, but conduct carried contractual meaning only where the actor intended the act and knew or reasonably should know that the other side could infer agreement. The interface’s context therefore mattered. A reasonably prudent user would understand this visible button as requesting free software. The act’s assigned function was downloading, without a conspicuous signal connecting it to unseen license terms.",
+        "A scroll bar showed that more page content existed, not that important contractual notice lay below the apparent endpoint of the transaction. Reaching the actual terms also required two links. The Communicator comparison demonstrated an available design placing the act, legal meaning, and consequence together: visible license text followed by required Yes. SmartDownload did not do that.",
+        "The court applied ordinary contract principles to the electronic setting. Paper cases often charge recipients with conspicuous terms in documents known to carry contractual significance. ProCD and Hill concerned product recipients supplied terms and a stated opportunity to review and return before retention or use counted. Online interfaces need comparable contextual notice and choice. The submerged reference beneath an invitation to an immediate free download provided neither. This was a notice-and-manifestation rule, not a rule confined to one online format."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: formation, California assent, interface, comparisons"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The record supports decision without another formation trial",
+      "cue": "Why did section 4 not require starting over?",
+      "paragraphs": [
+        "Section 4 calls for a summary trial if formation is genuinely disputed. Netscape had urged the district court to decide the reasonable-notice question on uncontroverted facts as a matter of law. The extensive discovery, sworn evidence, and demonstrations already functioned as a hearing. The appellate court ordinarily would not entertain a newly advanced theory inconsistent with that presentation, and this record supported a final determination that Netscape had failed to prove adoption of SmartDownload’s terms.",
+        "The denial thus did not rest merely on the users’ unsupported assertion that they had not read a contract. It rested on the objectively inadequate notice and meaning of conduct established by the developed record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding; Reasoning: FAA § 4 hearing"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Neither the separate browser agreement nor Specht’s alleged benefit changes the result",
+      "cue": "How did scope and estoppel remain separate from formation?",
+      "paragraphs": [
+        "The Communicator arbitration clause was broad, making disputes related to that existing agreement presumptively arbitrable. But its defined subject matter and integration clause covered Communicator and Navigator, while the complaints attributed interception and transmission to the distinct SmartDownload plug-in. Deciding those statutory allegations required neither construing the browser license nor determining rights under it. The claims were collateral to that agreement and outside its clause.",
+        "Direct-benefit estoppel likewise failed for Specht. A nonsignatory knowingly taking a concrete, direct benefit under a contract may not accept that benefit while resisting its arbitration provision. Netscape’s theory depended on unidentified users holding valid licenses, visiting Specht’s site, using the plug-in, obtaining WhyWeb files, later subscribing, and producing commissions. These were multiple contingencies, and the alleged contracts conferred no intended benefit on Specht. The asserted advantage was indirect and speculative rather than the tangible contractual benefit estoppel required.",
+        "On October 1, 2002, the Second Circuit affirmed denial of the motion to compel and stay in full. The user-plaintiffs had not adopted the SmartDownload arbitration provision; the browser provision did not reach these claims; and Specht was not bound by direct-benefit estoppel. The underlying statutory allegations remained allegations, with no privacy-liability judgment supplied by this arbitration appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding; Communicator scope; Direct-benefit estoppel; Citation and source scope"
+        }
+      ]
+    }
+  ]
+}

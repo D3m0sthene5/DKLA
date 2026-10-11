@@ -1,0 +1,178 @@
+{
+  "id": "lrs-n-ohio-epa",
+  "briefId": "LRS-ATLAS-N-OHIO-EPA",
+  "title": "Ohio v. Environmental Protection Agency",
+  "course": "Legislation and the Regulatory State",
+  "citation": "603 U.S. 279 (2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "As court stays removed states from EPA’s multistate pollution plan, challengers asked whether the same controls remained adequately explained for the states left in it. A divided Supreme Court granted interim protection while that dispute continued.",
+  "actors": [
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Federal agency that rejected state implementation plans and promulgated the Good Neighbor Plan."
+    },
+    {
+      "name": "Ohio and other state and industry applicants",
+      "role": "Challengers seeking a stay of federal-plan enforcement."
+    },
+    {
+      "name": "Downwind States and public-interest supporters",
+      "role": "Supported the federal response to interstate ozone pollution."
+    },
+    {
+      "name": "Regulated power plants and other industries",
+      "role": "Sources facing allowance budgets or emissions limits under the plan."
+    }
+  ],
+  "proceedings": [
+    "EPA issued the final twenty-three-state plan in 2023; courts separately stayed numerous state-plan disapprovals.",
+    "Applicants challenged the federal plan in the D.C. Circuit, which denied a stay.",
+    "Supreme Court on June 27, 2024 granted four stay applications 5–4 pending circuit review and any timely certiorari proceedings."
+  ],
+  "limits": "The stay protected applicants and predicted likely success; it neither finally invalidated the Good Neighbor Plan nor decided the state-plan disapprovals’ merits. Coverage changes arose from preliminary stays. Later litigation and current implementation are not established by this source.",
+  "briefSha256": "2c14a05d5d3980e4166a73357ae0a7adbef252f3be47cec95952db2ac66d265a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-OHIO-EPA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An ozone standard triggers state plans and a proposed federal replacement",
+      "cue": "How did the Clean Air Act divide responsibility?",
+      "paragraphs": [
+        "Under the Clean Air Act, the Environmental Protection Agency (EPA) sets national ambient air-quality standards, while States ordinarily supply State Implementation Plans for implementation, maintenance, and enforcement. The Good Neighbor Provision requires plans to prevent emissions significantly contributing to another State’s nonattainment or interfering with maintenance of its standard. EPA must approve compliant state plans; a missing or deficient plan can require a Federal Implementation Plan unless the State first cures the defect. State primacy coexists with federal interstate-pollution duties and attainment deadlines.",
+        "In 2015, EPA tightened the ozone standard from 75 to 70 parts per billion. Many States asserted in their plans that no additional measures were needed because they had no relevant downwind connection or no further cost-effective controls. In 2022, EPA proposed disapproving nineteen plans, then four more, while proposing a multistate replacement. The 2023 final federal plan covered twenty-three States, but additions and exclusions meant that group was not simply identical to every originally proposed disapproval."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory framework and chronology; 603 U.S. at 283–89 & nn.1–5, 301–02"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "EPA selects controls and anticipates departures",
+      "cue": "Why might the covered states matter to the explanation?",
+      "paragraphs": [
+        "The Good Neighbor Plan targeted nitrogen oxides, which contribute to ozone formation. It operated parallel programs for power plants and other industries. EPA examined control costs per ton, expected emissions reductions, and projected downwind ozone improvements, choosing thresholds near diminishing returns—the “knee in the curve.” Power-plant budgets supported an allowance-trading system; other covered industries faced specified emissions limits.",
+        "Commenters questioned the relationship between proposed state-plan disapprovals and the federal replacement. Some said different disapproval decisions would require new assessment and modeling. Before and after the final rule, courts stayed numerous disapprovals. EPA included severability language continuing the federal rule in the remaining jurisdictions.",
+        "By Supreme Court consideration, stays prevented application in twelve of the initial twenty-three States, representing over seventy percent of the emissions EPA had intended to address. These were preliminary stays, not final decisions invalidating the disapprovals. Coverage could change. The parties and Justices would dispute whether state departures affected selection of the cost thresholds or only later application of independently selected controls."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Regulatory history; 603 U.S. at 286–90 & nn.4–8; dissent at 311–16 & nn.6–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Applicants seek interim protection while challenging the federal plan",
+      "cue": "What competing harms accompanied the merits question?",
+      "paragraphs": [
+        "Ohio and other state and industry applicants petitioned for review in the D.C. Circuit and sought a stay. They argued that a plan designed for twenty-three States lacked a sufficient explanation for unchanged application after many States left. EPA defended its severability rationale, disputed preservation of the specific objection, and urged administrative reconsideration first.",
+        "After the circuit denied interim relief, applicants sought Supreme Court stays in Nos. 23A349, 23A350, 23A351, and 23A384. They emphasized state regulatory interests, competitive disadvantages, and substantial unrecoverable compliance costs. Federal respondents, downwind States, and public-interest supporters stressed air-quality benefits.",
+        "Under Nken’s stay framework, the Court considered likely success, irreparable injury, injury to others, and public interest. Justice Gorsuch’s majority acknowledged serious harms on both sides and treated likely merits success as decisive here. It did not hold that compliance costs or environmental interests categorically settled the balance. The dissent additionally emphasized the demands of emergency relief and prediction that the Court would grant ordinary certiorari review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and stay standard; 603 U.S. at 290–92 & n.9, 294–98, 304"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gorsuch identifies a missing explanation under State Farm",
+      "cue": "What did the majority say EPA still needed to explain?",
+      "paragraphs": [
+        "Gorsuch, joined by Chief Justice Roberts and Justices Thomas, Alito, and Kavanaugh, applied the reasoned-decision principles associated with State Farm. Courts cannot replace agency policy judgment, but must require a satisfactory connection between facts and choices and attention to important problems.",
+        "The majority understood EPA to have linked control stringency to cost-effective downwind improvements across the contemplated states. States differed in industries, existing controls, emissions, and ozone effects, so dropping some could change the point of diminishing returns. Comments identified that possibility, yet the final rule did not explain why the measures remained appropriately cost-effective for a reduced group. At argument the government would not confidently say a substantially different group would yield the same results.",
+        "The majority did not find that fewer States scientifically required different limits. It left open a valid explanation and found one missing from the rule. Severability showed awareness of potential departures and a wish to preserve health benefits and reliance interests, but announcing continued operation did not substantively justify unchanged controls under EPA’s own method. EPA need not model every possible state combination; it did need to answer this identified concern reasonably."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority prediction; 603 U.S. at 286–88, 292–95 & nn.10–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority treats the objection as preserved and rejects later repair",
+      "cue": "Why did reconsideration and harmlessness not defeat interim relief?",
+      "paragraphs": [
+        "The Act permits objections raised with reasonable specificity in comments. Gorsuch rejected a demand for identical phrasing in comments and litigation. Requests for new assessment and modeling if disapproval decisions changed coverage conveyed the substance, and EPA’s professed consideration of departures and severability provision reinforced its awareness.",
+        "Applicants did not need reconsideration simply to repeat a concern already presented. This differed from claiming that a final rule was not a logical outgrowth of its proposal: that objection arises only when the final rule exists and may require reconsideration. Here the issue already existed during comments and allegedly received no adequate response.",
+        "The majority declined to use EPA’s April 2024 reconsideration explanation to sustain the original rule. It relied on statutory limits tying review to the promulgation docket and the grounds originally invoked; the government had not urged that later explanation as validation. The dissent would see it as confirmation of the original methodology.",
+        "Gorsuch also treated state-independent methodology and harmlessness defenses developed by the dissent as forfeited rather than adequately presented by the government. He noted both technical uncertainty and the statutory distinction between procedural errors and arbitrary-or-capricious action. He did not categorically reject harmless-error review in all explanation cases; he declined to settle an unbriefed defense. Other applicant merits arguments were unnecessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Preservation, record, and forfeiture; 603 U.S. at 294–300 & nn.10–14, 303–04, 320 n.13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Barrett disputes preservation and reconstructs a different methodology",
+      "cue": "Why did four Justices think likely success unproved?",
+      "paragraphs": [
+        "Justice Barrett, joined by Justices Sotomayor, Kagan, and Jackson, identified three substantial barriers and framed her own merits views as tentative. First, she doubted preservation. Technology-specific or industry-specific comments did not necessarily question dependence on state count. In full context, the most relevant modeling comment objected to proposing a federal plan before final disapprovals, not to later judicial stays changing thresholds. EPA had answered that sequencing objection through statutory deadlines. Barrett also thought inadequacy of the final explanation might be a procedural objection arising only after issuance, making reconsideration appropriate.",
+        "Second, the record arguably showed independent control selection. Nationwide industry data established achievable performance and cost; each State’s budget then reflected its sources under those limits. State modeling tested impacts and overcontrol rather than determining the underlying limits. If the full plan did not overcontrol, removing States could not increase total reductions and thereby create overcontrol.",
+        "EPA’s nationwide-data preference, anticipation of exits, and health and deadline explanations made its path reasonably discernible to Barrett. She did not definitively resolve every technical question. She concluded that contrary record evidence prevented applicants from carrying their burden to show likely success."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Barrett dissent; 603 U.S. at 305–18 & nn.1–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The dissent also sees a substantial harmless-error barrier",
+      "cue": "How did the Justices disagree about predicting eventual merits defenses?",
+      "paragraphs": [
+        "Barrett’s third objection invoked the Act’s limit on invalidation for procedural error: an error must be serious, centrally relevant, and substantially likely to have significantly changed the rule. An insufficient explanation, distinguished from substantively unreasonable controls, plausibly fell within that limit. Applicants had not shown the needed likelihood of change.",
+        "The later reconsideration denial reinforced that point, although Barrett also relied on the original record and questioned whether the majority’s record restriction governed harmlessness. She resisted forfeiture because the applicants’ argument evolved in replies and at argument while EPA had little time to answer multiple applications. The government had argued coherent operation regardless of jurisdiction count. Because applicants needed to show they could overcome statutory barriers in eventual litigation, considering a likely future defense was proper in her view. Public-health consequences and the limited emergency record favored denying relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Barrett dissent; 603 U.S. at 318–23 & nn.11–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court stays enforcement against the applicants through potential further review",
+      "cue": "When would this interim order terminate?",
+      "paragraphs": [
+        "On June 27, 2024, the Court granted the four applications 5–4, staying enforcement against the applicants pending disposition of their D.C. Circuit petitions and any timely certiorari petition. If certiorari were denied, the stay would terminate automatically; if granted, it would end when the Supreme Court’s judgment was sent down. It therefore did not simply expire at the circuit’s decision.",
+        "This was a prediction of likely success on an arbitrary-or-capricious challenge, not a final judgment invalidating the plan or deciding separate state-plan disapprovals. The original source establishes the June 2024 order and its limits, not later litigation outcomes or current implementation. Its fuller treatment adds the preservation, record, technical, and harmlessness disputes to the assigned editorial State Farm discussion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact order and source limits; 603 U.S. at 283, 290–94, 300–04"
+        }
+      ]
+    }
+  ]
+}

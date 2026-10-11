@@ -1,0 +1,145 @@
+{
+  "id": "cp-anderson-liberty",
+  "briefId": "CP-ATLAS-ANDERSON-LIBERTY",
+  "title": "Anderson v. Liberty Lobby, Inc.",
+  "course": "Civil Procedure",
+  "citation": "477 U.S. 242 (1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A public-figure libel suit raises whether evidence must support clear-and-convincing actual malice to survive summary judgment.",
+  "actors": [
+    {
+      "name": "Liberty Lobby and Willis Carto",
+      "role": "Nonprofit lobby and its founder and treasurer challenging published portrayals."
+    },
+    {
+      "name": "Jack Anderson, Bill Adkins, and Investigator Publishing",
+      "role": "Publisher, corporate executive, and publishing company sued over articles."
+    },
+    {
+      "name": "Charles Bermant",
+      "role": "Employee author whose research affidavit supported summary judgment."
+    },
+    {
+      "name": "William McGaw",
+      "role": "Editor whose reported prepublication criticism was offered by plaintiffs."
+    }
+  ],
+  "proceedings": [
+    "The District Court granted defendants summary judgment.",
+    "The D.C. Circuit affirmed as to twenty-one challenged items and reversed as to nine using a standard excluding the heightened trial burden.",
+    "The Supreme Court vacated and remanded for consideration of whether a reasonable jury could meet clear-and-convincing proof."
+  ],
+  "limits": "The Supreme Court did not decide that defendants deserved judgment on every item or determine whether the accusations were true. It assumed the movant’s initial burden and ample discovery, leaving those matters to the relevant separate doctrines.",
+  "briefSha256": "ee2abf6154f079a77c47529dc188bf6a7a237e127bf40381a73426d9d4c17d58",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-ANDERSON-LIBERTY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Published accusations prompt a libel action",
+      "cue": "Whose statements and evidence were at issue?",
+      "paragraphs": [
+        "The October 1981 Investigator published two longer pieces about Liberty Lobby founder Willis Carto and Francis Yockey, introduced by a shorter article about an alleged neo-Nazi underground. They portrayed Carto and Liberty Lobby as neo-Nazi, anti-Semitic, racist, and Fascist. The nonprofit described itself as a citizens’ lobby. It and Carto sued Jack Anderson, executive Bill Adkins, and Investigator Publishing in federal court in the District of Columbia under diversity jurisdiction, alleging twenty-eight statements and two illustrations were false and derogatory. The opinion recited accusations without adopting them.",
+        "After discovery, defendants argued plaintiffs were public figures unable to prove actual malice—knowledge of falsity or reckless disregard. Charles Bermant, author of the longer articles, supplied an affidavit describing extensive research, numerous sources, and continued belief in accuracy; an appendix matched sources to challenged statements. Anderson’s introduction relied solely on Bermant.",
+        "Plaintiffs alleged inaccuracies and patently unreliable sources and challenged verification. They also offered evidence that editor William McGaw had called the articles terrible and ridiculous to Adkins before publication. That evidence bore on malice without establishing it as fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Publication and proceedings; 477 U.S. at 244–246 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The appellate court separates summary judgment from the trial burden",
+      "cue": "What decision did the Supreme Court review?",
+      "paragraphs": [
+        "The District Court treated plaintiffs as limited-purpose public figures and granted summary judgment, reasoning that research and sources precluded actual malice. Public-figure status was not contested on appeal.",
+        "The D.C. Circuit affirmed on twenty-one items and reversed on nine. It thought requiring clear-and-convincing evidence before trial would turn a search for minimally supporting facts into forbidden weighing. It therefore asked whether a jury could find falsity, defamation, and malice without incorporating the heightened burden. The Supreme Court reviewed that legal approach, not a final libel verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Publication and proceedings; 477 U.S. at 246–247 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White distinguishes materiality from genuineness",
+      "cue": "How does substantive law shape the screening inquiry?",
+      "paragraphs": [
+        "Justice White’s six-Justice opinion explained that substantive law identifies material facts because only outcome-affecting disputes require trial. The burden does not determine whether a fact belongs to an element; it determines what proof could support finding it.",
+        "A dispute is genuine if a reasonable jury could return a verdict for the nonmovant. Bare allegations, merely colorable evidence, and a scintilla incapable of supporting a verdict do not suffice after a properly supported motion. Courts nevertheless do not decide credibility or choose between legitimate competing inferences.",
+        "The central inquiry resembles a Rule 50 directed verdict: whether reasonable jurors could disagree or only one lawful conclusion remains. Summary judgment uses a pretrial record and directed verdict trial evidence, but both assess legal sufficiency. Factual findings are unnecessary, though explanation can help appellate review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Materiality and genuine disputes; 477 U.S. at 247–252 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The trial burden determines whether a plaintiff’s verdict could be reasonable",
+      "cue": "Does that authorize weighing competing affidavits?",
+      "paragraphs": [
+        "One cannot identify a permissible verdict without knowing the required proof. Ordinary civil evidence must support a preponderance finding; public-figure actual malice must support convincing clarity. The court therefore asks whether a jury could find knowing or reckless falsity clearly and convincingly on the record viewed favorably to plaintiffs. Criminal sufficiency similarly asks whether a jury could find guilt beyond reasonable doubt, rather than changing burdens because a judge screens the evidence.",
+        "The opposing evidence must be believed and justifiable inferences drawn for that party. The judge assesses that favorable version’s legal sufficiency, not whether another witness is more credible. White retained caution and acknowledged that a full trial could be the better course in an appropriate case. The rule concerned burdens generally, not a special privilege only for newspaper defendants."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Trial burden reasoning; 477 U.S. at 252–255"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A state-of-mind dispute still needs affirmative evidence",
+      "cue": "Which procedural questions remained reserved?",
+      "paragraphs": [
+        "Plaintiffs argued that a jury might disbelieve assertions of innocent intent. The majority rejected a categorical state-of-mind exemption. Possible disbelief alone ordinarily does not prove the opposite; affirmative evidence, including circumstantial evidence, must support a verdict after a full opportunity for discovery. Speculation that cross-examination might reveal malice was insufficient by itself.",
+        "The Court assumed the movant’s initial production burden had been met and did not resolve that separate Celotex issue. It likewise assumed ample discovery and preserved the then-Rule 56(f) protection when essential opposition material was unavailable. The historical subsection reference was not a command for immediate complete merits proof in response to every unsupported motion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "State of mind, discovery, reservations; 477 U.S. at 250 nn.4–5,256–257 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissenters question whether the distinction can work in practice",
+      "cue": "What relief did the Court ultimately grant?",
+      "paragraphs": [
+        "Brennan believed the majority changed summary judgment while calling it a restatement. Earlier conspiracy cases concerned permissible legal inferences, not judicial appraisal of evidentiary strength. He contrasted White’s warnings in the contemporaneous Matsushita dissent and feared costly paper trials displacing juries. One eyewitness opposing one hundred still presented credibility that judges could not settle by counting. Once evidence or permissible inferences supported each element, he would leave convincing clarity to the factfinder.",
+        "Rehnquist, joined by Burger, regarded the approach as an added procedural requirement and criticized failure to apply it to this record. He posited a witness recounting an admission of doubt despite a perjury conviction and contradictory witnesses: if credibility remained with the jury, how would heightened proof alter screening? He also distinguished criminal pretrial process from trial sufficiency and predicted inconsistent application.",
+        "Marshall, Blackmun, Powell, Stevens, and O’Connor joined White, making the vote six to three. The Court vacated the D.C. Circuit and remanded for the correct standard. It did not itself grant publishers judgment on every statement or decide an eventual defamation outcome."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissents; Judgment; 477 U.S. at 254–257,257–273"
+        }
+      ]
+    }
+  ]
+}

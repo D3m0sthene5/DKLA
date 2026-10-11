@@ -1,0 +1,140 @@
+{
+  "id": "sullivan",
+  "briefId": "CT-CB-0013",
+  "title": "Sullivan v. O’Connor",
+  "course": "Contracts",
+  "citation": "363 Mass. 579, 296 N.E.2d 183 (1973)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A promised cosmetic improvement became a worse result after an extra operation. The patient won on contract but lost on negligence, and her appellate waiver left the court deciding which injuries both expectation and reliance damages could cover.",
+  "actors": [
+    {
+      "name": "Alice Sullivan",
+      "role": "Professional entertainer and patient seeking damages for a promised surgical result and alleged negligence."
+    },
+    {
+      "name": "James H. O’Connor",
+      "role": "Physician who performed three nose operations; challenged contract damages beyond out-of-pocket expenses."
+    }
+  ],
+  "proceedings": [
+    "Jury found O’Connor liable on contract but not negligent and awarded Sullivan $13,500.",
+    "O’Connor challenged damages beyond expenditures; he did not press his directed-verdict objection.",
+    "Sullivan conditionally waived her own exceptions if the verdict survived.",
+    "Supreme Judicial Court on May 9, 1973 overruled O’Connor’s exceptions, treated Sullivan’s as waived, and left the verdict intact without retrial."
+  ],
+  "limits": "The court did not conclusively choose reliance over expectation, award the entire promised improvement, compensate suffering from the first two operations, or allow unproved lost earnings. The patient’s waiver made those distinctions unnecessary to resolve.",
+  "briefSha256": "85947f4e86cc0ec893fd6e83a99805bbed98501c3393f3acca8bf1c3b1fd0046",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0013"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "O’Connor promises an improvement requiring two operations",
+      "cue": "What actual result did Sullivan receive?",
+      "paragraphs": [
+        "Alice Sullivan, a professional entertainer, consulted physician James H. O’Connor about cosmetic surgery. He knew her profession. The jury could find that he undertook to improve her relatively long, prominent nose by making it shorter and more pleasing in relation to her other features. The planned course involved two operations.",
+        "O’Connor instead performed three, and Sullivan’s appearance worsened. The opinion described a concave upper line, bulbous lower portion, flattening and broadening, and an asymmetrical tip. Further surgery apparently could not improve that configuration. Sullivan incurred stipulated physician and hospital expenses totaling $622.65.",
+        "Although appearance could affect her profession, Sullivan proved no lost employment or earnings caused by the changed nose. Her work still mattered to disfigurement and distress, but did not establish a wage-loss claim. The third operation also created a distinct damages question because successful performance already contemplated suffering from two operations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; 363 Mass. at 580–81, 583–89 & p.588 n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury finds a broken promise without negligent treatment",
+      "cue": "How did the verdict and appellate waivers narrow review?",
+      "paragraphs": [
+        "Sullivan sued separately for breach of the result promise and negligence and demanded a jury trial. The judge submitted liability first. The jury found for Sullivan on contract and for O’Connor on negligence. The subsequent damages instructions permitted expenses, worsened appearance and associated mental distress, and suffering from the third operation. They excluded the first two operations’ pain and unproved earnings. The contract verdict was $13,500.",
+        "O’Connor excepted to allowing anything beyond expenditures, specifically challenging disfigurement and the extra operation’s suffering. His directed-verdict objection to liability was not pressed on appeal; the Supreme Judicial Court also said it could not succeed.",
+        "Sullivan had objected that the instructions omitted the full difference between promised and actual appearance, with additional objections including the possible reliance treatment of earlier suffering. She offered to waive her exceptions if her verdict stood. That condition left the court reviewing the common ground supporting the existing award rather than every difference between damages theories."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings and posture; 363 Mass. at 579–81 & n.1, 588–89"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kaplan preserves genuine result promises while cautioning against misread reassurance",
+      "cue": "Why did the no-negligence finding not end the contract claim?",
+      "paragraphs": [
+        "Justice Kaplan’s opinion recognized the policy difficulty. Medical results are uncertain, disappointed patients may recast optimism as guarantees, and expansive liability could encourage defensive practice. Yet blanket refusal to enforce genuine promises would permit inducement through commitments practitioners need not honor.",
+        "Massachusetts therefore allowed result-promise actions with clear proof and close scrutiny. Jurors could consider features such as the operation’s complexity when deciding whether a real undertaking, rather than an opinion or therapeutic reassurance, was made. Once established, however, that promise was not rewritten as merely a duty of care. Competently performed treatment can still fail to produce an expressly promised outcome."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Medical-policy reasoning; 363 Mass. at 582–84"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Three remedial interests compare different positions",
+      "cue": "Why was a fee refund not the only contractual remedy?",
+      "paragraphs": [
+        "Restitution returns benefits received by the physician, most obviously a paid fee. Reliance seeks to undo detrimental changes caused by undertaking the agreement, potentially including hospital payments and a worsened bodily condition. Expectation compares the actual condition with the promised result. Reimbursement of all expenditures is not necessarily restitution when some payments enriched third parties rather than the physician.",
+        "Using Hawkins’s promised-result approach, expectation would encompass both failure to improve and actual deterioration. It would ordinarily exclude pain that successful performance required, while permitting additional suffering caused by breach. Unpaid fees also must be accounted for to avoid putting the patient above the performance position.",
+        "Kaplan considered reliance attractive: a fee-only award could inadequately protect a genuine undertaking, while valuing an imagined appearance could be difficult and disproportionate to the fee. Commercial and noncommercial settings also presented different arguments for expectation protection. Those policy observations did not establish an exclusive reliance rule for every medical contract."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Remedial interests and policy; 363 Mass. at 583–87"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Bodily deterioration and the extra operation qualify under either surviving theory",
+      "cue": "Why were physical and emotional harms not confined to malpractice?",
+      "paragraphs": [
+        "The court distinguished distress from an ordinary merchandise bargain from an agreement to operate on a person’s body. Bodily change and resulting distress lie at the center of the latter undertaking. It therefore rejected a categorical rule assigning pain only to negligence law and permitted attention to Sullivan’s known professional circumstances without treating them as proved earnings loss.",
+        "Sullivan waived the expectation component representing promised improvement above her preoperative condition. She also waived a potential reliance claim treating the first two operations’ suffering as wasted expenditure of bodily effort. What remained—actual deterioration and an additional operation’s suffering—was compensable under either expectation or restoration to the earlier position.",
+        "The opinion’s footnotes warned against double counting. A patient receiving full expected benefit should not also recover costs that successful performance would have required, while reliance may be useful when the promised benefit cannot reliably be valued. Combining generous pieces of different measures without checking the resulting counterfactual would overcompensate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Distress, overlap, and decisional limit; 363 Mass. at 586–89 & nn.5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The existing verdict stands without selecting an exclusive formula",
+      "cue": "What did the Massachusetts court finally do?",
+      "paragraphs": [
+        "On May 9, 1973, the Supreme Judicial Court overruled O’Connor’s exceptions and treated Sullivan’s exceptions as waived. The $13,500 verdict stood, without a new trial or enlargement for promised improvement or the first two operations’ pain.",
+        "Kaplan wrote for the participating court of Chief Justice Tauro and Justices Reardon, Quirico, Kaplan, and Wilkins. No separate concurrence or dissent appeared; discussions of other cases’ dissents were authorities, not separate Sullivan opinions.",
+        "The result therefore was not a conclusive choice of reliance instead of expectation. Both justified the challenged items actually preserved for review. The source reports this historical decision and its waiver, not subsequent payment or modern medical-liability statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and separate-opinion limits; 363 Mass. at 589"
+        }
+      ]
+    }
+  ]
+}

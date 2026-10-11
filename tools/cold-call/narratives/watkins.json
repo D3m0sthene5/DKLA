@@ -1,0 +1,140 @@
+{
+  "id": "watkins",
+  "briefId": "CTR-035",
+  "title": "Watkins & Son v. Carrig",
+  "course": "Contracts",
+  "citation": "91 N.H. 459, 21 A.2d 591 (1941)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An owner voluntarily agrees to a fair rock-removal price after excavation becomes much harder, then argues that the contractor already owed the work for less.",
+  "actors": [
+    {
+      "name": "Robert G. Watkins & Son, Inc.",
+      "role": "Excavation contractor seeking payment at the adjusted rate."
+    },
+    {
+      "name": "James A. Carrig",
+      "role": "Owner who agreed to the rock-removal price and later challenged consideration."
+    }
+  ],
+  "proceedings": [
+    "A referee found that the oral agreement superseded the written contract.",
+    "The trial court accepted the report and ordered judgment for the contractor.",
+    "The New Hampshire Supreme Court overruled Carrig’s exceptions."
+  ],
+  "limits": "The court assumed the original contract covered the rock and treated the owner’s release as voluntary. Later Restatement § 89 provides a different explanation; the opinion does not automatically excuse rock excavation or validate coerced modifications.",
+  "briefSha256": "256a43125e49135a0790ef8867ba113f54fdbc0cc98a9d9d8c0271f82d93bac1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-035"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Watkins undertakes an unqualified cellar excavation",
+      "cue": "Who bore the original risk that solid rock would be encountered?",
+      "paragraphs": [
+        "Robert G. Watkins & Son, the excavation contractor, made a written agreement with property owner James A. Carrig to excavate a cellar for a stated total price. The undertaking covered all material within the excavation and required its removal from the site. It contained no reservation for unforeseen subsurface conditions.",
+        "The contractor’s manager had neither investigated nor asked about the ground. Carrig had not misled him, and the parties did not share an understanding that the site was free of rock. These facts later prevented the contractor from treating its surprise as a mutual mistake relieving the original duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Reasoning; C&M pp.477–78; 91 N.H. at 460"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Solid rock prompts a new unit price and continued performance",
+      "cue": "What did Carrig intentionally surrender?",
+      "paragraphs": [
+        "Soon after work began, the contractor encountered solid rock. Its manager notified Carrig, and they met. They orally set a special rock-removal unit price about nine times the unit figure used in computing the original total excavation price. Rock ultimately filled approximately two-thirds of the excavation. The reviewing court described the new rate as fair and the value Carrig received as reasonable; its multiple of the ordinary rate did not itself show overcharging for materially different physical work.",
+        "Carrig wanted the project to continue promptly. He either believed the old rate did not cover rock or was willing to surrender his right to insist on that rate. The court did not choose between those motives. Either way, he intentionally agreed that the original price would not govern rock removal, and the contractor proceeded in reliance on the adjustment.",
+        "The opinion was willing to assume that the contractor threatened breach of the original agreement. It nonetheless characterized Carrig as voluntarily yielding without protest, not as a party judicially found to have been coerced. The assumption of a threat and the finding of voluntary relinquishment must both remain in the account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; C&M pp.477–80; 91 N.H. at 461–65"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contractor obtains judgment and Carrig challenges consideration",
+      "cue": "Why was the distinction between modification and replacement important?",
+      "paragraphs": [
+        "Watkins brought assumpsit, an action to recover on a contractual undertaking, for the completed work at the special rate. A referee found that the oral agreement superseded the written contract. The trial court accepted that report and ordered judgment for Watkins. Carrig excepted, and the legal questions went to the New Hampshire Supreme Court.",
+        "Carrig argued that Watkins promised only performance it already owed, so the extra payment lacked consideration. He characterized the transaction as a modification, not a separately completed rescission followed by a new contract. If the old duty remained intact throughout, his argument went, the contractor supplied no new exchange for the higher price."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Issue; Reasoning; C&M pp.477–79"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Allen accepts the old duty but gives effect to the voluntary release",
+      "cue": "Why did absence of mutual mistake not decide the case for Carrig?",
+      "paragraphs": [
+        "Chief Justice Allen first rejected any excuse from the original contract. Watkins had undertaken excavation without qualification, and ignorance produced by failure to investigate was not a shared assumption excluding rock. The risk remained with the contractor. Thus the court enforced the later arrangement while accepting that the initial obligation already required the rock work at the fixed price.",
+        "The referee’s supersession finding established that both parties meant the new agreement to govern. Carrig’s reason for giving up the old price mattered less than his intentional concession. Whether he doubted the original duty or simply declined to enforce it, he released Watkins from the lower-price obligation for rock, and Watkins then performed on the new basis.",
+        "A modification incorporated a partial rescission. If parties could voluntarily discharge an existing duty, combining that release and a new promise in one transaction did not make the release vanish. They were distinct in legal analysis without requiring a time interval or ceremony. Within the transaction, the discharge legally preceded the new duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: original duty, supersession, and partial rescission; 91 N.H. at 460–63"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court addresses the net-effect objection and the meaning of a completed gift",
+      "cue": "Why was this adjustment different from a bare promise of extra money?",
+      "paragraphs": [
+        "The contract writer Williston’s contrary analysis focused on the net outcome: one side did only what it originally promised while the other paid more. Allen recognized that argument but rejected such an abstract application of consideration to a voluntary adjustment of an existing commercial relationship. Businesses reasonably expected to adapt agreements when performance proved unexpectedly burdensome.",
+        "Fairness mattered concretely. The special rate reasonably compensated harder work, rather than merely transferring the contractor’s entire loss to Carrig for nothing. The newly appreciated burden gave an intelligible commercial reason for yielding, even though it did not discharge the old duty. The court treated this as a genuine adjustment rather than exploitation of an artificially manufactured emergency.",
+        "The full opinion also explained the release as a completed gift. The gift was not the still-executory promise to pay more money. It was Carrig’s present surrender of his existing claim to lower-priced work. The court distinguished releasing one’s own debtor from assigning an intangible claim to someone else and regarded the former as capable of completion by a voluntary present release. That is this New Hampshire court’s reasoning, not a universal rule about oral releases or part-payment of debts.",
+        "After voluntarily giving up the right and accepting performance on the revised basis, Carrig could not revive it to defeat compensation. The court’s characterization of free yielding did work in this conclusion; it did not make every commercial threat harmless."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning: Williston, fairness, release, and performance; C&M pp.478–80; 91 N.H. at 463–65"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Carrig’s exceptions fail, while later doctrine supplies a distinct route to the result",
+      "cue": "Which qualifications keep the decision within its facts?",
+      "paragraphs": [
+        "On July 15, 1941, the New Hampshire Supreme Court overruled Carrig’s exceptions. Judgment based on the referee’s superseding-agreement finding remained in place, entitling Watkins to the special rock-removal compensation. Justice Burque did not sit; the other justices concurred without a separate opinion.",
+        "The casebook compares Schwartzreich, where parties tore signatures from the old salary agreement and signed a replacement. Watkins did not require that ceremony. Later Restatement § 89 comment b criticized simultaneous rescission as a fiction and instead tested a modification’s fairness and justification directly. Its first illustration uses the cellar, unexpected rock, and nine-times rate to reach a binding modification when reasonable. That later route was not the rule Allen applied and does not erase his conclusion that mutual mistake failed. An event can leave the initial obligation intact yet support a consensual adjustment.",
+        "Carrig’s strongest point remains that the fixed price allocated this risk. The response is that an owner may voluntarily relieve an unforeseen burden at a fair rate even if strict performance could have been demanded. Under the later Restatement, anticipation, allocation, and fairness require inquiry; New Hampshire’s Granite State nickname would not settle them.",
+        "Nor does absence of protest universally defeat duress. The later Austin discussion concerns improper threats and lack of reasonable alternatives, which can induce even a deliberate business decision. A signature, a desire to keep work moving, or failure to use a particular protest formula is not conclusive. The casebook’s comparison with the fishermen’s demand raises a real issue about judicial characterization; Watkins cannot be distinguished simply by pretending no threat was assumed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; 91 N.H. at 465; C&M pp.475–80; Restatement §89 cmt.b and illustration 1"
+        }
+      ]
+    }
+  ]
+}

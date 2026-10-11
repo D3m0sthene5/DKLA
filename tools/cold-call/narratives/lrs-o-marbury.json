@@ -1,0 +1,152 @@
+{
+  "id": "lrs-o-marbury",
+  "briefId": "LRS-ATLAS-O-MARBURY",
+  "title": "Marbury v. Madison",
+  "course": "Legislation and the Regulatory State",
+  "citation": "5 U.S. (1 Cranch) 137 (1803)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A completed appointment leaves a commission undelivered after a change of administration. Marbury seeks mandamus directly from the Supreme Court, where recognition of his right does not establish original jurisdiction to enforce it.",
+  "actors": [
+    {
+      "name": "William Marbury",
+      "role": "Applicant seeking his District of Columbia justice-of-the-peace commission."
+    },
+    {
+      "name": "Dennis Ramsay, Robert Townsend Hooe and William Harper",
+      "role": "Other original applicants whose commission evidence differed."
+    },
+    {
+      "name": "John Adams",
+      "role": "President who nominated the applicants and signed commissions before the administration changed."
+    },
+    {
+      "name": "James Madison",
+      "role": "Secretary of State against whom the direct mandamus application was brought."
+    },
+    {
+      "name": "Charles Lee",
+      "role": "Former Attorney General representing the applicants."
+    }
+  ],
+  "proceedings": [
+    "The applicants requested mandamus directly in the Supreme Court in December 1801.",
+    "The Court issued and served a show-cause rule, received evidence and heard the applicants’ arguments; Madison showed no cause.",
+    "On February 24, 1803, the Court discharged the rule for lack of constitutional original jurisdiction and issued no writ."
+  ],
+  "limits": "This source-brief narrative recounts the historical proceeding without a fresh audit or current-treatment certification. It was an original application, not an appeal. The report supplies no numerical vote or attendance list. Commission delivery to Madison and ultimate whereabouts were not proved for every applicant. The ministerial-duty discussion preceded the jurisdictional defeat and is identified as technically dicta by the assigned editors.",
+  "briefSha256": "2bd6df8c1fc8b1dff90e2afde3c34105b68c354586142054106dfc2bf418268c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-MARBURY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Adams completes appointments before the administration changes",
+      "cue": "What did the applicants say had happened to their commissions?",
+      "paragraphs": [
+        "William Marbury, Dennis Ramsay, Robert Townsend Hooe and William Harper sought appointments as justices of the peace in the District of Columbia. Their supporting affidavits stated that President John Adams nominated them, the Senate consented, Adams signed their commissions and the Secretary of State affixed the national seal. After the administration changed, they asked Secretary of State James Madison for the commissions but did not receive them. Requests for satisfactory State Department information and Senate documentation likewise failed.",
+        "Represented by former Attorney General Charles Lee, the four applied directly to the Supreme Court in December 1801. The Court issued and served a rule requiring Madison to show cause why mandamus should not issue. Madison showed no cause; the report does not contain a competing merits presentation by him. Although all four initiated applications, the eventual opinion addressed Marbury’s individual right and request."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appointment and factual record; Application and arguments; 5 U.S. 137–139, 153–154"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court gathers evidence without recognizing a blanket departmental privilege",
+      "cue": "What did the witnesses establish, and what remained uncertain?",
+      "paragraphs": [
+        "Unable to obtain voluntary official affidavits, Lee called State Department clerks Jacob Wagner and Daniel Brent. They objected to being sworn about office transactions. Lee distinguished confidential presidential agency work from public statutory duties concerning records, seals and commissions. The Court ordered them sworn and recorded their answers while preserving objections to particular questions.",
+        "Wagner could not remember these specific commissions and separated personal knowledge from information received from others. Brent gave more direct evidence of signed and sealed commissions, including Marbury’s and Hooe’s. The report did not treat every applicant’s evidence as identical.",
+        "Former acting Secretary Levi Lincoln requested time to assess disclosure. The Court allowed objections for confidential communications or self-incrimination but treated the existence of commissions in the office as public. Lincoln could not establish that they reached Madison; their ultimate disposition was treated as immaterial to this application if they had never reached him. James Marshall’s affidavit described taking Alexandria officers’ commissions on March 4, 1801, amid concern about disorder, then returning Hooe’s and Harper’s because he could not carry all the papers. Hazen Kimball later stated that he saw Marbury’s and Hooe’s commissions signed March 3. This evidence did not establish personal delivery of every commission to Madison or its later whereabouts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Appointment and factual record; 5 U.S. 139–148, 153"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Lee asks for a writ enforcing a ministerial right",
+      "cue": "What statutory and constitutional provisions framed the direct application?",
+      "paragraphs": [
+        "Lee argued that the justice-of-the-peace office was not held at presidential pleasure and that withholding the commission violated a ministerial obligation affecting a vested right. He distinguished the Secretary’s discretionary presidential agency work from public record duties, argued that no adequate ordinary remedy existed, and relied on prior mandamus practice and the Judiciary Act. Those were the applicants’ submissions, not concessions from the absent Secretary.",
+        "Section 13 of the Judiciary Act of 1789 authorized Supreme Court mandamus, when warranted by legal principles and usages, to federal courts and federal officeholders. Madison fit the latter description. Article III, however, separately specified original jurisdiction for cases affecting ambassadors, other public ministers and consuls, and cases with a state as party, assigning the other enumerated cases to appellate jurisdiction subject to congressional exceptions and regulations.",
+        "Chief Justice Marshall organized the analysis in three steps: whether Marbury had the right, whether law supplied a remedy for its violation, and whether mandamus from this Court was available. Keeping those steps distinct explains why two favorable conclusions produced no writ."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application, arguments and provisions; 5 U.S. 138–154, 173–176"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marshall treats signing and sealing as completion rather than a revocable promise",
+      "cue": "Why did lack of delivery not undo Marbury’s appointment?",
+      "paragraphs": [
+        "Nomination began the process; Senate consent permitted the President to appoint; presidential signature was the last act required from the President. Affixing the seal completed the commission and conclusively evidenced the signature and appointment. A commission was not always indispensable to appointment, but this signed and sealed document was decisive evidence.",
+        "Delivery was transmission for convenience rather than a remaining discretionary power to cancel an appointment. A certified copy could perform the evidentiary function, and acceptance need not precede the appointment’s existence. Marshall concluded Marbury held a completed five-year appointment that, under this office’s governing law as understood in 1803, was not removable at executive will. Withholding the commission invaded the resulting vested right.",
+        "That analysis concerned this statutory office. It did not establish a modern universal rule that every fixed-term office is protected against presidential removal, an inference the assigned historical account expressly cautions against."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Completion of appointment; 5 U.S. 155–162; assigned September printed 179"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A legal duty can be enforceable even when its holder is an executive officer",
+      "cue": "Why was mandamus an appropriate type of remedy in principle?",
+      "paragraphs": [
+        "Marshall linked civil liberty to protection of law against injury, but did not subject every executive act to judicial direction. Where the Constitution entrusted political discretion to the President and officers acted as presidential agents, responsibility could be political rather than a judicially enforceable individual entitlement. Courts could not direct that discretion.",
+        "Where law imposed a specific duty affecting individual rights, the officer’s rank did not block examination. The character of the act controlled. Providing a legally available record copy illustrated the distinction. Once Marbury’s appointment was complete, delivery of his commission or a copy had the described ministerial character; failure to provide information did not make the public-record function political.",
+        "The Court expressly acknowledged that no act of Congress specifically commanded delivery. It derived the duty from completed appointment, vested right and the document’s evidentiary character, not an express statutory delivery provision. Mandamus also required absence of another specific adequate remedy. Detinue for the paper or its value was inadequate because a public office was not an ordinary commodity with an ascertainable replacement value; Marbury sought the office and its evidence, not equivalent money."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Legal injury, discretion and mandamus; 5 U.S. 162–173"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The constitutional allocation of jurisdiction prevents this Court from issuing the writ",
+      "cue": "How did the remedy analysis lead to judicial review and then dismissal?",
+      "paragraphs": [
+        "Those favorable conclusions supplied no original jurisdiction. Marshall read Article III’s division between original and appellate power as a limitation, not a floor Congress could enlarge. Otherwise the specific enumeration would have no force. Madison’s status did not place this application within an enumerated original category. A command to a federal officer was not inherently appellate: appellate review revises an existing cause, while Marbury’s demand began a new proceeding and was not needed to aid appellate authority.",
+        "Section 13, to the extent the Court read it as authorizing this original proceeding, therefore conflicted with the Constitution. The opinion did not eliminate every mandamus power, including writs properly tied to appellate jurisdiction. The remaining question was which law governed the conflict. A written constitution establishes limited powers superior to ordinary legislation; ordinary legislation could not erase those limits without destroying the distinction. Courts deciding cases must identify governing law and cannot enforce incompatible rules simultaneously by subordinating the Constitution.",
+        "Marshall reinforced that judicial duty through Article III’s constitutional cases, the judicial oath, and the Supremacy Clause’s treatment of statutes made in pursuance of the Constitution. Export duties, attainder and ex post facto restrictions, and treason-proof requirements illustrated constitutional commands courts necessarily encounter. The later administrative-law assignment uses this reasoning to introduce interpretive authority, but Marbury did not decide modern agency deference.",
+        "On February 24, 1803, the operative order discharged the show-cause rule. No writ issued and Madison was not ordered to deliver the commission. This was not affirmance or reversal of a lower court. The report contains Marshall’s opinion and no separate writing or numerical tally. The assigned editors call the earlier ministerial discussion technically dicta because the Court ultimately lacked original jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jurisdiction and judicial review; Judgment and limits; Decision and setting; 5 U.S. 173–180; assigned October printed 264; Parrillo-Shane printed 45–46"
+        }
+      ]
+    }
+  ]
+}

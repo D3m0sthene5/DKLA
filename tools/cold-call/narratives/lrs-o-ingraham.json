@@ -1,0 +1,160 @@
+{
+  "id": "lrs-o-ingraham",
+  "briefId": "LRS-ATLAS-O-INGRAHAM",
+  "title": "Ingraham v. Wright",
+  "course": "Legislation and the Regulatory State",
+  "citation": "430 U.S. 651 (1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two students describe injurious paddlings and seek constitutional relief, while the Supreme Court asks whether school discipline falls under the Eighth Amendment and whether a hearing must precede it.",
+  "actors": [
+    {
+      "name": "James Ingraham",
+      "role": "Eighth grader alleging more than twenty blows and a medically treated hematoma."
+    },
+    {
+      "name": "Roosevelt Andrews",
+      "role": "Ninth grader alleging repeated paddlings and an arm injury."
+    },
+    {
+      "name": "Drew school administrators and the superintendent",
+      "role": "Defendants in the students’ individual and class claims."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed the claims after the plaintiffs’ evidence, without credibility findings or defense evidence.",
+    "A Fifth Circuit panel reversed; the en banc court affirmed dismissal.",
+    "The Supreme Court affirmed on the Eighth Amendment and procedural due-process issues within its limited grant."
+  ],
+  "limits": "The injuries remained allegations assumed credible for the trial disposition. The Court did not decide their reasonableness under tort law or the separately presented substantive due-process question; historical Florida law is described.",
+  "briefSha256": "ef31089fa4756201377aeb3acd81b9f89028a1acd37b1c5a947e292bf05848c2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-INGRAHAM"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Florida permits bounded school discipline, while the Drew students describe severe departures",
+      "cue": "What rules and alleged incidents were before the court?",
+      "paragraphs": [
+        "James Ingraham and Roosevelt Andrews attended Charles R. Drew Junior High School in Dade County, Florida, in eighth and ninth grades. Ingraham alleged that, because he was slow to follow instructions, administrators held him over a table in the principal’s office and struck him more than twenty times with a paddle. He described a hematoma requiring medical care and several missed school days. Andrews described repeated paddlings for minor offenses, blows to his arms, and one episode depriving him of full use of an arm for a week.",
+        "The incidents occurred in October 1970. Florida’s then-existing statute prohibited degrading or unduly severe punishment and required consultation with the principal or teacher in charge. School Board Policy 5144 allowed paddling after other efforts to obtain cooperation failed, required necessity and an explanation to the student, and called for another adult to be present without public shaming. Teachers sometimes acted alone despite the consultation requirement. The usual punishment described was one to five blows to the buttocks with a flat wooden paddle, without apparent injury; evidence concerning Drew suggested exceptional harshness.",
+        "During litigation, policy changes standardized paddles, restricted where they could strike, set grade-based limits, and added parental notice. The opinion also reproduced a 1976 statutory amendment. Those later rules were not the law governing the alleged 1970 events."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alleged punishments and rules; 430 U.S. at 653–58 & nn.1, 5–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The parents bring damages claims and a class request for an injunction",
+      "cue": "Why were the allegations never resolved through credibility findings?",
+      "paragraphs": [
+        "Through their parents, the students filed on January 7, 1971. Two counts sought individual damages, and a third sought declaratory and injunctive relief for a certified class of Dade County students. Defendants included the principal, assistant principal, assistant to the principal, and superintendent. The School Board’s separate dismissal under the then-prevailing view of whether it could be sued was not before the Supreme Court.",
+        "After a week of plaintiffs’ evidence, including testimony from sixteen students, defendants sought Rule 41(b) dismissal of the equitable count and a ruling that the evidence could not support damages. By agreement, evidence on the class claim and stipulated testimony also applied to the damages directed-verdict motion. The district court assumed the testimony credible, made no credibility findings, heard no defense evidence, and dismissed all three counts because it found no available federal constitutional relief.",
+        "A Fifth Circuit panel reversed based on severity and procedural concerns, but the en banc court rejected that result and affirmed. The Supreme Court reviewed the en banc judgment, not the vacated panel disposition. Certiorari covered the Eighth Amendment and procedural due process only. The Court declined the separate question whether arbitrary, severe punishment violated substantive due process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and procedural posture; Scope of review; 430 U.S. at 653–59 & nn.1–4, 12"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Powell places the Eighth Amendment’s punishment limit in its criminal setting",
+      "cue": "Why did the majority distinguish public schools from prisons?",
+      "paragraphs": [
+        "The students argued that constitutional protection against barbaric punishment should cover children as well as convicted prisoners. Justice Powell’s majority traced the Eighth Amendment’s linked limits on bail, fines, and punishment through the English Bill of Rights, Virginia Declaration of Rights, ratification debates, and First Congress. It understood those limits as addressed to government’s criminal-law functions.",
+        "Prior applications regulated types and gross disproportionality of criminal punishment and imposed limited constraints on what could be criminalized. Deportation and coercive civil-contempt decisions illustrated the distinction. Evolving standards of decency informed assessment of criminal penalties rather than expanding the Amendment at the threshold to educational discipline.",
+        "The majority also contrasted prisoners’ isolation with students’ connections to family, friends, other pupils, and teachers in an open school. Observers, community supervision, and state sanctions could expose and deter abuse. That was a reason for distinguishing institutional settings, not a finding that the students’ severe injuries had not occurred. Greater formal protection of accused criminals did not itself extend the Amendment to ordinary school discipline.",
+        "The Court reserved punishment in mental or juvenile institutions and recognized that some formally noncriminal punishments might be sufficiently analogous to criminal sanctions to receive Eighth Amendment scrutiny. Its conclusion was limited to disciplinary corporal punishment by public school teachers and administrators. It did not announce that every restraint outside a conviction escapes the Amendment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Eighth Amendment reasoning; 430 U.S. at 664–72 & nn.29–40"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Bodily security is protected liberty even though the Eighth Amendment does not apply",
+      "cue": "Why did that interest not produce a required advance hearing?",
+      "paragraphs": [
+        "The Court next separated the existence of a Fourteenth Amendment liberty interest from the procedure needed to protect it. Freedom from unjustified bodily restraint and punishment belongs to personal security. Subject to a de minimis qualification, deliberate restraint and appreciable pain by state school personnel implicated that liberty. This was principally bodily freedom rather than the state-created educational property interest in suspension cases; paddling sought to correct conduct without interrupting schooling.",
+        "Common law permitted reasonable force, measured by the offense, child, severity, and alternatives. Florida preserved civil damages for excessive force and criminal penalties for malicious punishment. The majority relied on statutory recognition and the parties’ agreement that remedies existed, rather than demanding an already reported successful Florida case. It viewed ordinary paddlings as generally moderate, often responding to conduct teachers directly observed, with visibility and possible liability reducing error risks.",
+        "Under the balancing approach of Mathews v. Eldridge, the students’ interest in avoiding wrongful pain was substantial. But the majority assessed the risk of error as low enough, and later judicial remedies as adequate enough, that advance administrative hearings would offer insufficient additional protection to justify diverting teaching resources, disrupting authority, or encouraging abandonment of an otherwise lawful discipline option. It compared common-law review afterward to review of warrantless public arrests based on probable cause. Procedures could not practicably change with every anticipated level of severity.",
+        "The resulting conclusion depended expressly on corporal punishment authorized and constrained by common law. The Court did not decide that any particular paddling met those constraints or adjudicate a state tort claim. It held that Florida’s preserved limitations and judicial remedies afforded the process constitutionally required here without prior notice and hearing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Protected liberty and procedural analysis; 430 U.S. at 661–63, 672–83 & nn.41–55"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White would protect children against cruel punishment and require a basic response",
+      "cue": "What problems did he see in relying on later remedies?",
+      "paragraphs": [
+        "Justice White, joined by Brennan, Marshall, and Stevens, rejected limiting the Eighth Amendment through the label attached to a proceeding. Its text did not say criminal, and school punishment pursued deterrence, correction, and retribution. Punishment too barbaric for a serious offender should not become permissible because it was imposed on a child for lesser misconduct. White did not say every moderate paddling violated the Amendment or propose importing all criminal procedures into ordinary discipline.",
+        "On due process, he would require the informal exchange recognized in Goss: notice of the accusation, explanation of disputed evidence, and a chance to give the student’s version. Suspension and physical pain did not justify different treatment of those rudimentary safeguards. A remedy directed at excessive force might leave an innocent child uncompensated if a teacher reasonably and in good faith relied on false information. White also identified uncertainty about Florida remedies, official and board immunity, and defendants’ limited assets. Those were dissenting criticisms, not findings that no Florida remedy existed.",
+        "More fundamentally, inflicted pain could not be undone. A brief warrantless arrest began a system of prompt judicial control; punishment without a prior response was already final. White disputed both the majority’s estimate of error risk and its concern about the burden of a short conversation. More severe punishment might require more elaborate procedures than his proposed minimum. He would have reversed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "White dissent; 430 U.S. at 683–700 & dissent nn.1–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Stevens distinguishes different losses when deciding the timing of process",
+      "cue": "Why was he unwilling to condemn all postdeprivation remedies?",
+      "paragraphs": [
+        "Justice Stevens joined White on both reviewed constitutional questions and wrote separately about timing. The Due Process Clause did not make every later remedy inadequate. Compensation might completely restore a property loss more readily than an invasion of bodily freedom. The nature of the deprivation therefore mattered.",
+        "He also suggested, without deciding, that a sufficient remedy for reputational injury might satisfy procedural requirements and support Paul v. Davis on a different rationale. His separate opinion qualified a broad claim that advance hearings were always mandatory while maintaining that the majority chose wrongly for these students."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens dissent; 430 U.S. at 700–02 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The limited constitutional judgment is affirmed",
+      "cue": "What does the result leave unresolved?",
+      "paragraphs": [
+        "On April 19, 1977, the Supreme Court affirmed the Fifth Circuit’s en banc judgment by five votes to four. The students could not obtain damages or injunctive relief on the Eighth Amendment and procedural due-process theories reviewed. The decision did not approve the alleged beatings as reasonable, award tort damages, or settle whether extreme arbitrary punishment could violate substantive due process, a question outside the grant of review.",
+        "The majority’s national survey and school-discipline discussion describe the circumstances and law before it in 1977. They neither required schools to use corporal punishment nor validated every historically authorized practice. The assigned comparison in the Memphis Light materials emphasizes later civil and criminal sanctions, but that editorial use does not expand the complete judgment’s two issues or remove its limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and assigned scope; 430 U.S. at 659 n.12, 679 n.47, 683"
+        }
+      ]
+    }
+  ]
+}

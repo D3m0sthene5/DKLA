@@ -1,0 +1,164 @@
+{
+  "id": "cp-piper",
+  "briefId": "CP-043",
+  "title": "Piper Aircraft Co. v. Reyno",
+  "course": "Civil Procedure",
+  "citation": "454 U.S. 235 (1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Scottish crash produced an American products-liability suit chosen for favorable law. After transfer from California to Pennsylvania, the courts disputed whether the claims belonged in Scotland despite its less generous remedies.",
+  "actors": [
+    {
+      "name": "Gaynell Reyno",
+      "role": "California legal secretary appointed administratrix for five passengers’ estates; represented Scottish survivors without a personal relationship to the decedents."
+    },
+    {
+      "name": "Piper Aircraft and Hartzell Propeller",
+      "role": "Pennsylvania aircraft and Ohio propeller manufacturers; defendants and Supreme Court petitioners."
+    },
+    {
+      "name": "Air Navigation and Trading and McDonald Aviation",
+      "role": "British aircraft owner and maintainer, and Scottish operator, respectively."
+    },
+    {
+      "name": "Pilot’s estate and passengers’ survivors",
+      "role": "Scottish crash-related parties; the pilot’s estate, owner, and operator were absent potential third-party defendants in the American case."
+    }
+  ],
+  "proceedings": [
+    "Reyno filed in California state court after probate appointment; defendants removed to federal court.",
+    "California federal court quashed service on Hartzell and transferred to the Middle District of Pennsylvania, where Hartzell was served.",
+    "Pennsylvania district court dismissed for forum non conveniens; Third Circuit reversed.",
+    "Supreme Court on December 8, 1981 reversed the Third Circuit, sustaining dismissal in favor of Scotland; White and Stevens/Brennan disagreed with deciding the remaining balance rather than remanding it."
+  ],
+  "limits": "Dismissal did not transfer the case into a Scottish court or decide liability. Foreign-law descriptions are historical. Federal versus state forum non conveniens law and the ultimate Pennsylvania choice of substantive law remained unresolved.",
+  "briefSha256": "ef76c628d5a78702a4b4db112cc436d2ce6992efb98b3febec823ec1bb92b7c6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-043"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A charter flight crashes in Scotland",
+      "cue": "Where were the people, equipment, and competing liability evidence?",
+      "paragraphs": [
+        "In July 1976, a Piper Aztec traveling by charter from Blackpool to Perth crashed in the Scottish highlands, killing the pilot and five passengers. They and their heirs were Scottish subjects and residents. The aircraft was British-registered, owned and maintained by Air Navigation and Trading, and operated by McDonald Aviation. The wreckage remained in England.",
+        "A preliminary British investigation suggested mechanical failure after a spin. A review board later found no evidence of defective equipment and indicated possible pilot error: the recently licensed commercial pilot had flown below the minimum altitude in the operator’s manual. These were investigative assessments supporting competing theories, not Supreme Court findings about the cause.",
+        "Piper Aircraft manufactured the plane in Pennsylvania, and Hartzell Propeller was based in Ohio. American design, manufacturing, and testing records could support defect claims; British maintenance, training, investigation, and survivor evidence could support other causal theories and damages. The passengers’ survivors also sued in the United Kingdom against the owner, operator, and pilot’s estate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; 454 U.S. at 238–42, 257–58"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Reyno chooses California and the case moves to Pennsylvania",
+      "cue": "Why did her local appointment not make the beneficiaries local?",
+      "paragraphs": [
+        "Gaynell Reyno, a California legal secretary employed by the lawyer bringing the suit, obtained appointment as administratrix of the five passengers’ estates. She had no personal relationship with them and represented Scottish survivors. She sued Piper and Hartzell in California state court for negligence and strict liability, acknowledging selection of an American forum for more favorable liability, damages, and capacity-to-sue rules.",
+        "As the record then described it, Scotland lacked strict liability and restricted wrongful-death recovery to relatives’ losses of support and society. That comparison describes historical law, not present Scottish remedies. Piper and Hartzell agreed to Scottish jurisdiction and waiver of available limitations defenses.",
+        "The manufacturers removed to the Central District of California. Piper requested transfer under 28 U.S.C. § 1404(a); Hartzell challenged personal jurisdiction and alternatively requested transfer. The district court quashed service on Hartzell and transferred the litigation to the Middle District of Pennsylvania, where Hartzell was properly served."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties, facts, and transfer; 454 U.S. at 238–42 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Pennsylvania judge dismisses, but the Third Circuit bars that result",
+      "cue": "Which rule threatened to make favorable law decisive?",
+      "paragraphs": [
+        "The Pennsylvania district court found Scotland available and adequate, balanced private and public interests, and dismissed for forum non conveniens. Because the real parties in interest were foreign, it gave their American choice less deference than a home-forum choice.",
+        "The Third Circuit reversed. It criticized the balancing and held that an unfavorable substantive-law change itself prevented dismissal. The Supreme Court granted review, with argument on October 14, 1981. The resulting questions included adequacy, the weight of foreign plaintiffs’ choices, the required evidentiary showing, and appellate deference to the trial judge’s balance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history and issues; 454 U.S. at 241–47"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marshall rejects a rule making less favorable law controlling",
+      "cue": "What minimum protection remained for the foreign remedy?",
+      "paragraphs": [
+        "Justice Marshall emphasized convenience as forum non conveniens’ central purpose. If less favorable foreign law always defeated dismissal, a legal advantage would defeat the doctrine in the very cases where plaintiffs chose an inconvenient forum for that advantage. The flexible inquiry would become a single-factor rule. The earlier Canada Malting decision had permitted dismissal despite a comparable claimed disadvantage.",
+        "A contrary rule would also require extensive preliminary choice-of-law and comparative-remedy litigation. Courts would have to determine both forums’ governing law and compare rights, procedures, and recovery before deciding where litigation should proceed, undermining avoidance of unnecessary burdens in disputes centered elsewhere.",
+        "Section 1404(a) did not require that outcome. Van Dusen’s law-preservation rule concerns statutory transfer within the unified federal system. Foreign-forum dismissal is a different common-law mechanism; § 1404 expanded transfer discretion rather than simply codifying every feature of forum non conveniens.",
+        "A meaningful remedy remained essential. An alternative so clearly inadequate that it effectively supplied no remedy could defeat adequacy or weigh heavily against dismissal. Scotland’s negligence remedy permitted litigation despite no strict liability or identical damages. Submission to jurisdiction and limitations waivers supported availability. These were separate inquiries: defendants’ consent did not itself prove adequacy or establish a favorable balance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Law disadvantage and adequate alternative; 454 U.S. at 247–55 & n.22"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Foreign beneficiaries receive reduced, not zero, deference",
+      "cue": "How did the private evidence and missing parties affect convenience?",
+      "paragraphs": [
+        "A person suing at home ordinarily has an evident convenience reason for the choice. That inference weakens where foreign beneficiaries use a locally appointed administratrix. Marshall did not eliminate weight for a foreign choice or make a domestic home choice unassailable; case-specific balancing still controlled.",
+        "American design and testing evidence favored the United States, while British maintenance, pilot training, investigations, and damages evidence favored Scotland. The district court could reasonably find fewer overall proof problems abroad. Defendants needed enough information for meaningful comparison, not an exhaustive list of every unavailable witness and precise forecast of testimony before dismissal.",
+        "The inability to implead the owner, operator, and pilot’s estate in the American action was particularly significant. The manufacturers blamed others’ conduct, and one proceeding could address those alternatives. Separate later contribution or indemnity litigation would impose substantial burdens and risk inconsistent findings. The Third Circuit set too demanding a standard by distinguishing mere burden from unfairness: substantial practical burden mattered without independently wrongful treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Deference and private interests; 454 U.S. at 255–59 & nn.23–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Scotland’s interests support the district court’s reasonable balance",
+      "cue": "Why did the Supreme Court leave choice of law unsettled?",
+      "paragraphs": [
+        "Scotland had a strong local interest in a crash in its airspace involving residents and local operators. Jury burdens, judicial resources, and possible foreign-law application also mattered. Even assuming the Third Circuit correctly thought American law would apply, the remaining factors supported Scotland. The Supreme Court therefore did not settle the competing substantive choice-of-law analyses.",
+        "A reasonable district-court balance warranted review for clear abuse of discretion. The Third Circuit nominally accepted that standard but substituted its own judgments about individual factors. Marshall sustained the trial court’s conclusion without saying every factor favored Scotland or every international product-liability case should leave American courts.",
+        "The Court also expressly reserved whether federal or state forum non conveniens law governs a diversity action because the relevant standards produced the same result here. That reservation prevents treating the case as resolving the broader Erie question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Public interests, review, and reservations; 454 U.S. at 248 n.13, 257–61"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The Justices agree on the law-disadvantage rule but divide over the next step",
+      "cue": "What did reversal actually require?",
+      "paragraphs": [
+        "Chief Justice Burger and Justices Blackmun and Rehnquist joined Marshall throughout. Justice White joined Parts I and II, including rejection of an automatic foreign-law bar, but would not proceed to decide the remaining balancing questions. Justice Stevens, joined by Justice Brennan, likewise agreed that less favorable law was not dispositive but would remand to the Third Circuit to reconsider Pennsylvania’s convenience for claims against a Pennsylvania manufacturer involving local design and manufacture. Their disagreement concerned going beyond the review question to resolve the remaining disposition.",
+        "Justices Powell and O’Connor did not participate. On December 8, 1981, the Court reversed the Third Circuit, sustaining the district court’s dismissal. It neither ordered trial in Pennsylvania nor transferred an existing American case into a Scottish court. Claimants were left to pursue the available foreign forum under defendants’ undertakings. No Supreme Court determination of defect, negligence, damages, or later Scottish outcome followed from this judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions and judgment; 454 U.S. at 242, 261–62"
+        }
+      ]
+    }
+  ]
+}

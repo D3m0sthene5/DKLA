@@ -1,0 +1,142 @@
+{
+  "id": "lrs-n-dunlop-bachowski",
+  "briefId": "LRS-ATLAS-N-DUNLOP-BACHOWSKI",
+  "title": "Dunlop v. Bachowski",
+  "course": "Legislation and the Regulatory State",
+  "citation": "421 U.S. 560 (1975)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A losing union candidate asks the Secretary of Labor to challenge an election, then seeks judicial review when an investigation produces no enforcement suit.",
+  "actors": [
+    {
+      "name": "Walter Bachowski",
+      "role": "Losing United Steelworkers District 20 candidate who exhausted internal remedies and complained to the Secretary."
+    },
+    {
+      "name": "Secretary of Labor",
+      "role": "Official responsible for investigating qualifying election complaints and bringing statutory challenges."
+    },
+    {
+      "name": "United Steelworkers and Kay Kluz",
+      "role": "Union and incumbent winner; the union was named in Bachowski’s court action."
+    }
+  ],
+  "proceedings": [
+    "The Secretary investigated and declined a District 20 suit.",
+    "The District Court dismissed Bachowski’s judicial challenge; the Third Circuit reversed and permitted broader factual review.",
+    "The Supreme Court preserved reviewability but reversed the directions for broader proceedings, requiring a narrower remand."
+  ],
+  "limits": "The Supreme Court did not find the reported irregularities as facts, hold the later reasons statement sufficient, invalidate the election, or order the Secretary to sue. Its power to compel an enforcement suit remained reserved.",
+  "briefSha256": "c2f88965eb1119e42bc44ba5cf6841c52ef487a41077ebb5fc84a95168ae0cae",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-DUNLOP-BACHOWSKI"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Bachowski loses a district election and invokes the union-election statute",
+      "cue": "What decision was the Secretary asked to make?",
+      "paragraphs": [
+        "On February 13, 1973, United Steelworkers district elections gave incumbent Kay Kluz 10,558 votes in District 20, Walter Bachowski 9,651, and a third candidate 3,566. Bachowski exhausted internal remedies and timely complained under Title IV of the Labor-Management Reporting and Disclosure Act, or LMRDA. Similar complaints involved five other districts.",
+        "Under 29 U.S.C. § 482, a qualifying member could complain after exhaustion or the prescribed unsuccessful internal-review period. The Secretary had to investigate and, upon the required probable-cause finding concerning an unremedied violation, bring an authorized action within the statutory time. The election remained presumptively valid. Existing precedent allowed the Secretary to assess both probable violation and probable effect on the result, so identifying an irregularity did not automatically require a suit.",
+        "After investigation the Secretary challenged two other districts’ elections but not District 20. A November 7 letter said the findings did not warrant civil action; Bachowski alleged that a November 5 telephone call had earlier communicated that decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Election, investigation, decision; 421 U.S. at 562–564 & nn.1–3,568–571"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Bachowski seeks an order requiring an election challenge",
+      "cue": "How far did the Third Circuit permit review to go?",
+      "paragraphs": [
+        "On November 7 Bachowski sued the Secretary and union in the Western District of Pennsylvania, seeking a declaration that the refusal was arbitrary and capricious and an order requiring litigation. After a hearing, the District Court dismissed, describing lack of authority and formally lack of subject-matter jurisdiction. The Supreme Court later treated that distinction as immaterial to the result.",
+        "The Third Circuit found jurisdiction under § 1337 and final agency action without an adequate alternative remedy. It rejected both Administrative Procedure Act (APA) exceptions asserted—statutory preclusion and commitment to discretion—and required specific reasons enabling a factual challenge. Its July opinion allowed examination of reports and data; a September amendment acknowledged privilege or confidentiality. The Supreme Court nevertheless understood it to permit an adversarial factual trial beyond the statute’s intended review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and issue; 421 U.S. at 563–568 & nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority permits review but respects centralized enforcement",
+      "cue": "Why did exclusivity not mean total immunity from review?",
+      "paragraphs": [
+        "Brennan wrote for eight Justices. LMRDA § 483 made the statutory remedy exclusive for challenging a completed election, but that channeled enforcement through the Secretary rather than expressly barring review of his refusal. Applying the then-stated presumption of review, the Court found no clear and convincing showing that Congress intended total preclusion. It rejected the prosecutorial-discretion argument, incorporating the Third Circuit’s reasons in footnote 7.",
+        "Congress nevertheless entrusted the Secretary with expertise, resources, and discretion to protect union self-government, prevent frivolous litigation, resolve electoral uncertainty promptly, and serve a public interest beyond one losing candidate. A court could not substitute its own probable-violation or electoral-effect assessment. Reviewability therefore did not entail ordinary reconsideration of the evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reviewability; 421 U.S. at 566–571 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A meaningful reasons statement supplies the normal limit of review",
+      "cue": "What can a court do when the explanation is deficient?",
+      "paragraphs": [
+        "The Secretary had to identify grounds and essential facts supporting his inferences. Reasons informed the member and court, promoted attention to relevant matters, and discouraged irrelevant ones. A complaining member did not possess a client’s power to insist that counsel sue.",
+        "Ordinarily the court should examine the statement itself for irrational, arbitrary, or capricious action, not hold an adversarial trial over findings that no violation occurred or no violation affected the outcome. A rational, defensible stated basis ended review. Detailed findings were unnecessary, but the initial conclusory letter was insufficient. It might meet APA § 555(e)’s brief denial-notice obligation while falling short of the more informative LMRDA requirement.",
+        "A declared refusal ever to enforce Title IV, unconstitutional discrimination, or conduct plainly beyond or defiant of the Act could justify broader inquiry. The complaint did not allege the general departmental hostility to reformers mentioned by an amicus. If the reasons adequately disclosed lawful action, dismissal followed; if incomplete, supplementation was possible, without endless explanation litigation. If they showed an arbitrary refusal, the Court assumed the Secretary would respond to judicial advice but reserved compulsory relief and the union’s separation-of-powers and Article III adversity objections."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasons and scope; 421 U.S. at 571–576 & nn.9–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The Secretary’s later statement gives a concrete explanation to review",
+      "cue": "Did the Supreme Court endorse the vote calculations?",
+      "paragraphs": [
+        "Under a remand order whose propriety the parties accepted, the Secretary furnished the statement reproduced in the report’s appendix. It described roughly 67,419 members in 190 locals and investigation of eighty locals, including all twenty-seven former District 50 locals, identified locations, random locations, and high-turnout sites. Interviews and records yielded reported irregularities in seventeen locals involving notices, missing elections, secrecy, ballot control, alleged fraud, campaign spending, and tally errors. These were agency investigative conclusions, not Supreme Court findings.",
+        "The Secretary deliberately maximized estimated affected votes. For a 249-member local with no election, he assumed every member would have voted for Bachowski despite much lower district participation. Other estimates used full local margins or potentially affected ballots. He calculated 884 votes against the 907-vote victory margin and concluded the violations could not change the result. The statement also reported the union’s internal-remedy objection.",
+        "The Supreme Court left the statement’s adequacy to the District Court initially. Alleging that an investigation substantiated violations did not establish that the Secretary found an outcome-changing effect. The Third Circuit’s directions had nonetheless opened the way to a prohibited factual trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Election appendix; Application; 421 U.S. at 576–589 & n.13"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Burger and Rehnquist describe different limits",
+      "cue": "What precisely did the Court reverse?",
+      "paragraphs": [
+        "Burger joined and separately stressed review narrower than ordinary arbitrary-and-capricious review in most settings. He understood intervention to require stated outcome-affecting irregularities with no rational justification for refusing suit, not judicial reevaluation of election evidence.",
+        "Rehnquist accepted an explanation obligation under APA § 555(e) but would reject reviewability under § 701(a)(2). Although § 483 did not expressly preclude a suit against the Secretary, the exclusive machinery and earlier cases left enforcement discretion with him to balance members’ rights against harassment. Rehnquist also objected that the Court decided an uncontested reasons obligation while reserving the petition’s coercive-relief issue.",
+        "The Court reversed only insofar as the Third Circuit ordered proceedings under its broader approach and directed a replacement remand within the narrower limits. Bachowski retained judicial review of the reasons; he obtained neither a new election nor an order requiring the Secretary to sue, and the Supreme Court did not declare the appended explanation sufficient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application; Separate writings; Result; 421 U.S. at 566,577,590–598"
+        }
+      ]
+    }
+  ]
+}

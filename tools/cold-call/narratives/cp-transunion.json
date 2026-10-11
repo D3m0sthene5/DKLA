@@ -1,0 +1,145 @@
+{
+  "id": "cp-transunion",
+  "briefId": "CP-ATLAS-TRANSUNION",
+  "title": "TransUnion LLC v. Ramirez",
+  "course": "Civil Procedure",
+  "citation": "594 U.S. 413 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A misleading terrorist-list alert prevents a consumer’s car purchase, but his class’s damages judgment raises separate questions about reports that never reached outsiders and mailings that caused no demonstrated consequence.",
+  "actors": [
+    {
+      "name": "TransUnion LLC",
+      "role": "Credit-report seller using a name-only OFAC alert system."
+    },
+    {
+      "name": "Sergio Ramirez",
+      "role": "Named consumer plaintiff whose alert reached a car dealership and who challenged two disclosure mailings."
+    },
+    {
+      "name": "8,185 class members",
+      "role": "Consumers receiving comparable OFAC mailings during the defined 2011 period; only 1,853 had demonstrated third-party credit-report distribution."
+    }
+  ],
+  "proceedings": [
+    "The district court certified the class, found all members had standing, and entered a jury damages judgment exceeding $60 million.",
+    "The Ninth Circuit sustained standing and typicality but reduced the punitive award, leaving about $40 million.",
+    "The Supreme Court reversed and remanded on June 25, 2021, limiting standing by claim and leaving certification for reconsideration."
+  ],
+  "limits": "The ruling concerns Article III standing for damages after trial. It reserves universal standing proof before certification, typicality, certain risk-based emotional injury theories, and whether undistributed alerts violated the substantive statute. It does not invalidate Congress’s consumer duties.",
+  "briefSha256": "da6084061d8eb543cb528fbd755b4dd31bfe72212d7a3e706c5ae275be33f2e2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-TRANSUNION"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A credit-report company uses names to flag possible Treasury-list matches",
+      "cue": "How did an alert enter Ramirez’s car purchase?",
+      "paragraphs": [
+        "TransUnion compiled credit data and sold reports to businesses. Its OFAC Name Screen Alert compared first and last names with the Treasury Department’s list of specially designated nationals, including terrorists, traffickers, and other serious criminals. Without comparison of other identifying data, matching names generated false positives. The dissent described earlier Sandra Cortez litigation that exposed weaknesses, after which TransUnion changed labels and required exact names but added no other identifying comparisons.",
+        "In February 2011, Sergio Ramirez visited a car dealership with his wife and father-in-law. A credit check returned an OFAC alert, and the salesman said Nissan would not sell to him because he appeared on a terrorist list. His wife bought the vehicle in her own name.",
+        "Ramirez requested his file. TransUnion first mailed a disclosure and required rights summary omitting the OFAC information, then a separate OFAC letter without another summary. Ramirez consulted counsel, canceled a planned Mexico trip, and eventually obtained removal of the alert."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 2–5; Thomas slip 1–3; Facts and statutory setting"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ramirez turns three statutory duties into class damages claims",
+      "cue": "What proof did the class produce at trial?",
+      "paragraphs": [
+        "The Fair Credit Reporting Act required reasonable procedures assuring maximum possible accuracy, requested disclosure of all file information, and a rights summary with written disclosures. Willful violations permitted actual damages or $100–$1,000 statutory damages, plus punitive damages and fees. Ramirez sued under all three duties for himself and consumers receiving comparable separate OFAC letters from January 1 through July 26, 2011.",
+        "The district court certified over TransUnion’s objection and found all members had standing. The parties stipulated to 8,185 members and third-party reports for only 1,853, including Ramirez, during the seven-month period. Ramirez testified about his experience, but plaintiffs offered no evidence of others’ experiences.",
+        "The jury awarded each member $984.22 statutory and $6,353.08 punitive damages, exceeding $60 million. The Ninth Circuit sustained standing and typicality but reduced punitive damages to $3,936.88 each, producing roughly $40 million. Judge McKeown dissented concerning unpublished reports and non-Ramirez mailing claims. The Supreme Court then reviewed standing and certification-related issues."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 2–6; Proceedings and positions"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kavanaugh requires concrete injury for every damages claimant and claim",
+      "cue": "What role did Congress and historical harms play?",
+      "paragraphs": [
+        "Justice Kavanaugh wrote for Chief Justice Roberts and Justices Alito, Gorsuch, and Barrett. Article III required concrete, particularized, actual or imminent injury, likely causation, and likely redress. Particularization did not itself establish concreteness. Physical or monetary injury readily qualified; intangible harms could bear a close relationship to traditionally actionable harms such as reputational injury, privacy disclosure, or intrusion. An exact historical duplicate was unnecessary.",
+        "Congress’s judgment deserved respect and could make previously inadequate concrete harms legally actionable. A statutory cause of action alone nevertheless did not eliminate concrete injury. The majority connected that limit to separation of powers and courts’ inability to supervise general regulatory compliance through uninjured plaintiffs.",
+        "Each member needed standing to recover individual damages, separately for every claim and form of relief, with proof appropriate to the litigation stage. After trial, allegations did not suffice. The Court reserved whether every class member must prove standing before certification and assumed without deciding that the statute reached undistributed alerts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 7–16 & nn.1–5; Standing principles"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Published reports cause reputational harm but stored alerts require more proof",
+      "cue": "Why did the two groups receive different standing results?",
+      "paragraphs": [
+        "The 1,853 reports sent to third-party businesses created harm closely analogous to defamation. Calling someone a potential terrorist sufficiently resembled falsely calling the person a terrorist, despite TransUnion’s technically accurate name-match argument. A denied loan or quantified monetary loss was unnecessary for that reputational injury.",
+        "For the remaining 6,332 members, no distribution or other concrete harm was shown. An internal inaccurate file resembled a defamatory letter left in a drawer. A newly offered theory of publication to employees or printing vendors was forfeited; the majority also found no traditional publication relationship or proof anyone read rather than processed the information.",
+        "A substantial imminent risk could support prospective relief, but an unrealized risk alone did not support retrospective damages without separate concrete harm from exposure to the risk. The class did not prove later distribution or independent injury. It did not invoke or establish emotional harm from knowing the risk, so that theory remained reserved.",
+        "Plaintiffs argued reports likely circulated outside the stipulated seven months because their damages period reached forty-six months. The majority found that inference and the future-disclosure theory too speculative, especially when direct evidence could have been sought."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 16–24 & nn.6–7; Reasoning and application"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The mailing claims fail for everyone except Ramirez",
+      "cue": "Why did statutory disclosure defects not establish classwide injury?",
+      "paragraphs": [
+        "No evidence showed another member opened the letters, became confused or distressed, relied on them, or would have corrected a file if the proper format had been used. Members received the information in the challenged two-mailing arrangement, so public-information precedents invoked by the United States did not control. No downstream harm from an asserted informational deficit was shown.",
+        "TransUnion had not meaningfully contested Ramirez’s individual standing on those claims, so the Court left it intact. That limited disposition did not hold that every recipient of comparable mailings was injured."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip 24–27 & n.8; Mailing claims"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas and Kagan defend the class through different accounts of statutory injury",
+      "cue": "Where did Kagan qualify the principal dissent?",
+      "paragraphs": [
+        "Justice Thomas dissented with Justices Breyer, Sotomayor, and Kagan. He distinguished private individual rights from public duties: historically, invasion of a private right could support suit without additional loss, including newly created statutory rights and minimum damages. Each duty here ran to an identifiable consumer, Congress authorized suit, and the jury found willful violations. Thomas would find standing and sustain certification, viewing the majority as displacing Congress’s authority.",
+        "Thomas also thought the actual harms met the majority’s test. Requested information and rights summaries were withheld, not merely formatted improperly; reports had commercial value; publication to almost a quarter of the class in seven months showed material risk; and vendors could constitute publication under historical libel principles. He disputed the majority’s reading of Spokeo’s risk analysis and emphasized the consequences of receiving a potential-terrorist designation. His note concerning possible state-court suits addressed consequences of federal standing limits, not a ruling in a state action.",
+        "Kagan, joined by Breyer and Sotomayor, agreed with the result and generally joined Thomas but retained Spokeo’s concrete-injury requirement for statutory violations. She would defer to Congress except in highly unusual cases where it could not reasonably think suit would compensate or prevent real harm. A credit-report seller’s dissemination risk was substantial in her view, and the requested mailings and confusion deserved greater weight.",
+        "On June 25, 2021, the Court reversed and remanded by five to four. The 1,853 published-report members retained reasonable-procedures standing; only Ramirez retained mailing-claim standing. The Court left Rule 23 typicality undecided and required reconsideration of certification in light of these limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas slip 4–19 & nn.1–9; Kagan slip 1–3; Majority slip 27; Court, posture, and judgment"
+        }
+      ]
+    }
+  ]
+}

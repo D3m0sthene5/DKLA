@@ -1,0 +1,155 @@
+{
+  "id": "cp-pimentel",
+  "briefId": "CP-ATLAS-PIMENTEL",
+  "title": "Republic of Philippines v. Pimentel",
+  "course": "Civil Procedure",
+  "citation": "553 U.S. 851 (2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Victims holding a damages judgment seek a brokerage fund that the Philippines also claims, and sovereign immunity prevents the stakeholder action from deciding ownership without the sovereigns.",
+  "actors": [
+    {
+      "name": "Ferdinand Marcos",
+      "role": "Former Philippine President who incorporated Arelma."
+    },
+    {
+      "name": "Arelma",
+      "role": "Panamanian corporation owning the disputed brokerage account."
+    },
+    {
+      "name": "Merrill Lynch",
+      "role": "Account holder and stakeholder plaintiff bringing interpleader."
+    },
+    {
+      "name": "Pimentel class",
+      "role": "Approximately 9,539 human-rights victims with a judgment against Marcos and his estate."
+    },
+    {
+      "name": "Republic of the Philippines and PCGG",
+      "role": "Immune sovereign claimants asserting forfeiture of misappropriated assets."
+    },
+    {
+      "name": "Philippine National Bank (PNB)",
+      "role": "Escrow holder for assets including Arelma shares."
+    }
+  ],
+  "proceedings": [
+    "The Ninth Circuit first held the Republic and Commission immune and required, and ordered a stay.",
+    "The district court later lifted the stay and awarded the fund to the class; the Ninth Circuit affirmed.",
+    "The Supreme Court reversed and directed dismissal of interpleader under Rule 19(b)."
+  ],
+  "limits": "Dismissal did not award the money to the Philippines or undo the victims’ damages judgment. Arelma and PNB supplied appellate standing; the immune entities’ right to appeal remained unresolved.",
+  "briefSha256": "5bc169de31f43a6edd27772654d0cd80fc9f03158aae86e130c096cf5b0130a4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-PIMENTEL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Arelma’s account attracts several judgment creditors and a sovereign claim",
+      "cue": "How did distinct proceedings converge on the same fund?",
+      "paragraphs": [
+        "In 1972 Philippine President Ferdinand Marcos incorporated Arelma in Panama, and it deposited $2 million with Merrill Lynch in New York. By 2000 the account was worth about $35 million. A class of roughly 9,539 victims of Marcos’s human-rights abuses obtained a nearly $2 billion federal Hawaii judgment against Marcos and his estate. The Pimentel class sought the Arelma assets; separate Roxas claimants invoked their judgment against Imelda Marcos.",
+        "The Republic of the Philippines and its Presidential Commission on Good Government, or PCGG, claimed Philippine law vested assets derived from abuse of public office in the Republic from the moment of misappropriation. After Marcos fled in 1986, the Commission pursued Swiss assets including Arelma shares. Frozen assets later went into escrow at the Philippine National Bank, or PNB, pending a forfeiture action begun in 1991 in the Sandiganbayan, the Philippines’ special corruption court.",
+        "The Republic and Commission asked Merrill Lynch to transfer the brokerage property to comparable escrow. It did not. Instead, at District Judge Manuel Real’s direction, Merrill Lynch filed statutory interpleader under 28 U.S.C. § 1335 in Hawaii, naming the sovereigns, Arelma, PNB, the victims, and others as competing defendants. Real had presided by designation over the human-rights case, but interpleader was a new stakeholder action. Merrill Lynch, not the victims, was its plaintiff."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assets, claimants and parallel proceedings; 553 U.S. 857–859, 871"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Immunity removes the sovereigns while their property claim remains",
+      "cue": "Why did the lower courts proceed after initially ordering a stay?",
+      "paragraphs": [
+        "The Republic and Commission invoked the Foreign Sovereign Immunities Act and sought dismissal because the case could not proceed without them. Arelma and PNB also sought dismissal under Federal Rule of Civil Procedure 19(b). Real initially rejected the sovereigns’ motion without deciding immunity. On the first appeal the Ninth Circuit held them immune and required parties under Rule 19(a), and stayed the case pending the Sandiganbayan.",
+        "Real later lifted the stay, concluded the Philippine litigation could not determine entitlement to this property, and awarded the fund to the Pimentel class. A week later the Republic specifically requested an Arelma forfeiture declaration from the Sandiganbayan. No ruling had issued by Supreme Court review.",
+        "The Ninth Circuit affirmed on the second appeal. Though the sovereigns were required, it predicted failure of their claims, chiefly under a supposed New York six-year misappropriation limitation. It emphasized Philippine delay and the victims’ likely lack of another enforcement forum. Those predictions became central to the Supreme Court’s rejection of the balance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural problem; 553 U.S. 859–861"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kennedy first identifies who can seek review and what Rule 19 asks",
+      "cue": "Why was a decision about the sovereigns’ appellate standing unnecessary?",
+      "paragraphs": [
+        "The class argued that entities dismissed on immunity could not appeal. All nine Justices accepted that Arelma and PNB were proper petitioners, leaving the sovereigns’ own review entitlement open. Both had pressed nonjoinder throughout. Their request to vacate the entire judgment supplied a stake even without a petition attacking substantive rejection of their individual ownership claims. Parties generally may raise Rule 19(b), and courts may address absent required parties themselves.",
+        "Rule 19(a) identifies people to join if feasible. When they cannot be joined, subdivision (b) asks whether equity and good conscience allow proceeding, considering prejudice, ways to reduce it, adequacy of a judgment, and the plaintiff’s alternative remedy. The 2007 replacement of “necessary” with “required” and removal of “indispensable” were stylistic, not substantive; required status alone does not always compel dismissal.",
+        "Here required status and sovereign immunity were uncontested. Justice Kennedy’s opinion reserved the precise appellate review standard: equitable judgment suggests some deference, but the legal errors required reversal under any appropriate standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Standing and Rule 19 framework; 553 U.S. 855–857, 861–865; appendix 873–875"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Predicting a sovereign’s defeat undermines the immunity already recognized",
+      "cue": "What prejudice could remain despite dismissal of the sovereign itself?",
+      "paragraphs": [
+        "Immunity protects comity, equality, and sovereign dignity beyond absence from a caption. The Philippines had concrete interests in adjudicating assets arising from historically significant abuses and deciding whether and how recovery should compensate victims. Disposing of claimed property in another case could injure those interests.",
+        "The Ninth Circuit effectively adjudicated a consequential sovereign interest without consent by predicting a limitations defeat. Earlier governmental-immunity decisions supported dismissal where an immune required sovereign advances nonfrivolous claims and adjudication threatens injury. The Court did not prohibit every preliminary merits inquiry or protect genuinely frivolous claims. It rejected definitive adverse treatment of this substantial claim.",
+        "The limitations prediction was uncertain in any event. A Philippine ownership decree might let the Republic act for Arelma on breach of the brokerage contract, accruing upon refusal to deliver, or seek enforcement of a foreign judgment. The Court decided neither route’s success; their possibility undermined an assumed bar. Respect for victims and international anticorruption policy did not cure the lower courts’ inadequate weight for immunity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Prejudice; 553 U.S. 865–869"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The remaining factors cannot produce a complete, protected adjudication",
+      "cue": "Whose lack of an alternative remedy did the Rule specify?",
+      "paragraphs": [
+        "No proposed or apparent protective measure would resolve rival ownership while avoiding injury to the absent sovereigns. The same fund could not be fairly awarded by presuming one set of claims doomed. Adequacy also meant the public interest in settling the whole controversy, not simply satisfying victims. The sovereigns would not be bound, so distribution would leave their claims unresolved.",
+        "The fourth factor concerned Merrill Lynch, the interpleader plaintiff. Victims’ recovery prospects still mattered equitably, but could not substitute for identifying the correct party. Dismissal left Merrill Lynch without a definitive ownership judgment. Yet in later piecemeal suits it could try joining the sovereigns and invoking Rule 19(b) if immunity persisted, a likely defense rather than a guarantee. Remaining stakeholder prejudice was outweighed. Immunity can leave claims without a United States forum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Remaining factors; 553 U.S. 869–872"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Court orders dismissal while two Justices prefer a stay",
+      "cue": "What remains undecided after the judgment?",
+      "paragraphs": [
+        "On June 12, 2008, the Court reversed and remanded with instructions to order dismissal, not simply rebalancing. Kennedy wrote for Roberts, Scalia, Thomas, Ginsburg, Breyer, and Alito. Ownership was not awarded to the Philippines, and the victims’ separate damages judgment survived. An eventual Sandiganbayan decision or unreasonable delay could change later equities or willingness to litigate; other proceedings would require proper jurisdiction and venue.",
+        "Stevens joined only the threshold standing discussion. He agreed the limitations theory was faulty but opposed near-dispositive immunity here, preferring a reasonable stay or further proceedings with a new district judge. His concerns about Real’s control and impartiality were his record-based concerns, not Court findings of misconduct. He emphasized that the Republic would eventually need affirmative United States proceedings and had previously participated in Marcos litigation and encouraged victims’ claims.",
+        "Souter joined except the alternative-remedy analysis and dismissal disposition. He preferred vacatur, a reasonable stay for the Philippine decree, and further proceedings before a new judge. His narrower disagreement should not be merged with Stevens’s broader objections. Seven Justices required dismissal; two preferred further proceedings. The casebook’s accompanying public-rights and sovereign-case questions remain editorial commentary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and separate opinions; Assigned limits; 553 U.S. 872–879"
+        }
+      ]
+    }
+  ]
+}

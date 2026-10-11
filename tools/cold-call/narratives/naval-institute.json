@@ -1,0 +1,155 @@
+{
+  "id": "naval-institute",
+  "briefId": "CT-CB-0021",
+  "title": "United States Naval Institute v. Charter Communications, Inc.",
+  "course": "Contracts",
+  "citation": "936 F.2d 692 (2d Cir. 1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Early paperback sales of The Hunt for Red October cut into a hardcover publisher’s market. After liability was established, the remedial appeal separated the publisher’s lost profits from the licensee’s gains and contract recovery from copyright infringement.",
+  "actors": [
+    {
+      "name": "United States Naval Institute",
+      "role": "Held the author’s copyright and marketed the hardcover; plaintiff seeking compensation and paperback profits."
+    },
+    {
+      "name": "Charter Communications and Berkley Publishing Group",
+      "role": "Paperback licensees treated collectively as Berkley; defendants and cross-appellants."
+    }
+  ],
+  "proceedings": [
+    "District court denied preliminary relief and initially ruled against Naval after trial.",
+    "Second Circuit in Naval I (1989) established contract breach and remanded for relief.",
+    "On remand district court awarded lost hardcover profits, some Berkley profits, interest, and costs, but denied fees and interest on the profits award.",
+    "Second Circuit on June 18, 1991 reversed only the $7,760.12 Berkley-profit award and otherwise affirmed, without appellate costs."
+  ],
+  "limits": "No infringement did not mean no contract liability. The opinion did not equate all paperback profit with displaced hardcover sales. An editorial concern about a 3,000-copy monthly reference is not used to reconstruct or alter the court’s awards.",
+  "briefSha256": "5be3c17a46f83c125cdc0030bb8fe09f983d283d6b9194aa3848a1d2c217bff2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0021"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The license transfers ownership before the permitted publication date",
+      "cue": "Which two dates did the agreement keep separate?",
+      "paragraphs": [
+        "The United States Naval Institute held the author’s copyright in The Hunt for Red October and sold the hardcover edition. In September 1984 it licensed paperback publication and sales exclusively to Charter Communications and Berkley Publishing Group, treated together in the opinion as Berkley.",
+        "One provision conveyed those exclusive rights, and another began the license term on the agreement’s date. A separate covenant prohibited publication before October 1985. Ownership of the paperback rights therefore began in September 1984, even though exercising them through publication had to wait. Language measuring the license’s duration by first publication also distinguished ownership’s beginning from that later event.",
+        "Berkley shipped paperbacks to outlets ahead of October, enabling retail sales on September 15, 1985. Sales became extensive enough for the book to approach the top of paperback bestseller lists before September ended. Some cheaper-paperback purchasers might otherwise have bought a hardcover; others would have waited for paperbacks regardless. Hardcover sales were already declining, complicating any estimate of the sales Naval would have made without the early release."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts and ownership terms; 936 F.2d at 693–97"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Naval first establishes breach, then both sides contest the remedy",
+      "cue": "What had the earlier appeal already settled?",
+      "paragraphs": [
+        "Naval unsuccessfully sought preliminary relief, and the district court initially entered judgment against it after trial. In its 1989 Naval I decision, the Second Circuit reversed on contract liability and remanded for appropriate relief. Advance shipment could fit industry practice, but causing substantial retail sales before October breached the timing covenant. The 1991 appeal therefore did not decide anew that every advance shipment was forbidden.",
+        "On remand the district court treated the conduct as copyright infringement. It awarded $35,380.50 in lost hardcover profits, $7,760.12 in Berkley profits attributed to displaced hardcover sales, and $15,319.27 in prejudgment interest on compensation, plus costs. It denied attorney’s fees and interest on the profit award.",
+        "Naval appealed, seeking $724,300 in Berkley profits, more interest, and fees. Berkley cross-appealed, arguing that an exclusive licensee could not infringe its own rights, that Naval abandoned contract damages, and that the lost-profit estimate was speculative. The panel would review factual damage calculations for clear error; established breach remained law of the case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; 936 F.2d at 693–97"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kearse rejects infringement without erasing the covenant",
+      "cue": "Why did the district court’s label change only some remedies?",
+      "paragraphs": [
+        "Judge Kearse, writing for a panel with Judges Winter and Altimari, concluded that an exclusive license transfers the conveyed rights’ ownership. The district court had incorrectly treated October 1985 as the license’s effective date. The agreement actually transferred paperback ownership in September 1984, subject to the later publication covenant.",
+        "Because Berkley owned the paperback rights when it sold early, it breached its promise without infringing Naval’s ownership of those already-conveyed rights. Cases where the claimant retained the relevant rights were different. Copyright Act § 504(b)’s infringer-profit remedy could not survive merely because Berkley violated a contract.",
+        "Ownership did not excuse the contractual timing duty. The panel therefore assessed each award separately: removing the copyright foundation could eliminate Berkley-profit recovery without destroying compensation for Naval’s adjudicated contract injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ownership reasoning; 936 F.2d at 695–98"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The prior decision and pleadings preserve monetary contract relief",
+      "cue": "Why did abandonment not defeat Naval?",
+      "paragraphs": [
+        "Berkley contended that Naval had abandoned monetary contract relief before the first trial. Naval I had nevertheless established entitlement to relief for breach, and Berkley had not sought reargument on abandonment. That determination governed as law of the case.",
+        "Naval’s request for other just and proper relief also mattered. Federal Rule of Civil Procedure 54(c) generally requires a nondefault judgment to award relief to which a party is entitled even if not specifically demanded. Naval had accepted substantial royalties and renounced rescission, so damages supplied suitable relief on its successful contract theory. Failure of the more generous copyright remedy did not erase that preserved route."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Contract relief and abandonment; 936 F.2d at 696"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The panel separates profits earned from profits lost",
+      "cue": "Why was $724,300 not a measure of Naval’s injury?",
+      "paragraphs": [
+        "Ordinary contract damages compensate the promisee’s loss. A defendant’s gains may sometimes help measure it, but the necessary evidentiary connection must exist. Naval’s requested $724,300 included profits from people who would never have purchased the hardcover. Those sales benefited Berkley without removing corresponding hardcover transactions from Naval.",
+        "Awarding all those gains would detach compensation from the injury caused by breach. The panel did not ban use of a breacher’s profit in every contract case; it rejected an unsupported equivalence here. The smaller $7,760.12 award also depended on the rejected copyright theory and had to be removed.",
+        "The $35,380.50 lost-hardcover-profit estimate addressed Naval’s own injury and could survive under contract law. Its soundness required a separate look at the evidence and counterfactual sales estimate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gain versus loss; 936 F.2d at 696–98"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "August sales provide a permissible estimate of September’s counterfactual",
+      "cue": "What made uncertainty different from absence of proof?",
+      "paragraphs": [
+        "The district court used August hardcover sales to estimate September sales without premature paperbacks. Berkley argued for no recovery because certainty was lacking, or an estimate based only on September’s first half. The Second Circuit found actual loss supported: substantial premature paperback distribution and sales occurred while Naval continued selling hardcovers. The remaining uncertainty concerned how much loss, not an absence of any causal basis.",
+        "Using the previous month might favor Naval, but it was not clearly erroneous. There was no finding that September purchases would occur evenly, so extrapolating from its first half was not compelled. Some uncertainty created by a breacher’s alteration of events could be resolved against that party. The court approved a supported approximation after comparing alternatives; it did not permit invented damages whenever breach occurs.",
+        "The textbook editors questioned a reference to an average of 3,000 hardcover copies monthly. That editorial concern is distinct from the opinion’s factual discussion and does not justify replacing the court’s figures or recomputing its dispositive awards here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Estimation and source qualification; 936 F.2d at 697–98; casebook p.23 n.c"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Interest survives, fees do not, and only the profit component is reversed",
+      "cue": "What exactly did each side retain after appeal?",
+      "paragraphs": [
+        "The agreement selected New York law, which supplied prejudgment interest on successful contract damages to compensate delayed payment. Fees required a different legal basis. With infringement rejected, the Copyright Act no longer supported fees, and ordinary contract law supplied no comparable entitlement.",
+        "On June 18, 1991, the Second Circuit reversed the $7,760.12 Berkley-profit award and affirmed the rest. Naval retained $35,380.50 compensation and $15,319.27 prejudgment interest; attorney’s fees remained denied. The panel ordered no appellate costs. There was no separate concurrence or dissent, and Naval I was an earlier litigation stage, not a separate opinion in this appeal. The source does not report subsequent payment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Interest, fees, and judgment; 936 F.2d at 693, 698"
+        }
+      ]
+    }
+  ]
+}

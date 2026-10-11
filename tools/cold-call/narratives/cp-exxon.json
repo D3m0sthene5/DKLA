@@ -1,0 +1,146 @@
+{
+  "id": "cp-exxon",
+  "briefId": "CP-038",
+  "title": "Exxon Mobil Corp. v. Allapattah Services, Inc.",
+  "course": "Civil Procedure",
+  "citation": "545 U.S. 546 (2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two different lawsuits—one brought by fuel dealers and another by an injured child’s family—ask whether related smaller claims may accompany a qualifying diversity claim under the supplemental-jurisdiction statute.",
+  "actors": [
+    {
+      "name": "Allapattah Services and approximately 10,000 Exxon dealers",
+      "role": "Class plaintiffs alleging systematic fuel overcharges."
+    },
+    {
+      "name": "Exxon Mobil Corporation",
+      "role": "Defendant challenging jurisdiction over class members below the amount threshold."
+    },
+    {
+      "name": "The Ortega child and her family",
+      "role": "A nine-year-old injured by a tuna can and relatives asserting related emotional-distress and medical-expense claims."
+    },
+    {
+      "name": "Star-Kist Foods, Inc.",
+      "role": "Defendant in the separate Puerto Rico family action."
+    }
+  ],
+  "proceedings": [
+    "The Eleventh Circuit upheld supplemental jurisdiction in the dealers’ interlocutory appeal.",
+    "The First Circuit found the child’s amount sufficient but rejected supplemental jurisdiction over her family’s smaller claims.",
+    "The Supreme Court affirmed in Exxon and reversed and remanded in Ortega on June 23, 2005."
+  ],
+  "limits": "The consolidated review did not merge the underlying lawsuits or retry their merits. The holding requires an independently qualifying claim, complete diversity, a same-case relationship, and attention to § 1367’s exceptions; it does not aggregate small separate claims to manufacture the first qualifying amount.",
+  "briefSha256": "e09fe013a762c2c78be25d02b16b7793e43c16565679537c2c529a5dfd60cfdb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-038"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Fuel dealers and a child’s family bring separate diversity actions",
+      "cue": "How did the same amount problem arise in different joinder settings?",
+      "paragraphs": [
+        "In 1991, Allapattah Services and approximately 10,000 Exxon dealers sued Exxon in the Southern District of Florida, alleging an intentional scheme to inflate fuel prices. At least one named class representative had a claim meeting the diversity amount requirement, while some class members’ individual claims were smaller. A unanimous jury returned a plaintiffs’ verdict. The district court certified for interlocutory appeal whether it properly exercised supplemental jurisdiction over the smaller claims, and the Eleventh Circuit upheld jurisdiction.",
+        "In a separate Puerto Rico action, a nine-year-old girl and family members sued Star-Kist after she suffered unusually severe injuries from cutting her finger on a tuna can. Relatives joined under Federal Rule of Civil Procedure 20 with related emotional-distress and medical-expense claims. The district court granted Star-Kist summary judgment because it found no plaintiff met the amount requirement. The First Circuit disagreed about the child’s allegations but held § 1367 unavailable for the family’s smaller claims.",
+        "Exxon sought review of the jurisdictional ruling against it, and the family sought review of its exclusion. The Supreme Court consolidated the cases to resolve the circuit conflict. It did not independently reconsider the overcharging merits, and the two underlying actions remained distinct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority Part I; Casebook pp. 365–366; Parties; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court places the dispute against the earlier jurisdictional framework",
+      "cue": "Why was a shared factual core necessary but not sufficient?",
+      "paragraphs": [
+        "Justice Kennedy wrote for Chief Justice Rehnquist and Justices Scalia, Souter, and Thomas. United Mine Workers v. Gibbs supplied the constitutional conception of related claims within one case, but federal district courts still needed congressional authorization. Earlier doctrine more readily allowed additional claims between existing parties than claims involving new parties.",
+        "Finley had refused to infer authority over additional parties from a statute conferring jurisdiction against a particular defendant. Congress responded in 1990 with § 1367. All sides agreed the statute overturned Finley; that agreement did not establish that it accomplished only that change. Older decisions Clark and Zahn had required each relevant plaintiff independently to satisfy the amount threshold. The question was whether the enacted supplemental grant displaced that rule in these otherwise qualifying actions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority Parts II.A–B; Casebook pp. 366–367"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kennedy reads subsection (a) to start with a qualifying claim",
+      "cue": "Why did an amount-deficient companion claim not destroy original jurisdiction?",
+      "paragraphs": [
+        "Section 1367(a) applies in civil actions within original jurisdiction and extends to all other claims forming the same Article III case or controversy, expressly including claims involving additional parties. The majority read the threshold as met by an otherwise qualifying claim within the action. Requiring every claim independently to qualify before supplementation could operate would defeat much of the grant’s purpose.",
+        "The majority rejected treating every complaint as an indivisible jurisdictional unit. Federal practice permitted dismissal of defective claims or parties while retaining properly supported ones. Gibbs would also be difficult to explain if inclusion of a related state claim destroyed the original-jurisdiction foundation. The text did not impose that all-or-nothing rule only in diversity cases.",
+        "Complete diversity remained essential. Nondiverse opposing parties undermined the premise of a neutral forum for citizens of different States. An additional smaller claim did not make an already substantial claim insubstantial; the amount threshold screened small disputes, and that purpose differed from the citizenship requirement. Distinguishing those defects allowed smaller related claims without abolishing complete diversity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority Part II.B; Casebook pp. 367–371; Rule and Holding"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The express exceptions distinguish plaintiffs from defendants added under Rule 20",
+      "cue": "What does subsection (b) exclude, and what does it leave available?",
+      "paragraphs": [
+        "For actions founded solely on diversity, § 1367(b) excludes specified claims by plaintiffs against persons added under Rules 14, 19, 20, or 24, and claims by persons proposed as plaintiffs under Rule 19 or intervening as plaintiffs under Rule 24, where supplementation conflicts with § 1332. It does not correspondingly exclude the Rule 20 plaintiffs or Rule 23 class members involved here.",
+        "The wording mattered: claims against Rule 20 defendants differed from claims by Rule 20 plaintiffs. The majority acknowledged awkwardness in treating Rule 19 and Rule 20 plaintiffs differently and discussed possible explanations without claiming to establish Congress’s actual motive. A possible drafting omission did not authorize adding an exception. Conversely, if subsection (a) already barred all plaintiffs with insufficient amounts, parts of subsection (b) would become unnecessary.",
+        "Omission from subsection (b) was not enough on its own. A qualifying original-jurisdiction claim and the same-case relationship under subsection (a) still had to exist. The holding allowed the smaller related claims here; it did not add separate small claims together to manufacture a qualifying first claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority Part II.B; Casebook pp. 368–371; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority declines to let legislative history rewrite the grant",
+      "cue": "Why did neither the House Report nor the new class-action statute decide the result?",
+      "paragraphs": [
+        "The majority found the text unambiguous and rejected use of legislative history to preserve Zahn. It also found conflicting history: a House Report suggested retaining pre-Finley limitations, while drafting materials contemplated displacement of Zahn. Kennedy treated a report as incapable of changing enacted text, without independently finding what individual legislators actually intended.",
+        "The recently adopted Class Action Fairness Act did not resolve the cases. It was not retroactive and created a different route to jurisdiction; it did not determine § 1367’s 1990 meaning. The Court therefore decided these actions under the supplemental-jurisdiction statute itself."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority Parts II.C–D; Casebook p. 371; full-opinion supplement"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Ginsburg favors continuity and Stevens disputes the majority’s interpretive method",
+      "cue": "What different judgments did the dissenters support?",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Justices Stevens, O’Connor, and Breyer, accepted the majority’s reading as plausible but favored continuity with the prior understanding of § 1332. In her view, “original jurisdiction” in subsection (a) incorporated both complete diversity and an independent qualifying amount for each plaintiff. A plaintiff failing that initial condition never reached subsection (b), so no further exclusion was necessary. She read subsection (b) as preventing later evasion of diversity limits through claims historically associated with ancillary jurisdiction. She would affirm in Ortega and reverse in Exxon.",
+        "Justice Stevens, joined by Justice Breyer, separately challenged the claim of textual clarity. He considered the House Report persuasive evidence that Congress intended to overturn Finley while preserving Zahn. The disagreement concerned both the prior jurisdictional structure carried by the statute’s words and the proper interpretive materials.",
+        "After argument on March 1, 2005, the Court decided the cases on June 23. It affirmed the Eleventh Circuit in Exxon, reversed the First Circuit in Ortega, and remanded Ortega for proceedings consistent with its opinion. The relatives’ smaller claims could not be excluded on the premise that each plaintiff necessarily needed a qualifying amount. The case teaches the importance of identifying the claimant, how that person joined, the independent jurisdictional foundation, and the relevant statutory exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ginsburg dissent Parts I–II and conclusion; Stevens dissent; Majority disposition; Citation; Notes"
+        }
+      ]
+    }
+  ]
+}

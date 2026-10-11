@@ -1,0 +1,127 @@
+{
+  "id": "cp-burnham",
+  "briefId": "CPR-009",
+  "title": "Burnham v. Superior Court",
+  "course": "Civil Procedure",
+  "citation": "495 U.S. 604 (1990)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A husband visiting California is served with divorce papers, and all nine Justices sustain jurisdiction while disagreeing over why temporary personal presence suffices.",
+  "actors": [
+    {
+      "name": "Dennis Burnham",
+      "role": "New Jersey resident challenging California personal jurisdiction."
+    },
+    {
+      "name": "Francie Burnham",
+      "role": "Estranged wife who moved with the children to California and filed there."
+    },
+    {
+      "name": "California Superior Court",
+      "role": "Trial court whose jurisdictional ruling Dennis challenged by extraordinary relief."
+    }
+  ],
+  "proceedings": [
+    "The Superior Court denied Dennis’s special-appearance motion to quash service.",
+    "The California Court of Appeal denied mandamus relief.",
+    "The Supreme Court unanimously affirmed the result without a majority rationale."
+  ],
+  "limits": "The proceeding concerned personal jurisdiction, not final divorce, custody, support, or the unserved New Jersey complaint’s priority. Presence was voluntary; corporate service, fraud, force, and every immunity exception were not decided.",
+  "briefSha256": "436d6733cc4edc9c47559734b9b81cae5f53b908de2a44c8fe5483d97fedbf06",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-009"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The spouses separate and file in different states",
+      "cue": "How did Dennis come to be served in California?",
+      "paragraphs": [
+        "Dennis and Francie Burnham married in West Virginia in 1976, moved to New Jersey in 1977, and had two children there. In July 1987 they agreed to separate. Francie planned to move with the children to California, and both agreed she would file for divorce for irreconcilable differences. Dennis instead filed a New Jersey desertion complaint in October but obtained no summons and attempted no service.",
+        "Francie filed in California in early January 1988 after Dennis failed to follow their agreement. Later that month he traveled to southern California on business, then visited the children in the Bay Area. He took the older child to San Francisco for a weekend. On January 24, returning the child to Francie’s home, he was personally served with California summons and divorce papers, then returned to New Jersey.",
+        "His presence was voluntary and knowing. The visits were brief, the marriage centered chiefly on New Jersey, and the jurisdiction question assumed the suit did not arise from his California visit. Neither fraud nor force had procured his presence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; 495 U.S. 607–608"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Dennis preserves his jurisdiction objection and seeks extraordinary relief",
+      "cue": "Why does the trial court appear in the case name?",
+      "paragraphs": [
+        "Dennis specially appeared in Superior Court and moved to quash service, arguing that short business and family visits did not provide minimum contacts supporting this divorce. The special appearance preserved the jurisdiction challenge while asking the court to decide its power.",
+        "The court denied his motion. He sought mandamus from the California Court of Appeal for the First Appellate District, which denied relief because personal service on an individual physically present in the state furnished jurisdiction. The Supreme Court reviewed that judgment. The Superior Court’s place in the caption reflects extraordinary review of its authority, not appeal from a completed divorce. No marital status, property, support, custody, or New Jersey priority question was resolved here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Procedural History; 495 U.S. 607–608"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Scalia grounds jurisdiction in an enduring territorial rule",
+      "cue": "How did he distinguish the modern absent-defendant precedents?",
+      "paragraphs": [
+        "Justice Scalia announced the judgment. Rehnquist and Kennedy joined his opinion; White joined Parts I, II-A, II-B, and II-C. Scalia traced English and American acceptance of in-state personal service, emphasizing practice around the Fourteenth Amendment’s adoption and its persistence. For him, that established, still-accepted rule helped define traditional fairness. Temporary presence and an unrelated claim did not defeat it.",
+        "He read International Shoe’s minimum-contacts approach as expanding jurisdiction over absent defendants, not making actual presence insufficient because it was no longer always necessary. Shaffer addressed absent owners whose unrelated property received a statutory forum location, preventing indirect jurisdiction where direct personal jurisdiction would fail. Scalia did not extend its broad language to equate those defendants with personally served visitors.",
+        "The Shaffer discussion and criticism of Brennan’s approach drew only three votes. Scalia objected that a further case-specific fairness inquiry would create expensive preliminary litigation instead of a clear event with predictable consequences. His defense concerned the accepted rule of voluntary presence and service, not every imaginable means of bringing someone physically into a state."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Alignment; 495 U.S. 610–627"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Brennan applies contemporary fairness and reaches the same result",
+      "cue": "Which benefits and burdens made this jurisdiction fair?",
+      "paragraphs": [
+        "Justice Brennan, joined by Marshall, Blackmun, and O’Connor, read International Shoe and Shaffer as requiring current due process justification for every jurisdictional basis, including old ones. Tradition mattered as fair warning rather than conclusive constitutional approval.",
+        "A voluntary visitor used roads, police and emergency protection, the economy, and access to state courts. Permitting a visitor to sue while immunizing him from being sued would create asymmetry. Modern travel and communications reduced litigation burdens, and forum non conveniens could address exceptional inconvenience. These considerations made jurisdiction over Dennis fair because he knowingly chose California presence. Brennan thus retained historical notice while refusing to let pedigree alone settle fairness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Brennan concurrence; 495 U.S. 628–640"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "White and Stevens add votes without creating a five-Justice explanation",
+      "cue": "What common holding emerges from all the opinions?",
+      "paragraphs": [
+        "White would not invalidate the traditional rule without showing it so arbitrary and unreasonable in general operation as to violate due process. Until then, at least for intentional presence, individual unfairness objections need not generate endless litigation. He did not join Scalia’s entire Shaffer analysis or attack on Brennan.",
+        "Stevens considered history, ongoing consensus, fairness, and common sense together sufficient. The broad methodological contest was unnecessary to this case. His ninth vote did not make either principal explanation an opinion of the Court.",
+        "On May 29, 1990, all nine Justices affirmed the California Court of Appeal, permitting the divorce proceeding to continue with personal jurisdiction. The common result sustained service on this voluntarily present individual despite a short visit and unrelated claim; it did not dissolve the marriage. It also did not make service on a visiting corporate employee sufficient for all-purpose corporate jurisdiction or decide all immunity, involuntary-presence, or coercion questions.",
+        "Later Mallory writings invoke and dispute analogy to corporate registration consent: Gorsuch emphasizes surviving traditional bases, while Barrett distinguishes individual service from mandatory corporate registration. Those later arguments must retain Burnham’s fractured rationale and factual limits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Judgment; Notes; 495 U.S. 628–640"
+        }
+      ]
+    }
+  ]
+}

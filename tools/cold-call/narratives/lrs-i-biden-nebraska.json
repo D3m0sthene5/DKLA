@@ -1,0 +1,171 @@
+{
+  "id": "lrs-i-biden-nebraska",
+  "briefId": "LRS-ATLAS-I-BIDEN-NEBRASKA",
+  "title": "Biden v. Nebraska",
+  "course": "Legislation and the Regulatory State",
+  "citation": "600 U.S. 477 (2023)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A broad pandemic loan-cancellation program is challenged by six states, with Missouri’s loan-servicing instrumentality supplying the majority’s standing theory.",
+  "actors": [
+    {
+      "name": "Secretary of Education and federal government",
+      "role": "Officials defending principal cancellation under the HEROES Act."
+    },
+    {
+      "name": "Missouri and five other states",
+      "role": "Plaintiffs challenging the program."
+    },
+    {
+      "name": "Missouri Higher Education Loan Authority (MOHELA)",
+      "role": "Public corporation whose expected servicing-fee losses supplied Missouri’s asserted injury, although it did not join the suit."
+    }
+  ],
+  "proceedings": [
+    "The Eastern District of Missouri dismissed for lack of standing.",
+    "The Eighth Circuit entered a nationwide preliminary injunction pending appeal.",
+    "The Supreme Court granted certiorari before judgment, reversed the District Court, remanded, and denied the injunction-vacatur application as moot."
+  ],
+  "limits": "The decision addresses this principal-cancellation program under the HEROES Act. It reserves the earlier payment and interest pauses, does not decide every loan-relief authority, and does not rest on the states’ independent statutory necessity argument.",
+  "briefSha256": "f683490b5de21c7174180782a85b54e6c42f52bc4606093b28c3d45c15b63bee",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-BIDEN-NEBRASKA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Emergency payment relief precedes a new principal-cancellation plan",
+      "cue": "What authority and scale did the Department claim?",
+      "paragraphs": [
+        "The Higher Education Act established loan programs and specified discharge circumstances, including public service, death, disability, bankruptcy, and school misconduct or closure. The HEROES Act of 2003 separately allowed the Secretary to waive or modify covered Title IV provisions when necessary in war, military operations, or national emergency to prevent affected recipients being placed in a worse financial position regarding assistance because of the emergency. Replacement terms had to be published in the Federal Register.",
+        "During the COVID emergency, the Department suspended payments and interest; Congress temporarily extended that suspension, and the Department later continued it. In January 2021 Department counsel had concluded that blanket cancellation lacked authorization. After the change in administrations, the Department rescinded that memorandum and adopted the opposite interpretation.",
+        "In August 2022 it announced cancellation up to $10,000 for eligible borrowers and up to $20,000 for Pell Grant recipients. Adjusted gross income had to fall below $125,000 in 2020 or 2021, or $250,000 for specified joint filers, heads of household, and qualifying widows or widowers. Eligible debt included Direct Loans and specified federally held or collected Federal Family Education Loan and Perkins loans. About forty-three million borrowers were estimated to qualify; the Congressional Budget Office estimated roughly $430 billion in principal cancellation. These were projected effects of a blocked program, not completed discharges."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Loan program and asserted authority; Court slip 2–6 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Six states sue and obtain an appellate injunction",
+      "cue": "Why did the Supreme Court focus on MOHELA?",
+      "paragraphs": [
+        "Arkansas, Iowa, Kansas, Missouri, Nebraska, and South Carolina sued. The Eastern District of Missouri dismissed for lack of standing. The Eighth Circuit found Missouri likely had standing and substantial merits questions, issuing a nationwide preliminary injunction pending appeal. The government asked the Supreme Court to vacate the injunction or take review before judgment. The Court accepted expedited review.",
+        "Missouri relied on the Missouri Higher Education Loan Authority, or MOHELA, a nonprofit public corporation owning some loans and separately servicing millions of federal accounts for the Department. Cancellation would close accounts and reduce servicing fees; Missouri estimated $44 million annually. The government and dissent accepted that the claimed loss injured MOHELA. They disputed Missouri’s ability to assert it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and standing; Court slip 7–8; Kagan slip 4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats harm to the instrumentality as harm to Missouri",
+      "cue": "What did the dissent say about the corporation’s independence?",
+      "paragraphs": [
+        "Roberts’s majority described MOHELA as Missouri’s instrumentality in law and function. The State created it to support higher education, controlled governance through officials and appointments, required reporting, and could determine dissolution. Impairment of that public function directly injured Missouri. Arkansas v. Texas and the Amtrak cases supported allowing suit despite separate incorporation and MOHELA’s capacity to sue. The Court did not find lost fees flowed directly to the treasury and had no need to decide other states’ theories.",
+        "Kagan, joined by Sotomayor and Jackson, would dismiss for lack of standing. MOHELA’s assets were not state revenue, Missouri did not assume its liabilities, and it could sue itself. It had chosen neither to join nor voluntarily assist the case. Being a state actor for constitutional duties did not make it interchangeable with Missouri in litigation. Kagan distinguished the Arkansas university case and rejected using Missouri students’ interests to evade restrictions on parens patriae suits against the federal government."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and standing; Court slip 8–12 & n.3; Kagan slip 4–13 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court finds no ordinary textual authority for the new program",
+      "cue": "Why could waiver and modification not be combined into wholesale replacement?",
+      "paragraphs": [
+        "Roberts, joined by Thomas, Alito, Gorsuch, Kavanaugh, and Barrett, held the HEROES Act insufficient. Drawing on MCI, the majority understood “modify” as modest adjustment rather than fundamental transformation. Existing discharge rules addressed limited circumstances; income and Pell history now supplied broad new cancellation criteria. That was a new regime.",
+        "“Waive” could remove requirements but did not independently authorize new dollar caps and eligibility terms. Combining waiver and modification did not erase their limits. The instruction to publish replacement terms “in lieu of” prior provisions likewise did not create unlimited substantive authority. Additions could be permissible, but not this wholesale replacement.",
+        "The Court did not decide the earlier payment or interest suspensions, whose standing and merits could differ. It also did not rely on the states’ separate argument that cancellation was unnecessary to prevent a worse emergency-related financial position, although it expressed skepticism about the government’s premise. It did not strike down the Act as an unconstitutional delegation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory holding; Court slip 12–19 & nn.4–6,9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The major questions analysis reinforces that reading",
+      "cue": "What additional significance did the program’s scale have?",
+      "paragraphs": [
+        "The majority regarded unprecedented use of the Act, fiscal magnitude, and political and economic importance as requiring clear congressional authorization. Earlier waivers were far narrower, and Congress had debated forgiveness without enacting this program. These tradeoffs were ones Congress ordinarily would make. Government-benefit programs were not categorically exempt: separation of powers includes spending control, and King v. Burwell involved benefits. The ordinary reading already failed to authorize the plan, so it also lacked the requisite clear authorization."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Major questions; Court slip 19–25 & nn.7–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Barrett explains major questions through context",
+      "cue": "How does her concurrence differ from a substantive canon?",
+      "paragraphs": [
+        "Barrett joined fully but separately distinguished contextual interpretation from a strong substantive canon requiring a less natural permissible reading to protect an external value. For her, major questions helped identify the most natural meaning of an actual delegation.",
+        "An instruction to buy apples ordinarily does not authorize an unprecedented inventory purchase, and a babysitter’s permission to use a credit card for fun ordinarily does not authorize a multiday amusement-park trip. Additional context could establish that broader permission. Likewise agency authorization could be clear from context without microspecific words, and importance could not defeat the best reading when text and context supported it.",
+        "Relevant clues included mismatch between provision and claimed power, departure from usual expertise, and novel discovery in an older statute, without a rigid checklist. The Secretary was not entirely outside his field, but scale and text still favored the majority. This was her interpretive explanation, distinct from Gorsuch’s Article I substantive-canon account in the separate West Virginia case and from a constitutional delegation challenge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Barrett concurrence, slip 1–16 & nn.1–4; assigned account 982–983"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Kagan reads the emergency delegation more broadly",
+      "cue": "How did she answer both textual and separation-of-powers reasoning?",
+      "paragraphs": [
+        "Beyond standing, Kagan argued that “waive or modify,” “any” covered provision, and replacement terms must be read together. Permission to remove a requirement entirely naturally included intermediate changes and new conditions. Emergency, affected-individual, and necessity requirements bounded the grant.",
+        "Congress designed the Act for rapid flexible responses to unforeseen emergencies. A broader pandemic could require greater relief; unprecedented use did not itself establish lack of authority. Kagan criticized distinguishing the payment pause while recognizing its legality was reserved.",
+        "She regarded major questions here as replacing Congress’s broad delegation with judicial demands for particularity. Unlike ancillary provisions or agencies outside their field, emergency student-loan relief was central to this Act and Secretary. Her response to Barrett stressed that context. In her view, the majority shifted decisions from politically accountable actors to courts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kagan merits dissent, slip 13–30 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The Court reverses the standing dismissal and resolves the statutory dispute",
+      "cue": "Which judgment was reversed?",
+      "paragraphs": [
+        "The Court reversed the Eastern District of Missouri and remanded for proceedings consistent with its opinion. It denied as moot the government’s application to vacate the Eighth Circuit injunction. The merits split was six to three, with Barrett adding a rationale while joining the majority in full.",
+        "The result rejected this cancellation program under this statutory authority. It did not adjudicate all forms of debt relief, convert MOHELA’s fees into treasury money, or settle the expressly reserved pause and necessity questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact judgment; Court slip 26"
+        }
+      ]
+    }
+  ]
+}

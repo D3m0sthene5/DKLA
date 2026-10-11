@@ -1,0 +1,158 @@
+{
+  "id": "lrs-n-nrdc-epa-1981",
+  "briefId": "LRS-ATLAS-N-NRDC-EPA-1981",
+  "title": "Natural Resources Defense Council, Inc. v. Environmental Protection Agency",
+  "course": "Legislation and the Regulatory State",
+  "citation": "655 F.2d 318 (D.C. Cir. 1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "As diesel manufacturers seek time to develop pollution controls, environmental challengers demand faster and stricter limits; the court tests EPA’s authority, technological predictions, and explanations for several interconnected rules.",
+  "actors": [
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Set particulate standards, temporary nitrogen-oxide waivers, and hydrocarbon testing requirements."
+    },
+    {
+      "name": "General Motors, Mercedes-Benz, and Volkswagen",
+      "role": "Manufacturers challenging the feasibility of the 1985 limits; General Motors also challenged statutory authority and measurement details."
+    },
+    {
+      "name": "Natural Resources Defense Council",
+      "role": "Challenged delay, stringency, health analysis, and the nitrogen-oxide waivers."
+    }
+  ],
+  "proceedings": [
+    "EPA proposed particulate rules in February 1979 and adopted later compliance dates in its final rules.",
+    "Manufacturers and NRDC brought consolidated petitions for review in the D.C. Circuit.",
+    "The court affirmed every regulation reviewed in this proceeding; Judge Robb dissented from sustaining the 1985 particulate limits."
+  ],
+  "limits": "A separate California nitrogen-oxide/1982-particulate challenge remained in abeyance. The opinion predicts development rather than finds a completed durable trap, and its statutory categories, deference, and emissions limits describe the 1981 decision.",
+  "briefSha256": "4bc8b0cc16e3e43bc97aa776c89b6e398a12eebac6a286d7f169292db6382835",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-NRDC-EPA-1981"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Diesel’s energy advantages produce a pollution-control problem",
+      "cue": "Which statutory demands framed EPA’s work?",
+      "paragraphs": [
+        "Diesel engines offered better fuel economy but emitted substantially more particulate matter than gasoline engines using modern controls. The Environmental Protection Agency could regulate vehicle pollutants reasonably anticipated to endanger health or welfare under Clean Air Act § 202(a)(1), while § 202(a)(2) required time for development and application of necessary technology. The 1977 amendments added a particulate provision calling for the greatest achievable reduction while considering cost, noise, energy, and safety, and authorized temporary nitrogen-oxide waivers.",
+        "In February 1979, EPA proposed particulate limits of 0.60 grams per mile for 1981 and 0.20 for 1983. The final rule retained 0.60 but moved it to 1982 because 1981 certification testing had become impracticable. EPA moved the stricter passenger-vehicle limit to 1985, adding an uncertainty year beyond its expectation that technology would be ready by 1984. Light-duty trucks received a 0.26 limit for 1985 based on approximately thirty-percent greater untreated emissions. That regulatory truck category included some statutorily heavy-duty vehicles and could not simply be equated with passenger vehicles."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 319–324, 325–327, 338–341 & nn.3, 7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "EPA forecasts a control device that has not yet demonstrated full durability",
+      "cue": "What uncertainties did the manufacturers and environmental challengers emphasize?",
+      "paragraphs": [
+        "Engine modifications alone promised insufficient reduction. EPA expected a trap-oxidizer to collect particles from exhaust and periodically burn them away to regenerate the collector. Remaining problems included materials surviving repeated incineration, collection efficiency, and reliable control of regeneration. No completed device had demonstrated the required lifetime performance. A promising General Motors Opel experiment reached only 12,800 miles under unusually mild driving conditions with approximately fifty-five-percent collection efficiency.",
+        "Nitrogen-oxide controls complicated that work. Exhaust-gas recirculation reduced nitrogen oxides while increasing particulates. EPA granted 1981–1982 waivers generally allowing 1.5 grams per mile of nitrogen oxides, with Volkswagen limits in the 1.3–1.5 range, above the ordinary statutory 1.0. Manufacturers sought longer relief; some initial applications were denied for inadequate information before further submissions supported approval.",
+        "General Motors, Mercedes-Benz, and Volkswagen attacked the 1985 particulate limits as unsupported forecasts. General Motors also disputed statutory authority, truck adjustments, and hydrocarbon measurements. The Natural Resources Defense Council, or NRDC, argued from the opposite direction that EPA delayed unnecessarily, insufficiently considered carcinogenic risk, protected high-emitting models instead of differentiating standards, and lacked sufficient health and air-quality grounds for waivers. Consolidated petitions brought those issues to the D.C. Circuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 321–324, 332–344; Regulatory chronology; Parties’ positions"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court finds one asserted statutory basis mistaken but another sufficient",
+      "cue": "Why did that error not require remand?",
+      "paragraphs": [
+        "Judge Mikva wrote the principal opinion, joined by Judge Ginsburg. EPA incorrectly treated § 202(a)(3)(A)(iii) as a mandatory particulate provision for all light-duty vehicles. Although an isolated reference to classes or categories favored that reading, the Senate provision, conference redistribution, section title, and surrounding limitations showed a heavy-duty provision. Omission of an explicit qualifier did not establish the asserted broader mandate.",
+        "Section 202(a)(1), however, independently authorized particulate regulation of light-duty vehicles. EPA had made the necessary health findings and exercised the relevant discretion. Because this administrative record supported that ground, the court declined a remand merely to correct a statutory citation. It did not announce that courts could freely invent replacement rationales whenever an agency’s stated basis failed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 325–328 & nn.10–16; Statutory authority"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority asks for a reasoned forecast, not an existing final device",
+      "cue": "How did lead time affect the standard of review?",
+      "paragraphs": [
+        "Arbitrary-or-capricious review required careful examination of EPA’s explanation without replacing its technical judgment. Congress contemplated technology forcing: standards could induce advances instead of waiting for completed devices. Yet agency confidence alone was insufficient; predictions required defensible methods and record-based explanations.",
+        "Lead time created uncertainty, offered opportunity to make theoretical solutions practical, and allowed later adjustment before irrevocable production commitments. Unlike earlier litigation involving imminent production and poorly justified data adjustments, time remained here for development followed by production preparation. EPA needed to answer theoretical objections, identify major refinements, and explain plausibly why each could be completed. Discussion of other statutes did not import their distinct economic-achievability tests into all Clean Air Act decisions.",
+        "The majority found enough support. Collection worked in principle; materials research advanced; alternative materials and combinations remained; focused development was relatively recent. It accepted a distinction between fundamental theoretical barriers and engineering refinements reasonably expected to yield to effort. General Motors’ statements that compliance might be possible reinforced, without estopping, its challenge.",
+        "Efficiency, durability, and regeneration were connected. Materials already showed adequate initial efficiency; EPA could consider a modest future adjustment if durable controls fell slightly short for the highest-emitting models. Throttling or independent heat, aided by catalysts, insulation, or chamber arrangements, offered regeneration approaches. Existing control techniques supported coordination. Failed tests did not prove insuperable obstacles, speculative safety concerns did not require abandonment, and EPA remained willing to revisit demonstrated serious risks. The rule prescribed performance rather than mandating a particular trap design."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 328–336 & nn.19–22, 25–31; Technological predictions; Particulate application"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority sustains the additional year, uniform limit, and truck adjustment",
+      "cue": "How did EPA answer demands from both sides?",
+      "paragraphs": [
+        "NRDC’s preferred 1984 date did not eliminate EPA’s discretion to allow a reasonable uncertainty margin. EPA had considered potentially carcinogenic constituents. The record did not establish a reliable engine-size or vehicle-weight relationship supporting graduated standards, and differentiation could disadvantage cleaner models. Accommodating the highest-emitting models was permissible here, without establishing that every future rule must preserve every model. Diesel development and energy advantages remained relevant statutory considerations.",
+        "The truck adjustment used observed industry data and differences in inertia, aerodynamic drag, road load, downsizing, and nitrogen-oxide controls. General Motors proposed a different exhaust-flow account without data showing a changed result and identified no concrete technical barrier to adapting passenger controls. EPA need not disprove every hypothetical complication. The discussion of nonconformance penalties applied to trucks within the statutory heavy-duty category, not a general exception for every vehicle."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 336–340 & nn.32–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Temporary waivers and hydrocarbon measurements survive distinct objections",
+      "cue": "Why did the court consider the pollutants together?",
+      "paragraphs": [
+        "EPA assessed waivers through incremental health effects, fuel-economy advantages, and expected compliance after expiration. Stricter nitrogen-oxide control could increase particulates, so the effects could not be evaluated independently. NRDC lacked a factual basis for predicting that lower prices would expand diesel sales enough to offset particulate gains; its comparison also overlooked that regulatory tradeoff.",
+        "The agency reasonably read the long-term air-quality condition to ask whether a substantial likelihood existed that engines would meet applicable standards after waiver. Those included agency particulate standards as well as statutory nitrogen-oxide limits. The court supported that interpretation through statutory setting and legislative explanation without declaring it the only conceivable meaning. Its deference belongs to the historical 1981 framework.",
+        "General Motors’ hydrocarbon argument also failed. The statute regulated total hydrocarbons, not only constituents shown reactive by its preferred measure. EPA found the company’s atmospheric simulations unpersuasive and left open whether particle-bound hydrocarbons contributed to both pollution problems. Although testing counted them in both measurements, the technology-based particulate baseline already reflected that effect. General Motors showed no unfair added burden. These temporary accommodations did not amount to permanent findings that diesel emissions were harmless."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 340–344 & nn.36–41; Nitrogen-oxide waivers and hydrocarbon testing"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Robb accepts technology forcing but finds the durability forecast unsupported",
+      "cue": "What did the court’s final judgment cover?",
+      "paragraphs": [
+        "Judge Robb agreed that EPA could predict technological development and accepted the majority’s stated test. He disputed its application to durability. General Motors had worked on the problem since 1974, tested materials from at least sixteen manufacturers, and evaluated twenty-two leading materials. Its best filter fell well short of a five-year/50,000-mile statutory useful life and EPA’s contemplated 100,000-mile practical durability. A limited Opel test under mild conditions did not plausibly show ordinary driving and repeated regeneration would be solved in time.",
+        "To Robb, an expectation that determined engineering would optimize the design was hope without sufficient evidence. He dissented from Part II’s approval of the 1985 particulate standards but expressly joined Part III’s waiver result.",
+        "The D.C. Circuit affirmed all regulations reviewed in this proceeding. A separate challenge involving California nitrogen-oxide requirements and the 1982 particulate standard remained in abeyance and was not decided. The assigned selection concentrates on technology forcing and lead time; the full decision also resolves authority, demands for stricter rules, trucks, waivers, and testing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "655 F.2d at 319–324 n.7, 344–346 & Robb nn.1–2; Court, stage, and disposition"
+        }
+      ]
+    }
+  ]
+}

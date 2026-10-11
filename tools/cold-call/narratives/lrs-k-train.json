@@ -1,0 +1,128 @@
+{
+  "id": "lrs-k-train",
+  "briefId": "LRS-SUP-0004",
+  "title": "Train v. Colorado Public Interest Research Group, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "426 U.S. 1 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Colorado challengers seek a second permit regime for nuclear effluents, and the Court reads broad radioactive-materials language against the existing nuclear scheme and contested legislative history.",
+  "actors": [
+    {
+      "name": "Colorado Public Interest Research Group and other organizations and residents",
+      "role": "Citizen-suit plaintiffs alleging potential harm from radioactive effluents."
+    },
+    {
+      "name": "Environmental Protection Agency and Administrator Train",
+      "role": "Defendants who excluded three nuclear-material categories from the water-permit program."
+    },
+    {
+      "name": "Atomic Energy Commission",
+      "role": "Regulator responsible under the historic nuclear scheme; functions later split between successor agencies."
+    }
+  ],
+  "proceedings": [
+    "The District of Colorado rejected the claimed EPA duty on summary judgment.",
+    "The Tenth Circuit reversed under its reading of the water statute’s text.",
+    "The Supreme Court reversed the Tenth Circuit, with all eight participating Justices joining."
+  ],
+  "limits": "The case concerns nuclear materials, not Train v. City of New York’s sewage-funding dispute. Potential harm was alleged, not found; the facilities complied with applicable nuclear effluent standards. The Court did not rely on agency deference.",
+  "briefSha256": "fce26af7e053f4b296ef501d77983b8e3219b18dc142503078e1e9c78becc2c6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0004"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two Colorado facilities discharge materials already regulated under nuclear law",
+      "cue": "What additional regulation did the plaintiffs seek?",
+      "paragraphs": [
+        "Colorado organizations and residents alleged potential harm from radioactive effluents at the Fort St. Vrain Nuclear Generating Station and Rocky Flats nuclear-weapons-components plant. Both operated in conformity with Atomic Energy Act effluent standards. The challengers wanted Environmental Protection Agency, or EPA, regulation under the Federal Water Pollution Control Act as well; they did not challenge a complete absence of federal oversight or establish actual injury or a nuclear-standard violation.",
+        "The Atomic Energy Act comprehensively controlled production, possession, and use of source, special nuclear, and byproduct materials. The Atomic Energy Commission, or AEC, set protective release standards and required efforts to keep releases as low as reasonably achievable. By the decision its functions had divided between the Nuclear Regulatory Commission and Energy Research and Development Administration, although the Court retained AEC shorthand.",
+        "The water statute prohibited pollutant discharges into navigable waters without federal or approved state permits, expressly included radioactive materials as pollutants, and defined pollution to include alteration of radiological integrity. It also preserved substantial state permitting and stronger limits. EPA nevertheless excluded the three AEC-regulated categories, interpreting the language to reach other radioactive substances, such as radium and accelerator-produced isotopes under the then-applicable framework."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete dispute; Governing statutes; 426 U.S. 4–10, 16 & nn.1, 13"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A citizen suit turns the exclusion into a claimed nondiscretionary duty",
+      "cue": "Why did the lower courts divide?",
+      "paragraphs": [
+        "The plaintiffs sued EPA and Administrator Train under the water statute’s citizen-suit provision for failure to perform a nondiscretionary duty. They sought a declaration covering all radioactive materials and an injunction compelling regulation. On cross-motions for summary judgment the District of Colorado found exclusive AEC authority over these materials. The Tenth Circuit reversed, treating the water statute’s unqualified language and other express exceptions as plain and declining to resolve the historical dispute.",
+        "Justice Marshall’s Supreme Court opinion rejected an absolute rule against consulting interpretive aids when wording initially seemed clear. The question was the definition’s meaning within the larger statutory arrangement, not whether the effluents were physically radioactive, harmless, or beyond Congress’s reach.",
+        "The Court expressly did not depend on EPA’s interpretation, leaving the alleged inconsistency in its earlier position unresolved. The plaintiffs also relied on a separate absolute ban on radiological warfare agents and high-level radioactive waste, prefaced by a notwithstanding clause. That gave some logical support to ordinary permitting of other materials, but banning one class did not independently establish permitting jurisdiction over every other class."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure; Apparent clarity; 426 U.S. 4–5, 8–11 & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Marshall gives the specific House explanation greater weight than an implication from the Senate",
+      "cue": "What conflict existed in the legislative evidence?",
+      "paragraphs": [
+        "The House committee report squarely said that radioactive materials in the water statute excluded the source, byproduct, and special nuclear materials regulated under atomic-energy law. The enacted definition retained the same words, so Marshall viewed the report as explaining their understood reach.",
+        "The Senate report discussed building EPA capacity to control nuclear-fuel-processing plants, reasonably supporting the plaintiffs’ contrary inference. Marshall distinguished a covered pollution source from every substance it might release: nuclear facilities could also emit other pollutants squarely within EPA’s program. The exact House explanation outweighed that implication in light of the remaining evidence. The Court weighed a contested record, not uniformly exclusionary history."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Committee evidence; 426 U.S. 11–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The floor debate links agency allocation with federal-state power",
+      "cue": "Why did the rejected state-regulation amendment matter to EPA’s federal authority?",
+      "paragraphs": [
+        "Senator Pastore asked Senator Muskie whether the bill changed existing AEC authority. Muskie said it did not and cited Northern States Power v. Minnesota, which recognized federal exclusivity for the relevant nuclear effluents. Plaintiffs said leaving AEC authority intact could still allow additional EPA authority. Marshall read the assurance in context as preserving the exclusive arrangement rather than subordinating it within a second regime.",
+        "That distinction had consequences beyond agency names. Water permits allowed state standards and administration, while nuclear law sharply limited state control of these releases. Including the disputed categories would change the federal-state allocation too.",
+        "Representative Wolff proposed allowing states to regulate nuclear-power-plant radioactive waste. The House rejected it about three to one. Supporters sought local protection and criticized the AEC’s promotional and safety roles; opponents favored existing allocation and cited the committee exclusion. Plaintiffs argued that rejection of state authority did not exclude federal EPA oversight. Marshall answered that ordinary inclusion as water pollutants already carried a state role, so the proposed distinction did not fit the unamended statutory structure.",
+        "The Court gave unsuccessful supporters’ contrary comments less weight and treated the failed amendment and debate as additional evidence. Conference retained the radioactive-materials wording, and Representative Harsha explained continuity with the report and Senate exchange. That explanation corroborated the interpretation; it was not itself an enacted exception."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Floor colloquy and failed amendment; 426 U.S. 14–23 & n.18"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The permit exclusion stands without a blanket exemption from environmental regulation",
+      "cue": "What responsibilities survived the judgment?",
+      "paragraphs": [
+        "On June 1, 1976, the Court reversed the Tenth Circuit. The water-permit program did not cover the three nuclear categories regulated under atomic-energy law, so EPA violated no nondiscretionary duty by excluding them. Marshall wrote for all eight participating Justices; Stevens took no part and no separate opinion appeared.",
+        "Nuclear facilities remained subject to the water statute for other pollutants. EPA also retained separate reorganization-plan authority to set generally applicable environmental radiation standards, implemented through nuclear licensing. This was a division of responsibilities, not immunity from the whole statute or elimination of every EPA radiation role.",
+        "The interpretive method combined a broad phrase, a specialized existing scheme, and detailed contested history. It did not establish that any history overrides any statutory definition. This account concerns the 1976 nuclear-materials decision and its then-current categories, distinct from the 1975 Train sewage-treatment allotment case and from later regulatory developments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and practical result; Limits; 426 U.S. 13, 24–25 & n.20"
+        }
+      ]
+    }
+  ]
+}

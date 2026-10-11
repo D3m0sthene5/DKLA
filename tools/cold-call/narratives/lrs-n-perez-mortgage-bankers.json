@@ -1,0 +1,160 @@
+{
+  "id": "lrs-n-perez-mortgage-bankers",
+  "briefId": "LRS-ATLAS-N-PEREZ-MORTGAGE-BANKERS",
+  "title": "Perez v. Mortgage Bankers Association",
+  "course": "Legislation and the Regulatory State",
+  "citation": "575 U.S. 92 (2015)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A labor agency changes its view of mortgage-loan officers’ overtime status, and the Court rejects a judicial rule requiring notice and comment solely because an interpretation changed.",
+  "actors": [
+    {
+      "name": "Department of Labor and Wage and Hour Division",
+      "role": "Agency issuing the successive overtime interpretations."
+    },
+    {
+      "name": "Mortgage Bankers Association",
+      "role": "Industry association challenging the 2010 interpretation."
+    },
+    {
+      "name": "Buck, Henry, and Nickols",
+      "role": "Former mortgage-loan officers who intervened for the Department."
+    }
+  ],
+  "proceedings": [
+    "The district court upheld the 2010 interpretation on procedural and substantive grounds.",
+    "The D.C. Circuit reversed and vacated under Paralyzed Veterans.",
+    "The Supreme Court reversed the appellate judgment; its disposition does not expressly add a remand."
+  ],
+  "limits": "The Court resolved the additional procedural requirement, not actual overtime entitlement, the unappealed merits claim, the waived legislative-rule argument, or general retroactivity. The separate opinions’ proposed changes to deference were not adopted.",
+  "briefSha256": "6702f0f38b6129190b6e9e6d28329a9c4890f13a3cafe408ae15fc57d9073123",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-PEREZ-MORTGAGE-BANKERS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The overtime regulation makes loan officers’ actual work important",
+      "cue": "How did the agency’s interpretations change?",
+      "paragraphs": [
+        "The Fair Labor Standards Act generally requires overtime pay but exempts bona fide administrative employees as defined by Department of Labor regulations. Mortgage-loan officers’ status depended on their actual primary work, not their title. The Department’s Wage and Hour Division issued opinion letters in 1999 and 2001 concluding that they were not exempt.",
+        "In 2004 the Department revised its regulations through notice and comment. A financial-services example generally covered workers in that industry depending on their day-to-day duties, but expressly excluded employees whose primary duty was selling financial products. At the Mortgage Bankers Association’s request, the Division interpreted the revised rule in 2006 and concluded that mortgage-loan officers qualified for the administrative exemption. Like the earlier letters, that interpretation did not undergo notice and comment.",
+        "In 2010 an Administrator’s Interpretation changed position again. It concluded that loan officers primarily sold products and were not exempt, withdrew the 2006 letter, and criticized that letter’s selective analysis and misleading assumptions about the work. The Department again used no notice-and-comment proceeding. These were competing agency classifications; the Supreme Court did not decide which correctly described the employees’ work."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; 575 U.S. at 97–99"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The association challenges the change and wins under circuit doctrine",
+      "cue": "Why did the lower courts disagree about reliance?",
+      "paragraphs": [
+        "The Mortgage Bankers Association, or MBA, challenged the 2010 interpretation under the Administrative Procedure Act, or APA, on both procedural and arbitrary-and-capricious grounds. Three former loan officers, Buck, Henry, and Nickols, intervened for the Department.",
+        "The district court granted summary judgment to the Department. Applying the D.C. Circuit’s Paralyzed Veterans doctrine, it found no substantial and justifiable reliance sufficient to require notice and comment for the change. It also rejected the substantive APA claim; MBA did not appeal that merits ruling.",
+        "The D.C. Circuit reversed. It held that a significant revision of a definitive regulatory interpretation required notice and comment even without reliance, and the Department conceded a prior conflicting interpretation. It vacated the 2010 document. The Supreme Court granted both the Department’s and intervenors’ petitions, consolidated them, and heard the cases together."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; 575 U.S. at 92 n.*, 99–100 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Sotomayor reads the interpretive-rule exemption together with the definition of rulemaking",
+      "cue": "Why does a changed interpretation remain within the procedural exemption?",
+      "paragraphs": [
+        "Justice Sotomayor’s opinion began with the statutory text. APA § 551 defines rulemaking to include formulating, amending, and repealing rules. Section 553 generally requires notice and comment but exempts interpretive rules, general policy statements, and rules of organization, procedure, or practice, subject to notice or hearing independently required by another statute. Nothing distinguishes first interpretations from later revisions. The same procedures ordinarily apply to issuing and changing the same type of rule.",
+        "Legislative rules carry the force and effect of law; interpretive rules advise the public how an agency understands the statutes and regulations it administers and lack independent legal force. The Court acknowledged debate over that line without settling it generally. This case arrived on the premise that the 2010 document was interpretive.",
+        "Vermont Yankee had established that courts cannot add procedural requirements to those the APA prescribes because they consider them desirable administration. Agencies may voluntarily do more and Congress may impose additional procedures. The D.C. Circuit’s doctrine nevertheless imposed a judicially created notice-and-comment condition on an expressly exempt class and therefore conflicted with the APA."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and statutory reasoning; 575 U.S. at 95–103"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Changing an explanation does not itself amend the binding regulation",
+      "cue": "Why did MBA’s precedent and deference arguments fail?",
+      "paragraphs": [
+        "MBA equated revising an interpretation with amending the underlying regulation. The Court distinguished the regulation from the agency’s explanation of it. If interpretation itself were an amendment, initial interpretations would need notice and comment too, defeating the statutory exemption. The APA supplied no basis for treating only later interpretations that way.",
+        "MBA also invoked Auer deference to an agency’s understanding of its own regulation. The majority answered that courts ultimately determine correctness, and an interpretation contradicting the regulation earns no deference. The existence of deference did not alter § 553’s procedural command. The Court did not resolve the broader deference objections expressed in separate opinions.",
+        "Christensen involved an interpretation incompatible with an unambiguous regulation, not a duty triggered by changing previous guidance. Guernsey Memorial Hospital’s warning that interpretive rules cannot change regulations likewise concerned the binding legislative rule, not retention of every former explanation. Exemption from notice and comment did not authorize guidance to contradict or rewrite the actual regulation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "MBA arguments and rejection; 575 U.S. at 103–05 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Reliance and reasons remain relevant without creating another procedural requirement",
+      "cue": "Which remaining arguments did the Court leave undecided?",
+      "paragraphs": [
+        "Part III–B responded to fears of unpredictable shifts. A policy change contradicting prior factual findings or disregarding serious reliance interests can require a fuller explanation than an initial policy. Those substantive review safeguards do not convert an interpretive rule into a notice-and-comment obligation.",
+        "The Fair Labor Standards Act also protects employers who act in good faith in conformity with and reliance on qualifying written guidance even if later rescinded. The Court did not apply that protection to specific employers or employees and expressly reserved the general question whether the 2010 interpretation could operate retroactively. Justice Alito did not join this policy discussion.",
+        "MBA additionally suggested that the 2010 document was actually legislative. Even assuming it had not waived the point below, MBA omitted it from its certiorari opposition contrary to Supreme Court Rule 15.2. The Court treated the argument as waived rather than deciding classification on the merits. The earlier arbitrary-and-capricious ruling likewise was not before it because MBA had not appealed it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Part III–B and waiver; 575 U.S. at 105–07 & n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Three separate writings question regulatory deference without changing it",
+      "cue": "How did their reasons differ?",
+      "paragraphs": [
+        "Alito joined all but Part III–B and agreed that Paralyzed Veterans conflicted with the APA. He worried that deference could give interpretive guidance effects approaching legislative rules while the category boundary remained unclear. He would reconsider Seminole Rock and Auer in a future fully briefed case; his opinion announced no replacement rule.",
+        "Justice Scalia concurred in the judgment. He thought APA § 706 assigns interpretation to courts, which should independently decide the meaning of agency regulations. Deference could encourage vague binding rules later given practical meaning through procedurally exempt guidance. Still, lower courts had to obey Supreme Court precedent instead of counteracting it by disregarding § 553. His preferred response was abandoning Auer, which the Court did not do here.",
+        "Justice Thomas also concurred in the judgment, developing a broader constitutional objection to Seminole Rock deference. He traced its origins and expansion, questioned transferring Article III interpretive responsibility to executive officials, and emphasized independent judicial judgment and the checking function. Agency expertise or authorship did not, in his view, justify binding acceptance of the agency’s interpretation. His discussion concerned notice, separated powers, and limits on congressional transfer of judicial authority.",
+        "Thomas’s notes reserved stare decisis and interpretive-method considerations for another case, recognized precedents denying deference in particular settings, discussed historical objections to combined powers, and left open parts of the relation between lawmaking and interpretation. Other notes addressed administrative procedure and the intellectual history of expertise-based government. These qualifications accompanied a call for future reconsideration, not a holding by the Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate opinions; 575 U.S. at 107–33 and Thomas nn.1–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "All nine Justices reverse on the statutory procedural question",
+      "cue": "What did that unanimous result decide?",
+      "paragraphs": [
+        "On March 9, 2015, the Supreme Court reversed the D.C. Circuit judgment. The final disposition did not expressly add a remand command. Chief Justice Roberts and Justices Kennedy, Ginsburg, Breyer, and Kagan joined Sotomayor throughout; Alito joined except Part III–B, and Scalia and Thomas concurred in the judgment. All nine rejected the added procedural doctrine without adopting the separate proposals to abandon deference.",
+        "The decision removed the procedural ground supporting vacatur of the 2010 interpretation. It did not determine actual overtime rights, resolve the unappealed merits objection, revive the waived legislative-rule argument, or answer general retroactivity. Its distinction remains between an exemption for changing interpretive guidance and the requirement that guidance stay within a binding regulation. The discussion describes the deference framework addressed in 2015 rather than certifying the present status of later doctrine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition and scope; Assigned passage and alignment; 575 U.S. at 94, 107–08"
+        }
+      ]
+    }
+  ]
+}

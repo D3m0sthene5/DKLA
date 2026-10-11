@@ -1,0 +1,149 @@
+{
+  "id": "lrs-i-loper-bright",
+  "briefId": "LRS-MAX-LOPER",
+  "title": "Loper Bright Enterprises v. Raimondo",
+  "course": "Legislation and the Regulatory State",
+  "citation": "144 S. Ct. 2244 (2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Fishing businesses challenge paying for federal observers. Two courts defer to the agency’s statutory reading, and the Supreme Court reexamines the doctrine requiring that deference without deciding the fishing rule’s merits.",
+  "actors": [
+    {
+      "name": "Loper Bright and three other family fishing businesses",
+      "role": "Challenged the Atlantic herring observer-funding rule in the District of Columbia."
+    },
+    {
+      "name": "Relentless and two other businesses",
+      "role": "Operators of two vessels on longer, potentially multi-fishery trips; challenged the same rule in the companion case."
+    },
+    {
+      "name": "National Marine Fisheries Service",
+      "role": "Commerce Department agency administering the fisheries statute and issuing the 2020 rule."
+    },
+    {
+      "name": "Secretary of Commerce",
+      "role": "Defended the agency action."
+    }
+  ],
+  "proceedings": [
+    "The district court upheld the rule in Loper Bright; a divided D.C. Circuit affirmed under Chevron, with Judge Walker dissenting.",
+    "The First Circuit upheld the same rule under Chevron in Relentless.",
+    "On June 28, 2024, the Supreme Court vacated both judgments and remanded for independent interpretation, six to two in Loper Bright and six to three in Relentless."
+  ],
+  "limits": "This source-brief account states the historical 2024 decision without a new audit or subsequent-law certification. Observer costs and profit effects were agency estimates. The rule’s substantive legality was not decided. Jackson participated only in Relentless. Earlier holdings sustaining particular agency actions remain subject to statutory stare decisis; overruling Chevron did not automatically erase them.",
+  "briefSha256": "7db73cf4ee5be0e06723e5373278a84e305f41244304bd8c7e737471faf15b72",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-LOPER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Uncertain public funding leads to an industry-funded observer rule",
+      "cue": "What did the statute expressly address, and what did the rule demand?",
+      "paragraphs": [
+        "The Magnuson-Stevens Act extended federal fishery management and established regional councils. The National Marine Fisheries Service, or NMFS, administered it under the Secretary of Commerce. Fishery plans could require observers aboard domestic vessels. Congress expressly addressed observer costs for foreign vessels, certain limited-access-privilege programs and the North Pacific fishery, without equivalent express terms for Atlantic herring fishermen.",
+        "When public funding became uncertain, the New England council proposed industry payment. NMFS’s 2020 rule sought observers on fifty percent of trips by specified Atlantic herring permit holders. If the agency required an observer without supplying a federally funded one, the vessel had to contract with a certified third-party observer. NMFS estimated costs up to $710 a day and modeled annual owner-return reductions up to twenty percent. These were agency estimates, not findings that every petitioner suffered those losses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and regulatory setting; Roberts slip 1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two sets of fishing businesses lose under Chevron",
+      "cue": "Why did Supreme Court review focus on interpretive method?",
+      "paragraphs": [
+        "Four family businesses challenged the rule in Loper Bright. The district court upheld it, and a divided D.C. Circuit affirmed under Chevron. Under that framework, a clear statutory answer controlled at step one, using traditional interpretive tools. If the statute remained silent or ambiguous, step two required acceptance of a permissible agency construction even if a court preferred another reading. The circuit majority found uncertainty and deferred; Judge Walker dissented, reading Congress’s statute to foreclose the payment obligation.",
+        "Three businesses operating two vessels on longer trips, potentially in multiple fisheries, brought Relentless. The First Circuit also upheld the rule using Chevron. The Supreme Court took both cases to reconsider or clarify that deference doctrine, not to decide the fishery rule’s merits in the first instance.",
+        "Later Chevron decisions had justified deference through presumed delegation, expertise, accountability and policymaking. Brand X even allowed some agency constructions to supersede earlier judicial readings unless those courts had found the statute unambiguous. The disputed feature here was binding interpretive effect, not whether judges could consult agency explanations or defer to lawful factual and policy decisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; Former Chevron framework; Roberts slip 4–7 & n.2, 18–22"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority reads the APA to require independent legal judgment",
+      "cue": "What was the statutory basis for overruling Chevron?",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for Justices Thomas, Alito, Gorsuch, Kavanaugh and Barrett. Administrative Procedure Act § 706 directs reviewing courts to decide relevant legal questions and interpret statutes and constitutional provisions. The majority read this against a tradition of independent judicial interpretation. Early courts respected contemporaneous, consistent executive readings without surrendering judgment; Skidmore treated administrative reasoning, experience, consistency and thoroughness as persuasive rather than controlling.",
+        "The majority distinguished New Deal cases such as Gray and Hearst as delegated or factbound applications, while acknowledging that the historical cases were not wholly consistent. This historical characterization was disputed by the dissent, not an uncontested premise.",
+        "The APA expressly made certain factual and policy review deferential but specified no comparable mandatory deference on statutory meaning. A court therefore had to adopt its best reading rather than accept a merely reasonable agency alternative. Ambiguity alone did not establish congressional delegation: it could result from accident or an unresolved issue.",
+        "Expertise could clarify technical matters without automatically conferring legal authority. Uniformity could not justify an incorrect reading, and political accountability supported choices actually delegated rather than conversion of all legal uncertainty into agency discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Independent judgment; Why majority overruled; Roberts slip 7–26 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Agency persuasion and actual delegations remain operative",
+      "cue": "Which agency choices did independent judgment leave protected?",
+      "paragraphs": [
+        "Under Skidmore, informed agency interpretation could still persuade, especially when contemporaneous with enactment and consistent. Courts could use technical knowledge and the parties’ evidence to resolve difficult legal questions. That assistance did not bind the ultimate interpretation.",
+        "Congress could also authorize defining terms, filling details or exercising judgment under flexible words such as appropriate or reasonable. The court independently had to identify a delegation, define its boundaries and ensure reasoned decisionmaking within them. No single express formula was mandatory. Judges could not replace policy choices Congress actually entrusted to an agency with their own preferences.",
+        "The majority considered Chevron increasingly unstable through Mead’s force-of-law requirement, procedural limits, major questions and other exceptions. The Supreme Court itself had not relied on Chevron deference since 2016, but lower courts remained bound until this overruling. On stare decisis, Roberts emphasized deficient attention to § 706, difficulty consistently identifying ambiguity and shifting agency constructions that undermined stable reliance.",
+        "Earlier judicial holdings sustaining specific agency actions, including Chevron’s own Clean Air Act result, remained protected by ordinary statutory stare decisis. Reliance on Chevron alone was no special justification to overrule them. That assurance concerned adjudicated holdings, not a guarantee for every unchallenged regulation or a prohibition on reconsideration for a distinct sufficient reason."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "What remains; Why majority overruled; Prior holdings; Roberts slip 16–18 & nn.5–6, 24–35"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas and Gorsuch add separate arguments for overruling",
+      "cue": "Which propositions belonged to the concurrences?",
+      "paragraphs": [
+        "Justice Thomas joined Roberts but additionally treated Chevron as a constitutional separation-of-powers violation. It required judges to surrender Article III interpretive responsibility and allowed executive agencies to exercise powers not vested in them. That constitutional rationale was his concurrence, not a categorical holding by the majority.",
+        "Justice Gorsuch emphasized written law over erroneous precedent, evaluation of precedent against the broader historical law, and reading judicial opinions in light of the actual disputes resolved. He saw conflict with independent judgment, the APA, impartial adjudication and fair notice. Examples involving immigrants and veterans illustrated perceived harms of shifting agency readings without adjudicating those persons’ claims. He understood the change as restoration of ordinary adjudication, not a rule that agencies must lose."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate writings; Thomas slip 1–4; Gorsuch slip 1–34"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Kagan defends the delegation presumption and warns of disrupted reliance",
+      "cue": "How did the dissent understand gaps, history and stare decisis?",
+      "paragraphs": [
+        "Justice Kagan dissented, joined by Justice Sotomayor and, only in Relentless, Justice Jackson. Congress inevitably leaves gaps in complex regulation. Agency expertise, experience and political responsibility, she argued, normally make agencies better gap-fillers. Chevron’s presumption was rebuttable from context, and rigorous step-one interpretation came first. Its refinements were sensible boundaries rather than evidence of collapse.",
+        "Kagan disputed that § 706 selects independent instead of deferential interpretation: testing an agency for reasonableness still decides a legal question. She read the historical setting, including Gray and Hearst, as permitting deference. Statutory stare decisis, Congress’s opportunities to change Chevron and decades of reliance by lawmakers, agencies, courts, businesses and citizens supported retention. Other legal doctrines use ambiguity triggers, while the replacement system still requires difficult judgments about persuasive weight and delegation.",
+        "She welcomed preservation of prior judgments but thought it inadequate for reliance on unlitigated agency readings. Her prediction of disruption and judicial takeover of technical policy remained dissenting criticism.",
+        "On June 28, 2024, both circuit judgments were vacated and remanded. Jackson did not participate in Loper Bright, yielding six to two there and six to three in Relentless. The Court did not decide whether NMFS could require these fishermen to pay observers. The next inquiry required the statute’s best meaning, actual delegated discretion, reasoned action within its limits and the force of any prior holding—not automatic deference from ambiguity alone."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kagan dissent slip 1–33; Judgment and exam use; Roberts slip 35"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "id": "lrs-n-standing-lujan",
+  "briefId": "LRS-CB-1163",
+  "title": "Lujan v. Defenders of Wildlife",
+  "course": "Legislation and the Regulatory State",
+  "citation": "504 U.S. 555 (1992)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Environmental organizations challenged the government’s decision to exclude overseas projects from species consultation. Their members’ past travel and hoped-for returns became the central evidence in a summary-judgment dispute over standing.",
+  "actors": [
+    {
+      "name": "Manuel Lujan",
+      "role": "Secretary of the Interior; defended the consultation regulation and petitioned for Supreme Court review."
+    },
+    {
+      "name": "Defenders of Wildlife and allied organizations",
+      "role": "Challenged the regulation through asserted interests of their members."
+    },
+    {
+      "name": "Joyce Kelly",
+      "role": "Member who visited Egyptian crocodile habitat in 1986 and hoped to return."
+    },
+    {
+      "name": "Amy Skilbred",
+      "role": "Member who visited Sri Lankan elephant and leopard habitat in 1981 and intended to return."
+    },
+    {
+      "name": "Federal funding agencies and foreign project actors",
+      "role": "Third parties whose responses to consultation and funding changes figured in redressability arguments."
+    }
+  ],
+  "proceedings": [
+    "District court dismissed for lack of standing; divided Eighth Circuit reversed.",
+    "On remand the district court treated standing as controlled by the appellate ruling, granted Defenders summary judgment on the merits, and ordered a new rule.",
+    "Eighth Circuit affirmed; Supreme Court on June 12, 1992 reversed and remanded for lack of standing without resolving the statute’s overseas reach."
+  ],
+  "limits": "Scalia’s principal standing discussion had six votes, but his Part III-B redressability analysis had four. Stevens would find standing but reject the claim on statutory merits. The decision does not categorically reject environmental, aesthetic, or procedural injury, and no concrete future travel plan was established.",
+  "briefSha256": "44cb3a34e81a256d407e0b5357daff0b80c9e57716f1ed3f00fd48240fe1e579",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CB-1163"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The agencies narrow consultation’s geographic reach",
+      "cue": "What interests did Kelly and Skilbred connect to overseas projects?",
+      "paragraphs": [
+        "Section 7(a)(2) of the Endangered Species Act (ESA) requires federal agencies, consulting the appropriate wildlife Secretary, to ensure that actions they authorize, fund, or undertake are unlikely to jeopardize listed species or adversely alter critical habitat. Interior and Commerce initially applied consultation abroad. Their 1986 rule confined it to the United States and high seas.",
+        "Defenders of Wildlife and allied environmental organizations challenged that restriction. Member Joyce Kelly visited Egypt in 1986 and saw the Nile crocodile’s traditional habitat, hoping to observe crocodiles directly on another visit. Member Amy Skilbred visited Sri Lanka in 1981 and saw habitat of endangered Asian elephants and leopards but had not seen the endangered animals themselves. They alleged that federally assisted projects threatened those species and stated intentions to return.",
+        "Neither identified a concrete return date or ticket. Defenders also offered ecosystem, animal, vocational, and procedural-right theories to connect members’ interests to the challenged regulation. These assertions would be tested at summary judgment, where the organizations had to produce specific supporting facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and material facts; 504 U.S. at 558–59, 563–67, 571–78"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An initial standing reversal leads to a merits judgment",
+      "cue": "Why did the procedural stage change the needed proof?",
+      "paragraphs": [
+        "The district court first dismissed for lack of standing. A divided Eighth Circuit reversed. On remand, Secretary of the Interior Manuel Lujan again challenged standing at summary judgment, but the district court treated the appellate ruling as controlling, granted Defenders judgment on the merits, and ordered a new regulation. The Eighth Circuit affirmed.",
+        "The Secretary obtained Supreme Court review, and argument occurred December 3, 1991. Standing was part of Defenders’ case at every stage. General allegations might suffice at pleading, but affidavits or other evidence had to supply specific facts at summary judgment. The question therefore was not merely whether the organizations could imagine harm from the policy; it was whether this record established the necessary personal injury, causal connection, and likely redress."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; 504 U.S. at 559–61"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Scalia accepts the kind of interest but rejects imminent harm",
+      "cue": "Why did past visits and a future wish not suffice?",
+      "paragraphs": [
+        "Justice Scalia’s six-Justice principal analysis required concrete and particularized injury that was actual or imminent, fairly traceable to challenged conduct, and likely redressable by a favorable decision. Chief Justice Rehnquist and Justices White, Kennedy, Souter, and Thomas joined these portions.",
+        "Destruction of species a person observes can injure aesthetic or recreational interests. The defect here was imminence: a past visit established past exposure, while a “some day” return without concrete plans did not establish threatened future personal harm. The affidavits did not supply the missing temporal connection.",
+        "The ecosystem, animal, and vocational nexus theories were also too broad as advanced. An interest in an ecosystem, a species, or related professional work did not sufficiently connect a particular person to the threatened place. The Court required a specific personal link rather than permitting every interested observer or worker to challenge any related project."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Injury and imminence; 504 U.S. at 560–67"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Four Justices separately question whether this judgment could help",
+      "cue": "Why must the redressability discussion keep its separate vote count?",
+      "paragraphs": [
+        "In Part III-B, only Rehnquist, White, and Thomas joined Scalia. Where plaintiffs are not the objects of challenged government action, causation and relief depend on third parties’ choices. Those four Justices found the record insufficient to show that an injunction against Interior would bind the separate funding agencies or that consultation and changed United States funding would stop the foreign projects.",
+        "Kennedy and Souter did not join this analysis. It therefore cannot be attributed to the same six-Justice majority that rejected imminent injury. The uncertainty about foreign and agency responses remained an additional plurality rationale rather than a second six-vote holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Redressability; 504 U.S. at 568–71"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A procedural entitlement still needs a threatened concrete interest",
+      "cue": "What limits did the Court place on citizen suits?",
+      "paragraphs": [
+        "The Court recognized that a procedural right may relax immediacy and redressability for someone whose concrete interest is threatened. Its example was a person living beside a proposed federally licensed dam. That hypothetical illustrated a real personal interest protected through procedure; procedure alone could not replace the missing underlying interest in Defenders’ record.",
+        "Scalia distinguished such injury from an undifferentiated demand that the Executive obey the law. Congress could not provide standing merely by authorizing any citizen to sue for lawful administration. In the majority’s separation-of-powers account, doing so would move the President’s Take Care responsibility toward continuing judicial supervision. The ESA citizen-suit language did not remove Article III’s concrete-injury minimum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural and citizen-suit analysis; 504 U.S. at 571–78 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Kennedy preserves room for Congress to define enforceable injuries",
+      "cue": "What did his concurrence reserve?",
+      "paragraphs": [
+        "Justice Kennedy, joined by Justice Souter, agreed that this record lacked concrete injury and declined to reach redressability. He emphasized Congress’s power to identify injuries and articulate causal chains that can create a case or controversy where none existed before. Congress must at least identify the injury protected and relate it to the people authorized to sue.",
+        "Permission for “any person” to sue was too indiscriminate by itself. Kennedy nevertheless reserved whether a similar nexus theory could establish standing on different facts. His concurrence did not reject Congress’s role in creating substantive legal interests or transform the record-specific injury defect into an absolute rule against every nexus theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Kennedy concurrence; 504 U.S. at 579–81"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Stevens finds standing but votes against the claim on overseas scope",
+      "cue": "Why was his concurrence in the judgment not another standing vote?",
+      "paragraphs": [
+        "Justice Stevens expressly disagreed with both the Court’s imminence finding and the plurality’s redressability account. He would measure imminence by the likelihood and timing of destruction of habitat and species tied to genuine study or observation. Past visits, professional backgrounds, and sworn future intentions could show that genuine interest.",
+        "Stevens presumed agencies would follow an authoritative Supreme Court construction. Consultation and the threatened withdrawal of assistance could influence foreign projects even without commanding them directly. He therefore thought standing established.",
+        "He nevertheless concurred in the judgment on statutory grounds. Applying the presumption against extraterritoriality, he read § 7(a)(2) as excluding foreign-country activities. The critical-habitat language referred to affected States; species and habitat clauses should share geographic reach; other ESA provisions expressly addressed international matters; and the findings were domestic. That merits interpretation belonged to Stevens alone. The Court did not resolve overseas scope."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Stevens concurrence; 504 U.S. at 581–89 & nn.3–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Blackmun would allow the record and procedural protections to do more",
+      "cue": "How did his dissent respond to the summary-judgment and separation-of-powers reasoning?",
+      "paragraphs": [
+        "Justice Blackmun, joined by Justice O’Connor, thought the Court demanded excessive travel specificity and failed to draw summary-judgment inferences for Defenders. Rule 56(e)’s need for specific evidence differed from Rule 56(c)’s question whether that evidence raised a genuine issue. He also rejected a universal geographic-proximity test. His analogies involving property sellers, job applicants, and consortium criticized evidentiary formalism; they were not additional claims in this case.",
+        "Blackmun expected agencies to conform to authoritative ESA interpretation and thought their participation might bind them through collateral estoppel. United States aid’s value and mitigating purpose could influence a project despite a minority funding share.",
+        "He also disputed treating procedural enforcement as judicial takeover. Congress often pursues substantive goals through consultation, reporting, and similar obligations; courts can protect that design by enforcing them. Some procedural violations may be closely bound to preventing concrete harm, so they should not face a categorical exclusion. He did not say every omission gave everyone standing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Blackmun dissent; 504 U.S. at 589–606 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "The merits judgment falls, while the statutory question remains open",
+      "cue": "Which conclusions belong to the Court rather than later classroom context?",
+      "paragraphs": [
+        "On June 12, 1992, the Supreme Court reversed the Eighth Circuit and remanded for lack of Article III standing. Six Justices supported the three-part formulation and rejection of indefinite return intentions, four supported the detailed redressability section, and Stevens reached the same judgment through his own statutory merits analysis. The Court neither categorically excluded environmental or procedural harms nor decided § 7’s overseas reach.",
+        "The assigned editorial notes separately trace injury doctrine through ADAPSO, Sierra Club, SCRAP, and Schlesinger and contrast shared concrete injury with general demands for lawful government. Their comparisons of Richardson’s budget claim, Schlesinger’s reserve-officer claim, Northeastern Florida’s competitive opportunity, Grutter, and Havens Realty’s housing-information and organizational interests explore Congress’s ability to establish personal rights. They also distinguish equitable standing from damages causes and constitutional minima from prudential objections under statutory review provisions. Those are classroom comparisons, not further Lujan holdings or authority to erase its concrete-injury requirement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and assigned textbook discussion; 504 U.S. at 578; assigned printed pp.1168–71"
+        }
+      ]
+    }
+  ]
+}

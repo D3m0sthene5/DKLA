@@ -1,0 +1,126 @@
+{
+  "id": "lrs-n-biestek",
+  "briefId": "LRS-ATLAS-N-BIESTEK",
+  "title": "Biestek v. Berryhill",
+  "course": "Legislation and the Regulatory State",
+  "citation": "587 U.S. 97 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A vocational expert gives national job estimates but withholds private surveys, and the claimant seeks an automatic rule stripping that testimony of substantial evidentiary value.",
+  "actors": [
+    {
+      "name": "Michael Biestek",
+      "role": "Former carpenter and construction laborer contesting denial for an earlier portion of his disability claim."
+    },
+    {
+      "name": "Erin O’Callaghan",
+      "role": "Vocational expert providing job-number estimates at the administrative hearing."
+    },
+    {
+      "name": "Social Security Administration",
+      "role": "Agency awarding benefits from May 2013 but denying the preceding period."
+    }
+  ],
+  "proceedings": [
+    "An administrative law judge relied on vocational testimony to deny the October 2009–May 2013 period while granting later benefits.",
+    "The District Court and Sixth Circuit rejected the categorical sufficiency objection.",
+    "The Supreme Court affirmed without separately assessing this record’s sufficiency under its case-specific standard."
+  ],
+  "limits": "The majority rejected an automatic disqualification rule, not a challenge to these figures under every possible record-based argument. No production order or new independent finding validating the estimates resulted.",
+  "briefSha256": "43facc495851e0c220f0ef0a092962943c778fe6f3fd320bccd63aec7dbdda2c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-BIESTEK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Biestek seeks benefits after stopping construction work",
+      "cue": "What work question did the agency need to answer?",
+      "paragraphs": [
+        "Michael Biestek had worked as a carpenter and general construction laborer before degenerative disc disease, Hepatitis C, and depression caused him to stop. He sought disability benefits beginning in October 2009. A Social Security Administration administrative law judge, or ALJ, had to decide what other work his limitations permitted and whether significant numbers of those jobs existed nationally.",
+        "The adjudication was informal and nonadversarial, admitting material that might be excluded in court. Vocational experts drew on public information, employer contacts, and placement experience. At the July 21, 2015 hearing, Erin O’Callaghan identified sedentary, relatively unskilled bench-assembler and sorter jobs fitting the stated limitations, education, and work history. She estimated 240,000 assembler and 120,000 sorter jobs nationally. She had five years’ agency-expert experience and more than ten years counseling disabled people about employment; those credentials did not themselves verify every figure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; majority slip 2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The expert invokes confidentiality and the ALJ stops the production request",
+      "cue": "What did the resulting decision award?",
+      "paragraphs": [
+        "On cross-examination, counsel asked about the estimates. O’Callaghan cited Bureau of Labor Statistics information and her own labor-market surveys. She declined to provide private surveys on confidentiality grounds. Counsel proposed redaction, but the ALJ said production would not be required in any form. Counsel did not continue questioning the assembler and sorter numbers.",
+        "The ALJ relied on the testimony to find Biestek could adjust to other work during the earlier period. Benefits were awarded from May 2013, when turning fifty adversely affected employment prospects, but denied from October 2009 through May 2013. This was a partial award, not rejection of the entire application."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and chronology; majority slip 4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Biestek presents a categorical evidentiary challenge",
+      "cue": "Why was this different from a claimed discovery entitlement?",
+      "paragraphs": [
+        "The District Court rejected Biestek’s argument that requested-but-withheld data necessarily deprived the expert testimony of substantial evidentiary value. The Sixth Circuit affirmed, declining the Seventh Circuit’s approach, and the Supreme Court took review of the proposed categorical rule.",
+        "Biestek distinguished substantive sufficiency from a freestanding right to discovery. Federal Rule of Civil Procedure 26 expert disclosure did not govern this administrative hearing. He accepted that unsupported-by-produced-data testimony might suffice if no request was made, but argued refusal after request changed the result. He did not attribute that distinction to waiver of the substantial-evidence requirement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judicial proceedings; majority slip 4–7 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority refuses to make request and refusal decisive",
+      "cue": "What does the entire record still have to show?",
+      "paragraphs": [
+        "Kagan wrote for Roberts, Thomas, Breyer, Alito, and Kavanaugh. Under § 405(g), substantial evidence exceeds a scintilla and is evidence a reasonable mind could accept as adequate. The threshold was not high, but admissibility did not establish sufficiency.",
+        "An expert with strong credentials, sound experience, explained representative surveys and accepted extrapolation, cogent answers, and no contrary evidence might supply adequate support without source files. Disclosure was a best practice, and the agency handbook expected materials and explanations to be available, but that guidance did not establish an invariant production condition. Unsupported or contradicted testimony from a less qualified expert might fail.",
+        "Refusal could reflect legitimate confidentiality or burdens of production and redaction. Other circumstances might independently warrant reliance. Conversely, an unexplained refusal of readily available material could support an adverse inference, especially without other grounds for confidence. Absence of a request did not immunize unreliable testimony either. The full record, not the procedural fact of asking alone, controlled.",
+        "Counsel could sometimes test sources, methods, and derivation without the files. Barriers to effective examination could weaken the testimony, but did not necessarily destroy all reliability. The Court required assessment of the testimony and remaining record, with deference to the ALJ who observed the hearing. It read the petition as seeking only the categorical rule and deliberately did not apply the standard afresh to this record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; majority slip 5–11 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissenters would find this particular testimony insufficient",
+      "cue": "How did their proposed relief differ from automatic exclusion?",
+      "paragraphs": [
+        "Sotomayor agreed with Gorsuch that the question included actual sufficiency. The agency bore the pertinent burden to identify other work, and the ALJ had to develop the nonadversarial record. Yet he interrupted an effort to obtain redacted evidence, and the expert supplied no meaningful account of whom she surveyed, how many surveys existed, their information, or methodology. Missing files plus conclusory testimony were inadequate. A real obstacle and fuller oral explanation could yield another result; she did not exclude undisclosed data in every case.",
+        "Gorsuch, joined by Ginsburg, argued that the public source did not contain these specific estimates, making the unproduced and unexplained private data essential. Refusing readily available stronger evidence supported an adverse inference. The majority’s hypothetical trustworthy experts did not describe this hearing. He read the question as allowing resolution of this narrower category of bare conclusion, requested support, and no demonstrated production obstacle. He understood comparable records could still fail under the majority but faulted it for providing no relief or concrete guidance here.",
+        "The Court affirmed the Sixth Circuit. It neither ordered disclosure nor independently held that these estimates satisfied substantial evidence under a full case-specific assessment. The decision rejected automatic disqualification while leaving that distinct sufficiency question unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Dissents; Disposition; majority slip 11; Sotomayor slip 1–3 & note; Gorsuch slip 1–9"
+        }
+      ]
+    }
+  ]
+}

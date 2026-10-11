@@ -1,0 +1,129 @@
+{
+  "id": "bayliner",
+  "briefId": "CT-CB-0004",
+  "title": "Bayliner Marine Corp. v. Crow",
+  "course": "Contracts",
+  "citation": "257 Va. 121, 509 S.E.2d 499 (1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A fishing-boat buyer expects thirty miles per hour, but separate defects in proof defeat his express, merchantability, and particular-purpose warranty theories.",
+  "actors": [
+    {
+      "name": "John R. Crow",
+      "role": "Purchaser of the Bayliner sport-fishing boat."
+    },
+    {
+      "name": "Bayliner Marine Corporation",
+      "role": "Boat manufacturer and appellant."
+    },
+    {
+      "name": "Tidewater Yacht Agency and John Atherton",
+      "role": "Authorized dealer and representative who supplied speed information."
+    },
+    {
+      "name": "Brunswick",
+      "role": "Diesel-engine manufacturer whose negligence claim was dismissed below."
+    }
+  ],
+  "proceedings": [
+    "After a bench trial, Crow received $135,000 plus prejudgment interest on three warranty theories.",
+    "Bayliner appealed liability and damages.",
+    "The Supreme Court of Virginia reversed and entered final judgment for Bayliner without reaching damages calculations."
+  ],
+  "limits": "Crow nonsuited Tidewater before trial; Brunswick’s negligence claim was dismissed in the final order. Precise matrix numbers were rejected as descriptions of a materially different configuration, separately from the brochure’s puffery analysis.",
+  "briefSha256": "ef1a10332b4d808b2fbaf7638f08b70e34c907f3298afe97a66764908af3eb72",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0004"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Crow asks about speed before buying a heavily equipped boat",
+      "cue": "What did the dealer’s information actually describe?",
+      "paragraphs": [
+        "In summer 1989 John R. Crow took a short ride on a Bayliner 3486 Trophy Convertible through authorized dealer Tidewater Yacht Agency. He asked representative John Atherton about maximum speed. Atherton lacked personal experience and sufficient customer information, so he supplied two Bayliner propeller matrices from the dealer manual. They correlated engines, gearing, propellers, and speed. Thirty-mile-per-hour entries concerned propellers unlike the 20-by-17 fitted to Crow’s boat, with test loading of approximately 600 pounds of passengers and gear.",
+        "Atherton also supplied a brochure praising offshore performance. Crow bought for $120,000 before taxes, with roughly 2,000 pounds of added navigation equipment, generator, outriggers, and climate systems. He did not test drive again after installation and before delivery. The different propeller and much greater equipment load mattered to whether the numerical data described the actual purchase."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts; slip 1–3, 6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Low measured speed prompts repairs and the warranty suit",
+      "cue": "How did Crow use the boat, and what did the trial court award?",
+      "paragraphs": [
+        "After September 1989 delivery Crow measured thirteen miles per hour. Repeated repairs and adjustments generally produced seventeen, briefly about twenty-four after an engine modification. In July 1990 Bayliner wrote that purchase-time performance representations had been incorrect and identified maximum capability as twenty-three to twenty-five. Crow said even that would have stopped his purchase: fishing grounds could be ninety miles offshore, and travel reduced fishing time.",
+        "Over five years the engines logged roughly 850 hours. Crow attributed many to repairs and said the boat had little value to him, but he did use it for offshore fishing in its early years. His personal speed requirement differed from ordinary trade fitness and from what he conveyed at sale.",
+        "Crow sued Bayliner, Tidewater, and engine maker Brunswick. He nonsuited the dealer before trial; the final order dismissed the Brunswick negligence claim. Following a bench trial the circuit court found Bayliner liable for express warranty, merchantability, and particular-purpose fitness. It awarded $135,000 plus prejudgment interest, comprising the purchase price and approximately $15,000 of claimed storage, maintenance, insurance, and financing costs. Bayliner appealed liability and amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material facts; Procedure; slip 3–6 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Keenan separates exact data about other configurations from general praise",
+      "cue": "Why did neither statement warrant thirty miles per hour for this boat?",
+      "paragraphs": [
+        "Justice Barbara Milano Keenan’s Supreme Court of Virginia opinion viewed evidence favorably to Crow and would uphold findings unless plainly wrong or unsupported. Several warranty questions were ordinarily factual, but this record did not sustain them.",
+        "Virginia’s Uniform Commercial Code § 2-313 recognizes affirmations, promises, and descriptions relating to the goods and forming the bargain’s basis. The matrix numbers were precise; their problem was what they referred to. They involved different propellers and materially lighter loading, unlike the earlier jewelry precedent where an appraisal described the very diamonds sold. Numerical specificity did not promise the same result from Crow’s configuration. The Court did not require the word warranty or rely on a universal disclaimer rule.",
+        "The brochure presented a different problem. Praise of the ability to reach desirable fishing grounds specified no speed or equivalent measurable characteristic. It was commendation or opinion under § 2-313(2), not the particular promise claimed. The decision did not classify all advertising as nonpromissory. Each asserted representation failed on its own content and context."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Express-warranty reasoning; slip 5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The implied warranties require proof beyond personal disappointment",
+      "cue": "What was missing from each implied-warranty theory?",
+      "paragraphs": [
+        "For merchantability under § 2-314, Crow supplied no trade standard or evidence that a substantial segment of buyers regarded boats with this capability as unacceptable. His long trip to the Gulf Stream established inconvenience to him, not the general benchmark. Ordinary-purpose fitness also lacked proof: actual offshore fishing and substantial engine hours undermined general incapacity for that use. His repair-hours explanation did not itself show trade unacceptability. The Court did not hold that any use conclusively proves merchantability or that used goods cannot be defective.",
+        "Section 2-315’s particular-purpose warranty required reason to know Crow’s special purpose and reliance on seller judgment. Crow framed that purpose as offshore fishing at thirty miles per hour. Discussion of fishing and speed did not establish Atherton knew anything slower was unacceptable. A privately decisive condition did not become communicated merely because the broader activity was known. Missing proof of that threshold knowledge defeated the theory without resolving every other element."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Implied-warranty reasoning; slip 8–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "All three liability theories fail and Bayliner obtains final judgment",
+      "cue": "What remained unreviewed?",
+      "paragraphs": [
+        "On January 8, 1999, the Court reversed and entered final judgment for Bayliner. It did not remand for Crow to supply missing proof and did not approve the damages method; the amount issues were unnecessary after liability failed. All Justices were present and no separate opinion appeared. The judicial document identifies Keenan as author, despite a host annotation confusing her with circuit judge Morrison.",
+        "The assigned excerpt omits implied warranties, but the full decision needed all three analyses before final judgment. Express representations, general merchantable use, and communicated particular needs are distinct sources of obligations. This historical decision does not resolve other consumer theories or later warranty law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Actual judgment; Separate opinions; Assigned scope; slip 1, 6 n.2, 12"
+        }
+      ]
+    }
+  ]
+}

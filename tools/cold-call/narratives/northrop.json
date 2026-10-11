@@ -1,0 +1,130 @@
+{
+  "id": "northrop",
+  "briefId": "CT-CB-0290",
+  "title": "Northrop Corp. v. Litronic Industries",
+  "course": "Contracts",
+  "citation": "29 F.3d 1173 (7th Cir. 1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An oral board purchase proceeds despite conflicting warranties, while a separate batch of unaccounted-for boards prevents the buyer from recovering twice.",
+  "actors": [
+    {
+      "name": "Northrop Corporation",
+      "role": "Defense manufacturer buying custom electronic boards for weapons systems."
+    },
+    {
+      "name": "Litronic Industries",
+      "role": "Seller whose offer limited warranty coverage to ninety days."
+    },
+    {
+      "name": "Lynch",
+      "role": "Northrop purchasing officer who telephoned acceptance."
+    },
+    {
+      "name": "Lair",
+      "role": "Litronic representative who received the acceptance."
+    }
+  ],
+  "proceedings": [
+    "A magistrate judge awarded Northrop $58,000 for No. 1714 boards but denied recovery on other boards not shown returned.",
+    "Both parties appealed under agreed Illinois substantive law.",
+    "The Seventh Circuit affirmed both rulings; Ripple concurred in the result and state-law prediction."
+  ],
+  "limits": "The opinion reports a $58,000 judgment despite the earlier $19,000-per-board quote. Posner’s preferred interpretation was not the rule he predicted for Illinois. Paragraph locators refer to the source transcription.",
+  "briefSha256": "edcdd8de1f7377a64f7e22f610b075b07bdd1e6a9455d36b2e6fcf90e8b60e70",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0290"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Northrop and Litronic exchange forms but begin the transaction orally",
+      "cue": "What did the buyer communicate before the formal purchase order arrived?",
+      "paragraphs": [
+        "In 1987 defense manufacturer Northrop requested bids for custom No. 1714 printed wire boards for weapon systems. The request said a Northrop purchase order would override inconsistent seller terms. Litronic offered four boards for $19,000 each with six-week delivery, a ninety-day warranty replacing others, and a clause giving its terms priority unless separately negotiated.",
+        "Northrop purchasing officer Lynch telephoned Litronic representative Lair, accepted up to his $24,999 authority, and said an order for all four would follow. Litronic started manufacture. A month later a “turn on” letter authorized all four. The formal order may have followed months after the call. Its familiar form contained an unlimited-time warranty and requested written acknowledgment, which Litronic never returned and Northrop never pursued.",
+        "Litronic delivered three boards in July 1988, more than a year after the conversation. Northrop did not claim culpable manufacturing delay. Complex testing took months; it returned those boards as defective in December and January. The fourth had not arrived. Litronic invoked ninety days, Northrop its unlimited warranty. For these appeals the parties treated warranty duration as controlling rejection time, although the court noted that Uniform Commercial Code § 2-602(1) ordinarily asks whether rejection occurred within a reasonable time."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts and formation; opinion ¶¶4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two board disputes reach the court together",
+      "cue": "Which recovery did each appeal place at risk?",
+      "paragraphs": [
+        "A magistrate judge awarded Northrop $58,000 for delivered No. 1714 boards, the amount the opinion actually reports, and denied its claim for other boards it had not returned. Litronic appealed the warranty recovery; Northrop appealed the separate denial. Both agreed Illinois law governed. Illinois courts had not selected among readings of “different” terms in Code § 2-207, so the Seventh Circuit needed to predict state law rather than announce independent federal commercial policy.",
+        "Chief Judge Posner wrote the principal opinion. Lynch’s reference to the coming form communicated different warranty terms because the parties knew or should have known the form from prior dealings. But Lynch did not expressly condition acceptance on Litronic’s agreement to that warranty. A contract could therefore form under § 2-207(1) while its terms remained disputed. Superior approval had occurred, and manufacture, delivery, and payment confirmed agreement. The unused acknowledgment line did not control after both proceeded without it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural history; Acceptance reasoning; opinion ¶¶3, 8, 11–13, 19"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Posner distinguishes his preferred interpretation from Illinois’s predicted rule",
+      "cue": "Which warranty survives the battle of forms?",
+      "paragraphs": [
+        "Subsection (1) mentions additional or different terms; subsection (2) speaks only of additional terms. Three readings followed: knock out conflicting terms on both sides and insert Code supplements; retain the offer’s terms; or treat different terms as additional terms whose inclusion depends on subsection (2), including materiality.",
+        "Posner preferred the third reading as policy and drafting interpretation. Here it would preserve Litronic’s ninety-day term because an indefinite warranty materially changed it. But Illinois had followed majority approaches elsewhere in the Code, and uniformity was an express objective. The court predicted Illinois would choose the prevalent knockout rule despite Posner’s preference.",
+        "Both time limits therefore disappeared. Northrop did not acquire its unlimited warranty merely by defeating Litronic’s limit. A reasonable period filled the gap, consistent with parties who wanted the transaction without accepting conflicting boilerplate. Litronic’s smaller size and reluctance to take broad duties did not establish Northrop’s assent to a particularly short warranty for complex boards. Their testing supported the roughly six-month rejection period found reasonable below."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Statutory wording and state-law prediction; opinion ¶¶1–2, 14–18"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The priority clause and performance do not change this appeal’s result",
+      "cue": "What was waived, and what alternative route did the court leave undecided?",
+      "paragraphs": [
+        "An offeror can expressly limit acceptance to its terms. Litronic’s document contained a priority clause, but Litronic did not argue that it made formation conditional on Northrop accepting the ninety-day warranty. That argument was waived. The court did not adjudicate the clause’s effectiveness on a preserved record.",
+        "The court also considered § 2-207(3): even if writings failed to make a contract, performance could create one using agreed terms plus Code supplements rather than inconsistent forms. That alternative would produce the same result and did not require separate resolution. Conditional drafting cannot necessarily secure preferred terms once a party proceeds anyway."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Priority clause and conduct; opinion ¶¶15, 17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Northrop’s other boards require an accounting",
+      "cue": "Why did a statutory security interest not justify full recovery?",
+      "paragraphs": [
+        "On Northrop’s separate appeal, the court found no clear error in the finding that the other boards had not been returned. Code § 2-711(3) can give a paying buyer a security interest in rejected goods, allowing retention or appropriate resale; worthless goods may sometimes be discarded. Physical return is therefore not invariably essential. But Northrop had to account for the goods, their use, or proceeds.",
+        "Its disbelieved claim of return and alternative denial of a legal return requirement left their disposition unexplained. Full recovery could duplicate benefits from resale, reuse, or other gain. The court mentioned Illinois’s “mend the hold” limit on changing litigation positions, but reserved its scope and compatibility with federal procedure because Northrop lost even assuming the alternative argument available.",
+        "On July 18, 1994, the Seventh Circuit affirmed both judgments: Northrop kept $58,000 for No. 1714 boards and remained denied recovery on the others. Judge Ripple agreed with the judgment and Illinois prediction but declined to endorse an institutional view of the best state-law policy. Federal diversity judges should predict the state courts’ law, while personal scholarly law-reform debate serves a different role. His writing was a concurrence in the knockout result, not opposition to it. The decision reports a historical Illinois prediction rather than current law everywhere."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Other-board reasoning; Judgment; Ripple concurrence; opinion ¶¶9–10, 20–23"
+        }
+      ]
+    }
+  ]
+}

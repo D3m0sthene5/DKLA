@@ -1,0 +1,158 @@
+{
+  "id": "graham",
+  "briefId": "CT-NEXT-CM-0101",
+  "title": "Graham v. Scissor-Tail, Inc.",
+  "course": "Contracts",
+  "citation": "28 Cal. 3d 807, 623 P.2d 165 (1981)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A concert promoter and a performer’s company dispute who bears a losing concert’s expenses. Their familiar union contract sends the dispute to the performer’s own union, raising a structural objection to the sole adjudicator.",
+  "actors": [
+    {
+      "name": "Bill Graham",
+      "role": "Experienced concert promoter and plaintiff challenging union arbitration."
+    },
+    {
+      "name": "Leon Russell, legally C. Russell Bridges",
+      "role": "Performer, union member and owner of Scissor-Tail."
+    },
+    {
+      "name": "Scissor-Tail, Inc.",
+      "role": "Company marketing Russell’s group; defendant and fee cross-appellant."
+    },
+    {
+      "name": "Dennis Cordell",
+      "role": "Russell’s manager who arranged the concerts and signed two contracts for Scissor-Tail."
+    },
+    {
+      "name": "Forest",
+      "role": "Booking agent and formal union claimant."
+    },
+    {
+      "name": "American Federation of Musicians",
+      "role": "Union whose Form B designated its executive or local board to arbitrate."
+    }
+  ],
+  "proceedings": [
+    "Graham sued in October 1973; the trial court ultimately compelled union arbitration in March 1976.",
+    "The union issued its final award in February 1977; the superior court confirmed and later struck attorney fees from costs.",
+    "The California Supreme Court reversed confirmation, required vacation of the compulsion order and allowed a suitable substitute arbitrator; it dismissed the fee appeal as moot."
+  ],
+  "limits": "This is a historical source-brief transformation, without a fresh audit or assessment of later arbitration law. The tour was in 1973, not the extraction’s erroneous 1978. The structural ruling did not find actual corruption or decide the underlying loss allocation. Graham’s familiarity defeated surprise, not the separate objection to an adverse sole adjudicator.",
+  "briefSha256": "838c7d975d55534b8f823f33ec9032c2c57f4c6713db7e258b87765c263ceb27",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0101"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Graham signs the union forms for four Russell concerts",
+      "cue": "What did the contracts say about compensation and dispute resolution?",
+      "paragraphs": [
+        "In 1973 performer Leon Russell, legally C. Russell Bridges, toured with arrangements involving promoter Bill Graham. Russell belonged to the American Federation of Musicians and wholly owned Scissor-Tail, which marketed his group. Booking agent Forest and manager Dennis Cordell helped arrange four concerts. Each used the union’s Form B. Graham signed all four; Cordell signed for Scissor-Tail only for Ontario on July 29 and Oakland on August 5.",
+        "The forms called Graham the employer or purchaser of music and identified seven performers as musicians. Compensation was the greater of union scale or a specified percentage of receipts after expenses and taxes: eighty-five percent for three venues, ninety percent for Long Island. Blanks covered dates, hours and guest-artist matters, but the contracts did not expressly allocate net losses. Disputes connected to an engagement went finally to the union executive board or appropriate local board. Additional California clauses distinguished union and local competence; the parties agreed the quoted Labor Commissioner notice clause did not apply."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concert contracts; 28 Cal. 3d 812–813 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ontario loses money and Oakland earns a profit",
+      "cue": "Why did the parties disagree about an offset?",
+      "paragraphs": [
+        "Ontario took in roughly $173,000 against $236,000 of expenses, losing about $63,000. Oakland generated approximately $98,000 net profit. Scissor-Tail and Forest contended Graham bore losses without offset. Graham invoked an industry understanding that a promoter receiving only ten or fifteen percent of profits took no loss risk, leaving losses with the Russell interests.",
+        "The dispute remained unresolved. Scissor-Tail declined to execute the other two contracts, and another promoter apparently serviced those concerts. Graham himself threatened union charges during negotiations, demonstrating awareness of the designated forum. He sued in October 1973 for breach, declaratory relief and rescission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concert contracts and loss dispute; Arbitration proceedings; 28 Cal. 3d 813–814 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The case moves through compulsory arbitration to confirmation",
+      "cue": "What happened in the union proceeding, and what did the trial judge find?",
+      "paragraphs": [
+        "After an initial arbitration order and reconsideration allowing discovery about agreement and revocation, the trial court finally compelled arbitration in March 1976. It rejected waiver and rescission grounds and found the pleaded disputes arbitrable.",
+        "The union initially awarded approximately $53,000 without the requested hearing. Graham protested, and opposing counsel consented to reopening. Meanwhile he was placed on a defaulter list apparently preventing union members from dealing with him. Scissor-Tail sought another $20,000 through expense challenges, plus interest and $15,000 in fees. At the October hearing before a former union executive, Graham’s request for his reporter to transcribe proceedings was refused. He nevertheless presented testimony, stipulated testimony and sworn statements on the industry loss custom; Scissor-Tail offered no contrary custom evidence.",
+        "The referee recommended the original approximately $53,000 but rejected the additional demand, noting no union direction about it. The board issued that award in February 1977. The sum reflected eighty-five percent of Oakland net receipts minus an advance after Graham apparently retained proceeds as an offset. Forest was the formal union claimant; the opinion used Scissor-Tail for the Russell interests.",
+        "The superior court confirmed, finding no corruption, misconduct, actual bias, prejudice or excess of power and noting Graham’s knowledge of the forum. It later removed approximately $16,000 claimed attorney fees from costs. Graham appealed confirmation, through which the otherwise nonappealable compulsion order could be reviewed; Scissor-Tail appealed the fee ruling."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Arbitration proceedings; Court and appeals; 28 Cal. 3d 811–812 n.1, 814–817 & nn.4–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court finds adhesion but rejects the surprise argument",
+      "cue": "Why could an experienced promoter still lack bargaining power over this term?",
+      "paragraphs": [
+        "The California Supreme Court separated adhesive formation from invalidity of a particular provision. Standardized terms imposed by superior bargaining strength with a take-or-leave choice can be adhesive in business as well as consumer transactions. Such forms can also reduce costs and improve efficiency; classification alone does not defeat enforcement.",
+        "Despite Graham’s prominence, significant artists were union members, union rules required the forms and Scissor-Tail insisted on the percentage arrangements. Promoting these concerts required this form and forum. Minor negotiating room about performance timing or guest artists did not overcome the central imposed compensation and dispute terms, though sufficiently important bargaining elsewhere might matter in another case.",
+        "Adhesive provisions could fail either because they fell outside reasonable expectations or because, even if expected, they were oppressive or unconscionable in context. Ambiguity against the drafter was a separate issue; notice mattered to expectations, and this contract was not found to concern a public service. Statutory unconscionability and public-policy principles supported the separate enforceability inquiry.",
+        "Graham had signed thousands of similar forms, promoted at least fifteen Russell concerts under comparable terms in the previous three years, used union proceedings and threatened charges here. The arbitration term was therefore expected. Knowledge did not settle the separate structural fairness question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Adhesion; Reasonable expectations; 28 Cal. 3d 817–821 & nn.9–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The union’s institutional role makes it an unacceptable sole adjudicator",
+      "cue": "What defect distinguished this forum from every known nonneutral arbitrator?",
+      "paragraphs": [
+        "The Arbitration Act permitted substantial choice, including some nonneutral arrangements. The court did not ban every relationship or interest. Following Cross & Brown’s distinction, it objected to making a party, or an institution effectively sharing that party’s interests, the sole decisionmaker. That surrendered adjudicative power to the adverse interest and made the substitute for courts illusory. Adhesion intensified scrutiny of whether the weaker party retained a realistic opportunity to win.",
+        "The court distinguished intraorganizational realtor and stock-exchange decisions based on safeguards and other grounds, qualified the government-contract analogy, and disapproved Federico’s contrary approval to the extent inconsistent. It did not treat every institutional arbitration setting as interchangeable.",
+        "A procedure essentially preventing fair presentation could supply another ground, but prearbitration refusal on that basis was reserved for the clearest cases; ordinarily actual deprivation could be tested in a later vacation petition. The court found no showing that these union rules denied a fair presentation. Both parties had consented to written evidence and waived oral testimony and argument, and no unequal members-only hearing right was established. The initial award and reporter refusal did not themselves become the decisive constitutional or statutory defect.",
+        "The decisive problem was the union’s identity: its mission was favorable wages and conditions for members, aligning it with the musician in this compensation dispute against an outsider. As sole adjudicator it lacked the minimum structural integrity required of the contractual substitute. The court considered that defect sufficient even apart from adhesion, without overturning findings of no actual corruption or bias."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Structural integrity; 28 Cal. 3d 821–828 & nn.21–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court rejects a claimed federal mandate but preserves possible arbitration",
+      "cue": "What instructions governed the next proceedings?",
+      "paragraphs": [
+        "Scissor-Tail argued that Form B effectively created a collective bargaining agreement under Labor Management Relations Act § 301, requiring the union forum. The court questioned whether the employer label described the true relationship: the union neither signed nor negotiated, and the booking-agency caption and nonmember corporate officer’s signature distinguished cited district-court cases.",
+        "Even assuming § 301 applied, the court found no persuasive controlling federal rule requiring this illusory adjudicator. It declined to treat unpersuasive lower federal decisions as binding and assumed applicable federal law did not demand a different result pending further development.",
+        "The parties still agreed to arbitrate. On February 5, 1981, the court reversed confirmation and required vacation of the order compelling the union forum. On remand the parties were to have a reasonable opportunity to choose a suitable substitute; failing agreement, either could request judicial appointment. Only absent agreement or an appointment petition would the court determine the merits. Thus it did not immediately order a merits trial or cancel every contractual duty.",
+        "The fee appeal was moot and dismissed. Justice Mosk did not participate, and no separate opinion appears. The result removed the disqualified sole forum while leaving the underlying compensation dispute for the prescribed further process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Federal labor-law argument and remedy; Court and appeals; 28 Cal. 3d 828–831"
+        }
+      ]
+    }
+  ]
+}

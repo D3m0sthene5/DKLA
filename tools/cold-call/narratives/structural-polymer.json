@@ -1,0 +1,136 @@
+{
+  "id": "structural-polymer",
+  "briefId": "CTR-020",
+  "title": "Structural Polymer Group, Ltd. v. Zoltek Corp.",
+  "course": "Contracts",
+  "citation": "543 F.3d 987 (8th Cir. 2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A supply agreement aims to develop a cheaper carbon-fiber market. When demand grows after a period of zero orders, the seller leaves orders unfilled and disputes both the buyer’s commitment and the lost-profit award.",
+  "actors": [
+    {
+      "name": "Structural Polymer Group and Structural Polymer Systems",
+      "role": "British prepreg manufacturers, collectively SP; buyers and plaintiffs."
+    },
+    {
+      "name": "Zoltek Corporation",
+      "role": "Missouri carbon-fiber manufacturer and seller."
+    },
+    {
+      "name": "Vestas and Gamesa",
+      "role": "Customers relevant to SP’s lost-sales proof; Gamesa also contracted separately with Zoltek."
+    },
+    {
+      "name": "Donna Smith",
+      "role": "SP’s lost-profits expert."
+    }
+  ],
+  "proceedings": [
+    "SP sued in the Eastern District of Missouri on February 22, 2005.",
+    "A November 29, 2006 jury awarded alternative past-profit amounts totaling $36,044,895; the court removed $14,906,377 as duplicative.",
+    "The district court denied Zoltek’s posttrial motions; SP later withdrew its specific-performance cross-appeal after terminating the agreement.",
+    "The Eighth Circuit affirmed the $21,138,518 judgment in full on October 8, 2008."
+  ],
+  "limits": "This account follows the canonical historical source brief, without a new opinion audit. The judgment concerned past profits; the jury declined future profits. SP’s two product theories were alternative recovery for the same capped requirements. Its later mutual-abandonment theory was unpreserved, and the withdrawn specific-performance issue was not decided on appeal.",
+  "briefSha256": "1e49c05e51743a18f17e61e8b7db5c6999bd4e29fea91f82478cfd4220418caf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-020"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The companies agree to develop large-tow fiber for wind-energy products",
+      "cue": "What commitments limited each party’s discretion?",
+      "paragraphs": [
+        "Structural Polymer Group and Structural Polymer Systems, together SP, were British companies making prepreg: carbon-fiber sheets impregnated with resin, producing a strong, light material for products such as wind-turbine blades. Missouri manufacturer Zoltek supplied carbon fiber. Large-tow fiber contained at least 48,000 filaments per bundle; small-tow commonly contained 24,000 or fewer, cost more and offered higher quality. The parties hoped to develop large-tow as a cheaper alternative in wind energy, then largely a small-tow market.",
+        "Their November 2000 Supply Agreement ran from November 6, 2000, through December 31, 2010. Zoltek promised all SP’s requirements for large-filament-count fiber meeting Panex 33 specifications at the current market price. SP promised to buy its total requirements of fiber suitable in its reasonable opinion. Each year’s quantity could reach the previous year’s actual purchases plus one million pounds.",
+        "If another supplier offered large-tow fiber at a lower market price, Zoltek had first refusal: matching compelled SP to buy from Zoltek; declining permitted the competing purchase. This arrangement preserved a purchase duty whenever Zoltek met the offer, rather than allowing SP simply to choose another seller."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; price protection reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Production changes and a zero-order period precede major unfilled orders",
+      "cue": "How did the purchase history generate the coverage and performance disputes?",
+      "paragraphs": [
+        "SP bought 28,219.17 pounds of Panex 33 in 2000 and 20,943.91 in 2001. It ordered 1,763.70 pounds in 2002 but returned that shipment for asserted quality defects. Zoltek stopped making Panex 33 in April 2002 and introduced another large-tow product, Panex 35. SP ordered neither product in 2003, then ordered and received 548,935 pounds of Panex 35 in 2004.",
+        "The dispute concerned an unfilled 1,480,138-pound Panex 35 order for 2005 and SP’s claimed entitlement to 2,480,138 pounds in 2006. SP also bought small-tow fiber elsewhere. Zoltek argued functional interchangeability let SP manipulate the covered requirements, while trial evidence described distinct qualities and applications. Whether SP used its discretion in good faith became a performance issue.",
+        "On February 22, 2005, SP sued in the Eastern District of Missouri, pleading alternative Panex 35 and Panex 33 coverage theories. It sought past lost profits through December 31, 2006, future profits through the contractual end date and specific performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material Facts; Procedural History"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Trial separates legal enforceability from the jury’s performance findings",
+      "cue": "What defenses and evidence reached the jury?",
+      "paragraphs": [
+        "Zoltek attempted at trial to argue lack of mutuality. Judge Carol E. Jackson treated it as an affirmative defense omitted from the answer, refused late amendment and independently held that consideration existed as a matter of law. She also found insufficient evidence to instruct on abandonment from the order gap.",
+        "SP introduced Zoltek attorney Alan Kohn’s preliminary-injunction statement that the company was ready, willing and able to perform the old Panex 33 agreement while disputing Panex 35 coverage. When SP purchasing manager Paul Lyon referred to a supposed earlier judgment requiring Panex 33 supply, the judge sustained the objection, struck it, immediately instructed the jury to disregard it and later confined consideration to admitted evidence.",
+        "On November 29, 2006, the jury found SP had performed its obligations and awarded $21,138,518 under the Panex 35 calculation and $14,906,377 under the alternative Panex 33 calculation, totaling $36,044,895 in past profits. It declined future profits. Because both counts claimed the same maximum large-tow quantity, the court used Rule 59(e) to remove the latter amount as duplicative and entered $21,138,518.",
+        "Zoltek’s Rule 50(b) judgment-as-a-matter-of-law motion and Rule 59(a) new-trial motions failed. Zoltek appealed; SP cross-appealed the reduction and initially specific performance. SP terminated the agreement effective February 29, 2008, and withdrew the specific-performance challenge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Evidentiary rulings"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Eighth Circuit finds a binding requirements promise despite possible zero demand",
+      "cue": "Why did quality and quantity discretion not make the bargain illusory?",
+      "paragraphs": [
+        "Judge Colloton, joined by Judge Shepherd and District Judge Erickson sitting by designation, reviewed legal sufficiency de novo in the verdict winner’s favor, asking whether a reasonable jury could agree. New-trial, evidentiary, instruction and Rule 59(e) rulings received abuse-of-discretion review.",
+        "Under Missouri law and Restatement § 79, mutuality added no separate requirement once consideration existed. Missouri’s Uniform Commercial Code § 2-306 measured a requirements quantity by actual good-faith needs. SP therefore promised its genuine covered requirements even assuming demand was zero at formation. A good-faith zero level was possible; diverting covered demand to escape the bargain could breach. The reasonable-opinion quality language, annual cap and price-matching mechanism further constrained SP. Sufficiency of consideration in the writing was a legal question.",
+        "Formation and performance remained distinct. A binding good-faith promise existed from the start even if later conduct could violate it. Buying interchangeable small-tow in bad faith to divert large-tow demand could support breach, but the jury found compliant performance and had evidence the products were distinct.",
+        "The two-year order gap did not establish abandonment because zero good-faith requirements remained consistent with performance. Missouri required positive, unequivocal conduct showing shared intent for mutual abandonment. Zoltek’s postverdict reliance on an April 2004 Panex 35 Supply/Purchase Agreement came too late: at trial it used that document for coverage, not mutual abandonment. The court properly refused the instruction on the theory actually presented. Kohn’s admission supported the result, and the judge’s prompt curative directions resolved Lyon’s improper reference."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Mutuality; formation and performance; abandonment; evidentiary rulings"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The profit evidence and separate Gamesa transaction support the surviving award",
+      "cue": "How did the court avoid both an improper offset and double recovery?",
+      "paragraphs": [
+        "Missouri allowed lost profits naturally and proximately resulting from breach, contemplated by the parties and reasonably certain. Expert Donna Smith used ordinary budgets, the managing director’s Vestas and Gamesa lost-sales summary, management discussions, depositions, Zoltek public reports, shortage evidence, SP’s capacity and an actual thirty-five-percent margin from the previous eighteen months. After deducting avoided variable costs, she calculated $21,138,518 for 3,960,276 pounds of unfilled Panex 35 demand. Cross-examination could test assumptions, and the evidence permitted a reasonably certain past-loss finding.",
+        "A separate Zoltek-Gamesa contract let Gamesa choose a prepreg processor; it selected SP. Gamesa and Zoltek controlled price and quantity, while SP processed and transferred the fiber. Testimony supported treating the $13,353,696 shipment as Gamesa’s contractual performance, outside an offset under SP’s 2000 agreement. SP disclosed underlying data well before trial, allowing Zoltek to address the revised alternative calculation furnished twenty-two days beforehand.",
+        "Missouri Approved Instruction 4.01 directed fair compensation for directly caused loss and reasonable certainty for future loss. In context it conveyed the required certainty for profits. But the two verdicts were alternatives: the contractual cap allowed 3,960,276 pounds of covered large-tow fiber, using Panex 35 or Panex 33. Adding both compensated 6,960,276 pounds. Rule 59(e) properly removed the duplicate $14,906,377.",
+        "On October 8, 2008, the Eighth Circuit affirmed on both appeal and cross-appeal. The judgment preserved the past Panex 35 profit award, the good-faith requirements obligation and the distinction between a valid promise at formation and allegedly bad-faith performance later."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Lost-profit proof; Gamesa transaction; Instruction and duplicated verdict; Holding; Citation"
+        }
+      ]
+    }
+  ]
+}

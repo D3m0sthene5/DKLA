@@ -1,0 +1,142 @@
+{
+  "id": "cp-hanna-decision",
+  "briefId": "CP-048",
+  "title": "Hanna v. Plumer",
+  "course": "Civil Procedure",
+  "citation": "380 U.S. 460 (1965)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A timely suit against an estate is dismissed because service follows a Federal Rule rather than Massachusetts probate requirements, bringing two distinct Erie inquiries before the Court.",
+  "actors": [
+    {
+      "name": "Hanna",
+      "role": "Ohio citizen seeking personal-injury damages from an automobile accident."
+    },
+    {
+      "name": "Louise Plumer Osgood",
+      "role": "Deceased Massachusetts driver allegedly responsible for the accident."
+    },
+    {
+      "name": "Plumer",
+      "role": "Massachusetts executor defending Osgood’s estate, not the alleged negligent driver."
+    }
+  ],
+  "proceedings": [
+    "The District of Massachusetts granted the executor summary judgment on service.",
+    "The First Circuit affirmed under its Erie analysis.",
+    "The Supreme Court reversed because the applicable Federal Rule validly governed service."
+  ],
+  "limits": "The case concerns a timely complaint and service method, not tolling an expired limitations period. Rule 4(d)(1) is the historical numbering; negligence and damages were not decided.",
+  "briefSha256": "a68950dcb9e9d863f7d3139ece98e594e687fa7b73216702c4ff0ad16b9913fb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-048"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Hanna sues the deceased driver’s executor within the estate-claim period",
+      "cue": "What exactly did she do to serve him?",
+      "paragraphs": [
+        "An automobile accident in South Carolina allegedly caused injury to Hanna, an Ohio citizen, through the negligence of Massachusetts driver Louise Plumer Osgood. Osgood died before suit, so Hanna pursued her Massachusetts executor, Plumer, in his representative capacity. She sought more than the then-applicable $10,000 diversity amount.",
+        "Plumer filed his executor’s bond on March 1, 1962. Hanna filed her federal complaint in the District of Massachusetts on February 6, 1963, within the one-year period in Massachusetts General Laws chapter 197, § 9. On February 8, process was left with Plumer’s wife at his residence. Both sides agreed that this met Federal Rule 4(d)(1), which permitted leaving summons and complaint at a dwelling with a suitable resident.",
+        "Massachusetts coupled its commencement period with particular notice methods: in-hand service on the executor, acceptance of service, or specified filing in the probate registry. Hanna conceded she had not used those methods. The disagreement concerned service, not lateness of her complaint. Plumer’s affidavit denied personal service and acceptance but did not claim he lacked actual notice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 380 U.S. at 461–63 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts treat the Massachusetts notice requirement as controlling",
+      "cue": "Why did the executor win without a negligence trial?",
+      "paragraphs": [
+        "Plumer raised noncompliance in his answer and moved for summary judgment. On October 17 the district court granted it, relying on York and Ragan, earlier decisions requiring application of state law in federal diversity litigation. The judgment disposed of the suit for defective service without determining the accident’s merits.",
+        "The First Circuit affirmed. It regarded Massachusetts’s insistence on personal notification within the year as substantive under Erie. Hanna maintained that her concededly adequate service under the Federal Rule should govern in federal court. The Supreme Court granted review because the ruling threatened uniform federal procedure, heard argument January 21, 1965, and considered whether an applicable Federal Rule was displaced simply because the state method would produce a different immediate result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Issue; 380 U.S. at 461–64"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Warren identifies an actual collision over service and tests the Federal Rule",
+      "cue": "Why does the Rules Enabling Act matter before ordinary outcome analysis?",
+      "paragraphs": [
+        "Chief Justice Warren first identified what Rule 4 regulated: how a defendant learns that judicial proceedings have begun. That is machinery for enforcing rights, not the underlying negligence duty. Applying service rules can affect a litigant’s position, but incidental effects do not automatically abridge substantive rights under the Rules Enabling Act. Sibbach and Murphree illustrated that distinction.",
+        "Scope came before validity. Earlier decisions accepting state law sometimes found the invoked Federal Rule addressed a different question—for example, pleading contributory negligence rather than allocating its burden of proof. Here no such separation was possible: both provisions governed service, and only the Federal Rule accepted the method Hanna used.",
+        "When a promulgated Federal Rule actually covers the issue, the court must apply it unless it exceeds the Enabling Act or constitutional authority. Congress created a national rulemaking system, and ordinary Erie policies do not authorize ignoring an otherwise valid Rule simply because state practice differs. The relatively unguided choice of law when federal procedure leaves a gap is a different inquiry."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 380 U.S. at 464–65, 469–71 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The immediate difference in outcome does not make every procedural choice substantive",
+      "cue": "How did forum choice and equal treatment enter the analysis?",
+      "paragraphs": [
+        "Plumer’s argument was direct: state law gave him victory, the Federal Rule let Hanna continue, so York’s outcome approach required state law. Warren responded that almost any procedural rule can end a case after someone fails to comply. A missed pleading deadline does not make every filing schedule substantive. The character of the difference and Erie’s purposes matter, not just the consequence viewed after default.",
+        "The ordinary Erie concerns were discouraging forum shopping and avoiding inequitable administration. Prospectively, Massachusetts did not prevent Hanna from recovering; she could comply by serving differently. Abode rather than in-hand service provided little apparent reason to choose federal court for an advantage in governing rights. Both rules aimed to notify the defendant, and the difference did not substantially discriminate against Massachusetts citizens. Warren doubted ordinary Erie analysis would require the state method even without an on-point Rule, but that discussion was not the decisive ground for enforcing Rule 4.",
+        "The constitutional question also differed from Erie’s rejection of general federal common law governing a substantive duty of care. Congress’s authority to establish federal courts, coupled with the Necessary and Proper Clause, supports regulation of their pleading and practice, including matters rationally classifiable as procedural near the boundary. Service fell within that authority. A valid national method preserved federal administration while leaving the governing tort rights intact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Outcome, Erie policies, and constitutional reasoning; 380 U.S. at 466–74"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Harlan agrees with the result through a primary-conduct inquiry",
+      "cue": "What limitation did his concurrence seek to preserve?",
+      "paragraphs": [
+        "Justice Harlan concurred in the judgment but objected to the majority’s breadth. He viewed Erie principally as allocating power over people’s primary conduct. He would ask whether the competing rule substantially affected conduct the constitutional system leaves to state regulation. Merely finding a reasonable procedural label for a Federal Rule could not override that authority. A bare forum-shopping test also swept too broadly because choosing a court for legitimate procedural advantages is ordinary litigation behavior.",
+        "Harlan compared Ragan and Cohen. He thought Ragan wrongly elevated a short difference in when defendants could regard a claim as ended, whereas Cohen’s security requirement materially discouraged shareholder strike suits. In Hanna, reliable estate administration was little impaired by requiring an executor to check household service or the federal courthouse as well as the probate registry. He therefore agreed with reversal on his own analysis.",
+        "Justice Black concurred in the result without an opinion. The record supplies no reason to assign him Harlan’s or Warren’s complete rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 380 U.S. at 474–78"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Hanna’s service survives, but her tort claim still requires adjudication",
+      "cue": "What does the reversal establish?",
+      "paragraphs": [
+        "On April 26, 1965, the Supreme Court reversed the First Circuit. Hanna’s compliance with applicable, valid Rule 4(d)(1) supplied the measure of service, so dismissal based on Massachusetts’s different method could not stand. The Court neither found negligence nor assessed damages or gave her judgment on the injury claim.",
+        "The decision is neither a rule that outcomes never matter nor that every Federal Rule defeats state law. The disputed issue, the Rule’s scope, and its statutory and constitutional validity remain essential. Where no federal provision covers the question, ordinary Erie analysis remains relevant. The historical service numbering and timely filing also distinguish Hanna from Walker’s later question about tolling a state limitations period."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 380 U.S. at 464, 469–78; cited Walker comparison"
+        }
+      ]
+    }
+  ]
+}

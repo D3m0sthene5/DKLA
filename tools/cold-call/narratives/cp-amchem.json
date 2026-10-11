@@ -1,0 +1,160 @@
+{
+  "id": "cp-amchem",
+  "briefId": "CP-ATLAS-AMCHEM",
+  "title": "Amchem Products, Inc. v. Windsor",
+  "course": "Civil Procedure",
+  "citation": "521 U.S. 591 (1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A negotiated asbestos compensation program seeks to bind injured and exposure-only claimants through one settlement class, raising conflicts that settlement fairness cannot cure.",
+  "actors": [
+    {
+      "name": "Center for Claims Resolution defendants",
+      "role": "Twenty former asbestos manufacturers seeking a nationwide settlement of unfiled claims."
+    },
+    {
+      "name": "Nine lead plaintiffs and their families",
+      "role": "Proposed representatives of injured and exposure-only people and related claimants."
+    },
+    {
+      "name": "Objecting class members",
+      "role": "Challengers to compensation terms, representation, and certification."
+    },
+    {
+      "name": "Locks, Motley, and Rice",
+      "role": "Lawyers appointed class counsel after negotiations involving existing inventory clients."
+    }
+  ],
+  "proceedings": [
+    "The District Court certified a settlement-only opt-out class, approved the agreement, and enjoined separate suits.",
+    "The Third Circuit vacated certification and the injunction.",
+    "The Supreme Court affirmed that judgment while rejecting the proposition that settlement was wholly irrelevant to certification."
+  ],
+  "limits": "The decision concerns this Rule 23(b)(3) settlement class. It does not decide asbestos liability, find attorney misconduct, rule every mass-tort class impermissible, or finally decide the notice and jurisdictional objections.",
+  "briefSha256": "7be196158c36fe65c2103b5b59b2fecfe38535ce6a26a3079e7584207f0523c2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-AMCHEM"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An asbestos litigation crisis prompts negotiations over future claims",
+      "cue": "Why were the settlement class and pending multidistrict cases different?",
+      "paragraphs": [
+        "Asbestos diseases could emerge decades after exposure. Existing litigation produced backlogs, high transaction costs, and concern that defendants’ resources would be depleted before later claimants became ill. The Judicial Panel on Multidistrict Litigation transferred filed federal cases to the Eastern District of Pennsylvania for pretrial work, but steering-committee negotiations failed to produce a comprehensive settlement.",
+        "Twenty former manufacturers in the Center for Claims Resolution, or CCR, then negotiated with lawyers representing thousands of existing “inventory” plaintiffs. Those lawyers did not yet have attorney-client relationships with the prospective, unfiled claimants for whom they negotiated a new administrative compensation program. CCR separately settled inventory cases, including one agreement exceeding $200 million. Only afterward did the parties institute the new class action. No pending transferred multidistrict case belonged to this class."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete dispute; 521 U.S. at 597–602 & nn.1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A complaint and completed settlement arrive together",
+      "cue": "Who would be bound and on what terms?",
+      "paragraphs": [
+        "On January 15, 1993, the parties simultaneously filed a complaint, answer, proposed settlement, and certification motion. Trial was never contemplated. Nine lead plaintiffs and family members purported to represent a vast group exposed to defendants’ asbestos, or related to exposed persons, who had not already sued a CCR defendant. More than half the named plaintiffs alleged physical injury; others alleged exposure without manifested disease. Each represented everyone, with no subclasses. The diversity complaint invoked negligence, strict liability, warranty, emotional distress, enhanced risk, medical monitoring, and conspiracy under state law.",
+        "The administrative scheme covered mesothelioma, lung cancer, other specified cancers, and nonmalignant conditions. Ordinary mesothelioma payments ranged from $20,000 to $200,000; exceptional claims had limited additional routes. Annual disease-category caps restricted paid claims, and awards lacked inflation adjustment. Defendants waived liability and limitations defenses.",
+        "Consortium, exposure-only emotional distress, enhanced risk, medical monitoring, and unimpaired pleural plaques received no separate payment even where state law recognized them. Exposure-only and pleural claimants could later qualify upon compensable disease. Most members remained bound indefinitely, while defendants could withdraw after ten years. A small annual group could later litigate, without punitive damages or increased-risk claims. Those restricted later exits differed from the initial three-month opt-out opportunity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Concrete dispute; Settlement terms; 521 U.S. at 601–606 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Objectors challenge both the bargain and who negotiated for them",
+      "cue": "What did the lower courts do?",
+      "paragraphs": [
+        "Objectors argued that present payments were too low, future claims lacked inflation and scientific-change protection, valuable claims disappeared, and representatives and lawyers could not bargain for conflicting constituencies. Someone seeking immediate payment might trade away protection needed decades later by an exposure-only member.",
+        "Judge Weiner conditionally certified an opt-out class under Federal Rule of Civil Procedure 23(b)(3) and appointed Locks, Motley, and Rice. Judge Reed held fairness proceedings. The District Court approved the settlement and notice, found adequate representation without subclasses, and enjoined separate class-member suits. The Third Circuit vacated certification and the injunction. It said certification requirements must be satisfied without considering settlement, although it actually considered settlement terms when assessing representation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Terms; Procedure; 521 U.S. at 605–612,618–622"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court distinguishes settlement fairness from class eligibility",
+      "cue": "What changes when a class will never be tried?",
+      "paragraphs": [
+        "Ginsburg’s majority accepted the attraction of a national compensation scheme but required compliance with Rule 23. A settlement-only proposal removes the need to assess intractable trial-management problems under subdivision (b)(3)(D). Other protections remain, and may need heightened attention because a settlement court cannot adjust representation as ordinary litigation develops. Rule 23(e) fairness review supplements, rather than substitutes for, subdivisions (a) and (b).",
+        "The Rules Enabling Act reinforced applying the duly promulgated rule instead of inventing a fairness-only standard affecting substantive rights. Lawyers without a viable litigated class could lose bargaining leverage, while a judge might face an agreed presentation without real adversarial testing. Settlement therefore mattered, contrary to the Third Circuit’s categorical formulation, but did not justify bypassing class protections."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holdings and reasoning; 521 U.S. at 619–622 & nn.16–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Shared exposure does not predominate over the sprawling individual disputes",
+      "cue": "Why was commonality not the decisive requirement?",
+      "paragraphs": [
+        "Shared exposure and a desire for compensation might supply Rule 23(a)(2) commonality without satisfying subdivision (b)(3)’s more demanding predominance. Class members faced different products, exposure paths and durations, smoking histories, illnesses, expenses, and governing state laws. Some were ill; some might never become ill. A common interest in a fair settlement would exist in every settlement case and could not itself establish predominance.",
+        "The Court did not bar all mass-tort classes. A common disaster or cohesive claims could present a different case. This sprawling group relied only on Rule 23(b)(3), not a limited fund under (b)(1)(B). The assigned excerpt’s occasional “commonality” shorthand therefore must not replace the actual predominance holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Predominance; Assigned-source precision; 521 U.S. at 622–625 & nn.18–19"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "An undivided class cannot protect the conflicting time horizons",
+      "cue": "What structural assurance was missing?",
+      "paragraphs": [
+        "Currently injured members wanted generous immediate compensation. Exposure-only members needed lasting funds, inflation adjustments, changing medical criteria, and meaningful future options. Having named plaintiffs with different conditions did not solve the conflict when each bargained for the whole class rather than a distinct constituency.",
+        "The District Court’s finding of sufficient assets to pay qualifying claims did not remove allocation choices embedded in unpaid categories, capped exits, absent inflation protection, and uncompensated consortium claims. Adequacy required structural assurance that each constituency’s interests had been protected. A shared desire to maximize the total was insufficient.",
+        "The majority did not separately decide counsel adequacy or find collusion or misconduct. Predominance and representative inadequacy were dispositive. It likewise left Article III, exposure-only standing, redressability, and amount-in-controversy objections undecided, treating certification as logically antecedent because those jurisdictional objections depended on it. That did not generally authorize merits-first adjudication or establish standing for all uninjured people. Notice concerns about unknown exposure, future spouses, and unidentified children remained serious but not definitively decided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Adequacy; Questions not finally decided; 521 U.S. at 612–613 & n.15,625–628 & n.20"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Breyer would remand for fuller consideration rather than approve automatically",
+      "cue": "What result did the Court leave in place?",
+      "paragraphs": [
+        "Breyer, joined by Stevens, agreed settlement mattered but favored vacatur and remand for the lower courts to apply that principle. He stressed five weeks of hearings, more than 300 findings, costly litigation, weak recovery, and lengthy bargaining. Waived defenses and administrative processing could reduce differences important at trial. He expressly rejected automatic certification based on settlement and acknowledged that it could expose conflicts too.",
+        "He thought present-versus-future representation needed district-court factual assessment under abuse-of-discretion review. Limitations protection, waived defenses, predictable payments, additional cancer compensation, and assurance of funds might or might not offset absent inflation adjustment. He declined to declare the bargain fair and also wanted fuller review of the extensive actual notice effort.",
+        "The six-Justice majority instead affirmed the Third Circuit, leaving this class decertified and the District Court’s orders vacated. Breyer and Stevens dissented from that disposition; O’Connor did not participate. The result resolved certification, not products liability or the desirability of a legislative asbestos compensation system."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer opinion; Exact judgment; 521 U.S. at 629–641"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": "cp-berk",
+  "briefId": "CP-SUP-BERK",
+  "title": "Berk v. Choy",
+  "course": "Civil Procedure",
+  "citation": "607 U.S. 187 (2026)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A malpractice plaintiff cannot obtain the expert affidavit Delaware requires with a complaint. His federal diversity suit tests whether the Federal Rules permit dismissal for that missing state screening document.",
+  "actors": [
+    {
+      "name": "Harold Berk",
+      "role": "Patient alleging negligent treatment of a fractured ankle; federal diversity plaintiff."
+    },
+    {
+      "name": "Dr. Wilson Choy",
+      "role": "Physician who recommended a boot and follow-up care."
+    },
+    {
+      "name": "Beebe Medical Center",
+      "role": "Hospital owner and malpractice defendant."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed after Berk’s extension expired without the statutory expert affidavit.",
+    "The Third Circuit affirmed under ordinary Erie analysis.",
+    "The Supreme Court unanimously reversed and remanded on January 20, 2026; eight Justices relied on Rule 8, while Jackson relied on Rules 3 and 12."
+  ],
+  "limits": "This narrative transforms the canonical brief of the January 20, 2026 decision without a new audit or later-history certification. All treatment fault remains alleged. Berk won a procedural ruling, not damages or a malpractice finding. The particular federal-state collision does not decide every state expert or filing requirement.",
+  "briefSha256": "c4973aaf910472c8e50332e6a3f8706845a57558c6e639335bcb969a4c4a96a2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-BERK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Berk alleges that treatment worsened his fractured ankle",
+      "cue": "What occurred according to the complaint?",
+      "paragraphs": [
+        "While visiting Delaware, Harold Berk fell out of bed and was taken to a hospital owned by Beebe Medical Center. An X ray showed an ankle fracture. Dr. Wilson Choy recommended a protective boot. Berk alleged that employees twisted the fractured ankle while forcing his leg into it, worsening the injury.",
+        "Choy did not immediately order another X ray, instructed Berk not to put weight on the ankle, and scheduled a follow-up two weeks later. At that visit, another X ray showed severe deformity requiring surgery. Berk sued Choy and Beebe for malpractice under Delaware law in federal court, relying on diversity of citizenship. These allegations described the claim; no court ruling here established negligent treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedural dismissal; majority slip 1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An extension expires without the required medical affidavit",
+      "cue": "How did Delaware’s screening procedure produce dismissal?",
+      "paragraphs": [
+        "Delaware Code title 18, § 6853 ordinarily required a medical professional’s affidavit of merit with a malpractice complaint, identifying reasonable grounds to believe each defendant committed health-care negligence. Good cause could support one sixty-day extension, but the motion had to precede or accompany the complaint. Without an affidavit or timely extension motion, the clerk had to refuse filing or docketing. Defendants need not respond until twenty days after filing of the affidavit and could request in camera review of its statutory sufficiency.",
+        "Berk obtained an extension but could not locate a doctor willing to provide the affidavit by the deadline. He instead filed medical records under seal. Defendants requested an in camera examination; Berk argued that the Federal Rules displaced the affidavit requirement.",
+        "The district court rejected Berk’s argument and dismissed. The Third Circuit affirmed, reasoning that no Federal Rule answered whether an affidavit had to accompany the complaint. It applied ordinary Erie principles and treated the state rule as substantive because omission would affect outcomes, encourage forum shopping and create inequitable administration. The Supreme Court took review of that procedural question, not the medical merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedural dismissal; majority slip 2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court first asks whether a Federal Rule answers the question",
+      "cue": "Why did ordinary Erie classification not end the inquiry?",
+      "paragraphs": [
+        "Justice Barrett explained that the Rules of Decision Act requires state substantive law unless federal law otherwise provides, while the Rules Enabling Act authorizes federal procedural rules. When a valid Federal Rule answers the disputed question, it governs despite contrary state law that might otherwise count as substantive. A court therefore identifies a conflict and then tests the Federal Rule’s validity under the Enabling Act and Congress’s rulemaking power.",
+        "For the eight-Justice majority, the question was whether Berk’s suit could be dismissed because his complaint lacked an expert affidavit. Rule 8(a)(2), requiring a short and plain statement showing entitlement to relief, answered it. Rule 8 prescribed initial merits information, not evidentiary proof. Rule 12 reinforced the distinction: a motion under Rule 12(b)(6) tests the stated claim, while consideration of outside material invokes Rule 12(d)’s conversion procedure. Adequate allegations can proceed even when proof seems improbable.",
+        "Delaware made those allegations insufficient without an expert’s supporting document. Placing the document beside the complaint rather than inside it did not avoid the conflict. The majority inferred from Rule 8’s specified requirements that courts could not add claim-specific pleading burdens, while recognizing that the Federal Rules themselves, such as Rule 9, can prescribe special treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Governing framework; Rule 8; majority slip 3–7 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority rejects attempts to preserve the screening device in altered form",
+      "cue": "Why did Cohen, a later filing date and Rule 11 not rescue this requirement?",
+      "paragraphs": [
+        "Defendants invoked Cohen v. Beneficial Industrial Loan, which permitted security for expenses in a shareholder derivative suit. The majority distinguished it: that state statute created potential expense liability and secured it, while the Federal Rule addressed notice and disclosure. Those provisions answered different questions. Delaware’s affidavit and Rule 8 both governed initial information about the claim’s merits.",
+        "Requiring the affidavit sometime early in the federal action would rewrite the statute. It would turn one good-cause extension into a routine later opportunity, abandon the state response timetable and create a free-standing evidentiary condition. It also lacked an authorized dismissal route. Defendants conceded an absent affidavit did not support Rule 12(b)(6); Berk actively litigated, so failure to prosecute did not apply; inherent authority could not bypass the Rules’ proof-testing mechanisms. Rule 56 provided summary judgment with adequate discovery time. The state’s goal of protection from discovery could not be achieved by inventing another early proof demand.",
+        "Rule 11(a) ordinarily dispenses with verification or accompanying affidavits unless a rule or statute specifies otherwise. The majority reserved whether that proviso ever incorporates state affidavit statutes, but held it did not incorporate this one. Rule 11 concerns certifications by lawyers and parties, including certain represented-party verifications, rather than an independent expert’s merits affidavit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule 8 displacement; majority slip 7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Rule 8 is valid because it regulates the means of enforcing rights",
+      "cue": "What role remained for Delaware’s substantive policy?",
+      "paragraphs": [
+        "Conflict alone was not enough. The Rules Enabling Act forbids Federal Rules from abridging, enlarging or modifying substantive rights. Applying Sibbach’s test, the majority asked whether Rule 8 really regulated procedure—the manner and means of enforcing rights.",
+        "Rule 8 controlled what a plaintiff must present at the outset, rather than the substantive right, remedy or rule of decision. Practical effects on litigants did not invalidate it. The Court rejected a second validity inquiry into whether Delaware’s displaced rule was substantive. The Enabling Act question focused on the Federal Rule’s operation; the state’s substantive aim or label did not create a separate veto. Accordingly, the Third Circuit’s ordinary Erie classification could not save the conflicting affidavit requirement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Validity under the Rules Enabling Act; majority slip 10–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Jackson reaches the same result through commencement and outside material",
+      "cue": "What limits did she place on the majority’s Rule 8 reasoning?",
+      "paragraphs": [
+        "Justice Jackson concurred only in the judgment. Rule 3, in her view, directly resolved commencement: filing a complaint starts a civil action, while Delaware demanded an additional affidavit or extension motion before filing and docketing. The requirement also changed when related response and service obligations began. Walker v. Armco concerned commencement for a state limitations period, a question Rule 3 did not answer; Woods v. Interstate Realty concerned substantive restrictions on a foreign corporation’s access to state court. Those cases were different.",
+        "Jackson advocated interpreting Federal Rules with sensitivity to state policy, citing Gasperini and the five-Justice alignment in Shady Grove. Rule 8 prescribed pleading contents, not everything concerning the merits that could be required early in litigation. A separate affidavit did not collide merely because it added information. Her objection was to the breadth of the majority’s implication, not to negative implications as an interpretive method.",
+        "Rule 12(d) provided another direct conflict. Delaware’s highest court treated absence of an affidavit as a dismissal ground, but a separate sealed affidavit was outside the pleadings: neither a Rule 7 pleading nor incorporated into the complaint, and its contents were not discoverable or admissible under the state law. A merits dismissal relying on such material could not evade conversion. Jackson considered Rules 3 and 12 sufficient without stretching Rule 8.",
+        "On January 20, 2026, the Court reversed the Third Circuit and remanded. Chief Justice Roberts and Justices Thomas, Alito, Sotomayor, Kagan, Gorsuch and Kavanaugh joined Barrett, producing an eight-to-one division in reasoning and no dissent from the result. Berk could proceed without this Delaware affidavit requirement; defendants could contest allegations and evidence through the Federal Rules. The decision granted no malpractice finding or damages and required analysis of the particular conflict, rather than automatic displacement of every state condition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Jackson concurrence slip 1–13 & nn.1–7; Judgment, votes and practical consequence"
+        }
+      ]
+    }
+  ]
+}

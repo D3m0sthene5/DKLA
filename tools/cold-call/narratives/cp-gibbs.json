@@ -1,0 +1,163 @@
+{
+  "id": "cp-gibbs",
+  "briefId": "CP-037",
+  "title": "United Mine Workers of America v. Gibbs",
+  "course": "Civil Procedure",
+  "citation": "383 U.S. 715 (1966)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Violence at a Tennessee mine produces overlapping federal and state claims, but the power to hear them together does not establish the international union’s liability.",
+  "actors": [
+    {
+      "name": "Paul Gibbs",
+      "role": "Prospective mine superintendent and coal hauler claiming interference with both arrangements."
+    },
+    {
+      "name": "Grundy Company and Tennessee Consolidated Coal Company",
+      "role": "Subsidiary opening the new mine and parent that had closed the former mine."
+    },
+    {
+      "name": "United Mine Workers of America",
+      "role": "International union sued by Gibbs, distinct from local members involved in the confrontation."
+    },
+    {
+      "name": "George Gilbert",
+      "role": "International representative absent during the initial violence who later directed it to stop."
+    }
+  ],
+  "proceedings": [
+    "The district court tried federal and Tennessee claims, then retained a reduced state-law recovery after rejecting federal liability.",
+    "The Sixth Circuit affirmed.",
+    "The Supreme Court upheld exercise of pendent jurisdiction but reversed for insufficient proof of the international union’s responsibility."
+  ],
+  "limits": "The jurisdictional holding neither sustains the damages award nor authorizes addition of any party sharing related facts. The full opinion’s labor-law holdings and concurrence explain reversal beyond the assigned jurisdiction excerpt.",
+  "briefSha256": "e1344fd1827c51e6123441312dc60c3e54d8f0874cf77f9771b32c697a72c676",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-037"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A closed mine and a planned replacement pit create competing employment claims",
+      "cue": "How did Gibbs become involved?",
+      "paragraphs": [
+        "In 1960, Tennessee Consolidated Coal Company closed a mine and laid off about one hundred workers belonging to a local of the United Mine Workers of America. Its subsidiary, Grundy Company, planned a nearby mine staffed by a rival union. Grundy hired Paul Gibbs as superintendent and separately arranged for him to haul coal.",
+        "Local United Mine Workers members believed the jobs should be theirs. Armed members prevented opening, threatened Gibbs, and assaulted an organizer associated with the rival union. Gibbs lost the superintendent position, and the contemplated hauling never occurred. The related losses later supported different legal theories arising from the same confrontation.",
+        "The international union’s representative, George Gilbert, was absent at the initial incident. When he returned, he ordered violence to stop and directed a limited picket line. Picketing continued for months without further violence at the mine. Attribution of the local conduct to the international organization therefore required separate proof; shared union affiliation did not itself establish the defendant’s responsibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 383 U.S. at 717–20, 739–42"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Gibbs brings federal and state claims against the international union",
+      "cue": "What remained of the verdict after the trial judge’s rulings?",
+      "paragraphs": [
+        "Gibbs sued the international union in federal district court under § 303 of the Labor Management Relations Act, alleging prohibited secondary pressure, and under Tennessee law for an unlawful conspiracy interfering with his employment and hauling arrangements. The federal labor claim supplied the asserted original jurisdiction. The Tennessee theory had no independent jurisdictional basis.",
+        "The jury awarded damages for lost employment, lost hauling, and punitive damages. On post-trial motions, the judge set aside the hauling award for insufficient support and rejected federal liability for the employment loss because the pressure arose in a primary labor dispute rather than the secondary activity § 303 covered. The court nevertheless retained a reduced recovery under Tennessee law. The Sixth Circuit affirmed.",
+        "The Supreme Court then faced both whether the district court could adjudicate the state theory and whether federal labor law permitted this damages judgment against this particular union. Those questions demanded different answers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 383 U.S. at 720–21 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Brennan treats the overlapping events as one constitutional case",
+      "cue": "Why did different legal theories not destroy pendent power?",
+      "paragraphs": [
+        "Justice Brennan rejected an excessively formal distinction associated with Hurn v. Oursler between two grounds for one cause of action and two separate causes. The uncertain label cause of action was a poor measure of constitutional jurisdiction. Modern procedure’s treatment of related disputes illustrated why, although procedural rules could not themselves enlarge judicial power.",
+        "Pendent power existed when a substantial federal claim supported original jurisdiction, federal and state claims shared a common nucleus of operative fact, and their relationship made joint trial ordinarily expected. Separate theories or remedies did not necessarily divide a constitutional case. Here the mine confrontation and resulting employment and hauling losses would generate substantially overlapping proof under either theory.",
+        "A claim that ultimately failed after trial differed from a purported federal claim so insubstantial that jurisdiction never existed. The § 303 theory reached a jury verdict before the judge rejected it on the legal distinction between primary and secondary labor activity. Its later failure did not show initial jurisdictional insubstantiality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 383 U.S. at 722–25, 728–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Having power does not compel a federal court to retain every state claim",
+      "cue": "Why was retention permissible at this stage?",
+      "paragraphs": [
+        "Brennan separated Article III power from discretion to use it. Economy, convenience, and fairness supported joint resolution, but state courts’ role in authoritatively determining state law also mattered. State questions might predominate in proof, breadth, or remedy, and combining theories might confuse a jury or make trial unfair. A plaintiff therefore had no automatic entitlement to a federal forum for every related state claim.",
+        "Timing mattered. Federal claims disappearing before trial ordinarily called for dismissal of the accompanying state claims. After substantial litigation, economy and fairness could favor retention. The judge had to reassess throughout the case because an initially federal-centered controversy could become predominantly one of state law.",
+        "Here the claims were tried together over the same conduct, federal liability failed only after trial, and federal labor preemption directly affected the state theory. Federal expertise was relevant to that boundary. The district court could have declined jurisdiction, but retaining it was not an abuse of discretion. The Supreme Court thus upheld the jurisdictional choice without yet validating the recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Discretion and application; 383 U.S. at 726–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Federal labor law limits the state claim and proof against the union",
+      "cue": "Why did jurisdiction not save Gibbs’s damages judgment?",
+      "paragraphs": [
+        "The Court next addressed the merits. States could regulate labor-dispute violence and threats, but that authority did not permit damages for every effect of peaceful conduct regulated by federal labor law. State recovery needed a connection to the violence or threats within state power. Calling the dispute a conspiracy did not erase the distinction.",
+        "The decisive problem concerned § 6 of the Norris-LaGuardia Act. It required clear proof that the international union actually participated in, authorized, or knowingly ratified the unlawful acts. Ordinary membership connections and routine strike administration did not suffice.",
+        "Gilbert’s efforts to stop the violence, management of the subsequent picket line, and ordinary assistance to strikers failed to show knowing approval of the earlier unlawful conduct. Continuation of legitimate union activity could not, on this record, be treated as ratification of violence. The required evidentiary foundation for this defendant’s liability was missing even though the same underlying events formed one jurisdictional controversy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full-opinion merits analysis; 383 U.S. at 729–42"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Harlan joins jurisdiction but offers a narrower route on the merits",
+      "cue": "How did the concurrence differ?",
+      "paragraphs": [
+        "Justice Harlan, joined by Justice Clark, joined Part I’s pendent-jurisdiction analysis and concurred in reversal. He regarded the broader preemption discussion as unnecessary. He also resisted treating § 6 simply as an overall increase in the quantity of proof for civil liability. His analysis emphasized the restriction on inferring organizational authorization or ratification from ordinary union activity.",
+        "The concurrence therefore supported the constitutional and discretionary jurisdiction framework while giving a different account of why the liability judgment failed. Chief Justice Warren did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 383 U.S. at 742–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The international union wins reversal despite the proper federal forum",
+      "cue": "What does the judgment establish for later jurisdiction questions?",
+      "paragraphs": [
+        "After argument January 20, the Supreme Court decided March 28, 1966 and reversed the Sixth Circuit judgment sustaining Gibbs’s recovery. The failure was proof of international-union responsibility under federal law, not absence of pendent judicial power.",
+        "The narrower jurisdiction holding involved closely related claims against the same union after a substantial federal claim reached trial. It neither requires retention of all related state claims nor permits adding any new party simply because facts overlap. The later statutory supplemental-jurisdiction regime discussed in Allapattah must be read through its own language and restrictions. Gibbs supplies the common-fact conception of a constitutional case and the distinction between having power and choosing to exercise it.",
+        "The assigned excerpt emphasizes Part I. The full brief’s preemption analysis, clear-proof ruling, and Harlan concurrence supply the rest of the actual outcome; omitting them would wrongly turn a jurisdictional success into an affirmed damages award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 383 U.S. at 725–29, 742–44"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "bayway",
+  "briefId": "CT-CB-0285",
+  "title": "Bayway Refining Co. v. Oxygenated Marketing & Trading A.G.",
+  "course": "Contracts",
+  "citation": "215 F.3d 219 (2d Cir. 2000)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A buyer accepts delivery after a seller’s confirmation incorporates a tax clause, then resists reimbursement when its lack of registration causes a large excise-tax bill.",
+  "actors": [
+    {
+      "name": "Bayway Refining Co.",
+      "role": "Petroleum seller that paid federal excise tax and sought contractual reimbursement."
+    },
+    {
+      "name": "Oxygenated Marketing & Trading A.G. (OMT)",
+      "role": "Merchant buyer lacking the registration that would have avoided the tax."
+    },
+    {
+      "name": "Tosco",
+      "role": "Bayway’s parent; a separate offset dispute was not appealed by it."
+    }
+  ],
+  "proceedings": [
+    "The Southern District of New York granted Bayway summary judgment for reimbursement.",
+    "The Second Circuit affirmed on June 8, 2000, reviewing materiality de novo and receipt of reply evidence for abuse of discretion."
+  ],
+  "limits": "Formation and incorporation were assumed within the preserved appeal; late broker-fax and advance-objection arguments were not decided. The court reserved whether hardship independently makes a term material. OMT’s separate victory against Tosco’s claimed offset remained intact.",
+  "briefSha256": "dcb8e34be9c6cc2af14d7359e8b354914ab395cb3a60325b2e07c4f241687811",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0285"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two merchants exchange confirmations for a blendstock sale",
+      "cue": "Which writing introduced the tax obligation?",
+      "paragraphs": [
+        "Bayway Refining sold petroleum products to Oxygenated Marketing & Trading A.G., called OMT. The transaction involved 60,000 barrels of methyl tertiary butyl ether, a gasoline blendstock. On February 12, 1998, OMT faxed a purchase confirmation declaring itself the entire contract and requesting discrepancies or omissions within two working days. The litigation treated that document as the offer.",
+        "Bayway responded the next day with a confirmation listing commercial particulars and incorporating its March 1994 general terms. The terms were not attached. Their Tax Clause required the buyer to reimburse enumerated federal, state, and local taxes tied to the product or its value, excluding income taxes. OMT did not object and accepted delivery on March 22."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 2–10; Material facts and exchanged forms"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "OMT’s registration status leads Bayway to pay and demand reimbursement",
+      "cue": "Why was a tax assessed against the seller claimed from the buyer?",
+      "paragraphs": [
+        "Bayway subsequently discovered that OMT lacked the registration needed to avoid federal excise tax. The government imposed the liability on Bayway, which paid $464,035.12 and demanded reimbursement under the incorporated clause. OMT refused, saying it never agreed to bear the tax. Liability to the government and allocation between contracting parties were separate questions.",
+        "The Southern District of New York granted Bayway summary judgment. It held incorporation effective despite the missing attachment because OMT could request the terms, and found no showing of material alteration. OMT appealed materiality and the admission of industry evidence first supplied in Bayway’s reply. Judge Jacobs wrote for Chief Judge Winter and Judge Calabresi. The panel reviewed summary judgment anew but the evidentiary decision for abuse of discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 12–17, 50–57; Parties; Procedural history"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court identifies the subsection and allocates the materiality burden",
+      "cue": "Why did the sales contract exist before the disputed term was resolved?",
+      "paragraphs": [
+        "For this appeal, Bayway’s confirmation was an effective acceptance under Uniform Commercial Code § 2-207(1), not one expressly conditional on assent to new terms. Whether the Tax Clause entered that contract was a distinct § 2-207(2) question. Both parties were merchants, and the preserved exception was material alteration.",
+        "Between merchants, added terms presumptively entered unless a listed exception applied. OMT, seeking the materiality exception, therefore bore its burden under the governing New York substantive law. If neither party offered relevant evidence, the statutory default favored inclusion.",
+        "That allocation did not relieve Bayway of proving a trade usage on which it affirmatively relied. OMT did not have to refute every imaginable practice; Bayway supplied actual industry proof here. Nor did the court decide that all integration language was ineffective. OMT first argued on appeal that an earlier broker fax had already accepted its offer and that its integration language was an advance objection under § 2-207(2)(c). Those unpreserved arguments were not considered."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 19–29, 36 n.4 & n.1; Formation and burdens"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court distinguishes personal surprise from commercial surprise",
+      "cue": "What did the unrebutted industry evidence show?",
+      "paragraphs": [
+        "OMT called the Tax Clause inherently material as a broad indemnity. The panel instead saw a bounded tax obligation on a specific sale, unlike prolonged, unpredictable liability shifting. It contrasted more fundamental terms, including then-described New York arbitration doctrine, without holding every tax clause immaterial. It also observed that established usage could sometimes rebut a per se characterization.",
+        "OMT executives established personal surprise but supplied no evidence that a reasonable petroleum merchant would be surprised. No contrary dealing or trade evidence supported their position. Describing the obligation as astonishing did not create a factual issue about objective commercial expectations.",
+        "Bayway’s affidavits and five firms’ forms reinforced the ordinary allocation to buyers. Three contracts used similar clauses. Chevron incorporated taxes into price, leaving the economic burden with the buyer. Texaco’s silence did not refute otherwise uncontradicted affidavits. OMT’s ability to obtain registration and avoid the tax supplied a practical explanation for buyer allocation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 31–42 & nn.3–4; Surprise and transaction-specific tax reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The amount of the loss and timing of reply evidence do not create a trial",
+      "cue": "Which broader questions did the court leave open?",
+      "paragraphs": [
+        "OMT asserted thin margins and inability to afford the loss. Even assuming hardship independently established materiality, this obligation was sale-specific, ordinary in the trade, and avoidable by registration. The panel contrasted open-ended risk shifting and found the showing insufficient. It expressly left unresolved whether hardship could independently make an added term material in another case.",
+        "OMT’s answer had generally denied incorporation; its opposition first developed material alteration and specifically faulted Bayway’s lack of industry proof. Bayway’s reply addressed that new contention. The district court could receive responsive evidence without requiring the opening motion to anticipate every defense. OMT sought no sur-reply and identified no contrary evidence it would have presented. Those circumstances supported admission; the decision was not a blanket license for unfairly unanswerable reply evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 44–57; Hardship; Reply evidence"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The reimbursement judgment stands while a separate offset ruling remains untouched",
+      "cue": "What did the affirmance decide and exclude?",
+      "paragraphs": [
+        "On June 8, 2000, the Second Circuit affirmed, leaving OMT liable for $464,035.12 reimbursement. It did not order a jury trial on materiality or decide the forfeited broker-fax and advance-objection theories. No separate opinion was reported.",
+        "A distinct transaction involving Bayway’s parent, Tosco, had produced a ruling that Tosco lacked its claimed offset right. Tosco did not appeal, so OMT’s success on that issue survived. The court’s reimbursement decision concerned § 2-207(2)’s preserved merchant-term exception, not subsection (3)’s terms-by-conduct formula or a general update of tax and arbitration law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraph 58 & nn.1–2; Actual judgment; Study use and limits"
+        }
+      ]
+    }
+  ]
+}

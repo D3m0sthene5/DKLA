@@ -1,0 +1,143 @@
+{
+  "id": "lrs-n-adapso-board",
+  "briefId": "LRS-MAX-ADAPSO",
+  "title": "Association of Data Processing Service Organizations, Inc. v. Board of Governors of the Federal Reserve System",
+  "course": "Legislation and the Regulatory State",
+  "citation": "745 F.2d 677 (D.C. Cir. 1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Citicorp seeks permission to sell new computing services, while its competitors challenge both its approval and a broader regulation. The court must identify the required factual support and then examine what banking-related activities the record supports.",
+  "actors": [
+    {
+      "name": "Citicorp and proposed subsidiary Citishare",
+      "role": "Bank holding company and proposed provider of processing, transmission and related equipment."
+    },
+    {
+      "name": "Federal Reserve Board",
+      "role": "Agency approving the application and amending Regulation Y."
+    },
+    {
+      "name": "Association of Data Processing Service Organizations, Comshare and Tymshare",
+      "role": "Trade association and member competitors petitioning for review."
+    }
+  ],
+  "proceedings": [
+    "An administrative law judge conducted a formal hearing and recommended approval and amendments in March 1982.",
+    "The Board approved Citicorp on July 9, 1982, and adopted Regulation Y amendments August 23 after notice and comment.",
+    "The D.C. Circuit consolidated review of both orders and denied both petitions unanimously on October 2, 1984."
+  ],
+  "limits": "This historical source-brief transformation makes no new audit or current bank-law certification. It concerns the 1984 Board case, not ADAPSO v. Camp’s 1970 standing decision. The equivalence discussed concerns ordinary quantum of factual support, not identical records or elimination of other arbitrary-action defects. Public benefits were not challenged in the Citicorp order.",
+  "briefSha256": "0b95051a16dd2edc1eb7bbcc3f50d10e390db7ecdb9db350cbd91d9e5ec92c07",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-ADAPSO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Citicorp proposes new services and competitors object",
+      "cue": "What statutory determinations did the Board have to make?",
+      "paragraphs": [
+        "Bank holding companies generally needed advance permission for nonbanking activity. Under 12 U.S.C. § 1843(c)(8), the Federal Reserve Board could approve activity sufficiently closely related to banking. Separately it weighed convenience, competition and efficiency against concentration, unfair competition, conflicts and unsound practices. Those were distinct inquiries.",
+        "In 1979 Citicorp sought authority for proposed subsidiary Citishare to provide data processing and transmission, including timesharing, electronic funds transfer, home banking, other methods, excess computing capacity and hardware. The Association of Data Processing Service Organizations, or ADAPSO, protested, and the Board set a formal hearing. Citicorp also requested related amendments to Regulation Y.",
+        "An administrative law judge considered the application and amendments, with written rulemaking submissions from more than sixty companies and individuals, and recommended approval in March 1982. The Board approved the restricted application July 9 and adopted the regulatory amendments by notice-and-comment rulemaking August 23. ADAPSO, Comshare and Tymshare petitioned under § 1848. Consolidated review concerned the formal adjudicatory order and informal rulemaking. They challenged banking relatedness and procedure, not the application’s public-benefit finding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and statutory setting; introduction & n.8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The court applies the same factual-support requirement to both orders",
+      "cue": "What remained different about formal and informal records?",
+      "paragraphs": [
+        "Judge Scalia wrote for Judge Ginsburg and Senior District Judge Van Pelt, sitting by designation. Section 1848 made findings conclusive if supported by substantial evidence. Citicorp urged that standard only for adjudication and ordinary arbitrariness review for the rule, but the provision generally covered both kinds of order. Text and history did not justify limiting its final sentence to one.",
+        "The ordinary Administrative Procedure Act standards required the same quantity of factual support in this function. Section 706 grounds were cumulative: supported findings could still be arbitrary, for example because the agency abruptly departed from precedent without explanation. The arbitrary-and-capricious provision supplied a catchall, not permission for an insubstantial factual basis where the specific substantial-evidence clause did not apply.",
+        "Section 706(2)(E) retained a distinctive role by requiring support in the closed formal record. Informal action also had to stand on material before the agency when it acted, not a new judicial record, but that administrative record could differ from a closed hearing record and include material unknown to private participants. Disclosure of critical supporting facts for informal-rule comments came from § 553(c), without requiring publication of every datum or conversion to formal proceedings. Another substantive statute might demand a different evidentiary level; the court declined casually to infer that and found no such variation in § 1848."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Factual support and two standards; assigned 923–926"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Board’s data categories have an independent banking connection",
+      "cue": "Why could a broad rule be reasonable without listing every permitted use?",
+      "paragraphs": [
+        "National Courier supplied nonexclusive, alternative guides: banks already provided the service, provided sufficiently similar service to be particularly equipped, or provided integrally related services requiring the new form. Though the government denied using a data test, the court found both orders keyed permission to financial, banking or economic data rather than a particular technology. Budgeting, bookkeeping and financial analysis illustrated rather than exhausted permitted uses.",
+        "Later public-benefits review could not repair an invalid general relatedness decision. Once Regulation Y established relatedness, the Board could not undo that qualification through the separate balancing inquiry without amending the rule. The category therefore needed its own statutory and rational foundation.",
+        "Banks already developed and processed substantial relevant data. The Board reasonably found them operationally equipped for related services, and a general rule traded some imperfect coverage for efficiency, predictability and innovation in fast-changing technology. A historical survey cited in briefing was absent from the record and was not relied on. A Legal Division memorandum in applicant exhibits instead summarized payroll, account reconciliation, sales and inventory analysis; absent contrary evidence, that record support sufficed. Generality remained tied to banking rather than authorizing arbitrary computing businesses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Data test and generality; notes 7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Economic information and timesharing survive specific objections",
+      "cue": "What restrictions answered the concern about unrelated customer uses?",
+      "paragraphs": [
+        "The Board rejected the proposed economic-related-data category as too broad but approved economic data. Banks historically supplied economic information and projections for investment decisions, so sophisticated delivery did not sever the connection. Agriculture, retail sales, housing and corporate profits could fit that banking and financial context.",
+        "Timesharing allowed multiple customers to interact with computing facilities. Petitioners feared race handicapping or employee evaluation, but offered no actual misuse. The Act governed offered services; mere possible unknown customer misuse did not invalidate a lawful offering. Written contracts restricted use to qualifying data, and facilities had to be designed, marketed and operated for those purposes with necessary technical precautions. Those restrictions were part of the justification, not approval of unrestricted computing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Economic data and timesharing"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Hardware is permitted only with the necessary service connection",
+      "cue": "Why did incidental equipment need limits different from specialized hardware?",
+      "paragraphs": [
+        "Specialized hardware, such as automated teller machines, could form part of processing services. Record evidence supported technological and commercial integration of hardware and software. Banking relatedness was not confined to traditional checks, loans and deposits or defeated merely because earlier formulations spoke of services.",
+        "General-purpose hardware was not independently closely related. It could be incidental when economic necessity connected it to an authorized package; convenience alone did not suffice. Nor could a large equipment enterprise qualify by appending a small banking activity. An approximately thirty-percent cost limit, grounded in industry equipment costs near twenty-five percent, addressed that concern.",
+        "Cost meant cost to the bank holding company. The Citicorp order permitted individual instances above the percentage so long as sales did not consistently exceed it. The amended regulatory text specifically addressed general-purpose hardware, while the explanation and orders discussed hardware more broadly. The court did not impose one universally identical strict transaction cap across every text."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Hardware and incidental activities; n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The agency’s explanations cover the challenged components",
+      "cue": "What did the court decide after reviewing the actual merits?",
+      "paragraphs": [
+        "Petitioners invoked § 557(c), claiming the application order lacked separate explanations for applications software, facilities management, turnkey systems and software-related services. The court found the first three adequately addressed by its reasoned approval of processing activities. An agency need not adopt a challenger’s segmentation if its analysis actually resolves the material components.",
+        "No independent consulting business had been separately requested or authorized. Advice incidental to processing fell within existing incidental-activity authority. On October 2, 1984, the unanimous panel denied both petitions, with no separate opinion.",
+        "The result thus rested on supported banking connections, appropriate hardware limits and adequate explanations responding to technological change, not merely an abstract statement of deference. Equal factual-support requirements did not erase closed-record rules, comment duties, or the obligation to explain policy changes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material issues and judgment; Case orientation; Exam use"
+        }
+      ]
+    }
+  ]
+}

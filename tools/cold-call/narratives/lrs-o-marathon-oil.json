@@ -1,0 +1,173 @@
+{
+  "id": "lrs-o-marathon-oil",
+  "briefId": "LRS-MAX-MARATHON",
+  "title": "Marathon Oil Co. v. Environmental Protection Agency",
+  "course": "Legislation and the Regulatory State",
+  "citation": "564 F.2d 1253 (9th Cir. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Cook Inlet operators challenge discharge permits whose technical limits, undisclosed evidence, and treatment of unavoidable pollution excursions require distinct judicial responses.",
+  "actors": [
+    {
+      "name": "Marathon, Union, Atlantic Richfield, Mobil, and Shell",
+      "role": "Oil and gas operators seeking review of Cook Inlet discharge permits."
+    },
+    {
+      "name": "Environmental Protection Agency",
+      "role": "Federal permitting agency, acting through its Seattle Regional Administrator and Administrator."
+    },
+    {
+      "name": "Gary Liberson",
+      "role": "Agency statistician whose internal memorandum became a disputed basis for limits."
+    }
+  ],
+  "proceedings": [
+    "The operators sought permits, underwent informal and adjudicatory hearings, and obtained Administrator review.",
+    "The Ninth Circuit reviewed the resulting permits under formal-adjudication requirements.",
+    "The court ordered specified corrections and reopened proceedings, while rejecting the majority of the constitutional bias challenge."
+  ],
+  "limits": "The judgment was a limited remand, not wholesale invalidation or judicial selection of replacement numerical limits. Source pinpoints follow the reviewed reproduction’s paragraphs; no later permit outcome is asserted.",
+  "briefSha256": "ec2018049fab140a54accda0a43a27a77ddefa14184a666108855296f71ed24c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-MARATHON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Cook Inlet operations generate several different waste streams",
+      "cue": "Why could one treatment baseline fail to fit another operation?",
+      "paragraphs": [
+        "Marathon, Union, Atlantic Richfield, Mobil, and Shell operated oil and gas facilities in Alaska’s Cook Inlet. Two consolidated cases concerned offshore platforms producing deck drainage, water recovered with oil and gas, and sanitary waste. A third concerned three onshore plants separating crude oil and gas from produced water pumped ashore. All platforms then sent produced water to shore, though offshore discharge was anticipated; some already discharged deck drainage offshore.",
+        "The Federal Water Pollution Control Act prohibited pollutant discharges without permits. Section 402 authorized permits incorporating § 301 controls, including the best practicable control technology currently available, abbreviated BPCTCA in the opinion. The Environmental Protection Agency, or EPA, had to identify performance achievable through exemplary use of that technology rather than demand performance beyond the statutory standard. What counted as attainable depended on the waste stream and operating conditions. Alaska eventually waived its state-certification right within the permitting process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Platforms, waste streams, and statutory standard; judicial ¶¶ 1, 4–10, 19, 25 & nn.3–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The permit applications move from the Corps to EPA and through agency hearings",
+      "cue": "Which decisions set the final disputed limits?",
+      "paragraphs": [
+        "The companies originally applied to the Army Corps of Engineers. Before decision, the 1972 Act transferred the relevant permitting system to EPA, and they applied under § 402 in 1973. The Seattle Regional Administrator circulated drafts, held informal hearings, and tentatively issued limits. Applicants then received adjudicatory hearings before an administrative law judge with cross-examination; Shell had a separate offshore hearing. The judge certified the records, the Regional Administrator issued initial decisions, and the companies sought further Administrator review.",
+        "In September 1975 the Administrator relaxed some numbers but rejected formal exceptions for unavoidable upsets and broader maintenance bypasses. Offshore deck-drainage limits became 65/90 milligrams per liter, with an alternative daily-poundage standard. Produced-water limits, offshore and onshore, were 48/72 milligrams per liter.",
+        "The operators petitioned for judicial review. They disputed the technological and statistical baselines, undisclosed data and an internal memorandum, and apparent demands for perfect compliance even though EPA’s model predicted unavoidable excursions. They also challenged the Regional Administrator’s role in deciding a matter after issuing the draft permits. The complaints concerned procedure and the fit between evidence and limits, not simply a preference for more permissive numbers."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Administrative proceedings and disputed choices; judicial ¶¶ 13–29, 44–48, 53–54"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Sneed finds that these permit hearings required formal APA safeguards",
+      "cue": "Why did the absence of the words on the record not end the inquiry?",
+      "paragraphs": [
+        "Judge Sneed’s opinion held that Administrative Procedure Act §§ 554, 556, and 557 governed. EPA admitted these permits were adjudications but argued that § 402’s requirement of an opportunity for a public hearing lacked an express on-the-record direction. The court rejected a mandatory verbal formula.",
+        "These were individual permits with disputed facts about achievable control by particular dischargers, unlike prospective industry-wide guidelines. Adversarial procedures could improve factual accuracy and enable meaningful review, and direct court-of-appeals review supported an implied record requirement. The court read statutory context and the APA’s history as distinguishing matters needing formal safeguards from business-like administration.",
+        "The interpretation was qualified. Absence of any hearing requirement or evidence of contrary legislative intent could produce another result, and legislative-rulemaking precedents did not govern this adjudicatory setting. The court also rejected the Seventh Circuit’s view that § 558(c) independently required formal hearings for every legally required license. That section required timely completion of proceedings required elsewhere, not creation of a new hearing duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Formal APA provisions; judicial ¶¶ 31–38 & nn.25–33"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Formal process does not make the hearing judge the exclusive initial decisionmaker",
+      "cue": "Why did the majority reject the statutory and constitutional assignment objections?",
+      "paragraphs": [
+        "The applicants argued that §§ 554(d) and 557(b) required the administrative law judge to decide or recommend the initial disposition. But no prior discharge permits had been issued, making these applications for initial licenses. The pertinent exceptions allowed EPA’s decisional arrangement even though other formal-adjudication safeguards applied.",
+        "The majority also found no demonstrated unacceptable risk of bias. The Regional Administrator’s prior role resembled permissible combination of investigation and adjudication; it did not presume that an official could not reconsider a tentative position after more evidence. This reliance on administrative objectivity did not establish that every form of reviewing one’s own decision is constitutional."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Initial authority and bias; judicial ¶¶ 41–48"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court accepts flotation technology but requires limits fitted to actual operations",
+      "cue": "Which deck-drainage findings survived?",
+      "paragraphs": [
+        "The court used substantial-evidence review, describing it in this 1977 opinion as more demanding than arbitrary-and-capricious review. It accepted EPA’s general method of studying exemplary technology and using statistical intervals to account for variation. A produced-water study by Brown and Root did not alone prove the best deck-drainage technology, but other testimony and comparative performance supported flotation systems for that waste stream. Competing reasonable conclusions did not defeat substantial evidence.",
+        "EPA could use exemplary platforms, but could not omit normal drilling, rig-moving, and cleanup periods with higher oil and grease concentrations and then assume the resulting limits remained achievable during those operations. On remand it had to support limits accounting for the activities or reopen proceedings to show existing limits could be met. A separate seasonal objection failed: winter and early-spring Mobil data were adequately considered, while Shell winter observations affected by correctable contamination could properly be excluded.",
+        "A uniform pounds-per-day alternative also lacked support because platform flows varied substantially. Performance attainable at one installation did not automatically establish attainable performance at another, and an option to choose concentration limits did not cure an unsupported alternative. Existing poundage limits were to be eliminated, with new ones permissible if supported by evidence introduced at an adjudicatory hearing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Technical findings; judicial ¶¶ 50–69, 95 & nn.38–51"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Undisclosed material requires a new opportunity to challenge produced-water limits",
+      "cue": "What did the court accept about the statistical analysis?",
+      "paragraphs": [
+        "Because Cook Inlet platforms did not then discharge produced water offshore, EPA used Gulf of Mexico data. The companies accepted that source and flotation technology but disputed adjustments and assumptions. On the visible record, the court found no substantive error in the adjustments or treating distributions as lognormal. It accepted exclusions of small samples, outliers, startup observations covered by a grace period, and preventable-malfunction data.",
+        "EPA had also used an additional year of data never disclosed and statistician Gary Liberson’s internal memorandum without allowing challenge. The court could not assess the new information’s source or integrity, and informed comments could change EPA’s view. Section 556(e)’s record limit mattered both to participation and reliable review.",
+        "The remand required disclosure and reopened hearings on the data and memorandum for offshore and onshore permits. EPA could reaffirm or revise its limits after that process. The court neither selected replacement numbers nor condemned every statistical choice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Undisclosed data and memorandum; judicial ¶¶ 44, 72–80, 96 & nn.34, 52–54"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Unavoidable upsets require permit language rather than an enforcement promise",
+      "cue": "How did the court distinguish upsets from routine maintenance bypasses?",
+      "paragraphs": [
+        "EPA’s model predicted that even exemplary technology would meet produced-water limits only ninety-nine percent of the time and deck-drainage limits 97.5 percent, while permits demanded compliance continuously. The court required formal upset provisions for excursions beyond the permit holder’s control. Discretionary nonprosecution was inadequate because EPA could change practice and private citizens could enforce despite it. The agency could impose a reasonable proof burden on the holder; the ruling did not grant an unconditional allowance of pollution days.",
+        "The court declined to require a general maintenance-bypass exception. Ordinary work often could occur without bypass, using storage or onshore diversion. Shutting in a producing well, however, could damage the reservoir and permanently reduce recovery. EPA suggested its severe-property-damage exception might cover that risk. The court required clarification that, in appropriate circumstances, shutting in a well could constitute severe property damage permitting bypass when it was the only alternative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Upsets and bypass; judicial ¶¶ 82–91 & nn.55–57"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Wallace would add a constitutional objection to the shared statutory corrections",
+      "cue": "Why did he regard the Regional Administrator as reviewing his own adjudication?",
+      "paragraphs": [
+        "Judge Wallace agreed with the statutory analysis and remand but dissented on due process. The ongoing businesses were protected property, and restrictive permits could impair them just as denial could halt operations. He also suggested that the permitting statute might create a qualifying entitlement.",
+        "In his view, the draft permit and later review were two adjudications, not investigation followed by a first adjudication. The draft became final unless challenged, and regulations described subsequent proceedings as reconsideration. He read Withrow as permitting investigation plus adjudication while distinguishing review of one’s own prior adjudicatory decision. A different reviewer would impose little burden compared with possible business losses.",
+        "Sneed and District Judge Zirpoli formed the majority rejecting that Fifth Amendment theory. On November 21, 1977, the panel’s shared statutory directions required reconsideration of operational-period deck limits, removal of unsupported poundage limits absent new support, disclosure and reopened produced-water proceedings, upset provisions, and clarification of bypass. It did not vacate the entire program or grant the companies’ preferred numerical limits. No later permit outcome is established here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Wallace dissent; Precise remand; judicial ¶¶ 93–117 & dissent nn.1–3"
+        }
+      ]
+    }
+  ]
+}

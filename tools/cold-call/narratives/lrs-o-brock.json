@@ -1,0 +1,143 @@
+{
+  "id": "lrs-o-brock",
+  "briefId": "LRS-ATLAS-O-BROCK",
+  "title": "Brock v. Roadway Express, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "481 U.S. 252 (1987)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A discharged truck driver obtains a preliminary federal reinstatement order based on undisclosed supporting evidence, while the employer pursues both constitutional litigation and a separate administrative merits hearing.",
+  "actors": [
+    {
+      "name": "Jerry Hufstetler",
+      "role": "Roadway driver who claimed discharge for safety complaints."
+    },
+    {
+      "name": "Roadway Express, Inc.",
+      "role": "Interstate carrier asserting discharge for dishonesty; challenged temporary reinstatement procedures."
+    },
+    {
+      "name": "Secretary of Labor and Labor Department officials",
+      "role": "Investigated retaliation, issued reinstatement orders, and defended the statutory process."
+    }
+  ],
+  "proceedings": [
+    "Arbitrators sustained the discharge before the employee filed his statutory complaint.",
+    "The Northern District of Georgia enjoined preliminary reinstatement and entered summary judgment requiring a prior evidentiary hearing.",
+    "The Supreme Court directly reviewed that constitutional judgment, affirming in part and reversing in part on April 22, 1987; the final administrative merits appeal remained separate."
+  ],
+  "limits": "Six Justices found disclosure inadequate and seven rejected an automatic pre-reinstatement trial, but Marshall’s detailed explanation had four votes. This appeal did not determine retaliation or resolve the constitutionality of the unexplained delay before the final administrative decision.",
+  "briefSha256": "119bf7a6b06bbb573a55c5d8f06c13f505923d7f828afdc51346686518939e54",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-BROCK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Roadway discharges a driver and arbitration sustains its explanation",
+      "cue": "Which competing accounts initiated the dispute?",
+      "paragraphs": [
+        "Roadway Express, a large interstate trucking company, discharged driver Jerry Hufstetler on November 22, 1983. Roadway alleged that he disabled his truck’s lights to obtain extra pay while awaiting repairs. Hufstetler denied contractual dishonesty and said Roadway retaliated for his previous safety complaints. On January 30, 1984, arbitrators acting under the collective-bargaining agreement upheld discharge.",
+        "Section 405 of the Surface Transportation Assistance Act of 1982 independently protected commercial transportation workers who reported safety violations or refused vehicles failing applicable safety requirements. Congress considered drivers well positioned to identify hazards but vulnerable to losing their livelihoods. Backpay after lengthy proceedings might not remove the deterrent to reporting, so the Act required temporary reinstatement after investigation and a reasonable-cause finding. An employer could seek an expeditious hearing and final decision, but its request did not stay reinstatement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 255–256, 258–259; Facts; Statutory design"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Labor Department orders reinstatement without disclosing the supporting account",
+      "cue": "What opportunity to respond did Roadway actually receive?",
+      "paragraphs": [
+        "Hufstetler filed his statutory complaint on February 7, 1984. An Occupational Safety and Health Administration field investigator notified Roadway, interviewed Hufstetler and other employees, and obtained statements supporting retaliation. Roadway could meet the investigator and submit a written explanation; it repeated the dishonesty ground accepted in arbitration. It did not receive the other witnesses’ names or the substance of their statements.",
+        "On January 21, 1985, the regional administrator found reasonable cause to believe the discharge retaliatory and ordered immediate reinstatement with backpay. The order characterized Roadway’s explanation as conjectural without detailing the supporting evidence.",
+        "Roadway obtained a preliminary injunction and then summary judgment from the Northern District of Georgia declaring § 405 unconstitutional insofar as it allowed reinstatement without a prior evidentiary hearing. Separately, Roadway objected administratively and requested the statutory hearing. An administrative law judge held it in March 1985; the Secretary issued a final reinstatement-and-backpay order on August 21, 1986. Review of that final merits order was pending in the Eleventh Circuit when the Supreme Court considered the separate procedural challenge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 256–257; Facts, administrative proceedings, and litigation"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The constitutional appeal survives the final order",
+      "cue": "What interests and procedures were before the Justices?",
+      "paragraphs": [
+        "The Secretary appealed the district court’s constitutional judgment directly under then-existing 28 U.S.C. § 1252. Although the final order now supplied Roadway’s reinstatement obligation, the earlier-order dispute was capable of repetition yet evading review: preliminary orders lasted too briefly for full litigation, and a large carrier could reasonably face another. The Supreme Court therefore addressed preliminary process, not whether Hufstetler actually suffered unlawful retaliation.",
+        "The Secretary conceded that Roadway’s contractual right to discharge for cause was property protected by the Fifth Amendment. Justice Marshall’s plurality accepted that concession but rejected a constitutional property entitlement to exclusive arbitral decision. Preclusion effects of the arbitration could be raised in the administrative case and reviewed by the court of appeals; arbitration did not constitutionally displace the statute.",
+        "The statute said little about participation beyond notice. Existing practice allowed an explanation, and new rules effective December 22, 1986, offered written statements, affidavits, documents, a meeting with counsel, and supporting witnesses’ statements. Neither required preliminary cross-examination or disclosure of names and statements. The Secretary nevertheless represented that established official practice disclosed the substance of supporting evidence. The plurality accepted that representation while finding the practice had not been followed here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 257–261, 265 & nn.1–2; Mootness; Statutory design"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Marshall balances the employer’s control against safety and livelihood",
+      "cue": "Why was meaningful rebuttal required without an initial trial?",
+      "paragraphs": [
+        "Justice Marshall announced the judgment in an opinion joined by Justices Blackmun, Powell, and O’Connor. Applying Mathews v. Eldridge’s contextual balancing, the plurality considered public and private interests, error risk, and additional safeguards’ value. Roadway had a substantial interest in workforce control, but the district court omitted Hufstetler’s competing livelihood interest. Lost employment threatened finances and future employment, reinforcing highway safety’s interest in protecting willing reporters.",
+        "A reliable preliminary check followed by complete, expeditious review could accommodate those interests. The plurality specified notice of allegations, the substance of relevant supporting evidence, written response, and a meeting with the investigator at which Roadway could present rebuttal witnesses’ statements. Informal statements sufficed at this stage; confrontation and cross-examination did not. Public-employment cases Loudermill and the relevant Arnett opinion illustrated the distinction between an initial answer and a later hearing, while confirming that an answer required knowing the evidence.",
+        "Cross-examination might improve credibility testing but also introduce delay and dilatory tactics before the employee recovered a livelihood. The investigator determined reasonable cause; final credibility determinations belonged to the hearing officer. A requirement for an expeditious later hearing did not erase the extra delay of holding it first. The Department’s already slow investigation did not justify additional delay. Because Roadway lacked the evidence’s substance, however, its answer could not be meaningful and this preliminary order violated due process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 261–267 & n.3; Plurality reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The plurality reserves the separate question of excessive final delay",
+      "cue": "What did the timing record fail to establish?",
+      "paragraphs": [
+        "The plurality did not authorize indefinite delay after reinstatement. New rules contemplated a hearing within thirty days of objections, an administrative decision within another thirty days, and a final Secretary’s order within 120 days, subject to qualifications and a characterization of the periods as directory. Excessive delay could independently violate due process.",
+        "Here the injunction prevented preliminary reinstatement from taking effect. The record did not explain the nineteen months before final decision; litigation, employer incentives, or administrative inefficiency might have contributed. The plurality declined to decide whether that delay or the regulatory periods were constitutionally excessive on the undeveloped record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 267–268; Plurality reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Brennan and Stevens demand more, while White would accept less",
+      "cue": "How do the votes combine without creating a seven-Justice rationale?",
+      "paragraphs": [
+        "Justice Brennan agreed that withholding evidence violated due process but would affirm the prior-hearing requirement. Initial process and speed of final resolution were inseparable. With material factual disputes and no assurance of prompt final review, denial or argument alone was insufficient; confrontation, cross-examination, and employer testimony were needed before reinstatement. A genuinely prompt final hearing might justify less, but the rules allowed roughly six months and treated deadlines as directory. Brennan acknowledged the employer’s comparatively limited interest and the competing job and safety interests while insisting on one of those two safeguards.",
+        "Justice White, joined by Chief Justice Rehnquist and Justice Scalia, agreed no prior trial was necessary but would also sustain the withholding of supporting information. Notice, response, reasonable cause, and a later adequate hearing at a meaningful time sufficed. Public-employment procedures could not be transplanted mechanically, and protecting corroborating employees could justify nondisclosure before the full hearing.",
+        "Justice Stevens would affirm the district court entirely. An eleven-month investigation and an order fourteen months after discharge undercut emergency justifications. Ordinary conflicting testimony called for a strong presumption of public adversarial process before deprivation. He distinguished government operation of its own programs from regulation of private relationships, considered better deadlines and resources, and rejected comparison to more objective or distinctive settings in which cross-examination had been relaxed. He understood disclosure to include witness names and testimony summaries and viewed the nineteen-month delay as an additional defect. Those particulars were his position, not Marshall’s minimum package.",
+        "On April 22, 1987, the Court affirmed in part and reversed in part. Six Justices found the disclosure inadequate; seven rejected an automatic prior trial-type hearing. Only four joined Marshall’s full reasoning. The Secretary was appellant and Roadway appellee, despite the reversed roles in the assigned summary. The final retaliation determination remained in its separate appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "481 U.S. at 268–278 and separate-opinion notes; Decision and procedural setting; Assigned account and limits"
+        }
+      ]
+    }
+  ]
+}

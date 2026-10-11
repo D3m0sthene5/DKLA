@@ -1,0 +1,139 @@
+{
+  "id": "hill-gateway",
+  "briefId": "CT-CB-0294",
+  "title": "Hill v. Gateway 2000, Inc.",
+  "course": "Contracts",
+  "citation": "105 F.3d 1147 (7th Cir. 1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A telephone computer purchase arrives with accept-or-return terms, and the buyers’ later product and fraud suit turns on whether keeping the computer accepted the enclosed arbitration clause.",
+  "actors": [
+    {
+      "name": "Rich and Enza Hill",
+      "role": "Consumers who ordered a Gateway computer, retained it, and later sued over components and performance."
+    },
+    {
+      "name": "Gateway 2000, Inc.",
+      "role": "Seller that shipped written terms with a thirty-day return option and sought arbitration."
+    }
+  ],
+  "proceedings": [
+    "The district court refused arbitration for insufficient proof of agreement or adequate notice.",
+    "Gateway took an interlocutory appeal under the Federal Arbitration Act.",
+    "The Seventh Circuit vacated and remanded with instructions to compel arbitration on January 6, 1997."
+  ],
+  "limits": "This appeal selected the forum; it did not determine defects, fraud, warranty breach, or damages. The court’s one-form formation theory is the historical Hill approach, later disputed by Klocek, not a universal rule governing all delayed terms.",
+  "briefSha256": "947c26b4c30fe4fe6c3fe495d91941661ee0b15ef40131f864fdd60a276ebf83",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0294"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Hills place an order and receive terms with the computer",
+      "cue": "What conduct did Gateway identify as acceptance?",
+      "paragraphs": [
+        "Rich and Enza Hill ordered a computer directly from Gateway by telephone and supplied a credit-card number. The computer arrived with a written statement of terms saying those terms governed unless the buyer returned the machine within thirty days. One provision required arbitration.",
+        "The Hills noticed the statement but said they had not read it closely enough to discover arbitration. They kept the computer beyond thirty days before complaining about its components and performance. Gateway’s transaction also included future warranties, service, a telephone hotline, and advertised lifetime support. The Hills invoked warranty protection and were dissatisfied with the response.",
+        "Unlike the retail software packaging discussed in an earlier case, ProCD, Gateway’s shipping carton did not display the same exterior notice of enclosed legal terms. Gateway had nevertheless advertised limited warranties and support without every detail, and the court found the Hills knew important terms would accompany the purchase. It did not find actual reading or specific negotiation of arbitration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 1–3, 6, 8–11; Material facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Hills sue and Gateway immediately appeals the denial of arbitration",
+      "cue": "Which questions remained outside the appeal?",
+      "paragraphs": [
+        "The Hills sued for themselves and a proposed class, alleging problems with the computer and, among other theories, mail and wire fraud supporting a claim under the Racketeer Influenced and Corrupt Organizations Act, with its treble-damages remedy. Gateway sought enforcement of the enclosed arbitration provision.",
+        "The district court considered proof of a valid agreement and adequate notice insufficient and refused arbitration. Gateway immediately appealed under 9 U.S.C. § 16(a)(1)(A), which authorizes appeal from denial of the specified arbitration relief. No final determination of product quality, warranty breach, fraud, or damages had occurred.",
+        "Judge Easterbrook wrote for Judges Cummings and Wood, Jr. Illinois and South Dakota were possible sources of contract law; both enacted the Uniform Commercial Code, and neither party identified a pertinent atypical state doctrine. The panel therefore used its ProCD formation analysis without an extended choice-of-law inquiry or a claim that every State necessarily followed the same rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 1–4, 12; Parties; Procedural history"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The panel locates formation after inspection of the delivered proposal",
+      "cue": "Why did initial payment not necessarily fix every term?",
+      "paragraphs": [
+        "ProCD had approved a seller’s proposal to let a customer inspect a product and its terms, then accept by keeping it rather than returning it. The panel applied that formation method here: payment and a request for shipment could begin a transaction without fixing every contractual term. Retention after the stated opportunity to reject accepted the complete proposal.",
+        "That premise mattered. If a contract had already been formed earlier, simply calling an insert an offer would not explain how it added arbitration. Hill instead located acceptance after the Hills had an opportunity to inspect and return the computer. The later Klocek decision would dispute that account on its record and the assumption that the seller necessarily made the offer; Klocek was not a dissent in Hill or an appellate reversal of it.",
+        "Commercial practicality supported the panel’s view. Reading every legal term by telephone would consume time without ensuring understanding and create disputes over what was said. A written statement and return period appeared more useful and less costly, with analogous timing in transportation and insurance. ProCD’s reasoning concerned contract formation rather than a software-only exception; Gateway’s machine also included operating-system and application software.",
+        "The Hills’ claim that performance was complete on delivery failed for a further reason. Formation differed from performance, and warranty and support obligations remained after delivery. The Hills themselves relied on those favorable promises in the same collection of terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 4–6; Reasoning: formation, practicality, and continuing obligations"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court addresses unread terms, consumers, and additional-term rules",
+      "cue": "Why did the Hills’ objections not change the formation account?",
+      "paragraphs": [
+        "The Hills admitted noticing the terms and bore the ordinary risk of failing to read a contractual document they accepted. Demanding special prominence for arbitration would treat that clause differently from other terms, contrary to § 2 of the Federal Arbitration Act and Doctor’s Associates v. Casarotto, the Court’s equal-treatment authority. Arbitration policy did not itself supply missing assent; the panel first found a contract under the accept-or-return mechanism.",
+        "The Hills also invoked their consumer status and Uniform Commercial Code § 2-207(2), under which additional terms do not automatically enter a consumer agreement as they might between merchants. The panel answered that ProCD did not depend on merchant status: on its one-form theory, § 2-207 did not apply because the delivered writing was the offer eventually accepted, not additional terms modifying an earlier deal.",
+        "That categorical one-form exclusion remained a contested part of Hill. Section 2-207 also addresses confirmations of earlier agreements, and Klocek later rejected the exclusion. The paired cases require identifying the competing offer-and-acceptance accounts before deciding what retaining goods means; Hill did not simply announce that every consumer automatically accepts every postpurchase term."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 3, 7; Rules and holdings; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The shipping carton and possible return expense receive distinct treatment",
+      "cue": "What notice question did the court leave unresolved?",
+      "paragraphs": [
+        "Retail packaging can inform a shopper before purchase, while a remote-order shipping carton generally communicates with handlers after the order. The absence of a retail-style outside warning therefore did not alone distinguish Gateway’s arrangement from the earlier case.",
+        "The panel acknowledged a harder problem if a buyer first discovers terms after opening the package but return shipping cost deters rejection. It suggested a possible remedy related to that expense without deciding one. Because these buyers knew important terms would arrive, it did not resolve that situation. The opinion also identified ways to investigate terms by requesting them before ordering, consulting public information, or reading them at delivery. These observations accompanied the thirty-day return opportunity; they did not make notice irrelevant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraphs 8–11; Shipping-carton and expense discussion"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Fraud and RICO labels do not defeat arbitration, and the case returns for an order",
+      "cue": "What exactly did Gateway win?",
+      "paragraphs": [
+        "The opinion briefly rejected the contention that arbitration participated in a fraudulent scheme, citing Prima Paint’s arbitration framework. It separately relied on McMahon for arbitrability of RICO claims. Those rulings concerned who would decide the dispute; they did not establish that no fraud occurred.",
+        "On January 6, 1997, the Seventh Circuit vacated the district court’s decision and remanded with instructions to compel the Hills to arbitrate. Rehearing was denied February 3. No separate opinion was reported. Gateway won enforcement of the forum clause, not a judgment that the computer was satisfactory or that the Hills had no damages claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion paragraph 12; Citation; Actual judgment; Separate opinions"
+        }
+      ]
+    }
+  ]
+}

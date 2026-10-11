@@ -1,0 +1,179 @@
+{
+  "id": "lrs-o-jarkesy",
+  "briefId": "LRS-NEXT-016",
+  "title": "Securities and Exchange Commission v. Jarkesy",
+  "course": "Legislation and the Regulatory State",
+  "citation": "144 S. Ct. 2117 (2024)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The SEC chose its own administrative tribunal to impose securities-fraud penalties. After the agency entered its order, the courts asked whether the government could obtain that punitive remedy without an Article III court and jury.",
+  "actors": [
+    {
+      "name": "George Jarkesy",
+      "role": "Established two investment funds and faced agency fraud findings and sanctions."
+    },
+    {
+      "name": "Patriot28",
+      "role": "Jarkesy’s investment-advisory firm and a respondent in enforcement."
+    },
+    {
+      "name": "Securities and Exchange Commission",
+      "role": "Federal regulator that chose administrative enforcement and sought Supreme Court review after its order was vacated."
+    },
+    {
+      "name": "Investors",
+      "role": "About 120 accredited investors supplied approximately $24 million to the funds."
+    }
+  ],
+  "proceedings": [
+    "SEC began administrative enforcement in 2013; administrative law judge entered an initial decision in 2014; Commission issued final sanctions in 2020.",
+    "Divided Fifth Circuit vacated the order on jury-trial, nondelegation, and administrative-judge removal grounds; rehearing en banc was denied.",
+    "Supreme Court affirmed and remanded 6–3 on the jury/public-rights ground alone."
+  ],
+  "limits": "The Court addressed civil penalties for securities fraud, not every agency adjudication or SEC remedy. It did not reach the Fifth Circuit’s nondelegation and removal rationales, overrule Atlas Roofing, adjudicate absence of fraud, or prevent pursuit in a proper forum.",
+  "briefSha256": "ceeb4f97b9acb0da3b5aa5dc4946fc594751b54abb9e34e57a664155a93ef029",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-NEXT-016"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Jarkesy raises investment money as agency enforcement powers expand",
+      "cue": "What conduct did the SEC later allege?",
+      "paragraphs": [
+        "Between 2007 and 2010, George Jarkesy launched two investment funds that raised about $24 million from roughly 120 accredited investors. His firm, Patriot28, advised the funds. The Securities and Exchange Commission (SEC) later alleged misrepresentations about strategy, the identity of the auditor and prime broker, and valuations used to calculate fees. The dissent’s fuller account specified that promised audit and prime-broker arrangements did not materialize, a claimed fifty-percent investment in life-insurance policies remained below twenty percent, and overvaluation allegedly increased management fees. These were allegations and agency determinations, not facts independently tried by the Supreme Court.",
+        "The relevant antifraud provisions of the Securities Act of 1933, Securities Exchange Act of 1934, and Investment Advisers Act of 1940 concerned material misrepresentation or concealment. The SEC could enforce them in federal court or within the agency. Federal litigation supplied an Article III judge, ordinary discovery and evidence rules, and a jury when required. Administrative proceedings used SEC rules and a Commission or delegated factfinder, with deferential judicial review of supported factual findings.",
+        "Before the Dodd-Frank Act of 2010, penalties against persons in these respondents’ position had to be pursued in federal court. Dodd-Frank extended agency penalty authority to match court authority. That newly available forum choice shaped this enforcement case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Securities enforcement and facts; majority slip op. 1–5; Sotomayor 2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The agency imposes penalties, and the Fifth Circuit finds three defects",
+      "cue": "Which lower-court grounds reached the Supreme Court?",
+      "paragraphs": [
+        "The SEC began administrative enforcement in 2013. An administrative law judge (ALJ) issued an initial decision in 2014. The Commission reviewed it and entered a final order in 2020 imposing a $300,000 civil penalty, cessation of violations, disgorgement, and restrictions on Jarkesy’s securities activities. The dissent identifies Patriot28’s disgorgement as $685,000. The later constitutional holding focused on the civil penalty rather than separately adjudicating each other remedy’s validity.",
+        "A divided Fifth Circuit granted respondents’ review petition and vacated the agency order. It found a Seventh Amendment jury violation, insufficient congressional guidance for the SEC’s forum choice under nondelegation, and unconstitutional double layers of for-cause protection for ALJs. Judge Davis dissented. After en banc rehearing was denied, the Supreme Court granted review.",
+        "Chief Justice Roberts asked first whether the claim implicated the Seventh Amendment and then whether the public-rights exception nonetheless allowed administrative adjudication without a jury. His answers resolved the case. He did not reach nondelegation or ALJ removal, so affirmance would not make all three circuit rationales Supreme Court holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Proceedings; majority 5–7, 27"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Roberts identifies a legal remedy closely related to common-law fraud",
+      "cue": "Why did the statutory label not eliminate the jury guarantee?",
+      "paragraphs": [
+        "The Seventh Amendment extends beyond the precise forms of action known at ratification to statutory claims legal in nature, as opposed to equitable or admiralty matters. Under Tull and Granfinanciera, courts examine the common-law analogue and the remedy, giving the latter more weight. Roberts’s history of colonial resistance and the founding emphasized why convenience alone could not displace the jury.",
+        "These penalties punished and deterred rather than solely restored losses. Statutory considerations included culpability, recidivism, and deterrence; escalating tiers turned on fraud, recklessness, gains, losses, or risk rather than merely compensation due a victim. Distribution to harmed investors was not required. Although some monetary relief is equitable, these characteristics made this relief legal.",
+        "The claims also closely resembled common-law fraud. Congress employed established fraud terms, and securities interpretation often drew on common-law principles. Exact identity was unnecessary: the federal provisions covered specific subject matter, differed in some proof requirements, and did not require investor loss for SEC enforcement. That close relationship reinforced the legal character despite those differences."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Seventh Amendment reasoning; majority 7–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority refuses to transform a traditional claim by changing its forum",
+      "cue": "Which public rights can remain outside Article III?",
+      "paragraphs": [
+        "Roberts acknowledged that Congress may assign some public-rights matters to political-branch initial determination. Established examples included revenue, aspects of customs and immigration, public lands, tribal relations, and public benefits including patent rights. He did not offer an exhaustive definition resolving every boundary. The presumption favored Article III adjudication, and agency convenience or Congress’s assignment alone did not establish an exception.",
+        "Granfinanciera supplied the main analogy. Calling fraudulent-conveyance claims core bankruptcy proceedings did not remove their jury right: they resembled independent traditional legal suits, unlike coordinated priority claims integral to distributing a bankruptcy estate. Substance survived a new regulatory designation. Likewise, administrative assignment did not change the common-law character of securities-fraud penalties.",
+        "The SEC argued that Congress created new obligations and remedies enforced by the government as sovereign. Roberts rejected novelty and governmental participation as sufficient alone. These claims regulated transactions between private market actors through a fraud-like cause and punitive legal remedy. The identity of the prosecutor did not alter that substance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Public-rights reasoning; majority 13–22 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Atlas Roofing remains, but does not decide this fraud case",
+      "cue": "How did the majority distinguish administrative safety penalties?",
+      "paragraphs": [
+        "The SEC relied particularly on Atlas Roofing, which permitted administrative occupational-safety penalties. Roberts distinguished the Occupational Safety and Health Act’s new, detailed safety obligations from a statutory restatement of traditional common-law claims. In his account, that difference made the safety claims novel in a way these fraud claims were not. Efficient enforcement did not replace constitutional protection.",
+        "The Court declined respondents’ suggestion that later cases had effectively overruled Atlas Roofing. Its third footnote discussed that contention without adopting it, and its fourth collected academic criticism without endorsing those critiques. The holding distinguished Atlas Roofing here; it did not expressly overrule it or abolish every administrative civil penalty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Atlas Roofing discussion; majority 22–27 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Gorsuch and Thomas connect judge, jury, and due process",
+      "cue": "Which additional constitutional reasoning belonged to the concurrence?",
+      "paragraphs": [
+        "Justice Gorsuch, joined by Justice Thomas, concurred and emphasized Article III and Fifth Amendment due process along with the jury guarantee. He regarded each protection as independently supporting the result for traditional common-law claims. Independent judges, applicable juries, and customary fair process worked together.",
+        "He pointed to discovery limits, evidentiary differences, delay, and internal access to confidential appellate memoranda in the administrative process to explain those safeguards’ value. That evaluation belonged to his concurrence; it was not an additional due-process holding silently incorporated into Roberts’s opinion.",
+        "Gorsuch compared expansion of agency adjudication with colonial vice-admiralty practices and treated public rights as a narrow historically grounded exception. He criticized the movement from Crowell through Atlas Roofing and later balancing approaches, rejecting efficiency as a substitute for individual constitutional rights. He defended the majority’s narrower reading of Atlas Roofing against a rule making all statutory duties public rights and disputed a broad civil/criminal distinction in the dissent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch concurrence; Gorsuch 1–28 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Sotomayor treats sovereign enforcement as the relevant public right",
+      "cue": "Why did the dissent think precedent allowed the administrative case?",
+      "paragraphs": [
+        "Justice Sotomayor, joined by Justices Kagan and Jackson, would uphold the scheme. She started with Congress’s power to place the government’s sovereign enforcement claim outside Article III. If that assignment was valid, the Seventh Amendment did not separately require an administrative jury. A public-market enforcement right belonging to the government differed from an investor’s private damages claim.",
+        "She read Murray’s Lessee, Stranahan, Atlas Roofing, and the broader precedents as recognizing congressional creation of obligations enforceable through administrative penalties. Tull involved a suit already in federal court; Granfinanciera involved private parties and distinguished sovereign enforcement. Neither displaced Atlas Roofing here. Common-law similarities did not erase federal securities law’s different duties, preventive reach without individualized injury, and public enforcement purpose.",
+        "Sotomayor disputed the majority’s historical categories and denied relying merely on efficiency. Nor was the government’s presence enough under her view: she excluded criminal prosecutions and common-law claims brought in a proprietary capacity. She reserved due-process challenges for a proper case because respondents had not presented one here.",
+        "She warned that Congress had relied on administrative penalty precedents across many programs. Some agencies could seek penalties only administratively, so broad extension might remove enforcement avenues pending legislation. She regarded the restriction on Congress as a separation-of-powers problem. Those predicted effects were dissenting concerns, not holdings invalidating every mentioned agency statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Sotomayor dissent; Sotomayor 4–38, especially nn.4, 9"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The agency order’s vacatur stands on one constitutional ground",
+      "cue": "What does the six-to-three judgment leave open?",
+      "paragraphs": [
+        "The Supreme Court affirmed the Fifth Circuit and remanded for further proceedings, holding these respondents entitled to a jury trial in an Article III court on securities-fraud civil-penalty claims. Roberts’s opinion was joined by Thomas, Alito, Gorsuch, Kavanaugh, and Barrett; Sotomayor, Kagan, and Jackson dissented. Gorsuch and Thomas additionally supported the concurrence.",
+        "Affirming vacatur removed the agency order, but did not adjudicate that respondents committed no fraud or foreclose SEC pursuit in the proper forum. Nondelegation, ALJ removal, the independent validity of every other sanction, and all other agency adjudication remained outside this holding. The complete opinion also contains the concurrence omitted from the assigned excerpt; its broader reasoning remains separately attributed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and source limits; majority 27"
+        }
+      ]
+    }
+  ]
+}

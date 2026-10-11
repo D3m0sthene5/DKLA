@@ -1,0 +1,153 @@
+{
+  "id": "lrs-o-tyson",
+  "briefId": "LRS-MAX-TYSON",
+  "title": "Public Citizen Health Research Group v. Tyson",
+  "course": "Legislation and the Regulatory State",
+  "citation": "796 F.2d 1479 (D.C. Cir. 1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "OSHA lowers a carcinogen’s eight-hour exposure limit but drops a proposed short-term limit after executive review; industry and public-health challengers attack different parts of the resulting explanation.",
+  "actors": [
+    {
+      "name": "Occupational Safety and Health Administration",
+      "role": "Agency adopting the ethylene-oxide exposure standard and later declining a short-term limit."
+    },
+    {
+      "name": "Office of Management and Budget",
+      "role": "Reviewed the unpublished draft under Executive Order 12,291 and questioned its analysis."
+    },
+    {
+      "name": "Association of Ethylene Oxide Users",
+      "role": "Challenged the long-term limit and warnings."
+    },
+    {
+      "name": "Public Citizen Health Research Group",
+      "role": "Challenged omission of a short-term limit and alleged improper surrender to OMB."
+    },
+    {
+      "name": "Ethylene Oxide Industry Council",
+      "role": "Supported the decision against a short-term limit."
+    }
+  ],
+  "proceedings": [
+    "OSHA published the one-part-per-million eight-hour limit and reopened the record on a fifteen-minute limit.",
+    "In January 1985 the agency declined a short-term requirement.",
+    "On consolidated review, the D.C. Circuit affirmed the long-term limit and remanded the short-term issue on July 25, 1986."
+  ],
+  "limits": "The unpublished ten-ppm draft short-term limit never became binding through that draft. The court did not decide the legality of OMB intervention, promulgate a short-term limit, or determine current ethylene-oxide requirements. Assigned scanned material stops before the substantive discussion supplied by the complete brief.",
+  "briefSha256": "8d00ad166d5cec7e9fa8cc36d5c77e97df4d95a42e0e607a05b72c21307d8f8b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-MAX-TYSON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Research undermines an older workplace exposure limit",
+      "cue": "Where were workers exposed, and what did OSHA propose?",
+      "paragraphs": [
+        "Ethylene oxide, abbreviated EtO, was used in manufacturing and sterilizing hospital instruments. Enclosed, automated industrial systems still exposed workers during shipping or maintenance. Hospitals used less gas but posed serious risks when staff entered treated areas or imperfectly purged chambers released gas. The case concerned occupational exposure, not consumer use of sterilized instruments.",
+        "In 1971, the Occupational Safety and Health Administration adopted a consensus limit of fifty parts per million averaged over eight hours. Later research suggested cancer, genetic, and reproductive hazards, and scientific organizations recommended lower exposure. After delay litigation, OSHA proposed a rule in 1983 and held hearings generating roughly 1,600 transcript pages and more than 300 exhibits.",
+        "By June 1984, OSHA prepared an unpublished final draft with a one-ppm eight-hour permissible exposure limit, or PEL, and a ten-ppm short-term exposure limit, or STEL, averaged over fifteen minutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and regulatory history; Opinion Parts I–III"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Executive review precedes a published long-term rule and a rejected short-term rule",
+      "cue": "What did each challenger ask the court to review?",
+      "paragraphs": [
+        "Under Executive Order 12,291, OSHA sent the draft to the Office of Management and Budget. OMB questioned predicted benefits, cost effectiveness, and scientific support, especially for the STEL. OSHA published the one-ppm PEL with monitoring, engineering controls, protective equipment, medical surveillance, warnings, and records requirements. It reopened the STEL record and, in January 1985, declined to impose one. The draft containing both limits had never itself been a published binding rule.",
+        "The D.C. Circuit consolidated direct review petitions. The Association of Ethylene Oxide Users attacked the PEL’s evidentiary basis and warnings. Public Citizen Health Research Group attacked the STEL refusal and alleged unlawful surrender of agency decisionmaking to OMB; members of Congress supported that argument as amici. The Ethylene Oxide Industry Council supported omission of the STEL.",
+        "Judge McGowan wrote for Chief Judge Robinson and Judge Wright. The court had to test the long-term scientific findings and the explanation for leaving residual risk without a short-term safeguard. The legality of OMB’s involvement was raised but would remain undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and regulatory history; Procedural posture; Case orientation"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court demands supported risk findings without scientific certainty",
+      "cue": "How did the governing statute frame review?",
+      "paragraphs": [
+        "The Occupational Safety and Health Act required significant risk and a standard reasonably necessary and appropriate to remedy it. For toxic substances, § 6(b)(5) directed protection to the extent feasible using the best available evidence. Section 6(f) required substantial evidence on the record as a whole.",
+        "OSHA’s hybrid rulemaking mixed findings, legislative judgments, and scientific predictions. It had to identify evidence, expose assumptions, explain policies and reasoning, and answer significant contrary arguments. A reviewing court did not choose its own preferred scientific view whenever experts differed.",
+        "The Benzene decision, Industrial Union Department v. American Petroleum Institute, required an evidentiary foundation for significant risk while permitting scientifically supported conservative estimates at the frontiers of knowledge. It did not require certainty. That distinction governed the court’s review of the imperfect studies here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Governing law; Opinion Parts II–III"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Cumulative studies support the hazard finding and modeled risk",
+      "cue": "Why did the industry’s objections not defeat the one-ppm limit?",
+      "paragraphs": [
+        "Worker studies involved small samples, other chemical exposures, uncertain dose levels, and differing cancer outcomes. OSHA acknowledged those weaknesses. Animal studies raised concerns about infections, tumor types, and statistics; the agency responded with expert evidence and, where appropriate, reanalysis. The combined record supported a reasonable cancer inference without one flawless study.",
+        "Genetic effects and reproductive evidence reinforced the conclusion. OSHA distinguished established genetic changes from uncertain estimates of health consequences rather than treating every change as conclusive disease proof. A Finnish study linking pregnancy exposure to spontaneous abortions had disputed controls and methods, but OSHA addressed criticism and considered corroborating animal evidence. Commenter disagreement did not automatically nullify probative value.",
+        "For risk, OSHA extrapolated from the Bushy Run rat study using a linear no-threshold model and animal-to-human conversion. Benzene had rejected unsupported assertion, not this record’s dose-response analysis and supported assumptions. The court expressly reserved whether an unsupported no-threshold premise would suffice. OSHA also relied on an expert conversion study; an alternative Environmental Protection Agency method would produce higher estimates, contrary to industry’s reading.",
+        "At fifty ppm, modeled excess deaths were 634–1,093 per 10,000 workers; at one ppm, twelve to twenty-three. Those were estimates, not observed deaths in the litigated population. OSHA selected one ppm because it could not show a lower long-term limit feasible, not because all significant risk vanished. Even challengers’ lower benefit estimates left significant risk, so the court did not decide every disputed exposure calculation. Warning signs were authorized ancillary protection supported by the cancer and reproductive findings, without a separate numerical risk estimate for each measure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part III and risk-assessment discussion; notes 2–16; Analysis supporting the PEL"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The absence of a dose-rate effect does not answer cumulative exposure",
+      "cue": "What logical step was missing from the STEL refusal?",
+      "paragraphs": [
+        "OSHA reasonably concluded that this record did not establish that the same total dose was more harmful when delivered quickly. New analyses revealed weaknesses in earlier dose-rate evidence, and the agency could reassess it despite contrary staff advice. The court upheld that limited finding without declaring short bursts harmless.",
+        "A separate protective path remained: limiting bursts could reduce total dose even without a special dose-rate effect. OSHA assumed eight-hour compliance captured virtually all STEL benefits, but that required information about actual exposure patterns. Low background exposure could coexist with high brief bursts while the eight-hour average remained lawful. A STEL could reduce those bursts and total exposure below what the PEL alone permitted. Comments and OSHA’s own earlier analysis described that possibility.",
+        "OSHA made no adequate findings showing that real workplace patterns caused PEL compliance to subsume the STEL. Saying that background levels counted in the average did not fill the gap. Significant risk remained at one ppm, and STEL feasibility was uncontested at this stage. The agency therefore needed to explain why a feasible additional limit would not reduce risk, or identify an equally protective alternative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "STEL discussion; notes 17–20; Why refusal to adopt a STEL failed"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The court affirms one choice and remands the other without deciding OMB’s authority",
+      "cue": "What precisely had OSHA to do next?",
+      "paragraphs": [
+        "On July 25, 1986, the court affirmed the one-ppm PEL and remanded refusal of the STEL. OSHA had to adopt a short-term limit or explain through empirical or expert evidence on exposure patterns why it would not further control long-term average exposure. The court did not itself enact the proposed ten-ppm limit or require it regardless of further evidence. It also left intact the finding that special dose-rate effects had not been established.",
+        "Because statutory review supplied a remand, the court declined the constitutional questions about OMB. The judgment did not hold White House review inherently lawful or unlawful, or find an unconstitutional surrender here. No damages or individual enforcement liability were decided, and no separate opinion appeared. Judge Wright’s senior-status note did not remove his participation.",
+        "The assigned scan contains the opening judicial paragraph and an unfinished editorial introduction before jumping from printed page 292 to 319. Its presidential-supervision theme cannot turn the reserved OMB issue into a holding. The complete judicial account supplies the distinction between reasonable science under uncertainty and an unsupported inference about regulatory design."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and reserved question; Exam use; Source and reading scope"
+        }
+      ]
+    }
+  ]
+}

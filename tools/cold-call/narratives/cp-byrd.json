@@ -1,0 +1,126 @@
+{
+  "id": "cp-byrd",
+  "briefId": "CP-047",
+  "title": "Byrd v. Blue Ridge Rural Electric Cooperative, Inc.",
+  "course": "Civil Procedure",
+  "citation": "356 U.S. 525 (1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A lineman wins a negligence verdict after a defense is struck, then loses in the court of appeals; the Supreme Court separates his right to meet that defense from who will decide its disputed facts.",
+  "actors": [
+    {
+      "name": "Byrd",
+      "role": "Injured lineman employed by contractor R. H. Bouligny, Inc."
+    },
+    {
+      "name": "Blue Ridge Rural Electric Cooperative",
+      "role": "South Carolina electricity distributor claiming workers’ compensation immunity."
+    },
+    {
+      "name": "R. H. Bouligny, Inc.",
+      "role": "Independent contractor hired to expand Blue Ridge’s facilities."
+    }
+  ],
+  "proceedings": [
+    "The district judge struck statutory-employee immunity and a jury awarded Byrd a negligence verdict.",
+    "The Fourth Circuit rejected that legal interpretation and directed judgment for Blue Ridge.",
+    "The Supreme Court reversed and remanded for unresolved appellate issues and, if needed, further trial with the disputed defense facts for a jury."
+  ],
+  "limits": "The first jury did not decide statutory employment. The Supreme Court neither restored damages outright nor directly decided whether the Seventh Amendment independently required a jury on this issue.",
+  "briefSha256": "0e0586d0a68f22b16c8884b0955a7f1db2aee462bb8ed5ff81a01864bf6f3ec6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-047"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Byrd is hurt while building Blue Ridge’s facilities",
+      "cue": "Why did his relationship to an independent contractor matter?",
+      "paragraphs": [
+        "Blue Ridge Rural Electric Cooperative distributed electricity in rural South Carolina and hired R. H. Bouligny, Inc., to construct lines, upgrade existing lines, build two substations, and add a breaker station. Byrd, Bouligny’s lineman, was injured connecting lines to a new substation. He alleged Blue Ridge’s negligence and sued in federal court under diversity jurisdiction.",
+        "Blue Ridge invoked South Carolina workers’ compensation law. If the contracted work was part of its own business, Byrd could be its statutory employee despite his immediate employment by Bouligny, making compensation the exclusive remedy and barring negligence recovery. Blue Ridge’s manager described prior construction by company crews, but cross-examination left its extent uncertain.",
+        "An earlier dismissal on asserted nonprofit immunity had been reversed. At the later trial the judge interpreted statutory employment as requiring Blue Ridge to perform relevant work for others, rather than build its own facilities. That reading made evidence of internal construction insufficient, and he struck the defense. A jury then found for Byrd on negligence; it never decided statutory employment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Facts; Procedural History; 356 U.S. 526–530 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Fourth Circuit changes the legal premise and orders judgment",
+      "cue": "Why did Byrd need another chance to meet the defense?",
+      "paragraphs": [
+        "The Fourth Circuit rejected the trial judge’s South Carolina interpretation, assessed the existing evidence, and directed judgment for Blue Ridge. The Supreme Court accepted the statutory interpretation but not that disposition. Justice Brennan explained that Byrd had no reason to rebut a defense the trial court considered legally unavailable. Counsel’s interrupted exchange with the judge did not concede lack of evidence or submit every potential issue finally.",
+        "The manager’s testimony also required credibility choices and inferences. Sufficient proof to keep a defense in the case did not compel its acceptance, and even credited historical construction involved a question of degree about Blue Ridge’s business. Byrd’s motion to strike did not waive a responsive evidentiary opportunity when its legal premise proved wrong. Neither immediate judgment for Blue Ridge nor simple restoration of Byrd’s original judgment was warranted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; Reasoning Part I; 356 U.S. 528–533"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "South Carolina assigns the issue to a judge, but federal practice points to a jury",
+      "cue": "How did the Court test the state rule’s relationship to substantive rights?",
+      "paragraphs": [
+        "For a possible retrial, Blue Ridge relied on South Carolina’s Adams v. Davison-Paxon decision assigning statutory-employment facts to a judge. It argued that Erie required the same federal allocation. The Supreme Court first asked whether that choice of decisionmaker defined the compensation relationship itself.",
+        "The state precedent drew from judicial review of the Industrial Commission’s jurisdiction, where judges had traditionally found relevant facts. Nothing explained why extending that practice to an affirmative negligence defense was integral to substantive rights. State-law immunity remained controlling, but its factfinding mechanism did not necessarily follow.",
+        "That conclusion did not end the inquiry. York’s concern with practical outcomes meant a procedural label was insufficient: judges and juries can reach different results, giving uniformity weight. Against it stood the federal system’s essential judge–jury allocation, operating under the Seventh Amendment’s influence. Herron had protected a federal judge’s role against a state allocation to juries; the institutional principle therefore did not simply favor more jury power in every case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning Part II; 356 U.S. 533–539"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The federal jury function prevails without a direct constitutional ruling",
+      "cue": "What limited the claimed risk of different outcomes?",
+      "paragraphs": [
+        "Using a jury did not guarantee a different result as ignoring a limitations bar might. Federal judges could comment on evidence and credibility and grant a new trial against the weight of evidence. Given that qualified risk and a strong federal structural interest, the state method did not displace federal practice. Disputed facts supporting this defense should go to a jury.",
+        "The Court expressly reserved whether the Seventh Amendment itself independently guaranteed that outcome for this issue. Its influence on federal structure supported the holding without resolving the reserved constitutional question. The analysis considered connection to substantive entitlements, probable outcome effects, and the particular federal interest rather than stopping at a substance-procedure label."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 356 U.S. 535–540 & n.10"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Separate opinions divide over both the record and the decisionmaker",
+      "cue": "What further proceedings did the judgment allow?",
+      "paragraphs": [
+        "Justice Whittaker agreed that Byrd had not waived rebuttal and judgment for Blue Ridge could not stand. He opposed reaching judge–jury allocation then and disagreed on its merits. In his view, the compensation scheme gave the Industrial Commission exclusive jurisdiction over covered claims, with judges deciding its boundary. Jury determination could alter the state arrangement and conflict with York.",
+        "Justice Frankfurter, joined by Harlan, thought counsel had submitted the issue on the existing proof and that accepted state law required judgment for Blue Ridge. He emphasized the Fourth Circuit’s familiarity with local law and would affirm. Harlan separately considered the work’s character conclusive and saw no identified additional evidence capable of changing the result. Their principal disagreement concerned further factfinding, not a separate resolution of Brennan’s balancing.",
+        "On May 19, 1958, the Supreme Court reversed and remanded to the Fourth Circuit, seven votes to two; Part II received six votes to three. That court still had to consider Blue Ridge’s unresolved appellate grounds. Unless those made further trial unnecessary, it would return the case for a new trial of directed issues. Byrd’s status and damages were not finally established."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; Judgment; 356 U.S. 540–559"
+        }
+      ]
+    }
+  ]
+}

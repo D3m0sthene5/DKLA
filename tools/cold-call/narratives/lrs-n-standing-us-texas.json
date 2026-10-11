@@ -1,0 +1,144 @@
+{
+  "id": "lrs-n-standing-us-texas",
+  "briefId": "LRS-ATLAS-N-STANDING-US-TEXAS",
+  "title": "United States v. Texas",
+  "course": "Legislation and the Regulatory State",
+  "citation": "599 U.S. 670 (2023)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Texas and Louisiana obtain a trial judgment against federal immigration priorities, but the Supreme Court finds that the States cannot maintain this suit seeking more arrests of third parties.",
+  "actors": [
+    {
+      "name": "Alejandro Mayorkas, Secretary of Homeland Security",
+      "role": "Issued the 2021 immigration-enforcement guidelines."
+    },
+    {
+      "name": "Texas and Louisiana",
+      "role": "State plaintiffs alleging additional incarceration, health-care, and education costs."
+    },
+    {
+      "name": "United States",
+      "role": "Defended the federal guidelines and sought Supreme Court review before appellate judgment."
+    }
+  ],
+  "proceedings": [
+    "After trial, the district court found state costs, held the guidelines unlawful, and vacated them.",
+    "The Fifth Circuit declined a stay; the Supreme Court granted review before appellate judgment.",
+    "The Supreme Court reversed the district court on June 23, 2023, for lack of standing, with an 8–1 judgment and different rationales."
+  ],
+  "limits": "The Court did not decide statutory compliance, universal APA vacatur, or reserved categories of enforcement litigation. Criticism of Massachusetts v. EPA’s special solicitude belonged to a three-Justice concurrence, not the five-Justice Court opinion.",
+  "briefSha256": "1db85b1061d5224eda2394685f440dcbb70db815e682f868e18e8800fc4b146b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-US-TEXAS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Federal enforcement priorities produce alleged downstream state costs",
+      "cue": "Which detention statutes and agency action were challenged?",
+      "paragraphs": [
+        "Federal immigration statutes directed custody of specified noncitizens. Section 1226(c) addressed certain people released from criminal custody; § 1231(a)(2) required detention during the removal period after a final order. In 2021, Homeland Security Secretary Alejandro Mayorkas issued guidelines prioritizing national-security and public-safety threats and recent unlawful entrants. The policy called for individual assessment rather than automatic priority for every statutory category.",
+        "Texas and Louisiana alleged that the guidelines led to fewer arrests and detentions than those statutes required, increasing state incarceration, health-care, and education costs. After a trial, the district court found costs, held the States had standing, ruled the policy unlawful, and vacated it. The Fifth Circuit declined a stay. The Supreme Court granted certiorari before the court of appeals entered judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 1–3; Facts, statutory setting, and litigation"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Kavanaugh distinguishes financial consequences from a cognizable demand for more arrests",
+      "cue": "Why did the trial findings not settle standing?",
+      "paragraphs": [
+        "Justice Kavanaugh wrote for Chief Justice Roberts and Justices Sotomayor, Kagan, and Jackson. The Court accepted the district court’s finding of costs. It did not deem the losses too small or financial injuries categorically unavailable to States. Instead it examined the interest asserted: a demand that federal courts require more arrests of third parties.",
+        "Standing required injury, causation, and redressability, but historical practice and the judicial role informed what injury could support this particular suit. The majority found no tradition of such actions and relied on Linda R. S. v. Richard D., involving an asserted interest in someone else’s prosecution, for the ordinary absence of a judicially cognizable interest in that prosecution.",
+        "Limited funds and personnel require executive priority choices involving safety, resources, and immigration’s foreign-relations consequences. Courts lacked manageable standards to supervise overall arrest priorities, and a command to increase enforcement would intrude on the Executive’s constitutional enforcement role. Multiple administrations had prioritized; the structural concern did not depend on approval of this policy.",
+        "Federal enforcement routinely affects state revenue and costs positively and negatively. Treating those indirect consequences as enough for this type of suit would draw courts into broad enforcement supervision. That point supported this holding, not general immunity for all federal action affecting state finances."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 3–9 & nn.1–3; Court’s rule and reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority identifies different situations without deciding them",
+      "cue": "What did the holding leave outside its reach?",
+      "paragraphs": [
+        "A person challenging selective prosecution of herself presented a different situation. Congress might expressly authorize identified plaintiffs to seek specified enforcement orders, although the Court did not decide when such a grant could overcome constitutional concerns. Complete abandonment of statutory duties might also differ; the majority understood the States not to have advanced complete abdication here.",
+        "A policy coupling nonenforcement with affirmative legal status or benefits could differ from ordinary priorities. So could continued detention after arrest. The majority relied on the government’s representation that these guidelines concerned apprehension and removal rather than duration of detention already begun. The reservations did not guarantee standing in hypothetical future cases.",
+        "The Court distinguished Massachusetts v. EPA, where a State challenged denial of a statutorily authorized rulemaking petition. It did not overrule that decision or abolish state standing generally. Nor did nonreviewability license disregard of statutes: Congress and voters retained oversight, appropriations, and political mechanisms. The Court decided only that these States could not bring this federal suit for more arrests, not whether the guidelines complied with the statutes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip 9–14 & nn.4–6; Express limits"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gorsuch finds the decisive defect in the available remedy",
+      "cue": "Why would vacating guidelines not necessarily reduce the States’ costs?",
+      "paragraphs": [
+        "Justice Gorsuch concurred in the judgment with Justices Thomas and Barrett. He accepted the financial injury findings and questioned the majority’s history-based reading of Linda R. S. He also questioned the continuing significance of Massachusetts’s special solicitude. The assigned suggestion that lower courts leave that notion aside came from this three-Justice concurrence, not the Court.",
+        "Gorsuch instead relied on redressability. Section 1252(f)(1) restricted lower courts’ authority to enjoin operation of covered immigration provisions. Vacating a guidance document did not order officers to make more arrests; executive discretion remained. A possibility of changed priorities in response to an opinion was not sufficient likely remedial effect, and proposed routes around the injunction restriction rested on speculative future relief rather than a showing at filing.",
+        "He also raised serious questions about construing the Administrative Procedure Act’s “set aside” language to authorize universal vacatur. He examined text, remedial relationships, and historical practice, warned about nonparty effects and forum selection, and emphasized tailoring equitable relief to plaintiffs’ injuries. Those observations did not become a holding on the general validity of APA vacatur."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch slip 1–19; Concurrence in judgment"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Barrett keeps injury, statutory reviewability, and remedies distinct",
+      "cue": "How did her reading of the prosecution precedent differ?",
+      "paragraphs": [
+        "Justice Barrett, joined by Gorsuch, also found redressability dispositive. She read Linda R. S. as concerning the speculative link between prosecution and receipt of child support, not a categorical bar on every injury related to another person’s prosecution. She emphasized that the States disclaimed an interest in prosecution itself and sought detention in proceedings the government already chose to pursue.",
+        "Barrett cautioned against combining separate doctrines. Castle Rock concerned a property entitlement, while Heckler v. Chaney concerned statutory APA reviewability; neither necessarily settled Article III injury. Executive discretion and separation of powers could affect merits or remedies without erasing injury in fact. She therefore supported the judgment without adopting the Court’s injury theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Barrett slip 1–6; Concurrence in judgment"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Alito accepts Texas’s standing and challenges both routes to reversal",
+      "cue": "What did the sole dissenter make of the trial findings and remedies?",
+      "paragraphs": [
+        "Justice Alito would find Texas’s standing under ordinary injury, causation, and redressability, without needing to decide Louisiana’s. He emphasized trial findings concerning withdrawn detainers, reduced detention, supervision costs, recidivism, and expenditures. Those were his account of the trial record, not added factual holdings by the Supreme Court majority.",
+        "He considered invalidation likely to change enforcement and reduce costs. In response to the concurrences, he distinguished limits on lower-court injunctions from Supreme Court authority and invoked existing vacatur practice, while recognizing that the consequential APA question had not been granted and decided.",
+        "Alito found the majority difficult to reconcile with Massachusetts v. EPA and thought it moved statutory reviewability and executive authority into Article III. His account of royal suspending and dispensing powers supported a reading of the Take Care Clause that denied executive power simply to replace mandatory statutes with preferred policy. He criticized uncertain exceptions to the majority’s rule.",
+        "On June 23, 2023, the Court reversed the district court’s judgment, eight to one. Five adopted Kavanaugh’s enforcement-and-injury rationale; three concurred on redressability. Statutory legality, universal vacatur, and the reserved enforcement categories remained undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito slip 1–29 & nn.1–18; Court slip 12–14; Result and significance"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "cp-stewart",
+  "briefId": "CP-050",
+  "title": "Stewart Organization, Inc. v. Ricoh Corp.",
+  "course": "Civil Procedure",
+  "citation": "487 U.S. 22 (1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A copier dealer sues in Alabama despite a Manhattan forum clause, and a transfer dispute turns on the scope of Congress’s federal transfer statute.",
+  "actors": [
+    {
+      "name": "Stewart Organization and shareholder petitioners",
+      "role": "Alabama dealer-side plaintiffs seeking to remain in Alabama."
+    },
+    {
+      "name": "Ricoh Corporation",
+      "role": "Copier manufacturer seeking transfer under the dealership agreement."
+    }
+  ],
+  "proceedings": [
+    "The district court denied Ricoh’s transfer and alternative venue motion under Alabama policy and certified an interlocutory appeal.",
+    "The Eleventh Circuit reversed and instructed transfer, with en banc review largely adopting that result.",
+    "The Supreme Court affirmed reversal of the state-law approach and remanded for the district court’s § 1404(a) assessment."
+  ],
+  "limits": "The Supreme Court did not finally decide transfer, commercial liability, or exact Alabama policy. Its 1988 analysis must be distinguished from later Atlantic Marine instructions.",
+  "briefSha256": "884119c47036c3170ead3f39aedd8996a9919ff6cccf6db90ae0b6b22d52efed",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-050"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A dealership relationship ends in an Alabama lawsuit",
+      "cue": "What did the parties agree about litigation location?",
+      "paragraphs": [
+        "Stewart Organization, an Alabama corporation, agreed to market Ricoh copier products. Ricoh operated nationwide with its principal place of business in New Jersey. Their agreement directed disputes arising under or connected with it to an appropriate state or federal court in Manhattan.",
+        "After the relationship deteriorated, Stewart and shareholder petitioners sued in the Northern District of Alabama in September 1984. They primarily alleged breach, with warranty, fraud, and antitrust claims. Those allegations remained undecided in the venue appeal. Ricoh sought transfer under 28 U.S.C. § 1404(a), alternatively dismissal for improper venue under § 1406.",
+        "The district court understood Alabama policy to disfavor forum-selection agreements and denied relief on that basis. It certified its decision under § 1292(b), enabling an interlocutory appeal before merits litigation ended. A divided Eleventh Circuit panel reversed and instructed transfer; the en banc court largely adopted its approach, treating venue as federal procedure and borrowing The Bremen’s forum-clause standards from admiralty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Facts; Procedure; 487 U.S. 24–25 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Marshall begins with the statute invoked in the motion",
+      "cue": "Why was generalized federal forum-clause policy not the first question?",
+      "paragraphs": [
+        "Justice Marshall’s eight-Justice majority identified congressional legislation as the source of federal authority. A court asks first whether the statute fairly covers the issue and then whether it is constitutional. If both are true, ordinary Erie analysis cannot let contrary state policy displace it. An Act of Congress differs from uncodified judicial practice and from a Federal Rule promulgated under an enabling statute.",
+        "The Eleventh Circuit began too broadly with federal venue interests and The Bremen’s admiralty doctrine. Those considerations could inform the inquiry but did not automatically supply governing diversity law. The immediate request arose under § 1404(a), so the question was whether that provision controlled the clause’s effect on transfer.",
+        "Its convenience, fairness, and interest-of-justice inquiry reached the parties’ agreed preference. The district judge could consider parties and witnesses, the agreement, fairness, and relative bargaining power. A categorical state rule giving the clause no weight would obstruct that multifactor decision. Conversely, automatic state enforcement could not eliminate other federally required interests."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 487 U.S. 26–31 & nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The statutory conflict does not require identical wording",
+      "cue": "Why did the state rule and federal statute overlap enough to trigger federal control?",
+      "paragraphs": [
+        "The asserted Alabama policy focused on whether a contract clause deserved effect; § 1404(a) included that question within a broader transfer assessment. The extra federal factors did not remove conflict. Congress’s choice of multiple considerations was itself what categorical state disregard defeated.",
+        "The Court distinguished Walker, where proper construction left a Federal Rule and state statute answering separate questions. Here the state and federal methods dictated conflicting treatment of the same motion. It found no need to definitively settle Alabama policy’s precise contours to resolve the presented federal question.",
+        "Congress’s constitutional authority was straightforward: transfers among federal district courts concern judicial administration under Article III and the Necessary and Proper Clause, consistent with Hanna’s account of federal practice authority. Congress enacted this statute itself, so it was not tested as a subordinate rule under the Rules Enabling Act. The complaint’s federal antitrust theory also did not supply the holding; the Court reserved whether mixed federal-question and diversity jurisdiction independently changed the analysis because § 1404(a) sufficed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; Notes; 487 U.S. 26 n.3, 27 n.5, 30–32"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kennedy favors strong enforcement; Scalia separates contract validity",
+      "cue": "Where did the separate opinions place the clause in the analysis?",
+      "paragraphs": [
+        "Justice Kennedy, joined by O’Connor, joined fully but stressed legitimate negotiated expectations. Valid forum clauses generally should control absent exceptional circumstances, reducing litigation costs and preliminary forum fights. The Bremen could guide statutory application despite its original admiralty setting. His emphasis was stronger than the majority’s general individualized formulation.",
+        "Justice Scalia agreed that statutory scope came first but distinguished antecedent contract validity from a valid agreement’s weight. Section 1404(a), he argued, governed present convenience and future litigation without clearly creating federal contract-validity law. If state law invalidated the clause, it had no contractual weight, though other factors could still justify transfer.",
+        "Finding no controlling statute on that antecedent question, Scalia applied Erie. Different state and federal treatment would strongly encourage filing and removal choices and materially change litigation opportunities based on diversity. He would apply state validity law. His dissent did not deny federal transfer administration; it contested the statute’s reach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Separate Opinions; 487 U.S. 33–41"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The district court must weigh the clause under federal law",
+      "cue": "What did the Court affirm and leave for remand?",
+      "paragraphs": [
+        "On June 20, 1988, the Supreme Court affirmed the order reversing the district court’s categorical use of Alabama law and remanded. The district court would determine the clause’s appropriate effect under § 1404(a). The Supreme Court itself neither transferred the action finally nor resolved the underlying claims.",
+        "Under Stewart’s formulation the clause was significant, neither automatically disregarded nor invariably dispositive. Later Atlantic Marine instructions for an undisputedly valid clause gave more specific rules about private convenience and transfer’s choice-of-law consequences. Those later rules build on the statutory route but are distinct from the issue and formulation resolved here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Notes; 487 U.S. 31–33; Atlantic Marine 62–66"
+        }
+      ]
+    }
+  ]
+}

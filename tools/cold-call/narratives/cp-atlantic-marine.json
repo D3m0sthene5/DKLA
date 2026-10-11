@@ -1,0 +1,125 @@
+{
+  "id": "cp-atlantic-marine",
+  "briefId": "CP-044",
+  "title": "Atlantic Marine Construction Co. v. U.S. District Court for the Western District of Texas",
+  "course": "Civil Procedure",
+  "citation": "571 U.S. 49 (2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Texas subcontractor sues locally over payment despite agreeing to litigate in Virginia, and the contractor seeks mandamus after transfer is refused.",
+  "actors": [
+    {
+      "name": "Atlantic Marine Construction",
+      "role": "Virginia general contractor, defendant in the payment suit, and mandamus petitioner."
+    },
+    {
+      "name": "J-Crew Management",
+      "role": "Texas subcontractor seeking to keep its contract action in Texas."
+    },
+    {
+      "name": "Western District of Texas",
+      "role": "Court named in the mandamus caption after denying dismissal or transfer."
+    }
+  ],
+  "proceedings": [
+    "The District Court denied dismissal for improper venue and transfer under § 1404(a).",
+    "The Fifth Circuit denied mandamus.",
+    "The Supreme Court reversed the Fifth Circuit and remanded for consideration under the corrected public-interest framework."
+  ],
+  "limits": "The forum clause’s validity was undisputed. The Court did not decide payment liability, direct dismissal itself, or resolve the amicus proposal to use Rule 12(b)(6).",
+  "briefSha256": "2ea148ad099245f4af4f1dfe5b1f8641ad0b7c5015cf0c6c64f9028fc5729fa6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-044"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A construction subcontract selects Virginia for disputes",
+      "cue": "Why was the later Texas filing still statutorily proper?",
+      "paragraphs": [
+        "The Army Corps of Engineers hired Atlantic Marine, a Virginia corporation with its principal place of business there, to build a child-development center at Fort Hood in the Western District of Texas. Atlantic Marine subcontracted with J-Crew, a Texas corporation. They agreed to litigate disputes in Norfolk’s state circuit court or the Eastern District of Virginia’s Norfolk Division. The agreement therefore offered both a state and federal Virginia forum.",
+        "A payment dispute led J-Crew to sue in the Western District of Texas under diversity jurisdiction. Texas satisfied the federal venue statute but lay outside the agreed forums. The validity of the clause itself was undisputed. J-Crew resisted transfer because unwilling witnesses could not be compelled to attend Virginia and willing witnesses would face substantial expense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties; Material Facts; 571 U.S. at 52–54,55–56,62 n.5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Atlantic Marine seeks dismissal, transfer, and then mandamus",
+      "cue": "What analysis kept the action in Texas?",
+      "paragraphs": [
+        "Atlantic Marine moved to dismiss under § 1406(a) and Federal Rule of Civil Procedure 12(b)(3), arguing that the clause made Texas venue improper. Alternatively, it sought transfer under § 1404(a). The District Court denied both. It correctly selected § 1404(a) as the route for the federal forum clause but put the burden on Atlantic Marine and weighed the clause among ordinary private and public factors. Witness availability and cost helped defeat transfer.",
+        "Atlantic Marine sought a Fifth Circuit mandamus order directing dismissal or transfer, explaining the District Court’s appearance in the later Supreme Court caption. The Fifth Circuit found no clear and indisputable entitlement and no clear abuse of discretion. It agreed on § 1404(a) but also said Rule 12(b)(3) could enforce a nonfederal forum clause. The Supreme Court granted review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedural History; 571 U.S. at 53–54,59–61"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court separates statutory venue from the contractual promise",
+      "cue": "Which enforcement device fits each selected court?",
+      "paragraphs": [
+        "Alito wrote unanimously. Venue legislation, generally § 1391, determines whether a federal location is wrong or improper under § 1406(a) and Rule 12(b)(3). Private agreement does not convert a statutorily proper district into an improper one. Otherwise a foreign-court clause could erase venue in every federal district despite Congress supplying a permissible location.",
+        "Section 1404(a) allows transfer from a proper district to another eligible federal district, including one all parties select. If the agreed forum is state or foreign, forum non conveniens supplies the corresponding dismissal route because § 1404(a) transfers operate within the federal system. The same contractual considerations inform both analyses. Naming a court in a contract does not itself eliminate subject-matter-jurisdiction requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; Notes; 571 U.S. at 55–62"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The valid clause changes three aspects of transfer analysis",
+      "cue": "Why could J-Crew not rely on its witnesses’ private inconvenience?",
+      "paragraphs": [
+        "First, J-Crew’s later Texas choice received no weight. It had selected a forum in advance and bore the burden of justifying departure, rather than requiring Atlantic Marine to prove ordinary convenience independently.",
+        "Second, private interests were treated as favoring Virginia. Agreeing to a distant forum accepted foreseeable witness costs and attendance difficulties. Reweighing them after a dispute would reopen the bargain. Genuine public interests, such as congestion and local concerns, remained available, so enforcement was strongly favored but not literally automatic.",
+        "Third, transfer to enforce the clause would not carry Texas choice-of-law rules. Van Dusen and Ferens ordinarily preserve a legitimate initial forum’s state-law framework after a convenience transfer. That protection did not reward filing in violation of a promise. Otherwise J-Crew could obtain Texas conflicts rules simply by filing there first. The Virginia court would use Virginia choice-of-law rules, which did not necessarily select Virginia substantive law. Ordinary judicial unfamiliarity with another state’s law supplied little reason to disregard the contract.",
+        "Forum selection may affect price, risk allocation, and willingness to contract. Preserving those expectations ordinarily serves the interest of justice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and Holding; Reasoning; 571 U.S. at 62–68 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Reversal corrects the framework without deciding the payment claim",
+      "cue": "What remained for the lower courts?",
+      "paragraphs": [
+        "The District Court had placed the burden on the wrong party, credited private inconvenience already allocated by contract, and assumed Texas conflicts law would necessarily follow. The Supreme Court reversed the Fifth Circuit and remanded for the lower courts to consider public interests under the proper standard. It saw no apparent reason in the existing record to deny transfer but left that decision below.",
+        "The Court neither adjudicated the payment obligation nor ordered the Texas action dismissed. It also reserved a Rule 12(b)(6) enforcement theory advanced only by an amicus and not pressed by Atlantic Marine. There were no separate opinions. The holding assumes a valid clause and does not resolve every formation, scope, or validity objection that another agreement might present."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment; Separate Opinions; Notes; 571 U.S. at 61 n.4,62 n.5,67–68"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "cp-afa",
+  "briefId": "CPR-016",
+  "title": "A.F.A. Tours, Inc. v. Whitchurch",
+  "course": "Civil Procedure",
+  "citation": "937 F.2d 82 (2d Cir. 1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A travel company arrives prepared to defend its trade-secret evidence and unexpectedly loses its case over the jurisdictional amount, without a reasonable chance to establish the value of the threatened customer loss.",
+  "actors": [
+    {
+      "name": "A.F.A. Tours, Inc., doing business as Alumni Flights Abroad",
+      "role": "Deluxe overseas tour operator seeking damages and protection of allegedly confidential information."
+    },
+    {
+      "name": "Desmond Whitchurch",
+      "role": "AFA’s former regional tour escort who started a competing business."
+    }
+  ],
+  "proceedings": [
+    "Whitchurch moved for summary judgment on whether AFA’s information qualified as trade secrets.",
+    "The Southern District of New York raised the jurisdictional amount at oral argument and dismissed at the same hearing.",
+    "The Second Circuit vacated and remanded on June 28, 1991, rejecting both immediate jurisdictional dismissal and an alternative merits affirmance."
+  ],
+  "limits": "The historical threshold was more than $50,000. The court’s $51,000 example was conditional arithmetic, not proved profits or damages. The appellate court awarded neither an injunction nor damages and did not establish that the customer list was protected.",
+  "briefSha256": "017026602591b6ffa1e1ba48975a05ffd4adf9a29e6ff3e601689c74f9b0a6eb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-016"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A long-serving escort gains access to a tour operator’s information",
+      "cue": "What did AFA allege happened after the relationship ended?",
+      "paragraphs": [
+        "A.F.A. Tours, doing business as Alumni Flights Abroad, arranged deluxe overseas travel for United States residents, including trips to Australia, New Zealand, and New Guinea. The company alleged substantial investment of money, labor, and time in customer lists, marketing, and tour information it treated as confidential trade secrets.",
+        "Desmond Whitchurch served as AFA’s exclusive escort in those regions from 1972 through 1989 and had access to some of that information. AFA alleged that he resigned around October 1989, took confidential material, started a competing tour business, and solicited or planned to solicit AFA customers.",
+        "AFA sued in diversity in the Southern District of New York. It sought an injunction against any use of the information, compensatory damages not yet ascertainable but believed to exceed $50,000, and at least $250,000 punitive damages. Those requests and allegations did not prove protected secrets, misappropriation, or any recoverable sum. The source does not specify the parties’ particular citizenships; the disputed jurisdictional requirement was amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 318–319; Parties; Material Facts"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A hearing about confidentiality turns immediately into a jurisdictional dismissal",
+      "cue": "What evidence had the parties been prepared to address?",
+      "paragraphs": [
+        "Whitchurch moved for summary judgment on whether the information was confidential enough to qualify as trade secrets. At oral argument, the district judge raised the amount in controversy sua sponte. Whitchurch’s lawyer said solicitations sent to 100–200 former participants produced favorable responses from only two. AFA’s lawyer answered that this first effort did not measure the entire threatened loss: Whitchurch had escorted roughly 1,500 AFA customers and planned more tours.",
+        "The record described approximately seven trips yearly for seventeen years, usually with ten to fifteen people. AFA also invoked the high prices of lengthy deluxe trips. At the end of that same hearing, the judge dismissed for lack of subject-matter jurisdiction, reasoning AFA could not prove more than $50,000 in damages.",
+        "AFA appealed, arguing that it lacked a reasonable opportunity to present jurisdictional evidence and that the judge undervalued both damages and the injunction. Judge Kearse wrote for Judge Newman and District Judge Louis L. Stanton, sitting by designation, after argument on April 22, 1991."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 318–321; Procedural History; Separate Opinions"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Second Circuit requires an opportunity to substantiate a good-faith amount",
+      "cue": "How did legal certainty differ from likely recovery?",
+      "paragraphs": [
+        "Under St. Paul Mercury’s amount-in-controversy standard, a sum apparently claimed in good faith controlled unless it was legally certain the claim fell below the threshold. Before finding the minimum impossible, a court had to give an appropriate, reasonable chance to show a good-faith basis for recovery above it.",
+        "The district judge could and should examine subject-matter jurisdiction. That obligation did not justify resolving a newly raised factual valuation question immediately against a party prepared for a different motion. AFA had no reasonable opportunity to develop the relevant record.",
+        "Nor did failure already to show $50,000 in actual losses establish a legally certain ceiling on all available relief. The inquiry was not a forecast of the most probable verdict. AFA still had to substantiate jurisdiction when properly challenged, but judicial skepticism about likely recovery differed from legal impossibility."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 320–322; Rule and Holding; Reasoning"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The customer base and possible profits defeat an immediate ceiling",
+      "cue": "What exactly did the court’s numerical illustration show?",
+      "paragraphs": [
+        "The years of trips and typical group sizes supported AFA’s approximate 1,500-customer figure. Two favorable replies to one solicitation did not establish how every future effort would perform. Evidence of repeat customers also undermined the assumption that no one would revisit the region or travel again.",
+        "A participant might pay approximately $10,000 given the trips’ duration and character, but AFA’s lawyer could not equate that price with the operator’s earnings. The court instead offered conditional arithmetic: a seventeen-percent margin on a $10,000 trip for thirty diverted customers—two percent of 1,500—would yield $51,000. Neither the margin nor the thirty diversions was proved. The example showed why the record failed to establish a legally certain amount below the historical $50,000 threshold.",
+        "Trade-secret remedies could reflect the plaintiff’s loss or the defendant’s unjust gain. Those measures were alternative valuation possibilities, not permission to double count the same economic injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 320–322; Reasoning; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The requested injunction and punitive damages require separate consideration",
+      "cue": "Why did the first tour’s success not measure all requested protection?",
+      "paragraphs": [
+        "AFA sought to prohibit any use of its information, not only the initial competing tour. The right’s value included potential future impairment, such as disclosure or sale to operators better able to exploit the list. An injunction preventing that harm could be valuable even if Whitchurch’s first solicitation produced little business. The district court could not measure it solely through realized loss.",
+        "Controlling New York law apparently permitted punitive damages for sufficiently gross and wanton trade-secret misconduct. Whether AFA could establish that remained open, but the record did not foreclose it. The pleaded $250,000 did not guarantee recovery; it identified potentially available relief requiring consideration.",
+        "The court used the value of the right protected and harm prevented in this case. The assigned note describes different circuits’ approaches to whether defendant-side compliance costs may also value nonmonetary relief, so the decision did not settle every jurisdiction’s valuation perspective."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Casebook pp. 320, 322–324; Reasoning; Notes"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Disputed confidentiality prevents affirmance on a different ground",
+      "cue": "What did the remand leave unresolved?",
+      "paragraphs": [
+        "Whitchurch’s original trade-secret argument did not supply an alternative basis for affirmance. AFA offered affidavits about development and protection of the list, while Whitchurch disputed confidentiality. Viewing reasonable inferences for AFA as the summary-judgment opponent, the appellate court found genuine material disputes. It did not declare every customer list a trade secret.",
+        "On June 28, 1991, the Second Circuit vacated the judgment and remanded. AFA gained a fair opportunity to substantiate the jurisdictional amount and pursue the claims, not a damages award or injunction. It could still lose on confidentiality, misappropriation, or proof of loss despite placing enough at stake for jurisdiction. No separate opinion was reported.",
+        "The supplied notes distinguish the historical $50,000 threshold from the later $75,000 figure. The $51,000 illustration exceeds only the threshold used in this case; a new problem must apply its own governing amount and avoid duplicating remedies. Jurisdictional competence and success on the merits remain separate questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Full opinion Part II.B and conclusion; Casebook pp. 321–324; Separate Opinions; Notes"
+        }
+      ]
+    }
+  ]
+}

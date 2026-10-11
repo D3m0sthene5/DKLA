@@ -1,0 +1,145 @@
+{
+  "id": "lrs-k-dolan",
+  "briefId": "LRS-ATLAS-K-DOLAN",
+  "title": "Dolan v. United States Postal Service",
+  "course": "Legislation and the Regulatory State",
+  "citation": "546 U.S. 481 (2006), reversing 377 F.3d 285 (3d Cir. 2004)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A woman’s alleged fall over mail on her porch tests whether the postal exception protects every delivery mishap or only specified failures in transmitting the mail.",
+  "actors": [
+    {
+      "name": "Barbara Dolan",
+      "role": "Recipient alleging serious injury after tripping on mail left on her porch."
+    },
+    {
+      "name": "Michael Dolan",
+      "role": "Her husband, who asserted a derivative consortium claim but had not timely exhausted it."
+    },
+    {
+      "name": "United States",
+      "role": "Proper defendant under the Federal Tort Claims Act; initially sued alongside the Postal Service."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed under the postal exception.",
+    "The Third Circuit affirmed on August 2, 2004.",
+    "The Supreme Court reversed and remanded on February 22, 2006."
+  ],
+  "limits": "The Court assumed a comparable private-delivery injury could support state-law damages. It did not determine negligence, causation, damages, every possible FTCA exception, or restore the husband’s unexhausted claim.",
+  "briefSha256": "f8d340e14187ff4c499038276abf55f7c59e4c793797190d345242308dea4008",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-K-DOLAN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Dolan alleges that delivered mail became a tripping hazard",
+      "cue": "How did the injury claim reach federal court?",
+      "paragraphs": [
+        "Barbara Dolan alleged that on August 25, 2001, she tripped over letters, packages, and periodicals a postal employee had left on her porch and suffered serious injuries. She pursued the required administrative claim, which was denied April 18, 2002. On October 15 she sued the United States and the United States Postal Service in the Eastern District of Pennsylvania under the Federal Tort Claims Act, or FTCA. Her husband Michael sought loss-of-consortium damages.",
+        "The Dolans later acknowledged that only the United States was the proper defendant. The Postal Reorganization Act authorizes the Service to sue and be sued, but expressly applies the FTCA to torts arising from postal activities. The FTCA generally makes the United States answer for specified employee torts like a private person in comparable circumstances, while retaining exceptions and excluding remedies such as punitive damages and prejudgment interest.",
+        "The central exception, 28 U.S.C. § 2680(b), preserves immunity for claims arising from loss, miscarriage, or negligent transmission of mail. The dispute concerned whether negligent transmission included hazardous placement causing a fall, or described failures in arrival, timing, destination, or condition of the mail."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Accident and statutory structure; 546 U.S. at 483–86; Third Circuit factual paragraphs"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court and Third Circuit apply a broad transmission reading",
+      "cue": "Why did the first appeal end in dismissal?",
+      "paragraphs": [
+        "The Government moved under Rule 12(b)(1) on February 7, 2003. Judge Mary A. McLaughlin dismissed on March 19, treating Barbara’s claim as within the postal exception and Michael’s as derivative. On appeal, the Dolans conceded that Michael had not timely exhausted administrative remedies, leaving Barbara’s claim as the appellate dispute.",
+        "Judge Roth’s unanimous Third Circuit opinion, with Chief Judge Scirica and Judge McKee, reviewed the jurisdictional dismissal fully. Dolan urged a narrow exception for lost, late, or damaged mail, relying on the general waiver, history, and purposes; she disputed Bono’s contrary package-placement decision. The panel instead stressed that immunity waivers must be unequivocal and strictly construed for the Government. It expressly disagreed with the Second Circuit’s Raila decision. If negligent transmission was ambiguous, the immunity canon and broad arising-out-of wording favored dismissal.",
+        "The panel read legislative concern about ordinary postal mishaps to include delivery, not just sorting and carriage, and cited Robinson’s similar view in its sole judicial footnote. Transmission began with postal receipt and ended with delivery. Porch placement was part of that ordinary operation; employees could not monitor later retrieval, and resulting accidents might be unavoidable. The reading protected an important government activity and limited excessive or fraudulent claims. On August 2, 2004, the Third Circuit affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "District proceedings; Third Circuit judgment and reasoning; 377 F.3d 285"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Kennedy reads transmission together with loss and miscarriage",
+      "cue": "What narrowed the phrase despite its possible dictionary breadth?",
+      "paragraphs": [
+        "The Supreme Court granted review to resolve the conflict with Raila. Justice Kennedy acknowledged that transmission alone could encompass delivery and a resulting porch hazard. But a dictionary’s outer possibilities did not settle the statutory phrase. Context, neighboring words, purpose, and precedent mattered.",
+        "Loss described destruction or misplacement; miscarriage described delivery to the wrong address. Together they addressed failure to deliver correctly and on time. The Court found it unlikely that negligent transmission then silently expanded the list to every injury caused during delivery. Associated-word reasoning instead confined it to negligence causing mail to be lost or to arrive late, damaged, or at the wrong address. This did not deny that final placement is part of delivering mail; it identified the kinds of transmission failures the exception covered.",
+        "Kosak supplied further support. Although deciding the customs exception, it contrasted that broad provision with the specific postal exception and explained that Congress intended negligent postal-driving claims to remain available. Both sides accepted that treatment. Because trucks carrying mail are transmitting it, the postal exception could not immunize every negligent act occurring during transmission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Supreme Court holding; Precedent; 546 U.S. at 485–88"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court rejects a distinction between mail-caused injuries and incidental accidents",
+      "cue": "Why did its narrower reading still bar some personal-injury claims?",
+      "paragraphs": [
+        "The Government proposed immunity where mail itself caused the injury, while allowing injuries only circumstantially related to mail. Kennedy found no textual basis. The distinction could turn liability on an empty versus full mail sack or a pedestrian’s being struck by a truck mirror versus a dangling parcel. Those were illustrative hypotheticals, not events in Dolan’s accident.",
+        "The majority’s approach still covered both direct and consequential harms from the listed delivery failures. Missing or late medicines and foreclosure notices could cause personal or financial loss, and negligently shattered shipped china could cause injury. A harmed person rather than a damaged package did not automatically place a claim outside the exception.",
+        "Postal operations were enormous, but Congress had written other exceptions to cover whole classes of activities and chose three specified categories here. Registration and insurance could partly avoid or compensate the losses within those categories. Discretionary administrative settlements for other injuries were not equivalent automatic remedies. Ordinary protections against frivolous suits would govern eligible slip-and-fall claims as they did private-delivery and postal-driving litigation.",
+        "The majority also declined to use narrow construction of sovereign-immunity waivers as a shortcut to an expansive exception. In this statute, overbroad exceptions could defeat the sweeping waiver. The task was to identify the exception’s language and reason without automatically enlarging or shrinking them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Practical consequences; Immunity canon; 546 U.S. at 488–92"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas sees ordinary transmission language and unresolved ambiguity differently",
+      "cue": "Why would he preserve the dismissal?",
+      "paragraphs": [
+        "Justice Thomas dissented. Ordinary transmission meant sending or conveying through delivery, and he saw no indication that Congress departed from that meaning. His first note pointed to other postal statutes using the terms that way. The broad arising-out-of phrase could cover both a cut from negligently broken glassware and a fall over an undamaged mail pile; he thought the majority’s boundary difficult to justify. The associated-words principle did not require every broad item in a series to shrink to its narrowest neighbors.",
+        "Thomas read Kosak as preserving the particular vehicle-accident category, not establishing the majority’s broader consequences-based distinction. He also questioned insurance’s reach, especially for recipients and sentimental value, and pointed to discretionary settlement authority for cases like Dolan’s.",
+        "Even if both constructions were equally plausible, he would resolve the uncertainty for immunity. Exceptions condition the waiver as much as its affirmative language. He distinguished cases narrowing exceptions where Congress clearly permitted the substantive claim and only the procedural form was disputed. Thomas would have affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas dissent; 546 U.S. at 492–99 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Supreme Court allows Barbara’s claim to proceed without deciding liability",
+      "cue": "What did the remand change?",
+      "paragraphs": [
+        "On February 22, 2006, the Supreme Court reversed the Third Circuit and remanded. Chief Justice Roberts and Justices Stevens, Scalia, Souter, Ginsburg, and Breyer joined Kennedy. Thomas dissented and Alito did not participate, making the decision seven to one.",
+        "The postal exception did not bar Barbara’s alleged porch-hazard claim. The Court assumed, without conclusively determining, that comparable private conduct could support recovery under applicable state law. Neither appellate court found a breached duty, established causation, or fixed damages. The reversal also did not restore Michael’s unexhausted consortium claim or resolve every other FTCA issue.",
+        "Katzmann’s assigned methodological discussion addresses these two distinct appellate decisions. Its comments and reference numbers are editorial context, not further judicial holdings. The historical result is permission for further proceedings under the general waiver, not a damages award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition; Two decisions and assigned context; 546 U.S. at 482, 485, 492"
+        }
+      ]
+    }
+  ]
+}

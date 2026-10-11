@@ -1,0 +1,142 @@
+{
+  "id": "cp-concepcion",
+  "briefId": "CP-ATLAS-CONCEPCION",
+  "title": "AT&T Mobility LLC v. Concepcion",
+  "course": "Civil Procedure",
+  "citation": "563 U.S. 333 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Customers challenge sales tax on advertised free phones under an agreement providing individual arbitration and barring class claims. California’s class-waiver doctrine meets the federal requirement to enforce agreed arbitration procedures.",
+  "actors": [
+    {
+      "name": "Vincent and Liza Concepcion",
+      "role": "Cellular customers alleging false advertising and fraud over $30.22 in sales tax."
+    },
+    {
+      "name": "Cingular, later AT&T Mobility",
+      "role": "Service provider; AT&T acquired Cingular in 2005 and renamed it in 2007."
+    }
+  ],
+  "proceedings": [
+    "The Concepcions sued in the Southern District of California in March 2006; their suit joined a putative class action.",
+    "The district court denied AT&T’s March 2008 motion to compel arbitration under Discover Bank.",
+    "The Ninth Circuit affirmed; the Supreme Court reversed and remanded five to four on April 27, 2011."
+  ],
+  "limits": "This account follows the canonical historical brief without a new audit or later-law certification. The claim involved free phones, not promised free service. The Court did not decide fraud merits, forbid consensual class arbitration, or announce that all small claims are viable under every individual clause. Thomas’s formation-only approach and later editorial qualifications remain separate.",
+  "briefSha256": "637fe266a938ff47e2ff3059ca20e6588f612435f6f3763c73780e9d0f8e47de",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-CONCEPCION"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Concepcions buy service and dispute tax on the advertised phones",
+      "cue": "What did their arbitration agreement require?",
+      "paragraphs": [
+        "Vincent and Liza Concepcion bought cellular service from Cingular in February 2002. Phones were advertised as free, but they paid $30.22 in sales tax based on retail value. They alleged false advertising and fraud, not failure to provide the promised service. AT&T acquired Cingular in 2005 and renamed it in 2007.",
+        "The agreement required arbitration and barred either side from participating as a class member or representative; arbitrators also could not consolidate multiple people’s claims. The controlling version came from AT&T’s December 2006 revision under its amendment power.",
+        "A customer first sent a one-page dispute notice and could demand arbitration after thirty unresolved days. AT&T paid costs for nonfrivolous claims; proceedings occurred in the billing county; claims of $10,000 or less could use in-person, telephone or documentary procedures at the customer’s option. Small-claims court remained available. Arbitrators could grant individual injunctions and presumably punitive damages, while AT&T could not recover its own attorney fees.",
+        "If the award exceeded AT&T’s last written settlement offer, the customer received at least $7,500 and twice the attorney fees. The minimum later rose to $10,000 in 2009, but the decision analyzed the $7,500 terms. These favorable individual features became part of the debate over whether class proceedings were necessary to pursue small harms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and contractual arrangement; 563 U.S. 336–337 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts refuse enforcement under California’s class-waiver doctrine",
+      "cue": "Why did they regard a generally fair individual process as insufficient?",
+      "paragraphs": [
+        "The Concepcions filed in federal court in the Southern District of California in March 2006. Their case was consolidated with a putative class action. AT&T moved to compel arbitration in March 2008. The district court acknowledged favorable individual procedures and potentially greater recovery than class participation, but denied enforcement under California’s Discover Bank rule. The Ninth Circuit affirmed.",
+        "Discover Bank deemed a class waiver unconscionable in a consumer adhesion contract where disputes foreseeably involved small damages and the stronger party allegedly schemed to cheat many people of small sums. California treated that waiver as effectively excusing fraud or willful injury. It applied to class-litigation waivers as well as arbitration waivers. The lower courts regarded it as ordinary unconscionability that protected deterrence, not discrimination against arbitration.",
+        "The Concepcions invoked § 2 of the Federal Arbitration Act, or FAA, which preserves generally available legal or equitable grounds for revoking a contract. AT&T answered that mandatory availability of class proceedings still obstructed federal protection of arbitration on agreed terms. The Supreme Court therefore had to examine the rule’s operation as well as its nondiscriminatory label."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and competing arguments; 563 U.S. 337–344"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority finds that a general defense can still obstruct arbitration",
+      "cue": "Why did equal treatment not complete the saving-clause inquiry?",
+      "paragraphs": [
+        "Justice Scalia wrote for Chief Justice Roberts and Justices Kennedy, Thomas and Alito. Fraud, duress and unconscionability could invalidate arbitration agreements as generally applicable defenses; rules targeting arbitration or deriving meaning from its existence could not. But even nominally general rules could demand procedures incompatible with arbitration. Hypothetical requirements of judicial discovery, ordinary evidence rules or a jury would undermine arbitration even if they also applied to litigation.",
+        "FAA §§ 2, 3 and 4 emphasized enforcing the parties’ agreed process. They could choose specialized decisionmakers, confidentiality, limited issues and streamlined procedure. Efficiency and contractual choice reinforced one another; efficiency did not license disregarding the contract.",
+        "The majority considered Discover Bank’s limits weak in practice: consumer contracts were often adhesive, small damages was flexible, and wrongdoing required only an allegation. Formal availability of individual claims did not remove class incentives or companies’ risk of duplicative proceedings. The rule would practically require class arbitration. States could still address adhesion, for example through waiver disclosure, if their measures did not frustrate the FAA or agreed terms. That reservation was conditional, not a blanket safe harbor for every unconscionability doctrine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; 563 U.S. 339–347 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Imposed class procedure changes arbitration’s structure and risks",
+      "cue": "What differences did the Court identify between agreed bilateral and required class arbitration?",
+      "paragraphs": [
+        "Class certification, typicality, adequate representation and class discovery added threshold complexity and delay. The majority contrasted brief consumer proceedings with cited American Arbitration Association data in which class arbitrations had not produced final merits awards. Binding absent members also required notice, representation, hearing opportunities and opt-out rights, importing formality and third-party interests into a private process. The majority doubted that the 1925 Congress intended arbitrators to implement these unanticipated class protections in imposed proceedings.",
+        "Aggregation multiplied stakes and settlement pressure while FAA § 10 generally permitted review for corruption, misconduct or excess of authority, not ordinary legal error. A small mistake in a bilateral dispute had limited consequences; the same mistake across thousands of claims could create enormous exposure and deter firms from arbitration altogether.",
+        "The Court did not prohibit parties from agreeing to class arbitration. Its comparison was the selected bilateral process against a state-imposed class alteration, expressly rejecting the dissent’s class-litigation baseline. It also rejected necessity for small claims as a reason to impose FAA-inconsistent procedures. On these terms, the contingent payment and fee provisions could encourage meritorious claims and make consumers whole; that did not establish economic feasibility for every small claim under every agreement.",
+        "On April 27, 2011, the Court held the FAA preempted Discover Bank’s application to the individual-arbitration agreement, reversed the Ninth Circuit and remanded. It decided no false-advertising or fraud merits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority reasoning; Issue, holding and judgment; 563 U.S. 347–352 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thomas joins while proposing a narrower textual basis",
+      "cue": "How did his revocation theory differ from the majority’s obstacle analysis?",
+      "paragraphs": [
+        "Justice Thomas reluctantly joined the majority to give lower courts a controlling interpretation while retaining objections to purposes-and-objectives preemption. Reading § 2’s revocation language with § 4’s reference to the making of an agreement, he would limit preserved defenses to formation problems such as fraud, duress or mutual mistake.",
+        "On that theory, Discover Bank failed because it condemned a properly formed contract as exculpatory on public-policy grounds. Thomas acknowledged that the parties had not fully developed his interpretation and that a suitable future case deserved further briefing. His extended note treated broader precedent language as dicta or understood its defenses as formation-related. This was his separate explanation, not replacement of the majority’s general-defense and obstruction framework."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas concurrence; 563 U.S. 352–357 & starred note"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Breyer would preserve California’s nondiscriminatory defense",
+      "cue": "Why did the dissent dispute both the baseline and the practical adequacy of individual claims?",
+      "paragraphs": [
+        "Justice Breyer dissented with Justices Ginsburg, Sotomayor and Kagan. California invalidated some class waivers through ordinary contract principles without singling out arbitration or banning every waiver. The FAA’s purpose, for the dissent, was equal footing with other contracts, not preservation of every conceivable efficiency benefit.",
+        "Because California equally restricted litigation waivers, Breyer considered the real choice class arbitration versus class litigation. Class arbitration could outperform that alternative and avoid thousands of separate cases. Arbitration of high-value commercial disputes also undermined treating substantial stakes as inherently inconsistent with the process. Statutory history and established class practice did not support bilateral proceedings as indispensable.",
+        "The dissent also questioned the apparent generosity of the $7,500 minimum: AT&T could offer the claim’s face value and eliminate the contingent payment, leaving little incentive for legal help over $30.22. California could reasonably use aggregation to prevent systematic small harms becoming unenforceable. Equal treatment, the saving clause and federalism therefore supported preserving the state rule.",
+        "The decision was five to four. Later assigned discussions of Italian Colors, DIRECTV, Epic Systems and possible procedural-unconscionability arguments concern other decisions or editorial analysis; they are not additional Concepcion holdings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer dissent; Assigned-source reconciliation; 563 U.S. 357–367"
+        }
+      ]
+    }
+  ]
+}
