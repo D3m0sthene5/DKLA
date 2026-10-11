@@ -2,11 +2,11 @@
   "date": "2026-10-11",
   "version": "v2.4",
   "coverage": {
-    "mapCases": 390,
-    "supportingCases": 71,
-    "customNarratives": 461,
-    "total": 461,
-    "pending": 1008,
+    "mapCases": 392,
+    "supportingCases": 230,
+    "customNarratives": 622,
+    "total": 622,
+    "pending": 847,
     "inventoryMapCases": 392,
     "inventorySupportingCases": 1077,
     "inventoryTotal": 1469
@@ -144,6 +144,49 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "bollinger",
+      "title": "Bollinger v. Central Pennsylvania Quarry Stripping and Construction Co.",
+      "briefId": "CT-CB-0543",
+      "words": 513,
+      "sourceWords": 737,
+      "episodes": 4,
+      "narrativeSha256": "8a54a7aa39201dcc3cd23c7651c8d35368938c56c94421d0d651e1874b96d391",
+      "sourceSha256": "d14eff879e9514a2f78d0c918d8d08c30cb19db88e2042e71717aa86119f03f6",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-010",
+      "title": "Lavender v. Kurn",
+      "briefId": "CP-010",
+      "words": 695,
+      "sourceWords": 1644,
+      "episodes": 5,
+      "narrativeSha256": "18324cf20de0260d655304faf40d441c9ed85f54a4890bfd5ac89449225ca53f",
+      "sourceSha256": "1adbee39278dd7dc7417bdad783863b859a562f39e397ede6738b3ee8d19cbab",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-039",
+      "title": "Executive Software North America, Inc. v. United States District Court",
+      "briefId": "CP-039",
+      "words": 602,
+      "sourceWords": 1498,
+      "episodes": 4,
+      "narrativeSha256": "286e5e5aa706ff4599ed8155a2c64abbddb3a532d29b368cc89d1bcef9c75e02",
+      "sourceSha256": "402cadb12ebb48b5c3b5b4c105e1712bcb6fcf3d6a451aeb597ec2d2daf95cd4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-094",
       "title": "In re Petition of Sheila Roberts Ford",
       "briefId": "CP-094",
@@ -152,6 +195,21 @@
       "episodes": 4,
       "narrativeSha256": "de83664d4c5f9a3501def1df2fd0628b8657cec2f724c3a403aabf429fc56ad1",
       "sourceSha256": "a5addf581dc04fedfb9252484e78944c82b847c72a7f8654fc26763687af9e79",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-099",
+      "title": "Schlagenhauf v. Holder",
+      "briefId": "CP-099",
+      "words": 910,
+      "sourceWords": 1987,
+      "episodes": 6,
+      "narrativeSha256": "f5fc565f75dba04e327550748987df5a7a92422ef45f31ddbe0c7de3bdcfb68e",
+      "sourceSha256": "070ecec7c4581dcfc51b293d3edf8c952fde6907b95105e0d947f66d72709d88",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -174,6 +232,36 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-101",
+      "title": "Upjohn Co. v. United States",
+      "briefId": "CP-101",
+      "words": 899,
+      "sourceWords": 1901,
+      "episodes": 6,
+      "narrativeSha256": "4cbc4623cae9f705d9ff85a4410050b35aa2f24da394776f4d522864c409ba31",
+      "sourceSha256": "459b731fa499090ce48394272e5ea58cfc7f106945c0d6589caca40cc8eca091",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-106",
+      "title": "In re Peterson (Ex parte Peterson)",
+      "briefId": "CP-106",
+      "words": 726,
+      "sourceWords": 1719,
+      "episodes": 5,
+      "narrativeSha256": "e40af296406d0332ebf61d4cb6ba88be9569ca83c63e5372361fdf433f9a9e4e",
+      "sourceSha256": "5c70bdadee15e5aca3c9147c83f2f4513711b6792181fd8687f11084930e9d14",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-109",
       "title": "Beacon Theatres, Inc. v. Westover",
       "briefId": "CP-109",
@@ -182,6 +270,66 @@
       "episodes": 4,
       "narrativeSha256": "0f91d1f2c450a35bb881910aec57a73d8a133e42c3c37996226d72473f6e02b1",
       "sourceSha256": "f551449576e48b396448b253d27eff6d4757a8fb566fc6705a70a6c4e504ad23",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-111",
+      "title": "Chauffeurs, Teamsters and Helpers Local No. 391 v. Terry",
+      "briefId": "CP-111",
+      "words": 1158,
+      "sourceWords": 2054,
+      "episodes": 8,
+      "narrativeSha256": "6502a16c2cc76c77fd9329913fc2c0c187eaf3c155425126b667bfda2d4d182f",
+      "sourceSha256": "c3be50f86795c1c0c03791ffd0d390256cce6a62149c503b2be69616d5f62036",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-112",
+      "title": "Markman v. Westview Instruments, Inc.",
+      "briefId": "CP-112",
+      "words": 676,
+      "sourceWords": 1658,
+      "episodes": 5,
+      "narrativeSha256": "df7a02e3994f37cbff1e5e79e377770ce617ced3bdfe1756dc50f1d46b560ba5",
+      "sourceSha256": "ecc51b26ae31c0946d2631fa1f984f141fbdf8264c3753595427009334ccd183",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-114",
+      "title": "Edmonson v. Leesville Concrete Co., Inc.",
+      "briefId": "CP-114",
+      "words": 1049,
+      "sourceWords": 2063,
+      "episodes": 8,
+      "narrativeSha256": "c032336b51b89dffb3ae4a11dde041ab22ba8bbb4f86c602bc478c5d8f21dc78",
+      "sourceSha256": "e81f7c93e247373a8f4337ffc03d42f22590146e2a7eda12ebf58b364ee903cb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-116",
+      "title": "Reeves v. Sanderson Plumbing Products, Inc.",
+      "briefId": "CP-116",
+      "words": 1118,
+      "sourceWords": 2126,
+      "episodes": 7,
+      "narrativeSha256": "44db08f01da2bd72300d79e75db9cc29ac8aff7780bf4afaeb9fa8c83e47093e",
+      "sourceSha256": "dd005b2b51e364089a4d0410c186fc48483e439c7aa0020fe90e5dbc7d34b284",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -277,6 +425,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-136",
+      "title": "Rush v. City of Maple Heights",
+      "briefId": "CP-136",
+      "words": 428,
+      "sourceWords": 742,
+      "episodes": 4,
+      "narrativeSha256": "ae21b315bb830c14b3619aaf0c9970aa95ad266abb4b1dd23f5fd3f9dc4c6956",
+      "sourceSha256": "ef2cfadc755c04e4f07df2a3a537c2a66ffd27d642ad025c680b61fb5859132f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-137",
       "title": "Mathews v. New York Racing Association, Inc.",
       "briefId": "CP-137",
@@ -287,6 +450,36 @@
       "sourceSha256": "545a9dc617e81f537f93f8709e42aebc97d71de9707f188825c1117e915f57a0",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-140",
+      "title": "Cromwell v. County of Sac",
+      "briefId": "CP-140",
+      "words": 962,
+      "sourceWords": 1825,
+      "episodes": 8,
+      "narrativeSha256": "453a81ce213c20f4ef71b2c8228c2a9d99f0fa0f9d5a94f984e3f2bf36dac22c",
+      "sourceSha256": "0e265f2e7e06e330fe4b78aad11304c6bcbe29c584772359bb31c9cc6e06fecf",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-141",
+      "title": "Russell v. Place",
+      "briefId": "CP-141",
+      "words": 450,
+      "sourceWords": 1493,
+      "episodes": 4,
+      "narrativeSha256": "20925c86510d388e2657a0238147aea28252c433e0b99547b91ea0644bf17f72",
+      "sourceSha256": "8188bb5ecac7db126158bf86ad90827c9ca97b62326d6adfc11db7d598f1dc40",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
       "literalNumberCandidates": []
     },
     {
@@ -363,6 +556,156 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-151",
+      "title": "Thompson v. Thompson",
+      "briefId": "CP-151",
+      "words": 743,
+      "sourceWords": 1927,
+      "episodes": 6,
+      "narrativeSha256": "70423298ebea80c91b6c5543f16b9b68cc9add8fb50624975a6a24177a6f545d",
+      "sourceSha256": "9f9046597ce292309428a6c05141c20c6b1988940003805cb2c36f1b10a64801",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-152",
+      "title": "Allen v. McCurry",
+      "briefId": "CP-152",
+      "words": 1002,
+      "sourceWords": 1987,
+      "episodes": 7,
+      "narrativeSha256": "b0de31ba3e68c4241d111bd1062285cb7481ce5169691bc54c1468922911728f",
+      "sourceSha256": "667081725a8b149914b9bd0408e7708ebe70583730e3383898e8a4520419f5e3",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-153",
+      "title": "Semtek International Inc. v. Lockheed Martin Corp.",
+      "briefId": "CP-153",
+      "words": 734,
+      "sourceWords": 1773,
+      "episodes": 6,
+      "narrativeSha256": "3074819315ce99c1c35e28366c7f975a18c060aca7ce213939dde39465a203b4",
+      "sourceSha256": "a09b71e234424198dfe6497aa32fabbc0fa1da64ebcf993ca977748ab73706a5",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-483-CERTIFY",
+      "title": "Northern Mariana Islands v. Canadian Imperial Bank of Commerce — certification",
+      "briefId": "CP-COMP-CB-483-CERTIFY",
+      "words": 353,
+      "sourceWords": 643,
+      "episodes": 3,
+      "narrativeSha256": "a159cb7e1e2de387e7b16b0d178079a3246358478a7c3c34180d29561ec1a345",
+      "sourceSha256": "371da913fd7700e251f178cbd762fe69a450a08764a736a7482c05b8e43e5310",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-028",
+      "title": "Allstate Insurance Co. v. Hague",
+      "briefId": "CP-COMP-CB-CAP-028",
+      "words": 814,
+      "sourceWords": 1562,
+      "episodes": 5,
+      "narrativeSha256": "5dff66b752c5eb1d0401603086121e813c733ff23c4764f9e729dad54d3cab02",
+      "sourceSha256": "14a027559b8bd548637b6ec09fea48fefc93fe54f608fcb4819a84959936833d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-076",
+      "title": "Dusenbery v. United States",
+      "briefId": "CP-COMP-CB-CAP-076",
+      "words": 654,
+      "sourceWords": 1437,
+      "episodes": 4,
+      "narrativeSha256": "94fee99e13ab8a5668e36e100afe660815a1f7d977e6f610cc40fdcd24995bbd",
+      "sourceSha256": "941a52b6e77308f2fd31a3f9457c0750d8f493a113ccf3091027cbcd0a854fe7",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-087",
+      "title": "Volkswagenwerk Aktiengesellschaft v. Schlunk",
+      "briefId": "CP-COMP-CB-CAP-087",
+      "words": 750,
+      "sourceWords": 1516,
+      "episodes": 5,
+      "narrativeSha256": "cc2cc384076ba35ebadfbd7a2c1b7a8325430f27478ccfcedc6142f136dbdb95",
+      "sourceSha256": "d47c05173a6073281ebcbd6497e4c37c7e5424171b2922c759e0490277b2dd1e",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-088",
+      "title": "Rio Properties, Inc. v. Rio International Interlink",
+      "briefId": "CP-COMP-CB-CAP-088",
+      "words": 723,
+      "sourceWords": 1546,
+      "episodes": 5,
+      "narrativeSha256": "d53e11daf1382dae2dea9c2e0812e6dd5880ce2690ea5f1d3c77395a965ea3fc",
+      "sourceSha256": "afe7da9c50e7495f00ad3a1b81387e334e8e8eeb9c22501488f0d5972798d213",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-089",
+      "title": "Republic of Sudan v. Harrison",
+      "briefId": "CP-COMP-CB-CAP-089",
+      "words": 829,
+      "sourceWords": 1504,
+      "episodes": 5,
+      "narrativeSha256": "d44b1f8268a57ccdce1c3fedc08829ea7ccd1a51000d80c20634c37f42c30365",
+      "sourceSha256": "173d2c17d26c77774fb02c38e96cff40d2a806cd0ec5bf875611718985d13e9a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-094",
+      "title": "Kadic v. Karadzic",
+      "briefId": "CP-COMP-CB-CAP-094",
+      "words": 935,
+      "sourceWords": 1648,
+      "episodes": 6,
+      "narrativeSha256": "ee7038fb978e8cd4e492a3b33e1c97a1b73fb21c9f04103c81361e10758d1d2c",
+      "sourceSha256": "5e7ca3bbea27a15e7379d7d57f0a8e8e5eb1d6f6bc7a86fc1f9f11449a66fcae",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-COMP-CB-CAP-102",
       "title": "Jones v. Governor of Florida",
       "briefId": "CP-COMP-CB-CAP-102",
@@ -376,6 +719,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-COMP-CB-CAP-109",
+      "title": "Turner v. Rogers",
+      "briefId": "CP-COMP-CB-CAP-109",
+      "words": 848,
+      "sourceWords": 1539,
+      "episodes": 5,
+      "narrativeSha256": "a784ac927120e2b2e08778fffce90851f83b2a026feb984e856a556ebcae9d74",
+      "sourceSha256": "ac0044d3bf0b6566caa886f24054334217a2598f503db018a53ffdeb196a0def",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-COMP-CB-CAP-133",
       "title": "Osborn v. Bank of the United States",
       "briefId": "CP-COMP-CB-CAP-133",
@@ -384,6 +742,36 @@
       "episodes": 6,
       "narrativeSha256": "fbde879d88db9b78af642e13024f49f4e92ae29db638f6b7d2b1ccca5e65e70d",
       "sourceSha256": "66e03a6c31d0e3d006c91e5678a2455985d7dc16c5752a4063eb4bfe35c668fb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-289",
+      "title": "King Vision Pay Per View, Ltd. v. J.C. Dimitri’s Restaurant, Inc.",
+      "briefId": "CP-COMP-CB-CAP-289",
+      "words": 364,
+      "sourceWords": 736,
+      "episodes": 4,
+      "narrativeSha256": "e2e95fe01bce70fa771a655a86543a8b5fd39789cf40db5c308e068ffaf58ad9",
+      "sourceSha256": "b6683f49043e40f97594b1bfd9414a983f6de7dfc82b882023ff396fd3f7f8ee",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-300",
+      "title": "Business Guides, Inc. v. Chromatic Communications Enterprises, Inc.",
+      "briefId": "CP-COMP-CB-CAP-300",
+      "words": 832,
+      "sourceWords": 1516,
+      "episodes": 5,
+      "narrativeSha256": "9add9190e9a4843c507cefde386d6f6d4b763466230274463f4e177ebd04bf62",
+      "sourceSha256": "61d8ca120c957b6db66a6bdb3e993379a88fbae889653e87605950649e67aa8a",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -406,6 +794,141 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-COMP-CB-CAP-307",
+      "title": "Sprint Communications Co., L. P. v. APCC Services, Inc.",
+      "briefId": "CP-COMP-CB-CAP-307",
+      "words": 640,
+      "sourceWords": 1487,
+      "episodes": 4,
+      "narrativeSha256": "cdc6e4cf8cd235a5f8542e1b9784ec9e866ff28122ac8d6ab4bb890e4ff16e07",
+      "sourceSha256": "d5177c414532b538a5aef6e1bc030f3757a630f266afb29e00c081300af43b34",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-343",
+      "title": "Amgen Inc. v. Connecticut Retirement Plans and Trust Funds",
+      "briefId": "CP-COMP-CB-CAP-343",
+      "words": 904,
+      "sourceWords": 1659,
+      "episodes": 6,
+      "narrativeSha256": "b4350f1420229e7f968cfaf696ec59e237e6453ae79c2f22979289f9998b38be",
+      "sourceSha256": "0eb980d4d76836c09c96501111f7f9ce97a6797f2c1d9e63eacee68395dbe9e5",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-344",
+      "title": "General Telephone Co. of the Southwest v. Falcon",
+      "briefId": "CP-COMP-CB-CAP-344",
+      "words": 620,
+      "sourceWords": 1447,
+      "episodes": 4,
+      "narrativeSha256": "708f018b055ffee0c249a981b77af3402b4e81a074309de2b3ccc3893d2096d8",
+      "sourceSha256": "c07b98fb7b3e724d2fedef5bd6472730e19e7a77d471e4d064fe4639e7bf1061",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-345",
+      "title": "Gratz v. Bollinger",
+      "briefId": "CP-COMP-CB-CAP-345",
+      "words": 1020,
+      "sourceWords": 1836,
+      "episodes": 7,
+      "narrativeSha256": "98f43a77d8189f8cd17641d2d27903e53ce951b4c8df4a67afed6ca5aa749e0d",
+      "sourceSha256": "f6e4b85197c0549bb3d7dc19829d13c367d2c4312183c8822aee62a8ec9faea4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-347",
+      "title": "Castano v. American Tobacco Co.",
+      "briefId": "CP-COMP-CB-CAP-347",
+      "words": 700,
+      "sourceWords": 1588,
+      "episodes": 5,
+      "narrativeSha256": "51872c88934c9c52b53208b8b52feac0d3d52a69cae19bce5b8978600564dceb",
+      "sourceSha256": "b75f71eb9dbbaaf25d82fb23d96e5f63b4077494b357cf861e33752765068ad4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-365",
+      "title": "American Express Co. v. Italian Colors Restaurant",
+      "briefId": "CP-COMP-CB-CAP-365",
+      "words": 621,
+      "sourceWords": 1521,
+      "episodes": 4,
+      "narrativeSha256": "2da0a83b2613285ca31f924c50cb359d4a31b4466019269817684160a699df6b",
+      "sourceSha256": "f2b4088e4cef7f666344889d92e96c9f5f9fdebd5f85cad3ee4196c4b460dd61",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-367",
+      "title": "O’Gara v. Equifax Information Services, LLC",
+      "briefId": "CP-COMP-CB-CAP-367",
+      "words": 774,
+      "sourceWords": 1638,
+      "episodes": 6,
+      "narrativeSha256": "141b0243de4d40e9caf83ea17ce86516eb0b89d09bbda23417ca5413bec54d51",
+      "sourceSha256": "50bd82532fbf9dc172f61ec0ff5bfd7c5338858f2df088432b35089d18666b50",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-368",
+      "title": "Marrese v. American Academy of Orthopaedic Surgeons — Seventh Circuit discovery and preclusion stage",
+      "briefId": "CP-COMP-CB-CAP-368",
+      "words": 984,
+      "sourceWords": 1731,
+      "episodes": 7,
+      "narrativeSha256": "bdf24b969306d80ce6d5bf222e4bd060ac682194effd28691cae0b647328385b",
+      "sourceSha256": "ceb7e316794ecc9f6ea9456dc1cb94416b5963b29a640a656825da90e65de6dc",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-376",
+      "title": "Pyle v. Selective Insurance Co. of America",
+      "briefId": "CP-COMP-CB-CAP-376",
+      "words": 393,
+      "sourceWords": 685,
+      "episodes": 4,
+      "narrativeSha256": "31c30a9dc5d382a1c49b09f10cdd2f0d3ea19aa1211abfed79576dded5f21a81",
+      "sourceSha256": "d77a0b532c03f3141c83b1dc1d62302c9c3ba8170b5523c6ba4c4d076ce14c96",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-COMP-CB-CAP-391",
       "title": "Howard v. Kerr Glass Manufacturing Co.",
       "briefId": "CP-COMP-CB-CAP-391",
@@ -416,6 +939,36 @@
       "sourceSha256": "bf42b1675b7e34cb6a207436446bb325e3a660c52e2c3b900c60f19308474ae6",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-413",
+      "title": "Ross v. Bernhard",
+      "briefId": "CP-COMP-CB-CAP-413",
+      "words": 559,
+      "sourceWords": 1505,
+      "episodes": 4,
+      "narrativeSha256": "c5faef6215ec88caf5c4b99fb0847361dbbfa54b97ca9725072268553476d696",
+      "sourceSha256": "0ac69f9e38f92f3bdc60898e2ebaa620fb65d107952892cf91923eeffc7f90dd",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-417",
+      "title": "Granfinanciera, S.A. v. Nordberg",
+      "briefId": "CP-COMP-CB-CAP-417",
+      "words": 701,
+      "sourceWords": 1624,
+      "episodes": 5,
+      "narrativeSha256": "c008442f6994fdaa92f9687ef01e0f96dbb9d0b9f37643db1a7a75bef9c65f6b",
+      "sourceSha256": "065cc6b8eedd09e3063fe337427112bbef0ba09c270189a95805195193057513",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
       "literalNumberCandidates": []
     },
     {
@@ -434,6 +987,184 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-COMP-CB-CAP-421",
+      "title": "Merck Sharp & Dohme Corp. v. Albrecht",
+      "briefId": "CP-COMP-CB-CAP-421",
+      "words": 666,
+      "sourceWords": 1567,
+      "episodes": 4,
+      "narrativeSha256": "874d89bd7b509b4696e9253c8e90b5a0acf96daa4e90821091b33f3908baaf13",
+      "sourceSha256": "b7859f60b818e92e1a8a6b4e6b1088a65f63d7cfb5ca016aebd6950c5a22e8c6",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-429",
+      "title": "Snyder v. Phelps (district voir-dire/posttrial stage)",
+      "briefId": "CP-COMP-CB-CAP-429",
+      "words": 933,
+      "sourceWords": 1537,
+      "episodes": 6,
+      "narrativeSha256": "69c5b6075f862599592547fb8ddd9b7be0baa0e6847126c1cf5bee0615f55bd7",
+      "sourceSha256": "d01e5cc4fe8a0b9a5524043fe32021f2aa82616d05bc1e9ff8479cb75636e94f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-475",
+      "title": "Winter v. Natural Resources Defense Council, Inc.",
+      "briefId": "CP-COMP-CB-CAP-475",
+      "words": 868,
+      "sourceWords": 1592,
+      "episodes": 5,
+      "narrativeSha256": "6f439b709d90926d6b1704b35e225f5c9e8dc3b0a82eda2060b590ed5ede183d",
+      "sourceSha256": "497b3617c438668e8139267c6c084a8eceb9d954899fa483d82371e5e9913992",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-480",
+      "title": "Netsphere, Inc. v. Baron",
+      "briefId": "CP-COMP-CB-CAP-480",
+      "words": 692,
+      "sourceWords": 1471,
+      "episodes": 4,
+      "narrativeSha256": "5e2b2bbda52e03c8df847930f8955ab86c6df89c1d2df0d242c1930392c02a53",
+      "sourceSha256": "a7c6fa28ea6ec89da5684db1f892786327f7cee07ec8bbc2d1f39005e4f7263a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-501",
+      "title": "Brown Shoe Co., Inc. v. United States",
+      "briefId": "CP-COMP-CB-CAP-501",
+      "words": 1119,
+      "sourceWords": 2185,
+      "episodes": 7,
+      "narrativeSha256": "c1eabee7f4fe83a3fa4efb9b3c2c69fa46e58b975d9d1399c646ddc6c3d2a870",
+      "sourceSha256": "429d7002d2a8c065f66b79e5283f2c5852ed3ca77001ac6b6833c9464164ebe6",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-507",
+      "title": "Nixon v. Sirica",
+      "briefId": "CP-COMP-CB-CAP-507",
+      "words": 1184,
+      "sourceWords": 2146,
+      "episodes": 7,
+      "narrativeSha256": "b26cf58f14c5e07e0fc80d9a98d46aaa39d1b997225283108e62a73dfa05cd96",
+      "sourceSha256": "6527ab24cca030f288ba4f4cfe77eff2f84f4ea8e11d377f048a0c25bc975856",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-508",
+      "title": "Cheney v. United States District Court",
+      "briefId": "CP-COMP-CB-CAP-508",
+      "words": 883,
+      "sourceWords": 1676,
+      "episodes": 6,
+      "narrativeSha256": "a823b770e2f5a667eea867cba2ad04c45c083113bc1dbde39b3d2f3e748c1198",
+      "sourceSha256": "2a8574dc198e28ab60a5558ffcb233e01e8370713c90b36fea5e46eaa6dbcadd",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-523",
+      "title": "New York Telephone Co. v. Maltbie",
+      "briefId": "CP-COMP-CB-CAP-523",
+      "words": 258,
+      "sourceWords": 696,
+      "episodes": 3,
+      "narrativeSha256": "00137d005719f77d717ac903ebc704cbeebb600db5a21757304538243599e54c",
+      "sourceSha256": "047c38c5c75ec8b627446e3b2f127ac7e7efd2a2001193306d839b7ba213871d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-528",
+      "title": "Google LLC v. Oracle America, Inc.",
+      "briefId": "CP-COMP-CB-CAP-528",
+      "words": 1034,
+      "sourceWords": 1749,
+      "episodes": 7,
+      "narrativeSha256": "1e7cd815a4ed82935b27450a98f50136db12a57f535ed14b185b33a7a135fa37",
+      "sourceSha256": "f2c2e35169028e859e0044b9a323deb7f9d2528dee2b07c975f6937760125c2b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-566",
+      "title": "Blonder-Tongue Laboratories, Inc. v. University of Illinois Foundation",
+      "briefId": "CP-COMP-CB-CAP-566",
+      "words": 682,
+      "sourceWords": 1643,
+      "episodes": 5,
+      "narrativeSha256": "e2c8b1733099fa32fed166ceb75c6d31a6a2f5924c5ac8f5c23a1fa40065b541",
+      "sourceSha256": "b91233258de2ad859b8a6f1db470507b6e608e0474a3e446ece0e040c7366484",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-591",
+      "title": "Wilko v. Swan",
+      "briefId": "CP-COMP-CB-CAP-591",
+      "words": 611,
+      "sourceWords": 1542,
+      "episodes": 4,
+      "narrativeSha256": "7a2002a17160c2c806560f75f8df2344b6d341af68dba911c456aff07f16bfd7",
+      "sourceSha256": "bade1c072baa47f257f84fa1389a06554321088818bf9af601ed95699599d06c",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-CAP-592",
+      "title": "Moses H. Cone Memorial Hospital v. Mercury Construction Corp.",
+      "briefId": "CP-COMP-CB-CAP-592",
+      "words": 686,
+      "sourceWords": 1449,
+      "episodes": 4,
+      "narrativeSha256": "45f62fdd57213fe8db9bbee1f4f0e6bafd70fc349c648ec31c2bfca4f75090cc",
+      "sourceSha256": "af5bf11290b00fb52ce052f13e8b40221fc9b935c033d5e9e71ccd17e6981356",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-COMP-CB-CAP-598",
       "title": "DIRECTV, Inc. v. Imburgia",
       "briefId": "CP-COMP-CB-CAP-598",
@@ -442,6 +1173,96 @@
       "episodes": 5,
       "narrativeSha256": "67c05192d45f708a6cb45c786b28a5c06a268dd8550f21053f8afc4350847a75",
       "sourceSha256": "e6b40721fb3114327d11814ac9740a40d8ae9f1d2db00132ebad8e4c23ee1875",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-JOHNSON-HUFFPOST",
+      "title": "Johnson v. TheHuffingtonPost.com, Inc.",
+      "briefId": "CP-COMP-CB-JOHNSON-HUFFPOST",
+      "words": 609,
+      "sourceWords": 1529,
+      "episodes": 4,
+      "narrativeSha256": "8d78a3dca5573515d99ea654e65d1bd6344868296176626aea266feb02fba9b9",
+      "sourceSha256": "6af49e789db37ab4458ff5939ea573585bc66fcd3c24aa4c5681b35f8c416dee",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-LOWER-015",
+      "title": "Avista Management, Inc. v. Wausau Underwriters Insurance Co.",
+      "briefId": "CP-COMP-CB-LOWER-015",
+      "words": 284,
+      "sourceWords": 496,
+      "episodes": 3,
+      "narrativeSha256": "dce954d02e6e5b94711ad613c8241a197288f26f3d3ed0a2cede18ddc0afbdc4",
+      "sourceSha256": "35d12d8d6a38fd004a1bb703b8e512ab4aa288ee0765c770b9c3e9973c596ce5",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-LOWER-044",
+      "title": "California Packing Corp. v. Kelly Storage & Distributing Co.",
+      "briefId": "CP-COMP-CB-LOWER-044",
+      "words": 420,
+      "sourceWords": 772,
+      "episodes": 4,
+      "narrativeSha256": "2f3c414758d2e5e10e2e4a00cc29f58e95732f480085d673592ec48f2f356f6b",
+      "sourceSha256": "0a6bd81aca4f45baacce3f6761aa895a8282faec88e43c9b976c6bca739498d3",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-LOWER-256",
+      "title": "In re Pharmaceutical Industry Average Wholesale Price Litigation",
+      "briefId": "CP-COMP-CB-LOWER-256",
+      "words": 712,
+      "sourceWords": 1436,
+      "episodes": 4,
+      "narrativeSha256": "b95320dd4912297ac5febcf7c40ad6e6b94401dc7eeb785aa622ad7ded0c0a41",
+      "sourceSha256": "b23bcc677b65d625c7365a6aa66bb66a43a109a3355a74a41ff5fa356052fca3",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-LOWER-289",
+      "title": "Shaw v. Toshiba America Information Systems, Inc.",
+      "briefId": "CP-COMP-CB-LOWER-289",
+      "words": 811,
+      "sourceWords": 1511,
+      "episodes": 5,
+      "narrativeSha256": "36cf6c435473863ddb144216a5da5dddd111f6252946fef39f45764682b69850",
+      "sourceSha256": "aa569d0703732fcc7a225d3d3bef9d9bd724c3de666e9ed78b1a6668bc01cc32",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-LOWER-312",
+      "title": "Staton v. Boeing Co.",
+      "briefId": "CP-COMP-CB-LOWER-312",
+      "words": 894,
+      "sourceWords": 1710,
+      "episodes": 5,
+      "narrativeSha256": "b5bb34d40c73994a9b6163bdb1ab338c7991e48790d0f78143bad04dcb7741ab",
+      "sourceSha256": "fa234bccea0115cefb4eac0eb18ffeb67aeea6b875bcc94d7f5ac144e650f475",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -475,6 +1296,66 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-COMP-CB-PFAU-2011",
+      "title": "Matter of Pfau v. Forster & Garbus — 2011 account",
+      "briefId": "CP-COMP-CB-PFAU-2011",
+      "words": 348,
+      "sourceWords": 615,
+      "episodes": 4,
+      "narrativeSha256": "a3c776651981ff24047fce67755e585a8e954ad94766c3f60294b6b9b07d8d2d",
+      "sourceSha256": "750b9dac1f199a77b2761072fc1854b908b19363844254194e19bc4afaf7313c",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-RANDONE",
+      "title": "Randone v. Appellate Department of the Superior Court of Sacramento County",
+      "briefId": "CP-COMP-CB-RANDONE",
+      "words": 812,
+      "sourceWords": 1580,
+      "episodes": 5,
+      "narrativeSha256": "a4ad7ff299cf32ef21b0a362efea6f955816cb32dd284e26dabc5ffa84dd788a",
+      "sourceSha256": "e505a77fd408a3df3a37abc8412cec872275e20a046f3432ab24315c1834e47b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-REF-219",
+      "title": "Monroe v. City of Charlottesville",
+      "briefId": "CP-COMP-CB-REF-219",
+      "words": 815,
+      "sourceWords": 1530,
+      "episodes": 5,
+      "narrativeSha256": "c97ae3e1433b0c41b5847fffb3e4b6aea602fd212179bbdf7d521e0b21c4797a",
+      "sourceSha256": "4407a0c6c68f8bf6bd5c49ee572c6c12ec982556a2b9d4bd6099b94164205bc4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-REF-347",
+      "title": "Walker v. City of Hutchinson",
+      "briefId": "CP-COMP-CB-REF-347",
+      "words": 746,
+      "sourceWords": 1598,
+      "episodes": 5,
+      "narrativeSha256": "8744078303852dfaf8a08ea0c6d6a9ac3f1bd1b063f3d1676fd06ade6a2a2e67",
+      "sourceSha256": "55f8c4d8a15b490a94c1dce5c106af8c3ea6bacae43ce3745989b5522e7db0a7",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CP-COMP-CB-TURKMEN-2015",
       "title": "Turkmen v. Hasty (Second Circuit merits)",
       "briefId": "CP-COMP-CB-TURKMEN-2015",
@@ -483,6 +1364,94 @@
       "episodes": 8,
       "narrativeSha256": "ab729eef893be1f11ccf5aa5aaa5417ff5a7d94baa021f83b3bd981104e201c1",
       "sourceSha256": "a354e42eba354f2438aa9858e7e5a15968e121fe96c6a0ca0459637a57881d92",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-TWIN-FLAMES",
+      "title": "Twin Flames Universe.com, Inc. v. Cole",
+      "briefId": "CP-COMP-CB-TWIN-FLAMES",
+      "words": 579,
+      "sourceWords": 1520,
+      "episodes": 4,
+      "narrativeSha256": "90ccbac8f23b5fb9355d72237ddde143932e68a0a0853a001fa4496ad6a825df",
+      "sourceSha256": "ae7abcce9399945f1c209f353f1841d992ab5f96bebcb1b747eaca295de20229",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-WORLD-TRADE-2008",
+      "title": "In re World Trade Center Disaster Site Litigation",
+      "briefId": "CP-COMP-CB-WORLD-TRADE-2008",
+      "words": 883,
+      "sourceWords": 1704,
+      "episodes": 6,
+      "narrativeSha256": "2ec0eef296a3e066ba82f49c5d919377cd1f38592a71c702c3c436963a226f62",
+      "sourceSha256": "f94f8208cf1893d82d2d7907b0dde57f4162a2b206953cd252db896568d452c0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-CB-ZIGLAR-ABBASI",
+      "title": "Ziglar v. Abbasi",
+      "briefId": "CP-COMP-CB-ZIGLAR-ABBASI",
+      "words": 1081,
+      "sourceWords": 1927,
+      "episodes": 7,
+      "narrativeSha256": "6bfed7096d34a0163540ceb5e7d295382adc7543734d20af5b7d5465c34d403e",
+      "sourceSha256": "f04d617b2fd373d42d4ae43798065b0217d1ae2f0803b32fba45df2166e85169",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-HIST-CHANCERY-1616",
+      "title": "Arguments Proving From Antiquity the Dignity, Power, and Jurisdiction of the Court of Chancery (1616 royal decision)",
+      "briefId": "CP-COMP-HIST-CHANCERY-1616",
+      "words": 845,
+      "sourceWords": 1611,
+      "episodes": 6,
+      "narrativeSha256": "255ecd3eb7151e87665a71d32e6c5ab9ea0b4aef5c9a4a2f74101f20fb7611d3",
+      "sourceSha256": "328d722a648b7834604a555ccdbe7bf701b1b17ceda0b7d34e169b367aeaa5a4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-SUP-CASA",
+      "title": "Trump v. CASA, Inc.",
+      "briefId": "CP-COMP-SUP-CASA",
+      "words": 1505,
+      "sourceWords": 2190,
+      "episodes": 10,
+      "narrativeSha256": "c4c5c0b71ed471ca8bec0a44a952943d6bbbfa4230440a49bb91de2dbdebee5b",
+      "sourceSha256": "84d0b66e5e0db8e38707f5ff95e3782512f1edd3d5a666becd2b0678608b246b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-COMP-SUP-PURDUE",
+      "title": "Harrington v. Purdue Pharma L.P.",
+      "briefId": "CP-COMP-SUP-PURDUE",
+      "words": 977,
+      "sourceWords": 1633,
+      "episodes": 7,
+      "narrativeSha256": "d7d18aa13513e3d68e32dda6d1fbea9b89086a1946d184398a085fd1acb06011",
+      "sourceSha256": "329bfa7f09b0d063219f4797edb93c06d411ecec03e4fb49cd6513a2c70dc2d3",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -503,6 +1472,109 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CP-SUP-HAIN",
+      "title": "Hain Celestial Group, Inc. v. Palmquist",
+      "briefId": "CP-SUP-HAIN",
+      "words": 1030,
+      "sourceWords": 1698,
+      "episodes": 7,
+      "narrativeSha256": "9affe16848c165ec703febb2ebef8921be5e52e23914e61039b7f105f8e59264",
+      "sourceSha256": "504352dda0a42c65897a6bf991e736bf637a3c95d5207c138ae3daba0777fbe1",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-SUP-MATA-SANCTIONS",
+      "title": "Mata v. Avianca, Inc. — June 22, 2023 Sanctions Decision",
+      "briefId": "CP-SUP-MATA-SANCTIONS",
+      "words": 1130,
+      "sourceWords": 2059,
+      "episodes": 6,
+      "narrativeSha256": "0775dbdebaf847474a75ace3e6d675db4fb1ee1a772792755a10d37162c5056e",
+      "sourceSha256": "b1a79ac1a409d40539f18d171a06ce5586f813c8b6127aa5eaad83081c5079e1",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-SUP-PERTTU",
+      "title": "Perttu v. Richards",
+      "briefId": "CP-SUP-PERTTU",
+      "words": 1062,
+      "sourceWords": 1872,
+      "episodes": 7,
+      "narrativeSha256": "dcb739bccf33ba85f74e963ddc70cd8ac7579af6c8eb275145ec7208d8f3a866",
+      "sourceSha256": "dcbc094c181eec8d57a15dad64d47f0fcb02f9a3bd1686ad6e7926e9b056cc77",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CP-SUP-ROYALCANIN",
+      "title": "Royal Canin U. S. A., Inc. v. Wullschleger",
+      "briefId": "CP-SUP-ROYALCANIN",
+      "words": 1066,
+      "sourceWords": 1813,
+      "episodes": 7,
+      "narrativeSha256": "3fe08153e68298a19ed3bea1182288f0d3d5af029650d1bda27bfec0abf43082",
+      "sourceSha256": "4d4341f32b9f6fecc0f4db49d5c70f519e74e2211517c00c2af5443afeff7e81",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-001",
+      "title": "Guilmet v. Campbell",
+      "briefId": "CT-ADDITIONAL-CM-B1-001",
+      "words": 865,
+      "sourceWords": 1615,
+      "episodes": 6,
+      "narrativeSha256": "444bf08e42c2dd9425d9fd276a098b8a6eb8b9f12d9831988e2244cba9b412ff",
+      "sourceSha256": "9caec28383a3625472daffcece384548d030e901f5fc1643f625f30b1008a041",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-004",
+      "title": "Lumley v. Wagner",
+      "briefId": "CT-ADDITIONAL-CM-B1-004",
+      "words": 700,
+      "sourceWords": 1480,
+      "episodes": 4,
+      "narrativeSha256": "08c151b57e3d552c8c88df54c2f8fbb98e2f3db90f3eb1bcae5ce1049bc3bfb9",
+      "sourceSha256": "52350ba3063f629d1aa99804a9aa9269cc652ec9d2f9cffd4ac298e1e00ec5a0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-005",
+      "title": "Kansas v. Nebraska",
+      "briefId": "CT-ADDITIONAL-CM-B1-005",
+      "words": 918,
+      "sourceWords": 1604,
+      "episodes": 6,
+      "narrativeSha256": "7fca1b4d397a8ec7021d7e3b138e14acc0aaf8ab57968720b1cc1aea993851b8",
+      "sourceSha256": "3bd5387f30f50e41c4d224b4b1058e04977d647a94b99ab7fc418e47c95e1e5d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B1-019",
       "title": "ThedaCare, Inc. v. Ascension NE Wisconsin, Inc.",
       "briefId": "CT-ADDITIONAL-CM-B1-019",
@@ -518,6 +1590,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B1-033",
+      "title": "Keller v. Holderman",
+      "briefId": "CT-ADDITIONAL-CM-B1-033",
+      "words": 286,
+      "sourceWords": 563,
+      "episodes": 3,
+      "narrativeSha256": "6c73d3281b04c8eb7997411346c0719d8685ae226515dd31d63526be0a1b2c64",
+      "sourceSha256": "f0660a3e2adca1d90b216bf35e3851e734fb09c9c74220788f727d672426c7c9",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B1-035",
       "title": "Harvey v. Facey",
       "briefId": "CT-ADDITIONAL-CM-B1-035",
@@ -526,6 +1613,19 @@
       "episodes": 4,
       "narrativeSha256": "4953ba755d91edffaf7ea60c5a7958762a6dca6a262d79c835294665e6b66400",
       "sourceSha256": "218a7265377ff85100cef06085fe6006cc976dc64eecc2814d36e7868fd471e4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-037",
+      "title": "Southworth v. Oliver",
+      "briefId": "CT-ADDITIONAL-CM-B1-037",
+      "words": 1089,
+      "sourceWords": 1696,
+      "episodes": 8,
+      "narrativeSha256": "8dabdd5002fa65d2674936c57ba93286d231aef5682cba6b5196d58f7e05a633",
+      "sourceSha256": "1b56ce7a2ad02d08f5926a53beae22a25378d1ee0789025641322a80f5e81d1c",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
       "literalNumberCandidates": []
@@ -561,6 +1661,49 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B1-053",
+      "title": "CX Digital Media Inc. v. Smoking Everywhere Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B1-053",
+      "words": 856,
+      "sourceWords": 1614,
+      "episodes": 6,
+      "narrativeSha256": "2af288d54b3d9c0d491a49abe70df4607317d55a1d0d587d718cac0c6e310be3",
+      "sourceSha256": "7e02269c464185a573c25c52561cdf41d9560282ae2fc911df7f061c1047966f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-069",
+      "title": "Bonebrake v. Cox",
+      "briefId": "CT-ADDITIONAL-CM-B1-069",
+      "words": 1149,
+      "sourceWords": 1844,
+      "episodes": 7,
+      "narrativeSha256": "7358219284be79084c49cdf558a4cfec91bca0f74a0223012262ca4486872e8f",
+      "sourceSha256": "ac735752eea82434c0b6be8b64745000117da9b6dea63e9eb393d35a4043f8d0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-071",
+      "title": "Anthony Pools v. Sheehan",
+      "briefId": "CT-ADDITIONAL-CM-B1-071",
+      "words": 856,
+      "sourceWords": 1696,
+      "episodes": 5,
+      "narrativeSha256": "ebb9451179b696d44c63ab34067bf7e7113838b27841d347a91ca3b0c9b1c2e8",
+      "sourceSha256": "5528c6abfb4be454277b94f42c7addba96c1f580f4903c5741bf3cd660ea14b6",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B1-077",
       "title": "Minneapolis & St. Louis Railway Co. v. Columbus Rolling-Mill Co.",
       "briefId": "CT-ADDITIONAL-CM-B1-077",
@@ -571,6 +1714,21 @@
       "sourceSha256": "1d8f9e361c6f83bcfec9b6db7e2d8e106e74f6aac73e3b8e040b78de8fea7dff",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-079",
+      "title": "Adams v. Lindsell",
+      "briefId": "CT-ADDITIONAL-CM-B1-079",
+      "words": 390,
+      "sourceWords": 779,
+      "episodes": 4,
+      "narrativeSha256": "0b5b222304876bcf95a927d11b39f846cec66456628d958afb7e3ad5aa159594",
+      "sourceSha256": "8a1c0f2705668624761ffed3d1c01a47f65ab4ae1140078dd8489ae88fad9fb5",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
       "literalNumberCandidates": []
     },
     {
@@ -589,6 +1747,274 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B1-088",
+      "title": "Mobil Oil Exploration & Producing Southeast, Inc. v. United States",
+      "briefId": "CT-ADDITIONAL-CM-B1-088",
+      "words": 875,
+      "sourceWords": 1611,
+      "episodes": 5,
+      "narrativeSha256": "9eaaeaaf972961ec6b7349414fb992234dbc4b5536a111d60222898854e4d746",
+      "sourceSha256": "2a73041d310a5d15263a9ee19830e61e73849eba5877527eef7b4c9e279e5902",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B1-094",
+      "title": "Foley v. Interactive Data Corp.",
+      "briefId": "CT-ADDITIONAL-CM-B1-094",
+      "words": 1136,
+      "sourceWords": 2032,
+      "episodes": 7,
+      "narrativeSha256": "32d146c2527ea43d6c2c72f61a17bb28652f1e2868ec2cc85a278e9cf7c3b6ec",
+      "sourceSha256": "77b764b41bac573fc6692fc257e9a0380fcdc45dedf47d95826daeb40691731b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-001",
+      "title": "Songbird Jet Ltd., Inc. v. Amax Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B2-001",
+      "words": 824,
+      "sourceWords": 1608,
+      "episodes": 5,
+      "narrativeSha256": "16c8ca671bb1360bb0ba2baee3b3a47cf822ef500b33a4cb4cf1e27e5bef584c",
+      "sourceSha256": "f57b09aef61d1cf97f863cd931a4e775986eb95cb3aae961444b62e0ce2a3f71",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-002",
+      "title": "Precision Testing Laboratories, Ltd. v. Kenyon Corporation of America",
+      "briefId": "CT-ADDITIONAL-CM-B2-002",
+      "words": 938,
+      "sourceWords": 1634,
+      "episodes": 6,
+      "narrativeSha256": "4824d15b7c4ae0aa259fd7fca48abcc321f3b4b0133158194ea431750956e19e",
+      "sourceSha256": "a49bc705c21c746e965df294ce6bbac90070d7b845bf50ea92c980562490e45c",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-032",
+      "title": "Hakimoglu v. Trump Taj Mahal Associates",
+      "briefId": "CT-ADDITIONAL-CM-B2-032",
+      "words": 917,
+      "sourceWords": 1756,
+      "episodes": 5,
+      "narrativeSha256": "3dec3fc2c8126044676c28312f64bb1addaafc1c26c7be4f5c9131317eaf119f",
+      "sourceSha256": "26f91b7927ccea0e928b6940649e3c1b2950ec1ef692e57b78cd9dc55b780fa3",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-035",
+      "title": "Borelli v. Brusseau",
+      "briefId": "CT-ADDITIONAL-CM-B2-035",
+      "words": 936,
+      "sourceWords": 1643,
+      "episodes": 6,
+      "narrativeSha256": "7ad30edf7f02374789754847b219b87101a7ea561dc4822b87ab23bc56928929",
+      "sourceSha256": "2b10c1ea082b5394c655adca8506e64ee3595a69fa57fc2a50235a32cf72ab87",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-038",
+      "title": "Recker v. Gustafson",
+      "briefId": "CT-ADDITIONAL-CM-B2-038",
+      "words": 974,
+      "sourceWords": 1802,
+      "episodes": 6,
+      "narrativeSha256": "dfa73445e488d43ecfeae0c6311f288d34fb4c272c0182a2999a21a8fbd94196",
+      "sourceSha256": "8a46d4f745c8384e0f822038706e620fb277452cd4fb74504bdafb95e09da7ee",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-043",
+      "title": "Foakes v. Beer",
+      "briefId": "CT-ADDITIONAL-CM-B2-043",
+      "words": 1125,
+      "sourceWords": 1768,
+      "episodes": 7,
+      "narrativeSha256": "6a4e3f8371795386abecce147fedade760d1162efb1d2248f2073388d2db2c91",
+      "sourceSha256": "4a0f0b208618ce9e2a2bd37addf8dd0dc4e8ca745d8c9d1fc0424c7d7306d282",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-047",
+      "title": "Totem Marine Tug & Barge, Inc. v. Alyeska Pipeline Service Co.",
+      "briefId": "CT-ADDITIONAL-CM-B2-047",
+      "words": 905,
+      "sourceWords": 1587,
+      "episodes": 6,
+      "narrativeSha256": "4120e420045e47d5e54617641835ba05c639d5680efd42ec069b99b15034a9a7",
+      "sourceSha256": "5892054fb0e8492b27c50fbef001a261b9d360343bbcc8e6e4b3ec67982fc75f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-048",
+      "title": "Odorizzi v. Bloomfield School District",
+      "briefId": "CT-ADDITIONAL-CM-B2-048",
+      "words": 715,
+      "sourceWords": 1472,
+      "episodes": 5,
+      "narrativeSha256": "3b4c18211f91f0a69e2e581405f1bc6cbe86d98998fbbb17776069abd9b419af",
+      "sourceSha256": "9be14697348da9e4061451aaaf3259154d466cc433e273fefeb7a1be8681a07c",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-051",
+      "title": "Barclays Bank plc v. O’Brien",
+      "briefId": "CT-ADDITIONAL-CM-B2-051",
+      "words": 647,
+      "sourceWords": 1561,
+      "episodes": 4,
+      "narrativeSha256": "8a5382dc6dce450c27062550817f06625efeef7bf2fa605510772c2fe53f2d44",
+      "sourceSha256": "2c36f55cfafcd546c736fc9dc1d099ef7bea0cc4fb893d76b69508940345c1eb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-066",
+      "title": "Extra Equipamentos e Exportação Ltda. v. Case Corporation",
+      "briefId": "CT-ADDITIONAL-CM-B2-066",
+      "words": 993,
+      "sourceWords": 1671,
+      "episodes": 7,
+      "narrativeSha256": "e5dc7811c3852189e7fa9520afcac9e395ade4941402bfacfc0cb1320a358804",
+      "sourceSha256": "2a81057916ec93b1617763565e62645fe37f059c742e535aa4d2427d749a68c0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-079",
+      "title": "Vantage Technology, LLC v. Cross",
+      "briefId": "CT-ADDITIONAL-CM-B2-079",
+      "words": 716,
+      "sourceWords": 1466,
+      "episodes": 4,
+      "narrativeSha256": "e4076ec84875fa9ad78a0ebfbc7452d7c5159bf8fb7a0fdae76a3123f7da6147",
+      "sourceSha256": "dd59c274a0f79165f0dd380c7b3e937893fa14f1bfe35a19a735eb2b990b9767",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-084",
+      "title": "Emerson Radio Corp. v. Orion Sales, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B2-084",
+      "words": 1020,
+      "sourceWords": 1916,
+      "episodes": 7,
+      "narrativeSha256": "96ce1809e6d67ba52f13eb85a20f9716c540800f466652b1b7910d37b4085b21",
+      "sourceSha256": "2e787db2dc123edbbe0f9b2dcfb8ce2cef4db3b458972604c093b6a5a952ca89",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-088",
+      "title": "Wilcox v. Wilcox",
+      "briefId": "CT-ADDITIONAL-CM-B2-088",
+      "words": 363,
+      "sourceWords": 725,
+      "episodes": 4,
+      "narrativeSha256": "e7bfcebc8d48801e8c0cd7b94c4df778254cc0371cbac4f1049a1d347aead6d1",
+      "sourceSha256": "38ab62cc921c13b8bf4e56248a53dfe6c1f87133efa9caba677a0413d48257dc",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-090",
+      "title": "Martin Rispens & Son v. Hall Farms, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B2-090",
+      "words": 969,
+      "sourceWords": 1650,
+      "episodes": 7,
+      "narrativeSha256": "cb60bdfd43d0243e8d08de529c93b747e60306311b0e7077b174ad5c6b6d4b95",
+      "sourceSha256": "60fbaf61919d1cbd0b26c07c3fdc75cf5b8d475026f5f1cfa333a4b91e719a5d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B2-092",
+      "title": "Garlock Sealing Technologies, LLC v. NAK Sealing Technologies Corp.",
+      "briefId": "CT-ADDITIONAL-CM-B2-092",
+      "words": 998,
+      "sourceWords": 1712,
+      "episodes": 7,
+      "narrativeSha256": "d0ca72df874e4fe622c4d283d8707053f7d1842aa4dc0c4656e8419a66584c84",
+      "sourceSha256": "aaae2fa38ec18cf9b68a6256d82d140144c520308fd98ff7baee849ec9603f94",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-010",
+      "title": "Federal Trade Commission v. QT, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B3-010",
+      "words": 1004,
+      "sourceWords": 1708,
+      "episodes": 6,
+      "narrativeSha256": "947138a5475d9ba8ede3ce8334c2fdc9c4e9b090edd19337c2246647c1ae8b3d",
+      "sourceSha256": "c19b7abb3ae9b6d81690aed0b0186d74922d25ca693541a71462971ec009971d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B3-013",
       "title": "Nez Perce Tribe of Indians v. United States",
       "briefId": "CT-ADDITIONAL-CM-B3-013",
@@ -597,6 +2023,21 @@
       "episodes": 5,
       "narrativeSha256": "97b3867a52ac30352974f6ee948d00bd9ab444d387f888f82690912ba8ff6f2e",
       "sourceSha256": "2627ca39b74b909f9770cf10e33b30e3da78aa3322b591ffe4c93c16316248db",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-018",
+      "title": "Zapatha v. Dairy Mart, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B3-018",
+      "words": 673,
+      "sourceWords": 1424,
+      "episodes": 4,
+      "narrativeSha256": "6a659f9c290034c5bb4138ffaceb3cb469e436f4141eda876109bd3897c750de",
+      "sourceSha256": "59535649de5d7e61edd2ada97c9c71c0c77064693fcc1e00523acbee8542c64e",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -649,6 +2090,148 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B3-040",
+      "title": "McConnell v. Commonwealth Pictures Corp.",
+      "briefId": "CT-ADDITIONAL-CM-B3-040",
+      "words": 814,
+      "sourceWords": 1823,
+      "episodes": 6,
+      "narrativeSha256": "b7b2d0161419814c3b089dba49a55686c4629ed519da846b2c33eef64c1197ab",
+      "sourceSha256": "433aa5fffaa655a763930e6729666ced084039c3ff1092f26531657b6eff5cbb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-042",
+      "title": "Town Planning and Engineering Associates, Inc. v. Amesbury Specialty Co., Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B3-042",
+      "words": 829,
+      "sourceWords": 1732,
+      "episodes": 6,
+      "narrativeSha256": "258e01227ce03ca0d2f9bedc06af46a1c697b5788742151ea50dc30a0bc4f346",
+      "sourceSha256": "1062f4d04cb87d45462333e346d61b205fb23a5b04cc641fc664dc59e11ae31d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-043",
+      "title": "Hewitt v. Hewitt",
+      "briefId": "CT-ADDITIONAL-CM-B3-043",
+      "words": 806,
+      "sourceWords": 1488,
+      "episodes": 5,
+      "narrativeSha256": "ca70f25e2e7189a3fd9c0c945e10b3e82a648aed34d815d8aeb76d86915a2a1d",
+      "sourceSha256": "729f3d2a6962b0628aa3c3f42cdc7cae0493c0d226b9b871a4417e13cf4bf32d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-044",
+      "title": "DeMuth v. Miller",
+      "briefId": "CT-ADDITIONAL-CM-B3-044",
+      "words": 1180,
+      "sourceWords": 1757,
+      "episodes": 9,
+      "narrativeSha256": "87802d0f91e96588228b259b3c621610d2918ebfa3cdb48324333ae8f63e55f9",
+      "sourceSha256": "8527da418bcf64391e5c1c05c13f1954c3e61f370ee41d40186ff7c64d76f0fb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-045",
+      "title": "Howard v. Babcock",
+      "briefId": "CT-ADDITIONAL-CM-B3-045",
+      "words": 893,
+      "sourceWords": 1555,
+      "episodes": 6,
+      "narrativeSha256": "2020d33bf68c2a195665790ff555e360f88e209c5c3cc37c828fbe0f12c744e2",
+      "sourceSha256": "c4148a5e5d4c2ecc09b06100b1ef982427ae5bf079a9a4bab1ce682bf00a0d1a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-096",
+      "title": "Validsa, Inc. v. PDVSA Services, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B3-096",
+      "words": 1314,
+      "sourceWords": 1908,
+      "episodes": 8,
+      "narrativeSha256": "8914421e68b086cda62e3a4b0eb2b7f54d5b37d93e3da6e59692c3b098f65137",
+      "sourceSha256": "1734ab555fbd8f8076051c863a766f8a04d6f5aff8abccc5acc645863cc38b30",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-098",
+      "title": "Mitchell-Huntley Cotton Co., Inc. v. Waldrep",
+      "briefId": "CT-ADDITIONAL-CM-B3-098",
+      "words": 718,
+      "sourceWords": 1457,
+      "episodes": 4,
+      "narrativeSha256": "8e156856ee1c85b8f3df82253058c8c571febe61fa3ba82d76d0fb474e1b3621",
+      "sourceSha256": "0326bc2121dd3ef62ba9507548560a0829d23700f6abf8a9cbff5c710ce8ea9f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B3-101",
+      "title": "The Estate of Lucille Osborn v. Michael J. Kemp",
+      "briefId": "CT-ADDITIONAL-CM-B3-101",
+      "words": 978,
+      "sourceWords": 1593,
+      "episodes": 6,
+      "narrativeSha256": "45e6c59ee6712eb0999ee6290760e5d3c7e95e1777e9eee2c0d3a935c61132c7",
+      "sourceSha256": "d08ff14b1c46d8066d2422d9e47a99f9f8c5276984c4044cc70efa9bf75a7b96",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-006",
+      "title": "Coppola v. Kraushaar",
+      "briefId": "CT-ADDITIONAL-CM-B4-006",
+      "words": 414,
+      "sourceWords": 790,
+      "episodes": 4,
+      "narrativeSha256": "6830f2ecdf7156dbf8a7c0700896e73084dce26aa7a19ff3d4440d560a2bd65e",
+      "sourceSha256": "9432a9daf3ef0c1f54608b4a4820072cbfed4763b2caaf3696ac69c4a7b84258",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-012",
+      "title": "Redgrave v. Boston Symphony Orchestra, Inc. — En Banc Appeal",
+      "briefId": "CT-ADDITIONAL-CM-B4-012",
+      "words": 1113,
+      "sourceWords": 1787,
+      "episodes": 6,
+      "narrativeSha256": "e9e124c32c0dd1600b4dfd89eb0d3f33cfeb624fb84690d30805fd148f96c4e8",
+      "sourceSha256": "b370d1df28a01224d23f66a454215b6c46d0c62586c356ae4bd00270296de49a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B4-018",
       "title": "Cabaness v. Thomas",
       "briefId": "CT-ADDITIONAL-CM-B4-018",
@@ -677,6 +2260,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B4-026",
+      "title": "Herbert Clayton & Jack Waller Ltd. v. Oliver",
+      "briefId": "CT-ADDITIONAL-CM-B4-026",
+      "words": 219,
+      "sourceWords": 397,
+      "episodes": 3,
+      "narrativeSha256": "59baad9be30e304bea1daba10e63835e78c8377d4b41d266adc429f4e50ac0b0",
+      "sourceSha256": "31f24842bb8033c8e4dcef9b3b9b65aac5389c9015fbcc188dd20d715ea81a9a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B4-027",
       "title": "Contemporary Mission, Inc. v. Famous Music Corporation",
       "briefId": "CT-ADDITIONAL-CM-B4-027",
@@ -685,6 +2283,21 @@
       "episodes": 5,
       "narrativeSha256": "0209ee1c216906fbdd2bf972486f99bc010f7df944fd5cea86b37f535db9857a",
       "sourceSha256": "d1a7f4114fcd3a2b53b3089eaae4c1395e12dc0a3e771fdbaccb877a8821bab1",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-039",
+      "title": "Sherwood v. Walker",
+      "briefId": "CT-ADDITIONAL-CM-B4-039",
+      "words": 734,
+      "sourceWords": 1479,
+      "episodes": 4,
+      "narrativeSha256": "75bbedf488f0b91ea5507955f36021b58a5111cc2c648328fa587b0a4d4ca3a7",
+      "sourceSha256": "ab2ec151bc85994fcdac59ebe699fbdbf006a649ab61549b006abf9508b8e681",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -705,6 +2318,19 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B4-056",
+      "title": "United States v. Winstar Corp.",
+      "briefId": "CT-ADDITIONAL-CM-B4-056",
+      "words": 1116,
+      "sourceWords": 1822,
+      "episodes": 7,
+      "narrativeSha256": "38d1f4fc2ada9a8c94a5b63c5f00fcb41a332432068296104d8018a008c07027",
+      "sourceSha256": "9c9ec397f73772ed561719a8de121efb5fba466ad4fcd3b8ac6e8cdb6a9d745d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B4-064",
       "title": "Angus v. Scully",
       "briefId": "CT-ADDITIONAL-CM-B4-064",
@@ -717,6 +2343,19 @@
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
       ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-066",
+      "title": "Aluminum Company of America v. Essex Group, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B4-066",
+      "words": 1420,
+      "sourceWords": 1936,
+      "episodes": 9,
+      "narrativeSha256": "4491c9d904208456760037e7cb3281d9d87abe2c58e1ddd9fd3b36b76027b72e",
+      "sourceSha256": "f8e0b9d3e8efc2905c8ad28e241edf7ea2a508cc84f79e897d99dd59f97cbf10",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
       "literalNumberCandidates": []
     },
     {
@@ -746,6 +2385,49 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B4-080",
+      "title": "Piccoli A/S v. Calvin Klein Jeanswear Co.",
+      "briefId": "CT-ADDITIONAL-CM-B4-080",
+      "words": 955,
+      "sourceWords": 1638,
+      "episodes": 6,
+      "narrativeSha256": "a619596b5d12ede0edc9dc23fdb557ee3a8762cddb2533ee2eba566000e19263",
+      "sourceSha256": "1daa3fbc0e67d170d2f9f2cb46f1dc3d356dec69500b5b298ec015c687e51f98",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-081",
+      "title": "Pepsi-Cola Bottling Company of Pittsburg, Inc. v. PepsiCo, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B4-081",
+      "words": 1042,
+      "sourceWords": 1703,
+      "episodes": 6,
+      "narrativeSha256": "4d738be321c71a5b95a3c1b95d9130d1a6c217509e5ecbe1f6fd071205e30889",
+      "sourceSha256": "6374eb1cd1291f0f447f63f7ffbc21b34a7e30593cc06963582f460d365fcf0f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-083",
+      "title": "Peterson v. Meritain Health, Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B4-083",
+      "words": 804,
+      "sourceWords": 1626,
+      "episodes": 6,
+      "narrativeSha256": "2f7b74cc3bb7ce4086b4f1e3a567f9523771176f36c9b4a4bb27b544cb309b74",
+      "sourceSha256": "9c699a898b3f1636c7e5fc400f7bcd7f9ac9ef5b21fc01c18c810b3e3e00dfe8",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-CM-B4-094",
       "title": "Kornblut v. Chevron Oil Co. — Court of Appeals",
       "briefId": "CT-ADDITIONAL-CM-B4-094",
@@ -754,6 +2436,21 @@
       "episodes": 4,
       "narrativeSha256": "ec292ca96c6ea3dd7a6120188d597474da366ea269a562017175f1c6629d2378",
       "sourceSha256": "97c7d4e28ed025a9bcce0ad03fd74f81ecc3b632ef7d9fccfa93ed5fbc2c81cb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-101",
+      "title": "A.C. Associates v. Metropolitan Steel Industries Inc.",
+      "briefId": "CT-ADDITIONAL-CM-B4-101",
+      "words": 234,
+      "sourceWords": 445,
+      "episodes": 3,
+      "narrativeSha256": "8db5c6b019f4b447a027d15168cf91da7cfe7b2e4adb608c4ab00b45cb9cb960",
+      "sourceSha256": "b8cac122b791bdd26a6da5dafd78c9cdea98dcd07135d4992f8541746a860214",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -776,6 +2473,81 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-CM-B4-110",
+      "title": "Tsakiroglou & Co. Ltd. v. Noblee Thorl G.m.b.H.",
+      "briefId": "CT-ADDITIONAL-CM-B4-110",
+      "words": 848,
+      "sourceWords": 1526,
+      "episodes": 5,
+      "narrativeSha256": "381fe90e2ce6aaf7748b19929860dd2c4c826c5d06b4a907ae5c8d94acbd2e18",
+      "sourceSha256": "d939faa900da1c24c87be59d8e0c1230bd6a660a6a975bb6297fed57f61a7ab0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-113",
+      "title": "Westinghouse Richmond consolidated uranium litigation — assigned interim account, source-limited",
+      "briefId": "CT-ADDITIONAL-CM-B4-113",
+      "words": 240,
+      "sourceWords": 499,
+      "episodes": 3,
+      "narrativeSha256": "96f1dcf30e39635930d17c98c03b333701b550e43c4ba3afe10616f472bc0787",
+      "sourceSha256": "d1315943145e70a1611a3f7d1d766e3e1a915b136d924f968cd96b84f20414ab",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-CM-B4-114",
+      "title": "Florida Power & Light Co. v. Westinghouse Electric Corp.",
+      "briefId": "CT-ADDITIONAL-CM-B4-114",
+      "words": 771,
+      "sourceWords": 1601,
+      "episodes": 6,
+      "narrativeSha256": "ca6266972a2fbbff818cc1595122d9cd0147a05f91e2f72eaebcd50f072ba330",
+      "sourceSha256": "fa8dd337bc7a8a59a820ba5246672ba898eec53cbac1f0f93d14b44fe83531be",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-FA26-001",
+      "title": "ATS Tree Services, LLC v. Federal Trade Commission",
+      "briefId": "CT-ADDITIONAL-FA26-001",
+      "words": 817,
+      "sourceWords": 1550,
+      "episodes": 5,
+      "narrativeSha256": "b5a07bcdaa826f76be41716ca2864f6682e6471d9ea6d0519e47114053cb3488",
+      "sourceSha256": "25e691f5806fde3acc94dddf47668fd40aab749a9cfdb9890c33bf166f31ea4e",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-FA26-002",
+      "title": "Properties of the Villages, Inc. v. Federal Trade Commission",
+      "briefId": "CT-ADDITIONAL-FA26-002",
+      "words": 815,
+      "sourceWords": 1564,
+      "episodes": 5,
+      "narrativeSha256": "ef9835d3f91a7844f496abf1bc75b96fbbd11846f9099faf534bd00e822f38f9",
+      "sourceSha256": "9a02fcb5c06bcf32b125ca186409ad9901c218652751535c7db6e193e81ebbde",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-FA26-006",
       "title": "Chalet construction: Etablissements Léon Cuny",
       "briefId": "CT-ADDITIONAL-FA26-006",
@@ -784,6 +2556,21 @@
       "episodes": 4,
       "narrativeSha256": "2e007a3fc8d7e020328549143cc1d6e9056300137fb19becead1dcb5c3f6d6e6",
       "sourceSha256": "57eed14e6f52d7de3cc2f3af3dffaa641ecb9afca34b526d12b96dae74b5344d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-FA26-007",
+      "title": "Homeowners v Les Bâtisseurs du Grand Delta",
+      "briefId": "CT-ADDITIONAL-FA26-007",
+      "words": 340,
+      "sourceWords": 761,
+      "episodes": 4,
+      "narrativeSha256": "41d46ada84a4419fc78c1ebcccc97e7523c642999556274c685bfa0e69bd23d7",
+      "sourceSha256": "e062a23051baf724e629241c9bc34f26a3cd0e7f3020026bd4edde7c96f3cfa7",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -806,6 +2593,36 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-ADDITIONAL-FA26-013",
+      "title": "House alignment and dimensions decision — assigned account, source-limited",
+      "briefId": "CT-ADDITIONAL-FA26-013",
+      "words": 213,
+      "sourceWords": 403,
+      "episodes": 3,
+      "narrativeSha256": "60fb545ff8a8279acce913087ecd512df72376f7f3b0d38cc3eb63675aeb8ec8",
+      "sourceSha256": "228c7c45111a21fc7d68baaa7f73e4017e835e2da3ac12c70be55ee7e368f84f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-ADDITIONAL-FA26-015",
+      "title": "Approchim v. Eurocollect",
+      "briefId": "CT-ADDITIONAL-FA26-015",
+      "words": 371,
+      "sourceWords": 754,
+      "episodes": 4,
+      "narrativeSha256": "805d22f2f531cb748f9c673fd36e7cb5cdf7dda8a2aac61aed656237f81f5352",
+      "sourceSha256": "8d35d142af952cdc5ded62e509baf00c5361444e382528ecf1bc3be21314f0f8",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-ADDITIONAL-FA26-STUDENT-COURSE",
       "title": "Unidentified correspondence-course fees decision — assigned account, identity unresolved",
       "briefId": "CT-ADDITIONAL-FA26-STUDENT-COURSE",
@@ -819,6 +2636,81 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-CB-0076",
+      "title": "Webb v. McGowin",
+      "briefId": "CT-CB-0076",
+      "words": 723,
+      "sourceWords": 1784,
+      "episodes": 5,
+      "narrativeSha256": "c2909c1d3df4bc604c88b1bd9492d9903ebbd146f564cc9d637b224fc4b24ea1",
+      "sourceSha256": "dac32be6cbd6e3702faa2c3a63db22a7023b185586c6e334d9e066134834ca9d",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0085",
+      "title": "Lake Land Employment Group of Akron, LLC v. Columber",
+      "briefId": "CT-CB-0085",
+      "words": 728,
+      "sourceWords": 1709,
+      "episodes": 6,
+      "narrativeSha256": "90d3c6e24cc30e89d09f1266e1aa96c4d8aa0534fabb6eab32fa951dffd421d4",
+      "sourceSha256": "71ea8beadb64b5225b44432d3b430b1bd89d2182332b74fbd654679b26b352dd",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0131",
+      "title": "Wright v. Newman",
+      "briefId": "CT-CB-0131",
+      "words": 685,
+      "sourceWords": 1647,
+      "episodes": 5,
+      "narrativeSha256": "c8af6e7f85a6f190ef7f163925bf22599498a7e53eb85227977a95ca5bda518c",
+      "sourceSha256": "ff5b37b3ce4ef26c92185039320d5b0a529226bfb23c508a9815805183c62ca0",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0146",
+      "title": "Cotnam v. Wisdom",
+      "briefId": "CT-CB-0146",
+      "words": 533,
+      "sourceWords": 1619,
+      "episodes": 5,
+      "narrativeSha256": "41d0c24203350119a696f17ca148e08d4d5d80f78d488dc8f7357859d2b37b6c",
+      "sourceSha256": "11a7a65ba2f6c4850a4b082079355e2bb231f98238720f5f4ba6b7f1a49bc89b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0155",
+      "title": "Pyeatte v. Pyeatte",
+      "briefId": "CT-CB-0155",
+      "words": 775,
+      "sourceWords": 1883,
+      "episodes": 5,
+      "narrativeSha256": "bac5737d1a2db43d71d7bd8d51f9e3a1e30b16835e2470bd89c2903261051640",
+      "sourceSha256": "6b142850f8d6e30890d3cae5a48f6ebe06c2c1ecb2266f3b0629e028fe30a462",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-CB-0162",
       "title": "Mooers v. Middlebury College",
       "briefId": "CT-CB-0162",
@@ -827,6 +2719,51 @@
       "episodes": 7,
       "narrativeSha256": "c85ac36fbfbf8682742913e1f8e97b8fc7baed38c7b999842e1f92f861e54a5a",
       "sourceSha256": "538a234d08f96012c7dca142896820d1d141b873bb1284cf0520306c9e200808",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0195",
+      "title": "Fairmount Glass Works v. Crunden-Martin Woodenware Co.",
+      "briefId": "CT-CB-0195",
+      "words": 562,
+      "sourceWords": 1615,
+      "episodes": 4,
+      "narrativeSha256": "5bc08394830be2385f92c1929ef50b9ef25952147789676309cc47e231c8be59",
+      "sourceSha256": "0879a3a320dc63320413e34d3ea8e252a08b1de194037b701dc4a86d002da763",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0225",
+      "title": "Ever-Tite Roofing Corp. v. Green",
+      "briefId": "CT-CB-0225",
+      "words": 629,
+      "sourceWords": 1659,
+      "episodes": 5,
+      "narrativeSha256": "97e4508543e19bf5c7676f6d537f9f9c9edfeb49fd466bfb283e8b1bb597851b",
+      "sourceSha256": "8a6a5b387e5af1eac1dfca12e2e0bc51cc246e3bd3ad2aaaf9ff9bc292ec7456",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0230",
+      "title": "Corinthian Pharmaceutical Systems, Inc. v. Lederle Laboratories",
+      "briefId": "CT-CB-0230",
+      "words": 699,
+      "sourceWords": 1716,
+      "episodes": 5,
+      "narrativeSha256": "93856838c4791f56467f6d844e4eb0e20ac3ceee5e0dda067c1dc3f66b2cf45e",
+      "sourceSha256": "9fd4c0dd46dfdeb06be0e8b7475fd110c74bca0c990f04cd97933d8ecbe3c8ec",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -864,6 +2801,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-CB-0304",
+      "title": "Kauders v. Uber Technologies, Inc.",
+      "briefId": "CT-CB-0304",
+      "words": 812,
+      "sourceWords": 1606,
+      "episodes": 6,
+      "narrativeSha256": "8292c3d78c5e250f87e719708b24b0feebf255c5318b47dc515c7424f15a7e61",
+      "sourceSha256": "e4771097e9ef944ee6f4326396dc5d005acc087244873600b9bb4296502b6269",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-CB-0314",
       "title": "Meyer v. Uber Technologies, Inc.",
       "briefId": "CT-CB-0314",
@@ -872,6 +2824,36 @@
       "episodes": 5,
       "narrativeSha256": "a6477dee44b93ec27851bcd5d8c6f6e895c0dc24265188e07d1312b13b6453dc",
       "sourceSha256": "0ffae39a9421199e3e76abcf3af7ad2bd025758aaeeb07bf60499ca767aa5fe7",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0400",
+      "title": "Langman v. Alumni Association of the University of Virginia",
+      "briefId": "CT-CB-0400",
+      "words": 791,
+      "sourceWords": 1495,
+      "episodes": 5,
+      "narrativeSha256": "3ff2af8a01c686869fd06b917ee1f16429fdf39c20c07ac9ef0819641fe8244a",
+      "sourceSha256": "6612747f5e951cc413d91ef91ad6d64cbd482158f63c022ccf3fae3cbb6db2ef",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0433",
+      "title": "Monarco v. Lo Greco",
+      "briefId": "CT-CB-0433",
+      "words": 840,
+      "sourceWords": 1548,
+      "episodes": 6,
+      "narrativeSha256": "a46d9cf83aeb59d50f81a947c0d789710a24c063cb51edfe5f4368f5181a6e17",
+      "sourceSha256": "dcdc8b72c0db6234bd028a8d29f54560e99f9948d29eae67b0f067201ac1e941",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -907,6 +2889,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-CB-0462",
+      "title": "Cundick v. Broadbent",
+      "briefId": "CT-CB-0462",
+      "words": 988,
+      "sourceWords": 1660,
+      "episodes": 6,
+      "narrativeSha256": "2499309bcde52c6f1b2ce8c99f1deb7c54cf2dfe81974419b36da76654b16fa9",
+      "sourceSha256": "174654a2caeb4ec0ee7dae5806220440f5a605cef594b2549796c6e8da6b895b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-CB-0465",
       "title": "Kenai Chrysler Center, Inc. v. Denison",
       "briefId": "CT-CB-0465",
@@ -915,6 +2912,21 @@
       "episodes": 7,
       "narrativeSha256": "e27c0e584e33a78ce19c388a2faddcdcd3cdd61fc9d9a31fe8fc2739a4b101f1",
       "sourceSha256": "c0ebfbc6ddb9f037a045b190292a6035209245e6cf9b23e6cd873057a089ac23",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-CB-0493",
+      "title": "Martinez-Gonzalez v. Elkhorn Packing Co. LLC",
+      "briefId": "CT-CB-0493",
+      "words": 1057,
+      "sourceWords": 1831,
+      "episodes": 7,
+      "narrativeSha256": "654858675ea21907a52391913050f5e5d067f80e4614337d85c07e7d426669fd",
+      "sourceSha256": "c515af706bf379905b9da9713fea0eb6358156ae667dd5c70e87d841c554f00e",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -952,6 +2964,92 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-CT-COMP-SUP-0130",
+      "title": "A. v. B. AG — Competition Covenant and Contractual Penalty",
+      "briefId": "CT-COMP-SUP-0130",
+      "words": 940,
+      "sourceWords": 1742,
+      "episodes": 6,
+      "narrativeSha256": "00e952d0444c550532e3793721968828e14a1b00a3e6f69dcf9478fd6590fba5",
+      "sourceSha256": "336ec763f8edd625809d38ed023c2a83ccac0109da5fdf097b7807a0e795ba73",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0093",
+      "title": "Lewis v. Mobil Oil Corporation",
+      "briefId": "CT-NEXT-CM-0093",
+      "words": 1029,
+      "sourceWords": 1763,
+      "episodes": 6,
+      "narrativeSha256": "d74aded7a575384aaa55dcf8705b9afac318e1e60e47939b78d5dd892c4d11c3",
+      "sourceSha256": "3c6a4608f234d5899fef136acb8b4f3596d8752ec7c316a1eef6b1b1033192e2",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0097",
+      "title": "McKinnon v. Benedict",
+      "briefId": "CT-NEXT-CM-0097",
+      "words": 670,
+      "sourceWords": 1426,
+      "episodes": 4,
+      "narrativeSha256": "78915d36698ced76edc059644294d919c034cab26dde78aa0ffed2b328003969",
+      "sourceSha256": "5b67bc7b5dd96778abc05e4975b2b2b332826b3d79e6892d0b294816876efacc",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0117",
+      "title": "In the Matter of Baby M",
+      "briefId": "CT-NEXT-CM-0117",
+      "words": 922,
+      "sourceWords": 1574,
+      "episodes": 6,
+      "narrativeSha256": "69565adf19c3e4cae6b080e4e38e0736305ad500b4fa454499f3127838960e95",
+      "sourceSha256": "ee7e954a21ee72c8574d9c295a8d2b98e8321c1be1f12b36540a8b37354e04c5",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0137",
+      "title": "McCloskey & Co. v. Minweld Steel Co.",
+      "briefId": "CT-NEXT-CM-0137",
+      "words": 559,
+      "sourceWords": 785,
+      "episodes": 5,
+      "narrativeSha256": "430b3c4a6dffc473d77a49c5de1a2e53feda3b3ac820821fb166adde7acb1342",
+      "sourceSha256": "d0cddc72ce4996a5df39f935812c9da2a530e34a0f803526c49afe9ce8ee6b4b",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0141",
+      "title": "Snow Phipps Group, LLC v. KCAKE Acquisition, Inc.",
+      "briefId": "CT-NEXT-CM-0141",
+      "words": 1177,
+      "sourceWords": 1788,
+      "episodes": 8,
+      "narrativeSha256": "894ff4c819b5ad08501cfc6282b684a346f4ee0cff180ccb4b4dc5a9a249a6ce",
+      "sourceSha256": "645e07ca2d4448dbed4891cdd9cfb28b55672ca0ecf435c8c604be4933202e31",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-CT-NEXT-CM-0168",
       "title": "Mineral Park Land Co. v. Howard",
       "briefId": "CT-NEXT-CM-0168",
@@ -960,6 +3058,62 @@
       "episodes": 4,
       "narrativeSha256": "921184ae01f52adc59df82634edc3ec45f3d233a6b01f1bc7c7a0b78c700e269",
       "sourceSha256": "340f71805dfffdcf03c51ce57b61cc2fd50ffc305049f0e74ff0e27438c7e0aa",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-NEXT-CM-0178",
+      "title": "Young v. City of Chicopee",
+      "briefId": "CT-NEXT-CM-0178",
+      "words": 459,
+      "sourceWords": 710,
+      "episodes": 4,
+      "narrativeSha256": "17a7ba00a89a09ffbd97d8dac3b264baa707e2ee33c69534b84a78b7f8ae9122",
+      "sourceSha256": "7739df75e57058cc935cb85d2c5ca504d9c55a3edca56dfcc4ffab2f51596180",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-CT-SUP-0022-PSENICSKA-DISTRICT",
+      "title": "Psenicska v. Twentieth Century Fox Film Corp. — district court",
+      "briefId": "CT-SUP-0022-PSENICSKA-DISTRICT",
+      "words": 842,
+      "sourceWords": 1676,
+      "episodes": 7,
+      "narrativeSha256": "0f1b97d0d07fa4683e0c4f8f74decc2e44d54c3ca9f259d2b59f2b985e1b2920",
+      "sourceSha256": "f69fd27acc70bc107f8a86c960f69bcae012fc2afec3bcff4959095f2742be36",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-001",
+      "title": "Federal Election Commission v. NRA Political Victory Fund",
+      "briefId": "LRS-CLOSURE-001",
+      "words": 898,
+      "sourceWords": 1588,
+      "episodes": 6,
+      "narrativeSha256": "5e385af47331cd01a8a255a781ce3d95e0dc715d872e711b6f40c3fe5b461015",
+      "sourceSha256": "6612ea5665f33457253e6658f5034f0995ba3bf3209ef9ebfc431b541cd2f730",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-002",
+      "title": "Panama Refining Co. v. Ryan; Amazon Petroleum Corp. v. Ryan",
+      "briefId": "LRS-CLOSURE-002",
+      "words": 1166,
+      "sourceWords": 1716,
+      "episodes": 9,
+      "narrativeSha256": "ac040b2e6226f6f71ae378245ffb8bf6f835db24e7326317eb11b497eab1c4de",
+      "sourceSha256": "190e150aa7ec8a25bfee952788d4ccadd0a6505473837bbe1f96d73ec28d4e2f",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
       "literalNumberCandidates": []
@@ -977,6 +3131,19 @@
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
       ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-006",
+      "title": "Guedes v. Bureau of Alcohol, Tobacco, Firearms and Explosives",
+      "briefId": "LRS-CLOSURE-006",
+      "words": 1393,
+      "sourceWords": 1971,
+      "episodes": 9,
+      "narrativeSha256": "a8147ca3130562f461a552b6f958a20deebbae3de7aa8174c3feeec03767fdad",
+      "sourceSha256": "cbf8f99eb211ac23ae3b838a2e9bc69ec43efd89f010e26f364cd2381e14e1a8",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
       "literalNumberCandidates": []
     },
     {
@@ -1008,6 +3175,34 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-LRS-CLOSURE-010",
+      "title": "Pereira v. Sessions",
+      "briefId": "LRS-CLOSURE-010",
+      "words": 993,
+      "sourceWords": 1676,
+      "episodes": 5,
+      "narrativeSha256": "ba9a886f75211134b295ee29469605a15694b463e31a47d44c089aa71e489bf3",
+      "sourceSha256": "ec8f58e212d4ae667874e127635a0d54ccecff40bc376bdc0ae910c4450f2463",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-011",
+      "title": "Campos-Chaves v. Garland",
+      "briefId": "LRS-CLOSURE-011",
+      "words": 1238,
+      "sourceWords": 1724,
+      "episodes": 9,
+      "narrativeSha256": "9cecdbfa6f42e3ef9b232e7f09c7dd3a0802e0c226929c8e1e7fd4d7c1f3e3df",
+      "sourceSha256": "6a556e63f4ccbe33754f42a398e4d421b90f38db23a2412581125c00551e4dac",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-LRS-CLOSURE-012",
       "title": "Clark-Cowlitz Joint Operating Agency v. FERC",
       "briefId": "LRS-CLOSURE-012",
@@ -1023,6 +3218,21 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-LRS-CLOSURE-013",
+      "title": "National Nutritional Foods Association v. Weinberger",
+      "briefId": "LRS-CLOSURE-013",
+      "words": 945,
+      "sourceWords": 1711,
+      "episodes": 7,
+      "narrativeSha256": "68d8cb6b0549ebb07d5b102cd456b414d213a4c1eb880cef13e3eac0eade6dd9",
+      "sourceSha256": "262dd3b3f965df5817c302f397eb9dd9f01aca1836fe95b75b41a7ada6c41dfe",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-LRS-CLOSURE-014",
       "title": "National Nutritional Foods Association v. FDA",
       "briefId": "LRS-CLOSURE-014",
@@ -1031,6 +3241,19 @@
       "episodes": 8,
       "narrativeSha256": "ed187d6d1825ed4a9b61fb654ae911c86b16cfdfd37dcf15896ac3cd2be70cb2",
       "sourceSha256": "c9926d70d61874d4c1a98987403cb209a0561e00643d817ea0894fa9dba74ae2",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-015",
+      "title": "National Nutritional Foods Association v. Kennedy",
+      "briefId": "LRS-CLOSURE-015",
+      "words": 1063,
+      "sourceWords": 1692,
+      "episodes": 7,
+      "narrativeSha256": "8ce75ee7c7f87135bb9a858c04ea0b1ffedd205b298c9228eb03e6f66353ae0e",
+      "sourceSha256": "7d3d3602da6921b1b12aaf188e518147bd165914c1c4676d24af39790af8fa17",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
       "literalNumberCandidates": []
@@ -1057,6 +3280,21 @@
       "episodes": 5,
       "narrativeSha256": "1922c0a65987fd7e2f095b62b05e873a427ee995fb72a752cca477f7d787c899",
       "sourceSha256": "2ae78391db149808feb5a9b5661b4ba377e514a24c8076e33571ffceebbedf39",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-048",
+      "title": "Fairchild v. Hughes",
+      "briefId": "LRS-CLOSURE-048",
+      "words": 400,
+      "sourceWords": 709,
+      "episodes": 4,
+      "narrativeSha256": "0214ee58b614d890abdc414f111a175f03b2ef595375df36bd4d8327e9cf0d3e",
+      "sourceSha256": "1b2db89fab915abcf5c8266e3224f92b11cde21df4a096bb5c88806928d46489",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -1105,6 +3343,19 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "brief-LRS-CLOSURE-064",
+      "title": "American Textile Manufacturers Institute, Inc. v. Donovan",
+      "briefId": "LRS-CLOSURE-064",
+      "words": 999,
+      "sourceWords": 1590,
+      "episodes": 6,
+      "narrativeSha256": "481eb4a5a8ec5656be7da572ab016174ad2e3c47dc7479a779d644b9c438e4a4",
+      "sourceSha256": "1b43eb44b6e54369025cd75f71988511a501449b303303d0820d6918b94d5dcb",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "brief-LRS-CLOSURE-070",
       "title": "In re Sealed Case",
       "briefId": "LRS-CLOSURE-070",
@@ -1126,6 +3377,94 @@
       "episodes": 6,
       "narrativeSha256": "b5872ca7de4fc6ea7373335f8b8298fdc370f9c8d0ab69aaf3f39c84119a8147",
       "sourceSha256": "47c3ab5d908c5d4e26a186f924556caccb3eaa4f70b14bb26439b3c0c7bd7e1a",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-072",
+      "title": "Berry v. Reagan — D.C. Circuit mootness disposition",
+      "briefId": "LRS-CLOSURE-072",
+      "words": 325,
+      "sourceWords": 579,
+      "episodes": 4,
+      "narrativeSha256": "7ec6e24aa948a2644f9df3e6b600ec5eac86aa857bac3717c820919145a93f43",
+      "sourceSha256": "fe0b87b3aaa599e2e617625f8a20a56ccaf1ad58df88c7b3e285c225af33332f",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-072-DISTRICT",
+      "title": "Berry v. Reagan — district preliminary injunction",
+      "briefId": "LRS-CLOSURE-072-DISTRICT",
+      "words": 270,
+      "sourceWords": 593,
+      "episodes": 3,
+      "narrativeSha256": "033e7f65558fe08f6a60fe34c8c40625d13afb5ae040c1109fe2ef81a17c6e16",
+      "sourceSha256": "be8533dc63cea1d6bc1b7ffcccafafdcd217b032878ee27becbeb238c254fba1",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-080",
+      "title": "Arizona State Legislature v. Arizona Independent Redistricting Commission",
+      "briefId": "LRS-CLOSURE-080",
+      "words": 1047,
+      "sourceWords": 1677,
+      "episodes": 6,
+      "narrativeSha256": "a3252f170b79cab0122c59e990c5e8bd622720a761d2f1590f0d80c181d4b7c0",
+      "sourceSha256": "8269fb2a678e6388d1788e9db5d48355c32674baa37bbb04e35583e68a7896a4",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-083",
+      "title": "United States v. Gray (published opinion and companion summary order)",
+      "briefId": "LRS-CLOSURE-083",
+      "words": 742,
+      "sourceWords": 1492,
+      "episodes": 5,
+      "narrativeSha256": "7c17ba48c736c7d3c14cf15d54b3c192843ed7c6edfa94c1df9e4ed5b97ee5ba",
+      "sourceSha256": "6932a8b21d870e25aac9bc786128d267fd09189ce4f86b7007e16e72a1090244",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-085",
+      "title": "Raila v. United States — district dismissal",
+      "briefId": "LRS-CLOSURE-085",
+      "words": 296,
+      "sourceWords": 676,
+      "episodes": 3,
+      "narrativeSha256": "96fe93953d6a79764b6a47731b5671470ca29edbad5356b42de213dda5e0060c",
+      "sourceSha256": "326165a9a24f4e4facfb8136f24efe3771e407d0acd43fd4fd0c1991f4a2e107",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [
+        "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
+      ],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-CLOSURE-087",
+      "title": "West Virginia University Hospitals, Inc. v. Casey",
+      "briefId": "LRS-CLOSURE-087",
+      "words": 900,
+      "sourceWords": 1555,
+      "episodes": 6,
+      "narrativeSha256": "ace26d8222c3dbc95256f70b318142c067c2d26a019f283192d20e6adb253327",
+      "sourceSha256": "4e41d232b085bdf4dbfb8d51765e7c1af64a029808fdc8a7f00b472862e64e4d",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [
         "Narrative is under 60% of full-brief length; inspect for omitted detail. Length alone is not a verdict."
@@ -1156,6 +3495,19 @@
       "episodes": 10,
       "narrativeSha256": "e5fe70fefdf546168fea3bcbc34e5a932a3a6733db9cf9e96eae76596fb41843",
       "sourceSha256": "6614d60de63c617dd03f8a1f86821d1e6e2f23eb0f03972b6b1b7ada1120ce24",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
+      "id": "brief-LRS-COMP-SLAUGHTER-SEILA",
+      "title": "Seila Law LLC v. Consumer Financial Protection Bureau",
+      "briefId": "LRS-COMP-SLAUGHTER-SEILA",
+      "words": 1592,
+      "sourceWords": 2205,
+      "episodes": 9,
+      "narrativeSha256": "415b67a076b198e6657c6d3cf46882289398fd28fd17c54ba0ec755058bf85a6",
+      "sourceSha256": "7ee58ff0190db3ea823654713e7e73d1a36c308528927decef895f03e45eb19d",
       "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
       "reviewFlags": [],
       "literalNumberCandidates": []
@@ -5951,6 +8303,19 @@
       "literalNumberCandidates": []
     },
     {
+      "id": "mckenna",
+      "title": "McKenna v. Vernon",
+      "briefId": "CT-NEXT-CM-0134",
+      "words": 395,
+      "sourceWords": 589,
+      "episodes": 4,
+      "narrativeSha256": "37098fc0023ab611ff226383a814acb78471cae63fc7c0007519bc0da8fcf160",
+      "sourceSha256": "54ca46ba65c05581c77601f36dcf57741bdb1263bb489d4e45b768fc51af9286",
+      "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+      "reviewFlags": [],
+      "literalNumberCandidates": []
+    },
+    {
       "id": "morris-sparrow",
       "title": "Morris v. Sparrow",
       "briefId": "CT-CB-0026",
@@ -6609,12 +8974,6 @@
   ],
   "pending": [
     {
-      "id": "bollinger",
-      "title": "Bollinger v. Central Pennsylvania Quarry Stripping and Construction Co.",
-      "course": "Contracts",
-      "briefId": "CT-CB-0543"
-    },
-    {
       "id": "brief-CP-003",
       "title": "Case v. State Farm Mutual Automobile Insurance Co.",
       "course": "Civil Procedure",
@@ -6657,12 +9016,6 @@
       "briefId": "CP-009"
     },
     {
-      "id": "brief-CP-010",
-      "title": "Lavender v. Kurn",
-      "course": "Civil Procedure",
-      "briefId": "CP-010"
-    },
-    {
       "id": "brief-CP-011",
       "title": "Hicks v. United States",
       "course": "Civil Procedure",
@@ -6685,12 +9038,6 @@
       "title": "T. B. Harms Co. v. Eliscu",
       "course": "Civil Procedure",
       "briefId": "CP-034"
-    },
-    {
-      "id": "brief-CP-039",
-      "title": "Executive Software North America, Inc. v. United States District Court",
-      "course": "Civil Procedure",
-      "briefId": "CP-039"
     },
     {
       "id": "brief-CP-053",
@@ -6771,18 +9118,6 @@
       "briefId": "CP-098"
     },
     {
-      "id": "brief-CP-099",
-      "title": "Schlagenhauf v. Holder",
-      "course": "Civil Procedure",
-      "briefId": "CP-099"
-    },
-    {
-      "id": "brief-CP-101",
-      "title": "Upjohn Co. v. United States",
-      "course": "Civil Procedure",
-      "briefId": "CP-101"
-    },
-    {
       "id": "brief-CP-102",
       "title": "Cine Forty-Second Street Theatre Corp. v. Allied Artists Pictures Corp.",
       "course": "Civil Procedure",
@@ -6807,12 +9142,6 @@
       "briefId": "CP-105"
     },
     {
-      "id": "brief-CP-106",
-      "title": "In re Peterson (Ex parte Peterson)",
-      "course": "Civil Procedure",
-      "briefId": "CP-106"
-    },
-    {
       "id": "brief-CP-108",
       "title": "Coulas v. Smith",
       "course": "Civil Procedure",
@@ -6825,40 +9154,16 @@
       "briefId": "CP-110"
     },
     {
-      "id": "brief-CP-111",
-      "title": "Chauffeurs, Teamsters and Helpers Local No. 391 v. Terry",
-      "course": "Civil Procedure",
-      "briefId": "CP-111"
-    },
-    {
-      "id": "brief-CP-112",
-      "title": "Markman v. Westview Instruments, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-112"
-    },
-    {
       "id": "brief-CP-113",
       "title": "Flowers v. Flowers",
       "course": "Civil Procedure",
       "briefId": "CP-113"
     },
     {
-      "id": "brief-CP-114",
-      "title": "Edmonson v. Leesville Concrete Co., Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-114"
-    },
-    {
       "id": "brief-CP-115",
       "title": "Denman v. Spain",
       "course": "Civil Procedure",
       "briefId": "CP-115"
-    },
-    {
-      "id": "brief-CP-116",
-      "title": "Reeves v. Sanderson Plumbing Products, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-116"
     },
     {
       "id": "brief-CP-117",
@@ -6939,12 +9244,6 @@
       "briefId": "CP-134"
     },
     {
-      "id": "brief-CP-136",
-      "title": "Rush v. City of Maple Heights",
-      "course": "Civil Procedure",
-      "briefId": "CP-136"
-    },
-    {
       "id": "brief-CP-138",
       "title": "Jones v. Morris Plan Bank of Portsmouth",
       "course": "Civil Procedure",
@@ -6955,18 +9254,6 @@
       "title": "Mitchell v. Federal Intermediate Credit Bank",
       "course": "Civil Procedure",
       "briefId": "CP-139"
-    },
-    {
-      "id": "brief-CP-140",
-      "title": "Cromwell v. County of Sac",
-      "course": "Civil Procedure",
-      "briefId": "CP-140"
-    },
-    {
-      "id": "brief-CP-141",
-      "title": "Russell v. Place",
-      "course": "Civil Procedure",
-      "briefId": "CP-141"
     },
     {
       "id": "brief-CP-144",
@@ -6991,30 +9278,6 @@
       "title": "Hart v. American Airlines, Inc.",
       "course": "Civil Procedure",
       "briefId": "CP-150"
-    },
-    {
-      "id": "brief-CP-151",
-      "title": "Thompson v. Thompson",
-      "course": "Civil Procedure",
-      "briefId": "CP-151"
-    },
-    {
-      "id": "brief-CP-152",
-      "title": "Allen v. McCurry",
-      "course": "Civil Procedure",
-      "briefId": "CP-152"
-    },
-    {
-      "id": "brief-CP-153",
-      "title": "Semtek International Inc. v. Lockheed Martin Corp.",
-      "course": "Civil Procedure",
-      "briefId": "CP-153"
-    },
-    {
-      "id": "brief-CP-COMP-CB-483-CERTIFY",
-      "title": "Northern Mariana Islands v. Canadian Imperial Bank of Commerce — certification",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-483-CERTIFY"
     },
     {
       "id": "brief-CP-COMP-CB-483-FINAL",
@@ -7131,12 +9394,6 @@
       "briefId": "CP-COMP-CB-CAP-021"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-028",
-      "title": "Allstate Insurance Co. v. Hague",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-028"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-043",
       "title": "ABKCO Industries, Inc. v. Lennon; ABKCO Industries, Inc. v. Apple Corps Ltd.",
       "course": "Civil Procedure",
@@ -7203,12 +9460,6 @@
       "briefId": "CP-COMP-CB-CAP-075"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-076",
-      "title": "Dusenbery v. United States",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-076"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-077",
       "title": "Jones v. Flowers",
       "course": "Civil Procedure",
@@ -7251,24 +9502,6 @@
       "briefId": "CP-COMP-CB-CAP-085"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-087",
-      "title": "Volkswagenwerk Aktiengesellschaft v. Schlunk",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-087"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-088",
-      "title": "Rio Properties, Inc. v. Rio International Interlink",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-088"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-089",
-      "title": "Republic of Sudan v. Harrison",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-089"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-090",
       "title": "Miedreich v. Lauenstein",
       "course": "Civil Procedure",
@@ -7279,12 +9512,6 @@
       "title": "United States v. Brand Jewelers, Inc.",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-091"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-094",
-      "title": "Kadic v. Karadzic",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-094"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-098",
@@ -7321,12 +9548,6 @@
       "title": "Lassiter v. Department of Social Services",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-108"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-109",
-      "title": "Turner v. Rogers",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-109"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-111",
@@ -7737,12 +9958,6 @@
       "briefId": "CP-COMP-CB-CAP-288"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-289",
-      "title": "King Vision Pay Per View, Ltd. v. J.C. Dimitri’s Restaurant, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-289"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-294",
       "title": "Schiavone v. Fortune",
       "course": "Civil Procedure",
@@ -7755,12 +9970,6 @@
       "briefId": "CP-COMP-CB-CAP-296"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-300",
-      "title": "Business Guides, Inc. v. Chromatic Communications Enterprises, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-300"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-302",
       "title": "Golden Eagle Distributing Corp. v. Burroughs Corp. (sanctions appeal)",
       "course": "Civil Procedure",
@@ -7771,12 +9980,6 @@
       "title": "Wilson v. Citigroup, N.A.",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-304"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-307",
-      "title": "Sprint Communications Co., L. P. v. APCC Services, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-307"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-309",
@@ -7833,30 +10036,6 @@
       "briefId": "CP-COMP-CB-CAP-335"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-343",
-      "title": "Amgen Inc. v. Connecticut Retirement Plans and Trust Funds",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-343"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-344",
-      "title": "General Telephone Co. of the Southwest v. Falcon",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-344"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-345",
-      "title": "Gratz v. Bollinger",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-345"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-347",
-      "title": "Castano v. American Tobacco Co.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-347"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-350",
       "title": "Oppenheimer Fund, Inc. v. Sanders",
       "course": "Civil Procedure",
@@ -7881,24 +10060,6 @@
       "briefId": "CP-COMP-CB-CAP-356"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-365",
-      "title": "American Express Co. v. Italian Colors Restaurant",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-365"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-367",
-      "title": "O’Gara v. Equifax Information Services, LLC",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-367"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-368",
-      "title": "Marrese v. American Academy of Orthopaedic Surgeons — Seventh Circuit discovery and preclusion stage",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-368"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-370",
       "title": "Cummings v. General Motors Corp.",
       "course": "Civil Procedure",
@@ -7915,12 +10076,6 @@
       "title": "Zubulake v. UBS Warburg LLC",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-375"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-376",
-      "title": "Pyle v. Selective Insurance Co. of America",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-376"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-381",
@@ -8013,12 +10168,6 @@
       "briefId": "CP-COMP-CB-CAP-412"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-413",
-      "title": "Ross v. Bernhard",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-413"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-415",
       "title": "Tull v. United States",
       "course": "Civil Procedure",
@@ -8029,18 +10178,6 @@
       "title": "Atlas Roofing Co., Inc. v. Occupational Safety and Health Review Commission",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-416"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-417",
-      "title": "Granfinanciera, S.A. v. Nordberg",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-417"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-421",
-      "title": "Merck Sharp & Dohme Corp. v. Albrecht",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-421"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-423",
@@ -8065,12 +10202,6 @@
       "title": "J.E.B. v. Alabama ex rel. T.B.",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-428"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-429",
-      "title": "Snyder v. Phelps (district voir-dire/posttrial stage)",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-429"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-430",
@@ -8175,22 +10306,10 @@
       "briefId": "CP-COMP-CB-CAP-474"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-475",
-      "title": "Winter v. Natural Resources Defense Council, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-475"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-478",
       "title": "Grupo Mexicano de Desarrollo, S.A. v. Alliance Bond Fund, Inc.",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-478"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-480",
-      "title": "Netsphere, Inc. v. Baron",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-480"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-481",
@@ -8271,12 +10390,6 @@
       "briefId": "CP-COMP-CB-CAP-500"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-501",
-      "title": "Brown Shoe Co., Inc. v. United States",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-501"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-502",
       "title": "United States v. Copar Pumice Co., Inc.",
       "course": "Civil Procedure",
@@ -8293,18 +10406,6 @@
       "title": "Kerr v. United States District Court for the Northern District of California",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-506"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-507",
-      "title": "Nixon v. Sirica",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-507"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-508",
-      "title": "Cheney v. United States District Court",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-508"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-510",
@@ -8343,12 +10444,6 @@
       "briefId": "CP-COMP-CB-CAP-520"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-523",
-      "title": "New York Telephone Co. v. Maltbie",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-523"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-524",
       "title": "Partmar Corp. v. Paramount Pictures Theatres Corp.",
       "course": "Civil Procedure",
@@ -8359,12 +10454,6 @@
       "title": "Jennings v. Stephens",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-526"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-528",
-      "title": "Google LLC v. Oracle America, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-528"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-530",
@@ -8463,12 +10552,6 @@
       "briefId": "CP-COMP-CB-CAP-564"
     },
     {
-      "id": "brief-CP-COMP-CB-CAP-566",
-      "title": "Blonder-Tongue Laboratories, Inc. v. University of Illinois Foundation",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-566"
-    },
-    {
       "id": "brief-CP-COMP-CB-CAP-568",
       "title": "Jack Faucett Associates, Inc. v. American Telephone & Telegraph Co.",
       "course": "Civil Procedure",
@@ -8545,18 +10628,6 @@
       "title": "McInnes v. California",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-CAP-590"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-591",
-      "title": "Wilko v. Swan",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-591"
-    },
-    {
-      "id": "brief-CP-COMP-CB-CAP-592",
-      "title": "Moses H. Cone Memorial Hospital v. Mercury Construction Corp.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-CAP-592"
     },
     {
       "id": "brief-CP-COMP-CB-CAP-593",
@@ -8673,12 +10744,6 @@
       "briefId": "CP-COMP-CB-JOHNS-MANVILLE-1996"
     },
     {
-      "id": "brief-CP-COMP-CB-JOHNSON-HUFFPOST",
-      "title": "Johnson v. TheHuffingtonPost.com, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-JOHNSON-HUFFPOST"
-    },
-    {
       "id": "brief-CP-COMP-CB-KATZ-LILLY",
       "title": "Katz v. Eli Lilly & Co.",
       "course": "Civil Procedure",
@@ -8691,22 +10756,10 @@
       "briefId": "CP-COMP-CB-KOREAN-AIR-1987"
     },
     {
-      "id": "brief-CP-COMP-CB-LOWER-015",
-      "title": "Avista Management, Inc. v. Wausau Underwriters Insurance Co.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-LOWER-015"
-    },
-    {
       "id": "brief-CP-COMP-CB-LOWER-039",
       "title": "Buchanan v. Warley",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-LOWER-039"
-    },
-    {
-      "id": "brief-CP-COMP-CB-LOWER-044",
-      "title": "California Packing Corp. v. Kelly Storage & Distributing Co.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-LOWER-044"
     },
     {
       "id": "brief-CP-COMP-CB-LOWER-051",
@@ -8757,34 +10810,16 @@
       "briefId": "CP-COMP-CB-LOWER-243"
     },
     {
-      "id": "brief-CP-COMP-CB-LOWER-256",
-      "title": "In re Pharmaceutical Industry Average Wholesale Price Litigation",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-LOWER-256"
-    },
-    {
       "id": "brief-CP-COMP-CB-LOWER-275",
       "title": "Reynolds v. National Football League",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-LOWER-275"
     },
     {
-      "id": "brief-CP-COMP-CB-LOWER-289",
-      "title": "Shaw v. Toshiba America Information Systems, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-LOWER-289"
-    },
-    {
       "id": "brief-CP-COMP-CB-LOWER-293",
       "title": "Shutts v. Phillips Petroleum Co. — Kansas remand",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-LOWER-293"
-    },
-    {
-      "id": "brief-CP-COMP-CB-LOWER-312",
-      "title": "Staton v. Boeing Co.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-LOWER-312"
     },
     {
       "id": "brief-CP-COMP-CB-LOWER-321",
@@ -8835,12 +10870,6 @@
       "briefId": "CP-COMP-CB-PFAU-2009"
     },
     {
-      "id": "brief-CP-COMP-CB-PFAU-2011",
-      "title": "Matter of Pfau v. Forster & Garbus — 2011 account",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-PFAU-2011"
-    },
-    {
       "id": "brief-CP-COMP-CB-PINCAY-PANEL",
       "title": "Pincay v. Andrews (2003 panel)",
       "course": "Civil Procedure",
@@ -8857,12 +10886,6 @@
       "title": "Quercia v. United States",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-QUERCIA"
-    },
-    {
-      "id": "brief-CP-COMP-CB-RANDONE",
-      "title": "Randone v. Appellate Department of the Superior Court of Sacramento County",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-RANDONE"
     },
     {
       "id": "brief-CP-COMP-CB-REF-007",
@@ -8919,12 +10942,6 @@
       "briefId": "CP-COMP-CB-REF-206"
     },
     {
-      "id": "brief-CP-COMP-CB-REF-219",
-      "title": "Monroe v. City of Charlottesville",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-REF-219"
-    },
-    {
       "id": "brief-CP-COMP-CB-REF-285",
       "title": "Schroeder v. City of New York",
       "course": "Civil Procedure",
@@ -8947,12 +10964,6 @@
       "title": "Stadin v. Union Electric Co.",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-CB-REF-308"
-    },
-    {
-      "id": "brief-CP-COMP-CB-REF-347",
-      "title": "Walker v. City of Hutchinson",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-REF-347"
     },
     {
       "id": "brief-CP-COMP-CB-REF-348",
@@ -9003,12 +11014,6 @@
       "briefId": "CP-COMP-CB-TRIPLE-UP-DISTRICT"
     },
     {
-      "id": "brief-CP-COMP-CB-TWIN-FLAMES",
-      "title": "Twin Flames Universe.com, Inc. v. Cole",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-TWIN-FLAMES"
-    },
-    {
       "id": "brief-CP-COMP-CB-US-WOOD",
       "title": "United States v. Wood",
       "course": "Civil Procedure",
@@ -9033,24 +11038,6 @@
       "briefId": "CP-COMP-CB-WEISGRAM"
     },
     {
-      "id": "brief-CP-COMP-CB-WORLD-TRADE-2008",
-      "title": "In re World Trade Center Disaster Site Litigation",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-WORLD-TRADE-2008"
-    },
-    {
-      "id": "brief-CP-COMP-CB-ZIGLAR-ABBASI",
-      "title": "Ziglar v. Abbasi",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-CB-ZIGLAR-ABBASI"
-    },
-    {
-      "id": "brief-CP-COMP-HIST-CHANCERY-1616",
-      "title": "Arguments Proving From Antiquity the Dignity, Power, and Jurisdiction of the Court of Chancery (1616 royal decision)",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-HIST-CHANCERY-1616"
-    },
-    {
       "id": "brief-CP-COMP-SUP-BLOM",
       "title": "BLOM Bank SAL v. Honickman",
       "course": "Civil Procedure",
@@ -9061,12 +11048,6 @@
       "title": "E.M.D. Sales, Inc. v. Carrera",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-SUP-CARRERA"
-    },
-    {
-      "id": "brief-CP-COMP-SUP-CASA",
-      "title": "Trump v. CASA, Inc.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-SUP-CASA"
     },
     {
       "id": "brief-CP-COMP-SUP-CONEY",
@@ -9115,12 +11096,6 @@
       "title": "MOAC Mall Holdings LLC v. Transform Holdco LLC",
       "course": "Civil Procedure",
       "briefId": "CP-COMP-SUP-MOAC"
-    },
-    {
-      "id": "brief-CP-COMP-SUP-PURDUE",
-      "title": "Harrington v. Purdue Pharma L.P.",
-      "course": "Civil Procedure",
-      "briefId": "CP-COMP-SUP-PURDUE"
     },
     {
       "id": "brief-CP-COMP-SUP-RILEY",
@@ -9177,12 +11152,6 @@
       "briefId": "CP-SUP-DUPREE"
     },
     {
-      "id": "brief-CP-SUP-HAIN",
-      "title": "Hain Celestial Group, Inc. v. Palmquist",
-      "course": "Civil Procedure",
-      "briefId": "CP-SUP-HAIN"
-    },
-    {
       "id": "brief-CP-SUP-KEMP",
       "title": "Kemp v. United States",
       "course": "Civil Procedure",
@@ -9195,30 +11164,6 @@
       "briefId": "CP-SUP-MATA-OSC"
     },
     {
-      "id": "brief-CP-SUP-MATA-SANCTIONS",
-      "title": "Mata v. Avianca, Inc. — June 22, 2023 Sanctions Decision",
-      "course": "Civil Procedure",
-      "briefId": "CP-SUP-MATA-SANCTIONS"
-    },
-    {
-      "id": "brief-CP-SUP-PERTTU",
-      "title": "Perttu v. Richards",
-      "course": "Civil Procedure",
-      "briefId": "CP-SUP-PERTTU"
-    },
-    {
-      "id": "brief-CP-SUP-ROYALCANIN",
-      "title": "Royal Canin U. S. A., Inc. v. Wullschleger",
-      "course": "Civil Procedure",
-      "briefId": "CP-SUP-ROYALCANIN"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-001",
-      "title": "Guilmet v. Campbell",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-001"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B1-002",
       "title": "Houseman v. Dare",
       "course": "Contracts",
@@ -9229,18 +11174,6 @@
       "title": "Curtice Brothers Co. v. Catts",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-003"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-004",
-      "title": "Lumley v. Wagner",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-004"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-005",
-      "title": "Kansas v. Nebraska",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-005"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B1-006",
@@ -9399,12 +11332,6 @@
       "briefId": "CT-ADDITIONAL-CM-B1-032"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B1-033",
-      "title": "Keller v. Holderman",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-033"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B1-034",
       "title": "Leonard v. Pepsico, Inc.",
       "course": "Contracts",
@@ -9415,12 +11342,6 @@
       "title": "Boulton v. Jones and Another",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-036"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-037",
-      "title": "Southworth v. Oliver",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-037"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B1-038",
@@ -9499,12 +11420,6 @@
       "title": "Courtney Shoe Co. v. E. W. Curd & Son",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-052"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-053",
-      "title": "CX Digital Media Inc. v. Smoking Everywhere Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-053"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B1-054",
@@ -9597,22 +11512,10 @@
       "briefId": "CT-ADDITIONAL-CM-B1-068"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B1-069",
-      "title": "Bonebrake v. Cox",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-069"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B1-070",
       "title": "Foster v. Colorado Radio Corporation",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-070"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-071",
-      "title": "Anthony Pools v. Sheehan",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-071"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B1-072",
@@ -9649,12 +11552,6 @@
       "title": "Humble Oil & Refining Co. v. Westside Investment Corp.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-078"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-079",
-      "title": "Adams v. Lindsell",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-079"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B1-080",
@@ -9699,12 +11596,6 @@
       "briefId": "CT-ADDITIONAL-CM-B1-087"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B1-088",
-      "title": "Mobil Oil Exploration & Producing Southeast, Inc. v. United States",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-088"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B1-089",
       "title": "Wood v. Lucy, Lady Duff-Gordon — Appellate Division",
       "course": "Contracts",
@@ -9733,24 +11624,6 @@
       "title": "Hertzog v. Hertzog",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B1-093"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B1-094",
-      "title": "Foley v. Interactive Data Corp.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B1-094"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-001",
-      "title": "Songbird Jet Ltd., Inc. v. Amax Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-001"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-002",
-      "title": "Precision Testing Laboratories, Ltd. v. Kenyon Corporation of America",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-002"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B2-003",
@@ -9897,12 +11770,6 @@
       "briefId": "CT-ADDITIONAL-CM-B2-031"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-032",
-      "title": "Hakimoglu v. Trump Taj Mahal Associates",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-032"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-033",
       "title": "Pacelli v. Pacelli",
       "course": "Contracts",
@@ -9915,22 +11782,10 @@
       "briefId": "CT-ADDITIONAL-CM-B2-034"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-035",
-      "title": "Borelli v. Brusseau",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-035"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-037",
       "title": "Schwartzreich v. Bauman-Basch, Inc.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B2-037"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-038",
-      "title": "Recker v. Gustafson",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-038"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B2-039",
@@ -9951,12 +11806,6 @@
       "briefId": "CT-ADDITIONAL-CM-B2-042"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-043",
-      "title": "Foakes v. Beer",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-043"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-044",
       "title": "De Cicco v. Schweizer",
       "course": "Contracts",
@@ -9973,24 +11822,6 @@
       "title": "Schneir v. State",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B2-046"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-047",
-      "title": "Totem Marine Tug & Barge, Inc. v. Alyeska Pipeline Service Co.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-047"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-048",
-      "title": "Odorizzi v. Bloomfield School District",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-048"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-051",
-      "title": "Barclays Bank plc v. O’Brien",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-051"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B2-052",
@@ -10071,12 +11902,6 @@
       "briefId": "CT-ADDITIONAL-CM-B2-065"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-066",
-      "title": "Extra Equipamentos e Exportação Ltda. v. Case Corporation",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-066"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-067",
       "title": "Williams v. Rank & Son Buick, Inc.",
       "course": "Contracts",
@@ -10143,12 +11968,6 @@
       "briefId": "CT-ADDITIONAL-CM-B2-078"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-079",
-      "title": "Vantage Technology, LLC v. Cross",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-079"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-080",
       "title": "Paul W. Abbott, Inc. v. Axel Newman Heating and Plumbing Co.",
       "course": "Contracts",
@@ -10173,12 +11992,6 @@
       "briefId": "CT-ADDITIONAL-CM-B2-083"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-084",
-      "title": "Emerson Radio Corp. v. Orion Sales, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-084"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-085",
       "title": "Steuart v. McChesney",
       "course": "Contracts",
@@ -10197,34 +12010,16 @@
       "briefId": "CT-ADDITIONAL-CM-B2-087"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-088",
-      "title": "Wilcox v. Wilcox",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-088"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-089",
       "title": "Hamann v. Crouch",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B2-089"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B2-090",
-      "title": "Martin Rispens & Son v. Hall Farms, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-090"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B2-091",
       "title": "Williams v. Curtin",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B2-091"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B2-092",
-      "title": "Garlock Sealing Technologies, LLC v. NAK Sealing Technologies Corp.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B2-092"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B2-093",
@@ -10299,12 +12094,6 @@
       "briefId": "CT-ADDITIONAL-CM-B3-009"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B3-010",
-      "title": "Federal Trade Commission v. QT, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-010"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B3-011",
       "title": "Frostifresh Corp. v. Reynoso",
       "course": "Contracts",
@@ -10339,12 +12128,6 @@
       "title": "Shell Oil Co. v. Marinello",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B3-017"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-018",
-      "title": "Zapatha v. Dairy Mart, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-018"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B3-021",
@@ -10431,40 +12214,10 @@
       "briefId": "CT-ADDITIONAL-CM-B3-039"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B3-040",
-      "title": "McConnell v. Commonwealth Pictures Corp.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-040"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B3-041",
       "title": "Trade-Winds Environmental Restoration, Inc. v. Stewart — 2008 partial-summary-judgment order",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B3-041"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-042",
-      "title": "Town Planning and Engineering Associates, Inc. v. Amesbury Specialty Co., Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-042"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-043",
-      "title": "Hewitt v. Hewitt",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-043"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-044",
-      "title": "DeMuth v. Miller",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-044"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-045",
-      "title": "Howard v. Babcock",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-045"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B3-046",
@@ -10749,22 +12502,10 @@
       "briefId": "CT-ADDITIONAL-CM-B3-095"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B3-096",
-      "title": "Validsa, Inc. v. PDVSA Services, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-096"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B3-097",
       "title": "C.L. Maddox, Inc. v. Coalfield Services, Inc.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B3-097"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-098",
-      "title": "Mitchell-Huntley Cotton Co., Inc. v. Waldrep",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-098"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B3-099",
@@ -10777,12 +12518,6 @@
       "title": "Twitter, Inc. v. Elon R. Musk et al.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B3-100"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B3-101",
-      "title": "The Estate of Lucille Osborn v. Michael J. Kemp",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B3-101"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B3-102",
@@ -10977,12 +12712,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-005"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-006",
-      "title": "Coppola v. Kraushaar",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-006"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-007",
       "title": "Sundance Cruises Corp. v. American Bureau of Shipping",
       "course": "Contracts",
@@ -11011,12 +12740,6 @@
       "title": "Redgrave v. Boston Symphony Orchestra, Inc. — District Court",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B4-011"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-012",
-      "title": "Redgrave v. Boston Symphony Orchestra, Inc. — En Banc Appeal",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-012"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B4-013",
@@ -11079,12 +12802,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-025"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-026",
-      "title": "Herbert Clayton & Jack Waller Ltd. v. Oliver",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-026"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-028",
       "title": "Harry Rubin & Sons, Inc. v. Consolidated Pipe Company of America, Inc.",
       "course": "Contracts",
@@ -11143,12 +12860,6 @@
       "title": "Wood v. Boynton",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B4-038"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-039",
-      "title": "Sherwood v. Walker",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-039"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B4-040",
@@ -11235,12 +12946,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-055"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-056",
-      "title": "United States v. Winstar Corp.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-056"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-057",
       "title": "SVAP III Poway Crossings, LLC v. Fitness International, LLC",
       "course": "Contracts",
@@ -11287,12 +12992,6 @@
       "title": "Albre Marble and Tile Company, Inc. v. John Bowen Co., Inc.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B4-065"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-066",
-      "title": "Aluminum Company of America v. Essex Group, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-066"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B4-067",
@@ -11355,28 +13054,10 @@
       "briefId": "CT-ADDITIONAL-CM-B4-079"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-080",
-      "title": "Piccoli A/S v. Calvin Klein Jeanswear Co.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-080"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-081",
-      "title": "Pepsi-Cola Bottling Company of Pittsburg, Inc. v. PepsiCo, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-081"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-082",
       "title": "In re TJX Companies Retail Security Breach Litigation",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B4-082"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-083",
-      "title": "Peterson v. Meritain Health, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-083"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B4-084",
@@ -11457,12 +13138,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-100"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-101",
-      "title": "A.C. Associates v. Metropolitan Steel Industries Inc.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-101"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-102",
       "title": "Baxter Healthcare Corporation v. O.R. Concepts, Inc.",
       "course": "Contracts",
@@ -11505,12 +13180,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-109"
     },
     {
-      "id": "brief-CT-ADDITIONAL-CM-B4-110",
-      "title": "Tsakiroglou & Co. Ltd. v. Noblee Thorl G.m.b.H.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-110"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-CM-B4-111",
       "title": "Harriscom Svenska, AB v. Harris Corp.",
       "course": "Contracts",
@@ -11521,18 +13190,6 @@
       "title": "Autry v. Republic Productions, Inc.",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-CM-B4-112"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-113",
-      "title": "Westinghouse Richmond consolidated uranium litigation — assigned interim account, source-limited",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-113"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-CM-B4-114",
-      "title": "Florida Power & Light Co. v. Westinghouse Electric Corp.",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-CM-B4-114"
     },
     {
       "id": "brief-CT-ADDITIONAL-CM-B4-115",
@@ -11583,18 +13240,6 @@
       "briefId": "CT-ADDITIONAL-CM-B4-122"
     },
     {
-      "id": "brief-CT-ADDITIONAL-FA26-001",
-      "title": "ATS Tree Services, LLC v. Federal Trade Commission",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-FA26-001"
-    },
-    {
-      "id": "brief-CT-ADDITIONAL-FA26-002",
-      "title": "Properties of the Villages, Inc. v. Federal Trade Commission",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-FA26-002"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-FA26-003",
       "title": "Ryan, LLC v. Federal Trade Commission",
       "course": "Contracts",
@@ -11613,12 +13258,6 @@
       "briefId": "CT-ADDITIONAL-FA26-005"
     },
     {
-      "id": "brief-CT-ADDITIONAL-FA26-007",
-      "title": "Homeowners v Les Bâtisseurs du Grand Delta",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-FA26-007"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-FA26-008",
       "title": "Air Alpes v. Chambre de commerce et d’industrie du Jura",
       "course": "Contracts",
@@ -11631,34 +13270,16 @@
       "briefId": "CT-ADDITIONAL-FA26-009"
     },
     {
-      "id": "brief-CT-ADDITIONAL-FA26-013",
-      "title": "House alignment and dimensions decision — assigned account, source-limited",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-FA26-013"
-    },
-    {
       "id": "brief-CT-ADDITIONAL-FA26-014",
       "title": "Cour de cassation, Third Civil Chamber, December 15, 1993 (Cruz)",
       "course": "Contracts",
       "briefId": "CT-ADDITIONAL-FA26-014"
     },
     {
-      "id": "brief-CT-ADDITIONAL-FA26-015",
-      "title": "Approchim v. Eurocollect",
-      "course": "Contracts",
-      "briefId": "CT-ADDITIONAL-FA26-015"
-    },
-    {
       "id": "brief-CT-CB-0074",
       "title": "Mills v. Wyman",
       "course": "Contracts",
       "briefId": "CT-CB-0074"
-    },
-    {
-      "id": "brief-CT-CB-0076",
-      "title": "Webb v. McGowin",
-      "course": "Contracts",
-      "briefId": "CT-CB-0076"
     },
     {
       "id": "brief-CT-CB-0079",
@@ -11673,28 +13294,10 @@
       "briefId": "CT-CB-0081"
     },
     {
-      "id": "brief-CT-CB-0085",
-      "title": "Lake Land Employment Group of Akron, LLC v. Columber",
-      "course": "Contracts",
-      "briefId": "CT-CB-0085"
-    },
-    {
       "id": "brief-CT-CB-0098",
       "title": "Strong v. Sheffield",
       "course": "Contracts",
       "briefId": "CT-CB-0098"
-    },
-    {
-      "id": "brief-CT-CB-0131",
-      "title": "Wright v. Newman",
-      "course": "Contracts",
-      "briefId": "CT-CB-0131"
-    },
-    {
-      "id": "brief-CT-CB-0146",
-      "title": "Cotnam v. Wisdom",
-      "course": "Contracts",
-      "briefId": "CT-CB-0146"
     },
     {
       "id": "brief-CT-CB-0151",
@@ -11703,46 +13306,16 @@
       "briefId": "CT-CB-0151"
     },
     {
-      "id": "brief-CT-CB-0155",
-      "title": "Pyeatte v. Pyeatte",
-      "course": "Contracts",
-      "briefId": "CT-CB-0155"
-    },
-    {
       "id": "brief-CT-CB-0192",
       "title": "Owen v. Tunison",
       "course": "Contracts",
       "briefId": "CT-CB-0192"
     },
     {
-      "id": "brief-CT-CB-0195",
-      "title": "Fairmount Glass Works v. Crunden-Martin Woodenware Co.",
-      "course": "Contracts",
-      "briefId": "CT-CB-0195"
-    },
-    {
       "id": "brief-CT-CB-0206",
       "title": "Kincaid v. Eaton",
       "course": "Contracts",
       "briefId": "CT-CB-0206"
-    },
-    {
-      "id": "brief-CT-CB-0225",
-      "title": "Ever-Tite Roofing Corp. v. Green",
-      "course": "Contracts",
-      "briefId": "CT-CB-0225"
-    },
-    {
-      "id": "brief-CT-CB-0230",
-      "title": "Corinthian Pharmaceutical Systems, Inc. v. Lederle Laboratories",
-      "course": "Contracts",
-      "briefId": "CT-CB-0230"
-    },
-    {
-      "id": "brief-CT-CB-0304",
-      "title": "Kauders v. Uber Technologies, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-CB-0304"
     },
     {
       "id": "brief-CT-CB-0328",
@@ -11757,12 +13330,6 @@
       "briefId": "CT-CB-0385"
     },
     {
-      "id": "brief-CT-CB-0400",
-      "title": "Langman v. Alumni Association of the University of Virginia",
-      "course": "Contracts",
-      "briefId": "CT-CB-0400"
-    },
-    {
       "id": "brief-CT-CB-0402",
       "title": "Central Ceilings, Inc. v. National Amusements, Inc.",
       "course": "Contracts",
@@ -11773,24 +13340,6 @@
       "title": "Crabtree v. Elizabeth Arden Sales Corp.",
       "course": "Contracts",
       "briefId": "CT-CB-0411"
-    },
-    {
-      "id": "brief-CT-CB-0433",
-      "title": "Monarco v. Lo Greco",
-      "course": "Contracts",
-      "briefId": "CT-CB-0433"
-    },
-    {
-      "id": "brief-CT-CB-0462",
-      "title": "Cundick v. Broadbent",
-      "course": "Contracts",
-      "briefId": "CT-CB-0462"
-    },
-    {
-      "id": "brief-CT-CB-0493",
-      "title": "Martinez-Gonzalez v. Elkhorn Packing Co. LLC",
-      "course": "Contracts",
-      "briefId": "CT-CB-0493"
     },
     {
       "id": "brief-CT-CB-0530",
@@ -11823,22 +13372,10 @@
       "briefId": "CT-CM-HOCHSTER"
     },
     {
-      "id": "brief-CT-COMP-SUP-0130",
-      "title": "A. v. B. AG — Competition Covenant and Contractual Penalty",
-      "course": "Contracts",
-      "briefId": "CT-COMP-SUP-0130"
-    },
-    {
       "id": "brief-CT-NEXT-CM-0092",
       "title": "Koken v. Black & Veatch Construction, Inc.",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0092"
-    },
-    {
-      "id": "brief-CT-NEXT-CM-0093",
-      "title": "Lewis v. Mobil Oil Corporation",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0093"
     },
     {
       "id": "brief-CT-NEXT-CM-0094",
@@ -11857,12 +13394,6 @@
       "title": "Keith v. Buchanan",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0096"
-    },
-    {
-      "id": "brief-CT-NEXT-CM-0097",
-      "title": "McKinnon v. Benedict",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0097"
     },
     {
       "id": "brief-CT-NEXT-CM-0098",
@@ -11911,12 +13442,6 @@
       "title": "Simeone v. Simeone",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0116"
-    },
-    {
-      "id": "brief-CT-NEXT-CM-0117",
-      "title": "In the Matter of Baby M",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0117"
     },
     {
       "id": "brief-CT-NEXT-CM-0119",
@@ -11985,12 +13510,6 @@
       "briefId": "CT-NEXT-CM-0136"
     },
     {
-      "id": "brief-CT-NEXT-CM-0137",
-      "title": "McCloskey & Co. v. Minweld Steel Co.",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0137"
-    },
-    {
       "id": "brief-CT-NEXT-CM-0138",
       "title": "By-Lo Oil Co. v. ParTech, Inc.",
       "course": "Contracts",
@@ -12007,12 +13526,6 @@
       "title": "Van Wagner Advertising Corp. v. S & M Enterprises",
       "course": "Contracts",
       "briefId": "CT-NEXT-CM-0140"
-    },
-    {
-      "id": "brief-CT-NEXT-CM-0141",
-      "title": "Snow Phipps Group, LLC v. KCAKE Acquisition, Inc.",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0141"
     },
     {
       "id": "brief-CT-NEXT-CM-0143",
@@ -12105,12 +13618,6 @@
       "briefId": "CT-NEXT-CM-0177"
     },
     {
-      "id": "brief-CT-NEXT-CM-0178",
-      "title": "Young v. City of Chicopee",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0178"
-    },
-    {
       "id": "brief-CT-NEXT-CM-0179",
       "title": "In re Hitz Restaurant Group",
       "course": "Contracts",
@@ -12159,64 +13666,16 @@
       "briefId": "CT-NEXT-CM-0190"
     },
     {
-      "id": "brief-CT-SUP-0022-PSENICSKA-DISTRICT",
-      "title": "Psenicska v. Twentieth Century Fox Film Corp. — district court",
-      "course": "Contracts",
-      "briefId": "CT-SUP-0022-PSENICSKA-DISTRICT"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-001",
-      "title": "Federal Election Commission v. NRA Political Victory Fund",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-001"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-002",
-      "title": "Panama Refining Co. v. Ryan; Amazon Petroleum Corp. v. Ryan",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-002"
-    },
-    {
       "id": "brief-LRS-CLOSURE-005",
       "title": "English v. Trump",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-CLOSURE-005"
     },
     {
-      "id": "brief-LRS-CLOSURE-006",
-      "title": "Guedes v. Bureau of Alcohol, Tobacco, Firearms and Explosives",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-006"
-    },
-    {
       "id": "brief-LRS-CLOSURE-007",
       "title": "Chemical Waste Management, Inc. v. EPA",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-CLOSURE-007"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-010",
-      "title": "Pereira v. Sessions",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-010"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-011",
-      "title": "Campos-Chaves v. Garland",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-011"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-013",
-      "title": "National Nutritional Foods Association v. Weinberger",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-013"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-015",
-      "title": "National Nutritional Foods Association v. Kennedy",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-015"
     },
     {
       "id": "brief-LRS-CLOSURE-016",
@@ -12399,12 +13858,6 @@
       "briefId": "LRS-CLOSURE-047"
     },
     {
-      "id": "brief-LRS-CLOSURE-048",
-      "title": "Fairchild v. Hughes",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-048"
-    },
-    {
       "id": "brief-LRS-CLOSURE-049",
       "title": "Massachusetts v. Mellon; Frothingham v. Mellon",
       "course": "Legislation and the Regulatory State",
@@ -12477,12 +13930,6 @@
       "briefId": "LRS-CLOSURE-063"
     },
     {
-      "id": "brief-LRS-CLOSURE-064",
-      "title": "American Textile Manufacturers Institute, Inc. v. Donovan",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-064"
-    },
-    {
       "id": "brief-LRS-CLOSURE-065",
       "title": "In re Hennen (Ex parte Hennen)",
       "course": "Legislation and the Regulatory State",
@@ -12511,18 +13958,6 @@
       "title": "Davidson v. New Orleans",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-CLOSURE-069"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-072",
-      "title": "Berry v. Reagan — D.C. Circuit mootness disposition",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-072"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-072-DISTRICT",
-      "title": "Berry v. Reagan — district preliminary injunction",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-072-DISTRICT"
     },
     {
       "id": "brief-LRS-CLOSURE-073",
@@ -12567,12 +14002,6 @@
       "briefId": "LRS-CLOSURE-079"
     },
     {
-      "id": "brief-LRS-CLOSURE-080",
-      "title": "Arizona State Legislature v. Arizona Independent Redistricting Commission",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-080"
-    },
-    {
       "id": "brief-LRS-CLOSURE-081",
       "title": "Clarke, Comptroller of the Currency v. Securities Industry Association",
       "course": "Legislation and the Regulatory State",
@@ -12585,34 +14014,16 @@
       "briefId": "LRS-CLOSURE-082"
     },
     {
-      "id": "brief-LRS-CLOSURE-083",
-      "title": "United States v. Gray (published opinion and companion summary order)",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-083"
-    },
-    {
       "id": "brief-LRS-CLOSURE-084",
       "title": "Dolan v. United States Postal Service (Third Circuit)",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-CLOSURE-084"
     },
     {
-      "id": "brief-LRS-CLOSURE-085",
-      "title": "Raila v. United States — district dismissal",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-085"
-    },
-    {
       "id": "brief-LRS-CLOSURE-086",
       "title": "Kosak v. United States",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-CLOSURE-086"
-    },
-    {
-      "id": "brief-LRS-CLOSURE-087",
-      "title": "West Virginia University Hospitals, Inc. v. Casey",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-CLOSURE-087"
     },
     {
       "id": "brief-LRS-CLOSURE-088",
@@ -12639,22 +14050,10 @@
       "briefId": "LRS-COMP-SLAUGHTER-FREEENTERPRISE"
     },
     {
-      "id": "brief-LRS-COMP-SLAUGHTER-SEILA",
-      "title": "Seila Law LLC v. Consumer Financial Protection Bureau",
-      "course": "Legislation and the Regulatory State",
-      "briefId": "LRS-COMP-SLAUGHTER-SEILA"
-    },
-    {
       "id": "brief-LRS-COMP-SLAUGHTER-WILCOX",
       "title": "Trump v. Wilcox",
       "course": "Legislation and the Regulatory State",
       "briefId": "LRS-COMP-SLAUGHTER-WILCOX"
-    },
-    {
-      "id": "mckenna",
-      "title": "McKenna v. Vernon",
-      "course": "Contracts",
-      "briefId": "CT-NEXT-CM-0134"
     }
   ]
 }
