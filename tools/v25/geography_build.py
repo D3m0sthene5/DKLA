@@ -387,7 +387,9 @@ def build():
         why=f"{position.capitalize()} in {d['title']}: {d.get('question','Reading/source index rather than a doctrinal relationship.')}"
         if lead and nid!=d.get('lead'):why+=f' The local lead is {lead}.'
         result['audit']['nodeReviews'].append(dict(id=nid,title=nodes[nid]['title'],kind=nodes[nid]['kind'],district=h['district'],region=h['region'],role=placements[nid].get('role'),action='Relocated' if nid in relocated else 'Retained in topic',rationale=relocated.get(nid,{}).get('rationale',why),summarySha256=hashlib.sha256(nodes[nid]['summary'].encode('utf-8')).hexdigest(),screening='Member title and district topic; separate source-review scope in linked ledgers',sameDistrictNeighbors=neighbors,totalGraphNeighbors=len(ns)))
-    result['sourceHashes']={path:hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in ['DKLA-r18.html','tools/r12/contracts.json','tools/r12/civil.json','tools/r12/legislation.json','tools/r19/data/rlcc.json','tools/r19/data/rules22.json','tools/r19/data/r21-audit.json','tools/r19/data/plain.json','tools/r19/data/sections.json','tools/r19/data/patches.json','tools/r19/data/plain-sections.json']}
+    # Immutable HTML retains its byte-exact fingerprint. Text JSON sources use
+    # universal-newline reads so a Git CRLF/LF checkout changes no audit claim.
+    result['sourceHashes']={path:hashlib.sha256((ROOT/path).read_bytes() if path=='DKLA-r18.html' else (ROOT/path).read_text(encoding='utf-8').encode('utf-8')).hexdigest() for path in ['DKLA-r18.html','tools/r12/contracts.json','tools/r12/civil.json','tools/r12/legislation.json','tools/r19/data/rlcc.json','tools/r19/data/rules22.json','tools/r19/data/r21-audit.json','tools/r19/data/plain.json','tools/r19/data/sections.json','tools/r19/data/patches.json','tools/r19/data/plain-sections.json']}
     return result
 
 

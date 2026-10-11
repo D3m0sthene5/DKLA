@@ -196,9 +196,17 @@
   function showConnections(){const e=selectedEntry();if(!e)return;remember();S.connectionsExpanded=true;setReader(false);renderInspector();renderHeading();fitBox(bounds([geometry().cards.get(PREFIX+e.id),...caseTiles(e)]),true,40,1.05);}
   function rows(value,width,fs,weight,max){
     const lines=typeof wrapM==='function'?wrapM(value,width,fs,weight,max):[String(value)];
-    return lines.map(line=>{if(typeof measure!=='function')return line;let cut=String(line);if(measure(cut,fs,weight)<=width)return cut;while(cut.length&&measure(cut+'…',fs,weight)>width)cut=cut.slice(0,-1);return cut.trimEnd()+'…';});
+    // Native fit.js attaches scale/squeeze to this array. Mapping or measuring
+    // at the original font size discards that fit and cuts valid source text.
+    if(typeof wrapM!=='function'&&typeof measure==='function'&&measure(lines[0],fs,weight)>width)lines.squeeze=width;
+    return lines;
   }
-  function text(lines,x,y,fs,color,weight=500,cls=''){return lines.map((line,i)=>`<text${cls?` class="${cls}"`:''} x="${x}" y="${y+i*fs*1.25}" font-size="${fs}" font-weight="${weight}" fill="${color}" pointer-events="none">${esc(line)}</text>`).join('');}
+  function text(lines,x,y,fs,color,weight=500,cls=''){
+    const size=fs*(lines.scale||1);return lines.map((line,i)=>{
+      const squeeze=lines.squeeze&&typeof measure==='function'&&measure(line,size,weight)>lines.squeeze?` textLength="${lines.squeeze}" lengthAdjust="spacingAndGlyphs"`:'';
+      return `<text${cls?` class="${cls}"`:''} x="${x}" y="${y+i*size*1.25}" font-size="${size}" font-weight="${weight}" fill="${color}"${squeeze} pointer-events="none">${esc(line)}</text>`;
+    }).join('');
+  }
   function skin(n){while(n){if(skins[n.collection])return skins[n.collection];n=n.parent;}return{ink:'#d1dedb',edge:'#82aaa4',base:'#172e31',paper:'#223b3d',mark:'code'};}
   function identity(n,x,y,size){
     const s=skin(n),paths={
@@ -217,7 +225,7 @@
   }
   function display(n){return n.title.replace(/^(?:PART|Part|CHAPTER|Title)\s+[\w]+\s*[—–·-]\s*/,'').replace(/^[IVX]+\s*·\s*/,'').replace(/\s+/g,' ');}
   function code(n){if(n.entry){const e=n.entry;if(e.id==='const-preamble')return '';if(e.id.startsWith('const-'))return e.cite.replace(/^(Article|Amendment) /,'');if(e.collection==='restatement')return '§ '+e.id.split('-')[1];if(e.collection==='consumer')return '§ '+e.id.split('-')[1];if(e.collection==='uscode')return '§ '+e.section;if(e.collection==='ucc')return '§ '+e.id.replace('ucc-','');return e.cite;}
-    if(n.number)return String(n.number).padStart(2,'0');return n.range||n.title.match(/^(?:Title|CHAPTER|PART)\s+([\w]+)/)?.[0]||n.title.match(/^[IVX]+\s*·/)?.[0].replace(' ·','')||'';}
+    if(n.number)return String(n.number).padStart(2,'0');return (n.range?.replace(/^Amendments /,'')||n.title.match(/^(?:Title|CHAPTER|PART)\s+([\w]+)/)?.[0]||n.title.match(/^[IVX]+\s*·/)?.[0].replace(' ·','')||'');}
   function preview(n,box,s,index){
     const z=S.z,u=box.unit||1,fs=Math.max(23*u,11.5/z),pad=16*u,codeText=code(n),badgeW=codeText?Math.min(box.w*.34,Math.max(70*u,codeText.length*fs*.55+pad)):0;
     const attrs=n.entry?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,title=n.entry?.status==='article-index'?'Article overview':display(n),label=n.entry?'Read '+entryName(n.entry):'Explore '+n.title;

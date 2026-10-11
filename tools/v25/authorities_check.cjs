@@ -76,6 +76,21 @@ api.open('usc-28-1367');const route=api.geography().route;assert.ok(route.some(r
 if(data.entries.find(e=>e.id==='usc-28-1367').links.length){document.events.click({preventDefault(){},stopPropagation(){},target:{closest(){return{dataset:{authorityConnections:''}};}}});context.draw();assert.equal(S.panelOpen,false);assert.ok(ids.get('geoCanvas').innerHTML.includes('authority-ribbon'),'Native ribbon missing');}
 viewport={w:390,h:844};api.group('authority-root');context.draw();assert.ok(lastFit.w<1500&&lastFit.h<2300,'Phone should fit the first two readable volumes, not all six tiny covers');assert.ok((ids.get('geoCanvas').innerHTML.match(/class="authority-preview"/g)||[]).length>=20,'Phone volume previews disappear');
 api.group('authority:constitution');context.draw();assert.ok(ids.get('geoCanvas').innerHTML.includes('data-map-region="authority:constitution/articles"'),'Constitution nesting missing');assert.ok(lastFit.w<1500,'Phone hierarchy did not adapt');
+// Exercise the actual native fitter, including its array metadata, rather
+// than a wrapM stub that cannot catch font-scale/textLength regressions.
+context.measure=(s,size)=>String(s).length*size*.54;
+context.wrapM=(s,width,size)=>{const rows=[String(s)];if(context.measure(s,size)>width)rows.squeeze=width;return rows;};
+context.textLines=()=>'';
+const nativeFit=fs.readFileSync(path.join(root,'tools/r19/fit.js'),'utf8').split('  // The label engine')[0]+'\n})();';
+vm.runInNewContext(nativeFit,context);api.group('authority:constitution');context.draw();
+const fittedMap=ids.get('geoCanvas').innerHTML,preamble=data.entries.find(e=>e.id==='const-preamble').lines[0][1];
+const excerpt=[...fittedMap.matchAll(/<text\b[^>]*class="authority-preamble-excerpt"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]).join(' ');
+assert.equal(excerpt.replace(/\s+/g,' ').trim(),escape(preamble).replace(/\s+/g,' ').trim(),'Fitted phone Preamble loses source words');
+assert.ok(!excerpt.includes('…'),'Preamble quote must remain complete');
+const previewCodes=[...fittedMap.matchAll(/<text\b[^>]*class="authority-preview-code"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]);
+assert.ok(previewCodes.includes('1–10')&&!previewCodes.some(s=>s.startsWith('Amendments ')),'Amendment period badges repeat their parent label');
+api.group('authority:frcp');context.draw();
+assert.ok(ids.get('geoCanvas').innerHTML.includes('lengthAdjust="spacingAndGlyphs"'),'Native width-fit metadata is not applied to long labels');
 viewport={w:1280,h:900};api.group('authority-root');ids.get('studyFit').onclick();assert.ok(lastFit.w>1500,'Desktop Fit uses empty native membership instead of authority geometry');
 context.window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200};context.window.DKLAGeography={bounds(){return{x:-18000,y:-4000,w:46000,h:22000};}};api.group('authority-root',false);
 assert.equal(api.geography().entrance.y,18900,'Authority precinct ignores final course envelope');assert.equal(api.geography().entrance.w,22800,'Authority entrance reduced to a dictionary-sized afterthought');

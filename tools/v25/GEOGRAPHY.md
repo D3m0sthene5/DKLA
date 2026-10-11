@@ -4,6 +4,8 @@ The v2.5 overlay contains 1,052 visible graph homes: 414 Contracts, 311 Civil Pr
 
 `geography.json` is the auditable geometry source. `geography_build.py` starts with the immutable r18 layout, replays the effective r19/r21/r22 additions and positions, then applies the recorded placement changes. It records every visible node, every district's members/question, every subject's specific placement rationale and strongest connected subjects. Source hashes and summary fingerprints detect stale review data.
 
+The immutable `DKLA-r18.html` hash is byte-exact. JSON source hashes use UTF-8 text reads with universal newline normalization (CRLF/CR becomes LF), so Windows and Linux checkouts produce the same fingerprints. This normalizes actual file line endings only; JSON values and escaped characters remain unchanged.
+
 ## What changed and why
 
 | Course | Changes |

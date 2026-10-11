@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Check supplemental review drift and guarded integration, not legal truth."""
 import copy
-import hashlib
 import json
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -66,7 +65,9 @@ def check():
         if 'reasoningSha256' in source:
             assert inventory.sha(brief['sections']['Reasoning']) == source['reasoningSha256']
     for path, digest in review['integration']['canonicalCatalogueSha256'].items():
-        assert hashlib.sha256((inventory.ROOT / path).read_bytes()).hexdigest() == digest, 'Canonical rule catalogue changed after guarded integration: ' + path
+        # read_text applies universal-newline normalization, so a Windows
+        # checkout and Linux CI compare the same UTF-8 source text.
+        assert inventory.sha((inventory.ROOT / path).read_text(encoding='utf-8')) == digest, 'Canonical rule catalogue changed after guarded integration: ' + path
     # Exercise the actual assembler validator with its baseline node set. An
     # arbitrary generated-looking ID and a nonexistent endpoint must fail.
     baseline = json.loads(inventory.assemble.script_blocks(inventory.assemble.SOURCE.read_text(encoding='utf-8'))['seedData'])
