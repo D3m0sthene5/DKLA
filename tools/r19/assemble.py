@@ -38,7 +38,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 CHANGELOG_V23 = {
     "v": "v23",
     "date": "2026-10-11",
-    "text": "Every doctrine-timeline step now carries a short label of its own saying what the step did and to what (\"Overrules Chevron\", \"Hearing before wage garnishment\", \"The Fed set apart\") in place of the one-word bucket (\"Expands\", \"Narrows\", \"Refines\"). The buckets had no fixed reference point, so in several timelines the same word marked opposite moves: in the removal-power line Wiener and Free Enterprise Fund were both \"narrows\"; in the parol-evidence line Bollinger was \"narrows\" and Masterson \"expands\" for the same move. Each timeline now states what wider and narrower measure, and each step is sorted into one of twelve kinds (starts the line, widens, limits, extends, sharpens, reaffirms, applies, overrules, displaces, statute or rule, no majority, counterpoint), shown as the colour and explained on hover. All 505 steps were relabelled and checked against the briefs.",
+    "text": "Every doctrine-timeline step now carries a label that says in plain words what the step did and to what (\"Overrules Chevron\", \"Narrows removal power\", \"Harder to survive dismissal\", \"Replaces Finley\", \"Singapore disagrees\") in place of the bare one-word bucket (\"Expands\", \"Narrows\", \"Refines\"). The buckets had no fixed reference point, so in several timelines the same word marked opposite moves: in the removal-power line Wiener and Free Enterprise Fund were both \"narrows\"; in the parol-evidence line Bollinger was \"narrows\" and Masterson \"expands\" for the same move. Each timeline now states what wider and narrower mean for it, and each step is one of twelve kinds (starts the line, widens, narrows, extends, refines, reaffirms, applies, overrules, replaces, codified, no majority, counterpoint), shown as the colour and explained on hover. All 505 steps were relabelled and checked against the briefs.",
 }
 CHANGELOG_V221 = {
     "v": "v22.1",
@@ -349,7 +349,7 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
         if not tid or tid in seen:
             problems.append(f"timeline id missing or repeated: {tid}")
         seen.add(tid)
-        for key in ("course", "title", "question", "now", "steps", "anchor"):
+        for key in ("course", "title", "question", "now", "steps", "anchor", "up", "down"):
             if not t.get(key):
                 problems.append(f"{tid}: no {key}")
         if t.get("course") not in ("Contracts", "Civil Procedure", "Legislation and the Regulatory State"):
@@ -374,8 +374,8 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
                 problems.append(f"{tid}: link {s.get('link')} must sit on an event and name a case or rule on the map")
             if s.get("turn") not in TURNS:
                 problems.append(f"{tid}: {key} has turn {s.get('turn')!r}")
-            if not s.get("tag") or len(s["tag"].split()) > 7 or len(s["tag"]) > 48:
-                problems.append(f"{tid}: {key} needs a tag of at most seven words and 48 characters")
+            if s.get("turn") in ("extends", "overrules", "displaces", "codifies", "counterpoint") and not s.get("object"):
+                problems.append(f"{tid}: {key} ({s.get('turn')}) needs an object for its label")
             if s.get("turn") == "origin" and s is not t["steps"][0] or s.get("turn") != "origin" and s is t["steps"][0]:
                 problems.append(f"{tid}: {key}: origin must be the first step and only the first")
             if not s.get("note") or not isinstance(s.get("year"), int):

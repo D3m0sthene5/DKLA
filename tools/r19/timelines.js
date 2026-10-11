@@ -17,11 +17,25 @@
   if (!TL || !Array.isArray(TL.list)) return;
   const esc = s => E(String(s ?? ''));
   const COURSES = ['Contracts', 'Civil Procedure', 'Legislation and the Regulatory State'], SHORT = ['Contracts', 'Civil Procedure', 'LRS'];
-  /* v23: twelve moves. The visible label on a step is its own short tag (what this step did, naming its object);
-     the move names the kind of step and sets the colour; a timeline's anchor says what "widens" and "limits"
-     measure, shown as the tooltip on those two. */
-  const TURN = { origin: 'Starts the line', widens: 'Widens', limits: 'Limits', extends: 'Extends', sharpens: 'Sharpens', reaffirms: 'Reaffirms', applies: 'Applies', overrules: 'Overrules', displaces: 'Displaces', codifies: 'Statute or rule', divided: 'No majority', counterpoint: 'Counterpoint' };
-  const MEANS = { origin: 'The first step of the line.', widens: 'After this step the doctrine reaches further.', limits: 'After this step the doctrine reaches less far, or an exception cuts in.', extends: 'Carries the doctrine into a new setting without changing the test.', sharpens: 'Restates the test more precisely.', reaffirms: 'Holds the rule when asked to change it.', applies: 'A straightforward application.', overrules: 'Expressly overrules an earlier step.', displaces: 'Replaces an earlier rule without the word: a statute overrides a case, a higher court abrogates a doctrine, a formula is retired.', codifies: 'A statute, rule or Restatement writes the case law down.', divided: 'No majority opinion.', counterpoint: 'Another court or legal system takes the other view.' };
+  /* v23: twelve moves. The label on a step is a plain verb and its object: the timeline's own words for widens
+     and limits ("Widens removal power", "Harder to survive dismissal"), the step's object for overrules, displaces,
+     extends, codifies and counterpoint ("Overrules Chevron", "Replaces Finley", "Extends to commercial bids",
+     "Codified in Rule 23", "Singapore disagrees"), fixed words for the rest. Hovering explains the move. */
+  const TURN = { origin: 'Starts the line', widens: 'Widens', limits: 'Narrows', extends: 'Extends', sharpens: 'Refines the test', reaffirms: 'Reaffirms the rule', applies: 'Applies the rule', overrules: 'Overrules', displaces: 'Replaces', codifies: 'Codified', divided: 'No majority', counterpoint: 'Counterpoint' };
+  const MEANS = { origin: 'The first step of the line.', widens: 'After this step the doctrine reaches further.', limits: 'After this step the doctrine reaches less far, or an exception cuts in.', extends: 'Carries the doctrine into a new setting without changing the test.', sharpens: 'Restates the test more precisely.', reaffirms: 'Holds the rule when asked to change it.', applies: 'A straightforward application.', overrules: 'Expressly overrules an earlier step.', displaces: 'Replaces an earlier rule without the word: a statute overrides a case, a higher court sets aside a doctrine, a formula is retired.', codifies: 'A statute, rule or Restatement writes the case law down.', divided: 'No majority opinion.', counterpoint: 'Another court or legal system takes the other view.' };
+  const label = (s, t) => {
+    const o = s.object || '';
+    switch (s.turn) {
+      case 'widens': return (t && t.up) || 'Widens the doctrine';
+      case 'limits': return (t && t.down) || 'Narrows the doctrine';
+      case 'extends': return o ? 'Extends to ' + o : 'Extends the doctrine';
+      case 'overrules': return o ? 'Overrules ' + o : 'Overrules';
+      case 'displaces': return o ? 'Replaces ' + o : 'Replaces the rule';
+      case 'codifies': return o ? 'Codified in ' + o : 'Statute or rule';
+      case 'counterpoint': return o ? o + ' disagrees' : 'Counterpoint';
+      default: return TURN[s.turn] || '';
+    }
+  };
   const SUP = new Map(D.entries.filter(e => !e[6]).map(e => [e[0], e[1]]));
   const byTitle = new Map(TL.list.map(t => [t.title, t])), byId = new Map(TL.list.map(t => [t.id, t]));
   const stepId = (s, i, t) => s.id || (s.sup ? 'sup:' + s.sup : `event:${t.id}:${i}`);
@@ -45,11 +59,7 @@
   }
   const live = s => s.event || s.sup || nodesById.get(s.id);
   const span = t => { const y = t.steps.map(s => s.year); return y[0] === y[y.length - 1] ? String(y[0]) : `${y[0]}–${y[y.length - 1]}`; };
-  const turnTag = (s, t) => {
-    if (!s.turn || !TURN[s.turn]) return '';
-    const anchor = t && t.anchor && (s.turn === 'widens' || s.turn === 'limits') ? ` Measured against ${t.anchor}.` : '';
-    return `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(TURN[s.turn] + '. ' + MEANS[s.turn] + anchor)}">${esc(s.tag || TURN[s.turn])}</em>`;
-  };
+  const turnTag = (s, t) => s.turn && TURN[s.turn] ? `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(MEANS[s.turn])}">${esc(label(s, t))}</em>` : '';
   const fate = s => s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '';
   // the button a step opens with: an entry on the map, a supporting brief, or nothing for a statute or rule change
   function opener(s, inner, cls) {
