@@ -1,6 +1,6 @@
 {
   "r17_sha256": "765d5e078cb845580b4c76458cdf6155a92a1ea571b99b35607367b8e1bfaa30",
-  "r18_sha256": "05b0d26a226229f3b4251c8b30c86ccf9101ec0a709d5dc86b06a6dc953c8d18",
+  "r18_sha256": "51dc830c4937c6f21d3c1e6fa959e1a077caffd6ccdd35975dc83dd95b548aa2",
   "build": "r18-6afabcfcac",
   "preserved_script_blocks": 27,
   "patched_blocks": {
@@ -22,7 +22,13 @@
     ],
     "dklaIcons": "one glyph per case from tools/r18/icons.json",
     "dklaGlossary": "terms and brief-derived links from tools/r18/glossary-extra.json",
-    "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox"
+    "dklaR16HistoryCode": "SCOTUS frame exposed as window.DKLAScotusBox",
+    "copy": [
+      "dklaR16HistoryCode: <h1>SCOTUS History</h1><p>Follow the seats. Move t",
+      "dklaR16HistoryCode: <div class=\"sh-kicker\">Sources and conventions</di",
+      "semesterCode: <h1>Contracts</h1><p>From an enforceable commitmen",
+      "civilCode: <h1>Contracts</h1><p>From an enforceable commitmen"
+    ]
   },
   "nodes": 1069,
   "edges": 2537,

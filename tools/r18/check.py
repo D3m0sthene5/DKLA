@@ -17,7 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(PARTS))
-from assemble import PATCHES, EXPECTED_R17, patch_icons  # noqa: E402
+from assemble import COPY_PATCHES, PATCHES, EXPECTED_R17, patch_icons  # noqa: E402
 
 errors: list[str] = []
 
@@ -45,8 +45,18 @@ r18_list = blocks(r18_html)
 r18 = {i: c for i, _, c in r18_list}
 
 changed = sorted(k for k, v in r17.items() if r18.get(k) != v)
-require(changed == ['dklaGlossary', 'dklaIcons', 'dklaR16HistoryCode', 'studyCode'], f'only dklaGlossary, dklaIcons, dklaR16HistoryCode and studyCode may differ from r17, found {changed}')
-require(r18['dklaR16HistoryCode'] == r17['dklaR16HistoryCode'].replace('BOX={x:-11400,y:10400,w:22800,h:4200}', 'BOX=(window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200})'), 'SCOTUS code differs by more than the exposed frame')
+copy_blocks = sorted({b for b, _, _, _ in COPY_PATCHES})
+require(changed == sorted({'dklaGlossary', 'dklaIcons', 'dklaR16HistoryCode', 'studyCode', *copy_blocks}), f'only dklaGlossary, dklaIcons, dklaR16HistoryCode, studyCode and the copy-patched blocks may differ from r17, found {changed}')
+def with_copy(block_id, text):
+    for b, before, after, n in COPY_PATCHES:
+        if b == block_id:
+            require(text.count(before) == n, f'copy patch text not found {n}x in {block_id}: {before[:50]}')
+            text = text.replace(before, after)
+    return text
+for block_id in copy_blocks:
+    if block_id != 'dklaR16HistoryCode':
+        require(r18[block_id] == with_copy(block_id, r17[block_id]), f'{block_id} differs by more than the copy patches')
+require(r18['dklaR16HistoryCode'] == with_copy('dklaR16HistoryCode', r17['dklaR16HistoryCode']).replace('BOX={x:-11400,y:10400,w:22800,h:4200}', 'BOX=(window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200})'), 'SCOTUS code differs by more than the exposed frame and the copy patches')
 require(r18.get('dklaIcons') == patch_icons(r17['dklaIcons']), 'dklaIcons is not r17 plus tools/r18/icons.json')
 expected = r17['studyCode']
 for description, before, after in PATCHES:
