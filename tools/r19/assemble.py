@@ -15,16 +15,17 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v23.html"
+TARGET = ROOT / "DKLA-v24.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v23"
-LABEL = "v23"
+VERSION = "v24"
+LABEL = "v24"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -35,6 +36,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V24 = {
+    "v": "v24", "date": "2026-10-11",
+    "text": "Cold Call Mode for Hamer, Pennoyer and Chadha: complete sourced narratives, case-specific section jumps with return to your place, searchable sections, and oral practice with revealable accounts and follow-up questions. Practice ratings stay separate from rule recall. Open Cold call beside a pilot case title. The existing map, briefs and personal edits are preserved.",
+}
 CHANGELOG_V23 = {
     "v": "v23",
     "date": "2026-10-11",
@@ -315,7 +320,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -523,6 +528,9 @@ def main() -> None:
     old = script_blocks(source)
     graph = json.loads(old["seedData"])
     data, full = build_data()
+    cold_dir = ROOT / "tools/cold-call"
+    cold = json.loads((cold_dir / "cases.json").read_text(encoding="utf-8"))
+    runpy.run_path(str(cold_dir / "validate.py"))["validate"](cold, graph, full)
     nodes = {n["id"]: n for n in graph["nodes"]}
     missing = [a for a in data["map"] if a not in nodes]
     if missing:
@@ -573,16 +581,19 @@ def main() -> None:
     audit21 = load_audit(graph, nodes, edge_ids)
     js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rules22.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8") + "\n" + (PARTS / "audit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "takeaways.js").read_text(encoding="utf-8")
     css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r22.css").read_text(encoding="utf-8")
+    js += "\n" + (cold_dir / "reader.js").read_text(encoding="utf-8")
+    css += "\n" + (cold_dir / "reader.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
     addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
+    addition += embed_json("dklaColdCallData", cold)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
@@ -608,8 +619,21 @@ def main() -> None:
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
     TARGET.write_text(output, encoding="utf-8")
-    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build), encoding="utf-8")
+    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8")
     (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
+    # Publish routing and metadata with the generated artifact, never a half-release.
+    index = ROOT / "index.html"
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, index.read_text(encoding="utf-8")), encoding="utf-8")
+    route_path = ROOT / "vercel.json"
+    routes = json.loads(route_path.read_text(encoding="utf-8"))
+    destination = "/" + TARGET.name
+    previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/")
+    if previous != destination and not any(r["source"] == previous for r in routes.get("redirects", [])):
+        routes.setdefault("redirects", []).append(dict(source=previous, destination=destination, permanent=False))
+    for route in routes.get("redirects", []) + routes["rewrites"]:
+        if re.fullmatch(r"/DKLA-[rv][0-9.]+\.html", route.get("destination", "")):
+            route["destination"] = destination
+    route_path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8")
     kinds = {}
     for e in data["entries"]:
         kinds[e[3]] = kinds.get(e[3], 0) + 1

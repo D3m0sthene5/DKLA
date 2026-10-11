@@ -1,0 +1,868 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-11",
+  "cases": [
+    {
+      "id": "hamer",
+      "briefId": "CTR-017",
+      "revision": 1,
+      "title": "Hamer v. Sidway",
+      "citation": "124 N.Y. 538 (1891)",
+      "course": "Contracts",
+      "lead": "A promise between an uncle and nephew becomes an estate claim. Follow the exchange, the assignments, and the trust that keeps the claim alive.",
+      "actors": [
+        {
+          "name": "William E. Story",
+          "role": "Uncle; promised and later retained the $5,000."
+        },
+        {
+          "name": "William E. Story II",
+          "role": "Nephew; performed, then assigned his interest to his wife."
+        },
+        {
+          "name": "Libbie H. Story → Louisa W. Hamer",
+          "role": "Successive assignees; Hamer is the plaintiff."
+        },
+        {
+          "name": "Franklin Sidway",
+          "role": "Executor defending the uncle’s estate."
+        }
+      ],
+      "proceedings": [
+        "Special Term: judgment for Hamer.",
+        "General Term: reversed that judgment.",
+        "New York Court of Appeals: reversed General Term and restored Special Term."
+      ],
+      "briefSha256": "1b6c0e706aab52ae2a6e46bb1b5146e232611d4009f2a09b380ec1ce11b318fa",
+      "sources": [
+        {
+          "id": "opinion",
+          "label": "Full opinion",
+          "url": "https://law.justia.com/cases/new-york/court-of-appeals/1891/124-n-y-538-27-n-e-256-1891.html"
+        }
+      ],
+      "limits": "The opinion does not give the date or motive of the assignment to Hamer, or report later payment of the judgment.",
+      "sections": [
+        {
+          "id": "promise",
+          "title": "The uncle asks for years of restraint",
+          "cue": "What was exchanged, and what did the trial court actually find?",
+          "paragraphs": [
+            "On March 20, 1869, William E. Story promised his nephew, also named William E. Story, $5,000 if the nephew refrained from drinking liquor, using tobacco, swearing, and playing cards or billiards for money until age twenty-one. The nephew agreed. The trial court found both the agreement and complete performance. Those findings matter: this appeal is not an unresolved credibility contest about whether a family promise existed.",
+            "The nephew had used tobacco and occasionally drunk liquor, and the court treated those activities as lawful choices he could surrender. The promised money was the inducement for restricting that freedom over several years. The case therefore presents a requested exchange, rather than an uncle’s unconditioned announcement of a future gift."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 544–546"
+            }
+          ],
+          "followUp": {
+            "question": "If abstaining improved the nephew’s health, what did he give up?",
+            "answer": "His legal freedom to engage in the requested activities. Legal detriment does not require worse health, financial loss, or an objectively bad bargain.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 544–546"
+              }
+            ]
+          }
+        },
+        {
+          "id": "letters",
+          "title": "The nephew performs; the uncle keeps the money",
+          "cue": "At twenty-one, was there a new condition on earning the money?",
+          "paragraphs": [
+            "On January 31, 1875, his twenty-first birthday, the nephew wrote that he had performed and that the $5,000 was due. On February 6 the uncle acknowledged the performance and the obligation. He said the money had been in the bank on the nephew’s birthday and was intended for him. The uncle feared the nephew might lose it in an ill-judged venture, so he proposed keeping it until the nephew could manage it. He also said it would bear interest.",
+            "The trial court found that the nephew received the letter and assented to leaving the money on those terms. This was not a finding that the nephew still had to earn the original promise. Performance had already made the uncle indebted. The later arrangement concerned what the uncle would do with money now belonging beneficially to the nephew, a distinction that becomes decisive when limitations is raised."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 548–551"
+            }
+          ],
+          "followUp": {
+            "question": "Why does the February letter matter beyond confirming the original promise?",
+            "answer": "It supports the later trust: the uncle identifies money held for the nephew, promises to keep it for him with interest, and receives the nephew’s assent.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 548–551"
+              }
+            ]
+          }
+        },
+        {
+          "id": "assignments",
+          "title": "The claim reaches Hamer and the estate",
+          "cue": "Why are neither the uncle nor the nephew named as the parties?",
+          "paragraphs": [
+            "On March 1, 1877, with the uncle’s knowledge and consent, the nephew transferred his entire interest in the $5,000 to his wife, Libbie H. Story. She later transferred that interest to Louisa W. Hamer. The opinion gives no date or motive for this second assignment. Hamer therefore sues as the holder of an assigned interest; she is not the person who abstained.",
+            "The uncle had died by this litigation, and Franklin Sidway defends as executor of his estate. Hamer obtained judgment at Special Term, the trial level of the New York Supreme Court. General Term, the intermediate appellate level, reversed. Hamer then appealed to the New York Court of Appeals. Keep the two appellate actions separate: the final court must decide whether to undo the intermediate reversal and restore her trial judgment."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 549–551"
+            }
+          ],
+          "followUp": {
+            "question": "Is Hamer claiming that she personally supplied consideration?",
+            "answer": "No. The nephew supplied the requested performance. The subsequent assignments explain why Hamer holds and enforces the interest.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 549–551"
+              }
+            ]
+          }
+        },
+        {
+          "id": "consideration",
+          "title": "Does beneficial restraint count as consideration?",
+          "cue": "State Sidway’s argument before giving the court’s response.",
+          "paragraphs": [
+            "Sidway argued that the nephew was helped rather than harmed by abstaining and that the uncle received no benefit sufficient to support a contract. If consideration depended on whether an act ultimately improved the promisee’s life, a court would have to measure the practical merits of the exchange each time. Judge Parker rejects that premise.",
+            "The court’s authorities describe consideration as either a benefit to the promisor or a requested forbearance, detriment, or undertaking by the promisee. The nephew restricted lawful choices in reliance on the promised payment and fully performed the specified conditions. That surrender is sufficient. The court need not calculate the difficulty of abstaining, the adequacy of $5,000, or an economic gain to the uncle. It adds that the record would not establish an absence of legal benefit to the uncle even if that inquiry were necessary.",
+            "The narrow move is from practical harm to legal detriment. Do not turn it into a rule that any beneficial act, any family promise, or any reliance creates consideration. The requested forbearance connects this act to this promise."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 545–546"
+            }
+          ],
+          "followUp": {
+            "question": "Would simply doing something healthy, without the uncle requesting it in exchange, establish this holding’s consideration?",
+            "answer": "No. The opinion ties the surrender of lawful freedom to the uncle’s promise. Its reasoning does not make every beneficial act the price of an unrelated promise.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 545–546"
+              }
+            ]
+          }
+        },
+        {
+          "id": "authorities",
+          "title": "The authorities reinforce the exchange",
+          "cue": "Which authorities support the court, and why do the executor’s cases fail?",
+          "paragraphs": [
+            "The court draws its account of consideration from contract treatises and then uses cases involving family promises and abstention. Shadwell upheld an uncle’s promise connected to his nephew’s marriage. Lakota allowed a claim based on giving up drinking to survive a demurrer. Talbott treated a grandson’s abandonment of lawful tobacco use as consideration despite its health and financial advantages. Lindell likewise recognized abstinence as consideration for a note. These are supporting analogies, not additional events in Hamer’s lawsuit.",
+            "The executor’s authorities concerned different defects: unwritten surety promises within the Statute of Frauds; moral obligation invoked to support a later promise; an executory deed covenant based on love and affection; and performance of a pre-existing obligation. In Vanderbilt, for example, finishing a house the builder already owed did not support a new guarantee. The nephew here was not already legally bound to the uncle to abstain."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 546–548"
+            }
+          ],
+          "followUp": {
+            "question": "Why is performance of a pre-existing duty a different problem?",
+            "answer": "Performing an obligation already owed does not supply the new surrender on which this court relies. Hamer involves lawful freedom the nephew gave up at the uncle’s request.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 546–548"
+              }
+            ]
+          }
+        },
+        {
+          "id": "frauds",
+          "title": "The unwritten agreement raises a separate defense",
+          "cue": "Why does the one-year Statute of Frauds not defeat recovery?",
+          "paragraphs": [
+            "The court recognizes that the original oral agreement was not to be performed within one year and thus fell within the Statute of Frauds. Consideration alone does not answer that problem. The court says the uncle’s letter and later oral statements amount to waiver. It also supplies an independent pleading reason: the bar did not appear on the face of the complaint, so the executor had to plead it in the answer to rely on it, and did not.",
+            "This part should not be retold as a general rule that completing an oral agreement automatically cures every Statute of Frauds defect. The opinion uses the acknowledgment and the omitted defense. Its separate treatment of enforceability explains why a correct consideration answer is only one step toward Hamer’s judgment."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "p. 548"
+            }
+          ],
+          "followUp": {
+            "question": "Was the limitations defense also omitted?",
+            "answer": "No. Limitations was pleaded. That is why the court still had to decide whether the later arrangement created a trust.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "p. 548"
+              }
+            ]
+          }
+        },
+        {
+          "id": "trust",
+          "title": "The later trust answers the limitations problem",
+          "cue": "Why would a valid original contract still be insufficient?",
+          "paragraphs": [
+            "The court says an action founded on the original contract would be time-barred under the pleaded Statute of Limitations. It therefore asks whether the uncle and nephew remained merely debtor and creditor or became trustee and beneficiary. A trust requires a sufficiently clear intention, identifiable property, and a stated disposition; no particular use of the word “trust” is necessary.",
+            "Read against the existing debt and request for payment, the letter identifies money in the bank set apart for the nephew. The uncle promises to retain that money without interference for the nephew’s benefit, with interest, until the nephew can manage it. The nephew assents. Relying on trust authorities including Day v. Roth and an interpretive principle from White v. Hoyt, the court finds the required trust. A bare promise to pay a debt later would not be the same arrangement.",
+            "That characterization avoids the limitation obstacle as the court frames this case. The opinion does not announce that every acknowledged debt becomes a trust, or that trust claims can never become time-barred."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 549–551"
+            }
+          ],
+          "followUp": {
+            "question": "Which facts distinguish a trust from “I will pay you later”?",
+            "answer": "The identified fund already set apart, the undertaking to hold it for the nephew with interest, the language showing that purpose, and the nephew’s assent.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 549–551"
+              }
+            ]
+          }
+        },
+        {
+          "id": "judgment",
+          "title": "The Court of Appeals restores Hamer’s judgment",
+          "cue": "What exactly was reversed, and what remains unknown?",
+          "paragraphs": [
+            "The General Term judge appeared to think that the trust had been carried out by payment during the uncle’s lifetime. But the reversal order did not state that it rested on the facts. The Court of Appeals therefore accepts the trial court’s findings, which support Hamer’s judgment, rather than treating the intermediate court’s suggested payment as an established fact.",
+            "All judges concur. The Court of Appeals reverses General Term’s order and affirms the Special Term judgment, with costs payable from the estate. Hamer wins this appeal through both the enforceable exchange and the later trust. The opinion does not report a later actual payment to Hamer. A complete cold call ends with the restored judgment, without supplying that missing aftermath."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "p. 551"
+            }
+          ],
+          "followUp": {
+            "question": "Give the result without saying only “reversed.”",
+            "answer": "General Term’s reversal is reversed; the trial judgment for Hamer is restored, with costs from the estate.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "p. 551"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cp-pennoyer",
+      "briefId": "CP-013",
+      "revision": 1,
+      "title": "Pennoyer v. Neff",
+      "citation": "95 U.S. 714 (1878)",
+      "course": "Civil Procedure",
+      "lead": "Two lawsuits, with Neff in different roles. A lawyer’s fee judgment becomes the basis for a land sale; the later title suit tests whether that first judgment could support it.",
+      "actors": [
+        {
+          "name": "J. H. Mitchell",
+          "role": "Lawyer; plaintiff seeking fees in the original Oregon suit."
+        },
+        {
+          "name": "John H. Neff",
+          "role": "Absent defendant in the fee suit; plaintiff in the later federal land suit."
+        },
+        {
+          "name": "Sylvester Pennoyer",
+          "role": "Claims title through the sheriff’s sale; defendant in the land suit and party seeking Supreme Court review."
+        }
+      ],
+      "proceedings": [
+        "Mitchell v. Neff, Oregon circuit court: default money judgment.",
+        "Neff v. Pennoyer, U.S. Circuit Court for Oregon: judgment for Neff in a separate land suit.",
+        "U.S. Supreme Court: Pennoyer’s writ of error; judgment for Neff affirmed on a different ground."
+      ],
+      "briefSha256": "85e3f7b862e5594246bd98b5f2ae0d964070bfa18ec1155e0f4a61e337b3f8a5",
+      "sources": [
+        {
+          "id": "opinion",
+          "label": "Full opinion",
+          "url": "https://supreme.justia.com/cases/federal/us/95/714/"
+        }
+      ],
+      "limits": "This account follows the reported opinion’s sale-based title claim without inventing intermediate conveyances, litigation motives, or later land history.",
+      "sections": [
+        {
+          "id": "fees",
+          "title": "Mitchell sues an absent client",
+          "cue": "Who sued whom first, and for what relief?",
+          "paragraphs": [
+            "The first case is Mitchell v. Neff. Mitchell sought payment for legal services in an Oregon state circuit court. When the suit began, and when judgment was entered, Neff was a nonresident of Oregon. He was not personally served in the state and did not appear. Mitchell’s demand was for money, not an adjudication of rights in a specified tract of land.",
+            "On November 13, 1865, Mitchell obtained an order to serve the summons by newspaper publication. Oregon’s statute provided a publication procedure when, among other things, an absent nonresident had property in the state. The order called for six successive weeks in the Pacific Christian Advocate. Distinguish the state’s procedural authorization from the underlying question of jurisdiction: following a publication procedure does not itself establish power to enter a personal judgment against this defendant."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 715–721"
+            }
+          ],
+          "followUp": {
+            "question": "What kind of judgment was Mitchell seeking?",
+            "answer": "An in personam money judgment for his fees. The land was not brought under the court’s control at the outset of that action.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 715–721"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sale",
+          "title": "A default judgment leads to a land sale",
+          "cue": "What is the crucial order of judgment, levy, and sale?",
+          "paragraphs": [
+            "On February 19, 1866, the state court entered a default judgment for less than $300 including costs. Neff claimed his land through a federal patent issued March 19, 1866. Pennoyer claimed through a sheriff’s sale under an execution issued on the fee judgment. The Supreme Court states that the land’s first connection to Mitchell’s suit was the levy of execution after judgment. It had not been attached or otherwise brought under that court’s jurisdiction beforehand.",
+            "That sequence is the case’s hinge. An attachment would bring property under the court’s control as a basis for a proceeding directed at it. Execution instead enforces a judgment already entered. The question is whether a later levy can make the earlier personal judgment valid. Merely saying “Neff owned Oregon land” skips both the timing and the kind of judicial power claimed."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 715–716, 719–720"
+            }
+          ],
+          "followUp": {
+            "question": "Would the size of Mitchell’s claim solve the jurisdiction defect?",
+            "answer": "No. A small money demand still needs a valid jurisdictional basis. The opinion contrasts the fee judgment with land alleged to be worth $15,000, but value is not its jurisdictional test.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 715–716, 719–720"
+              }
+            ]
+          }
+        },
+        {
+          "id": "second-suit",
+          "title": "Neff brings a different lawsuit",
+          "cue": "Is this a direct appeal from the Oregon default?",
+          "paragraphs": [
+            "Neff later sued Pennoyer in the United States Circuit Court for Oregon to recover the land. Neff relied on his federal patent; Pennoyer defended his title through the sheriff’s sale. By stipulation the court tried the case and made a special verdict, then entered judgment for Neff. Pennoyer brought a writ of error to the Supreme Court.",
+            "This is a collateral attack on the first judgment. Neff challenges its validity in a different action because Pennoyer needs that judgment to establish title. It is not Neff’s direct appeal from the fee award, and Pennoyer was not the lawyer who brought the original fee claim. The federal court’s judgment, rather than the old state default itself, is the judgment immediately under Supreme Court review."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 715–716, 719–722"
+            }
+          ],
+          "followUp": {
+            "question": "Why must the Supreme Court consider Mitchell’s old judgment in a suit between Neff and Pennoyer?",
+            "answer": "Pennoyer’s asserted title depends on a sale authorized by that judgment. If the judgment cannot support execution, his claimed source of title fails.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 715–716, 719–722"
+              }
+            ]
+          }
+        },
+        {
+          "id": "affidavits",
+          "title": "The lower court’s reasons do not survive",
+          "cue": "How can Neff win again when the Supreme Court rejects the reasons below?",
+          "paragraphs": [
+            "The federal trial court treated the default judgment as invalid because of defects in the affidavit supporting publication and in the affidavit proving it. The Supreme Court does not adopt those grounds. It treats defects in the supporting affidavit as matters for a direct challenge, not this collateral attack. It also reads the statute’s reference to a printer broadly enough to include the newspaper’s editor, who made the proof-of-publication affidavit.",
+            "Nevertheless, Neff had also argued that the state court lacked jurisdiction: no personal service or appearance supported personal liability, and no property had been subjected to a proceeding directed at it. The Supreme Court can affirm the federal judgment on that alternative ground. An irregular step in a proceeding and a fundamental want of jurisdiction are different objections with different consequences for collateral attack."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 720–722"
+            }
+          ],
+          "followUp": {
+            "question": "Did the Supreme Court affirm because the wrong newspaper employee signed the affidavit?",
+            "answer": "No. It rejected that argument. It affirmed because the original court lacked the jurisdiction needed for the judgment that supposedly authorized the sale.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 720–722"
+              }
+            ]
+          }
+        },
+        {
+          "id": "territory",
+          "title": "Field starts with territorial authority",
+          "cue": "State the two principles that do the work.",
+          "paragraphs": [
+            "Justice Field begins with public-law principles concerning sovereign states. Each state has authority over persons and property within its territory, and no state can exercise direct authority over persons or property outside it. The states’ equal standing makes one state’s attempt to bind an absent outsider a limit on another’s independence.",
+            "A state’s lawful action inside its territory can still affect an outsider indirectly. It can, for example, adjudicate interests in property located there. But that does not convert its control over a local asset into unlimited control over the absent owner. For this personal money judgment, the court required in-state personal service or the defendant’s voluntary appearance. Neither occurred. Newspaper publication supplied no substitute for the missing basis of personal jurisdiction in this setting."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 722–727, 733–736"
+            }
+          ],
+          "followUp": {
+            "question": "Is the opinion saying that a state can never affect an absent nonresident?",
+            "answer": "No. It distinguishes direct personal authority from authority over local property and later identifies status and consent-related qualifications.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 722–727, 733–736"
+              }
+            ]
+          }
+        },
+        {
+          "id": "attachment",
+          "title": "Property jurisdiction has both a time and a limit",
+          "cue": "Why can’t a later execution fix the earlier judgment?",
+          "paragraphs": [
+            "For a proceeding directed at property, the property must be brought under the court’s control in connection with the proceeding, so the court adjudicates on that jurisdictional basis. The majority treats seizure as both the exercise of authority over the asset and a means of alerting its owner. Publication can then operate within that property proceeding. Any adjudication against an absent owner is confined to the property and its value; it does not become a general personal liability enforceable against everything the owner has.",
+            "Mitchell did not obtain such a property-based adjudication. The first judgment purported to establish Neff’s personal debt. Its validity had to exist when rendered and could not depend on whether someone later found property to execute against. Allowing execution to supply jurisdiction retroactively would confuse a means of enforcing a valid judgment with a basis for entering one. The sheriff’s sale therefore could not pass title under this judgment."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 727–732"
+            }
+          ],
+          "followUp": {
+            "question": "Under the majority’s framework, what changes if the property is properly seized at the beginning?",
+            "answer": "A proceeding directed at that property may be possible despite the owner’s absence, with relief limited to the property. That does not by itself authorize unlimited personal liability.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 727–732"
+              }
+            ]
+          }
+        },
+        {
+          "id": "credit",
+          "title": "Recognition and due process connect the rule to the Constitution",
+          "cue": "What is the Fourteenth Amendment doing in a case about an 1866 judgment?",
+          "paragraphs": [
+            "The Court explains that a judgment lacking the necessary jurisdiction need not receive recognition elsewhere. A federal court examining rights asserted under a state judgment is not compelled to give it greater effect than a sister state would. Thus the defect matters in this federal land action even though the judgment arose in an Oregon state court.",
+            "The opinion then explains that, since adoption of the Fourteenth Amendment, proceedings determining personal rights without jurisdiction may also be resisted as a denial of due process. The fee judgment was entered in 1866, before the Amendment’s adoption. Keep that sequence intact: the opinion develops territorial and recognition principles and states their due-process significance; do not casually describe the state judge as having violated an Amendment already in force in 1866.",
+            "These are Pennoyer’s historical jurisdictional premises. The section explains the decision being studied, rather than presenting its territorial formulation as a complete statement of modern personal-jurisdiction doctrine."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 729–734"
+            }
+          ],
+          "followUp": {
+            "question": "Does full faith and credit make the original jurisdiction defect disappear?",
+            "answer": "No. The opinion treats jurisdiction as a prerequisite to the recognition claimed for the judgment.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 729–734"
+              }
+            ]
+          }
+        },
+        {
+          "id": "qualifications",
+          "title": "The majority marks the limits of its account",
+          "cue": "Which situations does Field expressly distinguish?",
+          "paragraphs": [
+            "The majority cautions against extending its rule beyond this personal contract judgment. A state can determine the status of its own inhabitants in circumstances involving an absent nonresident, with divorce offered as the example. It also discusses advance assent to service arrangements, including designated agents for local business or contracts. Corporate membership can carry obligations under prescribed investigative or enforcement procedures.",
+            "These qualifications matter because the rule is not “publication always fails” or “presence is required for every conceivable proceeding.” The case concerns an ordinary money demand against a nonresident, without personal service, appearance, or a relevant consent arrangement, and without an initial proceeding against property. None of the stated qualifications rescues Mitchell’s judgment."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 733–736"
+            }
+          ],
+          "followUp": {
+            "question": "Why would “all judgments require personal service in the state” overstate the opinion?",
+            "answer": "It erases the property, status, appearance, and consent-related distinctions the Court itself discusses.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 733–736"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hunt",
+          "title": "Hunt disputes the attachment requirement",
+          "cue": "Where does the dissent locate the state’s power?",
+          "paragraphs": [
+            "Justice Hunt agrees that a state has substantial authority over local property but objects to making the timing of its seizure constitutionally decisive. He would allow a state to subject a nonresident’s local property to payment of debts through reasonably designed publication procedures and an opportunity to defend. Whether seizure happens at the start or through execution at the end is, for him, a matter of local regulation rather than constitutional power.",
+            "Hunt invokes longstanding statutes and practices and warns that invalidating proceedings like this one will unsettle existing property titles. The disagreement is therefore not simply whether creditors deserve payment. The majority demands jurisdiction supporting the particular judgment when rendered; Hunt regards the state’s power over local property and its prescribed process as sufficient without preliminary attachment."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 736–748"
+            }
+          ],
+          "followUp": {
+            "question": "What is the sharpest point of disagreement between Field and Hunt?",
+            "answer": "Whether local property must be brought under the court’s control before adjudication, or whether the state may authorize its later sale under a publication-based judgment.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 736–748"
+              }
+            ]
+          }
+        },
+        {
+          "id": "result",
+          "title": "The federal judgment for Neff stands",
+          "cue": "Finish with the holding and the actual disposition.",
+          "paragraphs": [
+            "The Supreme Court affirms the federal judgment for Neff. The Oregon personal default judgment, entered against an absent nonresident without personal service or appearance, could not authorize the execution sale. Attaching the property only after that judgment did not cure the missing jurisdiction. Pennoyer’s asserted title through the sale therefore failed.",
+            "A useful final account names both suits and identifies the changed rationale: Mitchell first won a default for fees; Neff later won the land action against Pennoyer; the Supreme Court preserved Neff’s win because of jurisdiction, not because it accepted the affidavit objections on which the federal trial court had relied. The opinion ends there; it does not decide every later dispute over the land or establish a general exemption from paying valid debts."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 720–722, 727–736"
+            }
+          ],
+          "followUp": {
+            "question": "Give the holding in one sentence with the timing included.",
+            "answer": "A personal default against an absent, unserved, nonappearing nonresident could not support a land sale, and a levy after judgment could not supply the jurisdiction missing when judgment was entered.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 720–722, 727–736"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lrs-s-chadha",
+      "briefId": "LRSR-043",
+      "revision": 1,
+      "title": "INS v. Chadha",
+      "citation": "462 U.S. 919 (1983)",
+      "course": "Legislation and the Regulatory State",
+      "lead": "A suspension of deportation survives agency review, is undone by one House of Congress, and becomes a dispute about how Congress must exercise legislative power.",
+      "actors": [
+        {
+          "name": "Jagdish Rai Chadha",
+          "role": "Noncitizen seeking suspension of deportation."
+        },
+        {
+          "name": "Immigration judge / Attorney General",
+          "role": "Exercise authority delegated by the immigration statute."
+        },
+        {
+          "name": "INS",
+          "role": "Agrees the veto is unconstitutional but would enforce the deportation order absent judicial restraint."
+        },
+        {
+          "name": "House and Senate",
+          "role": "Defend the legislative veto in court; only the House vetoed Chadha’s suspension."
+        }
+      ],
+      "proceedings": [
+        "Immigration judge grants suspension in 1974; House vetoes it in 1975.",
+        "Immigration judge orders deportation in 1976; Board of Immigration Appeals dismisses the appeal.",
+        "Ninth Circuit invalidates the veto and bars deportation based on the House resolution.",
+        "Supreme Court affirms; Powell concurs in the judgment, White and Rehnquist dissent."
+      ],
+      "briefSha256": "42c5e15b41bc138065ac22e1f59a211715c267157bd87a0a1df3b2ee525ce96c",
+      "sources": [
+        {
+          "id": "opinion",
+          "label": "Full opinion",
+          "url": "https://www.law.cornell.edu/supremecourt/text/462/919"
+        },
+        {
+          "id": "local",
+          "label": "Opinion on file",
+          "path": "added-sources/opinions/lrs-s-chadha.txt"
+        }
+      ],
+      "limits": "This account ends with the Supreme Court judgment; it does not supply later citizenship or immigration events.",
+      "sections": [
+        {
+          "id": "overstay",
+          "title": "Chadha seeks relief from an admitted overstay",
+          "cue": "What was conceded, and what remained for the immigration judge to decide?",
+          "paragraphs": [
+            "Chadha was born in Kenya to parents of Indian origin and held a British passport. He entered the United States lawfully in 1966 on a student visa, which expired June 30, 1972. The INS began deportation proceedings on October 11, 1973. At a January 11, 1974 hearing he conceded that he had overstayed and was deportable. The judge adjourned the hearing so he could apply for suspension of deportation.",
+            "The relief came from § 244(a)(1) of the Immigration and Nationality Act. It required at least seven years of continuous physical presence, good moral character during that period, and extreme hardship to the applicant or specified citizen or permanent-resident relatives. Even satisfying those criteria left a discretionary decision. The live dispute was relief from deportation under this statutory scheme, not whether the visa remained valid."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 923–925"
+            }
+          ],
+          "followUp": {
+            "question": "Did satisfying the statutory criteria automatically grant permanent residence?",
+            "answer": "No. Suspension was discretionary, and the statute also subjected suspensions to reporting and a period for congressional action.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 923–925"
+              }
+            ]
+          }
+        },
+        {
+          "id": "suspension",
+          "title": "The judge grants suspension under the statute",
+          "cue": "What findings supported relief, and what had to happen next?",
+          "paragraphs": [
+            "The hearing resumed February 7, 1974. On June 25 the immigration judge granted suspension, finding the required presence, good moral character, and extreme hardship. The record included Chadha’s lack of citizenship in another country and the difficulty of finding somewhere he could go. The INS did not appeal the grant.",
+            "Under § 244(c)(1), the Attorney General had to report suspensions to Congress with facts and reasons. Section 244(c)(2) gave either chamber a specified period, tied to congressional sessions, to disapprove. Disapproval required deportation or authorized voluntary departure. Without timely disapproval, the statute provided for cancellation of deportation proceedings and adjustment of status. The 1974 suspension was therefore not already an unconditional final grant of permanent residence."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 924–925"
+            }
+          ],
+          "followUp": {
+            "question": "Why was the suspension sent to Congress at all?",
+            "answer": "The statute required reports and reserved a veto period during which either House could disapprove an individual suspension.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 924–925"
+              }
+            ]
+          }
+        },
+        {
+          "id": "veto",
+          "title": "The House reverses the result for six people",
+          "cue": "What did the House do that the Senate and President did not?",
+          "paragraphs": [
+            "On December 12, 1975, Representative Joshua Eilberg introduced a resolution disapproving six suspensions, including Chadha’s, out of 340 cases considered. He asserted that the six did not meet the extreme-hardship requirement. The House acted on December 16, shortly before the statutory period would end on December 19. The resolution was discharged from committee; it had not been printed for members, and it passed without debate or a recorded vote.",
+            "Only the House acted on Chadha’s suspension. The Senate did not pass this resolution, and it was not presented to the President. Under the statute, that one chamber’s action nevertheless changed the legal consequence of the agency decision: Chadha now had to be deported unless another basis for relief intervened. Those missing constitutional steps, coupled with the resolution’s external legal effect, drive the majority’s merits analysis."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 925–928"
+            }
+          ],
+          "followUp": {
+            "question": "Was the House resolution merely advice to the Attorney General?",
+            "answer": "No. Under the statute, the resolution required reversal of the suspension and deportation; it changed legal consequences outside Congress.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 925–928"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agency",
+          "title": "The agency enters the deportation order",
+          "cue": "Why did Chadha keep litigating after arguing that the veto was unconstitutional?",
+          "paragraphs": [
+            "The immigration judge reopened the proceeding after the House resolution. Chadha sought termination on the ground that § 244(c)(2) was unconstitutional. The judge considered himself without power to invalidate an Act of Congress and entered a deportation order on November 8, 1976. The Board of Immigration Appeals dismissed Chadha’s appeal for the same institutional reason. These were not new findings that Chadha lacked extreme hardship.",
+            "Chadha petitioned directly for review in the Ninth Circuit under the statutory review provision for deportation orders. There was no intervening federal district-court merits judgment. The INS agreed that the one-House veto was unconstitutional but said it would carry out the order unless a court restrained it. The Ninth Circuit held the veto invalid and prohibited deportation based on the resolution. Congress defended the statute, including through its participation in the ensuing Supreme Court litigation."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 928–931, 939–940"
+            }
+          ],
+          "followUp": {
+            "question": "If the INS agreed with Chadha’s constitutional argument, was the case over?",
+            "answer": "No. The order remained operative and the INS would enforce it absent judicial restraint. Legal agreement did not remove Chadha’s concrete injury.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 928–931, 939–940"
+              }
+            ]
+          }
+        },
+        {
+          "id": "threshold",
+          "title": "The Court must be able to reach the merits",
+          "cue": "Which threshold objections would have prevented a constitutional ruling?",
+          "paragraphs": [
+            "The Court resolves several objections before deciding whether the veto is valid. The INS can appeal despite agreeing with the constitutional ruling because the lower court’s judgment prevents it from executing the statutory command. Chadha has standing because the House action produces a deportation order. His later marriage to a U.S. citizen and a possible Refugee Act route do not establish certain alternative relief that eliminates the dispute.",
+            "The court-of-appeals review provision reaches matters on which the deportation order depends, even though the House resolution originated outside the agency hearing. Article III adversity remains because Chadha faces enforcement and Congress defends the veto; the INS’s agreement does not turn the case into an advisory opinion. Nor is this an unreviewable political question. Congress’s broad immigration authority remains subject to judicially enforceable constitutional limits on how power is exercised.",
+            "Severability is another threshold problem, considered next: if removing the veto destroyed the authority to suspend deportation, invalidating the veto would not simply preserve Chadha’s relief."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 930–931, 935–943"
+            }
+          ],
+          "followUp": {
+            "question": "Why does Congress’s power over immigration not answer the political-question objection?",
+            "answer": "The question is whether Congress used constitutionally permitted means. The Court treats that structural question as judicially manageable despite the breadth of the underlying immigration power.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 930–931, 935–943"
+              }
+            ]
+          }
+        },
+        {
+          "id": "severability",
+          "title": "The suspension power can survive the veto",
+          "cue": "Why doesn’t striking the veto also strike Chadha’s relief?",
+          "paragraphs": [
+            "The majority relies on the Act’s severability clause and on the remaining scheme’s ability to operate. Removing the one-House disapproval provision leaves an executive suspension process and congressional reporting. Congress can respond through ordinary legislation. The Court looks at the history of private immigration bills and the effort to move individual relief into an administrable statutory process; it does not infer that Congress necessarily preferred abandoning that process if the veto failed.",
+            "Justice Rehnquist, joined by Justice White, disagrees on this point. He reads the history as showing that Congress would not have delegated the suspension authority without retaining the veto. A general severability clause does not, in his view, overcome the importance of that condition to this particular bargain. His dissent would reverse because the veto cannot be separated from the suspension authority. Keep that remedial objection distinct from White’s defense of the veto’s constitutionality."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 931–935, 1013–1016"
+            }
+          ],
+          "followUp": {
+            "question": "What practical difference does severability make to Chadha?",
+            "answer": "The majority can remove the invalid veto while preserving the statutory suspension authority. If the two were inseparable, invalidating the veto would not leave his grant of relief supported by that authority.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 931–935, 1013–1016"
+              }
+            ]
+          }
+        },
+        {
+          "id": "article-one",
+          "title": "Bicameralism and presentment supply the rule",
+          "cue": "Which constitutional requirements apply to legislative action?",
+          "paragraphs": [
+            "Chief Justice Burger’s majority reads Article I as prescribing how federal legislative power is exercised. Section 1 vests that power in a Congress composed of two Houses. Section 7 requires passage by both Houses and presentment to the President, subject to the constitutional veto and override process. Clause 3 prevents Congress from evading presentment merely by calling legislative action an order, resolution, or vote instead of a bill.",
+            "The majority explains the structural purposes: both chambers must deliberate and agree, while the President supplies an additional check through presentment. The Constitution separately identifies certain powers a single chamber may exercise, including House impeachment and Senate trials, appointments, and treaties. An individual deportation veto is not one of those specified arrangements. Expediency, the popularity of legislative vetoes, and their long use cannot add an unwritten exception."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 944–951, 954–959"
+            }
+          ],
+          "followUp": {
+            "question": "Would calling the action a “resolution” avoid presentment?",
+            "answer": "No. The majority focuses on the action’s legislative character and legal effect, and § 7’s third clause guards against evasion by a different label.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 944–951, 954–959"
+              }
+            ]
+          }
+        },
+        {
+          "id": "legislative",
+          "title": "The veto changes rights outside Congress",
+          "cue": "Why classify the House’s act as legislative?",
+          "paragraphs": [
+            "The majority examines what the House did, not just the branch’s name. The resolution altered the legal rights, duties, and relations of Chadha, the Attorney General, and other people outside the legislative branch. Under the existing statutory process Chadha had obtained a suspension; the House action displaced it and required deportation. Without the reserved veto mechanism, Congress would have needed legislation to produce that result.",
+            "The House had effectively determined that the statutory relief should not apply to these individuals. That external alteration was legislative in character and therefore required the Article I procedure. The earlier enactment of § 244 through both chambers and presentment could not authorize a later exercise of legislative power that dispensed with those same constitutional steps.",
+            "The Court distinguishes executive action under delegated authority. The Attorney General implements a statute containing standards, subject to the legal limits of that delegation and judicial review. The majority does not conclude that every executive or judicial act affecting rights must itself go through Congress. The classification of this congressional intervention is doing the work."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 951–955 and n.16"
+            }
+          ],
+          "followUp": {
+            "question": "Why doesn’t the original statute’s bicameral passage and presentment validate all later vetoes?",
+            "answer": "A statute cannot authorize Congress to exercise legislative power in a manner that the Constitution forbids. The later House action itself must satisfy the required process.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 951–955 and n.16"
+              }
+            ]
+          }
+        },
+        {
+          "id": "powell",
+          "title": "Powell would use a narrower judicial-power ground",
+          "cue": "Why did Powell agree with the result without joining the majority’s full rule?",
+          "paragraphs": [
+            "Justice Powell concurs in the judgment. He sees the House as deciding whether six identified people met statutory criteria: a function ordinarily entrusted to adjudication. Congress cannot decide their individual rights in that manner while bypassing the protections of a hearing and an impartial tribunal. His separation-of-powers objection focuses on this assumption of a judicial function.",
+            "Powell emphasizes that this narrower route would resolve the dispute without deciding the validity of the many legislative veto arrangements aimed at broad administrative policy. Do not attribute his reasoning to the six-Justice majority or convert his discussion of adjudication into a separate majority holding under the Bill of Attainder Clause. Seven Justices support the judgment, but they do not all join one rationale."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 959–967"
+            }
+          ],
+          "followUp": {
+            "question": "Does Powell’s concurrence necessarily invalidate every legislative veto discussed by the majority?",
+            "answer": "No. He deliberately confines his reasoning to Congress’s adjudication of identified individuals’ statutory entitlement.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 959–967"
+              }
+            ]
+          }
+        },
+        {
+          "id": "white",
+          "title": "White defends the veto as part of the delegation",
+          "cue": "What is the strongest argument for Congress’s arrangement?",
+          "paragraphs": [
+            "Justice White sees the legislative veto as a practical accommodation between broad delegations to the Executive and congressional responsibility for policy. Congress originally enacted the condition through bicameralism and presentment. On his account, changing Chadha’s status permanently required the Executive’s approval and the absence of objection from either chamber. The veto preserved the statutory status quo instead of independently legislating a new rule.",
+            "White also challenges the majority’s emphasis on actions that alter legal rights: agencies routinely do that under delegated authority without passing a new bill each time. He disputes the idea that the veto necessarily aggrandizes Congress at the Executive’s expense when it operates as a limit on a power Congress could have withheld. His discussion and appendix survey the many settings in which legislative vetoes had become part of federal governance.",
+            "The majority’s response is structural: useful checks and historical practice do not excuse Congress’s own legislative acts from Article I. The debate is therefore about how to characterize the reserved control and whether the original delegation can constitutionally contain it, not merely about whether this particular deportation was fair."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 967–1003"
+            }
+          ],
+          "followUp": {
+            "question": "How does White describe the status quo differently from the majority?",
+            "answer": "He treats final relief as conditioned from the outset on executive action plus congressional nonobjection. The majority focuses on the House’s later act changing the legal consequences of an already granted suspension.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 967–1003"
+              }
+            ]
+          }
+        },
+        {
+          "id": "disposition",
+          "title": "The Court affirms and leaves the suspension authority intact",
+          "cue": "What does Chadha win, and what does the opinion not establish?",
+          "paragraphs": [
+            "The Supreme Court affirms the Ninth Circuit. The one-House veto violates the required constitutional process, and the invalid provision is severable. The judgment prevents Chadha’s deportation on the basis of the House resolution while leaving the statutory suspension authority in place. Congress remains able to legislate about immigration through the constitutionally prescribed process.",
+            "Burger’s opinion has six votes; Powell supplies a seventh vote for the judgment on his narrower ground. White dissents on the merits, and Rehnquist, joined by White, dissents on severability. A precise ending gives both the structural rule and its remedy. This judgment does not itself naturalize Chadha, and the opinion does not establish the details of his later immigration history."
+          ],
+          "sources": [
+            {
+              "id": "opinion",
+              "pinpoint": "pp. 959, 967, 1013–1016"
+            }
+          ],
+          "followUp": {
+            "question": "Why is “Chadha became a citizen” an inaccurate statement of the disposition?",
+            "answer": "The case invalidates the veto and affirms relief against deportation based on that resolution. Citizenship is a separate legal status that this judgment did not confer.",
+            "sources": [
+              {
+                "id": "opinion",
+                "pinpoint": "pp. 959, 967, 1013–1016"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

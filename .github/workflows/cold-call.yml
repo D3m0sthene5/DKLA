@@ -1,0 +1,48 @@
+name: Build Cold Call release
+on:
+  push:
+    branches:
+      - codex/cold-call-v24
+      - claude/atlas-design-content-audit-m1cw9x
+    paths:
+      - tools/cold-call/**
+      - tools/r19/**
+      - .github/workflows/cold-call.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: cold-call-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /DKLA-r18.html
+            /tools/r19/
+            /tools/cold-call/
+            /added-sources/opinions/lrs-s-chadha.txt
+            /index.html
+            /vercel.json
+            /version.json
+            /sw.js
+      - name: Build and validate
+        run: |
+          python3 tools/r19/assemble.py
+          python3 tools/r19/check.py
+      - name: Commit generated release
+        env:
+          RELEASE_BRANCH: ${{ github.ref_name }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --sparse DKLA-v24.html index.html vercel.json version.json sw.js tools/r19/integrity.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Build v24 Cold Call release'
+            git push origin "HEAD:$RELEASE_BRANCH"
+          fi

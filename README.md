@@ -1,3 +1,7 @@
+## v24 · Cold Call Mode
+
+Open **Cold call** beside Hamer, Pennoyer, or Chadha to read the complete narrative, jump between sections, or practice aloud. Reveal the account and rate your recall; **Return to narrative** restores your reading position. This pilot includes source pinpoints and separate opinions. [Build and content notes](tools/cold-call/README.md).
+
 # Danny Kind Legal Atlas
 
 **Open `DKLA-v23.html`** after downloading the [repository ZIP](https://github.com/D3m0sthene5/DKLA/archive/refs/heads/claude/atlas-design-content-audit-m1cw9x.zip). Keep the HTML beside `added-sources/`; the linked readings open locally in your browser as PDFs. A single HTML file downloaded without its PDF folder cannot open those local source files. The older `DKLA-r8.html`, `DKLA-r16.html`, `DKLA-r17.html` and `DKLA-r18.html` remain available for comparison.

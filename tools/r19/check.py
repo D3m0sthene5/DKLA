@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import runpy
 import shutil
 import subprocess
 import sys
@@ -14,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(PARTS))
-from assemble import EXPECTED_R18, KEYS, script_blocks  # noqa: E402
+from assemble import EXPECTED_R18, KEYS, TARGET, script_blocks  # noqa: E402
 
 errors: list[str] = []
 
@@ -27,10 +28,10 @@ def require(condition: bool, message: str) -> None:
 r18_bytes = (ROOT / "DKLA-r18.html").read_bytes()
 require(hashlib.sha256(r18_bytes).hexdigest() == EXPECTED_R18, "DKLA-r18.html is not the build r19 was made from")
 r18 = script_blocks(r18_bytes.decode("utf-8"))
-html = (ROOT / "DKLA-v23.html").read_text(encoding="utf-8")
+html = TARGET.read_text(encoding="utf-8")
 r19 = script_blocks(html)
 require(all(r19.get(k) == v for k, v in r18.items()), "an r18 block differs in r19")
-for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs"):
+for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs", "dklaColdCallData"):
     require(ident in r19, f"missing block {ident}")
 require('<style id="dklaR19Styles">' in html, "missing dklaR19Styles")
 
@@ -38,6 +39,9 @@ data = json.loads(r19["dklaR19Data"])
 full = json.loads(r19["dklaR19Full"])
 graph = json.loads(r18["seedData"])
 nodes = {n["id"]: n for n in graph["nodes"]}
+cold = json.loads(r19["dklaColdCallData"])
+runpy.run_path(str(ROOT / "tools/cold-call/validate.py"))["validate"](cold, graph, full)
+require(cold == json.loads((ROOT / "tools/cold-call/cases.json").read_text()), "cold-call artifact differs from source")
 ids = [e[0] for e in data["entries"]]
 require(len(ids) == len(set(ids)), "duplicate brief ids")
 require(all(full.get(i, "").strip() for i in ids), "a brief has no full text")
@@ -71,14 +75,14 @@ if node:
             require(res.returncode == 0, f"{name} does not parse: {res.stderr.strip()[:200]}")
 
 version = json.loads((ROOT / "version.json").read_text(encoding="utf-8"))
-require(version.get("build") == data.get("build") and version.get("file") == "DKLA-v23.html", "version.json does not describe this build")
+require(version.get("build") == data.get("build") and version.get("file") == TARGET.name, "version.json does not describe this build")
 sw = (ROOT / "sw.js").read_text(encoding="utf-8")
-require(f"const BUILD = '{data['build']}';" in sw and "DKLA-v23.html" in sw, "sw.js does not serve this build")
-require("DKLA-v23.html" in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
+require(f"const BUILD = '{data['build']}';" in sw and TARGET.name in sw, "sw.js does not serve this build")
+require(TARGET.name in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
 vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
-require(any(r.get("destination") == "/DKLA-v23.html" for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
+require(any(r.get("destination") == "/" + TARGET.name for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
-require(integrity.get("r19_sha256") == hashlib.sha256((ROOT / "DKLA-v23.html").read_bytes()).hexdigest(), "integrity.json does not describe this DKLA-v23.html")
+require(integrity.get("r19_sha256") == hashlib.sha256(TARGET.read_bytes()).hexdigest(), "integrity.json does not describe the current artifact")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))
