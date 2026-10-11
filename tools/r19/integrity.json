@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "8e79281824510a88c718bc0a6c25131e703fc36dc7fa4739a0120e428ead0c4f",
-  "build": "v2.5-7d835b177c",
+  "r19_sha256": "73cd9227872d7ac9d0c9552a99260d593fa5fb07e10fe2d891ee30215efa8e73",
+  "build": "v2.5-5506bc4662",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -80,50 +80,50 @@
     {
       "path": "tools/r19/timelines.js",
       "kind": "javascript",
-      "sha256": "331e0c11590cb387b7cdd60b35847464e88af733830f2e79cf0c8234fbf12c28",
+      "sha256": "729ae2581f12ca56cf9cd672fbdeb3e6eee2f86c691bfbc65a21cd1c55d959f2",
       "startLine": 1128,
       "sourceStartLine": 1129,
-      "endLine": 1329
+      "endLine": 1325
     },
     {
       "path": "tools/r19/audit.js",
       "kind": "javascript",
       "sha256": "61886f71bda8152143e06d6be40ffaf8ba75b0c67dd6d3aa98dc464b8a681723",
-      "startLine": 1330,
-      "sourceStartLine": 1331,
-      "endLine": 1391
+      "startLine": 1326,
+      "sourceStartLine": 1327,
+      "endLine": 1387
     },
     {
       "path": "tools/r19/takeaways.js",
       "kind": "javascript",
-      "sha256": "873848e77a7df4b6bf0322bfc2b1965cfb56e6b29765f4a3a21b17f65b90cafb",
-      "startLine": 1392,
-      "sourceStartLine": 1393,
-      "endLine": 1426
+      "sha256": "7f7993796948f723925073c0306997f57d51ac276ccde51811a96e4e2436824f",
+      "startLine": 1388,
+      "sourceStartLine": 1389,
+      "endLine": 1415
     },
     {
       "path": "tools/cold-call/reader.js",
       "kind": "javascript",
       "sha256": "6209e426b1bea9665cc849e45d4abb481a07b6bdc3a9421acc89e5347d1cac03",
-      "startLine": 1427,
-      "sourceStartLine": 1428,
-      "endLine": 1580
+      "startLine": 1416,
+      "sourceStartLine": 1417,
+      "endLine": 1569
     },
     {
       "path": "tools/v25/authorities.js",
       "kind": "javascript",
-      "sha256": "d2d4e8fe77ad33d5ed1ab857f6ef85c21b6595355a5bce48b9f09ae181c1375e",
-      "startLine": 1581,
-      "sourceStartLine": 1582,
-      "endLine": 1723
+      "sha256": "bb2944173c213f4df8d15169033bd5990f4e5fd12caf23d7c74045581b9d865c",
+      "startLine": 1570,
+      "sourceStartLine": 1571,
+      "endLine": 1763
     },
     {
       "path": "tools/v25/reading.js",
       "kind": "javascript",
-      "sha256": "f307eaef0268dbf4a29d370c2d0504ca43edcb2a93f064ead9a528b4e1a1db0c",
-      "startLine": 1724,
-      "sourceStartLine": 1725,
-      "endLine": 1842
+      "sha256": "475cadf69e5d145fddd486ab0bfc59949e0d583ef0532e5fa8807679d8dc3437",
+      "startLine": 1764,
+      "sourceStartLine": 1765,
+      "endLine": 1924
     },
     {
       "path": "tools/r19/briefs.css",
@@ -152,42 +152,42 @@
     {
       "path": "tools/r19/timelines.css",
       "kind": "stylesheets",
-      "sha256": "fddfbe03962344926a856a366b5f4e1a02f7f7b9b980b7a9fa79a4bf2124d5c2",
+      "sha256": "c64f261fd8a3b75e913b7d765c1d97f34d811f458116746e82f169c87559d98f",
       "startLine": 894,
       "sourceStartLine": 895,
-      "endLine": 976
+      "endLine": 964
     },
     {
       "path": "tools/r19/r22.css",
       "kind": "stylesheets",
       "sha256": "aed9edb992bd101dbee04d640eb28e650698dbcc29cd64ea7f311818b3eaef50",
-      "startLine": 977,
-      "sourceStartLine": 978,
-      "endLine": 985
+      "startLine": 965,
+      "sourceStartLine": 966,
+      "endLine": 973
     },
     {
       "path": "tools/cold-call/reader.css",
       "kind": "stylesheets",
       "sha256": "c36abb32d5af8ce0c42eb156a9fcb76c354c60bed9f1f25be6ecd1534ae6b09a",
-      "startLine": 986,
-      "sourceStartLine": 987,
-      "endLine": 1067
+      "startLine": 974,
+      "sourceStartLine": 975,
+      "endLine": 1055
     },
     {
       "path": "tools/v25/authorities.css",
       "kind": "stylesheets",
-      "sha256": "b44c7c1b78d512c1638945d340aa5e9432e266735c8fac874a3230ddd59e05c9",
-      "startLine": 1068,
-      "sourceStartLine": 1069,
-      "endLine": 1152
+      "sha256": "16c30cd3b33bd1fd751a377b3fef08175ca377cc6a916190fe2928db170c2973",
+      "startLine": 1056,
+      "sourceStartLine": 1057,
+      "endLine": 1099
     },
     {
       "path": "tools/v25/reading.css",
       "kind": "stylesheets",
-      "sha256": "b9dc9d69fffcb507727176cd7426cb31a7338665d958e286d2651246d1ddb3f9",
-      "startLine": 1153,
-      "sourceStartLine": 1154,
-      "endLine": 1231
+      "sha256": "843583bc3ca6d1452969cc0c916a17441938147a1c68f415fa76e9c5c6e79598",
+      "startLine": 1100,
+      "sourceStartLine": 1101,
+      "endLine": 1168
     }
   ]
 }
