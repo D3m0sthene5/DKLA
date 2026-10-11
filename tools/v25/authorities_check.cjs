@@ -139,7 +139,7 @@ for(const size of sizes){
     for(;;){
       const map=ids.get('geoCanvas').innerHTML;
       assert.ok(!map.includes('authority-ribbon')&&!map.includes('authority-map-case'),group+': a source index contains a case graph');
-      g.layout.cards.forEach(c=>assertProjected(c,JSON.stringify(size)+' '+group+' '+c.id));
+      g.layout.cards.forEach(c=>{assertProjected(c,JSON.stringify(size)+' '+group+' '+c.id);if(size.w===390&&group!=='authority-root'&&group!=='authority:constitution')assert.ok(c.w>=250,'Phone source boxes are too narrow for ordinary legal words');});
       assertTextBounds(map,JSON.stringify(size)+' '+group);
       seen.push(...g.layout.cards.map(c=>c.id));
       const next=g.layout.pages[g.layout.page+1];if(!next)break;

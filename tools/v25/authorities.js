@@ -146,7 +146,7 @@
   function geometry(n=current(),overview=false){
     anchor();const a=usable(),narrow=!overview&&a.w<650,key=[n.key,overview,a.w,a.h,BOX.x,BOX.y,BOX.w,pageOffsets.get(n.key)||0,selectedEntry()?.id||''].join(':');if(geometryCache?.key===key)return geometryCache;
     const cover=n===root,width=overview?1440:Math.min(1440,Math.max(320,a.w-32)),short=!overview&&a.h<400,compact=cover&&(narrow||short),pad=narrow||short?16:26,gap=narrow||short?12:22;
-    let cols=cover?(narrow?2:short||width>=860?3:2):Math.min(n.children.length,width>=1100?4:width>=700?3:2);
+    let cols=cover?(narrow?2:short||width>=860?3:2):Math.min(n.children.length,width>=1100?4:width>=700?3:width>=480?2:1);
     const constitution=n===collectionGroups.get('constitution'),headingFs=cover?(short?20:narrow?26:32):narrow?24:30,heading=rows(display(n),width-pad*2,headingFs,550,3,'authority-map-heading');
     const markW=constitution?Math.min(width*.80,short?180:Infinity):0,markH=markW/3,masthead=constitution?{w:markW,h:markH,labelY:markH+34}:null;
     const header=constitution?markH+52:28+heading.length*headingFs*1.25+(n.range?28:0)+24;
