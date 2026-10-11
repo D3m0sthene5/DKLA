@@ -257,10 +257,15 @@
       if(rowH>small*1.25)shown.forEach((child,i)=>{out+=preview(child,{x:card.x+pad,y:y+i*(rowH+rowGap),w:card.w-pad*2,h:rowH,unit:u},s,i);});
       if(n.children.length>shown.length)out+=text(['···'],card.x+card.w-pad-small*1.3,card.y+card.h-pad*.4,small,s.ink,450);
     }else if(e.id==='const-preamble'){
-      const quote=e.lines[0]?.[1]||'',available=card.y+card.h-pad-y,lines=rows(quote,card.w-pad*2,small,450,Math.max(1,Math.floor(available/(small*1.25))));
+      const quote=e.lines[0]?.[1]||'',available=card.y+card.h-pad-y;
+      // A document quotation has its own reading scale, rather than inheriting
+      // the small navigation-label size. The wide strip supports 2–3 generous
+      // lines; phone text retains its complete, bounded reading fit.
+      const quoteFont=rect().w<700?small:Math.max(small,Math.min(22/z,(card.w-pad*2)/80,available/3.5));
+      const lines=rows(quote,card.w-pad*2,quoteFont,450,Math.max(1,Math.floor(available/(quoteFont*1.25))));
       // fit.js may add lines as well as reduce their size. Bound the complete
       // fitted block, including descenders, instead of assuming maxLines won.
-      const size=Math.min(small,available/((lines.length*1.25+.2)*(lines.scale||1)));
+      const size=Math.min(quoteFont,available/((lines.length*1.25+.2)*(lines.scale||1)));
       out+=text(lines,card.x+pad,y+size*(lines.scale||1),size,'#c5d9d0',450,'authority-preamble-excerpt');
     }
     if(e&&status[e.status])out+=text(rows(status[e.status],card.w-pad*2,small*.9,450,1),card.x+pad,card.y+card.h-pad*.6,small*.9,'#d6b789');return out+'</g></g>';

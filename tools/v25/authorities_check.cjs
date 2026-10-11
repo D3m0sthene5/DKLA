@@ -97,6 +97,13 @@ function assertPreambleBounds(map){
 assertPreambleBounds(fittedMap);
 // Match the real phone's smaller safe area, and a further camera zoom-out.
 for(const z of [.24,.18]){S.z=z;context.draw();assertPreambleBounds(ids.get('geoCanvas').innerHTML);}
+viewport={w:2560,h:1271};api.group('authority:constitution');context.draw();
+const desktopQuote=ids.get('geoCanvas').innerHTML;assertPreambleBounds(desktopQuote);
+const desktopLines=[...desktopQuote.matchAll(/<text\b([^>]*class="authority-preamble-excerpt"[^>]*)>([^<]*)<\/text>/g)];
+assert.ok(desktopLines.length>=2,'Wide Preamble remains a tiny one-line caption');
+const desktopFont=Number(desktopLines[0][1].match(/font-size="([\d.]+)"/)[1]);
+assert.ok(desktopFont*S.z>=19,'Wide Preamble quote inherits the tiny navigation-label font');
+viewport={w:390,h:844};
 const previewCodes=[...fittedMap.matchAll(/<text\b[^>]*class="authority-preview-code"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]);
 assert.ok(previewCodes.includes('1–10')&&!previewCodes.some(s=>s.startsWith('Amendments ')),'Amendment period badges repeat their parent label');
 api.group('authority:frcp');context.draw();
