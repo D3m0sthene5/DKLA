@@ -1,0 +1,364 @@
+{
+ "stamp": "r22",
+ "updatedAt": "2026-10-10T12:00:00Z",
+ "about": "Rule entries created so that every statute or rule step in the doctrine timelines opens an entry (r22). Slots are relative to the subtopic corner (dx, dy), as in r21-audit.json moves. Applied at run time by tools/r19/rules22.js.",
+ "rules": [
+  {
+   "id": "rest205",
+   "title": "Restatement § 205 — duty of good faith and fair dealing",
+   "shortTitle": "Restatement § 205",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "Every contract imposes on each party a duty of good faith and fair dealing in its performance and its enforcement.",
+   "notes": "Section 205 is one sentence. It attaches the duty to every contract, and to two stages of it: performance and enforcement. It does not define good faith; the comments and the cases give the term its content case by case.\n\nIn this course the section is the Restatement's statement of the duty that Wood v. Lucy, Lady Duff-Gordon implied into an exclusive agency and that Bloor, Market Street Associates, Dalton and the later cases apply to discretion, efforts and the exercise of contractual powers. The UCC states the same obligation for sales in § 1-304 (formerly § 1-203).",
+   "tags": [
+    "class-16",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "Restatement (Second) of Contracts § 205. Duty of Good Faith and Fair Dealing · Contracts Selections (Farnsworth et al., 2021), PDF page 110 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=110"
+    }
+   ],
+   "home": {
+    "district": "good-faith",
+    "dx": 563,
+    "dy": 728,
+    "w": 510,
+    "h": 100,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "Restatement § 205",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "good-faith",
+     "states the duty",
+     "Section 205 is the Restatement's statement of the duty of good faith and fair dealing that this concept collects."
+    ],
+    [
+     "discretion",
+     "governs discretion",
+     "The duty of good faith in performance is the standard the cases apply to a party's exercise of contractual discretion."
+    ],
+    [
+     "wood-lucy",
+     "later codification",
+     "Wood v. Lucy implied the reasonable-efforts duty; § 205 states a general duty of good faith in performance for every contract."
+    ],
+    [
+     "market-street",
+     "applied in",
+     "Market Street Associates reads the duty of good faith in performance that § 205 states."
+    ]
+   ]
+  },
+  {
+   "id": "rest302",
+   "title": "Restatement § 302 — intended and incidental beneficiaries",
+   "shortTitle": "Restatement § 302",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "A beneficiary is intended, and may enforce the promise, when recognising the right fits the parties' intention and the performance either pays the promisee's debt to the beneficiary or is meant as a gift to the beneficiary; every other beneficiary is incidental.",
+   "notes": "Section 302 replaces the older creditor-beneficiary and donee-beneficiary categories with one test. A beneficiary is intended if recognising a right to performance is appropriate to effectuate the parties' intention and either (a) the performance will satisfy an obligation of the promisee to pay money to the beneficiary or (b) the circumstances indicate that the promisee intends to give the beneficiary the benefit of the performance. Subsection (2) defines an incidental beneficiary as any beneficiary who is not intended; an incidental beneficiary has no right to enforce.\n\nThe two limbs keep the two older cases on the map: Lawrence v. Fox (the promise to pay the promisee's creditor) falls under (1)(a), and Seaver v. Ransom (the promise to make a gift to a relative) under (1)(b). The Sisney cases apply the intended-beneficiary test to a public contract.",
+   "tags": [
+    "class-26",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "Restatement (Second) of Contracts § 302. Intended and Incidental Beneficiaries · Contracts Selections (Farnsworth et al., 2021), PDF page 178 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=178"
+    }
+   ],
+   "home": {
+    "district": "beneficiaries",
+    "dx": 563,
+    "dy": 374,
+    "w": 510,
+    "h": 100,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "Restatement § 302",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "third-party-beneficiaries",
+     "states the test",
+     "Section 302 states the intended-beneficiary test that this concept collects."
+    ],
+    [
+     "lawrence-fox",
+     "codifies as § 302(1)(a)",
+     "A promise whose performance pays the promisee's debt to the beneficiary makes the beneficiary intended under § 302(1)(a)."
+    ],
+    [
+     "seaver",
+     "codifies as § 302(1)(b)",
+     "A promise meant to give the beneficiary the benefit of the performance makes the beneficiary intended under § 302(1)(b)."
+    ]
+   ]
+  },
+  {
+   "id": "ucc2209",
+   "title": "UCC § 2-209 — modification, rescission and waiver",
+   "shortTitle": "UCC § 2-209",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "An agreement modifying a contract for the sale of goods needs no consideration to be binding; a signed clause may require modifications to be in a signed writing, a failed modification can still operate as a waiver, and a waiver of an executory term can be retracted on reasonable notice unless the other party has relied on it.",
+   "notes": "Subsection (1) drops the pre-existing-duty rule for sales of goods: a modification needs no consideration. Subsection (2) lets a signed agreement exclude modification or rescission except by a signed writing, but a merchant's form imposing that requirement on a non-merchant must be separately signed by the other party. Subsection (3) keeps the statute of frauds in play if the contract as modified falls within it. Subsections (4) and (5) deal with waiver: an attempted modification that fails (2) or (3) can still operate as a waiver, and a waiver affecting an executory portion of the contract can be retracted by reasonable notification that strict performance will be required, unless retraction would be unjust because the other party has materially changed position in reliance on the waiver.\n\nThe section is the Code's answer to Alaska Packers' Association v. Domenico: instead of policing modifications by the consideration doctrine, the Code's comments test them for good faith. The Selections note that the 2003 Official Text of Article 1 covers the same point in § 1-303.",
+   "tags": [
+    "class-11",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "UCC § 2-209. Modification, Rescission and Waiver · Contracts Selections (Farnsworth et al., 2021), PDF page 344 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=344"
+    }
+   ],
+   "home": {
+    "district": "modification",
+    "dx": 27,
+    "dy": 374,
+    "w": 510,
+    "h": 100,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "UCC § 2-209",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "modification",
+     "sales-of-goods rule",
+     "Section 2-209 governs modification, rescission and waiver of contracts for the sale of goods."
+    ],
+    [
+     "alaska-packers",
+     "counterpoint",
+     "Alaska Packers refused a modification for want of consideration; § 2-209(1) removes that requirement for sales of goods."
+    ],
+    [
+     "ny51103",
+     "compare",
+     "New York's § 5-1103 reaches a similar result for written modifications outside the Code."
+    ]
+   ]
+  },
+  {
+   "id": "ucc2302",
+   "title": "UCC § 2-302 — unconscionable contract or clause",
+   "shortTitle": "UCC § 2-302",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "If a court finds, as a matter of law, that a contract or a clause was unconscionable when made, it may refuse to enforce the contract, enforce the rest without the clause, or limit the clause's application to avoid an unconscionable result; the parties must be given a chance to present evidence of commercial setting, purpose and effect.",
+   "notes": "Subsection (1) makes unconscionability a question of law for the court, judged as of the time the contract was made, and gives the court three remedies: refuse enforcement of the whole contract, enforce the remainder without the unconscionable clause, or limit the clause so as to avoid any unconscionable result. Subsection (2) requires that, when unconscionability is claimed or appears, the parties be given a reasonable opportunity to present evidence of the contract's commercial setting, purpose and effect. The text does not define unconscionability.\n\nWilliams v. Walker-Thomas Furniture, decided while the Code was being adopted, treated the newly enacted section as persuasive authority and supplied the working test of an absence of meaningful choice together with terms unreasonably favourable to one side. The Restatement (Second) adopted the same structure in § 208, and the Restatement of Consumer Contracts in § 6.",
+   "tags": [
+    "class-18",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "UCC § 2-302. Unconscionable Contract or Clause · Contracts Selections (Farnsworth et al., 2021), PDF page 347 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=347"
+    }
+   ],
+   "home": {
+    "district": "unconscionability",
+    "dx": 563,
+    "dy": 374,
+    "w": 510,
+    "h": 100,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "UCC § 2-302",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "unconscionability",
+     "states the power",
+     "Section 2-302 gives the court the power to refuse or limit enforcement of an unconscionable contract or clause."
+    ],
+    [
+     "williams-walker-thomas",
+     "applied in",
+     "Williams v. Walker-Thomas treated § 2-302 as persuasive and supplied the test the section leaves open."
+    ],
+    [
+     "rlcc-6",
+     "consumer-contract counterpart",
+     "RLCC § 6 restates unconscionability for consumer contracts in the same shape."
+    ]
+   ]
+  },
+  {
+   "id": "ucc1303",
+   "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+   "shortTitle": "UCC §§ 1-303, 2-202",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "Course of performance, course of dealing and usage of trade are relevant to the meaning of the agreement and may explain or supplement even a final writing; where they cannot reasonably be reconciled with express terms, the express terms prevail, then course of performance, then course of dealing, then usage.",
+   "notes": "Section 1-303 (formerly § 1-205, with course of performance moved in from § 2-208) defines the three sources: a course of performance is repeated performance under the contract that the other side accepts without objection; a course of dealing is the parties' conduct in earlier transactions; a usage of trade is a practice observed so regularly in a place, vocation or trade that parties expect it to be observed, and its existence and scope are proved as facts. Subsection (d) makes all three relevant to the meaning of the agreement and lets them give particular meaning to, supplement or qualify its terms. Subsection (e) orders them when they cannot be reconciled: express terms first, then course of performance, course of dealing and usage of trade. Subsection (g) requires notice before a usage is used against a party, to prevent unfair surprise.\n\nSection 2-202 applies this to the parol-evidence rule for sales of goods: terms in a writing intended as a final expression may not be contradicted by a prior agreement or a contemporaneous oral agreement, but may be explained or supplemented by course of performance, course of dealing or usage of trade, and by consistent additional terms unless the writing was intended as a complete and exclusive statement. Columbia Nitrogen, Nanakuli and Frigaliment show how far a usage can go in reading a written term.",
+   "tags": [
+    "class-15",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "UCC § 1-303. Course of Performance, Course of Dealing, and Usage of Trade · Contracts Selections (Farnsworth et al., 2021), PDF page 320 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=320"
+    },
+    {
+     "label": "UCC § 2-202. Final Written Expression: Parol or Extrinsic Evidence · Contracts Selections (Farnsworth et al., 2021), PDF page 337 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=337"
+    }
+   ],
+   "home": {
+    "district": "trade-usage",
+    "dx": 563,
+    "dy": 476,
+    "w": 510,
+    "h": 100,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "UCC §§ 1-303, 2-202",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "trade-usage",
+     "defines and ranks",
+     "Section 1-303 defines usage of trade and ranks it below express terms, course of performance and course of dealing."
+    ],
+    [
+     "course-dealing",
+     "defines",
+     "Section 1-303(b) defines a course of dealing as conduct in the parties' earlier transactions."
+    ],
+    [
+     "parol-evidence",
+     "sales-of-goods rule",
+     "Section 2-202 states the parol-evidence rule for sales of goods and lets usage and dealing explain or supplement a final writing."
+    ],
+    [
+     "columbia-nitrogen",
+     "applied in",
+     "Columbia Nitrogen read a usage of trade into a written price term under §§ 1-205 and 2-202."
+    ],
+    [
+     "nanakuli",
+     "applied in",
+     "Nanakuli used usage of trade and course of performance to read a price-protection practice into a written supply contract."
+    ]
+   ]
+  },
+  {
+   "id": "ucc2716",
+   "title": "UCC § 2-716 — buyer's right to specific performance or replevin",
+   "shortTitle": "UCC § 2-716",
+   "kind": "Rule",
+   "courses": [
+    "Contracts"
+   ],
+   "summary": "Specific performance may be decreed where the goods are unique or in other proper circumstances, on such terms as to price, damages and other relief as the court deems just; a buyer may also replevy goods identified to the contract when cover is unavailable.",
+   "notes": "Subsection (1) states the test: specific performance may be decreed where the goods are unique 'or in other proper circumstances'. The second phrase loosens the traditional requirement that damages be inadequate, which is why the section marks a step in the specific-relief timeline. Subsection (2) lets the decree carry terms as to payment of the price, damages or other relief. Subsection (3) gives the buyer a right of replevin for goods identified to the contract when cover cannot be had after reasonable effort, or the goods were shipped under reservation and the security interest has been satisfied or tendered; for consumer goods the right vests when the buyer acquires a special property in the goods.\n\nMorris v. Sparrow and the notes on personal-service contracts show the older equity limits that the section relaxes for sales of goods.",
+   "tags": [
+    "class-22",
+    "r22-rule"
+   ],
+   "status": "Source on file",
+   "sources": [
+    {
+     "label": "UCC § 2-716. Buyer's Right to Specific Performance or Replevin · Contracts Selections (Farnsworth et al., 2021), PDF page 412 of 713",
+     "url": "added-sources/Contracts- Selections.pdf#page=412"
+    }
+   ],
+   "home": {
+    "district": "specific-relief",
+    "dx": 556,
+    "dy": 171,
+    "w": 500,
+    "h": 72,
+    "core": true
+   },
+   "placement": {
+    "role": "Provision account",
+    "tier": "main",
+    "displayLabel": "UCC § 2-716",
+    "placementBasis": "Placed with the subtopic whose doctrine the provision states; added so the doctrine timelines can open it.",
+    "landmark": false
+   },
+   "links": [
+    [
+     "specific-performance",
+     "sales-of-goods rule",
+     "Section 2-716 states when a buyer of goods may have specific performance or replevin."
+    ],
+    [
+     "morris-sparrow",
+     "compare",
+     "Morris v. Sparrow ordered specific performance of a unique horse under equity's adequacy test; § 2-716 reaches unique goods and other proper circumstances."
+    ]
+   ]
+  }
+ ],
+ "districtGrow": {
+  "modification": {
+   "h": 616,
+   "supportStart": -5552
+  }
+ },
+ "homeShift": {
+  "reading-notes-11": {
+   "dy": 118
+  },
+  "ny-other-consideration": {
+   "dy": 118
+  }
+ },
+ "districtShift": {
+  "disclosure": {
+   "dy": 118
+  }
+ }
+}

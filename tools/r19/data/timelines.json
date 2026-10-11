@@ -1,5 +1,5 @@
 {
- "about": "Doctrine timelines (r20.9). Built by an audit of every case in the three courses; see AGENTS.md. Steps: id = map entry, sup = supporting case, event = dated statute or rule change.",
+ "about": "Doctrine timelines (r20.9, extended r22). Built by an audit of every case in the three courses; see AGENTS.md. Steps: id = map entry, sup = supporting case, event = dated statute or rule change; an event may carry link = the map entry it opens (used when the entry is already a step of the same timeline).",
  "timelines": [
   {
    "id": "consideration",
@@ -85,7 +85,7 @@
      "note": "Best efforts does not demand ruinous losses, but a brewer may not neglect the brand it promised to promote to raise its overall profit (New York law)."
     },
     {
-     "event": "Restatement (Second) of Contracts § 205",
+     "id": "rest205",
      "year": 1981,
      "turn": "codifies",
      "note": "Every contract imposes on each party a duty of good faith and fair dealing in its performance and its enforcement."
@@ -168,6 +168,7 @@
     },
     {
      "event": "Restatement (Second) of Contracts § 90",
+     "link": "rest90",
      "year": 1981,
      "turn": "codifies",
      "note": "Second formulation: drops 'definite and substantial', allows a remedy limited as justice requires, and spares charitable pledges proof of reliance."
@@ -497,7 +498,7 @@
      "note": "Parties may rescind and replace a deal in one transaction; an owner who freely gives up the old price after unforeseen rock is bound (New Hampshire)."
     },
     {
-     "event": "UCC § 2-209",
+     "id": "ucc2209",
      "year": 1952,
      "turn": "codifies",
      "note": "An agreement modifying a sales contract needs no consideration; the Code's comments police modifications by a test of good faith instead."
@@ -519,7 +520,7 @@
    "now": "Most states require both procedural unconscionability (no meaningful choice, surprise) and substantive unconscionability (one-sided terms), often weighed on a sliding scale as in California. Against arbitration clauses the defense survives only as a generally applicable rule that does not disfavor arbitration or demand class procedures (Concepcion).",
    "steps": [
     {
-     "event": "UCC § 2-302",
+     "id": "ucc2302",
      "year": 1952,
      "turn": "origin",
      "note": "The Code lets a court refuse to enforce a contract or clause it finds unconscionable when made, without defining the term."
@@ -654,7 +655,7 @@
      "note": "Trade usage may give seemingly plain words or figures a special trade meaning, with no prior finding of ambiguity (Oregon)."
     },
     {
-     "event": "UCC §§ 1-205 and 2-202",
+     "id": "ucc1303",
      "year": 1952,
      "turn": "codifies",
      "note": "Course of dealing and usage of trade explain or supplement even a final writing, unless they cannot be reconciled with its express terms."
@@ -1011,7 +1012,7 @@
      "note": "Equity will not compel a singer to perform, but it will enjoin her breach of an express promise not to sing elsewhere during the engagement."
     },
     {
-     "event": "UCC § 2-716",
+     "id": "ucc2716",
      "year": 1952,
      "turn": "codifies",
      "note": "A buyer of goods may get specific performance where the goods are unique 'or in other proper circumstances', loosening the adequacy test."
@@ -1100,7 +1101,7 @@
      "note": "A city's water-supply contract benefits the public only incidentally; a resident may sue only if it promised compensation to individuals (New York)."
     },
     {
-     "event": "Restatement (Second) of Contracts § 302",
+     "id": "rest302",
      "year": 1981,
      "turn": "codifies",
      "note": "The creditor and donee categories give way to one test: intended beneficiaries may enforce the contract, incidental ones may not."
@@ -1788,6 +1789,7 @@
     },
     {
      "event": "Rule 15(c) amended to reverse Schiavone",
+     "link": "cp-frcp-15",
      "year": 1991,
      "date": "1991-12-01",
      "turn": "codifies",
@@ -1818,6 +1820,7 @@
     },
     {
      "event": "Rule 11 amended (1983)",
+     "link": "cp-frcp-11",
      "year": 1983,
      "date": "1983-08-01",
      "turn": "codifies",
@@ -2227,6 +2230,7 @@
     },
     {
      "event": "Venue Clarification Act allows transfer by consent",
+     "link": "cp-usc-1404",
      "year": 2011,
      "date": "2011-12-07",
      "turn": "codifies",

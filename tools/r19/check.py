@@ -27,7 +27,7 @@ def require(condition: bool, message: str) -> None:
 r18_bytes = (ROOT / "DKLA-r18.html").read_bytes()
 require(hashlib.sha256(r18_bytes).hexdigest() == EXPECTED_R18, "DKLA-r18.html is not the build r19 was made from")
 r18 = script_blocks(r18_bytes.decode("utf-8"))
-html = (ROOT / "DKLA-r21.html").read_text(encoding="utf-8")
+html = (ROOT / "DKLA-r22.html").read_text(encoding="utf-8")
 r19 = script_blocks(html)
 require(all(r19.get(k) == v for k, v in r18.items()), "an r18 block differs in r19")
 for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs"):
@@ -55,6 +55,9 @@ for cid, conv in data["sections"].items():
 unconverted = sorted(a for a, c in data["map"].items() if c not in data["sections"])
 cases = [n["id"] for n in graph["nodes"] if n["kind"] == "Case"]
 unmapped = sorted(set(cases) - set(data["map"]))
+require(all(k in data for k in ("rules22", "takeaways", "timelines")), "r22 data blocks missing")
+require(len(data["rules22"]["rules"]) == 6 and all(r["id"] in {s.get("id") for t in data["timelines"]["list"] for s in t["steps"]} for r in data["rules22"]["rules"]), "a rules22 entry is not a timeline step")
+require(not any(s.get("event") and not s.get("link") for t in data["timelines"]["list"] for s in t["steps"]), "a timeline step opens nothing")
 for course, t in data["tiles"].items():
     require(all(isinstance(t[k], (int, float)) for k in "xywh"), f"bad tile for {course}")
 
@@ -68,14 +71,14 @@ if node:
             require(res.returncode == 0, f"{name} does not parse: {res.stderr.strip()[:200]}")
 
 version = json.loads((ROOT / "version.json").read_text(encoding="utf-8"))
-require(version.get("build") == data.get("build") and version.get("file") == "DKLA-r21.html", "version.json does not describe this build")
+require(version.get("build") == data.get("build") and version.get("file") == "DKLA-r22.html", "version.json does not describe this build")
 sw = (ROOT / "sw.js").read_text(encoding="utf-8")
-require(f"const BUILD = '{data['build']}';" in sw and "DKLA-r21.html" in sw, "sw.js does not serve this build")
-require("DKLA-r21.html" in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
+require(f"const BUILD = '{data['build']}';" in sw and "DKLA-r22.html" in sw, "sw.js does not serve this build")
+require("DKLA-r22.html" in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
 vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
-require(any(r.get("destination") == "/DKLA-r21.html" for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
+require(any(r.get("destination") == "/DKLA-r22.html" for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
-require(integrity.get("r19_sha256") == hashlib.sha256((ROOT / "DKLA-r21.html").read_bytes()).hexdigest(), "integrity.json does not describe this DKLA-r21.html")
+require(integrity.get("r19_sha256") == hashlib.sha256((ROOT / "DKLA-r22.html").read_bytes()).hexdigest(), "integrity.json does not describe this DKLA-r22.html")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))

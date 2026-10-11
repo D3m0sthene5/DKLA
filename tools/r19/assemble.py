@@ -21,12 +21,17 @@ ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
 SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-r21.html"
+TARGET = ROOT / "DKLA-r22.html"
 EXPECTED_R18 = "51dc830c4937c6f21d3c1e6fa959e1a077caffd6ccdd35975dc83dd95b548aa2"
-VERSION = "r21"
-LABEL = "r21"
+VERSION = "r22"
+LABEL = "r22"
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
+CHANGELOG_R22 = {
+    "v": "r22",
+    "date": "2026-10-11",
+    "text": "Every step of every doctrine timeline now opens something. Ten statute and rule steps (Restatement §§ 90, 205 and 302, UCC §§ 2-209, 2-302, 1-303 with 2-202, and 2-716, Rule 11 of 1983, Rule 15(c) of 1991 and the 2011 venue act) were shown but could not be clicked and six of them had no entry anywhere; they now open rule entries, six of them new, each with the black-letter text from the Contracts Selections and placed with its subtopic (the modification subtopic grew a row to make room). Under the rule line, each Contracts case now carries an \"In plain English\" takeaway: one or two sentences, written from the audited brief, on what the case means and what to take from it.",
+}
 CHANGELOG_R21 = {
     "v": "r21",
     "date": "2026-10-10",
@@ -292,7 +297,7 @@ def build_data() -> tuple[dict, dict]:
                     conv_now["rule"] = new
             conv_now["rev"] = conv_now.get("rev", "") + ".p1"
     pdf = json.loads((DATA / "pages.json").read_text(encoding="utf-8")) if (DATA / "pages.json").is_file() else {"file": "", "pages": {}}
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=[CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG]), full
 
 
 def tiles(graph: dict) -> dict:
@@ -346,6 +351,8 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
                 problems.append(f"{tid}: {s['id']} is not a case or rule on the map")
             if s.get("sup") and s["sup"] not in supporting:
                 problems.append(f"{tid}: {s['sup']} is not a supporting case")
+            if s.get("link") and (not s.get("event") or s["link"] not in nodes or nodes[s["link"]]["kind"] not in ("Case", "Rule")):
+                problems.append(f"{tid}: link {s.get('link')} must sit on an event and name a case or rule on the map")
             if s.get("turn") not in TURNS:
                 problems.append(f"{tid}: {key} has turn {s.get('turn')!r}")
             if not s.get("note") or not isinstance(s.get("year"), int):
@@ -362,6 +369,78 @@ def load_timelines(nodes: dict, supporting: set) -> dict:
         raise ValueError("timelines.json:\n  " + "\n  ".join(problems))
     rev = "r20.9-" + digest(json.dumps(raw["timelines"], sort_keys=True).encode("utf-8"))[:10]
     return dict(rev=rev, list=raw["timelines"])
+
+def load_rules22(graph: dict, nodes: dict, taken: dict) -> dict:
+    """Rule entries behind the timelines (data/rules22.json), checked: a new id, a known subtopic, links to known
+    entries, and a card slot (relative to the subtopic corner) that overlaps no other card once the layout changes
+    in the same file (r21 moves, the modification row, the disclosure shift) are applied."""
+    r = json.loads((DATA / "rules22.json").read_text(encoding="utf-8"))
+    sm = graph["studyMap"]
+    districts = {k: dict(v) for k, v in sm["districts"].items()}
+    homes = {k: dict(v) for k, v in sm["homes"].items()}
+    homes.update({k: dict(v) for k, v in taken.items()})
+    audit = json.loads((DATA / "r21-audit.json").read_text(encoding="utf-8"))
+    for did, g in (audit.get("districtGrow") or {}).items():
+        if did in districts and g.get("h"):
+            districts[did]["h"] = max(districts[did]["h"], g["h"])
+    for did, g in (r.get("districtGrow") or {}).items():
+        if did not in districts:
+            raise ValueError(f"rules22: unknown subtopic {did}")
+        districts[did]["h"] = max(districts[did]["h"], g.get("h", 0))
+    for did, sh in (r.get("districtShift") or {}).items():
+        if did not in districts:
+            raise ValueError(f"rules22: unknown subtopic {did}")
+        districts[did]["y"] += sh["dy"]
+        for h in homes.values():
+            if h["district"] == did:
+                h["y"] += sh["dy"]
+    for hid, sh in (r.get("homeShift") or {}).items():
+        if hid not in homes:
+            raise ValueError(f"rules22: unknown card {hid}")
+        homes[hid]["y"] += sh["dy"]
+    for mid, mv in (audit.get("moves") or {}).items():
+        d = districts[mv["district"]]
+        homes[mid] = dict(id=mid, x=d["x"] + mv["dx"], y=d["y"] + mv["dy"], w=mv["w"], h=mv["h"], district=mv["district"])
+    regions = {x["id"]: x for x in sm["regions"]}
+    for did, d in districts.items():
+        reg = regions.get(d["region"])
+        if reg and d["y"] + d["h"] > reg["y"] + reg["h"] + 1:
+            raise ValueError(f"rules22: subtopic {did} would end below its subject")
+    for rule in r["rules"]:
+        if rule["id"] in nodes:
+            raise ValueError(f"rules22: {rule['id']} already in the graph")
+        h = rule["home"]
+        d = districts.get(h["district"])
+        if not d:
+            raise ValueError(f"rules22: {rule['id']} names unknown subtopic {h['district']}")
+        box = dict(x=d["x"] + h["dx"], y=d["y"] + h["dy"], w=h["w"], h=h["h"])
+        if box["x"] < d["x"] or box["y"] < d["y"] or box["x"] + box["w"] > d["x"] + d["w"] + 1 or box["y"] + box["h"] > d["y"] + d["h"] + 1:
+            raise ValueError(f"rules22: {rule['id']} slot leaves its subtopic")
+        clash = [o["id"] for o in homes.values() if o["x"] < box["x"] + box["w"] and box["x"] < o["x"] + o["w"] and o["y"] < box["y"] + box["h"] and box["y"] < o["y"] + o["h"]]
+        if clash:
+            raise ValueError(f"rules22: {rule['id']} slot overlaps {clash}")
+        homes[rule["id"]] = dict(box, id=rule["id"], district=h["district"])
+        ids = set(nodes) | {x["id"] for x in r["rules"]} | set(taken)
+        bad = [t for t, *_ in rule["links"] if t not in ids]
+        if bad:
+            raise ValueError(f"rules22: {rule['id']} links to unknown entries {bad}")
+    return r
+
+
+def load_takeaways(nodes: dict) -> dict:
+    """Plain-English takeaways (data/takeaways.json): one or two sentences per case, 12–70 words, cases only."""
+    t = json.loads((DATA / "takeaways.json").read_text(encoding="utf-8"))
+    problems = []
+    for k, v in t.items():
+        if k not in nodes or nodes[k].get("kind") != "Case":
+            problems.append(f"{k}: not a case on the map")
+        words = len(str(v).split())
+        if not isinstance(v, str) or not (12 <= words <= 70):
+            problems.append(f"{k}: {words} words")
+    if problems:
+        raise ValueError("takeaways.json:\n  " + "\n  ".join(problems))
+    return t
+
 
 def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
     """The r21 content-audit corrections (data/r21-audit.json), checked: every edited entry, connection, subtopic and
@@ -445,13 +524,16 @@ def main() -> None:
         raise ValueError(f"rlcc cite targets not in the graph: {unknown}")
     rlcc["hubSeedUpdated"] = nodes[rlcc["hub"]["id"]].get("updatedAt")
     data["rlcc"] = rlcc
+    data["rules22"] = load_rules22(graph, nodes, taken)
+    nodes.update({r["id"]: dict(r, kind="Rule") for r in data["rules22"]["rules"]})
+    data["takeaways"] = load_takeaways(nodes)
     term_links = json.loads((DATA / "term-links.json").read_text(encoding="utf-8"))
     known_ids = {e[0] for e in data["entries"]}
     data["terms"] = dict(supporting={k: v for k, v in term_links["supporting"].items() if k in known_ids})
     # term -> [number of briefs that use it, the 40 that use it most] (tools/r19/terms.py)
     data["terms"]["index"] = {slug: [n, [c for c in ids if c in known_ids]] for slug, (n, ids) in term_links.get("index", {}).items()}
     provisions = json.loads((DATA / "provisions.json").read_text(encoding="utf-8"))
-    known = set(nodes) | {r["id"] for r in rlcc["rules"]}
+    known = set(nodes) | {r["id"] for r in rlcc["rules"]} | {r["id"] for r in data["rules22"]["rules"]}
     stray = [k for k in provisions if k not in known]
     if stray:
         raise ValueError(f"provision text for unknown entries: {stray}")
@@ -462,9 +544,12 @@ def main() -> None:
     if stray:
         raise ValueError(f"plain-text edits for unknown entries: {stray[:5]}")
     data["timelines"] = load_timelines(nodes, {e[0] for e in data["entries"] if not e[6]})
+    missing = [r["id"] for r in data["rules22"]["rules"] if not any(s.get("id") == r["id"] for t in data["timelines"]["list"] for s in t["steps"])]
+    if missing:
+        raise ValueError(f"rules22 entries that no timeline opens: {missing}")
     audit21 = load_audit(graph, nodes, edge_ids)
-    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8") + "\n" + (PARTS / "audit.js").read_text(encoding="utf-8")
-    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8")
+    js = (PARTS / "briefs.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rlcc.js").read_text(encoding="utf-8") + "\n" + (PARTS / "rules22.js").read_text(encoding="utf-8") + "\n" + (PARTS / "provisions.js").read_text(encoding="utf-8") + "\n" + (PARTS / "fit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "plain.js").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.js").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.js").read_text(encoding="utf-8") + "\n" + (PARTS / "audit.js").read_text(encoding="utf-8") + "\n" + (PARTS / "takeaways.js").read_text(encoding="utf-8")
+    css = (PARTS / "briefs.css").read_text(encoding="utf-8") + "\n/* ===== r19.13 visual tune-up (polish.css) ===== */\n" + (PARTS / "polish.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r20.css").read_text(encoding="utf-8") + "\n" + (PARTS / "timelines.css").read_text(encoding="utf-8") + "\n" + (PARTS / "r22.css").read_text(encoding="utf-8")
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
@@ -495,7 +580,7 @@ def main() -> None:
     title = "<title>DKLA · r18.1 · Danny Kind Legal Atlas</title>"
     if output.count(title) != 1:
         raise ValueError("expected the r18.1 <title>")
-    output = output.replace(title, "<title>DKLA · r21 · Danny Kind Legal Atlas</title>")
+    output = output.replace(title, "<title>DKLA · r22 · Danny Kind Legal Atlas</title>")
     new = script_blocks(output)
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")

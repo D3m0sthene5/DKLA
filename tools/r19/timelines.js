@@ -5,6 +5,8 @@
    case undid it, its fate; each timeline says where the doctrine stands now.
    - The saved graph's `timelines` is replaced by the new set once (stamped by `rev`). Steps that are not map
      entries get ids that match no entry, so the panel code that walks the steps simply skips them.
+   - r22: every statute or rule step opens an entry (six new rule entries, tools/r19/rules22.js; an event step may
+     carry `link`, the entry it opens, where that entry is already a step of the same timeline).
    - After the panel draws a timeline, it is redrawn from the full data (turns, fates, supporting cases, events,
      the "where it stands" line).
    - "Doctrine timelines" in the More menu, a link on every panel timeline and search rows open a list of all of
@@ -43,6 +45,7 @@
   const fate = s => s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '';
   // the button a step opens with: an entry on the map, a supporting brief, or nothing for a statute or rule change
   function opener(s, inner, cls) {
+    if (s.event && s.link) return `<button type="button" class="${cls}" data-study-node="${esc(s.link)}" title="Opens the rule entry">${inner}</button>`;
     if (s.event) return `<div class="${cls} r21-static">${inner}</div>`;
     if (s.sup) return `<button type="button" class="${cls}" data-r19-open="${esc(s.sup)}" title="Supporting case: opens the brief">${inner}</button>`;
     return `<button type="button" class="${cls}" data-study-node="${esc(s.id)}">${inner}</button>`;
@@ -103,7 +106,7 @@
   function detailHTML(t) {
     title.innerHTML = `<span class="r18-kicker">${esc(t.course.toUpperCase())} · ${span(t)}</span><h2>${esc(t.title)}</h2>`;
     return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div><p class="r21-q">${esc(t.question)}</p>
-      <ol class="r21-v">${t.steps.filter(live).map(s => `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${s.event ? `<b class="r21-name">${esc(name(s))}</b>` : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button><i class="r21-tag">supporting case</i>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`).join('')}</ol>
+      <ol class="r21-v">${t.steps.filter(live).map(s => `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button><i class="r21-tag">supporting case</i>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`).join('')}</ol>
       ${t.now ? `<p class="r21-now"><b>Where it stands</b>${esc(t.now)}</p>` : ''}`;
   }
   function render() { const t = V.open && byId.get(V.open); body.innerHTML = t ? detailHTML(t) : listHTML(); body.scrollTop = 0; }
