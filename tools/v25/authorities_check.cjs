@@ -42,7 +42,7 @@ const context={window:{},document,S,selected:null,svg:ids.get('geoCanvas'),R18:{
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'authorities.js'),'utf8'),context);
 const api=context.window.DKLAAuthorities,panel=ids.get('inspector');assert.ok(api,'Map adapter missing');assert.equal(created.includes('dialog'),false,'Separate authority dialog created');
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const sourceIds=new Set(),orderedByCollection=new Map(),sourceById=new Map(data.entries.map(e=>[e.id,e]));
+const groupIds=new Set(),sourceIds=new Set(),orderedByCollection=new Map(),sourceById=new Map(data.entries.map(e=>[e.id,e]));
 const safeLinks=e=>(e.links||[]).filter(l=>l.kind==='Case'&&(l.automaticRibbon??l.basis?.startsWith('Explicit citation')));
 api.group('authority-root',false);context.draw();
 assert.equal(api.geography().children.length,6,'Related source volumes are scattered across redundant covers');
@@ -52,7 +52,7 @@ assert.ok(coverMap.includes('authority-people-mark'),'Constitution reference ide
 assert.ok(coverMap.includes('mask-type="alpha"'),'Constitution mark must use flat single-color treatment');
 assert.ok(coverMap.includes('maskUnits="userSpaceOnUse"')&&coverMap.includes('maskContentUnits="userSpaceOnUse"'),'World-coordinate masthead is clipped by default mask units');
 assert.ok((coverMap.match(/class="authority-title-control"/g)||[]).length===6,'Each collection needs a separate accessible title control');
-function walk(group){api.group(group,false);const snapshot=api.geography();for(const c of snapshot.children){if(c.provision){assert.ok(!sourceIds.has(c.provision),'Duplicated provision in hierarchy: '+c.provision);sourceIds.add(c.provision);const col=sourceById.get(c.provision).collection;if(!orderedByCollection.has(col))orderedByCollection.set(col,[]);orderedByCollection.get(col).push(c.provision);}else walk(c.id);}}
+function walk(group){groupIds.add(group);api.group(group,false);const snapshot=api.geography();for(const c of snapshot.children){if(c.provision){assert.ok(!sourceIds.has(c.provision),'Duplicated provision in hierarchy: '+c.provision);sourceIds.add(c.provision);const col=sourceById.get(c.provision).collection;if(!orderedByCollection.has(col))orderedByCollection.set(col,[]);orderedByCollection.get(col).push(c.provision);}else walk(c.id);}}
 walk('authority-root');assert.equal(sourceIds.size,data.entries.length,'Hierarchy loses source entries');assert.equal(api.geography().provisionCount,data.entries.length);
 for(const col of ['constitution','ucc','ucc-articles','consumer','admiralty','social-security'])assert.deepEqual(orderedByCollection.get(col),data.entries.filter(e=>e.collection===col).map(e=>e.id),col+': provision order changed');
 assert.deepEqual(orderedByCollection.get('restatement'),Array.from({length:385},(_,i)=>'restatement-'+(i+1)),'Restatement §§ 1–385 must follow section order, independently of data insertion order');
@@ -69,7 +69,6 @@ for(const e of data.entries){
   assert.ok(panel.innerHTML.includes(escape(e.source.name)),e.id+': provenance missing');
   for(const a of e.annotations||[])if(typeof a==='object'){assert.ok(panel.innerHTML.includes(escape(a.title)),e.id+': statutory-note title missing');for(const l of a.lines||[])assert.ok(panel.innerHTML.includes('>'+escape(l[1])+'<'),e.id+': statutory-note paragraph missing');}
   assert.ok(!panel.innerHTML.includes('&quot;lines&quot;:'),e.id+': raw annotation JSON reached reader');
-  const scene=api.connections();assert.equal(scene.provision,e.id);assert.equal(JSON.stringify(scene.cases.map(c=>c.id)),JSON.stringify(safeLinks(e).map(l=>l.id)),e.id+': safe case connections omitted, capped or reordered');
   if((e.links||[]).some(l=>!l.automaticRibbon&&l.relationship!=='explicit-citation'&&!l.basis?.startsWith('Explicit citation')))assert.ok(panel.innerHTML.includes('<summary>Related doctrine</summary>'),e.id+': contextual discovery is mixed into case connections');
 }
 api.open('frcp-16.1');context.draw();assert.ok(ids.get('geoCanvas').innerHTML.includes('data-map-jump="authority:frcp-16.1"'),'Provision not reachable through native map activation: '+JSON.stringify({lastFit,z:S.z,x:S.x,y:S.y,map:ids.get('geoCanvas').innerHTML.slice(0,300)}));
@@ -78,7 +77,9 @@ api.open('frcp-71A');assert.ok(panel.innerHTML.includes('data-authority-open="fr
 const oldRegion=S.region;api.open('frcp-17');context.back();assert.equal(context.selected.id,'frcp-16.1');assert.equal(S.region,oldRegion,'Back did not restore authority group');
 context.goNode('cp-gibbs');context.back();assert.equal(context.selected.id,'frcp-16.1');assert.equal(nativeNodes,1,'Case navigation failed');
 api.open('usc-28-1367');const route=api.geography().route;assert.ok(route.some(r=>r.title.startsWith('Title 28')),'Title hierarchy missing');assert.ok(route.some(r=>r.title.includes('CHAPTER')),'Official chapter missing');
-if(data.entries.find(e=>e.id==='usc-28-1367').links.length){document.events.click({preventDefault(){},stopPropagation(){},target:{closest(){return{dataset:{authorityConnections:''}};}}});context.draw();assert.equal(S.panelOpen,false);assert.ok(ids.get('geoCanvas').innerHTML.includes('authority-ribbon'),'Native ribbon missing');}
+context.draw();assert.ok(!ids.get('geoCanvas').innerHTML.includes('authority-ribbon'),'Authority ribbon remains');
+assert.ok(!ids.get('geoCanvas').innerHTML.includes('authority-map-case'),'Case grid replaces source hierarchy');
+assert.ok(!panel.innerHTML.includes('Cases on map'),'Case-map action remains');
 
 // Match the native safe area, actual camera projection, and ordinary word
 // wrapping. These deterministic checks complement real-browser font metrics.
@@ -128,26 +129,31 @@ for(const size of sizes){
     assertProjected(layout.fit,JSON.stringify(size)+' '+group);assertTextBounds(ids.get('geoCanvas').innerHTML,JSON.stringify(size)+' '+group);
   }
 }
-// Focused scenes automatically show the selected source and real case targets.
-// Longer titles determine card height; all targets remain on the canvas.
-const sceneEntry=data.entries.reduce((best,e)=>safeLinks(e).length>safeLinks(best).length?e:best,data.entries[0]);
-assert.ok(safeLinks(sceneEntry).length>6,'No source fixture exercises the former six-case cap');
-for(const size of sizes.slice(0,4))for(const reader of [true,false]){
-  viewport=size;api.open(sceneEntry.id);
-  if(!reader)document.events.click({preventDefault(){},stopPropagation(){},target:{closest(){return{dataset:{authorityConnections:''}};}}});
-  context.draw();const scene=api.connections(),map=ids.get('geoCanvas').innerHTML;
-  assert.equal(S.panelOpen,reader);assertProjected(scene.fit,JSON.stringify(size)+' focused scene '+reader);
-  assert.equal((map.match(/class="authority-map-tile authority-map-provision/g)||[]).length,1,'Focused cases share space with sibling source cards');
-  for(let i=0;i<scene.cases.length;i++){
-    const c=scene.cases[i];assert.ok(!overlaps(scene.source,c),'A connected case overlaps its source');
-    for(let j=0;j<i;j++)assert.ok(!overlaps(scene.cases[j],c),'Connected case cards overlap');
+// Every index page fits its complete cards. Paging preserves the complete
+// source-defined sequence; opening a provision retains its source siblings.
+for(const size of sizes){
+  viewport=size;
+  for(const group of groupIds){
+    api.group(group);context.draw();let g=api.geography(),seen=[];
+    assert.equal(g.layout.fit.h,g.layout.box.h,group+': only a prefix is fitted');
+    for(;;){
+      const map=ids.get('geoCanvas').innerHTML;
+      assert.ok(!map.includes('authority-ribbon')&&!map.includes('authority-map-case'),group+': a source index contains a case graph');
+      g.layout.cards.forEach(c=>assertProjected(c,JSON.stringify(size)+' '+group+' '+c.id));
+      assertTextBounds(map,JSON.stringify(size)+' '+group);
+      seen.push(...g.layout.cards.map(c=>c.id));
+      const next=g.layout.pages[g.layout.page+1];if(!next)break;
+      assert.ok(map.includes('aria-label="Next →"'),'Next page is inaccessible');
+      context.goRegion('authority-page:'+next.start);
+      context.draw();g=api.geography();
+    }
+    assert.equal(JSON.stringify(seen),JSON.stringify(g.children.map(c=>c.id)),group+': paging loses, duplicates or reorders source entries');
   }
-  assertTextBounds(map,JSON.stringify(size)+' focused cases '+reader);
-  if(size.w===390)assert.ok(scene.cases.some(c=>c.h>90),'Long case titles retain fixed-height cards');
-  assert.ok(map.includes('data-map-jump="'+escape(scene.cases[0].id)+'"'),'Case lacks native activation target');
-  if(reader)assert.ok(panel.innerHTML.includes('Cases on map'),'Reader does not expose full-map case action');
 }
-const activeCase=api.connections().cases[0].id,beforeNative=nativeNodes;context.goNode(activeCase);assert.equal(nativeNodes,beforeNative+1,'Case target does not route through native navigation');context.back();assert.equal(context.selected.id,sceneEntry.id,'Case Back loses selected authority');
+viewport={w:1280,h:800};api.open('frcp-16.1');context.draw();
+assert.ok(ids.get('geoCanvas').innerHTML.includes('data-map-jump="authority:frcp-16.1"'),'Selected provision loses its native source card');
+assert.ok(api.geography().layout.cards.length>1,'Opening a provision removes its source siblings');
+const beforeNative=nativeNodes;context.goNode('cp-gibbs');context.back();assert.equal(nativeNodes,beforeNative+1);assert.equal(context.selected.id,'frcp-16.1','Related entry Back loses source provision');
 viewport={w:2560,h:1600};api.group('authority:constitution');context.draw();
 const preamble=data.entries.find(e=>e.id==='const-preamble').lines[0][1],quote=[...ids.get('geoCanvas').innerHTML.matchAll(/<text\b[^>]*class="authority-preamble-excerpt"[^>]*>([^<]*)<\/text>/g)].map(m=>m[1]).join(' ');
 assert.equal(quote.replace(/\s+/g,' ').trim(),escape(preamble).replace(/\s+/g,' ').trim(),'Desktop Preamble loses source words');
@@ -156,7 +162,7 @@ const periodCodes=[...ids.get('geoCanvas').innerHTML.matchAll(/<text\b[^>]*class
 assert.ok(periodCodes.includes('1–10')&&!periodCodes.some(s=>s.startsWith('Amendments ')),'Amendment period badges repeat their parent');
 // Close restores parent geometry, rather than leaving siblings outside a leaf fit.
 api.open('frcp-16.1');const leafFit={...lastFit};ids.get('closeInspector').onclick();context.draw();
-assert.equal(context.selected,null);assert.equal(S.panelOpen,false);assert.equal(JSON.stringify(lastFit),JSON.stringify(api.geography().layout.fit),'Close fails to reframe its authority parent');assert.notDeepEqual(lastFit,leafFit);
+assert.equal(context.selected,null);assert.equal(S.panelOpen,false);assert.equal(JSON.stringify(lastFit),JSON.stringify(api.geography().layout.fit),'Close fails to reframe its authority parent');
 function runTimer(){const pair=timers.entries().next().value;assert.ok(pair,'Expected deferred resize');timers.delete(pair[0]);pair[1]();}
 api.group('authority-root');viewport={w:1000,h:700};context.R11.anim=true;resizeCallback();runTimer();
 assert.ok(timers.size,'Resize during camera flight was discarded');context.R11.anim=false;runTimer();context.draw();
@@ -172,4 +178,4 @@ viewport={w:1280,h:900};api.group('authority-root');ids.get('studyFit').onclick(
 context.window.DKLAScotusBox={x:-11400,y:10400,w:22800,h:4200};context.window.DKLAGeography={bounds(){return{x:-18000,y:-4000,w:46000,h:22000};}};api.group('authority-root',false);
 assert.equal(api.geography().entrance.y,18900,'Authority precinct ignores final course envelope');assert.equal(api.geography().entrance.w,22800,'Authority entrance reduced to a dictionary-sized afterthought');
 assert.equal(ids.get('geoBreadcrumb').innerHTML.includes('authority-shortcut'),false,'Redundant breadcrumb shortcut remains');
-console.log(JSON.stringify({rendered:data.entries.length,sourceParagraphs:data.entries.reduce((n,e)=>n+e.lines.length,0),statutoryNotes:data.entries.reduce((n,e)=>n+(e.annotations||[]).length,0),hierarchy:sourceIds.size,groups:api.geography().groupCount,nativeInspector:true,back:true,ribbons:true,responsiveViewports:sizes,naturalTextBounds:true,closeRefit:true,queuedResize:true,allSafeCasesOrdered:true,focusedSceneViewports:4,readerOnOff:true,caseActivation:true}));
+console.log(JSON.stringify({rendered:data.entries.length,sourceParagraphs:data.entries.reduce((n,e)=>n+e.lines.length,0),statutoryNotes:data.entries.reduce((n,e)=>n+(e.annotations||[]).length,0),hierarchy:sourceIds.size,groups:api.geography().groupCount,nativeInspector:true,back:true,authorityRibbons:false,responsiveViewports:sizes,naturalTextBounds:true,closeRefit:true,queuedResize:true,completeIndexPages:true,sourceHierarchyRetained:true,caseActivation:true}));

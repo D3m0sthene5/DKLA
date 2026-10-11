@@ -43,7 +43,7 @@ CHANGELOG_V25_READING = {
 }
 CHANGELOG_V25_AUTHORITY_DESIGN = {
     "v": "v2.5", "date": "2026-10-11",
-    "text": "The authority atlas has distinct Constitution, federal-rule, U.S. Code and Contracts volumes, with populated nested contents and a large centered Constitution masthead based on the owner's We the People reference. Covers and nested contents fit the available screen, with naturally wrapped labels and detail appropriate to the zoom level. Ribbons connect provisions to supported case references; broader doctrinal context is separated in the reader. Curated entry positions are fixed while the camera still pans and zooms. A recorded geography review organizes doctrinal neighbors and removes prompt-only practice exercises from the map while retaining their source archives.",
+    "text": "The authority atlas has distinct Constitution, federal-rule, U.S. Code and Contracts volumes, with populated nested contents and a large centered Constitution masthead based on the owner's We the People reference. Covers and nested contents fit the available screen, with naturally wrapped labels and detail appropriate to the zoom level. Authority views contain source boxes without ribbons or case grids. Long indexes page complete rows within the screen; related case and doctrine links remain in the provision reader. Curated entry positions are fixed while the camera still pans and zooms. A recorded geography review organizes doctrinal neighbors and removes prompt-only practice exercises from the map while retaining their source archives.",
 }
 CHANGELOG_V24_NARRATIVE = {
     "v": "v2.4", "date": "2026-10-11",
