@@ -21,7 +21,7 @@ button[data-cold-call]::before{
   position:absolute;
   pointer-events:none;
   inset:0;
-  /* Fine crystal branches occupy only the outer 9px of each side. */
+  /* Fine crystal branches occupy only the outer edges, clear of the label. */
   background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M0 2 4 5 3 9 7 12M3 9 0 11M4 5 8 4M0 38 3 34 3 28 6 25M3 34 8 35M3 28 0 26' stroke='%23d4f7ff' stroke-opacity='.61' stroke-width='.95'/%3E%3Cpath d='M0 2 4 5 8 4 3 9Z' fill='%23c3f1ff' fill-opacity='.11'/%3E%3C/svg%3E") left center/16px 40px no-repeat,
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='40' viewBox='0 0 12 40' fill='none'%3E%3Cpath d='M12 1 8 4 9 8 5 11M9 8 12 10M8 4 4 3M12 39 9 35 9 30 6 27M9 35 4 36M9 30 12 28' stroke='%23beeafa' stroke-opacity='.47' stroke-width='.95'/%3E%3C/svg%3E") right center/16px 40px no-repeat;

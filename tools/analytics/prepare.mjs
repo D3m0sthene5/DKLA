@@ -18,6 +18,10 @@ const nodes = seed.nodes.filter(n=>geometry.homes[n.id]).map(n => ({id:n.id,titl
 const meta=JSON.parse(await readFile(path.join(root,'tools/r19/data/meta.json'),'utf8'));
 const mapped=new Set(Object.values(JSON.parse(await readFile(path.join(root,'tools/r19/data/map.json'),'utf8'))));
 for(const item of meta.entries)if(!mapped.has(item.id))nodes.push({id:item.id,title:item.title,kind:'Case',course:item.course,region:'',district:'',supporting:true});
+const authorityData=JSON.parse(await readFile(path.join(root,'tools/v25/authorities.json'),'utf8'));
+const authorityCollections=new Map(authorityData.collections.map(c=>[c.id,c]));
+const courses=['Contracts','Civil Procedure','Legislation and the Regulatory State'];
+for(const entry of authorityData.entries){const collection=authorityCollections.get(entry.collection);nodes.push({id:'authority:'+entry.id,title:entry.cite+(entry.title!==entry.cite?' — '+entry.title:''),kind:'Authority',course:courses[collection?.course]||'',region:'',district:'',subject:collection?.title||'Rules & authorities'});}
 const catalog = { layoutId:geometry.layoutId,source:'Current locked v2.5 geography',layouts,nodes,...layouts.wide };
 await mkdir(path.join(root,'lib/analytics'),{recursive:true});
 await mkdir(path.join(root,'assets/admin'),{recursive:true});

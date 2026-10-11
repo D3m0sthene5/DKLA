@@ -2,6 +2,8 @@ import test,{before,beforeEach,after} from 'node:test';
 import assert from 'node:assert/strict';
 import {PGlite} from '@electric-sql/pglite';
 import {randomUUID,createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+import {runInNewContext} from 'node:vm';
 import {setTestDatabase,ready,query,transaction} from '../../lib/analytics/db.js';
 import {sign,verify,policy,ADMIN_COOKIE} from '../../lib/analytics/security.js';
 import {metadata,batch,catalog} from '../../lib/analytics/validate.js';
@@ -110,4 +112,21 @@ test('ratings keep newer values without prototype pollution; legacy GET is rejec
 });
 test('current catalogue retains distinct responsive geometry; network lookup never calls a remote IP service',()=>{
   assert.notEqual(catalog.layouts.wide.homes.hamer.y,catalog.layouts.tall.homes.hamer.y);assert.equal(networkFor('198.51.100.42').asn,'');
+});
+test('feature dwell intervals retain fractions on delivery and split when foreground views change',()=>{
+  const window={},out=[];runInNewContext(readFileSync(new URL('./attention.js',import.meta.url),'utf8'),{window});
+  const dwell=new window.DKLAFeatureAttention((kind,entity,details,seconds)=>out.push({kind,entity,details,seconds}));
+  const view={kind:'cold_call',entity:'hamer',details:{feature:'coldCallDialog'}};
+  dwell.set('reader',view);dwell.tick(1.4);dwell.flush();dwell.set('reader',{...view});dwell.tick(.7);dwell.flush();
+  assert.deepEqual(out.map(e=>e.seconds),[1,1]);assert.equal(out[0].details.action,'attention');
+  dwell.tick(2);dwell.set('reader',{kind:'source_open',entity:'hamer',details:{source:'contracts-selections'}});
+  dwell.tick(3);dwell.set('reader',null);dwell.tick(50);dwell.flush();
+  assert.deepEqual(out.map(e=>[e.kind,e.seconds]),[['cold_call',1],['cold_call',1],['cold_call',2],['source_open',3]]);
+});
+test('supporting Cold Call ids canonicalize and authority metadata is retained without rejecting text feature names',async()=>{
+  const a=await visitor(),input=payload(a.token,'brief-CP-010'),authority=catalog.nodes.find(n=>n.id.startsWith('authority:'));
+  assert.ok(authority);input.events.push({id:randomUUID(),at:input.session.endedAt,kind:'entry_open',entity:authority.id,details:{}},{id:randomUUID(),at:input.session.endedAt,kind:'dictionary',entity:'',activeSeconds:15,details:{feature:'standard of review',action:'attention'}});
+  assert.equal((await call(analytics,req('ingest',input))).status,200);
+  const rows=await query('SELECT entity,course,details FROM dkla_events ORDER BY kind');
+  assert.equal(rows.filter(e=>e.entity==='CP-010').length,2);assert.ok(rows.some(e=>e.entity===authority.id&&e.course===authority.course));assert.ok(rows.some(e=>e.details.feature==='standard of review'));
 });
