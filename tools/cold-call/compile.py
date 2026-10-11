@@ -163,6 +163,9 @@ def compile_cases(manual, graph, briefs, full):
         mapCases=sum(not cid.startswith('brief-') for cid in ids),
         supportingCases=sum(cid.startswith('brief-') for cid in ids),
         customNarratives=len(ids), total=len(ids), pending=len(result['pending']),
+        pendingMapCases=sum(not c['id'].startswith('brief-') for c in result['pending']),
+        pendingSupportingCases=sum(c['id'].startswith('brief-') for c in result['pending']),
+        supportingColdCallsOptional=True,
         inventoryMapCases=sum(not cid.startswith('brief-') for cid in inventory),
         inventorySupportingCases=sum(cid.startswith('brief-') for cid in inventory),
         inventoryTotal=len(inventory))

@@ -660,7 +660,7 @@ def main() -> None:
     new = script_blocks(output)
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
-    TARGET.write_text(output, encoding="utf-8")
+    TARGET.write_text(output, encoding="utf-8", newline="\n")
     (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8")
     (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8")
     # Publish routing and metadata with the generated artifact, never a half-release.

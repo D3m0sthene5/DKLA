@@ -85,7 +85,7 @@ require(any(r.get("destination") == "/" + TARGET.name for r in vercel.get("rewri
 integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
 require(integrity.get("r19_sha256") == hashlib.sha256(TARGET.read_bytes()).hexdigest(), "integrity.json does not describe the current artifact")
 
-print(f"Authored Cold Call narratives: {cold['coverage']['mapCases']} map cases, {cold['coverage']['supportingCases']} supporting cases; {cold['coverage']['pending']} awaiting narrative writing")
+print(f"Authored Cold Call narratives: {cold['coverage']['mapCases']} map cases, {cold['coverage']['supportingCases']} supporting cases; {cold['coverage']['pendingMapCases']} required main cases missing, {cold['coverage']['pendingSupportingCases']} optional supporting entries without Cold Call")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))

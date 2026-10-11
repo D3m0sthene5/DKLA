@@ -8,8 +8,10 @@ the reader navigate; they do not replace continuous prose. The original full
 brief is a separate source view.
 
 The inventory contains 392 illustrated map cases and 1,077 supporting entries.
-`coverage.json` records exactly which have authored narratives and which remain
-pending. Only an authored narrative receives a Cold Call launch button. The
+All main-map cases require authored narratives. Supporting Cold Calls are optional;
+the release preserves all already-authored supporting accounts. `coverage.json`
+records authored coverage, missing main cases and optional supporting entries
+without narratives separately. Only an authored narrative receives a Cold Call launch button. The
 compiler never fills a missing narrative with a reordered brief.
 
 ## Reading and practice
@@ -67,8 +69,9 @@ python3 tools/r19/audit24.py
 python3 tools/cold-call/check_narratives.py --require-complete
 ```
 
-The final command is the production completeness gate. Partial development
-builds keep the exact pending inventory and do not claim full coverage. Schema 3
+The final command is the production completeness gate for all main-map cases.
+Supporting entries without narratives do not block release. Development builds
+keep the exact inventory and do not claim coverage beyond the authored accounts. Schema 3
 rejects indexed spans, generic brief headings and non-narrative origins. It also
 checks identities, citations and source fingerprints. A length flag invites
 human inspection; source repetition and audit notes make a word-count ratio an

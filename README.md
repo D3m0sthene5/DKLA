@@ -1,6 +1,6 @@
 ## v2.4 · Cold Call Mode and accuracy corrections
 
-**Cold call** opens an individually written account that follows the people, events, litigation, arguments and decision in order. Read continuously, jump and return to your place, or practice aloud. Hamer supplies the writing standard. The original full briefs remain available beside the narratives. [Exact authored and pending coverage](tools/cold-call/coverage.json), [build and content notes](tools/cold-call/README.md), and [audit scope and findings](AUDIT_V2.4.md).
+**Cold call** opens an individually written account that follows the people, events, litigation, arguments and decision in order. Read continuously, jump and return to your place, or practice aloud. Hamer supplies the writing standard. This release includes all 392 main-map cases and 350 supporting cases. Supporting Cold Calls are optional; the other supporting briefs remain available. The original full briefs remain available beside the narratives. [Exact authored coverage and optional inventory](tools/cold-call/coverage.json), [build and content notes](tools/cold-call/README.md), and [audit scope and findings](AUDIT_V2.4.md).
 
 # Danny Kind Legal Atlas
 

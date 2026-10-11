@@ -17,7 +17,8 @@ sys.path.insert(0, str(ROOT / 'tools/r19'))
 from assemble import build_data, script_blocks, SOURCE
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--require-complete', action='store_true')
+parser.add_argument('--require-complete', action='store_true',
+                    help='Require authored narratives for every main-map case; supporting narratives are optional.')
 parser.add_argument('--write', action='store_true')
 args = parser.parse_args()
 data, full = build_data()
@@ -92,4 +93,5 @@ if args.write:
     (directory / 'coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
 print(json.dumps(dict(coverage=report['coverage'], flaggedForReading=sum(bool(c['reviewFlags']) for c in records), unresolvedLiteralNumbers=[dict(id=c['id'],candidates=[n for n in c['literalNumberCandidates'] if not n['resolution']]) for c in records if any(not n['resolution'] for n in c['literalNumberCandidates'])], rejectionRegressions=3), ensure_ascii=False))
 if args.require_complete:
-    assert not stories['pending'], f"{len(stories['pending'])} case narratives remain unwritten"
+    missing_main = [c for c in stories['pending'] if not c['id'].startswith('brief-')]
+    assert not missing_main, f"{len(missing_main)} required main-map case narratives remain unwritten: {[c['id'] for c in missing_main]}"
