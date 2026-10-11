@@ -1,0 +1,112 @@
+{
+  "id": "stees",
+  "briefId": "CT-NEXT-CM-0165",
+  "title": "Stees v. Leonard",
+  "course": "Contracts",
+  "citation": "20 Minn. 494, 20 Gil. 448 (1874)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two successive buildings collapsed on allegedly concealed quicksand, but the builders had promised a completed structure and their proposed later-drainage defense did not match what they pleaded.",
+  "actors": [
+    {
+      "name": "John A. and Washington M. Stees",
+      "role": "Owners commissioning the St. Paul building"
+    },
+    {
+      "name": "Charles Leonard, Monroe Sheire, and Romaine Sheire",
+      "role": "Builders undertaking completion"
+    },
+    {
+      "name": "M. Sheire & Bro.",
+      "role": "Preparers of the incorporated plans and specifications"
+    },
+    {
+      "name": "Justice Young",
+      "role": "Author of the Minnesota court’s opinion"
+    }
+  ],
+  "proceedings": "Ramsey County jury found for the owners; builders sought a new trial and appealed denial; Minnesota court affirmed that order, leaving the jury result in place.",
+  "limits": "The pleaded demand is not an identified verdict amount. The court applied its historical absolute-undertaking rule and a pleading-versus-proof limitation; it did not hold all subsequent oral modifications ineffective or apply a modern mutual-mistake test.",
+  "briefSha256": "e853f4603414836a40b380fc65dc595bfe7c6d16048078655e0686abd8e5ea6d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0165"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The builders promised a finished three-story building",
+      "cue": "Establish the bargain and the two collapses.",
+      "paragraphs": [
+        "John A. and Washington M. Stees hired Charles Leonard, Monroe Sheire, and Romaine Sheire to erect and complete a three-story business building on their St. Paul property. Their August 18, 1868 agreement was under seal and incorporated detailed plans and specifications prepared by M. Sheire & Bro. The price was $6,735 in progress installments, and completion, except painting, was due January 1, 1869. The specifications called for foundation walls two feet thick and specified projecting footings, but did not otherwise prescribe the foundation’s character.",
+        "The first structure reached three stories and collapsed on November 1, 1868. The builders tried again in 1869; the second structure collapsed on August 1. They then abandoned construction. They maintained that materials and workmanship satisfied the specifications and that concealed quicksand, unable to support the structure when saturated, caused both failures. The owners alleged negligent construction and inferior materials instead.",
+        "The owners demanded $5,214.80 plus interest: $3,745.80 already paid, $1,000 for loss of use, and $469 for damage to an adjoining house and its contents. That was the pleaded demand, not a separately reported jury-award amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 Minn. at 495–499"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial excluded evidence offered to shift the construction risk",
+      "cue": "Introduce the proposed defenses before the appellate rulings.",
+      "paragraphs": [
+        "A Ramsey County jury found for the owners. The builders moved for a new trial on a bill of exceptions and appealed the denial. They challenged exclusion of evidence that, in their view, showed compliance with the specifications discharged their duties, the owners selected the site and owed a suitable foundation, the owners orally promised before signing to drain if necessary, and later promises and drainage work excused the builders from doing that work themselves.",
+        "The builders analogized soil to materials an owner must supply and called the earlier drainage promise collateral to the writing. For later arrangements, they invoked consideration, modification through performance, estoppel, and liability for negligent performance of even a gratuitous undertaking. The owners answered that the evidence contradicted both the written contract and the defenses actually pleaded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 499–503"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Unexpected difficulty did not discharge the promise to complete",
+      "cue": "Explain the historical rule and its application without overstating impossibility.",
+      "paragraphs": [
+        "Justice Young’s opinion held that latent soil problems did not excuse an absolute promise to erect a building whose completion remained possible. The court’s historical formulation required performance of a positive express undertaking despite unforeseen hardship, subject to prevention by an act of God, the law, or the other party; difficulty short of absolute impossibility was insufficient. A contractor could qualify the undertaking in the agreement.",
+        "Construction precedents involving fire, lightning, wind, and concealed soft soil distinguished destruction of work already performed from impossibility of finishing. The phrase “act of God” therefore did not automatically excuse every natural destruction: rebuilding might still be possible and within the promise. Unexpected cost or repeated work did not transfer the promised task to the owners.",
+        "The stated footing dimensions described features of the result; they did not eliminate the broader obligation to deliver the building. Stronger foundations or drainage, if needed, remained the builders’ responsibility. The site-selection theory also failed on the pleadings: although the contract imperfectly described the location, the answer admitted contracting to build on the identified parcel and beginning there. That admission removed the premise that the owners later chose a different, unsuitable site.",
+        "Because drainage was integral to completing construction, the alleged earlier oral allocation of that duty was not collateral. It could not vary the later written agreement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 503–508"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A potentially different later arrangement failed at the pleading boundary",
+      "cue": "Preserve the defense the court expressly left open.",
+      "paragraphs": [
+        "The court recognized an American exception allowing subsequent oral arrangements to modify a sealed contract when executed or acted on so that enforcing the original promise would be inequitable. It did not decide whether this alleged drainage arrangement had consideration or whether reliance or performance could establish estoppel. A mismatch between the answer and offered proof made those questions unnecessary.",
+        "The answer alleged that the owners promised to drain and wholly failed to do so. It alleged no consideration or performance supporting estoppel; a naked promise alone did not release the builders. At trial, however, the builders offered a different account: the owners initially drained, the builders consequently refrained from drainage, and the owners stopped immediately before collapse. The court expressly declined to hold that theory insufficient if properly pleaded, but it contradicted the pleaded total nonperformance.",
+        "Each offer was tendered as a whole, so inadmissible material allowed rejection of the whole offer. The objection that it was incompetent, irrelevant, and immaterial was sufficiently specific because defense counsel knew the answer’s contents. The order denying a new trial was affirmed, leaving the owners’ jury result intact. The report contains no separate opinion or express vote tally."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 508–511"
+        }
+      ]
+    }
+  ]
+}

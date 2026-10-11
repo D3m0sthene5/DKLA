@@ -1,0 +1,125 @@
+{
+  "id": "transatlantic",
+  "briefId": "CT-NEXT-CM-0170",
+  "title": "Transatlantic Financing Corp. v. United States",
+  "course": "Contracts",
+  "citation": "363 F.2d 312 (D.C. Cir. 1966)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A wheat carrier must sail around Africa after the Suez Canal closes. Having delivered and collected the charter price, it seeks the extra expense by arguing that closure discharged the original voyage bargain.",
+  "actors": [
+    {
+      "name": "Transatlantic Financing Corporation",
+      "role": "Operator of the SS Christos and claimant for diversion costs."
+    },
+    {
+      "name": "United States",
+      "role": "Voyage charterer expecting delivery in Iran."
+    },
+    {
+      "name": "Agriculture Department employee",
+      "role": "Government contact who lacked authority to modify the charter."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed Transatlantic’s admiralty libel for additional compensation.",
+    "The D.C. Circuit affirmed because the alternative voyage was practicable and the requested add-on remedy was independently defective."
+  ],
+  "limits": "This is a transformation of the canonical 1966 brief, not a new audit or later maritime-law review. UCC provisions were comparisons, not directly governing Article 2 law. No authorized modification occurred. The holding does not make all alternative routes compulsory or every cost increase insufficient.",
+  "briefSha256": "00cc9634ad09a203ffdef27c01cc4434f995f16dbf1ebb5810004c96e60a7439",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0170"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties charter a voyage while the Suez crisis develops",
+      "cue": "What did the written bargain specify?",
+      "paragraphs": [
+        "Transatlantic Financing Corporation operated the SS Christos. On October 2, 1956, it contracted with the United States to carry a full wheat cargo from a United States Gulf port to a safe Iranian port. The charter specified endpoints but no route. Egypt had nationalized the Suez Canal Company in July, and international tension continued when the parties contracted.",
+        "The ship left Galveston for Bandar Shapur on October 27, taking the usual route through Gibraltar and Suez. Israel invaded Egypt October 29; British and French forces entered the Canal Zone October 31. On November 2, Egypt obstructed and closed the canal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "363 F.2d 314–315"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The ship takes the Cape route and the carrier seeks an extra payment",
+      "cue": "Did the government agree to a new price?",
+      "paragraphs": [
+        "Around November 7, Transatlantic’s representative sought instructions and more compensation from an Agriculture Department employee. Transatlantic conceded that the employee lacked authority to bind the government. He expected performance under the charter, disputed entitlement to an increase, and said a claim could be filed.",
+        "The ship sailed around the Cape of Good Hope and delivered on December 30. The diversion added roughly 3,000 miles to an expected 10,000-mile trip. Transatlantic alleged $43,972 in added expense beyond the $305,842.92 charter price, which it collected.",
+        "The district court dismissed its admiralty libel for the extra costs. On appeal, Transatlantic argued that usual-route and deviation principles made this specifically a Suez contract; closure made that contract impossible; and completing a different voyage in response to government demands entitled it to quantum meruit, compensation for the value conferred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "363 F.2d 315, 319–320"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court distinguishes a customary method from a condition",
+      "cue": "What had to be shown to establish impracticability?",
+      "paragraphs": [
+        "Judge J. Skelly Wright’s opinion identified three requirements: an unexpected contingency, a risk not allocated by agreement or custom, and resulting commercial impracticability. Physical possibility alone did not defeat the defense. Nor did a party have to refuse performance first; that rule would encourage unnecessary disruption. But loss of an expected method started the inquiry rather than ending it.",
+        "Suez was the expected route. Neither express terms, trade usage, circumstances, nor admiralty doctrine made continued access a condition that dissolved the bargain. Vessel-fitness and deviation clauses anticipated customary routing without guaranteeing it. Clauses addressing emergency destination changes and specifying demurrage and despatch for loading and unloading did not allocate longer-voyage risk.",
+        "Deviation doctrine primarily adjusted insurance consequences of unreasonable departures; its qualified application did not discharge every substituted route. Decisions recognizing the Cape as an alternative supported the distinction, although suitability could vary by cargo and by the ship’s location when disruption occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "363 F.2d 315–318 & nn.1, 4–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Foreseeability matters without automatically allocating every risk",
+      "cue": "Why was this extra voyage commercially practicable?",
+      "paragraphs": [
+        "The crisis made abnormal risks apparent, and negotiations might have reflected them. Still, recognizing a possibility was not necessarily agreeing to bear that specific risk. Parties may know of risks they cannot settle; nationalization and threatened force did not necessarily predict obstruction with sunken ships. Contracting against that background nevertheless showed acceptance of some abnormal risk and supported stricter scrutiny than a wholly unforeseen event would.",
+        "The Cape voyage did not endanger the wheat, and vessel and crew were fit. Transatlantic was at least as able as the government to insure against the contingency and better positioned to evaluate alternate-route expenses and maritime war hazards. In that setting, this additional expense did not establish commercial impracticability.",
+        "The inquiry was objective, although limitations known to both parties could inform a complete assessment. The court did not rule out every unforeseen cost increase: a sufficiently great disparity might change performance’s essential nature. Uniform Commercial Code §§ 2-614 and 2-615 furnished comparisons concerning substitute delivery and impracticability, but this charter was not an Article 2 sale of goods."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "363 F.2d 318–319 & nn.11–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The proposed remedy also conflicts with the asserted discharge",
+      "cue": "What did affirmance deny?",
+      "paragraphs": [
+        "Even assuming excuse, Transatlantic’s theory treated the charter as a nullity while retaining its payment and profit and transferring only extra expense to the government. A restitutionary claim following discharge would address the value of the entire performance, not automatically preserve one party’s bargain and shift the whole loss to the other. The advantageous charter price apparently discouraged the carrier from adopting that consistent position.",
+        "On May 27, 1966, the D.C. Circuit affirmed dismissal of the added-compensation claim. Judges Danaher and McGowan sat with Wright; the report contains no separate opinion or stated division. The decision established commercial practicability on this record and an independent defect in this requested remedy, not an unlimited duty to perform by any conceivable route."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "363 F.2d 319–320 & n.17"
+        }
+      ]
+    }
+  ]
+}

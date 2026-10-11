@@ -1,0 +1,168 @@
+{
+  "id": "brief-LRS-CLOSURE-070",
+  "briefId": "LRS-CLOSURE-070",
+  "title": "In re Sealed Case",
+  "course": "Legislation and the Regulatory State",
+  "citation": "838 F.2d 476 (D.C. Cir. 1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Three former Justice Department officials challenged an independent counsel through contempt appeals, producing a divided appellate ruling later reversed in Morrison v. Olson.",
+  "actors": [
+    {
+      "name": "Theodore Olson, Carol Dinkins, and Edward Schmults",
+      "role": "Officials subpoenaed in an investigation of the Justice Department’s role in an EPA document dispute"
+    },
+    {
+      "name": "Attorney General",
+      "role": "Official initiating and defining the basis for the independent-counsel request"
+    },
+    {
+      "name": "Alexia Morrison",
+      "role": "Independent counsel appointed by a special judicial division"
+    },
+    {
+      "name": "Special Division",
+      "role": "Judicial body appointing counsel and defining jurisdiction"
+    }
+  ],
+  "proceedings": [
+    "District court: rejected constitutional challenge July 20, 1987; held the three witnesses in contempt for refusal to appear.",
+    "D.C. Circuit: reversed contempt orders 2–1, January 22, amended February 5, 1988.",
+    "Supreme Court later reversed this panel judgment in Morrison v. Olson."
+  ],
+  "limits": [
+    "This is the historical divided appellate decision, not the Supreme Court’s later constitutional holding. It resolved contempt appeals rather than convictions or factual guilt."
+  ],
+  "briefSha256": "cd2c1075dc62fe347d9459be3f1d52c410c5bd38175fa11f9147da10b7b06466",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-070"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A congressional records dispute leads to an investigation of Justice Department advice",
+      "cue": "Begin before independent counsel was appointed.",
+      "paragraphs": [
+        "In 1982, House subcommittees sought Environmental Protection Agency records about hazardous-waste cleanup and investigated whether expenditures favored Republican Senate candidates. The agency supplied some material but, on Justice Department advice, withheld enforcement-sensitive records. Its Administrator asserted executive privilege at the President’s direction, received a congressional contempt citation, and joined litigation against the House. A production agreement followed in March 1983.",
+        "A separate House Judiciary Committee investigation examined the Justice Department’s role. Theodore Olson testified on March 10, 1983. The committee later alleged serious wrongdoing, over Republican members’ dissent. These allegations prompted investigation; they were not findings of criminal guilt by the reviewing court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 478–479"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Attorney General requests counsel for Olson-related matters",
+      "cue": "Track the limits and later construction of investigative authority.",
+      "paragraphs": [
+        "In December 1985, the committee requested a preliminary independent-counsel investigation. The statute covered designated senior officials and gave the Attorney General a limited period to examine sufficiently supported information without ordinary tools such as grand juries, subpoenas, immunity, or plea bargaining.",
+        "On April 10, 1986, the Attorney General sought counsel to investigate whether Olson’s testimony and revisions concerning the Office of Legal Counsel’s response and the agency’s willingness to produce documents violated obstruction, false-statement, or other federal criminal laws, and to investigate related matters. He found no reasonable grounds for further investigation of Carol Dinkins or Edward Schmults. The Special Division, the judicial body making the appointment, first selected James McKay. After his resignation it appointed Alexia Morrison.",
+        "Morrison requested expansion to investigate a concerted obstruction plan involving the other officials. The Attorney General refused. The Special Division said it could not refer allegations he had declined to pursue, but construed the original jurisdiction to cover an Olson conspiracy involving others. Morrison subpoenaed all three. The district court rejected their constitutional challenge on July 20, 1987; they refused to appear before the grand jury and were held in contempt under § 1826(a). Their appeals challenged those orders, not criminal convictions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 479–480 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate majority classifies counsel as a principal officer",
+      "cue": "Explain its first independently sufficient constitutional ground.",
+      "paragraphs": [
+        "Judge Silberman, joined by Judge Williams, considered constitutional review through contempt available under circuit precedent. He also regarded Morrison’s objection to that route as nonjurisdictional and forfeited because not raised below.",
+        "The parties agreed Morrison was an officer rather than an employee. The majority rejected the idea that, apart from specifically named diplomats and Supreme Court Justices, all officers could be inferior. The Appointments Clause preserved a larger category requiring presidential nomination and Senate confirmation, including department heads and lower federal judges.",
+        "For the majority, inferior status required functional subordination to a principal officer. The Attorney General neither appointed this counsel nor defined and supervised her duties, terminated the office, or freely removed her. Morrison had declined a parallel Justice Department appointment. A previously sustained regulatory counsel differed because the Attorney General could revoke or amend the underlying regulation. No party proposed the Special Division as Morrison’s constitutional superior, and the majority left that characterization undecided while identifying its separate structural difficulty.",
+        "Limited duration and mission did not overcome the breadth and independence of the prosecutorial powers. Eaton, the earlier temporary-officer case, concerned temporarily performing superior functions, not removing the whole relevant prosecution from executive control. The panel reserved classifications of regulatory commissioners and whether Morrison herself headed a department, but held her at least a principal officer improperly appointed by judges. It nevertheless addressed the other grounds to assist Supreme Court review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 480 n.6, 481–487 & nn.15–20"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority also finds appointment and removal inconsistent with executive control",
+      "cue": "Follow the alternatives even assuming inferior status.",
+      "paragraphs": [
+        "The majority regarded enforcing general federal criminal law as a core executive responsibility, accountable through the President’s duty of faithful execution. Congress legislated, the Executive investigated and prosecuted, and a neutral judiciary tried cases. That allocation protected liberty even at a cost in convenience.",
+        "Even if counsel were inferior, the panel construed judicial appointment power generally not to permit appointment of officers performing another branch’s central duties. It considered text, Convention history, early practice, and Hennen, an appointment precedent. It distinguished Siebold’s election supervisors and Young v. Vuitton’s court-appointed contempt prosecutors: the latter vindicated judicial orders rather than taking over general federal enforcement.",
+        "Removal personally by the Attorney General was limited to good cause or specified impairment. Reading Myers and Humphrey’s Executor, the earlier removal-power decisions, Silberman viewed that restriction as impermissible for a purely executive discretionary officer. Civil-service arrangements and Perkins involved different functions and control; the majority did not demand at-will removal of every employee. It also distinguished regulatory bodies helping develop the policy they administered from prosecutors enforcing existing criminal law.",
+        "Originally, the appointing Special Division could review removal for legal or factual error, reinstate counsel, and name interim counsel. The majority saw effective judicial concurrence in removal. Congress’s 1987 amendment moved review to the district court and narrowed its standard, but, in the panel’s view, did not erase the original arrangement’s effect on these challenges. It reserved a freestanding constitutional ruling on the breadth of review while treating that breadth as relevant to executive control."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 487–503 & nn.23–43"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Structural independence and judicial administration supply further objections",
+      "cue": "Preserve the majority’s concerns without attributing misconduct.",
+      "paragraphs": [
+        "The panel also objected to the absence of executive control over scope, duration, resources, charging standards, and policy conflicts. Counsel followed Justice Department policies when possible, with that judgment entrusted to her. The appointment, tenure, and supervision provisions together and separately invaded executive responsibility, despite the majority’s recognition that separated powers were not hermetically sealed.",
+        "The law’s defenders invoked Watergate and conflicts in investigating senior officials. The majority answered that executive regulations could establish special prosecutors and that impeachment and political accountability checked abuse. Necessity could not revise constitutional allocations, and Congress need not itself acquire prosecutorial power for displacement of the Executive to be unconstitutional. Schor, the Supreme Court’s functional separation-of-powers decision, involved limited voluntary administrative adjudication with continuing judicial control and did not justify this arrangement.",
+        "Silberman raised structural risks of a target-specific office: pressure to justify its existence through indictment, isolation from ordinary priorities, and divergent charging or foreign-policy judgments. He expressly did not question Morrison’s motives or find the witnesses innocent.",
+        "The Article III objection ran in the other direction. The Special Division defined and interpreted jurisdiction, received reports, and could terminate a substantially completed office. The majority saw substantive prosecutorial supervision beyond deciding cases and controversies. Appointment did not automatically authorize ongoing administration. Choosing who or what to investigate differed from grand-jury assistance, warrant review, or courtroom control, and could compromise the neutrality of judges whose colleagues later heard prosecutions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 503–518 & nn.50–63"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Ginsburg reads bounded roles as constitutional checks rather than a transfer of control",
+      "cue": "Present the dissent’s alternative structural analysis.",
+      "paragraphs": [
+        "Judge Ruth Bader Ginsburg would affirm. She agreed prosecution was executive but disputed that another branch controlled it or that every decision must remain under uninterrupted presidential supervision. Congress could ask for appointment and explanations without directing prosecution. Only the Attorney General initiated the process and supplied the jurisdictional foundation; constitutional avoidance required the Special Division substantially to track that foundation. Judges did not oversee investigative methods or daily charging decisions, and reports and termination were bounded administrative tasks.",
+        "She viewed the 1987 change as clarification of ordinary good-cause review, now in the district court with Special Division judges excluded. Speculative consequences of unusually intrusive review were insufficiently ripe. Bowsher, the decision barring congressional control of executive administration, addressed actual transfer to another branch; Schor instead supported functional assessment where displacement was limited. The Attorney General retained initiating and removal authority, while counsel’s substantial tools served a circumscribed assignment. Historical decentralized prosecution cast doubt on an absolute demand for presidential supervision of each case. The anti-abuse purpose implemented checks and balances; she did not claim necessity alone could excuse constitutional departure.",
+        "For removal, Ginsburg distinguished Congress exercising executive power from Congress limiting a power still held by the Executive. Humphrey’s Executor and Wiener supported independence for an otherwise constitutional office. Labels alone were inadequate, and Congress could not establish constitutionality merely by declaring independence. Having found the office permissible, she likewise accepted good-cause protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 518–530 & dissent nn.1–34"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The dissent also sustains appointment and leaves the statutory objection premature",
+      "cue": "End with the panel’s judgment and its later reversal.",
+      "paragraphs": [
+        "Ginsburg did not find history sufficiently clear to make personal subordination the exclusive measure of inferior status. Circuit precedent sustaining executive appointment of counsel with the same duties, Siebold, limited jurisdiction, and Congress’s considered classification supported inferior status here. Legislative judgment was not final but deserved respect where classification was fairly debatable. Judicial appointment was congruent with the limited role and the purpose of avoiding favoritism.",
+        "She regarded defining an ad hoc office’s jurisdiction as incidental to appointment. The disputed clarification involved opposing submissions from the Justice Department and counsel and could be resolved consistently with Article III. Olson’s separate statutory objection to conspiracy coverage was premature because he had not shown the subpoena or contempt order would disappear without that construction.",
+        "The majority nevertheless reversed the contempt orders against Olson, Dinkins, and Schmults on January 22, 1988, with amendment on February 5. The Supreme Court later reversed this 2–1 appellate judgment in Morrison v. Olson, 487 U.S. 654, 697 (1988). The panel’s constitutional propositions are therefore this earlier stage’s reasoning, not the Supreme Court’s controlling resolution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "838 F.2d at 530–536 & dissent nn.35–48; Morrison, 487 U.S. at 697 as reported in canonical brief"
+        }
+      ]
+    }
+  ]
+}

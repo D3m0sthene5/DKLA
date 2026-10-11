@@ -1,0 +1,105 @@
+{
+  "id": "cp-wyman",
+  "briefId": "CPR-012",
+  "title": "Wyman v. Newhouse",
+  "course": "Civil Procedure",
+  "citation": "93 F.2d 313 (2d Cir. 1937)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Florida default judgment reached an enforcement court in New York, where the defendant challenged the deception that brought him into Florida for service.",
+  "actors": [
+    {
+      "name": "Wyman",
+      "role": "Florida judgment creditor seeking enforcement"
+    },
+    {
+      "name": "Newhouse",
+      "role": "New York resident asserting fraudulent inducement into Florida"
+    }
+  ],
+  "proceedings": [
+    "Florida court entered a default judgment after a jury assessed damages.",
+    "Enforcement court denied Wyman’s motion to strike the defense and for summary judgment, then dismissed on Newhouse’s motion.",
+    "Second Circuit affirmed; assigned caption records certiorari denied in 1938."
+  ],
+  "limits": "The account follows facts accepted for the enforcement motions, not adjudication of the loan and seduction merits. The historical fraud doctrine does not establish that default is generally safe or decide deception of someone already present.",
+  "briefSha256": "39f7961b52e6de15e35eadaf5910de9d5260eb52bd34c964b0ef9ce7f8e0879d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CPR-012"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Representations of illness prompt a visit",
+      "cue": "Newhouse enters Florida after a series of personal messages",
+      "paragraphs": [
+        "Wyman and Newhouse had known each other for years and maintained an extramarital sexual relationship. Both had been married, although Wyman’s husband died before suit. Newhouse lived in New York and had never resided in Florida.",
+        "On October 25, 1935, while Newhouse was in Salt Lake City, Wyman telegraphed asking him to visit on his return because she was ill and preparing to leave. After he returned to New York, she wrote that her mother was dying in Ireland, that she would permanently leave the United States, and that she needed one more meeting to discuss her affairs. A distressed telephone call repeated those representations. He promised to come within a week or ten days. An affectionate letter and further telegrams arranged Miami accommodations, including a message during his Washington stop."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "93 F.2d at 314"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The airport encounter produces service",
+      "cue": "A default judgment follows",
+      "paragraphs": [
+        "Newhouse arrived at Miami’s airport at six in the morning and saw Wyman and her sister about seventy-five feet away. A deputy sheriff identified him and served an action demanding $500,000. A photographer attempted his picture. A stranger offered lodging and said he knew a lawyer acquainted with Wyman’s attorney. That lawyer came to the home, appeared familiar with the case, and invited Newhouse to his office, where one of Wyman’s lawyers was waiting.",
+        "Newhouse retained no Florida counsel and returned to New York that evening. His New York lawyer advised ignoring the summons, and he defaulted. Within days Wyman and her Florida counsel met him at his New York attorney’s home. The Florida court eventually entered default judgment after a jury assessed damages on claims for money loaned, money advanced for him, and seduction under a promise of marriage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "93 F.2d at 313–314"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The creditor’s enforcement action exposes the service scheme",
+      "cue": "The motions put jurisdictional fraud at issue",
+      "paragraphs": [
+        "Wyman sued to enforce the Florida judgment. Newhouse answered that she had induced him into Florida solely to serve him. Wyman moved to strike that defense and obtain summary judgment under New York Rule of Civil Practice 113. Her motion was denied; the answer’s facts were taken as true under Rules 109 and 112. Both parties submitted affidavits, and Newhouse then successfully moved to dismiss. His motion was distinct from Wyman’s unsuccessful Rule 113 request.",
+        "On Wyman’s appeal, Judge Manton, sitting with Learned Hand and Swan, accepted the defense facts for review. Wyman had not denied the representations. The affectionate invitations conflicted with the airport arrangements, and she never made the asserted Ireland journey. The court questioned whether her mother had been ill and found the circumstances and reasonable inferences convincingly established fraudulent procurement of Newhouse’s presence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "93 F.2d at 313–315"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Fraud in acquiring jurisdiction defeats enforcement",
+      "cue": "No Florida merits defense was required first",
+      "paragraphs": [
+        "Wyman invoked full faith and credit and its then-applicable implementing statute, 28 U.S.C.A. § 687. The court asked what effect Florida would give its judgment and believed that Florida would vacate the fraudulent service. With no governing Florida statute or controlling decision supplied, it applied forum law, under which service would be set aside.",
+        "The defect concerned acquisition of personal jurisdiction, not a later procedural irregularity. The court treated fraud inducing entry for service as equivalent to absent personal jurisdiction and, following what it considered the weight of authority despite contrary cases, allowed collateral challenge in the enforcement action. Jaster v. Currie involved no fraudulent inducement and did not control. Rules requiring a merits defense when fraud occurs after valid jurisdiction attached were likewise inapplicable.",
+        "On December 6, 1937, the Second Circuit affirmed dismissal. Newhouse did not have to seek relief in Florida or prove a defense to the underlying claims first. The assigned caption records denial of certiorari in 1938. This result concerned manufactured entry into the jurisdiction; it did not decide the later editorial hypothetical of a person already in Florida tricked into leaving hiding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "93 F.2d at 314–315; assigned caption, 303 U.S. 664 (1938)"
+        }
+      ]
+    }
+  ]
+}

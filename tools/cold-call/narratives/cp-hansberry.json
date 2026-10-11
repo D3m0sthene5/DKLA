@@ -1,0 +1,141 @@
+{
+  "id": "cp-hansberry",
+  "briefId": "CP-089",
+  "title": "Hansberry v. Lee",
+  "course": "Civil Procedure",
+  "citation": "311 U.S. 32 (1940)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Owners seeking to enforce a racial restriction relied on an earlier lawsuit that had accepted a false signature count. The Hansberry parties had not participated in that suit and wanted to show that the restriction had never met its own condition for taking effect.",
+  "actors": [
+    {
+      "name": "Lee and other property owners",
+      "role": "Plaintiffs seeking enforcement of the restrictive agreement."
+    },
+    {
+      "name": "The Hansberry purchasers and associated defendants",
+      "role": "Parties resisting restrictions on the Chicago property acquisition."
+    },
+    {
+      "name": "The litigants in Burke v. Kleiman",
+      "role": "Participants in the earlier enforcement suit whose judgment was asserted against the Hansberry parties."
+    },
+    {
+      "name": "Justice Stone",
+      "role": "Author of the Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The Illinois circuit court enjoined the Hansberry parties because it treated the earlier signature determination as binding. The Illinois Supreme Court affirmed on a representative-action theory. The U.S. Supreme Court reversed for constitutionally inadequate representation.",
+  "limits": "The decision concerns representative preclusion and the agreement’s signature condition, not a general constitutional prohibition on judicial enforcement of racial covenants. The state supreme court rejected fraud or collusion even while recognizing the earlier stipulation was untrue.",
+  "briefSha256": "38a61c4d73eb64d4fbf0c1ba7f6c981e5ee88417a55386841d7a937ec953b9c9",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-089"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A neighborhood agreement conditions racial restrictions on widespread signatures",
+      "cue": "What had the earlier lawsuit accepted?",
+      "paragraphs": [
+        "Property owners in Chicago entered an agreement restricting sale, leasing, and occupancy of land by Black persons. It would become effective only if owners representing ninety-five percent of the relevant frontage signed.",
+        "An earlier enforcement action, Burke v. Kleiman, accepted a stipulation that the required percentage had signed, and the court enforced the agreement. That litigation principally concerned whether changes in the neighborhood had made enforcement inequitable, rather than actual proof of the signature percentage. The Burke plaintiffs sought enforcement for themselves and similarly situated owners."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "37–40, 45"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "New defendants challenge the condition and encounter the prior judgment",
+      "cue": "What did the Illinois courts find about the signatures?",
+      "paragraphs": [
+        "Lee and other owners later sought to enforce the agreement against the Hansberry purchasers and persons involved in their acquisition of Chicago property. None of those defendants had been a party to Burke or was shown to be in privity with a party there. They contested whether the agreement had ever obtained enough signatures to become effective.",
+        "The Illinois circuit court found that signatories represented only about fifty-four percent of the frontage. It found the earlier stipulation false and fraudulent, yet entered an injunction because it considered the percentage question already adjudicated.",
+        "The Illinois Supreme Court agreed that the stipulation was untrue but rejected the finding of fraud or collusion. It affirmed on the theory that Burke had been a representative action binding the relevant class, including these defendants. The Hansberry parties obtained U.S. Supreme Court review of their Fourteenth Amendment due-process objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "37–40"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court examines representation rather than accepting the class label",
+      "cue": "When can a judgment bind people who were absent?",
+      "paragraphs": [
+        "Justice Stone began from the ordinary rule that a personal judgment does not bind someone who was not a party. Representative litigation could provide an exception, but the procedure had to fairly protect the absent people whose rights would be determined.",
+        "Equity developed class litigation where joining every interested person was impracticable. Yet allowing a suit to proceed without everyone and deciding whether its judgment bound the absentees were different questions. Binding effect required examining the protection actually afforded their interests.",
+        "Illinois did not have to adopt a particular federal class-action procedure. Nor, however, could its description of Burke as a class action conclusively establish constitutional authority to bind the Hansberry parties. The Supreme Court had to examine the actual relationships, interests, and procedures."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "40–43"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The same agreement gives owners opposing interests",
+      "cue": "Why did membership fail to supply adequate representation?",
+      "paragraphs": [
+        "The agreement contained several promises, not one joint obligation. A signer could favor enforcing restrictions against a neighbor while wanting freedom from restrictions on the signer’s own land. Having rights and burdens under the same paper did not make every owner’s litigation interest identical.",
+        "The Burke plaintiffs sought performance. That interest did not represent the Hansberry parties’ substantial interest in defeating enforcement. Combining both sides into one class would allow people pursuing one side of a conflict to determine the rights of absent people on the other.",
+        "The earlier defendants did not cure the problem. Burke’s pleadings had not designated a defendant class, and its decree had not purported to bind one. Nor had their interests in defeating the agreement been shown to outweigh their interests in establishing its validity. The record therefore supplied no adequate representative of these later defendants’ position."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "44–46"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Finality does not enlarge the first court’s authority over absentees",
+      "cue": "Why was an erroneous stipulation not the only constitutional problem?",
+      "paragraphs": [
+        "The Burke court might have had authority to decide the percentage issue, even incorrectly, between the people before it. That did not establish authority to decide it conclusively against people whose interests had not been adequately represented. The Hansberry parties could contest whether the representative exception applied to them.",
+        "The Illinois Supreme Court’s rejection of fraud or collusion did not save the judgment. Conflicting interests and inadequate representation independently established the due-process defect. Conversely, the Supreme Court did not reject class litigation generally. Representative treatment of a truly common issue remained possible when aligned interests and procedures ensured full and fair consideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "39–43, 45–46"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The defendants recover the right to contest effectiveness",
+      "cue": "What did the reversal resolve?",
+      "paragraphs": [
+        "On November 12, 1940, the Supreme Court reversed the Illinois Supreme Court. Burke could not constitutionally foreclose the Hansberry parties’ challenge to the ninety-five-percent condition. Justices McReynolds, Roberts, and Reed concurred in the result without a separate explanation.",
+        "The judgment rested on representation and the reach of the earlier decree. It did not announce the later, distinct constitutional rule concerning judicial enforcement of racial covenants generally. Here, the defendants won the right to contest whether this agreement had satisfied its own prerequisite."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "37, 44–46"
+        }
+      ]
+    }
+  ]
+}

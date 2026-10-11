@@ -1,0 +1,109 @@
+{
+  "id": "brief-CP-142",
+  "briefId": "CP-142",
+  "title": "Rios v. Davis",
+  "course": "Civil Procedure",
+  "citation": "373 S.W.2d 386 (Tex. Civ. App.—Eastland 1963)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A driver wins the first judgment despite an adverse negligence finding, then defeats an effort to make that unreviewable finding conclusive in his own injury suit.",
+  "actors": [
+    {
+      "name": "Popular Dry Goods Company",
+      "role": "Truck owner and plaintiff in the first property-damage suit."
+    },
+    {
+      "name": "Davis",
+      "role": "Original defendant who brought Rios into that action and later opposed Rios’s injury claim."
+    },
+    {
+      "name": "Rios",
+      "role": "Third-party defendant in the first action and plaintiff in the later personal-injury action."
+    }
+  ],
+  "proceedings": [
+    "The first county-court judgment denied Popular recovery from Davis and denied Davis recovery from Rios.",
+    "The district court then barred Rios’s separate injury suit on preclusion grounds.",
+    "The Court of Civil Appeals reversed and remanded that later judgment."
+  ],
+  "limits": "The decisions arose under historical contributory-negligence consequences. Reversal does not decide Rios’s negligence or damages. No numerical vote or separate writing is stated; the assignment’s question about binding Davis is not an additional holding.",
+  "briefSha256": "073749629bcbcb7a637f74de6893bcc15dc66943b9395e5f2cf1cd61447be5fd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-142"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "One collision generates a property-damage suit and a third-party claim",
+      "cue": "How did all three participants become parties?",
+      "paragraphs": [
+        "An automobile collision occurred on December 24, 1960. Popular Dry Goods Company sued Davis for $443.97 in damage to its truck. Davis asserted Popular’s contributory negligence, brought Rios into the case as a third-party defendant, and sought $248.50 for damage to his own automobile.",
+        "The jury found that Popular, Davis, and Rios had each been negligent in a way that proximately caused the collision. Under the contributory-negligence rules then applicable, the County Court at Law denied Popular recovery from Davis and denied Davis recovery from Rios. Although findings criticized Rios’s driving, the judgment favored him against Davis’s demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Collision and first action; 373 S.W.2d 387"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Rios’s personal-injury suit is stopped by the earlier findings",
+      "cue": "What did Davis argue was already settled?",
+      "paragraphs": [
+        "Rios later sued Davis in district court for $17,500 in alleged personal-injury damages. Davis again asserted contributory negligence. He also invoked the earlier jury findings and the December 17, 1962 judgment as res judicata and collateral estoppel, contending that the first litigation foreclosed Rios’s claim.",
+        "The district court sustained that preclusion plea and entered judgment for Davis. Rios appealed, arguing that the earlier findings about his negligence had been unnecessary to a judgment that actually favored him."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Later suit and appeal; 373 S.W.2d 387"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Collings connects preclusion to the basis of the judgment",
+      "cue": "Why were express jury findings insufficient?",
+      "paragraphs": [
+        "Justice Collings agreed with Rios. In the first contest between Davis and Rios, Davis’s own negligence supplied the controlling reason to deny Davis recovery. The findings that Rios failed to keep a proper lookout and drove on the left side of the roadway were not a basis for that denial. If those findings had controlled independently of Davis’s negligence, they would have pointed toward a different result.",
+        "An issue’s actual litigation and an explicit jury answer therefore did not alone make it conclusive later. The finding had to be a material basis for the judgment invoked as preclusive. Appellate fairness reinforced that requirement: Rios could appeal an adverse judgment, not isolated findings in a judgment in his favor. Even an unsupported negligence finding would not have allowed him to appeal the favorable result.",
+        "The court drew on Word v. Colley and other authorities locating estoppel in the judgment. Davis relied on Rio Bravo Oil’s discussion of questions directly in issue, but that authority likewise limited estoppel in a different claim to matters on which the prior result depended."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Essentiality and appellate fairness; 373 S.W.2d 387–389"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The injury suit returns without a merits victory for Rios",
+      "cue": "What remained open after the appeal?",
+      "paragraphs": [
+        "On November 22, 1963, the Court of Civil Appeals reversed and remanded. It did not find Rios free from negligence or entitled to $17,500; negligence and damages could be litigated in the personal-injury action. Rehearing was denied on December 20, 1963.",
+        "The reported opinion contains no separate writing or judicial footnote and gives no numerical vote. Whether Davis himself would be bound by the earlier finding of his negligence is a later textbook question, not an additional result in this appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition and assigned limits; 373 S.W.2d 386–389"
+        }
+      ]
+    }
+  ]
+}

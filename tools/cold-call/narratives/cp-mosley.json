@@ -1,0 +1,103 @@
+{
+  "id": "cp-mosley",
+  "briefId": "CP-081",
+  "title": "Mosley v. General Motors Corp.",
+  "course": "Civil Procedure",
+  "citation": "497 F.2d 1330 (8th Cir. 1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Ten employees linked different workplace injuries to an alleged common discriminatory policy and challenged an order requiring ten separate lawsuits.",
+  "actors": [
+    {
+      "name": "Nathaniel Mosley and nine other employees",
+      "role": "Plaintiffs seeking joint individual and proposed class relief"
+    },
+    {
+      "name": "General Motors and United Auto Workers Local 25",
+      "role": "Employer and union defendants"
+    }
+  ],
+  "proceedings": [
+    "District court severed ten individual counts and deferred class treatment.",
+    "Eighth Circuit permitted interlocutory review, reversed severance, affirmed deferral of class treatment, and denied fees as premature."
+  ],
+  "limits": "The agency’s reasonable-cause finding and common-policy allegations are not liability findings. Rule 20 joinder did not establish class certification or require all issues to be tried together.",
+  "briefSha256": "3a6a129ad52c9548a4893e2410244b2313c1d8b2cd7ec4cce06b4aa444d1286c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-081"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Employees report different acts of discrimination",
+      "cue": "Their complaint alleges one connecting policy",
+      "paragraphs": [
+        "Nathaniel Mosley and nine other employees filed discrimination charges with the Equal Employment Opportunity Commission. The agency found reasonable cause to believe that General Motors’ Chevrolet and Fisher Body divisions and United Auto Workers Local 25 engaged in unlawful employment practices. After notices permitting suit, the employees asserted Title VII and 42 U.S.C. § 1981 claims.",
+        "Eight individual counts concerned Chevrolet and two Fisher Body. Allegations included discriminatory hiring and promotion, race-based discharge, retaliation, and unequal relief time. The union allegedly discriminated over relief time and failed to pursue discrimination grievances. Plaintiffs requested injunctions, backpay, fees, and costs and added two proposed class counts concerning the respective divisions. They alleged that a common discriminatory company and union policy connected these varied events; no court had yet found that policy unlawful."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "497 F.2d at 1331"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court requires separate actions",
+      "cue": "An interlocutory appeal tests joinder",
+      "paragraphs": [
+        "General Motors sought clarification or striking of allegations and questioned class treatment. The district court viewed the individual disputes as largely unrelated beyond sharing a defendant and considered the combined pleading unmanageable. It severed them into ten new actions requiring separate filings, while allowing further individual or collective allegations about the proposed class. It certified the order under 28 U.S.C. § 1292(b), and the Eighth Circuit accepted the appeal.",
+        "Judge Ross’s panel applied abuse-of-discretion review. Rule 20(a) required both claims arising from the same transaction, occurrence, or series and a common legal or factual question. A practical logical relationship could make different events a series without identity or immediate connection; not every question had to be shared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "497 F.2d at 1331–1333"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The alleged policy supplies the connection",
+      "cue": "Separate trials remain available for later complications",
+      "paragraphs": [
+        "Plaintiffs alleged more than a shared employer. They attributed each injury to the same general discriminatory policy. The court analogized to United States v. Mississippi, where alleged statewide racial discrimination connected different voting registrars’ acts. A companywide employment policy could similarly connect different personnel actions.",
+        "Whether the policy existed and was discriminatory was a common factual question. Each worker still had to establish an individual wrong, and effects and damages could vary, but those differences did not eliminate that shared inquiry. Rule 23 commonality decisions helped interpret the requirement without establishing all prerequisites to a class action.",
+        "Rules 20(b) and 42(b) supplied protective measures and separate trials. Individualized damages or another later problem could be separated after common issues were resolved. Manageability therefore did not justify ten mandatory new lawsuits at this stage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "497 F.2d at 1332–1334"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Joint litigation resumes without class certification",
+      "cue": "The appellate order has three distinct results",
+      "paragraphs": [
+        "On May 31, 1974, Ross, joined by Stephenson and visiting Senior District Judge Van Pelt, reversed and remanded the individual-claim severance with directions to allow joint proceedings. The court affirmed withholding a class-propriety determination until further discovery. It denied appellate attorney fees as premature, without prejudice to renewal at final disposition. Neither discrimination liability nor class certification was established."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "497 F.2d at 1334"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "lrs-s-wiener",
+  "briefId": "LRS-ATLAS-S-WIENER",
+  "title": "Wiener v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "357 U.S. 349 (1958)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A President replaced a War Claims Commissioner solely to install his own personnel, and the removed commissioner sued for his remaining salary.",
+  "actors": [
+    {
+      "name": "Wiener",
+      "role": "War Claims Commissioner appointed under President Truman"
+    },
+    {
+      "name": "President Eisenhower",
+      "role": "President who removed Wiener"
+    },
+    {
+      "name": "United States",
+      "role": "Defendant in the salary action"
+    }
+  ],
+  "proceedings": [
+    "Earlier quo warranto case was dismissed; appeal dismissed as moot by agreement.",
+    "Divided Court of Claims dismissed the back-pay suit.",
+    "Supreme Court reversed without specifying a monetary award."
+  ],
+  "limits": "The historical functional analysis concerned removal solely for preferred personnel, not removal for cause or temporary suspension. The Court did not endorse the Government’s earlier-judgment estoppel argument or certify current removal law.",
+  "briefSha256": "2af7c8a4c2c146bb872c6eacd792bb17506ba7b2c5f2a686afd303e4142e44a8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-WIENER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress creates a temporary claims tribunal",
+      "cue": "Wiener joins it under Truman",
+      "paragraphs": [
+        "The War Claims Act of 1948 created a three-member commission to decide specified World War II claims for enemy-inflicted personal injury and property damage involving internees, prisoners of war, and religious organizations. At least two members had to be lawyers. The President appointed them with Senate confirmation. The Commission had to complete its work within three years after the filing period closed; later legislation extended that deadline for filing to March 31, 1952. The statute did not expressly address removal.",
+        "President Truman nominated Wiener, the Senate confirmed him June 2, 1950, and he took office June 8. After President Eisenhower took office, Wiener refused a request to resign."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "357 U.S. at 349–350"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Eisenhower wants personnel of his own selection",
+      "cue": "A salary claim outlasts the Commission",
+      "paragraphs": [
+        "On December 10, 1953, Eisenhower removed Wiener, stating that completing administration of the Act with personnel of his own selection served the national interest. He made recess appointments the next day, including a replacement for Wiener, and sent nominations to the Senate February 15, 1954. They remained unconfirmed when a reorganization plan abolished the Commission on July 1, 1954.",
+        "Wiener sought salary from removal through June 30, the Commission’s last day. An earlier quo warranto proceeding had been dismissed and its appeal dismissed as moot by agreement. A divided Court of Claims dismissed the salary suit. In the Supreme Court, the Government argued that the earlier judgment foreclosed certain issues. The Court did not reach that contention’s merits: in these circumstances the Government should have offered it under the Court’s rules as a reason to deny review. The Court expressly withheld endorsement of the estoppel claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "357 U.S. at 350–351 & judicial footnote"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Statutory silence is read through the Commission’s function",
+      "cue": "Frankfurter explains the implied independence",
+      "paragraphs": [
+        "Justice Frankfurter’s opinion rejected treating silence as automatic permission for removal at presidential pleasure. In the historical framework the Court applied, Myers concerned an executive postmaster, while Humphrey’s Executor confined its removal principle to purely executive officers and rejected broader language about quasi-judicial officials. A person required to exercise independent judgment could not reliably do so while serving entirely at another official’s pleasure. Assigned duties therefore best revealed congressional intent.",
+        "Congress knew the removal controversy when it created this Commission. The House initially proposed placing narrower claims against Japan under the Federal Security Administrator, using a commission to investigate others. The Senate instead chose a commission to adjudicate three classes according to law. Its decisions were final, unreviewable by another official or a court, and payable from a Treasury-held War Claims Fund. That structure became law with minor amendment.",
+        "Congress could distribute money directly, use executive administration, or establish adjudication. The number and diversity of claims made direct appropriations impractical. Congress chose the third option, which it also could have assigned to district courts or the Court of Claims. The body’s commission label did not alter its duty to judge evidence under law without Executive or congressional coercion. If the President could not influence a particular decision, Congress could not plausibly intend a threat of removal merely to obtain his preferred membership."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "357 U.S. at 351–356"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The asserted removal power fails",
+      "cue": "Reversal does not calculate back pay",
+      "paragraphs": [
+        "Eisenhower’s stated reason resembled Roosevelt’s unsuccessful removal of Humphrey from the Federal Trade Commission. The adjudicatory design supplied the protection even without an express for-cause clause or permanent agency tenure.",
+        "On June 30, 1958, the Supreme Court reversed the Court of Claims without specifying a salary award. It decided removal solely for presidential personnel preference, not removal for cause concerning a member’s rectitude or temporary suspension while the Senate considered a successor. No concurrence or dissent appears."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "357 U.S. at 354–356"
+        }
+      ]
+    }
+  ]
+}

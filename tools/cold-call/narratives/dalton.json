@@ -1,0 +1,128 @@
+{
+  "id": "dalton",
+  "briefId": "CT-NEXT-CM-0106",
+  "title": "Dalton v. Educational Testing Service",
+  "course": "Contracts",
+  "citation": "87 N.Y.2d 384, 663 N.E.2d 289 (1995)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A sharp increase in Brian Dalton’s SAT score prompted a handwriting-based security review. His contract entitled him to genuine consideration of relevant explanations, but the remedy for failure to provide that review was reconsideration, not automatic certification of the score.",
+  "actors": [
+    {
+      "name": "Brian Dalton",
+      "role": "Student whose second SAT score was questioned"
+    },
+    {
+      "name": "Educational Testing Service",
+      "role": "Testing organization reserving score-validity discretion"
+    },
+    {
+      "name": "Dalton’s father",
+      "role": "Plaintiff seeking release of the score"
+    },
+    {
+      "name": "Chief Judge Kaye",
+      "role": "Author of the majority opinion"
+    },
+    {
+      "name": "Judge Levine",
+      "role": "Dissenter joined by Judge Simons"
+    }
+  ],
+  "proceedings": "After a twelve-day bench trial, the court ordered release of the score and the Appellate Division affirmed. The Court of Appeals modified the order to require good-faith consideration instead, affirming as modified without costs.",
+  "limits": "The court did not decide whether Dalton cheated or validate his score. The contract required genuine consideration, not an external investigation or proof of cheating before cancellation. The score had not been finally canceled when suit began.",
+  "briefSha256": "ec9d07f1b411253ecb5ddad8e25e96d32cc8e00bf6562f1dee4224a6fa620e18",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0106"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An improved score triggered security review",
+      "cue": "Identify the contractual choices available to Dalton.",
+      "paragraphs": [
+        "Brian Dalton took the SAT college-admission test as a high-school junior in May 1991 and again as a senior that November. His combined score rose 410 points, exceeding the Educational Testing Service’s 350-point review threshold. Staff saw handwriting disparities on the answer sheets, and an examiner concluded that different people had completed them. The service’s Board of Review preliminarily found substantial evidence for cancellation but had not finally canceled the November score when litigation began.",
+        "The registration contract reserved the service’s power to cancel a score when it had reason to question validity, while promising notice and five options: supply relevant information, retest free, accept cancellation with a fee refund, obtain review by a score-receiving institution, or arbitrate. A pamphlet permitted supplemental information alongside other options and warned that character references alone did not explain handwriting differences. The notice identified suspected impersonation as the concern."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Part I, 387–389; dissent note"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Dalton supplied several explanations",
+      "cue": "Trace the review and resulting suit.",
+      "paragraphs": [
+        "Dalton submitted medical verification of mononucleosis during the first test, preparatory-course diagnostic results consistent with his later improvement, statements from a proctor and two students confirming his presence at the November sitting, and a family-retained examiner’s view that he wrote both sheets. The service held several meetings and obtained a second examiner’s opinion supporting its original conclusion, continuing to question the score.",
+        "Dalton’s father began an article 78 proceeding, later converted to an action at law, to prevent cancellation and compel release. After a twelve-day nonjury trial, the judge found that the service had failed even to evaluate or investigate the additional information. Board members treated presence at the examination as irrelevant to handwriting and regarded a retest as the only validation route. The trial court ordered release, and the Appellate Division affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parts I–II, 387–393"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The bargain required consideration, not an investigation",
+      "cue": "Explain the majority’s distinction and review limits.",
+      "paragraphs": [
+        "Chief Judge Kaye’s majority accepted the supported finding, affirmed below, that relevant information had not been evaluated. The Court of Appeals could not reweigh conflicting testimony. Board members’ statements treating presence at the test as a nonissue supported nonconsideration despite other testimony that documents had been reviewed and rejected. The lower courts’ additional, erroneous investigation theory did not require another trial when the material factual question had already been resolved.",
+        "Every contract carried a good-faith obligation preventing either party from destroying the other’s promised benefits or exercising discretion arbitrarily or irrationally. That covenant could not contradict the actual agreement. The service had not undertaken to prove cheating, gather independent evidence, or interview everyone supplying a statement. Such duties would conflict with placing the burden of addressing the security concern on the test-taker.",
+        "But the promised submission option would be empty without genuine consideration of relevant material. Presence, illness during the first sitting, and diagnostic performance bore on the suspected impersonation identified in the notice. The internal manual recognized medical evidence and other test results as pertinent. Narrowing the question to handwriting alone improperly excluded relevant submissions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Part II, 389–393 & majority note"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Reconsideration supplied the promised performance",
+      "cue": "Connect the breach to the corrected remedy.",
+      "paragraphs": [
+        "Once the service considered relevant evidence in good faith, it ordinarily controlled its weight and score validity, subject to review for arbitrary or irrational conduct. Refusing to exercise that discretion at all instead breached an express or implied contractual duty. The binding findings established that latter failure; they did not empower a court to resolve academic or security validity itself.",
+        "Specific performance should provide what the contract promised: good-faith reconsideration. The service never promised release of a score still considered invalid or doubtful. Automatic certification would exceed the bargain and jeopardize the credentials relied on by colleges, students, and others. Institutional review, arbitration, and the other options remained available alongside reconsideration. The majority rejected the assumption that ordering the promised process would necessarily be futile."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parts II–III, 389–394"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Levine saw a rational evaluation rather than refusal",
+      "cue": "State the division and precise modified judgment.",
+      "paragraphs": [
+        "Judge Levine, joined by Judge Simons, agreed there was no investigative duty but thought reliance on one below required at least new findings. He ultimately would dismiss: the second examiner and resubmitted handwriting samples demonstrated consideration, and focusing on handwriting rationally exercised the discretion reserved by contract. In his view, the majority substituted its own relevance judgment.",
+        "On December 7, 1995, Kaye was joined by Titone, Bellacosa, Smith, and Ciparick. The court modified the Appellate Division order to require good-faith consideration rather than immediate release, and affirmed as modified without costs. It neither validated the score nor awarded damages, and it did not resolve whether Dalton cheated or actually took the November examination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "394–398; final order"
+        }
+      ]
+    }
+  ]
+}

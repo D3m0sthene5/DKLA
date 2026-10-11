@@ -1,0 +1,211 @@
+{
+  "id": "brief-LRS-COMP-SLAUGHTER-COOK",
+  "briefId": "LRS-COMP-SLAUGHTER-COOK",
+  "title": "Trump v. Cook",
+  "course": "Legislation and the Regulatory State",
+  "citation": "609 U.S. 528 (2026), No. 25A312",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The President sought to remove Federal Reserve Governor Cook over alleged pre-office mortgage conduct, but the Supreme Court left an injunction in place because she had not received the statutory opportunity to respond.",
+  "actors": [
+    {
+      "name": "Cook",
+      "role": "Federal Reserve Governor whose protected term was scheduled to end in 2038"
+    },
+    {
+      "name": "President Trump",
+      "role": "President asserting cause to remove Cook"
+    },
+    {
+      "name": "William Pulte",
+      "role": "Federal Housing Finance Agency director who publicized mortgage allegations"
+    },
+    {
+      "name": "Federal Reserve Board and its Chairman",
+      "role": "Defendants sued alongside the President to prevent implementation of removal"
+    },
+    {
+      "name": "Chief Justice Roberts",
+      "role": "Author of the five-Justice majority"
+    },
+    {
+      "name": "Justices Kavanaugh, Jackson, Thomas, Alito, Gorsuch, and Barrett",
+      "role": "Authors or joiners of separate opinions on the stay application"
+    }
+  ],
+  "proceedings": "District court preliminarily enjoined implementation of removal; D.C. Circuit denied stay; Supreme Court deferred application, heard January 21 argument, then denied stay 5–4 on June 29, 2026.",
+  "limits": "This account follows the canonical reviewed brief of the preliminary report, subject to formal revision. The mortgage documents were absent and allegations unadjudicated. No constitutional due-process holding or ultimate sufficient-cause determination occurred. Assigned later-notice reporting is unverified aftermath, not an adjudication of compliance.",
+  "briefSha256": "6614d60de63c617dd03f8a1f86821d1e6e2f23eb0f03972b6b1b7ada1120ce24",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-COMP-SLAUGHTER-COOK"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Mortgage allegations prompted a presidential removal letter",
+      "cue": "Establish tenure, accusations, and the absence of factual adjudication.",
+      "paragraphs": [
+        "Cook joined the Federal Reserve Board in 2022 and received a full fourteen-year term in 2023, scheduled to expire in 2038. Under 12 U.S.C. § 242, Governors serve their terms unless sooner removed for cause by the President.",
+        "In August 2025, Federal Housing Finance Agency director William Pulte publicized allegations that Cook had obtained favorable mortgage terms in 2021 by representing two homes as principal residences. President Trump demanded her resignation on social media, threatened dismissal, and purported to remove her in an August 25 letter. The letter asserted possible false statements, loss of confidence in her integrity, and at least gross negligence bearing on her competence as a financial regulator. Those were allegations and asserted grounds, not judicial findings of fraud or negligence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "609 U.S. at 539–540, 557–559"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Cook sued to remain in office while removal was litigated",
+      "cue": "Distinguish the three legal claims and the lower courts’ grounds.",
+      "paragraphs": [
+        "Cook sued the President, the Board, and its Chairman, seeking to continue serving. She argued separately that the alleged conduct was not statutory cause, that the statute required notice and an opportunity to respond, and that constitutional due process independently required pretermination procedure.",
+        "The district court preliminarily enjoined implementation of removal. It found likely success because it read cause as limited to in-office conduct and treated protected tenure as a constitutional property interest. It also found the other preliminary-injunction factors favorable to Cook. The D.C. Circuit denied a stay, with Judges Garcia and Childs relying on constitutional due process and Judge Katsas dissenting.",
+        "The Supreme Court deferred the government’s stay application, heard argument on January 21, and ruled on June 29, 2026. This was an interim application pending appeal, not a final merits appeal after factual development. Even the disputed mortgage documents were absent from the record. Legal standards could be resolved, but fraud, negligence, and ultimate cause could not be adjudicated on that record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 540–541, 558–559"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority rejected both unchecked removal and an absolute pre-office exception",
+      "cue": "Explain reviewability and substantial cause before the decisive process defect.",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for himself and Justices Sotomayor, Kagan, Kavanaugh, and Jackson. Section 242 assigned the decision to the President but did not make every asserted reason sufficient or eliminate judicial review. Executive discretion still had legal boundaries. The government conceded review when no cause was identified, and deciding whether an identified reason counted necessarily required interpreting the statute.",
+        "Reagan, an earlier removal case invoked against review, involved a statute referring to legally prescribed causes when Congress had supplied none and had not otherwise required cause. It did not establish blanket nonreviewability. Common-law materials likewise included judicial examination of the sufficiency and reasonableness of removal grounds.",
+        "The Court rejected the government’s near-nominal threshold of almost any concern about conduct, ability, fitness, or competence. It also rejected Cook’s attempt to import particular lists from other statutes and categorically exclude private pre-office conduct. Section 242 drew on the common-law concept of substantial, reasonable, and just cause informed by the particular office, not an unidentified external statutory list.",
+        "The Federal Reserve’s design mattered: privately owned regional banks, monetary-policy participation by public and regional-bank actors, a budget independent of appropriations, and insulation from short-term political pressure supported its monetary mission. Cause therefore required a substantial threshold. Seriousness and nexus to professional duties mattered, as did whether asserted unfitness masked a desire for a more congenial replacement. Review was deferential but need not ignore pretext. The Court did not exhaustively define cause or decide the mortgage allegations could never establish it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 542–547"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Equity could preserve an incumbent’s position during the dispute",
+      "cue": "Keep interim protection separate from final title to office.",
+      "paragraphs": [
+        "The government and Justice Thomas relied on the historical rule that equity did not finally decide title to public office. Roberts distinguished that final determination, traditionally associated with mandamus or quo warranto, from interim protection of an incumbent while title was litigated. Historical treatises recognized the latter, and the Court read Sawyer and White, earlier public-office remedy decisions, as not foreclosing it.",
+        "A Governor who otherwise met preliminary-injunction requirements could therefore remain in office during litigation. The majority also rejected Thomas’s insistence on an express congressional cause of action, relying on traditional equitable suits preventing unlawful official conduct. It found no categorical remedial barrier to protecting Cook’s ongoing functions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 547–549 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The statute required a real opportunity to answer before removal",
+      "cue": "Identify the narrow defect that defeated likely success.",
+      "paragraphs": [
+        "The dispositive problem was statutory process. A protected term of years carried a background understanding that removal for cause required notice and an opportunity to defend. Reagan and Shurtleff supplied Supreme Court interpretations against which Congress legislated in 1913 and 1935. The majority treated that interpretation as governing rather than disposable dicta, distinguished precedent-based presumptions from those depending on broad lower-court consensus, and declined to infer the opposite from express procedures in other statutes. An expiration date on an at-will office merely capped tenure; it differed from a protected fixed term.",
+        "Cook needed no personal audience with the President or judicial trial. Written submissions could suffice. But she needed some explanation of the evidence, an avenue for argument and, if necessary, informal proof, and a response deadline before a final decision. A social-media demand to resign and link to reporting did not provide that process. Her entitlement to respond did not depend on showing beforehand that she would persuade the President.",
+        "Because that statutory defect prevented the government from showing likely success, the Court did not decide whether Cook’s office was constitutional property or what the Due Process Clause independently required. Facts and sufficient cause remained for later determination after an opportunity to answer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 550–554 & nn.3–5, 557–559"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Court also defended the Federal Reserve’s constitutional structure",
+      "cue": "Identify the affirmative ruling and its express limit.",
+      "paragraphs": [
+        "The government had not challenged the constitutionality of the for-cause protection. Nevertheless, responding to Thomas, the majority expressly upheld the Federal Reserve’s existing independence. It relied on the First and Second Banks’ separation from presidential control and their monetary functions. Historical practice informed constitutional structure under modern circumstances; the current institution need not duplicate those banks precisely.",
+        "The majority chose to resolve that issue despite objections that it was unbriefed and inconsistent with Slaughter, the Court’s recent removal decision. Its sixth note limited the conclusion: approval of the existing structure and enforcement authorities did not authorize Congress to add regulatory powers attenuated from monetary policy. The seventh note rejected constitutional avoidance because the statutory reading was unambiguous and Thomas’s narrower process approach would not eliminate his objection to any removal limit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 554–557 & nn.6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Kavanaugh and Jackson added distinct reasons for leaving the injunction in place",
+      "cue": "Keep their additional concerns attributed.",
+      "paragraphs": [
+        "Justice Kavanaugh joined the entire opinion and emphasized both its interim limits and its affirmative protection of Federal Reserve independence. Ultimate removal would depend heavily on unresolved facts. The government had accepted the Reserve’s historical independence while attacking other agency protections in Slaughter. Leaving its Article II status unsettled after that decision could invite political upheaval and destabilize domestic and world economies, he reasoned. Historical practice supported continued independence, and eliminating protection would require legislative change. He identified Thomas as the only Justice affirmatively arguing that Article II required at-will removal of Governors.",
+        "Justice Jackson also joined but would deny the stay on equitable grounds alone. The government identified the President’s inability to remove an official he wanted removed, rather than concrete interim injury. Actual real-world harm from continued service might change the analysis, but the asserted removal right was the disputed legal question itself. She emphasized evidence concerning long-term economic stability and actual or perceived political intimidation of monetary officials. The majority itself stopped at likely success rather than adopting this separate equitable analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 559–565, Kavanaugh n.1, Jackson unnumbered note"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "Thomas challenged the merits, judicial authority, and equities",
+      "cue": "Present the full dissenting theory without treating it as the holding.",
+      "paragraphs": [
+        "Justice Thomas would grant a stay. He distinguished privately operated early banks from a Federal Reserve Board exercising substantial federal executive and regulatory powers. His historical account traced a different administrative tradition and catalogued original and later regulatory authorities. He rejected constitutional property status for public office, regarded alleged mortgage fraud as sufficient cause given financial-integrity concerns and the presumption of regularity, and denied an implied hearing requirement without statutory text.",
+        "Thomas argued that Reagan and Shurtleff ruled against removed officers and contained only dicta about different statutes, with no required judicial consensus establishing the majority’s background rule. He examined fixed terms, express hearing provisions, and contrasting cause statutes. In his view, any restraint on removal of a principal officer exercising executive power violated Article II and Slaughter, or at least required constitutional avoidance.",
+        "He further argued that Cook lacked an authorized action overcoming sovereign immunity, had not met demanding ultra vires or mandamus standards, and could not obtain equitable reinstatement. He rejected the distinction between interim and final equitable intervention and invoked presidential authority and harms recognized in other removal stays. These were his dissenting positions, not the Court’s interpretation of the statute or remedies."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 565–596 & Thomas nn.1–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-9",
+      "title": "Alito and Barrett objected to the breadth of the stay decision",
+      "cue": "Distinguish their positions from Thomas’s categorical constitutional claim.",
+      "paragraphs": [
+        "Justice Alito, joined by Justice Gorsuch, criticized deciding novel, underdeveloped questions on a stay application. He identified possible standing, appellate, right-of-action, and equitable obstacles. He would grant a stay on the two grounds used below: cause was not limited to in-office conduct, and Cook lacked a constitutional property interest in office. A prompt, narrow ruling could leave statutory process and other questions for factual and legal development. He thought prior removal cases supplied the remaining stay factors and expressly denied that this disposition would reject the Reserve’s constitutional independence. He did not join Thomas’s categorical Article II challenge.",
+        "Justice Barrett separately objected to resolving numerous new questions, particularly a constitutional challenge the government waived and the parties did not brief. She considered the historical analogy underdeveloped, the exception in tension with Slaughter’s account of executive power, and the sixth note’s boundary uncertain. She also read the injunction as barring removal on the August 25 letter’s grounds, not merely through that letter. On her reading, even adequate process and substantial proof could not permit another mortgage-based removal while the injunction stood. That interference supplied irreparable harm, reduced by the government’s concession that policy disagreement alone could not justify removal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 596–604 & Alito unnumbered note"
+        }
+      ]
+    },
+    {
+      "id": "episode-10",
+      "title": "Denial of a stay did not immunize Cook from a new lawful attempt",
+      "cue": "Close with the majority’s construction and exact disposition.",
+      "paragraphs": [
+        "The majority read the injunction to prevent implementation of the August 25 letter while allowing the President to try again with adequate process, subject to judicial review. It rejected Barrett’s broader construction and explained that even an overbroad injunction would call for clarification, not automatically for a full stay immediately removing Cook.",
+        "On June 29, 2026, the Court denied the stay application 5–4. The injunction remained in force during the litigation under that construction. This was not affirmance of a final judgment, dismissal of Cook’s suit, a determination that the allegations were true or false, or a ruling that she could never be removed. The eventual legality of removal would depend on facts the Court had not resolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 558–559 & n.8"
+        }
+      ]
+    }
+  ]
+}

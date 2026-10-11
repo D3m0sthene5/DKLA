@@ -1,0 +1,114 @@
+{
+  "id": "xlo",
+  "briefId": "CT-NEXT-CM-0111",
+  "title": "X.L.O. Concrete Corp. v. Rivergate Corp.",
+  "course": "Contracts",
+  "citation": "83 N.Y.2d 513, 634 N.E.2d 158 (1994)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After completing a concrete project, a subcontractor sought its remaining payment from a contractor who invoked the project’s connection to an organized-crime bidding scheme. The court required factual inquiry into whether enforcing this payment would itself implement the unlawful restraint.",
+  "actors": [
+    {
+      "name": "X.L.O. Concrete Corporation",
+      "role": "Concrete subcontractor seeking an unpaid balance"
+    },
+    {
+      "name": "Rivergate Corporation",
+      "role": "General contractor invoking antitrust illegality"
+    },
+    {
+      "name": "Costigan",
+      "role": "X.L.O. principal who resisted the Club’s withdrawal demand"
+    },
+    {
+      "name": "Ralph Scopo",
+      "role": "Representative of the organized-crime Commission"
+    },
+    {
+      "name": "Judge Ciparick",
+      "role": "Author of the New York Court of Appeals opinion"
+    }
+  ],
+  "proceedings": "The trial court dismissed the complaint and counterclaims. The Appellate Division reinstated the complaint and limited counterclaims. The Court of Appeals affirmed that reinstatement with costs and answered the certified question affirmatively.",
+  "limits": "The court neither awarded the unpaid balance nor conclusively rejected illegality. Price inflation, connection to the restraint, relative culpability, forfeiture, and possible quantum-meruit recovery required further consideration.",
+  "briefSha256": "ad28418042723e4800a270eb616b6c65f13a68c0d4e3613a222bcce38121bdfa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0111"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The construction agreement operated alongside the Club",
+      "cue": "Explain the lawful work and unlawful surrounding arrangement.",
+      "paragraphs": [
+        "On May 12, 1983, X.L.O. Concrete Corporation agreed with general contractor Rivergate Corporation to construct a Manhattan project’s concrete superstructure and fills. The initial $16.3 million price later became $16,544,125.07. X.L.O. completed the work and claimed an unpaid $844,125.07.",
+        "X.L.O. had joined the Club in 1981. That arrangement united concrete firms, a cement-and-concrete union council, and the Commission of organized-crime family leaders. It allocated New York work exceeding $2 million, rigged bids so the chosen firm bid lowest, and exacted two percent for labor peace, using labor unrest or violence to enforce compliance.",
+        "The Commission allocated this project assuming a price no greater than $15 million. When negotiation exceeded that amount, representative Ralph Scopo demanded withdrawal. X.L.O. principal Costigan refused, and the Commission ultimately allowed the job. Costigan paid Scopo $50,000 for advocating his position. Rivergate negotiated with full knowledge of the Club and its rules."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "515–516"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The unpaid balance met an antitrust defense",
+      "cue": "Trace the motions and which party sought further review.",
+      "paragraphs": [
+        "X.L.O. sued for breach, account stated, and unjust enrichment. Rivergate asserted an antitrust defense and counterclaim under New York’s Donnelly Act, a Sherman Act damages counterclaim, and contractual fees and costs. X.L.O. moved to dismiss the first two counterclaims as untimely; Rivergate cross-moved to dismiss the complaint.",
+        "The trial court dismissed the complaint for illegality, the first two counterclaims as time barred, and the fee counterclaim because the contract was void. The Appellate Division reinstated the complaint and counterclaims to the extent of its demand. Rivergate, which had prevailed on dismissal below, sought Court of Appeals review of that modification."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Connection to an unlawful scheme did not automatically forfeit payment",
+      "cue": "Explain the legal boundary and needed facts.",
+      "paragraphs": [
+        "Judge Ciparick’s opinion noted that the Donnelly Act was modeled on the Sherman Act and generally followed federal interpretation absent contrary state text, history, or policy. Kelly and related antitrust precedents warned against giving buyers completed performance for nothing. The boundary was whether judgment would enforce the precise prohibited conduct or merely a lawful obligation collateral to it.",
+        "This agreement facially required lawful construction. Yet facial legality did not settle enforceability. A trial had to determine whether payment was an indivisible component effectuating the conspiracy so that enforcement would consummate the forbidden restraint. An inflated, discriminatory price caused by suppressed competition might mean that collecting the promise implemented the restraint rather than merely followed it.",
+        "The record did not resolve market value when the contract was made, price inflation, or anticompetitive effects. The court did not itself find the price inflated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "517–519"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The equities also required development",
+      "cue": "Give the interlocutory result precisely.",
+      "paragraphs": [
+        "Further proceedings also needed to address forfeiture and unjust enrichment, the parties’ comparative culpability, knowledge, and bargaining power, and whether denying contractual recovery would still allow quantum meruit for reasonable value. Those were questions, not an award or a finding of equal fault. The substantial policy against the Club operated alongside statutory remedies and the Attorney General’s direct enforcement authority, reducing the need for automatic total forfeiture in every related collection action.",
+        "On March 24, 1994, Chief Judge Kaye and Judges Simons, Bellacosa, Smith, and Levine joined Ciparick; Titone did not participate. The court affirmed the Appellate Division order with costs and answered the certified question affirmatively. The complaint and limited counterclaims remained for proceedings. X.L.O. had no final payment judgment, and Rivergate’s defense remained open on the necessary facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "515, 519"
+        }
+      ]
+    }
+  ]
+}

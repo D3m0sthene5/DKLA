@@ -1,0 +1,110 @@
+{
+  "id": "vokes",
+  "briefId": "CTR-040",
+  "title": "Vokes v. Arthur Murray, Inc.",
+  "course": "Contracts",
+  "citation": "212 So. 2d 906 (Fla. 2d DCA 1968)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A dance student alleged that instructors sold thousands of hours by knowingly misrepresenting their expert assessment of her progress.",
+  "actors": [
+    {
+      "name": "Audrey Vokes",
+      "role": "Dance student seeking cancellation, an accounting, and repayment for unused instruction"
+    },
+    {
+      "name": "Arthur Murray, Inc.",
+      "role": "Dance-studio franchisor and defendant"
+    },
+    {
+      "name": "J. P. Davenport",
+      "role": "Operator of the franchised studio and defendant"
+    }
+  ],
+  "proceedings": [
+    "Trial court: dismissed the fourth amended complaint with prejudice.",
+    "Florida Second District Court of Appeal: reversed on July 31, 1968, permitting the claim to proceed."
+  ],
+  "limits": [
+    "The court accepted allegations to test the complaint; it did not find fraud after trial or order repayment of the entire purchase price. Hours stated were purchased, not necessarily completed."
+  ],
+  "briefSha256": "4d015842287421ea6f23b4303f732d54150252c4163994f924e9acc13d17ee81",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-040"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An introductory lesson leads to escalating purchases",
+      "cue": "Begin with the student’s aims and the alleged sales pattern.",
+      "paragraphs": [
+        "Audrey Vokes, a 51-year-old widow, wanted to become an accomplished dancer and find a new interest in life. After attending an event at a franchised Arthur Murray dance studio operated by J. P. Davenport, she bought eight half-hour introductory lessons for $14.50. In less than sixteen months, the studio sold her fourteen courses totaling 2,302 hours for $31,090.45. Those were hours purchased, not a finding that she completed that much instruction.",
+        "Her complaint described sustained praise of her grace, improvement, and potential, reinforced by supposed aptitude tests. Sales were tied to medals, memberships, and trips. The studio repeatedly sold more lessons while she still held hundreds, sometimes more than a thousand, unused hours."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212 So. 2d at 907–908; CB 523–525"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Vokes alleges the instructors knew their evaluations were false",
+      "cue": "Identify the wrongdoing claimed and the relief requested.",
+      "paragraphs": [
+        "Vokes alleged that the instructors knew she had little dance aptitude, struggled to hear the beat, and was not making the progress they described. They withheld that assessment while continuing to induce purchases through favorable professional evaluations. Her claim concerned knowingly fabricated assessments of present ability and improvement within a continuing sales pattern, not simply regret about expensive recreation.",
+        "She sued Arthur Murray and Davenport for cancellation of the contracts, an accounting, and recovery of payments not chargeable to instruction already given. The trial court dismissed her fourth amended complaint with prejudice for failure to state a cause of action. She appealed, requiring the appellate court to accept the material allegations as true for this limited test of legal sufficiency."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212 So. 2d at 907–909; CB 523–525"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Expert evaluations may communicate more than flattering opinion",
+      "cue": "Follow the appellate court’s reasoning.",
+      "paragraphs": [
+        "Judge Pierce’s opinion for the Florida Second District Court of Appeal rejected a mechanical fact-opinion distinction. Instructors possessed expertise and repeatedly evaluated Vokes’s actual performance. On the allegations, statements about rapid improvement and favorable aptitude conveyed a knowledgeable assessment that the speakers knew was false. Superior knowledge, trust, unequal ability to evaluate the subject, and devices making an opinion misleading could support relief even when statements were framed as opinions.",
+        "The court also reasoned that someone who undertakes to speak must tell the whole truth. An instructor might have no initial duty to disclose every observation, yet could not necessarily give reassuring evaluations while concealing contrary knowledge essential to their meaning. The recurring pattern—staged achievements, increasing purchases, large unused balances, and pressure attached to special opportunities—reinforced the claimed overreaching. The opinion used broader equitable language about undue influence and unconscionability, but the concrete misrepresentations and alleged reliance on professional knowledge supplied the basis for allowing the claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212 So. 2d at 908–909; CB 524–526"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Reversal permits proof rather than ordering a refund",
+      "cue": "Preserve the judgment and the limits of its rhetoric.",
+      "paragraphs": [
+        "On July 31, 1968, the appellate court reversed the dismissal. Chief Judge Liles and Judge Mann concurred without separate writings. Vokes could proceed with her pleaded claim; the court did not determine that fraud had occurred or award the full $31,090.45.",
+        "The opinion’s theatrical and patronizing comments about Vokes’s age and aspirations were not legal elements. A customer may knowingly value enjoyment, companionship, encouragement, or instruction despite modest prospects of technical improvement. High price or judicial disapproval of that preference alone was not the asserted deception. The actionable possibility here rested on proof that experts knowingly misrepresented progress to obtain further purchases.",
+        "The related sports-agency dispute in Speakers of Sport v. ProServ illustrates the difference in context: that court construed an endorsement forecast as aspirational and separately applied Illinois’s fraudulent-scheme requirement. Vokes alleged knowingly false expert assessments of present performance within an ongoing pattern. Neither a statement’s future wording nor numerical detail alone decides how it should be treated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "212 So. 2d at 908–909; CB 525–526; canonical comparison with Speakers of Sport"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "brief-CT-CB-0263",
+  "briefId": "CT-CB-0263",
+  "title": "United States Life Insurance Co. in the City of New York v. Wilson",
+  "course": "Contracts",
+  "citation": "198 Md. App. 452, 18 A.3d 110 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A life-insurance premium check was dispatched before the insured’s fatal accident but arrived afterward; authorized mailing reinstated the policy, while the administrator remained free of the insurer’s payment obligation.",
+  "actors": [
+    {
+      "name": "Dr. John G. Griffith",
+      "role": "Insured who directed his bank to pay an overdue premium"
+    },
+    {
+      "name": "Elizabeth Wilson",
+      "role": "Primary beneficiary and plaintiff seeking ordinary and accidental-death benefits"
+    },
+    {
+      "name": "United States Life Insurance Company (US Life)",
+      "role": "Insurer promising the death benefits"
+    },
+    {
+      "name": "AMA Insurance Agency, Inc. (AMAIA)",
+      "role": "Administrator authorized to bill and receive premiums for US Life"
+    },
+    {
+      "name": "Judge Deborah S. Eyler",
+      "role": "Author of Maryland’s appellate opinion"
+    }
+  ],
+  "proceedings": "Cross-motions produced $650,000 summary judgment against both defendants plus six-percent prejudgment interest; appellate court affirmed as to insurer, reversed as to administrator, and remanded for judgment for administrator, dividing appellate costs equally between insurer and beneficiary.",
+  "limits": "Maryland applied Illinois substantive law by agreement and place of contracting, predicting Illinois’s reinstatement approach. The mailed paper-check transaction did not establish a rule for all electronic payments, all postdated instruments, or every reinstatement request.",
+  "briefSha256": "a59fec869c4b95315a31c58d7973e06f25758f31c02e04518588012027dd459f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0263"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The policy contained three separate limits on continued or restored coverage",
+      "cue": "Introduce the insurer, administrator, beneficiary, and contractual clocks.",
+      "paragraphs": [
+        "Dr. John G. Griffith’s ten-year life policy took effect November 15, 1998. United States Life Insurance Company, or US Life, underwrote it. AMA Insurance Agency, Inc., called AMAIA, administered billing and premium collection through its Chicago office and could receive payments for the insurer. Griffith’s wife, Elizabeth Wilson, was primary beneficiary.",
+        "Griffith paid semiannually on May 15 and November 15. The ordinary grace period continued coverage for thirty-one days after a due date, but the policy allowed US Life to extend it through written notice specifying when coverage would end. A separate clause allowed reinstatement within ninety days after the first unpaid premium’s due date. Evidence of insurability and written approval were generally required, but the evidence requirement did not apply within thirty-one days after the grace period ended.",
+        "Griffith missed the May 15, 2007 payment. A reminder said payment had to be received within sixty days of that due date to assure active coverage. A later lapse notice referred to a thirty-one-day grace period and requested a good-health application. The notice dates were not fully established. Their differing language created the first dispute over the reinstatement conditions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 1–5, 9–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The bank sent the premium before Griffith died",
+      "cue": "Keep instruction, dispatch, date on check, and delivery distinct.",
+      "paragraphs": [
+        "On Monday, July 23, Griffith electronically instructed his bank to pay $369.46 to AMAIA. The bank produced a paper check bearing his authorized signature. Its records showed dispatch Wednesday, July 25, and delivery Monday, July 30; the check itself was dated July 30.",
+        "Griffith died in a bicycle-related automobile accident on Saturday, July 28, between dispatch and delivery. He had submitted no good-health application. AMAIA returned the check August 2 before learning of his death and later denied Wilson’s claim. Wilson sought $400,000 in ordinary benefits and $250,000 in accidental-death benefits.",
+        "On cross-motions, the circuit court held the policy reinstated and entered $650,000 judgment against both US Life and AMAIA. It later added six-percent prejudgment interest from death to judgment. Both appealed. The Maryland appellate court reviewed legal summary-judgment rulings de novo and explained that refusal to reconsider legal error was also an abuse of discretion. The policy was delivered and premiums paid in Illinois, and the parties agreed that Illinois substantive law governed; Maryland and Illinois agreed on the dispositive principles."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The reminder extended grace, but the later notice could not rewrite reinstatement",
+      "cue": "Calculate the operative dates before applying dispatch.",
+      "paragraphs": [
+        "Judge Deborah S. Eyler’s opinion held the reminder an effective written extension. It need not use “grace period” or print a second calendar date: sixty days from the identified due date was calculable. Grace ran through July 14, and coverage lapsed July 15. Thirty-one days from July 14 reached August 14, but the independent ninety-day outside limit measured from May 15 expired August 13. August 13 therefore was the last permissible reinstatement date under the policy.",
+        "Once grace was extended, the reinstatement clause operated from that extended endpoint. Timely payment alone sufficed within the applicable window without new evidence of insurability. The later lapse notice could not unilaterally add a health-application or receipt condition contrary to the policy. The authorized extension changed a date; it did not authorize replacement of the reinstatement bargain.",
+        "Reinstatement also had to occur during Griffith’s lifetime. Neither the later contractual deadline nor a tender first effective after death could insure an already realized loss. The critical question was consequently whether payment became effective by July 28."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 14–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Payment meant the insured’s authorized act, not the administrator’s deposit choice",
+      "cue": "Explain revival and the mailbox rule without overstating either.",
+      "paragraphs": [
+        "US Life argued that payment meant negotiation of the check. The court rejected that as unreasonable: the policy described payment as the insured’s act toward the insurer or agent, while negotiation or deposit was the payee’s act. Otherwise coverage could depend on when AMAIA happened to deposit the instrument. Customary practice and the notices authorized checks. The court discussed construing ambiguities against the drafter as a last resort but did not need that doctrine to choose between two equally plausible readings.",
+        "Courts differed over whether reinstatement revived an existing policy or required formation of a new contract. The panel predicted Illinois would follow the majority revival approach, particularly where payment alone satisfied the existing reinstatement promise and no fresh underwriting discretion remained. It used unilateral-contract analysis to describe the promised revival upon performance, while reserving requests requiring evidence of insurability and affirmative approval.",
+        "The mailbox rule could apply to authorized remittance as performance, not only to a mailed promise. Giving an instruction to one’s own messenger was not dispatch into an independent delivery channel. Viewed favorably to defendants, Griffith could still countermand the July 23 instruction. On July 25, the bank sent the check to AMAIA, completing the relevant dispatch before his death. An electronic instruction to the bank did not make communication with the insurer instantaneous; the operative instrument traveled later as paper. The parties had not invoked electronic-transactions statutes as governing the appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 18–30 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The future date on the check did not postpone effective payment on this record",
+      "cue": "Address the statutory exception and the unpreserved factual argument.",
+      "paragraphs": [
+        "The court considered Uniform Commercial Code §§ 3-113 and 4-401(c). An otherwise payable check could be charged before its printed date unless the customer supplied the specified notice of postdating. No record evidence suggested Griffith gave that notice. The check was therefore valid and properly payable on July 25 despite the July 30 date. The ruling did not make dates on all negotiable instruments irrelevant.",
+        "US Life’s alternative claim of a genuine factual dispute appeared first in its appellate reply after the opposite position below. The court declined that untimely argument and also found the material record sufficient to determine payment timing. Dispatch reinstated coverage while Griffith was alive, so US Life owed the benefits."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 30–32"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The administrator’s authority did not make it an additional insurer",
+      "cue": "Close with the split judgment and interest.",
+      "paragraphs": [
+        "AMAIA could receive premiums and deny claims as agent for a disclosed principal without assuming the principal’s promise to pay. The policy named US Life as obligor, and no evidence showed AMAIA agreed to personal liability. Its own participation in denying the claim did not create the missing contractual undertaking. Because undisputed cross-motions squarely presented that issue, AMAIA was entitled to judgment, not merely vacatur of Wilson’s award against it.",
+        "On April 28, 2011, Eyler, Kehoe, and Sharer affirmed Wilson’s $650,000 judgment and prejudgment interest against US Life, reversed the judgment against AMAIA, and remanded with instructions to enter judgment for the administrator. Appellate costs were divided equally between US Life and Wilson. No separate opinion accompanied the decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip op. 32–36"
+        }
+      ]
+    }
+  ]
+}

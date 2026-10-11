@@ -1,0 +1,109 @@
+{
+  "id": "cp-jeub",
+  "briefId": "CP-084",
+  "title": "Jeub v. B/G Foods, Inc.",
+  "course": "Civil Procedure",
+  "citation": "2 F.R.D. 238 (D. Minn. 1942)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A restaurant brought its ham supplier into patrons’ food-poisoning suits before paying a judgment, leaving any right to collect indemnity contingent on state law.",
+  "actors": [
+    {
+      "name": "Restaurant patrons",
+      "role": "Plaintiffs alleging illness from contaminated ham"
+    },
+    {
+      "name": "B/G Foods, Inc.",
+      "role": "Restaurant defendant seeking possible reimbursement"
+    },
+    {
+      "name": "Swift",
+      "role": "Supplier added as third-party defendant"
+    }
+  ],
+  "proceedings": [
+    "Federal district court: denied Swift’s motion to vacate impleader in all six actions and allowed twenty days to answer."
+  ],
+  "limits": [
+    "Rule 14 supplied procedure, not a substantive right to contribution or indemnity. No contamination, fault, damages, or ultimate liability over was established. The opinion used the historical rule text."
+  ],
+  "briefSha256": "cf87965fdb7fa06a3d6b069348f1496ad1309f14a17d4c22178e99c7a7fa8839",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-084"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The restaurant points to the sealed can it purchased",
+      "cue": "Introduce the underlying claims and the possible claim over.",
+      "paragraphs": [
+        "Patrons alleged that B/G Foods served contaminated ham that made them sick. Their complaints relied on Minnesota statutes prohibiting sale of unwholesome or poisonous food. B/G said it bought the ham the previous day in a sealed can bearing Swift’s “Premium Ham” label, handled it without negligence, and that any contamination resulted entirely from Swift’s conduct.",
+        "On that account, B/G asserted a possible right to reimbursement or indemnity if the patrons recovered against it. Before answering their complaints, it obtained an ex parte order adding Swift as a third-party defendant. The patrons declined to amend their complaints to sue Swift directly. Swift moved to vacate its addition in six actions considered together: Jeub, three Stack actions, Mack, and Watson."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "2 F.R.D. at 239–240"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Swift says no enforceable loss has yet occurred",
+      "cue": "Separate substantive entitlement from the time of adjudication.",
+      "paragraphs": [
+        "Swift argued that Rule 14 created procedure only. Minnesota law controlled B/G’s right to contribution or indemnity, and B/G had neither paid a judgment nor otherwise incurred the loss required to enforce such a claim. With no direct patron claim and no presently collectible claim by B/G, Swift maintained that it should leave the litigation.",
+        "District Judge Nordbye accepted the substantive premise but rejected the procedural conclusion. Rule 14 covered someone who was or might be liable. It could accelerate determination of a contingent obligation without accelerating the substantive right to receive money. The parties could establish their respective responsibilities together while conditioning enforcement on the loss or payment required by state law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "2 F.R.D. at 240–241"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Concurrent adjudication can preserve the supplier’s payment protection",
+      "cue": "Explain the authorities and the issues still open.",
+      "paragraphs": [
+        "The court relied on Burris v. American Chicle Company, which allowed judgment against an indemnitor while staying execution until the indemnitee satisfied the plaintiff’s judgment. People of Illinois v. Maryland Casualty Company likewise read possible liability under Rule 14 to permit impleader before the indemnified loss. Both distinguished establishing a conditional obligation from collecting it prematurely.",
+        "Swift also invoked the bar on contribution for intentional wrongdoing or knowingly unlawful acts. The pleadings did not require that culpability to be presumed. If B/G proved its account, a food-statute violation might be technical rather than knowing or intentional. That possibility did not establish a right to recover from Swift: the court expressly reserved whether contribution, indemnity, or neither was available.",
+        "Different legal theories between the patrons and restaurant, and between restaurant and supplier, did not defeat impleader. B/G’s insurance was irrelevant to this motion. One jury could consider the injury and related claim over, while a stay protected Swift from collection before B/G paid or satisfied the patrons’ judgment. The patrons’ refusal to sue Swift did not extinguish B/G’s potential derivative claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "2 F.R.D. at 240–241"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Swift remains to answer, but nobody has won damages",
+      "cue": "Give the exact limited order.",
+      "paragraphs": [
+        "On January 8, 1942, Nordbye denied Swift’s motion to vacate the third-party order in every case. Swift received twenty days after filing of the order to answer, and its exception was reserved. No separate writing appeared.",
+        "The order did not determine contamination, the patrons’ recovery, or B/G’s ultimate right against Swift. It permitted related responsibilities to be considered together while preserving the conditions of any substantive remedy. The historical Rule 14 quoted in the opinion also contained language about liability to the plaintiff; that text should not be silently substituted for later versions of the rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "2 F.R.D. at 241; historical rule discussion"
+        }
+      ]
+    }
+  ]
+}

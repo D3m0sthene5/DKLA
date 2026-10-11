@@ -1,0 +1,109 @@
+{
+  "id": "market-street",
+  "briefId": "CT-NEXT-CM-0108",
+  "title": "Market Street Associates Limited Partnership v. Frey",
+  "course": "Contracts",
+  "citation": "941 F.2d 588 (7th Cir. 1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A tenant invoked a valuable repurchase option after its landlord refused financing, raising a factual dispute over whether the tenant deliberately exploited the landlord’s forgotten contract term.",
+  "actors": [
+    {
+      "name": "Market Street Associates",
+      "role": "Successor tenant seeking conveyance"
+    },
+    {
+      "name": "General Electric Pension Trust",
+      "role": "Landlord refusing financing and repurchase"
+    },
+    {
+      "name": "William Orenstein and David Erb",
+      "role": "Tenant partner and trust representative involved in the communications"
+    }
+  ],
+  "proceedings": [
+    "District court entered summary judgment for the trust on cross-motions.",
+    "Seventh Circuit confirmed diversity through citizenship affidavits, reversed, and remanded for trial."
+  ],
+  "limits": "The 1991 decision neither found bad faith nor ordered conveyance. The appropriate remedy if financing was improperly refused remained undecided. Later remand history was not independently reviewed.",
+  "briefSha256": "0c42dc1111be467a757025d3e48ed5fb06c0356e9230ef6fd5c7da0f0573f544",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0108"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A sale-leaseback contains a financing and repurchase mechanism",
+      "cue": "Market Street inherits the opportunity",
+      "paragraphs": [
+        "In 1968 J.C. Penney sold property to General Electric Pension Trust and leased it back for twenty-five years. Paragraph 34 allowed the tenant to request financing for improvements costing at least $250,000. It required reasonable consideration and good-faith negotiations and permitted repurchase if negotiations failed. The formula roughly returned the original sale price with 6% annual appreciation, potentially advantageous if market values grew faster.",
+        "Market Street acquired the Milwaukee shopping-center lease in 1987. A drugstore later wanted new space, but outside lenders required a mortgage the tenant could not grant. Partner William Orenstein initially explored purchasing the property. Trust representative David Erb repeatedly failed to return calls; eventually an associate quoted $3 million, which Orenstein thought excessive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "941 F.2d at 591"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The financing refusal triggers an option demand",
+      "cue": "The correspondence leaves room for different inferences",
+      "paragraphs": [
+        "On July 28, 1988, Market Street requested $2 million in improvement financing without mentioning the lease or paragraph 34. An August 16 follow-up referred to financing under the lease but still omitted the paragraph number. The next day Market Street received a refusal based on the trust’s policy against loans below $7 million. Orenstein replied that it would seek financing elsewhere, then invoked the repurchase option September 27.",
+        "The formula apparently yielded about $1 million. The record did not establish whether market value actually was $3 million. The trust refused conveyance, and Market Street sued for specific performance. After removal, cross-motions for summary judgment resulted in judgment for the trust. The district judge concluded that failing to identify paragraph 34 prevented the required negotiations and breached good faith, inferring that Orenstein hoped Erb would overlook the option."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "941 F.2d at 589, 591–592"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court separates legal obligations from disputed intent",
+      "cue": "Neither party wins by relying on silence alone",
+      "paragraphs": [
+        "Before reaching the merits, the Seventh Circuit required citizenship affidavits for every general and limited partner and every trustee. They established complete diversity; the entities’ formation or labels alone were insufficient. The court also rejected the idea that filing cross-motions waived trial. Each motion still required favorable reasonable inferences for its opponent.",
+        "Judge Posner explained that the trust could not rely on missing negotiations if its own unreasonable refusal prevented them. But Market Street could not rely solely on the absence of an express duty to identify paragraph 34. Contractual good faith could prohibit deliberate exploitation of an oversight in performing an existing bargain.",
+        "That obligation did not make the tenant a fiduciary, require altruism or universal candor, or deprive it of superior market information and deliberately allocated risks. It instead addressed opportunism that created no productive gain while inducing defensive costs and defeating contemplated cooperation. Examples included actually examining work under a satisfaction clause, avoiding artificial requirements increases solely for resale, and promoting an exclusive dealership. Wisconsin common law governed this land lease; the court did not decide whether the Uniform Commercial Code definition would alter the analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "941 F.2d at 589–596"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Two accounts of Orenstein’s purpose remain possible",
+      "cue": "Summary judgment cannot choose between them",
+      "paragraphs": [
+        "Orenstein might have realized the trust forgot the clause, withheld an easy correction, and lulled it with an apparent abandonment of financing to obtain a bargain purchase. That could constitute bad faith. Or he might reasonably have expected a sophisticated trust to review its own lease and understood its categorical refusal as deliberate even with knowledge of the option. Earlier preference for outside borrowing did not preclude genuine interest in trust financing once outside loans proved unavailable.",
+        "The district judge chose the trust’s favorable inference rather than one reasonably favoring Market Street. A bench trial could evaluate live testimony and credibility; a judge’s eventual role as factfinder did not justify resolving that dispute on depositions. Because the trust had argued no remedy existed, the court also left open whether renewed negotiations, instead of immediate conveyance, might be the appropriate remedy for wrongful refusal.",
+        "On August 27, 1991, Posner, joined by Judges Cummings and Noland, reversed and remanded. The decision ordered neither sale nor a finding of good or bad faith."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "941 F.2d at 592–593, 596–598"
+        }
+      ]
+    }
+  ]
+}

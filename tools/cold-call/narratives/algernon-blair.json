@@ -1,0 +1,109 @@
+{
+  "id": "algernon-blair",
+  "briefId": "CT-NEXT-CM-0150",
+  "title": "United States for the Use of Coastal Steel Erectors, Inc. v. Algernon Blair, Inc.",
+  "course": "Contracts",
+  "citation": "479 F.2d 638 (4th Cir. 1973)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A steel subcontractor justifiably stops work when the prime contractor refuses crane rental. Though completing the job would have lost money, the subcontractor seeks the reasonable value already furnished.",
+  "actors": [
+    {
+      "name": "Algernon Blair, Inc.",
+      "role": "Prime contractor building a federal naval hospital."
+    },
+    {
+      "name": "Coastal Steel Erectors, Inc.",
+      "role": "Subcontractor supplying steel erection, labor, and its own cranes."
+    },
+    {
+      "name": "United States Fidelity and Guaranty",
+      "role": "Blair’s payment-bond surety, sued with the contractor."
+    }
+  ],
+  "proceedings": [
+    "The district court found Blair materially breached but denied recovery because Coastal’s expected completion loss exceeded the unpaid contract amount.",
+    "The Fourth Circuit reversed and remanded for accurate reasonable-value findings and judgment after deducting prior payments."
+  ],
+  "limits": "This account transforms the canonical historical brief without a fresh audit or certification of current restitution doctrine. This was a federal Miller Act action, not an Erie diversity prediction. The case involved partial performance; the court did not decide restitution after complete performance or award the approximate $37,000 as a final sum.",
+  "briefSha256": "1996ca3548f99dcdaa022c68ced2c0832a90109efc691f2eea4ad9a4657bb590",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0150"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A crane-payment dispute interrupts hospital construction",
+      "cue": "Why was Coastal entitled to stop?",
+      "paragraphs": [
+        "Algernon Blair contracted with the United States to build a naval hospital in Charleston County, South Carolina. It subcontracted steel erection and related equipment supply to Coastal Steel Erectors. Coastal used its own cranes to handle and place the steel.",
+        "Blair refused crane rental, maintaining that the subcontract required no such payment. Coastal stopped after completing about twenty-eight percent of its obligations, and Blair hired another subcontractor to finish. Coastal sued Blair and its payment-bond surety, United States Fidelity and Guaranty, in the United States’ name under the Miller Act for labor and equipment already furnished."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "479 F.2d 640"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial court finds breach but no contract recovery",
+      "cue": "How did the losing bargain affect that calculation?",
+      "paragraphs": [
+        "The district court found that the subcontract required crane payments and that Blair’s refusal materially breached it, justifying Coastal’s termination. Those findings were unchallenged on appeal; wrongful abandonment by Coastal was not the issue.",
+        "After deducting prior payments, the court estimated about $37,000 remained payable for performance under the contract. It also found that Coastal would have lost more than $37,000 by completing the job. Deducting that expected loss in calculating contract damages left no recovery. Coastal appealed to pursue an alternative remedy for the value already supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "479 F.2d 640"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Fourth Circuit distinguishes the retained benefit from expected profit",
+      "cue": "Why did the unperformed balance not defeat restitution?",
+      "paragraphs": [
+        "Judge Craven’s opinion held that Coastal could elect quantum meruit, recovery of reasonable value, after Blair’s material breach. Expectation damages asked what completion of this bargain would have produced. Restitution asked what labor and equipment value Coastal had conferred at its expense and Blair retained without full payment.",
+        "The loss Coastal would have incurred on remaining work did not make its completed performance free. Miller Act and construction precedents allowed a promisee to forgo contract damages and seek reasonable value, including against the payment-bond surety under the Act’s protective construction.",
+        "Imprecision in the complaint’s remedy theory did not bar that recovery, and quantum meruit could be pleaded alongside contract damages. The alternatives did not permit duplicate collection. Federal substantive law controlled a Miller Act action if it differed from state law, although the court thought relevant state law would lead to the same result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "479 F.2d 640–641 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Reasonable market value supplies the measure",
+      "cue": "Why was another valuation necessary?",
+      "paragraphs": [
+        "The measure was what someone in Coastal’s position could have charged for the services and equipment use at that time and place. The contract price could be evidence of value but neither fixed the measure nor capped recovery under the rule applied to this partial-performance claim. Restitution could thus exceed the promised return under an advantageous bargain.",
+        "Coastal’s expenditures and Blair’s retained gain justified the remedy, but not every expense automatically became recoverable. The court still required market valuation, followed by deduction of prior contractual payments to prevent double recovery.",
+        "The Fourth Circuit reversed and remanded for an accurate determination of that value and entry of judgment for Coastal less amounts already paid. The district court’s approximate $37,000 figure had served its losing-contract analysis, not a precise reasonable-value finding, so it was not adopted as the final award. Chief Judge Haynsworth and Senior Judge Bryan sat with Craven; no separate opinion appeared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "479 F.2d 639–642 & nn.6–9"
+        }
+      ]
+    }
+  ]
+}

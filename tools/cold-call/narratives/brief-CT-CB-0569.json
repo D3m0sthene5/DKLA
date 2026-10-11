@@ -1,0 +1,126 @@
+{
+  "id": "brief-CT-CB-0569",
+  "briefId": "CT-CB-0569",
+  "title": "Lamps Plus, Inc. v. Varela",
+  "course": "Contracts",
+  "citation": "587 U.S. 176, 139 S. Ct. 1407 (2019)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An employee data breach led to a proposed class suit, and an ambiguous employment arbitration agreement divided the Court over consent and neutral state interpretation rules.",
+  "actors": [
+    {
+      "name": "Frank Varela",
+      "role": "Employee and proposed class representative"
+    },
+    {
+      "name": "Lamps Plus",
+      "role": "Employer, drafter, and party seeking individual arbitration"
+    }
+  ],
+  "proceedings": [
+    "District court compelled class arbitration and dismissed all claims without prejudice.",
+    "Ninth Circuit affirmed over Fernandez’s dissent.",
+    "Supreme Court reversed and remanded 5–4; separate opinions disputed jurisdiction and contract meaning."
+  ],
+  "limits": "The majority accepted ambiguity for analysis and did not adjudicate breach liability. Class-arbitrability decisionmaker allocation and a hypothetical requested § 3 stay were reserved. Dissenting joins differ by opinion and part.",
+  "briefSha256": "86c0d5353638f1f79320c876f4672c70c496432b360733b40b3da5d867865e99",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0569"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A hacker obtains employee tax information",
+      "cue": "Varela invokes a broad employment agreement in a class dispute",
+      "paragraphs": [
+        "In 2016 a hacker impersonating a company official persuaded a Lamps Plus employee to disclose tax information for about 1,300 employees. Someone then filed a fraudulent federal income-tax return in Frank Varela’s name. Varela brought state and federal claims in California federal court for a proposed class of affected employees.",
+        "Lamps Plus had drafted his employment arbitration agreement. It broadly addressed employment disputes and legal proceedings without expressly mentioning class proceedings. The company moved to compel individual arbitration and dismiss. In one order the district court instead authorized class arbitration and dismissed Varela’s claims without prejudice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court slip opinion pp.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "California’s anti-drafter rule supports the appellate result",
+      "cue": "The Supreme Court first decides whether the appeal is available",
+      "paragraphs": [
+        "The Ninth Circuit affirmed, finding ambiguity about class arbitration and construing it against Lamps Plus under California law. It distinguished Stolt-Nielsen, where parties stipulated that no agreement on class proceedings existed. Judge Fernandez dissented, seeing no ambiguity and an evasion of that precedent.",
+        "Varela challenged appellate jurisdiction in the Supreme Court. Chief Justice Roberts’s majority applied Federal Arbitration Act § 16(a)(3): although interlocutory orders compelling arbitration generally are unappealable, Randolph treated an order compelling arbitration and dismissing all underlying claims as final. Lamps Plus still had an adverse stake because compelled class arbitration materially differed in cost and risk from its requested individual arbitration.",
+        "No party had requested a § 3 stay, so the Court reserved any hypothetical refusal of one. Randolph’s reservation concerned whether a stay should have been entered, not finality of the actual dismissal. Microsoft v. Baker involved plaintiffs manufacturing an appeal by voluntary dismissal, unlike this defendant objecting to class arbitration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court pp.2–5 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority requires an affirmative contractual basis",
+      "cue": "Ambiguity and contra proferentem do not supply it",
+      "paragraphs": [
+        "Roberts, joined by Justices Thomas, Alito, Gorsuch, and Kavanaugh, accepted the Ninth Circuit’s ambiguity conclusion out of deference to its state-law interpretation. The majority did not independently declare the agreement a clear class prohibition.",
+        "Arbitration under the Federal Arbitration Act, or FAA, derived authority from consent. Parties could choose issues, participants, procedures, and decisionmakers; state rules usually helped identify their terms, but federal law displaced rules obstructing the Act’s purposes. Stolt-Nielsen found silence insufficient for class arbitration, and the majority extended the principle to ambiguity. Class procedures changed bilateral arbitration’s informality, speed, expense, and limited review while potentially affecting absent parties without judicial appellate safeguards.",
+        "The Court compared rules refusing to infer delegation of gateway questions from silence or ambiguity, but did not decide whether class availability itself was such a gateway question: everyone agreed a court would decide here.",
+        "The majority viewed contra proferentem, construing unresolved wording against its drafter, as a last-resort allocation of uncertainty based on fairness and policy rather than discovery of actual shared intent. Its general application to contracts did not prevent preemption when it imposed class procedures without requisite consent, as Concepcion illustrated. This did not abolish the canon throughout contract law. Federal arbitration law supplied some defaults itself, and Mastrobuono had presented aligned federal and anti-drafter outcomes rather than this conflict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court pp.5–13 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Thomas finds silence directly",
+      "cue": "Kagan sees both broad consent and an applicable neutral default",
+      "paragraphs": [
+        "Justice Thomas joined under existing precedent while repeating doubts about implied obstacle preemption. Independently, he read references to company and employee claims as bilateral and the agreement as silent on classes, allowing reversal directly under Stolt-Nielsen. That separate reading did not alter the majority’s assumed ambiguity.",
+        "Justice Kagan’s Part I, joined by Ginsburg and Breyer, read the comprehensive text to include class disputes: any and all employment disputes and lawsuits, available legal remedies, and incorporated providers’ class rules. Singular pronouns identified the employee without excluding claim forms, and the agreement defined claims to include controversies.",
+        "In Part II, also joined by Sotomayor, Kagan assumed ambiguity and applied California’s neutral anti-drafter rule. Lamps Plus controlled the form and could expressly exclude classes. The rule could favor or disfavor class proceedings depending on the drafter and proponent, unlike a rule specifically invalidating collective waivers. Stolt-Nielsen’s conceded absence of agreement and arbitrators’ policy choices differed from a neutral rule assigning meaning.",
+        "Kagan also saw the canon as promoting clarity beforehand and protecting reasonable understanding afterward, not merely imposing policy. She warned that the majority’s broad rejection of ambiguity and narrower distinction between kinds of interpretive tools could leave future classifications uncertain. She criticized Thomas’s willingness to join the implied-preemption rationale he doubted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas pp.1–2 & note; Kagan pp.2–14 & nn.1–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The other dissents raise choice, access, and appeal timing",
+      "cue": "Reversal returns the arbitration question without deciding liability",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Breyer and Sotomayor, emphasized unequal bargaining power. In her account, a statute originally protecting merchant arbitration had expanded to consumer and employment forms offering little choice, where mandatory individual proceedings could defeat low-value enforcement. She disputed calling collective relief nonconsensual while imposing solo proceedings employees did not prefer.",
+        "Breyer separately found no appellate jurisdiction. The FAA permitted early appeal when arbitration was denied and usually delayed review when ordered; he viewed dismissal as an impermissible workaround, read Randolph differently, and relied on Microsoft. Class arbitration remained arbitration. He also joined Kagan and Ginsburg on the merits.",
+        "Sotomayor did not join Breyer’s jurisdiction dissent, finding no demonstrated defect here though his questions merited later consideration. She viewed classes as ordinary procedure, found at least ambiguity in the broad language and incorporated rules, and would apply California law. She objected to preemption without first considering whether narrower interpretation could avoid it.",
+        "On April 24, 2019, the Court reversed the Ninth Circuit and remanded. An ambiguous agreement, supplemented by contra proferentem, could not supply the required basis for compelled class arbitration. The judgment decided neither the data-breach liability nor a final class award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Ginsburg pp.1–5; Breyer pp.1–9; Sotomayor pp.1–3 & nn.1–2; Court p.13"
+        }
+      ]
+    }
+  ]
+}

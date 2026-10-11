@@ -1,0 +1,158 @@
+{
+  "id": "brief-LRS-CLOSURE-008",
+  "briefId": "LRS-CLOSURE-008",
+  "title": "Hamdi v. Rumsfeld",
+  "course": "Legislation and the Regulatory State",
+  "citation": "542 U.S. 507 (2004)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The military held an American citizen as an enemy combatant, and a fractured Supreme Court required further proceedings without deciding that classification or ordering immediate release.",
+  "actors": [
+    {
+      "name": "Yaser Esam Hamdi",
+      "role": "American citizen detained by the military"
+    },
+    {
+      "name": "Hamdi’s father",
+      "role": "Next-friend habeas petitioner disputing combatant status"
+    },
+    {
+      "name": "United States government",
+      "role": "Detaining authority relying on wartime powers and the AUMF"
+    }
+  ],
+  "proceedings": [
+    "District court ordered counsel access; Fourth Circuit initially reversed that order.",
+    "District court sought further evidence after the Mobbs declaration; Fourth Circuit reversed and directed dismissal.",
+    "Supreme Court vacated and remanded with six votes for judgment and different rationales."
+  ],
+  "limits": "Four Justices joined the plurality’s complete reasoning. Souter and Ginsburg joined remand with express reservations; Scalia and Stevens wanted stronger relief; Thomas would affirm. No actual combatant finding or later-law certification is made.",
+  "briefSha256": "031f2039b744716e02d420a36fcba5d58ba240e45d827f5a3cd9e2b7f1e41c93",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-008"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Capture leads to military detention",
+      "cue": "Citizenship changes the place of confinement",
+      "paragraphs": [
+        "Yaser Esam Hamdi was born in Louisiana and moved to Saudi Arabia as a child. In 2001 Northern Alliance forces seized him in Afghanistan and later transferred him to the United States military. Authorities held him in Afghanistan and then Guantanamo Bay. Learning he was an American citizen, they moved him in April 2002 to a naval brig in Norfolk and later Charleston.",
+        "The government called him an enemy combatant and claimed power to detain him without criminal charges or ordinary judicial process. His father said he went to Afghanistan for relief work and became trapped when the military campaign began. Neither account had been adjudicated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Plurality at 510–511"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The father seeks habeas review",
+      "cue": "The government’s declaration becomes the disputed evidentiary record",
+      "paragraphs": [
+        "In June 2002 Hamdi’s father petitioned as next friend under 28 U.S.C. § 2241. The district court appointed counsel and ordered access, but the Fourth Circuit reversed the access order and required a cautious, deferential start.",
+        "The government submitted a declaration from Defense Department policy adviser Michael Mobbs, drawing on records and reports. He asserted Taliban-unit affiliation, weapons training, continued association after September 11, and surrender of a rifle when the unit surrendered. Screening and an interview purportedly supported classification. Hamdi had not spoken through counsel to rebut those assertions.",
+        "The district court regarded the declaration as generic hearsay and sought extensive in camera material: interviews, capture information, interrogator identities, and identification of classification officials. It certified whether the declaration alone allowed meaningful review. The Fourth Circuit reversed and directed dismissal, treating active-combat-zone capture as undisputed and separation of powers as precluding further factual inquiry. It also found detention authorized by the September 2001 Authorization for Use of Military Force, or AUMF."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Plurality at 512–516, 526"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Four Justices recognize limited statutory detention authority",
+      "cue": "O’Connor ties the analysis to active hostilities and the alleged category",
+      "paragraphs": [
+        "Justice O’Connor announced the Supreme Court’s judgment and wrote for Chief Justice Rehnquist and Justices Kennedy and Breyer. The plurality addressed the narrow alleged category: a person part of or supporting hostile forces in Afghanistan who engaged in armed conflict against the United States. It did not comprehensively define enemy combatant.",
+        "Preventing captured combatants from returning to battle was a fundamental incident of the necessary and appropriate force Congress authorized. Citizenship alone did not exempt an otherwise qualifying person, as the plurality read Quirin. It assumed, without deciding, both the application of the Non-Detention Act, 18 U.S.C. § 4001(a), to military detention and a requirement of express congressional authorization; it found the AUMF sufficient on those assumptions. It did not reach independent Article II power.",
+        "Detention remained tied to relevant active hostilities, not perpetual global conflict or interrogation alone. Taliban combat continued in Afghanistan in June 2004, but a conflict departing substantially from traditional war circumstances could eventually undermine this reasoning. The plurality distinguished Milligan’s civilian setting, relied on Quirin for combatants, and rejected Scalia’s proposed distinction between conceded and proved combatant status."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Plurality at 516–524 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Continued detention requires a meaningful chance to answer",
+      "cue": "The plurality rejects both procedural extremes",
+      "paragraphs": [
+        "All parties agreed habeas remained available within the United States and Congress had not suspended it. The statutes contemplated factual denial and evidence without fixing one trial format. Living in Afghanistan did not concede battlefield capture, hostile affiliation, or armed participation, especially when Hamdi had not been heard.",
+        "Applying Mathews, the plurality weighed an erroneously detained person’s fundamental liberty against preventing actual combatants’ return to battle and military burdens. Mistaken detention of an aid worker or journalist mattered; so did operational discovery and requiring combat personnel to litigate far away. Neither near-total deference or government-only some-evidence review nor the district court’s apparent full-trial model supplied the balance.",
+        "A citizen contesting continued detention needed notice of its factual basis and a fair chance to rebut before a neutral decisionmaker. Hearsay might be necessary; credible government evidence might support a rebuttable presumption and shift an evidentiary burden if fair rebuttal remained. Those were possible accommodations, not approval of the Mobbs declaration as conclusive. Initial battlefield captures did not require this process. Treaty-based tribunal rights remained reserved.",
+        "Separation of powers preserved judicial checking of executive detention without judicial control of warfare. A some-evidence standard normally reviewed an already developed record; it could not replace the first chance to contest facts. Captor interrogation was not neutral adjudication. A properly authorized military tribunal might suffice; otherwise the habeas court had to supply adequate process. Hamdi unquestionably had counsel rights on remand. His access since certiorari left broader questions of immediate initial counsel access unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Plurality at 525–539 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Souter and Ginsburg reject the asserted statutory basis",
+      "cue": "Their votes support remand with qualifications",
+      "paragraphs": [
+        "Justice Souter, joined by Justice Ginsburg, read § 4001(a) as requiring clear authority for citizen detention. Its history replacing emergency-detention legislation after Japanese-American internment, its broadened wording, and Endo supported that reading despite its location in the criminal code.",
+        "General force language and appropriations for prisoner care did not establish this detention power: spending authority did not itself authorize imprisonment. Customary combatant detention might accompany authorized war, but the government had not shown compliance with war-law limits while invoking the Geneva Convention, denying prisoner-of-war treatment, and omitting military status procedures. Souter did not finally adjudicate every treaty question. The PATRIOT Act’s carefully limited alien detention and the duration of over two years also weakened claims of unrestricted authority or immediate emergency necessity.",
+        "Souter ordinarily would have remanded for lack of authority without reaching due process. Lacking a majority for that approach, he joined remand to secure a status challenge. He agreed on notice, fair rebuttal, neutrality, and counsel, but withheld agreement on evidentiary presumptions or military proceedings replacing or curtailing judicial habeas review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Souter at 539–554 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Scalia wants release absent prosecution or suspension",
+      "cue": "Thomas would uphold the detention",
+      "paragraphs": [
+        "Justice Scalia, joined by Justice Stevens, drew on English and American habeas history, the War of 1812 cases, and Milligan. A citizen accused of waging war ordinarily faced prosecution for treason or another crime; Congress could suspend habeas under the Constitution’s conditions. Calling confinement preventive did not avoid criminal safeguards. He criticized Quirin while distinguishing its conceded enemy membership from Hamdi’s disputed status. The AUMF was no suspension, and even an express ordinary detention statute could not substitute for that constitutional mechanism.",
+        "Scalia rejected borrowing benefits-case balancing and using a habeas remand to repair missing executive process. He wanted release unless criminal proceedings promptly began or Congress suspended the writ. His analysis concerned citizens within a federal court’s territorial jurisdiction, reserving capture and detention abroad and accepting lawful criminal pretrial custody. Whether an invasion justified suspension was Congress’s question.",
+        "Justice Thomas would affirm. He accepted AUMF authority, reserved inherent Article II power, and emphasized executive speed, secrecy, unity, and accountability alongside Congress’s role. Courts could determine the legal existence of authority but, in his view, could not reassess factual combatant classification. His reading of Moyer, Luther, and related decisions permitted precautionary executive detention; Milligan involved punishment and unmet statutory procedures. Suspension removed a remedy rather than itself making unconstitutional detention lawful. He also criticized the plurality’s hostilities limits and treaty reliance, and thought its balancing undervalued intelligence, classified information, military burdens, and counsel’s security costs. Analogies to targeting tested the plurality’s logic rather than deciding other operations’ constitutionality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia at 554–579 & nn.1–6; Thomas at 579–599 & nn.1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The dismissal is vacated",
+      "cue": "The remand does not resolve Hamdi’s status",
+      "paragraphs": [
+        "On June 28, 2004, six Justices supported vacatur and remand: the four-member plurality plus Souter and Ginsburg with their reservations. Eight rejected the government’s requested result, but Scalia and Stevens dissented because they wanted stronger relief; Thomas alone would affirm. No six-Justice majority adopted every plurality proposition. The Court neither found Hamdi had fought with the Taliban nor ordered immediate release, and it gave no blanket approval to indefinite interrogation detention."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Plurality at 539; Souter at 553–554; Thomas at 599"
+        }
+      ]
+    }
+  ]
+}

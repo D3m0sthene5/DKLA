@@ -1,0 +1,146 @@
+{
+  "id": "lrs-o-west-covina",
+  "briefId": "LRS-ATLAS-O-WEST-COVINA",
+  "title": "City of West Covina v. Perkins",
+  "course": "Legislation and the Regulatory State",
+  "citation": "525 U.S. 234 (1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "West Covina police searched Lawrence Perkins’s home while investigating a former boarder and left an inventory of what they took. When Perkins could not obtain the property’s return, litigation turned from the search itself to how much guidance officials owed him about recovering it.",
+  "actors": [
+    {
+      "name": "Lawrence Perkins and his family",
+      "role": "Residents whose property police seized while investigating a former boarder."
+    },
+    {
+      "name": "Marcus Marsh",
+      "role": "Former boarder who was the subject of the homicide investigation."
+    },
+    {
+      "name": "City of West Covina and its officers",
+      "role": "Defendants in the family’s federal lawsuit."
+    },
+    {
+      "name": "Justice Kennedy",
+      "role": "Author of the seven-Justice majority opinion."
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Author of a concurrence in the judgment joined by Justice Scalia."
+    }
+  ],
+  "proceedings": "After an initial Fourth Amendment appeal and remand, the District Court found California’s return remedies adequate. The Ninth Circuit required additional notice explaining those remedies. The Supreme Court unanimously reversed the result and remanded, with two Justices disagreeing with part of the majority’s rationale.",
+  "limits": "This decision addresses notice about recovery procedures, not the search’s legality, permanent retention, or an independent challenge to the adequacy of California’s remedies. It does not establish that officials may withhold information actually necessary to invoke a remedy or certify current procedures.",
+  "briefSha256": "0075133912aea8f0cb2425e5abd915b175d6ad238867ad1cfe80281198ac9d70",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-WEST-COVINA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A homicide investigation reaches a former boarder’s residence",
+      "cue": "What did officers seize, and what information did they leave?",
+      "paragraphs": [
+        "On May 21, 1993, West Covina police searched Lawrence Perkins’s home under a valid warrant in a homicide investigation involving Marcus Marsh, a former boarder. Neither Perkins nor his family was the suspect, and the family had not known of Marsh’s later involvement in the investigation. Officers took photographs of Marsh, an address book, a shotgun, a starter pistol, ammunition, and $2,629.",
+        "The officers left an itemized inventory and notice identifying the search date, the police agency, the warrant’s date, the issuing judge and court, and officers whom the family could contact by telephone. The warrant was sealed to protect the continuing investigation, so the notice omitted its number. A public court index nevertheless recorded the warrant by the searched address and warrant number."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "236–237"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Perkins tries to retrieve the property",
+      "cue": "Why did the family say the available process was inaccessible?",
+      "paragraphs": [
+        "Perkins contacted a listed detective, who told him that returning the property required a court order. About a month after the search, Perkins went to the issuing court. The issuing judge was on vacation, and another judge could not locate a case under Perkins’s name.",
+        "The family did not file a written request, continue the inquiries, or return later. Instead, they brought a federal lawsuit. Those unsuccessful efforts later became the basis of their contention that the City had failed to provide information necessary to use the return procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "237–238"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The lawsuit shifts from the search to instructions about recovery",
+      "cue": "How did an unpleaded due-process question become the issue on review?",
+      "paragraphs": [
+        "The original complaint alleged lack of probable cause, a search beyond the warrant’s scope, and a municipal policy permitting unlawful searches. The District Court granted summary judgment to the City and officers. It also invited briefing on a due-process question the plaintiffs had not raised: whether adequate remedies existed for recovering seized property. The court initially left that issue undecided.",
+        "On the appeal concerning the Fourth Amendment claims, the Ninth Circuit remanded for a due-process decision. The District Court then found California’s remedies adequate and again entered summary judgment for the City.",
+        "The Ninth Circuit reversed. It accepted that a postdeprivation remedy was sufficient and that California’s statutory and decisional remedies met due process. Drawing on Memphis Light, a Supreme Court utility-cutoff case, it nevertheless required officials to explain those remedies and supply information needed to invoke them. Its notice rule would explain how to contest retention, the need for a written motion stating reasons for return, and the warrant number or another means of identifying the file. The Supreme Court took up that expanded instruction requirement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "238–240"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court separates knowledge of the seizure from knowledge of the law",
+      "cue": "Why did Kennedy reject a duty to explain published remedies?",
+      "paragraphs": [
+        "Justice Kennedy wrote for seven Justices. A meaningful opportunity to be heard generally requires knowing that a matter affecting one’s property is pending. An owner might otherwise have no reasonable means of discovering that officers caused a loss, so reasonable steps to notify the owner of the seizure were necessary. Because the family conceded receiving notice and the inventory, the Court did not decide the exact required detail or timing of seizure notice.",
+        "The same rationale did not require individualized instructions about publicly accessible law. Once an owner knows the government seized the property, published statutes and decisions allow inquiry into available remedies. California permitted a motion under Penal Code §1536 or §1540, and the family did not independently challenge those mechanisms’ adequacy. The City therefore did not have to explain them in its notice.",
+        "Memphis Light addressed a different obstacle. There, a utility’s internal billing-review process was not described in public documents and depended on word-of-mouth referral. Notice could be required for that otherwise inaccessible procedure without creating a general obligation to advise owners about published legal remedies.",
+        "Longstanding practice supported the distinction. Federal Rule of Criminal Procedure 41(d) required a warrant copy and receipt, not instructions for obtaining return. The opinion’s appendix collected federal, state, and District of Columbia provisions. Kennedy used that practice to evaluate the proposed notice rule, not to decide every listed jurisdiction’s individual requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "240–245"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The missing warrant number does not supply a supported alternative ground",
+      "cue": "What factual finding limited the Court’s answer?",
+      "paragraphs": [
+        "The family offered a narrower argument: even if legal instructions were unnecessary, the warrant number was essential to obtain release and should have been supplied. The District Court had expressly found no evidence that the number was indispensable. The family possessed the date, police agency, officers’ names, issuing judge and court, and information identifying the property.",
+        "The family had asked the courts to assume that an actual motion would be rejected without a warrant number but offered no evidence supporting that assumption. Because the factual premise failed, the Supreme Court did not further decide the narrower constitutional issue. The ruling consequently did not authorize officials always to withhold information genuinely necessary to invoke a remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "243–244"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Two Justices agree with the result through a different constitutional lens",
+      "cue": "What remained unsettled after reversal?",
+      "paragraphs": [
+        "Justice Thomas, joined by Justice Scalia, agreed that detailed instructions about state-law postdeprivation remedies were unnecessary. He rejected Kennedy’s suggestion that due process supplied the obligation to notify an owner of property seized under a criminal warrant, regarding it as dictum that improperly extended civil procedural principles into a Fourth Amendment setting. Any constitutional notice duty, in his view, would concern whether execution of the warrant was reasonable.",
+        "Thomas examined common-law stolen-goods warrants, which called for inventories, and the criticisms of general warrants in Wilkes and Entick. That history left him open to a Fourth Amendment notice requirement in an appropriate case, without deciding that the Amendment required this particular notice. His notes also acknowledged lower-court decisions declining to treat Rule 41(d)’s requirements as constitutionally mandatory.",
+        "On January 13, 1999, the Supreme Court reversed the Ninth Circuit and remanded. All nine Justices agreed on the result, though Thomas and Scalia did not join Kennedy’s due-process foundation for seizure notice. The legality of the initial search, permanent retention of the property, and any later outcome remained outside the decision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "235–236, 240, 246–248 & concurrence nn.1–3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "cp-tellabs",
+  "briefId": "CP-068",
+  "title": "Tellabs, Inc. v. Makor Issues & Rights, Ltd.",
+  "course": "Civil Procedure",
+  "citation": "551 U.S. 308 (2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Investors alleged that Tellabs and its chief executive painted a false picture of demand for the company’s network equipment. After the stock fell, their complaint reached the Supreme Court on a pleading question: how strongly must the alleged facts support an inference of fraudulent intent?",
+  "actors": [
+    {
+      "name": "Tellabs, Inc.",
+      "role": "Manufacturer of fiber-optic network equipment and securities-fraud defendant."
+    },
+    {
+      "name": "Richard Notebaert",
+      "role": "Tellabs president and chief executive during the relevant period."
+    },
+    {
+      "name": "Makor Issues & Rights, Ltd. and other purchasers",
+      "role": "Investors seeking to represent a class of Tellabs stock purchasers."
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the six-Justice majority opinion."
+    }
+  ],
+  "proceedings": "The district court dismissed the amended complaint with prejudice for inadequate scienter allegations. The Seventh Circuit reversed in relevant part under a reasonable-inference test. The Supreme Court vacated and remanded for comparative assessment of competing inferences.",
+  "limits": "The alleged misstatements, inventory manipulation, and knowledge were not fraud findings. The Court neither adjudicated the complaint’s sufficiency under its new test nor decided when recklessness constitutes scienter. This special statutory pleading standard is distinct from ordinary Rule 8 plausibility.",
+  "briefSha256": "4d0d759802b690a46609b43e1bfa344aa836fc0a8d7b032e089c2abe67013c6e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-068"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Investors challenge favorable statements about network equipment",
+      "cue": "What did they allege about products, inventory, and knowledge?",
+      "paragraphs": [
+        "Tellabs, Inc. manufactured equipment for fiber-optic networks. Richard Notebaert was its president and chief executive during the period at issue. Makor Issues & Rights, Ltd. and other investors sought to represent purchasers of Tellabs stock between December 11, 2000, and June 19, 2001.",
+        "The investors alleged that Notebaert misrepresented demand for the existing TITAN 5500 product, readiness and demand for the new TITAN 6500, company financial results, and expected revenues. They also alleged that Tellabs pushed unwanted inventory onto customers to inflate results and that Notebaert knew the favorable public statements did not match the company’s actual condition.",
+        "After progressively more cautious disclosures, Tellabs sharply cut revenue projections and disclosed reduced demand, and its share price fell substantially. The price decline did not itself establish fraud. Whether the investors had sufficiently alleged the required mental state, or scienter, became the issue on appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pt. I & n.1; casebook 654–655"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The investors amend, but the district court still finds scienter insufficient",
+      "cue": "What standard did the Seventh Circuit apply?",
+      "paragraphs": [
+        "The federal district court for the Northern District of Illinois dismissed the initial complaint without prejudice for inadequate particularity. The amended complaint relied on twenty-seven confidential sources and added details bearing on Notebaert’s knowledge. The court then dismissed with prejudice: the allegedly misleading statements were sufficiently specified, but the facts did not adequately plead scienter.",
+        "The Seventh Circuit reversed in relevant part. It asked whether a reasonable person could infer the required intent from the alleged facts and declined to weigh competing innocent explanations. Tellabs and Notebaert obtained Supreme Court review of that test. Claims against other executives were not before the Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pt. I & n.1; casebook 655"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Congress’s demand for a strong inference requires comparison",
+      "cue": "How did the majority change the inquiry?",
+      "paragraphs": [
+        "The Private Securities Litigation Reform Act imposed separate pleading duties: identify each misleading statement and why it was misleading, and allege particular facts supporting a strong inference of the required mental state. This appeal concerned the second duty.",
+        "Justice Ginsburg, joined by Chief Justice Roberts and Justices Kennedy, Souter, Thomas, and Breyer, held that the scienter inference must be cogent and at least as compelling as any plausible opposing inference from the alleged facts. A merely permissible or reasonable inference was insufficient. The statutory demand for strength would add little if any rational inference of intent qualified.",
+        "An inference’s strength depended on the alternatives supported by the same allegations. Thus a plausible culpable explanation could fail if a nonfraudulent account was more compelling. But the inference need not be irrefutable, and an equally compelling inference could satisfy the majority’s rule. The Seventh Circuit’s refusal to compare alternatives had made its threshold too lenient."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pts. II–III.A & n.3; casebook 655–656"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The entire complaint must be assessed together",
+      "cue": "What could strengthen or weaken the inference without becoming dispositive?",
+      "paragraphs": [
+        "The court must accept factual allegations as true and consider them collectively, along with incorporated documents and matters properly subject to judicial notice under Rule 12(b)(6). Each allegation need not independently establish scienter. The holistic inquiry served both to screen weak cases and to preserve meritorious investor claims.",
+        "Motive was relevant but not indispensable. Tellabs emphasized that the complaint did not allege Notebaert sold stock during the class period. The majority refused to treat that absence as automatically fatal. Ambiguities and missing particulars could weaken the inference, but their significance depended on the allegations taken together.",
+        "The Court also rejected the Seventh Circuit’s jury-trial concern. Congress could specify the pleading conditions for a federal statutory cause of action. Once those conditions were satisfied, juries retained responsibility for disputed facts and credibility. Comparing explanations while assuming pleaded facts true differed from proving fraud at trial by a preponderance of the evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pts. III.A–IV; casebook 656"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Separate opinions dispute the threshold and the material counted",
+      "cue": "What would Scalia, Alito, and Stevens have done differently?",
+      "paragraphs": [
+        "Justice Scalia concurred in the judgment but would require the culpable inference to be more compelling than the innocent inference, excluding ties. He also criticized reliance on committee reports to identify congressional intent.",
+        "Justice Alito separately concurred in the judgment. He agreed with Scalia’s stricter comparative threshold and argued that only allegations stated with the required particularity should contribute to the scienter inference.",
+        "Justice Stevens dissented. He preferred a probable-cause approach and would have affirmed the Seventh Circuit. In his view, the confidential-source and inventory allegations together supplied sufficient grounds to infer the required intent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Scalia concurrence; Alito concurrence pts. I–II; Stevens dissent; casebook 656–657"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The pleading returns for a new assessment",
+      "cue": "What did the Court leave undecided?",
+      "paragraphs": [
+        "On June 21, 2007, the Supreme Court vacated the Seventh Circuit’s judgment and remanded for reexamination under the comparative standard. It did not itself decide whether these investors’ complaint passed that test. Neither a final fraud finding nor an instruction that dismissal necessarily follow was part of the judgment.",
+        "The Court also expressly left open whether or when recklessness sufficed for scienter. Its at-least-as-compelling rule interpreted the securities statute’s special pleading requirement; it did not replace ordinary Rule 8 pleading standards for other kinds of claims."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pt. II & n.3, concluding disposition; casebook 655–658"
+        }
+      ]
+    }
+  ]
+}

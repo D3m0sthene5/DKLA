@@ -1,0 +1,130 @@
+{
+  "id": "lrs-s-edmond",
+  "briefId": "LRS-ATLAS-S-EDMOND",
+  "title": "Edmond v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "520 U.S. 651 (1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After an earlier appointment defect was corrected, six military defendants argued that the Secretary of Transportation still lacked authority to appoint the civilian judges who reviewed their convictions.",
+  "actors": [
+    {
+      "name": "Joseph Baum and Alfred Bridgman",
+      "role": "Civilian judges on the Coast Guard’s intermediate military appellate court"
+    },
+    {
+      "name": "Secretary of Transportation",
+      "role": "Department head who appointed the civilian judges in 1993"
+    },
+    {
+      "name": "Coast Guard Judge Advocate General",
+      "role": "Transportation General Counsel who originally assigned the civilians and supervised the court administratively"
+    },
+    {
+      "name": "Edmond and five other petitioners",
+      "role": "Military defendants challenging appellate panels after the 1993 appointments"
+    },
+    {
+      "name": "Justice Scalia and Justice Souter",
+      "role": "Majority author and separate concurring Justice"
+    }
+  ],
+  "proceedings": "Coast Guard intermediate appellate panels affirmed convictions and sentences wholly or partly after the Secretary’s appointments; Court of Appeals for the Armed Forces affirmed; Supreme Court unanimously affirmed all six judgments, with eight Justices joining the full constitutional analysis.",
+  "limits": "The agency structure is the historical 1997 arrangement. Ryder addressed decisions before the Secretary’s memorandum; Edmond addresses the later appointments. Souter agreed on the result but qualified the supervision analysis.",
+  "briefSha256": "7e82b432b722cec747b411401b94a51962e1922d5426390bef883d7335919516",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-S-EDMOND"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An appointment repair created a new constitutional question",
+      "cue": "Distinguish assignment to a court from appointment as an officer.",
+      "paragraphs": [
+        "Chief Judge Joseph Baum and Judge Alfred Bridgman were civilians serving on the Coast Guard’s intermediate military appellate court. The Department of Transportation’s General Counsel, who also served as the Coast Guard Judge Advocate General, had assigned them there. Unlike commissioned military officers, these civilians had no existing military commission supplying their constitutional appointment. Anticipating challenges, the Secretary of Transportation issued a January 15, 1993 memorandum adopting their assignments as his own judicial appointments.",
+        "An earlier defendant, Ryder, had won relief because improperly appointed civilians participated in affirming his conviction before that memorandum. Ryder required a properly appointed appellate panel but left the validity of the Secretary’s new appointments unresolved. Edmond and five other military defendants presented that later issue. Their convictions and sentences were affirmed in whole or part after the Secretary acted; Baum participated in all six decisions and Bridgman in two. The Court of Appeals for the Armed Forces affirmed, relying on its post-remand Ryder decision approving the new appointments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520 U.S. at 653–655"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Congress authorized the Secretary’s appointments without displacing judicial assignments",
+      "cue": "Follow the statutory challenge before reaching officer status.",
+      "paragraphs": [
+        "The petitioners first argued that Congress had not empowered the Secretary to appoint these judges. Justice Scalia’s Supreme Court opinion answered that 49 U.S.C. § 323(a) authorized the Secretary to appoint departmental officers and employees and prescribe their duties. These judges were departmental officers, so the ordinary text covered them without naming their particular court.",
+        "The petitioners relied on Article 66(a) of the Uniform Code of Military Justice as a more specific provision giving the Judge Advocate General exclusive power. But Article 66 dealt with assignment, not appointment. Weiss, an earlier military-judge appointment decision, had explained the difference between constitutionally appointing an officer and assigning an already appointed officer to particular judicial duties. The specific-over-general principle did not apply because the two provisions did not conflict.",
+        "Constitutional avoidance reinforced that reading. A Judge Advocate General was neither the President, a department head, nor a court of law, so Congress could not entrust that official with appointing even inferior officers. Treating Article 66 as exclusive appointment authority would make it unconstitutional. Reading § 323(a) to authorize the Secretary preserved the statute, provided that the judges were inferior officers whom a department head could constitutionally appoint."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 655–658"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Important adjudicative power did not itself establish principal status",
+      "cue": "Explain the majority’s accountability and supervision inquiry.",
+      "paragraphs": [
+        "The petitioners next argued that the judges were principal officers requiring presidential nomination and Senate confirmation. Their authority was substantial: they reviewed serious criminal sentences, decided constitutional questions, and independently evaluated facts and witness credibility. The Court accepted those powers but explained that significant federal authority distinguished officers from employees, not principal from inferior officers.",
+        "Morrison, the independent-counsel decision, had considered limited duties, jurisdiction, tenure, and removability. The military appellate judges did not share the independent counsel’s narrow jurisdiction or task-limited tenure, but Morrison had not supplied an exclusive test. Generally, inferior officers’ work was directed and supervised at some level by officers appointed through presidential nomination and Senate consent. A relevant supervisory relationship mattered; simply locating someone higher in the government hierarchy did not.",
+        "The appointments structure protected accountability. Presidential nomination and Senate confirmation were the default for both classes of officers. Congress could select specified alternative appointment methods for inferior officers to gain administrative convenience while retaining responsibility for their selection and supervision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 659–664"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Administrative control and higher executive review worked together",
+      "cue": "Identify the actual controls rather than relying on a job title.",
+      "paragraphs": [
+        "The Judge Advocate General prescribed procedural rules, helped formulate review policy, and could remove judges from their judicial assignments without cause. That official could not threaten removal to influence particular cases or reverse the intermediate court’s decisions. Decisional supervision instead came from the Court of Appeals for the Armed Forces, which reviewed death-sentence cases, cases certified by the Judge Advocate General, and cases accepted on an accused person’s petition.",
+        "The higher court could not freely reweigh facts when competent record evidence established every element beyond reasonable doubt. Even so, the intermediate judges could not make decisions final on behalf of the United States without permission through the review arrangement of other executive officers. Administrative supervision, removal from assignment, and higher executive review together made these judges inferior officers.",
+        "Freytag, a Tax Court appointment case, did not require a different result. It classified special trial judges without definitively deciding that regular Tax Court judges were principal officers. Regular Tax Court judges also lacked comparable executive supervision: their decisions went to Article III appellate courts, and no Judge Advocate General controlled their procedures, assignments, or submission of decisions for executive review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 664–666 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Souter accepted the appointments through a broader assessment",
+      "cue": "Preserve the separate rationale and the six-case judgment.",
+      "paragraphs": [
+        "Justice Souter joined the historical and statutory portions of Scalia’s opinion but wrote separately about officer status. A superior was necessary to inferior status, he thought, but supervision alone was insufficient. Some officers subordinate to department heads could still be principal officers; he offered the Solicitor General as an example. He would examine powers, duties, tenure, jurisdiction, and removal together. Consistent with his earlier Weiss analysis, he found enough uncertainty to defer to the political branches’ rational classification and agreed these judges were inferior officers.",
+        "Eight Justices joined Scalia’s full opinion; all nine agreed on the judgment. The Court held the Secretary’s appointments authorized by § 323(a) and constitutionally valid appointments of inferior officers by a department head. On May 19, 1997, it affirmed all six petitioners’ judgments. It did not require fresh hearings or invalidate the decisions issued after the Secretary’s appointments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 652, 666–669"
+        }
+      ]
+    }
+  ]
+}

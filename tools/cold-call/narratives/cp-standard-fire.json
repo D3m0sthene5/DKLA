@@ -1,0 +1,109 @@
+{
+  "id": "cp-standard-fire",
+  "briefId": "CP-ATLAS-STANDARD-FIRE",
+  "title": "Standard Fire Insurance Co. v. Knowles",
+  "course": "Civil Procedure",
+  "citation": "568 U.S. 588 (2013)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A proposed representative promised to keep a class recovery below $5 million, but he could not yet bind the absent policyholders whose claims counted toward federal jurisdiction.",
+  "actors": [
+    {
+      "name": "Greg Knowles",
+      "role": "Policyholder and proposed class representative"
+    },
+    {
+      "name": "Standard Fire Insurance Company",
+      "role": "Insurer that removed the proposed class action"
+    }
+  ],
+  "proceedings": [
+    "Arkansas state court: proposed class suit filed in April 2011.",
+    "Federal district court: found aggregate claims above $5 million but remanded based on the stipulation.",
+    "Eighth Circuit: declined discretionary review.",
+    "Supreme Court: vacated and remanded unanimously."
+  ],
+  "limits": [
+    "The class remained uncertified. The Court decided neither insurance liability nor a different stipulation limited to attorney’s fees. The correct reporter page is 588, despite the casebook’s 558 typo."
+  ],
+  "briefSha256": "e08e20340253ab2dde818d5e44519600fcf1ba129556bb9473310276639f42a7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-STANDARD-FIRE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Knowles files an insurance class action with a monetary cap",
+      "cue": "Introduce the alleged practice and the proposed class.",
+      "paragraphs": [
+        "Greg Knowles claimed that Standard Fire Insurance Company unlawfully omitted a general contractor fee from certain homeowners’ loss payments. In April 2011, he sued in Arkansas state court for a proposed class of hundreds or possibly thousands of Arkansas policyholders allegedly harmed in the same way.",
+        "His complaint stipulated that he and the class would seek aggregate damages below $5 million. An attached affidavit said he would never seek class damages exceeding $5 million in the aggregate. The class had not been certified, so his ability to restrict his own recovery differed from his authority over the absent policyholders."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568 U.S. at 590–593"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The insurer removes and the trial court credits the cap",
+      "cue": "Trace the amount-in-controversy decision.",
+      "paragraphs": [
+        "Standard Fire removed on May 18, 2011, under the Class Action Fairness Act, or CAFA. Based on the insurer’s evidence, the federal district court found that the proposed class’s aggregate amount in controversy would be just above $5 million without the stipulation. It nevertheless treated the cap as reducing that amount and sent the case back to state court.",
+        "The Eighth Circuit declined discretionary review of the remand. With lower courts divided over such stipulations, the Supreme Court agreed to decide whether a proposed representative could avoid CAFA’s threshold this way."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568 U.S. at 591–592"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The absent claimants have not authorized the concession",
+      "cue": "Explain why the cap could not reduce their claims.",
+      "paragraphs": [
+        "Justice Breyer’s unanimous opinion began with CAFA’s aggregation instruction. The statute included named and unnamed people within a proposed or certified class definition. Their claims therefore counted, not just the amount Knowles personally wished to recover.",
+        "A stipulation mattered because of its legal binding effect. Knowles could concede something for himself, but before certification he lacked authority to bind the others. Jurisdiction was assessed as of the filing in state court, when that authority was absent. A cap that might become effective later did not presently reduce their claims.",
+        "Knowles argued that jurisdiction should not depend on future contingencies. The Court answered that his cap was itself contingent: a state court could demand its removal before certification, find him inadequate because of it, or permit a different representative to intervene. Those were possible developments, not events the Court found had occurred. Recognizing the current stipulation’s lack of force did not replace the existing complaint with a hypothetical future lawsuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568 U.S. at 592–595"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The ordinary aggregation calculation must proceed without this cap",
+      "cue": "Finish with the judgment and the question left open.",
+      "paragraphs": [
+        "Treating an ineffective concession as binding would favor its wording over its operation and undercut CAFA’s purpose of providing federal consideration for significant interstate cases. The Court illustrated the concern with a hypothetical $100 million action divided into twenty-one smaller suits; that was not the history of Knowles’s case.",
+        "Administrative simplicity did not justify the cap, because disregarding it required the same aggregation used when there was no stipulation. Nor did an individual plaintiff’s power to limit an individual recovery solve the class problem: that limitation binds all relevant plaintiffs in a one-plaintiff case, while Knowles’s did not bind his proposed class.",
+        "On March 19, 2013, the Court vacated and remanded, directing that this nonbinding class-wide limit be ignored in aggregation. It did not certify the class, award benefits, or decide the legality of the insurance practice. It also declined Knowles’s alternative argument about a stipulation limited to attorneys’ fees because his actual stipulation did not provide that option. No separate opinion was filed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568 U.S. at 594–596"
+        }
+      ]
+    }
+  ]
+}

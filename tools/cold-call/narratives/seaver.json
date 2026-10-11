@@ -1,0 +1,114 @@
+{
+  "id": "seaver",
+  "briefId": "CT-NEXT-CM-0181",
+  "title": "Seaver v. Ransom",
+  "course": "Contracts",
+  "citation": "224 N.Y. 233, 120 N.E. 639 (1918)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A dying woman signed the will her husband had prepared after he promised to make equivalent provision for her niece; when his own will omitted the niece, she sued to enforce that bargain.",
+  "actors": [
+    {
+      "name": "Mrs. Beman",
+      "role": "Dying property owner and promisee seeking provision for her niece"
+    },
+    {
+      "name": "Judge Beman",
+      "role": "Husband who prepared the will and promised provision in his own will"
+    },
+    {
+      "name": "Marion Seaver",
+      "role": "Favored niece and intended beneficiary"
+    },
+    {
+      "name": "Beman’s executors",
+      "role": "Defendants resisting enforcement after his death"
+    },
+    {
+      "name": "Judge Pound",
+      "role": "Author of the Court of Appeals majority opinion"
+    }
+  ],
+  "proceedings": "Bench trial awarded recovery on a trust theory; Appellate Division affirmed on third-party-beneficiary contract grounds; Court of Appeals affirmed with costs, four to three, rejecting the original trust rationale.",
+  "limits": "No identifiable property obtained by the promise was held in an original trust for Seaver. Enforcement rested on the supported contract for her benefit. The recorded dissenters supplied no separate reasons.",
+  "briefSha256": "0e8a953920cc45d1141e5506d4fa0ffa99c8801bdb44673344f624a9faabd2a8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0181"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Mrs. Beman wanted her house to go to her niece",
+      "cue": "Introduce the intended beneficiary and the will that prompted the promise.",
+      "paragraphs": [
+        "Mrs. Beman was dying and owned a small estate, principally a house and lot in Malone. Her husband, Judge Beman, prepared a will giving $1,000 to her niece Marion Seaver, $500 to Seaver’s mother, and $100 each to another sister and that sister’s son. It gave Judge Beman lifetime use of the house, with the remainder to the American Society for the Prevention of Cruelty to Animals. He was also residuary legatee and executor.",
+        "Seaver was thirty-four, in ill health, and sometimes lived with the Bemans. When the will was read, Mrs. Beman said she wanted the house to go to Seaver. Judge Beman offered to rewrite it, but his wife feared she would die before executing a new instrument. He solemnly promised that if she signed the existing will, he would provide enough for Seaver in his own will to make up the difference. Mrs. Beman signed. His eventual will made no provision for Seaver."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "224 N.Y. at 235–236"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Seaver recovered below on two different legal explanations",
+      "cue": "Separate the rejected property trust from the enforceable promise.",
+      "paragraphs": [
+        "Seaver sued and recovered after a nonjury trial. The trial court reasoned that Beman obtained property through his promise to provide the niece $6,000, the house’s value, and that equity impressed his property with a trust. The Appellate Division affirmed instead because Seaver could enforce a contract made for her benefit. Beman’s executors appealed, contesting her relationship to the promise, the availability of specific performance, and the asserted trust.",
+        "Judge Pound rejected the trial court’s particular trust theory. A legatee who receives property by promising to apply it to the testator’s stated purpose may hold that property in trust. But Beman received only lifetime use of the house, and no property acquired through this promise could be identified as a fund held for Seaver. His general estate did not automatically become that original trust.",
+        "The promise nevertheless personally bound him. Mrs. Beman’s execution of the will in the requested form supplied consideration; this was not an unsupported gift promise made directly to her niece. Contract damages, or relief requiring the executors to perform the agreement, rested on a different basis from the rejected trust."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 234–237"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The family-beneficiary principle extended beyond children",
+      "cue": "Explain why neither a legal debt nor precise degree of kinship controlled.",
+      "paragraphs": [
+        "Pound reviewed the historical privity rule and American movement toward intended-beneficiary enforcement. New York had not adopted a simple unlimited formula. Its cases chiefly involved promises paying the promisee’s pecuniary obligation; promises for a wife, intended wife, or child; public covenants protecting inhabitants; and promises addressed directly to a beneficiary at another’s request with that other person supplying consideration.",
+        "Those categories did not exclude a niece whose claim fell within their principles. Family cases rested substantially on affection and moral responsibility, not a legal duty to make a will. A child could enforce an equivalent promise without any legally required devise. A dependent niece might have a stronger moral claim than an affluent or unworthy child. The childless aunt’s desire to provide for this dependent, favored niece therefore supported enforcement without an existing debt or mandated testamentary provision.",
+        "Seaver alone was substantially harmed, while Mrs. Beman’s estate representatives lacked an interest in specifically enforcing the agreement. Pound considered broader and narrower readings of Lawrence v. Fox, the leading intended-beneficiary precedent, and stressed the practical and equitable grounds for enforcing this particular bargain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 237–241"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The express bargain was enforceable against Beman’s estate",
+      "cue": "End with the analogy, remedy basis, and recorded division.",
+      "paragraphs": [
+        "Pound compared a hypothetical devise of the house conditioned on Beman paying Seaver $6,000. Acceptance would make him personally liable even if the house proved worth less: the testatrix would effectively have bequeathed a promise. His express promise, supported by his wife’s execution of the will, deserved no weaker enforcement merely because it required provision by his own will.",
+        "The agreement could therefore be enforced through contract damages or specific performance without reviving the theory that an identifiable trust fund had originally passed to Beman for Seaver. On October 1, 1918, the Court of Appeals affirmed with costs. Pound, Hogan, Cardozo, and Crane formed the majority. Chief Judge Hiscock, Collin, and Andrews dissented, but the report contains no separate statement of their reasons."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 241–242 and recorded voting line"
+        }
+      ]
+    }
+  ]
+}

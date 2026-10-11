@@ -1,0 +1,109 @@
+{
+  "id": "trident",
+  "briefId": "CT-CB-0560",
+  "title": "Trident Center v. Connecticut General Life Insurance Co.",
+  "course": "Contracts",
+  "citation": "847 F.2d 564 (9th Cir. 1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Falling interest rates made Trident’s fixed-rate construction financing costly. Although the loan documents forbade early voluntary repayment, California interpretation law required an opportunity to develop evidence of the different bargain Trident alleged.",
+  "actors": [
+    {
+      "name": "Trident Center",
+      "role": "Partnership borrowing to construct a Los Angeles office complex"
+    },
+    {
+      "name": "Connecticut General Life Insurance Company",
+      "role": "Lender refusing early prepayment"
+    },
+    {
+      "name": "Judge Kozinski",
+      "role": "Author of the Ninth Circuit opinion"
+    }
+  ],
+  "proceedings": "The district court dismissed the complaint and imposed sanctions. The Ninth Circuit reversed and remanded to reinstate the complaint, with each party bearing its appellate costs.",
+  "limits": "Trident did not establish a prepayment right or entitlement to rescission. The lender could seek summary judgment after discovery, and an interpretation lacking objectively reasonable factual support could still warrant sanctions.",
+  "briefSha256": "9d1fa25e8e88c6456702c63c98bea8bffbc4e42e08f869702f5ed1b80efe95a0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0560"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A long fixed rate protected the lender",
+      "cue": "Set out the bargain before rates changed.",
+      "paragraphs": [
+        "In 1983, Security First Life Insurance Company and the law firms Mitchell, Silberberg & Knupp and Manatt, Phelps, Rothenberg & Tunney formed Trident Center, a limited partnership, to build an office complex on Olympic Boulevard in West Los Angeles. Connecticut General Life Insurance Company financed it with a $56.5 million loan at 12¼ percent interest for fifteen years, secured by a deed of trust. Sophisticated parties negotiated detailed documents at arm’s length from approximately equal bargaining positions.",
+        "The documents barred prepayment of principal, in whole or part, for twelve years through January 1996. Repayment in years thirteen through fifteen carried a declining fee. A default during the first twelve years gave Connecticut General the option to accelerate and charge a ten-percent prepayment fee.",
+        "By 1987, interest rates had fallen and refinancing looked attractive. Connecticut General refused early prepayment. Trident sued in state court for a declaration permitting immediate repayment with a ten-percent fee. The lender removed the case and moved to dismiss. The district court dismissed the complaint and, on its own initiative, sanctioned Trident for a supposedly frivolous action. Trident appealed both rulings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "565–566, 570"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Default did not give Trident a refinancing option",
+      "cue": "Explain why the written contract theory failed.",
+      "paragraphs": [
+        "Judge Kozinski, writing for a Ninth Circuit panel with Judges Hug and Alarcon, rejected Trident’s argument that the default fee offered an alternative form of performance. That construction would let the default provision swallow the express twelve-year prepayment prohibition. The documents instead gave the lender alone the acceleration election. Connecticut General could declare the debt due, rescind a default notice, waive noncompliance, or use other remedies, including collecting assigned rents. Trident could stop paying but could not force acceleration and its preferred payoff.",
+        "Whether a ten-percent fee might be an unenforceable penalty for a particular default was unsettled under California law. Possible invalidity did not create a borrower’s option. Nor did California’s one-form-of-action rule force the lender to accelerate and foreclose: it could decline a remedy, and some nonjudicial steps, including enforcing an absolute rent assignment by notice to tenants, were available.",
+        "Default also risked damaged credit, a trustee’s sale timetable, loss of rents, and defaults on other loans. Those consequences helped enforce the agreed term and could not be judicially removed to make refinancing cost-free apart from the chosen fee. The interest-rate risk was reciprocal: rising rates could have made this long loan disadvantageous to Connecticut General. The panel found no facial ambiguity supplying the claimed prepayment right."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "566–568 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "California required a chance to offer outside evidence",
+      "cue": "Connect the second theory to reversal.",
+      "paragraphs": [
+        "Trident separately alleged that the actual bargain permitted repayment at any time for the ten-percent fee, notwithstanding the writing. The panel considered the documents alone not reasonably susceptible to that meaning. Under the traditional rule it described, an unambiguous integrated agreement would exclude evidence offered to change that result.",
+        "But Pacific Gas & Electric, the governing California interpretation precedent, required preliminary consideration of evidence relevant to the parties’ meaning instead of treating facial clarity as conclusive. The Ninth Circuit understood it to require an opportunity to develop evidence capable of exposing ambiguity even in these extensively negotiated documents.",
+        "Kozinski criticized that approach for uncertainty, expense, and incentives to challenge clear language through interested recollections when economic circumstances change. Those criticisms did not displace the rule. Under Erie, the principle requiring federal courts to follow applicable state substantive law, the panel had to apply California’s approach rather than its preferred traditional one. Dismissal therefore could not stand.",
+        "The opportunity was qualified. After discovery, Connecticut General could seek summary judgment and would prevail unless Trident produced sufficient outside evidence to make its proposed meaning reasonably susceptible and create a genuine factual dispute. Alleging a different intention neither proved it nor guaranteed a trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "568–570 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Mistake and sanctions also required reconsideration",
+      "cue": "Keep allegations and ultimate entitlement separate.",
+      "paragraphs": [
+        "Trident also sought rescission for an alleged unilateral mistake of law that Connecticut General supposedly knew about and failed to correct. The panel regarded that allegation as implausible but sufficient to state a California claim under the cited statutes. It had to be reinstated for eventual summary-judgment or trial resolution; the court found neither actual knowledge nor an entitlement to rescission.",
+        "The district court’s Rule 11 rationale was that no reasonable person, especially capable lawyers, could misunderstand the documents, so the suit must have been brought in bad faith. Because California law allowed the evidence-based challenge, the panel reversed the sanctions too. Pursuing available remedies was understandable given the sums involved. Yet an interpretation without an objectively reasonable factual basis could still support sanctions under Pacific Gas. The court also reserved the scope of the note’s attorney-fee provision, under which fees apparently had been awarded.",
+        "The Ninth Circuit reversed the judgment and remanded to reinstate the complaint and conduct further proceedings, with each side bearing its own appellate costs. No judge wrote separately. The May 24, 1988 decision was amended July 5."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "570 & nn.7–9"
+        }
+      ]
+    }
+  ]
+}

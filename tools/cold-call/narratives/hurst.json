@@ -1,0 +1,121 @@
+{
+  "id": "hurst",
+  "briefId": "CT-CB-0582",
+  "title": "Hurst v. W.J. Lake & Co., Inc.",
+  "course": "Contracts",
+  "citation": "141 Or. 306, 16 P.2d 627 (1932)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A horse-meat-scrap sale priced material according to protein percentage. The seller alleged that both traders used fifty percent to include tests of at least forty-nine and a half; a judgment on the pleadings could not reject that alleged trade meaning merely because the numbers looked precise.",
+  "actors": [
+    {
+      "name": "Hurst",
+      "role": "Seller seeking an unpaid $700 balance"
+    },
+    {
+      "name": "W. J. Lake & Company",
+      "role": "Buyer applying the lower protein-price category"
+    },
+    {
+      "name": "Justice Rossman",
+      "role": "Author of the Oregon Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The circuit court entered judgment on the pleadings for Lake. The Oregon Supreme Court reversed on December 6, 1932, allowing proof of the pleaded usage; rehearing was denied January 10, 1933.",
+  "limits": "The alleged usage was assumed true for the pleadings motion, not found after evidence. The court neither awarded $700 nor treated every 49.5-percent test as universally equivalent to 50 percent. The decision predated the Uniform Commercial Code.",
+  "briefSha256": "c4fd85499178ae7a1bef9635f851694fa9f7a261b8056557156e40f94ecd522d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0582"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties priced scraps by analysis",
+      "cue": "Set out the written terms and three delivered lots.",
+      "paragraphs": [
+        "On March 20, 1930, Hurst agreed to sell W. J. Lake & Company 350 tons of horse-meat scraps at $50 per ton, each ton consisting of 2,000 pounds, free on board cars at Portland. Shipment was due before April 20, with payment on delivery accompanied by an analysis certificate. The scraps were to contain at least fifty-percent protein, be ground, and be packed in 100-pound sacks.",
+        "A supplementary letter required a $5-per-ton reduction for analysis below fifty percent. It also provided another month’s storage for fifty cents per ton if collection was delayed, certificates at the buyer’s expense, and final resolution of disputed analyses by a jointly chosen referee chemist.",
+        "Hurst delivered 349.25 tons. Lake paid $50 for 180 tons testing above fifty percent and $45 for 29.25 tons at 48.66 percent. The remaining 140 tons tested between 49.53 and 49.96 percent. Lake paid $45 for those too, leaving a disputed $700 if the full rate applied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "307–309"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hurst alleged a shared commercial meaning",
+      "cue": "Explain the limited posture on appeal.",
+      "paragraphs": [
+        "Hurst sued for the balance, alleging that both parties were established horse-meat-scrap traders who knew and used a prevailing custom treating protein content of at least 49.5 percent as fifty percent. Under that alleged meaning, the disputed 140 tons earned $50 per ton. The 48.66-percent lot remained below the asserted full-price category.",
+        "The circuit court granted Lake judgment on the pleadings. On appeal, the material allegations had to be accepted as true. The Oregon Supreme Court therefore considered whether the pleaded usage could interpret the apparently precise writing; it heard no trade testimony and did not find that the custom actually existed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "308–310, 317–318"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rossman looked beyond dictionary meanings",
+      "cue": "Explain why familiar words and numbers can be trade terms.",
+      "paragraphs": [
+        "Justice Rossman reasoned that dictionaries do not exhaust commercial language. Trades, localities, and technical communities can assign specialized meanings to ordinary words and numbers. Other authorities illustrated bricklayers using standardized wall units rather than exactly a thousand bricks, conventional shingle packs, and a locality treating a thousand rabbits as one hundred dozen. Those examples did not establish a universal rounding rule; they showed why commercial vernacular matters.",
+        "The opinion distinguished ordinary community usage, local or trade usage, meanings shared by particular parties, and a private meaning held by only one person. Hurst alleged known trade terms used by both participants, not an undisclosed personal interpretation. Such usage could explain language that looked perfectly clear to an outsider.",
+        "Lake relied on decisions excluding usage when a writing seemed unambiguous. Simplicity, protection against fabricated customs, and preservation of writings were legitimate concerns, but did not justify insisting on dictionary meaning alone. Most of Lake’s Oregon precedents involved adding a term or establishing an incompletely recorded bargain, rather than interpreting existing words. The remaining case involved an asserted special mutual meaning rather than trade custom. Hurst sought to explain the protein terms already written, not add another discount clause."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "310–316"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Oregon’s statutes permitted the interpretation inquiry",
+      "cue": "Connect the commercial reasoning to the governing law.",
+      "paragraphs": [
+        "Oregon Code 1930 section 9-217 presumed ordinary meaning but allowed proof of a technical, local, or other special meaning when the words were used and understood that way in the transaction. Oregon decisions had applied that principle to trade language. California cases under a similar statute permitted a gross ton to mean 2,240 pounds in petroleum dealing despite a general definition of twenty hundredweight.",
+        "Lake also invoked section 9-226(12), which allowed usage to explain an otherwise unclear contractual character while confining it to interpretation. Reading the provisions together, the court concluded that traders using trade terms could prove both their use and meaning. A familiar ordinary sense did not eliminate the opportunity to establish a commercial one. The court’s basis was the historical Oregon statutes and common law, not the later Uniform Commercial Code."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "316–317"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Writing fifty percent did not itself reject its trade meaning",
+      "cue": "State the reversal and judicial participation precisely.",
+      "paragraphs": [
+        "Lake finally argued that the written minimum and below-fifty-percent formulations themselves rejected rounding. But for this motion those phrases had to be treated as trade terms carrying the alleged special meaning. Traders ordinarily use their trade language in that sense unless they indicate otherwise. They could expressly exclude it or choose different words; nothing else in this contract did so. Letting ordinary meaning automatically defeat specialized meaning would make trade terms self-contradictory.",
+        "On December 6, 1932, the Supreme Court reversed the judgment on the pleadings, allowing Hurst to pursue proof rather than awarding him the balance. Brown, Belt, Campbell, and Kelly joined Rossman. Rand concurred in the result and Chief Justice Bean dissented, neither with a separate opinion. Six judges thus supported reversal, five the opinion. Rehearing was denied January 10, 1933."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "317–318"
+        }
+      ]
+    }
+  ]
+}

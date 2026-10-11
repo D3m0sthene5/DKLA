@@ -1,0 +1,121 @@
+{
+  "id": "lefkowitz",
+  "briefId": "CTR-027",
+  "title": "Lefkowitz v. Great Minneapolis Surplus Store, Inc.",
+  "course": "Contracts",
+  "citation": "251 Minn. 188, 86 N.W.2d 689 (1957)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A store promises a one-dollar fur bargain to the first customer at its counter. When that customer arrives, the store invokes a women-only house rule omitted from its advertisements.",
+  "actors": [
+    {
+      "name": "Morris Lefkowitz",
+      "role": "Customer who twice arrived first and offered the advertised price."
+    },
+    {
+      "name": "Great Minneapolis Surplus Store, Inc.",
+      "role": "Merchant refusing the advertised sales under an unpublished eligibility rule."
+    }
+  ],
+  "proceedings": [
+    "The Minneapolis Municipal Court awarded $138.50 for the stole and rejected the coat-value claim for inadequate proof.",
+    "The store’s motion for amended findings or a new trial was denied.",
+    "The Minnesota Supreme Court affirmed that denial, leaving the award intact."
+  ],
+  "limits": "This account transforms the canonical historical brief without a new opinion audit or current-law certification. The case resolves contract formation and damages, not statutory sex discrimination. The stole’s advertised value was accepted on this record, not declared conclusive for every advertisement. No separate writing appeared.",
+  "briefSha256": "b1f0f60fa3e0dfe463f9565accac599dce35d476cc85cce167f998344596eafe",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-027"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The store advertises limited quantities at a fixed time and price",
+      "cue": "How did the advertisements identify who could buy?",
+      "paragraphs": [
+        "On April 6, 1956, Great Minneapolis Surplus Store advertised three new fur coats for one dollar each. The sale would begin at 9 a.m. the following Saturday, first come, first served. The advertisement described the coats as worth up to $100.",
+        "On April 13, the store published another advertisement: two pastel mink three-skin scarfs described as selling for $89.50, and one black lapin stole described as worth $139.50, each offered for one dollar. Again it fixed Saturday at 9 a.m. and first-come, first-served availability. Neither advertisement limited the bargain to women."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "251 Minn. 189–190; 86 N.W.2d 690"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Lefkowitz arrives first and the store refuses twice",
+      "cue": "What restriction did the merchant add?",
+      "paragraphs": [
+        "On each Saturday, Morris Lefkowitz arrived first at the proper counter, demanded the advertised item, and indicated readiness to pay one dollar. On the first occasion, the store told him its internal house rule reserved the offer for women. On the second, it relied on his knowledge of that rule from the prior visit.",
+        "The store did not take his money or provide the goods. The later trial findings, supported by the evidence, established that he had complied with the conditions stated in the advertisements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "251 Minn. 189–190; 86 N.W.2d 690"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial court awards only the proven stole bargain",
+      "cue": "Why did the two transactions produce different damages results?",
+      "paragraphs": [
+        "Lefkowitz sued for breach in the Municipal Court of Minneapolis. His coat-value claim failed because the sole evidence was the advertisement’s uncertain statement that the coats were worth up to $100. That ceiling did not establish the value of a particular coat.",
+        "The stole advertisement stated a definite $139.50 value, which the court accepted as established on this record. Subtracting the one-dollar purchase price produced $138.50 in damages. The store requested amended findings or alternatively a new trial; the court denied both. The store appealed that denial, and Lefkowitz represented himself as respondent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "251 Minn. 189–190; 86 N.W.2d 690"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Supreme Court treats this advertisement as an offer",
+      "cue": "What left no further bargain to negotiate?",
+      "paragraphs": [
+        "The store relied on decisions treating advertisements as invitations for customers to make offers, asserted that its proposal could be withdrawn without notice, and invoked its house rule. Justice Murphy’s Minnesota Supreme Court opinion recognized that advertisements commonly invite negotiation, but explained that their character depends on particular language and circumstances.",
+        "This advertisement identified an article, exact price, time, and the buyer through order of arrival. It was sufficiently definite to leave no further negotiation and gave a customer power to complete the bargain through the requested acts. The specified single stole and arrival priority also made the extent of the promised sale ascertainable.",
+        "Lefkowitz accepted by arriving first and offering the dollar. Acceptance did not require the store first to receive payment: his readiness and offer, followed by refusal, satisfied the stated method. The merchant could modify an outstanding offer before acceptance, but could not impose a new or arbitrary condition after formation.",
+        "Lefkowitz’s knowledge that the store previously asserted the women-only rule did not persuade the court to add it to the second published offer. The sequence of advertisement, compliance, and attempted restriction resolved the contract claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "251 Minn. 190–192; 86 N.W.2d 690–691"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The damages award remains in place",
+      "cue": "How far did the decision extend?",
+      "paragraphs": [
+        "On December 20, 1957, the Supreme Court affirmed the order denying amended findings or a new trial. Lefkowitz retained his $138.50 award, the established value of the promised stole bargain less what he would have paid. The opinion contained no separate concurrence or dissent.",
+        "The refusal of coat damages concerned proof of value rather than a general rule that definite advertised bargains cannot bind. Conversely, acceptance of the stole’s value on this record did not establish that advertised values always conclusively measure damages. The court decided contractual rights, not a statutory discrimination claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "251 Minn. 189–192; 86 N.W.2d 690–691"
+        }
+      ]
+    }
+  ]
+}

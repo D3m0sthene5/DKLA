@@ -1,0 +1,126 @@
+{
+  "id": "brief-CP-135",
+  "briefId": "CP-135",
+  "title": "Pullman-Standard v. Swint",
+  "course": "Civil Procedure",
+  "citation": "456 U.S. 273 (1982)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A challenge to departmental seniority reached the Supreme Court over who should find discriminatory motive after the trial court and court of appeals took different views of the history.",
+  "actors": [
+    {
+      "name": "Black Pullman-Standard employees",
+      "role": "Challengers to the Bessemer plant’s seniority system"
+    },
+    {
+      "name": "Pullman-Standard and the Steelworkers",
+      "role": "Employer and bargaining representatives defending the system"
+    },
+    {
+      "name": "International Association of Machinists",
+      "role": "Union whose role in the bargaining structure supplied disputed historical evidence"
+    }
+  ],
+  "proceedings": [
+    "After three trials and intervening appellate proceedings, district court found no discriminatory intent and protected the system under § 703(h).",
+    "Fifth Circuit reversed and found discriminatory purpose.",
+    "Supreme Court reversed and remanded without finally validating the seniority system."
+  ],
+  "limits": "Review excluded separate job-assignment and foreman-selection rulings. Actual motive under this provision was treated as fact; general mixed-question review remained unresolved. Stevens joined partly; Blackmun joined Marshall’s dissent except Part I.",
+  "briefSha256": "1a7f973bd04ac7dbe336935d473b291ae8fb151477babd67096783572499f93d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-135"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Past assignments interact with departmental seniority",
+      "cue": "Different unions shape the bargaining structure",
+      "paragraphs": [
+        "Pullman-Standard operated a railway-car plant in Bessemer, Alabama, and had maintained racially discriminatory assignments before Title VII took effect. Its seniority system ordinarily measured service within a department, so a transfer generally sacrificed accumulated seniority. Black employees argued that the resulting deterrent preserved disadvantages from earlier assignment to less desirable jobs.",
+        "The Steelworkers organized both Black and white workers, while the International Association of Machinists represented other departments. By 1954 the plant had twenty-eight departments, twenty-six under the Steelworkers and two under the Machinists. Seniority had shifted between departmental and occupational bases before returning to departmental rules in 1954. Exceptions allowed certain transfers, and a 1972 Labor Department agreement let specified Black employees transfer without loss. The system’s actual history, rather than adverse effects alone, became central."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 275–280 & nn.1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The employees challenge the system in a long-running suit",
+      "cue": "The Fifth Circuit supplies a different intent determination",
+      "paragraphs": [
+        "The employees sued in 1971. By Supreme Court review there had been three trials and two appellate reviews. Following the intervening Teamsters decision, the district court examined whether transfers were equally discouraged, whether departmental organization was rational and consistent with industry practice, whether the system originated in discrimination, and whether negotiation and maintenance lacked unlawful purpose. It found no discriminatory intent and held the system protected by Title VII § 703(h).",
+        "The Fifth Circuit reversed. It criticized treatment of racial effects and history, particularly the relevance of the Machinists’ motives. Although it expressed a firm conviction that a mistake occurred, it also relied on circuit precedent permitting independent review of discrimination as an ultimate fact. It then found discriminatory purpose.",
+        "The Supreme Court accepted the seniority review questions but declined review of separate findings concerning discriminatory job assignments and foreman selection. The entire employment case was not before it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 275–285 & nn.1–2, 8"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "White treats actual motive as a factual finding",
+      "cue": "The importance of a fact does not eliminate Rule 52",
+      "paragraphs": [
+        "Justice White explained that under the substantive seniority rule the Court applied, disparate consequences did not by themselves establish illegality; discriminatory purpose mattered. Effects could be circumstantial evidence, but actual motive remained a factual question. The district court’s four inquiries were useful evidence guides, not an exhaustive statutory checklist.",
+        "Federal Rule of Civil Procedure 52(a) protected factual findings unless clearly erroneous, with no general exception for ultimate facts. Many facts decide liability; treating importance as a reason for independent appellate decision would largely undo the rule. Courts of appeals could correct legal standards and legal relevance errors, but could not relabel this motive inquiry to make new facts freely. The Court reserved the general treatment of mixed questions in other settings.",
+        "The employees emphasized the Fifth Circuit’s clear-error formulation. The majority read the opinion as a whole and found its invocation of independent ultimate-fact review and its detailed treatment troubling. The concern was allocation of factfinding, not simply absence of prescribed words."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 277–290 & nn.8, 16–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Missing findings ordinarily require a return to the trial court",
+      "cue": "A union’s motive cannot simply be attributed to another",
+      "paragraphs": [
+        "The more fundamental error was supplying findings the district court had omitted after treating relevant evidence as legally immaterial. An appellate court could set aside a finding for that legal error, but ordinarily had to remand unless the record permitted only one factual resolution.",
+        "Instead, the Fifth Circuit determined the Machinists’ motives, found Steelworkers acquiescence, and used that account to invalidate the system. Even discriminatory purpose by the Machinists could not automatically be imputed to the Steelworkers. It mattered insofar as it illuminated the company’s or Steelworkers’ purpose in creating or maintaining their arrangement. Acquiescence alone did not necessarily establish that purpose. Actor-specific trial findings were needed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 290–293 & n.23"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Separate opinions dispute the substantive premise and application",
+      "cue": "The case returns without a final seniority ruling",
+      "paragraphs": [
+        "Justice Stevens joined except insofar as preliminary statements about the burden in every seniority challenge conflicted with his views in American Tobacco v. Patterson. He did not offer a different Rule 52 approach.",
+        "Justice Marshall’s Part I rejected requiring discriminatory purpose to challenge systems perpetuating past discrimination; Justice Blackmun did not join that part. In the remaining dissent they accepted clear-error review but believed the Fifth Circuit had applied it and found the only permissible result after identifying legal errors. The trial record was overwhelmingly documentary, and the racial department structure, job desirability differences, and union history were compelling in their view. They did not assert that documentary findings categorically escape Rule 52.",
+        "On April 27, 1982, the Supreme Court reversed the Fifth Circuit and remanded there for further proceedings. It neither declared the system lawful nor restored every district-court finding as correct, and it left the separate discrimination rulings outside review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "456 U.S. at 293–304; dissent nn.6–9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "cp-beeck",
+  "briefId": "CP-073",
+  "title": "Beeck v. Aquaslide 'N' Dive Corp.",
+  "course": "Civil Procedure",
+  "citation": "562 F.2d 537 (8th Cir. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A water-slide manufacturer withdrew its admission of manufacture after the injury limitations period expired, and a separate trial resolved the disputed product identity.",
+  "actors": [
+    {
+      "name": "Jerry and Judy Beeck",
+      "role": "Injured user and spouse seeking damages"
+    },
+    {
+      "name": "Aquaslide ’N’ Dive Corp.",
+      "role": "Sole defendant, initially admitting manufacture"
+    },
+    {
+      "name": "Carl Meyer",
+      "role": "Aquaslide president who later inspected the slide"
+    }
+  ],
+  "proceedings": [
+    "District court allowed an amended denial of manufacture and a separate identity trial.",
+    "Jury found for Aquaslide; district court dismissed by summary judgment.",
+    "Eighth Circuit affirmed both discretionary rulings."
+  ],
+  "limits": "The identity verdict was not challenged on appeal. Potential claims against others were uncertain, not guaranteed. Review of amendment used the record when leave was granted, not the subsequent verdict.",
+  "briefSha256": "25d4242d623f643f2639ffed77302e811587d07a4a88dc57e7a91a4cd7721351",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-073"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An apparently branded slide causes severe injury",
+      "cue": "Several investigations agree on the manufacturer",
+      "paragraphs": [
+        "On July 15, 1972, Jerry Beeck was severely injured while using a water slide at an employer-sponsored gathering at Kimberly Village in Davenport, Iowa. He and his wife Judy sued Aquaslide alone, seeking a combined $2,225,000 for negligence, strict liability, and implied warranty.",
+        "Kimberly Village had ordered an Aquaslide in 1971 through distributor George Boldt. The order passed through Sentry Pool and Chemical Supply to Purity Swimming Pool Supply, whose warehouse delivered the slide. Kimberly employees installed it. It resembled an Aquaslide but lacked identifying marks, and Kimberly believed it was the ordered product.",
+        "Investigators for Beeck’s employer’s insurer, Kimberly’s insurer, and Aquaslide’s insurer all identified Aquaslide as the manufacturer. The company learned of the accident in October 1972, and its insurer inspected in May 1973. With those investigations and no contrary information, Aquaslide admitted manufacture in its December 12, 1973 answer and June 3, 1974 interrogatory responses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶6, 12, 22, 32–33 & nn.3–4, 6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A later inspection changes the defense",
+      "cue": "The amendment follows expiration of limitations",
+      "paragraphs": [
+        "Iowa’s two-year personal-injury limitations period expired July 15, 1974. About six and a half months later, Aquaslide president and owner Carl Meyer inspected before his deposition, apparently at plaintiffs’ request to investigate installation or assembly defects. He concluded that Aquaslide had not made the slide. The company sought permission to amend its answer; the Beecks continued to dispute its new position.",
+        "District Judge Hanson permitted the amendment and ordered a separate jury trial on whether Aquaslide designed, manufactured, or sold the slide. The jury found for Aquaslide, and the court entered summary judgment dismissing the action. The Beecks appealed permission to amend and separation of the trial, but did not challenge the jury’s nonmanufacture finding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶5, 7–9, 13, 21, 32–33 & nn.1, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court examines the amendment when it was allowed",
+      "cue": "Possible prejudice does not compel a binding false admission",
+      "paragraphs": [
+        "District Judge Paul Benson, sitting with Circuit Judges Bright and Henley, applied abuse-of-discretion review. Rule 15(a) favored leave when justice required, subject to reasons including undue delay, bad faith, repeated failure, prejudice, and futility. Opponents bore the burden of showing prejudice in the circumstances.",
+        "The district court had evaluated good faith, diligence, and prejudice. Aquaslide relied on three insurers’ investigations, and nobody claimed it manipulated their result. Responsibility for the mistaken identification was shared, and investigative shortcomings did not require forfeiting the identity defense. The court did not pronounce the investigation perfect.",
+        "To treat the expired limitations period as necessarily fatal when amendment was requested would require assuming both that Aquaslide would prevail on identity and that every other possible action was barred. Neither was established then. Possible substitution in the distribution chain might support fraud or contract claims with other limitations periods, or equitable estoppel might affect another defendant’s defense. The appellate court neither found a substitution nor guaranteed another remedy. That uncertainty permitted the district court to reject speculative prejudice rather than force a company to accept liability without contesting whether it made the product."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶15–25 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The identity trial avoids unnecessary injury evidence",
+      "cue": "Both rulings and the dismissal stand",
+      "paragraphs": [
+        "Rule 42(b) allowed separate trials for convenience, economy, expedition, or avoidance of prejudice while preserving a jury determination. Product identity could dispose of the entire case against Aquaslide. Several days of severe-injury and damages testimony would add nothing if Aquaslide did not make the slide and could prejudice consideration of that defense.",
+        "The Beecks retained a jury trial on identity, and its unchallenged finding achieved the contemplated economy. Finding no abuse of discretion in either ruling, the Eighth Circuit affirmed the judgment. It did not hold the slide safe, find no one responsible, or foreclose every possible claim against another party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶27–34 & n.8"
+        }
+      ]
+    }
+  ]
+}

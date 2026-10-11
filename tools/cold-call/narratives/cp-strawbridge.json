@@ -1,0 +1,93 @@
+{
+  "id": "cp-strawbridge",
+  "briefId": "CP-ATLAS-STRAWBRIDGE",
+  "title": "Strawbridge v. Curtiss",
+  "course": "Civil Procedure",
+  "citation": "7 U.S. (3 Cranch) 267 (1806)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Massachusetts citizens appeared on both sides of an equity suit despite one Vermont defendant. Marshall read the statutory jurisdictional grant to require every person representing a joint interest to qualify and sustained dismissal.",
+  "actors": [
+    {
+      "name": "Strawbridge and other complainants",
+      "role": "Parties bringing the equity bill, including Massachusetts citizens"
+    },
+    {
+      "name": "Curtiss",
+      "role": "Vermont defendant served there"
+    },
+    {
+      "name": "Other defendants",
+      "role": "Parties described as Massachusetts citizens"
+    },
+    {
+      "name": "Chief Justice Marshall",
+      "role": "Author of the Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The federal Circuit Court for Massachusetts dismissed the bill for want of jurisdiction. The Supreme Court affirmed during February Term 1806.",
+  "limits": "The opinion interpreted the congressional grant, not the outer constitutional power. It expressly reserved cases involving several distinct interests and supplied no merits account or individual vote tally.",
+  "briefSha256": "f748eca4c875c8082e2b0b293335a204649fba4361c5dc93c9aa53700c440346",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-STRAWBRIDGE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "One out-of-state defendant did not eliminate overlapping citizenship",
+      "cue": "Set out the jurisdictional facts and dismissal.",
+      "paragraphs": [
+        "Strawbridge and other complainants brought a bill in chancery against Curtiss and additional defendants in the federal Circuit Court for Massachusetts. Some complainants were alleged to be Massachusetts citizens. All defendants except Curtiss were also described as Massachusetts citizens; Curtiss was a Vermont citizen served with a subpoena there. The report does not give enough detail to reconstruct the underlying transaction or requested equitable relief.",
+        "The Circuit Court dismissed for want of jurisdiction. The complainants appealed, and counsel submitted the jurisdictional question without argument. Chief Justice Marshall announced the decision on a later day."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "267"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Marshall construed the statutory grant by the interests represented",
+      "cue": "State both the holding and express reservation.",
+      "paragraphs": [
+        "The statute described a suit between a citizen of the state where suit was brought and a citizen of another state. Marshall read it through the persons representing each distinct interest: when an interest was joint, every person concerned had to be competent to sue or liable to be sued in federal court. Curtiss’s Vermont citizenship alone therefore could not sustain this suit.",
+        "The Court expressly reserved the different arrangement in which parties represented several distinct interests and only some qualified. Its reasoning construed Congress’s jurisdictional grant, without declaring that Article III itself barred every case lacking complete diversity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "267–268"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The jurisdictional dismissal stood",
+      "cue": "Distinguish the historical opinion from its later shorthand.",
+      "paragraphs": [
+        "The Supreme Court affirmed the decree dismissing the bill, leaving the merits undecided. The short report records no separate opinion or individual vote tally.",
+        "The case became associated with the complete-diversity rule, under which no plaintiff shares state citizenship with a defendant under the later general diversity statute. That shorthand should retain the actual opinion’s joint-interest reasoning, its reservation of distinct-interest arrangements, and its statutory rather than constitutional basis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "268; casebook printed 305–306"
+        }
+      ]
+    }
+  ]
+}

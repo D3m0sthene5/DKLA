@@ -1,0 +1,124 @@
+{
+  "id": "brief-CP-128",
+  "briefId": "CP-128",
+  "title": "Liberty Mutual Insurance Co. v. Wetzel",
+  "course": "Civil Procedure",
+  "citation": "424 U.S. 737 (1976)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Employees won a liability ruling against their employer, but the employer’s appeal came before the district court awarded any of the relief the complaint requested.",
+  "actors": [
+    {
+      "name": "Wetzel and other employee-plaintiffs",
+      "role": "Women challenging employer benefit and maternity policies"
+    },
+    {
+      "name": "Liberty Mutual Insurance Company",
+      "role": "Employer and appellant from the liability ruling"
+    }
+  ],
+  "proceedings": [
+    "Western District of Pennsylvania: liability-only summary judgment; Rule 54(b) designation attempted while relief withheld.",
+    "Third Circuit: treated order as final and affirmed merits.",
+    "Supreme Court: vacated and directed dismissal of the employer’s premature appeal."
+  ],
+  "limits": [
+    "The employees’ underlying action was not dismissed and the Supreme Court did not decide Title VII liability. Blackmun did not participate; all participating Justices joined."
+  ],
+  "briefSha256": "31517cea04bd185a9ec8e3d634af055a36e339c242fba9ea9e27f668dc673a3d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-128"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Women employees challenge their employer’s own policies",
+      "cue": "Begin with the practices and requested remedies.",
+      "paragraphs": [
+        "Wetzel and other women employees sued Liberty Mutual Insurance Company under Title VII over its own employment policies. The company denied disability-income benefits for pregnancy-related disabilities and required return to work within three months of childbirth or termination. The plaintiffs sought relief for themselves and the class identified in their complaint.",
+        "They requested changes in employment practices, an injunction against unlawful conduct, monetary relief including backpay and other damages, costs, and attorney’s fees. They were not employees suing an independent insurer merely for supplying coverage. Their complaint sought concrete remedies beyond a declaration of illegality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "424 U.S. at 739–742"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court decides liability but withholds relief",
+      "cue": "Trace why the finality label did not match the order.",
+      "paragraphs": [
+        "After extensive discovery, the employees moved for partial summary judgment on liability. On January 9, 1974, the Western District of Pennsylvania found no material factual dispute and held the pregnancy and benefit policies unlawful. A separate ruling on hiring and promotion led to another appeal not before the Supreme Court.",
+        "The judge initially said an injunction would issue and invited its proposed form. Liberty Mutual filed a notice of appeal and sought a stay. On February 20, denying reconsideration, the district court directed entry of final judgment on liability and recited no just reason for delay under Rule 54(b). At the same time, it withheld the requested injunction. It awarded no damages, fees, or other relief.",
+        "The Third Circuit treated the order as final under 28 U.S.C. § 1291 and affirmed its substance. The Supreme Court granted review and heard merits argument. Neither party challenged appellate jurisdiction, but the Court raised it independently."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "424 U.S. at 739–743 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "One claim does not become several because it seeks several remedies",
+      "cue": "Explain why ordinary finality and Rule 54(b) failed.",
+      "paragraphs": [
+        "Justice Rehnquist explained that silence or agreement could not supply appellate power, and granting certiorari had not settled the Third Circuit’s authority. The district court still had to act on remedies expressly requested in this suit. Labeling its liability ruling final did not complete the litigation.",
+        "Counsel suggested treating the ruling as declaratory relief. A complaint seeking only a declaration would be different, but these plaintiffs sought other unresolved relief. Even that characterization could not finish this action.",
+        "Rule 54(b) permits final judgment on a qualifying claim or party before the whole case ends; it does not permit immediate appeal of every resolved legal issue. Here, one legal right under one theory and factual set remained one claim despite multiple remedies. Liability and remedy were not separate claims for certification, and no party had been finally disposed of. The Court did not purport to define a claim for every possible procedural setting. This was ordinary interlocutory partial summary judgment, useful for narrowing the case but not terminating it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "424 U.S. at 742–744 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Neither interlocutory route authorizes this employer’s appeal",
+      "cue": "Attend to who appealed and which steps were missing.",
+      "paragraphs": [
+        "Section 1292(a)(1) would have permitted Liberty Mutual to appeal an injunction actually entered against it. None issued. Even assuming withholding could be considered refusal of the employees’ injunction, that ruling was adverse to them, not a denial of relief Liberty Mutual sought. It could not use the opponents’ ungranted injunction to obtain review of its liability.",
+        "Section 1292(b) required a suitable district-court certification and appellate permission. The Supreme Court considered without deciding whether the Rule 54(b) findings might substantially satisfy the first step. But no application for permission within the historical ten-day period appeared, and the Third Circuit had assumed an appeal as of right rather than exercised discretion. One route could not simply be relabeled the other.",
+        "Allowing certification by label would make almost any liability ruling immediately appealable at the judge’s choice. Congress had already prescribed the balance between final decisions and limited interlocutory review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "424 U.S. at 744–746"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The premature appeal ends while the underlying action remains",
+      "cue": "Give the precise jurisdictional disposition.",
+      "paragraphs": [
+        "On March 23, 1976, the Supreme Court vacated the Third Circuit judgment and remanded with instructions to dismiss Liberty Mutual’s appeal. Justice Blackmun took no part; every participating Justice joined, with no separate opinion.",
+        "The Court did not dismiss the employees’ action or declare the employer’s practices lawful. The interlocutory liability ruling and unresolved requests for relief remained for district-court proceedings. Vacating an appellate affirmance entered without jurisdiction did not itself reverse the district court’s merits conclusion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "424 U.S. at 739–740, 746"
+        }
+      ]
+    }
+  ]
+}

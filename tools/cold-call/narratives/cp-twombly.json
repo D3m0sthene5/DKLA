@@ -1,0 +1,125 @@
+{
+  "id": "cp-twombly",
+  "briefId": "CP-065",
+  "title": "Bell Atlantic Corp. v. Twombly",
+  "course": "Civil Procedure",
+  "citation": "550 U.S. 544 (2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Telephone subscribers alleged that regional carriers agreed not to compete, but their complaint’s parallel conduct needed factual context suggesting an agreement before the case could proceed to discovery.",
+  "actors": [
+    {
+      "name": "William Twombly and Lawrence Marcus",
+      "role": "Subscribers representing a proposed class of local-phone and high-speed-internet customers"
+    },
+    {
+      "name": "Incumbent regional telephone carriers",
+      "role": "Defendants including Verizon, BellSouth, Qwest, and SBC"
+    },
+    {
+      "name": "Justice Souter",
+      "role": "Author for seven Justices"
+    },
+    {
+      "name": "Justice Stevens",
+      "role": "Dissenter joined by Ginsburg except in Part IV"
+    }
+  ],
+  "proceedings": "Southern District of New York dismissed under Rule 12(b)(6); Second Circuit reversed using Conley’s no-set-of-facts formulation; Supreme Court reversed and remanded with the complaint held insufficient.",
+  "limits": "The decision tests allegations, not trial evidence, and does not find that no conspiracy occurred. Plausibility does not require probable victory, proof, or elimination of every innocent explanation.",
+  "briefSha256": "dcf7e28e82f1ccf9dc1f4a47f00d6f244e61b903f049be7c40204f79f6150b8e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-065"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A new competition regime supplied the setting for the alleged agreement",
+      "cue": "Introduce the market and parties before evaluating their pleading.",
+      "paragraphs": [
+        "The 1984 breakup of AT&T produced regional local-telephone monopolies. The Telecommunications Act of 1996 sought competition by requiring incumbent carriers to share networks with new entrants and allowing competition in additional markets. William Twombly and Lawrence Marcus, local-telephone and high-speed-internet subscribers, sued as representatives of a proposed customer class. The defendants included the Bell Atlantic successor Verizon, BellSouth, Qwest, and SBC.",
+        "The subscribers alleged that the incumbents kept prices above competitive levels through an agreement. They described two patterns: each incumbent impeded newcomers seeking access to its network, and the incumbents refrained from entering one another’s territories. They also cited industry contacts and reported comments by a carrier executive about entering another incumbent’s territory. From that conduct, they inferred a concerted market-allocation arrangement. These were pleading allegations, not findings that any agreement existed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion of the Court, pt. I & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court and appeals court used different pleading thresholds",
+      "cue": "Identify the procedural disagreement that reached the Supreme Court.",
+      "paragraphs": [
+        "The Southern District of New York dismissed under Federal Rule of Civil Procedure 12(b)(6). It concluded that the parallel conduct fit independent efforts by each carrier to protect its own market position and that no additional pleaded facts suggested concerted action.",
+        "The Second Circuit reversed. It read the Supreme Court’s earlier Conley v. Gibson pleading decision to permit dismissal only when no possible set of supporting facts could show that the parallel conduct resulted from agreement. The Supreme Court granted review to decide whether this complaint adequately stated a Sherman Act § 1 claim under Rule 8(a)(2)."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion of the Court, pt. I"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority required factual circumstances suggesting agreement",
+      "cue": "Explain the inference required by this particular cause of action.",
+      "paragraphs": [
+        "Justice Souter wrote for seven Justices. Section 1 required concerted conduct. Independent behavior, including knowingly parallel behavior by firms aware of common incentives, did not establish an agreement by itself. Because the alleged pattern could result from either coordination or independent decisions, the complaint needed factual circumstances suggesting the former.",
+        "Rule 8 required a showing of entitlement to relief, not just labels or a recital of the elements. Factual allegations were accepted as true even if doubtful, but an unsupported legal conclusion did not become an independent fact merely by being pleaded. In context, the subscribers’ assertions of agreement were themselves derived from the parallel conduct already described.",
+        "The needed showing was plausibility: enough factual matter to support a reasonable expectation that discovery would reveal evidence of agreement. The Court did not demand detailed evidentiary pleading, Rule 9-style particularity for all claims, proof at the pleading stage, or a showing that liability was more likely than not. Nor did it require plaintiffs to disprove every innocent explanation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion of the Court, pts. II.A–B, III & n.14"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Independent incentives explained the conduct described in this complaint",
+      "cue": "Connect the application and discovery concerns to the dismissal.",
+      "paragraphs": [
+        "Each carrier already had an independent incentive to resist entrants and protect regional dominance. The history of separate monopoly territories also explained why incumbents might avoid entering neighbors’ markets without a new agreement. The majority drew those inferences from the complaint and market setting; the dissent disputed using them before evidentiary development. The assertions of conspiracy added no further factual basis that plausibly suggested an agreement.",
+        "The majority also considered the potentially vast discovery costs of nationwide, multiyear antitrust litigation. It doubted that later summary judgment and ordinary case management would reliably prevent settlement of weak claims simply to avoid those costs. A meaningful initial pleading threshold could screen before that pressure arose.",
+        "Read literally as a minimum threshold, Conley’s no-set-of-facts formula would let an entirely conclusory complaint proceed because unknown supporting evidence might someday appear. The Court rejected that use of the formula while preserving flexibility in the proof available after a claim had been adequately stated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion of the Court, pts. II.B–III & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens would have accepted the pleaded agreement and controlled discovery",
+      "cue": "Finish with the dissent and the limited procedural result.",
+      "paragraphs": [
+        "Justice Stevens would have allowed the action to proceed. Justice Ginsburg joined all but Part IV of his dissent. Stevens treated the assertion that an agreement existed as an allegation of conduct that had to be accepted at this stage. He argued that the majority revived unstable distinctions between facts and conclusions and imported merits-based inferences into pleading. He accepted the need to control discovery but favored answers, targeted discovery, case management, and summary judgment over dismissal. In Part IV, which Ginsburg did not join, he additionally criticized departure from the policies reflected in the statutes and Rules.",
+        "On May 21, 2007, the Court reversed the Second Circuit and remanded for proceedings consistent with its opinion. This complaint had to be dismissed because its allegations did not plausibly suggest the necessary agreement. The judgment did not establish that the carriers had never conspired. The case’s antitrust application and broader Rule 8 formulation also left questions about the principle’s reach beyond complex antitrust suits; those questions were not findings about these defendants’ actual conduct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion of the Court, conclusion; Stevens dissent, pts. I–IV; casebook Notes 1–3"
+        }
+      ]
+    }
+  ]
+}

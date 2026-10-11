@@ -1,0 +1,123 @@
+{
+  "id": "cp-zippo",
+  "briefId": "CP-ATLAS-ZIPPO",
+  "title": "Zippo Manufacturing Co. v. Zippo Dot Com, Inc.",
+  "course": "Civil Procedure",
+  "citation": "952 F. Supp. 1119 (W.D. Pa. 1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Pennsylvania lighter manufacturer objected to a California Internet service’s use of the Zippo name. The service had no Pennsylvania office, but it knowingly sold subscriptions and delivered the challenged material to thousands of people there.",
+  "actors": [
+    {
+      "name": "Zippo Manufacturing Company",
+      "role": "Pennsylvania lighter manufacturer and trademark plaintiff."
+    },
+    {
+      "name": "Zippo Dot Com, Inc.",
+      "role": "California Internet news service and sole defendant."
+    },
+    {
+      "name": "District Judge McLaughlin",
+      "role": "Federal judge who resolved the jurisdiction and venue motion."
+    }
+  ],
+  "proceedings": "Zippo Dot Com sought dismissal for lack of personal jurisdiction or improper venue, alternatively transfer under 28 U.S.C. §1406(a). The district court denied the motion; the underlying trademark claims remained undecided.",
+  "limits": "The narrative concerns the January 16, 1997 district-court decision and the jurisdictional doctrine and venue statute then applied. It does not establish trademark liability, report a later merits outcome, or state that every interactive website creates jurisdiction.",
+  "briefSha256": "12493820f4f563153ff0bbd199d108c5be75b4dc3f82014c2d72db91446591d1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-ZIPPO"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two businesses meet through a name online",
+      "cue": "What connected a California service with a Pennsylvania manufacturer?",
+      "paragraphs": [
+        "Zippo Manufacturing Company, a Pennsylvania corporation headquartered in Bradford, made Zippo lighters. Zippo Dot Com, Inc., a California corporation based in Sunnyvale, operated an Internet news service and website using the domains zippo.com, zippo.net, and zipponews.com. Dot Com’s offices, employees, and servers were in California. It had no Pennsylvania offices, employees, or agents.",
+        "Dot Com nevertheless sold its service to Pennsylvania customers. It offered a free public service and two paid subscription levels. A paying subscriber supplied a name and address through an online application, paid by credit card over the Internet or telephone, and received a password to view or download messages from Dot Com’s California server. About 3,000 of roughly 140,000 paying subscribers lived in Pennsylvania—approximately two percent, as the court described it. Dot Com also contracted with seven Pennsylvania Internet access providers to supply their subscribers, including two providers in the Western District of Pennsylvania.",
+        "The Zippo name appeared in the domain names, website, and identifying headers of subscriber messages. Viewing or downloading a message brought the identifier with it; some messages contained adult sexual material. Manufacturing alleged federal trademark dilution, infringement, and false designation, as well as state trademark dilution, and sought an equitable accounting and constructive trust. The disputed identifier thus traveled through the very subscriptions that connected Dot Com with Pennsylvania."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1121–1122 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Dot Com objects to litigating in Pennsylvania",
+      "cue": "What was the court deciding before reaching the trademark merits?",
+      "paragraphs": [
+        "Manufacturing filed in the federal district court in western Pennsylvania. Dot Com moved to dismiss under Federal Rules of Civil Procedure 12(b)(2) and 12(b)(3), for lack of personal jurisdiction and improper venue, or alternatively to transfer under 28 U.S.C. §1406(a). Manufacturing needed to make a prima facie showing of sufficient forum contacts. It relied expressly on specific jurisdiction tied to this dispute, not general jurisdiction over Dot Com for all claims.",
+        "Dot Com characterized its activity as operating a website or advertising. It emphasized that Pennsylvania users had initiated their relationships, called those contacts fortuitous, and pointed to the small percentage of subscribers located in the state. It also argued that requiring a California business to defend there would be unreasonable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1121–1122, 1126–1128"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The judge places actual online sales within familiar jurisdiction rules",
+      "cue": "What did the Internet spectrum explain?",
+      "paragraphs": [
+        "District Judge McLaughlin first applied Pennsylvania’s long-arm statute, which reached contracts to supply services in the Commonwealth and extended to the constitutional limit. The subscriber and access-provider contracts satisfied the service provision. Due process then required purposeful minimum contacts, a claim arising from those contacts, and an exercise of jurisdiction consistent with fair play and substantial justice. Physical entry was unnecessary where communications created continuing interstate obligations, but another person’s unilateral activity would not establish a defendant’s purposeful connection.",
+        "The court organized early Internet decisions along a spectrum. At one end were contracts involving knowing, repeated transmissions of computer files into the forum. At the other were passive websites making information available. For interactive sites between those poles, the degree of interactivity and commercial character of the exchange mattered.",
+        "The examples helped locate Dot Com’s conduct. Inset’s reliance on advertising and a toll-free number marked an outer limit. Bensusan involved an information-only nightclub website; Maritz involved solicitation of users for a future service. Pres-Kap concerned a customer of an online service whose contracts were negotiated and serviced in New York, rather than a seller deliberately serving forum residents. Dot Com belonged at the commercial end. Its case did not require deciding whether accessible advertising or interactivity alone sufficed. The opinion’s explanations of domains, registration, websites, and shareware reflected that early Internet setting."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1122–1126 & nn.1–3, 5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Accepting and serving the subscribers makes the contacts deliberate",
+      "cue": "Why did the users’ initial approach not defeat jurisdiction?",
+      "paragraphs": [
+        "Dot Com repeatedly accepted Pennsylvania applications, issued passwords, and transmitted files to Pennsylvania. It controlled those transactions and could have declined the sales. Customers’ initial requests did not make Dot Com’s decision to form ongoing commercial relationships accidental.",
+        "The court contrasted those sales with an Ohio subscriber forwarding a file into Pennsylvania or taking a computer there. Those hypothetical contacts would arise from a subscriber’s independent conduct. Here, the seller itself knowingly supplied the Pennsylvania service. Neither the lack of a physical office nor Pennsylvania’s small share of worldwide subscriptions displaced the character of that conduct; even one purposeful contact could sometimes suffice. Dot Com’s advertising authorities concerned the continuous and systematic contacts associated with general jurisdiction, while this case involved specific jurisdiction grounded in actual service sales.",
+        "The claims also arose from those contacts. Dot Com delivered messages carrying the allegedly infringing identifier into Pennsylvania, and Manufacturing’s location supported the likelihood of injury there. The court did not rely simply on the plaintiff’s residence. It identified delivery of the challenged material as part of the forum business."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1126–1127 & n.7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Fairness and a separate venue rule complete the decision",
+      "cue": "Why did the case remain in the Western District?",
+      "paragraphs": [
+        "The fairness inquiry considered Dot Com’s burden, Pennsylvania’s interest, Manufacturing’s interest in effective relief, judicial efficiency, and shared policy interests. Pennsylvania had a strong interest in alleged infringement of a resident corporation’s mark, and Manufacturing chose to seek relief there. Those interests outweighed the burden on Dot Com given its deliberate Pennsylvania business. The distant servers and California location did not undo voluntarily undertaken interstate obligations.",
+        "Venue required a separate statutory analysis. Under the version of 28 U.S.C. §1391 then applicable, a corporation resided where it was subject to personal jurisdiction. Because Dot Com was the sole defendant, that supplied venue under §1391(b)(1). Dot Com relied on Cottman, a circuit decision addressing where a substantial part of a trademark dispute’s events occurred. But Cottman had considered the alternative events-based provision, §1391(b)(2); it had not abolished corporate-residence venue for trademark suits.",
+        "On January 16, 1997, the court denied Dot Com’s motion. Personal jurisdiction and venue were proper, so neither dismissal nor compulsory transfer under the asserted §1406(a) route was warranted. There was no separate opinion. Whether Dot Com had infringed or diluted Manufacturing’s trademark, and whether any remedy was due, remained for adjudication."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "1123, 1127–1128"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "brief-CP-131",
+  "briefId": "CP-131",
+  "title": "Atlantic City Electric Co. v. General Electric Co.",
+  "course": "Civil Procedure",
+  "citation": "337 F.2d 844 (2d Cir. 1964)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Defendants seek immediate review of a discovery restriction, but appellate permission is refused because a detour into electricity rates threatens to delay the litigation.",
+  "actors": [
+    {
+      "name": "Plaintiff electricity suppliers",
+      "role": "Companies seeking damages and resisting interrogatories about passing losses to customers."
+    },
+    {
+      "name": "Electrical-company defendants",
+      "role": "Companies seeking the discovery and permission to appeal before final judgment."
+    }
+  ],
+  "proceedings": [
+    "The district court sustained objections to interrogatories and certified its order under 28 U.S.C. § 1292(b).",
+    "The Second Circuit denied the defendants’ application for leave to appeal without deciding the discovery merits."
+  ],
+  "limits": "This is an application ruling, not a decision on whether a pass-on defense exists or an affirmance of the discovery restriction on its merits. Friendly did not participate; the per curiam order records no dissent.",
+  "briefSha256": "7d15433c1e483ceaba7af9ab2633495e8ee2e39e6ac92efe1cc9922addd8d6d4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-131"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Defendants ask whether the claimed losses reached the plaintiffs’ customers",
+      "cue": "Why did they seek electricity-rate information?",
+      "paragraphs": [
+        "In litigation involving electrical-company defendants and plaintiff electricity suppliers, the defendants sought interrogatory answers about whether the plaintiffs had actually borne the damages they claimed or passed those losses on to their customers. The defendants proposed that plaintiffs should not recover to the extent they could prove that the losses had been shifted onward.",
+        "The district court sustained objections to the interrogatories. That ruling effectively prevented the requested pretrial discovery into the proposed pass-on defense. The defendants wanted appellate review before the cases proceeded to final judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disputed discovery; 337 F.2d 845"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court certifies the question, but appellate permission remains necessary",
+      "cue": "What did the certification establish?",
+      "paragraphs": [
+        "The district court certified the order under 28 U.S.C. § 1292(b), identifying a controlling legal question with substantial ground for disagreement. It noted that the Seventh Circuit had permitted an appeal from a similar order. The defendants then applied to the Second Circuit for leave to appeal.",
+        "The application did not ask the appellate court to review a completed damages judgment. It asked whether this particular discovery dispute should interrupt the larger proceedings for an immediate appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Application and comparable proceeding; 337 F.2d 845 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Second Circuit evaluates the practical cost of an immediate detour",
+      "cue": "Why did the court expect delay rather than advancement?",
+      "paragraphs": [
+        "The Second Circuit declined to isolate the disputed legal question from the litigation as a whole. Many important questions could arise, but their importance and the existence of disagreement did not determine whether immediate review was feasible or advisable.",
+        "Permitting the discovery could produce numerous full-scale inquiries into electricity rates, dwarfing even the extensive pretrial proceedings already undertaken. If the discovery restriction later proved wrong and contributed to an adverse judgment, the defendants could challenge it together with other errors in a final appeal. The court doubted that later discovery or hearings about passed-on damages, if legally appropriate, would impose a greater burden than undertaking them immediately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning; 337 F.2d 845"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Leave is denied while the defense and eventual appeal remain open",
+      "cue": "What did the application ruling leave undecided?",
+      "paragraphs": [
+        "On July 16, 1964, the court denied leave to appeal. The per curiam decision involved Judges Waterman and Moore; Judge Friendly took no part in consideration or decision. There was no dissent.",
+        "The court expressed no opinion on the legal correctness of the discovery ruling or the existence of a pass-on defense. Denying immediate review did not eliminate that defense or prejudice its presentation on an ultimate appeal. The decision assessed delay in these proceedings rather than announcing a categorical ban on interlocutory discovery appeals. District-court certification had opened a route to request review; it had not guaranteed appellate permission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition and participation; 337 F.2d 844–845"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "id": "lrs-o-calcutt",
+  "briefId": "LRS-ATLAS-O-CALCUTT",
+  "title": "Calcutt v. Federal Deposit Insurance Corporation",
+  "course": "Legislation and the Regulatory State",
+  "citation": "598 U.S. 623 (2023)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After finding legal errors in banking sanctions, an appellate court could not preserve them by making the agency’s discretionary judgment itself.",
+  "actors": [
+    {
+      "name": "Harry Calcutt",
+      "role": "Northwestern Bank’s chief executive from 2000 to 2013"
+    },
+    {
+      "name": "Northwestern Bank",
+      "role": "Michigan community bank with Nielson loans"
+    },
+    {
+      "name": "Nielson businesses",
+      "role": "Nineteen family-owned borrowers"
+    },
+    {
+      "name": "Federal Deposit Insurance Corporation",
+      "role": "Bank regulator that imposed removal, prohibition, and a civil penalty"
+    }
+  ],
+  "proceedings": [
+    "Administrative law judge: recommended industry exclusion and $125,000 penalty.",
+    "FDIC Board: adopted sanctions.",
+    "Sixth Circuit: affirmed 2–1 after correcting the agency’s legal approach.",
+    "Supreme Court: reversed and required return to the agency for reconsideration."
+  ],
+  "limits": [
+    "Certiorari was limited to the first question. The Court did not finally exonerate Calcutt, independently find each allegation true, or forbid the same sanctions after lawful reconsideration."
+  ],
+  "briefSha256": "d01fdf3ad6e2a86ad57bc2745ff9159f86c36e89074092aa86b58a458c2e5062",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-CALCUTT"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The bank’s largest borrowers repeatedly default",
+      "cue": "Begin with the lending relationship and the temporary rescue.",
+      "paragraphs": [
+        "Harry Calcutt served as chief executive of Northwestern Bank, a Michigan community bank, from 2000 to 2013. Nineteen family-owned Nielson businesses in real estate and oil became the bank’s largest lending relationship. When they stopped paying on September 1, 2009, they owed $38 million.",
+        "The parties arranged a multistep deal called the Bedrock Transaction to bring the loans current. It stabilized the relationship for a year. Payments stopped again in September 2010, followed by another temporary agreement. In January 2011, the businesses stopped paying once more and remained in default."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion 2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The regulator investigates and imposes sanctions",
+      "cue": "Distinguish enforcement allegations from agency findings.",
+      "paragraphs": [
+        "The Federal Deposit Insurance Corporation, or FDIC, began investigating officers on April 13, 2012. On August 20, 2013, it issued notices seeking removal, prohibition from banking, and civil penalties. It alleged that the Bedrock Transaction violated internal lending policy, directors were misled or misinformed, Calcutt answered agency inquiries inaccurately, and financial statements misreported the transaction.",
+        "An administrative law judge began a seven-day evidentiary hearing on October 29, 2019. Twelve witnesses, including Calcutt, testified. On April 3, 2020, the judge recommended exclusion from the banking industry and a $125,000 penalty. Calcutt appealed to the FDIC Board, which adopted sanctions removing him from office, prohibiting further banking activities, and imposing the penalty.",
+        "The governing statute, 12 U.S.C. § 1818(e), required misconduct, harmful effect or personal benefit by reason of that misconduct, and specified culpability. Misconduct included unsafe or unsound practices or breach of fiduciary duty. Culpability required personal dishonesty or willful or continuing disregard of the bank’s safety or soundness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion 1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Board and the reviewing court use different causal standards",
+      "cue": "Show why substantial evidence did not settle the review.",
+      "paragraphs": [
+        "The Board found unsafe or unsound practices and rejected a requirement that Calcutt proximately cause the harm. It identified a $30,000 Bedrock loan charge-off, $6.4 million in other Nielson loan losses, and investigative, auditing, and legal expenses. It also found persistent concealment of the portfolio’s common nature and problems, false examination answers, concealed documents, and false testimony about what directors knew.",
+        "Calcutt challenged the causal standard and the asserted harms. The Sixth Circuit agreed that the words “by reason of” required proximate cause. It attributed the $30,000 charge-off to his extensive involvement, but only part of the $6.4 million losses because some loss probably would have occurred anyway. It excluded investigation, audit, and legal expenses as normal business costs.",
+        "Despite narrowing the harms and changing the standard, a 2–1 panel affirmed the sanctions on substantial-evidence grounds. The Board had never applied proximate cause or decided whether those same sanctions were warranted on the corrected basis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion 3–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Discretion belongs first to the agency Congress selected",
+      "cue": "Explain the ordinary remand rule and its narrow exception.",
+      "paragraphs": [
+        "On Supreme Court review, both Calcutt and the Solicitor General agreed that the case should return to the agency. The Court’s unsigned opinion applied Chenery, the earlier decision requiring agency action to be reviewed on the agency’s stated grounds. If those grounds fail legally, a reviewing court ordinarily must remand for explanation or investigation rather than substitute its own discretionary decision.",
+        "The Sixth Circuit had relied on Wyman-Gordon, an earlier agency-review case recognizing that remand can be an idle formality when the outcome is certain. The Supreme Court retained that narrow exception, including a situation where law required one agency action despite a mistaken rationale. Here, however, whether to sanction Calcutt and how severely called for contextual discretion and multiple culpability considerations. The revised harmful-effects analysis could affect the Board’s judgment. Calling the result inevitable would deny the flexibility Congress had given it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion 1, 6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The sanctions return for fresh agency consideration",
+      "cue": "Give the precise scope of the Supreme Court’s order.",
+      "paragraphs": [
+        "On May 22, 2023, the Supreme Court granted review limited to the first question, reversed the Sixth Circuit, and remanded for that court to return the matter to the FDIC. No dissent or separate writing was recorded.",
+        "The Supreme Court did not turn every element of the Sixth Circuit’s causal analysis into its own statutory holding or independently establish the truth of each enforcement allegation. It required the agency to exercise its delegated judgment on legally proper grounds. Calcutt had not received final exoneration, and the FDIC was not barred from reaching the same outcome through lawful reconsideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion 1–2, 6–7"
+        }
+      ]
+    }
+  ]
+}

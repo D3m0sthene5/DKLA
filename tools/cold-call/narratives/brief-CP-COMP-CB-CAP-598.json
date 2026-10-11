@@ -1,0 +1,123 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-598",
+  "briefId": "CP-COMP-CB-CAP-598",
+  "title": "DIRECTV, Inc. v. Imburgia",
+  "course": "Civil Procedure",
+  "citation": "577 U.S. 47 (2015)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Customers invoked a contract’s state-law condition to defeat arbitration after the Supreme Court had invalidated the state rule on which that condition was said to depend.",
+  "actors": [
+    {
+      "name": "Amy Imburgia and Kathy Greiner",
+      "role": "California customers challenging early termination fees"
+    },
+    {
+      "name": "DIRECTV",
+      "role": "Television provider seeking arbitration under its consumer agreement"
+    }
+  ],
+  "proceedings": [
+    "California trial court denied arbitration; Court of Appeal affirmed.",
+    "California Supreme Court declined review.",
+    "United States Supreme Court reversed and remanded 6–3, directing enforcement."
+  ],
+  "limits": "Parties could expressly select otherwise preempted rules; the majority rejected this particular interpretation as unequal treatment. The fee merits were undecided. Thomas’s forum-based dissent differed from Ginsburg and Sotomayor’s consent analysis.",
+  "briefSha256": "e6b40721fb3114327d11814ac9740a40d8ae9f1d2db00132ebad8e4c23ee1875",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-598"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The service agreement links arbitration to state law",
+      "cue": "The legal backdrop changes during the customers’ suit",
+      "paragraphs": [
+        "DIRECTV’s consumer agreement required binding arbitration in § 9 and barred joining or consolidating claims. The whole arbitration section would become unenforceable if the customer’s state law made the class-arbitration waiver unenforceable. Section 10 specified that the Federal Arbitration Act governed § 9.",
+        "When the 2007 form was adopted, California’s Discover Bank rule made certain adhesive consumer class waivers unconscionable where predictable damages were small and specified circumstances existed. Amy Imburgia and Kathy Greiner sued in 2008 as proposed class representatives, alleging unlawful early termination fees, including violations of the Consumers Legal Remedies Act.",
+        "In 2011, Concepcion held Discover Bank preempted by the Federal Arbitration Act, or FAA. DIRECTV then sought arbitration. Ginsburg’s later dissent emphasized that the company previously had said it would not arbitrate California consumer disputes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "577 U.S. at 50–51, 60, 66"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "California courts enforce the state-law contingency",
+      "cue": "The company obtains review of a divided interpretive question",
+      "paragraphs": [
+        "The trial court denied arbitration, and the Court of Appeal affirmed. It reasoned that parties could choose California law independent of federal preemption and had done so: the specific state-law contingency qualified the general FAA clause, and ambiguity ran against the drafter.",
+        "The appellate discussion invoked statutory restrictions on waiver of class rights. The Supreme Court treated the relevant application as embodying Discover Bank, consistent with California’s recognition of Concepcion and the parties’ agreement. The California Supreme Court declined review. DIRECTV sought certiorari, citing the Ninth Circuit’s contrary reading of the same wording in Murphy v. DirecTV."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "577 U.S. at 51–53"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Breyer tests equal treatment rather than banning contractual choice",
+      "cue": "Six considerations undermine the California reading",
+      "paragraphs": [
+        "Justice Breyer, joined by Chief Justice Roberts and Justices Scalia, Kennedy, Alito, and Kagan, acknowledged that parties could select otherwise preempted rules, even Discover Bank independently of Concepcion. State judges nevertheless had to respect federal precedent. Assuming the state court correctly stated California interpretation law, the Court tested whether its actual reasons treated arbitration like other contracts under FAA § 2.",
+        "First, state-law references ordinarily mean valid law, and no comparable nonarbitration decision treated the phrase as including federally invalidated law. The majority found no ambiguity. Second, California contracts incorporated reserved power to change law, and judicial statutory constructions ordinarily applied retroactively; the likely 2007 understanding did not decide the later issue.",
+        "Third, the appellate court offered no general explanation applicable to contracts affected by labor, pension, antidiscrimination, or constitutional preemption. Fourth, its own framing focused on FAA preemption. Fifth, its claim that the waiver remained unenforceable under state law treated the displaced rule as retaining force in a manner unlikely elsewhere. Sixth, neither the specific-over-general canon nor the anti-drafter canon established a comparable general reading: the former did not answer what state law meant, and the latter could not be limitless.",
+        "Together these reasons showed unfavorable arbitration treatment. The majority relied on reasons actually given, not hypothetical alternative grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "577 U.S. at 53–59"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissenters disagree for different reasons",
+      "cue": "Ginsburg emphasizes the form DIRECTV chose",
+      "paragraphs": [
+        "Justice Thomas would affirm because he continued to read the FAA as inapplicable in state court. His short dissent did not depend on the contract interpretation advanced by the other dissenters.",
+        "Justice Ginsburg, joined by Justice Sotomayor, regarded California’s reading as reasonable and correct. Arbitration depended on the bargain, and DIRECTV chose a state-law condition its customers neither drafted nor could be expected to read in light of a future Concepcion. Unlike government compulsion of class procedures, voluntary incorporation of consumer protections could remain effective. She distinguished the continuing legislative consumer policy from Discover Bank’s judicial rule and noted that those protections still operated when parties chose court.",
+        "Other DIRECTV forms directly conditioned severability on preservation of the class ban; this one referred to the customer’s state law. Treating them identically rewarded avoidable drafting ambiguity and disregarded contemporary expectations. She also rejected using a pro-arbitration presumption to resolve whether an enforceable agreement existed.",
+        "Ginsburg stressed that low-value individual claims often lacked practical remedies and take-it-or-leave-it terms foreclosed bargaining. Her discussion of effective vindication, a 2015 Consumer Financial Protection Bureau study, the FAA’s original commercial setting, and European protections supplied dissenting criticism, not governing holdings or a present comparative-law account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "577 U.S. at 59–72 & Ginsburg nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The arbitration agreement must be enforced",
+      "cue": "The consumer-fee dispute remains unresolved",
+      "paragraphs": [
+        "On December 14, 2015, the Supreme Court reversed the California Court of Appeal and remanded for proceedings consistent with enforcement of the arbitration agreement. The six-to-three judgment rested on unequal treatment in this contractual interpretation, not a prohibition on parties expressly adopting otherwise preempted rules. It decided neither whether the termination fees violated consumer law nor any damages or arbitral award."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "577 U.S. at 58–59"
+        }
+      ]
+    }
+  ]
+}

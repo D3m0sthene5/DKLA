@@ -1,0 +1,105 @@
+{
+  "id": "cp-hess",
+  "briefId": "CP-014",
+  "title": "Hess v. Pawloski",
+  "course": "Civil Procedure",
+  "citation": "274 U.S. 352 (1927)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Massachusetts used a nonresident-motorist statute to serve a Pennsylvania driver in a suit arising from his alleged highway collision.",
+  "actors": [
+    {
+      "name": "Pawloski",
+      "role": "Injured plaintiff defending the Massachusetts judgment"
+    },
+    {
+      "name": "Hess",
+      "role": "Pennsylvania resident challenging personal jurisdiction"
+    }
+  ],
+  "proceedings": [
+    "Massachusetts courts rejected Hess’s special jurisdictional objection.",
+    "Jury found for Pawloski; state high court overruled exceptions and judgment entered.",
+    "United States Supreme Court affirmed."
+  ],
+  "limits": "Collision details were pleaded allegations. The holding concerns a local-driving suit with statutory receipt and defense safeguards, not consent to unrelated suits from any in-state activity.",
+  "briefSha256": "dc0689127587a47b5f2db2f7a5de64fec46279801d4539eadfac37c49e4a2a7a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-014"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A highway collision becomes a Massachusetts action",
+      "cue": "The statute supplies a designated recipient of process",
+      "paragraphs": [
+        "Pawloski’s declaration alleged that Hess, a Pennsylvania resident, negligently and wantonly drove on a Massachusetts public highway and struck and injured him. Hess was not personally served and had no property attached in the action.",
+        "Massachusetts treated a nonresident’s driving on its public ways as appointing the registrar to receive process for suits arising from an accident during that operation. Service required a copy and a two-dollar fee at the registrar’s office, immediate registered mailing of notice and process to the defendant, and filing the defendant’s return receipt and an affidavit of compliance. Courts could grant continuances needed for a reasonable opportunity to defend. Pawloski complied with that procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "274 U.S. at 353–354"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hess appears only to contest jurisdiction",
+      "cue": "He preserves the objection through trial",
+      "paragraphs": [
+        "Hess appeared specially, without consenting to jurisdiction, and filed an answer in abatement and a dismissal motion. He argued that the service violated Fourteenth Amendment due process. The trial court rejected the objection; the Supreme Judicial Court upheld the statute under the State’s public-safety regulatory power.",
+        "Hess renewed his objection at trial and preserved an exception. A jury found for Pawloski. The Supreme Judicial Court overruled Hess’s exceptions, and the Superior Court entered judgment. Hess then sought United States Supreme Court review by the writ-of-error procedure then available."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "274 U.S. at 354–355"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Highway regulation supports the limited appointment",
+      "cue": "Butler reasons within the territorial framework",
+      "paragraphs": [
+        "Justice Butler began with the rule that one state’s process could not simply summon an absent nonresident into an ordinary personal money action. In-state service on the defendant or an authorized recipient was required. The question was whether Massachusetts validly made the registrar that recipient.",
+        "Ordinary business by a nonresident individual did not itself imply consent to jurisdiction. The Privileges and Immunities Clause also protected citizens of other states against discriminatory exclusion from ordinary pursuits. Rules concerning a state’s authority over certain corporate activity did not establish unlimited authority over individuals.",
+        "Motor vehicles presented a specific danger to people and property, allowing safety regulation of resident and nonresident drivers. Requiring a driver to answer locally for an accident from that driving promoted accountability and a practicable remedy. The appointment was confined to that connected litigation. Actual receipt of mailed papers and continuances made the opportunity to defend real. The different service mechanics tended to place residents and nonresidents on comparable terms without hostile discrimination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "274 U.S. at 355–356"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Driving may substitute for a formal designation",
+      "cue": "The judgment survives the jurisdiction challenge",
+      "paragraphs": [
+        "Kane v. New Jersey recognized a state’s power to require an express appointment of a service agent before a nonresident drove there. Butler found no substantial constitutional difference between that preliminary formality and treating the act of driving as the appointment, with these safeguards and this limited scope.",
+        "On May 16, 1927, the Supreme Court affirmed the Massachusetts judgment for Pawloski. No separate opinion appears in the report. The Court validated this accident-related service; it did not decide jurisdiction over claims unrelated to Hess’s driving or independently reconstruct the collision."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "274 U.S. at 356–357"
+        }
+      ]
+    }
+  ]
+}

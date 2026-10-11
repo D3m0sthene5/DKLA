@@ -1,0 +1,145 @@
+{
+  "id": "cp-cooper",
+  "briefId": "CP-093",
+  "title": "Cooper v. Federal Reserve Bank of Richmond",
+  "course": "Civil Procedure",
+  "citation": "467 U.S. 867 (1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Employees who testified in a failed class discrimination suit later sought to litigate their own promotion claims. The Bank argued that membership in the class ended those claims too, even though the trial judge had expressly left their individual merits undecided.",
+  "actors": [
+    {
+      "name": "Federal Reserve Bank of Richmond",
+      "role": "Employer operating the Charlotte branch and defendant in both actions."
+    },
+    {
+      "name": "Equal Employment Opportunity Commission",
+      "role": "Federal agency that brought the original employment discrimination action."
+    },
+    {
+      "name": "Sylvia Cooper, Constance Russell, Helen Moore, and Elmore Hannah",
+      "role": "Intervening employees pursuing individual and class claims."
+    },
+    {
+      "name": "Baxter petitioners",
+      "role": "Class members who later sought adjudication of their own promotion claims."
+    },
+    {
+      "name": "Justice Stevens",
+      "role": "Author of the Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The Fourth Circuit ruled for the Bank on the class and named plaintiffs’ merits, then ordered dismissal of the Baxter petitioners’ separate suit on preclusion grounds. The Supreme Court reviewed only preclusion, reversed, and remanded.",
+  "limits": "The Supreme Court did not find discrimination against the Baxter petitioners or reopen the original named plaintiffs’ final merits losses. Its ruling preserves the binding rejection of the classwide pattern-or-practice claim while allowing distinct individual claims deliberately left undecided.",
+  "briefSha256": "16cda852a2b41fabeb22d72f3db1d3952be5d420f6dbffd18854657e5fbc649d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-093"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The federal agency and employees challenge practices at a Charlotte branch",
+      "cue": "Who was represented in the first action?",
+      "paragraphs": [
+        "The Equal Employment Opportunity Commission, the federal employment-discrimination agency, sued the Federal Reserve Bank of Richmond over alleged racial discrimination at its Charlotte branch, including failures to promote Black employees. Sylvia Cooper, Constance Russell, Helen Moore, and Elmore Hannah intervened with individual and class claims under Title VII of the Civil Rights Act of 1964 and 42 U.S.C. §1981.",
+        "The district court conditionally certified a class under Federal Rule of Civil Procedure 23(b)(2) and (3). It covered Black employees employed since January 3, 1974 who had suffered discrimination in specified employment matters. Publication and mailed notice warned that class members who remained would be bound. The employees later called the Baxter petitioners received notice, did not opt out, and belonged to that class."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "869–871 & nn.2, 5"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The first trial decides some claims and deliberately reserves others",
+      "cue": "What did the district judge actually adjudicate?",
+      "paragraphs": [
+        "Both the four named intervenors and the Baxter petitioners testified at the class trial. The district court initially found a pattern of discrimination in job grades 4 and 5 but insufficient proof of a classwide pattern above those grades. It separately found individual discrimination against Cooper and Russell and rejected Moore’s and Hannah’s individual claims. The court deferred decisions on the individual entitlement of other class members who had testified.",
+        "After trial, the Baxter petitioners sought to intervene. The judge denied their request, explaining that one employee’s rights would be addressed during class relief proceedings, while the others held jobs above the grades for which class relief had been ordered. The judge expressly contemplated separate §1981 suits. Those limits on what had been decided later became crucial to the judgment’s preclusive scope."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "871–873"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Separate promotion claims encounter a preclusion defense",
+      "cue": "How did the two actions converge on appeal?",
+      "paragraphs": [
+        "The Baxter petitioners filed a separate action alleging discriminatory denials of promotion. The Bank moved to dismiss, arguing that the class judgment precluded their claims. The district court refused and certified that ruling for an interlocutory appeal under 28 U.S.C. §1292(b).",
+        "The Fourth Circuit consolidated that appeal with the class-action appeal. It rejected the remaining classwide discrimination finding and the successful individual claims of Cooper and Russell. Thus every claim actually adjudicated in the first action ultimately stood resolved for the Bank. The appellate court also held that the class judgment barred the Baxter petitioners’ separate claims and ordered dismissal.",
+        "The Supreme Court granted review only of that preclusion ruling. The merits rulings against the original class and named plaintiffs were outside the grant and remained final."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "872–874 & nn.6–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court distinguishes a binding judgment from an unlimited judgment",
+      "cue": "Why could class members remain bound and still pursue individual claims?",
+      "paragraphs": [
+        "Justice Stevens explained that a judgment in a properly entertained class action binds members under ordinary claim- and issue-preclusion principles. It bars a repeat of the same claim and conclusively resolves issues actually litigated, determined, and essential to the judgment. Membership was not disputed; the question was the scope of the adjudication.",
+        "An individual discrimination claim asks why a particular employment decision occurred. A pattern-or-practice claim requires a regular discriminatory practice rather than isolated or sporadic acts. An employee may prove an individual discriminatory decision without establishing a companywide practice. Conversely, failure to establish a classwide practice does not establish that every decision was lawful. The Court drew that two-way distinction from Falcon, its earlier decision separating individual and class discrimination proof.",
+        "The proof structures likewise differed. Establishing a discriminatory pattern could give class members a favorable presumption. Without that pattern, an individual could still make a prima facie case about a specific decision. The employer would then articulate a legitimate nondiscriminatory reason, while the employee retained the ultimate burden of proving intentional discrimination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "874–878, 880"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Witness testimony does not automatically adjudicate the witness’s claim",
+      "cue": "Why did the Bank’s finality and efficiency arguments fail?",
+      "paragraphs": [
+        "The Bank had won finality on the classwide claim. The Baxter petitioners could not relitigate that pattern-or-practice issue or bring another class action asserting it for the same period. The classwide result could also help the Bank resist a claim that its stated reasons for an individual decision were pretextual. But the Bank had not obtained a decision on the Baxter petitioners’ individual merits.",
+        "Treating their testimony about specific incidents as adjudication of every witness’s personal claim would enlarge the judgment beyond what the trial court had decided. Here the judge had expressly withheld those decisions.",
+        "The Bank also invoked class-action efficiency. The Court reasoned that requiring adjudication of every individual claim whenever the common claim failed could force every member to intervene and overwhelm the device’s common-question function. A district court could choose to expand the issues, but Rule 23 did not require it to resolve every matter mentioned by a witness. The binding-effect notice did not expand the substantive reach of the judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "880–881 & n.12"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The Baxter action returns for litigation of the surviving claims",
+      "cue": "What did the Supreme Court’s reversal leave intact?",
+      "paragraphs": [
+        "On June 25, 1984, the Supreme Court reversed the Fourth Circuit and remanded. The preclusion ground for dismissing the Baxter action was removed. The Court neither found discrimination against those employees nor reopened the losses of the original named plaintiffs.",
+        "Chief Justice Burger and Justices Brennan, White, Blackmun, Rehnquist, and O’Connor joined Stevens’s opinion. Justice Marshall concurred in the judgment without a separate explanation. Justice Powell did not participate, and no dissent was filed. The Baxter petitioners could litigate their distinct promotion claims while remaining bound by the rejection of the classwide pattern or practice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "868, 873–874 & nn.6–8, 880–882"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "id": "gibson",
+  "briefId": "CT-NEXT-CM-0121",
+  "title": "Gibson v. Cranage",
+  "course": "Contracts",
+  "citation": "39 Mich. 49 (1878)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A father ordered a portrait of his deceased daughter on an express personal-satisfaction basis and refused the finished picture.",
+  "actors": [
+    {
+      "name": "Jefferson Gibson",
+      "role": "Seller soliciting the portrait order"
+    },
+    {
+      "name": "Thomas Cranage",
+      "role": "Father and purchaser reserving personal satisfaction"
+    }
+  ],
+  "proceedings": [
+    "Gibson sued in assumpsit for the price and lost below.",
+    "Michigan Supreme Court affirmed with costs."
+  ],
+  "limits": "Gibson was distinct from the artist. The court did not find objectively poor workmanship, authorize dishonest dissatisfaction, or decide the hypothetical of a buyer who never examines the work.",
+  "briefSha256": "d6c61e0f65d252e3ddea87ca4981804f5135f534bef1e29581ef27ca58bda44d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0121"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A portrait is commissioned from a photograph",
+      "cue": "The bargain assigns acceptance to the father",
+      "paragraphs": [
+        "Jefferson Gibson solicited Thomas Cranage’s order for an enlarged portrait of Cranage’s deceased daughter from a small photograph. Gibson described a picture the father would like and recognize as a good likeness. Cranage testified that the photograph would be sent away for finishing and that he need neither take nor pay for the result unless it satisfied him in every particular. There was little dispute about the terms; both versions tied payment to personal satisfaction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "39 Mich. at 49"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The first portrait is rejected",
+      "cue": "Alteration does not change Cranage’s response",
+      "paragraphs": [
+        "When Gibson presented the portrait, Cranage disliked it and refused acceptance. Gibson could not clearly identify his objections and sent it back to the artist for alteration. The next day Cranage wrote invoking the original terms, rejecting that picture or a similar one, and countermanding the order. Further letters did not materially change the dispute.",
+        "Cranage declined to inspect the returned altered portrait, but viewed it during trial and found the same objections. Gibson brought assumpsit for the price and, after losing in Bay County, sought review by writ of error. Counsel argued that a seller should have a reasonable opportunity to replace defective merchandise before rescission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "39 Mich. at 49–50"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court enforces the personal-satisfaction choice",
+      "cue": "Objective praise cannot make the price payable",
+      "paragraphs": [
+        "Justice Marston treated the parties’ deliberate assignment of judgment to Cranage as controlling. Even a portrait admired by artists or other observers might not satisfy the bereaved father. Inability to articulate the defects did not transfer his contractual choice to an objective observer. Gibson’s own evidence showed that the important agreed condition had not occurred.",
+        "Enforcing this arrangement, made without fraud or mistake and contrary to no public policy, did not impose legally objectionable hardship merely because Cranage perhaps ought to have liked the portrait. The court considered the charge at least as favorable to Gibson as the actual bargain warranted and did not analyze it further."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "39 Mich. at 50–51"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The price claim fails on its chosen condition",
+      "cue": "The judgment is affirmed with costs",
+      "paragraphs": [
+        "On June 11, 1878, the Michigan Supreme Court affirmed with costs, the other justices concurring. It did not award Cranage damages or adjudge the art objectively defective. Cranage had examined the first version and remained dissatisfied at trial; the case did not decide a purchaser’s refusal ever to inspect or a restitution claim for retained improvements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "39 Mich. at 50–51"
+        }
+      ]
+    }
+  ]
+}

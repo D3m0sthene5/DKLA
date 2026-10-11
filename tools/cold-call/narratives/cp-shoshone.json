@@ -1,0 +1,120 @@
+{
+  "id": "cp-shoshone",
+  "briefId": "CP-ATLAS-SHOSHONE",
+  "title": "Shoshone Mining Co. v. Rutter",
+  "course": "Civil Procedure",
+  "citation": "177 U.S. 505 (1900)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Competing mining claimants used a congressionally authorized possession suit connected to a federal patent application. The Supreme Court nevertheless required an independent basis for federal jurisdiction because the possession dispute could depend entirely on local law or facts.",
+  "actors": [
+    {
+      "name": "Shoshone Mining Company",
+      "role": "Claimant that filed one possession action in Idaho state court"
+    },
+    {
+      "name": "Rutter side",
+      "role": "Competing claimants who filed a federal action and removed the other"
+    },
+    {
+      "name": "Justice Brewer",
+      "role": "Author of the Supreme Court opinion"
+    }
+  ],
+  "proceedings": "Two actions were consolidated in federal Circuit Court and reviewed by the Ninth Circuit. The Supreme Court reversed and required dismissal of the originally federal action and remand of the removed action to Idaho state court.",
+  "limits": "The jurisdictional disposition settled neither possession nor entitlement to a patent. Particular adverse suits could qualify through genuine federal questions or diversity; the historical jurisdictional amount discussed was more than $2,000.",
+  "briefSha256": "f01b8b444fa080324aee0a8792788d470bc9adb6ac7c936b41087f0dfff041d2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SHOSHONE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Competing possession claims preceded a federal patent",
+      "cue": "Explain the adverse-suit procedure without inventing the ownership story.",
+      "paragraphs": [
+        "Shoshone Mining Company and the Rutter side asserted competing mining-property claims in proceedings connected with obtaining a federal mineral-land patent. Revised Statutes sections 2325–2326 authorized an adverse suit to establish possession before the Land Department issued the patent. The reported dispute concerned jurisdiction rather than a detailed account of discovery, location, or ownership.",
+        "The Rutter side began action No. 81 in federal court. Shoshone began the other action in the Idaho state district court for Shoshone County, and the Rutter side removed it. The cases were consolidated for trial in the federal Circuit Court in Idaho and then taken to the Ninth Circuit. Diverse citizenship did not exist. The Supreme Court therefore had to decide whether federal authorization of this type of suit itself made it a federal-question case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "505–509, 513–514"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Brewer distinguished congressional power from the statute enacted",
+      "cue": "Explain why a competent court did not necessarily mean a federal court.",
+      "paragraphs": [
+        "Counsel challenged the Supreme Court’s recent Blackburn v. Portland Gold Mining Company decision, which had held that authorization of an adverse suit alone did not confer federal-question jurisdiction. Justice Brewer’s opinion reconsidered and adhered to that conclusion in this separate case.",
+        "Congress had constitutional power to provide federal adjudication of controversies arising from public-land disposal. But these provisions directed claimants to a court of competent jurisdiction, invoking ordinary jurisdictional rules rather than creating an exclusively federal forum or a new allocation of judicial power. The then-existing general grants allowed diversity or genuine federal-question jurisdiction, subject to an amount exceeding $2,000.",
+        "A title’s original connection to federal land law was insufficient. Otherwise, ordinary land disputes throughout newer states would automatically enter federal court. An adverse suit might require federal interpretation, but it might instead turn on local mining custom, state law, or facts such as discovery dates and location."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "505–509"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Recognizing local rules did not turn them into federal law",
+      "cue": "Address the asserted indispensable federal ingredient.",
+      "paragraphs": [
+        "Congress permitted possession to depend on local mining rules and customs or state limitation statutes. Recognition of those sources did not convert them into federal law. Brewer illustrated with the Constitution’s reference to state qualifications for congressional electors and statutes referring to another government’s rules: one legal system can recognize another’s standards without adopting them as its own law for jurisdictional purposes.",
+        "Counsel invoked federal-incorporation cases, including Osborn, to argue that congressional authorization supplied an indispensable federal ingredient. The Court distinguished a statute authorizing a suit to establish a right from one creating the right whose scope must be construed. This mining action could end without deciding the meaning or effect of federal legislation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "508–510"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Federal administration did not require a federal forum in every case",
+      "cue": "Explain the practical and supremacy arguments.",
+      "paragraphs": [
+        "The suit’s role in federal patent administration also did not establish jurisdiction. Congress had left disputes below the historical jurisdictional amount to state tribunals and contemplated litigation near the property. That structure undermined the claim that a federal court was essential to every patent application. Differences between agricultural- and mineral-land procedures did not change the fact that mineral possession disputes could turn on facts or local law.",
+        "Federal provisions about limitations and decrees likewise did not create jurisdiction over every action. State courts were expected to enforce federal enactments under the Supremacy Clause. A possible future refusal was immaterial here, and Congress could legislate further if needed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "510–513"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Each action returned to the proper jurisdictional path",
+      "cue": "Give the mandate and separate positions.",
+      "paragraphs": [
+        "On April 30, 1900, the Supreme Court reversed the Ninth Circuit and directed remand to the federal Circuit Court’s Northern Division for Idaho. That court was to reverse its decree, dismiss the action originally filed federally, and remand the removed action to state court. The official report calls the removed case No. 103 in its procedural description but No. 102 in the mandate; both refer to the state-origin action.",
+        "The judgment awarded neither claimant the mining rights or a patent. Justice McKenna dissented without a published explanation. Justice White had not heard argument and did not participate. The holding left federal jurisdiction available when a particular adverse suit supplied a genuine independent basis, but Congress’s authorization of the procedure alone did not do so."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "513–514"
+        }
+      ]
+    }
+  ]
+}

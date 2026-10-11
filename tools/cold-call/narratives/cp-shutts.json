@@ -1,0 +1,130 @@
+{
+  "id": "cp-shutts",
+  "briefId": "CP-092",
+  "title": "Phillips Petroleum Co. v. Shutts",
+  "course": "Civil Procedure",
+  "citation": "472 U.S. 797 (1985)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Thousands of royalty owners could be bound by a Kansas class judgment after notice and an opportunity to leave, but their participation did not make Kansas law govern every out-of-state royalty transaction.",
+  "actors": [
+    {
+      "name": "Phillips Petroleum Company",
+      "role": "Delaware corporation headquartered in Oklahoma, defendant and Supreme Court petitioner"
+    },
+    {
+      "name": "Irl Shutts and Robert and Betty Anderson",
+      "role": "Kansas and Oklahoma royalty owners representing the class"
+    },
+    {
+      "name": "Absent royalty owners",
+      "role": "Approximately 28,100 owners remaining in the final nationwide and international class"
+    },
+    {
+      "name": "Justice Rehnquist",
+      "role": "Author of the Court’s opinion"
+    },
+    {
+      "name": "Justice Stevens",
+      "role": "Joined the jurisdiction holding but dissented on choice of law"
+    }
+  ],
+  "proceedings": "Kansas bench trial awarded interest under Kansas law; Kansas Supreme Court affirmed; U.S. Supreme Court affirmed plaintiff-class jurisdiction, reversed indiscriminate application of Kansas law, and remanded.",
+  "limits": "The holding concerns known absent plaintiffs with wholly or predominantly monetary claims and the specified protections. It does not establish nationwide jurisdiction over a defendant or prescribe each claim’s governing law. Powell did not participate.",
+  "briefSha256": "abc6a178c113003a9655f77806321c4cf21c4d0fee356594b20f6cba6c17d9a2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-092"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Phillips held royalty increases while federal approval remained uncertain",
+      "cue": "Establish the transactions before introducing the class.",
+      "paragraphs": [
+        "During the 1970s, Phillips Petroleum Company produced or purchased natural gas from leases in eleven states. Phillips was incorporated in Delaware and headquartered in Oklahoma. While federal regulators considered proposed price increases, Phillips collected the higher prices subject to possible refunds with interest. It withheld the corresponding royalty increases unless owners supplied indemnity against possible refunds. When the increases were approved, Phillips paid the suspended royalties but no interest, although it had retained and used the money for years.",
+        "Irl Shutts, a Kansas royalty owner, and Robert and Betty Anderson, Oklahoma owners, represented a class seeking that interest in Kansas court. The court initially certified roughly 33,000 owners. First-class mailed notices described the suit, allowed personal or counsel participation, and explained that recipients would be represented and bound unless they returned an exclusion form. More than 3,400 opted out, and roughly 1,500 were excluded because notices could not be delivered.",
+        "The remaining class included approximately 28,100 owners across the United States and abroad. About 97 percent of the owners and more than 99 percent of the leases lacked an apparent Kansas connection apart from the lawsuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "472 U.S. at 799–803, 813, 815"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Kansas awarded interest under one state’s law",
+      "cue": "Identify the two independent challenges Phillips brought.",
+      "paragraphs": [
+        "After a bench trial, the Kansas trial court applied Kansas contract and equity law to all class claims and awarded interest. The Kansas Supreme Court affirmed. It regarded notice, participation, exclusion, and adequate representation as sufficient jurisdictional safeguards, and applied forum law absent compelling reasons for another state’s law.",
+        "Phillips obtained Supreme Court review of both the power to bind absent owners and the choice of Kansas law for all claims. Justice Rehnquist’s opinion first held that Phillips could raise the absent owners’ jurisdictional protection because its own interest was at stake. A judgment requiring Phillips to pay without binding the owners could expose the company to later litigation on the same claims. Its objection sought reciprocal finality, not simply enforcement of an opponent’s rights."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 802–806"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Absent owners needed protection, but not defendant-style contacts",
+      "cue": "Explain why notice and opting out sufficed for this class.",
+      "paragraphs": [
+        "An absent plaintiff has a property interest in a claim that an adverse judgment can extinguish. But an absent owner ordinarily need not travel, hire counsel, defend against coercive relief, or face the ordinary risks of a personal damages judgment. Representatives and judicial supervision protect the owner’s interest. Those differences justified different jurisdictional safeguards from those protecting an unwilling defendant.",
+        "For known plaintiffs with wholly or predominantly monetary claims, due process required the best practicable notice, a chance to be heard and participate, a reasonable opportunity to opt out, and adequate representation throughout. Affirmative opt-in and defendant-style minimum contacts were unnecessary when those safeguards existed. Kansas satisfied them, and adequate representation was undisputed.",
+        "An opt-in requirement could exclude owners through unfamiliarity or inaction and frustrate practical recovery of claims averaging about $100, which were often uneconomical to litigate alone. The thousands of actual exclusions showed that the Kansas procedure worked. The Court reserved other forms of class relief and defendant classes, and did not resolve hypothetical counterclaims, discovery obligations, or costs imposed on absent owners."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 807–814 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A valid class did not supply contacts for every substantive claim",
+      "cue": "Separate procedural aggregation from the choice of governing law.",
+      "paragraphs": [
+        "Phillips identified potentially material differences among states’ interest rules. Where applicable laws materially conflicted, Kansas needed sufficient contacts with each claim to create state interests making its choice neither arbitrary nor fundamentally unfair. A class action’s convenience could not create those missing contacts.",
+        "Kansas’s experience with royalty litigation, the owners’ failure to opt out, and the administrative ease of applying one law did not substitute for that inquiry. The commingled royalties were not an identifiable Kansas fund that would justify a single governing law. Nor did anything establish that Phillips and owners elsewhere expected Kansas law to control their transactions when those transactions occurred. The Constitution might allow more than one reasonable choice, but combining claims did not expand that range for an otherwise unrelated transaction.",
+        "The majority therefore rejected indiscriminate application of Kansas law on the reasoning below. It did not direct which particular law must govern every claim on remand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 816–823"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens disputed the demonstrated conflict, and the Court divided the judgment",
+      "cue": "End with both surviving jurisdiction and reopened choice of law.",
+      "paragraphs": [
+        "Justice Stevens joined the jurisdiction portions but dissented from the choice-of-law ruling. He thought Kansas had already considered other states’ laws and Phillips had not shown an unambiguous, established conflict. He distinguished full-faith-and-credit concerns about other states’ interests from due-process concerns about unfair surprise, and objected to turning debatable interpretations of state law into constitutional error. Justice Powell took no part.",
+        "On June 26, 1985, the Supreme Court affirmed Kansas’s jurisdiction over the plaintiff class, reversed its application of Kansas law to all transactions, and remanded. The owners did not lose their interest claims by that judgment. The decision resolved jurisdiction over absent plaintiffs and permissible governing law on this record; it did not confer nationwide personal jurisdiction over Phillips merely because the class was nationwide."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 823–845"
+        }
+      ]
+    }
+  ]
+}

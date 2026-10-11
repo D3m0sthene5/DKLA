@@ -1,0 +1,107 @@
+{
+  "id": "brief-LRS-CLOSURE-061",
+  "briefId": "LRS-CLOSURE-061",
+  "title": "Texas v. Pennsylvania",
+  "course": "Legislation and the Regulatory State",
+  "citation": "592 U.S. 1144, 141 S. Ct. 1230 (Mem.) (2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Texas seeks to challenge other states’ election conduct directly in the Supreme Court, but the Court denies filing for lack of standing; two Justices disagree only about permission to file.",
+  "actors": [
+    {
+      "name": "Texas",
+      "role": "State requesting leave to bring an original action."
+    },
+    {
+      "name": "Pennsylvania and other states",
+      "role": "Proposed defendants whose election conduct Texas sought to challenge."
+    },
+    {
+      "name": "Justices Alito and Thomas",
+      "role": "Authors of the separate procedural position allowing filing but no other relief."
+    }
+  ],
+  "proceedings": [
+    "Texas moved for leave to file a bill of complaint in an original action.",
+    "The Court denied leave for lack of Article III standing and dismissed other pending motions as moot."
+  ],
+  "limits": "The short order makes no election-misconduct findings and does not adjudicate legality of the challenged practices. Alito and Thomas would allow filing but would grant no other relief and took no position on other issues.",
+  "briefSha256": "6daec591014dfdef8e242f25a45f232151a12c4db4577fc495c79f4af6c4bb62",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-061"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Texas asks to bring an original action against other states",
+      "cue": "What procedural request was before the Court?",
+      "paragraphs": [
+        "Texas asked the Supreme Court for leave to file a bill of complaint against Pennsylvania and other states concerning their conduct of elections. It sought to begin an original action in that Court, rather than appeal a judgment after a trial.",
+        "The order addressing the request does not recount the proposed complaint’s underlying allegations or evidence. It makes no factual findings about election misconduct."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Request and original-action posture; December 11 order 1; 592 U.S. 1144"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court finds no demonstrated judicially cognizable interest",
+      "cue": "Why does the proposed action fail at the filing stage?",
+      "paragraphs": [
+        "The Court concluded that Texas lacked Article III standing. Texas had not demonstrated a judicially cognizable interest in how another state conducted its elections.",
+        "The brief order gave no further analysis of injury, causation or redressability. Its standing conclusion did not decide whether the challenged practices complied with federal law or accept or reject the proposed complaint’s factual allegations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Standing rationale; order 1; 592 U.S. 1144"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Leave is denied and the other motions become moot",
+      "cue": "What action did the Court take?",
+      "paragraphs": [
+        "On December 11, 2020, the Court denied Texas’s motion for leave to file and dismissed all other pending motions as moot. That was the operative disposition of the proposed action at this stage.",
+        "The Court did not enter a merits judgment on a trial record or grant the substantive relief Texas sought."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition; order 1; 592 U.S. 1144"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Alito and Thomas distinguish allowing filing from granting relief",
+      "cue": "What was the scope of their separate statement?",
+      "paragraphs": [
+        "Justice Alito, joined by Justice Thomas, stated that the Court had no discretion to deny filing a bill of complaint in a case within its original jurisdiction. He cited Thomas’s earlier dissent in Arizona v. California on that procedural point.",
+        "They would have permitted filing, but would not have granted other relief and expressly took no position on any other issue. Their statement therefore did not endorse Texas’s allegations or requested substantive outcome. No other Justice issued a separate statement, and the order contains no numbered judicial footnotes."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Alito statement joined by Thomas; order 1; 592 U.S. 1144"
+        }
+      ]
+    }
+  ]
+}

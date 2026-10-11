@@ -1,0 +1,104 @@
+{
+  "id": "brief-CP-121",
+  "briefId": "CP-121",
+  "title": "Robb v. John C. Hickey, Inc.",
+  "course": "Civil Procedure",
+  "citation": "19 N.J. Misc. 455, 20 A.2d 707 (Morris County Cir. Ct. 1941)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A jury simultaneously finds contributory negligence and recommends damages; the judge orders a new trial because correcting form cannot resolve a contradiction about who won.",
+  "actors": [
+    {
+      "name": "Clyde J. Robb",
+      "role": "Administrator ad prosequendum of Georgianna Robb’s estate and plaintiff."
+    },
+    {
+      "name": "John C. Hickey, Inc. and Roger W. King",
+      "role": "Defendants seeking to turn the inconsistent verdict into a defense judgment."
+    }
+  ],
+  "proceedings": [
+    "The jury’s verdict was received at the clerk’s desk in the judge’s absence.",
+    "The parties sought conflicting remedies; Judge Leyden denied molding and granted a new trial."
+  ],
+  "limits": "The reported ruling does not describe the underlying accident or negligence evidence. Historical contributory-negligence rules controlled the charge. It neither awards $2,000 nor enters a final defense judgment.",
+  "briefSha256": "694a3163c515208f595adaa1c763cd08a4f25ce42349377265fa7d1d4ecc8239",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-121"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Negligence and contributory negligence are submitted to the jury",
+      "cue": "Which consequence did the judge’s instruction make clear?",
+      "paragraphs": [
+        "Clyde J. Robb, acting as administrator ad prosequendum of Georgianna Robb’s estate, sued John C. Hickey, Inc. and Roger W. King. The pleadings placed the defendants’ negligence and Georgianna’s contributory negligence in issue. The reported decision does not describe the underlying event or reconstruct the evidence.",
+        "The judge instructed that if the decedent’s contributory negligence was established, the comparative degrees of fault did not matter. Under that charge, contributory negligence barred the plaintiff’s recovery."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and charge;19 N.J. Misc.455"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury records inconsistent conclusions at the clerk’s desk",
+      "cue": "Why did both sides challenge the answer?",
+      "paragraphs": [
+        "In the judge’s absence, the verdict was received and recorded at the clerk’s desk. The jury said both parties were negligent, characterized the defendants as more negligent, and recommended $2,000 for Robb against both defendants.",
+        "Robb obtained a rule seeking to set the verdict aside for ambiguity, inconsistency, inadequacy and departure from the charge. The defendants instead asked the judge to mold it into a verdict for them. They argued that the mutual-negligence finding required a defense result and that the damages recommendation could be disregarded as surplusage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Verdict and competing motions;19 N.J. Misc.455–456"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Leyden distinguishes an irrelevant recommendation from a conflicting result",
+      "cue": "Why could the damages statement not simply be deleted?",
+      "paragraphs": [
+        "Judge Leyden recognized that some jury suggestions fall outside submitted issues and can be discarded without changing the verdict’s substance. Examples included suggestions concerning charity, an unrelated fund, costs after a plaintiff loses, or criminal leniency. But the $2,000 recommendation directly addressed the submitted question of liability to this plaintiff in damages.",
+        "The first part of this verdict indicated a defense result under the contributory-negligence instruction; the final part indicated a plaintiff result. The jury also improperly compared fault. Accepting the defendants’ preferred sentence and deleting the opposite conclusion would select a substantive result the jury had not clearly settled.",
+        "A court may correct an informal verdict when the jury’s actual purpose is clear, sufficient and convincing. It may not substitute its own verdict when the intended result remains uncertain. Read as a whole, this answer contained that substantive uncertainty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Molding power and ambiguity;19 N.J. Misc.456–457"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A new trial replaces the contradictory verdict",
+      "cue": "What motions succeeded and what judgment was not entered?",
+      "paragraphs": [
+        "On July 2, 1941, Leyden denied the defendants’ motion to mold the verdict, made the plaintiff’s rule absolute, and granted a new trial. The court did not enter either a $2,000 judgment for Robb or a final judgment for the defendants.",
+        "The single trial-judge ruling contains no separate writing. Its result rests on unresolved conflict over the jury’s intended winner, not a prohibition on correcting the form of every imperfect verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Disposition;19 N.J. Misc.457"
+        }
+      ]
+    }
+  ]
+}

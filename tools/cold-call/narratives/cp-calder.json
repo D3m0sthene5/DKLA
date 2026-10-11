@@ -1,0 +1,130 @@
+{
+  "id": "cp-calder",
+  "briefId": "CP-ATLAS-CALDER",
+  "title": "Calder v. Jones",
+  "course": "Civil Procedure",
+  "citation": "465 U.S. 783 (1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A California entertainer sues a Florida reporter and editor over an article targeting her California life and work. Their challenge concerns where the claims can be heard, before anyone decides whether the article was libelous.",
+  "actors": [
+    {
+      "name": "Shirley Jones",
+      "role": "California entertainer claiming libel, privacy invasion, and emotional harm."
+    },
+    {
+      "name": "South",
+      "role": "Florida reporter who wrote the first draft and contacted California sources."
+    },
+    {
+      "name": "Iain Calder",
+      "role": "Florida-based president and editor who approved and edited the article."
+    },
+    {
+      "name": "National Enquirer and its local distributor",
+      "role": "Publication defendants that did not contest California jurisdiction."
+    }
+  ],
+  "proceedings": [
+    "The California Superior Court quashed service on South and Calder.",
+    "The California Court of Appeal reversed, and the state supreme court declined review.",
+    "The U.S. Supreme Court treated the attempted appeal as a certiorari petition, granted review, and unanimously affirmed."
+  ],
+  "limits": "The account follows the canonical historical brief without a fresh source audit or later-law certification. Alleged libel and intentional targeting support jurisdictional analysis, not a merits verdict. A disputed California research trip was neither resolved nor relied upon. No separate opinion appeared.",
+  "briefSha256": "0f22757bab01522ef287f335db1da260d3cde1a0cc237bf00d8805e932b9c98c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-CALDER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An article focuses on a California performer",
+      "cue": "What did each individual defendant contribute?",
+      "paragraphs": [
+        "Shirley Jones lived and worked as a professional entertainer in California. The October 9, 1979 National Enquirer carried an article alleging that her drinking interfered with professional obligations. The newspaper was incorporated and principally based in Florida, with circulation above five million. About 600,000 copies circulated in California, almost twice the next largest state market.",
+        "Reporter South lived in Florida, wrote the first draft, and conducted most research there through calls to California sources. Shortly before publication, he read a draft by telephone to Jones’s husband. South regularly traveled to California, although whether he made a research trip for this article was disputed.",
+        "Iain Calder, the Enquirer’s Florida-based president and editor, approved the subject, edited the final story, and declined Jones’s retraction request. His two California visits were unrelated to this article."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. 784–786 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Jones sues in California, but the trial court shields the individuals",
+      "cue": "Why did the state appellate court disagree?",
+      "paragraphs": [
+        "Jones and her husband sued the publisher, local distributor, South, and Calder for libel, invasion of privacy, and intentional infliction of emotional harm. Her husband later voluntarily dismissed his complaint. The publisher and distributor answered without contesting jurisdiction.",
+        "South and Calder received process by mail in Florida, appeared specially, and moved to quash service. The California Superior Court thought conduct causing local injury ordinarily supported jurisdiction, but gave extra weight to the chilling effect of requiring reporters and editors to defend far away. It also thought Jones could obtain adequate relief from the publisher and granted their motion.",
+        "The California Court of Appeal reversed. It relied on intended and actual tortious effects in California and rejected an extra First Amendment barrier. The California Supreme Court declined review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. 784–787, 788 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court accepts review through the proper route",
+      "cue": "Why was ordinary product circulation not the whole question?",
+      "paragraphs": [
+        "South and Calder sought review by appeal. The U.S. Supreme Court held that route unavailable because the state court had decided whether the Constitution permitted jurisdiction under a statute extending to constitutional limits, not whether that statute itself was constitutional. It treated the papers as a certiorari petition and granted review. Although no merits trial had occurred, the federal jurisdictional issue was sufficiently final.",
+        "The individuals argued that employees should not inherit their employer’s forum contacts. They did not control nationwide marketing or have a direct stake in California sales. Foreseeability of circulation, they argued, resembled a Florida welder making a boiler later shipped by his employer to California: jurisdiction over the manufacturer should not automatically reach every employee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. 787–789 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court identifies each defendant’s own targeted conduct",
+      "cue": "What made California more than the place a product happened to arrive?",
+      "paragraphs": [
+        "Justice Rehnquist’s unanimous opinion assessed the relationship among each defendant, the forum, and this litigation. California was the focal point of both the allegedly libelous story and harm. The article concerned Jones’s California activities and California-centered career, used California sources, and threatened professional and emotional injury primarily there. Both defendants knew the brunt would fall where she lived and worked and where the paper had its largest circulation.",
+        "This alleged intentional targeting differed from untargeted negligence. South and Calder were primary participants—writer and editor—in the challenged conduct directed at California. Their connection came from their own actions, not merely predictable movement of their employer’s product. They could reasonably anticipate answering there even while acting in Florida. The Court did not resolve or rely on South’s disputed research trip.",
+        "The defendants were right that contacts must be evaluated individually. But acting officially for a corporation did not immunize a person whose own conduct established the necessary relationship. Thus the Court neither attributed all corporate contacts to every employee nor created employee immunity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. 785–787 & nn.4, 6; 788–790"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Speech defenses remain available in the merits litigation",
+      "cue": "What did affirmance decide?",
+      "paragraphs": [
+        "The Court rejected an additional speech-based adjustment to personal jurisdiction. Constitutional safeguards already limited substantive defamation liability. Reusing those protections to defeat otherwise proper jurisdiction would complicate the contacts inquiry and count the safeguards twice. South and Calder remained able to assert substantive speech defenses in the permissible forum.",
+        "On March 20, 1984, the Court affirmed the California Court of Appeal, with no separate writing. South and Calder could not quash service on the presented theory, and the claims could proceed. The Court did not establish falsity, libel, any other tort element, or damages; nor did it hold that any injury to a forum resident automatically establishes jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "465 U.S. 790–791"
+        }
+      ]
+    }
+  ]
+}

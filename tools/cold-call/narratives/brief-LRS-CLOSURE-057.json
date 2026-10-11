@@ -1,0 +1,167 @@
+{
+  "id": "brief-LRS-CLOSURE-057",
+  "briefId": "LRS-CLOSURE-057",
+  "title": "Committee on the Judiciary of the U.S. House of Representatives v. McGahn",
+  "course": "Legislation and the Regulatory State",
+  "citation": "951 F.3d 510 (panel); 968 F.3d 755 (en banc) (D.C. Cir. 2020)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A House committee’s demand that a former White House lawyer appear produced opposite appellate standing decisions, while the substantive immunity question remained unresolved on rehearing.",
+  "actors": [
+    {
+      "name": "Donald McGahn",
+      "role": "Former White House Counsel subpoenaed for congressional testimony"
+    },
+    {
+      "name": "House Judiciary Committee",
+      "role": "Authorized institutional plaintiff seeking testimony"
+    },
+    {
+      "name": "President Trump and the White House",
+      "role": "Directed McGahn not to appear"
+    },
+    {
+      "name": "Office of Legal Counsel",
+      "role": "Justice Department office asserting absolute testimonial immunity"
+    }
+  ],
+  "proceedings": [
+    "District court: standing, jurisdiction, and cause of action found; immunity rejected; appearance ordered with question-specific privileges preserved.",
+    "February 28 panel: vacated and directed dismissal for want of an Article III controversy, 2–1.",
+    "August 7 en banc: vacated panel approach; held standing 7–2 and remanded remaining issues to the panel."
+  ],
+  "limits": [
+    "The panel citation and en banc citation identify contrary stages. En banc review decided standing only, leaving jurisdiction, cause of action, and testimonial immunity unresolved. No later resolution is supplied here."
+  ],
+  "briefSha256": "d29a68bcfffa59bb3e0ec253bf1b8c36e81ca7ec8e1c342b086a044774e2cc4b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-057"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Committee seeks testimony from a former presidential adviser",
+      "cue": "Introduce the investigation and the impasse.",
+      "paragraphs": [
+        "Donald McGahn had served as White House Counsel and witnessed events investigated by Special Counsel Robert Mueller, including President Trump’s efforts concerning that investigation. The House Judiciary Committee sought information about possible obstruction, impeachment, remedial legislation, and oversight. It requested documents in March 2019 and issued an authorized subpoena April 22 requiring documents and testimony on May 21.",
+        "On May 20, the White House relayed the President’s instruction that McGahn not appear. The Justice Department’s Office of Legal Counsel, or OLC, asserted absolute immunity of close presidential advisers from compelled congressional testimony. McGahn’s private lawyer confirmed the refusal while offering compliance with an accommodation between the Committee and White House. They eventually agreed on documents but not testimony."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "February panel opinion 2–4; August en banc opinion 4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court orders appearance while preserving particular privileges",
+      "cue": "Explain what the judgment actually required.",
+      "paragraphs": [
+        "With House authorization to sue, the Committee sought declaratory and injunctive relief in August 2019. On cross-motions for summary judgment, the district court found Article III standing, federal-question jurisdiction under § 1331, and an implied constitutional cause of action. It rejected categorical testimonial immunity and required McGahn to appear.",
+        "That order preserved applicable executive, attorney-client, or other privileges in response to particular questions. It did not compel disclosure of every requested fact. McGahn appealed. The House’s later impeachment vote and the Senate’s acquittal did not end the Committee’s asserted legislative, oversight, and potential further impeachment interests."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Panel 4–6; en banc 5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The February panel treats the direct interbranch dispute as outside Article III",
+      "cue": "Follow the first appellate judgment and its reservations.",
+      "paragraphs": [
+        "On February 28, 2020, Judge Griffith, joined by Judge Henderson, held there was no Article III case or controversy. The panel vacated and remanded with instructions to dismiss, without deciding absolute immunity. This was the decision reported at 951 F.3d 510.",
+        "Griffith assessed cognizable injury through history and separation of powers. Courts traditionally decided individual rights, including outside parties’ constitutional disputes, rather than directly supervising the branches’ relative authority. A legal disagreement alone did not supply a judicial controversy. A congressional demand to a presidential adviser differed from a court’s criminal subpoena, contempt prosecution, habeas petition, or private suit involving congressional process, where individual rights were directly implicated.",
+        "The panel stressed nearly two centuries without direct congressional-executive enforcement litigation and political tools including accommodation, appropriations, appointments, bargaining, public pressure, and impeachment. Litigation could displace negotiation with delay and repeated privilege disputes and threaten judicial neutrality. It read Raines, the Supreme Court’s legislator-standing case, for broader structural guidance. It distinguished circuit cases involving express statutory authority, intervention, or court-managed accommodation, and drew support from § 1365’s Senate-only jurisdiction provision and governmental-privilege exception.",
+        "The panel reserved whether Congress could authorize such suits by statute, whether a chamber could civilly enforce against private persons, and established criminal and private-rights proceedings. It did not reject every possible congressional subpoena case."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Panel 2, 6–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Henderson questions immunity while Rogers would enforce appearance",
+      "cue": "Keep the panel’s separate views distinct from its holding.",
+      "paragraphs": [
+        "Henderson joined the result and rationale but resisted a categorical bar on all congressional institutional injuries. An authorized committee differed from the individual members in Raines, though historical and structural concerns still defeated standing here. She separately questioned absolute immunity’s legal foundation, viewing specific qualified privileges as more defensible and compatible with accommodation. No particular privilege had formally been invoked, however, and her critique was not a merits holding compelling testimony.",
+        "Judge Rogers dissented. She distinguished all four Raines considerations: a concrete injury to the House’s subpoena authority, authorization to litigate, historical judicial enforcement, and no adequate alternative. OLC regarded criminal prosecution or physical detention of presidential advisers as unavailable or impracticable while recognizing civil enforcement. A court could resolve appearance without deciding every later privilege. Removing that avenue would encourage noncooperation, she believed.",
+        "Rogers also found an equitable constitutional action, alternatively declaratory relief, and § 1331 jurisdiction. She rejected treating the Senate-specific statute as an implied repeal of ordinary federal-question jurisdiction for the House. These were her positions, not the February panel’s rulings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Henderson panel concurrence 1–20 & nn.1–12; Rogers panel dissent 1–31"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The en banc court recognizes a concrete institutional information injury",
+      "cue": "Trace the changed standing decision and its limited disposition.",
+      "paragraphs": [
+        "The court granted rehearing and vacated the panel opinions. On August 7, 2020, seven judges held that the Committee had standing. Rogers wrote for the court; Henderson and Griffith separately dissented. Judges Katsas and Rao did not participate. The decision is reported at 968 F.3d 755.",
+        "With especially rigorous scrutiny for an interbranch case, the court applied injury, traceability, and redressability. At that stage it assumed the Committee’s claimed legal entitlement rather than deciding every merits defense. Congressional investigation and chamber subpoenas were established means of obtaining information for legislation, oversight, and impeachment. Refusal to honor the concededly valid subpoena withheld information allegedly due. Akins and Public Citizen, Supreme Court informational-injury cases, supported recognizing that concrete loss.",
+        "The injury was particularized to the appropriate institution. The House delegated investigation and authorized suit. Unlike individual legislators in Raines or one chamber claiming whole-legislature authority in Bethune-Hill, the plaintiff matched the holder of this power. The Senate need not join or authorize a House subpoena. McGahn caused the deprivation, and an order requiring appearance and testimony could redress it. The House’s sole impeachment authority further reinforced its specific interest.",
+        "The court affirmed the district court in part on standing and remanded to the panel for remaining threshold objections and, if reached, merits. It expressly left subject-matter jurisdiction, cause of action, and absolute immunity undecided. Standing did not itself finally enforce the subpoena."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "En banc opinion 3, 7–18, 37–38 & participation notation"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "History and structure do not create an automatic bar for the en banc majority",
+      "cue": "Explain why judicial enforcement could support accommodation.",
+      "paragraphs": [
+        "The majority rejected treating every interbranch information dispute as structurally nonjudicial. Political-question limits and other doctrines remained analytically distinct from standing and outside this rehearing. Although skeptical that all structural objections belonged in standing, the court did not need to settle that proposition because these particular objections failed.",
+        "Since the 1970s, negotiation had occurred against the possibility of litigation. Removing that possibility could weaken executive incentives to accommodate and make oversight depend on voluntary disclosure. Litigation was slow and disfavored as a first option; here it followed repeated efforts and an impasse. A familiar legal ruling on appearance could preserve valid privilege claims rather than grant Congress everything demanded.",
+        "Civil enforcement of investigative authority also differed from usurping the Executive’s general criminal prosecution function. OLC’s rejection of criminal contempt against such advisers made that supposed exclusive remedy implausible. Political controversy alone did not excuse avoidance. Raines’s unauthorized individual legislators differed from this authorized institution. History included recent adjudication and an older tradition of presidential cooperation that often made litigation unnecessary. The court used those considerations alongside the ordinary standing requirements."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "En banc opinion 19–38"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The en banc dissenters retain structural and remedial objections",
+      "cue": "Close the two-stage account without implying a final merits result.",
+      "paragraphs": [
+        "Henderson incorporated her earlier concurrence and added that Mazars, the Supreme Court’s recent congressional-subpoena decision, called for greater attention to historical cognizability and judicial limits. Political tools did not disappear merely because prosecution or detention was unattractive. Judicial mediation risked changing a constitutional practice centered on negotiation.",
+        "Griffith argued that structural concerns helped define injury itself and could not be separated from ordinary standing. A claimed denial of a legal prerogative offered no principled limit and could invite suits over war powers, orders, or spending, including presidential suits against Congress. Court subpoenas and private-rights cases differed from an Article I demand to an Article II official.",
+        "He also would have rejected a cause of action based on the Senate-specific mechanism, privilege limits, restrictions on implied constitutional remedies, and the merely procedural Declaratory Judgment Act. The majority expressly did not decide those arguments. Griffith predicted protracted litigation that weakened congressional leverage and judicial neutrality without timely information.",
+        "The August result therefore restored this Committee’s standing while returning the rest of the appeal for consideration. The assigned account’s use of the February citation for the contrary en banc holding must not collapse those two judgments; no later cause-of-action ruling or eventual resolution is part of this account."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Henderson en banc dissent 1–6 & nn.1–2; Griffith en banc dissent 1–22; assigned account pp.1182–1183"
+        }
+      ]
+    }
+  ]
+}

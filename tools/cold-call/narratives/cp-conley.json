@@ -1,0 +1,126 @@
+{
+  "id": "cp-conley",
+  "briefId": "CP-ATLAS-CONLEY",
+  "title": "Conley v. Gibson",
+  "course": "Civil Procedure",
+  "citation": "355 U.S. 41 (1957)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Black railroad workers alleged that their union protected white workers while refusing comparable help to them, and the Supreme Court allowed their fair-representation suit to proceed.",
+  "actors": [
+    {
+      "name": "Black employees of the Houston Freight House",
+      "role": "Workers alleging discriminatory representation"
+    },
+    {
+      "name": "Texas and New Orleans Railroad",
+      "role": "Employer whose job changes prompted the grievances"
+    },
+    {
+      "name": "Brotherhood of Railway and Steamship Clerks and Local Union No. 28",
+      "role": "Bargaining representatives sued with their officers"
+    }
+  ],
+  "proceedings": [
+    "Federal district court in Texas: dismissed for lack of jurisdiction.",
+    "Fifth Circuit: affirmed, apparently on the same ground.",
+    "Supreme Court: reversed and remanded unanimously for further proceedings."
+  ],
+  "limits": [
+    "This narrative states Conley’s historical 1957 pleading approach. Later Twombly reconsidered its no-set-of-facts formulation. No finding of actual discrimination or damages award occurred here."
+  ],
+  "briefSha256": "1ecbc74d6461c0f2bae4acea7bba8a2b9dc64283d762ca7a28d7bd8daff9da4d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-CONLEY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The workers allege that jobs changed hands but union help did not follow",
+      "cue": "Introduce the employment relationship and the complaint’s account.",
+      "paragraphs": [
+        "The petitioners worked at the Houston Freight House of the Texas and New Orleans Railroad. Local Union No. 28 of the Brotherhood of Railway and Steamship Clerks represented them under a collective bargaining agreement protecting jobs and seniority.",
+        "According to their complaint, the railroad purported to abolish forty-five jobs held by Black employees in May 1954, discharged or demoted those employees, and actually assigned their jobs to white workers. A few Black employees allegedly regained former jobs without seniority. The workers said the union deliberately refused repeated requests for protection comparable to what it provided white workers, and more generally failed to represent them equally and in good faith."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 42–43"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The union seeks dismissal on three grounds",
+      "cue": "Follow the case from the trial court to Supreme Court review.",
+      "paragraphs": [
+        "The workers filed a federal class action in Texas against the Brotherhood, the local, and officers of each. They sought declaratory relief, an injunction, and damages for breach of the duty of fair representation imposed by the Railway Labor Act.",
+        "The defendants argued that the National Railroad Adjustment Board had exclusive jurisdiction, that the railroad was an indispensable but absent defendant, and that the complaint failed to state a claim. The district court dismissed on jurisdictional grounds, and the Fifth Circuit apparently affirmed on that basis. The Supreme Court accepted review and considered the two alternative grounds as well because both sides had briefed and argued them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 43–45"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The statutory discrimination claim belongs in court as pleaded",
+      "cue": "Explain the Board and joinder rulings separately.",
+      "paragraphs": [
+        "Justice Black’s unanimous opinion distinguished employee-carrier disputes from this employee-union dispute. Section 3 First (i) addressed grievances and interpretation or application of bargaining agreements between employees and carriers. These workers instead alleged breach of their bargaining representative’s statutory duty to act without racial discrimination. The agreement would be only incidentally involved; the Adjustment Board lacked power to protect them against this union discrimination. The Court distinguished Slocum, an earlier Board-jurisdiction decision, and rejected the contrary reasoning of Hayes on this point.",
+        "The railroad was not indispensable to this action as framed. The workers sought no relief from it, and relief available on this claim would neither bind it nor affect its interests or rights. If later issues required its participation, the railroad or the defendants could seek joinder. That conclusion concerned this complaint and relief, not every suit involving a bargaining representative."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 44–45 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Fair representation extends to administering the agreement",
+      "cue": "Connect the alleged refusal to an actionable statutory duty.",
+      "paragraphs": [
+        "The Court’s earlier fair-representation decisions recognized a continuing duty beyond negotiating a contract. It extended to administering the agreement, handling grievances, adjusting working rules, and protecting contractual rights. A fair agreement on its face could still be administered discriminatorily with a union’s active or tacit consent.",
+        "Workers’ ability to pursue their own grievances or contract actions did not license selective refusal of union assistance. The Court did not decide whether a union had to handle grievances at all. Once it undertook bargaining or grievance presentation for some represented workers, it could not deny comparable good-faith action to others because of race. If proved, the pleaded discrimination would therefore establish a statutory breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 45–47 & nn.5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Notice pleading permits the workers to develop their proof",
+      "cue": "Finish with the historical pleading rule and the remand.",
+      "paragraphs": [
+        "The Court applied its then-stated standard that dismissal was improper unless it appeared beyond doubt that no set of supporting facts could entitle the claimant to relief. Rule 8(a)(2) required a short and plain statement giving fair notice of the claim and its grounds, not detailed factual allegations. These workers had identified racial discrimination in the union’s refusal to protect their jobs and grievances.",
+        "Other procedural tools could clarify the dispute: illustrative forms, more definite statements, motions to strike or for judgment on the pleadings, pretrial proceedings, discovery, summary judgment, and amendment. Former Rule 8(f) called for construction serving substantial justice. The Court favored merits resolution over a technical pleading contest.",
+        "On November 18, 1957, it reversed and remanded to the district court for further proceedings. No separate judicial writing appeared. The allegations remained unproved. The no-set-of-facts language belongs to this historical decision; the Court later reexamined it in Twombly. Editorial discussion of drafts exchanged by Justices Black and Harlan likewise was not an additional concurrence or part of the final opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "355 U.S. at 45–48 & nn.5, 8–9; casebook pp. 612–614"
+        }
+      ]
+    }
+  ]
+}

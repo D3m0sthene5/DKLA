@@ -1,0 +1,126 @@
+{
+  "id": "brief-CP-147",
+  "briefId": "CP-147",
+  "title": "Parklane Hosiery Co. v. Shore",
+  "course": "Civil Procedure",
+  "citation": "439 U.S. 322 (1979)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A shareholder sought to use an earlier government victory on a misleading proxy statement against defendants who had already fully litigated that issue without a jury.",
+  "actors": [
+    {
+      "name": "Shore",
+      "role": "Parklane shareholder and private securities plaintiff"
+    },
+    {
+      "name": "Parklane Hosiery and thirteen officers, directors, and shareholders",
+      "role": "Defendants in the private action"
+    },
+    {
+      "name": "Securities and Exchange Commission",
+      "role": "Government plaintiff in the separate earlier adjudication"
+    }
+  ],
+  "proceedings": [
+    "SEC won declaratory judgment after a bench trial; Second Circuit affirmed.",
+    "District court denied Shore partial summary judgment on jury-right grounds.",
+    "Second Circuit reversed; Supreme Court affirmed 8–1."
+  ],
+  "limits": "Only the proxy statement’s materially misleading character was precluded. Injury, damages, and other unresolved matters remained. The Court rejected the lower court’s waiver rationale while allowing discretionary offensive nonmutual issue preclusion.",
+  "briefSha256": "ad5328b4da0577b14c97a903f3ea69f421de19d16becd4db69844f9ef2605e64",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-147"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A proposed going-private merger prompts two suits",
+      "cue": "The private action precedes government enforcement",
+      "paragraphs": [
+        "Parklane Hosiery issued a proxy statement seeking shareholder approval of a merger that would take the company private. Shareholder Shore sued Parklane and thirteen officers, directors, and shareholders, alleging material falsehoods and omissions and seeking damages, rescission, and costs through a private securities class action.",
+        "The Securities and Exchange Commission, or SEC, subsequently sued over the same statement. Thus Shore already had sued before the government action began; he did not wait to see whether it would win. After a four-day bench trial, the district court found the statement materially false and misleading and entered a declaratory judgment, although the SEC had sought an injunction. Defendants litigated and appealed; the Second Circuit affirmed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "439 U.S. at 324–325"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Shore seeks to use the established finding",
+      "cue": "The district court protects a second jury determination",
+      "paragraphs": [
+        "Shore moved for partial summary judgment based on collateral estoppel, now commonly called issue preclusion. He sought to establish the statement’s misleading character, leaving injury, damages, and other unresolved issues for the private action.",
+        "The district court denied the motion because applying a bench-trial finding would, it thought, deny defendants their constitutional jury right on the damages claim. The Second Circuit reversed, finding a full and fair earlier opportunity to litigate. Defendants sought Supreme Court review on both nonmutuality—Shore would not have been bound by an SEC loss—and the Seventh Amendment. They had no constitutional jury right in the SEC’s equitable action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "439 U.S. at 325–326 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stewart permits offensive use subject to discretion",
+      "cue": "The fairness concerns do not fit this record",
+      "paragraphs": [
+        "Justice Stewart’s eight-Justice opinion distinguished mutuality from a litigant’s own opportunity to be heard. Due process protects people who never had a proper litigation opportunity, but these defendants actually contested the SEC case. Shore’s absence from that case did not erase theirs.",
+        "Offensive nonmutual preclusion nevertheless creates special risks. Defensive preclusion can encourage plaintiffs to join available defendants; offensive use can reward waiting plaintiffs who benefit from victory without risking another claimant’s defeat. Courts ordinarily should refuse it if the new plaintiff could easily have joined the first action or if it would be unfair.",
+        "Weak incentive to defend a small first case, inconsistent earlier favorable judgments, or a significant new procedural opportunity likely to change the outcome could justify refusal. None applied. Shore probably could not join an SEC action without the Commission’s consent, his own pending case made later consequences foreseeable, and serious government allegations and potential relief supplied substantial defense incentives. Defendants proceeded through trial and appeal. No inconsistent favorable judgment existed, and they identified no consequential procedural opportunity missing from the SEC action. A jury’s participation alone did not establish such an advantage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "439 U.S. at 326–333 & n.17"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The jury guarantee does not reopen every settled issue",
+      "cue": "Beacon’s sequencing rule concerns a different setting",
+      "paragraphs": [
+        "Defendants invoked the mutuality rule prevailing in 1791. Stewart answered that the Seventh Amendment preserves the substance of the jury institution without freezing all historical procedure. Procedural developments may change which questions remain open, and equitable decrees historically could preclude issues in later legal actions.",
+        "Beacon Theatres protected jury consideration where legal and equitable claims coexist and a court can avoid preclusion by trying legal issues first. Parklane involved a separate SEC proceeding already completed. The recognized force of an equitable judgment was the reason Beacon’s sequence mattered, not a reason to ignore this independent adjudication.",
+        "The Court rejected the Second Circuit’s additional waiver theory. Defendants need not have requested a merely advisory SEC jury or accelerated their private case, and they could not require the SEC to postpone enforcement. The result rested on permissible preclusion, not forfeiture of a constitutional demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "439 U.S. at 333–338 & n.24"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Rehnquist would preserve the fresh jury opportunity",
+      "cue": "The judgment leaves private injury and damages unresolved",
+      "paragraphs": [
+        "Justice Rehnquist dissented. Historical mutuality meant comparable defendants in 1791 would have received a jury decision, and eliminating a genuinely disputed fact from the jury differed from summary judgment or directed verdict where a legally sufficient controversy was absent. Judges and juries differed in decisionmaking, community participation, and evaluation of evidence; the constitutional guarantee gave those differences significance.",
+        "Even if constitutionally permitted, he would deny offensive preclusion as a matter of discretion. A jury still had to decide injury and damages, limiting the practical savings compared with the lost jury opportunity.",
+        "On January 9, 1979, the Supreme Court affirmed the Second Circuit. Shore could treat the SEC determination of the proxy statement’s materially false and misleading character as conclusive. The Court awarded no damages and did not resolve every element of private liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "439 U.S. at 337–356"
+        }
+      ]
+    }
+  ]
+}

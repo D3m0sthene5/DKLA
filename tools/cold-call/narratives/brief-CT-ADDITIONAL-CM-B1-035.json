@@ -1,0 +1,112 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-035",
+  "briefId": "CT-ADDITIONAL-CM-B1-035",
+  "title": "Harvey v. Facey",
+  "course": "Contracts",
+  "citation": "[1893] A.C. 552; [1893] UKPC 1",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Prospective buyers treat a telegram giving the lowest price as an offer, but the final court distinguishes that price answer from a commitment to sell to them.",
+  "actors": [
+    {
+      "name": "The prospective buyers",
+      "role": "Kingston solicitors who sent the purchase inquiry and sought specific performance."
+    },
+    {
+      "name": "L. M. Facey",
+      "role": "Respondent who supplied the lowest price for Bumper Hall Pen."
+    },
+    {
+      "name": "Adelaide Facey",
+      "role": "His wife, whose concurrence or authorization became an issue below."
+    },
+    {
+      "name": "Kingston’s Mayor and Council",
+      "role": "Municipal purchaser with which Facey had separately negotiated."
+    }
+  ],
+  "proceedings": [
+    "Justice Curran dismissed for lack of a concluded contract.",
+    "Jamaica’s Supreme Court on appeal found an agreement, refused specific performance and awarded forty shillings.",
+    "The Privy Council advised reversal and restoration of Curran’s dismissal with costs."
+  ],
+  "limits": "The telegrams occurred in 1891 and judgment in 1893. The ultimate formation ruling left alleged authority to bind Adelaide unresolved. Actual judicial text was preserved in an archived BAILII reproduction; report pagination was not independently verified.",
+  "briefSha256": "218a7265377ff85100cef06085fe6006cc976dc64eecc2814d36e7868fd471e4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-035"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A municipal negotiation is followed by an inquiry from other buyers",
+      "cue": "What two questions did the buyers ask?",
+      "paragraphs": [
+        "In early October 1891, L. M. Facey negotiated with Kingston’s Mayor and Council about selling Bumper Hall Pen for £900. The council discussed his proposal on October 6 but deferred acceptance. The following day, while Facey traveled by train from Kingston to Porus, solicitors practicing together in Kingston telegraphed him about buying the property themselves.",
+        "Their message asked whether he would sell them Bumper Hall Pen and requested his lowest cash price, with the answer paid. Facey replied that the lowest price was £900. The solicitors then telegraphed that they agreed to buy for that amount and requested the title deed so they could obtain early possession. All three messages were received."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Negotiations and telegrams; judicial reproduction p.2, lines45–62"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyers obtain a limited appellate recovery after losing at trial",
+      "cue": "Why did the intermediate court refuse specific performance?",
+      "paragraphs": [
+        "The buyers sued Facey for specific performance, alleging that he could also bind his wife Adelaide to the sale. They sought an injunction preventing the municipality from taking a conveyance. Justice Curran dismissed because the asserted agreement disclosed no concluded contract.",
+        "Jamaica’s Supreme Court on appeal disagreed about formation. It found an agreement with Facey, but held that his authority to sell without Adelaide’s concurrence or authorization had not been established. It refused specific performance, awarded forty shillings in damages against him, and awarded costs in both courts. The buyers obtained leave and additional special leave to appeal. The resulting order expressly let the respondents dispute formation without obtaining separate leave themselves."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Negotiations and litigation; reproduction pp.1–2, lines22–44"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Morris separates the answered price question from willingness to sell",
+      "cue": "Why was the final telegram an offer rather than an acceptance?",
+      "paragraphs": [
+        "The Judicial Committee of the Privy Council could therefore decide whether a contract existed despite the buyers’ appeal seeking specific relief. Lord Morris explained that their initial telegram contained two distinct questions: whether Facey would sell to them, and his lowest price. The placement of the request to telegraph directed it to the price question.",
+        "Facey’s reply answered that question alone. It did not communicate an unconditional willingness to sell to these particular inquirers. The committee declined to imply such a commitment merely because the buyers wished to draw it from his stated minimum price. Their third telegram was accordingly an offer to buy that required his acceptance. The necessary acceptance never occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Price information and formation; reproduction p.2, lines62–81"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dismissal is restored because no bargain was concluded",
+      "cue": "What was decided and what remained unnecessary to resolve?",
+      "paragraphs": [
+        "On July 29, 1893, the committee advised reversal of the appellate judgment and restoration of Curran’s dismissal with costs. The buyers were to pay the respondents’ costs of both the Supreme Court appeal and the Privy Council appeal. The Lord Chancellor and Lords Watson, Hobhouse, Macnaghten, Morris and Shand were present; no dissent or separate writing appears.",
+        "Because the absence of a contract disposed of the controversy, the committee did not resolve Facey’s alleged authority to bind his wife or order the municipality to relinquish a completed purchase. Its reasoning distinguishes a price answer from a communicated offer in these exchanges; it does not announce that a price quotation can never be an offer in another context."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Tribunal and disposition; reproduction pp.1–2, lines8–44,62–84"
+        }
+      ]
+    }
+  ]
+}

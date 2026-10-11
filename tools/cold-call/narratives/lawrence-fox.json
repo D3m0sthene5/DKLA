@@ -1,0 +1,126 @@
+{
+  "id": "lawrence-fox",
+  "briefId": "CT-NEXT-CM-0180",
+  "title": "Lawrence v. Fox",
+  "course": "Contracts",
+  "citation": "20 N.Y. 268 (1859)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A borrower receives $300 in exchange for promising to pay the lender’s creditor. The creditor, who took no part in the bargain, sues to enforce that promised payment.",
+  "actors": [
+    {
+      "name": "Holly",
+      "role": "Lender who said he owed Lawrence $300."
+    },
+    {
+      "name": "Fox",
+      "role": "Borrower who promised Holly to pay Lawrence the next day."
+    },
+    {
+      "name": "Lawrence",
+      "role": "Creditor seeking to enforce Fox’s promise."
+    }
+  ],
+  "proceedings": [
+    "The trial court denied Fox’s nonsuit motion, and the jury awarded Lawrence $344.66.",
+    "The Superior Court at General Term affirmed.",
+    "The Court of Appeals affirmed six to two, with four judges supporting Gray’s broader rationale and two relying on agency and ratification."
+  ],
+  "limits": "This is a historical transformation of the canonical brief, not a fresh audit or present third-party-beneficiary law review. The historical evidentiary reasoning is not a general modern hearsay rule. No comprehensive beneficiary-vesting or modification rule was decided. Six votes supported the judgment, but only four supported Gray’s broader rationale.",
+  "briefSha256": "2c6115a6c256006132b6135884b07fdbef85da0a1d0f0f9ec50f53295c7f4984",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0180"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Holly lends Fox money in exchange for payment to Lawrence",
+      "cue": "Was the money a trust fund?",
+      "paragraphs": [
+        "In November 1857, Fox asked Holly for a loan. Holly advanced $300 and said that he owed Lawrence the same amount for money borrowed, which he had promised to repay the next day. In exchange for receiving the money, Fox promised Holly that he would pay Lawrence the next day. A bystander heard Holly’s declaration and Fox’s undertaking.",
+        "Lawrence did not participate in making the agreement. The transaction was a loan: the dollars became Fox’s property rather than remaining a segregated fund owned by Lawrence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 N.Y. 268–269, 271, 279"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Lawrence obtains a verdict despite three objections",
+      "cue": "What did Fox dispute?",
+      "paragraphs": [
+        "Lawrence sued Fox. Fox requested a nonsuit because Holly’s debt to Lawrence was inadequately proved, because consideration was absent, and because Lawrence lacked contractual privity with Fox. The trial judge rejected the motion, and the jury awarded $344.66, representing principal and interest.",
+        "The Superior Court at General Term affirmed. Fox then appealed to the Court of Appeals, where the separate objections required distinct treatment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 N.Y. 268–269"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Gray finds adequate evidence and consideration",
+      "cue": "Why did Lawrence not need to supply fresh value himself?",
+      "paragraphs": [
+        "Judge H. Gray treated the bystander’s account of Holly’s acknowledgment as competent evidence of the debtor-creditor relationship. The acknowledgment would be competent between Holly and Lawrence and would support Fox if, after paying Lawrence, he faced Holly’s demand for repayment of the same loan. On this transaction’s record, Fox had the competent proof to which he was entitled.",
+        "Consideration moved from Holly to Fox when Holly advanced the $300. Lawrence’s failure to supply new consideration directly did not invalidate the promise. Gray relied especially on Farley v. Cleaveland, which involved property transferred in return for a promise to pay the transferor’s creditor. Holly’s continuing debt to Lawrence also did not negate Fox’s undertaking. Whether Lawrence could enforce a promise addressed to Holly was a privity question, not a failure of consideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 N.Y. 270–271"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gray permits the intended creditor to enforce the undertaking",
+      "cue": "Why was ownership of the actual dollars unnecessary?",
+      "paragraphs": [
+        "Gray read New York and Massachusetts decisions as allowing the person for whose benefit a promise was made on valuable consideration to sue. A trust could imply an enforceable promise to a beneficiary, but he viewed that as one application of a broader principle, not a restriction to trust assets.",
+        "Fox had received consideration and promised the specified payment to Holly’s creditor. That duty could support an implied promise enforceable by Lawrence even though Fox owned the borrowed dollars. Lawrence therefore did not need an equitable interest in a particular fund. Gray distinguished adverse decisions, including Mellen v. Whipple, as materially different and emphasized state precedents and the justice of requiring the very payment purchased by Holly’s advance.",
+        "Fox argued that Holly could release or redirect the undertaking, leaving Lawrence without control. Gray noted that no actual release had occurred and found the hypothetical power unnecessary to decide, while questioning how Holly could defeat a promise presumed accepted for Lawrence’s benefit. His discussion of a hypothetical note payable to Lawrence likewise did not establish a universal rule governing when beneficiary rights vest or when parties can modify promises."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 N.Y. 271–275"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Two concurring judges use agency, while the dissent insists on privity",
+      "cue": "How did the six-to-two affirmance divide?",
+      "paragraphs": [
+        "Chief Judge Johnson and Judge Denio supported recovery on a narrower agency theory. They treated Holly as a medium through whom a promise was made to Lawrence, whose initially unauthorized act Lawrence could ratify after learning of it. Their position was recorded in a concurrence statement, not a separately developed opinion.",
+        "Judge Comstock dissented. An action ordinarily required the plaintiff to be promisee or to possess a legal interest. In his view, Holly could demand repayment, redirect payment, release the debt, or assign it. An expected benefit did not give Lawrence control. Because Fox borrowed the money as his own, no trust supplied Lawrence a legal or equitable interest; Comstock also rejected agency on these facts.",
+        "He read the cited cases more narrowly: some were dicta, some involved direct promises to plaintiffs supported by others’ consideration, and some involved actual trusts. Dutton v. Poole turned on a close family relationship rather than a general beneficiary rule, later English cases rejected strangers’ suits, and he read the later Massachusetts Mellen decision as rejecting the broad approach. He would reverse for a new trial.",
+        "The court instead affirmed Lawrence’s judgment six to two. Gray, Selden, Allen, and Strong supported the broader enforcement reasoning; Johnson and Denio supplied the agency votes. Comstock and Grover dissented, Grover without a separate reported opinion. The judgment enforced payment rather than imposing a trust or ordering a retrial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "20 N.Y. 275–281"
+        }
+      ]
+    }
+  ]
+}

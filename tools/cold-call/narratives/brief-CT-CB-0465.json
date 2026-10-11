@@ -1,0 +1,163 @@
+{
+  "id": "brief-CT-CB-0465",
+  "briefId": "CT-CB-0465",
+  "title": "Kenai Chrysler Center, Inc. v. Denison",
+  "course": "Contracts",
+  "citation": "167 P.3d 1240 (Alaska 2007)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A dealer sold a car to a ward, then persisted after receiving guardianship papers, producing contract, restitution, and consumer-protection litigation.",
+  "actors": [
+    {
+      "name": "David Denison",
+      "role": "Buyer subject to his parents’ legal guardianship"
+    },
+    {
+      "name": "Dorothy Denison and David’s father",
+      "role": "Guardians challenging the transaction"
+    },
+    {
+      "name": "Kenai Chrysler and DaimlerChrysler Insurance Agency",
+      "role": "Dealer-side defendants collectively addressed as Kenai Chrysler"
+    },
+    {
+      "name": "GMAC",
+      "role": "Assignee of the purported financing obligation"
+    }
+  ],
+  "proceedings": [
+    "Probate court rejected the dealer’s requested guardianship modification.",
+    "Superior court declared the contract void, rejected restitution, and tried unfair-practices damages.",
+    "Alaska Supreme Court affirmed the appeal and cross-appeal; Matthews dissented only on loss-of-use damages."
+  ],
+  "limits": "Lack of actual notice at sale differs from constructive notice through guardianship and later actual notice. Mitigation exclusion was partly erroneous but harmless at trial. Punitive damages were waived; statutory trebling remained. Sanctions merits were unpreserved.",
+  "briefSha256": "c0ebfbc6ddb9f037a045b190292a6035209245e6cf9b23e6cd873057a089ac23",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0465"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Independence operates within a continuing guardianship",
+      "cue": "David buys after both parents refuse assistance",
+      "paragraphs": [
+        "David Denison had been under his parents’ legal guardianship since turning eighteen in 1999. In October 2002 he lived in an apartment, worked, and held a bank account, while his parents visited frequently and spoke with him nearly daily to monitor home and finances. The arrangement encouraged independence while protecting him.",
+        "His father refused to cosign a used-car purchase. The next day David sought a new Dodge Neon that required no cosigner, but his mother refused a down payment and told him not to buy. He nevertheless used his debit card. Kenai Chrysler combined a factory rebate and credit for his 1994 Pontiac Grand Am with $500 cash. The price, including a $945 extended service plan and other charges, was $17,802; $12,851.77 was financed at 11.99% over five years. The dealer did not actually know of the guardianship at sale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1244–1245, 1249"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The guardians present their papers",
+      "cue": "The dealer continues asserting the transaction",
+      "paragraphs": [
+        "Within one or two days Dorothy Denison brought David and the guardianship papers to the dealership, asserted his lack of contracting authority, and requested reversal of the transaction. According to her testimony, a manager replied that the company sold cars to many people who were not very smart, then handed David the keys despite her objection. The general manager also refused after seeing the documents.",
+        "David damaged the Neon in a one-car accident. His parents recovered and returned it, but the dealer again invited him to collect it and refused to return the Pontiac. Eventually they persuaded him to leave the Neon there. Advocates and a court-appointed investigator explained that the contract was void. The dealer waited a month to consult counsel, assigned financing to GMAC without disclosing incapacity, demanded storage charges, and sold the Pontiac during the dispute.",
+        "GMAC repossessed and sold the Neon, then treated the loan as uncollectible after the family’s lawyer disclosed the guardianship. Kenai Chrysler paid GMAC’s deficiency and sought reimbursement from the Denisons."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1245–1246"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Probate relief fails and the guardians sue",
+      "cue": "Contract issues and consumer damages take different paths",
+      "paragraphs": [
+        "On December 4, 2002, the dealer petitioned to modify the guardianship to permit the purchase. The probate court rejected the petition as frivolous and lacking good cause and awarded fees. The next day the guardians sued Kenai Chrysler and DaimlerChrysler Insurance Agency, collectively called Kenai Chrysler, for a declaration of invalidity, an injunction, relief under Alaska’s Unfair Trade Practices Act, or UTPA, and punitive damages. Defendants counterclaimed for restitution.",
+        "Initial cross-motions on UTPA liability failed. The guardians then sought summary judgment declaring the contract void. The dealer obtained extra discovery time to investigate abandonment of guardianship but did not pursue suitable discovery. After discovery, the guardians renewed their motion with Dorothy’s affidavit of continued duties; the dealer did not oppose it. The superior court voided the contract and rejected defenses and counterclaims.",
+        "A jury awarded $500 for the retained down payment, $4,650 for permanent loss of the Pontiac, and $5,000 for lost use: $10,150 total. It found reckless indifference, but its foreman expressed no wish to award punitive damages, and the guardians waived that claim. The court trebled compensatory damages to $30,450 and awarded 80% of requested fees, excluding probate work. The dealer appealed; the guardians cross-appealed fees and unresolved sanctions requests."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1246–1248 & majority n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The continuing guardianship defeats contract and restitution claims",
+      "cue": "Independent living does not establish abandonment",
+      "paragraphs": [
+        "Chief Justice Bryner found the renewed motion unopposed but also addressed its merits. Restatement § 13 precluded these contractual duties under a valid adjudication-based guardianship. The public order supplied constructive notice, so lack of actual knowledge at sale did not validate the bargain. Pappert involved incapacity outside guardianship and allowed restitution only absent actual or constructive notice; it did not assist this dealer.",
+        "A lucid interval did not restore power while the order continued. Termination or abandonment could matter, such as death or removal of a guardian or sustained complete control by the ward without interference. Work, a bank account, missed reports, and inability to prevent every purchase or drive did not raise that issue here. Encouraged independence complied with the guardianship, and parents need not monitor every movement or warn all merchants personally. Their ongoing financial supervision contradicted abandonment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1248–1249 & majority nn.4–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Procedural objections do not overturn the verdict",
+      "cue": "One mitigation error is cured at trial",
+      "paragraphs": [
+        "The dealer controlled refund of the down payment and return of the Pontiac, so mitigation did not excuse those losses. Replacement timing affected lost use, however. Broad pretrial exclusion of that defense was erroneous to that extent, but the dealer later presented contrary evidence and argument, and the jury was instructed to allow only a reasonable replacement period. Those safeguards cured prejudice.",
+        "GMAC was not a necessary party: no valid debt existed to assign, and complete relief on the dealer’s conduct was possible without it. Discovery demands and threats, without engaging objections or genuine dialogue, did not satisfy the required conference effort. A rental quotation excluded as an exhibit for nondisclosure could still refresh memory under Evidence Rule 612, with inspection and cross-examination; it had been supplied the preceding day and no prejudice was shown.",
+        "Objections to prepared judicial limits on legal-advice testimony lacked a trial objection and adequate offer of proof, with no plain error. Advice first obtained a month after sale also had reduced bearing on earlier acts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1250–1255"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Post-notice conduct supplies the unfair practice",
+      "cue": "The majority sustains both property and use damages",
+      "paragraphs": [
+        "The UTPA did not require intent to deceive, and covered unfair conduct and assertions of contractual obligations that did not exist. The court agreed that a merely good-faith mistaken validity argument would require something more. The repeated defiance of guardianship papers, delivery of keys, sale of the trade-in, paperwork, storage demands, and pursuit of the deficiency after GMAC abandoned collection supplied that additional evidence. The verdict did not make every unsuccessful contract-enforcement effort actionable.",
+        "The Pontiac award had support in a $5,500 recent purchase less about $850 owed and the dealer manager’s $4,000–$5,000 retail estimate; the jury was not bound to $1,300 wholesale trade-in value. Twenty months without replacement, allegedly for lack of funds, and rental rates of at least $499 monthly supported the $5,000 use award, averaging $250 monthly. The jury could reject the manager’s later claim that he would have supplied a free car.",
+        "The majority refused a rigid vehicle-value cap but retained proportionality; $5,000 only slightly exceeded the Pontiac’s value. The dealer had not sought a categorical shorter legal period. A possible overlap with prejudgment interest on permanent loss was separately unraised."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1255–1259 & majority n.18"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "Matthews would reduce only lost use",
+      "cue": "Trebling and fees remain distinct from punitive damages",
+      "paragraphs": [
+        "Justice Matthews agreed with the other holdings but objected to prolonged hypothetical retail rentals that nobody incurred. He would allow rental value for the replacement period of a person of ordinary means, then proven additional transport expenses for an impecunious claimant. With no incurred-use-expense evidence, he would remit this award to the lowest one-month rate, $499. The majority sustained that portion four to one.",
+        "Waiver of common-law punitive damages did not waive statutory trebling, which encouraged enforcement and compensated litigation effort as well as punishing wrongdoing. The statutory diversion of half of punitive awards to the State concerned other punitive remedies, not this trebled recovery. The punitive instruction caused no reversible error after waiver, and the challenged conversion instruction had not actually been given.",
+        "Full reasonable UTPA fees still allowed assessment of excessive litigation time; the 20% reduction did not accuse counsel of false billing or rates. Separate probate rules governed that work, for which $1,600 had already been awarded, avoiding duplication. The guardians’ two reserved sanctions motions apparently were overlooked, but failure to obtain rulings before judgment forfeited appellate review.",
+        "The Alaska Supreme Court affirmed on appeal and cross-appeal, including $30,450 trebled damages and the fee rulings. Justices Eastaugh, Fabe, and Carpeneti joined Bryner; Matthews’s dissent concerned only lost use. No sanctions merits were adjudicated on appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "167 P.3d at 1259–1263; Matthews dissent & nn.1–4"
+        }
+      ]
+    }
+  ]
+}

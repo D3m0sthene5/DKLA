@@ -1,0 +1,105 @@
+{
+  "id": "dyer",
+  "briefId": "CTR-018",
+  "title": "Dyer v. National By-Products, Inc.",
+  "course": "Contracts",
+  "citation": "380 N.W.2d 732 (Iowa 1986)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After losing a foot at work, Dyer claimed he gave up a personal-injury claim in return for lifetime employment. The employer denied the promise, and the appeal concerned whether surrendering an invalid claim could nonetheless supply consideration through an honest belief in its possible validity.",
+  "actors": [
+    {
+      "name": "Dale Warren Dyer",
+      "role": "Injured employee alleging a lifetime-employment bargain"
+    },
+    {
+      "name": "National By-Products",
+      "role": "Employer denying that it promised lifetime employment"
+    },
+    {
+      "name": "Justice Schultz",
+      "role": "Author of the Iowa Supreme Court opinion"
+    }
+  ],
+  "proceedings": "The district court granted the employer summary judgment. The Iowa Supreme Court reversed and remanded on the appealed consideration issue, leaving good faith and the alleged promise unresolved.",
+  "limits": "The court assumed the tort claim invalid for this analysis. It neither enforced lifetime employment nor decided the separate reciprocal-promise rationale that Dyer did not pursue on appeal.",
+  "briefSha256": "550b49e0e47c8a5b5b9e7dbd522702565747283e12397f2b7d48440922863602",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-018"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Injury, return, and layoff led to the claimed bargain",
+      "cue": "Separate the employment chronology from the disputed promise.",
+      "paragraphs": [
+        "Dale Warren Dyer lost his right foot in a job-related accident on October 29, 1981. His employer, National By-Products, kept him on full-paid leave until August 16, 1982, when he resumed his former foreman position. On March 11, 1983, the company laid him off indefinitely.",
+        "Dyer alleged an oral bargain: believing in good faith that he had a personal-injury claim, he surrendered it for lifetime employment. National By-Products specifically denied making that promise. Dyer sued for breach."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "material facts and procedural history"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Summary judgment treated the surrendered claim as worthless",
+      "cue": "Identify the one ground addressed on appeal.",
+      "paragraphs": [
+        "The district court granted summary judgment for the employer on two grounds. Dyer had not reciprocally promised to work for life, and he had surrendered no viable claim because workers’ compensation apparently supplied his exclusive remedy. He confined his appeal to the second rationale.",
+        "For consideration analysis, the Iowa Supreme Court assumed that tort claims against the employer and coemployees were clearly invalid. It did not decide whether Dyer honestly believed otherwise or whether the company actually promised lifetime employment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "procedural history and procedural caution"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An honest belief could give forbearance contractual value",
+      "cue": "Explain both routes and the evidentiary safeguard.",
+      "paragraphs": [
+        "Justice Schultz’s opinion adopted the approach of Restatement (Second) of Contracts section 74(1). Surrender of an invalid claim could supply consideration if the claim was objectively doubtful because law or facts were uncertain, or if the surrendering party honestly believed it might fairly be found valid. The second route did not require the claim actually to possess legal merit.",
+        "Nor did it make a bare assertion of belief conclusive. Obvious invalidity could show that a claimant knew the claim was baseless. Reasonable grounds would generally help persuade a factfinder that the professed belief was honest. They served an evidentiary role rather than an independent objective-merit requirement.",
+        "The court favored allowing parties to exchange uncertain claims for negotiated peace. Reopening every settlement to relitigate the underlying claim would undermine that value. Requiring good faith prevented manufactured nuisance claims from automatically purchasing concessions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "holding, section 74 analysis, and policy"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The disputed good faith required further proceedings",
+      "cue": "Give the limited reversal.",
+      "paragraphs": [
+        "A genuine factual dispute remained over Dyer’s good faith. Invalidity alone therefore did not entitle National By-Products to summary judgment on the appealed consideration ground. On January 15, 1986, the court reversed and remanded.",
+        "It did not find the tort claim valid, establish Dyer’s honesty, decide whether the promise was made, or enforce a lifetime job. It also did not decide the unpursued reciprocal-promise rationale; the disposition should not be recast as affirming that separate ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "holding and procedural caution"
+        }
+      ]
+    }
+  ]
+}

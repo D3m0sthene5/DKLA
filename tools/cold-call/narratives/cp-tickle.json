@@ -1,0 +1,148 @@
+{
+  "id": "cp-tickle",
+  "briefId": "CP-002",
+  "title": "Tickle v. Barton",
+  "course": "Civil Procedure",
+  "citation": "142 W. Va. 188, 95 S.E.2d 427 (1956)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Virginia defendant alleged that opposing counsel lured him to a West Virginia football banquet so a deputy could serve him. The appellate court had to decide whether those allegations, if proved, would defeat service—not whether the alleged deception had actually occurred.",
+  "actors": [
+    {
+      "name": "Richard Tickle",
+      "role": "Minor plaintiff suing through a next friend for injuries from a vehicle accident."
+    },
+    {
+      "name": "Raymond Barton",
+      "role": "Virginia vehicle owner and defendant challenging service."
+    },
+    {
+      "name": "Lawrence Coleman",
+      "role": "Barton’s agent, alleged to have driven the vehicle."
+    },
+    {
+      "name": "Tickle’s lawyer",
+      "role": "Unnamed lawyer alleged to have induced Barton’s trip to West Virginia."
+    },
+    {
+      "name": "Judge Haymond",
+      "role": "Majority author."
+    },
+    {
+      "name": "Judge Given",
+      "role": "Dissenter joined by Judge Riley."
+    }
+  ],
+  "proceedings": "The Circuit Court overruled Tickle’s demurrer to Barton’s amended plea in abatement and certified the legal question. The Supreme Court of Appeals affirmed that ruling while preserving Tickle’s opportunity to deny and disprove the allegations.",
+  "limits": "The certified review assumed well-pleaded allegations; it did not find lawyer misconduct, finally quash service after factual proof, decide the earlier Auditor service, dismiss the injury claim, or determine negligence liability.",
+  "briefSha256": "3ddd15af905fa841c6b969aa28b87a08a6de1a3581b79d309a758a6c45e6b41d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-002"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An injury suit begins with a disputed method of serving a nonresident",
+      "cue": "Why did the location of the accident matter?",
+      "paragraphs": [
+        "Richard Tickle, a minor suing through a next friend, sought damages for injuries allegedly caused by a vehicle owned by Raymond Barton and driven by Barton’s agent, Lawrence Coleman. The accident occurred on private property in McDowell County, West Virginia. Barton lived in Austinville, Virginia.",
+        "Tickle first attempted service through the West Virginia Auditor under a nonresident-motorist statute covering accidents on public streets, roads, or highways. Barton filed a plea in abatement challenging that service because the accident had occurred on private property. That issue remained unresolved when a second attempt at service produced a different dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "428–429"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Barton alleges an unauthorized invitation brought him across the state line",
+      "cue": "What did the amended plea say happened?",
+      "paragraphs": [
+        "On December 5, 1955, one of Tickle’s lawyers obtained alias process and delivered it to a deputy sheriff. Barton’s amended plea alleged that the lawyer then telephoned his Virginia home, claiming to extend a special invitation from the sponsors of a banquet honoring a championship football team at War Junior High School. Barton’s son had played on an earlier team there.",
+        "According to the plea, the caller declined to identify himself when asked, had no connection with or authorization from the sponsors, and invited Barton solely to obtain personal service in West Virginia. Barton alleged that he previously knew nothing of the banquet and had no plan to attend. Accepting the invitation as genuine, he traveled to War on December 6, and the deputy served him that evening.",
+        "The plea also alleged a follow-up call to Barton’s wife to confirm that he had left, followed by the lawyer’s denial that he made either call or arranged the second. These were allegations about the plan, not findings against counsel. The critical asserted connection was that the invitation caused a trip Barton otherwise would not have made."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "429–430"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A demurrer tests the plea before the facts are tried",
+      "cue": "What ruling was certified for review?",
+      "paragraphs": [
+        "Barton challenged the alias service through an amended plea in abatement. Tickle demurred, asking whether the pleaded facts were legally sufficient even if true. The Circuit Court overruled the demurrer. At both sides’ request, it certified that ruling to the West Virginia Supreme Court of Appeals.",
+        "The reviewing court therefore considered the well-pleaded material allegations as true. It was not trying the original injury claim or determining whether the lawyer made the calls and used the alleged pretext."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "429–431"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority refuses judicial assistance for service procured by wrongful inducement",
+      "cue": "Why did the alleged invitation go beyond taking advantage of a visit?",
+      "paragraphs": [
+        "Judge Haymond’s majority adopted the generally recognized rule that a litigant may not obtain personal service on an otherwise unreachable nonresident through fraud, trickery, artifice, or a wrongful device inducing entry into the jurisdiction. The rule applied to a lawyer, agent, or other person acting for the litigant. If such inducement was proved, service would be vacated and set aside.",
+        "Physical presence might ordinarily place a person within the court’s power, but courts should not exercise that power to aid a party who wrongfully manufactured the opportunity for service. Fraud in obtaining process compromised the integrity of the court’s own proceedings. The opinion accordingly described the service as invalid and insufficient to justify exercising jurisdiction, without denying that ordinary physical presence could support jurisdiction.",
+        "Taking the allegations as true, counsel had done more than fail to warn Barton about possible service. He asserted sponsorship authority he lacked, concealed his identity and purpose, and induced a new trip solely to serve process. Tickle was legally responsible for his lawyer’s conduct. Barton’s knowledge that the injury suit already existed did not eliminate the alleged deception about the reason for this trip."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "431–433"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent sees a voluntary trip and insufficiently pleaded fraud",
+      "cue": "Why did Given disagree while accepting the general rule?",
+      "paragraphs": [
+        "Judge Given, joined by Judge Riley, accepted the prohibition on fraudulent inducement but found these allegations inadequate. He separated specific facts from labels such as enticing and deceitful. In his reading, the lawyer invited Barton to an actual social event, withheld his name, and arranged service when Barton attended; the plea identified no false statement sufficient to establish fraud.",
+        "Given stressed that Barton already knew of the litigation and its connection to McDowell County. The later confirmation call could not have caused a travel decision already made. Fraud had to be specifically alleged and proved, not presumed. Treatise qualifications distinguished inducing entry through fraud from taking advantage of voluntary entry, even where misinformation later created an opportunity to serve. The majority’s authorities established the general rule but, for Given, did not support applying it here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "433–435"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The plea survives, but its allegations remain contestable",
+      "cue": "What did affirmance require next?",
+      "paragraphs": [
+        "The Supreme Court of Appeals affirmed the ruling overruling Tickle’s demurrer. Barton had alleged a legally sufficient basis to set aside the alias service. Tickle remained free to file a proper replication denying the plea and to contest it with competent evidence.",
+        "The decision did not conclusively establish fraud, finally quash service after a factual hearing, resolve the initial Auditor service, dismiss the injury action, or decide liability. The reported text identifies Haymond as majority author and Given and Riley as dissenters, without individually naming the other judges joining the majority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "433–435"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "id": "lrs-i-alabama-realtors",
+  "briefId": "LRS-ATLAS-I-ALABAMA-REALTORS",
+  "title": "Alabama Association of Realtors v. Department of Health and Human Services",
+  "course": "Legislation and the Regulatory State",
+  "citation": "594 U.S. 758 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After repeated extensions of a national eviction moratorium, landlord groups sought to enforce a judgment that the public-health agency lacked authority. The Supreme Court lifted the stay while the merits appeal continued, over a dissent emphasizing the renewed pandemic surge.",
+  "actors": [
+    {
+      "name": "Centers for Disease Control and Prevention",
+      "role": "Federal public-health agency issuing the eviction moratorium"
+    },
+    {
+      "name": "Alabama and Georgia realtor associations and property managers",
+      "role": "Landlord-side plaintiffs challenging statutory authority"
+    },
+    {
+      "name": "Justice Breyer",
+      "role": "Dissenter joined by Justices Sotomayor and Kagan"
+    }
+  ],
+  "proceedings": "The district court set aside the moratorium but stayed its judgment. After a first unsuccessful request, expiration, and reissuance of the rule, the plaintiffs obtained Supreme Court vacatur of the stay on August 26, 2021, by six to three.",
+  "limits": "The August ruling lifted a stay during an ongoing appeal; it was not a final Supreme Court merits affirmance. Its strong merits assessment and Breyer’s competing statutory and equitable analysis retain that procedural setting.",
+  "briefSha256": "32f4bc709d22953dee5e16614516cc9581cca91d4b289e9e3f6b5b49a279aeca",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-ALABAMA-REALTORS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Congress and the agency imposed successive moratoria",
+      "cue": "Start with the changing sources of eviction protection.",
+      "paragraphs": [
+        "In March 2020, Congress’s Coronavirus Aid, Relief, and Economic Security Act imposed a 120-day eviction moratorium on properties in federal assistance programs or subject to federally backed loans. It expired in July without renewal of that provision. The Centers for Disease Control and Prevention, or CDC, then issued a broader nationwide residential moratorium carrying criminal penalties.",
+        "The CDC invoked delegated authority under section 361(a) of the Public Health Service Act, codified at 42 U.S.C. section 264(a). Its first sentence authorized regulations necessary to prevent communicable disease from entering from abroad or spreading between states. Its second listed inspection, fumigation, disinfection, sanitation, pest extermination, destruction of infected or contaminated animals or articles, and other necessary measures. Earlier regulations had generally concerned infected people or disease-carrying animals.",
+        "The CDC’s initial moratorium was due to end December 31. Congress extended it one month through separate relief legislation; the agency then extended it through March, June, and July 2021."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "per curiam 2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The landlords won a judgment that remained stayed",
+      "cue": "Trace the first application separately from the August order.",
+      "paragraphs": [
+        "Realtor associations and property managers from Alabama and Georgia sued in the District of Columbia. On May 5, the district court granted summary judgment, finding no statutory authority, but stayed its own judgment pending appeal. It considered a serious legal question plus the other stay factors enough despite the absence of a substantial likelihood of government success. The D.C. Circuit declined to lift the stay, and the Supreme Court initially declined relief too.",
+        "Justice Kavanaugh separately agreed that the CDC lacked authority but favored preserving the short remaining period to allow orderly distribution of rental assistance. Four other Justices would have vacated the stay at that stage.",
+        "The moratorium expired July 31. Three days later, the CDC reissued it for counties with substantial or high COVID transmission and tenants making financial-need declarations. The district court now thought both merits prospects and equities opposed a stay: vaccines and rental assistance had become more available while landlords’ losses accumulated. But it considered the D.C. Circuit’s prior ruling binding as law of the case. The circuit again refused relief, and the plaintiffs returned to the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "per curiam 1, 3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority read the delegation through its examples",
+      "cue": "Explain its assessment of likely success.",
+      "paragraphs": [
+        "In an unsigned opinion, the Supreme Court considered the landlords virtually certain to show that the statute did not authorize this expansive intervention in rental property. The government read the first sentence as empowering whatever measures the CDC deemed necessary to prevent interstate spread. The Court instead read it with the second sentence’s examples, which directly identified, isolated, or destroyed infection. An eviction ban relied on a more indirect chain: some evicted tenants might cross state lines, and some might carry disease. That connection strained the combined text.",
+        "Even assuming ambiguity, the claim’s magnitude required clear congressional authorization. Coverage extended to at least eighty percent of the country and millions of tenants facing eviction. Nearly $50 billion in rental aid roughly indicated the economic scale, although the parties disputed landlords’ exact burden. The rule intruded into traditionally state-governed landlord-tenant relationships and private property, affecting the federal-state balance.",
+        "The government supplied no limiting principle beyond the agency’s necessity judgment. The Court used compulsory free groceries, computers, or Internet service as examples of that potential breadth. An unprecedented power backed by substantial criminal penalties, including possible imprisonment, required more specific authorization."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "per curiam 5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court lifted the stay",
+      "cue": "Connect the equities to the limited procedural disposition.",
+      "paragraphs": [
+        "The majority found landlords exposed to irreparable financial loss without assured recovery, including owners of modest means. Preventing eviction for lease breaches also impaired the right to exclude. Meanwhile, additional months for distributing rental assistance reduced the transition justification. Congress knew another extension likely required legislation but had not enacted it before expiration.",
+        "The Court acknowledged the strong public interest in containing Delta transmission, but desirable ends did not authorize unlawful agency means. On August 26, 2021, it granted the application to vacate the stay, allowing the district court’s judgment setting aside the moratorium to operate while the appeal remained pending. The six-to-three order was not a final merits affirmance after ordinary appellate review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "per curiam 7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Breyer would have preserved protection during review",
+      "cue": "Give the dissent’s statutory and public-health reasons.",
+      "paragraphs": [
+        "Justice Breyer, joined by Justices Sotomayor and Kagan, argued that vacating a lower-court stay required clear and demonstrable error under accepted standards. Authority remained disputed among circuits, and the new moratorium was tailored to high-transmission counties, ending protection when the county ceased meeting the threshold. Tenants had to attest to assistance efforts, partial payments, qualifying income and losses, and lack of alternative housing. Landlords could challenge the truth of those declarations in court.",
+        "Breyer read the first statutory sentence broadly and the second as emphasizing or enlarging enforcement means rather than limiting the delegation. Historical public-health rules included restrictions on evicting infected people; the other-necessary-measures language and drafting history supported broader authority. Quarantine could intrude more heavily, and Congress had itself extended the earlier CDC rule. The first Supreme Court refusal to lift the stay had not resolved the merits merely because one Justice had expressed a view.",
+        "For Breyer, the equities also favored protection. Congress had appropriated more than $46.5 billion for rent and arrears, and tenants remained required to pay to the extent possible. Delayed reimbursement harmed landlords, but mass displacement risked less reversible public-health injuries. His dissent reproduced CDC daily-case data and discussed rising hospitalizations, overcrowding, shelters, and studies linking eviction with transmission. He urged respect for expert judgment and full briefing and argument on disputed statutory issues instead of summary resolution."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Breyer dissent 1–8"
+        }
+      ]
+    }
+  ]
+}

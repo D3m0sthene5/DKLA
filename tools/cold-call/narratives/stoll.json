@@ -1,0 +1,105 @@
+{
+  "id": "stoll",
+  "briefId": "CT-NEXT-CM-0104",
+  "title": "Stoll v. Chong Lor Xiong",
+  "course": "Contracts",
+  "citation": "2010 OK CIV APP 110, 241 P.3d 301",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A land seller sought thirty years of poultry litter under a purchase provision whose economic burden the buyers had little ability to understand.",
+  "actors": [
+    {
+      "name": "Ronald Stoll",
+      "role": "Seller seeking enforcement of the litter provision"
+    },
+    {
+      "name": "Chong Lor Xiong and Mee Yang",
+      "role": "Married poultry operators and land buyers"
+    }
+  ],
+  "proceedings": [
+    "Both sides sought summary judgment.",
+    "Trial court held the litter clause unconscionable and entered judgment against Stoll’s petition.",
+    "Oklahoma Court of Civil Appeals affirmed."
+  ],
+  "limits": "Estimated litter revenues are not damages or guaranteed earnings. The ruling invalidated the challenged paragraph without cancelling the entire purchase or resolving every counterclaim. The source contains price and extrapolation inconsistencies.",
+  "briefSha256": "6cf28f375d5196155eb36e2049054f819c0c180d069ea83e2afcb96a3fd7165d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0104"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The land contract adds a separate stream of value",
+      "cue": "The buyers face serious language barriers",
+      "paragraphs": [
+        "Ronald Stoll sold sixty acres in Delaware County, Oklahoma, to Chong Lor Xiong and Mee Yang, a married couple operating six poultry houses. Their January 1, 2005 agreement stated $2,000 per acre plus $10,000 for an access road. Its written total said $120,000 while its numerical total said $130,000. Another paragraph required a concrete-floor litter shed at least forty-three by eighty feet and transfer to Stoll of all poultry litter for thirty years. The buyers had to deposit litter after growing cycles; Stoll had to empty the shed between them.",
+        "Xiong had three years of schooling in Laos, three years in a Thai refugee camp, and later adult schooling in Minnesota. He understood some spoken English but read only a few words. Yang had no schooling in Laos and six months of adult education in the United States. Her relative who interpreted the agreement also needed an interpreter at deposition and did not understand the litter term.",
+        "Stoll emphasized that the buyers signed a preliminary version in November 2004 and could seek explanations before January. He had not executed that preliminary version. The record did not establish that the buyers knowingly negotiated the thirty-year economic burden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶4–6, 11–12 & nn.1, 5, 8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Disposal of litter leads to an enforcement suit",
+      "cue": "The buyers challenge the clause",
+      "paragraphs": [
+        "After an initial cycle the buyers paid $900 to remove the top bedding layer. Yang asked Stoll to share that expense; he refused. She testified that she did not understand when or how they transferred litter rights. In February 2009, Xiong exchanged litter from a complete cleanout for replacement shavings. Stoll alleged third-party sales and an empty shed on March 24, then sued the next day for specific performance, a temporary injunction, and immediate possession.",
+        "The buyers pleaded unconscionability, fraud, merger into a deed omitting the term, statutory impossibility, trespass, and shed damage, requesting reformation or invalidation. Those allegations were not findings on every asserted wrong. Both sides moved for summary judgment. Stoll relied on the signed writing and characterized the disagreement as remorse. The trial court held the paragraph unconscionable, granted the buyers’ motion, denied his, and entered judgment against his petition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶7–13 & nn.3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate court considers formation and economic burden",
+      "cue": "Unconscionability is not confined to the seller’s listed defenses",
+      "paragraphs": [
+        "On de novo review, with reasonable inferences favoring Stoll, Judge Hetherington rejected his contention that only fraud, duress, undue influence, mistake, or illegality could defeat enforcement. Oklahoma unconscionability doctrine examined the commercial setting at formation, meaningful choice, and terms so one-sided as to oppress or unfairly surprise. The court applied the principle of Uniform Commercial Code § 2-302 by analogy to land, consistently with Restatement § 208. Both parties had presented evidence of the transaction’s setting.",
+        "Stoll devised the paragraph. His testimony supplied about twenty tons per house per de-caking, five flocks yearly in six houses, and a pre-2008 value up to $12 per ton. Those figures yielded estimated receipts of $7,200 annually and $216,000 over thirty years, before complete cleanouts. Yang attributed a $25 figure to Stoll, which would imply about $15,000 annually. These were evidentiary estimates, not awarded damages or assured future prices.",
+        "The buyers’ independently financed business would produce this additional value at their expense. Ordinary price inadequacy alone was insufficient, but an extreme, poorly understood burden combined with inability to comprehend it shocked the conscience. Cases involving inadequate consideration and inability to understand supported the analogy, with the imbalance here increasing the buyers’ real payment. Stoll’s claim that cleared and leveled land deserved a premium did not justify this distinct thirty-year obligation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶2–3, 14–20 & n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The litter provision cannot support Stoll’s petition",
+      "cue": "The purchase itself is not cancelled",
+      "paragraphs": [
+        "On September 17, 2010, Hetherington, joined by Presiding Judge Buettner and Judge Hansen, affirmed the judgment for Xiong and Yang. No material factual dispute required trial on enforceability. The result invalidated the chicken-litter paragraph underlying Stoll’s petition; it did not award $216,000 to the buyers, undo their entire land purchase, or separately determine every counterclaim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶1, 20"
+        }
+      ]
+    }
+  ]
+}

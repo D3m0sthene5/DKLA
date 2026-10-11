@@ -1,0 +1,131 @@
+{
+  "id": "brief-CP-149",
+  "briefId": "CP-149",
+  "title": "Taylor v. Sturgell",
+  "course": "Civil Procedure",
+  "citation": "553 U.S. 880 (2008)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "One aircraft enthusiast lost a records lawsuit, and the government tried to bind his friend to that loss; shared interests and counsel were insufficient, though control of the friend’s later suit remained open on remand.",
+  "actors": [
+    {
+      "name": "Greg Herrick",
+      "role": "Owner of a vintage Fairchild F-45 and first records plaintiff"
+    },
+    {
+      "name": "Brent Taylor",
+      "role": "Antique-aircraft association president and second records requester"
+    },
+    {
+      "name": "Federal Aviation Administration (FAA)",
+      "role": "Agency holding drawings and defending through its administrator"
+    },
+    {
+      "name": "Fairchild",
+      "role": "Manufacturer’s successor intervening to protect asserted commercial secrecy"
+    },
+    {
+      "name": "Justice Ginsburg",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "Wyoming action by Herrick failed and Tenth Circuit affirmed; Taylor’s later D.C. action was dismissed on summary judgment and affirmed under virtual representation; Supreme Court vacated and remanded only for possible agency-based preclusion.",
+  "limits": "No disclosure was ordered and Exemption 4’s merits were not decided. Control of the first action by Taylor was unsupported; possible control of Taylor’s later action by Herrick remained unresolved. Those are distinct inquiries.",
+  "briefSha256": "57c5cb7c798fa82b39534dc6d15f529eb86feedd99f63cbbe075591ae1c4ee8b",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-149"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Herrick sought old aircraft drawings and lost his own suit",
+      "cue": "Explain the preservation limits of the first judgment.",
+      "paragraphs": [
+        "Greg Herrick owned a vintage Fairchild F-45 airplane and wanted technical drawings to assist restoration. The manufacturer had submitted the drawings to the Federal Aviation Administration (FAA) during certification. Herrick requested them under the Freedom of Information Act (FOIA). The FAA withheld them under Exemption 4, protecting specified commercial information including trade secrets.",
+        "Herrick relied on a 1955 letter authorizing public access for replacement-parts purposes, arguing that secrecy had been waived. He lost in federal district court in Wyoming. The Tenth Circuit concluded that the authorization had removed secret status but affirmed based on Fairchild’s later objection and the arguments Herrick had preserved. It did not decide whether trade-secret protection could legally be restored or whether restoration after a records request would be effective, because those arguments had not been properly presented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "553 U.S. at 885–889, Part I.A"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Taylor made a new request and pursued the arguments left open",
+      "cue": "Introduce the friendship without equating it with representation.",
+      "paragraphs": [
+        "Less than a month after the appellate judgment, Brent Taylor requested the same materials. Taylor was president of an antique-aircraft association to which Herrick belonged. They were friends with shared aviation interests, and Herrick had asked Taylor to help restore the plane. They had no contract or agreement for Taylor’s participation.",
+        "The record showed a shared lawyer and transfer of litigation documents, but not that Taylor controlled or financed Herrick’s suit, participated in it, agreed to be bound, or even knew of it during litigation. When the FAA did not respond to Taylor’s request, he sued in the District of Columbia and sought to raise the questions Herrick had failed to preserve. Fairchild, the manufacturer’s successor, intervened to defend its claimed interest in the drawings.",
+        "The FAA and Fairchild argued that Herrick had virtually represented Taylor. The district court granted summary judgment on preclusion, and the D.C. Circuit affirmed under a test requiring aligned interests and adequate representation plus some connection such as close relationship, substantial participation, or tactical maneuvering. It relied on the aligned objectives and association but did not conclusively find manipulation because those facts were ambiguous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 887–891, Part I.B"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court required a recognized basis for binding an absent person",
+      "cue": "Explain the six categories and their procedural foundations.",
+      "paragraphs": [
+        "Justice Ginsburg’s unanimous opinion distinguished a judgment’s finality from the people it could bind. Claim and issue preclusion protect against repetition and inconsistent results, but ordinarily a person retains a claim if absent from the earlier litigation. Federal common law governed this federal-question judgment’s effect, subject to due process.",
+        "The Court organized established nonparty grounds into six categories: agreement to be bound; certain preexisting substantive legal relationships; adequate representation in an appropriate proceeding; control of the first litigation; a later action brought as agent or proxy for a bound party; and a special statutory scheme consistent with due process. The categories organized analysis rather than purporting to be an exhaustive code for every conceivable circumstance.",
+        "Those grounds depended on legal relationships or procedures, not merely common interests. A property successor had a defined relationship to an earlier owner; a proper class action protected absent members through representative procedures; a person controlling another’s suit had already exercised a litigation opportunity. The label “privity” could summarize a justified conclusion but could not supply the missing analysis."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 891–895 & nn.6, 8, Part II"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Virtual representation diluted protections and made rights unpredictable",
+      "cue": "Address precedent and the special argument about public records.",
+      "paragraphs": [
+        "The D.C. Circuit’s flexible test could create the equivalent of a class action without certification, notice, representative safeguards, and court supervision. Adequate representation generally required aligned interests and either an understanding that the first litigant acted representatively or protective measures by that court; some settings also required notice. Competent advocacy by one person’s lawyer did not automatically represent everyone with the same objective.",
+        "The respondents invoked earlier language about justice and equity. Ginsburg read it in context. Blonder-Tongue’s flexibility concerned nonmutual issue preclusion against someone who had already litigated and the adequacy of that person’s opportunity; it did not authorize retroactively designating unrelated absentees as represented. The broad multifactor approach also undermined predictability by inviting extensive discovery into friendships, shared lawyers, and tactical motives before anyone knew whether a claim survived.",
+        "FOIA’s public purpose did not make each requester representative of all others. The statute furnished information to the qualifying requester, and Congress imposed no general bar on successive suits by different people. Ordinary precedent could resolve recurring legal issues without binding every citizen to the first judgment. Litigation costs also discouraged pointless repetition, and the FAA identified no predicted pattern of abuse in jurisdictions rejecting expansive virtual representation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 898–904, Parts III.B–C"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Only control of the later lawsuit remained a possible preclusion basis",
+      "cue": "Make the direction of agency and burden of proof explicit.",
+      "paragraphs": [
+        "The record established no agreement to be bound, substantive legal relationship, Taylor control of the first suit, or special statutory scheme. Herrick did not purport to represent Taylor; Taylor was not shown to know of the case; and the Wyoming court took no measures to protect him. Describing Herrick’s self-representation as competent could not cure those omissions.",
+        "A different possibility remained: Herrick, already bound, might be controlling Taylor’s new lawsuit through an agency relationship. A party cannot evade preclusion by conducting a second case in somebody else’s name. But suspicion of tactical maneuvering was insufficient. Agency principles required attention especially to whether Taylor’s conduct of the later action was subject to Herrick’s control. Friendship alone did not establish it.",
+        "Preclusion was an affirmative defense that the FAA and Fairchild had to plead and prove. Taylor’s greater access to information about his dealings did not reverse that burden; targeted interrogatories and depositions could address it. On June 12, 2008, the Court vacated the D.C. Circuit’s judgment and remanded for the possible agency inquiry. It did not find agency, order release of the drawings, or decide Exemption 4’s application."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 903–907, Part IV"
+        }
+      ]
+    }
+  ]
+}

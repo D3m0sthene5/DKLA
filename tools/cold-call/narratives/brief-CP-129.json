@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-129",
+  "briefId": "CP-129",
+  "title": "Will v. Hallock",
+  "course": "Civil Procedure",
+  "citation": "546 U.S. 345 (2006)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Customs agents sought an immediate appeal from rejection of a statutory judgment bar, but the Supreme Court found no collateral-order jurisdiction to decide that defense yet.",
+  "actors": [
+    {
+      "name": "Susan Hallock and her software business",
+      "role": "Plaintiffs alleging destroyed computer equipment and data"
+    },
+    {
+      "name": "Richard Will and other customs agents",
+      "role": "Individual defendants invoking the FTCA judgment bar"
+    },
+    {
+      "name": "United States",
+      "role": "Defendant in a separate tort action"
+    }
+  ],
+  "proceedings": [
+    "FTCA action dismissed under the detention-of-goods sovereign-immunity exception.",
+    "District court rejected the agents’ judgment-bar defense in the Bivens action.",
+    "Second Circuit accepted immediate jurisdiction and affirmed; Supreme Court vacated and directed dismissal of the appeal."
+  ],
+  "limits": "The Court decided appeal timing, not applicability of § 2676, agent liability, or underlying allegations. The two actions had distinct legal bases, negligence against the government and a constitutional claim against agents.",
+  "briefSha256": "fc1eafdc0824ea042280c38b9fd775ca2c5b13453f111f4ef675d215b8aed858",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-129"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An investigation leads to seizure of home-business computers",
+      "cue": "Returned equipment allegedly cannot sustain the business",
+      "paragraphs": [
+        "Susan Hallock alleged that she ran a home software business with her husband Richard. Someone stole information associated with Richard’s credit card and used it to buy access to a child-pornography site. Customs investigators traced payment to that card, obtained a warrant, and seized computer equipment, software, and drives. No criminal charges followed.",
+        "According to the complaint, several drives were damaged when returned, and stored business records and trade secrets were lost, forcing the business to close. Those assertions supplied the background, not findings of responsibility by the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part I"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hallock pursues two different defendants and theories",
+      "cue": "One dismissal becomes the agents’ defense to the other suit",
+      "paragraphs": [
+        "Hallock and the business filed a negligence action against the United States under the Federal Tort Claims Act, or FTCA, in the Northern District of New York in July 2002. The court dismissed without deciding tort merits because the detention-of-goods exception preserved sovereign immunity.",
+        "While that action was pending, Hallock separately sued customs agents including Richard Will under Bivens for deprivation of property contrary to Fifth Amendment due process. After the FTCA dismissal, the agents invoked 28 U.S.C. § 2676, which makes a judgment in the specified FTCA action a bar to a claimant’s same-subject action against the employee. The district court considered this dismissal procedural and insufficient to activate the bar.",
+        "The agents immediately appealed. The Second Circuit accepted collateral-order jurisdiction and affirmed rejection of the defense. The Supreme Court granted review of the judgment-bar question but found that appellate authority had to be resolved first."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part I"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Souter asks what interest is lost by waiting",
+      "cue": "A right to avoid trial cannot by itself establish appealability",
+      "paragraphs": [
+        "Justice Souter’s unanimous opinion described the narrow collateral-order category under the final-decision rule. An order must conclusively settle the question, decide an important matter entirely separate from merits, and be effectively unreviewable after final judgment. Endless immediate appeals would impose expense and harassment on otherwise valid claims.",
+        "The agents compared absolute and qualified immunity, state sovereign immunity, and double jeopardy, all sometimes protecting against the proceeding itself. But limitations, jurisdictional, pleading, settlement, and preclusion defenses also can avoid trial. If irreversible expenditure alone sufficed, nearly every denied pretrial motion would qualify.",
+        "The protected interest instead had to extend beyond ordinary litigation costs. Presidential absolute immunity guarded separation of powers; qualified immunity preserved effective official initiative where law was unclear; state immunity protected sovereign dignity; double jeopardy checked repeated governmental prosecution. Those interests explained immediate review more precisely than the phrase right not to be tried."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Parts II.A–B"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The judgment bar resembles preclusion rather than immunity",
+      "cue": "The appellate merits ruling is vacated",
+      "paragraphs": [
+        "General distraction of employees did not make § 2676 equivalent to qualified immunity. The bar arose from an earlier FTCA judgment, not uncertainty in governing law or the official’s reasonable conduct. Qualified immunity could be invoked upon service. This bar could not arise while both suits merely remained pending, and would never arise if Hallock pursued only the individual action.",
+        "Claim preclusion was the closer functional analogy: both rely on an earlier judgment to prevent duplicative litigation. The Court acknowledged that the statutory bar might extend beyond ordinary res judicata without treating their scope as identical. Neither generally protected the public value needed for immediate review. Double jeopardy’s dependence on a prior proceeding did not change that distinction, because repeated prosecutorial power supplied its special concern.",
+        "On January 18, 2006, the Supreme Court vacated the Second Circuit’s judgment and remanded with instructions to dismiss the appeal for lack of jurisdiction. It did not approve that court’s interpretation of § 2676, dismiss Hallock’s action, or find the agents liable. A potentially dispositive defense and possible district-court error did not establish an immediate appeal of right."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion Part II.C & footnote"
+        }
+      ]
+    }
+  ]
+}

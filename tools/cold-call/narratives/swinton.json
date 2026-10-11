@@ -1,0 +1,107 @@
+{
+  "id": "swinton",
+  "briefId": "CTR-037",
+  "title": "Swinton v. Whitinsville Savings Bank",
+  "course": "Contracts",
+  "citation": "311 Mass. 677, 42 N.E.2d 808 (1942)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A buyer alleged that a bank knew its house had hidden termite damage, but his tort pleading rested on silence rather than a statement or active concealment.",
+  "actors": [
+    {
+      "name": "Swinton",
+      "role": "Buyer suing over undisclosed termite infestation"
+    },
+    {
+      "name": "Whitinsville Savings Bank",
+      "role": "Seller of the Newton house"
+    }
+  ],
+  "proceedings": [
+    "Superior Court: sustained the bank’s demurrer.",
+    "Massachusetts Supreme Judicial Court: affirmed and directed judgment for the bank."
+  ],
+  "limits": [
+    "The decision rejects this historical tort pleading; it does not resolve separate warranty, rescission, or specific-performance theories or state a universal contemporary home-sale rule."
+  ],
+  "briefSha256": "71e04ff5cb4fb8405373c44ec3025139b0fdde9c8c767934d4d20f4c6c2e14d7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-037"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The buyer discovers termites after purchasing a family home",
+      "cue": "Introduce the allegations and their dates.",
+      "paragraphs": [
+        "Around September 12, 1938, Whitinsville Savings Bank sold Swinton a house in Newton for use as his family home. Swinton alleged that the bank knew the house was infested with termites and internally damaged, that ordinary inspection would not readily reveal the condition, and that he bought without knowing it.",
+        "He alleged discovery around August 30, 1940, followed by substantial expenses for repairs and termite control. His tort declaration characterized the bank’s conduct as fraudulent concealment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "311 Mass. at 677–678; CB 510"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The pleading alleges silence without another source of a duty to speak",
+      "cue": "Explain what the court tested, not what evidence it found.",
+      "paragraphs": [
+        "The declaration did not allege a false statement, misleading partial answer, affirmative obstruction of investigation, fiduciary relationship, or special relationship of trust. It did not say the bank covered damaged beams or lied when asked about them. The question was whether silence despite knowledge itself supported the tort claim in an arm’s-length sale.",
+        "The Superior Court sustained a demurrer, ruling that the pleaded facts were legally insufficient. Swinton appealed to the Massachusetts Supreme Judicial Court. This procedure tested allegations, rather than resolving competing evidence after trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "311 Mass. at 677–679; CB 510–511"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court refuses to create a general disclosure obligation from superior knowledge",
+      "cue": "Preserve both the rule and its acknowledged tension.",
+      "paragraphs": [
+        "Justice Qua’s opinion held that bare nondisclosure did not create liability under the Massachusetts rule the court applied. Calling silence fraudulent supplied no missing facts establishing a duty to speak. The bank had neither created a misleading impression through a statement or active concealment nor undertaken a role requiring special loyalty or disclosure.",
+        "The court recognized the attraction of protecting an unfamiliar buyer against a hidden danger, but distinguished moral disapproval from a legal duty. Liability based only on superior knowledge could require each side to reveal information affecting the other’s valuation across a broad range of transactions. The court regarded that as a substantial change from its precedents.",
+        "It also declined to make a special termite rule turn on how common infestation was or how readily a buyer might discover it. The general boundary left a troubling asymmetry—the seller allegedly knew of a serious hidden condition and the buyer did not—but the court did not treat that asymmetry alone as actionable fraud."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "311 Mass. at 678–679; CB 510–511"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Judgment disposes of this tort action, not every conceivable remedy",
+      "cue": "End with the limited disposition and the relevant comparison.",
+      "paragraphs": [
+        "The Supreme Judicial Court affirmed the demurrer ruling and directed judgment for the bank. It did not adjudicate a warranty claim, order specific performance, or separately determine rescission. Merely switching remedies was not held either sufficient or insufficient to overcome the lack of actionable misrepresentation in this pleading.",
+        "The assigned comparison, Kannavos, involved sellers whose affirmative rental-property marketing made omitted restrictions misleading, even though public records disclosed the zoning problem. That distinction concerned what the seller said and implied, rather than simply the seriousness or discoverability of the adverse fact. Active masking of damage or a deceptive partial answer would likewise differ from Swinton’s pleaded silence.",
+        "Later decisions about latent defects, builder warranties, and statutory disclosures appear in the assigned notes as other legal approaches. This 1942 ruling expresses the historical Massachusetts position applied to this action; it is not a current nationwide disclosure rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "311 Mass. at 679; CB 511–516 and editorial comparisons"
+        }
+      ]
+    }
+  ]
+}

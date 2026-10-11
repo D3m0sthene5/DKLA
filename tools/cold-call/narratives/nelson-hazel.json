@@ -1,0 +1,104 @@
+{
+  "id": "nelson-hazel",
+  "briefId": "CT-NEXT-CM-0133",
+  "title": "Nelson v. Hazel",
+  "course": "Contracts",
+  "citation": "91 Idaho 850, 433 P.2d 120 (1967)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A remodeler whose defective work failed substantial performance still recovered a small net benefit after the homeowners received credit for prior payments and the proven cost of repairs.",
+  "actors": [
+    {
+      "name": "Nelson",
+      "role": "Remodeling contractor who initially sought a mechanic’s and materialman’s lien"
+    },
+    {
+      "name": "The Hazels",
+      "role": "Homeowners retaining defective improvements and claiming repair damages"
+    },
+    {
+      "name": "Justice Smith",
+      "role": "Author of the Idaho Supreme Court’s later-appeal opinion"
+    }
+  ],
+  "proceedings": "First appeal rejected substantial performance and lien enforcement and directed homeowner damages; remand awarded Nelson $598.85 after offsets; Supreme Court affirmed that award with costs to Nelson.",
+  "limits": "The 1967 decision is the second appeal. It did not revive substantial performance or the lien, award the full price, or equate all contractor expenditures with enrichment. The first appeal is described as reported in this later opinion.",
+  "briefSha256": "7ac9aa1a191002f12e90a140ee3799ee3f3cc5897c9995105512dc6941a165b8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0133"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Nelson’s first recovery failed because the remodeling was not workmanlike",
+      "cue": "Begin with the earlier judgment that defined the remand.",
+      "paragraphs": [
+        "Nelson remodeled the Hazels’ home and initially sued to foreclose a mechanic’s and materialman’s lien. The trial court found defects but substantial performance and entered judgment for Nelson. In the first appeal, reported at 89 Idaho 480, the Idaho Supreme Court reversed. The work was not workmanlike, substantial performance was absent, and the lien could not be enforced. The court directed assessment of the homeowners’ breach damages.",
+        "On remand, both sides submitted the existing record and exhibits without new evidence. The district court credited $5,090.86 for labor and materials, deducted the $1,997.51 already paid and $2,494.50 in repair damages, and entered judgment for Nelson for the $598.85 balance, with interest and costs. The Hazels appealed, arguing that lack of substantial performance barred any recovery and that remaining remedial work meant they had received no benefit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "91 Idaho at 851–852"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A failed contract claim did not necessarily forfeit retained value",
+      "cue": "Explain the different basis of the second award.",
+      "paragraphs": [
+        "Justice Smith’s opinion distinguished enforcement of the contract and lien from quasi-contractual recovery of an excess benefit. The prior mandate required compensation for the homeowners’ loss, and the repair-cost deduction supplied it. Contract damages compensate injury; they do not necessarily let owners retain every valuable improvement by a defaulting contractor without paying a net balance.",
+        "Building contracts furnished an exception to the usual rule against recovery by a defaulting party because improvements remain with the landowner. Negligent performance falling short of substantial performance could still confer value greater than the injury. Avoiding forfeiture supported payment of that excess. The court did not revise its earlier finding that Nelson failed substantial performance; it recognized a different obligation to pay for retained value beyond the Hazels’ compensable loss."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 851–852"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The existing repair evidence supported the deduction",
+      "cue": "Trace the arithmetic to the proof rather than treating spending as automatically recoverable.",
+      "paragraphs": [
+        "For remediable defects, the market cost of completion or correction ordinarily measured the offset. Two experts estimated roof, floor, and wall repairs at $2,000 and $2,300. The district court used the higher estimate and added $194.50 for chimney restoration, producing the $2,494.50 deduction.",
+        "No evidence established further damage, particularly the correction cost of allegedly defective kitchen built-ins. The large remaining expenditures the Hazels invoked were therefore already accounted for in the accepted estimates, rather than showing an additional uncompensated loss exceeding all benefit. On this record, the court accepted the labor-and-material figure as the initial value, then subtracted both prior payments and repair compensation. It did not hold that every contractor’s outlay necessarily equals the owner’s enrichment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 852"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The second appeal preserved only the net-benefit judgment",
+      "cue": "End without reviving the rejected lien.",
+      "paragraphs": [
+        "The Supreme Court held the calculation reasonable and consistent with its earlier mandate. Smith, Taylor, McQuade, Spear, and District Judge Norris unanimously affirmed the $598.85 judgment, with costs to Nelson.",
+        "The result depended on negligent, remediable defects and retained benefits exceeding proven injury. It neither excused the defects nor restored the lien or full contract-price claim rejected in the first appeal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 852"
+        }
+      ]
+    }
+  ]
+}

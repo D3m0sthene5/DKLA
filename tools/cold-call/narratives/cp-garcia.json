@@ -1,0 +1,112 @@
+{
+  "id": "cp-garcia",
+  "briefId": "CP-070",
+  "title": "Garcia v. Hilton Hotels International, Inc.",
+  "course": "Civil Procedure",
+  "citation": "97 F. Supp. 5 (D.P.R. 1951)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The same alleged accusation received different treatment when made at an employee’s discharge and later at an official labor hearing.",
+  "actors": [
+    {
+      "name": "Garcia",
+      "role": "Former hotel employee alleging defamation"
+    },
+    {
+      "name": "Hilton Hotels International, Inc.",
+      "role": "Employer seeking dismissal and changes to the complaint"
+    },
+    {
+      "name": "Puerto Rico Labor Department",
+      "role": "Agency that heard Garcia’s compensation claim"
+    }
+  ],
+  "proceedings": [
+    "Local District Court of Puerto Rico: action filed and removed by Hilton.",
+    "Federal district court: denied dismissal, struck hearing allegations and an agreed paragraph, and ordered a more definite statement."
+  ],
+  "limits": [
+    "This is a 1951 pleading decision. Allegations were accepted for legal sufficiency; publication, malice, truth, and damages were not tried or decided."
+  ],
+  "briefSha256": "6ddcb84c67e51b5ff077aa03e6209bc4280cb22c9701d4e1b2bba5cb15209583",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-070"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Garcia describes an accusation at discharge and a later repetition",
+      "cue": "Introduce each occasion before discussing privilege.",
+      "paragraphs": [
+        "Garcia, a citizen and resident of Puerto Rico, alleged that Hilton Hotels International discharged him on August 22, 1950, while falsely accusing him of bringing women into hotel rooms for prostitution. He later sought severance pay and overtime through the Puerto Rico Labor Department. According to his complaint, Hilton repeated the accusation at the department’s hearing, and the compensation claim was later compromised.",
+        "Garcia sued Hilton, a Delaware corporation, for defamation in the local District Court of Puerto Rico. Hilton removed the action to federal court. Two causes of action contained identical paragraphs pertinent to the motions, so District Judge Roberts applied his rulings to both."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opening judicial paragraphs; paragraphs beginning “In support of its motion” and “It is alleged in these paragraphs”"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hilton asks for dismissal or narrower, clearer allegations",
+      "cue": "Explain why the discharge claim survived.",
+      "paragraphs": [
+        "Hilton moved to dismiss because Garcia had not expressly alleged publication to another person and because the accusation was conditionally privileged. Alternatively, it asked to strike paragraphs 5–8, which described the labor proceeding, and to require a more definite statement. The parties also agreed to strike paragraph 9.",
+        "Under the liberal pleading approach applied in 1951, Rule 8(a) called for a short and plain statement showing entitlement to relief rather than the older formula of facts sufficient to constitute a cause of action. Drawing on Dioguardi, a decision favoring an opportunity to develop an imperfectly expressed claim, Roberts asked whether evidence within this complaint’s framework could establish relief.",
+        "Paragraph 4 did not expressly allege publication. Nevertheless, the alleged discharge accompanied by a false and slanderous accusation conveyed a publication claim Hilton could understand, and Garcia might prove publication at trial. That imperfect allegation did not warrant dismissal. Roberts did not find that publication actually occurred.",
+        "Conditional privilege did not conclusively defeat the complaint either. Unlike absolute privilege, it could be lost through abuse or actual malice. Even assuming it applied to the discharge communication, evidence allowed by these allegations could negate the defense. Hilton therefore had to assert conditional privilege as an affirmative defense rather than obtain dismissal merely because it might be available."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Paragraphs beginning “The motion to dismiss” through “And, clearly”"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The official labor hearing carries an absolute privilege",
+      "cue": "Explain why those allegations were removed.",
+      "paragraphs": [
+        "The repetition at the Labor Department hearing had a different status. Puerto Rico’s 1902 defamation statute protected communications in legislative or judicial proceedings and other proceedings authorized by law. Roberts understood that protection to be absolute. The 1949 labor-enforcement statute authorized the hearing, charged the commissioner with investigating complaints, and provided compulsory means for obtaining evidence.",
+        "Labor enforcement required participants to give information freely without fearing liability based on the alleged motive or falsity of testimony. Courts elsewhere similarly protected communications to bodies exercising quasi-judicial powers. That policy and the statute’s coverage of legally authorized proceedings supported absolute privilege here; malice could not defeat it.",
+        "Roberts struck paragraphs 5–8 as redundant, including the surrounding account of the labor claim and compromise. He struck paragraph 9 separately by agreement. The protected repetition did not retroactively turn the original discharge accusation into a statement made in the official hearing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Paragraphs beginning “Section 4” through “The parties have agreed”"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A viable claim still needs enough clarity for an answer",
+      "cue": "Finish with the distinct rulings on each request.",
+      "paragraphs": [
+        "Although paragraph 4 survived dismissal, it did not adequately identify the substantial words spoken or the facts establishing publication. Those details mattered to Hilton’s response, including a conditional-privilege defense. Roberts granted the Rule 12(e) request for a more definite statement requiring that information.",
+        "On May 8, 1951, the court therefore denied dismissal, granted the motion to strike paragraphs 5–8, struck paragraph 9 by agreement, and required clarification of paragraph 4. Each ruling also applied to the second cause of action. Garcia retained an opportunity to pursue the discharge-related claim; neither side received a final defamation damages judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Final reasoning paragraphs and final judicial paragraph"
+        }
+      ]
+    }
+  ]
+}

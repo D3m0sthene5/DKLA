@@ -1,0 +1,130 @@
+{
+  "id": "cp-sniadach",
+  "briefId": "CP-ATLAS-SNIADACH",
+  "title": "Sniadach v. Family Finance Corp. of Bay View",
+  "course": "Civil Procedure",
+  "citation": "395 U.S. 337 (1969)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A creditor froze part of Christine Sniadach’s earned wages before proving its debt, and the Supreme Court treated the temporary loss of their use as a deprivation requiring prior process.",
+  "actors": [
+    {
+      "name": "Christine Sniadach",
+      "role": "Wage earner whose wages were garnished before judgment"
+    },
+    {
+      "name": "Family Finance Corp. of Bay View",
+      "role": "Creditor claiming payment on a promissory note"
+    },
+    {
+      "name": "Sniadach’s employer",
+      "role": "Garnishee holding earned wages"
+    },
+    {
+      "name": "Justice Douglas",
+      "role": "Author of the Court’s opinion"
+    },
+    {
+      "name": "Justice Harlan and Justice Black",
+      "role": "Concurring and dissenting Justices respectively"
+    }
+  ],
+  "proceedings": "Sniadach moved to dismiss garnishment; Wisconsin courts upheld the procedure; Supreme Court reversed and remanded to the Wisconsin Supreme Court on June 9, 1969.",
+  "limits": "The Court decided prejudgment wage-garnishment procedure, not the debt’s validity or every form of prejudgment attachment. The official Court Journal supplies the express remand; the reported opinion states reversal.",
+  "briefSha256": "a7415f0ec36cf52098a4aff0b47fc6e2afe54215077dd5f35949328fae302be6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-SNIADACH"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Service on the employer froze money Sniadach had already earned",
+      "cue": "Distinguish the debt claim from the immediate deprivation.",
+      "paragraphs": [
+        "Family Finance Corp. of Bay View sued Christine Sniadach on a promissory note, claiming she owed $420. It named her employer as garnishee. The employer reported $63.18 in earned but unpaid wages, half to be released as a statutory subsistence allowance and half held subject to court order. The immediate restraint therefore covered $31.59; the alleged debt had not yet been adjudicated.",
+        "Under Wisconsin’s procedure, a clerk issued a summons at the creditor’s lawyer’s request, and the lawyer’s service on the employer froze the wages. The statute allowed up to ten days before serving the debtor, although Sniadach was served the same day as her employer. Her objection was not absence of all notice of a suit. It was the lack of notice and an opportunity to contest the seizure before losing unrestricted use of her wages.",
+        "Sniadach moved to dismiss the garnishment proceedings under the Fourteenth Amendment’s Due Process Clause. The Wisconsin Supreme Court upheld the lower court’s approval of the procedure, and the U.S. Supreme Court took up the garnishment question. Whether the claimed debt was valid, fraudulent, or ultimately collectible remained outside that question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "395 U.S. at 337–339 & nn.1–3; 346 (Black, J., dissenting)"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court treated temporary loss of wages as a real deprivation",
+      "cue": "Explain the role of hardship without converting examples into findings.",
+      "paragraphs": [
+        "Justice Douglas’s opinion held that the interim loss of enjoyment mattered constitutionally. Winning a later debt trial could release the money, but meanwhile Sniadach could neither use the wages nor present a defense before they were frozen. Later recovery did not cure the absence of a prior opportunity to contest the taking.",
+        "Wages were a specialized form of property because families depended on them for ordinary needs. The Court discussed employment risks, legislative investigations, collection-fee pressure, and the inadequacy of statutory allowances. A debtor urgently needing wages could be pressured to pay disputed demands or additional charges. Those observations explained the need for procedure; they did not establish that Family Finance had invented this debt or that Sniadach personally suffered every described hardship.",
+        "Historical approval of attachment did not automatically validate every modern wage restraint. Procedure adequate for some kinds of property or circumstances might be inadequate for wages. Douglas therefore addressed Wisconsin’s challenged arrangement without declaring every conceivable prejudgment attachment unconstitutional."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 339–342 & nn.4–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "No extraordinary need justified freezing these wages first",
+      "cue": "Place the exception beside the actual circumstances.",
+      "paragraphs": [
+        "The majority recognized that extraordinary circumstances could justify summary action to protect special governmental or creditor interests. Neither this record nor Wisconsin’s broad statute presented such a circumstance. Sniadach was a local resident readily subject to personal jurisdiction, and no special need to seize first had been shown. The Court cited emergency and specialized proceedings without attempting to define an exhaustive list of permissible exceptions.",
+        "Justice Harlan separately explained why he joined the judgment and opinion. The protected property interest was the use of the wages between seizure and disposition of the underlying suit, and that loss was not trivial. Same-day service, a later merits trial, and possible interim relief under uncertain conditions did not supply the necessary prior procedure.",
+        "Outside special situations, Harlan required notice and a hearing directed to the underlying claim’s validity, or at least its probable validity, before taking property or restricting its use. That did not invariably demand a completed trial before any restraint. His note recognized summary administrative action protecting vital governmental interests but found no comparable justification here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 339, 342–343 & Harlan n.*"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Black disputed both the record and the majority’s constitutional method",
+      "cue": "Keep the dissent’s assertions distinct from the Court’s ruling.",
+      "paragraphs": [
+        "Justice Black dissented. He viewed the hardship discussion as a legislative policy assessment rather than constitutional adjudication. Wisconsin gave notice and a later chance to raise legal defenses, while the temporary restraint preserved property until the debt could be decided. He saw the ruling as a return to open-ended due-process invalidation of state economic policy.",
+        "Black stressed that Sniadach received same-day service, moved to dismiss before trial, and challenged a $31.59 restraint. Drawing on the Wisconsin court’s account, he said she had not alleged that she owed nothing, established inability to furnish the available release bond, or shown that her employer threatened dismissal. He objected to relying on harms asserted for other people and questioned whether state-law grounds limited federal review. These were his objections, not the majority’s reasons for upholding garnishment.",
+        "Earlier attachment decisions, including the summary affirmance in McKay, reinforced Black’s belief that temporary restraint with notice and later adjudication sufficed. His final addendum argued that appeals to fundamental fairness or legal heritage supplied no defined limit and substituted judges’ ideas of justice. Harlan expressly disagreed: he grounded fairness in constitutional specifics and Anglo-American legal traditions and would not let an unexplained earlier per curiam attachment ruling diminish established notice-and-hearing principles."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 342–351"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The wage procedure fell; the debt remained undecided",
+      "cue": "Close with the actual disposition and its scope.",
+      "paragraphs": [
+        "On June 9, 1969, the Supreme Court reversed and remanded to the Wisconsin Supreme Court for further proceedings consistent with its opinion. Wisconsin could not deprive this wage earner of earned wages through the challenged prejudgment process without a prior opportunity to be heard. The Court did not decide whether Sniadach owed the note, determine the reach of the principle to every other kind of property, or eliminate the possibility of exceptional circumstances justifying postponed process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 339–342; 1968 Term Court Journal, June 9, 1969, p. 416, No. 130"
+        }
+      ]
+    }
+  ]
+}

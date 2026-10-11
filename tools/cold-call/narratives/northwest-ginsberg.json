@@ -1,0 +1,111 @@
+{
+  "id": "northwest-ginsberg",
+  "briefId": "CT-NEXT-CM-0107",
+  "title": "Northwest, Inc. v. Ginsberg",
+  "course": "Contracts",
+  "citation": "572 U.S. 273 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A frequent flyer challenged his expulsion as a breach of good faith, but Minnesota’s mandatory covenant added a state-imposed obligation beyond the airline’s voluntary promises and was federally preempted.",
+  "actors": [
+    {
+      "name": "Ginsberg",
+      "role": "WorldPerks member challenging termination of elite status"
+    },
+    {
+      "name": "Northwest, Inc.",
+      "role": "Airline operating WorldPerks and terminating membership"
+    },
+    {
+      "name": "Delta",
+      "role": "Airline involved in the merger underlying Ginsberg’s alleged cost-cutting theory"
+    },
+    {
+      "name": "Justice Alito",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "District court dismissed implied-covenant and misrepresentation claims as preempted and dismissed express-contract claim without prejudice; Ginsberg appealed only the covenant claim; Ninth Circuit reinstated it; Supreme Court reversed and remanded.",
+  "limits": "The Court decided the Minnesota implied-covenant theory, not the abandoned express-contract claim or the truth of alleged cost cutting. It did not preempt every airline contract or every state’s implied-covenant doctrine.",
+  "briefSha256": "8ea849a5d7a2fbbb105e44a75bd48531e17e4bae1d1ff470cdb841b15c0b5c60",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0107"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Elite membership ended after repeated compensation requests",
+      "cue": "Introduce the program benefits and the competing accounts of termination.",
+      "paragraphs": [
+        "Ginsberg joined Northwest’s WorldPerks frequent-flyer program in 1999 and reached Platinum Elite, its highest status, in 2005 through extensive travel. Members earned miles on Northwest and partner flights and redeemed them for tickets and upgrades. In 2008, Northwest terminated his membership, apparently invoking a term allowing cancellation for program abuse, including improper conduct determined in the airline’s sole judgment.",
+        "Northwest’s letter identified twenty-four complaints since December 2007, nine involving late arrival of baggage at the carousel. It listed $1,925 in travel vouchers, 78,500 bonus miles, a voucher extension, and $491 in reimbursements, and said the airline would no longer grant compensation with each contact.",
+        "Ginsberg alleged a different motive: cost cutting associated with Northwest’s merger with Delta. His proposed class action claimed breach of contract, breach of the implied covenant of good faith, and negligent and intentional misrepresentation. He sought more than $5 million and restoration of membership. The alleged ulterior motive was not a judicial finding. Minnesota law governed under an unchallenged choice-of-law determination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "572 U.S. at 277–278 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Only the implied-covenant claim reached the Supreme Court",
+      "cue": "Separate preemption from the abandoned express-contract ruling.",
+      "paragraphs": [
+        "The district court dismissed the covenant and misrepresentation claims as preempted by the Airline Deregulation Act. It dismissed the express-contract claim without prejudice for failure to identify a material breach, reasoning that the agreement reserved sole discretion over abuse. Ginsberg appealed only dismissal of the implied covenant.",
+        "The Ninth Circuit reinstated that claim because it considered the connection to airline rates or services insufficient for preemption. The Supreme Court therefore reviewed that state-imposed covenant theory, not the merits of the express promises Ginsberg had stopped pursuing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 279"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Federal deregulation distinguished private promises from state standards",
+      "cue": "Explain why a common-law contract label did not settle the issue.",
+      "paragraphs": [
+        "Justice Alito’s unanimous opinion explained that the Airline Deregulation Act sought market control of prices, routes, and services and barred state provisions having the force of law related to those subjects. Morales, an earlier preemption decision, read “related to” broadly as connection or reference. Wolens, a later airline-contract decision, distinguished state consumer regulation from enforcement of an airline’s voluntarily accepted promises. The controlling question was whether the claim enforced private ordering or added a state standard.",
+        "Common-law rules could have the force of law. The statutory text, earlier references to rules and standards, nonsubstantive 1994 recodification, and deregulatory purpose rejected limiting preemption to statutes and regulations. Sprietsma, a boat-safety case construing different language, did not change that conclusion. Nor could an older general aviation saving clause override the later specific preemption provision.",
+        "Ginsberg’s requested reinstatement would restore miles redeemable for cheaper tickets, flight access, and upgrades, connecting the claim to prices and services. Calling it a dispute about termination did not remove that connection. The Court reserved possible questions about programs earning or redeeming miles outside aviation; Ginsberg alleged only flight-earned miles and ticket or upgrade redemptions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 279–285"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Minnesota’s nonwaivable covenant supplied the additional state obligation",
+      "cue": "End with the alternative theory left unpursued and the judgment.",
+      "paragraphs": [
+        "The Court rejected categorical rules that all good-faith claims survive or all are preempted. Some states used the covenant to implement implied contractual intentions; others imposed community standards independent of agreement. Minnesota did not allow parties to disclaim its covenant, making it state-imposed. Its general application except to employment contracts for policy reasons further showed that state policy determined its reach.",
+        "Northwest objected that state variations would produce a regulatory patchwork. The Court answered that airlines could expressly contract around the covenant where state law permitted, considering transaction costs and customer appeal. Market reputation and federal Department of Transportation enforcement also protected passengers.",
+        "An express-contract claim might have tested whether discretion to identify abuse authorized termination for an ulterior cost-cutting motive. Ginsberg had chosen not to appeal that dismissal, so the Court did not decide whether the contract actually permitted the alleged conduct. On April 2, 2014, it reversed the Ninth Circuit and remanded because this Minnesota covenant claim enlarged Northwest’s voluntarily assumed obligations and was preempted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 285–290 & nn.2–3"
+        }
+      ]
+    }
+  ]
+}

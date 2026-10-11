@@ -1,0 +1,136 @@
+{
+  "id": "lrs-n-pacific-gas-policy",
+  "briefId": "LRS-ATLAS-N-PACIFIC-GAS-POLICY",
+  "title": "Pacific Gas & Electric Co. v. Federal Power Commission",
+  "course": "Legislation and the Regulatory State",
+  "citation": "506 F.2d 33 (D.C. Cir. 1974)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A natural-gas shortage led the Federal Power Commission to announce national curtailment priorities. Customers challenged the announcement as an improperly adopted binding rule, but the court treated it as tentative guidance and found immediate substantive review premature.",
+  "actors": [
+    {
+      "name": "Federal Power Commission",
+      "role": "Agency announcing end-use curtailment priorities"
+    },
+    {
+      "name": "Pacific Gas & Electric and Mississippi Power & Light",
+      "role": "Customers petitioning for review of the policy"
+    },
+    {
+      "name": "Judge MacKinnon",
+      "role": "Author of the D.C. Circuit opinion"
+    }
+  ],
+  "proceedings": "The Commission issued and amended Order 467 without prior notice and comment. The D.C. Circuit classified it as a policy statement and dismissed both review petitions for lack of Natural Gas Act section 19(b) jurisdiction.",
+  "limits": "The court did not approve the priorities on their merits, decide contract immunity, or resolve the environmental claim. Its classification depended on future proceedings genuinely allowing factual and legal challenges to the proposed policy.",
+  "briefSha256": "7289419e010e0db5df1493fb17081a17671106e66522de7ac59029a9b005f8b0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-PACIFIC-GAS-POLICY"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A shortage forced choices among gas customers",
+      "cue": "Explain why the agency announced a national approach.",
+      "paragraphs": [
+        "A natural-gas shortage forced pipelines to decide which customers would lose deliveries during peak demand. Existing contracts did not always align with efficient gas uses, and pipelines feared civil liability for departing from their promises. The Federal Power Commission’s 1971 Order 431 required pipelines anticipating shortages to file curtailment plans. Some plans prioritized end uses; others favored contractual entitlements. Without a national approach, pipelines, distributors, and consumers struggled to plan.",
+        "On January 8, 1973, the Commission issued Order 467 without advance notice and comment. It announced an end-use approach with proposed priorities: residential and small-commercial demand ranked high, while some industrial boiler-fuel and interruptible uses ranked low. The agency reasoned, among other things, that residential service could not safely be curtailed daily and many lower-priority customers could substitute fuels. Order 467-A added emergency procedures; Order 467-B partly amended and affirmed the policy while denying rehearing and intervention requests. The litigation treated these orders together as Order 467."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "35–37; appendix 50–52"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Customers challenged procedure and substance",
+      "cue": "Identify the two petitions and the agency’s response.",
+      "paragraphs": [
+        "Pacific Gas & Electric and Mississippi Power & Light sought review under section 19(b) of the Natural Gas Act. Customers facing reductions, especially low-priority electricity generators, argued that the Commission had adopted a substantive rule without the Administrative Procedure Act’s notice-and-comment process, lacked an adequate factual record for the priorities, and had not complied with the National Environmental Policy Act.",
+        "The Commission answered that it had merely announced guidance for later proceedings, without determining any particular pipeline customers’ rights. Judge MacKinnon wrote the D.C. Circuit’s single opinion, joined by Chief Judge Bazelon and designated Senior District Judge Christensen, resolving both petitions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "35–37"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "A policy could guide without settling the governing norm",
+      "cue": "Explain the distinction and why this order satisfied it.",
+      "paragraphs": [
+        "The court distinguished a substantive rule, which supplies a legal standard generally governing later proceedings, from a general statement of policy announcing an intended future course. Under a binding rule, later disputes ordinarily concern application, waiver, or compliance. Under a policy statement, the agency must still establish the policy’s supporting evidence and reasoning when it applies it, as though the statement had not settled those matters.",
+        "Tentative guidance can disclose intentions, facilitate long-term planning, and encourage national consistency. Those benefits explain the Administrative Procedure Act’s exemption from notice and comment. But an agency’s label is only evidence: a professed policy that actually fixes a binding norm must follow substantive-rule procedures.",
+        "Order 467 set no particular pipeline’s plan and expressly anticipated further proceedings. Parties could contest the priorities themselves on facts and law, not merely seek exceptions from an already conclusive schedule. The Commission repeatedly described its plan as a starting point subject to adjustment on a hearing record. The court expected subsequent judicial review to enforce those assurances. On that understanding, the order was an exempt general policy statement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "37–43"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Pipelines still had to justify their plans",
+      "cue": "Address the burden-of-proof objection.",
+      "paragraphs": [
+        "The customers argued that the order shifted the burden from pipelines to affected customers. The court disagreed. A conforming filing might become effective, but intervenors could still challenge preference, discrimination, injustice, or unreasonableness. Appropriate section 4 proceedings would require the pipeline to establish a fair and reasonable plan.",
+        "A cited Transwestern proceeding had used section 5, with a different burden on challengers. The court did not understand that instance as an announced permanent avoidance of section 4. Nor did it decide whether Transwestern’s particular objections should have triggered section 4, because that case and its facts were not before it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "43–44 & n.28"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The petitioners had standing as parties, but review was premature",
+      "cue": "Separate party status from the jurisdictional defect.",
+      "paragraphs": [
+        "The Commission argued that rehearing applicants lacked party status because they had not intervened. The court rejected that position: the agency had denied an intervention request and said intervention was unnecessary for a policy statement. Futile requests were not required, and rehearing petitions sufficed here.",
+        "The defect instead concerned practical effect and the suitability of the record. Earlier cases had seemed to distinguish reviewable adjudications from nonreviewable rules, but intervening decisions favored a practical inquiry. Drawing on Abbott Laboratories, the precedent addressing pre-enforcement review, the court examined fitness for decision and hardship from withholding review. Neither a rule label nor a policy label automatically answered that question.",
+        "Later curtailment proceedings would determine effects on particular deliveries and contracts. Unlike the broadcasting regulations in CBS, a precedent involving direct business disruption, Order 467 had caused no wholesale contract cancellations or comparable immediate impact. The factual-support and contract-abrogation objections also lacked a developed record; even the allegedly threatened contracts were absent. The petitioners showed neither undue present hardship nor fitness for meaningful review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "41–42, 45–49"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Both petitions were dismissed",
+      "cue": "State the matters left for another forum or proceeding.",
+      "paragraphs": [
+        "The D.C. Circuit dismissed both petitions for lack of section 19(b) jurisdiction. It did not endorse the priorities’ wisdom or decide whether they could immunize pipelines from contractual liability.",
+        "The jurisdictional conclusion also prevented a ruling on the National Environmental Policy Act claim. The court summarized the environmental disagreement and left the petitioners free to pursue that claim in district court. Discussion of potentially broader scrutiny assumed an appropriate case with jurisdiction; it was not substantive approval of this curtailment policy. No judge wrote separately."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "40 n.22, 45–49"
+        }
+      ]
+    }
+  ]
+}

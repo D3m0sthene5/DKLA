@@ -1,0 +1,123 @@
+{
+  "id": "rockingham",
+  "briefId": "CT-NEXT-CM-0151",
+  "title": "Rockingham County v. Luten Bridge Co.",
+  "course": "Contracts",
+  "citation": "35 F.2d 301 (4th Cir. 1929)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After a divided county board commissioned a bridge, the functioning board told the contractor to stop and abandoned the connecting road. The contractor continued building, but could recover the loss caused by repudiation rather than charge the county for avoidable later work.",
+  "actors": [
+    {
+      "name": "Rockingham County",
+      "role": "Owner admitting a valid contract and breach on appeal"
+    },
+    {
+      "name": "Luten Bridge Company",
+      "role": "Contractor continuing after stop notices"
+    },
+    {
+      "name": "Pruitt and Hampton",
+      "role": "Departing commissioner and appointed successor whose authority affected the notices"
+    },
+    {
+      "name": "Judge Parker",
+      "role": "Author of the Fourth Circuit opinion"
+    }
+  ],
+  "proceedings": "The trial court directed a verdict for Luten’s $18,301.07 claim after excluding county evidence. The Fourth Circuit reversed and remanded for a new trial on properly admitted evidence and the appropriate damages measure.",
+  "limits": "The county’s notice breached the bargain rather than lawfully eliminating compensation. Recovery included supported pre-repudiation expenditures and anticipated profit; neither $1,900 nor $18,301.07 was fixed as final liability.",
+  "briefSha256": "0885478e3142f52adee08fce15dfccc5ed309d6dc9c53125f07cc87c8e540a87",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0151"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A divided board approved a bridge and then changed direction",
+      "cue": "Trace the governmental dispute underlying the stop notice.",
+      "paragraphs": [
+        "On January 7, 1924, Rockingham County’s five-member board awarded Luten Bridge Company a construction contract by three votes to two. Public controversy followed. Commissioner Pruitt, one of the supporters, submitted a resignation to the superior-court clerk on February 11. The county offered evidence that the clerk accepted it before Pruitt tried to withdraw it and appointed Hampton, who took the oath and regularly conducted business with Commissioners Martin and Barber. Pruitt and the other two original supporters attended no more board meetings.",
+        "At a regularly advertised February 21 meeting, the functioning board declared the contract invalid, directed Luten to stop, and abandoned the road the bridge was to connect. It sent Luten the resolution. Later March and April resolutions warned that continued building was at Luten’s risk and repudiated a commissioner’s private encouragement to continue. A September resolution refused bridge bills. These authority details were presented through affidavits and offers of proof, much of them excluded below, rather than found at an appellate evidentiary trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "302–304"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Continued construction produced a full-price verdict",
+      "cue": "Explain the unauthorized pleading and appeal.",
+      "paragraphs": [
+        "When the first notice issued, labor and materials at the site totaled about $1,900. Luten nevertheless continued and sued for $18,301.07 allegedly earned through November 3. Three original commissioners privately met an attorney and filed an answer admitting the complaint, without a lawful board meeting or consultation with the other commissioners.",
+        "After a new board took office, the county sought to strike that answer and filed a defense. The judge treated the private answer as the county’s admission, admitted it as evidence, excluded the proffered resignation and cancellation material, and directed a verdict for Luten’s full demand. The county appealed. Although it had initially disputed validity, on appeal it admitted execution, validity, and breach. The remaining dispute concerned permissible recovery and the evidence establishing effective repudiation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "303–304"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "County action required a lawful meeting",
+      "cue": "Explain why the admissions failed and the notices could matter.",
+      "paragraphs": [
+        "Judge Parker’s Fourth Circuit opinion held that a board exercised corporate power as a body in a legally convened meeting. Even if the three original commissioners remained a numerical majority, their private conference satisfied no requirement for a regular, special, or called meeting. The answer was unauthorized as a county pleading and improper as a personal answer to official-capacity claims. It should have been stricken and could not prove a county admission.",
+        "The offered resignation facts were relevant. If true, acceptance by the proper official ended Pruitt’s withdrawal power, permitted Hampton’s appointment, and left a functioning quorum. Independently, Hampton’s appointment by the proper appointing officer, oath, and unchallenged service supported de facto officer status. Acts at lawful meetings could bind the county and those dealing with it despite a possible appointment defect. This was not a contest between simultaneously functioning rival boards. The resolutions and notices could not be excluded merely for supposed lack of authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "304–307"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Repudiation limited avoidable costs but preserved the promised profit",
+      "cue": "Explain the damages principle.",
+      "paragraphs": [
+        "The county could not unilaterally rescind a valid contract without compensation. Its stop notice was itself a breach. But after effective repudiation, Luten could not keep constructing an unwanted bridge and add avoidable expenditures to the county’s liability. With the connecting road abandoned, the bridge was useless to the county. Luten’s loss included its anticipated profit, which it did not need to finish unwanted work to earn as damages.",
+        "The court applied the American rule against increasing damages by continued performance after absolute repudiation. Authorities permitting an immediate anticipatory-breach action did not authorize avoidable subsequent construction. Painting and manufacturing examples reinforced the distinction between compensation for breach and reimbursement for unnecessary costs.",
+        "On proof of duly given notice, the measure was labor, materials, and expenses incurred in partial performance before repudiation plus the profit performance would have produced. The $1,900 site figure did not necessarily exhaust prior costs or eliminate profit; the later $18,301.07 demand likewise did not establish recoverable loss."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "307–309"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A new trial would determine the county’s liability",
+      "cue": "State all reasons for reversal.",
+      "paragraphs": [
+        "The Fourth Circuit reversed and remanded because the unauthorized answer should have been stricken, the county’s evidence admitted, and the directed verdict for the whole claim withheld. It did not itself calculate damages. Judge Parker wrote for a panel including District Judges McClintic and Soper, with no separate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "302, 309"
+        }
+      ]
+    }
+  ]
+}

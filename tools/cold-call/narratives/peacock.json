@@ -1,0 +1,104 @@
+{
+  "id": "peacock",
+  "briefId": "CT-NEXT-CM-0120",
+  "title": "Peacock Construction Co. v. Modern Air Conditioning, Inc.",
+  "course": "Contracts",
+  "citation": "353 So. 2d 840 (Fla. 1977)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two subcontractors completed their work, but the general contractor invoked language tying final payment to payment by an owner in bankruptcy.",
+  "actors": [
+    {
+      "name": "Peacock Construction Co.",
+      "role": "General contractor withholding final subcontract payments"
+    },
+    {
+      "name": "Modern Air Conditioning and Overly Manufacturing",
+      "role": "Subcontractors who completed the air-conditioning and rooftop-pool work"
+    }
+  ],
+  "proceedings": [
+    "Separate circuit-court summary judgments favored the subcontractors.",
+    "Second District affirmed both.",
+    "Florida Supreme Court adopted those decisions and discharged certiorari, leaving the judgments intact."
+  ],
+  "limits": "The decision construes ambiguous final-payment provisions, preserving clearly expressed risk shifting. It neither fixes a new precise due date nor decides every contractual ambiguity.",
+  "briefSha256": "530e72e205630014d194fa11e966d6f82be510456535126957e554976f58647a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0120"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The project’s owner does not pay in full",
+      "cue": "Completed subcontract work remains unpaid",
+      "paragraphs": [
+        "Peacock was general contractor on a condominium project. Modern Air Conditioning undertook heating and air conditioning; Overly Manufacturing undertook the rooftop swimming pool. Each subcontract placed final payment within thirty days after completion, written architectural acceptance, and full owner payment.",
+        "Both completed their work and requested payment. No deficiencies had been found. Modern’s architect testified that its equipment, although not yet operated, was complete under the plans and specifications. The owner, a corporation, entered bankruptcy, and Peacock had not received full payment. Peacock’s position made interpretation decisive: did owner payment condition any debt, or merely fix timing for an otherwise unconditional obligation?"
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "353 So.2d at 841 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Both subcontractors obtain summary judgment",
+      "cue": "A conflict concerns whether intent must go to a jury",
+      "paragraphs": [
+        "Modern and Overly sued separately in Lee County Circuit Court and each won summary judgment. The Second District affirmed Modern under the prevailing approach treating such clauses as absolute payment promises with reasonable timing, then affirmed Overly on Modern’s authority.",
+        "The Florida Supreme Court accepted conflict certiorari and consolidated the causes for appellate purposes. In Gerrits, the Third District had reversed a similar subcontractor judgment because intent should go to a jury when the contractor raised it. Peacock conceded the weight of contrary authority but sought an opportunity to present intent evidence before any directed verdict."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "353 So.2d at 841–842 & nn.1, 5–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The familiar commercial relationship resolves the ambiguity",
+      "cue": "Clear language can allocate a different risk",
+      "paragraphs": [
+        "Acting Chief Justice Boyd acknowledged that the language could describe either a condition or reasonable payment timing. The court did not pretend Peacock’s reading was linguistically impossible. It held that judicial interpretation could resolve ordinary intent in this familiar transaction without a mandatory jury trial merely because the text was ambiguous.",
+        "Small subcontractors on large projects ordinarily need payment to remain in business and do not intend to insure the owner’s solvency. The court therefore read ambiguous owner-payment clauses as unconditional promises payable within a reasonable time. Listing owner receipt alongside completion and acceptance did not itself transfer permanent nonpayment risk.",
+        "Parties remained free to shift that risk, but had to express the shift unambiguously, with the general contractor bearing the burden of clear expression. These subcontracts did not do so."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "353 So.2d at 841–843 & nn.6, 8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The subcontractor judgments remain in effect",
+      "cue": "The conflicting precedent is displaced to that extent",
+      "paragraphs": [
+        "On December 15, 1977, the Supreme Court adopted the Second District’s decisions as controlling Florida law, overruled Gerrits insofar as inconsistent, and discharged the certiorari orders. Both favorable summary judgments remained undisturbed and did not depend on the bankrupt owner eventually paying Peacock. Justices England, Sundberg, Hatchett, and Karl joined Boyd without a separate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "353 So.2d at 843"
+        }
+      ]
+    }
+  ]
+}

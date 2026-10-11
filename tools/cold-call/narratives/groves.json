@@ -1,0 +1,131 @@
+{
+  "id": "groves",
+  "briefId": "CT-NEXT-CM-0147",
+  "title": "Groves v. John Wunder Co.",
+  "course": "Contracts",
+  "citation": "205 Minn. 163, 286 N.W. 235 (1939)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A gravel company paid for extraction rights and promised to leave industrial land at a uniform grade. After it took the richest gravel and left the grading undone, the Minnesota court treated the promised work as the contractual loss, while remanding to determine exactly what work the promise required.",
+  "actors": [
+    {
+      "name": "S. J. Groves & Sons",
+      "role": "Original landowner and competing gravel operator"
+    },
+    {
+      "name": "Frank Groves",
+      "role": "Assignee and successor suing on the grading covenant"
+    },
+    {
+      "name": "John Wunder Company",
+      "role": "Lessee that removed gravel and failed to grade"
+    },
+    {
+      "name": "Justice Stone",
+      "role": "Author of the prevailing opinion"
+    },
+    {
+      "name": "Justice Olson",
+      "role": "Dissenter joined by Justice Holt"
+    }
+  ],
+  "proceedings": "The trial court awarded slightly more than $15,000 including interest using market value. The Minnesota Supreme Court reversed and ordered a new trial under a performance-cost measure, with the grading covenant’s precise scope unresolved.",
+  "limits": "The court did not order a fixed award exceeding $60,000. Stone’s characterization of willful breach and narrow economic-waste rule were disputed by Olson; the prevailing opinion commanded a majority of the sitting quorum, not the full court.",
+  "briefSha256": "62fefaca5ed71700887b37c9c56ede3213c585868f5ae7133c23dbaa25bec8b0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0147"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Extraction rights came with a grading promise",
+      "cue": "Explain the full exchange.",
+      "paragraphs": [
+        "S. J. Groves & Sons owned twenty-four acres near Minneapolis, zoned for heavy industry and with existing or readily available railroad access. Limited neighborhood development made its sand and gravel the principal immediate asset. Groves ran an excavating and screening plant there, while John Wunder Company ran a competing plant nearby.",
+        "Their August 1927 agreement gave Wunder a seven-year lease, the screening plant, and removal rights, eliminating Groves as a competitor. Wunder paid $105,000 and promised to leave a uniform grade substantially matching the existing roadway, using stripped overburden to establish and maintain it.",
+        "Wunder removed the richest gravel and left broken, rugged, uneven land. Frank Groves, assignee and successor to the original company’s rights, sued. The trial findings established failure to perform the grading covenant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "164–165"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Market value produced a much smaller award",
+      "cue": "Identify what the appeal actually contested.",
+      "paragraphs": [
+        "Under the interpretation used at trial, finishing the job required moving 288,495 cubic yards of overburden off the property at a reasonable cost exceeding $60,000. Properly graded land would be worth only $12,160. The trial court used a market-value measure and entered judgment slightly exceeding $15,000 with interest.",
+        "Groves appealed the damages measure. Liability was established; the appellate dispute was whether reasonable completion cost could compensate for the promised work even though it exceeded the finished land’s value."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "165; Olson dissent 172–173"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Stone treated the promised accomplishment as the loss",
+      "cue": "Explain the performance interest and the waste limitation.",
+      "paragraphs": [
+        "Justice Stone’s prevailing opinion adopted performance cost for this deliberate failure to perform a construction obligation. Money should, as far as possible, give the owner the promised accomplishment. A landowner might buy an improvement for future development or personal reasons beyond its present sale value. A contractor that had received the consideration could not avoid paying for its promised work merely because the land was worth little. Stone characterized the breach as willful and in bad faith and distinguished good-faith substantial-performance cases.",
+        "The opinion separated contract loss from tort damage to land. Ordinary tort valuation measures an asset’s decline in money value; this contract purchased a specified alteration. Grading and farm-improvement precedents supported treating reasonable performance cost as the value of the omitted accomplishment. Private contractual rights deserved the same protection as comparable municipal construction promises.",
+        "An owner could even buy an improvement adding little or reducing resale value. Stone’s example of a monument to individual taste illustrated the principle, not a feature of this property. On industrial land at the edge of the Twin Cities, a present-value ceiling could also frustrate contracting for future development.",
+        "The Restatement’s economic-waste limit did not require a different result. Stone understood it to concern destruction of a completed or substantially completed physical structure to cure a defect. Here the work had not been done; completing it would not wreck a nearly finished promised structure. The difference between completion cost and market value alone did not establish that kind of waste or an impermissible windfall."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "165–171"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Olson would compensate the actual economic loss",
+      "cue": "Give the dissent’s disagreement and participation limits.",
+      "paragraphs": [
+        "Justice Julius J. Olson, joined by Justice Holt, would affirm. He accepted ordinary reasonable repair cost but favored diminution in value when reconstruction expense was disproportionate to its benefit. Damages compensated loss rather than punished motive. He disputed Stone’s reliance on willfulness: the findings did not establish a willful and fraudulent variation of completed work, and no substantial-performance defense was presented because grading simply had not occurred.",
+        "Olson thought more than $60,000 for land worth about $12,000 after performance would leave the owner better off than performance. No affirmative evidence showed unique personal use or a special nonmarket purpose; he understood the land to be prepared for general sale. Examining authorities on satisfaction clauses, nominal damages, manure spreading, and an unwanted ornamental fountain, he argued that each still required identification of actual compensable loss. Public works, ordinarily lacking a market value, were distinguishable from private land.",
+        "Justices Hilton and Loring did not participate, Hilton because of illness. Olson acknowledged that Stone’s opinion bound the court as a majority of the sitting quorum, although supported by a minority of the full membership."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "171–185"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "A new trial still had to interpret the covenant",
+      "cue": "State the consequence without fixing the recovery.",
+      "paragraphs": [
+        "The court reversed and ordered a new trial, not an immediate award above $60,000. The parties had tried the case as though grading required hauling enormous quantities of overburden elsewhere, but the contract said to use that material to establish and maintain the grade.",
+        "A uniform slope and grade were required. Whether every point had to be lowered to roadway level even if material had to be removed remained for initial determination below. Because that interpretive issue had not been argued on appeal, the court withheld its own construction. The performance-cost measure would apply to the work the contract actually demanded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "171"
+        }
+      ]
+    }
+  ]
+}

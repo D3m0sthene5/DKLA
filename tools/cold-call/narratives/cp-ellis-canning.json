@@ -1,0 +1,107 @@
+{
+  "id": "cp-ellis-canning",
+  "briefId": "CP-076",
+  "title": "Ellis Canning Co. v. International Harvester Co.",
+  "course": "Civil Procedure",
+  "citation": "174 Kan. 357, 255 P.2d 658 (1953)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An insurer pays an entire tractor-fire loss, but the insured brings the negligence suit in its own name for the insurer’s benefit. The resulting appeal concerns ownership of the claim after full subrogation.",
+  "actors": [
+    {
+      "name": "Ellis Canning Company",
+      "role": "Insured tractor owner suing after full reimbursement."
+    },
+    {
+      "name": "International Harvester Company",
+      "role": "Servicer accused of negligently causing the fire."
+    },
+    {
+      "name": "Potomac Insurance Company",
+      "role": "Insurer that paid the full loss under a subrogation policy."
+    }
+  ],
+  "proceedings": [
+    "The trial court refused to strike or sustain a demurrer to the real-party-in-interest defense.",
+    "The Kansas Supreme Court affirmed those interlocutory rulings."
+  ],
+  "limits": "This is a transformation of the canonical historical brief without a fresh source audit or present-law review. The decision applies Kansas General Statutes 1949 § 60-401, not later federal substitution rules. It decides neither negligence nor partial subrogation. No numerical vote or separate opinion is supplied by the report.",
+  "briefSha256": "01c5efe19fecc3c36e8b7d325e49fc91734d29882b386427ecfb74d965395d6d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-076"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A fire claim is paid in full before the negligence action",
+      "cue": "Who retained an uncompensated interest?",
+      "paragraphs": [
+        "Ellis Canning Company alleged that International Harvester negligently started a fire while servicing its tractor, causing $479.79 in damage. Potomac Insurance Company covered the loss under a policy with a subrogation clause and paid the full amount.",
+        "Ellis then sued International Harvester in Ellis’s own name, expressly for Potomac’s use and benefit. International Harvester denied each negligent act but admitted the insurance, loss amount, and full payment. Its third answer paragraph asserted that Potomac was the real party in interest and Ellis could not maintain the suit. Fault remained disputed; the procedural question rested on agreed payment and subrogation facts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "174 Kan. 357–358"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ellis challenges the defense rather than trying negligence",
+      "cue": "What issue did the parties submit on appeal?",
+      "paragraphs": [
+        "Ellis moved to strike the third paragraph and demurred to it, arguing that it neither stated a sufficient defense nor established that Ellis was an improper plaintiff. The trial court denied both challenges.",
+        "Ellis appealed those rulings. Both parties agreed on the sole question: could an insured fully reimbursed for its loss still prosecute in its own name for the insurer’s benefit? No factual negligence finding or damages award had yet been reviewed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "174 Kan. 358"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The statute points to the owner of the fully subrogated claim",
+      "cue": "Why did the stated beneficiary not cure the named plaintiff?",
+      "paragraphs": [
+        "Justice Parker’s Kansas Supreme Court opinion applied General Statutes 1949 § 60-401, requiring an action in the real party in interest’s name, subject to exceptions inapplicable here. Complete payment left Ellis with no direct compensation interest in the loss. The reimbursement claim against the alleged wrongdoer belonged wholly to Potomac.",
+        "Identifying Potomac as the suit’s beneficiary did not make Ellis the claim owner or satisfy the statutory requirement about who prosecuted it. Earlier decisions, including Railroad Co. v. Insurance Co. and Klingberg, supported that result. But Hume v. McGinnis and City of New York Insurance Co. v. Tice had permitted an insured to sue for its insurer’s benefit, giving Ellis a real precedent-based argument."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "174 Kan. 358–359"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The court expressly resolves its conflicting precedents",
+      "cue": "What was affirmed and what was overruled?",
+      "paragraphs": [
+        "The court chose the rule of its more recent Campbell, Hill, and Mehl decisions: after full reimbursement, the insurer holds the entire claim and may and must bring the action if it is to proceed. Rather than strain to reconcile inconsistent cases, it expressly overruled Hume and disapproved any part of Tice permitting a fully paid insured owner to sue for the insurer’s benefit.",
+        "It affirmed refusal to strike or sustain the demurrer because the challenged answer allegations supported a real-party-in-interest defense. The report contains no separate writing. It determined the proper prosecutor under the state statute, not whether International Harvester caused the fire, how partial insurance payment would change ownership, or how later Federal Rule 17 procedures might apply."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "174 Kan. 359–360"
+        }
+      ]
+    }
+  ]
+}

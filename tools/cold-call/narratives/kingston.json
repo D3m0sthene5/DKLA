@@ -1,0 +1,103 @@
+{
+  "id": "kingston",
+  "briefId": "CT-NEXT-CM-0123",
+  "title": "Kingston v. Preston",
+  "course": "Contracts",
+  "citation": "2 Doug. 689, 99 Eng. Rep. 437 (K.B. 1773)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A planned transfer of a silk business depended on security for continuing payments, and the buyer argued that the seller had to transfer first despite missing security.",
+  "actors": [
+    {
+      "name": "Kingston",
+      "role": "Covenant servant and prospective business purchaser"
+    },
+    {
+      "name": "Preston",
+      "role": "Silk mercer promising a later business transfer"
+    }
+  ],
+  "proceedings": [
+    "Kingston brought debt for nonperformance.",
+    "Preston pleaded failure to offer or provide security; Kingston demurred.",
+    "Court entered judgment for Preston."
+  ],
+  "limits": "The report decides the legal sufficiency of the security defense, not a damages verdict. Pinpoints follow the complete Douglas account reproduced in Langdell; the separate Lofft version and later Jones litigation were not reviewed.",
+  "briefSha256": "5abdee3947c3aa4baedb7470bacbf5b2feac8023f7e733993e24535ae1b2c369",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0123"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Service is followed by a planned business transfer",
+      "cue": "The agreement protects continuing stock payments",
+      "paragraphs": [
+        "Articles dated March 24, 1770 required Kingston to serve Preston in the silk-mercer business for a year and a quarter at £200 annually. At the end, Preston would surrender the business and stock at fair valuation to Kingston and Preston’s nephew or another nominee. The new traders would execute fourteen-year partnership deeds and could operate from Preston’s house.",
+        "Kingston promised to accept the business, execute the deeds, and procure good and sufficient security approved by Preston at and before sealing and delivery. The security covered £250 monthly payments in lieu of half the stock’s monthly produce until its value was reduced to £4,000. Thus relinquishing the business would expose Preston to a continuing payment risk that the security addressed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Langdell reproduction of Douglas account, p.22, archived PDF p.32"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Kingston sues over refusal to transfer",
+      "cue": "The pleadings isolate the missing security",
+      "paragraphs": [
+        "Kingston brought debt for nonperformance, alleging that he performed and remained ready to perform his obligations but Preston refused the agreed transfer. Preston pleaded failure both to offer sufficient security and actually to provide it. Kingston demurred generally to both defenses.",
+        "Buller argued for Kingston that the covenants were independent: Preston had to transfer and sue separately over the missing security. Grose answered that security was the central protection and a prior dependent obligation. Requiring delivery of valuable business and stock in exchange for Kingston’s unsecured personal credit, admitted to be worthless, would defeat the arrangement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Langdell pp.22–23, PDF pp.32–33"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Mansfield distinguishes three performance relationships",
+      "cue": "The intended sequence controls the judgment",
+      "paragraphs": [
+        "Lord Mansfield explained that independent covenants permit each party to sue for the promise in that party’s favor despite a separate breach. Dependent covenants require an earlier performance before the other party becomes liable. Concurrent mutual conditions allow one ready and offering to perform to sue upon the other’s refusal without either necessarily acting first.",
+        "The parties’ evident meaning and intended order of performance controlled, not the sequence of clauses on the page. Here the bargain’s essence was security before Preston parted with the going concern. A later action against an inadequately secured purchaser would not preserve the protection chosen for the transfer itself. Providing security was therefore a condition precedent to Preston’s duty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Langdell p.23, PDF p.33"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Security must precede the transfer",
+      "cue": "Preston’s defense disposes of the claim",
+      "paragraphs": [
+        "In Easter Term 1773 the court entered judgment for Preston. This did not make every reciprocal promise a condition or every breach an excuse; it enforced the specific prior performance that this transfer required. The report supplies no numerical vote or separate dissent."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Langdell p.23, PDF p.33"
+        }
+      ]
+    }
+  ]
+}

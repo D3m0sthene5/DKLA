@@ -1,0 +1,124 @@
+{
+  "id": "lrs-o-little",
+  "briefId": "LRS-ATLAS-O-LITTLE",
+  "title": "Little v. Barreme",
+  "course": "Legislation and the Regulatory State",
+  "citation": "6 U.S. (2 Cranch) 170 (1804)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A naval captain seized a suspicious ship under executive instructions, but the ship was traveling in a direction Congress had not authorized for seizure. The resulting damages case required the Supreme Court to decide whether obedience to those instructions protected him.",
+  "actors": [
+    {
+      "name": "Captain George Little",
+      "role": "Commander of the Boston and defendant liable for the seizure"
+    },
+    {
+      "name": "Samuel Goodman",
+      "role": "Neutral owner of the Flying Fish and its cargo"
+    },
+    {
+      "name": "Chief Justice Marshall",
+      "role": "Author of the Supreme Court’s opinion"
+    },
+    {
+      "name": "Judge Lowell",
+      "role": "District judge whose denial of damages was reversed"
+    }
+  ],
+  "proceedings": "The District Court restored the ship and cargo but denied damages. The Circuit Court awarded $8,504, and the Supreme Court affirmed with costs on February 27, 1804.",
+  "limits": "The Court left open presidential authority absent the statutory restriction and probable-cause protection for a mistaken seizure otherwise within statutory authority. No separate Supreme Court opinion or numerical attendance tally is reported.",
+  "briefSha256": "b921c8655b57dfa30ef42cd8030779e9244ccc8d3c652db286ccd9142732d5e4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-O-LITTLE"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Flying Fish sailed out of a French port",
+      "cue": "Begin with the actual voyage and the grounds for suspicion.",
+      "paragraphs": [
+        "Samuel Goodman, a Prussian-born inhabitant of Danish St. Thomas, owned the brigantine Flying Fish and its cargo. The ship carried provisions and dry goods from St. Thomas to Jérémie, a French dependency near Hispaniola, and was returning to St. Thomas with coffee. On December 2, 1799, the American frigates Boston and General Greene captured it on suspicion of violating the February 9, 1799 nonintercourse law. Captain George Little commanded the Boston. The captured ship was taken to Boston and libeled as American property subject to forfeiture.",
+        "Several circumstances aroused suspicion. The master came from St. Thomas but had worked on American ships, spoke with an American accent, and appeared American; the mate was an American citizen. During the chase the master threw overboard the logbook and other papers. A protest claimed that the ship had been bound for Port-au-Prince and forced into Jérémie by Rigaud’s vessels. The District Court found that story false, and the master had asked the crew after capture to support it. The record also described disguising American property at St. Thomas to evade the restrictions. Yet those circumstances did not establish American ownership: the courts treated the property as Danish and neutral."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "170, 172–175"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The orders extended beyond the statute’s direction",
+      "cue": "Explain the enforcement framework the captain followed.",
+      "paragraphs": [
+        "Section 1 of the nonintercourse statute restricted specified French commerce by vessels owned, hired, or employed wholly or partly by United States residents and provided for forfeiture and condemnation. Section 5 authorized presidential instructions to public armed ships to stop and examine suspected American vessels on the high seas. When examination disclosed a covered vessel bound or sailing to a French port in violation of the act, its commander could seize it and send it to an American port for adjudication.",
+        "Instructions transmitted through the Navy Department on March 12, 1799, incorporated section 5 but also demanded vigilance against apparently foreign ships or cargoes that were actually American and bound to or from French ports. Captains were to send supporting evidence with detained ships and avoid harming neutral trade and lawful American commerce. The instructions thus pursued the statute’s purpose while extending beyond its specific authorization for high-seas seizure of vessels sailing to a French port. The Flying Fish was sailing from one."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "170–172, 177–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Restoration and damages took different paths",
+      "cue": "Give each lower court’s reasoning.",
+      "paragraphs": [
+        "The Massachusetts District Court restored the ship and cargo because the libellants had not established forfeiture, but denied damages and costs. Judge Lowell reasoned that maritime practices required neutral ships to carry honest papers and permitted examination. False papers and destroyed documents could excuse detention even when the property was ultimately restored. He acknowledged the difficulty of applying ordinary belligerent and neutral principles during these limited hostilities with France.",
+        "The claimants appealed. The Circuit Court accepted the facts but emphasized that Little knew the ship was traveling from Jérémie to neutral St. Thomas. Suspicion might justify stopping and examining it, but the statute did not authorize its seizure and removal to an American port. The Circuit Court reversed the denial of damages and costs, and assessors fixed damages at $8,504. The captors appealed the final decree. Dexter argued for them and Martin and Mason for the claimants at the December 1801 term."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "172–176"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Congress had prescribed the permissible seizure",
+      "cue": "Explain why suspicious ownership could not cure the defect.",
+      "paragraphs": [
+        "Chief Justice Marshall distinguished section 1’s general forfeiture provisions, contemplating seizure within the United States, from section 5’s special authority for seizure at sea. That latter authority covered vessels bound to French ports. Congress had prescribed a method of execution excluding this capture. Even if the Flying Fish had been American, its known outward voyage from a French port would remain outside the high-seas seizure provision.",
+        "Marshall acknowledged that this directional limitation made evasion easier and that the broader instructions might advance enforcement more effectively. Practical usefulness nevertheless could not replace the authority enacted by Congress. He left open whether, without this statutory restriction, the President’s faithful-execution and commander-in-chief responsibilities might have supported seizure of American vessels engaged in the prohibited commerce under the circumstances. The decision concerned executive action against the enacted limit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "177–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Obedience did not remove the captain’s liability",
+      "cue": "Distinguish Marshall’s initial view from the Court’s holding.",
+      "paragraphs": [
+        "Marshall initially inclined to excuse a military officer acting in good faith under superior executive orders. Military obedience was indispensable, and action at sea differed from domestic proceedings. He considered whether redress should instead be obtained from the government through negotiation. But he expressly abandoned that position and accepted his colleagues’ conclusion: instructions could not transform the transaction or legalize a capture otherwise constituting a trespass. Little remained liable to the neutral owner. Those initial doubts appeared within the Court’s opinion, not in a separate dissent or concurrence.",
+        "Because this seizure would have been unauthorized even on the captors’ suspicion of American ownership, the Court did not decide whether probable cause could excuse damages for mistakenly seizing neutral property in a case otherwise within statutory authority. It also rejected an objection to the damages account: no defect appeared on its face, and counsel had not excepted before the proper tribunal.",
+        "On February 27, 1804, the Supreme Court affirmed the Circuit Court’s decree with costs, preserving the $8,504 award. The ship was not newly condemned and the District Court’s denial of damages was not reinstated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178–179"
+        }
+      ]
+    }
+  ]
+}

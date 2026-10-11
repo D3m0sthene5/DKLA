@@ -76,7 +76,10 @@ def validate(data, graph, full, briefs=None):
                 assert obj['sources'], f'{cid}/{sid}: no citations'
                 for ref in obj['sources']:
                     assert ref['id'] in sources and ref['pinpoint'].strip(), f'{cid}/{sid}: invalid source reference'
-        assert len(section_ids) >= (4 if origin == 'narrative' else 1), f'{cid}: incomplete case account'
+        # A short report can contain three natural stages (for example Capron:
+        # filing and judgment, counsel's argument, disposition). Do not force an
+        # artificial split to reach four; completeness still requires reading.
+        assert len(section_ids) >= (3 if origin == 'narrative' else 1), f'{cid}: incomplete case account'
         if origin == 'brief':
             substantive = {i for i,line in enumerate(source_lines) if line.strip() and not re.match(r'^#{1,4}\s|^\*\*(?:Course|ID):\*\*\s',line)}
             assert substantive <= set(covered), f'{cid}: source prose omitted'

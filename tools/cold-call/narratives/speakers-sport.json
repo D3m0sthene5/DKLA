@@ -1,0 +1,125 @@
+{
+  "id": "speakers-sport",
+  "briefId": "CTR-039",
+  "title": "Speakers of Sport v. ProServ",
+  "course": "Contracts",
+  "citation": "178 F.3d 862 (7th Cir. 1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A sports agency lost an at-will client to an optimistic endorsement pitch, then sued its competitor when the promised prospects did not materialize.",
+  "actors": [
+    {
+      "name": "Speakers of Sport, Inc.",
+      "role": "Former agency suing its competitor"
+    },
+    {
+      "name": "ProServ, Inc.",
+      "role": "Agency that recruited Rodriguez"
+    },
+    {
+      "name": "Ivan Rodriguez",
+      "role": "Baseball player who changed agents"
+    }
+  ],
+  "proceedings": [
+    "District court: summary judgment for ProServ.",
+    "Seventh Circuit: affirmed on May 13, 1999."
+  ],
+  "limits": [
+    "Rodriguez was not a plaintiff enforcing an endorsement guarantee. The decision applied Illinois law on a summary-judgment record and did not make every prediction or promise immune from fraud liability."
+  ],
+  "briefSha256": "8cd53b42de13ec8e27c03eb0ad8b53af7edadf6866ae7d64e292938990c4e4b7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-039"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Rodriguez changes agents twice",
+      "cue": "Begin with the client relationship and the pitch.",
+      "paragraphs": [
+        "Beginning in 1991, baseball player Ivan Rodriguez retained Speakers of Sport under successive one-year agreements terminable at will. In 1995, competing agency ProServ sought to expand its baseball business and told him it could obtain between $2 million and $4 million in endorsements if he switched. He ended the Speakers relationship and signed with ProServ.",
+        "ProServ obtained no significant endorsements. About a year later, Rodriguez moved to another agent, who negotiated a five-year, $42 million playing contract. Rodriguez did not return to Speakers. Because his agreements were terminable at will, leaving Speakers did not breach a contract."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178 F.3d at 864–865; CB 521–522"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The displaced agency alleges unlawful interference",
+      "cue": "Identify whose alleged loss was before the court.",
+      "paragraphs": [
+        "Speakers sued ProServ in federal court under diversity jurisdiction, asserting tortious interference and related violations of Illinois law. It claimed that the endorsement pitch was fraudulent and caused the loss of its client. The district court granted ProServ summary judgment.",
+        "On appeal, Chief Judge Posner, joined by Judges Flaum and Manion, considered the record favorably to Speakers insofar as the evidence supported its position. This was not a motion to dismiss requiring acceptance of every pleaded allegation. Competition for an at-will client was generally privileged, though fraud or other unlawful methods could fall outside that privilege. Speakers therefore needed more than the fact that a competitor had persuaded its client to leave."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178 F.3d at 864–865"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The prediction did not promise to cover an endorsement shortfall",
+      "cue": "Explain why the actual words and context mattered.",
+      "paragraphs": [
+        "The Seventh Circuit construed the pitch as aspirational puffery: ProServ would try to obtain endorsements and was optimistic about the result. Advertisers, not ProServ alone, would decide whether to make the deals. Nothing indicated that Rodriguez understood ProServ to promise to pay a shortfall from its own funds. The statement differed from an offer to employ him at a fixed salary or guarantee a minimum endorsement return.",
+        "Lack of control was context, not an absolute defense. A party can warrant an outcome outside its control and thereby assume the risk. The court concluded that this communication did not reasonably convey that guarantee.",
+        "Independently, Illinois promissory-fraud doctrine required a fraudulent scheme supported by more than the allegedly false promise itself. Speakers lacked that additional basis. Treating every disappointed competitive forecast as evidence of a secret fraudulent intention would let an incumbent agent turn ordinary competition into litigation. A broken binding promise and a dishonest representation of present intent also remained different questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178 F.3d at 865–867; CB 522–523"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Trade rules and consumer legislation do not rescue the claim",
+      "cue": "Follow the related theories to their separate failures.",
+      "paragraphs": [
+        "Speakers proposed a broader interference theory based on unethical competition even without unlawful means. The court rejected it, warning that vague professional standards could shelter established competitors at customers’ expense. A major-league-baseball rule against agents’ misrepresentations protected players, not a displaced agency. Even if it supplied an enforceable norm, Speakers was outside the protected interest, and violating it was not itself a violation of law establishing wrongful interference.",
+        "Speakers also invoked the Illinois Consumer Fraud and Deceptive Business Practices Act. As a nonconsumer competitor, it had to show by clear and convincing evidence that the conduct implicated consumer-protection concerns, but made no effort to do so. Rodriguez claimed neither deception nor injury and testified favorably about his ProServ agent’s honesty and service. Potential consumer harm might support an injunction in another case, but Speakers sought damages only. The Act’s incorporation of Federal Trade Commission standards protected consumers and competition; this puffery was not an unfair act or method of competition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178 F.3d at 867–868"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The later playing contract does not establish lost fees",
+      "cue": "End with the independent damages problem and judgment.",
+      "paragraphs": [
+        "Speakers also failed to establish a right to fees on the later $42 million playing contract. A different agent negotiated that contract after Rodriguez left both litigants. His at-will right to leave and his decision not to return made continued retention through those negotiations too speculative. Former representation alone did not prove that ProServ caused the claimed loss of those fees.",
+        "The court affirmed summary judgment on May 13, 1999, with no separate opinion. The result turned on this communication, the Illinois scheme requirement, the particular statutory and interference theories, and the causal gap in damages. An express promise to pay an endorsement shortfall, or a knowingly false claim that sponsors had already signed, would present different representations; neither was the statement the court found in this record."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178 F.3d at 867–868; CB 519–523"
+        }
+      ]
+    }
+  ]
+}

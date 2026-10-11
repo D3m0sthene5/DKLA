@@ -1,0 +1,124 @@
+{
+  "id": "kannavos",
+  "briefId": "CTR-038",
+  "title": "Kannavos v. Annino",
+  "course": "Contracts",
+  "citation": "356 Mass. 42, 247 N.E.2d 708 (1969)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Sellers promote illegally converted houses as continuing rental investments. When the city moves against the apartment use, the buyers seek rescission based on the misleading impression created by truthful but incomplete sales information.",
+  "actors": [
+    {
+      "name": "Vendors associated with Annino Realty Trust",
+      "role": "Sellers who converted and marketed houses as apartment investments."
+    },
+    {
+      "name": "Kannavos and his wife; Kannavos and John Bellas",
+      "role": "Purchasing groups bringing related rescission suits."
+    },
+    {
+      "name": "Springfield authorities",
+      "role": "City officials enforcing zoning and building restrictions."
+    }
+  ],
+  "proceedings": [
+    "The trial court overruled demurrers and entered rescission decrees on a master’s findings.",
+    "The Supreme Judicial Court sustained entitlement to rescission and affirmed the interlocutory decrees, but reversed final decrees and remanded for adjustment after intervening events."
+  ],
+  "limits": "This account transforms the canonical historical brief without a fresh audit or current-law review. The full case involves two related suits and multiple nearby properties; the assigned excerpt centers on 11 Ingersoll Grove. The remand concerns adjustment of relief, not rejection of the buyers’ substantive entitlement. No additional contractual warranty is inferred.",
+  "briefSha256": "aad11f9c5bd6b01e0036022baed84084207a9515d31720deadfe94d67b569396",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-038"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The vendors create apartment investments in a single-family district",
+      "cue": "What did they know when marketing the properties?",
+      "paragraphs": [
+        "Vendors associated with Annino Realty Trust acquired single-family houses in a Springfield residential district that prohibited multifamily use. They converted the houses into furnished apartments without building permits and knew the resulting use violated zoning.",
+        "They advertised income-producing apartments, and their broker furnished income and expense figures. The vendors knew buyers intended to continue the rentals. The property at 11 Ingersoll Grove contained eight apartments; the related transactions included other nearby houses."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356 Mass. 43–46; CB 513–515"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The purchasers rely on continued rental use",
+      "cue": "Why were accurate descriptions nevertheless incomplete?",
+      "paragraphs": [
+        "Kannavos sought income real estate and had no previous real-estate experience. One purchasing group consisted of him and his wife, another of him and John Bellas. The buyers relied on the representations and the appearance of operating apartment houses. Neither side directly discussed zoning or building permits, and the purchasers made no independent inquiry into restrictions.",
+        "Read narrowly, the sellers’ statements were substantially accurate: apartments existed and generated rent. But the properties were promoted as suitable continuing investments, and the master found representations that the buyers could continue multifamily operation. The undisclosed legal prohibition undermined that larger assurance.",
+        "City authorities later notified the purchasers of violations and sought to abate the use. The buyers promptly sought rescission. The findings established that they would not have purchased with knowledge of the violations and that the houses were worth substantially less as single-family dwellings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356 Mass. 43–46; CB 514–516"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trial court grants relief, and the vendors challenge the duty to disclose",
+      "cue": "What separated these transactions from complete silence?",
+      "paragraphs": [
+        "The purchasers brought equity suits alleging fraudulent misrepresentation and concealment. The trial court overruled the vendors’ demurrers, considered a master’s report, and entered final rescission decrees. The vendors appealed.",
+        "Justice Cutter’s Supreme Judicial Court opinion assumed that complete silence might have placed the cases within Swinton, a precedent concerning nondisclosure. These vendors had instead converted and furnished houses, advertised their income potential, supplied financial information, and represented continued apartment use. They created the premise on which the buyers valued the investment.",
+        "Even without an initial duty to volunteer everything, a speaker must disclose material facts needed to keep statements on the chosen subject from misleading. Fragmentary truth does not excuse a false overall impression. Knowing that the promoted use was prohibited made omission deceptive; the court did not impose a universal duty to disclose every known fact."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356 Mass. 43, 48–50; CB 514–516"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Public records do not cure the sellers’ deceptive presentation",
+      "cue": "What role did reliance still play?",
+      "paragraphs": [
+        "The vendors argued that the purchasers could have discovered zoning restrictions in public records. The court distinguished the prudence of investigation from responsibility for fraudulent representations. Under the Massachusetts rule applied, failure to exercise due diligence did not necessarily defeat relief where buyers actually relied on fraudulent statements or conduct treated as fraudulent. Their failure to obtain independent counsel did not absolve the vendors.",
+        "Reliance remained necessary. The findings established reliance on continued-rental representations and that knowledge of restrictions would have prevented purchase. Public availability did not prove the buyers already knew the truth or acted independently of what the sellers said. The court sustained their entitlement to rescission for deceptive partial disclosure, without inventing a separate warranty of governmental approvals."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356 Mass. 48–50; CB 515–516"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Intervening damage requires adjustment of the decrees",
+      "cue": "Why were the final decrees reversed despite the buyers’ success?",
+      "paragraphs": [
+        "The Supreme Judicial Court affirmed the interlocutory decrees overruling demurrers. It nevertheless reversed the final decrees and remanded so the trial court could consider appropriate adjustments in relief after a reportedly post-decree fire damaged one property and other events intervened.",
+        "The buyers therefore prevailed on their right to rescission, but their original final relief was not simply affirmed unchanged. Further proceedings had to account for the properties’ altered circumstances."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "356 Mass. 50–51"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "id": "cp-kearns",
+  "briefId": "CP-067",
+  "title": "Kearns v. Ford Motor Co.",
+  "course": "Civil Procedure",
+  "citation": "567 F.3d 1120 (9th Cir. 2009)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A buyer alleged that Ford’s certified-vehicle program was a coordinated deception, but his consumer-law complaint omitted the particulars of the advertising and statements that supposedly induced his purchase.",
+  "actors": [
+    {
+      "name": "William Kearns",
+      "role": "Buyer bringing a proposed consumer class action"
+    },
+    {
+      "name": "Ford Motor Company",
+      "role": "Manufacturer operating and promoting the certified pre-owned program"
+    },
+    {
+      "name": "Participating Ford dealers",
+      "role": "Local sellers implementing the program"
+    },
+    {
+      "name": "Judge N. Randy Smith",
+      "role": "Author of the Ninth Circuit panel opinion"
+    }
+  ],
+  "proceedings": "State consumer suit removed under the Class Action Fairness Act; remand request denied; successive amended complaints dismissed with opportunities to amend; Kearns declined another amendment; Ninth Circuit affirmed final dismissal and held the footnote-striking issue moot.",
+  "limits": "The decision concerns pleading sufficiency, not whether certification actually delivered its advertised benefits. Fraudulent omissions in this unified scheme were subject to Rule 9(b); the court did not classify every consumer omission as fraud.",
+  "briefSha256": "d2809fd48b96b8d2c1604455f580e2230f47b4a57c312167a826fbaae4c1968d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-067"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The certification premium became the alleged injury",
+      "cue": "Describe the program and distinguish allegations from findings.",
+      "paragraphs": [
+        "Ford Motor Company’s certified pre-owned program covered late-model used vehicles. Ford represented that inspection and certification made those vehicles safer, more reliable, and more roadworthy than ordinary used vehicles, and they sold at a premium. Ford charged participating dealers annual and per-vehicle fees, supplied marketing and instructional material, and advertised nationally. Dealers handled local sales and service.",
+        "William Kearns alleged that the reassurance cost consumers $1,080 and was worth less than that premium. He challenged vehicle-history reports, technician training, inspections, and the disclosure of Ford’s limited oversight. He alleged a coordinated effort by Ford and dealers to misrepresent certification’s benefits and induce purchases. These were his complaint’s assertions, not findings that the program was defective."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶8–11, 25; 567 F.3d at 1122–23"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Repeated amendments left the same particularity objection",
+      "cue": "Follow removal and dismissal before introducing the appellate arguments.",
+      "paragraphs": [
+        "Kearns filed a proposed class action in California state court under the Consumers Legal Remedies Act and Unfair Competition Law. Ford removed under the Class Action Fairness Act’s diversity provision, 28 U.S.C. § 1332(d). Kearns unsuccessfully invoked the local-controversy exception to seek remand.",
+        "The district court dismissed an amended complaint with leave to amend and then dismissed a second amended complaint under Federal Rule of Civil Procedure 9(b). It dismissed the third amended complaint with leave to amend and struck that complaint’s first footnote. Kearns chose not to amend again, the court entered dismissal, and he appealed.",
+        "Kearns argued that California pleading precedent did not impose the federal fraud rule on his consumer statutes, that nondisclosure and other portions did not sound in fraud, and that the court should separately consider the Unfair Competition Law’s unfairness branch. He also challenged the footnote ruling. Ford maintained that the whole scheme sounded in fraud and lacked the circumstances necessary to answer it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶12–15, 20–21, 27–34, 36–39"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Federal pleading rules followed the substance of the asserted scheme",
+      "cue": "Explain both the mixed-claim rule and the unified-course rule.",
+      "paragraphs": [
+        "Reviewing dismissal de novo, the Ninth Circuit distinguished Rule 8’s short-and-plain-statement requirement from Rule 9(b)’s particularity requirement for circumstances constituting fraud. Fraud need not be an indispensable element of a statutory cause of action. If a complaint mixes fraudulent and nonfraudulent conduct, deficient fraud allegations are stripped away and the remaining allegations are assessed under Rule 8. But a claim resting entirely on a unified fraudulent course of conduct must satisfy Rule 9(b) as a whole. Avoiding the word “fraud” does not change the substance.",
+        "Particularity required who committed the wrong, what happened, when and where it occurred, and how it was fraudulent. Neutral facts identifying a transaction were not enough. Those details provide meaningful notice, restrain suits used to discover unknown wrongs, protect reputations, and avoid substantial litigation costs without adequate factual grounding.",
+        "California law supplied the substantive elements; federal law governed pleading in federal court, whether jurisdiction rested on diversity or federal questions. California consumer statutes did not import state pleading procedure. Swierkiewicz, which Kearns cited against heightened pleading, rejected extra requirements for claims without fraud or mistake and did not displace Rule 9(b) when fraud was actually alleged."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶16–21, 24, 29 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Kearns did not identify the deception he relied upon",
+      "cue": "Apply particularity to representations, omissions, and unfairness.",
+      "paragraphs": [
+        "Kearns said national television advertisements, dealership sales materials, and dealership personnel persuaded him to buy a certified vehicle. He did not specify the advertisements’ or materials’ content and timing, identify those he considered material, or explain which sales materials he relied on. He alleged statements that certified vehicles were selected, rigorously inspected, and covered by a Ford-backed extended warranty, but did not identify the speaker or occasion. General exposure to promotional channels did not let Ford respond to particular misconduct.",
+        "Kearns relied on Vess, an earlier decision distinguishing nonfraudulent omissions from fraud, to preserve his nondisclosure theory. The panel examined California fraud elements, including false representation, concealment or nondisclosure, knowledge, intended and justified reliance, and damage. Comparing Vess’s formulation with the California Supreme Court’s formulation in Engalla, it concluded that the omissions pleaded here formed part of an intentional effort to conceal that certified vehicles were essentially ordinary used vehicles. Those generalized concealment allegations were fraudulent in substance and also lacked particulars.",
+        "Unlawful, unfair, and fraudulent practices were distinct branches of the Unfair Competition Law, and unfairness could independently support relief. But Kearns relied on the same fraudulent course across all theories. Recasting it as unfairness supplied no separable nonfraudulent allegations, so the district court did not need a separate unfairness analysis to save this complaint."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶25–34"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The panel affirmed without deciding the struck footnote’s merits",
+      "cue": "Close with the precise procedural consequences.",
+      "paragraphs": [
+        "Judge N. Randy Smith wrote for Judges Pregerson, Hall, and Smith, with no separate opinion. The panel affirmed dismissal. Dismissal of the entire complaint made the challenge to striking its first footnote moot, so the court did not decide that ruling’s merits. The judicial opinion reproduced the complaint’s allegations about another family’s fatal accident; that reproduction was neither a factual finding nor a decision in that family’s case.",
+        "Kearns’s complaint failed because it rested wholly on alleged fraud without the required particulars. The judgment did not determine whether Ford’s program actually supplied the claimed safety or value, and it preserved the distinction between a unified fraud theory and mixed allegations containing a genuinely separable nonfraudulent claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶36–39 & nn.1–2"
+        }
+      ]
+    }
+  ]
+}

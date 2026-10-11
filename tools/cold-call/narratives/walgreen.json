@@ -1,0 +1,128 @@
+{
+  "id": "walgreen",
+  "briefId": "CT-NEXT-CM-0142",
+  "title": "Walgreen Co. v. Sara Creek Property Co.",
+  "course": "Contracts",
+  "citation": "966 F.2d 273 (7th Cir. 1992)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "When a mall landlord proposed installing a discount store with a competing pharmacy, Walgreen sought enforcement of its exclusivity promise. The appellate court sustained an injunction after comparing uncertain damages valuation with the practical costs of enforcing and bargaining over the promise.",
+  "actors": [
+    {
+      "name": "Walgreen Company",
+      "role": "Pharmacy tenant protected by an exclusivity clause"
+    },
+    {
+      "name": "Sara Creek Property Company",
+      "role": "Mall landlord proposing a replacement anchor tenant"
+    },
+    {
+      "name": "Phar-Mor",
+      "role": "Proposed discount-store tenant with a large pharmacy"
+    },
+    {
+      "name": "Judge Posner",
+      "role": "Author of the appellate remedial analysis"
+    }
+  ],
+  "proceedings": "After an evidentiary hearing, the district court permanently enjoined the proposed lease during Walgreen’s remaining term. The Seventh Circuit affirmed; Senior Judge Wood separately concurred in both result and analysis.",
+  "limits": "The decision sustained a fact-specific permanent injunction, leaving a possible general presumption for exclusivity clauses undecided. The antitrust objection was not pursued on appeal, and hypothetical bargaining figures were not factual valuations.",
+  "briefSha256": "4a206e16ec45a5b9c8df8b4f299b40a832c15c8df43baa446f901604d8298e18",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0142"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A replacement anchor threatened the pharmacy promise",
+      "cue": "Describe the competing interests inside Southgate Mall.",
+      "paragraphs": [
+        "Walgreen had operated a pharmacy in Milwaukee’s Southgate Mall since its opening in 1951. Its 1971 lease ran thirty years and six months and promised that Sara Creek, the landlord, would not lease space to another pharmacy or a store containing one.",
+        "In 1990 the largest tenant became insolvent and threatened closure. Sara Creek proposed buying it out and replacing it with Phar-Mor, a deep discount store occupying 100,000 square feet. Its 12,000-square-foot pharmacy would match Walgreen’s size, with the stores’ entrances only a few hundred feet apart.",
+        "Walgreen sued Sara Creek and Phar-Mor in federal court under diversity jurisdiction. After an evidentiary hearing, the district court found breach and permanently barred Sara Creek from leasing the anchor premises to Phar-Mor until Walgreen’s lease ended. Sara Creek’s expert thought Walgreen’s loss readily estimable, but Walgreen employees disputed that and emphasized hard-to-value goodwill. Sara Creek appealed the remedy. It did not pursue the antitrust objection raised below, so the appellate court did not decide that question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion ¶¶1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Damages were the starting point, not the automatic answer",
+      "cue": "Explain the appellate standard and permanent-relief inquiry.",
+      "paragraphs": [
+        "Sara Creek argued that money ordinarily remedies contract breach and might enable an efficient breach here. If Phar-Mor created more value than Walgreen would lose, damages could compensate Walgreen while permitting the more valuable use. Similar exclusivity cases had measured lost profits or lost leasehold value.",
+        "Judge Posner accepted much of the logic but rejected a categorical bar to injunctions. Other cases had granted them, and the choice depended on the costs and benefits of each remedy in these circumstances. Walgreen bore the burden of showing damages inadequate; an even balance would require withholding an injunction. The appellate question was whether the district judge exceeded the permissible range of choices, not which remedy the appellate judges would independently prefer.",
+        "This was final relief. For a preliminary injunction, irreparable injury concerns harm a later final judgment cannot repair. A permanent injunction ordinarily is that judgment, making inadequacy of damages the appropriate inquiry. Posner cautioned against casually treating the two formulations as interchangeable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion ¶¶4–6, 10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "An injunction could support a negotiated waiver",
+      "cue": "Compare the real costs of the remedies.",
+      "paragraphs": [
+        "An injunction could let the parties price Walgreen’s protected right themselves. If Sara Creek gained more from Phar-Mor than Walgreen lost, a payment for waiver could leave both better off. Bargaining might also reveal values more accurately than opposing damages experts. Enforcing the promise therefore need not permanently prevent a valuable use.",
+        "But injunctions can demand continuing supervision, harm outsiders, or create a bilateral monopoly: only Walgreen could sell the necessary waiver, and only Sara Creek could buy it for this transaction. Posner illustrated with a hypothetical $1 million loss and $2 million gain. A price between them would help both, but bargaining over its location could waste resources or fail as each cultivated toughness. Those figures were examples, not findings.",
+        "Damages avoided those bargaining and supervision problems but required costly evidence and judicial time and risked erroneous valuation. The comparison had to include those expenses, errors, and effects on future conduct; neither remedy was always superior."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion ¶¶7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Ten years of competition made damages uncertain",
+      "cue": "Apply the comparison to this mall.",
+      "paragraphs": [
+        "Walgreen’s lease had ten years left. Damages would require forecasts of revenues and costs, isolation of Phar-Mor’s competitive effect, and discounting to present value. Apart from discounting, these steps were deeply uncertain. An estimate might suffice if an injunction were infeasible, but a tolerable approximation elsewhere did not make damages adequate here.",
+        "Sara Creek offered other malls where Phar-Mor had done Walgreen little harm, but their comparability was seriously disputed. It also challenged limits on discovery of extensive Walgreen business records. Confidentiality and production expense were legitimate concerns, and the disputes themselves illustrated damages litigation’s costs.",
+        "The injunction imposed a simple negative duty: do not lease this space to Phar-Mor during the remaining term. Little supervision was needed. Phar-Mor was already a party; its benefit could appear in the rent it offered Sara Creek, which could then offer Walgreen payment for waiver. Customer preferences could likewise be reflected indirectly in Phar-Mor’s willingness to pay.",
+        "Sara Creek did not claim that exclusion would close the mall, and Phar-Mor was not the only possible anchor. Cases where an injunction threatened an existing business’s closure involved a much wider bargaining range. Here, expected bargaining costs did not outweigh the uncertainty and expense of valuing a decade of competitive injury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion ¶¶10–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The injunction stood on these circumstances",
+      "cue": "Preserve the boundaries of the affirmance.",
+      "paragraphs": [
+        "The Seventh Circuit affirmed. Judge Kanne joined Posner; Senior Judge Harlington Wood, Jr., separately concurred, expressly joining both the affirmance and analysis without announcing an additional rule.",
+        "The decision did not make every real-estate promise specifically enforceable. Posner contrasted a snow-and-ice removal promise, for which hiring a replacement could make damages simple while an injunction demanded supervision. The court recognized but left undecided a possible presumption favoring injunctions for shopping-center exclusivity clauses. This injunction survived the particular remedial comparison."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opinion ¶¶14–17"
+        }
+      ]
+    }
+  ]
+}

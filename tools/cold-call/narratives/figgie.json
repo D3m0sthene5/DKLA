@@ -1,0 +1,135 @@
+{
+  "id": "figgie",
+  "briefId": "CT-CB-0593",
+  "title": "Figgie International, Inc. v. Destileria Serralles, Inc.",
+  "course": "Contracts",
+  "citation": "190 F.3d 252 (4th Cir. 1999)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Rum-labeling machinery failed, and the seller refunded its price after months of repair efforts. Although the parties disputed whether written remedy limitations ever arrived, unrebutted evidence of trade usage independently limited the buyer’s additional recovery.",
+  "actors": [
+    {
+      "name": "Destileria Serralles",
+      "role": "Rum producer purchasing specialized bottle-labeling machinery"
+    },
+    {
+      "name": "Figgie International",
+      "role": "Seller seeking a declaration limiting its obligations"
+    },
+    {
+      "name": "Judge Traxler",
+      "role": "Author of the Fourth Circuit opinion"
+    }
+  ],
+  "proceedings": "The district court granted summary judgment to Figgie and denied Serralles partial summary judgment. The Fourth Circuit unanimously affirmed on trade usage and the effective return-and-refund alternative.",
+  "limits": "The court did not resolve whether the original written conditions were delivered. Refund does not invariably preserve a remedy’s essential purpose, and the court did not hold that every later repair promise automatically acquires the original trade usage.",
+  "briefSha256": "424d2161d77ffa503fa16727503c417f1f35e50907a6a89fc146a642c4e2865f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0593"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The labeler never performed satisfactorily",
+      "cue": "Begin with the machine and attempted cure.",
+      "paragraphs": [
+        "Destileria Serralles bottled rum at a Puerto Rico plant. In June 1993 it contracted with Figgie International for machinery that would place a clear label within a raised glass oval on a clear bottle of Cristal rum. Installation in April 1994 immediately produced problems. Figgie tried repairs for several months without satisfactory performance. In November, Serralles returned the equipment and Figgie refunded the purchase price.",
+        "Serralles nevertheless sought compensation for alleged operating losses and delay in obtaining replacement machinery. With no settlement, Figgie sought a declaratory judgment that the agreed remedies limited its remaining obligations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "254"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A missing page left the written conditions disputed",
+      "cue": "Explain why trade usage became decisive.",
+      "paragraphs": [
+        "Figgie claimed its standard sales conditions made repair, replacement, or return with reimbursement exclusive and excluded consequential, incidental, contingent, and delay damages. But its original contract had been lost in a reorganization. Serralles’s copy referred on its last page to general conditions on the reverse, and that reverse was blank. Figgie asserted a copying error; Serralles denied that the conditions had ever accompanied the contract. Figgie conceded at oral argument that their original inclusion was factually disputed.",
+        "The district court nonetheless granted Figgie summary judgment and denied Serralles partial summary judgment. On appeal, Figgie relied independently on industry usage supplying the same limitation. Judge Traxler, joined by Judges Widener and Diana Gribbon Motz, reviewed the ruling anew, viewing evidence favorably to the opponent and asking whether a genuine material dispute remained."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "254–256"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Unrebutted usage supplied an exclusive remedy",
+      "cue": "Explain why express exclusivity could arise through commercial context.",
+      "paragraphs": [
+        "The governing South Carolina Uniform Commercial Code provisions allowed agreed remedy limits, made an explicitly exclusive remedy the sole remedy, restored ordinary remedies when a limitation failed of its essential purpose, and addressed unconscionable exclusions of consequential damages. The Code defined agreement through both language and circumstances, including trade usage. A sufficiently regular usage could supplement or qualify express terms when reasonably consistent with them.",
+        "Figgie submitted affidavits from experienced bottle-labeling and packaging professionals describing an industry practice of limiting buyers to repair, replacement, or return and excluding consequential damages. Serralles denied acquiescence but offered no evidence contradicting that practice. The unrebutted evidence therefore supplied the limitation. The court did not infer an industry custom without proof.",
+        "Serralles argued that usage could not satisfy section 36-2-719’s requirement of express agreement on exclusivity. The court responded that statutory agreement included usage and that this proven usage itself specified exclusivity. It distinguished Myrtle Beach Pipeline, a precedent requiring clarity when construing a written remedy, because that case did not consider a limitation supplied through usage. The unresolved missing page did not defeat this independent ground."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "255–257"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The refund alternative remained effective",
+      "cue": "Distinguish failed repairs from failure of all agreed remedies.",
+      "paragraphs": [
+        "A commercially reasonable remedy limit must yield if circumstances deprive the buyer of the bargain’s substantial value. A repair-only or repair-and-replacement remedy may fail when attempts cannot make the machine work. Here, however, the agreement also allowed return and refund, and that occurred. Figgie’s initial choice to repair did not relinquish the refund alternative. A manufacturer could naturally try to make sophisticated machinery function before repaying the price.",
+        "The court expressly rejected a universal rule that refund always suffices. A latent defect discovered so late that repayment becomes wholly inadequate could produce a different result. Serralles knew of these defects from installation and participated in the attempted fixes. On this record the refund alternative had not failed, even though the equipment had."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "257–258 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Repair assurances did not expand liability",
+      "cue": "Explain why the later communications did not create a new undertaking.",
+      "paragraphs": [
+        "Serralles relied on Figgie’s assurances of total commitment, responsibility for solving the problems, and determination to achieve satisfactory performance. It characterized them as new contracts, modifications, or waiver. The court found no reasonable evidence that either party intended to change or replace the contractual relationship. The statements accompanied the contemplated repair remedy, specified no additional relief if repair failed, and showed no waiver exchanged for permission to attempt repairs.",
+        "The district court had alternatively suggested that even new repair contracts would receive the same trade-usage limitation. The Fourth Circuit expressly declined that question because it found no new contracts as a matter of law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "258 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The seller’s judgment and denial of the buyer’s motion stood",
+      "cue": "State the exact resolution of both motions.",
+      "paragraphs": [
+        "Although defective performance when the machine was returned appeared undisputed, questions remained about the reasonable time for correction and original delivery of the standard conditions. More fundamentally, the successful trade-usage ground defeated Serralles’s demand for broader recovery.",
+        "The Fourth Circuit affirmed both Figgie’s summary judgment and denial of Serralles’s partial-summary-judgment motion. It awarded no additional damages and ordered no factfinding on the missing page. The August 20, 1999 published decision was unanimous, without a separate writing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "253, 259"
+        }
+      ]
+    }
+  ]
+}

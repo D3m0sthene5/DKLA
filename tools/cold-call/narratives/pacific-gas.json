@@ -1,0 +1,122 @@
+{
+  "id": "pacific-gas",
+  "briefId": "CT-CB-0548",
+  "title": "Pacific Gas & Electric Co. v. G.W. Thomas Drayage & Rigging Co., Inc.",
+  "course": "Contracts",
+  "citation": "69 Cal. 2d 33, 442 P.2d 641 (1968)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A turbine cover falls during contracted work, and the owner invokes an indemnity clause. The contractor seeks to show that the clause concerned third-party property, bringing the parties’ use of the words into conflict with the trial judge’s reading.",
+  "actors": [
+    {
+      "name": "Pacific Gas & Electric Company (PG&E)",
+      "role": "Turbine owner seeking reimbursement for repairs."
+    },
+    {
+      "name": "G.W. Thomas Drayage & Rigging Company",
+      "role": "Contractor that removed the turbine cover and disputed the indemnity’s scope."
+    }
+  ],
+  "proceedings": [
+    "The trial court excluded interpretation evidence and entered judgment for PG&E under contractual indemnity.",
+    "The California Supreme Court reversed, addressing interpretation, the negligence instruction, and repair evidence for retrial."
+  ],
+  "limits": "The account follows the canonical historical brief without a fresh audit or certification of later law. The active-negligence rule is the historical rule applied in this opinion. The court did not finally interpret coverage, find either party negligent, or hold Thomas owed nothing. Original opinion footnote numbers are used.",
+  "briefSha256": "a5686703f2548b3c460c52685826896f85bfc9a9131566fe75d77dfe1fe5b302",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0548"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A falling cover damages the turbine",
+      "cue": "What risks did the written agreement address?",
+      "paragraphs": [
+        "In 1960, G.W. Thomas Drayage & Rigging Company agreed to supply labor and equipment to remove and replace the upper metal cover of Pacific Gas & Electric Company’s steam turbine. Thomas promised to work at its own risk and expense and to indemnify PG&E against losses, damages, expenses, and liability arising from injury to property connected with performance.",
+        "Thomas also promised at least $50,000 in property-liability insurance, naming PG&E as an additional insured and including a cross-liability clause extending coverage to PG&E’s property. During the work, the cover fell and damaged the exposed rotor. PG&E later spent $25,144.51 repairing it and sought that amount from Thomas."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "69 Cal. 2d 36"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial judge excludes evidence of a narrower meaning",
+      "cue": "What interpretation did Thomas seek to prove?",
+      "paragraphs": [
+        "PG&E pursued negligence and contractual indemnity, then dismissed negligence during trial. Thomas offered admissions by PG&E’s agents, conduct under similar contracts between the companies, and other evidence that indemnity was intended only for third-party property, excluding PG&E’s own property.",
+        "The trial judge recognized that the wording was characteristic of third-party indemnification and could easily have been intended that way. Nevertheless, the judge read its plain language to cover PG&E’s property and excluded outside evidence inconsistent with that reading. PG&E obtained judgment on indemnity, and Thomas appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "69 Cal. 2d 35–36, 40–41"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Traynor requires context before a final admissibility decision",
+      "cue": "What separates interpretation from changing an agreement?",
+      "paragraphs": [
+        "Chief Justice Traynor’s California Supreme Court opinion rejected an admissibility test controlled solely by a judge’s impression of facial clarity. The question was whether offered evidence supported a meaning the contractual language could reasonably bear. Words take meaning from users, purposes, circumstances, and verbal context, rather than having the fixed precision of mathematical symbols. Contractual rights depended on lawful mutual intention expressed in the agreement.",
+        "The rule against adding to, subtracting from, or varying an integrated writing remained. But the court first had to ascertain the writing’s meaning before deciding whether evidence would change it. Parties could use apparently clear language differently from a judge’s initial understanding, and that possibility was not confined to trade usage. An asserted private intention outside the language’s reasonable susceptibility still would not suffice.",
+        "Courts therefore had to consider credible offered evidence preliminarily, including the agreement’s object, subject matter, nature, and surrounding circumstances. Evidence supporting either meaning became admissible if the words could fairly carry both in that context. Individual items could be received conditionally or ruled on later when their place in the whole offer became clear. Calling this ambiguity resolution was acceptable if external evidence could itself expose the ambiguity.",
+        "Here, the clause was reasonably susceptible to third-party-only coverage even without the offered evidence. The evidence could help identify that possible meaning and show whether the parties actually intended it. Although Thomas’s offer might ordinarily have been too general, repeated categorical exclusions excused a more formal offer of proof in this trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "69 Cal. 2d 36–41 & original nn.1, 5–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The clause also fails a facial-clarity defense of the ruling",
+      "cue": "Why did the broader method not stand alone?",
+      "paragraphs": [
+        "The court supplied an alternative ground: exclusion was erroneous even under a facial-ambiguity test. The trial judge acknowledged third-party usage, while statutes and dictionaries gave indemnity differing senses. “All” could mean every claim within the category covered, and references to loss, damage, and expense could describe settlement of third-party claims rather than direct insurance of PG&E’s property.",
+        "Doing work at Thomas’s own risk could release PG&E from injuries to Thomas’s property without making Thomas the insurer of PG&E’s property. Nor did the insurance requirement settle whether coverage addressed all injuries or only those caused by Thomas’s negligence. These points established a permissible interpretation; they did not finally select it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "69 Cal. 2d 41 & original n.9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The court corrects two further trial errors",
+      "cue": "What remained to be established on retrial?",
+      "paragraphs": [
+        "The jury had been instructed that PG&E could recover unless four conditions all existed: PG&E had independent operations on the premises, the damage was unrelated to Thomas’s performance, PG&E was actively negligent, and that negligence concerned matters exclusively under its control. That cumulative requirement was wrong. Under the historical indemnity rule applied, PG&E’s active negligence causing the harm would suffice to defeat generally worded indemnity for that harm. The court did not find that such negligence occurred.",
+        "PG&E also offered repair invoices, payment drafts, and payment testimony. A mechanical engineer used photographs to describe necessary and reasonable repairs and called the invoiced amounts reasonable. Invoices alone could not establish incurred liability, payment, or reasonable charges, but could corroborate actual payment testimony; paid charges were evidence of reasonableness. Those limited uses were proper.",
+        "The invoice items were also read to prove which work was actually performed. No qualified witness established them as accurate work records, and no other evidence supplied that missing fact. Proper business-record testimony might have supported an exception. Because the engineer’s reasonableness opinion depended on inadmissible proof that the repairs occurred, Thomas’s objections should have been sustained.",
+        "On July 11, 1968, the court reversed for further proceedings contemplating retrial. Justices Peters, Mosk, Burke, Sullivan, and retired Justice Peek, sitting by assignment, joined Traynor. Justice McComb dissented without a separate written opinion. The six-to-one result did not finally determine coverage or Thomas’s ultimate liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "69 Cal. 2d 41–44 & original n.10 and panel note"
+        }
+      ]
+    }
+  ]
+}

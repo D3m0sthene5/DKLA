@@ -1,0 +1,131 @@
+{
+  "id": "klar",
+  "briefId": "CT-ATLAS-KLAR",
+  "title": "Klar v. H. & M. Parcel Room, Inc.",
+  "course": "Contracts",
+  "citation": "270 A.D. 538, 61 N.Y.S.2d 285 (1946), aff’d without opinion, 296 N.Y. 1044 (1947)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A parcel room mistakenly handed valuable furs to the wrong person. It conceded negligence but argued that a small claim check capped recovery at $25, while the customers said they had received an identification receipt without agreeing to that limitation.",
+  "actors": [
+    {
+      "name": "H. & M. Parcel Room, Inc.",
+      "role": "Paid parcel-room operator and defendant relying on the printed limitation."
+    },
+    {
+      "name": "Ellis",
+      "role": "Person who deposited the package for the plaintiffs."
+    },
+    {
+      "name": "Sidney R. Klar",
+      "role": "Plaintiff who later presented the correct claim check."
+    },
+    {
+      "name": "Justice Cohn",
+      "role": "Author of the three-judge Appellate Division majority."
+    },
+    {
+      "name": "Justice Dore",
+      "role": "Dissenter joined by Presiding Justice Martin."
+    }
+  ],
+  "proceedings": "The Municipal Court awarded $939.50 after a bench trial; the Appellate Term reduced recovery to $25. The Appellate Division reversed that reduction and restored the trial judgment, 3–2. The New York Court of Appeals later affirmed without opinion.",
+  "limits": "The limitation appeared on the face of the check. The ruling is fact-sensitive and does not invalidate all unsigned tickets or liability limitations. Later Restatement discussion and newspaper commentary are not findings about these plaintiffs or rules announced in 1946.",
+  "briefSha256": "dba64ec7bb0dd2b623e797c0576a2783195e055bb5a56e49767102ee2905cd99",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ATLAS-KLAR"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A package of furs is checked at a railroad station",
+      "cue": "What paper did the customer receive?",
+      "paragraphs": [
+        "H. & M. Parcel Room, Inc. operated on the concourse of the Hudson & Manhattan Railroad’s 33rd Street station in New York City. Ellis, acting for the plaintiffs, left a brown-paper package containing valuable furs and received claim check 34-971.",
+        "The cardboard check measured three inches by two and a half inches. Its identifying number was prominent in red, and the word CONTRACT appeared in red near the top. Finer print below said that acceptance bound both parties, that checking cost ten cents per twenty-four hours or fraction, and that no claim for loss or damage to any piece could exceed $25. The limitation was on the face, not exclusively on the reverse.",
+        "Ellis testified that he did not read the check, was not asked to read it, and understood it simply as a receipt. There was no evidence of further notice or an explanation of the limitation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "538–541"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The correct check does not produce the package",
+      "cue": "How did the disputed amounts enter the litigation?",
+      "paragraphs": [
+        "Two days later, Sidney R. Klar presented the check. An employee admitted that the package had mistakenly been delivered to someone presenting a differently numbered receipt. The parcel room conceded ordinary negligence but asserted that the printed condition limited its responsibility to $25.",
+        "The plaintiffs sued in Municipal Court for $1,000 as the alleged package value. After a trial without a jury, the court awarded $939.50. The Appellate Term reduced recovery to $25 because it considered the printed limitation adequately communicated and contractual. The plaintiffs obtained permission to appeal to the Appellate Division. The demand, trial award, and proposed contractual ceiling were distinct amounts, not competing descriptions of one judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "538–542, 544"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority treats assent as a question grounded in the transaction",
+      "cue": "Why did accepting this receipt not conclusively establish agreement?",
+      "paragraphs": [
+        "Justice Cohn wrote for a majority joined by Justices Townley and Glennon. A bailee for hire owed ordinary care and, without an effective special agreement, answered for the reasonable value of negligently lost property. Parties could reduce that obligation by contract within legal and public-policy limits. The issue was whether they had done so here.",
+        "The parcel room bore the burden of showing reasonable notice and assent. A ticket used to identify property did not necessarily signal a change in substantive rights. There were no conspicuous signs, large placards, or other notices of special terms, and no evidence that the customers had an opportunity to assent or dissent. Words printed on the check followed by acceptance did not compel a finding of agreement as a matter of law.",
+        "The majority relied on Madan and Healy, earlier receipt cases explaining why failure to read such a paper was not invariably negligence or assent. Healy involved fine print on the reverse, whereas this limitation was on the face. Cohn acknowledged the difference but found the underlying reasoning applicable: the document’s function and surrounding circumstances could reasonably identify it as a receipt rather than a liability agreement.",
+        "Whether this acceptance manifested assent was therefore for the trial judge. The finding of no special agreement had ample evidentiary support. Protecting a bailee’s freedom to bargain for reduced liability did not require enforcing inadequately communicated terms."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "541–544"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent finds sufficient notice in the wording and price",
+      "cue": "Why would two judges have enforced the $25 ceiling?",
+      "paragraphs": [
+        "Justice Dore, joined by Presiding Justice Martin, would have affirmed the reduction. Dore emphasized the conspicuous red CONTRACT label, the short text immediately below it, time to read, and the ten-cent service charge. A person paying that amount should reasonably expect a ceiling; unlimited liability for undisclosed valuables could create disproportionate losses and raise prices. In those circumstances, he regarded the failure to read as inexcusable.",
+        "Dore also questioned the account of how valuable furs reached the parcel room. He reported testimony that Klar initially gave a value of $400–$450, while trial testimony valued the contents at $735 and work at $150. He criticized exclusion of a question asking why Ellis had not returned the package directly to Klar’s nearby business. Those were dissenting concerns, not majority findings that the package was fabricated or the recovery unsupported."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "544–547"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The full trial award is restored and later affirmed",
+      "cue": "What did the final judgments add?",
+      "paragraphs": [
+        "On April 5, 1946, the Appellate Division reversed the Appellate Term and affirmed the Municipal Court’s $939.50 judgment, awarding the plaintiffs costs in both appellate courts. The vote was three to two. On May 15, 1947, the New York Court of Appeals affirmed with costs and without an opinion, supplying no additional written rationale.",
+        "The holding did not make every unsigned ticket unenforceable, excuse every failure to read, or condemn liability limits generally. It sustained the factual finding about notice and assent in this transaction.",
+        "Later instructional discussion of Restatement §211(3) asks how another approach might apply; it was not the 1946 court’s rule. Likewise, a 1972 newspaper account suggesting nonunion fur work as a reason for parcel-room use did not establish that these plaintiffs used a nonunion contractor or violated a labor agreement."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "544, 547; 296 N.Y. 1044; assigned reading"
+        }
+      ]
+    }
+  ]
+}

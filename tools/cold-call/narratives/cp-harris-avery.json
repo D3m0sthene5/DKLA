@@ -1,0 +1,105 @@
+{
+  "id": "cp-harris-avery",
+  "briefId": "CP-077",
+  "title": "Harris v. Avery",
+  "course": "Civil Procedure",
+  "citation": "5 Kan. 146 (1869)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Avery alleged that one encounter produced both a public accusation of theft and days of confinement. Kansas’s procedural code allowed those connected injuries to proceed together despite distinctions that would have separated their old common-law forms.",
+  "actors": [
+    {
+      "name": "James Avery",
+      "role": "Plaintiff alleging slander and false imprisonment"
+    },
+    {
+      "name": "John Harris",
+      "role": "Defendant challenging joinder of the claims"
+    },
+    {
+      "name": "Justice Valentine",
+      "role": "Author of the unanimous Kansas opinion"
+    }
+  ],
+  "proceedings": "The district court overruled Harris’s demurrer for improper joinder. The Kansas Supreme Court affirmed, permitting the combined petition to proceed.",
+  "limits": "The court accepted allegations to resolve joinder and awarded no damages. It assumed two causes of action without deciding that classification. The governing law was Kansas code section 89, not modern Federal Rule 18.",
+  "briefSha256": "1265ed76f96d731b701c84b4e1899db6db8c9d1aa3d12dcf26b0526d7d44dd4f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-077"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Avery alleged one accusation and detention episode",
+      "cue": "Keep the pleaded facts distinct from established liability.",
+      "paragraphs": [
+        "James Avery alleged that John Harris confronted him in Fort Scott, publicly called him a thief, and accused him of possessing a stolen horse. According to the petition, Harris took the horse and kept it four or five days, arrested Avery, and confined him among felons in the county jail for approximately the same period.",
+        "Avery pleaded false imprisonment and slander, expressly alleging that both arose from the same transaction. Harris demurred, arguing that the petition improperly joined multiple causes of action. The district court overruled the demurrer, and Harris sought appellate correction. No tort liability, truth of the accusation, or ownership of the horse had been adjudicated in the ruling under review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "opening three opinion paragraphs"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The code made the transaction the relevant connection",
+      "cue": "Explain why different injuries could be joined.",
+      "paragraphs": [
+        "Justice Valentine thought it debatable whether the alleged facts even constituted more than one cause of action under the code. Because that question had not been submitted, the court assumed two causes for the joinder analysis.",
+        "Kansas code section 89 permitted legal and equitable causes within listed categories, including those arising from the same transaction or transactions connected with the same subject of action. Harris stressed the difference between injury to the person through false imprisonment and injury to character through slander. The distinction might defeat joinder of unrelated transactions, but the same-transaction category supplied an independent route here. The accusation, taking, and detention formed one alleged encounter."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraph beginning “Section 89”; opening third and final reasoning paragraphs"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Older writ distinctions would frustrate the reform",
+      "cue": "Explain the historical comparison without turning its hypothetical into fact.",
+      "paragraphs": [
+        "At common law, joinder depended heavily on forms of action, available pleas, and the kind of judgment. Claims sharing a form might be joined despite different times and places, while injuries from a single encounter might be separated by form.",
+        "Valentine illustrated with a hypothetical malicious procurement of a warrant without probable cause and conversion of the horse. Some resulting claims, including slander and trover, could have proceeded together in an action on the case. But the detention Avery actually alleged involved no process. Such imprisonment would traditionally proceed in trespass, while slander proceeded in case, defeating joinder despite the common event.",
+        "The code had abolished those forms. Its joinder provisions advanced equity’s objective of avoiding multiple suits and resolving as much of a controversy as practicable at once. Importing trespass-versus-case distinctions would undermine that reform; the connection between events now controlled."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "paragraphs beginning “In the action at bar,” “But if Harris arrested Avery,” and “Our code has abolished”"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The combined petition could go forward",
+      "cue": "Give the authority and exact disposition.",
+      "paragraphs": [
+        "Harris relied on early New York code cases. The court doubted that they supported him and noted contrary later authority. It approved Robinson v. Flint’s explanation that a same-transaction provision could unite legal claims, equitable claims, or both, and could also reach distinct transactions connected to the subject of the action. Different types of injury did not defeat the necessary connection shown here.",
+        "All justices concurred in affirming the order overruling the demurrer. Avery could litigate slander and false imprisonment together because the petition showed the same transaction. He had not yet won findings establishing either tort or an award of damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "final reasoning paragraph beginning “It is claimed by counsel”; disposition"
+        }
+      ]
+    }
+  ]
+}

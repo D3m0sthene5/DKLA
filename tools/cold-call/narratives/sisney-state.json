@@ -1,0 +1,114 @@
+{
+  "id": "sisney-state",
+  "briefId": "CT-NEXT-CM-0184",
+  "title": "Sisney v. State",
+  "course": "Contracts",
+  "citation": "2008 S.D. 71, 754 N.W.2d 639",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A prisoner challenged his kosher meals as a breach of the State’s food-service contract, but the contract did not clearly give him a private right to enforce its promises.",
+  "actors": [
+    {
+      "name": "Sisney",
+      "role": "Jewish inmate following a kosher diet at the South Dakota State Penitentiary"
+    },
+    {
+      "name": "State of South Dakota",
+      "role": "Contracting government and defendant"
+    },
+    {
+      "name": "Weber",
+      "role": "Prison-operations director who denied the grievance"
+    },
+    {
+      "name": "CBM",
+      "role": "Food-service contractor and defendant"
+    },
+    {
+      "name": "Justice Zinter",
+      "role": "Author for the unanimous South Dakota Supreme Court"
+    }
+  ],
+  "proceedings": "Circuit court dismissed under SDCL 15-6-12(b)(5); Supreme Court affirmed dismissal and rejected the amendment objection, without deciding immunity.",
+  "limits": "Meal deficiencies and conspiracy were disputed allegations, not findings. This is the State food-service-contract case, distinct from Sisney v. Reisch concerning another settlement. The opinion’s daily calorie range is reproduced as stated.",
+  "briefSha256": "6070eb51ccea6aae0c4eeb5ea56464178a8a5f6c04a625358f8f214938ffd4bf",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0184"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A change in kosher food prompted a contract grievance",
+      "cue": "Introduce the contract and disputed nutritional claims.",
+      "paragraphs": [
+        "Sisney, a Jewish inmate following a kosher diet at the South Dakota State Penitentiary, was affected by a 2002 contract between the State and food-service contractor CBM. CBM promised services to the State at correctional facilities in a manner meeting residents’, inmates’, and staff needs. The agreement specified a daily caloric base stated in the opinion as 2,700 to 2,500 calories and substitutions accommodating religious food avoidance.",
+        "When CBM changed kosher food in April 2007, Sisney claimed that the meals fell 400–500 calories below the contractual minimum and failed his religious requirements. Prison-operations director Weber denied the grievance, explaining that Sisney’s study understated the actual calories. Neither position had been adjudicated as a factual finding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Sisney sought both contract damages and federal relief",
+      "cue": "Follow the pleadings into the enforcement question.",
+      "paragraphs": [
+        "Sisney sued the State, Weber, and CBM for contract damages as a third-party beneficiary. He also alleged that defendants conspired to allow a profitable breach because of his religious beliefs, invoking 42 U.S.C. §§ 1981 and 1985. Defendants moved to dismiss under South Dakota’s failure-to-state-a-claim rule, SDCL 15-6-12(b)(5), asserting immunity, lack of contractual enforcement rights, and insufficient federal allegations.",
+        "The circuit court dismissed, and Sisney appealed, also objecting that he had no opportunity to amend. Reviewing pleading sufficiency de novo, the Supreme Court required facts supporting more than speculative entitlement rather than labels or a formulaic recitation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶5–8 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Practical benefit did not establish intended private enforcement",
+      "cue": "Explain the public-contract presumption and grievance provision.",
+      "paragraphs": [
+        "Justice Zinter’s opinion applied SDCL 53-2-6, which allowed enforcement of a contract made expressly for a third person’s benefit before rescission by the parties. A practical benefit alone was insufficient. The contracting parties’ intent to create the qualifying benefit at formation had to be clearly manifested; incidental beneficiaries lacked enforcement rights.",
+        "Public contracts carried a presumption against private beneficiary enforcement because government agreements commonly benefit the public. Plain language needed to indicate a private enforcement right, including contractor liability to third persons for nonperformance. This contract’s undertaking ran to the State. Under the court’s analysis, inmates’ collective benefit was incidental to the State’s benefit, and the agreement did not express an intention to give Sisney a direct enforceable right. His close practical connection and daily well-being did not change that conclusion.",
+        "Sisney distinguished other inmate-contract cases because their agreements expressly limited enforcement to the State. The court answered that those decisions also lacked a clear intent to confer more than incidental benefit, so an express exclusion was unnecessary. A requirement that CBM describe its complaint-resolution process did not create contract rights either: it referred to the general institutional grievance mechanism already available for many confinement complaints. Administrative access and a private contract action were different things."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶9–14 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The remaining pleaded theories and amendment request did not save the action",
+      "cue": "Identify the additional defects and precise affirmance.",
+      "paragraphs": [
+        "Because the pleaded theories depended on an asserted right to enforce the contract, the court found immunity unnecessary to decide. Its third note identified additional federal pleading defects. Sisney alleged religious discrimination rather than denial of contract rights because of race, which did not support his § 1981 theory as pleaded. His § 1985(3) theory used the word “conspiracy” without facts showing a meeting of minds, participants, or timing. Liberal treatment of civil-rights pleadings did not supply those facts.",
+        "The court reviewed denial of amendment for prejudicial abuse of discretion. Sisney had mentioned amendment generally in a resistance brief, filed no motion, and specified no curative new facts. The circuit court did not need to initiate and grant a motion for him.",
+        "On July 23, 2008, Zinter, Chief Justice Gilbertson, Sabers, Konenkamp, and Meierhenry unanimously affirmed dismissal. The judgment did not determine every possible religious-accommodation claim or find that meals were adequate; it resolved these pleaded theories and this contract’s lack of a private enforcement right."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶15–18 & n.3"
+        }
+      ]
+    }
+  ]
+}

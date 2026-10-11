@@ -1,0 +1,127 @@
+{
+  "id": "cp-swanson",
+  "briefId": "CP-071",
+  "title": "Swanson v. Citibank, N.A.",
+  "course": "Civil Procedure",
+  "citation": "614 F.3d 400 (7th Cir. 2010)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A homeowner says a bank and its appraisers deliberately undervalued her house because she was African-American. The appeal asks how much of that story she must establish before obtaining discovery.",
+  "actors": [
+    {
+      "name": "Gloria Swanson",
+      "role": "Homeowner seeking a home-equity loan and later bringing discrimination and fraud claims."
+    },
+    {
+      "name": "Citibank, Andre Lanier, and PCI Appraisal Services",
+      "role": "The lender, appraiser, and appraisal employer accused of racial discrimination."
+    },
+    {
+      "name": "Charles Routen",
+      "role": "Swanson’s husband, whom she could not represent without counsel."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed the discrimination claims and later the fraud claims.",
+    "The Seventh Circuit reversed the Fair Housing Act dismissals, affirmed all fraud dismissals, and dismissed Routen from the appeal."
+  ],
+  "limits": "This account transforms the canonical historical brief, not a fresh opinion audit or current pleading-law review. Pleaded facts were assumed on dismissal; discriminatory motive was not established. Equal Credit Opportunity Act claims were outside the appeal. Posner’s equity calculation was illustrative, not a finding of Citibank policy.",
+  "briefSha256": "13f40e013059c6bfd93e34b873cf063ead259a9ab3a9653c05e9f722f60350bd",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-071"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A loan application leads to two sharply different appraisals",
+      "cue": "What events supplied Swanson’s discrimination theory?",
+      "paragraphs": [
+        "In February 2009, Gloria Swanson, an African-American homeowner, responded to Citibank’s announcement that it would make loans using the federal Troubled Assets Relief Program. A bank representative named Skertich told her that her husband, Charles Routen, had to participate because they owned the house jointly. Swanson suspected discouragement; a manager also warned that Citibank used stricter standards than other banks. Swanson disclosed that Washington Mutual had already denied her a home-equity loan.",
+        "When she returned with the application information, Skertich said the race question was optional and mentioned that his wife and son were part African-American. Citibank conditionally approved $50,000, initially relying on Swanson’s estimate that the house was worth $270,000. Appraiser Andre Lanier, working for PCI Appraisal Services, valued it at $170,000. Because that failed the assumed valuation condition, Citibank denied the loan.",
+        "Two months later, Swanson paid Midwest Valuations for another appraisal, which put the value at $240,000. She alleged that Citibank, Lanier, and PCI deliberately depressed the first appraisal to avoid lending to her because of race. These were allegations; whether racial manipulation, ordinary appraisal error, or insufficient security explained the events remained unresolved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "¶¶ 7–11, 24, 34"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The district court dismisses the claims",
+      "cue": "Why did the procedural stage matter on appeal?",
+      "paragraphs": [
+        "Swanson’s amended complaint asserted the Fair Housing Act, which covers discrimination in residential real-estate loans and appraisals, and the Equal Credit Opportunity Act. The district court dismissed discrimination claims, relying heavily on Latimore v. Citibank, a decision addressing evidence required at summary judgment. It initially allowed a generously construed fraud theory, then dismissed that too because the statements were indefinite and reliance unreasonable.",
+        "Swanson appealed only the Fair Housing Act and fraud rulings. She also named Routen as plaintiff and appellant, but as an unrepresented litigant she could not represent her husband. The Seventh Circuit dismissed him from the appeal and addressed her claims alone."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "¶¶ 7, 11, 20, 23"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority asks whether the complaint identifies a coherent dispute",
+      "cue": "How did it understand plausibility without weighing proof?",
+      "paragraphs": [
+        "Judge Wood, joined by Chief Judge Easterbrook, recognized that the Supreme Court’s Twombly decision had displaced the notion that any imaginable supporting facts would suffice. But Federal Rule of Civil Procedure 8 still required a short, plain statement. Erickson emphasized fair notice; Rule 9 and particular statutes separately imposed heightened requirements. The Court had not silently revived old code fact pleading.",
+        "For this majority, enough case-specific detail had to connect events into a coherent story and disclose the grounds of the claim. Plausibility did not require choosing the most likely account or deciding truth. Complex claims could require more connective explanation; straightforward discrimination could need less. Twombly’s favorable discussion of Swierkiewicz, which rejected special heightened employment-discrimination pleading, supported that approach. Abstract legal elements alone would still be inadequate.",
+        "Swanson identified the kind of discrimination, its participants, and the early-2009 loan transaction. Her extra details about federal funding, the prior denial, and Skertich’s family did not necessarily defeat her claim. Their evidentiary force could be examined later. She also identified a particular appraisal allegedly manipulated by Lanier and PCI, who knew her race, whether acting together with Citibank or independently.",
+        "Different appraisal values alone would not suffice at summary judgment. Latimore’s evidentiary requirement nevertheless could not simply become a pleading requirement. Concerns about costly, asymmetric discovery did not authorize replacing Rule 8 through judicial interpretation; formal rulemaking had a role. Discrimination claims still had to be plausible."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "¶¶ 12–21, 23–24"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Fraud fails for a separate reason",
+      "cue": "What injury and reliance details were missing?",
+      "paragraphs": [
+        "Rule 9(b) and substantive fraud law required information that Swanson had not supplied. She alleged that Citibank promised government-supported loans while secretly excluding African-American applicants, but did not identify actual out-of-pocket reliance loss, such as an application fee or an appraisal charge the bank imposed.",
+        "Paying for her later independent appraisal did not itself allege that she paid for the bank’s original appraisal. Her claims against Lanier and PCI likewise lacked adequate reliance on their valuation and resulting out-of-pocket loss. The panel therefore agreed that fraud was properly dismissed against all three defendants."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "¶¶ 22, 25"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Posner finds the innocent explanation too strong",
+      "cue": "Which result divided the panel?",
+      "paragraphs": [
+        "Judge Posner joined the fraud disposition but would also affirm dismissal of housing discrimination. He read Iqbal to require examination of obvious innocent explanations in simple as well as complex cases. Swierkiewicz forbade a special heightened rule, not ordinary plausibility analysis; Erickson did not present such a strong competing explanation.",
+        "Swanson already owed $146,000, so another $50,000 would create $196,000 in debt against the appraiser’s $170,000 valuation. Even treating that appraisal as mistaken, an earlier pleaded $260,000 value reduced by a 16–20 percent decline suggested $208,000–$218,400. Posner illustrated that a 20-percent-equity requirement would allow only $20,400–$28,720 in additional borrowing; he did not establish that Citibank actually imposed that requirement. Prior rejection, financial-crisis credit tightening, and ordinary error also supported a nondiscriminatory account.",
+        "He regarded discriminatory motive as speculative and emphasized discovery-driven settlement pressure. Limited preliminary discovery might sometimes assist investigation, but no one proposed it here. Those were dissenting assessments, not findings against Swanson.",
+        "The court reversed dismissal of her Fair Housing Act claims against all three defendants and affirmed dismissal of fraud against all three. Each side bore its own appellate costs. The housing claims could proceed, without any finding of discrimination or award of damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "¶¶ 26, 29–45"
+        }
+      ]
+    }
+  ]
+}

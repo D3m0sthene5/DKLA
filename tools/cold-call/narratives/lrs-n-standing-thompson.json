@@ -1,0 +1,144 @@
+{
+  "id": "lrs-n-standing-thompson",
+  "briefId": "LRS-ATLAS-N-STANDING-THOMPSON",
+  "title": "Thompson v. North American Stainless, LP",
+  "course": "Legislation and the Regulatory State",
+  "citation": "562 U.S. 170 (2011)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "North American Stainless fired Eric Thompson three weeks after learning that his fiancée, also an employee, had filed a discrimination charge. Thompson alleged that the company used his firing to punish her, presenting distinct questions about unlawful retaliation and his own right to sue.",
+  "actors": [
+    {
+      "name": "Eric Thompson",
+      "role": "Employee alleging he was fired to retaliate against his fiancée."
+    },
+    {
+      "name": "Miriam Regalado",
+      "role": "Thompson’s fiancée and coworker, who filed a sex-discrimination charge."
+    },
+    {
+      "name": "North American Stainless, LP",
+      "role": "Employer and defendant."
+    },
+    {
+      "name": "Equal Employment Opportunity Commission",
+      "role": "Agency that received the charges and attempted conciliation."
+    },
+    {
+      "name": "Justice Scalia",
+      "role": "Author of the Court’s opinion for eight participating Justices."
+    }
+  ],
+  "proceedings": "The district court granted summary judgment for the employer. A Sixth Circuit panel reversed, but the en banc court affirmed 10–6. The Supreme Court reversed and remanded, holding that the assumed facts alleged unlawful retaliation and that Thompson could pursue the statutory claim.",
+  "limits": "The retaliatory motive was assumed for this procedural posture, not found proved. The Court awarded no damages and did not create a fixed list of protected relationships or a rule covering every adverse action against someone connected to a complainant.",
+  "briefSha256": "bb2bbad51dd6120a4f93fac463ef2e86574b48e243db0f39d616c3dc88b731f6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-THOMPSON"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A discrimination charge is followed by the fiancé’s dismissal",
+      "cue": "What did Thompson allege about the company’s reason?",
+      "paragraphs": [
+        "Eric Thompson and his fiancée, Miriam Regalado, both worked for North American Stainless, LP. In February 2003, the Equal Employment Opportunity Commission (EEOC) notified the company that Regalado had filed a sex-discrimination charge. Three weeks later, the company fired Thompson.",
+        "Thompson alleged that North American Stainless dismissed him to retaliate against Regalado for her charge. He filed his own EEOC charge. After unsuccessful conciliation, he sued in the Eastern District of Kentucky under Title VII of the Civil Rights Act of 1964. The Supreme Court later had to assume the alleged retaliatory motive for the posture before it; it did not independently find that motive proved."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "172–173"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts disagree over third-party retaliation",
+      "cue": "Why did the en banc Sixth Circuit reject the claim?",
+      "paragraphs": [
+        "The district court entered summary judgment for North American Stainless on the ground that Title VII did not permit third-party retaliation claims. A Sixth Circuit panel reversed. The full appellate court then affirmed the district court, 10–6.",
+        "The en banc majority reasoned that Thompson had not himself engaged in protected activity, either for himself or for Regalado, and therefore was outside the class Congress authorized to sue for retaliation. On review, the Supreme Court separated two questions: whether firing him for the alleged reason was unlawful retaliation, and whether Thompson personally could sue for that violation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "172–173"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Retaliation can operate through injury to another person",
+      "cue": "Why did the alleged firing fall within the prohibition?",
+      "paragraphs": [
+        "Justice Scalia wrote for all eight participating Justices. The Court relied on Burlington Northern, its earlier decision distinguishing Title VII’s substantive discrimination prohibition from its broader antiretaliation protection. Retaliation need not alter the charging employee’s terms or conditions of employment. The question was whether the employer’s conduct could dissuade a reasonable worker from making or supporting a discrimination charge.",
+        "Firing a worker’s fiancé could plainly have that effect, and North American Stainless did not dispute that the alleged firing met the deterrence standard. The fact that harm was inflicted through another person supplied no categorical exemption from the statute’s broad wording.",
+        "The company warned of uncertainty involving girlfriends, close friends, and trusted coworkers, and of suits whenever a dismissed worker knew a complainant. The Court acknowledged difficult boundaries but declined to create a fixed list of relationships. Firing a close family member would almost always meet the standard; a mild reprisal against a mere acquaintance almost never would. Other situations depended on context. The inquiry remained objective, not dependent on an unusually sensitive person’s reaction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "173–175"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Constitutional injury does not alone establish a statutory claim",
+      "cue": "Why did the Court reject both parties’ broad alternatives?",
+      "paragraphs": [
+        "Thompson plainly had injury, causation, and redressability for Article III purposes. Title VII nevertheless authorized suit by a person aggrieved, requiring a separate question about Congress’s intended cause of action.",
+        "The Court declined to follow dictum in Trafficante, an earlier decision suggesting that Title VII’s phrase extended to everyone with Article III standing. A shareholder might suffer reduced share value when a company unlawfully dismissed a valuable worker, yet fall outside the interests Title VII protected. The Court addressed Title VII, not every similarly worded statute.",
+        "The employer’s narrow alternative also failed. Person aggrieved was not an established term limited to the employee who personally engaged in protected conduct. Congress could have written that narrower limitation but had not. The Court looked to the Administrative Procedure Act’s use of aggrieved and adopted the zone-of-interests approach: interests arguably protected by the statute sufficed, while interests marginally related to or inconsistent with its purposes fell outside."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "175–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Thompson is the alleged instrument of retaliation, not an incidental victim",
+      "cue": "Why did his employment interest fit the statute?",
+      "paragraphs": [
+        "On the assumed facts, injuring Thompson was the very means North American Stainless used to punish Regalado. He was the defendant’s employee, and the alleged unlawful act directly implicated his employment. He did not qualify merely because third-party harm was foreseeable; his injury played an intentional role in the retaliation itself.",
+        "That role placed him within Title VII’s protected interests and distinguished an incidental or accidental victim whose interests might be unrelated to the statutory prohibition. Thompson could therefore bring the claim even though Regalado, rather than Thompson, had filed the original discrimination charge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "177–178"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The concurrence supplies an additional agency-based reason",
+      "cue": "What did the judgment authorize on remand?",
+      "paragraphs": [
+        "Justice Ginsburg, joined by Justice Breyer, concurred while joining the Court’s opinion in full. She emphasized the EEOC’s longstanding interpretation. Its Compliance Manual treated reprisals against closely connected people as unlawful when they discouraged statutory rights and recognized claims by both the protected employee and an employed relative. Under Skidmore, the decision giving persuasive weight to informed agency judgment, Ginsburg considered those interpretations worthy of respect. She also noted analogous readings under other labor statutes, without claiming that the manual controlled the Court.",
+        "On January 24, 2011, the Court reversed and remanded. Justice Kagan did not participate. The decision established that Thompson’s alleged facts described unlawful retaliation and that he could pursue a cause of action. It awarded no damages and left the allegations for further proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "178–179"
+        }
+      ]
+    }
+  ]
+}

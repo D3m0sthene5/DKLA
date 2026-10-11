@@ -1,0 +1,104 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-391",
+  "briefId": "CP-COMP-CB-CAP-391",
+  "title": "Howard v. Kerr Glass Manufacturing Co.",
+  "course": "Civil Procedure",
+  "citation": "699 F.2d 330 (6th Cir. 1983)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An injured employee discloses warranty theories in pretrial proceedings but is barred from trying them; the appeal restores that route while leaving the negligence verdict closed.",
+  "actors": [
+    {
+      "name": "Howard",
+      "role": "Detroit beverage-plant employee suing over an exploding bottle injury."
+    },
+    {
+      "name": "Kerr Glass Manufacturing Company",
+      "role": "Alleged bottle manufacturer and defendant aware of the disclosed warranty theory."
+    }
+  ],
+  "proceedings": [
+    "The trial court excluded warranty and denied amendment; the jury rejected negligence.",
+    "The Sixth Circuit remanded solely for the warranty theory and foreclosed reopening negligence."
+  ],
+  "limits": "The joint pretrial document was initially unsigned but later signed, and the warranty theory was known. The decision does not make every unsigned proposal binding or establish warranty liability. Rule 50 terminology reflects the historical directed-verdict/JNOV procedure.",
+  "briefSha256": "bf42b1675b7e34cb6a207436446bb325e3a660c52e2c3b900c60f19308474ae6",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-391"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An exploding bottle injures Howard’s hand",
+      "cue": "What claims and proof brought the case to court?",
+      "paragraphs": [
+        "Howard, an employee at a Detroit beverage plant, injured his right hand when a bottle or bottles he was handling exploded. He sued Kerr Glass Manufacturing Company in diversity, alleging negligent manufacture and failure to inspect. Identification of Kerr as the manufacturer and proof of proximate cause depended essentially on circumstantial evidence.",
+        "The parties’ joint pretrial document also identified implied warranty of merchantability and foreseeability as factual issues and implied warranty of fitness among Howard’s claims and theories. Counsel assembled and discussed that document with the judge at a January 1981 conference, although Howard did not then amend his complaint."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and pretrial document; 699 F.2d331–333 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The warranty theory is excluded when trial begins",
+      "cue": "Why did the document’s signature history matter?",
+      "paragraphs": [
+        "At the jury trial about six weeks later, the judge prohibited the warranty theory. After the first trial day, Howard requested leave to amend, which was denied. The jury rejected negligence, and Howard appealed.",
+        "The judge had not signed the joint document at the conference. Nevertheless, the parties and court knew about warranty, the judge treated the document as part of the record, and he later signed it. This was not a new, undisclosed theory suddenly introduced during trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Trial and signature complication; 699 F.2d331–333 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court permits warranty because pretrial disclosure supplied fair notice",
+      "cue": "What should the trial court have allowed?",
+      "paragraphs": [
+        "The Sixth Circuit explained that issues identified at a pretrial conference and incorporated into its order supersede the pleadings. Federal Rule of Civil Procedure 16 includes consideration of desirable amendments. Kerr had ample notice of warranty, could not claim surprise, and should have prepared for it; Howard had received no warning at the conference that it would be excluded.",
+        "The later signature implied approval that the issue had been presented. The court discussed a possible analogy to giving an order effect as of an earlier date, not a rule making every unsigned draft automatically binding. Liberal construction of the pretrial order, or alternatively permission to amend without surprise to the adversary, should have allowed Howard to proceed on warranty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Pretrial procedure and amendment; 699 F.2d332–333"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Independent defects prevent reopening the negligence verdict",
+      "cue": "Why was the remand limited despite Howard’s other complaints?",
+      "paragraphs": [
+        "Howard had not sought judgment notwithstanding the verdict under Rule 50(b), so the court could not consider his directed-verdict challenge on appeal. Other trial rulings did not justify a new negligence trial. Limits on questioning the plant’s quality-control manager about Kerr’s earlier visits did not seriously impair the claim: interrogatory answers already established the visits, and Howard could argue foreseeability. The court found no reversible harm without conclusively endorsing the evidentiary restriction.",
+        "The trial judge also properly refused an adverse-inference instruction about Kerr’s unused expert. The expert was not Kerr’s employee or under its direction or control, and Howard had not shown that the testimony necessarily bore on manufacturer identification, the thin-wall theory or plant procedures at the time. Howard’s own listed expert likewise did not testify.",
+        "On February 9, 1983, Judges Krupansky, Wellford and Senior Judge Brown issued a per curiam remand solely to permit the asserted warranty theory. Negligence issues were expressly foreclosed. The court neither found warranty liability nor awarded damages, and no separate opinion appeared."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Other issues and exact disposition; 699 F.2d332–334"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "id": "lrs-n-standing-brown-group",
+  "briefId": "LRS-ATLAS-N-STANDING-BROWN-GROUP",
+  "title": "United Food and Commercial Workers Union Local 751 v. Brown Group, Inc.",
+  "course": "Legislation and the Regulatory State",
+  "citation": "517 U.S. 544 (1996)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A union alleged that layoffs at a Missouri shoe plant began before workers received the notice federal law required. When the union sought backpay for its members, the courts first had to decide whether an organization could litigate damages that depended on each worker’s circumstances.",
+  "actors": [
+    {
+      "name": "United Food and Commercial Workers Union Local 751",
+      "role": "Employees’ representative seeking statutory backpay for affected members."
+    },
+    {
+      "name": "Brown Shoe Company",
+      "role": "Employer that announced closure of its Dixon, Missouri, plant."
+    },
+    {
+      "name": "Justice Souter",
+      "role": "Author of the unanimous Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The district court dismissed the union’s representative damages suit, and the Eighth Circuit affirmed. The Supreme Court reversed and remanded because Congress had authorized the suit and could remove the prudential individual-participation restriction.",
+  "limits": "The Court assumed pleaded allegations for review of a dismissal; it did not find a notice violation or award damages. Several alternative standing and amendment questions remained outside the decision. The narrative preserves the Court’s 1996 constitutional/prudential terminology.",
+  "briefSha256": "25e1bb409a9c06e6550dd94bcf3c925d5c09341564835884ef417d17b5efda33",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-BROWN-GROUP"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A plant-closing notice arrives amid allegedly earlier layoffs",
+      "cue": "What did the union say the employer had done?",
+      "paragraphs": [
+        "On January 17, 1992, Brown Shoe Company wrote to a representative of the international union announcing that its Dixon, Missouri, plant would close and 277 employees would be permanently laid off beginning March 20. United Food and Commercial Workers Union Local 751 alleged that layoffs had already begun before the letter and continued through February into March.",
+        "Local 751 sought sixty days’ backpay for affected members under the Worker Adjustment and Retraining Notification Act, known as WARN. Because the suit was dismissed at the pleading stage, the Supreme Court later accepted the early-layoff allegation as true for that appeal. It did not find that layoffs actually began when the union alleged."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "546–547 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The statute links notice to individualized remedies",
+      "cue": "Why could the workers’ recoveries differ?",
+      "paragraphs": [
+        "WARN generally required a covered employer to wait sixty days after notifying the affected employees’ representative—or the employees themselves if unrepresented—before ordering a plant closing or mass layoff. Notice also went to the state dislocated-worker unit and the relevant local government’s chief elected official.",
+        "An aggrieved employee could recover backpay and benefits for the violation period, up to sixty days and no more than half the employee’s days of employment. The backpay rate could not be below the higher of the employee’s average regular rate over the preceding three years or final regular rate. Benefits included qualifying medical expenses. Thus Local 751’s request for sixty days’ backpay did not mean every employee would qualify for that amount."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "548–549 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The lower courts treat individualized proof as a bar to a union suit",
+      "cue": "Which part of associational standing was disputed?",
+      "paragraphs": [
+        "The district court dismissed under Federal Rule of Civil Procedure 12(b)(6), reasoning that damages claims on the members’ behalf required their individual participation. The Eighth Circuit affirmed because each employee’s entitlement and amount called for particularized proof. It also upheld the district court’s refusal to add individual employees as plaintiffs.",
+        "The appellate court applied Hunt, the Supreme Court decision stating a three-part test for associational standing: members must be able to sue in their own right, the interests must be germane to the organization’s purposes, and neither the claim nor requested relief may require individual members’ participation. The Eighth Circuit accepted the first two requirements and found the third unsatisfied. The Supreme Court reviewed the associational-standing issue, leaving the refusal to amend outside the questions presented."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "547 & n.2, 552–555"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The employer disputes Congress’s authorization before reaching the Constitution",
+      "cue": "Why did the Court read WARN to permit representative recovery?",
+      "paragraphs": [
+        "Brown Shoe argued that WARN did not authorize the union’s damages suit at all. Because the certiorari question assumed statutory authorization, it asked the Supreme Court to dismiss review as improvidently granted. The company pointed to Congress’s deletion of an earlier provision allowing unions their own civil penalty and argued that unions were not similarly situated to employees with monetary losses.",
+        "Justice Souter, writing for a unanimous Court, rejected that reading. North Star Steel, an earlier WARN decision, had recognized unions among the statute’s authorized representative plaintiffs. Section 2104(a)(1) imposed liability to each aggrieved employee. Section 2104(a)(5) allowed a person enforcing that liability, expressly including an employees’ representative, to sue for that person, similarly situated persons, or both. The statute identified the representative through federal labor law’s exclusive-representation rules.",
+        "Those provisions authorized Local 751 to enforce liability owed to its members. Because WARN supplied the union no relevant damages remedy of its own, the employer’s interpretation would render the express representative authority useless. Deleting a separate union penalty did not necessarily eliminate recovery on employees’ behalf. Unions and employees were similarly situated as persons entitled to notice. The Court preferred a reading giving effect to the enacted provisions over speculation that Congress had accidentally retained the authorization."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "548–550"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Article III does not make every representative-litigation safeguard mandatory",
+      "cue": "Why could Congress remove the third Hunt requirement?",
+      "paragraphs": [
+        "The union argued that Congress could remove the individual-participation restriction. Alternatively, it contended that these damages were simple enough to satisfy that restriction anyway. Having found statutory abrogation, the Court did not decide the alternative or the union’s separate claim of injury to itself.",
+        "Hunt’s first requirement ensured an actual member’s injury, causation, and redressability, making it an Article III necessity. Germaneness complemented that requirement by giving the organization a stake and supporting effective adversarial presentation. Once those conditions were satisfied, the third requirement added no necessary constitutional component.",
+        "Individual participation instead addressed administration and efficiency. An association might lack individual evidence, struggle to calculate damages, or fail to distribute the recovery to injured members. Those concerns were real but differed from the absence of a constitutional case or controversy.",
+        "Other representative damages actions confirmed the distinction: class actions, suits by bankruptcy trustees, state suits on residents’ behalf, and estate litigation all allowed representatives to recover for others. Congress also authorized the Equal Employment Opportunity Commission to seek employee backpay and the Secretary of Labor to recover unpaid wages. The Court saw no inherent lack of adversity in those arrangements and no greater Article III problem in WARN union litigation. Congress could therefore remove the judicially created third requirement and had done so here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "551 n.4, 554 n.5, 555–558 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The union may proceed, while liability and several other questions remain open",
+      "cue": "What did the unanimous judgment resolve?",
+      "paragraphs": [
+        "On May 13, 1996, the Supreme Court reversed the Eighth Circuit and remanded. All nine Justices joined, without separate opinions. Local 751 could pursue its members’ claims; neither a notice violation nor any employee’s recovery had been established.",
+        "The Court did not decide whether addressing notice to an international-union representative rather than Local 751 was improper, whether a simplified damages claim independently satisfied Hunt, or whether the union had direct-injury standing. It also reserved whether Congress could conclusively establish germaneness in another setting.",
+        "Standing was distinct from adequate representation sufficient to bind absent members. Germaneness alone did not establish that a judgment should have preclusive effect. Here, adequate representation by the duly selected collective-bargaining representative was undisputed. The rejected request to add employees likewise remained outside Supreme Court review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "545, 547 nn.1–2, 551 n.4, 554 n.5, 556 n.6, 558"
+        }
+      ]
+    }
+  ]
+}

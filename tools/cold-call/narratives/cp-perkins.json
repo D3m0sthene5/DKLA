@@ -1,0 +1,115 @@
+{
+  "id": "cp-perkins",
+  "briefId": "CP-ATLAS-PERKINS",
+  "title": "Perkins v. Benguet Consolidated Mining Co.",
+  "course": "Civil Procedure",
+  "citation": "342 U.S. 437 (1952)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Wartime displacement placed a Philippine mining company’s central business activities in Ohio, making unrelated shareholder suits constitutionally permissible there while leaving Ohio free to decline them under its own law.",
+  "actors": [
+    {
+      "name": "Idonah Slade Perkins",
+      "role": "Non-Ohio shareholder bringing dividend and share-certificate claims"
+    },
+    {
+      "name": "Benguet Consolidated Mining Company",
+      "role": "Philippine corporation managed from Ohio during occupation of its home territory"
+    },
+    {
+      "name": "Benguet’s president",
+      "role": "General manager and principal stockholder conducting corporate business from his Ohio home"
+    },
+    {
+      "name": "Justice Burton",
+      "role": "Author of the Supreme Court’s opinion"
+    },
+    {
+      "name": "Justice Minton",
+      "role": "Dissenter joined by Chief Justice Vinson"
+    }
+  ],
+  "proceedings": "Ohio trial court quashed service and state appellate courts affirmed; Supreme Court vacated and remanded to remove a possible erroneous federal limitation without requiring Ohio to exercise jurisdiction.",
+  "limits": "The result was 7–2: six joined Burton, Black concurred only in the result, and Minton and Vinson dissented. No ruling established the stock claims’ validity or required Ohio to entertain them.",
+  "briefSha256": "e08e52bfaa38ab11fdea4f486434332b6deb34d4e2238d3c221de06b86916655",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-PERKINS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The corporation’s wartime business moved to its president’s Ohio base",
+      "cue": "Introduce the displaced company before the unrelated claims.",
+      "paragraphs": [
+        "Benguet Consolidated Mining Company was organized under Philippine law and owned profitable gold and silver mines there. Japanese occupation halted mining. Its president, who also was general manager and principal stockholder, returned to his Ohio home and directed the company’s limited continuing business from there.",
+        "He kept corporate files, handled correspondence, paid himself and two secretaries by corporate checks, maintained substantial company bank balances, and held directors’ meetings at his office or home. An Ohio bank acted as stock transfer agent. From Ohio, he supervised rehabilitation plans for the Philippine properties and sent funds for machinery. Benguet mined no Ohio property, but its continuing corporate affairs were substantially managed there.",
+        "Idonah Slade Perkins, a shareholder who did not live in Ohio, brought two Ohio actions against Benguet and other defendants after litigation elsewhere. She sought about $68,400 in allegedly unpaid dividends and $2.5 million in damages, principally for failure to issue certificates for 120,000 shares. Neither claim arose in Ohio or related to the local management activities. The president was served in Ohio while acting for the company."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "342 U.S. at 438–440 & n.1, 447–448"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ohio’s judgment left its controlling ground uncertain",
+      "cue": "Explain why the Supreme Court could not simply decide that Ohio must hear the suit.",
+      "paragraphs": [
+        "The trial court quashed service on Benguet, and Ohio’s intermediate appellate court and supreme court affirmed. Benguet had not obtained a foreign-corporation license or named a statutory service agent, but those omissions did not themselves prevent it from doing business or being sued under Ohio law.",
+        "The Ohio Supreme Court’s reporting practice complicated review. Its syllabus represented the court’s approved law; an accompanying opinion could express only its author’s view on matters outside the syllabus. The syllabus denied jurisdiction over this unrelated claim without clearly specifying whether state law or federal due process required that result. The accompanying opinion unequivocally invoked a federal constitutional prohibition. The U.S. Supreme Court therefore faced the possibility that Ohio had declined jurisdiction because it mistakenly thought the Constitution left no choice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 439–443 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Actual notice and substantial management answered different constitutional concerns",
+      "cue": "Apply the corporate-contacts inquiry to the full Ohio operation.",
+      "paragraphs": [
+        "Justice Burton’s opinion held that federal due process allowed Ohio to hear these claims. Earlier decisions involving service on public officials who lacked authority to bind a foreign corporation in unrelated litigation raised service and notice problems absent here: Benguet’s responsible president had actually been served. The broader jurisdictional assumptions of those older cases had also been modified by International Shoe, the precedent requiring examination of a defendant’s activities and constitutional fairness.",
+        "Under International Shoe, the quality and nature of corporate activities mattered, not a mechanical licensing label. Licensing criteria might help identify business activity but could not conclusively answer the constitutional issue. Management, banking, correspondence, salary payments, stock administration, and directors’ meetings were meaningful even though productive mines remained elsewhere.",
+        "Together, the Ohio activities amounted to continuous, systematic supervision of Benguet’s necessarily limited wartime business. That concentration made jurisdiction fair and reasonable even for claims entirely distinct from Ohio activities. The decision rested on the combined circumstances, not a rule that an officer’s presence or a few purchases opened the corporation to every suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 443–448 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Constitutional permission left Ohio’s own policy choice intact",
+      "cue": "Preserve both the majority’s remand and Minton’s review objection.",
+      "paragraphs": [
+        "Due process did not require Ohio to provide this forum. Nor did Ohio’s willingness to hear out-of-state claims against a properly served nonresident natural person constitutionally compel equivalent treatment of every foreign corporation. The Court decided the federal limit and left the affirmative state-law choice to Ohio.",
+        "On March 3, 1952, the Supreme Court vacated Ohio’s judgment and remanded for further proceedings in light of that clarification. It did not order Ohio to exercise jurisdiction or award Perkins dividends or damages. Justice Black concurred in the result without a separate opinion.",
+        "Justice Minton, joined by Chief Justice Vinson, dissented. He agreed that the federal premise of the accompanying Ohio opinion was wrong, but read the syllabus as a clear, adequate, independent state ground. An erroneous federal explanation by one judge did not authorize review of that judgment, he reasoned. He viewed the majority’s clarification as advisory and would have dismissed the writ as improvidently granted. Six Justices joined Burton, Black agreed only with the result, and the two dissenters produced a 7–2 disposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 440–441, 448–450 & n.7"
+        }
+      ]
+    }
+  ]
+}

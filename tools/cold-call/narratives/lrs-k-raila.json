@@ -1,0 +1,142 @@
+{
+  "id": "lrs-k-raila",
+  "briefId": "LRS-ATLAS-K-RAILA",
+  "title": "Raila v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "355 F.3d 118 (2d Cir. 2004)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Lenore Raila alleged that she stepped out of her home and slipped on a package a postal employee had left just below the doorstep. Her suit required the court to distinguish an injury caused during mail delivery from the postal losses and mishaps for which Congress retained federal immunity.",
+  "actors": [
+    {
+      "name": "Lenore Raila",
+      "role": "Norwalk resident who alleged injuries from a package placed below her front doorstep."
+    },
+    {
+      "name": "Whitton Raila",
+      "role": "Lenore’s spouse, asserting loss of consortium."
+    },
+    {
+      "name": "United States",
+      "role": "Defendant asserting the postal matter exception to the Federal Tort Claims Act."
+    },
+    {
+      "name": "Judge Katzmann",
+      "role": "Author of the unanimous Second Circuit opinion."
+    }
+  ],
+  "proceedings": "The District of Connecticut dismissed for lack of subject-matter jurisdiction under the postal matter exception. The Second Circuit reversed and remanded, holding that the exception did not bar the alleged personal-injury and consortium claims.",
+  "limits": "Events and injuries were allegations accepted for review of dismissal, not trial findings. The decision did not establish negligence, causation, damages, exhaustion, or ultimate Connecticut-law liability. Dolan was later, separate litigation rather than a Supreme Court appeal in Raila.",
+  "briefSha256": "550f2fea225ba6f305f25bc70274213bad9e6d6c7bc5c17bd08c59f90729cbee",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-K-RAILA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A package is allegedly left directly below a doorstep",
+      "cue": "What harm did the Railas attribute to its placement?",
+      "paragraphs": [
+        "Lenore and Whitton Raila lived in Norwalk, Connecticut. Their complaint alleged that on the afternoon of November 26, 2001, Lenore left through the front door and slipped on a package that a United States Postal Service employee had placed immediately below the doorstep.",
+        "Lenore alleged a fractured hip, forehead abrasions, shock, numbness and tingling in her hands, and severe physical and emotional suffering. Whitton alleged loss of consortium. They attributed the harm to negligent package placement and failure to warn the occupants of the dangerous location. Those assertions had not been established at trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "119; reproduced opinion ¶¶7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Government invokes an exception to its consent to be sued",
+      "cue": "Why did the district court dismiss before deciding negligence?",
+      "paragraphs": [
+        "On September 11, 2002, the Railas sued the United States under the Federal Tort Claims Act (FTCA). That statute broadly waived federal sovereign immunity for specified injuries caused by employees acting within the scope of employment when a private person would be liable under the law of the place of the conduct. But 28 U.S.C. §2680(b) retained immunity for claims arising from loss, miscarriage, or negligent transmission of letters or postal matter.",
+        "The Government moved to dismiss under Federal Rule of Civil Procedure 12(b)(1), arguing that placement of the package was part of its transmission. On February 26, 2003, District Judge Covello agreed and dismissed for lack of subject-matter jurisdiction. He relied on the dictionary meaning of transmission as conveying something to another place and district-court decisions extending it from deposit through delivery, including negligent placement.",
+        "The Railas appealed. The Second Circuit reviewed the jurisdictional ruling and statutory interpretation anew, accepting the allegations and favorable reasonable inferences. Its opinion used the then-prevailing no-set-of-facts formulation for dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "119–120; ¶¶5, 8–13"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The appellate panel reads transmission beside loss and miscarriage",
+      "cue": "How did the surrounding words narrow a potentially broad term?",
+      "paragraphs": [
+        "Judge Katzmann wrote for a unanimous panel with Judges Cardamone and Sotomayor. The panel began with the text and would have ended there if the meaning were clear. It assessed ambiguity within the whole statutory scheme rather than treating a dictionary definition in isolation.",
+        "Transmission by itself could plausibly encompass nearly everything a postal employee did, since transmission was the Postal Service’s business. The panel applied noscitur a sociis, the principle that a word draws meaning from neighboring words. Loss and miscarriage concerned damage to, delay of, or failed delivery of postal material and the consequential harm. Read alongside them, negligent transmission addressed the same kind of postal mishap, not every common-law injury inflicted while delivering mail.",
+        "That distinction preserved immunity for injuries involving the mail’s delivery or condition while allowing a claim that a dangerously placed package caused somebody to slip. The Government’s broad description of the employee’s activity did not answer the narrower question of what wrong Congress had excepted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "120–121; ¶¶13–15"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Other statutory exceptions and postal-driving claims support the distinction",
+      "cue": "Why did the court compare package placement with automobile accidents?",
+      "paragraphs": [
+        "The panel drew context from Kosak, a Supreme Court decision discussing the FTCA’s exceptions. Other provisions used broader language for activities of the Tennessee Valley Authority and Panama Canal Company or claims respecting customs, taxes, and detention. The postal exception instead enumerated particular wrongs. Those statutory comparisons helped interpret this exception; Raila did not decide a customs or tax dispute.",
+        "Allowing recovery for accidents caused by postal employees driving vehicles was an important purpose of the FTCA. The Government conceded that such accidents were not barred. The panel saw no logical reason to preserve immunity when a postal employee negligently placed a package but permit suit when the same employee negligently drove a vehicle.",
+        "The limited legislative history pointed the same way. A 1942 report on an earlier bill contemplated recovery for common-law torts such as negligent government automobile collisions. At a 1940 hearing, Justice Department representative Abraham Holtzoff explained that registration could protect senders and that unrestricted suits for mail loss or delay would be intolerable. The panel understood that concern as harm to the mail, not every personal injury during postal work. Its discussion of Birnbaum likewise identified an injury for which registering a parcel would offer no protection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "121–122; ¶¶16–20 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Hypothetical accidents expose the Government’s proposed dividing line",
+      "cue": "What consequences did the panel find untenable?",
+      "paragraphs": [
+        "The panel tested the Government’s reading with two hypotheticals. A postal driver might simultaneously throw a package into one pedestrian and drive the truck into another. The proposed interpretation would immunize the package injury but allow the vehicle claim. Similarly, two customers might slip on puddles, one caused by a negligently broken parcel and the other by a negligent janitor; the Government’s interpretation would treat the identical slipping injuries differently.",
+        "The Government accepted those consequences at argument. A footnote qualified the second example: dropping a parcel was not necessarily negligent, and the Government’s concession assumed negligence in the particular hypothetical. The court neither treated those accidents as actual Raila facts nor imposed liability for every dropped parcel. It found the contrasting results an absurd consequence supporting the narrower reading."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "122–123; ¶¶21–23 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Reversal permits the claims to proceed",
+      "cue": "What did the appellate court leave for further proceedings?",
+      "paragraphs": [
+        "On January 14, 2004, the panel reversed the dismissal and remanded. The postal matter exception did not bar the Railas’ claims. The court did not decide whether the employee breached a duty, caused the injuries, or owed damages, and did not resolve exhaustion or ultimate liability under Connecticut law.",
+        "The Government predicted substantial additional litigation. The panel declined to select an immunity rule by forecasting caseload; its task was to interpret Congress’s words and intent, and Congress could amend the statute. There were no separate opinions.",
+        "Katzmann later described Raila in Judging Statutes, and the Supreme Court subsequently addressed the exception in Dolan. That later case involved different plaintiffs and was not a Supreme Court appeal from the Railas’ suit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "123; ¶¶24–27; assigned passage"
+        }
+      ]
+    }
+  ]
+}

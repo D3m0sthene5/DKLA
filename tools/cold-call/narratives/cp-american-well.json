@@ -1,0 +1,103 @@
+{
+  "id": "cp-american-well",
+  "briefId": "CP-ATLAS-AMERICAN-WELL",
+  "title": "American Well Works Co. v. Layne & Bowler Co.",
+  "course": "Civil Procedure",
+  "citation": "241 U.S. 257 (1916)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A manufacturer’s business-injury suit mentioned patent threats, but the jurisdiction dispute turned on the state law creating its claim rather than possible patent defenses.",
+  "actors": [
+    {
+      "name": "American Well Works Co.",
+      "role": "Pump manufacturer alleging business injury"
+    },
+    {
+      "name": "Layne & Bowler and other defendants",
+      "role": "Competitors accused of infringement threats and litigation"
+    }
+  ],
+  "proceedings": [
+    "State action was removed to federal district court.",
+    "District court denied the requested remand in effect by dismissing for lack of jurisdiction.",
+    "Supreme Court reversed the dismissal; McKenna dissented."
+  ],
+  "limits": "The facts, losses, and patent assertions were allegations. The Court did not decide infringement, validity, damages, or all later embedded-federal-question categories.",
+  "briefSha256": "4b533be1bba2434f15c9f5af23ea46a7ff3fa7782c94b190edc23efd2b9a27b2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-AMERICAN-WELL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Patent accusations allegedly drive away customers",
+      "cue": "The manufacturer pleads injury to its business",
+      "paragraphs": [
+        "American Well Works alleged that it owned, manufactured, and sold a pump for which it held or sought a patent. It accused competitors of falsely and maliciously telling customers that the pump and its components infringed their patent, suing users without probable cause, and threatening everyone who used the pump. It claimed $50,000 actual damage and requested the same amount as punitive damages.",
+        "The company filed in state court. After removal, it sought remand, but the federal district court dismissed. The judge treated the suit as arising exclusively under federal patent law and reasoned that the state court lacked jurisdiction, leaving the receiving federal court without jurisdiction over the removed action as well. A proper certificate brought that jurisdictional issue directly to the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "241 U.S. at 258–259"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Holmes identifies what creates the affirmative claim",
+      "cue": "Patent issues belong to possible justification",
+      "paragraphs": [
+        "Justice Holmes described the alleged wrong as injury to a business through words tending to stop the public dealing with it. Persuasion, threats, or falsehood could supply the means. The plaintiff needed a business capable of injury and actionable conduct causing it; whether that business rested on patents was immaterial to that affirmative claim.",
+        "Competition, good faith, reasonable grounds, or truth might justify the defendants’ conduct. Those were matters of defense. American Well Works did not need to establish the validity or infringement of defendants’ patent, or the validity of its own patent, as an element of this business-injury claim. Indeed, possession of its own patent would not necessarily make an infringement accusation false."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "241 U.S. at 259–260"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "State law supplies the actionable wrong",
+      "cue": "Possible federal defenses do not change the claim’s source",
+      "paragraphs": [
+        "State law determined whether the conduct was actionable and which justifications applied. If the state abolished this kind of suit, federal patent law would not independently preserve it. Thus the suit arose under the law creating the claim; possible federal content in a defense did not transform its source."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "241 U.S. at 259–260"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The jurisdictional dismissal is reversed",
+      "cue": "The patent and injury merits remain undecided",
+      "paragraphs": [
+        "Justice McKenna dissented in a short reported statement, viewing the case as a direct and substantial patent-law controversy. The report provides no longer separate rationale.",
+        "On May 22, 1916, the Supreme Court reversed the district court’s dismissal. It did not decide falsity, patent validity, infringement, or compensation. The claim’s state-law character defeated the exclusive-patent-jurisdiction basis for the dismissal. The decision resolved this business-injury action rather than cataloguing every later kind of state claim containing a federal issue."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "241 U.S. at 260"
+        }
+      ]
+    }
+  ]
+}

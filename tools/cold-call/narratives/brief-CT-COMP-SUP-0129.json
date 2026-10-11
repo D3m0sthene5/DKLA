@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-COMP-SUP-0129",
+  "briefId": "CT-COMP-SUP-0129",
+  "title": "Firma B. v. Firma A. — Published Contractual-Penalty Extract",
+  "course": "Contracts",
+  "citation": "BGE 114 II 264–265 (Swiss Federal Supreme Court, June 22, 1988)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A debtor contests a contractual penalty’s amount; the published extract explains restrained, contextual reduction and the debtor’s burden, but omits the final outcome.",
+  "actors": [
+    {
+      "name": "Firm B. and Firm A.",
+      "role": "Anonymized firms named in the civil appeal."
+    },
+    {
+      "name": "The defendant debtor",
+      "role": "Party challenging only the penalty’s amount; the extract supplies no transaction or amount."
+    }
+  ],
+  "proceedings": [
+    "The debtor challenged the Commercial Court’s treatment of the contractual penalty.",
+    "The First Civil Division’s published extract gives reasoning 1(a)–(b) but no final disposition."
+  ],
+  "limits": "Expressly a published judicial extract, not the complete underlying judgment. Transaction, penalty amount, evidence, final judgment, individual author and vote remain unavailable. General employee examples are not facts of these firms’ dispute. The 2024 case is separate.",
+  "briefSha256": "8b00eb57e2b38dc71ce236f77b57a71ec8232599457a237c812a8c07f54fb861",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-COMP-SUP-0129"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A penalty debtor asks for a substantial reduction",
+      "cue": "What dispute actually appears in the published extract?",
+      "paragraphs": [
+        "The Swiss Federal Supreme Court’s published report identifies a civil appeal between anonymized firms B. and A. The defendant challenged only the amount of a contractual penalty and argued that, contrary to the Commercial Court’s position, it should be substantially reduced under article 163(3) of the Swiss Code of Obligations.",
+        "The extract does not identify the transaction, agreed sum, breach, loss evidence or amount imposed below. Its discussion begins with the reduction issue rather than supplying those missing events."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Available facts and procedural posture; BGE 114 II 264, reasoning 1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Court balances required reduction against the parties’ freedom to stipulate",
+      "cue": "When does an agreed amount become excessive?",
+      "paragraphs": [
+        "Article 163(3) requires a judge to reduce an excessively high penalty in the exercise of discretion, while article 163(1) generally permits the parties to set the amount. The First Civil Division therefore emphasized restraint: intervention is warranted when the sum exceeds what remains reasonable and compatible with law and equity. This post-breach inquiry differs from articles 19–20, which concern limits on contractual freedom when the agreement is made.",
+        "Gross disproportion between the penalty and the creditor’s interest in full performance is especially significant. Relevant circumstances include the contract’s nature and duration, seriousness of fault and breach, interest in compliance, economic positions, dependency and business experience. An employee’s usual economic weakness may favor reduction more readily than a bargain between experienced equals. That was a general example, not a finding that this particular debtor was an employee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reduction principles; BGE 114 II 264–265, reasoning 1(a)"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Damages inform the inquiry without automatically capping the penalty",
+      "cue": "Who must support a request for reduction?",
+      "paragraphs": [
+        "Damage provides a natural reference for assessing the creditor’s interest and the seriousness of fault. The Court nevertheless explained that exceeding compensatory damages does not alone make a penalty excessive. The highest possible damage, rather than only actual loss, can help identify excessiveness.",
+        "A penalty is a separate obligation: article 161(1) permits it to become payable even when the creditor suffers no loss. Making proved damages an automatic ceiling would erase that distinction. The debtor must assert and prove the conditions for reduction; the creditor need not establish proportionality at the outset merely to enforce the penalty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Damages and burden; BGE 114 II 265, reasoning 1(b)"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The published reasoning ends without application or final judgment",
+      "cue": "What outcome cannot be supplied from this source?",
+      "paragraphs": [
+        "The report is an extract from the First Civil Division’s June 22, 1988 judgment and contains only reasoning 1(a)–(b). It does not reveal whether this debtor met the burden, whether the appeal succeeded, or what amount remained payable. It names no individual author, panel or voting division.",
+        "The September 2024 contractual-penalty material that follows in the assigned supplement belongs to another decision. It provides no missing transaction or outcome for this 1988 dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Result and source boundary; BGE 114 II 264–265; assigned supplement129–130"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "id": "cp-surowitz",
+  "briefId": "CP-074",
+  "title": "Surowitz v. Hilton Hotels Corp.",
+  "course": "Civil Procedure",
+  "citation": "383 U.S. 363 (1966)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A small shareholder authorizes a derivative suit after trusted advisers investigate alleged insider misconduct. Her inability to explain the complaint at deposition causes dismissal before defendants answer, placing the verification requirement at the center of review.",
+  "actors": [
+    {
+      "name": "Dora Surowitz",
+      "role": "Hilton shareholder bringing a derivative action for alleged corporate injury."
+    },
+    {
+      "name": "Irving Brilliant",
+      "role": "Her son-in-law and investment adviser, trained in law and economics."
+    },
+    {
+      "name": "Walter Rockler",
+      "role": "Lawyer who investigated and signed the complaint."
+    },
+    {
+      "name": "Hilton Hotels Corporation officers and directors",
+      "role": "Defendants accused of enriching themselves through harmful stock transactions."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed with prejudice after deposing Surowitz and deeming her verification false and a nullity.",
+    "The Seventh Circuit affirmed.",
+    "The Supreme Court reversed and remanded for merits proceedings, with a separate concurrence by Justice Harlan."
+  ],
+  "limits": "This is a historical source-brief transformation without a fresh audit or current procedural-law certification. Former Rule 23(b) supplied derivative verification, not today’s class-certification categories; the opinion also addressed the earlier Rule 11. Alleged fraud remained unproved, and the decision did not eliminate verification or decide universal representative adequacy.",
+  "briefSha256": "dc00f87c21decacfe42c9552cb086f3145e69c3edb4fb1c1d64c17b3334bdac2",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-074"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A stock notice leads to months of investigation",
+      "cue": "Why did Surowitz rely on others to understand the transaction?",
+      "paragraphs": [
+        "Dora Surowitz, a Polish immigrant with little formal schooling and limited English, invested slightly more than $2,000 of her savings in Hilton Hotels Corporation on the advice of her son-in-law Irving Brilliant. Brilliant was an investment adviser trained in law and economics.",
+        "When Hilton sent a notice about a proposed stock repurchase, Surowitz asked Brilliant to explain it. He and lawyer Walter Rockler investigated for months before recommending litigation. The resulting lengthy complaint alleged that insiders transferred corporate money to themselves through inflated-price purchases, involving both Hilton’s own shares and shares of an affiliated credit corporation. Those fraud allegations had not been proved.",
+        "Rockler signed under the version of Federal Rule of Civil Procedure 11 then in force. Brilliant read and explained the complaint to Surowitz, who verified it partly on information and belief. She sought derivative recovery for harm to the corporation, rather than merely asserting a personal stock-price loss."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "383 U.S. 364–365, 368–370"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The plaintiff’s deposition leads to dismissal before an answer",
+      "cue": "What other evidence was before the trial court?",
+      "paragraphs": [
+        "Before requiring defendants to answer, the district court permitted them to depose Surowitz. She could not explain the complaint’s detailed transactions, legal relationships, defendants, or theories. She did know she owned Hilton stock, that dividends had stopped, and that her trusted adviser believed management had harmed the company.",
+        "The defendants moved to dismiss, calling the complaint a sham and Surowitz an improper plaintiff. Rockler and Brilliant submitted affidavits describing the investigation and grounds for suit. Despite those submissions, the district court treated her verification as false and a nullity and dismissed with prejudice.",
+        "The Seventh Circuit affirmed, though it acknowledged the allegations’ seriousness and the substantial investigation. The Supreme Court granted review of whether verification required this result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "383 U.S. 366–372"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court reads verification according to its anti-abuse purpose",
+      "cue": "Why did limited comprehension not make this complaint a sham?",
+      "paragraphs": [
+        "Justice Black’s opinion examined the full record rather than the deposition alone. Surowitz’s difficulty with complex financial and legal matters fit her limited language and education. Her reliance on Brilliant was understandable, and the two advisers’ affidavits showed substantial investigation. Her verification reflected good-faith reliance rather than proof that claims had been knowingly invented.",
+        "The derivative-action verification requirement sought to discourage abusive suits filed without regard to truth to extract settlements from management. This record instead involved a shareholder protecting an actual investment on carefully investigated advice. Brilliant’s longstanding family investments also supported the conclusion that he was not using a baseless claim to harm the corporation.",
+        "Treating verification as an absolute requirement of personal financial sophistication would exclude small investors whom derivative litigation could protect. The Federal Rules should permit genuine disputes to receive fair adjudication. On these facts, former Rule 23(b)’s verification requirement did not justify summary dismissal.",
+        "The Court preserved the requirement and reserved whether genuinely false verification on another record could warrant dismissal. It did not excuse counsel from investigation, approve sham pleadings, or decide every question of a nominal shareholder’s adequacy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "383 U.S. 368–374"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Harlan finds counsel’s affidavit sufficient, and the case returns for a response",
+      "cue": "What did the reversal establish?",
+      "paragraphs": [
+        "Justice Harlan concurred on a narrower basis. The rule required an oath but did not specify that the shareholder personally had to provide it. He regarded Rockler’s affidavit as adequate counsel verification in these circumstances.",
+        "On March 7, 1966, the Court reversed and remanded to the district court for proceedings on the merits. The defendants would have to respond; Surowitz received no damages award and no finding that the fraud allegations were true. Chief Justice Warren took no part in consideration or decision, and Justice Fortas took no part in the decision. No dissent was printed.",
+        "The historical numbering matters: the derivative requirement then appeared in Rule 23(b), the subject now placed by the casebook with Rule 23.1. It was not a ruling about today’s Rule 23(b) class-certification categories or all modern Rule 11 obligations."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "383 U.S. 365 n.4, 373–374 & Harlan concurrence"
+        }
+      ]
+    }
+  ]
+}

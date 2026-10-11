@@ -1,0 +1,107 @@
+{
+  "id": "brief-CP-094",
+  "briefId": "CP-094",
+  "title": "In re Petition of Sheila Roberts Ford",
+  "course": "Civil Procedure",
+  "citation": "170 F.R.D. 504 (M.D. Ala. 1997)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A fatal shooting leaves an estate administrator without basic facts, but a pre-suit preservation rule does not authorize an investigative deposition.",
+  "actors": [
+    {
+      "name": "Sheila Roberts Ford",
+      "role": "Administrator of Fred William Roberts’s estate and prospective federal plaintiff."
+    },
+    {
+      "name": "Fred William Roberts",
+      "role": "Man fatally shot by county officers."
+    },
+    {
+      "name": "Bill Franklin",
+      "role": "Elmore County sheriff whom Ford wanted to depose before filing suit."
+    }
+  ],
+  "proceedings": [
+    "Ford filed and amended a verified Rule 27 petition in the Middle District of Alabama.",
+    "After a hearing, Chief Judge Thompson denied the petition and taxed costs against Ford."
+  ],
+  "limits": "The ruling concerns pre-suit evidence preservation, not the merits of a civil-rights claim or whether the shooting was justified. No separate opinion is reported.",
+  "briefSha256": "a5addf581dc04fedfb9252484e78944c82b847c72a7f8654fc26763687af9e79",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-094"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Officers kill Roberts and his estate seeks an account",
+      "cue": "What did Ford know, and what did she need to learn?",
+      "paragraphs": [
+        "Elmore County law-enforcement officers shot and killed Fred William Roberts on November 8, 1996. Sheila Roberts Ford, the administrator of his estate, expected to bring a federal action concerning the shooting. She did not know which officer had fired or whether the use of force was justified.",
+        "Ford identified Sheriff Bill Franklin and deputies as potential defendants. Franklin had been the commanding officer, so she expected him to identify the officers involved and explain what had happened. She wanted his testimony before beginning the contemplated lawsuit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Parties and material facts; 170 F.R.D. 505–507"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Ford asks to depose the sheriff before filing her action",
+      "cue": "Why did the sheriff oppose the petition?",
+      "paragraphs": [
+        "On November 15, 1996, Ford filed a verified petition under Federal Rule of Civil Procedure 27(a), which provides for perpetuating testimony before an action. She later amended it. At a December 13 hearing, Franklin appeared through counsel and argued that her proposed examination fell outside the rule.",
+        "Ford explained that without his testimony she could not determine whom to sue or establish the basic facts. She also argued that taking the deposition promptly would protect an accurate account before memories faded or publicity distorted them. The court found no evidence that illness, departure, or a comparable circumstance threatened the imminent loss of Franklin’s testimony."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Material facts and procedural history; 170 F.R.D. 505–507"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Thompson distinguishes preserving testimony from finding unknown facts",
+      "cue": "What function did Rule 27 authorize?",
+      "paragraphs": [
+        "Chief Judge Myron H. Thompson treated perpetuation according to its ordinary meaning: preserving evidence that might otherwise be lost before it could be used. Rule 27(a) permits an examination when preserving testimony may prevent a failure or delay of justice. That language did not supply a general means of investigating a possible claim before filing a complaint.",
+        "Ford’s request sought to discover the shooter’s identity and the circumstances of the shooting. Those were important questions, but importance did not make an investigative examination a preservation measure. Because she had not shown a danger that Franklin’s testimony would disappear, the requested deposition did not serve the function the rule assigned to it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Rule and reasoning; 170 F.R.D. 506–508"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The difficulty of preparing a complaint does not expand the rule",
+      "cue": "What happened to the petition and the contemplated merits claim?",
+      "paragraphs": [
+        "Ford also relied on Rule 11, which requires factual contentions to have evidentiary support or a reasonable expectation of support after investigation or discovery. She urged the court to read that obligation together with Rule 27. Thompson acknowledged her predicament: she needed information to frame a complaint, while Rule 11 and qualified-immunity doctrine made unsupported allegations hazardous.",
+        "The court nevertheless concluded that Rule 11 could not turn Rule 27 into pre-complaint discovery. On January 21, 1997, it denied the amended verified petition and taxed costs against Ford. This was a district-court memorandum decision, with no separate writing. It did not decide that the contemplated civil-rights claim lacked merit or that the officers’ shooting was justified."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning, judgment and notes; 170 F.R.D. 507–509"
+        }
+      ]
+    }
+  ]
+}

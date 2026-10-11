@@ -1,0 +1,126 @@
+{
+  "id": "cp-ragan",
+  "briefId": "CP-ATLAS-RAGAN",
+  "title": "Ragan v. Merchants Transfer & Warehouse Co.",
+  "course": "Civil Procedure",
+  "citation": "337 U.S. 530 (1949)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Ragan filed his Kansas accident suit in federal court before two years elapsed, but effective service came later. His trial victory depended on whether federal filing could preserve a state-law claim that Kansas’s service-based limitations rule would bar in state court.",
+  "actors": [
+    {
+      "name": "Ragan",
+      "role": "Injured highway traveler bringing a state tort claim in federal diversity court."
+    },
+    {
+      "name": "Merchants Transfer & Warehouse Company",
+      "role": "Defendant asserting Kansas’s statute of limitations."
+    },
+    {
+      "name": "Justice Douglas",
+      "role": "Author of the Supreme Court majority opinion, announced by Justice Reed."
+    },
+    {
+      "name": "Justice Rutledge",
+      "role": "Dissenter whose shared writing also addressed Cohen and Woods."
+    }
+  ],
+  "proceedings": "The district court struck the limitations defense and Ragan obtained a verdict. The Tenth Circuit reversed, holding the action untimely. The Supreme Court affirmed that reversal, sustaining the defense rather than the plaintiff’s trial recovery.",
+  "limits": "The Court accepted that this suit was barred under Kansas law, including its provisions for diligent attempts at service. It did not create a national service-based limitations rule, address the accident merits, or extend the holding to federal statutory causes of action. Later Erie doctrine is outside this historical account.",
+  "briefSha256": "61f5abeb53cdab064a359645e7c724fc632451c9fa81e29cc7d90090ccaada70",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-RAGAN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The complaint is filed before the anniversary, but service is delayed",
+      "cue": "Which dates determined the limitations dispute?",
+      "paragraphs": [
+        "Ragan sought damages from Merchants Transfer & Warehouse Company for injuries in a highway accident on October 1, 1943. Invoking diversity jurisdiction, he filed in the federal District Court in Kansas on September 4, 1945.",
+        "A summons issued September 7 and was served, but that service was later quashed. Effective service occurred on December 28, after Kansas’s two-year tort limitations period. Filing, issuance of process, and valid service were therefore separate events.",
+        "Kansas measured commencement for limitations purposes by service. Its provision included a sixty-day allowance for an attempted commencement accompanied by faithful, proper, and diligent efforts to obtain service. The case proceeded on the accepted conclusion that Ragan’s particular action would be barred in a Kansas court; the Supreme Court did not declare that every unsuccessful service attempt was legally irrelevant."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "531–532 & nn.2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A trial victory is undone by the state limitations rule",
+      "cue": "How did the case reach the Supreme Court?",
+      "paragraphs": [
+        "Merchants Transfer pleaded limitations and moved for summary judgment. The district court struck the defense and denied the motion. Ragan then obtained a verdict at trial.",
+        "The Tenth Circuit reversed. After examining Kansas decisions, it concluded that timely service was integral to the state limitations scheme and that the district court should have granted summary judgment. The Supreme Court granted review to decide whether timely filing under Federal Rule of Civil Procedure 3 nevertheless preserved this state-created claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "530–532"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Commencing a federal proceeding does not extend the state right’s life",
+      "cue": "Why did the majority apply Kansas’s rule?",
+      "paragraphs": [
+        "Justice Douglas wrote the Court’s opinion, which Justice Reed announced. Erie and Guaranty Trust Co. v. York were the earlier decisions requiring federal diversity courts to respect state-created substantive rights and their limitations. The majority reasoned that Ragan should not gain a materially longer-lived state claim merely by choosing a federal forum. It was conceded that he could not recover in state court.",
+        "The Federal Rules governed how a federal action began, and Ragan had properly followed Rule 3. But commencement of the federal proceeding differed from preserving the underlying state claim. Local law determined the claim’s accrual, expiration, and accompanying defenses in either forum.",
+        "Ragan relied on Bomar v. Keyes, which treated filing as tolling limitations. The majority distinguished that suit because it enforced federal statutory rights. Ragan sought enforcement of a locally created right. It also made no difference that limitations expired after federal filing rather than before: either extension would enlarge the state right only in federal court.",
+        "The Court accepted the Tenth Circuit’s careful reading of Kansas law instead of substituting a new national rule about service. Its conclusion depended on the service requirement’s place within that particular limitations scheme."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "532–534 & nn.5–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Rutledge rejects a mechanical equation of state and federal court access",
+      "cue": "What did his shared dissent say about federal procedure?",
+      "paragraphs": [
+        "Justice Rutledge dissented through a writing published with Cohen v. Beneficial Industrial Loan Corp. that addressed Cohen, Woods, and Ragan together. He accepted Erie as a sound administrative principle for substantive state law but questioned its constitutional foundation and resisted extending it to every circumstance in which state courts would close their doors.",
+        "In his view, later decisions had carried Erie into incidents of federal litigation subject to congressional control. Procedure and substance could overlap, so courts should examine the policies involved rather than apply a mechanical open-or-closed-courthouse test. He would have reversed in Ragan."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Cohen, 337 U.S. 557–561 & dissent n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The limitations defense defeats the trial recovery",
+      "cue": "What did the final judgment decide?",
+      "paragraphs": [
+        "On June 20, 1949, the Supreme Court affirmed the Tenth Circuit. That disposition sustained reversal of Ragan’s trial recovery and the conclusion that limitations barred the action. It neither affirmed the plaintiff’s verdict nor independently decided responsibility for the accident.",
+        "The explicit distinction of Bomar left federal statutory claims outside the holding. Ragan’s historical treatment of Rule 3 also does not replace the analysis required by later Erie and Rules Enabling Act decisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "533–534"
+        }
+      ]
+    }
+  ]
+}

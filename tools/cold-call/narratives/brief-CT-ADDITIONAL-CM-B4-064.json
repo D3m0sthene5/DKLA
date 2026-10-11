@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-064",
+  "briefId": "CT-ADDITIONAL-CM-B4-064",
+  "title": "Angus v. Scully",
+  "course": "Contracts",
+  "citation": "176 Mass. 357, 57 N.E. 674 (1900)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A building burns halfway through a move; without fault by the movers, impossibility excuses completion while permitting payment for the proper work already done.",
+  "actors": [
+    {
+      "name": "The building movers",
+      "role": "Plaintiffs seeking the fair value of services completed before the fire."
+    },
+    {
+      "name": "The owner",
+      "role": "Defendant asserting nonperformance and alleging the movers caused the fire negligently."
+    }
+  ],
+  "proceedings": [
+    "The jury returned a verdict for the movers under a no-negligence condition.",
+    "The Massachusetts Supreme Judicial Court overruled the owner’s exceptions."
+  ],
+  "limits": "The report gives the $840 contract price but not the verdict amount. Negligence was alleged, not established. Recovery concerns fair value of proper partial work, not the full price or profits on uncompleted work.",
+  "briefSha256": "4fb9710823eb83fcf44ebf56b1cc48a2512f294449c2ca320690b064c154aa4a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-064"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The movers undertake a three-building relocation job",
+      "cue": "How far had they performed when the fire occurred?",
+      "paragraphs": [
+        "The owner agreed to pay building movers $840 to relocate a large building from Third Street to First Street and change the positions of two other buildings, one on each lot. The movers first moved the house on Third Street and then began taking the large building across open lots toward First Street.",
+        "After the large building had traveled about halfway, fire destroyed it during the night. With the owner’s assent, the movers did no further work on the agreed relocation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Partial performance and fire;176 Mass.357–358"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The movers sue for the work already performed",
+      "cue": "What condition did the trial judge put on recovery?",
+      "paragraphs": [
+        "The movers sued on an account annexed for the fair value of services rendered through the fire. The owner pleaded nonperformance and alleged that the movers’ negligence had caused the destruction.",
+        "The judge refused the owner’s request for a ruling that no recovery was possible. Instead, he instructed the jury to allow recovery if the fire was not attributable to the movers’ negligence. The jury returned a verdict for them. The owner challenged the refusal and instructions by exceptions; the allegation of negligence was therefore not an established cause of the fire."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Claims, verdict and exceptions;176 Mass.357–358"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Hammond explains the implied condition of a surviving building",
+      "cue": "Why did excuse from finishing not erase compensation for earlier work?",
+      "paragraphs": [
+        "Justice Hammond reasoned that the contract necessarily assumed the building would continue to exist. Its destruction made the contemplated completion impossible. Massachusetts precedent recognized an implied obligation to pay for what either party properly did before that condition failed, treating the services as performed at the other’s request.",
+        "Value could be determined from the contract price or by another method when that price could not appropriately be applied. The rule covered work on another person’s house when, without the worker’s fault, destruction made further performance impossible. The movers’ situation fell within it. Excuse from completing the relocation did not eliminate payment for their proper partial performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Implied condition and compensation;176 Mass.358–359"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The exceptions are overruled and the partial-work recovery survives",
+      "cue": "What amount and remedy did the appellate court actually establish?",
+      "paragraphs": [
+        "On June 20, 1900, the Massachusetts Supreme Judicial Court overruled the owner’s exceptions. Chief Justice Holmes and Justices Morton, Barker, Hammond and Loring were listed as present, with no separate writing.",
+        "The ruling preserved recovery for the fair value of services rendered before destruction. The report does not state the jury’s award, so the $840 contract price is not a reported judgment amount. Nor did the decision award anticipated profits for an owner’s breach or require the full price despite incomplete performance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court and exact disposition;176 Mass.357–359"
+        }
+      ]
+    }
+  ]
+}

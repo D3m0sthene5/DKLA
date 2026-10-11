@@ -1,0 +1,152 @@
+{
+  "id": "brief-CP-SUP-FULD",
+  "briefId": "CP-SUP-FULD",
+  "title": "Fuld v. Palestine Liberation Organization",
+  "course": "Civil Procedure",
+  "citation": "606 U.S. 1 (2025)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Congress supplied a targeted federal forum for terrorism claims against two Palestinian entities, and the Supreme Court rejected treating federal jurisdiction as constitutionally identical to state jurisdiction.",
+  "actors": [
+    {
+      "name": "Palestine Liberation Organization",
+      "role": "Entity performing foreign governmental functions for portions of the West Bank and Gaza"
+    },
+    {
+      "name": "Palestinian Authority",
+      "role": "Entity performing domestic governmental functions in those areas"
+    },
+    {
+      "name": "American victims, estates, and survivors",
+      "role": "Plaintiffs in the Waldman and Fuld actions"
+    },
+    {
+      "name": "United States",
+      "role": "Intervenor defending the federal jurisdiction statute"
+    }
+  ],
+  "proceedings": [
+    "Earlier action: 2015 jury verdict vacated in 2016 for lack of personal jurisdiction.",
+    "After 2019 legislation and Supreme Court remand, district courts in both actions found statutory conduct but rejected jurisdiction as unconstitutional; Second Circuit affirmed.",
+    "Supreme Court: reversed both judgments and remanded, unanimously in result with a seven-Justice majority and a separate concurrence."
+  ],
+  "limits": [
+    "The Court left the Fifth Amendment’s outer limits, a freestanding consent analysis, and necessity of a separate reasonableness test unresolved. It neither adjudicated Fuld liability nor ordered payment of the earlier vacated verdict."
+  ],
+  "briefSha256": "df8c7541c75969d2a44740adc24e6dd24b6c459a3a2a6202e00a27d9092870eb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-SUP-FULD"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two governmental entities face American terrorism claims",
+      "cue": "Introduce the parties and the statutory cause of action.",
+      "paragraphs": [
+        "The Palestine Liberation Organization, or PLO, performs foreign governmental functions, and the Palestinian Authority, or PA, domestic governmental functions, for portions of the West Bank and Gaza Strip. The United States does not recognize them as sovereign states. They maintain international diplomatic facilities, and the PLO has a United Nations mission in New York. Congress has long regulated their operations and assistance in connection with terrorism and foreign policy.",
+        "The Antiterrorism Act of 1990, or ATA, gives United States nationals a civil remedy with treble damages for injury or death from international terrorism, including specified aiding-and-abetting liability. It provides nationwide service and venue and exclusive federal jurisdiction.",
+        "In 2004, Americans harmed in attacks in Israel, together with estates and survivors, filed the action initially called Sokolow and later Waldman. A 2015 jury awarded $218.5 million against the PLO and PA, trebled to $655.5 million. In 2016, the Second Circuit vacated that judgment and directed dismissal for lack of personal jurisdiction because the attacks were neither connected to the forum nor expressly directed at the United States."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip opinion 2–4 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Congress changes the jurisdictional predicates twice",
+      "cue": "Trace the later statute and the separate Fuld action.",
+      "paragraphs": [
+        "Congress responded in 2018 with the Anti-Terrorism Clarification Act, treating specified American activities or acceptance of certain United States assistance as consent to jurisdiction. The Second Circuit declined to recall its mandate. While Supreme Court review was sought, Congress enacted the Promoting Security and Justice for Victims of Terrorism Act, or PSJVTA, in December 2019, superseding those jurisdiction provisions and specifically naming the PLO and PA. The Supreme Court vacated and remanded for reconsideration under the new law.",
+        "Soon afterward, the family of an American stabbed in a 2018 West Bank attack filed the separate Fuld suit under the same legislation. Section 2334(e) treated either of two categories of conduct after specified periods as consent to ATA jurisdiction. One involved payments because of imprisonment to a designated payee of someone fairly tried or pleading guilty and imprisoned for terrorism harming an American, or payments because of death to a family member of someone killed while committing such terrorism. The other involved maintaining or obtaining United States facilities or conducting activities while physically present here. United Nations mission and ancillary activities were expressly excluded.",
+        "Both sets of plaintiffs alleged statutory triggers. District courts found evidence satisfying at least the payment predicate but held jurisdiction unconstitutional. The United States intervened to defend the law. Applying precedent equating Fifth and Fourteenth Amendment standards, the Second Circuit affirmed: insufficient contacts could not become sufficient through a statutory consent label. After en banc rehearing was denied, the Supreme Court reviewed both suits and the Government’s companion petition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip opinion 4–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Federal power presents a different constitutional question from state power",
+      "cue": "Explain the seven-Justice majority’s starting point.",
+      "paragraphs": [
+        "Chief Justice Roberts wrote for seven Justices. The usual minimum-contacts cases concerned Fourteenth Amendment limits on states. Even federal-court cases often used that standard because Rule 4(k)(1)(A) generally incorporated state jurisdictional reach. This case involved direct congressional authorization under Rule 4(k)(1)(C), presenting the distinct Fifth Amendment question. Nobody argued the respondents were at home in the United States and therefore subject to general jurisdiction.",
+        "The respondents relied on similar due-process wording and on individual fairness even apart from interstate federalism. Private plaintiffs argued for no Fifth Amendment territorial limit at all. The Government proposed a narrower decision upholding this statute, noting historical uncertainty and possible reciprocal foreign assertions against Americans.",
+        "The majority held that the Fifth Amendment did not incorporate the Fourteenth Amendment minimum-contacts standard. States have bounded, coequal spheres within the Union; interstate federalism limits one state’s authority even when litigation imposes little inconvenience. The National Government possesses nationwide and extraterritorial powers, including foreign commerce and protection against violence toward Americans abroad. Its relation to foreign nations does not reproduce the constitutional relation among states.",
+        "Personal jurisdiction protects individual liberty against unlawful sovereign action, but whether action is unlawful still depends on the relevant sovereign’s authority. World-Wide Volkswagen and Bristol-Myers Squibb, the Court’s state-jurisdiction precedents, illustrated that sovereignty limits were not reducible to practical fairness. The Court assumed the PLO and PA had due-process rights because no petitioner sought reconsideration of that premise; it did not settle the rights of every foreign governmental body."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip opinion 7–14 & n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The targeted statute has a meaningful connection to national concerns",
+      "cue": "Follow the application without making political power unlimited.",
+      "paragraphs": [
+        "Foreign affairs remained subject to constitutional review. Nevertheless, coordinated congressional and executive judgments on terrorism, national security, and international relations received respectful consideration. This statute formed part of longstanding policy toward two particular entities and provided Americans harmed by terrorism an effective statutory forum.",
+        "Its limited reach mattered: only ATA actions, only these respondents, payments Congress regarded as promoting terrorism against Americans, and specified activities on United States soil excluding United Nations work. The entities already had meaningful ties and longstanding relations with the United States. These connections supported jurisdiction under the appropriate federal analysis; the statute did not indiscriminately reach every foreign person and every claim.",
+        "The respondents called the payments social welfare and reported formally ending the program in February 2025. The Court expressed no view about that characterization and said the reported repeal did not alter the constitutional analysis. Omitting other terrorist organizations reinforced the statute’s character as a tailored foreign-policy choice rather than invalidating it. The Court would not second-guess the choice of that narrower tool."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip opinion 14–19 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The decision does not require a separate consent holding",
+      "cue": "Preserve the reserved questions and the actual remand.",
+      "paragraphs": [
+        "Because the conduct itself supported jurisdiction under the proper Fifth Amendment approach, the majority did not decide whether the law met the separate express-or-implied-consent doctrine, including the line of authority illustrated by Mallory. “Deemed consent” did not become a holding that any legislative label can create jurisdiction from insufficient conduct.",
+        "The Court also reserved whether federal due process demands a separate reasonableness inquiry. Assuming it did, this law satisfied it: the sovereign and plaintiffs had strong interests in relief for American victims; the respondents alleged neither inadequate notice nor an unfair or unmanageable litigation burden. Their resources, international facilities, longstanding United States presence, and decades of ATA litigation supported that conclusion. The statute clearly warned what conduct would trigger jurisdiction.",
+        "All nine Justices agreed to reverse both Second Circuit judgments and remand. Justices Alito, Sotomayor, Kagan, Kavanaugh, Barrett, and Jackson joined Roberts. The reversal neither resolved liability in the new action nor directed payment of the older vacated verdict. The majority intentionally left federal jurisdiction’s full outer boundary undefined."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Majority slip opinion 19–21; canonical voting alignment and judgment"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Thomas offers a broader historical theory, partly joined by Gorsuch",
+      "cue": "Close with the concurrence and its limited joinder.",
+      "paragraphs": [
+        "Justice Thomas concurred in the judgment. In Part I, which Justice Gorsuch did not join, he raised but did not decide whether foreign nonsovereign governmental entities possessed constitutional rights and whether original due process constrained legislation at all. He questioned why withholding sovereign recognition should confer greater rights than those of foreign sovereigns, states, territories, or municipalities, but the petitioners had not pressed that ground.",
+        "He also compared a law-of-the-land account requiring constitutional and statutory authorization with Murray’s Lessee, the decision treating due process as limiting legislation through settled procedural safeguards. He found the jurisdictional objection unsuccessful on either account and did not select between them.",
+        "Gorsuch joined Part II. Thomas located early territorial restrictions in the law of nations rather than the Fifth Amendment. Article I and Article III contemplated extraterritorial authority, and early practice exercised it. Picquet v. Swan and Toland v. Sprague had construed statutes not to authorize the asserted reach while acknowledging that an express congressional command would govern. On this view, Congress could override those subconstitutional international-law limits, and the PSJVTA clearly did so.",
+        "Possible foreign retaliation was a policy consideration for the political branches, preserving their responsibility for foreign affairs and settlement of international claims, rather than a territorial constitutional barrier. Thomas separately reserved whether notice and an opportunity to be heard were constitutionally required and found them satisfied if so. His no-territorial-limit theory remained the concurrence’s position; seven Justices resolved this statute on narrower grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas concurrence slip opinion 2–21 & nn.1–4"
+        }
+      ]
+    }
+  ]
+}

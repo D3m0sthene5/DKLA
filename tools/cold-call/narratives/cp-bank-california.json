@@ -1,0 +1,145 @@
+{
+  "id": "cp-bank-california",
+  "briefId": "CP-082",
+  "title": "Bank of California, N.A. v. Superior Court",
+  "course": "Civil Procedure",
+  "citation": "16 Cal. 2d 516, 106 P.2d 879 (1940)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A niece claimed her aunt had promised her an entire estate, despite a will distributing it among others. When only the executor and the principal beneficiary appeared in the resulting suit, they sought to halt trial until every beneficiary could be brought before the court.",
+  "actors": [
+    {
+      "name": "Sara Boyd",
+      "role": "Decedent whose will and alleged promise generated the dispute."
+    },
+    {
+      "name": "Bertha Smedley",
+      "role": "Boyd’s niece and a legatee, asserting a contract for the whole estate."
+    },
+    {
+      "name": "Bank of California",
+      "role": "Executor and petitioner seeking prohibition."
+    },
+    {
+      "name": "St. Luke’s Hospital",
+      "role": "Residuary beneficiary and fellow petitioner."
+    },
+    {
+      "name": "Chief Justice Gibson",
+      "role": "Author of the unanimous California Supreme Court opinion."
+    }
+  ],
+  "proceedings": "The superior court denied a motion to require service on the remaining beneficiaries. The bank and hospital sought prohibition. The California Supreme Court discharged the alternative writ and denied a peremptory writ because the absentees were not jurisdictionally indispensable.",
+  "limits": "The decision did not establish Smedley’s contract or ownership and did not decide whether denying broader joinder abused discretion. It uses historical California joinder categories. The complete opinion describes the hospital’s share as over seventy-five percent, differing from the assigned excerpt.",
+  "briefSha256": "47fbdeab69d6a0049abd5c12dd12cd24f47e4fd5092be6ad7f30b59cebc7f394",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-082"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A will distributes an estate that a niece says was promised to her",
+      "cue": "Who held the competing interests?",
+      "paragraphs": [
+        "Sara Boyd died in June 1937, leaving an estate worth approximately $225,000. Her will, admitted to probate on July 8, provided about $60,000 in specific gifts to individuals and charitable institutions and left the residue to St. Luke’s Hospital. The Bank of California became executor. Some beneficiaries lived outside California or abroad.",
+        "Boyd’s niece Bertha Smedley, herself a legatee, asserted a contract under which Boyd had promised her the entire estate. Smedley sued for ownership after debts and expenses, conveyances from the defendants, and relief quieting title. That alleged promise, rather than any established entitlement to the estate, supplied the basis of her action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "518–519"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Only two defendants are served before trial",
+      "cue": "Why did the bank and hospital seek to stop the proceeding?",
+      "paragraphs": [
+        "Smedley named the executor and all beneficiaries as defendants but served only the bank and St. Luke’s. When trial began in November 1939, those appearing defendants moved under California Code of Civil Procedure §389 to require service on and joinder of the others.",
+        "They argued that all beneficiaries were necessary and indispensable because Smedley sought relief against everyone’s interests. Proceeding could produce multiple suits and future expense for the executor. The superior court denied the motion.",
+        "The bank and hospital then petitioned the California Supreme Court for a writ of prohibition to halt trial until the absent defendants were before the court. That route challenged the superior court’s jurisdiction to proceed; it was not an ordinary appeal testing the merits of Smedley’s contract claim or every aspect of joinder discretion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "519–520"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Supreme Court separates desirable joinder from indispensable presence",
+      "cue": "What effect on absent rights would prevent the court from proceeding?",
+      "paragraphs": [
+        "Chief Justice Gibson wrote the unanimous opinion. The historical §389 permitted a controversy among present parties to be decided when prejudice to others could be avoided or their rights saved. When complete determination required additional people, it directed the court to bring them in. The provision reflected equity’s goals of complete relief and avoiding fragmented litigation.",
+        "The Court distinguished categories often combined as necessary and indispensable. Necessary parties ordinarily should join for a complete settlement, but their interests could be sufficiently separable for a valid decree among those present. Indispensable parties had interests inevitably affected by any available decree, preventing the court from proceeding without them.",
+        "Dividing a common fund could necessarily diminish absent claimants’ shares. Cancelling a lease or voter registration could directly destroy an absentee’s right. Those examples differed from relief confined to the parties actually before the court. Because prohibition required a jurisdictional defect, a debatable discretionary joinder decision was not enough."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "520–523"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A constructive trust can operate separately against each recipient",
+      "cue": "Why did the alleged promise not make every beneficiary indispensable?",
+      "paragraphs": [
+        "The Court examined how equity could enforce an agreement to leave property by will. The equity court would not rewrite the will or direct probate distribution. Instead, it could impose a constructive trust on property received by a particular distributee and require that recipient to convey it to the promisee. That personal obligation was the practical equivalent of specific performance.",
+        "Each recipient’s obligation was distinct. Ordering an appearing beneficiary to surrender received property would not determine an absent beneficiary’s title or bind that person. All recipients shared an interest in the alleged contract’s validity, but a shared issue did not make each indispensable. Rundell v. McDonald supplied a comparison: a constructive trust on one heir’s title did not affect coheirs dismissed from the suit.",
+        "Smedley’s broad request did not remove jurisdiction over narrower permissible relief. The superior court could limit its decree to those present and preserve absent beneficiaries’ rights. The Supreme Court would not assume that it would erroneously bind nonparties. Possible inconvenience and repeated litigation favored considering joinder but did not establish a jurisdictional barrier."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "524–526"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Practical service problems remain matters of discretion",
+      "cue": "What did the Court deliberately leave undecided?",
+      "paragraphs": [
+        "The Court did not decide whether denying joinder was an abuse of discretion. If the other beneficiaries could readily be served, bringing them in might be appropriate. If service elsewhere or abroad created substantial difficulty and indefinite delay, proceeding might be reasonable.",
+        "The complete opinion described St. Luke’s share as over seventy-five percent of the estate, so its presence captured most of the economic dispute. That practical consideration did not itself determine jurisdiction. These questions belonged initially to the trial court and could be reviewed through a suitable procedure rather than prohibition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "526–527"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The superior court may continue without a ruling on Smedley’s entitlement",
+      "cue": "What was the exact disposition?",
+      "paragraphs": [
+        "On November 7, 1940, the California Supreme Court discharged the previously issued alternative writ and denied the peremptory writ. The superior court could continue with the parties before it. Nothing in the ruling established that Smedley had proved the alleged contract or owned the entire estate.",
+        "Justices Edmonds, Curtis, Carter, and Shenk and Justices pro tempore Moore and York joined Gibson. No dissent or separate opinion was reported. The decisive inquiry concerned the effect of a permissible decree on absent interests, while discretionary questions about obtaining a more complete settlement remained separate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "526–527"
+        }
+      ]
+    }
+  ]
+}

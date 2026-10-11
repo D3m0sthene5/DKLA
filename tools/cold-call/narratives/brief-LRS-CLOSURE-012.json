@@ -1,0 +1,146 @@
+{
+  "id": "brief-LRS-CLOSURE-012",
+  "briefId": "LRS-CLOSURE-012",
+  "title": "Clark-Cowlitz Joint Operating Agency v. FERC",
+  "course": "Legislation and the Regulatory State",
+  "citation": "826 F.2d 1074 (D.C. Cir. 1987) (en banc)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A hydroelectric relicensing contest survived a change in the agency’s municipal-preference rule, but the agency still had to explain the economics behind its chosen winner.",
+  "actors": [
+    {
+      "name": "Pacific Power & Light",
+      "role": "Incumbent Merwin-project licensee"
+    },
+    {
+      "name": "Clark-Cowlitz Joint Operating Agency",
+      "role": "Public utility competitor seeking the license"
+    },
+    {
+      "name": "Federal Energy Regulatory Commission",
+      "role": "Licensing agency that changed its interpretation"
+    }
+  ],
+  "proceedings": [
+    "Administrative law judge: found plans equally adapted and selected Clark-Cowlitz under municipal preference.",
+    "FERC: overruled Bountiful and awarded license to Pacific Power in 1983.",
+    "D.C. Circuit en banc: upheld changed interpretation and its application 4–3, but remanded economic justification; otherwise affirmed."
+  ],
+  "limits": [
+    "The opinion applies the historical statute and Chevron framework. Congress excluded Merwin from its 1986 amendment. The court neither ordered a license for Clark-Cowlitz nor finally accepted the economic rationale without further explanation."
+  ],
+  "briefSha256": "305db8aba7a8e2b1b235160b29b38c5e37237f442d7a7aa64ef92bb074061fe0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-012"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two applicants compete for a long-held hydroelectric license",
+      "cue": "Introduce the project and the disputed preference.",
+      "paragraphs": [
+        "Pacific Power & Light owned and operated the Merwin hydroelectric project on Washington’s Lewis River between Clark and Cowlitz Counties. A fifty-year license issued in 1929 passed from Pacific Power’s predecessor to the company in 1941. Pacific Power applied for renewal in 1976. Public utility districts formed Clark-Cowlitz Joint Operating Agency, which applied in 1977 and invoked the Federal Power Act’s preference for state and municipal applicants whose plans were equally well adapted.",
+        "As many licenses neared expiration, the Federal Energy Regulatory Commission, or FERC, convened a declaratory proceeding on whether that preference applied against incumbents seeking renewal. Both Merwin competitors participated. In City of Bountiful in 1980, the Commission said yes. The Eleventh Circuit upheld that interpretation in Alabama Power in 1982 as reasonable under a deferential standard; it did not hold it the only permissible reading."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1076–1078 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The Commission changes course before a final municipal license issues",
+      "cue": "Trace the reversal and Congress’s later intervention.",
+      "paragraphs": [
+        "While further review was sought, FERC reconsidered. A Supreme Court brief by the Solicitor General disclosed its changed view and requested further consideration below, but certiorari was denied. Merwin became the first relicensing hearing after Bountiful. An administrative law judge found the plans equally well adapted and favored Clark-Cowlitz, subject to Commission review.",
+        "In its 1983 Merwin decision, FERC overruled Bountiful and selected Pacific Power. Alternatively, it found the proposals unequal because Pacific Power’s customers would incur greater replacement-power costs if it lost than Clark-Cowlitz’s customers would if that applicant lost.",
+        "During judicial review, the 1986 Electric Consumers Protection Act eliminated municipal preference in relicensing but expressly excluded Merwin. That preserved this controversy without resolving it. On August 11, 1987, the en banc District of Columbia Circuit issued a 4–3 decision. Judge Starr wrote for Judges Ruth Bader Ginsburg, Bork, Buckley, and himself. Judge Mikva dissented with Judges Robinson and Edwards. Scalia had participated at argument but not in the opinion, and Senior Judge Wright had recused."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1075–1078, 1084–1086 & participation notes, nn.3, 10, 12"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The earlier judgment did not freeze the agency’s interpretation",
+      "cue": "Explain the majority’s preclusion analysis.",
+      "paragraphs": [
+        "Clark-Cowlitz argued that the declaratory order and judicial affirmance bound the participants. The majority distinguished the earlier question—whether the Bountiful reading was reasonable—from whether the later contrary construction was also reasonable. Ambiguity could permit both. The Eleventh Circuit’s criticism of the alternative was unnecessary dicta, and Clark-Cowlitz and FERC had supported the same position there rather than litigating this issue adversely.",
+        "Mikva emphasized preclusion against Pacific Power itself. The majority answered that the decisionmaker had changed position, rather than Pacific Power litigating an exemption from Bountiful. Even if party preclusion were the focus, pure legal rulings could be reconsidered to avoid inequitable administration, with flexibility for administrative adjudication. Binding these parties alone would differentiate them from comparable applicants now subject to the congressional amendment. This was not a rule that agency declaratory orders never carry preclusive force."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1078–1081 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority balances the consequences of applying the new rule here",
+      "cue": "Work through the five retroactivity considerations.",
+      "paragraphs": [
+        "The majority began with the general ability of an agency adjudication to apply its new interpretation in the case announcing it, subject to preventing manifest injustice. Retail, Wholesale, the circuit precedent on retroactive agency change, supplied five nonexclusive considerations.",
+        "First, Merwin announced the changed principle. In this test, first impression could mean the case first announcing a new rule, even if the underlying issue had been addressed. Allowing a successful challenger to benefit encouraged reconsideration, though other factors could outweigh it. Second, Bountiful was a single recent declaration on a dormant issue, not a longstanding repeated practice. FERC changed course before judicial review fully ended and believed the old reading conflicted with congressional intent and could lock in decades of erroneous licenses.",
+        "Third, Clark-Cowlitz formed and applied before Bountiful. The majority recognized at most six months of reasonable optimism after appellate approval before the Solicitor General disclosed the impending change; hope afterward was not justified reliance. Fourth, losing a favorable competitive rule was comparatively limited harm. Clark-Cowlitz retained a merits opportunity and never held a final license, because the administrative judge’s ruling remained reviewable. No new damages, fine, or liability for past conduct arose.",
+        "Fifth, retaining Bountiful could confer a thirty-year advantage contrary to the agency’s understanding of Congress’s best-qualified-applicant aim. That interest outweighed brief reliance. Equal treatment with eight other pending municipal applicants also counseled against a special benefit merely because Merwin’s hearing came first. The majority did not treat Congress’s new law as directly controlling this excluded proceeding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1081–1086 & nn.6–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The statute permits the changed reading, but economics require explanation",
+      "cue": "Separate legal discretion from adequate exercise of it.",
+      "paragraphs": [
+        "Under the then-governing Chevron framework, ordinary interpretive tools left ambiguity about preference when an incumbent sought renewal. Section 7(a) referred to new licensees under § 15, which distinguished new from original licensees. FERC reasonably treated the incumbent as original and applied municipal preference only when no incumbent competed. It could know that fact at the outset rather than wait to select a winner.",
+        "The majority acknowledged tension with “as between other applicants,” the competing interpretation’s appeal, and inconclusive legislative history. But another natural reading did not displace a reasonable agency construction. Municipalities could still win with superior qualifications; they simply lacked an identity-based tie breaker against the incumbent. This did not create an independent renewal expectancy.",
+        "FERC could consider economics beyond technical plans. The statute’s permissive “may,” its omission of a plan-equalization command in that setting, and § 10(a)’s comprehensive public-interest standard supported discretion. Its actual reasoning was incomplete, however. It compared Pacific Power’s expensive thermal or Bonneville new-resources replacement power with Clark-Cowlitz’s continued access to lower-cost Bonneville priority-firm power. Considering only those customers risked an effective incumbent preference. It ignored whether a Clark-Cowlitz award would release subsidized Bonneville power for others and how total regional energy needs and sources remained unchanged despite changed project control.",
+        "The court remanded for fuller explanation of the alternative-cost rationale while affirming all other aspects. It required FERC to confront those implications, not adopt a prescribed economic theory or award Clark-Cowlitz the license."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1086–1092 & nn.13–17"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Mikva disputes retroactivity, preclusion, and the statutory construction",
+      "cue": "Preserve the dissent’s materially different account.",
+      "paragraphs": [
+        "Mikva rejected a presumption favoring retroactivity. Chenery and Retail, Wholesale required independent balancing without a tilted scale, and agencies could use prospective rulemaking. An agency needed to explain retroactive application and less drastic alternatives. Merwin was a second-impression reversal of an established rule; a rule could be established without being old or repeatedly applied.",
+        "He emphasized that FERC ordered pending cases to proceed under Bountiful while Clark-Cowlitz pursued hearings and invested in discovery, experts, briefs, and litigation. Personnel changes, a closed meeting, and an effort to obtain certiorari did not adequately announce reversal in Merwin. FERC itself suggested that denial of certiorari would bind participants, supporting continued reliance. Losing a decisive advantage substantially burdened an entity created for this project. Congress’s Merwin exception removed any statutory necessity to deny the prior standard, and FERC had supplied no retroactivity explanation. At minimum, he would remand for one.",
+        "On preclusion, Mikva stressed the competitors’ final adjudication of a ripe dispute rather than FERC’s prior advocacy. Pacific Power should not escape merely because the decisionmaker changed its mind, turning declaratory proceedings into expensive rehearsals. On interpretation, municipal preference guided selection of the winner, not just issuance afterward; the “other applicants” language belonged within the three identified situations rather than a catch-all. He regarded the retroactive reversal as unlawful, inadequately explained, precluded, and partly based on unreasonable statutory interpretation. Those conclusions did not become the court’s judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "826 F.2d at 1092–1101 (Mikva, J., dissenting)"
+        }
+      ]
+    }
+  ]
+}

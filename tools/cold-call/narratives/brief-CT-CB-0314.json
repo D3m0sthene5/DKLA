@@ -1,0 +1,122 @@
+{
+  "id": "brief-CT-CB-0314",
+  "briefId": "CT-CB-0314",
+  "title": "Meyer v. Uber Technologies, Inc.",
+  "course": "Contracts",
+  "citation": "868 F.3d 66 (2d Cir. 2017)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A rider denied seeing Uber’s linked terms, but the appellate court found objective assent from the particular registration screen while leaving litigation-based waiver for remand.",
+  "actors": [
+    {
+      "name": "Spencer Meyer",
+      "role": "Uber rider and antitrust plaintiff"
+    },
+    {
+      "name": "Uber Technologies and Travis Kalanick",
+      "role": "Company and cofounder seeking arbitration"
+    }
+  ],
+  "proceedings": [
+    "District court denied motions to compel for inadequate notice and assent.",
+    "Second Circuit vacated after deciding formation and Kalanick’s enforcement ability, and remanded for waiver."
+  ],
+  "limits": "The decision concerned the historical October 2014 Android interface under California law, not every Uber screen. The record on formation was undisputed. Waiver and antitrust merits remained undecided.",
+  "briefSha256": "0ffae39a9421199e3e76abcf3af7ad2bd025758aaeeb07bf60499ca767aa5fe7",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0314"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Meyer creates an Uber account on his phone",
+      "cue": "The payment screen connects registration to linked terms",
+      "paragraphs": [
+        "Uber’s app connected riders with third-party drivers. On October 18, 2014, Spencer Meyer registered on a Samsung Galaxy S5 running Android, later taking ten rides in American cities and Paris. He entered contact details and a password manually on the first screen instead of using Google+ or Facebook, then clicked Next.",
+        "The Payment screen requested credit-card information or allowed PayPal or Google Wallet. Meyer supplied his card and clicked REGISTER near the center. Directly below the registration controls, a statement said creating an account meant agreeing to the TERMS OF SERVICE & PRIVACY POLICY. That bright blue underlined link led to another screen with a button opening the terms.",
+        "The whole payment screen fit without scrolling: white background, contrasting dark text, few elements, and a distinct link, though the notice was small. A company engineer’s declaration and contemporaneous screenshots established the process from records. Meyer remembered contact and payment entry but not the notice and said he never read the terms or arbitration clause. The material registration facts were undisputed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion pp.4–7, 24–25 & nn.1–3, 9"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A price-fixing action draws motions to compel",
+      "cue": "The district court finds no formation",
+      "paragraphs": [
+        "The terms, updated in May 2013, required binding arbitration of agreement- or service-related disputes, with small-claims and specified intellectual-property exceptions. They waived jury and class or representative proceedings and chose American Arbitration Association rules. The parties agreed that Meyer’s claims were within scope if he had assented.",
+        "In December 2015 Meyer brought a proposed class suit against Uber cofounder and former chief executive Travis Kalanick for allegedly enabling drivers to fix prices under federal and New York antitrust laws. The amended complaint initially named Kalanick alone. The district court denied his dismissal motion, later joined Uber as necessary, and discovery began. Both defendants then sought arbitration.",
+        "The court denied their motions for insufficient notice and assent without deciding waiver from litigation conduct or Kalanick’s nonsignatory position. Defendants appealed under FAA § 16, and the action was stayed. Meyer defended lack of awareness, asserted waiver, and sought further factfinding if the formation ruling was vacated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion pp.7–10, 13–14, 21–22, 29–31 & n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court evaluates objective notice on an undisputed record",
+      "cue": "A descriptive interface label is not the legal test",
+      "paragraphs": [
+        "Judge Chin, writing with Judges Raggi and Carney, applied California contract law, substantially similar to New York law on this issue. The Federal Arbitration Act enforced agreements equally with other contracts but required actual formation. Assent was objective and contextual. An unaware person was not bound by inconspicuous terms whose contractual character was unapparent, but reasonable inquiry notice plus unambiguous conduct could bind without actual reading.",
+        "A compel motion used summary-judgment-like treatment of admissible evidence and favorable reasonable inferences for the resisting party. Genuine formation disputes could require a § 4 trial. Here no evidentiary trial had resolved contested evidence; screenshots and registration facts were undisputed, so their legal sufficiency received de novo review.",
+        "Defendants argued that Meyer’s complaint conceded assent by saying account holders must agree to terms. The court declined that shortcut: the statement did not plainly admit his awareness, he offered to remove it with permission, and he denied seeing the terms. The actual interface controlled instead."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion pp.11–22 & n.6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The screen supplies conspicuous notice and a linked accepting act",
+      "cue": "The appellate court resolves formation and nonsignatory enforcement",
+      "paragraphs": [
+        "A reasonably prudent smartphone user need not be assumed ignorant of apps, enrollment, or blue underlined hyperlinks. The simple screen presented the terms where and when registration occurred, with contrast, proximity, and no required scroll. The court assessed actual phone size, not enlarged exhibits. It distinguished Nicosia’s cluttered Amazon page, separated notice, advertisements, and varied fonts and links.",
+        "Hyperlink access and lengthy terms did not defeat notice. Once opened, the terms had a bold dispute-resolution heading and jury-waiver language. Unlike Sgouros, whose button authorized something else without signaling contractual assent, Uber explicitly linked account creation to acceptance. The button need not literally say I agree: REGISTER and creating an account were unambiguously connected, and payment information for an ongoing service reinforced the context.",
+        "The undisputed record established formation without further trial. The court also held Kalanick could enforce as a protected employee or disclosed agent of the contracting entity despite not personally signing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion pp.22–31 & nn.9, 11"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Litigation-based waiver remains a judicial question",
+      "cue": "Formation does not itself finally compel arbitration",
+      "paragraphs": [
+        "Meyer’s waiver argument concerned defendants’ conduct in this very litigation. Although other arbitration-waiver issues might go to an arbitrator under cited precedent, a district judge could decide waiver from participation in court proceedings. The district court had not yet done so.",
+        "On August 17, 2017, the Second Circuit vacated the denial and remanded for that determination and consistent further proceedings. It established assent on this specific Android screen and Kalanick’s ability to rely on the agreement, but decided neither waiver nor the price-fixing merits. It did not announce that every Uber registration interface produced the same result."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion pp.31–32"
+        }
+      ]
+    }
+  ]
+}

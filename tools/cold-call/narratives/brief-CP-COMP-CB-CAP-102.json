@@ -1,0 +1,177 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-102",
+  "briefId": "CP-COMP-CB-CAP-102",
+  "title": "Jones v. Governor of Florida",
+  "course": "Civil Procedure",
+  "citation": "975 F.3d 1016 (11th Cir. 2020) (en banc)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Florida restored voting rights after completion of felony sentences, including financial terms; challenges by people unable to pay or determine their debts divided the en banc court over equality, taxes, and procedural fairness.",
+  "actors": [
+    {
+      "name": "Affected individuals led by Jones",
+      "role": "Plaintiffs seeking voting restoration despite unpaid or uncertain sentence obligations"
+    },
+    {
+      "name": "Florida Governor and Secretary of State",
+      "role": "Officials defending the restoration requirements"
+    },
+    {
+      "name": "Florida Division of Elections",
+      "role": "Agency administering eligibility screening and advisory requests"
+    },
+    {
+      "name": "Chief Judge William Pryor",
+      "role": "Author of the principal opinion and a concurrence"
+    },
+    {
+      "name": "Judges Lagoa, Martin, Jordan, and Jill Pryor",
+      "role": "Authors of additional concurrence and dissents"
+    }
+  ],
+  "proceedings": "Preliminary injunction affirmed by a panel; district court then certified a class and subclass and entered permanent relief after trial; en banc Eleventh Circuit reversed the judgment and vacated challenged injunction portions 6–4, while severing and returning a separate cross-appeal to a panel.",
+  "limits": "This is the September 2020 en banc decision, distinct from the February panel ruling. Only three judges joined Part III-B-2’s additional tax-causation rationale. The mandate did not decide every issue in the separate cross-appeal or vacate every portion of every injunction.",
+  "briefSha256": "d5a9e96c660faf7ed8c278436056b961a6f69c56d6b32fd13fbee8ae6e4307d3",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-102"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Amendment 4 made sentence completion the condition of restoration",
+      "cue": "Introduce the state’s financial definition and the disputed records.",
+      "paragraphs": [
+        "Florida traditionally disenfranchised people convicted of felonies, allowing discretionary restoration of civil rights. In November 2018, about sixty-five percent of voters approved Amendment 4, restoring voting rights after completion of all sentence terms, including parole or probation, except for murder or felony sexual-offense convictions. Senate Bill 7066 then defined completion to include restitution, fines, fees, and costs imposed in the sentencing document. The Florida Supreme Court agreed that the amendment included financial terms.",
+        "Affected individuals challenged what that meant for people unable to pay or reliably determine what remained due. At trial, the district court found concrete record problems: missing old sentencing papers, difficulty separating felony and misdemeanor obligations, unreconstructable payments, collection charges absent from county records, and restitution paid directly to victims that might appear in no government ledger. An expert investigating 153 randomly selected people found inconsistencies in all but three. County personnel spent twelve to fifteen hours on another plaintiff’s inquiry without resolving every discrepancy. Later dissents emphasized that the relevant findings were unchallenged on appeal.",
+        "Before trial, Florida adopted an “every-dollar” method. Payments connected with a sentence, including collection or payment-plan charges, counted toward the original sentence total for voting eligibility. A person might therefore become eligible while some underlying debt remained. The appellate majority regarded that as a narrower, administrable rule; dissenters thought it undermined the full-payment rationale and remained unreliable where records showed only net payments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Court-issued opinion pp. 3–7, 27–28, 54–55; Martin 88–93; Jordan 99–110, 148–149"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The plaintiffs first won temporary relief, then a broader trial judgment",
+      "cue": "Keep the panel appeal and en banc appeal distinct.",
+      "paragraphs": [
+        "Several affected people sued the Governor and Secretary of State. The district court first enjoined exclusion based solely on the plaintiffs’ inability to pay. A panel affirmed in February 2020, in the separately reported 950 F.3d 795 decision, applying heightened scrutiny to wealth discrimination.",
+        "The district court then certified a Rule 23(b)(2) class of otherwise eligible people with unpaid obligations and a subclass claiming genuine inability to pay. After trial, it held the financial condition unconstitutional for indigent people and treated fees and costs as prohibited voting taxes. It also protected people whose obligations could not be determined through diligent inquiry.",
+        "The permanent injunction required an advisory-request form and response mechanism. A requester checking inability to pay could register and vote if the Division of Elections failed to answer within twenty-one days. Determinable fines and restitution remained payable when affordable. The appellate majority later said the district court had not separately decided due-process theories; Judge Jordan read the ruling against unknowable payment requirements as an actual due-process holding. The State obtained initial en banc review and a stay of most challenged relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 5–9, 52; Jordan 151–152"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority applied rational-basis review to sentence completion",
+      "cue": "Explain why the earlier panel’s heightened scrutiny was rejected.",
+      "paragraphs": [
+        "Chief Judge William Pryor’s principal opinion began with Richardson v. Ramirez, which recognized constitutional permission for felony disenfranchisement even after sentence completion. People seeking restoration therefore could not invoke the same fundamental-right analysis as citizens never disenfranchised. Suspect classifications remained prohibited, but wealth was not itself suspect. The majority characterized Florida’s line as sentence completion rather than an expressly wealth-based classification and applied rational-basis review.",
+        "It distinguished Harper’s poll tax as an unrelated financial burden on the electorate generally. Here monetary obligations formed part of the criminal sentence underlying disenfranchisement. It likewise confined Griffin’s access-to-courts protection and Bearden’s restriction on poverty-based imprisonment to their settings: Florida neither added incarceration nor denied judicial review. Amendment 4 conditionally lifted an existing disability, in the majority’s view, instead of newly punishing poverty. The court expressly overruled the earlier panel’s heightened-scrutiny holding.",
+        "Florida could rationally regard complete satisfaction of a sentence as relevant to restoration, rehabilitation, and justice, and could expand voting access incrementally. The line need not be perfect or attainable by everyone. The majority rejected an analysis centered only on named plaintiffs’ unusual circumstances and considered every-dollar accounting at least debatable. It also pointed to 85,000 registrations awaiting screening, reasoning that those people remained registered and eligible to vote unless credible, reliable information supported removal. The dissents disputed that observation’s practical force."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 10–30"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Six judges treated sentencing fees as penalties; only three added another rationale",
+      "cue": "Preserve the vote boundary within the main opinion.",
+      "paragraphs": [
+        "Six judges rejected the Twenty-Fourth Amendment claim because the challenged fees and costs were criminal penalties, not taxes. Their connection to wrongdoing, inclusion in sentences, and relation to punitive and rehabilitative authority controlled. Revenue generation did not itself turn a penalty into a tax, nor did every financial sanction need to vary with offense seriousness.",
+        "Part III-B-2 offered an additional rationale joined only by William Pryor, Newsom, and Lagoa. They rejected the State’s broad suggestion that voting-rights amendments never govern restoration: selective restoration could not evade bans on race, sex, age, or taxes. But they read the Twenty-Fourth Amendment’s “by reason of” language to require more than but-for causation, contrasting it with “on account of” elsewhere. They would permit a financial condition supported by a legitimate voting qualification even when unpaid taxes appeared in the causal chain. That alternative did not command the six-judge majority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 31–51"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The majority located the challenged deprivation in general legislation",
+      "cue": "Explain its separate treatment of vague rules and hard-to-find facts.",
+      "paragraphs": [
+        "The majority distinguished uncertainty about a legal standard from difficulty discovering the facts needed to apply it. Florida prohibited knowingly ineligible registration or voting, and those knowledge requirements reduced notice and enforcement concerns. Missing records could obstruct determining sentence completion without making the legal requirement vague. Every-dollar accounting narrowed exposure rather than creating vagueness.",
+        "Assuming without finally deciding a protected liberty interest, the court applied the legislative/adjudicative distinction associated with Bi-Metallic, a due-process precedent concerning generally applicable government action. General voting qualifications received the process inherent in lawmaking. Mathews v. Eldridge supplied safeguards for individualized decisions, but the majority viewed these plaintiffs as attacking legislative disenfranchisement and restoration conditions rather than particular eligibility adjudications.",
+        "It therefore rejected a duty to provide each person assistance reconstructing facts necessary to comply with the law. Separately, existing notice, hearing, and de novo judicial review before removal adequately protected individual ineligibility decisions. The twenty-one-day advisory system, on that reading, supplied new factual assistance rather than curing a proven adjudicative deprivation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 52–59"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The concurrences defended judicial restraint and available alternatives",
+      "cue": "Attribute the additional rationales without promising successful restoration.",
+      "paragraphs": [
+        "William Pryor, joined by Lagoa, separately emphasized fidelity to law and judicial limits rather than anticipated historical approval. Lagoa added a defense of rational-basis review and alternatives to complete payment: payee-approved termination, conversion to community service, modification of sentencing obligations, and executive clemency. She addressed differences involving federal and out-of-state convictions and court-fee practices. Although some alternatives were discretionary, she rejected the argument that discretion made them constitutionally insufficient. She did not establish that every indigent person would actually obtain relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 61–80, particularly 73–75 & Lagoa nn.6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The dissenters focused on actual inability to pay and individualized implementation",
+      "cue": "Keep each dissent’s theory and supporting findings visible.",
+      "paragraphs": [
+        "Judge Martin, joined by Wilson, Jordan, and Jill Pryor, recognized a due-process interest in the objectively defined restoration promise. She would apply Mathews to eligibility implementation, not merely enactment. The voting interest was strong, missing financial records and delayed screening created substantial risk of error or deterrence, and administrative justifications were inadequate. She relied on the unchallenged trial findings and disputed the majority’s account of the 85,000 registrants.",
+        "Judge Jordan, joined by the same other dissenters, would uphold relief under heightened scrutiny and independently under rational-basis review. Griffin, Bearden, and Harper, he argued, prevented continuation of a severe disability solely because a person could not afford payment even if the original disability was lawful. Richardson did not decide conditions of later restoration. The inability-to-pay subclass was not merely a collection of unusual examples, and a payment incentive could not rationally induce payment from those genuinely unable to pay. Ordinary debt collection remained available without denying the vote.",
+        "Jordan also treated actual eligibility screening as adjudicative. Removal-only safeguards did not protect someone unable safely to register initially. His driver’s-license hypothetical illustrated the problem of promising restoration upon payment while withholding meaningful access to the amount due. He emphasized arbitrary county implementation and inconsistent accounting, not mere factual inconvenience. On the Twenty-Fourth Amendment, he stressed fees’ revenue-raising substance and considered “by reason of” and “on account of” ordinary synonyms.",
+        "Jill Pryor joined Martin and Jordan and separately criticized the implementation context: substantial obligations largely borne by indigent people, known record difficulties, insufficient additional personnel, and deterrent prosecution warnings. Her account supplied additional dissenting reasons rather than the court’s disposition."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 81–200; Martin nn.1–3; Jordan nn.1–16; Jill Pryor nn.1–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The en banc judgment removed the challenged relief but preserved a separate appeal",
+      "cue": "Give the exact vote and mandate.",
+      "paragraphs": [
+        "On September 11, 2020, the en banc court rejected the constitutional challenges, reversed the district court’s judgment, and vacated the challenged injunction portions. William Pryor, Newsom, Branch, Grant, Luck, and Lagoa formed the six-judge majority; Wilson, Martin, Jordan, and Jill Pryor dissented. Rosenbaum and Brasher were recused. Only Newsom and Lagoa joined William Pryor’s additional Part III-B-2 rationale.",
+        "The court also lifted the stay in separate cross-appeal No. 20-12304, directed severance and briefing, and assigned it to a panel. It did not resolve every issue in that cross-appeal or indiscriminately vacate every injunction provision. Review distinguished abuse of discretion for permanent relief, de novo legal review, and clear-error review of factual findings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion pp. 1–2, 9–10, 60"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "id": "dave-gustafson",
+  "briefId": "CT-NEXT-CM-0161",
+  "title": "Dave Gustafson & Co. v. State",
+  "course": "Contracts",
+  "citation": "83 S.D. 160, 156 N.W.2d 185 (1968)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A highway contractor finishes sixty-seven working days late, and the State deducts a scheduled daily sum. The contractor challenges the deduction because the old road stayed open and the State cannot quantify actual loss.",
+  "actors": [
+    {
+      "name": "Dave Gustafson & Company",
+      "role": "Contractor seeking return of $14,070 withheld for delay."
+    },
+    {
+      "name": "South Dakota and its Highway Commission",
+      "role": "Public contracting defendants enforcing the agreed daily assessment."
+    }
+  ],
+  "proceedings": [
+    "The trial court upheld the withheld amount as liquidated damages.",
+    "The South Dakota Supreme Court unanimously affirmed."
+  ],
+  "limits": "This is a transformation of the canonical historical brief without a fresh audit or present-law certification. The report inconsistently gives two project totals above $530,000; both fall in the same bracket, and no correction is invented. The historical statutes and formation-focused test govern the account. Only the identified portion of Fitzgerald was overruled.",
+  "briefSha256": "2a1d48d299729f200e805c356499f2fb69d95ddda55ef0d4af8b9e6b2063f59a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0161"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The highway contract specifies time and a graduated delay charge",
+      "cue": "What anticipated harms did the parties identify?",
+      "paragraphs": [
+        "On October 5, 1963, Dave Gustafson & Company agreed to construct subbase, base, and bituminous surfacing for a new highway between Wessington Springs and Woonsocket. The project exceeded $530,000 and replaced part of State Highway 34. The old road remained available during construction and afterward.",
+        "The agreement emphasized timely completion and identified added engineering, inspection, supervision, and administration costs, along with public inconvenience and loss of full use. Section 8.9 allowed deductions for each weather working day beyond the deadline or an approved extension and described them as agreed compensation rather than punishment. Section 8.10 graduated the rate by project size: work above $500,000 through $1 million carried $210 per day."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "83 S.D. 162–163"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Completion is late and the State withholds the scheduled sum",
+      "cue": "What did the State’s uncertainty actually establish?",
+      "paragraphs": [
+        "Gustafson completed sixty-seven working days late without requesting or receiving an extension. Applying the $210 rate, the State withheld $14,070.",
+        "Gustafson sued the State and Highway Commission to recover it. Asked by interrogatory what damage, loss, or expense the delay caused, the State answered that the amount was unknown. The trial court upheld the assessment as liquidated damages. The contractor appealed on the sole question whether it was instead an unenforceable penalty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "83 S.D. 162"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court evaluates the clause when the bargain was made",
+      "cue": "Why was a later exact-loss calculation unnecessary?",
+      "paragraphs": [
+        "Presiding Judge Hanson explained that South Dakota statutes invalidated penalties but permitted agreed presumed damages where fixing actual harm would be impracticable or extremely difficult. Without a valid clause, actual damages had to be alleged and proved. With one, the agreed measure replaced factual quantification even when actual loss was greater or smaller.",
+        "The court compared the first Restatement’s requirements: a reasonable forecast of compensation and harm incapable or very difficult of accurate estimation. Validity was a legal question. At formation, harm had to be difficult to estimate, the parties had to make a reasonable effort at fair compensation, and the sum had to bear a reasonable relation to probable damages. The contractual label alone could not decide the issue.",
+        "The State’s inability to quantify harm was not proof that no harm occurred. Delayed highway construction could cause public inconvenience, postponed enjoyment of the new road, and administrative expense resistant to precise measurement. Continued use of the old road did not make those losses readily calculable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "83 S.D. 163–167"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The schedule connects compensation to project size and duration",
+      "cue": "What earlier precedent did the court disapprove?",
+      "paragraphs": [
+        "Larger undertakings could reasonably produce greater inconvenience and costs, so rates graduated by contract size reflected an effort to approximate harm. Each additional day increased the amount, linking recovery to delay. The $210 assessment was not legally disproportionate to anticipated injury; the State did not have to prove that exact daily expense for all sixty-seven days.",
+        "The court revisited Fitzgerald, an earlier paving-delay decision that first found the delay not attributable to the contractor and then called the daily forfeiture invalid because municipal harm was readily measurable. Hanson characterized the latter discussion as unnecessary dictum and unrealistic about effects on municipalities, travelers, and adjoining owners. The court expressly overruled that portion, leaving the no-contractor-fault determination intact and not discarding all decisions invalidating penalties for readily measurable losses.",
+        "Although forfeitures were disfavored, fair liquidated damages were useful, especially for government work with difficult measurement problems. Encouraging timely performance did not by itself make a compensatory schedule punitive."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "83 S.D. 165–167"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The withholding is upheld",
+      "cue": "What amount remained enforceable?",
+      "paragraphs": [
+        "All judges concurred in affirming the trial court. The $14,070 withholding stood because delay harm was difficult to measure and the graduated daily figure reasonably approximated anticipated loss. No separate opinion appeared.",
+        "The result rested on the statutes and test the court applied in 1968, distinguishing an unknown actual amount from proof that an agreed provision operated as a penalty."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "83 S.D. 167"
+        }
+      ]
+    }
+  ]
+}

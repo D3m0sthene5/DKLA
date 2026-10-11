@@ -1,0 +1,127 @@
+{
+  "id": "wucherpfennig",
+  "briefId": "CTR-028",
+  "title": "Wucherpfennig v. Dooley",
+  "course": "Contracts",
+  "citation": "351 N.W.2d 443 (N.D. 1984)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A sister offers to sell her inherited farmland share for cash at a per-acre price. Her brother arranges financing, but his response asks what total amount she expects before she withdraws the offer.",
+  "actors": [
+    {
+      "name": "Donald Wucherpfennig",
+      "role": "Brother and co-owner seeking specific performance of an alleged purchase agreement."
+    },
+    {
+      "name": "Elizabeth Dooley",
+      "role": "Sister offering her farmland interest for sale and later revoking."
+    },
+    {
+      "name": "Louise Grettum",
+      "role": "Third sibling and co-owner, also named as a defendant."
+    },
+    {
+      "name": "Robert Case",
+      "role": "Attorney handling their mother’s estate and transmitting correspondence."
+    }
+  ],
+  "proceedings": [
+    "The district court tried specific performance first by consent and dismissed it on four independently sufficient grounds.",
+    "The North Dakota Supreme Court affirmed on absence of acceptance, leaving the other grounds and alternative partition claim unresolved."
+  ],
+  "limits": "This account transforms the canonical historical brief without a new source audit or present-law review. The decision concerns specific performance, not disposition of partition. Restatement §§ 59 and 61 supply comparative doctrine, not an additional holding that every request for information defeats acceptance.",
+  "briefSha256": "4f5f6212842e2a0f35fdd3d6bb3ab41383224340fc7427f7855fc97c6b4ccede",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CTR-028"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The siblings inherit unequal shares in the family farm",
+      "cue": "Why did the per-acre offer require attention to the total interest?",
+      "paragraphs": [
+        "Donald Wucherpfennig, Elizabeth Dooley, and Louise Grettum inherited a four-quarter family farm after their father died in 1964 and their mother in 1977. Donald owned an undivided two-thirds of the quarter containing the farmstead; Elizabeth and Louise each owned one-sixth. Each owned one-third of each other quarter.",
+        "During probate of their mother’s estate, Elizabeth indicated that she wanted Donald to buy her interest. On January 4, 1979, she wrote estate attorney Robert Case offering to sell for $200 per acre if Donald wanted to buy, provided payment was cash and the transaction was prompt. Both sides accepted that this letter was an offer. The fractional ownership pattern mattered because the per-acre figure had to be translated into the price for Elizabeth’s total interest."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "351 N.W.2d 443–444"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Financing is arranged, but the response seeks further terms",
+      "cue": "What happened before Elizabeth revoked?",
+      "paragraphs": [
+        "On January 13, Case told Elizabeth that Donald was interested. On February 17, Case wrote that Donald had arranged financing through the Federal Land Bank and that they were ready to proceed. He then asked Elizabeth to state the exact amount she expected for her land interest and whether she would sign an agreement concerning Special Use Valuation, requesting answers on both matters.",
+        "Elizabeth did not respond. On March 9, she revoked her $200-per-acre offer. Donald maintained that the February letter had already accepted it, making withdrawal too late."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "351 N.W.2d 443–444"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Donald seeks a compelled sale and alternatively partition",
+      "cue": "Why did one sustainable dismissal ground decide the appeal?",
+      "paragraphs": [
+        "Donald sued Elizabeth for specific performance, which would require conveyance of her share, and alternatively for partition of the co-owned property. Louise and others claiming land interests were also defendants, though the proposed sale involved Elizabeth’s share.",
+        "By consent, the parties tried specific performance first. The district court found no acceptance and also concluded that even an existing agreement could not be specifically enforced. It gave four independently sufficient reasons for dismissal. Donald therefore had to defeat all four to obtain reversal. The North Dakota Supreme Court addressed acceptance and, finding that ground sufficient, expressly left the others undecided."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "351 N.W.2d 444"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The letter does not express a present commitment to the same bargain",
+      "cue": "How did Donald’s testimony reinforce the court’s reading?",
+      "paragraphs": [
+        "Justice Sand applied North Dakota Century Code § 9-03-21 and precedents requiring absolute, unequivocal, unconditional acceptance. Cooke v. Blood Systems, Grossman v. McLeish Ranch, Greenberg v. Stewart, and the Minnesota decisions Markmann and Minar supplied formulations requiring assent to the same bargain with an intention that the response itself create the contract.",
+        "Read as a whole, the letter showed preparations and continued interest. Its immediate question about Elizabeth’s expected amount, however, indicated that a material part remained open. It moved toward a future agreement instead of unequivocally committing Donald on Elizabeth’s terms. The Special Use Valuation question was part of the correspondence, but the court did not make such a question automatically fatal in every transaction.",
+        "Donald’s trial testimony confirmed more than an omitted arithmetic calculation. He said his intended amount was $37,200, acknowledged Elizabeth expected more, and admitted she would not have signed a contract stating his figure. That supported the conclusion that they had not assented to the same terms. Financing preparations did not fill the missing commitment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "351 N.W.2d 444–445"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The specific-performance dismissal is affirmed",
+      "cue": "What did the court leave open?",
+      "paragraphs": [
+        "On July 11, 1984, the Supreme Court affirmed dismissal of specific performance. The other justices concurred, without a separate dissent. The reported decision did not resolve the alternative partition claim or the district court’s remaining independent grounds.",
+        "The holding did not require labeling the February letter a definite counteroffer; continued negotiation sufficed to explain why it was no acceptance. A response can sometimes fully accept while making a nonconditional request for information or change. Restatement §§ 59 and 61 describe that distinction between conditional assent and an acceptance accompanied by a request. Here the threshold present commitment was missing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "351 N.W.2d 444–445; canonical brief’s comparative Restatement discussion"
+        }
+      ]
+    }
+  ]
+}

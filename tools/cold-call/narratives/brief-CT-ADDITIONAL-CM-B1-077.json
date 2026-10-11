@@ -1,0 +1,104 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-077",
+  "briefId": "CT-ADDITIONAL-CM-B1-077",
+  "title": "Minneapolis & St. Louis Railway Co. v. Columbus Rolling-Mill Co.",
+  "course": "Contracts",
+  "citation": "119 U.S. 149 (1886)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A railway orders fewer rails than a seller’s stated minimum, then tries to return to the original offer before its deadline; the earlier rejection prevents a contract.",
+  "actors": [
+    {
+      "name": "Minneapolis & St. Louis Railway Company",
+      "role": "Prospective buyer of rails and plaintiff alleging a later contract."
+    },
+    {
+      "name": "Columbus Rolling-Mill Company",
+      "role": "Ohio manufacturer offering a quantity range and denying a contract arose."
+    }
+  ],
+  "proceedings": [
+    "A federal jury in the Southern District of Ohio returned a verdict for the mill.",
+    "The railway sought review by writ of error; the Supreme Court affirmed."
+  ],
+  "limits": "This is the 1886 common-law decision. The assignment’s later option and firm-offer hypotheticals and UCC qualification are not facts or holdings of this suit. No separate opinion or numerical vote is recorded.",
+  "briefSha256": "1d8f9e361c6f83bcfec9b6db7e2d8e106e74f6aac73e3b8e040b78de8fea7dff",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-077"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The mill offers a defined range of iron rails",
+      "cue": "What exactly could the railway accept?",
+      "paragraphs": [
+        "The Minneapolis & St. Louis Railway Company sought rails for March 1880 delivery. On December 5, 1879, it asked Columbus Rolling-Mill Company, an Ohio manufacturer, for prices on specified quantities of steel and iron rails.",
+        "The mill replied on December 8 that it did not make steel rails. It offered between 2,000 and 5,000 tons of fifty-pound iron rails at $54 per gross ton, for cash, free on board cars at its mill. It disclaimed damages for strikes, serious damage to its works, and delays beyond its control. It expected notice of acceptance before December 20."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Admitted correspondence; 119 U.S. 149–150"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A smaller order is refused, followed by an order within the range",
+      "cue": "Why did the sequence matter even though December 20 had not arrived?",
+      "paragraphs": [
+        "On December 16 the railway telegraphed an order for 1,200 tons, expressly referring to the December 8 offer. A letter sent the same day repeated the quantity and price, requested a written contract and a rail template, and asked about splice prices. The mill answered on December 18 that it could not book that order at the stated price.",
+        "On December 19 the railway requested 2,000 tons under the original letter and again asked for a written contract. Although that message referred to the sixth, the parties admitted it meant the eighth. After further inquiries, the mill denied on January 19, 1880 that any contract existed. The parties admitted that the correspondence had been sent on the specified dates and received in due course."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Admitted correspondence; 119 U.S. 150"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The railway sues on the asserted December 19 agreement",
+      "cue": "What did the jury decide and what reached the Supreme Court?",
+      "paragraphs": [
+        "The railway sued for breach in the federal Circuit Court for the Southern District of Ohio, alleging a December 19 contract for 2,000 tons. The mill denied that a contract had formed. A jury returned a verdict for the mill, and the railway took exceptions and sought a writ of error.",
+        "The Supreme Court therefore examined the legal effect of the writings: whether the first response had left the original offer available for acceptance, and whether the later order within the quantity range could complete a bargain. The trial instructions also raised a question about submitting the effect of rejection to the jury."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Litigation and jury-instruction issue; 119 U.S. 149–152"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Gray treats the reduced order as a rejection that the buyer cannot undo",
+      "cue": "How did the Court resolve formation and the instruction objection?",
+      "paragraphs": [
+        "Justice Gray explained that an ordinary offer creates no obligation until accepted according to its terms. A response proposing different terms rejects the original offer unless the offeror renews it or accepts the change. An acceptance deadline does not by itself make such an offer irrevocable.",
+        "The railway had been free to select any quantity between 2,000 and 5,000 tons. Its 1,200-ton order fell outside that range. Because both its telegram and letter referred to the original offer, the Court treated them as a qualified response rejecting that offer, not as an unrelated proposal leaving it untouched. The mill then refused the reduced order. The railway’s December 19 request could not restore the rejected offer merely because the original deadline had not passed.",
+        "The Court did not need to settle whether the instructions had treated rejection as law or had left it to the jury as fact. Submitting a legal question to a jury supplied no ground for reversal when the jury reached the correct result. On November 29, 1886, the Court affirmed the judgment for the mill, with no new trial or damages for the railway. The report records no separate opinion or numerical vote. Later textbook problems about a promise to keep an offer firm are different scenarios."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reasoning, exact disposition and historical limits; 119 U.S. 151–152"
+        }
+      ]
+    }
+  ]
+}

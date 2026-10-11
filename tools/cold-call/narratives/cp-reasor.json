@@ -1,0 +1,112 @@
+{
+  "id": "cp-reasor",
+  "briefId": "CP-040",
+  "title": "Reasor-Hill Corp. v. Harrison",
+  "course": "Civil Procedure",
+  "citation": "220 Ark. 521, 249 S.W.2d 994 (1952)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An Arkansas manufacturer argued that damage to a Missouri cotton crop could only be litigated where the crop grew, although the manufacturer could not be served there.",
+  "actors": [
+    {
+      "name": "D. M. Barton",
+      "role": "Owner of the damaged Missouri cotton crop"
+    },
+    {
+      "name": "Planters Flying Service",
+      "role": "Sprayer suing Barton for payment"
+    },
+    {
+      "name": "Reasor-Hill Corporation",
+      "role": "Arkansas insecticide manufacturer named in a cross-complaint"
+    }
+  ],
+  "proceedings": [
+    "Arkansas circuit court: denied dismissal of Barton’s cross-complaint.",
+    "Arkansas Supreme Court: denied the manufacturer’s writ of prohibition, allowing the damages claim to proceed."
+  ],
+  "limits": [
+    "The decision concerns an Arkansas forum for damages to out-of-state land, not direct transfer of Missouri title or possession, and does not determine negligence or damages."
+  ],
+  "briefSha256": "ae9587a62ba7ab90f15a64cacfe220dc036d6069603fcd28e1f4df893bca2c3c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-040"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An unpaid spraying bill produces a claim against the manufacturer",
+      "cue": "Introduce the crop and the distinct claims.",
+      "paragraphs": [
+        "Planters Flying Service sued D. M. Barton in Mississippi County, Arkansas, to collect an account for spraying his Missouri cotton crop. Barton answered that adulterated insecticide had damaged the growing crop. He also cross-complained against Reasor-Hill Corporation, an Arkansas manufacturer, alleging negligence in marketing a chemical unsuitable for cotton.",
+        "Reasor-Hill was not authorized to do business in Missouri. It moved to dismiss the cross-complaint because the alleged injury concerned Missouri real property. After the circuit court refused, the manufacturer sought a writ of prohibition from the Arkansas Supreme Court. The question was whether Arkansas could hear the damages action, not whether the allegations were true."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "220 Ark. at 521–522"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The majority reexamines an inherited territorial rule",
+      "cue": "Explain why the place of injury could otherwise eliminate the remedy.",
+      "paragraphs": [
+        "Justice George Rose Smith framed a question of first impression in Arkansas. Most American jurisdictions then treated injury to foreign land as a local action beyond their courts’ authority; Minnesota was the stated exception. Reasor-Hill relied on that prevailing rule. Barton’s problem was that he could not serve the manufacturer in Missouri. If Arkansas also refused suit, the manufacturer could remain outside Missouri until limitations expired and escape liability altogether.",
+        "The majority traced the local-action doctrine to English juries drawn from neighbors expected to know the dispute. As litigation spread across communities, courts distinguished transitory actions, which could arise anywhere, from local claims tied to land. Localization had advantages within one sovereign. Arkansas itself required real-estate injury suits where the land lay, while allowing statewide service. That combination selected a local venue without losing the remedy against an out-of-county defendant.",
+        "Applying the same rule across sovereign borders produced the remedial gap. In Livingston v. Jefferson, a Louisiana land-injury suit could not proceed in Virginia. Chief Justice Marshall followed established English authority while recognizing the possibility of a right without a remedy. The Arkansas majority treated that dissatisfaction as reason to reassess the doctrine under interstate conditions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "220 Ark. at 522–524"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The proposed justifications do not persuade the court",
+      "cue": "Connect the historical rule to this interstate dispute.",
+      "paragraphs": [
+        "First, the majority rejected difficulty in determining foreign title as sufficient justification. Other states’ statutes and decisions were accessible, and courts already decided out-of-state title incidentally in transitory suits. It used conversion of a mature crop and breach of a land-purchase contract as examples, not as additional facts in Barton’s case. Refusing a comparable issue because the claim carried a local label seemed inconsistent.",
+        "Second, requiring suit before a wrongdoer left the place of injury was unrealistic between states with free movement. An airplane could finish spraying and return to Arkansas before Barton discovered damage and obtained an attachment. Unlike an independent nation, a state did not control entry and departure in the same way.",
+        "Third, protecting residents from outsiders’ claims was no persuasive reason for Arkansas to become a refuge for people who harmed property across a state line. The majority invoked remedial justice and the state constitution’s assurance of a remedy for injuries. It found it anomalous that Barton could sue if someone stole the cotton outright but not if someone damaged it while growing. The writ was denied, leaving the cross-complaint in the circuit court. Chief Justice Griffin Smith concurred in the result without a separate explanation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "220 Ark. at 524–526"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The dissent would preserve the local-action boundary",
+      "cue": "State what the disagreement did and did not decide.",
+      "paragraphs": [
+        "Justice McFaddin, joined by Justice Ward, agreed that the flying service’s account claim and Barton’s defense were transitory and properly before the court. He treated the cross-complaint as a separate cause involving Missouri realty. Western Union v. Bush, the Arkansas precedent classifying growing-crop injury as injury to real estate, required localization in his view. The majority accepted that classification but abandoned its jurisdictional consequence.",
+        "A large appellate library did not assure that trial courts could reliably resolve another state’s land law; McFaddin emphasized specialized Texas land-law knowledge. He warned that broadly asserting power could extend to ejectment or title without obliging the sister state to recognize the judgment. States remained sovereign, so he rejected the majority’s interstate-international distinction. Eliminating a refuge from liability, he concluded, was for the legislature, not judicial revision of settled law and precedent.",
+        "The majority’s actual judgment permitted this damages claim to proceed. It did not adjudicate the insecticide’s suitability, Reasor-Hill’s negligence, or the amount of Barton’s injury, and it did not authorize Arkansas to directly transfer title or possession of Missouri land."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "220 Ark. at 526–529 & dissent nn.1–7"
+        }
+      ]
+    }
+  ]
+}

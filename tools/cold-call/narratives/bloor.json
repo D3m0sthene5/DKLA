@@ -1,0 +1,150 @@
+{
+  "id": "bloor",
+  "briefId": "CT-NEXT-CM-0109",
+  "title": "Bloor v. Falstaff Brewing Corp.",
+  "course": "Contracts",
+  "citation": "601 F.2d 609 (2d Cir. 1979)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Falstaff bought the Ballantine beer business with a price partly tied to future barrel sales. After financial trouble led Falstaff to cut advertising and distribution costs, Ballantine’s trustee claimed the brewer had abandoned its promise to use best efforts to maintain high volume.",
+  "actors": [
+    {
+      "name": "Falstaff Brewing Corporation",
+      "role": "Purchaser of the Ballantine brand assets and promisor of best sales efforts."
+    },
+    {
+      "name": "Ballantine",
+      "role": "Acquired beer business whose purchase price included per-barrel royalties."
+    },
+    {
+      "name": "Bloor",
+      "role": "Trustee pursuing the contractual claims."
+    },
+    {
+      "name": "Paul Kalmanovitz",
+      "role": "Financier who gained control of Falstaff during its financial crisis."
+    },
+    {
+      "name": "Judge Brieant",
+      "role": "Trial judge who found a best-efforts breach."
+    },
+    {
+      "name": "Judge Friendly",
+      "role": "Author of the Second Circuit opinion."
+    }
+  ],
+  "proceedings": "The trial court awarded lost royalties for breach of best efforts but rejected the separate substantial-discontinuance remedy. Falstaff appealed and Bloor cross-appealed. The Second Circuit affirmed both aspects of the judgment.",
+  "limits": "The reported appellate opinion does not specify the aggregate lost-royalty award. Best efforts did not require bankruptcy, financially disastrous losses, or unlawful promotion. The separate discontinuance clause was not triggered simply because the sales-effort covenant was breached.",
+  "briefSha256": "c7eff81c10c5bcd41c56353ab2d4a12b39f88bd63dde1f5058fc5192a9097f2f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0109"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A brand acquisition makes future volume part of the purchase price",
+      "cue": "What did Falstaff promise on March 31, 1972?",
+      "paragraphs": [
+        "Falstaff Brewing Corporation acquired Ballantine’s brewing labels, trademarks, receivables, distribution system, and related assets under a March 31, 1972 agreement. The brewery itself was excluded. Falstaff paid $4 million and promised fifty cents for every barrel sold during six years ending March 31, 1978.",
+        "To protect that royalty component, Falstaff promised best efforts to promote and maintain a high sales volume. A separate provision called for $1.1 million for each remaining year, including fractions, if Falstaff substantially discontinued distribution during the royalty period, subject to an exception for a governmental restraining order. The parties selected New York law. The high-volume covenant and discontinuance provision created different obligations and remedies."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "610–611"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Losses bring new control and a sharp change in selling practices",
+      "cue": "What changed under Kalmanovitz?",
+      "paragraphs": [
+        "Ballantine’s sales had declined before the acquisition. Its previous owner spent about $1 million annually on advertising and increased sales but lost $15.5 million over thirty-three months. Falstaff initially continued those advertising and distribution methods and claimed a further $22 million loss through June 1975.",
+        "With Falstaff struggling to meet payroll and debts, Paul Kalmanovitz obtained control through cash advances, guarantees, preferred shares, and a voting trust. He cut advertising to $115,000, closed four of six retail depots, and emphasized making beer available at the brewery instead of servicing small outlets. He also stopped unlawful promotional practices; the contract did not require their continuation.",
+        "After 1974, Ballantine sales fell much faster than relevant industry comparisons. Falstaff, meanwhile, recovered financially, reporting $8.7 million in net income in 1976 and substantial increases in working capital and cash."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "611–613 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The trustee wins on efforts but loses on discontinuance",
+      "cue": "What did each side challenge on appeal?",
+      "paragraphs": [
+        "Trustee Bloor sued for breach of the best-efforts covenant and substantial discontinuance. After trial, Judge Brieant awarded damages for inadequate efforts but rejected the discontinuance theory. Falstaff appealed liability and damages. Bloor cross-appealed the damages measure and refusal to apply the separate discontinuance remedy.",
+        "Falstaff argued that the trial judge had effectively demanded continued sales regardless of ruinous losses. Judge Friendly, writing for a Second Circuit panel with Judges Moore and Meskill, rejected that reading of the decision. Best efforts did not require bankruptcy or substantial losses solely to promote Ballantine. Once the insolvency threat had passed, however, the disproportionate collapse called for commercially reasonable attempts to arrest it without financial disaster. A policy of maximizing companywide profit did not itself fulfill a brand-specific volume promise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "610–614 & nn.6–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The evidence shows a broader failure to pursue volume",
+      "cue": "What errors did the appellate court correct without overturning liability?",
+      "paragraphs": [
+        "The court considered Feld, a New York decision applying good faith to an output contract, and acknowledged uncertainty in the State’s best-efforts decisions. Their reasoning required attention to the promisor’s capabilities and actual conduct, rather than making disappointing profitability a universal excuse. It corrected the trial court’s suggestion that ordinary borrowing had been available during Falstaff’s earlier crisis: Kalmanovitz’s financing transferred control and was not a conventional loan. That correction did not excuse the later failure of effort.",
+        "Evidence supporting breach included closure of the North Bergen depot serving small stores and bars, replacement distributors reaching fewer accounts, selection of a New York distributor with a competing brand, failure to pursue a Guinness-Harp distribution offer, abandoned sales goals, and incentives favoring Falstaff labels that carried no royalties.",
+        "The appellate court rejected one additional inference. Higher advertising for Falstaff and temporarily lower prices in Texas and Missouri had explanations involving territory and a particular competitive promotion. That error did not erase the larger pattern.",
+        "Equal treatment with Falstaff’s own brands was not necessarily sufficient. Falstaff could sacrifice its own sales volume for profit, but Ballantine’s purchase price depended on royalties. Even without express best efforts, that arrangement implied good-faith effort toward substantial sales; the express covenant added a high-volume objective. Once Bloor established a permissible inference that Falstaff disregarded volume for overall profit, Falstaff had to show that no significant additional effort was possible without financially disastrous consequences. Bloor did not have to identify every feasible step."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "613–615 & nn.7–8"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Comparable beer sales support an estimate of lost royalties",
+      "cue": "Why did the damages calculation survive both sides’ objections?",
+      "paragraphs": [
+        "Damages needed a stable foundation, not mathematical certainty. The trial judge compared Ballantine’s decline with a composite of Rheingold and Schaefer, similarly priced beers sold mainly in the Northeast.",
+        "Falstaff correctly identified a distortion from a production interruption in the comparison’s base year, but omitted sales late in the period offset it to some extent. The judge also deducted estimated royalties attributable to ending unlawful sales practices. The available evidence supported the estimate despite remaining uncertainty. A sufficiently specific objection concerning Schaefer’s losses had not been presented.",
+        "Bloor preferred a comparison with all brewers outside the fifteen largest. That alternative did not make the closer brand comparison erroneous. The court upheld the lost-royalty measure without stating an aggregate award in the reported appellate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "615"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Reduced effort does not amount to substantial discontinuance",
+      "cue": "Why did the separate contractual remedy remain unavailable?",
+      "paragraphs": [
+        "Beer distribution ordinarily used independent wholesalers. Leaving the retail-truck model therefore did not itself trigger the discontinuance clause, especially when the nationwide number of wholesalers carrying Ballantine increased. Much of the 63.12-percent sales decline reflected smaller brewers’ general loss of market share. The 518,899 barrels sold in 1977 remained a substantial volume.",
+        "On May 15, 1979, the Second Circuit affirmed on both appeal and cross-appeal. Bloor retained the lost-royalty award for inadequate efforts but did not obtain the distinct discontinuance payment. He could recover two-thirds of his costs. There was no separate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "615–616"
+        }
+      ]
+    }
+  ]
+}

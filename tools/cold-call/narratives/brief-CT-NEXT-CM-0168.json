@@ -1,0 +1,105 @@
+{
+  "id": "brief-CT-NEXT-CM-0168",
+  "briefId": "CT-NEXT-CM-0168",
+  "title": "Mineral Park Land Co. v. Howard",
+  "course": "Contracts",
+  "citation": "172 Cal. 289, 156 P. 458 (1916)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Bridge builders use all readily available gravel but buy the balance elsewhere when dredging would cost ten or twelve times the usual amount; only payment for material actually taken survives.",
+  "actors": [
+    {
+      "name": "Mineral Park Land Company",
+      "role": "Owner of land in the Arroyo Seco supplying earth and gravel."
+    },
+    {
+      "name": "Howard and the other builders",
+      "role": "Defendants constructing a concrete bridge for public authorities."
+    }
+  ],
+  "proceedings": [
+    "The trial court awarded Mineral Park $3,650 despite findings of prohibitive extraction cost.",
+    "On a judgment-roll appeal, the California Supreme Court deducted $2,043.45 and affirmed the remaining $1,606.55."
+  ],
+  "limits": "The appeal concerns the legal effect of findings, not a new evidentiary trial. The court did not find mutual mistake or cancel payment for material received. Extreme cost in this setting does not establish a universal cost-multiplier excuse.",
+  "briefSha256": "340f71805dfffdcf03c51ce57b61cc2fd50ffc305049f0e74ff0e27438c7e0aa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0168"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The builders promise to obtain their bridge material from one property",
+      "cue": "What quantity and price structure did the agreement contemplate?",
+      "paragraphs": [
+        "Mineral Park Land Company owned land in the Arroyo Seco at South Pasadena. Builders working on a concrete bridge for public authorities agreed in August 1911 to remove from that property all earth and gravel needed for the bridge’s fill and cement work, estimated at 114,000 cubic yards.",
+        "The first 80,000 yards cost five cents each, the next 10,000 were free, and additional quantities again cost five cents. The builders ultimately removed 50,131 yards from Mineral Park and obtained another 50,869 elsewhere, using 101,000 yards overall."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transaction and performance; 172 Cal. 290–291"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Mineral Park seeks both the unpaid price and payment for the omitted quantity",
+      "cue": "What did the trial court find about the remaining gravel?",
+      "paragraphs": [
+        "Mineral Park’s first count sought $2,506.55 for material taken, less $900 already paid, leaving $1,606.55. Its second sought $2,043.45 for the quantity obtained elsewhere under the price schedule. It alleged enough material existed on its land and that the unremoved material was valueless to it. The builders answered that they had removed everything available for the contracted work.",
+        "The trial court found that more than 101,000 yards physically existed, but only the 50,131 yards already taken lay above water. Further extraction required a steam dredger and costly drying, bringing substantial expense and delay. It was physically possible but would cost ten or twelve times the usual amount per yard, which the court found prohibitive. Neither side had calculated the available quantity, and the court found no mutual misunderstanding about it.",
+        "Despite those findings, the court entered a $3,650 judgment for Mineral Park. The builders appealed on the judgment roll alone, challenging the legal result of the findings rather than seeking a retrial of the evidence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Claims, findings and posture; 172 Cal. 289–291"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Sloss treats the necessary usable supply as unavailable in practical terms",
+      "cue": "Why did physical presence below water not settle the obligation?",
+      "paragraphs": [
+        "Justice Sloss acknowledged that an unqualified promise to do a possible act is not ordinarily excused by difficulty or the promisor’s inability. But a contract depending on the assumed existence of a particular thing may excuse performance to the extent that thing disappears or proves nonexistent.",
+        "The court compared pasture and mining agreements whose obligations depend on enough feed or extractable material to support the contemplated operation. Here the bargain assumed enough gravel available for construction use, not simply physical gravel somewhere underground. Extraordinary dredging, drying and prohibitive expense made the additional supply functionally unavailable for this project.",
+        "The reasoning did not excuse every unprofitable job or cost increase. It relied on the extreme conditions found below and the agreement’s assumed subject matter. Nor was the result rescission for mutual mistake: the findings expressly denied a mutual misunderstanding, and the payment obligation for received material remained."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Governing principle and practical availability; 172 Cal. 291–293"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The judgment is reduced to the unpaid price of material actually received",
+      "cue": "How much remained due after the appeal?",
+      "paragraphs": [
+        "On March 13, 1916, Department One of the California Supreme Court modified the judgment by deducting the second count’s $2,043.45 and affirmed it as modified. Mineral Park retained recovery of $1,606.55 for material the builders actually took.",
+        "Justices Shaw and Lawlor concurred with Sloss, making the reported disposition unanimous among the three listed judges. There were no separate opinions. The builders were excused from the unperformed sourcing obligation; they were not relieved of payment for their completed purchases."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and concurrence; 172 Cal. 293"
+        }
+      ]
+    }
+  ]
+}

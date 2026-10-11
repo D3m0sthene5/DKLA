@@ -45,6 +45,9 @@ for mutation, message in (
 records = []
 number_resolutions = {
     ('lrs-o-dames-moore', '$1'): 'The source writes one billion dollars; the narrative writes $1 billion.',
+    ('stoll', '$120,000'): 'The source quotes One Hundred Twenty Thousand Dollars alongside the inconsistent $130,000 figure; the narrative preserves both amounts in numeric form.',
+    ('cp-cooper', '1964'): 'Expansion of the source’s Title VII reference. The statutory title was checked against https://www.eeoc.gov/statutes/title-vii-civil-rights-act-1964 on 2026-10-11.',
+    ('lrs-n-standing-thompson', '1964'): 'Expansion of the source’s Title VII reference. The statutory title was checked against https://www.eeoc.gov/statutes/title-vii-civil-rights-act-1964 on 2026-10-11.',
     ('hamer', '1877'): 'The pilot cites the opinion directly: 124 N.Y. 549 records the March 1, 1877 assignment to Libbie. Rechecked in the linked Justia opinion on 2026-10-11.',
     ('cp-pennoyer', '1865'): 'The pilot cites the opinion directly: 95 U.S. 716–717 records the November 13, 1865 publication order. Rechecked in the linked Justia opinion on 2026-10-11.',
 }
@@ -60,10 +63,18 @@ for story in stories['cases']:
         flags.append('Possible residual brief label in prose; inspect.')
     number_candidates = []
     if story.get('briefId'):
-        source = re.sub(r'[,\s]', '', full[story['briefId']])
-        for value in sorted(set(re.findall(r'(?<![\w§])(?:\$[\d,]+(?:\.\d+)?|\b(?:18|19|20)\d{2}\b)', text))):
+        # Some appeals cite a separately reviewed district-court brief for
+        # context. Validation above requires its own current fingerprint.
+        source_ids = {story['briefId']} | {s['briefId'] for s in story['sources'] if s.get('briefId')}
+        source_text = '\n'.join(full[bid] for bid in sorted(source_ids))
+        source = re.sub(r'[,\s]', '', source_text)
+        for value in sorted({v.rstrip(',') for v in re.findall(r'(?<![\w§])(?:\$[\d,]+(?:\.\d+)?|\b(?:18|19|20)\d{2}\b)', text)}):
             if re.sub(r'[,\s]', '', value) not in source:
-                number_candidates.append(dict(value=value, resolution=number_resolutions.get((story['id'],value))))
+                resolution = number_resolutions.get((story['id'],value))
+                if (not resolution and value == '1964' and 'Title VII' in source_text
+                        and not re.search(r'\b1964\b', text.replace('Civil Rights Act of 1964', 'Civil Rights Act'))):
+                    resolution = 'Every occurrence expands the source’s Title VII reference to its statutory title, verified at https://www.eeoc.gov/statutes/title-vii-civil-rights-act-1964 on 2026-10-11; no other 1964 event is inferred.'
+                number_candidates.append(dict(value=value, resolution=resolution))
     records.append(dict(id=story['id'], title=story['title'], briefId=story.get('briefId'),
         words=words, sourceWords=source_words, episodes=len(story['sections']),
         narrativeSha256=hashlib.sha256(text.encode()).hexdigest(),

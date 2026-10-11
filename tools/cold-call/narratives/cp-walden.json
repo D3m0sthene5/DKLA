@@ -1,0 +1,126 @@
+{
+  "id": "cp-walden",
+  "briefId": "CP-ATLAS-WALDEN",
+  "title": "Walden v. Fiore",
+  "course": "Civil Procedure",
+  "citation": "571 U.S. 277 (2014)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After a Georgia officer seized travelers’ gambling cash, the travelers sued him in Nevada; their Nevada ties and the harm they felt there could not supply contacts the officer himself had not created.",
+  "actors": [
+    {
+      "name": "Gina Fiore and Keith Gipson",
+      "role": "Professional gamblers and Nevada damages plaintiffs"
+    },
+    {
+      "name": "Anthony Walden",
+      "role": "Georgia police officer deputized to assist a federal drug-enforcement task force"
+    },
+    {
+      "name": "Drug Enforcement Administration (DEA)",
+      "role": "Federal agency involved in the seizure and later return of the money"
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Author of the unanimous Supreme Court opinion"
+    }
+  ],
+  "proceedings": "Nevada federal district court dismissed for lack of personal jurisdiction; Ninth Circuit reversed based on alleged false-affidavit conduct and foreseeable Nevada harm; Supreme Court reversed unanimously and did not reach venue.",
+  "limits": "Misconduct assertions were accepted at the dismissal stage, not established as facts. The affidavit was absent from the record. The Court did not decide the merits, availability of damages, or jurisdiction over virtual conduct.",
+  "briefSha256": "bc51da906824cbd3ec2b0de9d1c28296550d72a2859c098eaabae8d31f217304",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-WALDEN"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The travelers’ connecting flight led to a seizure in Georgia",
+      "cue": "Follow the cash and introduce the officer at the encounter.",
+      "paragraphs": [
+        "In August 2006, professional gamblers Gina Fiore and Keith Gipson traveled from Puerto Rico through Atlanta to Las Vegas. Security agents in San Juan found almost $97,000 in their carry-on bags. Fiore explained that they had been gambling and had residences in California and Nevada, although they presented California identification. An official alerted the Drug Enforcement Administration (DEA) task force in Atlanta about their connection.",
+        "Anthony Walden, a Covington, Georgia police officer deputized to assist that task force, approached the travelers at the gate. They described the money as gambling bankroll and winnings. Walden used a drug-sniffing dog, seized the cash, and said it could be returned if they established a legitimate source. The travelers alleged that the dog test was inconclusive; the pleadings did not show that drugs or residue had been found.",
+        "After they left, Walden moved the money to a secure location, and the matter went to DEA headquarters. Their Nevada attorney called Walden and later supplied documents about the funds. Fiore and Gipson alleged that Walden then helped prepare a false probable-cause affidavit in Georgia, misrepresenting the encounter and omitting exculpatory information, and sent it to a Georgia federal prosecutor in support of forfeiture. No forfeiture complaint was filed, and the DEA returned the money in March 2007. The affidavit was not in the record; its alleged falsity remained an allegation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "571 U.S. at 279–281 & nn.1–2"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The travelers sued where they experienced the loss",
+      "cue": "Set out the competing jurisdictional decisions.",
+      "paragraphs": [
+        "Fiore and Gipson sued Walden in Nevada federal court for damages under Bivens, the precedent recognizing a damages action for certain federal constitutional violations. They alleged Fourth Amendment violations involving the seizure, continued retention, and false affidavit. The district court dismissed for lack of personal jurisdiction: Georgia conduct did not create Nevada contacts merely because Walden knew of their residence and they experienced harm there. It did not decide venue.",
+        "The Ninth Circuit reversed. Assuming the initial search and seizure did not support Nevada jurisdiction, it treated the alleged false affidavit as sufficient because Walden knew of the plaintiffs’ substantial Nevada connections and foreseeable harm there. The divided panel and judges dissenting later disagreed about that approach and the characterization of a separate continuing-seizure claim. The Supreme Court accepted both jurisdiction and venue questions but ultimately decided only jurisdiction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 281–282 & nn.3–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The required connection was the officer’s relationship with Nevada",
+      "cue": "Explain the governing principles before comparing the precedents.",
+      "paragraphs": [
+        "Justice Thomas wrote for all nine Justices. Under Federal Rule of Civil Procedure 4(k)(1)(A), the federal court’s reach here tracked Nevada’s courts, and Nevada’s long-arm statute reached constitutional limits. The plaintiffs asserted specific, case-linked jurisdiction, so Walden’s suit-related conduct had to create a substantial connection with Nevada.",
+        "The defendant himself had to create the relevant contacts. A plaintiff’s strong forum connections could not substitute for that relationship. And the connection had to be with the state, not merely with a person residing there. Interactions with a plaintiff could contribute to forum contacts, and physical presence was unnecessary, but the plaintiff could not be the only link. Those requirements protected the nonresident defendant’s liberty interest and applied to intentional torts as well as other claims.",
+        "The Court explained Calder v. Jones, its earlier intentional-tort jurisdiction decision, through the defendants’ California connections. The challenged article drew on California sources, concerned California activities, and reached a substantial California readership. Defamation required communication to others, so the article affected the plaintiff’s standing in the California community. Calder did not establish that any intentional wrong follows its victim home."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 283–288 & nn.6–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "None of the proposed contacts connected Walden’s conduct to Nevada",
+      "cue": "Apply the standard to each claimed link.",
+      "paragraphs": [
+        "Walden approached and searched the plaintiffs and seized the cash in Georgia. The alleged false affidavit was prepared there and sent to a prosecutor there. Walden did not travel to Nevada, conduct activities there, or send anything or anyone there. His knowledge of the plaintiffs’ Nevada connections did not transform those Georgia acts into Nevada-directed conduct. The Ninth Circuit had substituted their connections for his own.",
+        "Continued retention deprived the plaintiffs of money while they were in Nevada, but they could have experienced the same loss wherever they traveled and wanted to spend it. Nothing independently occurring in Nevada connected the continued seizure to that state as California publication had connected the defendants in Calder.",
+        "The Nevada attorney’s decision to contact Walden in Georgia was another person’s unilateral action. An allegation that some money originated in Nevada identified a connection Walden had not created; he seized it in Georgia. And the DEA’s later return of the cash to Nevada was not Walden’s act. Those circumstances did not supply the missing defendant-created forum relationship."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 288–291"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The jurisdictional ruling left the alleged wrongs undecided",
+      "cue": "State the reserved questions and exact result.",
+      "paragraphs": [
+        "On February 25, 2014, the Supreme Court unanimously reversed the Ninth Circuit because Nevada lacked personal jurisdiction over Walden on these facts. It did not decide whether the seizure was lawful, whether a viable damages remedy ultimately existed, or whether the affidavit allegations were true. With jurisdiction resolving the case before it, the Court left the granted venue question unanswered.",
+        "The Court also reserved questions involving Internet or other virtual conduct, including phishing and fraudulent account access. Those situations raised different issues about how electronic acts connect a defendant to a state. This case involved a physical seizure and alleged affidavit activity whose Georgia location was clear."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 282 n.5, 290–291 & n.9"
+        }
+      ]
+    }
+  ]
+}

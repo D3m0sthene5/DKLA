@@ -1,0 +1,103 @@
+{
+  "id": "brief-CT-ADDITIONAL-FA26-006",
+  "briefId": "CT-ADDITIONAL-FA26-006",
+  "title": "Chalet construction: Etablissements Léon Cuny",
+  "course": "Contracts",
+  "citation": "Cour de cassation, 3e civ., May 3, 2001, no. 99-14.370; Bull. III no. 56, p. 45",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A chalet supplier delivers a kit, but the reviewing court requires the lower court to honor its finding of an express construction promise and the contract’s document hierarchy.",
+  "actors": [
+    {
+      "name": "The landowner",
+      "role": "Unnamed purchaser seeking assembly of the chalet."
+    },
+    {
+      "name": "Etablissements Léon Cuny",
+      "role": "Supplier of the wooden chalet components and defendant to the performance demand."
+    }
+  ],
+  "proceedings": [
+    "The Nancy Court of Appeal rejected the owner’s performance demand on October 19, 1998.",
+    "The Third Civil Chamber quashed that judgment in all provisions and remanded to Colmar."
+  ],
+  "limits": "The actual judicial text is a reproduction, not a recovered official Bulletin facsimile. It gives October 19 as the prior judgment date despite differing site metadata. Cassation and remand are not a completed order directing particular building works or damages.",
+  "briefSha256": "57eed14e6f52d7de3cc2f3af3dffaa641ecb9afca34b526d12b96dae74b5344d",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-FA26-006"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The owner receives components for a chalet",
+      "cue": "Why did delivery fail to end the parties’ dispute?",
+      "paragraphs": [
+        "On March 23, 1992, a landowner entered into a document styled a sale contract with Etablissements Léon Cuny for a particular model of solid-wood chalet. Cuny delivered the wooden components. The owner maintained that the agreement was an individual-house construction contract and required Cuny to assemble them.",
+        "After an expert investigation, the owner sued for performance of that asserted obligation. The dispute concerned whether assembly had been promised; it was not a finding that Cuny had built a completed chalet with physical defects."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedural history; actual judicial factual recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Nancy reads the specifications and later conduct as a kit sale",
+      "cue": "Which contractual materials supported the supplier’s position?",
+      "paragraphs": [
+        "On October 19, 1998, the Nancy Court of Appeal rejected the demand. It relied on article 1’s reference to an attached descriptive specification and on descriptive and price estimates. Subject to certain structural and finishing works, those materials described a ready-to-assemble chalet whose components would be delivered to the owner’s land.",
+        "Later correspondence and the expert’s report also supported the appellate court’s view that the parties intended a kit sale. Cuny had supplied assembly plans and helped with administrative arrangements, but the court considered that it had not itself undertaken assembly."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and procedural history; recital of appellate reasons"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The recognized construction promise and priority clause control the review",
+      "cue": "What inconsistency required cassation?",
+      "paragraphs": [
+        "The Court of Cassation’s Third Civil Chamber applied former Civil Code article 1134, governing the binding force of agreements. It examined another part of the lower court’s own findings: through reasons that court had adopted, it had recognized a commitment to construct a chalet for an identified price under a document corresponding to an individual-house construction agreement.",
+        "Article 2.2 of that agreement also said its indications and stipulations prevailed over every other contractual document. The lower court had not reconciled its kit-sale conclusion with the recognized construction undertaking and that agreed priority. It could not use subordinate documents to defeat the promise after making those findings. Denial of the performance demand therefore violated article 1134."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Issue, rule and reasoning; statutory visa and final reasoning recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The case returns for adjudication after the judgment is quashed",
+      "cue": "What did the reviewing court itself order?",
+      "paragraphs": [
+        "On May 3, 2001, the Court quashed the Nancy judgment in all its provisions, restored the parties to their position before it, and remanded to the Colmar Court of Appeal. It did not itself specify how or when Cuny must assemble the chalet, calculate damages, or impose a coercive monetary penalty.",
+        "The decision turns on this express undertaking and contractual hierarchy. It does not make assembly an automatic term of every wooden-kit sale. The reproduced decision names M. Beauvois as president, Mme Lardet as rapporteur, and M. Weber as avocat général; it contains no separate writing or individual vote. The further adjudication required by the remand is not reported here."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Exact disposition and remedy limits; final order and identifying metadata"
+        }
+      ]
+    }
+  ]
+}

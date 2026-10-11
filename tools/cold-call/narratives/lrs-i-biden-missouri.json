@@ -1,0 +1,145 @@
+{
+  "id": "lrs-i-biden-missouri",
+  "briefId": "LRS-ATLAS-I-BIDEN-MISSOURI",
+  "title": "Biden v. Missouri",
+  "course": "Legislation and the Regulatory State",
+  "citation": "595 U.S. 87 (2022)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "States obtained injunctions against a federal vaccination condition for Medicare and Medicaid facilities; the Supreme Court’s emergency ruling allowed enforcement while the appeals continued.",
+  "actors": [
+    {
+      "name": "Secretary of Health and Human Services",
+      "role": "Federal official imposing the provider participation condition"
+    },
+    {
+      "name": "Centers for Medicare and Medicaid Services (CMS)",
+      "role": "Agency administering the covered federal healthcare programs"
+    },
+    {
+      "name": "Missouri-led and Louisiana-led state groups",
+      "role": "Plaintiffs obtaining separate district-court injunctions"
+    },
+    {
+      "name": "Justice Thomas",
+      "role": "Author of the statutory-authority dissent"
+    },
+    {
+      "name": "Justice Alito",
+      "role": "Author of the notice-and-comment dissent"
+    }
+  ],
+  "proceedings": "Missouri and Louisiana district courts enjoined enforcement; Eighth and Fifth Circuits refused stays; Supreme Court granted both government stay applications 5–4 on January 13, 2022, pending further appellate review.",
+  "limits": "This was interim relief, not a final merits judgment. The Court stayed the injunctions against the rule. The related same-day occupational-safety ruling involved a different statutory program and the opposite object of a stay.",
+  "briefSha256": "e48604324ff0eea8ecb8259e815a6fb6f778d048fed24ce42eaf57c82bb43fa5",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-BIDEN-MISSOURI"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Secretary added vaccination to provider conditions",
+      "cue": "Connect the requirement to the healthcare programs it governed.",
+      "paragraphs": [
+        "The Secretary of Health and Human Services administered Medicare and Medicaid through the Centers for Medicare and Medicaid Services (CMS). Congress gave the Secretary general authority to regulate efficient administration and category-specific authority to impose conditions needed for patient health and safety. Existing provider-participation requirements already addressed infection control, employee qualifications and training, clinical practices, and other elements of safe care.",
+        "On November 5, 2021, the Secretary issued an interim final rule requiring covered facilities to ensure that staff were vaccinated against COVID-19. Medical and religious exemptions were required, and full-time teleworkers were excluded. A facility’s noncompliance could lead to penalties, denial of payment for new admissions, and eventually exclusion from the programs.",
+        "The Secretary found that unvaccinated staff increased transmission risks to vulnerable patients, discouraged patients from obtaining needed treatment, and disrupted staffing through infection or exposure. Citing the Delta variant and approaching winter, he invoked good cause to proceed without advance notice and comment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 2–4, 6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Two injunctions brought two government applications to the Court",
+      "cue": "Identify precisely what the government wanted stayed.",
+      "paragraphs": [
+        "Groups of states led by Missouri and Louisiana filed separate challenges. The Eastern District of Missouri enjoined enforcement on November 29, and the Western District of Louisiana did so on November 30. The Eighth Circuit and Fifth Circuit respectively declined to stay those injunctions. The federal government then sought stays from the Supreme Court, which heard expedited argument. It sought permission to enforce the vaccination rule while litigation continued, not a stay of the rule itself.",
+        "The states argued that the cited statutes concerned technical program administration and did not authorize this condition. The Court’s unsigned majority opinion rejected the picture of the Secretary as merely a bookkeeper. Longstanding participation conditions governed examinations, transplant procedures, delegation of clinical work, staff training, and infection prevention. Missouri conceded authority to require gloves, instrument sterilization, and handwashing. Protection of patients from COVID transmission fit the same health-and-safety mission."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 4–7, 10"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority found statutory support while recognizing differences among facilities",
+      "cue": "Include the category qualification and severability analysis.",
+      "paragraphs": [
+        "The absence of an earlier CMS vaccine condition did not persuade the majority that this requirement departed from the agency’s role. The pandemic’s scale was unprecedented; healthcare workers commonly faced vaccination requirements from other sources; and existing state rules helped explain why CMS had not previously imposed its own. Support from medical and public-health organizations reinforced the measure’s connection to patient safety.",
+        "Five facility categories lacked express health-and-safety wording in their particular statutory provisions. Those facilities employed less than three percent of covered workers, and their provisions could also be read to incorporate comparable authority. The Court emphasized the rule’s express severability provision rather than allowing those categories to determine treatment of all the others. It did not say that every facility statute contained identical language.",
+        "The majority also rejected the argument that a prohibition on federal control of medical services and personnel invalidated this condition. That interpretation would undermine many accepted provider requirements. Emergencies could not create authority Congress withheld, the Court explained, but neither did an emergency justify narrowing authority Congress had supplied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 5 n.*, 7–10"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The Court accepted the agency’s explanation and expedited procedure",
+      "cue": "Tie each administrative objection to the Secretary’s response.",
+      "paragraphs": [
+        "The states challenged the interim rule as arbitrary and capricious. The Court found that the Secretary had examined the evidence and explained the choice of vaccination over testing, the inclusion of previously infected workers, and the departure from encouragement alone. He considered potential staffing losses, including rural shortages. Judicial review asked whether the agency acted within a zone of reasonableness, not which evidence or policy a court preferred.",
+        "The Court also accepted good cause for dispensing with advance notice and comment. Acting before winter could immediately reduce infections, hospitalizations, and deaths. The two months used to prepare a seventy-three-page rule did not negate that urgency. Consultation with state agencies could occur during deferred notice and comment. A statutory impact-analysis requirement for small rural hospitals applied to a proposed rule followed by a final rule, rather than this interim procedure."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Four Justices disputed authority and four also disputed procedure",
+      "cue": "Attribute the two complete dissents separately.",
+      "paragraphs": [
+        "Justice Thomas, joined by Justices Alito, Gorsuch, and Barrett, would deny the stays because the government had not strongly demonstrated statutory authority. General administration provisions had at most a tangential connection to compelling millions of workers to undergo an unwanted medical procedure. Facility-specific laws did not provide a universal delegation: five lacked the relevant language, while context limited other catchalls to requirements resembling their listed administrative conditions. Even a long-term-care infection-control provision concerned sanitation and could not authorize requirements for every facility. The agency’s existing regulations could not themselves establish Congress’s delegation.",
+        "Thomas also invoked clear-statement principles for matters of vast economic and political importance and substantial shifts in the federal-state balance. Vaccination mandates ordinarily belonged to state police power, and Congress could expressly authorize federal vaccination requirements when it chose. His objection concerned legal authority rather than vaccine efficacy or importance.",
+        "Justice Alito separately dissented, joined by Thomas, Gorsuch, and Barrett. Along with the authority objection, he argued that notice and comment required the agency to hear regulated people’s evidence before binding them. CMS needed to show specific harm from the procedural delay. Months of vaccine availability, two months between announcement and issuance, and a further compliance interval undermined urgency in his view. The government could not shift its affirmative good-cause burden by saying challengers had not shown prejudice. He feared the ruling would broadly weaken procedural safeguards."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Thomas 1–8; Alito 1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The order permitted enforcement while preserving the pending litigation",
+      "cue": "End with the duration and procedural limits of both stays.",
+      "paragraphs": [
+        "On January 13, 2022, the Court granted both government applications by a 5–4 vote. It stayed Missouri’s November 29 injunction during Eighth Circuit proceedings and a timely certiorari petition, and Louisiana’s November 30 injunction during Fifth Circuit proceedings and a timely petition. Denial of certiorari would automatically terminate the relevant stay; a grant would extend it until the Supreme Court sent down its judgment.",
+        "The vaccination condition could therefore be enforced while review continued. The order did not finally terminate either case or adjudicate every possible challenge. Its patient-safety and funding-program reasoning differed from the Court’s same-day occupational-safety ruling, where the Court stayed the rule itself. This majority opinion did not invoke the major-questions doctrine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 10; Thomas 1; Alito 1; assigned context"
+        }
+      ]
+    }
+  ]
+}

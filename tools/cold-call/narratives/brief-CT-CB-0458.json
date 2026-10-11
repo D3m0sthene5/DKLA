@@ -1,0 +1,144 @@
+{
+  "id": "brief-CT-CB-0458",
+  "briefId": "CT-CB-0458",
+  "title": "Ortelere v. Teachers' Retirement Board",
+  "course": "Contracts",
+  "citation": "25 N.Y.2d 196, 250 N.E.2d 460 (1969)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A teacher changed her pension election after serious psychiatric illness, leaving the court to ask whether understanding the choice was enough to make it binding.",
+  "actors": [
+    {
+      "name": "Grace Ortelere",
+      "role": "Long-serving New York City teacher who changed her retirement election"
+    },
+    {
+      "name": "Ortelere’s husband",
+      "role": "Caregiver, former beneficiary, and executor challenging the election"
+    },
+    {
+      "name": "Teachers’ Retirement Board",
+      "role": "Administrator defending the retirement choice"
+    }
+  ],
+  "proceedings": [
+    "Supreme Court after nonjury trial: found incompetence and set aside the application.",
+    "Appellate Division: reversed for legally insufficient evidence under the existing test.",
+    "Court of Appeals: reversed without costs and ordered a new trial under a broader incapacity standard, 4–2."
+  ],
+  "limits": [
+    "The Court of Appeals did not restore the old election or award money. The new trial had to apply both impairment and knowledge requirements; hindsight about an unfortunate bargain did not itself establish incapacity."
+  ],
+  "briefSha256": "2eae7266819e1a348aad2c9bbcce3eb44002297837918f49b5622c40ab83ff29",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0458"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A long-serving teacher plans protection for her husband",
+      "cue": "Introduce the earlier elections before the illness and change.",
+      "paragraphs": [
+        "Grace Ortelere began teaching in New York City public schools in 1924 and participated in the teachers’ retirement system for more than forty years. In 1958, she chose a smaller lifetime allowance that would leave an unexhausted reserve to her husband. In 1960, she separately designated him for service death benefits if she died before retirement. Those elections covered different contingencies.",
+        "At sixty, she suffered a nervous breakdown in March 1964 and took leave. Her psychiatrist diagnosed involutional psychosis of the melancholia type. Tranquilizer and shock treatments brought some improvement, but stopped after about six weeks because cerebral arteriosclerosis was suspected and later confirmed. Monthly psychiatric appointments continued. Her husband gave up an electrician’s job paying $222 a week to provide full-time care. She was depressed, unable to care for herself, and went out only with him. Their assets included a roughly $20,000 house, $8,000 savings, and $5,000 in farmland, making retirement benefits important to each spouse’s support."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 199–201"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A detailed inquiry is followed by a different retirement choice",
+      "cue": "Trace the financial trade and the short interval before death.",
+      "paragraphs": [
+        "On February 8, 1965, just after leave expired, Grace wrote the Teachers’ Retirement Board eight detailed questions about beneficiaries, borrowing, annuity and pension components, and service credit. On February 11, she applied to retire effective the next day with the maximum lifetime allowance and no survivor option, revoking the earlier reserve protection. She also borrowed the maximum $8,760, leaving a $62,165 reserve. Her approximately $450 monthly allowance was $75 more than the former option’s $375, in exchange for eliminating the survivor interest.",
+        "The board’s chief clerk said he answered orally on February 11; his detailed written response followed February 15, after a change was technically too late. Grace’s husband accompanied her without knowing the visit’s purpose. He said he avoided questioning her because she might become hysterical and hear his questions as scolding.",
+        "On March 28 she collapsed and was hospitalized after an aneurysm. She died ten days later, less than two months after the election. The full opinion reported cerebral thrombosis due to hypertensive heart disease as the cause, a more specific account than the editorial introduction’s compressed description. Under the new election, no remaining reserve passed to her husband."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 199–201"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Trial evidence separates comprehension from ability to make decisions",
+      "cue": "Explain the conflicting medical evidence and appellate posture.",
+      "paragraphs": [
+        "As executor, her husband sought to invalidate the February application for mental incompetence. After a nonjury trial, New York Supreme Court found her incompetent and declared it ineffective. A divided Appellate Division reversed because the evidence failed the prevailing capacity test. The Court of Appeals reviewed that post-trial judgment, not merely assumed pleading allegations.",
+        "The psychiatric diagnosis was undisputed, and the majority accepted that Grace cognitively understood her selection. Her treating psychiatrist nevertheless said she had never been competent during treatment and could not make decisions large or small, describing the disorder’s effect even on getting up or preparing toast. A Board of Education internist who examined her February 2 thought she appeared rational and recovered from depression, but requested the psychiatrist’s report before approving a teaching return. On February 24, the education board’s medical division also requested its own psychiatrist’s examination. The dispute was whether apparent understanding exhausted capacity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 199, 201–202"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority permits avoidance for serious volitional impairment with notice",
+      "cue": "State the broader rule and its equitable qualification.",
+      "paragraphs": [
+        "Judge Breitel explained that a contract of a mentally incompetent person not previously adjudicated insane was voidable, and performance need not prevent avoidance if the parties could be restored. Traditional tests examined understanding, rational judgment, and transaction-related delusions, but could miss someone who comprehended a transaction yet could not control conduct because of mental disease.",
+        "Psychiatric understanding distinguished cognition from volitional and emotional impairment. Developments in criminal responsibility illustrated why reassessment was needed, although civil and criminal policies differed. The court adopted tentative Restatement (Second) of Contracts § 18C, later numbered § 15: illness or defect making a person unable to act reasonably in the transaction could make duties voidable when the other party had reason to know.",
+        "That knowledge requirement protected innocent dealings and required more than an economically unfortunate choice. The accompanying equitable limit also mattered: where terms were fair, the other party lacked knowledge, and performance or changed circumstances made avoidance inequitable, avoidance could terminate to that extent, with relief on equitable terms. Not every completed transaction by a mentally ill person could simply be undone."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 202–205"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "This record warrants application of the new standard at a new trial",
+      "cue": "Preserve the system’s legitimate interests and the majority’s limits.",
+      "paragraphs": [
+        "The majority regarded the system as aware, or chargeable with awareness, through medical leave and the education board’s psychiatric involvement. It found no significant changed position beyond ordinary actuarial effects. A protective public retirement relationship differed from an ordinary commercial bargain; a single act caused by known psychosis should not necessarily destroy the benefits of forty years without substantial prejudice to the system.",
+        "The board properly worried about retrospective selection: pension finances depend on prospective elections and mortality experience. The majority did not grant survivors a general right to choose the most favorable option after death. It treated this as alleged action produced by known serious illness without demonstrated harmful reliance beyond that actuarial consideration.",
+        "The family finances, continued care, and illness permitted an inference that removing survivor protection resulted solely from psychosis. The court insisted on illness at least as serious as medically classified psychosis, not ordinary psychological difficulty. But neither the original findings nor all testimony squarely addressed the new rule. A new trial, rather than automatic reinstatement of the executor’s judgment, was necessary."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 198–199, 205–206"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissent sees a potentially rational increase in current income",
+      "cue": "Finish with the competing inference and precise judgment.",
+      "paragraphs": [
+        "Judge Jasen, joined by Judge Scileppi, would affirm. The challenger bore the burden absent prior adjudication of incompetence. Grace’s detailed questions showed understanding and ability to compare answers. Two retired spouses needed current income; the $75 increase was twenty percent, and the loan likewise addressed financial needs. Nothing showed she knew her life expectancy was shortened. Hindsight about the lost reserve did not establish irrationality when she acted.",
+        "Jasen also doubted the workability of the broader psychiatric standard. Capacity was a legal conclusion informed by medical proof; the existing understanding-and-appreciation test already accommodated that evidence. Extending avoidance to people who understood their actions but allegedly could not exercise self-discipline risked speculative challenges and unstable expectations.",
+        "The Court of Appeals reversed without costs and granted a new trial. Chief Judge Fuld and Judges Burke and Bergan joined Breitel; Jasen and Scileppi dissented, a reported four-to-two alignment with no seventh participant listed. The judgment did not itself restore the old survivor election or award a final sum."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25 N.Y.2d at 206–210"
+        }
+      ]
+    }
+  ]
+}

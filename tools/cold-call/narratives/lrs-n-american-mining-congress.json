@@ -1,0 +1,121 @@
+{
+  "id": "lrs-n-american-mining-congress",
+  "briefId": "LRS-ATLAS-N-AMERICAN-MINING-CONGRESS",
+  "title": "American Mining Congress v. Mine Safety & Health Administration",
+  "course": "Legislation and the Regulatory State",
+  "citation": "995 F.2d 1106 (D.C. Cir. 1993)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Mine operators already must report diagnosed occupational illnesses. When the agency specifies which chest x-ray readings count as diagnoses, industry groups argue that the new specificity required notice and comment.",
+  "actors": [
+    {
+      "name": "Mine Safety and Health Administration",
+      "role": "Labor agency issuing successive x-ray reporting interpretations."
+    },
+    {
+      "name": "American Mining Congress and National Industrial Sand Association",
+      "role": "Industry petitioners challenging the letters’ procedural classification."
+    }
+  ],
+  "proceedings": [
+    "Three direct-review petitions challenged successive 1991 and 1992 Program Policy Letters.",
+    "The D.C. Circuit dismissed the petitions after holding the letters interpretive."
+  ],
+  "limits": "This account follows the canonical 1993 brief without a new source audit or certification of later doctrine. The four indicators are the historical formulation in the complete opinion. Substantive validity, Federal Register publication, and individual operator liability were not adjudicated.",
+  "briefSha256": "15d080689ee81ec497ed88b94641bed7c00f21fc2950de0bd71207e2de145d32",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-AMERICAN-MINING-CONGRESS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Notice-and-comment regulations create a reporting duty",
+      "cue": "What work had the legislative regulations already done?",
+      "paragraphs": [
+        "The Mine Safety and Health Act authorized the Secretary of Labor to require mine operators to keep records and report information. Using that authority, the agency adopted Part 50 regulations through notice and comment. Operators had to report accidents, occupational injuries, and occupational illnesses within ten days, including diagnoses of specified illnesses such as silicosis, asbestosis, and pneumoconioses. Violations could lead to citations and penalties.",
+        "Part 50 thus supplied a binding reporting obligation, but left uncertainty about what constituted a diagnosis. The Mine Safety and Health Administration addressed that uncertainty through Program Policy Letters concerning chest x-rays."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "995 F.2d 1107–1108"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Successive letters specify x-ray readings and review safeguards",
+      "cue": "How did the reporting interpretation evolve?",
+      "paragraphs": [
+        "The September 1991 letter treated an x-ray rated at least 1/0 on the International Labor Office scale as a reportable diagnosis for a miner with the specified dust-exposure history. The scale measured concentrations of opacities; 1/0 was its fourth-most-severe classification. More skilled readers could reassess an initial interpretation.",
+        "A May 1992 replacement retained that approach and clarified that reporting neither automatically established entitlement to disability benefits nor admitted the operator’s liability. An August replacement revised the rereading procedure. If the initial reader lacked B-reader certification, enforcement would be stayed while a certified reader examined the film. Confirmation required reporting. If the certified reader disagreed, a third certified reader could be obtained, and the agency would accept the majority of the three readings.",
+        "The American Mining Congress and National Industrial Sand Association filed three petitions challenging the successive letters because none underwent Administrative Procedure Act notice and comment. The agency defended them solely as interpretive rules. The petitioners did not contest Federal Register publication or the interpretation’s substantive validity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "995 F.2d 1107–1108"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court distinguishes creating a duty from construing one",
+      "cue": "What showed an exercise of legislative power?",
+      "paragraphs": [
+        "Judge Stephen F. Williams wrote for the D.C. Circuit panel with Judges Sentelle and Randolph. Drawing on the Attorney General’s Manual and precedent, the court distinguished rules that supply legal duties under delegated legislative authority from interpretations of existing duties. If a statute prohibits nothing until rules supply a prohibition, legislative action is necessary before enforcement. Once a duty exists, interpretation may define its scope precisely. Even an incorrect interpretation does not become legislative merely through error.",
+        "The court’s concluding test asked four questions: did the rule supply a necessary legislative basis for enforcement or benefits that otherwise was absent; was it published in the Code of Federal Regulations; did the agency explicitly invoke general legislative authority; or did it effectively amend a prior legislative rule? An affirmative answer to any identified legislative action under this formulation.",
+        "A policy statement ordinarily describes future discretionary choices, so evidence that it actually binds the agency can undermine its claimed tentativeness. An interpretation instead explains an existing command or permission. Construing a command naturally may use imperative terms and limit discretion. Consequently, the binding-norm analysis associated with the Pacific Gas policy-statement precedent could not alone decide whether these interpretations exercised legislative power."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "995 F.2d 1109–1112"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The existing diagnosis requirement supports the letters’ classification",
+      "cue": "Why did medical disagreement not establish an amendment?",
+      "paragraphs": [
+        "The statute’s broad reporting authorization had required legislative implementation, but Part 50 already supplied it. The letters interpreted diagnosis within that existing obligation. They were not placed in the Code of Federal Regulations and did not explicitly invoke general legislative authority. The remaining question was whether they effectively amended Part 50.",
+        "The petitioners offered medical definitions suggesting that diagnosis of pneumoconiosis or silicosis needed more than an x-ray, such as tissue examination or additional history. The agency pointed to administrative rules and medical sources using qualifying x-rays to find pneumoconiosis. A finding of disease ordinarily could be called a diagnosis. The letters therefore did not repudiate or contradict Part 50; drawing a sharper line within a general term did not itself amend the rule. Otherwise interpretations could scarcely do more than repeat their source.",
+        "The court stressed that genuine interpretations might still exceed statutory authority or otherwise fail on the merits. Those objections remained open because the petitioners had not presented them. Written guidance also did not necessarily remove protections: the agency could otherwise develop interpretations through enforcement. Guidance could improve notice, while eventual judicial review encouraged consideration of opposing evidence and arguments, especially without an earlier formal comment process."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "995 F.2d 1111–1113"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The same reasoning disposes of all three petitions",
+      "cue": "What questions did the court leave open?",
+      "paragraphs": [
+        "The agency argued that supersession made the earlier challenges moot. No citations had issued for violations during the earlier letters’ operation, although possible enforcement of undiscovered violations was unclear. The court did not resolve that question because its classification of the August 1992 letter also covered the earlier versions.",
+        "On June 15, 1993, the panel dismissed all three petitions. It neither vacated the letters nor decided an operator’s liability. There was no separate opinion. The holding concerned the notice-and-comment classification, leaving substantive challenges to the interpretation available."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "995 F.2d 1112 n.2, 1113"
+        }
+      ]
+    }
+  ]
+}

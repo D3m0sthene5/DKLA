@@ -1,0 +1,160 @@
+{
+  "id": "lrs-i-nfib-osha",
+  "briefId": "LRS-ATLAS-I-NFIB-OSHA",
+  "title": "National Federation of Independent Business v. Department of Labor, OSHA",
+  "course": "Legislation and the Regulatory State",
+  "citation": "595 U.S. 109 (2022)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "As COVID-19 continued to spread, federal workplace regulators ordered large employers to require vaccination or offer a testing-and-masking alternative. Businesses and States sought emergency court relief, arguing that Congress had not authorized that broad intervention.",
+  "actors": [
+    {
+      "name": "Occupational Safety and Health Administration (OSHA)",
+      "role": "Department of Labor agency that issued the emergency workplace standard."
+    },
+    {
+      "name": "National Federation of Independent Business and other business applicants",
+      "role": "Challengers seeking a stay of the standard."
+    },
+    {
+      "name": "Ohio and other state applicants",
+      "role": "States pursuing a companion stay application."
+    },
+    {
+      "name": "Justice Gorsuch",
+      "role": "Concurrence author, joined by Thomas and Alito."
+    },
+    {
+      "name": "Justices Breyer, Sotomayor, and Kagan",
+      "role": "Authors of the joint dissent."
+    }
+  ],
+  "proceedings": "The Fifth Circuit stayed the standard; after consolidation, a Sixth Circuit panel dissolved that stay. The Supreme Court granted two applications and stayed the standard pending Sixth Circuit review and timely certiorari proceedings, based on likely lack of statutory authority.",
+  "limits": "This is the January 13, 2022 emergency order, not a final merits judgment or a prohibition of all occupational COVID standards. Predicted costs, departures, lives saved, and hospitalizations prevented are attributed submissions or agency assessments. No later regulatory outcome is reported.",
+  "briefSha256": "2ac6b7897d2b9944190db9fb409dddee8017569257d315092675a8c6c4bf3103",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-NFIB-OSHA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An emergency standard reaches large employers",
+      "cue": "What did OSHA require, and how did it depart from ordinary rulemaking?",
+      "paragraphs": [
+        "The Occupational Safety and Health Administration (OSHA), within the Department of Labor, ordinarily set standards under the Occupational Safety and Health Act through notice, comment, and an opportunity for a hearing. Section 655(c)(1) authorized an immediate emergency temporary standard when employees faced grave danger from toxic or physically harmful substances or agents, or new hazards, and emergency protection was necessary. Before COVID-19, OSHA had used that exceptional authority nine times; six standards were challenged and only one survived in full.",
+        "After President Biden announced the planned policy in September 2021, OSHA published its standard on November 5. It covered employers with at least 100 employees and approximately 84.2 million workers. Covered employers ordinarily had to adopt a vaccination policy, verify status, and keep records. An employer could instead offer weekly testing and workplace masking to unvaccinated employees, but did not have to offer that alternative. The Court described testing as occurring at workers’ expense and on their own time. Noncomplying unvaccinated workers had to be removed from the workplace, and employers faced substantial penalties.",
+        "Employees who worked remotely all the time or exclusively outdoors were exempt. How much those exclusions and other qualifications narrowed the rule would become a central disagreement: the Court viewed the practical exemptions as narrow, while the dissent emphasized additional exemptions, safety variances, and employers’ testing-and-masking choice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 1–4; joint dissent 3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Challenges converge in the Sixth Circuit",
+      "cue": "What had the lower courts done before emergency Supreme Court review?",
+      "paragraphs": [
+        "States, businesses, trade groups, and nonprofit organizations petitioned regional courts of appeals. The Fifth Circuit stayed the standard. Random consolidation then placed the challenges in the Sixth Circuit, which divided 8–8 on whether to hear them initially en banc and therefore denied that request.",
+        "A Sixth Circuit panel dissolved the Fifth Circuit’s stay over Judge Larsen’s dissent. The National Federation of Independent Business and other business applicants, and Ohio with other state applicants, sought Supreme Court relief. The Court consolidated the two stay applications and heard expedited argument on January 7, 2022. The immediate question was whether enforcement should remain suspended during judicial review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court distinguishes workplace hazards from hazards encountered at work",
+      "cue": "Why did six Justices find the authority challenge likely to succeed?",
+      "paragraphs": [
+        "The Government argued that COVID exposure was a work-related danger within OSHA’s mission. In an unsigned opinion, the Court accepted that COVID spread in workplaces but rejected the premise that this alone made the broad standard an occupational-safety measure. The virus also spread in homes, schools, sporting events, and other gatherings. Treating every everyday risk as occupational merely because employees encountered it at work would substantially enlarge OSHA’s authority.",
+        "A measure with such enormous economic and political significance required clear congressional authorization. The Act repeatedly addressed occupational safety, health, and employee dangers, not general public-health regulation. Vaccination also differed from ordinary workplace protections because its effects could not be removed at the end of a shift. OSHA’s half-century without a comparable assertion of broad public-health power reinforced the Court’s reading. The Court did not treat COVID funding in the American Rescue Plan as authorization for this later policy and noted a Senate vote disapproving the standard.",
+        "The opinion preserved OSHA’s authority over occupation-specific COVID risks. Researchers working with the virus and people in particularly crowded or cramped workplaces could face risks different in degree and kind from ordinary community exposure. The objection concerned indiscriminate coverage, not all agency action concerning COVID. A footnote expressly withheld judgment on objections the opinion did not address; the Court had not accepted all remaining conditions for an emergency standard."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 5–8 & n.*"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Competing predictions inform the request for interim relief",
+      "cue": "How did the Court address the consequences of a stay?",
+      "paragraphs": [
+        "The applicants predicted billions of dollars in unrecoverable costs and large numbers of employee departures. The Government predicted that the standard would save more than 6,500 lives and prevent hundreds of thousands of hospitalizations. These were the parties’ competing submissions, not independently established Supreme Court findings.",
+        "The Court concluded that the equities did not justify withholding a stay. Broad public-health tradeoffs belonged to democratically authorized decisionmakers, and OSHA had not been assigned this power. The likely statutory defect supported emergency relief without a final judgment resolving every regulatory objection."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 8–9"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Gorsuch connects statutory clarity with responsibility for lawmaking",
+      "cue": "What additional reasoning did three Justices offer?",
+      "paragraphs": [
+        "Justice Gorsuch concurred, joined by Justices Thomas and Alito. He framed the issue as who possessed authority to decide rather than which pandemic response was best. State and local governments possessed general governing powers, while federal powers were enumerated and divided. Under the major-questions doctrine, a decision of this scale needed a clear delegation, and the emergency subsection supplied none. Agency history, the mismatch between workplace and general public-health authority, and express vaccination provisions elsewhere supported that conclusion.",
+        "Gorsuch also linked the major-questions doctrine to nondelegation. One prevented agencies from discovering vast legislative power in unlikely or obscure provisions; the other restricted Congress’s deliberate transfer of legislative power. Both protected democratic responsibility. In his view, the virtually unlimited interpretation OSHA proposed would likely make the subsection an unconstitutional delegation. That was a conditional argument in the concurrence, not a Court holding invalidating the statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Gorsuch concurrence 1–7"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The dissent regards the standard as a necessary workplace response",
+      "cue": "Why would three Justices have allowed enforcement?",
+      "paragraphs": [
+        "Justices Breyer, Sotomayor, and Kagan jointly dissented. They read the emergency provision as requiring protection when a physically harmful new hazard created grave workplace danger and a standard was necessary. In their view, OSHA’s extensive scientific record satisfied those requirements under substantial-evidence review. Workplace contact was prolonged, and employees often could not avoid colleagues, customers, or patients. A hazard’s existence elsewhere did not remove power to address its workplace effects.",
+        "OSHA already regulated dangers also present outside work, including fire, unsafe water, noise, and electrical hazards, and it regulated infectious disease and facilitated vaccination. Recent congressional funding for COVID worker protections supported the agency’s role. The emergency’s breadth explained the rule’s reach; testing and masking, exemptions, and variances undermined the description of an indiscriminate compulsory-vaccination regime.",
+        "The dissent also disagreed about the equities. OSHA considered predictions of employee departures overstated and identified benefits from retention and fewer sick days. Avoiding disease, deaths, and hospitalization outweighed economic costs, particularly with cases rising rapidly. The dissenters argued that courts lacked the agency’s scientific expertise and political accountability and should not displace reasoned protections within its mandate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Joint dissent 1–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The order suspends enforcement during review",
+      "cue": "What exactly did the Court direct?",
+      "paragraphs": [
+        "On January 13, 2022, the Court granted both applications by a 6–3 vote. It stayed the emergency standard pending Sixth Circuit review and timely Supreme Court certiorari proceedings. A denial of certiorari would automatically terminate the order; a grant would continue it until the Supreme Court’s judgment was sent down.",
+        "The order did not finally adjudicate every challenge or prohibit targeted COVID workplace standards. Later discussion of this order in West Virginia v. Environmental Protection Agency did not alter that emergency posture. The separate health-care vaccination and eviction-moratorium cases involved different instruments and statutory authority."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Per curiam 9; assigned limits"
+        }
+      ]
+    }
+  ]
+}

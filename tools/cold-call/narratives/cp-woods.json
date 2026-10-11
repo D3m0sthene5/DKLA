@@ -1,0 +1,121 @@
+{
+  "id": "cp-woods",
+  "briefId": "CP-ATLAS-WOODS",
+  "title": "Woods v. Interstate Realty Co.",
+  "course": "Civil Procedure",
+  "citation": "337 U.S. 535 (1949)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A Tennessee broker seeks a Mississippi commission in federal court despite failing to qualify to do business in the state. The dispute asks whether diversity jurisdiction offers enforcement that the state’s own courts deny.",
+  "actors": [
+    {
+      "name": "Interstate Realty Company",
+      "role": "Tennessee corporation seeking a broker’s commission."
+    },
+    {
+      "name": "Woods",
+      "role": "Mississippi resident whose real estate was sold and who opposed the commission suit."
+    }
+  ],
+  "proceedings": [
+    "The district court granted Woods summary judgment and dismissed with prejudice.",
+    "The Fifth Circuit reversed and adhered to that result on rehearing.",
+    "The Supreme Court reversed the Fifth Circuit; Jackson dissented with Rutledge and Burton, and Rutledge also addressed Woods in a shared dissent."
+  ],
+  "limits": "This account transforms the canonical historical brief without a new audit or current Erie-law review. The majority did not need to hold the contract void. Rutledge’s additional discussion is expressly identified as a companion writing in Cohen, not a separate portion of the Woods report.",
+  "briefSha256": "64093fb037c475b2c2f3e98db5ee25677602ceae81b0e8a2aec704b61906392e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-ATLAS-WOODS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "An unqualified foreign corporation seeks its commission",
+      "cue": "What restriction did Mississippi impose?",
+      "paragraphs": [
+        "Interstate Realty Company, a Tennessee corporation, claimed a broker’s commission from the sale of real estate belonging to Woods, a Mississippi resident. Interstate had been doing business in Mississippi without complying with a statute requiring a foreign corporation to designate an agent for service.",
+        "The statute barred a noncomplying corporation from bringing or maintaining an action in Mississippi’s courts. Interstate nevertheless sued in federal court in Mississippi under diversity jurisdiction to enforce its state-law commission claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "337 U.S. 535–536 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts disagree about both validity and federal access",
+      "cue": "Which distinction reached the Supreme Court?",
+      "paragraphs": [
+        "The district court granted Woods summary judgment, understood Mississippi decisions to make the contract void, and dismissed with prejudice. The Fifth Circuit read those decisions differently: the contract remained valid, though unenforceable in the state’s own courts.",
+        "Relying on Lupton’s Sons, a precedent allowing an unqualified corporation to sue in federal diversity court despite a New York state-court restriction, the Fifth Circuit held that Mississippi’s bar did not govern the federal forum. It reversed and reaffirmed after rehearing. The Supreme Court granted review because that conclusion appeared to conflict with Angel v. Bullington."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "337 U.S. 535–536"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority applies Erie to the available enforcement remedy",
+      "cue": "Why did the older federal-forum precedent no longer control?",
+      "paragraphs": [
+        "Justice Douglas wrote the Court’s opinion, announced by Justice Reed. Lupton’s Sons had reasoned that a state could not prescribe qualifications for federal suitors. The Court regarded that conception of diversity as obsolete after Erie’s rejection of an independent federal approach to locally created rights.",
+        "Angel v. Bullington had rested both on preclusion from an earlier state judgment and on Erie’s opposition to federal diversity enforcement where the state denied the remedy. The Fifth Circuit had called the latter discussion nonbinding. The Supreme Court answered that an independently sufficient ground does not become dictum simply because another also supports a decision.",
+        "Guaranty Trust Co. v. York supplied the central rationale: in enforcing a state-created right through diversity, the right and the state’s remedy could not be separated to give outsiders a better opportunity for recovery. Allowing a federal remedy when state courts denied recovery would favor litigants eligible for diversity over those confined to state court. The majority understood Erie to prevent that disparity.",
+        "The state restriction therefore also barred this diversity action. The reasoning answered the Fifth Circuit’s valid-but-unenforceable distinction without adopting the district court’s conclusion that the brokerage contract itself was void."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "337 U.S. 536–538"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Jackson argues that the majority exceeds Mississippi’s own rule",
+      "cue": "What did the separate writings contest?",
+      "paragraphs": [
+        "Justice Jackson, joined by Justices Rutledge and Burton, would affirm the Fifth Circuit. On its reading of state law, Mississippi withheld its own courts’ assistance without destroying the contractual right or prohibiting other remedies. Closing federal court too gave the statute a harsher effect than the state had chosen and therefore distorted rather than honored state law.",
+        "Foreign-corporation qualification statutes commonly used that narrower restriction. Enlarging it could give a debtor an unearned benefit unrelated to the state’s injury from nonqualification. Jackson would follow a state decision actually imposing that broader effect, but understood Mississippi to have done the opposite.",
+        "Rutledge also addressed Woods in his shared dissent published with the companion case Cohen. He criticized three same-day decisions for extending Erie into federal litigation matters Congress could regulate. He agreed with Jackson’s disposition without suggesting that federal courts could generally disregard substantive state law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "337 U.S. 538–540; companion Cohen dissent, 337 U.S. 557–561 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The federal suit remains barred",
+      "cue": "What was the exact appellate disposition?",
+      "paragraphs": [
+        "On June 20, 1949, the Supreme Court reversed the Fifth Circuit’s judgment allowing suit. The result sustained the bar to Interstate Realty’s federal action. It was not a separate determination that the underlying contract was void; the decisive point was unavailable enforcement in the federal diversity forum when Mississippi denied recovery in its courts."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "337 U.S. 538"
+        }
+      ]
+    }
+  ]
+}

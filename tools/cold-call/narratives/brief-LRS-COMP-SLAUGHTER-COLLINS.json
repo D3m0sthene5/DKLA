@@ -1,0 +1,179 @@
+{
+  "id": "brief-LRS-COMP-SLAUGHTER-COLLINS",
+  "briefId": "LRS-COMP-SLAUGHTER-COLLINS",
+  "title": "Collins v. Yellen",
+  "course": "Legislation and the Regulatory State",
+  "citation": "594 U.S. 220 (2021)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After federal rescue of Fannie Mae and Freddie Mac, shareholders challenge a dividend arrangement that sends rising profits to Treasury. The case separates the conservator’s statutory authority, the Director’s removal protection, and the consequences of that constitutional defect for past transactions.",
+  "actors": [
+    {
+      "name": "Fannie Mae and Freddie Mac",
+      "role": "Federally chartered mortgage-finance companies placed in conservatorship."
+    },
+    {
+      "name": "Federal Housing Finance Agency (FHFA)",
+      "role": "Regulator and conservator led by a Director with statutory removal protection."
+    },
+    {
+      "name": "United States Treasury",
+      "role": "Capital provider and counterparty to the stock-purchase agreements."
+    },
+    {
+      "name": "Three shareholders",
+      "role": "Plaintiffs contesting the net-worth sweep and seeking retrospective and prospective relief."
+    }
+  ],
+  "proceedings": [
+    "The district court dismissed the statutory claim and granted the FHFA summary judgment on the constitutional claim.",
+    "The en banc Fifth Circuit revived the statutory claim, invalidated removal protection, and severed it without undoing the amendment.",
+    "The Supreme Court affirmed in part, reversed in part, vacated in part, and remanded."
+  ],
+  "limits": "This is a transformation of the canonical 2021 brief, not a fresh audit or certification of current company arrangements or later remand outcomes. Treasury claims not presented for review and later executive actions concerning other agencies remain outside the holding. Report figures are historical transactions, not damages. The official preliminary report was subject to formal revision.",
+  "briefSha256": "b7ccc99a6c59120bd46b2dced0a2e74d99470f8877e518ce16b7061139476359",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-COMP-SLAUGHTER-COLLINS"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A mortgage crisis produces federal conservatorship",
+      "cue": "How much authority did Congress give the new agency?",
+      "paragraphs": [
+        "Fannie Mae and Freddie Mac were privately owned, for-profit companies with federal charters. They bought and securitized mortgages to support liquidity and stability in housing finance. Their portfolios approached $5 trillion in 2007; the 2008 housing collapse caused extraordinary losses and threatened the economy.",
+        "Congress responded with the Housing and Economic Recovery Act, creating the Federal Housing Finance Agency, or FHFA. A Senate-confirmed Director served five years and could be removed by the President for cause. Funded by assessments rather than annual appropriations, the agency could regulate, investigate, subpoena, issue orders and penalties, and appoint itself conservator or receiver. Conservatorship gave broad control over the companies’ operations and property.",
+        "In September 2008, the FHFA placed both companies in conservatorship and negotiated Treasury stock-purchase agreements. Treasury initially promised up to $100 billion to each, receiving senior preferred shares, liquidation preferences, warrants for up to 79.9 percent of common stock, and cash dividends initially calculated at a ten-percent annual rate. Treasury waived commitment fees; later amendments expanded its capital promise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 228–233 & nn.1–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A third amendment replaces fixed dividends with a net-worth sweep",
+      "cue": "Why did shareholders contest the change?",
+      "paragraphs": [
+        "The companies repeatedly drew Treasury money to pay Treasury dividends. By mid-2012, draws exceeded $187 billion, including $26 billion used for dividends. An Acting FHFA Director adopted an August 2012 third amendment replacing the fixed formula with quarterly payment of net worth above a specified reserve.",
+        "That change eliminated dividends in loss quarters and circular borrowing, but prevented accumulation of capital beyond the reserve. As performance improved, about $200 billion flowed to Treasury in 2013–2016, at least $124 billion more than the earlier formula would have required.",
+        "Three shareholders sued in 2016. They claimed the sweep exceeded conservator authority and that removal protection violated separation of powers. They sought declarations, invalidation, prospective restrictions, and return of dividends to the companies or treatment of payments as reducing Treasury’s investment. The district court dismissed the statutory claim and granted the agency summary judgment on the constitutional claim.",
+        "A fractured en banc Fifth Circuit revived the statutory claim, found removal protection unconstitutional, and severed that protection without undoing the amendment. Both sides sought Supreme Court review. Separate statutory and arbitrary-and-capricious claims against Treasury were not presented. In January 2021, a fourth amendment suspended the challenged variable-dividend formula while specified capital levels were built, changing the prospective-relief question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 233–237 & nn.7–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court finds the sweep within statutory conservator authority",
+      "cue": "Why did shareholder interests not control?",
+      "paragraphs": [
+        "Justice Alito’s statutory ruling was unanimous. Section 4617(f) barred judicial action restraining or affecting authorized conservator or receiver powers, though not action exceeding them. The third amendment was within those powers.",
+        "The Act permitted action in the interests of the regulated entity or the agency. The conservator could therefore pursue rehabilitation serving public interests without maximizing shareholder returns. Ending circular draws preserved Treasury’s remaining commitment as a mortgage-market backstop, a choice the agency could reasonably make despite sacrificing future capital accumulation.",
+        "Predicted improved earnings did not place that choice outside statutory authority. Shareholders’ proposed in-kind dividends did not answer agreements requiring cash: nonpayment would increase the liquidation preference and raise the rate to twelve percent, preserving payment risk. Nor did the sweep itself liquidate companies that continued substantial mortgage operations. The Court did not decide whether the amendment was good business judgment. The anti-injunction provision required dismissal of this statutory claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 237–242 & nn.12–14"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The constitutional claim survives threshold objections but has limits",
+      "cue": "How did acting and confirmed Directors differ?",
+      "paragraphs": [
+        "Shareholders alleged concrete financial injury traceable to adoption and implementation of the amendment, potentially redressable retrospectively. Standing did not require already proving that removal protection caused the loss; entitlement to relief was separate. The fourth amendment mooted prospective relief, not retrospective remedies.",
+        "The succession clause transferred shareholder rights concerning company assets and affairs to the conservator, but did not transfer away a constitutional right to challenge separation-of-powers violations possessed by persons with standing. The Court left its application to the statutory claim undecided because the anti-injunction rule already disposed of that claim.",
+        "The Acting Director’s adoption did not defeat every constitutional issue because confirmed Directors implemented the amendment and could renegotiate. But the Act expressly protected confirmed Directors without extending that protection to acting officers. The ordinary presumption of presidential removal therefore made the Acting Director removable at will. Calling the agency independent did not supply missing protection. Wiener, involving an adjudicatory body requiring freedom from executive interference, did not govern this agency. Harm from adoption could not rest on a restriction that did not cover its adopter."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 242–250 & nn.15–18; 258 n.24"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The confirmed Director’s removal protection is unconstitutional",
+      "cue": "Which distinctions did the Court reject?",
+      "paragraphs": [
+        "Applying Seila Law, the precedent invalidating single-director protection at the Consumer Financial Protection Bureau, six Justices joined Alito’s removal rationale. The FHFA’s smaller domain, conservator role, government-sponsored entities, and assertedly modest for-cause protection did not justify a different result. Agency importance was not a workable measure of presidential removal power. Even conservatorship implemented a special federal statute with government powers, and effects on homeowners and markets implicated accountability. For-cause protection still differed from removal at will.",
+        "Justice Kagan separately accepted the result under precedent, producing a seven-to-two invalidation. The Court expressly left other agencies’ removal restrictions undecided, including those of the Social Security Administration, Office of Special Counsel, commissions, and civil service."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 250–257 & nn.19–21"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Invalid removal protection does not automatically void authorized acts",
+      "cue": "What must the lower courts examine about harm?",
+      "paragraphs": [
+        "Eight Justices joined the remedial discussion. Each Director was lawfully appointed and possessed the office’s powers, unlike an invalidly appointed actor or one exercising another branch’s authority. The defect therefore did not automatically void the amendment or every implementation act. Seila Law had not settled whether ratification was necessary, and Bowsher involved a different defect and express remedial mechanism.",
+        "A removal restriction could nevertheless cause compensable harm—for example, if a President was actually prevented from removing an officer or announced that the law blocked a desired removal. Shareholders argued that different personnel or incentives would change decisions; the government answered that the President already controlled Treasury, the other contracting party. The Court left those contentions and a disputed, fact-dependent laches defense to the lower courts. It neither guaranteed payment nor foreclosed every retrospective remedy."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 257–260 & nn.22–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-7",
+      "title": "The separate writings divide over presidential power and retrospective relief",
+      "cue": "Why did the Justices agree on some results for different reasons?",
+      "paragraphs": [
+        "Justice Thomas joined fully but stressed that an unconstitutional statute alone did not establish unlawful action or a right to redress. A lawfully appointed officer retained authorized powers, and the Constitution displaced invalid removal limits. He questioned whether mistaken beliefs about removal made otherwise authorized conduct unlawful and found no textual basis for inseverable conservator powers. Actual blocked removal might leave an unauthorized officer; a mistaken-understanding challenge under arbitrary-and-capricious review would raise different, unpresented questions. He doubted eventual recovery while accepting remand and discussed potential equitable and administrative causes of action without resolving them.",
+        "Kagan found the FHFA meaningfully indistinguishable from Seila Law because it exercised significant executive power, but rejected the majority’s political theory and abandonment of that limiting distinction. Precedent constrained winners as well as prior dissenters. Her remedial Part II, joined by Justices Breyer and Sotomayor, required a showing that removal protection affected the decision; automatic unwinding could overcompensate plaintiffs and disrupt actions a President supported or never noticed. She thought Treasury’s presidential accountability might already establish no effect, but that was not the Court’s final conclusion.",
+        "Justice Gorsuch agreed on the merits but rejected the remedy. He regarded acts of an unconstitutionally insulated officer as unauthorized and ordinarily subject to being set aside, with traditional equitable defenses such as laches remaining. He disputed the appointment-supervision distinction and reliance on counterfactual congressional or presidential choices. Sensitive executive evidence and speculative inquiries might deny effective relief. His preferred invalidation was not adopted.",
+        "Sotomayor, joined by Breyer, accepted the statutory result and remedy but would uphold tenure protection. She read Seila Law as addressing significant coercive power over private actors. Compared with the Consumer Financial Protection Bureau and the 1935 Federal Trade Commission, this agency’s limited government-sponsored entities, narrower mission, and conservatorship role mattered. She invoked Morrison’s independent-counsel precedent and historical financial-regulation independence, criticized intrusion on Congress’s design choices, joined Kagan’s remedial analysis, and regarded Thomas’s lawfulness question as worth future consideration."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 261–294; Thomas nn.1–7, Gorsuch nn.1–2, Sotomayor nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-8",
+      "title": "The mixed judgment returns the remedy questions to the lower courts",
+      "cue": "What was and was not ordered?",
+      "paragraphs": [
+        "On June 23, 2021, the Court affirmed in part, reversed in part, vacated in part, and remanded the Fifth Circuit’s judgment. The statutory claim had to be dismissed; confirmed-director removal protection was unconstitutional; possible retrospective relief and related disputes remained for further proceedings. No blanket invalidation or repayment award was entered.",
+        "Chief Justice Roberts and Justices Thomas, Kavanaugh, and Barrett joined Alito fully. Breyer and Kagan joined except the removal rationale; Gorsuch joined except the remedy; Sotomayor joined the background, statutory ruling, and remedy. Later executive actions and advice concerning other agencies did not enlarge Collins’s holding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "594 U.S. 220, 261; canonical brief’s participation and aftermath distinctions"
+        }
+      ]
+    }
+  ]
+}

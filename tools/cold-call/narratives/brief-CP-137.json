@@ -1,0 +1,108 @@
+{
+  "id": "brief-CP-137",
+  "briefId": "CP-137",
+  "title": "Mathews v. New York Racing Association, Inc.",
+  "course": "Civil Procedure",
+  "citation": "193 F. Supp. 293 (S.D.N.Y. 1961)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A racetrack patron loses a suit against security employees, then tries different tort labels against their principals; the adjudicated transaction bars the second attempt.",
+  "actors": [
+    {
+      "name": "Joseph Mathews",
+      "role": "Racetrack patron and plaintiff in both actions."
+    },
+    {
+      "name": "New York Racing Association",
+      "role": "Operator of Jamaica Race Track and defendant in the later action."
+    },
+    {
+      "name": "Thoroughbred Racing Protective Association",
+      "role": "Private detective agency providing track security through the employees sued earlier."
+    }
+  ],
+  "proceedings": [
+    "Judge Palmieri rejected relief in the earlier employee action after a bench trial.",
+    "Judge MacMahon granted the corporate defendants summary judgment in the later action."
+  ],
+  "limits": "Misconduct allegations are not accepted facts. The relationship between principals and agents concerns the derivative liability alleged here, not every possible employer dispute. The applicable Rule 56(b) designation is historical.",
+  "briefSha256": "545a9dc617e81f537f93f8709e42aebc97d71de9707f188825c1117e915f57a0",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-137"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Removal from the track is followed by a criminal proceeding",
+      "cue": "What conduct did Mathews allege?",
+      "paragraphs": [
+        "New York Racing Association operated Jamaica Race Track and retained Thoroughbred Racing Protective Association, a private detective agency, to provide security. Joseph Mathews alleged that Thoroughbred’s employees assaulted, kidnapped, falsely arrested and imprisoned him at the track on April 4, 1958. He also alleged that they maliciously caused his disorderly-conduct prosecution and conviction on April 10.",
+        "The removal and the statements connected with the ensuing prosecution became the subjects of civil litigation. Mathews sought damages and protection for his ability to attend racetracks. His characterizations of the employees’ conduct were allegations, not findings that those wrongs occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Transaction and allegations;193 F.Supp.294"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The first federal suit ends in a judgment for the employees",
+      "cue": "What did the judge actually find?",
+      "paragraphs": [
+        "Mathews first sued three individuals, only two of whom were properly served. Those two were employees of the corporations later sued. He pleaded assault and libel and sought damages and injunctive protection concerning racetrack attendance.",
+        "After a nonjury trial, Judge Palmieri entered judgment on June 30, 1960 rejecting relief. He specifically found that Mathews physically resisted removal and that the employees used no more force than reasonably necessary. That action also included three claims involving different facts, but their presence did not change the adjudication of this transaction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Earlier action and findings;193 F.Supp.294–295"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Mathews changes defendants and legal labels",
+      "cue": "Why could the corporations rely on the employees’ judgment?",
+      "paragraphs": [
+        "In the later action, Mathews sought relief against the corporate principals using false-arrest and malicious-prosecution theories. He also requested injunctions against interference with track attendance, libelous publication and purported peace-officer authority. The corporations moved for summary judgment under the then-existing Rule 56(b), invoking the prior judgment.",
+        "Judge MacMahon held that the corporations and employees were identified in interest for the derivative liability asserted. The track operator acted through Thoroughbred, which acted through the individual employees. Because the alleged corporate liability depended on those agents’ actionable wrongdoing, the principals stood or fell with them in this claim.",
+        "Changing legal labels did not change the underlying transaction. Although the removal and prosecution occurred nearly a week apart, the removal was the subject of the disorderly-conduct trial. The same witnesses described the same conduct whether called assault or false arrest; the same statements underlay libel and malicious prosecution. Mathews could not save alternative theories arising from that invasion for serial suits after losing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Corporate motion, aligned interests and transaction;193 F.Supp.294–295"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The prior merits decision forecloses another trial",
+      "cue": "What additional circumstances supported finality?",
+      "paragraphs": [
+        "MacMahon also relied on the earlier actual findings, describing Mathews as directly and collaterally estopped. His lack of counsel did not require another trial after fair adjudication. Mathews had been offered an opportunity to consolidate this action with the earlier suit and had been advised to obtain counsel in another related proceeding.",
+        "An earlier ruling that the new complaint was sufficient did not remove the later effect of the completed merits judgment. On May 1, 1961, MacMahon granted the defendants’ summary-judgment motion. No separate writing accompanied the decision. The result applied preclusion to this repeated transaction and alleged derivative liability; it did not announce universal identity between every employer and employee."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Prior findings, consolidation and judgment;193 F.Supp.295–296"
+        }
+      ]
+    }
+  ]
+}

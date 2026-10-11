@@ -1,0 +1,127 @@
+{
+  "id": "lrs-n-standing-air-courier",
+  "briefId": "LRS-ATLAS-N-STANDING-AIR-COURIER",
+  "title": "Air Courier Conference of America v. American Postal Workers Union, AFL-CIO",
+  "course": "Legislation and the Regulatory State",
+  "citation": "498 U.S. 517 (1991)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Postal unions oppose private international remailing because it may reduce employee work. The Supreme Court separates that economic injury from the interests Congress protected through the postal monopoly.",
+  "actors": [
+    {
+      "name": "American Postal Workers Union and National Association of Letter Carriers",
+      "role": "Employee unions challenging international remailing."
+    },
+    {
+      "name": "United States Postal Service",
+      "role": "Agency that suspended restrictions to permit remailing after public proceedings."
+    },
+    {
+      "name": "Air Courier Conference of America",
+      "role": "Intervening courier association defending the rule and seeking Supreme Court review."
+    }
+  ],
+  "proceedings": [
+    "The district court granted summary judgment for the Postal Service and couriers.",
+    "The D.C. Circuit vacated, finding the unions within the relevant statutory zone and the agency’s public-interest inquiry too narrow.",
+    "The Supreme Court reversed on February 26, 1991; six Justices used zone of interests and three concurred on APA exemption."
+  ],
+  "limits": "This account follows the historical canonical brief without a fresh audit or current-standing claim. Economic injury was uncontested on appeal, while statutory entitlement to this APA claim failed. The Court did not decide remailing’s public-interest merits or the majority’s reserved APA exemption. The formal disposition was reversal without an express remand.",
+  "briefSha256": "9f3cf64e04fa052bbd7e5c40d04040ca8f4f86de603f327fa168156e1c208d84",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-N-STANDING-AIR-COURIER"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Service changes its treatment of international remailing",
+      "cue": "Why did monopoly protection and the public-interest exception coexist?",
+      "paragraphs": [
+        "The Private Express Statutes in Titles 18 and 39 protected the United States Postal Service’s letter-carrying monopoly. Revenue from profitable routes helped support uniform-price service to expensive communities; unrestricted competitors could skim that revenue. Congress nevertheless permitted suspension on a route when the public interest required it.",
+        "In 1979 the Service allowed private carriage of extremely urgent letters, enabling overnight delivery. Couriers used that permission to bypass the Service and deposit letters in foreign postal systems for delivery abroad. The Service initially considered international remailing misuse and proposed clarification excluding it in 1985.",
+        "Adverse comments emphasized lower cost, speed, reliability and international-business benefits. The Service reconsidered, held further rulemaking and a public meeting, and adopted permission for remailing. This was an exercise of statutory suspension authority, not a claim that all private carriage was forbidden."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Facts and administrative history; 498 U.S. 519–521, 525 n.4"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Unions challenge the public-interest finding and win an appellate reversal",
+      "cue": "Which injury question had already been settled?",
+      "paragraphs": [
+        "The American Postal Workers Union and National Association of Letter Carriers represented employees who might lose work. Under Administrative Procedure Act § 702 they challenged record support for the public-interest finding required by 39 U.S.C. § 601(b). Air Courier Conference intervened in defense.",
+        "The district court found potential adverse employment effects but granted defendants summary judgment. The injury-in-fact finding was not appealed. The D.C. Circuit vacated, locating the unions within the statutory zone because the Postal Reorganization Act contained labor protections and the monopoly financed the enterprise. It also found the agency focused too narrowly on international-mail users’ interests.",
+        "The courier association obtained Supreme Court review. The remaining standing issue was statutory protection, not whether employees might suffer economically. Actual harm did not by itself permit enforcement of every law affecting their employer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Procedure and questions; 498 U.S. 520–524"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority leaves the Service’s APA exemption for another case",
+      "cue": "Why could it resolve the statutory zone without deciding that threshold defense?",
+      "paragraphs": [
+        "Although nominally a respondent, the Postal Service supported the couriers and invoked § 410(a), arguing exemption from specified laws including APA review. Chief Justice Rehnquist’s six-Justice opinion declined to decide it because the issue had not been argued or decided below, was absent from the certiorari petition and fell outside granted questions.",
+        "The Court explained that APA review concerned a cause of action, and the exemption could operate as a waivable defense rather than an unavoidable jurisdictional defect. It could assume an available APA action while deciding whether these unions possessed the interest required for this particular challenge."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Threshold complication; 498 U.S. 522–523 & nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The relevant statutes protect postal revenue and service rather than jobs",
+      "cue": "Why did the labor provisions not expand their zone of interests?",
+      "paragraphs": [
+        "The substantive claim invoked the Private Express Statutes, so their protected interests governed. Text and history concerned postal revenue and public service, not employee opportunities. Permission for private carriage of properly stamped letters was telling: the government could collect revenue even if employees did not carry the letters.",
+        "Historically, substantial carriage was contracted out, and disputes over competition centered on deficits, uniform rates and dependable communication rather than preserving a particular workforce. The unions themselves competed with neither the Service nor private remailers, so competitor-standing precedents did not establish their employment interest.",
+        "The Court did not say related provisions could never inform a zone. In Clarke, two banking provisions formed an integrated restriction-and-exception structure. The postal monopoly and labor-management protections shared a broad codification without comparable operational linkage. Treating the entire title as one relevant statute would erase meaningful boundaries.",
+        "Congress reenacted the monopoly without substantive change and commissioned a study; history did not connect it to labor protections. Even a financial linchpin did not allow beneficiaries of another statutory program to enforce this public-interest restriction."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Holding and reasoning; 498 U.S. 524–530 & nn.4–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Stevens reaches the result through exemption rather than standing",
+      "cue": "What did the judgment leave unresolved?",
+      "paragraphs": [
+        "Justice Stevens, joined by Justices Marshall and Blackmun, concurred in the judgment. He considered § 410(a)’s APA exemption unambiguous and thought the majority answered an unnecessary hypothetical standing question. The Court could notice the exemption itself; he found no need to decide waiver. His note observed the government raised it in opposing review and the circuit acknowledged it before proceeding.",
+        "That was an alternative reason denying APA review, not a narrower zone-of-interests test. On February 26, 1991, all nine Justices agreed to reverse, with no dissent. The majority held the employment interests outside the statutory zone and expressly declined to determine whether remailing served the public interest. The formal mandate added no express remand. The decision neither denied possible employment losses nor independently approved the rule’s substantive legality."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and separate reasoning; 498 U.S. 530–532 & Stevens starred note"
+        }
+      ]
+    }
+  ]
+}

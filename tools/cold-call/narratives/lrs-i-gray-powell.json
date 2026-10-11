@@ -1,0 +1,144 @@
+{
+  "id": "lrs-i-gray-powell",
+  "briefId": "LRS-ATLAS-I-GRAY-POWELL",
+  "title": "Gray v. Powell",
+  "course": "Legislation and the Regulatory State",
+  "citation": "314 U.S. 402 (1941)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Seaboard Air Line Railway leased coal rights but hired independent operators to mine the coal it consumed. The arrangement spared the railroad much of a mine owner’s operating risk; it also led the federal coal regulator to reject Seaboard’s claim that it produced its own coal.",
+  "actors": [
+    {
+      "name": "Seaboard Air Line Railway’s receivers",
+      "role": "Applicants seeking a producer-consumer exemption for the railroad’s coal."
+    },
+    {
+      "name": "Director of the Bituminous Coal Division",
+      "role": "Administrator who denied the exemption after agency reorganization."
+    },
+    {
+      "name": "Justice Reed",
+      "role": "Author of the Supreme Court majority opinion."
+    },
+    {
+      "name": "Justice Roberts",
+      "role": "Dissenter joined by Chief Justice Stone and Justice Byrnes."
+    }
+  ],
+  "proceedings": "The agency denied exemption; the Fourth Circuit reversed. After initially affirming by an equally divided vote, the Supreme Court granted rehearing and reversed the Fourth Circuit in a reasoned 5–3 decision sustaining the denial.",
+  "limits": "This 1941 case predates the Administrative Procedure Act. Its delegated classification analysis and its separate construction of the coal-disposal provisions are distinct. Later Loper Bright accounts are interpretations of Gray’s significance, not additional Gray holdings.",
+  "briefSha256": "6d081f12a81947a7e82d036cc72b98c9d5132b6338aa7b756db6fcff56dc2f7f",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-ATLAS-I-GRAY-POWELL"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A railroad obtains coal without operating the mines",
+      "cue": "How were Seaboard’s leases and extraction contracts structured?",
+      "paragraphs": [
+        "The receivers of Seaboard Air Line Railway arranged for coal from three mines to supply approximately half the railroad’s annual needs, estimated at one million tons in 1936. The Supreme Court used the William-Ann arrangement as representative because the extraction plans did not differ significantly.",
+        "Seaboard leased coal lands, paying per-ton royalties subject to an annual minimum of $16,200. The landowners separately leased mining equipment to an operator selected by Seaboard. The railroad then contracted with that operator to extract and deliver coal for its own consumption. The coordinated agreements contained corresponding terms and renewal provisions.",
+        "The operator managed the mine independently. Seaboard had no right to direct mining and supplied no mining or loading facilities. The operator assumed obligations for taxes, insurance, repairs, improvements, and specified welfare expenses, along with operating risks. Seaboard ordinarily paid the contract price per ton plus its royalty; an available cost-plus alternative went unused. Adjustments covered costs outside the operator’s control, and Seaboard could terminate if the operator would not lower his price to meet cheaper market coal. Seaboard obtained coal while avoiding much of the investment and operational profit-or-loss exposure of running a mine."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "403–409, 413–414"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An exemption application moves from administrators to courts",
+      "cue": "Why did the railroad claim it was both producer and consumer?",
+      "paragraphs": [
+        "The Bituminous Coal Act of 1937 sought to stabilize a distressed industry through a coal-pricing code. It exempted coal consumed by its producer or transported by the producer to itself for consumption. Seaboard claimed that its leased coal rights and consumption of all the extracted coal made it a producer-consumer.",
+        "The receivers applied for exemption in August 1937. The National Bituminous Coal Commission initially heard the matter. After administrative reorganization, the Bituminous Coal Division continued the proceedings, and its Director denied the application on June 14, 1940. The Fourth Circuit reversed, classifying Seaboard as a producer.",
+        "The Supreme Court initially affirmed by an equally divided vote, then granted rehearing. In the reasoned decision issued December 15, 1941, Justice Reed wrote for a five-Justice majority. Justice Roberts dissented with Chief Justice Stone and Justice Byrnes; Justice Jackson did not participate."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "403–406, 417"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority leaves an intermediate classification to experienced administrators",
+      "cue": "Why were undisputed facts not enough to require fresh judicial classification?",
+      "paragraphs": [
+        "The majority understood the producer-consumer exemption as drawing a difficult boundary within the price-stabilization scheme. Congress had created an exemption procedure but had not retained a proposed detailed definition covering certain affiliated producers. That structure left the administrative body to make the classification.",
+        "The statute made supported agency findings of fact conclusive. But the absence of factual disputes did not mean judges should independently redo every application of the word producer. Congress had entrusted administrators with industry experience and the judgment needed to reconcile price stabilization with the exemption. Courts would ensure a fair hearing, an opportunity to present circumstances and arguments, and a just and reasoned statutory application. Taking the classification decision away would reduce the agency to a collector of facts.",
+        "The majority described clear endpoints: an unrelated buyer purchasing coal from an independent seller was no producer; a consumer mining its own land with its own employees plainly was. Intermediate arrangements required experienced judgment. A classification would stand unless it was so unrelated to the assigned statutory task that it denied a sensible exercise of that judgment.",
+        "Seaboard’s limited leases, lack of mining investment, insulation from operational risks, and market-price exit clause supported the Director’s decision. The railroad had selected an arrangement that avoided production risks and could not require its structure to be disregarded when producer status became advantageous."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "409–414 & majority nn.4–6"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The railroad raises ownership as an independent escape from regulation",
+      "cue": "Why did the absence of a title transfer not take this coal outside the code?",
+      "paragraphs": [
+        "Seaboard separately argued that its mineral lease made it owner of the coal from extraction through consumption. The operator never transferred title, so there was no sale or other disposition by a producer to trigger the code. Once the railroad lost its producer classification, that independent contention still required an answer.",
+        "Here the Court construed the statute itself. The scheme placed covered coal under the code or subjected relevant non-code dispositions to a 19½-percent excise. Limiting it to technical title transfers would let coal produced by one entity for another’s consumption escape a price-stabilization system meant to cover that activity. Statutory references to other disposal were broader than the listed examples. Provisions covering dispositions otherwise than by sale, and the earlier statute’s treatment of captive coal, reinforced that conclusion. These extraction arrangements remained within the regulatory scheme.",
+        "Seaboard also raised Commerce Clause and Fifth Amendment objections involving mining-service prices and consideration for mining rights. The Court confined review to the producer classification and regarded Congress’s power over that classification as beyond dispute. It did not decide every constitutional issue that possible future regulation of separate contractual components might present."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "414–417"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The dissent sees statutory construction that judges must decide",
+      "cue": "How did Roberts understand the economic relationship?",
+      "paragraphs": [
+        "Justice Roberts, joined by Stone and Byrnes, would have affirmed the Fourth Circuit. On an undisputed record, he regarded producer status as statutory construction that courts were authorized and obliged to review. Expertise did not justify accepting an erroneous interpretation or expanding the statute to achieve broader purposes Congress had not enacted.",
+        "Roberts read the Act as regulating prices and competitive practices in coal marketing. Coal consumed by its owner without entering the market fell outside that concern. Using an independent contractor rather than employees did not change the relationship, just as using a common carrier would not prevent an owner from transporting its own coal for consumption.",
+        "If Seaboard was not a producer, Roberts reasoned, it should not bear the producer’s penalty tax. If the operator was the producer, the operator neither owned nor marketed the coal; physically extracting or delivering somebody else’s property was not the relevant disposal. He regarded the majority’s approach as an unauthorized extension beyond marketing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "417–423 & dissent nn.1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "The rehearing produces a reversal, not another factfinding round",
+      "cue": "What survives as the decision’s distinct reasoning?",
+      "paragraphs": [
+        "The Supreme Court reversed the Fourth Circuit, sustaining the agency’s denial of exemption rather than ordering new factfinding. The earlier equal-division affirmance was a stage in the litigation, not the reasoned holding after rehearing.",
+        "Much later, the Justices in Loper Bright offered competing accounts of Gray. That case’s majority emphasized delegated, factbound classification and distinguished Gray’s independent construction of the other-disposal provisions. Justice Kagan’s dissent emphasized the agency’s interpretive responsibility and the significance of pre-Administrative Procedure Act practice. Those later accounts do not collapse Gray’s two different analyses into a rule requiring deference on every legal question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "417; assigned comparisons"
+        }
+      ]
+    }
+  ]
+}

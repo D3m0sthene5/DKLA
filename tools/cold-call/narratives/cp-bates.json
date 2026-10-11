@@ -1,0 +1,106 @@
+{
+  "id": "cp-bates",
+  "briefId": "CP-041",
+  "title": "Bates v. C & S Adjusters, Inc.",
+  "course": "Civil Procedure",
+  "citation": "980 F.2d 865 (2d Cir. 1992)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A collection demand was forwarded from Pennsylvania to New York, making its receipt a substantial event for venue even though the collector had addressed it elsewhere.",
+  "actors": [
+    {
+      "name": "Phillip Bates",
+      "role": "Debtor who moved from Pennsylvania to New York"
+    },
+    {
+      "name": "C & S Adjusters, Inc.",
+      "role": "Pennsylvania collection agency"
+    }
+  ],
+  "proceedings": [
+    "Western District of New York: dismissed for improper venue.",
+    "Second Circuit: reversed and remanded for further proceedings."
+  ],
+  "limits": [
+    "The court construed the 1990 version of § 1391(b)(2). Personal jurisdiction was waived; liability, the counterclaim, and limitations accrual were not decided."
+  ],
+  "briefSha256": "e50c8c85b63213d815b1cfbce40ddfbef29f2615ecadf9de20e0da6ab2cb1354",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-041"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The Postal Service follows Bates to his new address",
+      "cue": "Introduce the debt, the mailing, and the suit.",
+      "paragraphs": [
+        "Phillip Bates incurred a debt while living in the Western District of Pennsylvania. His creditor, headquartered there, referred the account to C & S Adjusters, a local collection agency that conducted no regular business in New York. Bates had moved to the Western District of New York. The agency mailed a demand to his former Pennsylvania address, and the Postal Service forwarded it to him in New York.",
+        "After receiving the notice, Bates sued the agency in the Western District of New York under the Fair Debt Collection Practices Act, seeking statutory damages, costs, and attorney’s fees. The agency asserted defenses and counterclaimed for costs, claiming Bates sued in bad faith to harass it. It later moved to dismiss for improper venue. District Judge Skretny granted that motion on May 21, 1992, and Bates appealed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶1–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The revised venue statute permits more than one substantial location",
+      "cue": "Explain the statutory change the appellate court applied.",
+      "paragraphs": [
+        "Bates relied on § 1391(b)(2), amended in 1990 to allow suit where a substantial part of the events or omissions giving rise to the claim occurred. Judge Newman, writing for Judges Oakes and Pierce as well, traced the provision’s development. Before 1966, federal-question venue rules could leave no district available when defendants resided in different states. Congress then allowed suit where the claim arose, but courts disagreed about whether that meant a single location and how to identify it.",
+        "In Leroy v. Great Western United Corporation, the Supreme Court had emphasized defendant protection and generally resisted locating one claim in several places. Effects in Texas from Idaho officials’ enforcement of Idaho law did not suffice there. The 1990 amendment altered the demand to select a single best district by referring to substantial parts of events, with legislative explanation acknowledging events in multiple districts.",
+        "Convenience and witnesses could still matter, but factors useful merely to rank otherwise permissible districts were less decisive. The Second Circuit described at most a marginal expansion, not permission to sue wherever a plaintiff felt a remote consequence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶5–11"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Receipt is part of the alleged collection injury",
+      "cue": "Connect New York to the claim rather than simply to the plaintiff.",
+      "paragraphs": [
+        "Earlier decisions had allowed actions where collectors deliberately sent notices or made calls to debtors. This demand had not intentionally been directed to New York, but the revised venue inquiry asked where significant claim-generating events occurred. Purposeful forum contacts belonged to the separate personal-jurisdiction inquiry. C & S had waived that defense by omitting it from its answer and dismissal motion; the court did not decide whether involuntary forwarding alone would supply constitutional contacts.",
+        "The Fair Debt Collection Practices Act addressed injuries from abusive collection, including invasions of privacy and disruption of consumers’ lives. For this notice claim, the asserted harm did not occur until receipt. A letter lost in transit was unlikely to cause the alleged violation. Forwarding was also part of making a demand reach a debtor, and a collector wishing to prevent it could mark the envelope accordingly. Receipt in New York was therefore a substantial event, not merely a convenient residence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶12–14 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The action returns for adjudication of the unresolved claims",
+      "cue": "Finish with venue alone and the reserved accrual issue.",
+      "paragraphs": [
+        "The remaining considerations from Leroy reinforced the result. The notice itself, the most relevant evidence, was in New York. Although a bona fide-error defense could matter, the alleged violations largely concerned its contents rather than the agency’s intention. With no apparent direction against forwarding and personal jurisdiction waived, trial there was not unfair.",
+        "The Second Circuit reversed the venue dismissal and remanded. Bates could pursue his action, but had won neither damages nor a ruling rejecting all defenses or the counterclaim. The court also expressly reserved when a statutory claim accrued for limitations purposes. Its discussion of receipt for venue did not choose between mailing and receipt as the start of that separate clock."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶15–16 & n.2"
+        }
+      ]
+    }
+  ]
+}

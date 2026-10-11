@@ -1,0 +1,110 @@
+{
+  "id": "luttinger",
+  "briefId": "CT-NEXT-CM-0118",
+  "title": "Luttinger v. Rosen",
+  "course": "Contracts",
+  "citation": "164 Conn. 45, 316 A.2d 757 (1972)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Homebuyers cannot obtain a mortgage within the contract’s interest ceiling. The sellers offer to subsidize a higher rate, but the buyers invoke the agreed deposit-return provision.",
+  "actors": [
+    {
+      "name": "The Luttingers",
+      "role": "Buyers of Stamford property seeking return of their $8,500 deposit."
+    },
+    {
+      "name": "The Rosens",
+      "role": "Sellers refusing the refund after proposing a financing subsidy."
+    },
+    {
+      "name": "The buyers’ attorney",
+      "role": "Lawyer knowledgeable about institutional mortgage availability."
+    }
+  ],
+  "proceedings": [
+    "The trial court entered judgment for the buyers.",
+    "The Connecticut Supreme Court found no error and left that judgment intact."
+  ],
+  "limits": "This is a transformation of the canonical historical brief without a fresh audit or current-law certification. The one-application diligence result rests on unchallenged lending-market findings, not a universal rule. No precise subsidy terms or additional contractual duties are invented.",
+  "briefSha256": "c71bc861fb00ab3a708c2f4d0d3bdbc31642ccf3c8961645bb57f6b8bcde702e",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0118"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties make institutional financing a purchase condition",
+      "cue": "What happens if diligent efforts fail?",
+      "paragraphs": [
+        "The Luttingers agreed to buy the Rosens’ Stamford property for $85,000 and paid an $8,500 deposit. The agreement conditioned purchase on a $45,000 first mortgage from a bank or other lending institution for at least twenty years at no more than 8.5 percent annual interest.",
+        "The buyers promised due diligence in obtaining it. If they failed despite that effort and gave notice within the specified time, their deposit would be returned and the contract would end without further obligation. The clause thus allocated unavailable-financing risk and its consequences, rather than merely describing a preferred source of money."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "164 Conn. 46"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The only promising lender offers a rate above the ceiling",
+      "cue": "Could the sellers’ proposal satisfy the original condition?",
+      "paragraphs": [
+        "The buyers relied on an attorney familiar with mortgage terms both locally and elsewhere. He applied to a New Haven lender for $45,000 at 8.25 percent over twenty-five years. He knew that institution was the only one then willing to lend as much as $45,000 on a single-family home.",
+        "Its commitment instead required the prevailing rate at closing, with a minimum of 8.75 percent. Amount and duration qualified, but interest did not. The buyers timely notified the Rosens and requested their deposit.",
+        "Sellers’ counsel then proposed funding the difference between the lender’s rate and 8.5 percent for all twenty-five years, without defining exact terms. The Luttingers declined that additional arrangement, and the Rosens refused to refund the deposit."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "164 Conn. 46–47"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The sellers appeal the buyers’ judgment",
+      "cue": "Why was one application diligent on this record?",
+      "paragraphs": [
+        "The Luttingers sued and obtained judgment for the deposit. The Rosens appealed, briefing two issues: whether a single mortgage application met due diligence and whether their proposed subsidy meant the financing condition should be treated as fulfilled.",
+        "Justice Loiselle’s Connecticut Supreme Court opinion worked from unchallenged findings. The attorney was fully informed about institutions’ terms and applied to the only lender that might satisfy the amount requirement. Further applications would have been futile, and the law did not require them. This did not make one application sufficient in every transaction; the established market circumstances supplied the explanation.",
+        "Diligence and occurrence were distinct. A buyer might violate an effort promise even if financing remained unavailable, but these buyers had satisfied their promised effort."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "164 Conn. 47"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The specified condition and refund mechanism control",
+      "cue": "Why was subsidy testimony irrelevant?",
+      "paragraphs": [
+        "A condition precedent is an event intended to occur before a right to performance arises. The contract unambiguously required an institutional mortgage on specified terms before the purchase obligation matured. A commitment exceeding the interest ceiling did not satisfy that event.",
+        "The sellers’ subsidy would add a new financing arrangement beside the mortgage; it did not change the lender’s commitment into the one specified. The buyers could reject that further offer. Testimony about it was irrelevant to whether the original condition occurred, so exclusion of that evidence was proper. Approximate economic equivalence did not replace the parties’ chosen event.",
+        "The Supreme Court found no error, leaving judgment for return of the deposit intact. Judges House, Ryan, Shapiro, and MacDonald joined Loiselle, with no separate writing. The result enforced the buyers’ completed diligence, the failed condition, and the express refund consequence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "164 Conn. 47–48"
+        }
+      ]
+    }
+  ]
+}

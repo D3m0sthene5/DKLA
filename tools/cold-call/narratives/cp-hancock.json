@@ -1,0 +1,116 @@
+{
+  "id": "cp-hancock",
+  "briefId": "CP-085",
+  "title": "Hancock Oil Co. v. Independent Distributing Co.",
+  "course": "Civil Procedure",
+  "citation": "24 Cal. 2d 497, 150 P.2d 463 (1944)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Oil-company tenants faced two groups demanding the same royalties and sought interpleader, bringing protection against double payment into conflict with the rule against denying a landlord’s original title.",
+  "actors": [
+    {
+      "name": "Hancock Oil and R.R. Bush Oil",
+      "role": "Tenant oil companies owing lease royalties"
+    },
+    {
+      "name": "W.L. and Gertrude Hopkins and their group",
+      "role": "Lessors claiming the royalties"
+    },
+    {
+      "name": "Independent Distributing and its group",
+      "role": "Partnership claiming the property was held in trust for it"
+    },
+    {
+      "name": "Justice Edmonds",
+      "role": "Majority author"
+    },
+    {
+      "name": "Justice Carter",
+      "role": "Dissenter favoring enforcement of tenant estoppel"
+    }
+  ],
+  "proceedings": "Trial court sustained general and uncertainty demurrers without leave to amend; California Supreme Court reversed, holding the complaint sufficient against general demurrer and denial of amendment an abuse of discretion.",
+  "limits": "The reported caption names W.L. Hopkins, while the casebook names Independent Distributing. The same dispute is involved. This 5–1 decision allowed interpleader to proceed; it did not determine ownership or ultimate entitlement.",
+  "briefSha256": "5da520cf6e0b6349ffdafd4210431910b9a6f684ab31dd29d9b94ad226b00caa",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-085"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two groups demanded one stream of lease royalties",
+      "cue": "Introduce the rival claims before the tenants’ neutral request.",
+      "paragraphs": [
+        "In 1936, Hancock Oil and R.R. Bush Oil leased real property from W.L. and Gertrude Hopkins. About $1,500 in landowner royalties later accrued. In 1941, Independent Distributing, a partnership, sued alleging that the Hopkins parties held the property in trust for it and demanding an accounting of rents.",
+        "The oil companies then sought interpleader. They alleged that the Hopkins group and the partnership group both claimed the royalties accrued and to accrue under the same lease. Disclaiming collusion, they wanted to satisfy their obligation without selecting between rival recipients. Independent Distributing answered that it owned the property and was entitled to the rents.",
+        "The Hopkins group filed general and uncertainty demurrers. The trial court sustained them without leave to amend because a tenant could not deny the landlord’s title as it existed when the tenancy began. The tenants appealed the resulting judgment. The question was the sufficiency of their interpleader complaint, not which claimant actually owned the land or royalties."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "24 Cal. 2d at 501–502"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The statute loosened interpleader without joining unrelated debts",
+      "cue": "Explain the common obligation and independent-liability questions.",
+      "paragraphs": [
+        "Justice Edmonds’s majority began with traditional equitable interpleader requirements: claims to the same thing, debt, or duty; a common source; a disinterested stakeholder; and no independent liability to a claimant. The 1881 amendment to California Code of Civil Procedure § 386 allowed claims lacking a common origin and claims that were not identical. It removed the common-source restriction and relaxed rigid identity, but did not let a stakeholder combine unrelated debts merely because it owed both.",
+        "As pleaded, both groups demanded the same contractual lease royalties, and the oil companies were disinterested stakeholders. If the partnership instead sought reasonable use value, mesne profits, or waste damages, it would assert a different obligation unsuitable for this interpleader. On the actual allegations, payment of the accrued royalties could discharge the tenants’ competing obligation after the claimants litigated entitlement.",
+        "The lease was not an independent liability defeating the remedy. Such a liability would remain unresolved after determining entitlement to the fund. Here that determination would establish the lessees’ responsibility. Treating every contract with a claimant as disqualifying would also undermine ordinary interpleader by banks, insurers, and escrow holders."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 503–506"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority reconciled neutral interpleader with tenant estoppel",
+      "cue": "Address the statutory obstacle and safeguards against pretext.",
+      "paragraphs": [
+        "Section 1962(4) barred tenants from denying the landlord’s title at the tenancy’s beginning. The majority acknowledged that rule and the accepted exception for claims derived from the landlord after the lease began. The complaint did not clearly establish that exception, so the court addressed the broader relationship between the statutes.",
+        "It construed § 386 liberally to serve its remedial purpose. Removing the common-source restriction undermined the associated common-law obstacle to tenant interpleader. A neutral tenant could recognize its landlord’s title yet acknowledge somebody else’s asserted claim to rent without adopting that claim. Otherwise, the tenant risked forfeiture or repeated payment while entitlement was litigated separately.",
+        "Interpleader could also protect the adverse claimant if rent paid to a landlord later became unrecoverable through insolvency. The majority recognized the disadvantage of delaying the landlord’s receipts, but required facts showing a reasonable probability of competing demands, not pretext or suspicion. The remedy protected against double litigation over one liability; a stakeholder did not have to profess uncertainty about which claimant should win."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 506–510"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Carter would preserve the landlord’s protection and require a different remedy",
+      "cue": "Conclude with the dissent and what reversal actually allowed.",
+      "paragraphs": [
+        "Justice Carter dissented. He viewed interpleading a landlord with someone asserting antecedent adverse title as necessarily denying the landlord’s original title, contrary to § 1962(4). Removing two technical interpleader restrictions did not expressly or impliedly repeal that separate protection. He also contrasted California’s reference to personal property and obligations with an Indiana provision expressly encompassing real property.",
+        "Carter emphasized that impounded rent could prevent payment of mortgages, taxes, upkeep, and insurance; clouded title could block refinancing and lead to foreclosure. An unscrupulous tenant might delay both rent and possession remedies. He preferred requiring the adverse claimant to seek an injunction or receiver and furnish security for the landlord if the claim failed. His notes addressed California precedents, the Indiana provision, and priority and holdover rules. He would have affirmed the general-demurrer ruling.",
+        "On July 13, 1944, Edmonds, Gibson, Shenk, Curtis, and Traynor formed the majority reversing the judgment. Carter dissented and Schauer did not participate. The complaint survived general demurrer; even if uncertainty required clarification, denying leave to amend was an abuse of discretion. The trial court could require clearer essential allegations on reconsideration. Neither group’s ownership or ultimate entitlement was adjudicated."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 510–517 & Carter nn.1–3"
+        }
+      ]
+    }
+  ]
+}

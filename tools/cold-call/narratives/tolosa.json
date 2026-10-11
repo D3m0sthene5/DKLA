@@ -1,0 +1,106 @@
+{
+  "id": "tolosa",
+  "briefId": "CT-ATLAS-TOLOSA",
+  "title": "Tolosa v. HSBC Bank USA, N.A. — assigned excerpt, source-limited",
+  "course": "Contracts",
+  "citation": "2011 WL 13244704 (S.D. Tex. 2011) — assigned excerpt",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After foreclosure, borrowers alleged that HSBC had promised to wait during modification review; the reproduced opinion rejects their promissory-estoppel theory because they alleged no promise to sign a compliant written agreement.",
+  "actors": [
+    {
+      "name": "The Tolosa borrowers",
+      "role": "Plaintiffs who financed a Sugar Land property and sued after foreclosure"
+    },
+    {
+      "name": "HSBC Bank USA, N.A.",
+      "role": "Defendant alleged to have promised postponement while reviewing modification"
+    },
+    {
+      "name": "Judge Nancy F. Atlas",
+      "role": "Federal district judge identified in the assigned excerpt"
+    }
+  ],
+  "proceedings": "Borrowers sued in state court after foreclosure; HSBC removed on diversity grounds and moved to dismiss; the reproduced final order grants the motion and dismisses the action.",
+  "limits": "Source-limited: the supplied opinion jumps from section I to III.B; sections II and III.A and the complete opinion remain unavailable. Only the reproduced ground and order can be explained. Exact date, omitted grounds, prejudice designation, and subsequent proceedings are not established.",
+  "briefSha256": "b48e43005280bf94eafdbffdac2f1b9a3df9804ce1b278de8afd81386d903a1c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ATLAS-TOLOSA"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The borrowers sued after the property had already been sold",
+      "cue": "Anchor the promise allegation to the available chronology.",
+      "paragraphs": [
+        "The borrowers in Tolosa obtained a $276,000 loan to buy property in Sugar Land, Texas. A promissory note evidenced the debt and a deed of trust secured it. They defaulted, and the property was sold at foreclosure in April 2011. In September 2011, they sued HSBC Bank USA, N.A. in state court to delay eviction after the completed sale.",
+        "They requested an injunction and relief for fraud, wrongful foreclosure due to fraud, slander of title, promissory estoppel, unreasonable collection, and an accounting. For the issue reproduced in the assigned opinion, they alleged that HSBC had promised not to foreclose while reviewing a loan modification. The supplied text does not identify the exact words, speaker, date, or a detailed sequence of reliance. The promise was alleged, not found to have been made."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned excerpt, printed p. 373"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Removal brought a writing requirement into the dismissal dispute",
+      "cue": "Explain what the available record does and does not say about procedure.",
+      "paragraphs": [
+        "HSBC removed on diversity grounds and moved to dismiss, arguing among other things that the statute of frauds barred all the claims. The borrowers responded that the state court had issued a temporary restraining order before removal and that the alleged postponement promise supported promissory estoppel.",
+        "Judge Nancy F. Atlas’s reproduced analysis addresses the writing requirement and estoppel. The supplied opinion omits sections II and III.A, so it does not disclose the treatment of the restraining-order argument or every additional dismissal ground. The available ruling tests the pleaded claims; it is not a trial finding that no promise occurred."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned excerpt, printed pp. 372–374"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The alleged delay was itself a financial accommodation",
+      "cue": "Follow the two steps in the reproduced enforceability analysis.",
+      "paragraphs": [
+        "Section 26.02(b) of the Texas Business and Commerce Code required loan agreements involving more than $50,000 to be in writing and signed by the party to be bound or an authorized representative. This $276,000 loan exceeded the threshold. The statutory definition of a loan agreement included a financial institution’s promise to delay repayment or make a financial accommodation.",
+        "Atlas characterized the alleged foreclosure postponement as such an accommodation. It did not fall outside the statute merely because it addressed foreclosure’s timing. Without the required form, the borrowers could not enforce the alleged oral undertaking on that basis.",
+        "The court then addressed promissory estoppel. Relying on Burnette v. Wells Fargo Bank and Ford v. City State Bank of Palacios as authorities for the exception, it required a promise to sign a written document that would satisfy the statute of frauds. It applied that requirement whether estoppel was an affirmative claim or an answer to the statutory defense. The borrowers alleged postponement, but not the additional promise to sign a compliant writing embodying it. The court therefore held HSBC entitled to dismissal of the promissory-estoppel claim."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned excerpt, printed pp. 373–374, including reproduced statutory notes b–c"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The final order dismissed the action, while omitted grounds remain unknown",
+      "cue": "Keep the judgment distinct from the editors’ later questions.",
+      "paragraphs": [
+        "The reproduced order grants HSBC’s motion, identified as docket document 3, and dismisses the case. It does not specify dismissal with or without prejudice, award damages, describe an appeal, or separately dispose of costs. The available substantive explanation establishes the statute-of-frauds and promissory-estoppel ground; the missing portions prevent reconstruction of all reasons for dismissing the other claims.",
+        "The following casebook discussion asks whether an accurately remembered oral promise should be enforceable and distinguishes estoppel as a source of obligation from estoppel as a way around an enforcement bar. It reproduces § 26.02(e)’s notice requirement, discusses subsection (f)’s exception for absent or inconspicuous notice, and mentions subsection (g)’s posted notices. Another editorial note explains subsection (c)’s treatment of written and earlier oral agreements. None of that establishes that HSBC failed to give required notice or that an exception applied here.",
+        "The reproduced decision does not authorize disregard of every loan-modification agreement or establish that every foreclosure tort fails. It addresses an alleged oral accommodation and the missing allegation of a promise to sign. The complete opinion and any later proceedings remain unestablished by the supplied material."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned excerpt and linked editorial discussion, printed pp. 374–375"
+        }
+      ]
+    }
+  ]
+}

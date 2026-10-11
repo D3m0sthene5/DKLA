@@ -1,0 +1,126 @@
+{
+  "id": "doe-great-expectations",
+  "briefId": "CT-NEXT-CM-0102",
+  "title": "Doe v. Great Expectations",
+  "course": "Contracts",
+  "citation": "10 Misc. 3d 618, 809 N.Y.S.2d 819 (N.Y.C. Civ. Ct. 2005)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Two customers paid substantial membership fees to Great Expectations but received contracts promising no social referrals. After hearing their small-claims cases, the judge found violations of New York’s dating-service law and ordered full refunds based on the consumers’ proven statutory injury.",
+  "actors": [
+    {
+      "name": "Jennifer Doe",
+      "role": "Customer who paid $1,000 for six months of service."
+    },
+    {
+      "name": "Debra Roe",
+      "role": "Customer who paid $3,790 for a longer membership."
+    },
+    {
+      "name": "Great Expectations / GE Management Group of NY, Inc.",
+      "role": "Dating-service defendant whose name was amended before judgment."
+    },
+    {
+      "name": "Judge Lebedeff",
+      "role": "Trial judge who decided the two small-claims actions together."
+    }
+  ],
+  "proceedings": "After testimony in separate small-claims suits, the Civil Court issued a consolidated decision awarding Doe $1,000 and Roe $3,790 with interest, terminating Roe’s membership, and referring the decision to consumer regulators.",
+  "limits": "The awards reflect the statute as applied in 2005, not certified current requirements. The regulatory referral imposed no civil penalties or criminal judgment. The suggestion to return personal materials was not a separate adjudicated return order.",
+  "briefSha256": "d7bfa372642cf508a1873d33ce148660a4b4160d59143decd26ce684d123b343",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0102"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Two memberships promise services but disclaim referrals",
+      "cue": "What did the customers purchase and receive?",
+      "paragraphs": [
+        "Jennifer Doe paid Great Expectations $1,000 for six months of membership. Debra Roe paid $3,790 for thirty-six months, later extended to fifty-four. The forms described photographs, video, a dating workbook, counseling, background checks, and dating etiquette. Yet they expressly promised zero social referrals and stated that members neither desired nor expected referrals. Members could review one another’s Internet profiles and initiate contact themselves.",
+        "Roe’s contract also carried handwritten Marriage Program and Platinum Shopper terms. She received an oral assurance of twelve introductions during the program, but no specified number per month. At trial, Roe testified that the service introduced her to nobody, although one person contacted her after viewing her information. Doe met nobody and eventually stopped checking for contacts. Each brought a separate small-claims suit to recover the membership price."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Slip opinion *1 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The trial judge applies the dating-service statute to the Internet model",
+      "cue": "Why did member-initiated contact still count as a regulated service?",
+      "paragraphs": [
+        "Judge Lebedeff heard testimony and addressed the two cases in a consolidated decision. New York General Business Law §394-c covered paid social matching through computers or other means. Earlier litigation involving Great Expectations had established that the provider need not itself select particular pairs: supplying the place and mechanism for members to assess and approach one another was sufficient. Using Internet profiles therefore did not remove this service from the Dating Services Law.",
+        "Under the statute as applied, a contract charging more than $25 had to promise a specified certain number of referrals per month. Neither agreement did so. The $25 figure was the maximum total charge for these contracts, not a monthly allowance. Roe’s assurance of twelve introductions over the program did not supply a monthly commitment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "*2–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The contracts omit most of the required consumer protections",
+      "cue": "What violations went beyond the excessive price?",
+      "paragraphs": [
+        "The forms lacked the required refund option for missed promised referrals, limits on disclosure of personal information without written consent, a unilateral right to suspend membership for up to a year, and return of personal materials by certified mail after termination. They also omitted the maximum distance for face-to-face meetings, the policy for members moving outside the service area, and the separate Dating Service Consumer Bill of Rights.",
+        "Only the three-day cooling-off cancellation notice complied. The decision did not rest on the monthly-referral cancellation formula applicable to contracts that actually promised a monthly number; these contracts did not make that commitment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "*3–4 & n.3"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The customers’ testimony supports recovery of the full prices",
+      "cue": "Why did the judge return the lawful $25 portion as well?",
+      "paragraphs": [
+        "Section 394-c(9)(b) allowed an injured consumer actual damages or $50, whichever was greater. At a minimum, actual damages included the price paid above the lawful $25 ceiling. Returning the remaining $25 required a further factual basis.",
+        "Having observed both claimants, the judge found that they had carefully negotiated for services and would not have entered agreements containing unlawful terms had the mandatory notice informed them of their rights. That finding supported full restitution as actual damages and substantial justice in the small-claims cases.",
+        "The judge distinguished older decisions treating noncompliant contracts as automatically void on public-policy grounds. A 1992 amendment expressly authorized individual actual-damages claims and Attorney General enforcement with penalties up to $1,000 per violation. The amendment supplied alternative restitution routes without weakening protection against excessive charges. These awards depended on statutory injury, not automatic invalidity of every defective contract.",
+        "An ordinary civil-case decision about pleading damages did not defeat the concise small-claims statements. The judge also suggested that ancillary services arguably should carry no separate economic value, without making a categorical finding about every dating service."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "*4–5 & nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Judgments resolve the memberships before the court alerts regulators",
+      "cue": "What relief and referral followed?",
+      "paragraphs": [
+        "On October 31, 2005, the court awarded Doe $1,000 and Roe $3,790, with interest from each customer’s payment date. Doe’s membership had expired; the judgment terminated Roe’s. Before entry, the court amended the defendant’s name to include GE Management Group of NY, Inc. It suggested returning the customers’ personal materials as the statute required, but that warning was not an additional adjudicated return order.",
+        "The judge also sent the decision to the New York Attorney General’s Consumer Fraud Unit and the New York City Department of Consumer Affairs. The regulated industry, apparent recurring use of defective forms, and earlier similar litigation supported that discretionary step. No threatened referral had influenced testimony or pressured settlement, and the cases were decided before transmission, preserving their truth-finding function.",
+        "The referral did not establish criminal guilt or award the Attorney General’s civil penalties. No separate opinion appears."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "*5–6"
+        }
+      ]
+    }
+  ]
+}

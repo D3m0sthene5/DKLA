@@ -1,0 +1,111 @@
+{
+  "id": "brief-CP-109",
+  "briefId": "CP-109",
+  "title": "Beacon Theatres, Inc. v. Westover",
+  "course": "Civil Procedure",
+  "citation": "359 U.S. 500 (1959)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Competing theaters’ antitrust claims raised the same disputed facts, and a proposed judge-first trial threatened to settle those facts before the damages jury could hear them.",
+  "actors": [
+    {
+      "name": "Fox West Coast Theatres",
+      "role": "First-run exhibitor seeking declaratory and injunctive relief"
+    },
+    {
+      "name": "Beacon Theatres",
+      "role": "New drive-in operator demanding a jury on antitrust damages"
+    },
+    {
+      "name": "Judge Harry C. Westover",
+      "role": "Respondent to the mandamus request concerning trial sequence"
+    }
+  ],
+  "proceedings": [
+    "District court ordered Fox’s purportedly equitable issues tried first without a jury.",
+    "Ninth Circuit denied Beacon mandamus.",
+    "Supreme Court reversed 5–3, with Frankfurter not participating."
+  ],
+  "limits": "The judgment concerned trial order and jury rights, not antitrust liability. The 1959 Rule 42(b) text lacked the later express jury-preservation clause; constitutional protection and Rule 38(a) constrained discretion.",
+  "briefSha256": "f551449576e48b396448b253d27eff6d4757a8fb566fc6705a70a6c4e504ad23",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-109"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A new drive-in challenges film clearances",
+      "cue": "Fox seeks a declaration before Beacon obtains damages",
+      "paragraphs": [
+        "Fox West Coast operated a first-run theater in San Bernardino under distribution arrangements with clearance periods, during which competitors could not show a film after its first run. Beacon opened a drive-in about eleven miles away. Whether the theaters substantially competed mattered to the alleged reasonableness of those restrictions.",
+        "Beacon said the arrangements restrained its access to films and warned of antitrust treble damages. Fox sued for a declaration that its clearances were reasonable and lawful and to stop Beacon from bringing antitrust litigation while the declaratory case was pending. The Ninth Circuit later read the requested injunction more broadly to protect business relationships against threats; the Supreme Court majority considered even that reading.",
+        "Beacon denied Fox’s allegations, counterclaimed against Fox, and cross-claimed against an intervening theater operator for an antitrust conspiracy and treble damages. The legality and competitive facts overlapped; none had been decided by the Supreme Court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359 U.S. at 502–506"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The judge gives the purported equity case priority",
+      "cue": "Mandamus becomes the means of protecting the jury demand",
+      "paragraphs": [
+        "Beacon demanded a jury on its damages issues. District Judge Harry C. Westover directed that Fox’s supposedly equitable case go first to the court, followed by the counterclaim and cross-claim, invoking Rules 42(b) and 57. A later jury was not formally excluded, but the first findings could bind common facts and leave that jury little meaningful work.",
+        "Beacon sought mandamus in the Ninth Circuit. That court denied relief because it viewed the declaratory and injunctive claims as equitable and sequence as discretionary. Westover appeared as the writ respondent because his proposed procedure was at issue, not because he participated in the theaters’ commercial dispute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359 U.S. at 503–504"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Black rejects a race to control the factfinder",
+      "cue": "Modern procedure permits protection of both remedies",
+      "paragraphs": [
+        "Justice Black, joined by Chief Justice Warren and Justices Douglas, Clark, and Brennan, treated antitrust treble damages as a legal claim carrying a jury right. A declaration of nonliability anticipated that legal controversy; the Declaratory Judgment Act did not eliminate the jury merely because the opposing party filed first.",
+        "Even assuming genuine equitable protection of Fox’s business relationships, the court had to ask whether equity required priority and whether modern legal procedures were adequate. Older equitable-first decisions reflected separate procedural systems and limits on joinder. A single civil action, modern joinder, and declaratory relief now allowed the whole dispute in one case.",
+        "A nominal later jury opportunity was insufficient if binding judicial findings had already disposed of common facts. The common issues could go to the jury first, followed by equitable decisions consistent with its findings. Fox had no corresponding constitutional entitlement to have a judge decide those shared facts first. Temporary protective equitable relief could remain available in an appropriate case while the merits proceeded."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359 U.S. at 504–510"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Discretion remains constrained by the jury right",
+      "cue": "The dissent defends the historical equity sequence",
+      "paragraphs": [
+        "The majority held trial-sequencing discretion narrowly limited by the Seventh Amendment and Rule 38(a). The version of Rule 42(b) quoted in 1959 did not itself contain an express jury-preservation clause. Only the most imperative circumstances could justify losing jury consideration through an earlier equitable adjudication, and the Court anticipated none here. The All Writs Act permitted mandamus to protect the improperly denied right; this was more than appellate preference about convenient proof order.",
+        "Justice Stewart, joined by Justices Harlan and Whittaker, would sustain denial of the writ. Fox’s complaint, liberally understood, invoked equitable protection of existing business and contract relations, not merely a reversed damages suit. Historically proper equity jurisdiction persisted when a defendant added a legal counterclaim. Its compulsory character avoided a waiver theory but did not transform Fox’s original claim. Procedural merger could not enlarge the historical jury right, and Stewart saw no abuse warranting an extraordinary writ.",
+        "On May 25, 1959, the Court reversed the Ninth Circuit. Justice Frankfurter did not participate. Beacon’s common legal issues could not be preempted by the proposed court-first trial, but no damages or clearance-legality judgment followed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "359 U.S. at 503 n.3, 510–519 & majority n.16"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B4-053",
+  "briefId": "CT-ADDITIONAL-CM-B4-053",
+  "title": "BP Prucenter Acquisition LLC v. Saks Fifth Avenue LLC",
+  "course": "Contracts",
+  "citation": "2022 WL 17976023 (Mass. Land Ct. Dec. 15, 2022); subsequent orders March 20 and May 11, 2023",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A pandemic closure triggers a lease’s force-majeure clause; later orders clarify that rent was excused, not merely deferred, and separately determine monetary relief.",
+  "actors": [
+    {
+      "name": "BP Prucenter Acquisition LLC",
+      "role": "Party seeking reconsideration of the rent-excusal decision."
+    },
+    {
+      "name": "Saks Fifth Avenue LLC",
+      "role": "Tenant relieved of rent during the specified force-majeure period."
+    }
+  ],
+  "proceedings": [
+    "The assignment reports a December 2022 decision excusing rent.",
+    "A March 2023 order clarifies excusal rather than postponement and otherwise denies reconsideration.",
+    "A May 2023 order determines repayment, fees and costs."
+  ],
+  "limits": "The complete December 2022 opinion is unavailable. Its result is described by the assignment and clarified by two complete later orders, which do not reconstruct all earlier findings or reasoning. The later monetary awards belong to May 2023.",
+  "briefSha256": "a4e442ad9df3fcb09f2dd8fbd8396503ed01062a1cdd0a920c8826c7131c8196",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B4-053"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A required closure raises the lease’s allocation of rent risk",
+      "cue": "What feature distinguished this lease in the assignment?",
+      "paragraphs": [
+        "A mandated COVID-19 closure led to a rent dispute under the lease involving BP Prucenter Acquisition LLC and Saks Fifth Avenue LLC. The assigned account contrasts this lease with force-majeure clauses expressly preserving the duty to pay rent. It reports that this clause lacked that proviso and that the December 15, 2022 decision excused Saks’s rent during the qualifying closure.",
+        "The assignment does not reproduce that decision’s complete findings, clause, analysis or judgment. The next available full judicial instruments are later orders addressing reconsideration and monetary relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Assigned 2022 account; C&M printed 1119"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "BP asks the court to reconsider or clarify the decision",
+      "cue": "Why did its objections fail to show a demonstrable error?",
+      "paragraphs": [
+        "In the March 20, 2023 order, Judge Jennifer S.D. Roberts addressed BP’s objections to proximate causation, reliance on newer cases, interpretation of the lease, and whether rent had only been postponed. She noted that BP itself had used proximate causation in its earlier argument.",
+        "The newer authorities involved either common-law excuses without a force-majeure clause or clauses containing materially different language. They did not demonstrate error in this lease-specific ruling. The actual allocation of risk in the agreement remained central."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "March order 1–2 & nn. 1–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court distinguishes relief from liability from an extended deadline",
+      "cue": "How did the March order explain the alternative equitable ground?",
+      "paragraphs": [
+        "The reproduced lease language relieved a party from liability when a specified event prevented performance. Roberts distinguished that language from provisions merely suspending duties or extending deadlines. She read this agreement as excusing rent during the force-majeure event rather than accumulating a debt payable afterward.",
+        "The court also explained that equitable forfeiture reasoning had been an alternative ground in case an appellate court rejected the contract analysis. The two theories were not applied simultaneously. The reconsideration motion was allowed only to clarify that rent was excused rather than delayed and was otherwise denied."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "March order 3–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The later monetary order calculates reimbursement and limited fee recovery",
+      "cue": "Which amounts were awarded at this separate stage?",
+      "paragraphs": [
+        "On May 11, 2023, the court awarded $196,439.17 for payments Saks had made under protest during the excused period, covering April and May 2020 and the specified portion of June. It also applied the lease’s provision for reasonable expenses associated with obtaining a favorable final outcome, excluding unsuccessful or unrelated work.",
+        "After assessing reasonableness, the court reduced recoverable fees by 60 percent and awarded $510,294.46 in fees and $17,946.82 in costs. These were the May awards, not amounts entered in the unavailable December opinion. The two later orders clarify what they decide but do not supply every missing finding or alternative argument from that earlier stage."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "May order 1–4, 6–7; source boundary"
+        }
+      ]
+    }
+  ]
+}

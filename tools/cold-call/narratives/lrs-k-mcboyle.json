@@ -1,0 +1,107 @@
+{
+  "id": "lrs-k-mcboyle",
+  "briefId": "LRS-SUP-0005A",
+  "title": "McBoyle v. United States",
+  "course": "Legislation and the Regulatory State",
+  "citation": "283 U.S. 25 (1931)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "McBoyle knowingly transported a stolen airplane across state lines. His conviction nevertheless depended on whether a statute listing motor vehicles gave notice that its residual category also reached aircraft.",
+  "actors": [
+    {
+      "name": "McBoyle",
+      "role": "Defendant convicted of interstate transportation of a stolen airplane"
+    },
+    {
+      "name": "United States",
+      "role": "Prosecutor invoking the National Motor Vehicle Theft Act"
+    },
+    {
+      "name": "Justice Holmes",
+      "role": "Author of the Supreme Court opinion"
+    }
+  ],
+  "proceedings": "McBoyle received three years in prison and a $2,000 fine. The Tenth Circuit affirmed; the Supreme Court reversed because the Act did not cover aircraft.",
+  "limits": "The Court interpreted the statute rather than invalidating it for vagueness. It did not find airplane theft lawful, disturb the stated knowledge premise, or announce an automatic defendant-favoring rule for every disputed criminal statute.",
+  "briefSha256": "a3673e673bdbbb16e0e33958df8a1c591792ff394fd5b8feb6c504a22b0bad8c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-SUP-0005A"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Interstate transportation produced a conviction",
+      "cue": "Identify the established conduct and precise question.",
+      "paragraphs": [
+        "The United States prosecuted McBoyle for transporting a stolen airplane from Ottawa, Illinois, to Guymon, Oklahoma, knowing it was stolen. He was convicted and sentenced to three years in prison and a $2,000 fine. The Tenth Circuit affirmed.",
+        "The Supreme Court granted review specifically to determine whether the National Motor Vehicle Theft Act covered airplanes. The reported decision supplied no separate theft narrative or additional factual dispute. Knowledge and interstate transportation explained why the prosecution could succeed if the airplane fell within the statutory category."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "25–26"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "A general phrase followed a land-vehicle list",
+      "cue": "Present the competing readings of the enacted text.",
+      "paragraphs": [
+        "The 1919 Act defined motor vehicle to include an automobile, automobile truck, automobile wagon, motorcycle, or any other self-propelled vehicle not designed to run on rails. Another provision prohibited interstate or foreign transportation of a motor vehicle with knowledge that it was stolen.",
+        "The government’s necessary reading put a self-propelled airplane within the residual phrase: it transports people or things and does not run on rails. McBoyle argued that the words in context concerned land transportation. The issue was not whether transporting stolen planes deserved punishment, but whether Congress had imposed that punishment through this particular statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Holmes read the catchall in its ordinary setting",
+      "cue": "Explain why abstract linguistic breadth was insufficient.",
+      "paragraphs": [
+        "Justice Oliver Wendell Holmes acknowledged that an etymological or expanded use of vehicle could encompass movement by land, water, or air. Calling an airplane a vehicle was not linguistically impossible. But everyday usage evoked something moving on land, and the statutory company reinforced that sense. Trucks, wagons, motorcycles, and the exclusion of vehicles running on rails all concerned land transportation. The catchall enlarged membership in that category without necessarily abandoning it.",
+        "This was the operation commonly called ejusdem generis: interpreting general residual language in light of the kind specifically listed. The important step was identifying land transportation, rather than movement of any kind, as the shared characteristic.",
+        "Other legal usage corroborated the reading. The general federal vehicle definition concerned land transportation; a tariff provision expressly distinguished aircraft; and the Act followed state statutes and District of Columbia traffic rules not reasonably understood to regulate air travel. These comparisons supplied context, not a rule that every statute must use a word identically.",
+        "Airplanes were familiar in 1919, yet neither the detailed enumeration nor the reports or debates mentioned them. That silence mattered with the affirmative land-based pattern. It did not alone prove a deliberate exemption; it weakened an effort to extend a specifically framed statute into a different domain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26–27"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Fair warning prevented enlargement by policy analogy",
+      "cue": "Connect the interpretive rule to the judgment.",
+      "paragraphs": [
+        "Holmes added that criminal law should give reasonably clear warning in ordinary language of the line between permitted and punishable conduct. He acknowledged that criminals do not ordinarily consult statutes before murder or theft. Actual reliance by McBoyle therefore was unnecessary: fair warning constrained judicial enlargement of the prohibition itself.",
+        "Transporting stolen planes might create the same social problem as transporting stolen automobiles, and Congress might have chosen broader language had it focused on aircraft. Neither shared policy nor speculation about an unmade legislative choice could replace the warning given by the enacted words.",
+        "On March 9, 1931, the Supreme Court held the Act inapplicable to aircraft and reversed the Tenth Circuit judgment. No separate opinion appeared. The Court did not declare the Act constitutionally vague, find that McBoyle lacked knowledge, or describe a further trial. He obtained reversal of this conviction because the charged conduct fell outside this statute."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "27"
+        }
+      ]
+    }
+  ]
+}

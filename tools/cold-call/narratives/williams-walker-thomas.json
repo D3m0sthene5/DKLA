@@ -1,0 +1,129 @@
+{
+  "id": "williams-walker-thomas",
+  "briefId": "CT-NEXT-CM-0103",
+  "title": "Williams v. Walker-Thomas Furniture Co.",
+  "course": "Contracts",
+  "citation": "350 F.2d 445 (D.C. Cir. 1965)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A furniture seller spread each installment across every purchase, leaving old household goods exposed to repossession after a new default. The appellate court recognized a common-law unconscionability defense and sent two customers’ cases back for findings, over a dissent concerned about credit-market consequences.",
+  "actors": [
+    {
+      "name": "Walker-Thomas Furniture Company",
+      "role": "Installment seller retaining title across linked purchases"
+    },
+    {
+      "name": "Ora Lee Williams",
+      "role": "Customer whose stereo purchase exposed older goods to repossession"
+    },
+    {
+      "name": "William Thorne",
+      "role": "Customer facing repossession after a new furniture purchase"
+    },
+    {
+      "name": "Judge J. Skelly Wright",
+      "role": "Author of the majority opinion"
+    },
+    {
+      "name": "Judge Danaher",
+      "role": "Dissenter urging caution about judicial intervention"
+    }
+  ],
+  "proceedings": "The Court of General Sessions ruled for the seller and the District of Columbia Court of Appeals affirmed. The federal circuit court remanded both cases for unconscionability proceedings.",
+  "limits": "The court did not finally invalidate either contract, discharge debt, or replace the payment schedule. It developed common law with persuasive support from the later Uniform Commercial Code provision rather than retroactively applying that statute.",
+  "briefSha256": "7ede42f5b49991bb1911aa174e9551add0dafdcf2a6e2bd4fb0d0c8d44d8f629",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0103"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Each new purchase kept the older goods at risk",
+      "cue": "Explain the practical operation of the installment forms.",
+      "paragraphs": [
+        "Walker-Thomas Furniture Company sold household goods on installment forms styled as leases. It retained title until payment of the stated price and could repossess after a missed installment. A printed clause spread each payment proportionally over every unpaid purchase. Thus a small balance remained on each older item until the entire account was paid; a new purchase exposed old goods to repossession while itself securing previous debt. The court described that effect as obscured by the wording.",
+        "William Thorne bought a Daveno, three tables, and two lamps for $391.10 in May 1962. After he soon defaulted, the seller sought goods acquired since 1958. Ora Lee Williams bought a $514.95 stereo in April 1962, defaulted soon afterward, and faced replevin of goods purchased since December 1957. Her earlier balance had been $164. She had made roughly $1,800 in purchases and $1,400 in payments overall.",
+        "The lower-court account stated that the seller knew Williams supported herself and seven children on a $218 monthly government stipend; the contract listed her income and social worker. These circumstances mattered to the challenged clause’s effect without themselves establishing the appellate court’s final conclusion about fairness."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "447–448 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The lower courts thought only legislation could help",
+      "cue": "Trace why the legal authority question reached appeal.",
+      "paragraphs": [
+        "The Court of General Sessions entered judgment for Walker-Thomas. The District of Columbia Court of Appeals affirmed, believing existing District law gave no authority to refuse enforcement for unconscionability. It criticized the transaction but called for legislation. The federal circuit court granted leave to appeal and considered whether the absence of a prior District decision truly foreclosed a common-law defense.",
+        "On August 11, 1965, Judge J. Skelly Wright, joined by Chief Judge Bazelon, held that courts could withhold enforcement of a contract unconscionable when made. Other jurisdictions and Supreme Court treatment of oppressive bargains showed that this was not a novel legislative invention. The District had neither adopted nor rejected the principle; the question was open.",
+        "Congress’s later enactment of Uniform Commercial Code section 2-302 did not prove earlier common law required enforcement. Although it postdated these purchases, the majority treated its rationale as persuasive support for developing common law, not as a retroactive statutory command."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "447–449 & nn.2–5"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Meaningful choice and unfair terms required contextual findings",
+      "cue": "Explain the framework the trial court had not applied.",
+      "paragraphs": [
+        "The majority described unconscionability as absence of meaningful choice together with terms unreasonably favorable to the other party. Choice required consideration of the circumstances: bargaining strength, education, opportunity to understand, fine print, and deceptive presentation. A signature ordinarily bound a party to unfavorable terms, but that principle weakened when someone with little bargaining power or real choice accepted commercially unreasonable provisions without meaningful knowledge.",
+        "Fairness was assessed when the agreement was made, against the trade’s commercial background and practices at that time and place. The inquiry asked whether terms were extreme in that setting, not merely unequal. Substantive one-sidedness could itself illuminate unequal bargaining. Neither poverty nor inequality alone automatically supplied a defense."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "449–450 & nn.6–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Danaher warned that restricting credit carried costs",
+      "cue": "Give the dissent’s concerns without attributing them to the majority.",
+      "paragraphs": [
+        "Judge Danaher would leave the lower disposition in place. He thought Williams appeared to understand her position and emphasized the uncertainties of judicial intervention in consumer credit. An apparent luxury might be a necessity to the buyer; relief recipients could need credit, and sellers accepting unusual risks might set prices accordingly.",
+        "He questioned public oversight of welfare recipients’ spending and worried about effects on thousands of installment contracts. Legislation or existing loan-shark laws might offer relief, but he favored caution before narrowing contractual freedom. He also stressed that the new Code provision did not become effective until January 1, 1965."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "450–451 & dissent n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Both cases returned for the missing inquiry",
+      "cue": "State what the remand left unresolved.",
+      "paragraphs": [
+        "The majority remanded both cases. Because the lower courts had believed they lacked power to refuse enforcement, they had made no unconscionability findings, and the appellate record did not permit that determination as a matter of law.",
+        "The decision established an available defense and a method for evaluating it. It did not itself invalidate the purchases, cancel every debt, or prescribe a new allocation of payments."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "450"
+        }
+      ]
+    }
+  ]
+}

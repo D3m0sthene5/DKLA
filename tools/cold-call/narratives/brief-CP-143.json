@@ -1,0 +1,132 @@
+{
+  "id": "brief-CP-143",
+  "briefId": "CP-143",
+  "title": "Commissioner of Internal Revenue v. Sunnen",
+  "course": "Civil Procedure",
+  "citation": "333 U.S. 591 (1948)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "An inventor’s earlier tax victory did not settle later royalties after different contracts and substantial developments in assignment-of-income law changed the inquiry.",
+  "actors": [
+    {
+      "name": "Sunnen",
+      "role": "Inventor, corporate president, and controlling shareholder"
+    },
+    {
+      "name": "Sunnen’s wife",
+      "role": "Recipient of assigned royalty contracts and payments"
+    },
+    {
+      "name": "Sunnen Products Company",
+      "role": "Manufacturer paying royalties"
+    },
+    {
+      "name": "Commissioner of Internal Revenue",
+      "role": "Official asserting that the royalties remained Sunnen’s taxable income"
+    }
+  ],
+  "proceedings": [
+    "1935 Board of Tax Appeals: earlier-year royalties under the 1928 agreement not taxable to Sunnen.",
+    "Tax Court: later royalties taxable except one payment treated as precluded.",
+    "Eighth Circuit: preserved that exemption and rejected tax on other royalties.",
+    "Supreme Court: reversed and remanded; Frankfurter and Jackson favored affirmance of the Tax Court’s distinct judgment."
+  ],
+  "limits": [
+    "The earlier 1929–1931 judgment was not reopened. No new total deficiency was calculated. Statutory references and tax-review principles are those applied in 1948."
+  ],
+  "briefSha256": "48168200404e7fb2f0c04ddcd74092d4d9ebf4cbf76d64ee0f306548bacb6a78",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-143"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Sunnen assigns royalties but retains patents and corporate control",
+      "cue": "Introduce the sources of income and the powers left behind.",
+      "paragraphs": [
+        "Sunnen invented devices and controlled Sunnen Products Company, the licensed manufacturer. He held eighty-nine percent of its stock, his wife ten percent, and he served as president and director. Three votes on the five-member board were needed to bind the company, but shareholders elected directors annually, giving his voting ownership continuing influence over membership.",
+        "He granted nonexclusive licenses under patents and patent applications for a royalty of ten percent of gross sales. No minimum production or royalty was promised, and either party could cancel without liability after notice. He gave his contract interests to his wife, with formal power to collect royalties, which the company paid her and she reported on her returns. He retained the patents and applications. The tax dispute concerned whether his remaining powers nevertheless made the royalties his income."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333 U.S. at 593–595 & nn.1–3, 608–609"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "An earlier favorable judgment meets a later set of tax years",
+      "cue": "Separate the payment under the same agreement from other contracts.",
+      "paragraphs": [
+        "One agreement dated from 1928. In 1935, the Board of Tax Appeals ruled that Sunnen was not taxable on his wife’s receipts under it during 1929–1931. The new proceeding concerned 1937–1941. Only $4,881.35 received in 1937 arose under that same agreement; the rest came from other licenses.",
+        "The Tax Court taxed the later royalties to Sunnen based on retained control, except the $4,881.35 it treated as conclusively governed by the earlier judgment. The Eighth Circuit upheld that exemption and reversed the tax on the other royalties, finding the assignments effective. Because it ruled for Sunnen on those merits, it did not decide his additional preclusion argument about the other contracts. The Commissioner obtained Supreme Court review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333 U.S. at 595–597"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Annual tax claims require an issue-specific preclusion inquiry",
+      "cue": "Explain why similarity and finality did not answer both questions.",
+      "paragraphs": [
+        "Justice Murphy wrote the opinion, announced by Justice Rutledge. The Court began with Cromwell, the precedent distinguishing a final judgment on the same cause of action from its narrower effect on a different cause. For the same tax year and claim, a merits judgment generally barred matters raised or that could have been raised. Each new income-tax year, however, created a distinct liability, so collateral estoppel reached only issues actually determined with relevant facts and governing rules unchanged.",
+        "That rule preserved finality without giving one taxpayer a perpetual exemption under superseded law while comparable taxpayers paid. Significant changes could come from legislation, regulations, controlling state-law decisions, or substantial Supreme Court doctrinal development. Historical facts actually resolved could remain conclusive, and unchanged legal issues on the very same facts could still be precluded. Mere judicial disagreement did not suffice.",
+        "The other licenses were separable instruments never adjudicated in the 1928-agreement case. Similar terms did not make their later-year treatment conclusively settled. Precedent might support consistency, but stare decisis was different from barring litigation. The $4,881.35 from the same agreement posed the closer question. Intervening decisions in the Clifford–Horst line on intrafamily assignments had substantially developed attention to effective control, economic benefit, and power to direct or defeat payment. That legal development prevented the old decision from conclusively governing the new year."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333 U.S. at 593, 597–607"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Retained powers make the royalties taxable despite formal assignment",
+      "cue": "Apply the developed doctrine to this family arrangement.",
+      "paragraphs": [
+        "The Court declined to turn the merits on an abstract choice between patents and contracts as the ultimate source of income. Even assuming transfer of income-producing property, retained control could determine federal taxation. Formal transfer language and state-law validity did not finish the inquiry.",
+        "First, Sunnen could use his stock voting power to select directors and procure cancellation after notice, even though he could not alone cast the board’s necessary votes. No fraud against the company need be assumed; cancellation might accompany a contract more favorable to it. Existence of that power mattered without proof he exercised it.",
+        "Second, the company could vary or stop payments by changing production and sales because there were no minimums. Third, Sunnen’s retained patents and nonexclusive licenses allowed licensing competitors and diverting opportunities. Together with payments staying in the family economic unit and no substantial change in his economic position, these concrete powers supported the Tax Court’s conclusion that he reallocated receipts without shifting their tax incidence. The Court did not make every gift to a spouse taxable merely because it benefited the family."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333 U.S. at 594 n.1, 603–610"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The reversal changes later liabilities without reopening the old judgment",
+      "cue": "State the separate Justices’ actual position.",
+      "paragraphs": [
+        "On April 5, 1948, the Supreme Court reversed the Eighth Circuit and remanded for necessary further proceedings. It rejected preclusion for the same-contract 1937 payment and sustained the substantive basis for taxing the other royalties. It neither disturbed the final 1929–1931 determination nor announced a new total deficiency.",
+        "Justices Frankfurter and Jackson stated that substantial evidence and law supported affirming the Tax Court, invoking the review principles associated with Dobson and Scottish American. Their position concerned the Tax Court, not the Eighth Circuit. Because the Tax Court had preserved the same-contract exemption, their short statement was not agreement with every part of Murphy’s preclusion analysis. No extended separate reasoning accompanied it."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "333 U.S. at 596–598, 607–610"
+        }
+      ]
+    }
+  ]
+}

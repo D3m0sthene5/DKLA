@@ -1,0 +1,107 @@
+{
+  "id": "gill",
+  "briefId": "CT-NEXT-CM-0131",
+  "title": "Gill v. Johnstown Lumber Co.",
+  "course": "Contracts",
+  "citation": "151 Pa. 534, 25 A. 120 (1892)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A flood interrupted a log-driving contract, and apportioned prices allowed recovery for completed deliveries but not for the incomplete journey of any individual log.",
+  "actors": [
+    {
+      "name": "Gill",
+      "role": "Contractor hired to drive timber downstream"
+    },
+    {
+      "name": "Johnstown Lumber Company",
+      "role": "Owner receiving timber at its boom"
+    }
+  ],
+  "proceedings": [
+    "Trial court: directed verdict for the lumber company on an entire-contract theory.",
+    "Pennsylvania Supreme Court: reversed and awarded a new jury trial."
+  ],
+  "limits": [
+    "The decision did not award a fixed sum or resolve all disputed post-flood events. The reproduced contract is dated March 20, 1889; the editorial flood note’s ten-day chronology conflicts with it."
+  ],
+  "briefSha256": "704012273ddd68d6258c2f965344b11a57528798dd02499152ad36f1f66ea90a",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0131"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The parties price different kinds of deliveries separately",
+      "cue": "Begin with the contract and supplement.",
+      "paragraphs": [
+        "On March 20, 1889, Gill agreed to drive roughly four million feet of timber down Stony Creek and its branches to Johnstown Lumber Company’s boom at Johnstown. The prices were apportioned: $1 per thousand feet for oak and 75 cents for other logs, three cents for each cross-tie delivered to Bethel, and five cents for ties delivered farther downstream within the designated limit.",
+        "The bargain also included a $300 item for an additional lot, directions about safe water and driving speed, use of splash dams, responsibility for negligent dam damage, and payment arrangements. An April 4 supplement excused responsibility for particular logs not put in the streams when Gill needed them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "151 Pa. at 535–536"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The flood interrupts unfinished work",
+      "cue": "Separate contractual delivery from timber swept through the boom.",
+      "paragraphs": [
+        "Gill delivered some lumber as agreed. He drove other lumber partway, then left it for lack of water. The May 31 flood swept some of that timber into and through the company’s boom, with substantial losses; other timber never reached it. Evidence conflicted about whether Gill later offered to finish and the company prevented him.",
+        "Gill sued in assumpsit for compensation. The trial court treated the agreement as an entire undertaking and directed a verdict for the company because he had not completed it. Gill challenged that construction and the failure to submit the case to a jury. His arguments also concerned substantial performance, the supplemental agreement, and the flood as an act of God."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "151 Pa. at 536–538"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Separate prices make the completed units recoverable",
+      "cue": "Follow the appellate court’s two levels of divisibility.",
+      "paragraphs": [
+        "Justice Heydrick stated the narrow concession controlling the appeal: if the contract was entire, the directed verdict was proper; if severable, the case belonged before the jury. The Pennsylvania Supreme Court therefore focused on divisibility rather than resolving every contested question of later performance or prevention.",
+        "Several distinct performances with assigned or apportionable consideration generally supported severability. A single entire consideration generally made a contract entire despite distinct items in its subject. The court illustrated the difference through freight payable proportionately for cargo actually delivered, while preserving the recipient’s claim for damages from short delivery.",
+        "Here, the separate prices for log types and tie destinations made the agreement severable. Gill could recover the stipulated rates for timber actually delivered to the required points despite failing to deliver everything. But each log’s price paid for its full journey, not intermediate miles. The court would divide completed units, not subdivide an unfinished delivery into compensated stages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "151 Pa. at 538–540"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "A new jury trial must respect the completed-delivery boundary",
+      "cue": "Give the result without converting flood passage into performance.",
+      "paragraphs": [
+        "Gill could not recover for logs merely driven partway or swept by flood into and through the boom, whether he had previously worked on them or never touched them. Each delivery resembled common carriage: accidental prevention of arrival did not entitle a carrier to proportional freight for part of the route. Mere physical passage through the boom during the flood was not the contractual delivery that earned payment.",
+        "The Supreme Court reversed and awarded a venire facias de novo, requiring a new jury trial rather than entering a specified recovery for Gill. No separate writing or numerical division was reported. The result preserved both limits: compensation for completed divisible deliveries, and no compensation for incomplete parts of individual deliveries.",
+        "The reproduced agreement places formation on March 20, well before the May 31 flood. The assigned editorial note’s statement that the catastrophe occurred ten days after contracting does not match that contract chronology."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "151 Pa. at 534, 539–540; editorial flood-note comparison"
+        }
+      ]
+    }
+  ]
+}

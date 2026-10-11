@@ -1,0 +1,123 @@
+{
+  "id": "brief-LRS-CLOSURE-042",
+  "briefId": "LRS-CLOSURE-042",
+  "title": "New York v. United States Nuclear Regulatory Commission",
+  "course": "Legislation and the Regulatory State",
+  "citation": "589 F.3d 551 (2d Cir. 2009)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "States ask nuclear regulators to reassess fuel-pool fire risks plant by plant, but the agency’s reasoned reliance on studies and universal safeguards survives highly deferential review.",
+  "actors": [
+    {
+      "name": "Nuclear Regulatory Commission",
+      "role": "Federal regulator whose generic fuel-storage assessment and denial of rulemaking were challenged."
+    },
+    {
+      "name": "Massachusetts and California",
+      "role": "States petitioning for rule changes in 2006 and 2007 respectively."
+    },
+    {
+      "name": "New York, Connecticut and Massachusetts",
+      "role": "The three states seeking judicial review of the denial."
+    }
+  ],
+  "proceedings": [
+    "The Commission consolidated and denied the rulemaking petitions in August 2008.",
+    "The Second Circuit denied the three states’ petition for review on December 21, 2009."
+  ],
+  "limits": "The case reviews particular rulemaking denials, not an individual plant license. It does not guarantee absence of fires or resolve whether terrorism always must be considered under NEPA. California petitioned the agency but was not one of the three judicial petitioners.",
+  "briefSha256": "123670636fa3e788e591e6f2cbc5a0f29618ae6b57b7ef50f065a0804068f523",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "LRS-CLOSURE-042"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Fuel-pool storage receives a generic low-impact classification",
+      "cue": "How did the classification affect license-renewal review?",
+      "paragraphs": [
+        "The Nuclear Regulatory Commission’s 1996 Generic Environmental Impact Statement classified storage of spent nuclear fuel in pools as a Category I issue with a small environmental impact. Category I covered issues common to plants that could receive a uniform significance classification without plant-specific kinds of mitigation. Category II required individual evaluation.",
+        "A generic statement, combined with a site-specific statement, supplied environmental analysis for license renewal. The Commission’s regulations treated renewal as a major federal action requiring an environmental impact statement. The classification therefore mattered to whether each plant needed a separate fuel-pool risk assessment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Regulatory setting; 589 F.3d 553"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "States ask the Commission to revisit fire risks",
+      "cue": "Which states petitioned the agency, and which went to court?",
+      "paragraphs": [
+        "Massachusetts petitioned in 2006 and California in 2007 for revised treatment of spent-fuel pools. They argued that newer information showed greater fire risks and potentially devastating consequences, requiring a higher impact assessment and plant-by-plant consideration. New York and Connecticut supported the requests.",
+        "The Commission consolidated and denied the petitions in August 2008. New York, Connecticut and Massachusetts then sought Second Circuit review, invoking risks to their citizens from nearby plants. California was an original rulemaking petitioner but not part of this three-state judicial group. The court had jurisdiction over final Commission orders under 28 U.S.C. § 2342(4)."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Petitions and judicial posture; 589 F.3d 551–553"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court accepts review but applies a demanding standard",
+      "cue": "Why did deference not mean complete nonreviewability?",
+      "paragraphs": [
+        "The Second Circuit expressly recognized that denial of a rulemaking petition could be reviewed. The standard was extremely limited and highly deferential, at the upper end of arbitrary-and-capricious review. Reversal was reserved for rare and compelling circumstances, typically including plain mistakes about the agency’s legal authority.",
+        "The states argued both that scientific evidence made the risk too significant to call small and that mitigation varying among plants could not support a generic classification. The court evaluated both objections rather than treating the refusal to begin rulemaking as wholly beyond judicial examination."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Reviewability and objections; 589 F.3d 554–555"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Scientific studies and required safeguards support the agency’s response",
+      "cue": "What made generic treatment acceptable on this record?",
+      "paragraphs": [
+        "The Commission had studied fuel-pool risks for decades, including terrorist-fire risks and information arising after September 2001. It had already analyzed most materials submitted by the states. It considered the one previously unexamined study but found it less accurate than its other studies. The court regarded the resulting scientific disagreement as one within agency expertise and found a substantial factual basis for the low-risk assessment.",
+        "The mitigation objection also failed because precautions were not merely optional measures at a few sites. Through license amendments and safety evaluations, the Commission required coolant-spray and replacement-water strategies at every operating plant, as well as heightened security. Its studies supported the effectiveness of those measures, allowing the agency to account for them in its environmental assessment.",
+        "One judicial note reserved whether the National Environmental Policy Act required consideration of terrorism in license-renewal statements, an issue dividing the circuits. The Commission had sufficiently considered terrorist-fire risks here, so this court did not need to decide that broader question."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Evidence, mitigation and reserved issue; 589 F.3d 554–555 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The denial stands without a guarantee about all future risks",
+      "cue": "What was the exact judgment?",
+      "paragraphs": [
+        "On December 21, 2009, Chief Judge Jacobs, Circuit Judge Kearse and District Judge Gardephe, sitting by designation, unanimously denied the states’ petition for review in a per curiam opinion. The agency’s decision was reasoned, based on relevant factors and studies, and within its broad discretion. The court rejected remaining arguments without developing further holdings.",
+        "There was no separate writing. The judgment did not declare fuel-pool fires impossible, approve a particular plant’s renewal, or guarantee that every future refusal to make rules would survive review."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Judgment and participation; 589 F.3d 551–555"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "cp-lasa",
+  "briefId": "CP-079",
+  "title": "LASA Per L'Industria Del Marmo Societa Per Azioni v. Alexander",
+  "course": "Civil Procedure",
+  "citation": "414 F.2d 143 (6th Cir. 1969)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Marble problems at Memphis City Hall produced overlapping accusations among the supplier, installer, prime contractor, and architect. The appeal asked whether those claims could remain in one action, leaving responsibility and damages for later decision.",
+  "actors": [
+    {
+      "name": "LASA",
+      "role": "Italian marble supplier claiming an unpaid balance"
+    },
+    {
+      "name": "Alexander Marble and Tile",
+      "role": "Marble subcontractor disputing supply and installation performance"
+    },
+    {
+      "name": "Southern Builders",
+      "role": "Prime contractor for Memphis City Hall"
+    },
+    {
+      "name": "Continental Casualty",
+      "role": "Surety on the prime contractor’s obligations"
+    },
+    {
+      "name": "A. L. Aydelott and firm",
+      "role": "Architects accused in Alexander’s added claim"
+    }
+  ],
+  "proceedings": "The district court retained the original payment dispute and certain counterclaims but dismissed additional crossclaims. The Sixth Circuit reversed and remanded, with Judge McAllister dissenting.",
+  "limits": "The court decided joinder and historical ancillary jurisdiction, not the competing allegations’ truth. It did not make any independent claim against an outsider eligible for derivative impleader or require every joined issue to be tried simultaneously.",
+  "briefSha256": "de2c6256bee234e71a662c97f4140fc15f863dc1752481ce1dc47fd031e69593",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-079"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A chain of construction contracts ended in an unpaid claim",
+      "cue": "Introduce the participants and original controversy.",
+      "paragraphs": [
+        "The City of Memphis hired Southern Builders as prime contractor for City Hall, with Continental Casualty bonding its performance and payment obligations. Southern Builders subcontracted marble supply and installation to Alexander Marble and Tile. Alexander contracted in turn with LASA, an Italian corporation, for the marble.",
+        "LASA alleged that it supplied the promised material and remained owed $127,240.80. It sued Alexander, Southern Builders, Continental, and the city. Alexander disputed performance, alleging late, damaged, incorrect, and incomplete deliveries and price increases extracted by pressure; it counterclaimed for overpayment and damages. Southern Builders also disputed the payment demand and counterclaimed over promised marble deliveries. Those original claims remained in the district court."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority opening and surviving pleadings; dissent initial pleading recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The installer and prime contractor blamed others in the project",
+      "cue": "Detail the additional allegations as allegations.",
+      "paragraphs": [
+        "Alexander crossclaimed for $158,061.75 allegedly due under its subcontract with Southern Builders and sought actual and punitive damages. It alleged inadequate concrete bases and metal supports, pressure to install in cold and rain contrary to specifications, wrongful termination, replacement by a more costly subcontractor at its expense, and public accusations harming its reputation.",
+        "Against architect A. L. Aydelott and his firm, Alexander alleged defective specifications and supervision, failure to ensure proper prime-contractor performance, refusal to approve estimates, pressure for termination, more favorable modified specifications for a replacement installer, and reputational harm. The dissent’s pleading recital identified a $750,000 treble-damages demand against the architect. None of these accusations was a finding of misconduct.",
+        "Southern Builders also sought unliquidated damages from Alexander for delay, defective material and workmanship, and failure to satisfy specifications. Its separate request for indemnity if LASA recovered against it survived."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority descriptions of dismissed claims; dissent pleading recital"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The district court separated the additional claims",
+      "cue": "Explain their procedural treatment before applying the joinder rule.",
+      "paragraphs": [
+        "The architect claim began as a third-party complaint, but the district court treated it as a crossclaim with an added party under Rule 13(h). It treated Southern Builders’ claim against Alexander as a crossclaim too. The court dismissed the disputed additional claims because it believed they did not arise from the transaction or occurrence underlying the original action or counterclaims.",
+        "Rule 13(g) permitted claims against a coparty arising from that transaction or occurrence or relating to the property at issue. Rule 13(h) allowed additional parties through Rules 19 and 20. The appeal thus concerned these linked joinder routes, not a general right to implead an outsider on any independent claim under Rule 14."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority opening and rules discussion; n.2"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority found a concrete common controversy",
+      "cue": "Explain the logical relationship and case-management alternative.",
+      "paragraphs": [
+        "Judge Phillips, joined by Judge Celebrezze, read the remedial rules broadly to permit decisions on the merits and avoid successive suits over one core of facts. A sufficiently connected crossclaim or third-party claim could use historical ancillary jurisdiction supported by the original subject matter rather than a separate independent jurisdictional basis.",
+        "The flexible transaction inquiry asked whether the claims were logically related. Here a common question ran through the allegations: who caused the marble problems? Supplier, installer, prime contractor, and architect each faced blame for portions of the same performance failures. Different subcontracts and specifications did not eliminate overlapping factual and legal issues or shared proof. The connection involved particular marble problems, not merely participation somewhere on one building.",
+        "A potentially confusing jury trial did not justify dismissal. Rule 42(b) permitted separate trials for convenience, to avoid prejudice, or to promote expedition and economy while preserving jury rights. Keeping related claims in one action did not require presenting every issue to one jury at the same moment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "majority logical-relationship and ancillary-jurisdiction discussion; nn.2–3"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "McAllister saw different disputes requiring different proof",
+      "cue": "Keep the dissent’s narrower view separate from the result.",
+      "paragraphs": [
+        "Senior Judge McAllister would affirm. Rule 13(h)’s use of Rule 20 required both a qualifying transaction or series and a common factual or legal question. He viewed LASA’s claim and its counterclaims as delivery-and-payment disputes under the supply contract. Alexander’s claims against Southern Builders and Aydelott instead concerned obstruction, termination, malicious reputational injury, and interference with another contract.",
+        "For McAllister, those tort accusations required different evidence and legal analysis from the original contract issues. A common construction setting did not supply the missing relationship, and proof deciding the supply contract would not resolve the separate malicious conduct.",
+        "The majority nevertheless reversed the dismissal orders and remanded for further proceedings. It awarded no damages and determined no participant’s responsibility for the marble problems. Joinder, jurisdiction, and trial management remained distinct questions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "dissent Rule 20 and proof analysis; majority disposition"
+        }
+      ]
+    }
+  ]
+}

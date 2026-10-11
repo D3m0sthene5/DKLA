@@ -1,0 +1,129 @@
+{
+  "id": "brief-CP-100",
+  "briefId": "CP-100",
+  "title": "Hickman v. Taylor",
+  "course": "Civil Procedure",
+  "citation": "329 U.S. 495 (1947)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A seaman’s representative sought the opposing lawyer’s witness interviews, forcing the Court to distinguish access to facts from an automatic right to another lawyer’s preparation.",
+  "actors": [
+    {
+      "name": "Hickman",
+      "role": "Representative of a seaman killed in the tug sinking"
+    },
+    {
+      "name": "Tug owners and Baltimore & Ohio Railroad",
+      "role": "Defendants in the Jones Act suit"
+    },
+    {
+      "name": "Fortenbaugh",
+      "role": "Lawyer for tug owners and underwriters, subjected to production and contempt orders"
+    }
+  ],
+  "proceedings": [
+    "District court en banc: ordered production and disclosure, then held owners and counsel in contempt for refusing.",
+    "Third Circuit en banc: reversed.",
+    "Supreme Court: unanimously affirmed that reversal; Jackson concurred with Frankfurter."
+  ],
+  "limits": [
+    "The opinion predates express Rule 26(b)(3) and uses historical discovery rules. It decides production and contempt, not fault for the sinking, and does not create blanket immunity for every document held by counsel."
+  ],
+  "briefSha256": "b34a32cd73c40dc0671869875ce9ffeb2bd984581b9191396042a9f24ae6f10c",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-100"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A fatal sinking prompts immediate preparation for claims",
+      "cue": "Introduce the accident and the distinct witness accounts.",
+      "paragraphs": [
+        "On February 7, 1943, the tug J. M. Taylor sank while helping tow a railroad car float across the Delaware River at Philadelphia. Five of nine crew members drowned. The cause remained unknown in the account before the Supreme Court.",
+        "Three days later, the owners and underwriters hired Fortenbaugh’s law firm to defend expected death claims and pursue the Baltimore & Ohio Railroad for damage to the tug. The four survivors testified at a public United States Steamboat Inspectors hearing on March 4; recorded testimony was available to interested people. Fortenbaugh then interviewed them privately and obtained signed statements on March 29. He interviewed others and sometimes prepared memoranda. Signed statements, written interview notes, and unwritten recollections thus represented different materials from preparation for this specific accident litigation."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "329 U.S. at 498–499"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "Hickman asks the owners for counsel’s collection and recollections",
+      "cue": "Trace the demand and contempt orders.",
+      "paragraphs": [
+        "Hickman, representing one deceased seaman, was the only one of the five death claimants who ultimately litigated rather than settled. On November 26, 1943, he sued the two tug owners, individually and as partners, and the railroad under the Jones Act. About a year later, he served thirty-nine interrogatories on the owners. Number 38 sought copies of written witness statements and detailed accounts of oral statements; supplemental questions sought reports and memoranda.",
+        "The owners answered the other questions, supplied accident facts, and identified witnesses, but refused to surrender counsel’s collected statements or reconstruct interviews. Hickman alleged no dishonest or incomplete answers, unavailable witness, or preparation hardship. Fortenbaugh described how he obtained the material during proceedings on objections; no express production demand was made during his informal deposition.",
+        "The Eastern District of Pennsylvania, sitting en banc, found no privilege and ordered the written statements, disclosure of oral-interview facts, and production or judicial submission of memoranda to separate factual portions. The owners and Fortenbaugh refused, received contempt orders, and faced imprisonment until compliance. The Third Circuit en banc reversed on lawyer-work-product grounds."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "329 U.S. at 498–500, 508–509"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court endorses factual discovery without erasing the lawyer’s role",
+      "cue": "Explain the procedural defect and the deeper issue.",
+      "paragraphs": [
+        "Justice Murphy’s Supreme Court opinion first observed a procedural problem. Rule 33 interrogatories directed to the owners did not authorize compulsory production by their nonparty lawyer under the rules then in force, and there was no proper Rule 34 motion. A deposition and subpoena to counsel would pose the question through a different mechanism. Because the substantive issue would recur, the Court did not rest only on that defect.",
+        "Discovery broadly revealed facts and narrowed issues, and a general “fishing expedition” objection was insufficient. A party could not refuse factual interrogatories merely because its lawyer alone knew the responsive information. But surrendering collected papers and reconstructing conversations went beyond supplying facts.",
+        "Attorney-client privilege did not cover third-party witness accounts, and counsel’s legal theories and working papers required a different justification. Protection arose from adversarial preparation itself: collecting and selecting facts, evaluating theories, recording impressions, and planning strategy. Automatic delivery to an opponent could discourage records, interfere with judgment, and invite dependence on the other side’s work. This served clients and litigation administration on both sides, not a special advantage for corporate defendants or concealment of underlying events."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "329 U.S. at 500–511"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The absence of need defeats the demand on this record",
+      "cue": "Preserve qualified access to writings and heightened concerns about recollections.",
+      "paragraphs": [
+        "The owners had already answered broad factual questions using information counsel gathered. Witness identities were known, the survivors’ public testimony was accessible, and no obstacle to obtaining their accounts was shown. The Court would not presume evasion without an allegation or evidence. Hickman therefore demanded another lawyer’s collection and organization of accessible facts without establishing need.",
+        "Written statements were not absolutely immune. Unavailable or difficult-to-reach witnesses, inaccessible facts, useful leads, or evidentiary purposes could justify production on an adequate showing. The requesting party bore that burden. Materiality and absence of attorney-client privilege alone, the district court’s grounds here, did not meet it.",
+        "Compelling counsel to reconstruct everything orally said raised additional accuracy and role concerns. It could produce incomplete recollections and force the lawyer to become a witness defending them. Hickman’s lawyer said he wanted to check that he had overlooked nothing in preparing his own examination. That purpose was insufficient. The Court acknowledged the possibility of a rare different situation but needed no universal exception rule to reject this demand."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "329 U.S. at 508–513"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Jackson explains why a lawyer’s reconstruction is not the witness’s own statement",
+      "cue": "Finish with the concurrence and exact judgment.",
+      "paragraphs": [
+        "Justice Jackson, joined by Justice Frankfurter, agreed but developed the practical risks. A compelled narrative could require creation of something never transcribed, using counsel’s words, emphases, and inferences. Differences from later testimony could lead to accusations against the lawyer or witness and force counsel to defend professional credibility on the stand, potentially against a client or the lawyer’s own witness.",
+        "Counsel might also interview an unreliable or hostile person simply to prepare for adverse testimony, without adopting that person’s credibility. Requiring every reconstruction could falsely associate counsel with the account or invite suppression accusations. Direct questioning or deposition would obtain the witness’s account and permit meaningful impeachment. Jackson nevertheless accepted production of signed or witness-written statements when genuine difficulty obtaining the information justified it, and would not infer a fundamental alteration of counsel’s role from broad procedural wording alone.",
+        "On January 13, 1947, the Supreme Court affirmed the Third Circuit’s reversal of production and contempt. It did not determine responsibility for the sinking or enter judgment on the Jones Act claim. The later express work-product rule was not yet the text the Court interpreted."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "329 U.S. at 511–519; Jackson concurrence 514–519"
+        }
+      ]
+    }
+  ]
+}

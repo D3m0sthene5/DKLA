@@ -1,0 +1,111 @@
+{
+  "id": "hassler",
+  "briefId": "CT-NEXT-CM-0113",
+  "title": "Hassler v. Circle C Resources",
+  "course": "Contracts",
+  "citation": "2022 WY 28, 505 P.3d 169",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A caregiver kept caring for a client after leaving her employer, but the employer’s overbroad noncompete could not be saved by a court rewriting its duration and territory.",
+  "actors": [
+    {
+      "name": "Circle C Resources",
+      "role": "Habilitation-services employer and noncompete plaintiff"
+    },
+    {
+      "name": "Charlene Hassler",
+      "role": "Nursing assistant caring for a client in her own home"
+    },
+    {
+      "name": "The client’s mother and guardian",
+      "role": "Person choosing a different day-service provider"
+    },
+    {
+      "name": "Justice Kautz",
+      "role": "Author for the Wyoming Supreme Court panel"
+    }
+  ],
+  "proceedings": "District court narrowed the covenant on cross-motions, found breach, and awarded $94,742.10; Supreme Court overruled liberal judicial modification, reversed, and remanded for summary judgment for Hassler.",
+  "limits": "The ruling concerns Section 2’s noncompetition restrictions, not an independent adjudication of confidentiality terms. Protectable interest and causation were unnecessary to decide. This account does not certify subsequent statutes or treatment.",
+  "briefSha256": "cdb4c2ac93f23ebad618c2a89bc1ceb5ebd5b94541140caa49a1a1ae96df61cc",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0113"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Circle C placed a long-term client in Hassler’s home",
+      "cue": "Connect the care arrangement to the contract she signed.",
+      "paragraphs": [
+        "Circle C Resources provided day and residential habilitation to disabled clients in Natrona and Converse Counties and was authorized to operate in five additional Wyoming counties. In March 2015, it hired nursing assistant Charlene Hassler to care for a long-term, nonverbal adult client in Hassler’s own home. After about a month of training, the client moved in. Hassler provided extensive daily care and transportation to Circle C’s Casper day facility.",
+        "The opinion reported annual Medicaid-waiver residential payments of $121,142.10 to Circle C and about $26,400 in annual pay to Hassler, describing the $94,742.10 difference as annual net profit. At hiring, Hassler signed confidentiality and noncompetition terms. Section 2 broadly barred competition, similar services, or service to Circle C customers during employment and for twenty-four months afterward, covering areas where Circle C marketed services and expressly at least seven counties. A separate paragraph barred solicitation for the same period.",
+        "Paragraph C called the restrictions negotiated and reasonable and directed courts to substitute the maximum reasonable restrictions if a term failed. Those declarations later became central to whether a court could rewrite the bargain."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶3–5, 25"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The client’s move to another provider left residential care in place",
+      "cue": "Follow the departure, demand, and damages award.",
+      "paragraphs": [
+        "The client’s mother and guardian became dissatisfied with Circle C’s day program and selected another provider. In January 2017, the case manager notified Circle C that the client and Hassler were leaving. The client stayed in Hassler’s home. Residential services were initially billed through another provider while Hassler sought her own Medicaid number.",
+        "In May, Circle C demanded that Hassler stop soliciting and serving the client for at least twelve months or face suit. She obtained her number in July, but stopped paid services from August 2017 through August 2018. Her husband and daughter supplied most paid care during that period, although Hassler sometimes helped.",
+        "Circle C sued for damages in July 2019. On cross-motions for summary judgment, the district court reduced the covenant from twenty-four to twelve months and from seven counties to Natrona and Converse, found Hassler in breach of the revised restriction, and awarded $94,742.10 in projected profit. Hassler appealed enforceability and causation. The Wyoming Supreme Court requested supplemental briefing on whether courts should continue modifying unreasonable covenants."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶6–11 & n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court reconsidered the promise that judges would narrow overbroad terms",
+      "cue": "Explain the rejected precedent and incentives behind the change.",
+      "paragraphs": [
+        "Justice Kautz’s opinion balanced freedom of contract with competition and employees’ freedom to work. Employers could protect legitimate interests against unfair competition, but not suppress ordinary competition. Noncompetes were prima facie invalid; employers bore the burden to establish a written employment covenant, reasonable consideration, reasonable time and territory, and consistency with public policy.",
+        "The court distinguished invalidation, deletion of severable language that left a coherent agreement, and substantive rewriting into reasonable restrictions. Its earlier Hopper decision had adopted the third approach to protect training, customer contacts, and confidential information without arbitrary invalidation. But the court had not since affirmed its application. Skaf, a later arbitration case, rejected extensive rewriting, and a separate concurrence there suggested reconsideration.",
+        "The court now concluded that liberal modification conflicted with ordinary contract principles and undermined its own objectives. Employers generally drafted from a stronger position. Assured judicial narrowing encouraged overbreadth: broad terms deterred mobility, while litigation could still produce an enforceable narrower covenant. Employees and prospective employers might avoid opportunities rather than pay for a challenge. A future court-created restriction also made the agreement unpredictable. Paragraph C could not appoint courts to manufacture a reasonable bargain. Those defects justified overruling Hopper’s liberal blue-pencil rule."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶12–29"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Without rewriting, the undisputed unreasonable restriction failed",
+      "cue": "State the procedural fairness and exact remand.",
+      "paragraphs": [
+        "Circle C did not justify territory beyond the two counties where it actually operated and did not contest the finding that twenty-four months was unreasonable. With those restrictions undisputedly unreasonable and judicial redrafting unavailable, the noncompete was void on public-policy grounds. The court did not need to decide legitimate protectable interest or whether Hassler caused the projected loss.",
+        "Although unreasonable duration and territory had not originally grounded Hassler’s summary-judgment motion, supplemental briefing provided notice and an opportunity to respond. Rule 56 therefore permitted relief on the newly dispositive ground. On February 25, 2022, the court reversed and remanded for summary judgment for Hassler, not another attempt to narrow the covenant. Kautz wrote for Fox, Davis, Boomgaarden, Gray, and himself; Davis had retired and was formally reassigned. There was no separate writing."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Opinion ¶¶1, 30–32 & n.2; reassignment note"
+        }
+      ]
+    }
+  ]
+}

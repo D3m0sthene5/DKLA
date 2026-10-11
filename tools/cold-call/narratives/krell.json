@@ -1,0 +1,106 @@
+{
+  "id": "krell",
+  "briefId": "CT-NEXT-CM-0174",
+  "title": "Krell v. Henry",
+  "course": "Contracts",
+  "citation": "[1903] 2 K.B. 740",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A room hire for viewing coronation processions lost its shared purpose when the King’s illness cancelled the processions, although the rooms remained available.",
+  "actors": [
+    {
+      "name": "Krell",
+      "role": "Owner of Pall Mall rooms"
+    },
+    {
+      "name": "Henry",
+      "role": "Hirer resisting the unpaid balance"
+    }
+  ],
+  "proceedings": [
+    "Darling J. rejected Krell’s £50 claim and allowed Henry’s £25 counterclaim.",
+    "Henry withdrew his counterclaim on appeal.",
+    "Court of Appeal dismissed Krell’s appeal concerning the unpaid balance."
+  ],
+  "limits": "The appellate judgment does not decide deposit recovery. The premise was shared and established by agreed affidavits, not merely Henry’s private motive. All three judges agreed, with expressed difficulties in the concurrences.",
+  "briefSha256": "68a4c96d87e37c70e40dcafacf28c51b1418cae3cf29619713cdd0c313bb4ae4",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0174"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Windows overlooking the route are advertised",
+      "cue": "The letters record a daytime hire",
+      "paragraphs": [
+        "Krell owned rooms at 56A Pall Mall overlooking the announced royal coronation procession route. An advertisement offered windows for viewing. Henry approached the housekeeper because of it and learned the rooms were available during the daytime of June 26 and 27, 1902, without overnight lodging.",
+        "Two letters dated June 20 fixed the price at £75: £25 immediately and £50 on June 24. They did not mention the coronation, but agreed affidavits established that both parties understood the viewing occasion to be the transaction’s basis. The King became seriously ill. Early on June 24 officials publicly announced postponement of the coronation and cancellation of the processions on those days. The rooms remained intact, but Henry refused the balance."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Report at 740–743, 750–752, 754–755"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The owner sues for the remaining price",
+      "cue": "The deposit leaves the appellate dispute",
+      "paragraphs": [
+        "Krell sought £50, and Henry counterclaimed for his £25 deposit. Darling J. rejected Krell’s claim and allowed the counterclaim. Krell appealed; Henry withdrew the counterclaim during the appeal, leaving only the unpaid balance.",
+        "Krell argued that he promised available rooms without an express coronation condition and that Henry’s disappointed purpose did not excuse payment. He also argued that payment was due before the occupation days and invoked accrued-rights decisions. Henry answered that the location, advertisement, and negotiations made the processions a common foundation, bringing the arrangement within the principle of Taylor v. Caldwell despite the rooms’ continued existence."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Report at 740–747, 754–755"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The court identifies the substantial transaction",
+      "cue": "The common foundation extends beyond physical survival",
+      "paragraphs": [
+        "Lord Justice Vaughan Williams treated Taylor’s principle as broader than destruction of a particular thing. Terms and mutually recognized circumstances revealed the substantial bargain and could show an assumed state of affairs qualifying general language. He asked what its foundation was, whether the substantial contract was prevented, and whether the preventing event was beyond reasonable contemplation at formation.",
+        "The particular windows, daytime restriction, advertisement, and agreed negotiations made the announced processions essential. Ordinary occupation was possible, but the jointly contemplated viewing transaction was not. This was a condition limiting the undertaking when its foundation disappeared, distinct from the implied-warranty inquiry associated with The Moorcock.",
+        "Vaughan Williams contrasted hiring a cab to Epsom for the Derby, even at an enhanced price. An ordinary suitable cab could still provide transport if the race disappeared; attendance would generally be the passenger’s purpose rather than the foundation of that transport bargain. The particular rooms and their understood use made this case different."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Report at 747–753"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "No payment claim accrued before cancellation",
+      "cue": "The appeal fails with the deposit question withdrawn",
+      "paragraphs": [
+        "Cancellation was announced early on June 24, and Henry could pay at any time during that day. Merely naming June 24 as the due date did not create an accrued nonpayment claim before the frustrating event.",
+        "Lord Justice Romer concurred while acknowledging difficulty, especially whether the event lay outside reasonable contemplation and an assumed risk. He accepted the common-foundation analysis on the agreed facts. Lord Justice Stirling likewise agreed and called the case difficult.",
+        "On August 11, 1903, the Court of Appeal dismissed Krell’s appeal. Henry did not owe the £50 balance. His withdrawn counterclaim meant the appellate decision did not determine whether the £25 already paid was recoverable."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Report at 754–755"
+        }
+      ]
+    }
+  ]
+}

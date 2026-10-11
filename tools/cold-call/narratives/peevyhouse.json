@@ -1,0 +1,128 @@
+{
+  "id": "peevyhouse",
+  "briefId": "CT-NEXT-CM-0148",
+  "title": "Peevyhouse v. Garland Coal & Mining Co.",
+  "course": "Contracts",
+  "citation": "382 P.2d 109 (Okla. 1962), modified and rehearing denied (1963)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "The Peevyhouses obtained a promise to repair their farmland after strip mining. When the coal company left the work undone, the litigation turned on whether damages should buy the promised restoration or compensate only for the small increase it would bring in market value.",
+  "actors": [
+    {
+      "name": "Willie and Lucille Peevyhouse",
+      "role": "Farm owners who leased land for coal mining"
+    },
+    {
+      "name": "Garland Coal & Mining Company",
+      "role": "Lessee that conceded it omitted the restoration work"
+    },
+    {
+      "name": "Justice Jackson",
+      "role": "Author of the majority and rehearing opinions"
+    },
+    {
+      "name": "Justice Irwin",
+      "role": "Dissenter who emphasized the negotiated restoration promise"
+    }
+  ],
+  "proceedings": "A jury awarded $5,000 on the conceded breach. Both sides appealed. The Oklahoma Supreme Court reduced the award to $300 and affirmed as modified by a five-to-four division. Rehearing was denied in 1963.",
+  "limits": "The market-value exception required both an incidental promise and gross disproportion between economic benefit and performance cost. The decision did not deny breach, order specific performance, or decide the separate dismissed blasting claim.",
+  "briefSha256": "99d7610bb36dd910bcb193498cf6beea7f6ec29326f9a1c21cf39d39c0e608d1",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-NEXT-CM-0148"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Royalties and restoration formed the lease",
+      "cue": "Describe the bargain before the mine left its damage.",
+      "paragraphs": [
+        "In November 1954, Willie and Lucille Peevyhouse leased coal-bearing farm property to Garland Coal & Mining Company for five years of strip mining. The lease allowed surface use needed for mining and required royalties, but also specified repairs: filling pits at property lines so fences and access could cross them, smoothing spoil-bank tops, maintaining a compatible creek crossing, and leaving no shale or dirt on the pits’ high wall.",
+        "The signed lease also provided a $2,000 advance royalty, assignment restrictions with a stated exception, and a premining boundary survey. Separate clauses addressed cancellation on thirty days’ notice for unprofitable operations, notice of claimed default, and equipment removal after termination. Those provisions supplied the contractual setting; this litigation concerned the omitted remedial work.",
+        "The parties stipulated that Garland had fulfilled every other contractual obligation. Garland conceded that it had not performed the repairs, which experts estimated would require moving many thousands of cubic yards of dirt at a cost of about $29,000."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "110–111, 114–115; Selections printed 692–700"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The jury heard two measures of loss",
+      "cue": "Explain the competing appeals from the same award.",
+      "paragraphs": [
+        "The Peevyhouses sued for $25,000. Over their objection, Garland introduced evidence comparing the farm’s value without the promised restoration with its value after restoration. The trial judge directed a verdict for the owners on liability, but allowed the jury to consider performance cost alongside the other evidence in fixing damages. The jury awarded $5,000.",
+        "Both sides appealed. The owners insisted on the cost of doing the work; Garland argued that the recovery should be limited to the value the restoration would add. The disputed question therefore was the amount owed for an admitted breach, not whether Garland had broken its promise."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "111"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The majority limited recovery to the added value",
+      "cue": "State both conditions for its exception.",
+      "paragraphs": [
+        "Justice Jackson’s majority recognized reasonable performance cost as the ordinary measure for a coal lessee’s unperformed remedial work. But it adopted an exception when the breached provision was merely incidental to the agreement’s main purpose and the economic benefit to the lessor was grossly disproportionate to performance cost. In that combination, diminution in value controlled.",
+        "The majority characterized the main bargain as economical extraction and sale of coal for mutual profit, with restoration incidental. It thought an ordinary owner would not spend $29,000 to increase market value by $300. Although no completed building would have to be destroyed, as in the Restatement’s familiar economic-waste setting, the majority regarded expense disproportionate to the result as independently relevant. It compared Groves, a grading-contract case favoring performance cost, with decisions using diminution in value for similar arrangements.",
+        "Oklahoma statutes prohibited damages greater than the benefit of full performance and demanded reasonable damages rather than unconscionable or grossly oppressive recovery contrary to substantial justice. The majority analogized those restrictions to limits on penalties. On its economic premise, awarding the repair cost would confer more benefit than completed restoration. Yet it expressly acknowledged that a contract’s principal purpose could be an improvement that reduced resale value; performance cost would ordinarily govern there.",
+        "No evidence supported more than $300 in added value from these repairs, and the owners did not argue for a larger figure under that measure. The court modified the $5,000 award to $300 and affirmed it as modified, without ordering a new damages trial."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "111–114"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Irwin viewed restoration as an essential negotiated term",
+      "cue": "Attribute the competing account to the dissent.",
+      "paragraphs": [
+        "Justice Irwin disputed the premise that restoration was incidental. He emphasized Garland’s admission that the owners insisted on those terms and would not lease without them. Garland received mineral rights and surface use; the owners bargained for royalties plus restoration. The work’s cost was reasonably predictable, and no unforeseen obstacle prevented performance. Irwin characterized the breach as willful and lacking good faith because Garland could perform but had attempted no substantial performance.",
+        "To Irwin, a market-value award rewrote the bargain after Garland received its benefits. If benefits mattered, the company’s benefits mattered too. Lawful, unambiguous promises untainted by fraud, mistake, or accident should be enforced as made. He favored Groves’ performance-cost approach and invoked entitlement to specific performance in support, although the court ordered no such remedy.",
+        "Jackson was joined by Welch, Davison, Halley, and Johnson. Williams, Blackbird, Irwin, and Berry dissented, producing a five-to-four division; only Irwin supplied a substantive separate opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "114–116"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Rehearing could not rebuild the valuation case",
+      "cue": "Connect the owners’ litigation choices to the remaining award.",
+      "paragraphs": [
+        "On rehearing, the owners argued that excluding evidence about the whole property had prevented proof of loss. Jackson explained that their pleadings covered only sixty acres despite testimony about other owned and leased lands. A separately pleaded claim for blasting damage to their home and well had been dismissed without prejudice. They had not amended to include other lands or preserved the particular evidentiary objections now asserted.",
+        "The owners had tried the surviving claim on the theory that only performance cost mattered. They opposed valuation evidence, did not cross-examine Garland’s valuation witnesses or rebut them, and did not challenge the $300 increment in their appellate briefing. The relevant increment was the loss from these omitted repairs, not the farm’s overall decline from mining. Rehearing did not permit a change of theory to develop evidence previously treated as irrelevant. Offering contrary value evidence would not itself have waived their admissibility objection.",
+        "Amici also invoked the federal Contract Clause. The court rejected that argument because the damages statutes predated the lease, the decision did not overturn an Oklahoma holding on which the parties relied, and no later legislative impairment was being enforced. Sturges, involving subsequent bankruptcy legislation, was therefore distinguishable. The same five-to-four grouping denied rehearing. The report records modification and denial on March 26, 1963, and denial of a second rehearing on May 28."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "116–120"
+        }
+      ]
+    }
+  ]
+}

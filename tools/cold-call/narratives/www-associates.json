@@ -1,0 +1,113 @@
+{
+  "id": "www-associates",
+  "briefId": "CT-CB-0553",
+  "title": "W.W.W. Associates, Inc. v. Giancontieri",
+  "course": "Contracts",
+  "citation": "77 N.Y.2d 157 (1990)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A land buyer sought to waive a litigation-related cancellation clause, but the written contract gave that right to both sides and the sellers exercised it after the agreed deadline.",
+  "actors": [
+    {
+      "name": "W.W.W. Associates, Inc.",
+      "role": "Real-estate investor and developer buying the parcel"
+    },
+    {
+      "name": "Giancontieri and the other sellers",
+      "role": "Owners selling a Suffolk County parcel and financing most of its price"
+    },
+    {
+      "name": "Buyer’s vice-president",
+      "role": "Affidavit witness describing negotiations and alleged bad faith"
+    },
+    {
+      "name": "Judge Kaye",
+      "role": "Author for the unanimous New York Court of Appeals"
+    }
+  ],
+  "proceedings": "Trial court granted sellers summary judgment; Appellate Division reversed and directed specific performance; Court of Appeals reversed with costs, granted sellers summary judgment, and dismissed the complaint.",
+  "limits": "The negotiations and bad-faith account were affidavit allegations, not trial findings. The Court decided the writing unambiguous and the bad-faith showing insufficient to raise a triable issue; it did not find the alleged conversations never occurred.",
+  "briefSha256": "cffec9c0d876963d1ed38c8c1b84491ed275bc84aabe4aceecdcd167b7b1a670",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-CB-0553"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The land contract gave the parties a deadline for unresolved litigation",
+      "cue": "Read the disputed clause alongside the rest of the bargain.",
+      "paragraphs": [
+        "On October 16, 1986, the owners of a two-acre Suffolk County parcel agreed to sell it to W.W.W. Associates, Inc., a real-estate investor and developer, for $750,000. The buyer would pay $25,000 on signing, $225,000 at closing, and deliver a $500,000 purchase-money mortgage payable two years later. Closing was expected around December 1.",
+        "The printed contract contained negotiated additions. Paragraph 31 acknowledged pending litigation affecting the property in which the sellers had been served. If the litigation delayed closing, closing would be adjourned until it ended. If it remained unresolved by June 1, 1987, either party could cancel, the down payment would be returned, and further contractual rights would end.",
+        "Paragraph 19 merged prior understandings into the writing and disclaimed reliance on outside statements. Other negotiated terms gave only the buyer an unconditional ten-day cancellation option and an option if the sellers could not supply building permits for fifty senior-citizen housing units. Those purchaser-only provisions contrasted with paragraph 31’s express right for either party."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "77 N.Y.2d at 160"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The buyer demanded a closing and the sellers canceled",
+      "cue": "Introduce the buyer’s negotiation account as an allegation.",
+      "paragraphs": [
+        "The December closing did not occur, and the property litigation remained unresolved as June approached. On May 13, the buyer announced readiness to close May 28 and began this specific-performance suit. On June 2, the sellers canceled and tendered the down payment, which the buyer refused. The sellers moved for summary judgment under paragraph 31.",
+        "The buyer’s vice-president asserted that the clause had been added solely for the buyer’s protection. A notice of pendency had raised concerns about construction financing and related title insurance for the senior housing project, despite assurances that the underlying suit lacked merit. According to the affidavit, the feared financing problem never arose. The buyer argued that it could waive a condition for its sole benefit and compel the sale.",
+        "The vice-president also reported that a broker had recounted a seller’s statement that the owners were doing nothing to defend the litigation, were waiting until June 2 to cancel, and were considering a higher-price resale. The sellers did not factually answer those assertions; they relied on the contract. The trial court granted them summary judgment and dismissed the complaint. The Appellate Division adopted the buyer’s affidavit account, searched the record, and ordered specific performance for the buyer."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 160–162"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The Court of Appeals began with the full written agreement",
+      "cue": "Explain why the waiver principle could not erase the sellers’ right.",
+      "paragraphs": [
+        "Judge Kaye’s Court of Appeals opinion accepted the general rule allowing the sole beneficiary of a condition to waive it. But whether the condition had only one beneficiary depended on the contract’s meaning. A complete, clear writing ordinarily controlled according to its terms; outside evidence of an unstated or misstated intention could not vary it. That approach supported commercial stability, especially in real-property transactions, by guarding against fraudulent claims, faulty memory, unavailable witnesses, and unreliable evaluation of negotiations. Ambiguity was a legal question for the court.",
+        "Read as a whole, the agreement unambiguously gave both buyer and sellers cancellation rights if the litigation remained unresolved past the deadline. The merger clause reinforced the writing’s completeness. The sellers also had a rational reason apparent from the contract to reserve an escape: they were financing two-thirds of the price and might prefer an as-is cash sale if litigation continued. That was a logical explanation, not a finding of their actual subjective motive.",
+        "The surrounding purchaser-only options strengthened the conclusion. Sophisticated parties had used unilateral language when they wanted a unilateral right and bilateral language here. Recasting paragraph 31 as solely the buyer’s condition would rewrite that choice. The buyer could not acknowledge an absolute seller cancellation right while claiming an equally absolute power to extinguish it through waiver."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 162–163"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The uncontradicted affidavit still did not defeat summary judgment",
+      "cue": "Distinguish immaterial interpretation evidence from inadequate bad-faith proof.",
+      "paragraphs": [
+        "The court rejected using outside evidence to create ambiguity in an otherwise complete and unambiguous contract. It examined the whole writing first and would consider extrinsic material if an identified ambiguity required it. This method still considered context within the contract; it did not isolate the clause from surrounding provisions.",
+        "The sellers’ failure to contradict the negotiation account did not make that account controlling. Had it been legally material, an undisputed assertion that the clause protected only the buyer could have supported waiver. Here, however, clear reciprocal language made the proposed extrinsic interpretation immaterial. The court neither found the vice-president dishonest nor found that the negotiations never happened.",
+        "The separate bad-faith theory also failed. Once the sellers showed entitlement to judgment, the buyer needed admissible evidence raising a genuine issue or an acceptable explanation for its absence. The vice-president’s report of what the broker said a seller had said was conclusory and insufficient, even under the more generous treatment afforded a summary-judgment opponent. The court did not decide after trial that the sellers had diligently defended the underlying litigation; it found no triable issue in this record.",
+        "On December 27, 1990, the unanimous seven-member Court of Appeals reversed the Appellate Division with costs, granted the sellers’ summary-judgment motion, and dismissed the complaint. It did not remand for factfinding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "Id. at 161–164"
+        }
+      ]
+    }
+  ]
+}

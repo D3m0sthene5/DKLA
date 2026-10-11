@@ -1,0 +1,131 @@
+{
+  "id": "cp-provident",
+  "briefId": "CP-083",
+  "title": "Provident Tradesmens Bank & Trust Co. v. Patterson",
+  "course": "Civil Procedure",
+  "citation": "390 U.S. 102 (1968)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "After a fatal collision, injured claimants win a federal declaration of insurance coverage. An appellate court then dismisses because the car’s owner was absent, requiring the Supreme Court to examine actual prejudice after a completed trial.",
+  "actors": [
+    {
+      "name": "Provident Tradesmens Bank & Trust Company",
+      "role": "Administrator of passenger John Lynch’s estate and coverage plaintiff."
+    },
+    {
+      "name": "Donald Cionci’s estate and Lumbermens Mutual Casualty Company",
+      "role": "Driver’s estate and insurer defending the coverage suit."
+    },
+    {
+      "name": "Edward Dutcher",
+      "role": "Car owner and named insured whose joinder would destroy diversity."
+    },
+    {
+      "name": "John Harris and Thomas Smith’s representative",
+      "role": "Injured passenger and deceased truck driver’s representative who joined the coverage plaintiffs."
+    }
+  ],
+  "proceedings": [
+    "The district court entered coverage judgments for plaintiffs after directed verdicts and a jury verdict.",
+    "The en banc Third Circuit reversed on nonjoinder and deference-to-state-court grounds raised on its own.",
+    "The Supreme Court vacated and remanded for unresolved appellate issues and preservation of any surviving judgment with appropriate protection."
+  ],
+  "limits": "This account follows the canonical brief without a new audit or current-law certification. The Supreme Court assumed feasible joinder was required and did not finally resolve all coverage or evidence issues. It reserved whether Dutcher’s failure to intervene affected later litigation and did not establish that he faced no tort liability.",
+  "briefSha256": "19fd96a472f9a8f27d8c236b92adb6b01a057e5eef1558770514e854d375d9c8",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-083"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "A borrowed car crashes, leaving competing claims against limited insurance",
+      "cue": "Why might the owner need the same policy proceeds?",
+      "paragraphs": [
+        "Edward Dutcher lent his automobile to Donald Cionci. With John Lynch and John Harris as passengers, Cionci crossed a median and collided with Thomas Smith’s truck. Cionci, Lynch, and Smith died; Harris was seriously injured.",
+        "Provident Tradesmens Bank, administering Lynch’s estate, settled a federal tort action against Cionci’s estate for $50,000. The penniless estate did not pay. Harris and Smith’s representative also had pending state tort suits against Cionci’s estate, Dutcher, and Lynch’s estate.",
+        "Lumbermens Mutual Casualty Company’s policy provided $100,000 for one accident and covered drivers using the car with Dutcher’s permission. The insurer argued that an alleged detour took Cionci outside that permission. Dutcher, the named insured, might also need the policy against his own vicarious tort liability."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "390 U.S. 104–109"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The claimants obtain a coverage judgment without Dutcher",
+      "cue": "How did nonjoinder enter only after trial?",
+      "paragraphs": [
+        "Provident sought a declaration that Cionci had permission, naming Lumbermens and Cionci’s estate as defendants. Harris and Smith’s representative joined as plaintiffs. Dutcher was not joined: as a Pennsylvania resident like the plaintiffs, joining him as a defendant would destroy diversity jurisdiction.",
+        "The district court entered judgment for the coverage plaintiffs after directed verdicts for the two estates and a jury verdict for Harris. Pennsylvania’s Dead Man Rule prevented Dutcher from testifying against the estates; he did testify on Harris’s claim. The defendants did not object to nonjoinder at trial.",
+        "The en banc Third Circuit reversed five to two on grounds it raised itself. It deemed Dutcher indispensable and thought the federal court should defer to the state suits. Treating joinder as a substantive entitlement beyond Federal Rule of Civil Procedure 19, it did not decide Lumbermens’ remaining state-law appellate arguments. The Supreme Court reviewed that dismissal."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "390 U.S. 106–108"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Rule 19 requires a practical decision at the litigation’s actual stage",
+      "cue": "Whose interests had changed because trial was complete?",
+      "paragraphs": [
+        "Justice Harlan’s opinion assumed Dutcher should be joined if feasible but rejected automatic dismissal when joinder would destroy diversity. Under Rule 19(b), the court must determine whether equity and good conscience permit continuation by examining the plaintiff’s, defendant’s, absentee’s, and public’s interests. Indispensability describes the conclusion of that analysis, not a fixed status that replaces it.",
+        "Before trial, a satisfactory alternative forum might support dismissal. After trial, the plaintiffs also had a judgment and invested resources to preserve. Lumbermens had received an opportunity to litigate claims against its policy and had not raised nonjoinder. Its later position alone could not justify discarding the adjudication.",
+        "Earlier equity decisions likewise responded to particular prejudice and conflicting obligations, not a universal substantive right to dismissal whenever an absentee might be affected. Rule 19 validly directed courts to determine whether substantive rights were actually threatened and whether protective relief could preserve them."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "390 U.S. 108–113, 118–125"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Dutcher’s possible loss can be addressed without erasing the trial",
+      "cue": "What did nonparty status protect, and what did it not protect?",
+      "paragraphs": [
+        "Ordinarily a nonparty is not legally bound, but practical harm can still matter. Dutcher might lose available proceeds before defending claims against himself. The Court considered that risk limited and avoidable, without accepting plaintiffs’ assertion that he had virtually no possible tort liability.",
+        "The appellate court had confused an adverse interest under the Dead Man Rule with unavoidable injury from this judgment. A judgment favoring Lumbermens might benefit Dutcher; that did not establish that the opposite judgment impermissibly harmed him. The Court expressly reserved whether his failure to intervene might prevent later litigation of permission, rather than binding everyone who could have intervened.",
+        "Payment could be withheld while relevant tort claims proceeded, and the claimants represented that they would accept limits confining their claims to the policy amount. Courts had to consider such protections before dismissal. The public interest in efficient, consistent litigation included preserving work already completed."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "390 U.S. 110–116"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The state suits do not supply an equivalent substitute",
+      "cue": "What remained for the Third Circuit to decide?",
+      "paragraphs": [
+        "The Supreme Court also rejected discretionary dismissal in favor of state litigation. Those suits concerned tort liability and agency; the federal case concerned permission and insurance coverage. Lumbermens was absent from the state cases, which did not give the estate an equivalent opportunity for the requested coverage judgment. Completion of the federal trial further weighed against abandonment.",
+        "On January 29, 1968, the Court vacated the appellate judgment and remanded. The Third Circuit had to resolve the appellate questions it had not reached. If the district court’s judgment survived, it should be preserved while protecting absent persons. No separate concurrence or dissent appeared. Dutcher’s joinder would have defeated diversity, but his absence had not automatically eliminated jurisdiction over the existing action."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "390 U.S. 125–128"
+        }
+      ]
+    }
+  ]
+}

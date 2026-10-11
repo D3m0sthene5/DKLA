@@ -1,0 +1,142 @@
+{
+  "id": "brief-CT-ADDITIONAL-CM-B1-048",
+  "briefId": "CT-ADDITIONAL-CM-B1-048",
+  "title": "Donovan v. RRL Corporation (Supreme Court)",
+  "course": "Contracts",
+  "citation": "26 Cal. 4th 261, 27 P.3d 702 (2001)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "A misprinted price for a specific Jaguar created a contract under California advertising rules, but the majority allowed the dealer to defeat enforcement through unilateral-mistake rescission.",
+  "actors": [
+    {
+      "name": "Donovan",
+      "role": "Customer tendering the advertised price"
+    },
+    {
+      "name": "RRL Corporation",
+      "role": "Automobile dealer seeking to avoid the mistaken bargain"
+    },
+    {
+      "name": "Daily Pilot",
+      "role": "Newspaper whose revision and proof errors produced the price mismatch"
+    }
+  ],
+  "proceedings": [
+    "Municipal court entered judgment for RRL on a mistaken no-formation rationale.",
+    "Appellate department and Court of Appeal reversed.",
+    "California Supreme Court reversed the Court of Appeal 4–2 on rescission grounds; report includes modification and rehearing denial."
+  ],
+  "limits": "The majority’s alternative rescission ground was contested procedurally in dissent. Actual statutory violation and a private statutory damages theory were not decided. The buyer’s appeal concerned contract only.",
+  "briefSha256": "dbf3d79ef0717144908f4f11dffcc5b88f4c42aee2e3b808fb12d86e40993e87",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CT-ADDITIONAL-CM-B1-048"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "The newspaper pairs one car with another car’s price",
+      "cue": "Donovan inspects and tenders the advertised amount",
+      "paragraphs": [
+        "An April 26, 1997 Daily Pilot ad offered a two-day used-car sale. It identified a sapphire-blue 1995 Jaguar XJ6 Vanden Plas by vehicle identification number for $25,995, alongside fifteen other cars, the dealer’s name and location, added-charge disclosures, and approved-credit conditions. It expired April 27.",
+        "Donovan saw other 1995 Jaguars priced $8,000–$10,000 higher on April 26. At RRL the next day, he checked the identification number and test-drove with his spouse. They noticed high mileage, apparent rust, worn tires, and less cleanliness but found the price attractive. A salesperson suggested another dealer might offer a better Jaguar price; neither initially identified this ad’s amount. When Donovan offered about $26,000 and produced it, the salesperson immediately recognized the error.",
+        "The manager apologized and offered reimbursement for fuel, time, and effort. Donovan refused, denied any mistake, and offered a check at the advertised price. The manager declined and offered $37,016, based on RRL’s $35,000 investment. Donovan insisted and left."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 267–268"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The actual advertising error emerges",
+      "cue": "The lower courts disagree over formation and negligence",
+      "paragraphs": [
+        "The intended ad was for a 1994 Jaguar at $25,995. Newspaper staff inserted that figure in place of “Save” but failed to replace the old 1995 description, making both typesetting and proofreading errors later acknowledged in a retraction. RRL did not check the revised proof. Its other ads correctly described the 1994 car. It later advertised this 1995 Jaguar at the intended $37,995 and sold it for $38,399.",
+        "Donovan sued for contract breach, fraud, and negligence. The municipal court disallowed negligence, found a good-faith nondeceptive mistake unknown to Donovan, and entered judgment for RRL. It thought the erroneous price defeated intent even though the advertising and signature were otherwise sufficient. Donovan appealed only breach.",
+        "The superior court appellate department reversed for damages calculation. After transfer, the Court of Appeal likewise reversed, treating the ad as an offer and finding RRL negligent under its appellate factfinding power. The California Supreme Court requested additional briefing on Uniform Commercial Code provisions."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 268–270, 289–290"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Objective formation survives the unknown error",
+      "cue": "The advertisement also supplies the signed writing",
+      "paragraphs": [
+        "Chief Justice George’s majority separated formation from avoidance. An error unknown to the buyer did not erase an objective offer. With no relevant trial interpretation findings, the Court reviewed that question de novo. It did not settle every advertisement’s status; this licensed dealer identified one car under Vehicle Code § 11713.1(e) and regulations requiring sale at the advertised price while available during the stated period. That setting created reasonable expectations of an operative offer accepted by tender.",
+        "The regulations informed assent without displacing all common-law defenses. A later written sales agreement and additional required terms did not prevent agreement on vehicle and price; commercially acceptable tender, disclosures, title, and registration still had to follow. The goods provisions governed.",
+        "The ad satisfied former Commercial Code § 2201. A printed symbol adopted to authenticate could be a signature, and RRL’s printed name on its own objective offer served that purpose. The Court did not make every merchant name on any advertisement binding."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 270–278 & nn.1–4"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "The majority applies unilateral-mistake rescission",
+      "cue": "Ordinary carelessness does not allocate all risk to the dealer",
+      "paragraphs": [
+        "Drawing on Kemper and Elsinore, the majority adopted Restatement § 153(a). Even where the other party neither knew nor caused the mistake, avoidance could follow a basic-assumption error, material adverse effect, absence of allocated risk, and unconscionable enforcement. This was a factual pricing error, unlike a subjective reading of actual duties in Hedging Concepts.",
+        "The $12,000 difference was about 32% of the intended price. Neither agreement nor consciously limited knowledge allocated the risk, leaving reasonable judicial allocation under § 154. Ordinary negligence did not necessarily constitute disqualifying neglect of legal duty under Civil Code § 1577. A reasonable-care statute or negligence-per-se theory did not automatically make a careless omission the extreme unfairness barring relief, and the advertised-price rules did not occupy the whole contract field.",
+        "RRL regularly reviewed ads, correctly advertised elsewhere, and had procedures to inform staff and customers of discovered errors. There was no prior knowledge, deception, or deliberate-indifference practice. Reliance on newspaper proofreading might be negligent without requiring all pricing risk to fall on RRL. The Court left an actual statutory violation undecided and declined an unpreserved amicus request for private statutory damages."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 278–291 & nn.6–12"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "The substantive exchange supplies the harsh effect",
+      "cue": "The dissent challenges the unrequested remedy and record",
+      "paragraphs": [
+        "For mistake relief, the surprise lay in the mistake itself, so unconscionability did not require an oppressive bargaining process or a weaker dealer. Enforcement would cost over $9,000 of RRL’s investment and give Donovan an unintended $12,000 advantage. Immediate explanation, apology, and expense reimbursement could restore the status quo. Losing the mistaken bargain was not the detrimental change of position in Drennan.",
+        "Although RRL had not affirmatively sought rescission, the majority sustained a correct trial result on another ground. It treated rescission as a defense, found mistake thoroughly briefed and supported, and regarded the prompt refusal, explanation, and reimbursement offer as adequate informal notice.",
+        "Justice Werdegar, joined by Justice Baxter, agreed a contract formed but objected that amici introduced rescission after RRL argued only nonformation. Refusing a proposed contract differed from rescinding an existing one, and Donovan lacked a fair chance to develop prerequisites, delay prejudice, lost opportunities, or actual dealer loss. The trial court had not examined unconscionability, nor had the Supreme Court adjusted equitable compensation under § 1692. She would affirm or at most transfer for briefing and possible trial proceedings."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 278–279 n.5, 291–296; dissent n.1"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "RRL retains the favorable trial result on a different ground",
+      "cue": "The divided court denies rehearing after modification",
+      "paragraphs": [
+        "On July 30, 2001, George, joined by Kennard, Chin, and Brown, reversed the Court of Appeal, concluding the municipal court correctly entered judgment for RRL because rescission was available despite its erroneous formation rationale. Werdegar and Baxter dissented. The published report includes a September 12 modification and rehearing denial, with those two favoring rehearing. The decision did not award Donovan contract damages or adjudicate the omitted statutory recovery theory."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "26 Cal.4th at 266–267, 294–296"
+        }
+      ]
+    }
+  ]
+}

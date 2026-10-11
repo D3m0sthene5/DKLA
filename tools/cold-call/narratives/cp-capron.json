@@ -1,0 +1,89 @@
+{
+  "id": "cp-capron",
+  "briefId": "CP-001",
+  "title": "Capron v. Van Noorden",
+  "course": "Civil Procedure",
+  "citation": "6 U.S. (2 Cranch) 126 (1804)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Capron chose a federal court, lost, and then challenged the record’s failure to establish that court’s jurisdiction. The Supreme Court reversed, although the short report gives counsel’s explanation rather than an authored judicial rationale.",
+  "actors": [
+    {
+      "name": "George Capron",
+      "role": "Plaintiff below and party seeking reversal by writ of error"
+    },
+    {
+      "name": "Hadrianus Van Noorden",
+      "role": "Defendant who obtained the trial judgment"
+    },
+    {
+      "name": "Harper",
+      "role": "Capron’s counsel presenting the reported jurisdictional argument"
+    }
+  ],
+  "proceedings": "The federal Circuit Court entered judgment on a defense verdict. Capron obtained a writ of error, and the Supreme Court reversed during its February Term 1804.",
+  "limits": "The report does not describe the underlying injury, identify an opinion author, give a precise decision date, or recount further proceedings. Harper’s printed argument is counsel’s reasoning, not a separately authored opinion of the Court.",
+  "briefSha256": "b48d2c75fcce1527eb10025fda97030e7432fc60c1ce75919c8912549046aa33",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-001"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Capron sued without establishing the citizenship basis",
+      "cue": "Begin with the limited facts the report provides.",
+      "paragraphs": [
+        "George Capron brought trespass on the case, a historical civil form of action, against Hadrianus Van Noorden in the federal Circuit Court for North Carolina. The report does not describe the underlying wrong. The proceedings called Van Noorden formerly of Pitt County but did not allege that Capron was an alien, a citizen of any state, or resident anywhere.",
+        "A verdict went to Van Noorden, and the Circuit Court entered judgment for him. Capron then obtained a writ of error seeking review of mistakes shown by the record. He argued that the record failed to establish the court’s limited jurisdiction and that the court should have dismissed instead of reaching final judgment."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "126–127"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The plaintiff attacked the court he had selected",
+      "cue": "Attribute the reported rationale to counsel.",
+      "paragraphs": [
+        "Harper, arguing for Capron, asked whether a plaintiff could complain of missing jurisdiction after choosing that forum himself. He distinguished errors in a party’s own process or delay from errors belonging to the court. A party could challenge the latter even when some part of the mistake had benefited him.",
+        "Harper characterized assurance of subject-matter jurisdiction—the legal authority to hear that category of dispute—as the court’s responsibility. Consent of the parties could not supply it. On that reasoning, Capron’s initiation of the suit did not prevent him from invoking the jurisdictional error. These explanations are the argument printed in the report, not judicial words from a signed opinion."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "126–127"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "The judgment was reversed without deciding the claim",
+      "cue": "State the narrow result and the limit of the record.",
+      "paragraphs": [
+        "Van Noorden did not appear in the Supreme Court, although the citation notifying him of review had been properly served. During its February Term 1804, the Court reversed the Circuit Court’s judgment. The report contains no separately explained opinion, concurrence, dissent, or individual vote count.",
+        "The disposition allowed the losing plaintiff to challenge a judgment whose record failed to establish the federal citizenship basis despite his own choice of forum. It did not find that the parties actually shared state citizenship, decide Capron’s underlying claim, or award damages. The broader lesson that parties cannot create limited federal jurisdiction by agreement follows from the issue, counsel’s argument, and result, rather than a quoted authored rationale."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "127"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "brief-CP-COMP-CB-CAP-133",
+  "briefId": "CP-COMP-CB-CAP-133",
+  "title": "Osborn v. Bank of the United States",
+  "course": "Civil Procedure",
+  "citation": "22 U.S. (9 Wheat.) 738 (1824)",
+  "revision": 1,
+  "origin": "narrative",
+  "lead": "Ohio officials collected a tax from the federally chartered Bank despite notice of an injunction, leading to a suit over federal jurisdiction, official responsibility, and recovery of the money.",
+  "actors": [
+    {
+      "name": "Bank of the United States",
+      "role": "Federally chartered bank seeking protection and restitution"
+    },
+    {
+      "name": "Ralph Osborn and John L. Harper",
+      "role": "Ohio auditor and collector responsible for collection"
+    },
+    {
+      "name": "Currie and Samuel Sullivan",
+      "role": "Successive state treasurers holding the segregated proceeds"
+    }
+  ],
+  "proceedings": [
+    "Federal Circuit Court ordered restoration of $100,000 and interest on specified coin.",
+    "Supreme Court affirmed restitution but reversed the interest component."
+  ],
+  "limits": "The actual case involved a tax seizure; the ordinary-contract discussion was hypothetical. Charter jurisdiction, Article III, and named-party immunity reasoning are historical and not a complete statement of modern statutes or sovereign immunity. No numerical vote is reported.",
+  "briefSha256": "66e03a6c31d0e3d006c91e5678a2455985d7dc16c5752a4063eb4bfe35c668fb",
+  "sources": [
+    {
+      "id": "brief",
+      "label": "Reviewed full source brief",
+      "briefId": "CP-COMP-CB-CAP-133"
+    }
+  ],
+  "review": {
+    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "checkedOn": "2026-10-11",
+    "chronology": true,
+    "antecedents": true,
+    "proceduralStages": true,
+    "sourceQualifications": true
+  },
+  "sections": [
+    {
+      "id": "episode-1",
+      "title": "Ohio taxes the Bank’s operations",
+      "cue": "Collection follows notice of an injunction",
+      "paragraphs": [
+        "Ohio’s February 8, 1819 law imposed an annual $50,000 tax on each discount-and-deposit office operating without state permission. It expressly targeted the Bank of the United States and authorized the auditor to arrange entry into banking rooms and vaults and seizure of property.",
+        "The Bank sued auditor Ralph Osborn in the federal Circuit Court of Ohio. An injunction was allowed September 14; a subpoena carrying the order and endorsements reached Osborn the next morning. According to the amended bill, collector John L. Harper, acting for Osborn and knowing an injunction had been allowed, forcibly took $100,000 in coin and notes from the Chillicothe office September 17. The formal writ was served on both officials September 18, a distinct event from earlier notice."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 739–741"
+        }
+      ]
+    },
+    {
+      "id": "episode-2",
+      "title": "The proceeds remain identifiable through a change of treasurers",
+      "cue": "The decree requires restoration and interest",
+      "paragraphs": [
+        "The amended bill added former treasurer Currie and successor Samuel Sullivan, seeking discovery, return, and protection against use or further collection. Currie acknowledged receiving $98,000 as tax proceeds. Though credited as revenue, it remained segregated. Sullivan received it with knowledge of its reported source and left it untouched out of respect for the injunction, disclaiming firsthand knowledge of collection and claiming to hold only as treasurer.",
+        "The Circuit Court proceeded on those answers and on decrees taking allegations against Osborn and Harper as confessed. It ordered return of $100,000 and interest on $19,830 in coin held by Sullivan. The officials appealed over jurisdiction, counsel’s authority, identification of funds, individual responsibility, interest, equitable relief, Ohio’s absence and immunity, and the tax’s validity."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 741–745, 828–829, 833–836"
+        }
+      ]
+    },
+    {
+      "id": "episode-3",
+      "title": "Marshall reads an express federal forum in the charter",
+      "cue": "A federal ingredient permits decision of the whole case",
+      "paragraphs": [
+        "Chief Justice Marshall first found congressional authorization. Unlike the earlier charter in Deveaux, which generally supplied capacity to sue in courts of record, this charter expressly allowed suit in any federal Circuit Court as well as competent state courts.",
+        "Article III also permitted that grant. It extended judicial power to cases arising under federal law, not isolated questions stripped of ordinary facts, payment, release, limitations, and other nonfederal issues. Congress could give inferior federal courts original jurisdiction; potential Supreme Court review did not require starting every case in state court.",
+        "A federal question could be an ingredient of the original cause even when the case contained other issues. The federal charter created this Bank and specified its capacities to acquire rights, contract, transact business, and sue. Even a hypothetical ordinary contract action rested on those granted capacities whether or not the opponent disputed them. Settlement of the federal question did not retrospectively invalidate the jurisdictional grant.",
+        "Marshall distinguished naturalized citizens: naturalization conferred citizenship but did not regulate all their capacities and transactions as the Bank’s charter did. They thereafter generally stood like native citizens. The actual controversy remained Ohio’s tax and seizure, not the hypothetical contract default used to explain the jurisdictional principle."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 817–828"
+        }
+      ]
+    },
+    {
+      "id": "episode-4",
+      "title": "Counsel and the fund are sufficiently identified",
+      "cue": "Official action remains subject to equitable recovery",
+      "paragraphs": [
+        "Absence of a corporate warrant of attorney did not defeat the suit. Licensed counsel’s appearance traditionally evidenced authority for corporations and individuals, and any changed practice should apply prospectively. Currie’s answer could be considered in this succession to the same segregated property, while Sullivan’s own answer independently identified what he knowingly retained. This was not an unidentified sum blended into general revenue.",
+        "If the tax was invalid, Osborn’s procurement and Harper’s execution of collection made them jointly responsible without an official-position justification. Equity also was appropriate: repeated annual exactions threatened destruction of the Bank’s Ohio franchise, not merely one compensable trespass. Transferring funds to an immune principal could leave only ineffective recovery from agents unable to pay.",
+        "Even assuming the original injunction improper, the amended bill sought identifiable money and negotiable notes still held separately. Discovery and restraint of transfer or circulation protected practical restitution of that property and independently supported equitable relief."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 829–846, 868–870 & authority note at 845"
+        }
+      ]
+    },
+    {
+      "id": "episode-5",
+      "title": "Ohio’s interest does not immunize the named officials",
+      "cue": "The tax conflicts with the protected federal instrument",
+      "paragraphs": [
+        "Marshall distinguished a State’s interest from its named-party status. Ohio was directly interested but absent and immune from compulsory joinder. In the historical reasoning of this opinion, the Eleventh Amendment restriction applied to a State named on the record. Sovereign exemption did not immunize agents enforcing an invalid law; difficulty protecting Ohio’s interests through them followed from the State’s immunity.",
+        "Reaffirming McCulloch, the Court regarded the Bank as a national fiscal instrument, not an ordinary private business accidentally serving government. Its lending and banking activities made the public functions possible; permission to tax those operations away would destroy the instrument while nominally preserving corporate existence. An explicit tax exemption was unnecessary if protection followed from the federal law creating it. Marshall distinguished taxation of local property from state control of essential operations and held Ohio’s statute repugnant to valid federal law."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 846–870"
+        }
+      ]
+    },
+    {
+      "id": "episode-6",
+      "title": "Johnson dissents on the source of jurisdiction",
+      "cue": "Restitution survives but interest does not",
+      "paragraphs": [
+        "Justice Johnson disagreed on jurisdiction and expressly did not decide the other issues. He acknowledged the Bank’s practical importance but rejected using policy to expand constitutional categories. He read the charter’s suit clause as an enumeration of corporate powers rather than unrestricted federal jurisdiction.",
+        "His constitutional objection concerned possible rather than actual federal issues. Otherwise stamp duties, federal land grants, and naturalization could open enormous bodies of ordinary state litigation. He accepted incidental nonfederal questions within a genuine federal case and Congress’s power to create appropriate original jurisdiction, but did not see corporate creation as the proximate source of every later contract or trespass duty. Unlike a necessarily federal patent claim, ordinary litigation could proceed until a federal issue actually arose, with statutory appellate protection then available.",
+        "On March 19, 1824, the Court affirmed recovery of Sullivan’s segregated $98,000 and the remaining $2,000 from Osborn and Harper, but reversed interest on Sullivan’s specie. He had obeyed the court’s order immobilizing the deposit; charging interest for that obedience would be unfair. Johnson supplied the sole published separate opinion, and the report provides no numerical roll call."
+      ],
+      "sources": [
+        {
+          "id": "brief",
+          "pinpoint": "22 U.S. at 837–838, 871–903"
+        }
+      ]
+    }
+  ]
+}
