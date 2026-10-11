@@ -16,7 +16,7 @@ PHASES = {0: 'People and context', 10: 'Events', 20: 'Proceedings', 30: 'Questio
           40: 'Holding and arguments', 50: 'Reasoning', 60: 'Separate opinions',
           70: 'Disposition', 80: 'Study notes', 90: 'Sources and limits'}
 CUES = {
-    0: 'Identify the people, their roles, and the setting of the dispute.',
+    0: 'Introduce the case using the identifying details provided in this section.',
     10: 'Tell these events in order. Who did what, and what happened as a result?',
     20: 'Trace the proceedings. Who asked each court for what relief, and what did that court do?',
     30: 'State the precise question and the competing positions.',

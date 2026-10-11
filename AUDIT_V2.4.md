@@ -16,7 +16,7 @@ There are nine recorded text changes across these five accounts, including factu
 
 ## Cold Call
 
-The old sorter treated nested headings as independent sections. A heading about procedural injury could move out of the reasoning, and a separate opinion’s subsection could move away from its author. The audit identified 62 misclassified headings in 15 briefs. Nested headings now remain inside the parent section, including each of the three judicial stages in Cohen v. Cowles Media. Regression checks verify both opinion attribution and court-stage order.
+The old sorter treated nested headings as independent sections. A heading about procedural injury could move out of the reasoning, and a separate opinion’s subsection could move away from its author. The audit identified 62 misclassified headings in 15 briefs. Nested headings now remain inside the parent section, including each of the three judicial stages in Cohen v. Cowles Media. Regression checks verify both opinion attribution and court-stage order. The opening practice prompt now asks for the identifying details actually provided, so citation-only sections do not ask for absent facts.
 
 Coverage remains 392 map cases and 1,077 supporting cases. Every substantive source line is retained exactly once; nested headings, source limits and separate opinions are preserved. The three custom narratives retain their opinion references and source-fingerprint guards. The remaining accounts use existing full-brief prose. These checks do not independently establish that every sentence has a clear antecedent or that every event in every original brief is chronologically narrated.
 
