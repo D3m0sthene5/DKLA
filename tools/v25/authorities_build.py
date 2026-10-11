@@ -2,6 +2,7 @@
 """Build the offline authority library from official and already-assigned sources.
 
 Refresh: python tools/v25/authorities_build.py --refresh
+Relink:  python tools/v25/authorities_build.py --relink
 Verify:  python tools/v25/authorities_build.py --check
 The normal atlas build embeds authorities.json; it does not make network requests.
 Raw fetched pages are cached in the workspace work/authorities-cache directory.
@@ -334,35 +335,58 @@ def ucc_articles():
         if num=='12': out[-1]['note']='Added by the 2022 amendments. State adoption and effective dates vary.'
     return out,[dict(url=url,sha256=sha(raw))]
 
+def citation_pattern(e):
+    """Recognize a provision citation, never an opinion's Part I/II heading."""
+    # Keep the anchor at a word boundary: bare `Art` otherwise matches `Part`.
+    id=e['id']
+    if e['collection']=='uscode':
+        tn=e.get('titleNumber'); section=e.get('section')
+        if not tn or not section: return None
+        pat=rf'(?:{re.escape(str(tn))}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*){re.escape(str(section))}(?![\dA-Za-z])|\bSection\s+{re.escape(str(section))}\s+of\s+title\s+{re.escape(str(tn))}\b)'
+    elif id.startswith('consumer-'):
+        n=id.split('-')[-1];pat=rf'(?:RLCC|Consumer Restatement|Restatement(?: of(?: the Law,)? Consumer Contracts)?)\s*§{{1,2}}\s*{n}(?!\d)'
+    elif id.startswith('frcp-') and id[5:] not in ['71A','forms']:
+        n=re.escape(id[5:]); pat=rf'(?:FRCP|Fed\.?\s*R\.?\s*Civ\.?\s*P\.?|Federal Rule(?: of Civil Procedure)?|Rule)\s*{n}(?![\d.])'
+    elif id.startswith('restatement-'):
+        n=id.split('-')[-1]; pat=rf'Restatement(?: \(Second\))?(?: of(?: the Law,)? Contracts)?\s*(?:§{{1,2}}|Sections?)\s*{n}(?!\d)'
+    elif id.startswith('ucc-') and id[4:][0].isdigit():
+        n=re.escape(id[4:]); pat=rf'(?:UCC|U\.C\.C\.)\s*(?:§\s*)?{n}(?!\d)'
+    elif id.startswith('const-art-'):
+        n=int(id.split('-')[-1]); r=roman(n); pat=rf'\b(?:Article|Art\.?)\s*{r}(?![A-Za-z0-9])'
+    elif id.startswith('const-amend-'):
+        n=int(id.split('-')[-1]); words=['First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth','Ninth','Tenth','Eleventh','Twelfth','Thirteenth','Fourteenth','Fifteenth','Sixteenth','Seventeenth','Eighteenth','Nineteenth','Twentieth','Twenty.first','Twenty.second','Twenty.third','Twenty.fourth','Twenty.fifth','Twenty.sixth','Twenty.seventh']; pat=rf'(?:{words[n-1]} Amendment|Amendment\s*{roman(n)}(?![IVX])|Amendment\s*{n}(?!\d))'
+    else: return None
+    return re.compile(pat,re.I)
+
+STATE_NAMES='Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming'
+STATE_CONSTITUTION=re.compile(rf'\bof\s+(?:the\s+)?(?:State\s+of\s+)?(?:{STATE_NAMES}|a\s+state|state)(?:[’\']s)?\s+(?:State\s+)?Constitution\b',re.I)
+
+def citation_matches(e,pattern,text):
+    matches=list(pattern.finditer(text))
+    if e['id'].startswith('const-art-'):
+        # An expressly identified state constitution is a different source.
+        matches=[m for m in matches if not STATE_CONSTITUTION.search(re.split(r'[.!?;]',text[m.end():m.end()+140],maxsplit=1)[0])]
+    return matches
+
 def link_entries(entries):
     nodes,graph=graph_records(); reverse={}; links=0
-    # Explicit provision citations and already-authored graph connections are used;
-    # keyword overlap alone never asserts that a case interprets a provision.
-    patterns=[]
-    for e in entries:
-        id=e['id']
-        if e['collection']=='uscode':
-            tn=e.get('titleNumber'); section=e.get('section')
-            if not tn or not section: continue
-            pat=rf'(?:{re.escape(str(tn))}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*){re.escape(str(section))}(?![\dA-Za-z])|\bSection\s+{re.escape(str(section))}\s+of\s+title\s+{re.escape(str(tn))}\b)'
-        elif id.startswith('consumer-'):
-            n=id.split('-')[-1];pat=rf'(?:RLCC|Consumer Restatement|Restatement(?: of(?: the Law,)? Consumer Contracts)?)\s*§{{1,2}}\s*{n}(?!\d)'
-        elif id.startswith('frcp-') and id[5:] not in ['71A','forms']:
-            n=re.escape(id[5:]); pat=rf'(?:FRCP|Fed\.?\s*R\.?\s*Civ\.?\s*P\.?|Federal Rule(?: of Civil Procedure)?|Rule)\s*{n}(?![\d.])'
-        elif id.startswith('restatement-'):
-            n=id.split('-')[-1]; pat=rf'Restatement(?: \(Second\))?(?: of(?: the Law,)? Contracts)?\s*(?:§{{1,2}}|Sections?)\s*{n}(?!\d)'
-        elif id.startswith('ucc-') and id[4:][0].isdigit():
-            n=re.escape(id[4:]); pat=rf'(?:UCC|U\.C\.C\.)\s*(?:§\s*)?{n}(?!\d)'
-        elif id.startswith('const-art-'):
-            n=int(id.split('-')[-1]); r=roman(n); pat=rf'(?:Article|Art\.?)\s*{r}(?![A-Za-z0-9])'
-        elif id.startswith('const-amend-'):
-            n=int(id.split('-')[-1]); words=['First','Second','Third','Fourth','Fifth','Sixth','Seventh','Eighth','Ninth','Tenth','Eleventh','Twelfth','Thirteenth','Fourteenth','Fifteenth','Sixteenth','Seventeenth','Eighteenth','Nineteenth','Twentieth','Twenty.first','Twenty.second','Twenty.third','Twenty.fourth','Twenty.fifth','Twenty.sixth','Twenty.seventh']; pat=rf'(?:{words[n-1]} Amendment|Amendment\s*{roman(n)}(?![IVX])|Amendment\s*{n}(?!\d))'
-        else: continue
-        patterns.append((e,re.compile(pat,re.I)))
+    # A citation means the atlas account mentions the provision, not that the
+    # case interpreted every part of it. One-hop rule/concept links are context.
+    patterns=[(e,p) for e in entries if (p:=citation_pattern(e)) is not None]
     by_id={n['id']:n for n in nodes}
     text_by_id={n['id']:' '.join(str(n.get(k,'')) for k in ['title','summary','notes','sources','sections','authorityReferenceText']) for n in nodes}
+    folded={id:text.casefold() for id,text in text_by_id.items()}
+    title_candidates={}
+    for title in {str(e['titleNumber']) for e in entries if e['collection']=='uscode' and e.get('titleNumber')}:
+        coarse=re.compile(rf'{re.escape(title)}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*)|\bSection\s+\S+\s+of\s+title\s+{re.escape(title)}\b',re.I)
+        title_candidates[title]={id for id,text in text_by_id.items() if coarse.search(text)}
     for e,pattern in patterns:
-        matched={id for id,text in text_by_id.items() if pattern.search(text)}
+        # A USC section's literal identifier must occur in a valid regex match.
+        # This cheap necessary condition avoids scanning the entire brief corpus
+        # hundreds of times for sections never cited by this course collection.
+        candidate=e.get('section','').casefold() if e['collection']=='uscode' else None
+        candidates=title_candidates.get(str(e.get('titleNumber')),set()) if candidate is not None else text_by_id
+        matched={id for id in candidates if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text_by_id[id])) if e['id'].startswith('const-art-') else pattern.search(text_by_id[id]))}
         direct=set(matched)
         # One hop from an explicitly cited rule/concept to a case keeps citations useful
         # while avoiding the transitive explosion of linking every constitutional case.
@@ -373,10 +397,66 @@ def link_entries(entries):
             if isinstance(b,dict): b=b.get('id')
             if a in rule_ids and b in by_id and by_id[b].get('kind')=='Case': matched.add(b)
             elif b in rule_ids and a in by_id and by_id[a].get('kind')=='Case': matched.add(a)
-        e['links']=[dict(id=i,title=by_id[i]['title'],kind=by_id[i]['kind'],basis='Explicit citation in atlas entry' if i in direct else 'Case connected to cited atlas rule or concept') for i in sorted(matched,key=lambda i:(by_id[i].get('kind')!='Case',by_id[i]['title']))]
+        e['links']=[dict(id=i,title=by_id[i]['title'],kind=by_id[i]['kind'],basis='Explicit citation in atlas entry' if i in direct else 'Case connected to cited atlas rule or concept') for i in sorted(matched,key=lambda i:(by_id[i].get('kind')!='Case',by_id[i]['title'],i))]
         for i in matched: reverse.setdefault(i,[]).append(e['id'])
         links+=len(matched)
     return reverse,links
+
+def check_citation_patterns():
+    for num in range(1,8):
+        numeral=roman(num)
+        p=citation_pattern(dict(id='const-art-'+str(num),collection='constitution'))
+        for form in ['Article '+numeral, 'Art. '+numeral, 'Art '+numeral]:
+            assert p.search(form),form
+        for form in ['Part '+numeral, 'part '+numeral+'.B', 'counterpart '+numeral, 'Article '+numeral+'X']:
+            assert not p.search(form),form
+        e=dict(id='const-art-'+str(num),collection='constitution')
+        assert not citation_matches(e,p,'Article '+numeral+', Section 9 of the Pennsylvania Constitution')
+        assert not citation_matches(e,p,'Article '+numeral+' of the New York Constitution')
+        assert citation_matches(e,p,'Article '+numeral+' of the United States Constitution')
+
+def link_change_audit(d,old,before_text):
+    links=sum(len(e['links']) for e in d['entries'])
+    nodes,_=graph_records()
+    texts={n['id']:' '.join(str(n.get(k,'')) for k in ['title','summary','notes','sources','sections','authorityReferenceText']) for n in nodes}
+    article_reviews=[]
+    for e in d['entries']:
+        if not e['id'].startswith('const-art-'):continue
+        pattern=citation_pattern(e)
+        old_pattern=re.compile(pattern.pattern.removeprefix(r'\b'),re.I)
+        now={l['id']:l for l in e['links']}
+        removed=[];changed=[];retained=[]
+        for link in old[e['id']]:
+            text=texts[link['id']]
+            if link['id'] not in now:
+                state_reference=bool(pattern.search(text)) and not citation_matches(e,pattern,text)
+                reason='Citation expressly identifies a state constitution' if state_reference else 'Opinion Part heading failed the provision word boundary' if link['basis'].startswith('Explicit citation') else 'Context no longer has a valid article citation anchor'
+                removed.append(dict(**link,matchExamples=[text[max(0,m.start()-70):min(len(text),m.end()+100)] for m in list(old_pattern.finditer(text))[:3]],reason=reason))
+            elif now[link['id']]['basis']!=link['basis']:
+                changed.append(dict(id=link['id'],before=link['basis'],after=now[link['id']]['basis']))
+        for link in e['links']:
+            if not link['basis'].startswith('Explicit citation'):continue
+            text=texts[link['id']]
+            retained.append(dict(**link,matchExamples=[text[max(0,m.start()-70):min(len(text),m.end()+130)] for m in citation_matches(e,pattern,text)[:4]],atlasAccountSha256=sha(text.encode())))
+        article_reviews.append(dict(id=e['id'],before=len(old[e['id']]),after=len(e['links']),removed=removed,basisChanged=changed,retainedCitationTargets=retained))
+    all_links=[l for e in d['entries'] for l in e['links']]
+    audit=dict(schema=1,checked=DATE,scope='Mechanical citation-boundary correction and complete Article I–VII target inventory; no fresh full-opinion legal merits review.',matcherBefore=r'(?:Article|Art\.?)',matcherAfter=r'\b(?:Article|Art\.?)',automaticRibbonPolicy='Only Case links whose basis starts Explicit citation. Rule/Concept one-hop links are contextual discovery, not default authority-to-case ribbons.',preservedAuthorityRecordsSha256=before_text,provisionCount=len(d['entries']),beforeLinks=sum(len(v) for v in old.values()),afterLinks=links,explicitCaseLinks=sum(l['kind']=='Case' and l['basis'].startswith('Explicit citation') for l in all_links),contextCaseLinks=sum(l['kind']=='Case' and not l['basis'].startswith('Explicit citation') for l in all_links),articleReviews=article_reviews,limitations=['A mention is a citation-discovery relation; it does not mean the case interpreted every subsection.', 'General Rule/Concept graph neighbors remain context and are excluded from automatic ribbons.', 'The existing link collector reads baseline graph edges; runtime-added rule edges are not silently imported by this correction.'])
+    return audit
+
+def relink():
+    """Rebuild citation links offline without re-extracting any authority text."""
+    d=json.loads(DATA.read_text(encoding='utf8'))
+    old={e['id']:list(e.get('links',[])) for e in d['entries']}
+    preserved={k:v for k,v in d.items() if k not in ['entries','byNode','audit']}
+    preserved_entries=[{k:v for k,v in e.items() if k!='links'} for e in d['entries']]
+    before_text=sha(json.dumps(preserved_entries,ensure_ascii=False,sort_keys=True).encode())
+    d['byNode'],links=link_entries(d['entries']); d['audit']['links']=links
+    assert preserved=={k:v for k,v in d.items() if k not in ['entries','byNode','audit']}
+    assert preserved_entries==[{k:v for k,v in e.items() if k!='links'} for e in d['entries']]
+    audit=link_change_audit(d,old,before_text)
+    DATA.write_text(json.dumps(d,ensure_ascii=False,indent=1)+'\n',encoding='utf8',newline='\n')
+    (HERE/'authority-links-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=1)+'\n',encoding='utf8',newline='\n')
+    check(d)
 
 def refresh():
     a,src=constitution(); b,s=frcp(); src+=s; c,s,fixes=selections(); src+=s
@@ -407,6 +487,7 @@ def refresh():
     check(d)
 
 def check(d=None):
+    check_citation_patterns()
     d=d or json.loads(DATA.read_text(encoding='utf8')); entries=d['entries']; ids=[e['id'] for e in entries]
     assert len(ids)==len(set(ids))
     assert {'const-art-'+str(n) for n in range(1,8)}<=set(ids)
@@ -435,9 +516,19 @@ def check(d=None):
         assert by[id].get('annotations') and '2021 assigned Selections' in by[id]['annotations'][0]['title']
     if 'usc-3-301' in by:
         assert any(l['id']=='lrs-o-ministerial-duties' for l in by['usc-3-301']['links'])
+    assert not any(l['id']=='cp-afa' and l['basis'].startswith('Explicit citation') for l in by['const-art-2']['links'])
+    assert not any(l['id']=='cp-asahi' and l['basis'].startswith('Explicit citation') for l in by['const-art-1']['links'])
+    assert not any(l['id']=='cosby' for l in by['const-art-1']['links'])
+    for authority,case in [('const-art-1','lrs-s-chadha'),('const-art-2','lrs-s-myers'),('const-art-3','cp-gibbs'),('const-art-4','cp-wyman')]:
+        assert any(l['id']==case and l['basis'].startswith('Explicit citation') for l in by[authority]['links']), (authority,case)
+    assert all(not l['basis'].startswith('Explicit citation') for l in by['ucc-2-207']['links'] if l['id']=='lrs-k-rucho')
+    expected=json.loads(json.dumps(entries)); reverse,_=link_entries(expected)
+    assert all(a['links']==b['links'] for a,b in zip(entries,expected)), 'Citation links are stale; run --relink.'
+    assert d['byNode']==reverse, 'Reciprocal citation links are stale; run --relink.'
     print(json.dumps(dict(entries=len(entries),collections={c['id']:sum(e['collection']==c['id'] for e in entries) for c in d['collections']},links=sum(len(e['links']) for e in entries),sourceIndexCorrections=len(d['audit']['sourceIndexCorrections']))))
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser(description=__doc__); ap.add_argument('--refresh',action='store_true'); ap.add_argument('--check',action='store_true'); args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__); mode=ap.add_mutually_exclusive_group(); mode.add_argument('--refresh',action='store_true'); mode.add_argument('--relink',action='store_true'); mode.add_argument('--check',action='store_true'); args=ap.parse_args()
     if args.refresh: refresh()
+    elif args.relink: relink()
     else: check()

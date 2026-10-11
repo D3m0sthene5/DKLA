@@ -8,10 +8,9 @@
 .authority-title-control:focus>rect{stroke:#f1daba;stroke-width:2;vector-effect:non-scaling-stroke}
 .authority-preview:hover>rect,.authority-preview:focus>rect{stroke-opacity:1;filter:brightness(1.2)}
 .authority-preview:focus{outline:none}
-.authority-volume-title{font-family:Georgia,Cambria,"Times New Roman",serif;letter-spacing:-.015em}
-.authority-map-heading,.authority-document-label{font-family:Inter,"Segoe UI",Arial,sans-serif;letter-spacing:.015em}
-.authority-preview-code{font-family:Consolas,"SFMono-Regular",monospace;font-variant-numeric:tabular-nums}
-.authority-preamble-excerpt{font-family:Georgia,Cambria,serif;font-style:italic}
+#geoCanvas text.authority-volume-title,#geoCanvas text.authority-map-heading,#geoCanvas text.authority-document-label,#geoCanvas text.authority-preview-label,#geoCanvas text.authority-case-title{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:0}
+#geoCanvas text.authority-preview-code{font-family:Consolas,"SFMono-Regular",monospace;font-variant-numeric:tabular-nums;letter-spacing:0}
+#geoCanvas text.authority-preamble-excerpt{font-family:Georgia,Cambria,serif;font-style:italic;letter-spacing:0}
 .authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
 .authority-identity{opacity:.85}
 .authority-map-entrance:focus,.authority-map-tile:focus,.authority-map-case:focus{outline:none}

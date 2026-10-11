@@ -23,6 +23,7 @@
     restatement:{ink:'#e5c6ba',edge:'#b5827c',base:'#35242c',paper:'#45313a',mark:'restatement'},
     consumer:{ink:'#d5c5ef',edge:'#a58bc8',base:'#2b293e',paper:'#3a3450',mark:'consumer'}
   };
+  const shortTitles={constitution:'U.S. Const.',frcp:'FRCP',uscode:'U.S. Code',ucc:'UCC',restatement:'R2 Contracts',consumer:'Consumer Contracts'};
   let peopleAsset='';try{peopleAsset=JSON.parse(document.getElementById('dklaWeThePeopleAsset')?.textContent||'{}').uri||'';}catch{}
   // Chapter/topic boundaries follow the assigned Selections' actual TOC,
   // PDF pp.12–23. These are legal headings, not generated thematic buckets.
@@ -50,7 +51,7 @@
   const ruleNumber=e=>e.id==='frcp-71A'?71.15:e.id==='frcp-forms'?Infinity:Number(e.id.replace('frcp-',''));
   function shortNumber(e){return e.section||e.cite.replace(/^.*(?:§ |Rule |Article |Amendment )/,'');}
   function chunk(parent,entries,size=8,label='Sections'){
-    for(let i=0;i<entries.length;i+=size){const part=entries.slice(i,i+size),n=branch(parent.key+'/range-'+i,part[0].title,parent,'Numbered reading range',parent.collection);n.range=`${label} ${shortNumber(part[0])}–${shortNumber(part[part.length-1])}`;part.forEach(e=>leaf(e,n));}
+    for(let i=0;i<entries.length;i+=size){const part=entries.slice(i,i+size),n=branch(parent.key+'/range-'+i,part[0].title,parent,'Numbered reading range',parent.collection),first=shortNumber(part[0]),last=shortNumber(part[part.length-1]);n.range=first===last?`${label.replace(/s$/,'')} ${first}`:`${label} ${first}–${last}`;part.forEach(e=>leaf(e,n));}
   }
   function file(parent,entries,label='Sections'){if(entries.length>12)chunk(parent,entries,8,label);else entries.forEach(e=>leaf(e,parent));}
   function keyed(entries,key){const out=new Map();for(const e of entries){const k=key(e);if(!out.has(k))out.set(k,[]);out.get(k).push(e);}return out;}
@@ -139,32 +140,43 @@
   function anchor(){
     const scotus=window.DKLAScotusBox||{x:-11400,y:10400,w:22800,h:4200},b=window.DKLAGeography?.bounds?.(),narrow=rect().w<700;
     const bottom=Math.max(scotus.y+scotus.h,b&&Number.isFinite(b.y+b.h)?b.y+b.h:0),w=narrow?Math.min(scotus.w,15200):scotus.w;
-    Object.assign(BOX,{x:scotus.x+(scotus.w-w)/2,y:bottom+900,w,h:narrow?9900:11000});return BOX;
+    Object.assign(BOX,{x:scotus.x+(scotus.w-w)/2,y:bottom+900,w});return BOX;
   }
   function geometry(n=current(),overview=false){
-    anchor();const narrow=rect().w<700,key=n.key+':'+narrow+':'+overview+':'+BOX.x+':'+BOX.y+':'+BOX.w;if(geometryCache?.key===key)return geometryCache;
-    const cover=n===root,mobileCover=cover&&narrow&&!overview,leafLevel=n.children.every(c=>c.entry),cols=cover?(mobileCover?1:narrow?2:3):narrow?1:n.children.length===1?1:n.children.length<=4?2:3;
-    const width=mobileCover?1150:cover?BOX.w:narrow?1150:3600,unit=cover&&!mobileCover?width/3600:1,gap=(narrow?48:72)*unit,pad=(narrow?72:110)*unit;
-    const header=(cover?260:n.collection==='constitution'&&n===collectionGroups.get('constitution')?430:230)*unit;
-    const w=(width-pad*2-gap*(cols-1))/cols,h=(mobileCover?820:cover?600:leafLevel?360:560)*unit;
-    if(n===collectionGroups.get('constitution')){
-      const cards=new Map(),[preamble,articles,amendments]=n.children,contentW=width-pad*2,stripH=narrow?520:270,groupH=narrow?730:740;
-      cards.set(preamble.key,{x:BOX.x+pad,y:BOX.y+header,w:contentW,h:stripH,node:preamble,unit:1});
-      for(const [i,c]of [articles,amendments].entries())cards.set(c.key,{x:BOX.x+pad+(narrow?0:i*(contentW+gap)/2),y:BOX.y+header+stripH+gap+(narrow?i*(groupH+gap):0),w:narrow?contentW:(contentW-gap)/2,h:groupH,node:c,unit:1});
-      const box={x:BOX.x,y:BOX.y,w:width,h:header+stripH+gap+(narrow?2*groupH+gap:groupH)+pad};
-      // On phones the masthead, complete Preamble and Articles fill the first
-      // view. Fitting both tall contents panels made the quote's readable font
-      // reflow into more lines than its strip; Amendments remain just below.
-      const fit={...box,h:narrow?header+stripH+gap+groupH+pad:box.h};geometryCache={key,box,cards,fit,unit:1,cols:narrow?1:2};return geometryCache;
+    anchor();const a=usable(),narrow=!overview&&a.w<650,key=[n.key,overview,a.w,a.h,BOX.x,BOX.y,BOX.w].join(':');if(geometryCache?.key===key)return geometryCache;
+    const cover=n===root,width=overview?1440:Math.min(1440,Math.max(320,a.w-32)),short=!overview&&a.h<400,compact=cover&&(narrow||short),pad=narrow||short?16:26,gap=narrow||short?12:22;
+    let cols=cover?(narrow?2:short||width>=900?3:2):Math.min(n.children.length,width>=1280?3:width>=740?2:1);
+    const constitution=n===collectionGroups.get('constitution'),headingFs=cover?(short?20:narrow?26:32):30,heading=rows(display(n),width-pad*2,headingFs,550,3,'authority-map-heading');
+    const markW=constitution?Math.min(width*.80,short?180:Infinity):0,markH=markW/3,masthead=constitution?{w:markW,h:markH,labelY:markH+34}:null;
+    const header=constitution?markH+52:28+heading.length*headingFs*1.25+(n.range?28:0)+24;
+    let hideQuote=narrow||short;
+    function arrange(previews){
+      const cards=new Map(),rowEnds=[];let y=header;
+      if(constitution){
+        const [preamble,articles,amendments]=n.children,cw=width-pad*2,pm=tileModel(preamble,cw,false,narrow||short,0,!hideQuote);
+        cards.set(preamble.key,{x:pad,y,w:cw,h:pm.h,node:preamble,model:pm});y+=pm.h+gap;rowEnds.push(y-gap+pad);
+        const groupCols=narrow?1:2,gw=(cw-gap*(groupCols-1))/groupCols,ms=[articles,amendments].map(c=>tileModel(c,gw,false,narrow||short,narrow||short?0:Math.min(previews,c===articles?7:4)));
+        for(let i=0;i<ms.length;i+=groupCols){const h=Math.max(...ms.slice(i,i+groupCols).map(m=>m.h));for(let j=0;j<groupCols&&i+j<ms.length;j++){const c=[articles,amendments][i+j];cards.set(c.key,{x:pad+j*(gw+gap),y,w:gw,h,node:c,model:ms[i+j]});}y+=h+gap;rowEnds.push(y-gap+pad);}
+        cols=groupCols;
+      }else{
+        const w=(width-pad*2-gap*(cols-1))/cols,models=n.children.map(c=>tileModel(c,w,cover,compact,previews));
+        for(let i=0;i<models.length;i+=cols){const h=Math.max(...models.slice(i,i+cols).map(m=>m.h));for(let j=0;j<cols&&i+j<models.length;j++){const c=n.children[i+j];cards.set(c.key,{x:pad+j*(w+gap),y,w,h,node:c,cover,model:models[i+j]});}y+=h+gap;rowEnds.push(y-gap+pad);}
+      }
+      return {cards,rowEnds,h:y-gap+pad};
     }
-    const cards=new Map(n.children.map((c,i)=>[c.key,{x:BOX.x+pad+(i%cols)*(w+gap),y:BOX.y+header+Math.floor(i/cols)*(h+gap),w,h,node:c,cover,unit}]));
-    const box={x:BOX.x,y:BOX.y,w:width,h:header+Math.ceil(n.children.length/cols)*(h+gap)+pad};
-    const initialRows=mobileCover?2:cover?Math.ceil(n.children.length/cols):3,fit={...box,h:Math.min(box.h,header+Math.min(initialRows,Math.ceil(n.children.length/cols))*(h+gap)+pad)};
-    geometryCache={key,box,cards,fit,unit,cols};return geometryCache;
+    let density=overview?0:cover?(compact?0:4):constitution?(narrow||short?0:7):3,layout=arrange(density);
+    if(cover&&!narrow&&!overview)while(density>0&&layout.h>(a.h-32)/.9){layout=arrange(--density);}
+    if(constitution&&layout.h>(a.h-32)/.9){hideQuote=true;layout=arrange(density);while(density>0&&layout.h>(a.h-32)/.9)layout=arrange(--density);}
+    const unit=overview?BOX.w/width:1,cards=new Map([...layout.cards].map(([key,c])=>[key,{...c,x:BOX.x+c.x*unit,y:BOX.y+c.y*unit,w:c.w*unit,h:c.h*unit,unit}]));
+    const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit};
+    const visibleEnds=layout.rowEnds.filter(h=>h<=(a.h-32)/.9),fitAll=cover||constitution,fitH=fitAll?layout.h:visibleEnds.at(-1)||layout.rowEnds[0]||layout.h;
+    const fit={...box,h:fitH*unit};if(overview)BOX.h=box.h;
+    geometryCache={key,box,cards,fit,unit,cols,density,header:header*unit,heading,headingFs,masthead,visibleRows:fitAll?layout.rowEnds.length:Math.max(1,visibleEnds.length),safe:{...a}};return geometryCache;
   }
+  function usable(){const a=typeof safeArea==='function'?safeArea():rect();return{w:Math.max(320,a.w),h:Math.max(300,a.h)};}
   function synthetic(id){const n=groups.get(id);if(!n)return null;return {...(active()&&n===current()?geometry(n).box:anchor()),id:n.key,title:n.title,color:'#597786',courseKey:TITLE,districtIds:[],special:'authority'};}
   const oldRegionFor=regionFor;regionFor=function(id){return synthetic(id)||oldRegionFor(id);};
-  const oldGalaxy=galaxy;galaxy=function(...args){const g=oldGalaxy.apply(this,args),b=anchor();return {...g,box:bounds([g.box,{x:b.x-150,y:b.y-150,w:b.w+300,h:b.h+300}])};};
+  const oldGalaxy=galaxy;galaxy=function(...args){const g=oldGalaxy.apply(this,args),b=geometry(root,true).box;return {...g,box:bounds([g.box,{x:b.x-150,y:b.y-150,w:b.w+300,h:b.h+300}])};};
   const oldScopeBox=scopeBox;scopeBox=function(...args){return active()?geometry().box:oldScopeBox.apply(this,args);};
   const oldHome=home;home=function(scope,...args){if(scope===TITLE)return openGroup(ROOT);return oldHome(scope,...args);};
   const oldGoRegion=goRegion;goRegion=function(id,...args){if(groups.has(id))return openGroup(id);return oldGoRegion(id,...args);};
@@ -180,36 +192,73 @@
   function provisionHTML(e){
     const group=readingOrder.get(e.collection)||[],n=group.findIndex(x=>x.id===e.id);
     const anchors=e.lines.map((l,i)=>l[2]==='heading'?{i,text:l[1]}:l[0]===0&&/^\([a-z0-9]+\)\s/.test(l[1])?{i,text:l[1].match(/^\([a-z0-9]+\)/)[0]}:null).filter(Boolean);
-    const links=e.links||[],li=l=>`<li><button type="button" data-study-node="${esc(l.id)}" title="${esc(l.basis)}" aria-description="${esc(l.basis)}">${esc(l.title)}</button></li>`;
+    const allLinks=e.links||[],links=allLinks.filter(l=>l.automaticRibbon||l.relationship==='explicit-citation'||l.basis?.startsWith('Explicit citation')),contextLinks=allLinks.filter(l=>!links.includes(l));
+    const li=l=>`<li><button type="button" data-study-node="${esc(l.id)}" title="${esc(l.basis)}" aria-description="${esc(l.basis)}">${esc(l.title)}</button></li>`;
     const assigned=e.filter?D.entries.filter(x=>x.id.startsWith(e.filter)):[];
-    return `<article class="authority-reading"><header><h2>${esc(e.cite)}${e.title!==e.cite?`<span>${esc(e.title)}</span>`:''}</h2>${status[e.status]?`<p class="authority-status">${esc(status[e.status])}</p>`:''}${e.note?`<p class="authority-note">${esc(e.note)}</p>`:''}</header>${anchors.length?`<nav class="authority-subsections" aria-label="Sections in this provision">${anchors.map(a=>`<button type="button" data-authority-anchor="authority-line-${a.i}">${esc(a.text)}</button>`).join('')}</nav>`:''}<div class="authority-text">${e.lines.map((l,i)=>l[2]==='heading'?`<h3 id="authority-line-${i}">${esc(l[1])}</h3>`:`<p id="authority-line-${i}" style="--authority-indent:${Math.min(l[0],3)}">${esc(l[1])}</p>`).join('')}</div>${e.annotations?.length?`<details class="authority-provenance" id="authorityNotes"><summary>${e.collection==='uscode'?'Effective dates and statutory notes':'Assigned source editorial notes'}</summary>${e.annotations.map(annotation).join('')}</details>`:''}${e.related?.length?`<section class="authority-related"><h3>Read alongside</h3>${e.related.filter(x=>byId.has(x)).map(x=>`<button type="button" data-authority-open="${esc(x)}">${esc(entryName(byId.get(x)))}</button>`).join('')}</section>`:''}${assigned.length?`<button type="button" data-authority-group="${esc(collectionGroups.get('ucc').key+'/article-'+e.filter.split('-')[1])}">Explore assigned sections in this article</button>`:''}${links.length?`<section class="authority-case-links"><div class="related-heading"><h3>Connected atlas entries</h3><button type="button" data-authority-connections>See on map</button></div><ul>${links.slice(0,8).map(li).join('')}</ul>${links.length>8?`<details id="authorityAllLinks"><summary>Remaining ${links.length-8} connections</summary><ul>${links.slice(8).map(li).join('')}</ul></details>`:''}</section>`:''}${source(e)}<nav class="authority-next" aria-label="Read in order"><button type="button" data-authority-open="${esc(group[n-1]?.id||'')}"${n===0?' disabled':''}>← Previous</button><button type="button" data-authority-open="${esc(group[n+1]?.id||'')}"${n===group.length-1?' disabled':''}>Next →</button></nav></article>`;
+    return `<article class="authority-reading"><header><h2>${esc(e.cite)}${e.title!==e.cite?`<span>${esc(e.title)}</span>`:''}</h2>${status[e.status]?`<p class="authority-status">${esc(status[e.status])}</p>`:''}${e.note?`<p class="authority-note">${esc(e.note)}</p>`:''}</header>${anchors.length?`<nav class="authority-subsections" aria-label="Sections in this provision">${anchors.map(a=>`<button type="button" data-authority-anchor="authority-line-${a.i}">${esc(a.text)}</button>`).join('')}</nav>`:''}<div class="authority-text">${e.lines.map((l,i)=>l[2]==='heading'?`<h3 id="authority-line-${i}">${esc(l[1])}</h3>`:`<p id="authority-line-${i}" style="--authority-indent:${Math.min(l[0],3)}">${esc(l[1])}</p>`).join('')}</div>${e.annotations?.length?`<details class="authority-provenance" id="authorityNotes"><summary>${e.collection==='uscode'?'Effective dates and statutory notes':'Assigned source editorial notes'}</summary>${e.annotations.map(annotation).join('')}</details>`:''}${e.related?.length?`<section class="authority-related"><h3>Read alongside</h3>${e.related.filter(x=>byId.has(x)).map(x=>`<button type="button" data-authority-open="${esc(x)}">${esc(entryName(byId.get(x)))}</button>`).join('')}</section>`:''}${assigned.length?`<button type="button" data-authority-group="${esc(collectionGroups.get('ucc').key+'/article-'+e.filter.split('-')[1])}">Explore assigned sections in this article</button>`:''}${links.length?`<section class="authority-case-links"><div class="related-heading"><h3>Connected atlas entries</h3>${ribbonLinks(e).length?`<button type="button" data-authority-connections>Cases on map</button>`:''}</div><ul>${links.slice(0,8).map(li).join('')}</ul>${links.length>8?`<details id="authorityAllLinks"><summary>More connections</summary><ul>${links.slice(8).map(li).join('')}</ul></details>`:''}</section>`:''}${contextLinks.length?`<details class="authority-case-links"><summary>Related doctrine</summary><ul>${contextLinks.map(li).join('')}</ul></details>`:''}${source(e)}<nav class="authority-next" aria-label="Read in order"><button type="button" data-authority-open="${esc(group[n-1]?.id||'')}"${n===0?' disabled':''}>← Previous</button><button type="button" data-authority-open="${esc(group[n+1]?.id||'')}"${n===group.length-1?' disabled':''}>Next →</button></nav></article>`;
   }
-  const oldInspector=renderInspector;renderInspector=function(...args){const e=selectedEntry();if(!active()||!e)return oldInspector.apply(this,args);if(!S.panelOpen){panel.innerHTML='';return;}panel.innerHTML=readerChrome(provisionHTML(e),'Source rule');panel.scrollTop=0;wireReader();};
+  const oldInspector=renderInspector;renderInspector=function(...args){const e=selectedEntry();if(!active()||!e)return oldInspector.apply(this,args);if(!S.panelOpen){panel.innerHTML='';return;}panel.innerHTML=readerChrome(provisionHTML(e),'Source rule');panel.scrollTop=0;wireReader();const close=document.getElementById('closeInspector');if(close)close.onclick=()=>{remember();selected=null;S.connectionsExpanded=false;setReader(false);renderHeading();renderInspector();refitAuthority(true);if(typeof deferPersist==='function')deferPersist();};};
   function prepare(){if(window.SCOTUSHistory?.state?.().open)window.SCOTUSHistory.close();if(typeof dismissMenu==='function')dismissMenu();document.querySelectorAll('dialog[open]').forEach(d=>d.close());}
-  function openGroup(key,save=true){const n=groups.get(key);if(!n)return;prepare();if(save)remember();selected=null;S.connectionsExpanded=false;S.connectionOverview=false;S.district=null;setReader(false);closeSearch();S.scope=TITLE;S.region=n.key;geometryCache=null;renderInspector();renderHeading();fitBox(geometry(n).fit,true,22,.95);}
+  function openGroup(key,save=true){const n=groups.get(key);if(!n)return;prepare();if(save)remember();selected=null;S.connectionsExpanded=false;S.connectionOverview=false;S.district=null;setReader(false);closeSearch();S.scope=TITLE;S.region=n.key;geometryCache=null;renderInspector();renderHeading();fitBox(geometry(n).fit,true,16,1);}
   function open(id,collection){
     if(!id||!byId.has(id))return openGroup(collectionGroups.get(collection)?.key||ROOT);
     prepare();remember();const node=leaves.get(id);if(!node)return;S.scope=TITLE;S.region=node.parent.key;S.district=null;selected={type:'authority',id};
     S.connectionsExpanded=false;S.connectionOverview=false;setReader(true);closeSearch();geometryCache=null;renderInspector();renderHeading();
-    const card=geometry().cards.get(node.key);fitBox({x:card.x-50,y:card.y-140,w:card.w+100,h:card.h+250},true,22,1.05);
+    refitAuthority(true);
   }
-  function caseTiles(e){
-    const card=geometry().cards.get(PREFIX+e.id);if(!card)return [];const narrow=rect().w<700;
-    return (e.links||[]).slice(0,6).map((link,i)=>({x:narrow?card.x:card.x+card.w+230,y:narrow?card.y+card.h+150+i*320:card.y+i*230,w:narrow?card.w:1000,h:narrow?260:190,link}));
+  // A ribbon needs a recorded connection to an actual case. Broad concept
+  // neighbors remain available in the reader, without becoming case claims.
+  function ribbonLinks(e){return (e.links||[]).filter(l=>l.kind==='Case'&&(l.automaticRibbon??l.basis?.startsWith('Explicit citation')));}
+  let connectionCache=null;
+  function connectionScene(e){
+    const g=geometry(),a=usable(),key=[e.id,a.w,a.h,g.box.x,g.box.y].join(':');if(connectionCache?.key===key)return connectionCache;
+    const original=g.cards.get(PREFIX+e.id);if(!original)return null;
+    const links=ribbonLinks(e),stack=a.w<620,cols=stack?1:a.w>=960?2:1,gap=24;
+    const w=stack?Math.min(400,a.w-32):Math.min(340,(a.w-32-gap*cols)/(cols+1));
+    const model=tileModel(original.node,w,false,false,0,false),source={...original,x:g.box.x+16,y:g.box.y+16,w,h:model.h,unit:1,model};
+    const startX=stack?source.x:source.x+w+gap,startY=stack?source.y+source.h+gap:source.y;
+    const models=links.map(link=>{const lines=rows(link.title,w-36,17,550,Infinity,'authority-case-title');return{link,lines,h:Math.max(90,lines.length*17*1.25+38)};});
+    const cases=[],rowEnds=[];let y=startY;
+    for(let i=0;i<models.length;i+=cols){const h=Math.max(...models.slice(i,i+cols).map(m=>m.h));for(let j=0;j<cols&&i+j<models.length;j++)cases.push({...models[i+j],x:startX+j*(w+gap),y,w,h});y+=h+gap;rowEnds.push(cases.length);}
+    let visible=0;for(const end of rowEnds){const b=bounds([source,...cases.slice(0,end)]);if(b.h<=(a.h-32)/.9)visible=end;else break;}
+    if(cases.length&&!visible)visible=rowEnds[0];
+    const fit=bounds([source,...cases.slice(0,visible)]);
+    return connectionCache={key,source,cases,fit:{x:fit.x-8,y:fit.y-8,w:fit.w+16,h:fit.h+16}};
   }
-  function showConnections(){const e=selectedEntry();if(!e)return;remember();S.connectionsExpanded=true;setReader(false);renderInspector();renderHeading();fitBox(bounds([geometry().cards.get(PREFIX+e.id),...caseTiles(e)]),true,40,1.05);}
-  function rows(value,width,fs,weight,max){
-    const lines=typeof wrapM==='function'?wrapM(value,width,fs,weight,max):[String(value)];
-    // Native fit.js attaches scale/squeeze to this array. Mapping or measuring
-    // at the original font size discards that fit and cuts valid source text.
-    if(typeof wrapM!=='function'&&typeof measure==='function'&&measure(lines[0],fs,weight)>width)lines.squeeze=width;
-    return lines;
+  function caseTiles(e){return connectionScene(e)?.cases||[];}
+  function showConnections(){const e=selectedEntry();if(!e)return;remember();S.connectionsExpanded=true;setReader(false);renderInspector();renderHeading();refitAuthority(true);}
+  function refitAuthority(animate=false){
+    if(!active())return;const g=geometry(),e=selectedEntry();
+    fitBox(e?connectionScene(e).fit:g.fit,animate,16,1);schedule();
   }
-  function text(lines,x,y,fs,color,weight=500,cls=''){
-    const size=fs*(lines.scale||1);return lines.map((line,i)=>{
-      const squeeze=lines.squeeze&&typeof measure==='function'&&measure(line,size,weight)>lines.squeeze?` textLength="${lines.squeeze}" lengthAdjust="spacingAndGlyphs"`:'';
-      return `<text${cls?` class="${cls}"`:''} x="${x}" y="${y+i*size*1.25}" font-size="${size}" font-weight="${weight}" fill="${color}"${squeeze} pointer-events="none">${esc(line)}</text>`;
-    }).join('');
+  const fontCanvas=document.createElement('canvas'),fontContext=fontCanvas.getContext?.('2d');
+  function widthOf(value,fs,weight=450,cls=''){
+    if(fontContext){const serif=cls==='authority-preamble-excerpt';fontContext.font=`${serif?'italic ':''}${weight} ${fs}px ${serif?'Georgia, Cambria, serif':cls==='authority-preview-code'?'Consolas, monospace':'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'}`;return fontContext.measureText(value).width;}
+    return typeof measure==='function'?measure(value,fs,weight,cls):String(value).length*fs*.54;
+  }
+  function rows(value,width,fs,weight=450,max=Infinity,cls=''){
+    const out=[];let line='';for(const word of String(value).split(/\s+/).filter(Boolean)){
+      const next=line?line+' '+word:word;if(line&&widthOf(next,fs,weight,cls)>width){out.push(line);line=word;}else line=next;
+      // Ordinary word wrapping, with character breaks only for a word that
+      // alone exceeds the available width. Never condense or discard letters.
+      if(widthOf(line,fs,weight,cls)>width){let part='';for(const c of line){if(part&&widthOf(part+c,fs,weight,cls)>width){out.push(part);part=c;}else part+=c;}line=part;}
+    }if(line)out.push(line);return out.length?out:[''];
+  }
+  function text(lines,x,y,fs,color,weight=500,cls=''){return lines.map((line,i)=>`<text${cls?` class="${cls}"`:''} x="${x}" y="${y+i*fs*1.25}" font-size="${fs}" font-weight="${weight}" fill="${color}" pointer-events="none">${esc(line)}</text>`).join('');}
+  function tileModel(n,w,cover=false,compact=false,previewLimit=3,showQuote=true){
+    const flat=compact&&usable().h<400,pad=flat?10:compact?12:22,fs=flat?20:compact?18:cover?26:22,small=compact?12:14,e=n.entry,special=cover&&n.collection==='constitution';let y=pad;
+    const headingWidth=w-pad*2-(cover&&!compact&&!special?52:0),heading=rows(cover&&compact?shortTitles[n.collection]||display(n):display(n),headingWidth,fs,500,Infinity,'authority-volume-title');
+    const codeRows=!cover&&code(n)?rows(code(n),w-pad*2,13,550,Infinity,'authority-preview-code'):[];
+    if(special)y+=(flat?28:compact?48:84)+8+rows('U.S. Constitution',w-pad*2,small,550).length*small*1.25+14;
+    else{if(compact&&cover&&!flat)y+=27;if(codeRows.length)y+=codeRows.length*13*1.25+8;y+=heading.length*fs*1.25+16;}
+    const headingBottom=y,previews=[];
+    if(!e&&!compact)for(const child of n.children.slice(0,previewLimit)){
+      const c=code(child),badge=c?Math.min(90,Math.max(40,widthOf(c,12,550,'authority-preview-code')+8)):0,label=child.entry?.status==='article-index'?'Article overview':display(child),labelRows=rows(label,w-pad*2-badge-44,16,450),badgeRows=c?rows(c,badge,12,550,Infinity,'authority-preview-code'):[];
+      const h=Math.max(labelRows.length*16*1.25,badgeRows.length*12*1.25)+18;previews.push({node:child,y,h,badge,rows:labelRows,codeRows:badgeRows});y+=h+8;
+    }
+    let quoteRows=[],quoteFs=w<650?16:22;if(e?.id==='const-preamble'&&!compact&&showQuote){quoteRows=rows(e.lines[0]?.[1]||'',w-pad*2,quoteFs,450,Infinity,'authority-preamble-excerpt');y+=quoteRows.length*quoteFs*1.25+8;}
+    if(e&&status[e.status])y+=22;
+    return {pad,fs,small,heading,codeRows,headingBottom,previews,quoteRows,quoteFs,compact,flat,h:e?.id==='const-preamble'&&!showQuote?72:Math.max(flat?74:compact?118:e?112:140,y+pad)};
   }
   function skin(n){while(n){if(skins[n.collection])return skins[n.collection];n=n.parent;}return{ink:'#d1dedb',edge:'#82aaa4',base:'#172e31',paper:'#223b3d',mark:'code'};}
   function identity(n,x,y,size){
@@ -230,73 +279,66 @@
   function display(n){return n.title.replace(/^(?:PART|Part|CHAPTER|Title)\s+[\w]+\s*[—–·-]\s*/,'').replace(/^[IVX]+\s*·\s*/,'').replace(/\s+/g,' ');}
   function code(n){if(n.entry){const e=n.entry;if(e.id==='const-preamble')return '';if(e.id.startsWith('const-'))return e.cite.replace(/^(Article|Amendment) /,'');if(e.collection==='restatement')return '§ '+e.id.split('-')[1];if(e.collection==='consumer')return '§ '+e.id.split('-')[1];if(e.collection==='uscode')return '§ '+e.section;if(e.collection==='ucc')return '§ '+e.id.replace('ucc-','');return e.cite;}
     if(n.number)return String(n.number).padStart(2,'0');return (n.range?.replace(/^Amendments /,'')||n.title.match(/^(?:Title|CHAPTER|PART)\s+([\w]+)/)?.[0]||n.title.match(/^[IVX]+\s*·/)?.[0].replace(' ·','')||'');}
-  function preview(n,box,s,index){
-    const z=S.z,u=box.unit||1,fs=Math.max(23*u,11.5/z),pad=16*u,codeText=code(n),badgeW=codeText?Math.min(box.w*.34,Math.max(70*u,codeText.length*fs*.55+pad)):0;
-    const attrs=n.entry?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,title=n.entry?.status==='article-index'?'Article overview':display(n),label=n.entry?'Read '+entryName(n.entry):'Explore '+n.title;
-    return `<g class="authority-preview" ${attrs} role="button" tabindex="0" aria-label="${esc(label)}"><title>${esc(label)}</title><rect x="${box.x}" y="${box.y}" width="${box.w}" height="${box.h}" rx="${9*u}" fill="${s.paper}" stroke="${s.edge}" stroke-opacity=".3" stroke-width="${.65/z}"/>${codeText?text(rows(codeText,badgeW-pad,fs*.82,550,1),box.x+pad,box.y+box.h*.6,fs*.82,s.ink,550,'authority-preview-code'):''}${text(rows(title,box.w-badgeW-pad*2-fs,fs,450,1),box.x+pad+badgeW,box.y+box.h*.62,fs,'#dce5e3',450)}<path d="m${box.x+box.w-pad-fs*.3} ${box.y+box.h*.4} ${fs*.3} ${fs*.2} -${fs*.3} ${fs*.2}" stroke="${s.ink}" stroke-width="${.8/z}" fill="none" pointer-events="none"/></g>`;
+  function preview(p,card,s){
+    const n=p.node,u=card.unit||1,x=card.x+card.model.pad*u,y=card.y+p.y*u,w=card.w-card.model.pad*u*2,h=p.h*u;
+    const attrs=n.entry?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,label=n.entry?'Read '+entryName(n.entry):'Explore '+n.title;
+    return `<g class="authority-preview" ${attrs} role="button" tabindex="0" aria-label="${esc(label)}"><title>${esc(label)}</title><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${7*u}" fill="${s.paper}" stroke="${s.edge}" stroke-opacity=".3" stroke-width="${.65/S.z}"/>${text(p.codeRows,x+10*u,y+22*u,12*u,s.ink,550,'authority-preview-code')}${text(p.rows,x+(p.badge+22)*u,y+25*u,16*u,'#dce5e3',450,'authority-preview-label')}<path d="m${x+w-14*u} ${y+h/2-3*u} 4 3 -4 3" transform="translate(0 0)" stroke="${s.ink}" stroke-width="${.8/S.z}" fill="none" pointer-events="none"/></g>`;
   }
   function tile(card,overview=false){
-    const n=card.node,e=n.entry,z=S.z,u=card.unit||1,pad=30*u,chosen=e&&selectedEntry()?.id===e.id,s=skin(n),dense=!overview||card.w*z>210;
-    const attrs=e?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,fs=Math.max((card.cover?36:34)*u,(overview?11:16)/z),small=Math.max(22*u,(overview?9:12)/z);
-    const clip='authority-clip-'+n.key.replace(/[^a-zA-Z0-9]/g,c=>'_'+c.charCodeAt(0).toString(16));
-    let out=`<g class="authority-map-tile${e?' authority-map-provision':''}${card.cover?' authority-volume-cover':''}${chosen?' is-selected':''}" data-authority-collection="${esc(n.collection)}" ${attrs} role="${e?'button':'group'}"${e?' tabindex="0"':''} aria-label="${esc(e?'Read '+entryName(e):n.title)}"><title>${esc(e?entryName(e):n.title+' · '+n.count+' provisions')}</title><rect class="authority-cover-bg" x="${card.x}" y="${card.y}" width="${card.w}" height="${card.h}" rx="${18*u}" fill="${chosen?s.paper:s.base}" stroke="${chosen?'#eee0bf':s.edge}" stroke-opacity=".85" stroke-width="${(chosen?2:1)/z}"/><path d="M${card.x+12*u} ${card.y+20*u}V${card.y+card.h-20*u}" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${6*u}" pointer-events="none"/><path d="M${card.x+pad} ${card.y+14*u}H${card.x+card.w-pad}M${card.x+pad} ${card.y+card.h-14*u}H${card.x+card.w-pad}" stroke="${s.edge}" stroke-opacity=".25" stroke-width="${.7/z}" pointer-events="none"/><defs><clipPath id="${clip}"><rect x="${card.x+pad}" y="${card.y+20*u}" width="${card.w-pad*2}" height="${card.h-40*u}"/></clipPath></defs><g clip-path="url(#${clip})">`;
+    const n=card.node,e=n.entry,z=S.z,u=card.unit||1,s=skin(n),chosen=e&&selectedEntry()?.id===e.id,m=card.model,pad=m.pad*u;
+    const attrs=e?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,clip='authority-clip-'+n.key.replace(/[^a-zA-Z0-9]/g,c=>'_'+c.charCodeAt(0).toString(16));
+    let out=`<g class="authority-map-tile${e?' authority-map-provision':''}${card.cover?' authority-volume-cover':''}${chosen?' is-selected':''}" data-authority-collection="${esc(n.collection)}" data-authority-box="${card.x},${card.y},${card.w},${card.h}" ${attrs} role="${e?'button':'group'}"${e?' tabindex="0"':''} aria-label="${esc(e?'Read '+entryName(e):n.title)}"><title>${esc(e?entryName(e):n.title)}</title><rect class="authority-cover-bg" x="${card.x}" y="${card.y}" width="${card.w}" height="${card.h}" rx="${12*u}" fill="${chosen?s.paper:s.base}" stroke="${chosen?'#eee0bf':s.edge}" stroke-opacity=".85" stroke-width="${(chosen?2:1)/z}"/><path d="M${card.x+7*u} ${card.y+15*u}V${card.y+card.h-15*u}" stroke="${s.edge}" stroke-opacity=".6" stroke-width="${3*u}" pointer-events="none"/><defs><clipPath id="${clip}"><rect x="${card.x+pad}" y="${card.y+10*u}" width="${card.w-pad*2}" height="${card.h-20*u}"/></clipPath></defs><g clip-path="url(#${clip})">`;
     if(!e)out+=`<g class="authority-title-control" ${attrs} role="button" tabindex="0" aria-label="${esc('Explore '+n.title)}">`;
-    let y=card.y+pad,headingWidth=card.w-pad*2;
-    if(card.cover&&n.collection==='constitution'){
-      const h=card.h*(dense?.27:.4);out+=people(card.x+pad,y,headingWidth,h,clip+'-people');y+=h+small*1.4;
-      out+=text(['U.S. Constitution'],card.x+pad,y,small,s.ink,550,'authority-document-label');y+=small*1.4;
+    if(overview&&card.w*z<150){
+      const title=shortTitles[n.collection]||n.title,fs=Math.min(20,(card.w/u-m.pad*2)/Math.max(6,title.length*.60));
+      if(fs*z*u>=10){const lines=rows(title,card.w/u-m.pad*2,fs,550,Infinity,'authority-volume-title');out+=text(lines,card.x+pad,card.y+pad+fs*u,fs*u,s.ink,550,'authority-volume-title');}
+      out+=identity(n,card.x+card.w-pad-42*u,card.y+card.h-pad-42*u,42*u);
+    }else if(card.cover&&n.collection==='constitution'){
+      const markH=(m.flat?28:m.compact?48:84)*u;out+=people(card.x+pad,card.y+pad,card.w-pad*2,markH,clip+'-people');
+      out+=text(rows('U.S. Constitution',card.w/u-m.pad*2,m.small,550),card.x+pad,card.y+pad+markH+(8+m.small)*u,m.small*u,s.ink,550,'authority-document-label');
     }else{
-      const iconSize=(card.cover?100:55)*u;out+=identity(n,card.x+card.w-pad-iconSize,y,iconSize);headingWidth-=iconSize+pad*.5;
-      if(code(n)&&!card.cover){out+=text(rows(code(n),headingWidth,small,550,1),card.x+pad,y+small,small,s.ink,550,'authority-preview-code');y+=small*1.55;}
-      const heading=rows(display(n),headingWidth,fs,500,e?3:3);out+=text(heading,card.x+pad,y+fs,fs,'#edeae3',500,'authority-volume-title');y+=fs*(heading.length*1.25)+pad*.6;
+      let y=card.y+pad;
+      if(card.cover&&m.compact&&!m.flat){out+=identity(n,card.x+pad,y,22*u);y+=27*u;}
+      else if(card.cover)out+=identity(n,card.x+card.w-pad-40*u,y,40*u);
+      if(m.codeRows.length){out+=text(m.codeRows,card.x+pad,y+13*u,13*u,s.ink,550,'authority-preview-code');y+=(m.codeRows.length*13*1.25+8)*u;}
+      out+=text(m.heading,card.x+pad,y+m.fs*u,m.fs*u,'#edeae3',500,'authority-volume-title');
     }
-    if(!e)out+=`<rect x="${card.x+pad}" y="${card.y+20*u}" width="${card.w-pad*2}" height="${Math.max(40*u,y-card.y-20*u)}" fill="transparent" pointer-events="all"/></g>`;
-    if(!dense)return out+'</g></g>';
-    if(!e){
-      const available=card.y+card.h-pad-y,shown=n.children.slice(0,Math.min(n.key==='authority:constitution/articles'?7:6,n.children.length)),rowGap=9*u,rowH=Math.min(74*u,(available-rowGap*(shown.length-1))/Math.max(1,shown.length));
-      if(rowH>small*1.25)shown.forEach((child,i)=>{out+=preview(child,{x:card.x+pad,y:y+i*(rowH+rowGap),w:card.w-pad*2,h:rowH,unit:u},s,i);});
-      if(n.children.length>shown.length)out+=text(['···'],card.x+card.w-pad-small*1.3,card.y+card.h-pad*.4,small,s.ink,450);
-    }else if(e.id==='const-preamble'){
-      const quote=e.lines[0]?.[1]||'',available=card.y+card.h-pad-y;
-      // A document quotation has its own reading scale, rather than inheriting
-      // the small navigation-label size. The wide strip supports 2–3 generous
-      // lines; phone text retains its complete, bounded reading fit.
-      const quoteFont=rect().w<700?small:Math.max(small,Math.min(22/z,(card.w-pad*2)/80,available/3.5));
-      const lines=rows(quote,card.w-pad*2,quoteFont,450,Math.max(1,Math.floor(available/(quoteFont*1.25))));
-      // fit.js may add lines as well as reduce their size. Bound the complete
-      // fitted block, including descenders, instead of assuming maxLines won.
-      const size=Math.min(quoteFont,available/((lines.length*1.25+.2)*(lines.scale||1)));
-      out+=text(lines,card.x+pad,y+size*(lines.scale||1),size,'#c5d9d0',450,'authority-preamble-excerpt');
-    }
-    if(e&&status[e.status])out+=text(rows(status[e.status],card.w-pad*2,small*.9,450,1),card.x+pad,card.y+card.h-pad*.6,small*.9,'#d6b789');return out+'</g></g>';
+    if(!e)out+=`<rect x="${card.x+pad}" y="${card.y+10*u}" width="${card.w-pad*2}" height="${(m.headingBottom-10)*u}" fill="transparent" pointer-events="all"/></g>`;
+    if(!overview)for(const p of m.previews)out+=preview(p,card,s);
+    if(e?.id==='const-preamble')out+=text(m.quoteRows,card.x+pad,card.y+(m.headingBottom+m.quoteFs)*u,m.quoteFs*u,'#c5d9d0',450,'authority-preamble-excerpt');
+    if(e&&status[e.status])out+=text([status[e.status]],card.x+pad,card.y+card.h-pad*.6,13*u,'#d6b789');
+    return out+'</g></g>';
   }
-  function ribbon(a,b,color='#8dbbd1',label=''){const p=edgePoint(a,b),q=edgePoint(b,a),span=Math.max(100,Math.abs(q.x-p.x)*.44),w=7/S.z;return `<path class="authority-ribbon" d="${taperedRibbon(p.x,p.y,p.x+span,p.y,q.x-span,q.y,q.x,q.y,w*2.2,w*.35)}" fill="${color}" fill-opacity=".52" pointer-events="none"><title>${esc(label)}</title></path>`;}
+  function ribbon(a,b,color='#8dbbd1',label=''){const p=edgePoint(a,b),q=edgePoint(b,a),span=Math.max(50,Math.abs(q.x-p.x)*.44),w=1.8/S.z;return `<path class="authority-ribbon" d="${taperedRibbon(p.x,p.y,p.x+span,p.y,q.x-span,q.y,q.x,q.y,w*2.2,w*.35)}" fill="${color}" fill-opacity=".38" pointer-events="none"><title>${esc(label)}</title></path>`;}
   function frame(n,g,overview=false){
-    const u=g.unit||1,s=skin(n),z=S.z,fs=Math.max(52*u,(overview?18:22)/z),x=g.box.x,y=g.box.y,w=g.box.w,h=g.box.h;
-    let out=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${40*u}" fill="${n===root?'#12282b':s.base}" fill-opacity=".92" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${1.2/z}"/><path d="M${x+40*u} ${y+125*u}V${y+40*u}H${x+150*u}M${x+w-150*u} ${y+h-40*u}H${x+w-40*u}V${y+h-125*u}" fill="none" stroke="${s.ink}" stroke-opacity=".6" stroke-width="${1.2/z}" pointer-events="none"/>`;
+    const u=g.unit||1,s=skin(n),z=S.z,x=g.box.x,y=g.box.y,w=g.box.w,h=g.box.h,pad=usable().w<650&&!overview?16:26;
+    let out=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${24*u}" fill="${n===root?'#12282b':s.base}" fill-opacity=".92" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${1.2/z}"/>`;
     if(n===collectionGroups.get('constitution')){
-      const markW=rect().w<700?w-140:Math.min(w*.62,2000);out+=people(x+70,y+12,markW,310,'authority-constitution-masthead');
-      out+=text(['U.S. Constitution'],x+75,y+365,Math.max(27,14/z),s.ink,500,'authority-document-label');
+      const markW=g.masthead.w*u;out+=people(x+(w-markW)/2,y+12*u,markW,g.masthead.h*u,'authority-constitution-masthead');
+      const label='U.S. Constitution',fs=14*u;out+=text([label],x+(w-widthOf(label,fs,500,'authority-document-label'))/2,y+g.masthead.labelY*u,fs,s.ink,500,'authority-document-label');
     }else{
-      out+=text(rows(display(n),w-220*u,fs,550,2),x+90*u,y+95*u,fs,n===root?'#d7e9e2':s.ink,550,'authority-map-heading');
-      if(n.range)out+=text([n.range],x+90*u,y+185*u,Math.max(25*u,12/z),s.ink,500,'authority-preview-code');
-    }
-    return out;
+      out+=text(g.heading,x+pad*u,y+(28+g.headingFs)*u,g.headingFs*u,n===root?'#d7e9e2':s.ink,550,'authority-map-heading');
+      if(n.range)out+=text([n.range],x+pad*u,y+(28+g.heading.length*g.headingFs*1.25+18)*u,14*u,s.ink,500,'authority-preview-code');
+    }return out;
   }
   function paintMap(){
     const n=current(),g=geometry(n),z=S.z,B=visibleBox();svg.setAttribute('viewBox',`${B.x} ${B.y} ${B.w} ${B.h}`);
-    let out=`<g class="authority-map-view" data-authority-view="${esc(n.key)}">${frame(n,g)}`;
-    if(!selectedEntry()){const origin={x:g.box.x+g.box.w/2,y:g.box.y+(n===root?210*g.unit:195),w:1,h:1};for(const c of g.cards.values())out+=`<g opacity=".36">${ribbon(origin,c,skin(c.node).edge,'')}</g>`;}
-    const e=selectedEntry(),source=e&&g.cards.get(PREFIX+e.id),cases=e?caseTiles(e):[];if(source)for(const c of cases)out+=ribbon(source,c,'#8dbbd1',c.link.basis);
-    for(const c of g.cards.values())if(intersects(c,B,50))out+=tile(c);
-    for(const c of cases)if(intersects(c,B,50)){const cfs=14/z;out+=`<g class="authority-map-case" data-map-jump="${esc(c.link.id)}" role="button" tabindex="0" aria-label="Read ${esc(c.link.title)}"><title>${esc(c.link.basis)}</title><rect x="${c.x}" y="${c.y}" width="${c.w}" height="${c.h}" rx="22" fill="#263945" stroke="#8dbbd1" stroke-width="${1/z}"/>${text(rows(c.link.title,c.w-70,cfs,550,3),c.x+35,c.y+55,cfs,'#dce6ec',550)}</g>`;}
-    svg.innerHTML=out+'</g>';S.paintNodes=[];S.paintEdges=[];R11.starIndex=[];const hint=document.getElementById('mapHint');if(hint)hint.textContent='Click to explore · Scroll between levels · Drag to pan';
+    const e=selectedEntry(),scene=e&&connectionScene(e),source=scene?.source,cases=scene?.cases||[];
+    let out=`<g class="authority-map-view" data-authority-view="${esc(n.key)}">${e?'':frame(n,g)}`;
+    if(source)for(const c of cases)if(intersects(c,B,50))out+=ribbon(source,c,'#8dbbd1',c.link.basis);
+    for(const c of source?[source]:g.cards.values())if(intersects(c,B,50))out+=tile(c);
+    for(const c of cases)if(intersects(c,B,50))out+=`<g class="authority-map-case" data-map-jump="${esc(c.link.id)}" data-authority-relationship="${esc(c.link.relationship||'explicit-citation')}" role="button" tabindex="0" aria-label="Read ${esc(c.link.title)}"><title>${esc(c.link.basis)}</title><rect x="${c.x}" y="${c.y}" width="${c.w}" height="${c.h}" rx="14" fill="#263945" stroke="#8dbbd1" stroke-width="${1/z}"/>${text(c.lines,c.x+18,c.y+31,17,'#dce6ec',550,'authority-case-title')}</g>`;
+    svg.innerHTML=out+'</g>';S.paintNodes=[];S.paintEdges=[];R11.starIndex=[];const hint=document.getElementById('mapHint');if(hint)hint.textContent=cases.length?'Connected cases · Click to open · Drag to pan':'Click to explore · Scroll between levels · Drag to pan';
   }
   function entrance(){
     if(active()||window.SCOTUSHistory?.state?.().open)return;const g=geometry(root,true),B=visibleBox();if(!intersects(g.box,B,80))return;
-    let out=`<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root,g,true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${g.box.x+60*g.unit}" y="${g.box.y+35*g.unit}" width="${g.box.w-120*g.unit}" height="${160*g.unit}" fill="transparent" pointer-events="all"/></g>`;
+    let out=`<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root,g,true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${g.box.x+26*g.unit}" y="${g.box.y+14*g.unit}" width="${g.box.w-52*g.unit}" height="${g.header-24*g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for(const card of g.cards.values())out+=tile(card,true);out+='</g>';
-    if(selected?.type==='node'&&D.byNode[selected.id]?.length){const h=homeFor(selected.id);if(h)out=ribbon(h,BOX,'#8dbbd1','Authorities cited by this atlas entry')+out;}svg.insertAdjacentHTML('beforeend',out);
+    if(selected?.type==='node'&&D.byNode[selected.id]?.length){
+      const h=homeFor(selected.id),targets=new Map();
+      for(const id of D.byNode[selected.id]){const e=byId.get(id);if(!e||!ribbonLinks(e).some(l=>l.id===selected.id))continue;let n=leaves.get(id);while(n?.parent&&n.parent!==root)n=n.parent;const c=n&&g.cards.get(n.key);if(c){const t=targets.get(n.key)||{card:c,cites:[]};t.cites.push(e.cite);targets.set(n.key,t);}}
+      if(h)for(const t of targets.values())out=ribbon(h,t.card,'#8dbbd1','Cited in this atlas account: '+t.cites.join('; '))+out;
+    }svg.insertAdjacentHTML('beforeend',out);
   }
   const oldDraw=draw;draw=function(...args){if(active())return paintMap();return oldDraw.apply(this,args);};
   // The earlier map decorators assume Case/Concept records and would add their
@@ -305,13 +347,21 @@
   const oldLevel=R11.level;R11.level=function(p){if(active())return {lvl:ancestors(current()).length,authority:current().key};return oldLevel(p);};
   const oldStep=R11.step;R11.step=function(dir,p){
     if(!active())return oldStep(dir,p);
-    if(dir<0){if(S.panelOpen){remember();setReader(false);selected=null;renderInspector();renderHeading();fitBox(geometry().fit,true,22,.95);return true;}const n=current();if(n.parent)openGroup(n.parent.key);else home('Atlas');return true;}
-    const cards=[...geometry().cards.values()],q=p||mapCenterVisible();const hit=cards.find(c=>q.x>=c.x&&q.x<=c.x+c.w&&q.y>=c.y&&q.y<=c.y+c.h)||cards.reduce((best,c)=>!best||Math.hypot(c.x+c.w/2-q.x,c.y+c.h/2-q.y)<Math.hypot(best.x+best.w/2-q.x,best.y+best.h/2-q.y)?c:best,null);
+    if(dir<0){if(S.panelOpen||selectedEntry()){remember();setReader(false);selected=null;renderInspector();renderHeading();fitBox(geometry().fit,true,16,1);return true;}const n=current();if(n.parent)openGroup(n.parent.key);else home('Atlas');return true;}
+    const q=p||mapCenterVisible(),e=selectedEntry();if(e){const c=caseTiles(e).find(c=>q.x>=c.x&&q.x<=c.x+c.w&&q.y>=c.y&&q.y<=c.y+c.h);if(c){goNode(c.link.id);return true;}}
+    const cards=[...geometry().cards.values()];const hit=cards.find(c=>q.x>=c.x&&q.x<=c.x+c.w&&q.y>=c.y&&q.y<=c.y+c.h)||cards.reduce((best,c)=>!best||Math.hypot(c.x+c.w/2-q.x,c.y+c.h/2-q.y)<Math.hypot(best.x+best.w/2-q.x,best.y+best.h/2-q.y)?c:best,null);
     if(!hit)return false;if(hit.node.entry)open(hit.node.entry.id);else openGroup(hit.node.key);return true;
   };
-  const oldFit=fit;fit=function(...args){if(active()){remember();fitBox(geometry().fit,true,22,.95);return;}return oldFit.apply(this,args);};
+  const oldFit=fit;fit=function(...args){if(active()){remember();refitAuthority(true);return;}return oldFit.apply(this,args);};
   document.getElementById('studyFit').onclick=()=>fit();document.getElementById('studyBack').onclick=()=>back();
-  let resizeTimer;new ResizeObserver(()=>{geometryCache=null;if(active()&&!S.drag&&!R11.anim){clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(active()&&!S.panelOpen)fitBox(geometry().fit,false,22,.95);else schedule();},120);}}).observe(svg);
+  let resizeTimer;
+  function settleResize(){
+    if(!active()){schedule();return;}
+    if(S.drag||R11.anim){resizeTimer=setTimeout(settleResize,80);return;}
+    geometryCache=null;refitAuthority(false);
+  }
+  new ResizeObserver(()=>{geometryCache=null;clearTimeout(resizeTimer);resizeTimer=setTimeout(settleResize,120);schedule();}).observe(svg);
+  if(typeof restoreView==='function'){const previousRestore=restoreView;restoreView=function(...args){const out=previousRestore.apply(this,args);if(active()){geometryCache=null;refitAuthority(false);}return out;};}
   document.addEventListener('click',ev=>{
     const b=ev.target.closest('[data-authority-open],[data-authority-menu],[data-authority-group],[data-authority-anchor],[data-authority-connections]');if(!b)return;ev.preventDefault();ev.stopPropagation();closeSearch();
     if('authorityConnections'in b.dataset)showConnections();else if(b.dataset.authorityAnchor)panel.querySelector('#'+b.dataset.authorityAnchor)?.scrollIntoView({block:'start'});else if(b.dataset.authorityGroup)openGroup(b.dataset.authorityGroup);else open(b.dataset.authorityOpen||null);
@@ -328,6 +378,6 @@
     const q=fold(search.value.trim());if(q.length<3)return;const words=q.split(/\s+/),hits=D.entries.filter(e=>words.every(w=>fold([e.cite,e.title].join(' ')).includes(w))).slice(0,5),groupHits=D.collections.filter(c=>words.every(w=>fold(c.title).includes(w))).slice(0,2);if(!hits.length&&!groupHits.length)return;
     const box=document.createElement('div');box.className='r19-search authority-search';box.innerHTML='<div class="search-label">Rules & authorities</div>'+groupHits.map(c=>`<button type="button" data-authority-group="${esc(collectionGroups.get(c.id).key)}"><strong>${esc(c.title)}</strong><small>Explore the collection on the atlas</small></button>`).join('')+hits.map(e=>`<button type="button" data-authority-open="${esc(e.id)}"><strong>${esc(entryName(e))}</strong><small>${esc(collections.get(e.collection).title)}</small></button>`).join('');searchResults.appendChild(box);
   }).observe(searchResults,{childList:true});
-  window.DKLAAuthorities={open,group:openGroup,data:D,version:2,geography:()=>({entrance:{...BOX,id:ROOT},route:ancestors(current()).map(n=>({id:n.key,title:n.title})),groupCount:groups.size,provisionCount:leaves.size,children:current().children.map(n=>({id:n.key,title:n.title,cite:n.label,count:n.count,provision:n.entry?.id||null})),view:{scope:S.scope,region:S.region,selected:selected?{...selected}:null}})};
+  window.DKLAAuthorities={open,group:openGroup,data:D,version:4,connections:()=>{const e=selectedEntry(),s=e&&connectionScene(e);return s?{provision:e.id,source:{id:s.source.node.key,x:s.source.x,y:s.source.y,w:s.source.w,h:s.source.h},fit:{...s.fit},cases:s.cases.map(c=>({id:c.link.id,title:c.link.title,basis:c.link.basis,x:c.x,y:c.y,w:c.w,h:c.h}))}:null;},geography:()=>({entrance:{...geometry(root,true).box,id:ROOT},layout:(()=>{const g=geometry();return{box:{...g.box},fit:{...g.fit},columns:g.cols,density:g.density,visibleRows:g.visibleRows,safe:g.safe,cards:[...g.cards.values()].map(c=>({id:c.node.key,x:c.x,y:c.y,w:c.w,h:c.h,previews:c.model.previews.length}))};})(),route:ancestors(current()).map(n=>({id:n.key,title:n.title})),groupCount:groups.size,provisionCount:leaves.size,children:current().children.map(n=>({id:n.key,title:n.title,cite:n.label,count:n.count,provision:n.entry?.id||null})),view:{scope:S.scope,region:S.region,selected:selected?{...selected}:null}})};
   schedule();
 })();
