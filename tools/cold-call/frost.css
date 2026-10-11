@@ -1,9 +1,8 @@
-/* Frost stays on the rim. The label has an uninterrupted, opaque reading surface.
-   One small decorative animation: transform and opacity, with no JS or paint loop. */
+/* Frosted edges with soft, rising cold vapor. The button face stays opaque and clear. */
 button[data-cold-call]{
   position:relative;
   isolation:isolate;
-  overflow:hidden;
+  overflow:visible;
   padding:8px 18px!important;
   color:#e8f4fa!important;
   background:
@@ -35,7 +34,7 @@ button[data-cold-call]::after{
   background:
     linear-gradient(90deg,transparent 24%,#a7e5f268 42%,#f0fdff 50%,#a7e5f24d 58%,transparent 76%) left top/100% 1px no-repeat,
     linear-gradient(90deg,transparent 26%,#a7e5f223 44%,#c5f2ffad 50%,#a7e5f21a 56%,transparent 74%) left bottom/100% 1px no-repeat;
-  animation:cc-frost-glint 6.4s linear infinite;
+  animation:cc-frost-glint 5.2s ease-in-out infinite;
   animation-delay:-2s;
 }
 button[data-cold-call]:hover{
@@ -45,14 +44,15 @@ button[data-cold-call]:hover{
 button[data-cold-call]:focus-visible{outline:2px solid #b6e8f5!important;outline-offset:3px}
 button[data-cold-call]:disabled::after{animation-play-state:paused;opacity:.25}
 @keyframes cc-frost-glint{
-  0%{transform:translate3d(-100%,0,0);opacity:.25}
-  40%,60%{opacity:1}
-  100%{transform:translate3d(100%,0,0);opacity:.25}
+  0%,100%{opacity:.24}
+  50%{opacity:.8}
 }
+.cc-cold-vapor{position:absolute;left:-34px;top:-46px;pointer-events:none;z-index:-1;opacity:1;max-width:none!important;max-height:none!important}
 @media(prefers-reduced-motion:reduce),(update:slow){
   button[data-cold-call]::after{animation:none;transform:none;opacity:.55}
+  .cc-cold-vapor{display:none}
 }
 @media(forced-colors:active){
   button[data-cold-call]{color:ButtonText!important;background:ButtonFace!important;border-color:ButtonText!important;box-shadow:none}
-  button[data-cold-call]::before,button[data-cold-call]::after{display:none}
+  button[data-cold-call]::before,button[data-cold-call]::after,.cc-cold-vapor{display:none}
 }
