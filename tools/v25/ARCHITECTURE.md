@@ -15,6 +15,9 @@ change from silently rewriting a source or a legal account.
 | U.S. Code edition | `tools/v25/uscode.json`, `uscode_build.py` | pinned OLRC release, structural/lexical extraction and effectivity checks |
 | Reading interface | `tools/v25/reading.js`, `reading.css`, Cold Call reader | browser checks on desktop and phone |
 | Module order | `tools/v25/runtime-manifest.json` | build rejects missing/duplicate modules; integrity hashes and line ranges |
+| Curated map geography | `tools/v25/geography.json`, `geography_build.py`, `geography.js` | `geography_check.py --check`, runtime lock/cache tests, bounded per-entry/district/region reasons |
+| Practice exercise visibility | `tools/v25/practice-filter.json`, `practice-filter.js` | source fingerprint and classification checks; recoverable export and cache-resilience tests |
+| Constitution lettering | `tools/v25/assets/we-the-people.png` and `.json` | transparent owner-reference asset embedded offline; bytes/hash validated independently of legal text |
 | Existing map and archives | immutable `DKLA-r18.html` baseline | SHA-256 and all 35 original script blocks preserved |
 | Routing and cache | assembler, worker template | release filename/version/build checks |
 
@@ -42,6 +45,8 @@ python tools/atlas.py page "#lrs=lrs-november-a:34" --chars 4000
 python tools/atlas.py catalog november --limit 4
 python tools/atlas.py timeline supp
 python tools/atlas.py catalog --write
+python tools/v25/geography_check.py --inventory districts --course Contracts --limit 20
+python tools/v25/geography_check.py --inventory nodes --district specific-relief --limit 20
 ```
 
 `entry` identifies the immutable seed, canonical full brief, compact conversion,

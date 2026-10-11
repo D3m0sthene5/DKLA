@@ -8,7 +8,7 @@
     "case-note": 353,
     "noncase": 1667,
     "course-treatment": 5,
-    "connection": 2709,
+    "connection": 2744,
     "timeline-context": 132,
     "timeline-step": 505
   },
@@ -101813,6 +101813,461 @@
       "source": {
         "source": "problem-misplaced",
         "target": "ucc207-conduct"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-9-parol-evidence",
+      "title": "consumer-contract rule",
+      "field": "explanation",
+      "text": "Section 9 limits the parol-evidence rule's discharging effect when a standard term conflicts with the business's earlier affirmation or promise.",
+      "textSha256": "3294e04b089aec6223fff2987977e8702f739d61d65d1e8faf7fda10eb1ec6d5",
+      "source": {
+        "source": "rlcc-9",
+        "target": "parol-evidence"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-9-integration",
+      "title": "denies finality",
+      "field": "explanation",
+      "text": "Under § 9 the conflicting standard term is not a final expression on its subject.",
+      "textSha256": "79bfcf42fd24f1bff79884d586aa920e7b527941f64ece3a94ea8844227232fc",
+      "source": {
+        "source": "rlcc-9",
+        "target": "integration"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-9-contracts-class-13",
+      "title": "assigned source",
+      "field": "explanation",
+      "text": "Assignment 13 lists Restatement of Consumer Contracts §§ 8, 9.",
+      "textSha256": "954af472785a24ab0e10fa5c1d3501076de588481069e91a29504626412a564d",
+      "source": {
+        "source": "rlcc-9",
+        "target": "contracts-class-13"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-9-rlcc-8",
+      "title": "corollary of",
+      "field": "explanation",
+      "text": "Comment 1 to § 9 calls it a corollary of §§ 7 and 8.",
+      "textSha256": "80e05abe6c81721039ac7c138776117f2e922172cc40bf751eca43fe160d0826",
+      "source": {
+        "source": "rlcc-9",
+        "target": "rlcc-8"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-8-adhesion",
+      "title": "limits standard terms",
+      "field": "explanation",
+      "text": "Section 8(c) makes unenforceable a standard term that negates or unreasonably limits an affirmation or promise that became part of the contract.",
+      "textSha256": "f31f3204e646f69804f2c75ae7e0f2a7add1b45a7d9178087c4bc7aafaaeec37",
+      "source": {
+        "source": "rlcc-8",
+        "target": "adhesion"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-8-contracts-class-17",
+      "title": "assigned source",
+      "field": "explanation",
+      "text": "Assignment 17 lists Restatement of Consumer Contracts § 8.",
+      "textSha256": "4c6168f99c251aec11d32f54e169cabf94cb72acf213207131fb88b3de02af9d",
+      "source": {
+        "source": "rlcc-8",
+        "target": "contracts-class-17"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-8-contracts-class-13",
+      "title": "assigned source",
+      "field": "explanation",
+      "text": "Assignment 13 lists Restatement of Consumer Contracts §§ 8, 9.",
+      "textSha256": "954af472785a24ab0e10fa5c1d3501076de588481069e91a29504626412a564d",
+      "source": {
+        "source": "rlcc-8",
+        "target": "contracts-class-13"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-6-unconscionability",
+      "title": "consumer-contract rule",
+      "field": "explanation",
+      "text": "Section 6 states the two-factor test with an express sliding scale and lists terms that are substantively unconscionable.",
+      "textSha256": "1c661c5b9eef16bda1606e96e67591428bf280e87a1b59e9008d3ab564a8a2c9",
+      "source": {
+        "source": "rlcc-6",
+        "target": "unconscionability"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-6-contracts-class-18",
+      "title": "assigned source",
+      "field": "explanation",
+      "text": "Assignment 18 lists Restatement of Consumer Contracts § 6.",
+      "textSha256": "b688edb7fbac8c40367548e71198db7763c6cf5e5575a251799f5ae384527fa8",
+      "source": {
+        "source": "rlcc-6",
+        "target": "contracts-class-18"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-4-good-faith",
+      "title": "non-disclaimable in consumer contracts",
+      "field": "explanation",
+      "text": "Section 4(a) states the duty of good faith and fair dealing as non-disclaimable in a consumer contract.",
+      "textSha256": "7c18ae69193951a7002cb5bc5b788a922c24acbb0dc2e19a87d44e048c174682",
+      "source": {
+        "source": "rlcc-4",
+        "target": "good-faith"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-rlcc-4-contracts-class-16",
+      "title": "assigned source",
+      "field": "explanation",
+      "text": "Assignment 16 lists Restatement of Consumer Contracts § 4.",
+      "textSha256": "a865762b933466ae39844bc84cc6fcdd955f1a0fcb08d84c5cc8add5bc8aa589",
+      "source": {
+        "source": "rlcc-4",
+        "target": "contracts-class-16"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-gap-rlcc-rlcc-4",
+      "title": "section entry",
+      "field": "explanation",
+      "text": "§ 4 has its own entry.",
+      "textSha256": "d80a0c3c56a1b6b107dadad3c0af8696969156c1e3daa4ed009036ddd7280942",
+      "source": {
+        "source": "gap-rlcc",
+        "target": "rlcc-4"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-gap-rlcc-rlcc-6",
+      "title": "section entry",
+      "field": "explanation",
+      "text": "§ 6 has its own entry.",
+      "textSha256": "782bf560b50ac80245635ce78e7213f1c03df608184a74fda27c2c8f1930666b",
+      "source": {
+        "source": "gap-rlcc",
+        "target": "rlcc-6"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-gap-rlcc-rlcc-8",
+      "title": "section entry",
+      "field": "explanation",
+      "text": "§ 8 has its own entry.",
+      "textSha256": "0c7d5f5be67012e71a285bd99f7ec9c58705a1b3f015c74575a847f0d764ba5b",
+      "source": {
+        "source": "gap-rlcc",
+        "target": "rlcc-8"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r19-rlcc-gap-rlcc-rlcc-9",
+      "title": "section entry",
+      "field": "explanation",
+      "text": "§ 9 has its own entry.",
+      "textSha256": "e3f9983d96a8e2a6acb213dec3a46f4c0be4058da2a82057a5e83f6ff7b874f1",
+      "source": {
+        "source": "gap-rlcc",
+        "target": "rlcc-9"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest205--good-faith",
+      "title": "states the duty",
+      "field": "explanation",
+      "text": "Section 205 is the Restatement's statement of the duty of good faith and fair dealing that this concept collects.",
+      "textSha256": "9bd0f227f8de634f4e677bfd9ec5ef2eeb2c8588ff9c51abaeba6bc6d4da0fcf",
+      "source": {
+        "source": "rest205",
+        "target": "good-faith"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest205--discretion",
+      "title": "governs discretion",
+      "field": "explanation",
+      "text": "The duty of good faith in performance is the standard the cases apply to a party's exercise of contractual discretion.",
+      "textSha256": "d73cf52ae9611cb5905ee8f70ad83d2a5322608b21e72f478ca7168f2aa0934b",
+      "source": {
+        "source": "rest205",
+        "target": "discretion"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest205--wood-lucy",
+      "title": "related later duty",
+      "field": "explanation",
+      "text": "Wood v. Lucy implied a reasonable-efforts promise that supplied consideration. Section 205 later states the distinct general duty of good faith in performance and enforcement.",
+      "textSha256": "f087f9339169760826b8033a72b6c3a368831b5b5f54399b15bca89867e0c239",
+      "source": {
+        "source": "rest205",
+        "target": "wood-lucy"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest205--market-street",
+      "title": "applied in",
+      "field": "explanation",
+      "text": "Market Street Associates reads the duty of good faith in performance that § 205 states.",
+      "textSha256": "87b25b04cf6bbc8ec1195db9e82d80d175937ec7e20ab6a0702ba1711f7cf08d",
+      "source": {
+        "source": "rest205",
+        "target": "market-street"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest302--third-party-beneficiaries",
+      "title": "states the test",
+      "field": "explanation",
+      "text": "Section 302 states the intended-beneficiary test that this concept collects.",
+      "textSha256": "677651108b8a16f3bc5ffb60ddf1696fc80da8ac5a4974f370df09519881c844",
+      "source": {
+        "source": "rest302",
+        "target": "third-party-beneficiaries"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest302--lawrence-fox",
+      "title": "codifies as § 302(1)(a)",
+      "field": "explanation",
+      "text": "A promise whose performance pays the promisee's debt to the beneficiary makes the beneficiary intended under § 302(1)(a).",
+      "textSha256": "08c60545b7a85a116c0ff6a0b948b00ca0ba551348c1fa8200e08f9a008f6539",
+      "source": {
+        "source": "rest302",
+        "target": "lawrence-fox"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-rest302--seaver",
+      "title": "codifies as § 302(1)(b)",
+      "field": "explanation",
+      "text": "A promise meant to give the beneficiary the benefit of the performance makes the beneficiary intended under § 302(1)(b).",
+      "textSha256": "ebc2d4aebefe9f18fb6c707a0976a61ee5217f151e28ae4cd4e1d2b210178498",
+      "source": {
+        "source": "rest302",
+        "target": "seaver"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2209--modification",
+      "title": "sales-of-goods rule",
+      "field": "explanation",
+      "text": "Section 2-209 governs modification, rescission and waiver of contracts for the sale of goods.",
+      "textSha256": "01cb32bda807ad7b97429c9f9e313c71cbb6e12b1afa4f0ed790450bb2d41641",
+      "source": {
+        "source": "ucc2209",
+        "target": "modification"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2209--alaska-packers",
+      "title": "counterpoint",
+      "field": "explanation",
+      "text": "Alaska Packers refused a modification for want of consideration; § 2-209(1) removes that requirement for sales of goods.",
+      "textSha256": "4d3086d26e471adc88d6183729569082315209adb5643c72d5bbe025dcf19950",
+      "source": {
+        "source": "ucc2209",
+        "target": "alaska-packers"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2209--ny51103",
+      "title": "compare",
+      "field": "explanation",
+      "text": "New York's § 5-1103 reaches a similar result for written modifications outside the Code.",
+      "textSha256": "833f5c25813dee1ad5e5efedec3fe383ce4cf1a5e3e5b1fdd905cf65f8d91b86",
+      "source": {
+        "source": "ucc2209",
+        "target": "ny51103"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2302--unconscionability",
+      "title": "states the power",
+      "field": "explanation",
+      "text": "Section 2-302 gives the court the power to refuse or limit enforcement of an unconscionable contract or clause.",
+      "textSha256": "cda25cfb200a200f71588bc7ec6e2759ec50f7be4e7a5d00bb22a7f6161ed54e",
+      "source": {
+        "source": "ucc2302",
+        "target": "unconscionability"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2302--williams-walker-thomas",
+      "title": "applied in",
+      "field": "explanation",
+      "text": "Williams v. Walker-Thomas treated § 2-302 as persuasive and supplied the test the section leaves open.",
+      "textSha256": "3c2bab9f951704d35202f76144596475f747de7bd68037842ef7a121b7c027d4",
+      "source": {
+        "source": "ucc2302",
+        "target": "williams-walker-thomas"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2302--rlcc-6",
+      "title": "consumer-contract counterpart",
+      "field": "explanation",
+      "text": "Consumer Restatement § 6 supplies a consumer-specific sliding-scale test and specified examples. UCC § 2-302 grants enforcement remedies without defining the substantive test.",
+      "textSha256": "8f19d297cc3511159145ffc3ed35451805919e9fe8f0d00ffed8e63929eccaeb",
+      "source": {
+        "source": "ucc2302",
+        "target": "rlcc-6"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc1303--trade-usage",
+      "title": "defines and ranks",
+      "field": "explanation",
+      "text": "Section 1-303 defines trade usage and supplies a hierarchy when terms cannot reasonably be reconciled. Course of performance may also show waiver or modification, subject to § 2-209.",
+      "textSha256": "c5dfe54e37bd2d67004ebb3ba9e42bff77f34234c837d46d3b43547270f38702",
+      "source": {
+        "source": "ucc1303",
+        "target": "trade-usage"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc1303--course-dealing",
+      "title": "defines",
+      "field": "explanation",
+      "text": "Section 1-303(b) defines a course of dealing as conduct in the parties' earlier transactions.",
+      "textSha256": "12366d559432156c8997907b985e49edf8a8975d5fb8e4e5f46a97cf5099f75e",
+      "source": {
+        "source": "ucc1303",
+        "target": "course-dealing"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc1303--parol-evidence",
+      "title": "sales-of-goods rule",
+      "field": "explanation",
+      "text": "Section 2-202 states the parol-evidence rule for sales of goods and lets usage and dealing explain or supplement a final writing.",
+      "textSha256": "fb45c686bb9d7c1d936d43979c2281ffb691b5ecea719bdb50c4445f7d8cb7c5",
+      "source": {
+        "source": "ucc1303",
+        "target": "parol-evidence"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc1303--columbia-nitrogen",
+      "title": "applied in",
+      "field": "explanation",
+      "text": "Columbia Nitrogen required admission of usage and dealing evidence to explain or supplement the writing under former §§ 1-205 and 2-202, subject to reasonable consistency. It ordered retrial rather than deciding that the buyer owed nothing.",
+      "textSha256": "605dba5b05e6566b2ccf8fc967ad71c3a4748f00ccba6f56cb30ac7272701479",
+      "source": {
+        "source": "ucc1303",
+        "target": "columbia-nitrogen"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc1303--nanakuli",
+      "title": "applied in",
+      "field": "explanation",
+      "text": "Nanakuli used usage of trade and course of performance to read a price-protection practice into a written supply contract.",
+      "textSha256": "f2988d8840a155461bb3becb773f08e22cd4ed34bb11fb7da06ef79c42c062d2",
+      "source": {
+        "source": "ucc1303",
+        "target": "nanakuli"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2716--specific-performance",
+      "title": "sales-of-goods rule",
+      "field": "explanation",
+      "text": "Section 2-716 states when a buyer of goods may have specific performance or replevin.",
+      "textSha256": "8693498ce6e6992b2e3e976aee815961922efc55ab30b009be5b63d20e79adf9",
+      "source": {
+        "source": "ucc2716",
+        "target": "specific-performance"
+      },
+      "reviewStatus": "Inventory only."
+    },
+    {
+      "kind": "connection",
+      "id": "r22-ucc2716--morris-sparrow",
+      "title": "compare",
+      "field": "explanation",
+      "text": "Morris v. Sparrow ordered specific performance of a unique horse under equity's adequacy test; § 2-716 reaches unique goods and other proper circumstances.",
+      "textSha256": "d5555b38126ec3eedd60bdf11fbc0cbc824f195204d69128258d4fd7875a2e66",
+      "source": {
+        "source": "ucc2716",
+        "target": "morris-sparrow"
       },
       "reviewStatus": "Inventory only."
     },

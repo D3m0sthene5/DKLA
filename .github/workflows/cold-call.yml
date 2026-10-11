@@ -28,6 +28,7 @@ jobs:
           sparse-checkout: |
             /DKLA-r18.html
             /tools/r19/
+            /tools/r12/
             /tools/cold-call/
             /tools/v25/
             /tools/atlas.py
@@ -44,8 +45,14 @@ jobs:
           python3 tools/v25/uscode_build.py --check
           python3 tools/v25/check_timeline_audit.py --json
           python3 tools/v25/explanation_inventory.py --check
+          python3 tools/v25/generated_rule_connections_check.py
+          node tools/v25/generated_rule_connections_check.cjs
           node tools/v25/authorities_check.cjs
           node tools/v25/reading_check.cjs
+          python3 tools/v25/check_practice_filter.py
+          node tools/v25/practice_filter_check.cjs
+          python3 tools/v25/geography_check.py --check
+          node tools/v25/geography_check.cjs
           node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
           python3 tools/cold-call/check_narratives.py --write

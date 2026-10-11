@@ -12,6 +12,7 @@ Run after tools/r18/assemble.py: python3 tools/r19/assemble.py
 """
 from __future__ import annotations
 
+import base64
 import hashlib
 import json
 import re
@@ -39,6 +40,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
 CHANGELOG_V25_READING = {
     "v": "v2.5", "date": "2026-10-11",
     "text": "Case reading panels open with one plain-English explanation and retain their full legal analysis. Timelines are visible immediately, with one synthesis and no repeated synopsis, step-count caption or expand control. Cold Call reads directly as a narrative without practice controls or a repeated introduction. Rules & authorities uses nested atlas rectangles and ribbons for the Constitution, Federal Rules, U.S. Code and assigned Contracts authorities. Recorded source comparisons, bounded source lookups and an explicit runtime-module manifest support later audits without editing generated HTML.",
+}
+CHANGELOG_V25_AUTHORITY_DESIGN = {
+    "v": "v2.5", "date": "2026-10-11",
+    "text": "The authority atlas has distinct Constitution, federal-rule, U.S. Code and Contracts volumes, with populated nested contents and a Constitution masthead based on the owner's We the People reference. Curated entry positions are fixed while the camera still pans and zooms. A recorded geography review organizes doctrinal neighbors and removes prompt-only practice exercises from the map while retaining their source archives.",
 }
 CHANGELOG_V24_NARRATIVE = {
     "v": "v2.4", "date": "2026-10-11",
@@ -365,7 +370,7 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -551,6 +556,22 @@ def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
     # An added connection can have a guarded correction for saved older copies.
     # Its endpoints and required fields are checked below like every addition.
     known_edges = edge_ids | {e.get("id") for e in a.get("addEdges", [])}
+    # Rule adapters create these exact IDs at runtime. Admit only catalogued
+    # links whose endpoints exist, rather than accepting an arbitrary prefix.
+    rule_catalogues = [
+        (json.loads((DATA / "rlcc.json").read_text(encoding="utf-8")), "r19-rlcc-", "-"),
+        (json.loads((DATA / "rules22.json").read_text(encoding="utf-8")), "r22-", "--"),
+    ]
+    rule_nodes = set(nodes) | {r["id"] for catalogue, _, _ in rule_catalogues for r in catalogue["rules"]}
+    for catalogue, prefix, separator in rule_catalogues:
+        records = catalogue["rules"] + ([catalogue["hub"]] if "hub" in catalogue else [])
+        for record in records:
+            for target, label, explanation in record.get("links", []):
+                eid = prefix + record["id"] + separator + target
+                if record["id"] not in rule_nodes or target not in rule_nodes or not label or not explanation:
+                    problems.append(f"generated rule edge {eid}: unknown endpoint or empty text")
+                else:
+                    known_edges.add(eid)
     problems += [f"edge {k}" for k in a.get("edges", {}) if k not in known_edges]
     problems += [f"district {k}" for k in a.get("districts", {}) if k not in districts]
     problems += [f"region {k}" for k in a.get("regions", {}) if k not in regions]
@@ -653,19 +674,29 @@ def main() -> None:
         raise ValueError(f"rules22 entries that no timeline opens: {missing}")
     audit21 = load_audit(graph, nodes, edge_ids)
     authorities = json.loads((ROOT / 'tools/v25/authorities.json').read_text(encoding='utf-8'))
+    masthead_path = ROOT / 'tools/v25/assets/we-the-people.png'
+    masthead_meta = json.loads((masthead_path.with_suffix('.json')).read_text(encoding='utf-8'))
+    masthead_bytes = masthead_path.read_bytes()
+    masthead = dict(uri='data:image/png;base64,' + base64.b64encode(masthead_bytes).decode('ascii'),
+                    width=masthead_meta['width'], height=masthead_meta['height'])
+    practice_filter = json.loads((ROOT / 'tools/v25/practice-filter.json').read_text(encoding='utf-8'))
+    geography = json.loads((ROOT / 'tools/v25/geography.json').read_text(encoding='utf-8'))
     js, css, modules = load_runtime_modules()
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
     addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
     addition += embed_json("dklaColdCallData", cold)
     addition += embed_json("dklaAuthoritiesData", authorities)
+    addition += embed_json("dklaWeThePeopleAsset", masthead)
+    addition += embed_json("dklaPracticeFilter", practice_filter)
+    addition += embed_json("dklaGeographyData", geography)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
@@ -718,6 +749,7 @@ def main() -> None:
         "additional_source_reviews": {v: sum(1 for a in data["audit"].values() if a["v"] == v) for v in ("clean", "corrected", "could-not-audit")},
         "preserved_script_blocks": len(old),
         "runtime_modules": modules,
+        "design_assets": [{"path": 'tools/v25/assets/we-the-people.png', "sha256": digest(masthead_bytes), "bytes": len(masthead_bytes)}],
     }
     (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({k: (v if k != "mapped_without_conversion" else len(v)) for k, v in audit.items()}, indent=1))

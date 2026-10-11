@@ -3,11 +3,11 @@
   "generatedAt": "2026-10-11",
   "scope": "Effective connection explanation inventory; grouping is mechanical, substantive screening is recorded separately.",
   "counts": {
-    "edges": 2709,
-    "distinctExplanations": 2351,
-    "words": 40261,
+    "edges": 2744,
+    "distinctExplanations": 2385,
+    "words": 40812,
     "partitions": {
-      "contracts-civil-other": 1742,
+      "contracts-civil-other": 1776,
       "lrs": 609
     }
   },
@@ -78526,6 +78526,1048 @@
         }
       ],
       "index": 2350,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 9 limits the parol-evidence rule's discharging effect when a standard term conflicts with the business's earlier affirmation or promise.",
+      "textSha256": "3294e04b089aec6223fff2987977e8702f739d61d65d1e8faf7fda10eb1ec6d5",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-9-parol-evidence",
+          "label": "consumer-contract rule",
+          "source": {
+            "id": "rlcc-9",
+            "title": "RLCC § 9 — standard terms and the parol-evidence rule",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "parol-evidence",
+            "title": "The parol evidence rule",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2351,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Under § 9 the conflicting standard term is not a final expression on its subject.",
+      "textSha256": "79bfcf42fd24f1bff79884d586aa920e7b527941f64ece3a94ea8844227232fc",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-9-integration",
+          "label": "denies finality",
+          "source": {
+            "id": "rlcc-9",
+            "title": "RLCC § 9 — standard terms and the parol-evidence rule",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "integration",
+            "title": "Final and complete writings",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2352,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Assignment 13 lists Restatement of Consumer Contracts §§ 8, 9.",
+      "textSha256": "954af472785a24ab0e10fa5c1d3501076de588481069e91a29504626412a564d",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-9-contracts-class-13",
+          "label": "assigned source",
+          "source": {
+            "id": "rlcc-9",
+            "title": "RLCC § 9 — standard terms and the parol-evidence rule",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "contracts-class-13",
+            "title": "Assignment 13 · The parol evidence rule",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        },
+        {
+          "id": "r19-rlcc-rlcc-8-contracts-class-13",
+          "label": "assigned source",
+          "source": {
+            "id": "rlcc-8",
+            "title": "RLCC § 8 — affirmations and promises that are part of the contract",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "contracts-class-13",
+            "title": "Assignment 13 · The parol evidence rule",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2353,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Comment 1 to § 9 calls it a corollary of §§ 7 and 8.",
+      "textSha256": "80e05abe6c81721039ac7c138776117f2e922172cc40bf751eca43fe160d0826",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-9-rlcc-8",
+          "label": "corollary of",
+          "source": {
+            "id": "rlcc-9",
+            "title": "RLCC § 9 — standard terms and the parol-evidence rule",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-8",
+            "title": "RLCC § 8 — affirmations and promises that are part of the contract",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2354,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 8(c) makes unenforceable a standard term that negates or unreasonably limits an affirmation or promise that became part of the contract.",
+      "textSha256": "f31f3204e646f69804f2c75ae7e0f2a7add1b45a7d9178087c4bc7aafaaeec37",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-8-adhesion",
+          "label": "limits standard terms",
+          "source": {
+            "id": "rlcc-8",
+            "title": "RLCC § 8 — affirmations and promises that are part of the contract",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "adhesion",
+            "title": "Adhesion and standardized contracts",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2355,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Assignment 17 lists Restatement of Consumer Contracts § 8.",
+      "textSha256": "4c6168f99c251aec11d32f54e169cabf94cb72acf213207131fb88b3de02af9d",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-8-contracts-class-17",
+          "label": "assigned source",
+          "source": {
+            "id": "rlcc-8",
+            "title": "RLCC § 8 — affirmations and promises that are part of the contract",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "contracts-class-17",
+            "title": "Assignment 17 · Standard forms and adhesion",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2356,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 6 states the two-factor test with an express sliding scale and lists terms that are substantively unconscionable.",
+      "textSha256": "1c661c5b9eef16bda1606e96e67591428bf280e87a1b59e9008d3ab564a8a2c9",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-6-unconscionability",
+          "label": "consumer-contract rule",
+          "source": {
+            "id": "rlcc-6",
+            "title": "RLCC § 6 — unconscionability",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "unconscionability",
+            "title": "Unconscionability",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2357,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Assignment 18 lists Restatement of Consumer Contracts § 6.",
+      "textSha256": "b688edb7fbac8c40367548e71198db7763c6cf5e5575a251799f5ae384527fa8",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-6-contracts-class-18",
+          "label": "assigned source",
+          "source": {
+            "id": "rlcc-6",
+            "title": "RLCC § 6 — unconscionability",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "contracts-class-18",
+            "title": "Assignment 18 · Unconscionability",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2358,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 4(a) states the duty of good faith and fair dealing as non-disclaimable in a consumer contract.",
+      "textSha256": "7c18ae69193951a7002cb5bc5b788a922c24acbb0dc2e19a87d44e048c174682",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-4-good-faith",
+          "label": "non-disclaimable in consumer contracts",
+          "source": {
+            "id": "rlcc-4",
+            "title": "RLCC § 4 — interpretation, construction and good faith",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "good-faith",
+            "title": "Good faith in performance",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2359,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Assignment 16 lists Restatement of Consumer Contracts § 4.",
+      "textSha256": "a865762b933466ae39844bc84cc6fcdd955f1a0fcb08d84c5cc8add5bc8aa589",
+      "edges": [
+        {
+          "id": "r19-rlcc-rlcc-4-contracts-class-16",
+          "label": "assigned source",
+          "source": {
+            "id": "rlcc-4",
+            "title": "RLCC § 4 — interpretation, construction and good faith",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "contracts-class-16",
+            "title": "Assignment 16 · Performance in good faith",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2360,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "§ 4 has its own entry.",
+      "textSha256": "d80a0c3c56a1b6b107dadad3c0af8696969156c1e3daa4ed009036ddd7280942",
+      "edges": [
+        {
+          "id": "r19-rlcc-gap-rlcc-rlcc-4",
+          "label": "section entry",
+          "source": {
+            "id": "gap-rlcc",
+            "title": "Restatement of the Law, Consumer Contracts (RLCC) §§ 1–10",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-4",
+            "title": "RLCC § 4 — interpretation, construction and good faith",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2361,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "§ 6 has its own entry.",
+      "textSha256": "782bf560b50ac80245635ce78e7213f1c03df608184a74fda27c2c8f1930666b",
+      "edges": [
+        {
+          "id": "r19-rlcc-gap-rlcc-rlcc-6",
+          "label": "section entry",
+          "source": {
+            "id": "gap-rlcc",
+            "title": "Restatement of the Law, Consumer Contracts (RLCC) §§ 1–10",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-6",
+            "title": "RLCC § 6 — unconscionability",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2362,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "§ 8 has its own entry.",
+      "textSha256": "0c7d5f5be67012e71a285bd99f7ec9c58705a1b3f015c74575a847f0d764ba5b",
+      "edges": [
+        {
+          "id": "r19-rlcc-gap-rlcc-rlcc-8",
+          "label": "section entry",
+          "source": {
+            "id": "gap-rlcc",
+            "title": "Restatement of the Law, Consumer Contracts (RLCC) §§ 1–10",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-8",
+            "title": "RLCC § 8 — affirmations and promises that are part of the contract",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2363,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "§ 9 has its own entry.",
+      "textSha256": "e3f9983d96a8e2a6acb213dec3a46f4c0be4058da2a82057a5e83f6ff7b874f1",
+      "edges": [
+        {
+          "id": "r19-rlcc-gap-rlcc-rlcc-9",
+          "label": "section entry",
+          "source": {
+            "id": "gap-rlcc",
+            "title": "Restatement of the Law, Consumer Contracts (RLCC) §§ 1–10",
+            "kind": "Note",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-9",
+            "title": "RLCC § 9 — standard terms and the parol-evidence rule",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2364,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 205 is the Restatement's statement of the duty of good faith and fair dealing that this concept collects.",
+      "textSha256": "9bd0f227f8de634f4e677bfd9ec5ef2eeb2c8588ff9c51abaeba6bc6d4da0fcf",
+      "edges": [
+        {
+          "id": "r22-rest205--good-faith",
+          "label": "states the duty",
+          "source": {
+            "id": "rest205",
+            "title": "Restatement § 205 — duty of good faith and fair dealing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "good-faith",
+            "title": "Good faith in performance",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2365,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "The duty of good faith in performance is the standard the cases apply to a party's exercise of contractual discretion.",
+      "textSha256": "d73cf52ae9611cb5905ee8f70ad83d2a5322608b21e72f478ca7168f2aa0934b",
+      "edges": [
+        {
+          "id": "r22-rest205--discretion",
+          "label": "governs discretion",
+          "source": {
+            "id": "rest205",
+            "title": "Restatement § 205 — duty of good faith and fair dealing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "discretion",
+            "title": "Contractual discretion",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2366,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Wood v. Lucy implied a reasonable-efforts promise that supplied consideration. Section 205 later states the distinct general duty of good faith in performance and enforcement.",
+      "textSha256": "f087f9339169760826b8033a72b6c3a368831b5b5f54399b15bca89867e0c239",
+      "edges": [
+        {
+          "id": "r22-rest205--wood-lucy",
+          "label": "related later duty",
+          "source": {
+            "id": "rest205",
+            "title": "Restatement § 205 — duty of good faith and fair dealing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "wood-lucy",
+            "title": "Wood v. Lucy, Lady Duff-Gordon",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CTR-021"
+          }
+        }
+      ],
+      "index": 2367,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Market Street Associates reads the duty of good faith in performance that § 205 states.",
+      "textSha256": "87b25b04cf6bbc8ec1195db9e82d80d175937ec7e20ab6a0702ba1711f7cf08d",
+      "edges": [
+        {
+          "id": "r22-rest205--market-street",
+          "label": "applied in",
+          "source": {
+            "id": "rest205",
+            "title": "Restatement § 205 — duty of good faith and fair dealing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "market-street",
+            "title": "Market Street Associates v. Frey",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-NEXT-CM-0108"
+          }
+        }
+      ],
+      "index": 2368,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 302 states the intended-beneficiary test that this concept collects.",
+      "textSha256": "677651108b8a16f3bc5ffb60ddf1696fc80da8ac5a4974f370df09519881c844",
+      "edges": [
+        {
+          "id": "r22-rest302--third-party-beneficiaries",
+          "label": "states the test",
+          "source": {
+            "id": "rest302",
+            "title": "Restatement § 302 — intended and incidental beneficiaries",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "third-party-beneficiaries",
+            "title": "Rights of intended third-party beneficiaries",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2369,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "A promise whose performance pays the promisee's debt to the beneficiary makes the beneficiary intended under § 302(1)(a).",
+      "textSha256": "08c60545b7a85a116c0ff6a0b948b00ca0ba551348c1fa8200e08f9a008f6539",
+      "edges": [
+        {
+          "id": "r22-rest302--lawrence-fox",
+          "label": "codifies as § 302(1)(a)",
+          "source": {
+            "id": "rest302",
+            "title": "Restatement § 302 — intended and incidental beneficiaries",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "lawrence-fox",
+            "title": "Lawrence v. Fox",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-NEXT-CM-0180"
+          }
+        }
+      ],
+      "index": 2370,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "A promise meant to give the beneficiary the benefit of the performance makes the beneficiary intended under § 302(1)(b).",
+      "textSha256": "ebc2d4aebefe9f18fb6c707a0976a61ee5217f151e28ae4cd4e1d2b210178498",
+      "edges": [
+        {
+          "id": "r22-rest302--seaver",
+          "label": "codifies as § 302(1)(b)",
+          "source": {
+            "id": "rest302",
+            "title": "Restatement § 302 — intended and incidental beneficiaries",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "seaver",
+            "title": "Seaver v. Ransom",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-NEXT-CM-0181"
+          }
+        }
+      ],
+      "index": 2371,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 2-209 governs modification, rescission and waiver of contracts for the sale of goods.",
+      "textSha256": "01cb32bda807ad7b97429c9f9e313c71cbb6e12b1afa4f0ed790450bb2d41641",
+      "edges": [
+        {
+          "id": "r22-ucc2209--modification",
+          "label": "sales-of-goods rule",
+          "source": {
+            "id": "ucc2209",
+            "title": "UCC § 2-209 — modification, rescission and waiver",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "modification",
+            "title": "Changing an existing contract",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2372,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Alaska Packers refused a modification for want of consideration; § 2-209(1) removes that requirement for sales of goods.",
+      "textSha256": "4d3086d26e471adc88d6183729569082315209adb5643c72d5bbe025dcf19950",
+      "edges": [
+        {
+          "id": "r22-ucc2209--alaska-packers",
+          "label": "counterpoint",
+          "source": {
+            "id": "ucc2209",
+            "title": "UCC § 2-209 — modification, rescission and waiver",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "alaska-packers",
+            "title": "Alaska Packers’ Association v. Domenico",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CTR-034"
+          }
+        }
+      ],
+      "index": 2373,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "New York's § 5-1103 reaches a similar result for written modifications outside the Code.",
+      "textSha256": "833f5c25813dee1ad5e5efedec3fe383ce4cf1a5e3e5b1fdd905cf65f8d91b86",
+      "edges": [
+        {
+          "id": "r22-ucc2209--ny51103",
+          "label": "compare",
+          "source": {
+            "id": "ucc2209",
+            "title": "UCC § 2-209 — modification, rescission and waiver",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "ny51103",
+            "title": "N.Y. General Obligations Law § 5-1103: written modification or discharge",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2374,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 2-302 gives the court the power to refuse or limit enforcement of an unconscionable contract or clause.",
+      "textSha256": "cda25cfb200a200f71588bc7ec6e2759ec50f7be4e7a5d00bb22a7f6161ed54e",
+      "edges": [
+        {
+          "id": "r22-ucc2302--unconscionability",
+          "label": "states the power",
+          "source": {
+            "id": "ucc2302",
+            "title": "UCC § 2-302 — unconscionable contract or clause",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "unconscionability",
+            "title": "Unconscionability",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2375,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Williams v. Walker-Thomas treated § 2-302 as persuasive and supplied the test the section leaves open.",
+      "textSha256": "3c2bab9f951704d35202f76144596475f747de7bd68037842ef7a121b7c027d4",
+      "edges": [
+        {
+          "id": "r22-ucc2302--williams-walker-thomas",
+          "label": "applied in",
+          "source": {
+            "id": "ucc2302",
+            "title": "UCC § 2-302 — unconscionable contract or clause",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "williams-walker-thomas",
+            "title": "Williams v. Walker-Thomas Furniture Co.",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-NEXT-CM-0103"
+          }
+        }
+      ],
+      "index": 2376,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Consumer Restatement § 6 supplies a consumer-specific sliding-scale test and specified examples. UCC § 2-302 grants enforcement remedies without defining the substantive test.",
+      "textSha256": "8f19d297cc3511159145ffc3ed35451805919e9fe8f0d00ffed8e63929eccaeb",
+      "edges": [
+        {
+          "id": "r22-ucc2302--rlcc-6",
+          "label": "consumer-contract counterpart",
+          "source": {
+            "id": "ucc2302",
+            "title": "UCC § 2-302 — unconscionable contract or clause",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "rlcc-6",
+            "title": "RLCC § 6 — unconscionability",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2377,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 1-303 defines trade usage and supplies a hierarchy when terms cannot reasonably be reconciled. Course of performance may also show waiver or modification, subject to § 2-209.",
+      "textSha256": "c5dfe54e37bd2d67004ebb3ba9e42bff77f34234c837d46d3b43547270f38702",
+      "edges": [
+        {
+          "id": "r22-ucc1303--trade-usage",
+          "label": "defines and ranks",
+          "source": {
+            "id": "ucc1303",
+            "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "trade-usage",
+            "title": "Trade usage and the commercial setting",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2378,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 1-303(b) defines a course of dealing as conduct in the parties' earlier transactions.",
+      "textSha256": "12366d559432156c8997907b985e49edf8a8975d5fb8e4e5f46a97cf5099f75e",
+      "edges": [
+        {
+          "id": "r22-ucc1303--course-dealing",
+          "label": "defines",
+          "source": {
+            "id": "ucc1303",
+            "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "course-dealing",
+            "title": "Course of dealing between the parties",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2379,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 2-202 states the parol-evidence rule for sales of goods and lets usage and dealing explain or supplement a final writing.",
+      "textSha256": "fb45c686bb9d7c1d936d43979c2281ffb691b5ecea719bdb50c4445f7d8cb7c5",
+      "edges": [
+        {
+          "id": "r22-ucc1303--parol-evidence",
+          "label": "sales-of-goods rule",
+          "source": {
+            "id": "ucc1303",
+            "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "parol-evidence",
+            "title": "The parol evidence rule",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2380,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Columbia Nitrogen required admission of usage and dealing evidence to explain or supplement the writing under former §§ 1-205 and 2-202, subject to reasonable consistency. It ordered retrial rather than deciding that the buyer owed nothing.",
+      "textSha256": "605dba5b05e6566b2ccf8fc967ad71c3a4748f00ccba6f56cb30ac7272701479",
+      "edges": [
+        {
+          "id": "r22-ucc1303--columbia-nitrogen",
+          "label": "applied in",
+          "source": {
+            "id": "ucc1303",
+            "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "columbia-nitrogen",
+            "title": "Columbia Nitrogen Corp. v. Royster Co.",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-CB-0596"
+          }
+        }
+      ],
+      "index": 2381,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Nanakuli used usage of trade and course of performance to read a price-protection practice into a written supply contract.",
+      "textSha256": "f2988d8840a155461bb3becb773f08e22cd4ed34bb11fb7da06ef79c42c062d2",
+      "edges": [
+        {
+          "id": "r22-ucc1303--nanakuli",
+          "label": "applied in",
+          "source": {
+            "id": "ucc1303",
+            "title": "UCC §§ 1-303 and 2-202 — course of dealing, usage of trade and the final writing",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "nanakuli",
+            "title": "Nanakuli Paving & Rock Co. v. Shell Oil Co.",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-CB-0585"
+          }
+        }
+      ],
+      "index": 2382,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Section 2-716 states when a buyer of goods may have specific performance or replevin.",
+      "textSha256": "8693498ce6e6992b2e3e976aee815961922efc55ab30b009be5b63d20e79adf9",
+      "edges": [
+        {
+          "id": "r22-ucc2716--specific-performance",
+          "label": "sales-of-goods rule",
+          "source": {
+            "id": "ucc2716",
+            "title": "UCC § 2-716 — buyer's right to specific performance or replevin",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "specific-performance",
+            "title": "Specific performance and adequacy of damages",
+            "kind": "Concept",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          }
+        }
+      ],
+      "index": 2383,
+      "reviewPartition": "contracts-civil-other"
+    },
+    {
+      "text": "Morris v. Sparrow ordered specific performance of a unique horse under equity's adequacy test; § 2-716 reaches unique goods and other proper circumstances.",
+      "textSha256": "d5555b38126ec3eedd60bdf11fbc0cbc824f195204d69128258d4fd7875a2e66",
+      "edges": [
+        {
+          "id": "r22-ucc2716--morris-sparrow",
+          "label": "compare",
+          "source": {
+            "id": "ucc2716",
+            "title": "UCC § 2-716 — buyer's right to specific performance or replevin",
+            "kind": "Rule",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": null
+          },
+          "target": {
+            "id": "morris-sparrow",
+            "title": "Morris v. Sparrow",
+            "kind": "Case",
+            "courses": [
+              "Contracts"
+            ],
+            "briefId": "CT-CB-0026"
+          }
+        }
+      ],
+      "index": 2384,
       "reviewPartition": "contracts-civil-other"
     }
   ]
