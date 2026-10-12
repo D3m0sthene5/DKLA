@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "2fafddb53b2c04194aef9542389bc814be6e0f8268527259454b1f818a900f2c",
-  "build": "v2.5-68b2a7aba8",
+  "r19_sha256": "bdba7e0437fbeefc080ea90679443a82767841794b19db18ad703869c3072d0b",
+  "build": "v2.5-41018aa497",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -72,130 +72,114 @@
     {
       "path": "tools/r19/r20.js",
       "kind": "javascript",
-      "sha256": "f94d1bf9f9cb3b57d0955284992bbe51033634feebefa1bb596249e750601b93",
+      "sha256": "87eb8290f7aa60fa094ac37569c6c91ad4c9ed2f9d97572190cc8ed95accd806",
       "startLine": 591,
       "sourceStartLine": 592,
-      "endLine": 1132
+      "endLine": 1127
     },
     {
       "path": "tools/r19/timelines.js",
       "kind": "javascript",
       "sha256": "729ae2581f12ca56cf9cd672fbdeb3e6eee2f86c691bfbc65a21cd1c55d959f2",
-      "startLine": 1133,
-      "sourceStartLine": 1134,
-      "endLine": 1330
+      "startLine": 1128,
+      "sourceStartLine": 1129,
+      "endLine": 1325
     },
     {
       "path": "tools/r19/audit.js",
       "kind": "javascript",
       "sha256": "61886f71bda8152143e06d6be40ffaf8ba75b0c67dd6d3aa98dc464b8a681723",
-      "startLine": 1331,
-      "sourceStartLine": 1332,
-      "endLine": 1392
+      "startLine": 1326,
+      "sourceStartLine": 1327,
+      "endLine": 1387
     },
     {
       "path": "tools/r19/takeaways.js",
       "kind": "javascript",
       "sha256": "7f7993796948f723925073c0306997f57d51ac276ccde51811a96e4e2436824f",
-      "startLine": 1393,
-      "sourceStartLine": 1394,
-      "endLine": 1420
+      "startLine": 1388,
+      "sourceStartLine": 1389,
+      "endLine": 1415
     },
     {
       "path": "tools/cold-call/reader.js",
       "kind": "javascript",
       "sha256": "6209e426b1bea9665cc849e45d4abb481a07b6bdc3a9421acc89e5347d1cac03",
-      "startLine": 1421,
-      "sourceStartLine": 1422,
-      "endLine": 1574
+      "startLine": 1416,
+      "sourceStartLine": 1417,
+      "endLine": 1569
     },
     {
       "path": "tools/cold-call/frost.js",
       "kind": "javascript",
       "sha256": "055fb5ba190cd7b3b90690490e247d093ec919108cc9634ea9d75e5dffb4859a",
-      "startLine": 1575,
-      "sourceStartLine": 1576,
-      "endLine": 1688
+      "startLine": 1570,
+      "sourceStartLine": 1571,
+      "endLine": 1683
     },
     {
       "path": "tools/v25/authorities.js",
       "kind": "javascript",
-      "sha256": "f8b756c8bf2a0ab69126f6ff4d747034e06b424baf986cde28f9ff20c3b83ced",
-      "startLine": 1689,
-      "sourceStartLine": 1690,
-      "endLine": 2089
+      "sha256": "bc1f9f3ee780735633bf8de391c32239c7d8cf57a481607e2c99d40f46c42f6e",
+      "startLine": 1684,
+      "sourceStartLine": 1685,
+      "endLine": 2065
     },
     {
       "path": "tools/v25/reading.js",
       "kind": "javascript",
       "sha256": "475cadf69e5d145fddd486ab0bfc59949e0d583ef0532e5fa8807679d8dc3437",
-      "startLine": 2090,
-      "sourceStartLine": 2091,
-      "endLine": 2250
+      "startLine": 2066,
+      "sourceStartLine": 2067,
+      "endLine": 2226
     },
     {
       "path": "tools/v25/practice-filter.js",
       "kind": "javascript",
       "sha256": "2ba2fb91749a7928b746cf2a4cd3e7ebe1d0d2cc7ab2694cfe1e18e84dfcdb50",
-      "startLine": 2251,
-      "sourceStartLine": 2252,
-      "endLine": 2378
+      "startLine": 2227,
+      "sourceStartLine": 2228,
+      "endLine": 2354
     },
     {
       "path": "tools/v25/geography.js",
       "kind": "javascript",
       "sha256": "97b67cdb2cce70d4e3ac2b7c0d24130fb3a59144c3943dafdf478295d03a395a",
-      "startLine": 2379,
-      "sourceStartLine": 2380,
-      "endLine": 2608
+      "startLine": 2355,
+      "sourceStartLine": 2356,
+      "endLine": 2584
     },
     {
       "path": "tools/analytics/attention.js",
       "kind": "javascript",
       "sha256": "851402c272238e255c2b440683fbeaae129578933dc36b92c4e55a2b6607391f",
-      "startLine": 2609,
-      "sourceStartLine": 2610,
-      "endLine": 2628
+      "startLine": 2585,
+      "sourceStartLine": 2586,
+      "endLine": 2604
     },
     {
       "path": "tools/analytics/tracker.js",
       "kind": "javascript",
       "sha256": "cce608c5a7194a5fe99760b3274191278a8dce51948589abc452c9e01dd24953",
-      "startLine": 2629,
-      "sourceStartLine": 2630,
-      "endLine": 2832
+      "startLine": 2605,
+      "sourceStartLine": 2606,
+      "endLine": 2808
     },
     {
-      "path": "tools/v25/identity.js",
+      "path": "tools/v25/native-home.js",
       "kind": "javascript",
-      "sha256": "696c909e2304df571d92a5a2c1199591816798406d98b07348e32d24d01eba39",
-      "startLine": 2833,
-      "sourceStartLine": 2834,
-      "endLine": 2886
-    },
-    {
-      "path": "tools/v25/overview-assets.js",
-      "kind": "javascript",
-      "sha256": "7373d0bcf6ac5992e61dab9eecac27170f763872e540871590639cc62e5d45cc",
-      "startLine": 2887,
-      "sourceStartLine": 2888,
-      "endLine": 2946
-    },
-    {
-      "path": "tools/v25/overview.js",
-      "kind": "javascript",
-      "sha256": "38ce583880d6486fd877603b40448cb0a4c89a1d057f113f454044d52254438e",
-      "startLine": 2947,
-      "sourceStartLine": 2948,
-      "endLine": 3181
+      "sha256": "bc3056ce95f3a3c8f246f7eb51ecb287fd22ab625e5ada3e7582c01068cbb0ec",
+      "startLine": 2809,
+      "sourceStartLine": 2810,
+      "endLine": 2840
     },
     {
       "path": "tools/v25/boot.js",
       "kind": "javascript",
-      "sha256": "7732a3ff7d98dff772fac3f829368f60df590221c84de7f6a6f8dbc241870572",
-      "startLine": 3182,
-      "sourceStartLine": 3183,
-      "endLine": 3257
+      "sha256": "e452829f157b53dad6082f8fe5917a33907e2608d827ef0eae6fbec0fa037b3f",
+      "startLine": 2841,
+      "sourceStartLine": 2842,
+      "endLine": 2916
     },
     {
       "path": "tools/r19/briefs.css",
@@ -248,7 +232,7 @@
     {
       "path": "tools/v25/authorities.css",
       "kind": "stylesheets",
-      "sha256": "24e44ed5b7702a097d7965e0d6782ee53fca0a45347346e7e8858d0259d98733",
+      "sha256": "7b0ad1b49b40b9021aec04d39ba74f3df4c1bd79f9a159f15edb1b38c4ca886d",
       "startLine": 1056,
       "sourceStartLine": 1057,
       "endLine": 1115
@@ -276,14 +260,6 @@
       "startLine": 1251,
       "sourceStartLine": 1252,
       "endLine": 1254
-    },
-    {
-      "path": "tools/v25/overview.css",
-      "kind": "stylesheets",
-      "sha256": "d7025b2318d261c6a55750c22329b2dca7d741c799cf047b7940ca60d09571bd",
-      "startLine": 1255,
-      "sourceStartLine": 1256,
-      "endLine": 1429
     }
   ],
   "design_assets": [
