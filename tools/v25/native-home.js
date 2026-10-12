@@ -15,7 +15,7 @@
     let link=mark.closest('a[data-dkla-analytics]');
     if(!link){
       link = document.createElementNS('http://www.w3.org/2000/svg','a');
-      link.setAttribute('href','https://dkla.dev');
+      link.setAttribute('href','https://dkla.dev/admin?reauth=1');
       link.setAttribute('data-dkla-analytics','');
       link.setAttribute('aria-label','Open private DKLA analytics');
       link.setAttribute('tabindex','0');

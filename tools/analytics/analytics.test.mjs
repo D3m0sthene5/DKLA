@@ -23,6 +23,27 @@ async function call(handler,request){const headers={};let output;const res={setH
 async function visitor(region='AK',token=''){const out=await call(analytics,req('bootstrap',{token,metadata:{browser:'Safari',browserVersion:'18',os:'macOS',osVersion:'15',screenWidth:1440,screenHeight:900,viewportWidth:1440,viewportHeight:900,timezone:'America/Anchorage',language:'en-US'}},region));assert.equal(out.status,200);return {token:out.data.token,id:verify(out.data.token,'visitor').id,headers:out.headers};}
 function payload(token,entity='hamer'){const start=new Date(Date.now()-600000).toISOString(),end=new Date().toISOString();return {token,batchId:randomUUID(),session:{id:randomUUID(),startedAt:start,endedAt:end,activeSeconds:300,activeNow:true,build:'v2.5',metadata:{browser:'Safari',timezone:'America/Anchorage'}},events:[{id:randomUUID(),at:start,kind:'entry_open',entity,details:{}},{id:randomUUID(),at:end,kind:'entry_close',entity,activeSeconds:260,details:{depth:90}},{id:randomUUID(),at:end,kind:'search',details:{query:'consideration',results:0,notes:'do not collect',copiedText:'do not collect',code:'AAAA-BBBB-CCCC'}}]};}
 
+for(const authenticated of [true,false])test(`Atlas logo entry requires a fresh password with ${authenticated?'an existing':'no'} admin session`,async()=>{
+  const elements=new Map(),calls=[],replacements=[];
+  const element=id=>{if(!elements.has(id))elements.set(id,{hidden:id==='dashboard',disabled:false,addEventListener(){}});return elements.get(id);};
+  runInNewContext(readFileSync(new URL('../../assets/admin/app.js',import.meta.url),'utf8'),{
+    window:{DKLA_CATALOG:{nodes:[],regions:[]}},location:{href:'https://dkla.test/admin?reauth=1#visitors',hash:'#visitors'},
+    history:{replaceState:(_state,_title,path)=>replacements.push(path)},URL,URLSearchParams,
+    document:{getElementById:element,querySelector:()=>element('submit'),addEventListener(){},visibilityState:'visible'},
+    addEventListener(){},setInterval(){return 1;},clearInterval(){},
+    fetch:async(url,options)=>{
+      calls.push({url,options});const action=new URL(url,'https://dkla.test').searchParams.get('action');
+      const ok=action==='logout'||authenticated;
+      return {ok,status:ok?200:401,json:async()=>ok?{csrf:'test-csrf',ok:true}:{error:'unauthorized'}};
+    }
+  });
+  await new Promise(resolve=>setImmediate(resolve));
+  assert.deepEqual(calls.map(c=>new URL(c.url,'https://dkla.test').searchParams.get('action')),authenticated?['status','logout']:['status']);
+  if(authenticated){assert.equal(calls[1].options.method,'POST');assert.equal(calls[1].options.headers['x-dkla-csrf'],'test-csrf');}
+  assert.equal(element('login').hidden,false);assert.equal(element('dashboard').hidden,true);
+  assert.equal(element('submit').disabled,false);assert.deepEqual(replacements,['/admin#visitors']);
+});
+
 test('coordinates come from trusted runtime headers, are rounded, and reject missing or invalid pairs',()=>{
   const request=req('',{},'NY',{'x-vercel-ip-latitude':'40.7128','x-vercel-ip-longitude':'-74.0060'});
   assert.equal(geography(request).latitude,40.71);assert.equal(geography(request).longitude,-74.01);

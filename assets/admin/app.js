@@ -176,5 +176,20 @@
   const tip=document.getElementById('tooltip');function showTip(e){const t=e.target.closest('[data-tip]');if(!t)return;tip.textContent=t.dataset.tip;tip.hidden=false;const r=t.getBoundingClientRect();tip.style.left=Math.max(8,Math.min(innerWidth-tip.offsetWidth-8,r.left))+'px';tip.style.top=Math.max(8,r.top-tip.offsetHeight-8)+'px';}document.addEventListener('pointerover',showTip);document.addEventListener('focusin',showTip);document.addEventListener('pointerout',()=>tip.hidden=true);document.addEventListener('focusout',()=>tip.hidden=true);addEventListener('scroll',()=>tip.hidden=true,true);
   addEventListener('hashchange',()=>{state.search='';state.heatDay='';state.replaySession='';state.replayIndex=0;render();scrollTo(0,0);});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refresh();});
   setInterval(updateLiveTimes,1000);
-  api('status').then(async result=>{csrf=result.csrf;await enter();}).catch(()=>showLogin());
+  async function initialize(){
+    const url=new URL(location.href),reauth=url.searchParams.get('reauth')==='1';
+    const submit=document.querySelector('#loginForm button[type="submit"]');
+    // Entering through the Atlas mark requires a new password even when this
+    // browser retains an authenticated session. Revoke it before reading data.
+    if(reauth){showLogin();submit.disabled=true;}
+    try{
+      const result=await api('status');csrf=result.csrf;
+      if(reauth){await api('logout',{});showLogin();}
+      else await enter();
+    }catch{showLogin();}
+    finally{
+      if(reauth){url.searchParams.delete('reauth');history.replaceState(null,'',url.pathname+url.search+url.hash);submit.disabled=false;}
+    }
+  }
+  initialize();
 })();
