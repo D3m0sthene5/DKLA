@@ -36,8 +36,7 @@ function fixture(options = {}) {
     LegalAtlas:{ready:options.baseReady ?? true},R18:{afterDraw:[]},
     DKLABriefs:{apply,data:{version:'v2.5'}},DKLAPlain:{apply},DKLAAudit:{apply},
     DKLAPracticeFilter:{apply},DKLAGeography:{apply},
-    DKLAIdentity:{ready:options.identityReady ?? true},
-    DKLAOverview:{ready:options.overviewReady ?? true,refresh(){calls.overview++;}},
+    DKLANativeHome:{ready:options.nativeHomeReady ?? true,refresh(){calls.overview++;}},
     renderHeading(){calls.heading++;},renderInspector(){calls.inspector++;},
     draw(){calls.draw++;if(installed)context.R18.afterDraw.forEach(fn=>fn());},
     setTimeout(fn,delay){timers.push({fn,at:now+delay,id:++serial});return serial;},
@@ -63,14 +62,13 @@ let f=fixture();assert.equal(f.ready(),false);f.frame();assert.equal(f.ready(),f
 f.frame();assert.equal(f.ready(),true);assert.ok(f.classes.has('dkla-boot-ready'));
 assert.equal(f.calls.apply,5);f.unchanged();
 
-// Parsing, storage recovery, the current identity and the overview are gates.
-for(const option of ['parsed','baseReady','identityReady','overviewReady']){
+// Parsing, storage recovery and native navigation installation are gates.
+for(const option of ['parsed','baseReady','nativeHomeReady']){
   f=fixture({[option]:false});f.advance(6500);f.frame();f.frame();
   assert.equal(f.ready(),false,option+' leaked an older first view');
   if(option==='parsed')f.parsed();
   else if(option==='baseReady')f.context.LegalAtlas.ready=true;
-  else if(option==='identityReady')f.context.DKLAIdentity.ready=true;
-  else f.context.DKLAOverview.ready=true;
+  else f.context.DKLANativeHome.ready=true;
   f.advance(80);f.frame();f.frame();assert.equal(f.ready(),true);f.unchanged();
 }
 
@@ -102,6 +100,6 @@ assert.match(assembler,/html:not\(\.dkla-boot-ready\).*?opacity:0!important/s);
 assert.doesNotMatch(assembler,/html:not\(\.r20-ready\) body/);
 const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'runtime-manifest.json'),'utf8'));
 assert.equal(manifest.javascript.at(-1),'tools/v25/boot.js');
-assert.ok(manifest.javascript.indexOf('tools/v25/identity.js')<manifest.javascript.indexOf('tools/v25/overview.js'));
-assert.ok(manifest.javascript.includes('tools/v25/identity.js'));
-console.log('Boot checks passed: parsing, delayed storage, legacy timers/marks, final draw, overview, routes and reload notice.');
+assert.ok(manifest.javascript.includes('tools/v25/native-home.js'));
+assert.ok(!manifest.javascript.some(p=>p.includes('/overview')));
+console.log('Boot checks passed: parsing, delayed storage, native timers/marks, final draw, routes and reload notice.');

@@ -7,13 +7,15 @@
   "scripts": {
     "test:analytics": "node --test tools/analytics/analytics.test.mjs",
     "check:analytics": "node tools/analytics/check.mjs",
-    "build:analytics": "node tools/analytics/prepare.mjs"
+    "build:analytics": "node tools/analytics/prepare.mjs",
+    "test:home": "playwright test tools/v25/home-fit.spec.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.0",
     "@vercel/blob": "^2.8.0"
   },
   "devDependencies": {
-    "@electric-sql/pglite": "^0.5.8"
+    "@electric-sql/pglite": "^0.5.8",
+    "@playwright/test": "1.64.0"
   }
 }

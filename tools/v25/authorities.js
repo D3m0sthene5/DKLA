@@ -8,7 +8,6 @@
   let D;try{D=JSON.parse(block.textContent);}catch{return;}
   if(!Array.isArray(D.entries)||!Array.isArray(D.collections))return;
   const TITLE='Rules & authorities',PREFIX='authority:',ROOT='authority-root';
-  const FONTS={sans:'"Segoe UI", Arial, Helvetica, sans-serif',serif:'Georgia, Cambria, serif'};
   const BOX={x:-11400,y:15500,w:22800,h:11000};
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fold=s=>String(s).toLowerCase().replace(/u\.?\s*s\.?\s*c\.?/g,'usc').replace(/\b(rule|restatement|ucc)(\d)/g,'$1 $2');
@@ -146,9 +145,9 @@
   }
   function geometry(n=current(),overview=false){
     anchor();const a=usable(),narrow=!overview&&a.w<650,key=[n.key,overview,a.w,a.h,BOX.x,BOX.y,BOX.w,pageOffsets.get(n.key)||0,selectedEntry()?.id||''].join(':');if(geometryCache?.key===key)return geometryCache;
-    const cover=n===root,width=overview?1440:Math.min(1440,Math.max(320,a.w-32)),short=!overview&&a.h<400,compact=cover&&(narrow||short),pad=narrow||short?16:32,gap=narrow||short?12:24;
+    const cover=n===root,width=overview?1440:Math.min(1440,Math.max(320,a.w-32)),short=!overview&&a.h<400,compact=cover&&(narrow||short),pad=narrow||short?16:26,gap=narrow||short?12:22;
     let cols=cover?(narrow?2:short||width>=860?3:2):Math.min(n.children.length,width>=1100?4:width>=700?3:width>=480?2:1);
-    const constitution=n===collectionGroups.get('constitution'),headingFs=cover?(short?20:narrow?26:32):narrow?24:30,heading=rows(display(n),width-pad*2,headingFs,600,3,'authority-map-heading');
+    const constitution=n===collectionGroups.get('constitution'),headingFs=cover?(short?20:narrow?26:32):narrow?24:30,heading=rows(display(n),width-pad*2,headingFs,550,3,'authority-map-heading');
     const markW=constitution?Math.min(width*.80,short?180:Infinity):0,markH=markW/3,masthead=constitution?{w:markW,h:markH,labelY:markH+34}:null;
     const header=constitution?markH+52:28+heading.length*headingFs*1.25+(n.range?28:0)+24;
     let hideQuote=narrow||short;
@@ -162,28 +161,13 @@
         cols=groupCols;
       }else{
         const w=(width-pad*2-gap*(cols-1))/cols,models=children.map(c=>tileModel(c,w,cover,compact,previews));
-        if(cover){
-          // Every volume gets the same identity, title and contents bands.
-          // Long legal names earn lines; their neighbours keep the same grid.
-          const header=Math.max(...models.map(m=>m.headingBottom));
-          for(const m of models){const extra=header-m.headingBottom;m.titleY+=extra/2;m.previews.forEach(p=>p.y+=extra);m.h+=extra;m.headingBottom=header;}
-        }
-        const coverHeight=cover?Math.max(...models.map(m=>m.h)):0;
-        for(let i=0;i<models.length;i+=cols){const h=coverHeight||Math.max(...models.slice(i,i+cols).map(m=>m.h));for(let j=0;j<cols&&i+j<models.length;j++){const c=children[i+j];cards.set(c.key,{x:pad+j*(w+gap),y,w,h,node:c,cover,model:models[i+j]});}y+=h+gap;rowEnds.push(y-gap+pad);}
+        for(let i=0;i<models.length;i+=cols){const h=Math.max(...models.slice(i,i+cols).map(m=>m.h));for(let j=0;j<cols&&i+j<models.length;j++){const c=children[i+j];cards.set(c.key,{x:pad+j*(w+gap),y,w,h,node:c,cover,model:models[i+j]});}y+=h+gap;rowEnds.push(y-gap+pad);}
       }
       return {cards,rowEnds,h:y-gap+pad};
     }
     let density=overview?0:cover?(compact?0:4):constitution?(narrow||short?0:7):n.children.length<=4?3:n.children.length<=8?1:0,layout=arrange(density);
     const height=Math.max(100,a.h-40);
-    if(!overview&&!constitution){
-      const minimum=cover&&!compact?2:0;
-      while(density>minimum&&layout.h>height)layout=arrange(--density);
-      // A modest whole-frame fit is preferable to an almost empty cover.
-      // Keep two contents rows only when the actual camera projection leaves
-      // the 16px row text at least 14px; smaller views keep the existing fit.
-      const projected=Math.min((a.w-32)/width,(a.h-32)/layout.h,1)*16;
-      if(!(minimum&&density===minimum&&projected>=14))while(density>0&&layout.h>height)layout=arrange(--density);
-    }
+    if(!overview&&!constitution)while(density>0&&layout.h>height){layout=arrange(--density);}
     if(constitution&&layout.h>height){hideQuote=true;layout=arrange(density);while(density>0&&layout.h>height)layout=arrange(--density);}
     // Long indexes stay in their official hierarchy. Page complete rows rather
     // than fitting a prefix and silently leaving the rest outside the screen.
@@ -203,7 +187,7 @@
     }
     const unit=overview?BOX.w/width:1,cards=new Map([...layout.cards].map(([key,c])=>[key,{...c,x:BOX.x+c.x*unit,y:BOX.y+c.y*unit,w:c.w*unit,h:c.h*unit,unit}]));
     const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit},fit={...box};if(overview)BOX.h=box.h;
-    geometryCache={key,box,cards,fit,unit,cols,density,pad,header:header*unit,heading,headingFs,masthead,visibleRows:layout.rowEnds.length,safe:{...a},pages,page};return geometryCache;
+    geometryCache={key,box,cards,fit,unit,cols,density,header:header*unit,heading,headingFs,masthead,visibleRows:layout.rowEnds.length,safe:{...a},pages,page};return geometryCache;
   }
 
   function usable(){const a=typeof safeArea==='function'?safeArea():rect();return{w:Math.max(180,a.w),h:Math.max(120,a.h)};}
@@ -247,7 +231,7 @@
   }
   const fontCanvas=document.createElement('canvas'),fontContext=fontCanvas.getContext?.('2d');
   function widthOf(value,fs,weight=450,cls=''){
-    if(fontContext){const serif=cls==='authority-preamble-excerpt';fontContext.font=`${serif?'italic ':''}${weight} ${fs}px ${serif?FONTS.serif:FONTS.sans}`;return fontContext.measureText(value).width;}
+    if(fontContext){const serif=cls==='authority-preamble-excerpt';fontContext.font=`${serif?'italic ':''}${weight} ${fs}px ${serif?'Georgia, Cambria, serif':cls==='authority-preview-code'?'Consolas, monospace':'-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'}`;return fontContext.measureText(value).width;}
     return typeof measure==='function'?measure(value,fs,weight,cls):String(value).length*fs*.54;
   }
   function rows(value,width,fs,weight=450,max=Infinity,cls=''){
@@ -258,22 +242,20 @@
       if(widthOf(line,fs,weight,cls)>width){let part='';for(const c of line){if(part&&widthOf(part+c,fs,weight,cls)>width){out.push(part);part=c;}else part+=c;}line=part;}
     }if(line)out.push(line);return out.length?out:[''];
   }
-  function text(lines,x,y,fs,color,weight=500,cls='',anchor='start'){return lines.map((line,i)=>`<text${cls?` class="${cls}"`:''} data-authority-text="1" data-r20="authority" x="${x}" y="${y+i*fs*1.25}" text-anchor="${anchor}" font-size="${fs}" font-weight="${weight}" fill="${color}" pointer-events="none">${esc(line)}</text>`).join('');}
+  function text(lines,x,y,fs,color,weight=500,cls=''){return lines.map((line,i)=>`<text${cls?` class="${cls}"`:''} x="${x}" y="${y+i*fs*1.25}" font-size="${fs}" font-weight="${weight}" fill="${color}" pointer-events="none">${esc(line)}</text>`).join('');}
   function tileModel(n,w,cover=false,compact=false,previewLimit=3,showQuote=true){
-    const flat=compact&&usable().h<400,moderate=cover&&!compact&&usable().h<900,pad=flat?12:compact?16:24,fs=flat?20:compact?18:cover?24:22,small=compact?12:14,e=n.entry,identityH=flat?28:compact?30:moderate?32:56,markH=moderate?44:identityH;let y=pad;
-    const headingWidth=w-pad*2,heading=rows(cover&&compact?shortTitles[n.collection]||display(n):display(n),headingWidth,fs,600,Infinity,'authority-volume-title');
+    const flat=compact&&usable().h<400,pad=flat?10:compact?12:22,fs=flat?20:compact?18:cover?26:22,small=compact?12:14,e=n.entry,special=cover&&n.collection==='constitution';let y=pad;
+    const headingWidth=w-pad*2-(cover&&!compact&&!special?52:0),heading=rows(cover&&compact?shortTitles[n.collection]||display(n):display(n),headingWidth,fs,500,Infinity,'authority-volume-title');
     const codeRows=!cover&&code(n)?rows(code(n),w-pad*2,13,550,Infinity,'authority-preview-code'):[];
-    let titleY;
-    if(cover){y+=identityH+(flat?6:12);titleY=y+fs;y+=heading.length*fs*1.25+(flat?10:18);}
-    else{if(codeRows.length)y+=codeRows.length*13*1.25+8;titleY=y+fs;y+=heading.length*fs*1.25+16;}
+    if(special)y+=(flat?28:compact?48:84)+8+rows('U.S. Constitution',w-pad*2,small,550).length*small*1.25+14;
+    else{if(compact&&cover&&!flat)y+=27;if(codeRows.length)y+=codeRows.length*13*1.25+8;y+=heading.length*fs*1.25+16;}
     const headingBottom=y,previews=[];
-    const previewChildren=(n.children||[]).slice(0,previewLimit),badge=previewChildren.some(c=>code(c))?Math.min(92,Math.max(44,...previewChildren.map(c=>widthOf(code(c),13,600,'authority-preview-code')+12))):0;
     if(!e&&!compact)for(const child of n.children.slice(0,previewLimit)){
-      const c=code(child),label=child.entry?.status==='article-index'?'Article overview':display(child),labelRows=rows(label,w-pad*2-badge-52,16,400,Infinity,'authority-preview-label'),badgeRows=c?rows(c,badge,13,600,Infinity,'authority-preview-code'):[];
-      const h=Math.max(labelRows.length*16*1.25,badgeRows.length*13*1.25)+20;previews.push({node:child,y,h,badge,rows:labelRows,codeRows:badgeRows});y+=h+8;
+      const c=code(child),badge=c?Math.min(90,Math.max(40,widthOf(c,12,550,'authority-preview-code')+8)):0,label=child.entry?.status==='article-index'?'Article overview':display(child),labelRows=rows(label,w-pad*2-badge-44,16,450),badgeRows=c?rows(c,badge,12,550,Infinity,'authority-preview-code'):[];
+      const h=Math.max(labelRows.length*16*1.25,badgeRows.length*12*1.25)+18;previews.push({node:child,y,h,badge,rows:labelRows,codeRows:badgeRows});y+=h+8;
     }
     let quoteRows=[],quoteFs=w<650?16:22;if(e?.id==='const-preamble'&&!compact&&showQuote){quoteRows=rows(e.lines[0]?.[1]||'',w-pad*2,quoteFs,450,Infinity,'authority-preamble-excerpt');y+=quoteRows.length*quoteFs*1.25+8;}
-    return {pad,fs,small,heading,codeRows,headingBottom,titleY,identityH,markH,previews,quoteRows,quoteFs,compact,flat,h:e?.id==='const-preamble'&&!showQuote?72:Math.max(flat?74:compact?118:e?112:140,y+pad)};
+    return {pad,fs,small,heading,codeRows,headingBottom,previews,quoteRows,quoteFs,compact,flat,h:e?.id==='const-preamble'&&!showQuote?72:Math.max(flat?74:compact?118:e?112:140,y+pad)};
   }
   function skin(n){while(n){if(skins[n.collection])return skins[n.collection];n=n.parent;}return{ink:'#d1dedb',edge:'#82aaa4',base:'#172e31',paper:'#223b3d',mark:'code'};}
   function identity(n,x,y,size){
@@ -297,7 +279,7 @@
   function preview(p,card,s){
     const n=p.node,u=card.unit||1,x=card.x+card.model.pad*u,y=card.y+p.y*u,w=card.w-card.model.pad*u*2,h=p.h*u;
     const attrs=n.entry?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,label=n.entry?'Read '+entryName(n.entry):'Explore '+n.title;
-    return `<g class="authority-preview" ${attrs} role="button" tabindex="0" aria-label="${esc(label)}"><title>${esc(label)}</title><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${7*u}" fill="${s.paper}" stroke="${s.edge}" stroke-opacity=".3" stroke-width="${.65/S.z}"/>${text(p.codeRows,x+12*u,y+26*u,13*u,s.ink,600,'authority-preview-code')}${text(p.rows,x+(p.badge?p.badge+24:12)*u,y+26*u,16*u,'#e0e8e6',400,'authority-preview-label')}<path d="m${x+w-16*u} ${y+h/2-3*u} 4 3 -4 3" stroke="${s.ink}" stroke-width="${.8/S.z}" fill="none" pointer-events="none"/></g>`;
+    return `<g class="authority-preview" ${attrs} role="button" tabindex="0" aria-label="${esc(label)}"><title>${esc(label)}</title><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${7*u}" fill="${s.paper}" stroke="${s.edge}" stroke-opacity=".3" stroke-width="${.65/S.z}"/>${text(p.codeRows,x+10*u,y+22*u,12*u,s.ink,550,'authority-preview-code')}${text(p.rows,x+(p.badge+22)*u,y+25*u,16*u,'#dce5e3',450,'authority-preview-label')}<path d="m${x+w-14*u} ${y+h/2-3*u} 4 3 -4 3" transform="translate(0 0)" stroke="${s.ink}" stroke-width="${.8/S.z}" fill="none" pointer-events="none"/></g>`;
   }
   function tile(card,overview=false){
     const n=card.node,e=n.entry,z=S.z,u=card.unit||1,s=skin(n),chosen=e&&selectedEntry()?.id===e.id,m=card.model,pad=m.pad*u;
@@ -308,30 +290,30 @@
       const title=shortTitles[n.collection]||n.title,fs=Math.min(20,(card.w/u-m.pad*2)/Math.max(6,title.length*.60));
       if(fs*z*u>=10){const lines=rows(title,card.w/u-m.pad*2,fs,550,Infinity,'authority-volume-title');out+=text(lines,card.x+pad,card.y+pad+fs*u,fs*u,s.ink,550,'authority-volume-title');}
       out+=identity(n,card.x+card.w-pad-42*u,card.y+card.h-pad-42*u,42*u);
-    }else if(card.cover){
-      if(n.collection==='constitution')out+=people(card.x+pad,card.y+pad+(m.identityH-m.markH)*u/2,card.w-pad*2,m.markH*u,clip+'-people');
-      else{const size=(m.flat?24:m.compact?26:40)*u;out+=identity(n,card.x+(card.w-size)/2,card.y+pad+(m.identityH*u-size)/2,size);}
-      out+=text(m.heading,card.x+card.w/2,card.y+m.titleY*u,m.fs*u,s.ink,600,n.collection==='constitution'?'authority-document-label':'authority-volume-title','middle');
+    }else if(card.cover&&n.collection==='constitution'){
+      const markH=(m.flat?28:m.compact?48:84)*u;out+=people(card.x+pad,card.y+pad,card.w-pad*2,markH,clip+'-people');
+      out+=text(rows('U.S. Constitution',card.w/u-m.pad*2,m.small,550),card.x+pad,card.y+pad+markH+(8+m.small)*u,m.small*u,s.ink,550,'authority-document-label');
     }else{
       let y=card.y+pad;
+      if(card.cover&&m.compact&&!m.flat){out+=identity(n,card.x+pad,y,22*u);y+=27*u;}
+      else if(card.cover)out+=identity(n,card.x+card.w-pad-40*u,y,40*u);
       if(m.codeRows.length){out+=text(m.codeRows,card.x+pad,y+13*u,13*u,s.ink,550,'authority-preview-code');y+=(m.codeRows.length*13*1.25+8)*u;}
-      out+=text(m.heading,card.x+pad,y+m.fs*u,m.fs*u,'#edeae3',600,'authority-volume-title');
+      out+=text(m.heading,card.x+pad,y+m.fs*u,m.fs*u,'#edeae3',500,'authority-volume-title');
     }
     if(!e)out+=`<rect x="${card.x+pad}" y="${card.y+10*u}" width="${card.w-pad*2}" height="${(m.headingBottom-10)*u}" fill="transparent" pointer-events="all"/></g>`;
-    if(card.cover&&m.previews.length)out+=`<path class="authority-cover-divider" d="M${card.x+pad} ${card.y+(m.headingBottom-10)*u}H${card.x+card.w-pad}" stroke="${s.edge}" stroke-opacity=".25" stroke-width="${.7/z}" pointer-events="none"/>`;
     if(!overview)for(const p of m.previews)out+=preview(p,card,s);
     if(e?.id==='const-preamble')out+=text(m.quoteRows,card.x+pad,card.y+(m.headingBottom+m.quoteFs)*u,m.quoteFs*u,'#c5d9d0',450,'authority-preamble-excerpt');
     return out+'</g></g>';
   }
   function frame(n,g,overview=false){
-    const u=g.unit||1,s=skin(n),z=S.z,x=g.box.x,y=g.box.y,w=g.box.w,h=g.box.h,pad=g.pad;
+    const u=g.unit||1,s=skin(n),z=S.z,x=g.box.x,y=g.box.y,w=g.box.w,h=g.box.h,pad=usable().w<650&&!overview?16:26;
     let out=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${24*u}" fill="${n===root?'#12282b':s.base}" fill-opacity=".92" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${1.2/z}"/>`;
     if(n===collectionGroups.get('constitution')){
       const markW=g.masthead.w*u;out+=people(x+(w-markW)/2,y+12*u,markW,g.masthead.h*u,'authority-constitution-masthead');
       const label='U.S. Constitution',fs=14*u;out+=text([label],x+(w-widthOf(label,fs,500,'authority-document-label'))/2,y+g.masthead.labelY*u,fs,s.ink,500,'authority-document-label');
     }else{
-      out+=text(g.heading,x+w/2,y+(28+g.headingFs)*u,g.headingFs*u,n===root?'#d7e9e2':s.ink,600,'authority-map-heading','middle');
-      if(n.range)out+=text([n.range],x+w/2,y+(28+g.heading.length*g.headingFs*1.25+18)*u,14*u,s.ink,500,'authority-preview-code','middle');
+      out+=text(g.heading,x+pad*u,y+(28+g.headingFs)*u,g.headingFs*u,n===root?'#d7e9e2':s.ink,550,'authority-map-heading');
+      if(n.range)out+=text([n.range],x+pad*u,y+(28+g.heading.length*g.headingFs*1.25+18)*u,14*u,s.ink,500,'authority-preview-code');
     }
     if(g.pages?.length>1){
       const y=g.box.y+g.box.h-56*u,h=40*u,bw=134*u;
@@ -393,7 +375,6 @@
     const q=fold(search.value.trim());if(q.length<3)return;const words=q.split(/\s+/),hits=D.entries.filter(e=>words.every(w=>fold([e.cite,e.title].join(' ')).includes(w))).slice(0,5),groupHits=D.collections.filter(c=>words.every(w=>fold(c.title).includes(w))).slice(0,2);if(!hits.length&&!groupHits.length)return;
     const box=document.createElement('div');box.className='r19-search authority-search';box.innerHTML='<div class="search-label">Rules & authorities</div>'+groupHits.map(c=>`<button type="button" data-authority-group="${esc(collectionGroups.get(c.id).key)}"><strong>${esc(c.title)}</strong><small>Explore the collection on the atlas</small></button>`).join('')+hits.map(e=>`<button type="button" data-authority-open="${esc(e.id)}"><strong>${esc(entryName(e))}</strong><small>${esc(collections.get(e.collection).title)}</small></button>`).join('');searchResults.appendChild(box);
   }).observe(searchResults,{childList:true});
-  function coverIdentity(id){const n=collectionGroups.get(id),c=collections.get(id);if(!n||!c)return null;const s=skin(n);return{id:n.key,title:c.title,...s,svg:`<svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">${identity(n,0,0,100)}</svg>`};}
-  window.DKLAAuthorities={open,group:openGroup,coverIdentity,data:D,version:5,geography:()=>({entrance:{...geometry(root,true).box,id:ROOT},layout:(()=>{const g=geometry();return{box:{...g.box},fit:{...g.fit},columns:g.cols,density:g.density,visibleRows:g.visibleRows,safe:g.safe,page:g.page,pages:g.pages.map(p=>({...p})),cards:[...g.cards.values()].map(c=>({id:c.node.key,x:c.x,y:c.y,w:c.w,h:c.h,previews:c.model.previews.length}))};})(),route:ancestors(current()).map(n=>({id:n.key,title:n.title})),groupCount:groups.size,provisionCount:leaves.size,children:current().children.map(n=>({id:n.key,title:n.title,cite:n.label,count:n.count,provision:n.entry?.id||null})),view:{scope:S.scope,region:S.region,selected:selected?{...selected}:null}})};
+  window.DKLAAuthorities={open,group:openGroup,data:D,version:5,geography:()=>({entrance:{...geometry(root,true).box,id:ROOT},layout:(()=>{const g=geometry();return{box:{...g.box},fit:{...g.fit},columns:g.cols,density:g.density,visibleRows:g.visibleRows,safe:g.safe,page:g.page,pages:g.pages.map(p=>({...p})),cards:[...g.cards.values()].map(c=>({id:c.node.key,x:c.x,y:c.y,w:c.w,h:c.h,previews:c.model.previews.length}))};})(),route:ancestors(current()).map(n=>({id:n.key,title:n.title})),groupCount:groups.size,provisionCount:leaves.size,children:current().children.map(n=>({id:n.key,title:n.title,cite:n.label,count:n.count,provision:n.entry?.id||null})),view:{scope:S.scope,region:S.region,selected:selected?{...selected}:null}})};
   schedule();
 })();

@@ -1,28 +1,46 @@
-# DKLA home: a populated legal atlas
+# Preserve the live v2.5 native map
 
-The home presents three adjoining course plans and four populated reference compartments. The original geography, case illustrations, authority engravings, Constitution masthead and court portraits provide its visual identity. The small center seal links to the private analytics dashboard at https://dkla.dev.
+The owner rejected the replacement home page. The baseline is production commit
+`023e2e30ce17b3119c6c668e4bd5fe59cdcb2144`, build `v2.5-b310cfb656`.
+Retain its three colored course clusters, tiles, connecting threads, native
+labels, zoom transitions, case illustrations, SCOTUS precinct, authority covers,
+We the People asset, notes and dictionary. No replacement home is loaded.
 
-## Bounded agent workflow
+`native-home.js` adds only an accessible link on the existing center mark and
+rendered camera metadata for verification. The authority renderer and stylesheet
+are restored to the production baseline. The older gallery files are deleted.
+Existing Cold Call audits, approved vapor and private analytics are retained.
 
-1. **Astra, high reasoning: research and visual judgment.** Read the existing design and a small primary-source reading set. Produce one direction grounded in DKLA's own content. Review actual desktop and phone screenshots. Reject a render that loses native artwork, hides destinations, invents legal relationships or clips content. Use Astra for these judgment gates, not routine file inventory.
-2. **Luna, medium reasoning: inventory and bounded implementation.** Identify source assets, navigation hooks and available space; implement the approved composition without changing readers or course geometry. Supply paths and compact findings rather than copying large embedded data into agent context.
-3. **Sol, high reasoning: analytics and integration.** Implement authenticated location reporting, source geometry adapters, schema preservation and offline-worker checks. Keep changes within assigned files. Coordinate shared-file ownership before edits.
-4. **Root integration and browser verification.** Reuse the authored glyphs rather than create generic replacements. Verify every destination, a case reader, subject keyboard navigation, native Back behavior, the center seal, login and map. Test 1440×900, 1333×796, 390×844 and 320px reflow. Allow scrolling on shorter screens.
-5. **Release gate.** Run baseline integrity, overview, boot, authority, worker, Cold Call audit and analytics checks. Publish modular source to the existing preview branch; let CI assemble the single-file release. Verify the final generated commit and ready deployment before binding the private domain.
+## Fit evidence and decision gate
 
-Pass bounded excerpts and asset identifiers between agents. Escalate to Astra only for unresolved design judgment. Keep source work, semantic content auditing and deployment verification distinct in the evidence; an automated content inventory is not proof of legal accuracy.
+Native Home fits `scopeBox()` including the center mark, but `setCamera()`, draw
+and `clampCamera()` enforce a floor/frame based on `galaxy().box`, which omits the
+mark extension. The inconsistent floor enlarges the fit without recomputing its
+center. Passive resizing can also trigger native automatic course selection.
 
-## Design evidence
+Correcting framing alone can shrink tiles enough that the existing label rules
+select shorter names or smaller text. An alternative moves whole native lower
+sections into a row, preserving dimensions, contents and course-relative
+geography. These are local comparison prototypes, not selected implementations.
+Do not implement a placement tradeoff or publish to production before the owner
+chooses. On a narrow phone, all current course tiles cannot remain named and
+readable in one viewport while retaining their curated internal geometry;
+explicitly resolve this tradeoff rather than silently hiding names.
 
-- [Information scent, Nielsen Norman Group](https://www.nngroup.com/articles/information-scent/): previews show concrete contents before navigation.
-- [Progressive disclosure, Nielsen Norman Group](https://www.nngroup.com/articles/progressive-disclosure/): detailed readers remain deeper in the atlas.
-- [Design homogenization in web vibe coding, Microsoft Research](https://www.microsoft.com/en-us/research/publication/interrogating-design-homogenization-in-web-vibe-coding/): use DKLA's authored assets as the design anchor.
-- [CHI 2024 fixation experiment](https://arxiv.org/abs/2403.11164): evaluate rendered alternatives rather than treat generated imagery as a complete design process.
-- [W3C reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow): narrow screens retain information and functionality.
-- [W3C target size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html): preserve independent keyboard and pointer targets.
+## Permanent rendered check
 
-## Source ownership
+`home-audit.js` measures actual SVG screen bounds, tile names, text extents,
+text/section/control collisions, six authority covers and the Constitution asset.
+It accepts per-tile baseline font measurements to detect reduced readability.
+`home-fit.spec.mjs` checks fresh Home, resize round trips and reset at 2000×1040,
+1440×900, 1366×768, 1000×700, 390×844 and 320×568, saving full-size screenshots
+and JSON evidence. Run `DKLA_HOME_TEST_URL=<explicit-preview> pnpm test:home`.
+The manual `Check native Atlas home` workflow runs the same suite without
+deploying. The restored baseline still has known fit failures; this test must
+not be described as passing until the selected fit satisfies the contract.
 
-`overview-assets.js` adapts recorded glyphs, geographic coordinates and glossary content. `overview.js` owns the home composition and calls native navigation. `overview.css` owns the responsive layout. `authorities.js` exposes the existing cover identities. The original course maps and immutable r18 baseline remain intact.
-
-Online Atlas navigation now requests the current release before falling back to an offline copy. Private dashboard routes bypass the offline shell. Location dots use rounded server-provided IP coordinates, not device GPS; historical visits without coordinates remain unavailable. Domain routing and credentials are deployment configuration, and credentials never belong in these files.
+Full-size browser screenshots must be personally inspected before presentation.
+The owner decides appearance; model critique and mechanical checks cannot
+approve the visual design on the owner's behalf. Source checks preserve the
+immutable r18 blocks and curated course-relative geometry, while the browser
+check establishes actual rendered fit. Neither proves legal accuracy.

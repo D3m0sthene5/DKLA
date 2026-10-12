@@ -75,7 +75,6 @@ jobs:
           python3 tools/v25/generated_rule_connections_check.py
           node tools/v25/generated_rule_connections_check.cjs
           node tools/v25/authorities_check.cjs
-          node tools/v25/overview_check.cjs
           node tools/v25/boot_check.cjs
           node tools/v25/reading_check.cjs
           python3 tools/v25/check_practice_filter.py

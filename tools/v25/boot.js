@@ -11,8 +11,8 @@
   function available() {
     const release = document.querySelector('#atlasHome .dkla-release');
     return parsed && window.LegalAtlas?.ready && root.classList.contains('r20-ready') &&
-      root.classList.contains('geography-locked') && window.DKLAOverview?.ready &&
-      window.DKLAIdentity?.ready && release?.textContent === window.DKLABriefs?.data.version &&
+      root.classList.contains('geography-locked') && window.DKLANativeHome?.ready &&
+      release?.textContent === window.DKLABriefs?.data.version &&
       typeof draw === 'function';
   }
   function currentMark() {
@@ -33,19 +33,19 @@
         window.DKLAPracticeFilter, window.DKLAGeography]) layer?.apply?.();
       renderHeading();
       renderInspector();
-      window.DKLAOverview.refresh();
+      window.DKLANativeHome.refresh();
       prepared = true;
     }
     waitingFrame = true;
     requestAnimationFrame(() => {
       painted = false;
       draw();
-      // Let the legacy-logo observer and the final overview refresh complete
+      // Let the native logo observer complete
       // before any content becomes visible, including on a hash/deep link.
       requestAnimationFrame(() => {
         waitingFrame = false;
         if (!available() || !painted || !currentMark()) { retry(); return; }
-        window.DKLAOverview.refresh();
+        window.DKLANativeHome.refresh();
         boot.ready = true;
         root.classList.add('dkla-boot-ready');
         document.getElementById('dklaBootNotice')?.remove();

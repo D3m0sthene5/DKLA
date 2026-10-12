@@ -1,6 +1,6 @@
 /* Authority navigation uses geoCanvas and the existing inspector. */
 .authority-map-entrance,.authority-map-tile{cursor:pointer}
-.authority-map-entrance:hover>rect,.authority-map-tile:hover>.authority-cover-bg{stroke-opacity:1}
+.authority-map-entrance:hover>rect,.authority-map-tile:hover>rect:hover>rect{stroke-opacity:1}
 .authority-map-tile:hover>.authority-cover-bg{filter:brightness(1.12)}
 .authority-preview{cursor:pointer}
 .authority-title-control{cursor:pointer}
@@ -8,13 +8,13 @@
 .authority-title-control:focus>rect{stroke:#f1daba;stroke-width:2;vector-effect:non-scaling-stroke}
 .authority-preview:hover>rect,.authority-preview:focus>rect{stroke-opacity:1;filter:brightness(1.2)}
 .authority-preview:focus{outline:none}
-#geoCanvas text[data-authority-text]{font-family:"Segoe UI",Arial,Helvetica,sans-serif;font-stretch:normal;font-style:normal;letter-spacing:0;word-spacing:normal;text-transform:none;font-kerning:normal}
-#geoCanvas text.authority-preview-code{font-variant-numeric:tabular-nums}
+#geoCanvas text.authority-volume-title,#geoCanvas text.authority-map-heading,#geoCanvas text.authority-document-label,#geoCanvas text.authority-preview-label{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:0}
+#geoCanvas text.authority-preview-code{font-family:Consolas,"SFMono-Regular",monospace;font-variant-numeric:tabular-nums;letter-spacing:0}
 #geoCanvas text.authority-preamble-excerpt{font-family:Georgia,Cambria,serif;font-style:italic;letter-spacing:0}
 .authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
 .authority-identity{opacity:.85}
-.authority-map-entrance:focus,.authority-map-tile:focus{outline:none}
-.authority-map-entrance:focus>rect,.authority-map-tile:focus>.authority-cover-bg{stroke:#f1daba;stroke-opacity:1}
+.authority-map-entrance:focus,.authority-map-tile:focus:focus{outline:none}
+.authority-map-entrance:focus>rect,.authority-map-tile:focus>rect:focus>rect{stroke:#f1daba;stroke-opacity:1}
 #geoBreadcrumb button[data-authority-group]{max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #inspector .authority-reading h2{margin:0 0 24px;line-height:1.3}
 #inspector .authority-reading h2 span{display:block;font-size:.76em;font-weight:550;line-height:1.45;margin-top:10px}
