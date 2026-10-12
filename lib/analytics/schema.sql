@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS dkla_sessions (
 );
 CREATE INDEX IF NOT EXISTS dkla_sessions_device_time ON dkla_sessions(device_id, started_at DESC);
 CREATE INDEX IF NOT EXISTS dkla_sessions_time ON dkla_sessions(started_at DESC);
+ALTER TABLE dkla_sessions ADD COLUMN IF NOT EXISTS latitude double precision CHECK (latitude BETWEEN -90 AND 90);
+ALTER TABLE dkla_sessions ADD COLUMN IF NOT EXISTS longitude double precision CHECK (longitude BETWEEN -180 AND 180);
 CREATE TABLE IF NOT EXISTS dkla_events (
  id uuid PRIMARY KEY, session_id uuid NOT NULL REFERENCES dkla_sessions(id) ON DELETE CASCADE,
  at timestamptz NOT NULL, kind text NOT NULL, entity text NOT NULL DEFAULT '', course text NOT NULL DEFAULT '',

@@ -67,6 +67,7 @@ jobs:
           python3 tools/r19/assemble.py
           pnpm check:analytics
           python3 tools/r19/check.py
+          node tools/r19/check_worker.cjs
           python3 tools/v25/authorities_build.py --check
           python3 tools/v25/uscode_build.py --check
           python3 tools/v25/check_timeline_audit.py --json

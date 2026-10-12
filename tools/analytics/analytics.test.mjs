@@ -5,10 +5,10 @@ import {randomUUID,createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import {setTestDatabase,ready,query,transaction} from '../../lib/analytics/db.js';
-import {sign,verify,policy,ADMIN_COOKIE} from '../../lib/analytics/security.js';
+import {sign,verify,policy,geography,ADMIN_COOKIE} from '../../lib/analytics/security.js';
 import {metadata,batch,catalog} from '../../lib/analytics/validate.js';
 import {mergeProfiles,undoMerge,verifiedSync,deleteProfile} from '../../lib/analytics/identity.js';
-import {suggestions,compactOldest,dataPage,housekeeping} from '../../lib/analytics/reports.js';
+import {suggestions,compactOldest,dataPage,locations,housekeeping} from '../../lib/analytics/reports.js';
 import {networkFor} from '../../lib/analytics/network.js';
 import analytics from '../../api/analytics.js';
 import adminHandler from '../../api/admin.js';
@@ -22,6 +22,77 @@ function req(action='bootstrap',body={},region='AK',extra={}){return {url:'/api/
 async function call(handler,request){const headers={};let output;const res={setHeader:(k,v)=>headers[k.toLowerCase()]=v,getHeader:k=>headers[k.toLowerCase()],end:value=>output=value,statusCode:0};await handler(request,res);let data;try{data=JSON.parse(output);}catch{data=output;}return {status:res.statusCode,data,headers};}
 async function visitor(region='AK',token=''){const out=await call(analytics,req('bootstrap',{token,metadata:{browser:'Safari',browserVersion:'18',os:'macOS',osVersion:'15',screenWidth:1440,screenHeight:900,viewportWidth:1440,viewportHeight:900,timezone:'America/Anchorage',language:'en-US'}},region));assert.equal(out.status,200);return {token:out.data.token,id:verify(out.data.token,'visitor').id,headers:out.headers};}
 function payload(token,entity='hamer'){const start=new Date(Date.now()-600000).toISOString(),end=new Date().toISOString();return {token,batchId:randomUUID(),session:{id:randomUUID(),startedAt:start,endedAt:end,activeSeconds:300,activeNow:true,build:'v2.5',metadata:{browser:'Safari',timezone:'America/Anchorage'}},events:[{id:randomUUID(),at:start,kind:'entry_open',entity,details:{}},{id:randomUUID(),at:end,kind:'entry_close',entity,activeSeconds:260,details:{depth:90}},{id:randomUUID(),at:end,kind:'search',details:{query:'consideration',results:0,notes:'do not collect',copiedText:'do not collect',code:'AAAA-BBBB-CCCC'}}]};}
+
+test('coordinates come from trusted runtime headers, are rounded, and reject missing or invalid pairs',()=>{
+  const request=req('',{},'NY',{'x-vercel-ip-latitude':'40.7128','x-vercel-ip-longitude':'-74.0060'});
+  assert.equal(geography(request).latitude,40.71);assert.equal(geography(request).longitude,-74.01);
+  for(const value of ['', 'NaN','Infinity','91','0x40','40,41','40junk']){
+    request.headers['x-vercel-ip-latitude']=value;
+    assert.equal(geography(request).latitude,null);assert.equal(geography(request).longitude,null);
+  }
+  request.headers['x-vercel-ip-latitude']='0';request.headers['x-vercel-ip-longitude']='0';assert.equal(geography(request).latitude,0);
+  const env=process.env.NODE_ENV,vercel=process.env.VERCEL;
+  try{process.env.NODE_ENV='production';delete process.env.VERCEL;assert.equal(geography(request).latitude,null);assert.equal(geography(request).country,'');}
+  finally{process.env.NODE_ENV=env;if(vercel===undefined)delete process.env.VERCEL;else process.env.VERCEL=vercel;}
+});
+test('ingestion stores approximate server coordinates and leaves historical sessions without them',async()=>{
+  const v=await visitor(),input=payload(v.token);input.session.latitude=1;input.session.longitude=1;
+  await call(analytics,req('ingest',input,'AK',{'x-vercel-ip-latitude':'61.2181','x-vercel-ip-longitude':'-149.9003'}));
+  const [session]=await query('SELECT latitude,longitude FROM dkla_sessions');assert.equal(session.latitude,61.22);assert.equal(session.longitude,-149.9);
+  const legacy=payload(v.token);await call(analytics,req('ingest',legacy));
+  assert.equal((await query('SELECT latitude FROM dkla_sessions WHERE id=$1',[legacy.session.id]))[0].latitude,null);
+  // An offline retry cannot overwrite the session's original observed coordinates.
+  await call(analytics,req('ingest',input,'AK',{'x-vercel-ip-latitude':'60','x-vercel-ip-longitude':'-150'}));
+  assert.equal((await query('SELECT latitude FROM dkla_sessions WHERE id=$1',[input.session.id]))[0].latitude,61.22);
+});
+test('coordinate migration is idempotent and preserves existing session data',async()=>{
+  const v=await visitor(),input=payload(v.token);await call(analytics,req('ingest',input));
+  // Rerun exactly the initializer used by a fresh function instance.
+  setTestDatabase(db);await ready();
+  const [session]=await query('SELECT ip,active_seconds,latitude,longitude FROM dkla_sessions WHERE id=$1',[input.session.id]);
+  assert.equal(session.ip,'198.51.100.42');assert.equal(session.active_seconds,300);assert.equal(session.latitude,null);assert.equal(session.longitude,null);
+});
+test('location report counts every profile once across session pages, linked devices and packed courses',async()=>{
+  const ids=[];const now=Date.now(),start=new Date(now-3600000).toISOString();
+  async function session(profile,country,region,latitude,longitude,at=start,course='Contracts'){
+    const id=randomUUID();await query('INSERT INTO dkla_sessions(id,device_id,started_at,ended_at,country,region,city,latitude,longitude,tier,compacted,summary) VALUES($1,$2,$3,$3,$4,$5,$6,$7,$8,\'full\',true,$9::jsonb)',[id,profile,at,country,region,region==='AK'?'Anchorage':'New York',latitude,longitude,JSON.stringify({events:[{id:randomUUID(),at,kind:'entry_open',entity:'hamer',course,region_id:'',active_seconds:0,details:{}}]})]);
+  }
+  for(let i=0;i<55;i++){
+    const v=await visitor();ids.push(v.id);await session(v.id,'US','NY',40.71,-74.01);
+    // Multiple same-profile visits do not increase distinct visitor counts.
+    if(i===0)await session(v.id,'US','NY',40.71,-74.01);
+  }
+  const linked=await visitor();await mergeProfiles(linked.id,ids[0]);await session(linked.id,'US','AK',61.22,-149.9,new Date(now-1800000).toISOString());
+  const foreign=await visitor();await session(foreign.id,'JP','13',35.68,139.69);
+  const unknown=await visitor();await session(unknown.id,'US','NY',40.71,-74.01);await session(unknown.id,'US','NY',null,null,new Date(now-1000000).toISOString());
+  const hawaii=await visitor();await session(hawaii.id,'US','HI',21.31,-157.86);
+  const unrelated=await visitor();await session(unrelated.id,'US','CA',38.58,-121.49,start,'Civil Procedure');
+  const params=new URLSearchParams({start:new Date(now-7200000).toISOString(),end:new Date(now+1000).toISOString(),course:'Contracts'});
+  const report=await locations(params);
+  assert.equal(report.summary.total,58);assert.equal(report.summary.us,56);assert.equal(report.summary.foreign,1);assert.equal(report.summary.unavailable,1);
+  assert.equal(report.points.find(p=>p.region==='NY').users,54);assert.equal(report.points.find(p=>p.region==='AK').users,1);assert.equal(report.points.find(p=>p.region==='HI').area,'hawaii');
+  params.set('start',new Date(now+100).toISOString());assert.equal((await locations(params)).summary.total,0);
+});
+test('location endpoint requires an admin session and rejects invalid date or course filters',async()=>{
+  const request={...req(),url:'/api/admin?action=locations',method:'GET'};
+  assert.equal((await call(adminHandler,request)).status,401);
+  const login=await call(adminHandler,{...req('',{password:process.env.ANALYTICS_ADMIN_PASSWORD}),url:'/api/admin?action=login'});
+  request.headers.cookie=login.headers['set-cookie'].split(';')[0];const response=await call(adminHandler,request);
+  assert.equal(response.status,200);assert.equal(response.headers['cache-control'],'private, no-store, max-age=0');assert.equal(response.data.points.length,0);
+  request.url='/api/admin?action=locations&start=invalid';assert.equal((await call(adminHandler,request)).status,400);
+  request.url='/api/admin?action=locations&course=unknown';assert.equal((await call(adminHandler,request)).status,400);
+});
+test('Census map includes 50 states and DC, places AK/HI in insets, and escapes location labels',()=>{
+  const context={window:{}};
+  for(const name of ['us-projection','us-boundaries','us-map'])runInNewContext(readFileSync(new URL('../../assets/admin/'+name+'.js',import.meta.url),'utf8'),context);
+  const {states}=context.window.DKLA_US_BOUNDARIES,project=context.window.DKLA_US_PROJECTION.project;
+  assert.equal(states.length,51);assert.equal(new Set(states.map(s=>s.code)).size,51);
+  const ny=project(-74.01,40.71),ak=project(-149.9,61.22,'alaska'),hi=project(-157.86,21.31,'hawaii');
+  assert.ok(ny[0]>650&&ny[1]<230);assert.ok(ak[0]<240&&ak[1]>400&&ak[1]<500);assert.ok(hi[0]>247&&hi[0]<425&&hi[1]>400);
+  const html=context.window.DKLA_LOCATION_MAP.markup({summary:{us:2,foreign:0,unavailable:1},points:[{city:'<img src=x onerror=alert(1)>',region:'NY',latitude:40.71,longitude:-74.01,area:'main',users:2}],anonymousVisits:0});
+  assert.ok(!html.includes('<img'));assert.ok(html.includes('&lt;img'));assert.equal((html.match(/class="us-location-dot"/g)||[]).length,1);
+  const empty=context.window.DKLA_LOCATION_MAP.markup({summary:{us:0,foreign:0,unavailable:2},points:[],anonymousVisits:0});assert.ok(!empty.includes('class="us-location-dot"'));assert.ok(empty.includes('No US coordinates'));
+});
 test('region policy: California is full with scoring off; unknown is full; EEA/UK are reduced',()=>{
   assert.deepEqual([policy(req('',{},'CA')).tier,policy(req('',{},'CA')).scoring],['full',false]);
   const unknown=req();delete unknown.headers['x-vercel-ip-country'];assert.equal(policy(unknown).tier,'full');assert.equal(policy(unknown).geo.missing,true);

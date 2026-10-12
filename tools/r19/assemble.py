@@ -733,7 +733,7 @@ def main() -> None:
     route_path = ROOT / "vercel.json"
     routes = json.loads(route_path.read_text(encoding="utf-8"))
     destination = "/" + TARGET.name
-    previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/")
+    previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/" and not r.get("has") and not r.get("missing"))
     if previous != destination and not any(r["source"] == previous for r in routes.get("redirects", [])):
         routes.setdefault("redirects", []).append(dict(source=previous, destination=destination, permanent=False))
     for route in routes.get("redirects", []) + routes["rewrites"]:

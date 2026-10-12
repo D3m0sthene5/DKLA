@@ -1,5 +1,5 @@
-/* Atlas home is a compact navigation surface. The real course geography,
-   source routes, owner text and native navigation history remain untouched. */
+/* An open atlas index populated by its native illustrations and source titles.
+   Course geography, readers, and saved navigation remain owned by the atlas. */
 (() => {
   'use strict';
   const LRS = 'Legislation and the Regulatory State';
@@ -16,17 +16,46 @@
   let surface = null, installed = false, markSignature = '', lastDestination = 'contracts', dragStart = null, dragged = false;
   let previousHint = null, previousActive = false, markSerial = 0;
   const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const icon = key => {
-    const paths = {
-      contracts: '<path d="M5 6h22v22H5zM11 12h10M11 17h10M11 22h6"/><path d="m23 23 4-4 3 3-4 4z"/>',
-      civil: '<path d="M5 6h8v7H5zM19 6h8v7h-8zM12 22h8v7h-8zM9 13v4h14v-4M16 17v5"/>',
-      lrs: '<path d="M4 8h24M7 8v16M16 8v16M25 8v16M4 25h24M8 4h16"/>',
-      authorities: '<path d="M5 5h7v24H5zM14 3h7v26h-7zM23 8h5v21h-5zM7 10h3M16 9h3M25 13h1"/>',
-      history: '<path d="m3 10 13-7 13 7H3zM5 27h22M8 12v12M16 12v12M24 12v12M4 30h24"/>',
-      notes: '<path d="M6 4h18v25H6zM10 10h10M10 15h6M10 20h4"/><path d="m18 25 10-10 3 3-10 10-4 1z"/>',
-    };
-    return `<svg class="atlas-overview-icon" viewBox="0 0 34 34" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">${paths[key] || ''}</svg>`;
-  };
+  const previews = {contracts:['lucy','hawkins','hamer'],civil:['shoe','cp-erie-decision','cp-twombly'],lrs:['lrs-s-brig-aurora','lrs-s-grimaud','lrs-i-chevron']};
+  const primary = (key,title,extra='') => `<button class="atlas-index-title" type="button" data-atlas-destination="${key}" aria-label="Explore ${esc(title)}"><span class="atlas-title-full">${esc(title)}</span>${key==='lrs'?'<span class="atlas-title-compact" aria-hidden="true">Legislation<br>& regulation</span>':''}<span class="atlas-index-arrow" aria-hidden="true">↗</span></button>${extra}`;
+  function coursePlate(d,index){
+    const c=window.DKLAOverviewAssets.course(d.course,previews[d.key]);
+    if(!c)return '';
+    // All footprints use a single uniform source-to-preview transform. Leaders
+    // annotate actual case containment; they never imply doctrine relationships.
+    const scale=Math.min(404/c.bounds.w,208/c.bounds.h),ox=(420-c.bounds.w*scale)/2,oy=(220-c.bounds.h*scale)/2;
+    const point=(x,y)=>[ox+(x-c.bounds.x)*scale,oy+(y-c.bounds.y)*scale];
+    const rect=r=>{const p=point(r.x,r.y);return `x="${p[0].toFixed(2)}" y="${p[1].toFixed(2)}" width="${(r.w*scale).toFixed(2)}" height="${(r.h*scale).toFixed(2)}"`;};
+    const placements={contracts:[[250,110],[360,0],[57,125]],civil:[[66,0],[56,121],[190,124]],lrs:[[57,104],[170,127],[350,0]]}[d.key];
+    const subjectIds={contracts:['formalities-region','offer-region','acceptance-region','terms-region','limits-region'],civil:['cp-personal-region','cp-notice-region','cp-subject-region','cp-venue-region','cp-class-region','cp-summary-region'],lrs:['lrs-region-appointments-and-executive-structure','lrs-region-removal-and-agency-independence','lrs-region-rulemaking','lrs-region-reading-plans-and-source-gaps','lrs-region-judicial-review-and-standing']}[d.key];
+    const prefix=r=>r.title.split(/\s+(?:&|and|over|subject-matter|to)\s+|,/)[0].split(' ').slice(0,r.id==='cp-subject-region'?1:2).join(' ');
+    const labels=subjectIds.map((id,i)=>{
+      const r=c.subjects.find(r=>r.id===id);if(!r)return '';const p=point(r.x+r.w/2,r.y+r.h/2);
+      // Literal native prefixes keep this small plan legible; full native titles
+      // remain available to keyboard and pointer users.
+      const raw=prefix(r),label=raw==='Limits on'?'Limits':raw,words=label.split(' '),lines=label.length>12&&words.length>1?[words[0],words.slice(1).join(' ')]:[label];
+      const x=Math.max(36,Math.min(384,p[0])).toFixed(2),y=(p[1]-(lines.length-1)*8).toFixed(2);
+      return `<a href="#" class="atlas-plan-subject${i>1?' atlas-plan-secondary':''}" data-atlas-region="${esc(r.id)}" aria-label="Open ${esc(r.title)}"><title>${esc(r.title)}</title><text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle"${raw==='Appointments'?' style="font-size:13px"':''}>${lines.map((line,j)=>`<tspan x="${x}" dy="${j?16:0}">${esc(line)}</tspan>`).join('')}</text></a>`;
+    }).join('');
+    const footprints=c.subjects.map(r=>`<rect class="atlas-plan-region" ${rect(r)} data-source-region="${esc(r.id)}"><title>${esc(r.title)}</title></rect>`).join('');
+    const districts=c.districts.map(r=>`<rect class="atlas-plan-inset" ${rect(r)} aria-hidden="true"/>`).join('');
+    const leaders=c.cases.map((n,i)=>{if(!n.home)return '';const p=point(n.home.x,n.home.y),slot=placements[i];return `<path class="atlas-plan-leader${i>1?' atlas-plan-secondary':''}" d="M${slot[0]},${slot[1]+28}L${p[0].toFixed(2)},${p[1].toFixed(2)}" data-case-region="${esc(n.home.region)}"/><circle class="atlas-plan-home" cx="${p[0].toFixed(2)}" cy="${p[1].toFixed(2)}" r="2" data-case-region="${esc(n.home.region)}"/>`;}).join('');
+    const cases=c.cases.map((n,i)=>`<button type="button" class="atlas-case-exhibit atlas-plan-case${i>1?' atlas-plan-secondary':''}" data-atlas-case="${esc(n.id)}" data-case-region="${esc(n.home?.region||'')}" style="--case-x:${placements[i][0]/420*100}%;--case-y:${placements[i][1]/220*100}%" aria-label="Open ${esc(n.fullTitle||n.title)}" title="${esc(n.fullTitle||n.title)}"><span class="atlas-case-art">${n.svg}</span><strong>${esc(n.displayTitle)}</strong></button>`).join('');
+    const mobileSubjects=subjectIds.slice(0,2).map(id=>c.subjects.find(r=>r.id===id)).filter(Boolean);
+    return `<article class="atlas-course-plate atlas-overview-${d.key}" style="--course-ink:${esc(c.color)}" aria-label="${esc(d.title)} course contents"><header><span class="atlas-folio">0${index+1} / COURSE</span>${primary(d.key,d.title)}<span class="atlas-index-count"><span class="atlas-count-full">${c.caseCount} illustrated cases · ${c.subjects.length} subjects</span><span class="atlas-count-compact">${c.caseCount} cases · ${c.subjects.length} subjects</span></span></header><div class="atlas-course-plan"><div class="atlas-course-plan-frame"><svg class="atlas-course-geography" viewBox="0 0 420 220" aria-label="${esc(d.title)} source course plan"><g class="atlas-plan-footprints">${footprints}${districts}</g><g class="atlas-plan-annotations">${leaders}${labels}</g></svg>${cases}</div></div><div class="atlas-subject-index" aria-label="Sample subjects">${mobileSubjects.map(r=>`<button type="button" data-atlas-region="${esc(r.id)}" aria-label="Open ${esc(r.title)}">${esc(r.title)}</button>`).join('')}</div><button type="button" class="atlas-course-enter" data-atlas-course="${d.key}">Explore the course <span aria-hidden="true">→</span></button></article>`;
+  }
+  function referenceRegister(){
+    const assets=window.DKLAOverviewAssets,people=assets.peopleURI(),sample=assets.glossarySample();
+    const labels={constitution:'U.S. Constitution',frcp:'Federal Rules',uscode:'U.S. Code',ucc:'Commercial Code',restatement:'R2 · Contracts',consumer:'Consumer Contracts'},compact={constitution:'Const.',frcp:'FRCP',uscode:'U.S. Code',ucc:'UCC',restatement:'Rest. 2d',consumer:'Consumer'};
+    const volumes=Object.keys(labels).map(id=>{const v=assets.authority(id);return v?`<button type="button" class="atlas-authority-volume" data-atlas-authority="${esc(v.id)}" aria-label="Explore ${esc(v.title)}" title="${esc(v.title)}" style="--volume-ink:${v.ink};--volume-paper:${v.paper};--volume-edge:${v.edge}">${v.svg}<span class="atlas-authority-full">${esc(labels[id])}</span><span class="atlas-authority-compact" aria-hidden="true">${esc(compact[id])}</span></button>`:'';}).join('');
+    const h=window.SCOTUSHistory?.data,peopleList=Object.values(h?.people||{});
+    const justices=['john-marshall','earl-warren','john-glover-roberts-jr'].map(id=>peopleList.find(p=>p.id===id)).filter(Boolean);
+    const start=String(h?.rangeStart||'').slice(0,4),end=String(h?.requestedEnd||h?.asOf||'').slice(0,4);
+    const portraits=justices.map(p=>{const service=p.service?.find(s=>s.role==='chief'),scale=30/(h.sprite?.cellW||384),frame=p.frame;if(!service)return '';const years=service.start.slice(0,4)+'–'+(service.end?.slice(0,4)||'');return `<button type="button" class="atlas-history-era" data-atlas-history-date="${esc(service.start)}" aria-label="View ${esc(p.name)}'s Court in ${service.start.slice(0,4)}">${frame?`<span class="atlas-history-portrait" aria-hidden="true" style="background-image:var(--sh-sprite);background-size:${h.sprite.width*scale}px ${h.sprite.height*scale}px;background-position:${-frame.x*scale}px ${-frame.y*scale}px"></span>`:''}<span><strong>${esc(p.shortName)}</strong><small>${esc(years)}</small></span></button>`;}).join('');
+    const definition=sample?.definition?.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim()||sample?.definition||'';
+    return `<div class="atlas-reference-register"><section class="atlas-reference atlas-reference-authorities">${primary('authorities','Rules & authorities')}<div class="atlas-authority-contents">${people?`<img class="atlas-people-mark" src="${esc(people)}" alt="We the People">`:''}<div class="atlas-authority-register">${volumes}</div></div></section><section class="atlas-reference atlas-reference-history">${primary('history','SCOTUS history')}<div class="atlas-history-range"><span>${esc(start)}</span><span class="atlas-history-line" aria-hidden="true"></span><span>${esc(end)}</span></div><div class="atlas-history-people">${portraits}</div><span class="atlas-reference-detail">Justices, seats & decisions</span></section><section class="atlas-reference atlas-reference-dictionary">${primary('dictionary','Legal dictionary')}<div class="atlas-dictionary-specimen">${sample?`<strong>${esc(sample.term)}</strong><p>${esc(definition)}</p>`:'<strong>Words of the law</strong><p>Browse the legal dictionary, A–Z.</p>'}</div><span class="atlas-reference-detail" data-dictionary-count>Legal terms, A–Z</span></section><section class="atlas-reference atlas-reference-notes">${primary('notes','Study notes')}<div class="atlas-notebook-lines"><span>Notes & annotations</span><span>Saved entries</span><span>Recall ratings</span></div><span class="atlas-reference-detail">Open your workbench →</span></section></div>`;
+  }
+  function composition(){return `<div class="atlas-overview-composition"><div class="atlas-index-masthead"><span>THE LEGAL ATLAS</span></div><nav class="atlas-course-spread" aria-label="Courses">${destinations.filter(d=>d.course).map(coursePlate).join('')}</nav><div class="atlas-index-spine"><a class="atlas-overview-brand" href="https://dkla.dev" aria-label="Open private DKLA analytics (password required)" title="Private analytics · password required"><span class="atlas-overview-mark"></span></a></div>${referenceRegister()}</div>`;}
   function active() {
     return typeof S !== 'undefined' && S.scope === 'Atlas' && !S.region && !S.district &&
       !(typeof selected !== 'undefined' && selected) && !S.panelOpen && !window.SCOTUSHistory?.state?.().open;
@@ -73,6 +102,16 @@
     markSignature = signature;
     return true;
   }
+  function fitCoursePlans(){
+    if(!surface)return;
+    for(const plan of surface.querySelectorAll('.atlas-course-plan')){
+      const frame=plan.querySelector('.atlas-course-plan-frame');if(!frame)continue;
+      if(window.matchMedia('(max-width:700px)').matches){frame.style.removeProperty('width');frame.style.removeProperty('height');continue;}
+      const width=Math.min(plan.clientWidth,plan.clientHeight*420/220),height=width*220/420;
+      const w=width.toFixed(2)+'px',h=height.toFixed(2)+'px';
+      if(frame.style.width!==w)frame.style.width=w;if(frame.style.height!==h)frame.style.height=h;
+    }
+  }
   function refresh() {
     if (!surface) return false;
     const on = active(), wasHidden = surface.hidden;
@@ -90,8 +129,9 @@
       } else if (previousActive && previousHint !== null && hint.textContent !== previousHint) hint.textContent = previousHint;
     }
     previousActive = on;
+    if(on)fitCoursePlans();
     const count = window.DKLA?.glossaryCount?.(), description = surface.querySelector('[data-dictionary-count]');
-    if (description) description.textContent = Number.isFinite(count) && count > 0 ? count.toLocaleString() + ' legal terms · A–Z' : 'Legal terms from A to Z';
+    if (description) description.textContent = Number.isFinite(count) && count > 0 ? count.toLocaleString() + ' terms · A–Z' : 'Legal terms from A to Z';
     const shaped = cloneCurrentMark();
     window.DKLAOverview.ready = shaped;
     return on;
@@ -112,17 +152,22 @@
   function install() {
     if (installed) return;
     const host = document.getElementById('studyMain');
-    if (!host || !window.LegalAtlas?.ready || !window.DKLAAuthorities?.open || !window.SCOTUSHistory?.open || typeof home !== 'function' || typeof draw !== 'function' || typeof S === 'undefined' || typeof window.DKLADictionaryPortal !== 'function') { setTimeout(install, 80); return; }
+    if (!host || !window.LegalAtlas?.ready || !window.DKLAAuthorities?.open || !window.SCOTUSHistory?.open || typeof home !== 'function' || typeof draw !== 'function' || typeof S === 'undefined' || !window.DKLAOverviewAssets?.course) { setTimeout(install, 80); return; }
     installed = true;
     surface = document.createElement('section'); surface.id = 'atlasOverview'; surface.className = 'atlas-overview';
     surface.setAttribute('aria-label', 'Danny Kind Legal Atlas destinations'); surface.hidden = true;
-    surface.innerHTML = `<nav class="atlas-overview-composition" aria-label="Atlas destinations">${destinations.map(d => `<button type="button" class="atlas-overview-portal atlas-overview-${d.key}" data-atlas-destination="${d.key}">${d.type === 'dictionary' ? `<span class="atlas-overview-book">${window.DKLADictionaryPortal()}</span>` : icon(d.key)}<span class="atlas-overview-copy"><strong>${esc(d.title)}</strong>${d.detail ? `<span class="atlas-overview-detail"${d.type === 'dictionary' ? ' data-dictionary-count' : ''}>${esc(d.detail)}</span>` : ''}</span><span class="atlas-overview-arrow" aria-hidden="true">↗</span></button>`).join('')}<div class="atlas-overview-brand" role="img" aria-label="DKLA — Danny Kind Legal Atlas"><span class="atlas-overview-mark"></span><span class="atlas-overview-name">Danny Kind<br>Legal Atlas</span></div></nav>`;
+    surface.innerHTML = composition();
     host.appendChild(surface);
     surface.addEventListener('click', event => {
-      const b = event.target.closest('[data-atlas-destination]'); if (!b) return;
+      const b = event.target.closest('[data-atlas-destination],[data-atlas-case],[data-atlas-region],[data-atlas-authority],[data-atlas-course],[data-atlas-history-date]'); if (!b) { event.stopPropagation(); return; }
       event.preventDefault(); event.stopPropagation();
       if (dragged) { dragged = false; return; }
-      navigate(b.dataset.atlasDestination);
+      if(b.dataset.atlasHistoryDate)window.SCOTUSHistory.setDate(b.dataset.atlasHistoryDate);
+      else if(b.dataset.atlasCase)goNode(b.dataset.atlasCase,true);
+      else if(b.dataset.atlasRegion)goRegion(b.dataset.atlasRegion);
+      else if(b.dataset.atlasAuthority)window.DKLAAuthorities.group(b.dataset.atlasAuthority);
+      else navigate(b.dataset.atlasDestination||b.dataset.atlasCourse);
+      refresh();
     });
     surface.addEventListener('pointerdown', event => { dragStart = { x: event.clientX, y: event.clientY }; dragged = false; });
     surface.addEventListener('pointermove', event => { if (dragStart && Math.hypot(event.clientX - dragStart.x, event.clientY - dragStart.y) > 12) dragged = true; });
@@ -133,6 +178,7 @@
     surface.addEventListener('wheel', event => {
       if (!active() || modalOpen()) return;
       if (event.ctrlKey || event.metaKey) { event.stopImmediatePropagation(); return; }
+      if (surface.scrollHeight > surface.clientHeight + 1) { event.stopImmediatePropagation(); return; }
       event.preventDefault(); event.stopImmediatePropagation();
       const destination = event.target.closest('[data-atlas-destination]')?.dataset.atlasDestination;
       if (event.deltaY < -12 && destination) navigate(destination);

@@ -77,6 +77,16 @@
   ],
   "rewrites": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dkla.dev"
+        }
+      ],
+      "destination": "/api/admin?action=page"
+    },
+    {
       "source": "/admin",
       "destination": "/api/admin?action=page"
     },

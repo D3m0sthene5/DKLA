@@ -29,6 +29,8 @@ self.addEventListener('fetch', event => {
   const scope = new URL(self.registration.scope).pathname;
   if (!url.pathname.startsWith(scope)) return;
   const path = url.pathname.slice(scope.length);
+  // The owner's traffic dashboard uses the same project on its own hostname.
+  if (url.hostname === 'dkla.dev' && (path === '' || path === 'index.html')) return;
   // Sync, version checks, source PDFs and page scans always go to the network: they are large, they are
   // fetched in byte ranges, and the atlas already shows their text when they cannot be reached.
   if (path.startsWith('api/') || path === 'admin' || path.startsWith('assets/admin/') || path.startsWith('__analytics_identity') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
@@ -36,6 +38,18 @@ self.addEventListener('fetch', event => {
   if (!isAtlas && !SHELL.includes(path)) return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
+    if (isAtlas) {
+      try {
+        const response = await fetch(request);
+        if (response.ok) { await cache.put(ATLAS, response.clone()); return response; }
+        const offline = await cache.match(ATLAS);
+        return offline || response;
+      } catch (error) {
+        const offline = await cache.match(ATLAS);
+        if (offline) return offline;
+        throw error;
+      }
+    }
     const hit = await cache.match(isAtlas ? ATLAS : path);
     if (hit) return hit;
     return fetch(request);

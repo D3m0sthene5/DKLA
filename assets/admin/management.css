@@ -2,6 +2,17 @@
 @media(max-width:640px){.sidebar{align-items:flex-start;gap:15px}.sidebar nav{max-width:215px;overflow:auto;padding-bottom:5px;flex-wrap:nowrap}.sidebar nav a{white-space:nowrap}.visitor-header-actions{max-width:none}.filter-row{margin-inline:16px}.privacy-page{margin-top:25px}.login-panel{padding:25px}}
 
 /* The login and private workspace share the current owner logo asset. */
+.us-location-map{display:block;width:100%;height:auto;max-height:520px;overflow:visible;background:radial-gradient(ellipse at 50% 42%,#29251e55,transparent 72%)}
+.us-state{fill:#c5a47712;stroke:#b79e7c;stroke-opacity:.48;stroke-width:.8;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.us-location-dot{fill:var(--orange);fill-opacity:.85;stroke:#f6d7ad;stroke-width:1.3;vector-effect:non-scaling-stroke;cursor:help}
+.us-location-dot:hover,.us-location-dot:focus{fill:#fff2d9;stroke:var(--orange);stroke-width:3;outline:none}
+.us-inset-line{fill:none;stroke:#b79e7c;stroke-opacity:.25;stroke-width:1;stroke-dasharray:3 5}
+.us-inset-label{fill:#b79e7c;font:10px ui-monospace,monospace;letter-spacing:2px}
+.us-location-summary{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0 21px 10px;font-size:11px;color:var(--muted)}
+.us-location-summary strong{color:var(--orange);font-weight:500}
+.us-location-note,.us-location-source,.us-location-empty{margin:10px 21px 15px;font-size:10px;line-height:1.8;color:var(--muted)}
+.us-location-source{font-size:9px;color:var(--faint)}.us-location-source a{color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.us-location-list{margin:14px 21px;font-size:11px;color:var(--muted)}.us-location-list summary{cursor:pointer}.us-location-list .table-wrap{margin-top:12px}
 .dkla-brand-mark{display:block;flex:none;width:56px;height:56px;object-fit:contain;border-radius:7px}
 .login-panel>.dkla-brand-mark{width:84px;height:84px;margin-bottom:16px}
 @media(max-width:640px){.brand>.dkla-brand-mark{width:40px;height:40px}.login-panel>.dkla-brand-mark{width:72px;height:72px}}

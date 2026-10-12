@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { configured,ready,query } from '../lib/analytics/db.js';
 import { noStore,send,body,sameOrigin,limit,ip,passwordMatches,randomUUID,sign,setCookie,ADMIN_COOKIE,admin,fail,digest } from '../lib/analytics/security.js';
 import { mergeProfiles,undoMerge,deleteProfile } from '../lib/analytics/identity.js';
-import { dataPage,storage,suggestions,compactOldest,housekeeping } from '../lib/analytics/reports.js';
+import { dataPage,locations,storage,suggestions,compactOldest,housekeeping } from '../lib/analytics/reports.js';
 import { validId } from '../lib/analytics/validate.js';
 const page=readFileSync(new URL('../assets/admin/index.html',import.meta.url),'utf8');
 export default async function handler(req,res){
@@ -22,6 +22,7 @@ export default async function handler(req,res){
     if(req.method==='GET'){
       if(action==='status')return send(res,200,{csrf:auth.csrf,emailEnabled:process.env.ANALYTICS_EMAIL_ENABLED==='true',configured:true});
       if(action==='data')return send(res,200,await dataPage(params));
+      if(action==='locations')return send(res,200,await locations(params));
       if(action==='identity')return send(res,200,{suggestions:await suggestions()});
       if(action==='storage'){await housekeeping();const data=await storage();if(data.autoCompact&&data.usedMB>=data.limitMB*.95)data.compaction=await compactOldest();return send(res,200,data);}
       throw fail(400,'bad-action');
