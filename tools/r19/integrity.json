@@ -1,7 +1,7 @@
 {
   "r18_sha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
-  "r19_sha256": "fe2493d752ba6fd04490f8c2ef15a6b849940c774f74a7099b7ce44f06f57286",
-  "build": "v2.5-a71229101c",
+  "r19_sha256": "8a9884c008dde346cddf940d56c0a27c2d8adf4701c623c2d37e060fda8be158",
+  "build": "v2.5-52e359c14c",
   "snapshot": "2026-10-05T19:38-04:00",
   "briefs": 1468,
   "mapped_cases": 391,
@@ -24,162 +24,170 @@
     {
       "path": "tools/r19/briefs.js",
       "kind": "javascript",
-      "sha256": "d15db3173b88fdaa97d4c70e5c84adb6952c3fa89e5f350c75fb7d9dedba0586",
+      "sha256": "e24f0630c3f65565106b0704c285c55c4cb4a48cf7d4f4fe2857bc6663bc4c3a",
       "startLine": 1,
       "sourceStartLine": 2,
-      "endLine": 226
+      "endLine": 228
     },
     {
       "path": "tools/r19/rlcc.js",
       "kind": "javascript",
       "sha256": "eb2cf37d6f0d457ef54b23ad0ed3f8d270fd78dadafce3f6a8847d7c8245c175",
-      "startLine": 227,
-      "sourceStartLine": 228,
-      "endLine": 285
+      "startLine": 229,
+      "sourceStartLine": 230,
+      "endLine": 287
     },
     {
       "path": "tools/r19/rules22.js",
       "kind": "javascript",
       "sha256": "76b310bf2c617bd6464e54fa90ea8fd00af7da4fb1d95e40ccb2f481e28168ae",
-      "startLine": 286,
-      "sourceStartLine": 287,
-      "endLine": 352
+      "startLine": 288,
+      "sourceStartLine": 289,
+      "endLine": 354
     },
     {
       "path": "tools/r19/provisions.js",
       "kind": "javascript",
       "sha256": "6d5aad43d0718e3eaf072e165522db545fd256c89509b95b072287045c1de0da",
-      "startLine": 353,
-      "sourceStartLine": 354,
-      "endLine": 393
+      "startLine": 355,
+      "sourceStartLine": 356,
+      "endLine": 395
     },
     {
       "path": "tools/r19/fit.js",
       "kind": "javascript",
       "sha256": "7f34a68a6700b59e48e110df5aa30d512b2769245a00b2f898ab72e26d638fd6",
-      "startLine": 394,
-      "sourceStartLine": 395,
-      "endLine": 498
+      "startLine": 396,
+      "sourceStartLine": 397,
+      "endLine": 500
     },
     {
       "path": "tools/r19/plain.js",
       "kind": "javascript",
       "sha256": "51a10a122f9c2d3083c3284633375fadeb1cce848dde994a8854cd4919aa1aa7",
-      "startLine": 499,
-      "sourceStartLine": 500,
-      "endLine": 590
+      "startLine": 501,
+      "sourceStartLine": 502,
+      "endLine": 592
     },
     {
       "path": "tools/r19/r20.js",
       "kind": "javascript",
-      "sha256": "87eb8290f7aa60fa094ac37569c6c91ad4c9ed2f9d97572190cc8ed95accd806",
-      "startLine": 591,
-      "sourceStartLine": 592,
-      "endLine": 1127
+      "sha256": "30c6300dfe8a133a36f0dd3b63d04cbea07aca64556ec657f9c6ed44a9fe8d09",
+      "startLine": 593,
+      "sourceStartLine": 594,
+      "endLine": 1129
     },
     {
       "path": "tools/r19/timelines.js",
       "kind": "javascript",
       "sha256": "729ae2581f12ca56cf9cd672fbdeb3e6eee2f86c691bfbc65a21cd1c55d959f2",
-      "startLine": 1128,
-      "sourceStartLine": 1129,
-      "endLine": 1325
+      "startLine": 1130,
+      "sourceStartLine": 1131,
+      "endLine": 1327
     },
     {
       "path": "tools/r19/audit.js",
       "kind": "javascript",
       "sha256": "61886f71bda8152143e06d6be40ffaf8ba75b0c67dd6d3aa98dc464b8a681723",
-      "startLine": 1326,
-      "sourceStartLine": 1327,
-      "endLine": 1387
+      "startLine": 1328,
+      "sourceStartLine": 1329,
+      "endLine": 1389
     },
     {
       "path": "tools/r19/takeaways.js",
       "kind": "javascript",
       "sha256": "7f7993796948f723925073c0306997f57d51ac276ccde51811a96e4e2436824f",
-      "startLine": 1388,
-      "sourceStartLine": 1389,
-      "endLine": 1415
+      "startLine": 1390,
+      "sourceStartLine": 1391,
+      "endLine": 1417
     },
     {
       "path": "tools/cold-call/reader.js",
       "kind": "javascript",
       "sha256": "6209e426b1bea9665cc849e45d4abb481a07b6bdc3a9421acc89e5347d1cac03",
-      "startLine": 1416,
-      "sourceStartLine": 1417,
-      "endLine": 1569
+      "startLine": 1418,
+      "sourceStartLine": 1419,
+      "endLine": 1571
     },
     {
       "path": "tools/cold-call/frost.js",
       "kind": "javascript",
-      "sha256": "055fb5ba190cd7b3b90690490e247d093ec919108cc9634ea9d75e5dffb4859a",
-      "startLine": 1570,
-      "sourceStartLine": 1571,
-      "endLine": 1683
+      "sha256": "c3899cd2bbc63367f8b760c0502f9613ea138582a9f3ae4b2d4d9b19600cc517",
+      "startLine": 1572,
+      "sourceStartLine": 1573,
+      "endLine": 1685
     },
     {
       "path": "tools/v25/authorities.js",
       "kind": "javascript",
-      "sha256": "bc1f9f3ee780735633bf8de391c32239c7d8cf57a481607e2c99d40f46c42f6e",
-      "startLine": 1684,
-      "sourceStartLine": 1685,
-      "endLine": 2065
+      "sha256": "d641196a0debe8a47826413ef2e61d30ff1a92425f0109f632b2345f6b602846",
+      "startLine": 1686,
+      "sourceStartLine": 1687,
+      "endLine": 2068
     },
     {
       "path": "tools/v25/reading.js",
       "kind": "javascript",
       "sha256": "475cadf69e5d145fddd486ab0bfc59949e0d583ef0532e5fa8807679d8dc3437",
-      "startLine": 2066,
-      "sourceStartLine": 2067,
-      "endLine": 2226
+      "startLine": 2069,
+      "sourceStartLine": 2070,
+      "endLine": 2229
     },
     {
       "path": "tools/v25/practice-filter.js",
       "kind": "javascript",
       "sha256": "2ba2fb91749a7928b746cf2a4cd3e7ebe1d0d2cc7ab2694cfe1e18e84dfcdb50",
-      "startLine": 2227,
-      "sourceStartLine": 2228,
-      "endLine": 2354
+      "startLine": 2230,
+      "sourceStartLine": 2231,
+      "endLine": 2357
     },
     {
       "path": "tools/v25/geography.js",
       "kind": "javascript",
-      "sha256": "97b67cdb2cce70d4e3ac2b7c0d24130fb3a59144c3943dafdf478295d03a395a",
-      "startLine": 2355,
-      "sourceStartLine": 2356,
-      "endLine": 2584
+      "sha256": "424c124597e15574e92418fc8e4663e43e679eb04057b8cddc70726f0caca049",
+      "startLine": 2358,
+      "sourceStartLine": 2359,
+      "endLine": 2587
     },
     {
       "path": "tools/analytics/attention.js",
       "kind": "javascript",
       "sha256": "851402c272238e255c2b440683fbeaae129578933dc36b92c4e55a2b6607391f",
-      "startLine": 2585,
-      "sourceStartLine": 2586,
-      "endLine": 2604
+      "startLine": 2588,
+      "sourceStartLine": 2589,
+      "endLine": 2607
     },
     {
       "path": "tools/analytics/tracker.js",
       "kind": "javascript",
       "sha256": "cce608c5a7194a5fe99760b3274191278a8dce51948589abc452c9e01dd24953",
-      "startLine": 2605,
-      "sourceStartLine": 2606,
-      "endLine": 2808
+      "startLine": 2608,
+      "sourceStartLine": 2609,
+      "endLine": 2811
+    },
+    {
+      "path": "tools/v25/home-fit.js",
+      "kind": "javascript",
+      "sha256": "6895339c7644a89ae13ad00c8da814ac2728f3f94759c1cae3db41abd9417021",
+      "startLine": 2812,
+      "sourceStartLine": 2813,
+      "endLine": 2870
     },
     {
       "path": "tools/v25/native-home.js",
       "kind": "javascript",
       "sha256": "c8df1921984da50312ae0b73c07f8fc9ef0dcb886c0ee0317f5d2a67d91e5fda",
-      "startLine": 2809,
-      "sourceStartLine": 2810,
-      "endLine": 2853
+      "startLine": 2871,
+      "sourceStartLine": 2872,
+      "endLine": 2915
     },
     {
       "path": "tools/v25/boot.js",
       "kind": "javascript",
-      "sha256": "e452829f157b53dad6082f8fe5917a33907e2608d827ef0eae6fbec0fa037b3f",
-      "startLine": 2854,
-      "sourceStartLine": 2855,
-      "endLine": 2929
+      "sha256": "530d34492d53896fd0a2941e32074e4c5abe59a75a9ff3a899cb593e0d8a28a2",
+      "startLine": 2916,
+      "sourceStartLine": 2917,
+      "endLine": 2991
     },
     {
       "path": "tools/r19/briefs.css",
@@ -248,18 +256,18 @@
     {
       "path": "tools/cold-call/frost.css",
       "kind": "stylesheets",
-      "sha256": "0e595d8c8c3988abfb99aeb342b69898b21185c320f5645e759173cefef4aa64",
+      "sha256": "feb231932de33c8b9243774e16d901525bc657f6ebfb3075384b5665075d5ad6",
       "startLine": 1191,
       "sourceStartLine": 1192,
-      "endLine": 1250
+      "endLine": 1253
     },
     {
       "path": "tools/analytics/tracker.css",
       "kind": "stylesheets",
       "sha256": "83fe19e919827fcd6f53c569559247aa15641b9fafa4ae2288a5b4ad28fd616a",
-      "startLine": 1251,
-      "sourceStartLine": 1252,
-      "endLine": 1254
+      "startLine": 1254,
+      "sourceStartLine": 1255,
+      "endLine": 1257
     }
   ],
   "design_assets": [
