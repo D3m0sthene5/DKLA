@@ -3,7 +3,7 @@
 (() => {
   'use strict';
   const neutral=()=>S.scope==='Atlas'&&!S.region&&!S.district&&!selected&&!S.panelOpen;
-  const wide=()=>{const v=rect();return v.w>=700&&v.w/Math.max(1,v.h)>=1.25;};
+  const wide=()=>{const v=rect();return v.w>=600&&v.w/Math.max(1,v.h)>=1.25;};
   const compact=()=>neutral()&&wide()&&rect().h<480;
   const fullLabels=()=>neutral()&&wide()&&!compact();
   const state=window.DKLAHomeFit={ready:false,refresh,wide,compact,fullLabels};
@@ -32,9 +32,16 @@
       }
       return previousText.call(this,rows,x,y,fs,...rest);
     };
-    safeArea=function(...args){const a=previousSafe.apply(this,args);if(!neutral()||!wide())return a;const v=rect();return{...a,y:14,h:Math.max(1,v.h-14-70)};};
+    safeArea=function(...args){const a=previousSafe.apply(this,args);if(!neutral()||!wide())return a;const v=rect();return{x:14,y:14,w:Math.max(1,v.w-28),h:Math.max(1,v.h-14-70)};};
     fitBox=function(b,animate,pad,maxZoom){return previousFit.call(this,b,animate,neutral()&&wide()?0:pad,maxZoom);};
-    galaxy=function(...args){const g=previousGalaxy.apply(this,args);if(!neutral()||!wide())return g;const c=window.DKLAScotusBox;return{...g,box:bounds([g.box,{x:-3100,y:-5450,w:6200,h:4450},...(c?[{x:c.x-800,y:c.y-700,w:c.w+1600,h:c.h+1400}]:[])])};};
+    galaxy=function(...args){
+      const g=previousGalaxy.apply(this,args);if(!neutral()||!wide())return g;
+      const m=mapData(),authority=window.DKLAAuthorities.geography().entrance,
+        c=window.DKLAScotusBox,tiles=Object.values(window.DKLABriefs.data.tiles||{});
+      // Fit the actual Home sections, not legacy padding for hidden case cards.
+      // Course and case geometry remains intact when the reader zooms closer.
+      return{...g,box:bounds([...m.regions,...Object.values(m.courseBlocks||{}),...tiles,authority,c,{x:-3100,y:-5450,w:6200,h:4450}])};
+    };
     morphBand=function(...args){const b=previousBand.apply(this,args);if(!neutral()||!wide())return b;const g=galaxy(),a=safeArea(),z0=Math.min(a.w/g.box.w,a.h/g.box.h);return{z0,z1:z0*1.15};};
     autoScope=function(...args){if(neutral()&&performance.now()>gestureUntil)return;return previousAuto.apply(this,args);};
     draw=function(...args){const result=previousDraw.apply(this,args);seats();return result;};

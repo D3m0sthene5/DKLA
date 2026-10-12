@@ -245,7 +245,7 @@
 
   /* ---------- 3. a course sits in the middle of the screen ----------
      The two small buttons at the top left reserved a whole column, pushing each course to the right. */
-  const wideScreen = () => { const v = rect(); return v.w >= 700 && v.w / Math.max(1, v.h) >= 1.25; };
+  const wideScreen = () => { const v = rect(); return v.w >= 600 && v.w / Math.max(1, v.h) >= 1.25; };
   if (typeof safeArea === 'function') {
     const safe0 = safeArea;
     safeArea = function () {

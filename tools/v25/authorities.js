@@ -140,7 +140,7 @@
   const pageOffsets=new Map();
   function anchor(){
     const scotus=window.DKLAScotusBox||{x:-11400,y:10400,w:22800,h:4200},b=window.DKLAGeography?.bounds?.(),narrow=rect().w<700;
-    const v=rect();if(v.w>=700&&v.w/Math.max(1,v.h)>=1.25){Object.assign(BOX,{x:scotus.x-scotus.w-900,y:scotus.y,w:scotus.w});return BOX;}
+    const v=rect();if(v.w>=600&&v.w/Math.max(1,v.h)>=1.25){Object.assign(BOX,{x:scotus.x-scotus.w-900,y:scotus.y,w:scotus.w});return BOX;}
     const bottom=Math.max(scotus.y+scotus.h,b&&Number.isFinite(b.y+b.h)?b.y+b.h:0),w=narrow?Math.min(scotus.w,15200):scotus.w;
     Object.assign(BOX,{x:scotus.x+(scotus.w-w)/2,y:bottom+900,w});return BOX;
   }
@@ -187,7 +187,7 @@
       layout=arrange(0,n.children.slice(pages[page].start,pages[page].end));layout.h+=62;
     }
     const unit=overview?BOX.w/width:1,cards=new Map([...layout.cards].map(([key,c])=>[key,{...c,x:BOX.x+c.x*unit,y:BOX.y+c.y*unit,w:c.w*unit,h:c.h*unit,unit}]));
-    const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit},fit={...box};if(overview){BOX.h=box.h;const v=rect();if(window.DKLAScotusBox&&v.w>=700&&v.w/Math.max(1,v.h)>=1.25)window.DKLAScotusBox.h=box.h;}
+    const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit},fit={...box};if(overview){BOX.h=box.h;const v=rect();if(window.DKLAScotusBox&&v.w>=600&&v.w/Math.max(1,v.h)>=1.25)window.DKLAScotusBox.h=box.h;}
     geometryCache={key,box,cards,fit,unit,cols,density,header:header*unit,heading,headingFs,masthead,visibleRows:layout.rowEnds.length,safe:{...a},pages,page};return geometryCache;
   }
 

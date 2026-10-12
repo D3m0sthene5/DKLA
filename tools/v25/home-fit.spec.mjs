@@ -8,7 +8,7 @@ const baseline=JSON.parse(readFileSync(new URL('./home-baseline-fonts.json',impo
 const expectedRegions=geometry.regions.map(r=>r.id);
 const url=process.env.DKLA_HOME_TEST_URL;
 if(!url)throw new Error('Set DKLA_HOME_TEST_URL to the explicit preview; missing targets must not produce a green skipped run.');
-const sizes=[[2000,1040],[1440,900],[1366,768],[1000,700],[1180,820],[1024,768],[844,390],[932,430]];
+const sizes=[[2000,1040],[1440,900],[1366,768],[1000,700],[1180,820],[1024,768],[844,390],[932,430],[667,375]];
 for(const [width,height]of sizes)test(`native Home fits ${width} x ${height}`,async({page},testInfo)=>{
   await page.setViewportSize({width,height});
   // The first-visit guide is a separate onboarding flow, not the Home layout.
@@ -33,4 +33,10 @@ for(const [width,height]of sizes)test(`native Home fits ${width} x ${height}`,as
   await expect.poll(async()=>(await page.evaluate(auditNativeHome,{...contract,baselineFonts})).issues).toEqual([]);
   await page.locator('#studyFit').click();
   await expect.poll(async()=>(await page.evaluate(auditNativeHome,{...contract,baselineFonts})).issues).toEqual([]);
+  if(contract.allowZoomLabels){
+    await page.locator('#geoCanvas path[data-map-region="consideration"]').click();
+    await expect.poll(async()=>JSON.parse(await page.locator('#geoCanvas').getAttribute('data-dkla-home-view')).region).toBe('consideration');
+    await expect(page.locator('#geoBreadcrumb')).toContainText('Consideration');
+    await page.screenshot({path:testInfo.outputPath('phone-zoom.png'),fullPage:false});
+  }
 });

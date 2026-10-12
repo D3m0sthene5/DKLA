@@ -52,7 +52,7 @@
 
   function arrangement() {
     const v = typeof rect === 'function' ? rect() : { w:window.innerWidth, h:window.innerHeight };
-    return v.w >= 700 && v.w / Math.max(1,v.h) >= 1.25 ? 'wide' : 'tall';
+    return v.w >= 600 && v.w / Math.max(1,v.h) >= 1.25 ? 'wide' : 'tall';
   }
   function absolute(o,T) {
     const out=copy(o), a=T[o.anchor];
