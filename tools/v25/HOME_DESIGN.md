@@ -1,46 +1,33 @@
-# Preserve the live v2.5 native map
+# Approved native v2.5 Home B
 
-The owner rejected the replacement home page. The baseline is production commit
-`023e2e30ce17b3119c6c668e4bd5fe59cdcb2144`, build `v2.5-b310cfb656`.
-Retain its three colored course clusters, tiles, connecting threads, native
-labels, zoom transitions, case illustrations, SCOTUS precinct, authority covers,
-We the People asset, notes and dictionary. No replacement home is loaded.
+The owner selected B on October 12 and authorized production publication after
+verification. Authorities stand left of SCOTUS History, with equal top and outer
+height. Notes and dictionary occupy the gap below their existing courses. All
+course-relative geometry, connecting threads, labels and close-zoom case art
+remain native. The rejected replacement gallery is deleted.
 
-`native-home.js` adds only an accessible link on the existing center mark and
-rendered camera metadata for verification. The authority renderer and stylesheet
-are restored to the production baseline. The older gallery files are deleted.
-Existing Cold Call audits, approved vapor and private analytics are retained.
+`home-fit.js` aligns the neutral Home's fit boundary, enforced minimum zoom and
+clamp boundary, including the existing center mark. Its court-seat labels remain
+readable, with two seat rows filling the enlarged existing History box. Passive
+resize retains Home; deliberate wheel, pointer and zoom-button gestures retain
+native transitions. Other reading, authority, course and history routes retain
+their original behavior. First-load reveal waits for this fit adapter.
 
-## Fit evidence and decision gate
+Desktop, laptop and landscape iPad retain all 42 named tiles with no regression
+against frozen live fonts. The owner's landscape-phone choice is a one-screen
+overview, with tile names revealed on zoom. Compact supporting-case entrances
+use native fit-or-hide behavior rather than growing over neighboring sections.
+Portrait phones are outside the fit requirement.
 
-Native Home fits `scopeBox()` including the center mark, but `setCamera()`, draw
-and `clampCamera()` enforce a floor/frame based on `galaxy().box`, which omits the
-mark extension. The inconsistent floor enlarges the fit without recomputing its
-center. Passive resizing can also trigger native automatic course selection.
+`home-audit.js` measures rendered bounds, text overflow, text/control collisions,
+six authority covers, eleven court seats, matching lower heights and Constitution
+lettering. `home-fit.spec.mjs` checks fresh loads, resize round trips and reset at
+2000x1040, 1440x900, 1366x768, 1000x700, 1180x820, 1024x768, 844x390 and
+932x430. Phone tests preserve section bounds while permitting accepted zoom
+labels. The release workflow runs the checks before committing generated output
+and saves screenshots/JSON artifacts. Full-size screenshots are also personally
+inspected. Mechanical checks do not decide appearance for the owner.
 
-Correcting framing alone can shrink tiles enough that the existing label rules
-select shorter names or smaller text. An alternative moves whole native lower
-sections into a row, preserving dimensions, contents and course-relative
-geography. These are local comparison prototypes, not selected implementations.
-Do not implement a placement tradeoff or publish to production before the owner
-chooses. On a narrow phone, all current course tiles cannot remain named and
-readable in one viewport while retaining their curated internal geometry;
-explicitly resolve this tradeoff rather than silently hiding names.
-
-## Permanent rendered check
-
-`home-audit.js` measures actual SVG screen bounds, tile names, text extents,
-text/section/control collisions, six authority covers and the Constitution asset.
-It accepts per-tile baseline font measurements to detect reduced readability.
-`home-fit.spec.mjs` checks fresh Home, resize round trips and reset at 2000×1040,
-1440×900, 1366×768, 1000×700, 390×844 and 320×568, saving full-size screenshots
-and JSON evidence. Run `DKLA_HOME_TEST_URL=<explicit-preview> pnpm test:home`.
-The manual `Check native Atlas home` workflow runs the same suite without
-deploying. The restored baseline still has known fit failures; this test must
-not be described as passing until the selected fit satisfies the contract.
-
-Full-size browser screenshots must be personally inspected before presentation.
-The owner decides appearance; model critique and mechanical checks cannot
-approve the visual design on the owner's behalf. Source checks preserve the
-immutable r18 blocks and curated course-relative geometry, while the browser
-check establishes actual rendered fit. Neither proves legal accuracy.
+The original r18 artifact and its 35 script blocks are immutable. Existing Cold
+Call narratives, analytics and saved prose/study progress are retained. The
+center mark opens dkla.dev with a fresh-password entry flow.

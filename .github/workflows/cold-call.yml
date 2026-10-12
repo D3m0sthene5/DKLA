@@ -89,6 +89,18 @@ jobs:
       - name: Require complete production narrative coverage
         if: github.ref_name == 'claude/atlas-design-content-audit-m1cw9x'
         run: python3 tools/cold-call/check_narratives.py --require-complete
+      - name: Check native Home viewport contract
+        run: |
+          pnpm exec playwright install --with-deps chromium
+          python3 -m http.server 4321 --bind 127.0.0.1 >/tmp/dkla-home-server.log 2>&1 &
+          HOME_SERVER_PID=$!
+          trap 'kill "$HOME_SERVER_PID"' EXIT
+          DKLA_HOME_TEST_URL=http://127.0.0.1:4321/DKLA-v2.5.html pnpm run test:home -- --workers=1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-home-screenshots-and-bounds
+          path: test-results/
       - name: Commit generated release
         env:
           RELEASE_BRANCH: ${{ github.ref_name }}

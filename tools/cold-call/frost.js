@@ -1,8 +1,8 @@
-/* Cold vapor: one shared 30 fps scheduler, cached soft sprites, visible buttons only. */
+/* Low cold fog: one shared 30 fps scheduler, cached soft sprites, visible buttons only. */
 (() => {
   'use strict';
   const selector='button[data-cold-call]', motion=matchMedia('(prefers-reduced-motion: reduce), (update: slow), (forced-colors: active)'), states=new Map(), intersecting=new Set(), visible=new Set();
-  const PAD_X=34, PAD_TOP=46, PAD_BOTTOM=12, FPS=1000/30, PARTICLES=17;
+  const PAD_X=32, PAD_TOP=4, PAD_BOTTOM=22, FPS=1000/30, PARTICLES=20;
   let frame=0,lastFrame=0,installed=false,sprites=null,intersections,mutations;
   const rand=(a,b)=>a+Math.random()*(b-a);
 
@@ -15,22 +15,19 @@
       for(let i=0;i<lobes;i++){
         const angle=i/lobes*Math.PI*2+index*.7,spread=rand(6,15),x=48+Math.cos(angle)*spread,y=48+Math.sin(angle)*spread*.62,r=rand(17,25);
         const mist=ctx.createRadialGradient(x,y,0,x,y,r);
-        mist.addColorStop(0,'rgba(214,241,250,.12)');mist.addColorStop(.36,'rgba(175,215,236,.08)');mist.addColorStop(1,'rgba(175,215,236,0)');
+        mist.addColorStop(0,'rgba(229,243,248,.18)');mist.addColorStop(.36,'rgba(205,228,238,.11)');mist.addColorStop(1,'rgba(205,228,238,0)');
         ctx.fillStyle=mist;ctx.fillRect(x-r,y-r,r*2,r*2);
       }
-      // A feathered envelope removes hard sprite edges while keeping a little internal structure.
-      ctx.lineCap='round';ctx.strokeStyle='rgba(226,247,255,.025)';ctx.lineWidth=5;
-      ctx.shadowColor='rgba(193,225,244,.18)';ctx.shadowBlur=5;
-      for(let i=0;i<3;i++){ctx.beginPath();ctx.moveTo(25,47+i*4);ctx.bezierCurveTo(34,32+i*5,57,66-i*5,72,43+i*4);ctx.stroke();}
-      ctx.shadowBlur=0;ctx.globalCompositeOperation='destination-in';
+      // Rounded overlapping lobes make a rolling fog bank, without smoke-like filaments.
+      ctx.globalCompositeOperation='destination-in';
       const envelope=ctx.createRadialGradient(48,48,10,48,48,43);envelope.addColorStop(0,'#fff');envelope.addColorStop(.65,'#ffffffc0');envelope.addColorStop(1,'#ffffff00');
       ctx.fillStyle=envelope;ctx.fillRect(0,0,96,96);
       return canvas;
     }).filter(Boolean);
   }
   function particle(state,stagger=false){
-    const side=Math.random();
-    return {age:stagger?rand(0,4):0,life:rand(3.4,5),x:side<.25?rand(-4,5):side>.75?state.width+rand(-5,4):rand(4,state.width-4),y:side<.25||side>.75?rand(2,state.height*.68):rand(-1,3),drift:rand(-9,9),lift:rand(28,44),size:rand(30,47),sway:rand(2,6),phase:rand(0,Math.PI*2),spin:rand(-.24,.24),sprite:Math.floor(rand(0,3)),opacity:rand(.32,.53)};
+    const side=Math.random(),edge=side<.3?-1:side>.7?1:0,life=rand(3.2,4.8),x=edge<0?rand(-2,3):edge>0?state.width+rand(-3,2):rand(4,state.width-4);
+    return {age:stagger?rand(0,life):0,life,x,y:edge?rand(state.height*.55,state.height*.95):state.height+rand(-2,1),drift:(edge||Math.sign(x-state.width/2)||1)*rand(12,24),drop:rand(5,11),size:rand(25,39),sway:rand(1,3),phase:rand(0,Math.PI*2),sprite:Math.floor(rand(0,3)),opacity:rand(.5,.72)};
   }
   function fit(state,width,height){
     state.width=width;state.height=height;
@@ -57,18 +54,21 @@
     ctx.beginPath();ctx.rect(0,0,w,h);ctx.roundRect(PAD_X,PAD_TOP,width,height,7);ctx.clip('evenodd');
     for(let i=0;i<state.particles.length;i++){
       let p=state.particles[i];p.age+=delta;if(p.age>=p.life)p=state.particles[i]=particle(state);
-      const t=p.age/p.life,fade=Math.sin(Math.PI*t)**1.3,scale=p.size*(.68+t*.88);
-      const x=PAD_X+p.x+p.drift*t+Math.sin(p.phase+t*4)*p.sway*t,y=PAD_TOP+p.y-p.lift*t;
-      ctx.save();ctx.translate(x,y);ctx.rotate(p.phase*.12+p.spin*t);ctx.scale(1.4,.62+t*.28);
+      const t=p.age/p.life,fade=Math.sin(Math.PI*t)**1.2,scale=p.size*(.65+t*.8);
+      // Dense cold vapor spills out and settles; its shallow eddies never rise above the rim.
+      const x=PAD_X+p.x+p.drift*t+Math.sin(p.phase+t*5)*p.sway*t,y=PAD_TOP+p.y+p.drop*(1-(1-t)**2)+Math.sin(p.phase+t*4)*.7*t;
+      ctx.save();ctx.translate(x,y);ctx.scale(1.35+t*.35,.3+t*.08);
       ctx.globalAlpha=fade*p.opacity;ctx.drawImage(sprites[p.sprite%sprites.length],-scale/2,-scale/2,scale,scale);ctx.restore();
     }
-    // A few tiny ice motes catch the light close to the rim, then disappear into the mist.
-    for(let i=0;i<3;i++){
-      const p=state.particles[i],t=p.age/p.life;
-      if(t>.62)continue;ctx.globalAlpha=Math.sin(Math.PI*t/.62)*.43;ctx.fillStyle='#dbf9ff';
-      ctx.beginPath();ctx.arc(PAD_X+p.x+p.drift*t,PAD_TOP-1-p.lift*t,.45,0,Math.PI*2);ctx.fill();
-    }
     ctx.restore();ctx.globalAlpha=1;
+    // Feather the shallow spill before the next reading line, also avoiding clipped canvas edges.
+    ctx.globalCompositeOperation='destination-in';
+    const falloff=ctx.createLinearGradient(0,PAD_TOP+height,0,h);
+    falloff.addColorStop(0,'#fff');falloff.addColorStop(.35,'#ffffffb0');falloff.addColorStop(1,'#ffffff00');
+    ctx.fillStyle=falloff;ctx.fillRect(0,0,w,h);
+    const edges=ctx.createLinearGradient(0,0,w,0);
+    edges.addColorStop(0,'#ffffff00');edges.addColorStop(.1,'#fff');edges.addColorStop(.9,'#fff');edges.addColorStop(1,'#ffffff00');
+    ctx.fillStyle=edges;ctx.fillRect(0,0,w,h);ctx.globalCompositeOperation='source-over';
   }
   function running(){return !motion.matches&&!document.hidden&&visible.size>0;}
   function animate(now){

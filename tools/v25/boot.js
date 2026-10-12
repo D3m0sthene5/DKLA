@@ -11,7 +11,7 @@
   function available() {
     const release = document.querySelector('#atlasHome .dkla-release');
     return parsed && window.LegalAtlas?.ready && root.classList.contains('r20-ready') &&
-      root.classList.contains('geography-locked') && window.DKLANativeHome?.ready &&
+      root.classList.contains('geography-locked') && window.DKLAHomeFit?.ready && window.DKLANativeHome?.ready &&
       release?.textContent === window.DKLABriefs?.data.version &&
       typeof draw === 'function';
   }

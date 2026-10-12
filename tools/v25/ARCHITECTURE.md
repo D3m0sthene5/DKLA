@@ -14,7 +14,7 @@ change from silently rewriting a source or a legal account.
 | Rules and authorities | `tools/v25/authorities.json`, `authorities_build.py`, linked source records | coverage/link/text checks and `authorities_check.cjs`; scope in `authorities_README.md` |
 | U.S. Code edition | `tools/v25/uscode.json`, `uscode_build.py` | pinned OLRC release, structural/lexical extraction and effectivity checks |
 | Reading interface | `tools/v25/reading.js`, `reading.css`, Cold Call reader | browser checks on desktop and phone |
-| Atlas home | native r18 renderer, `tools/r19/r20.js`, `tools/v25/native-home.js` | live v2.5 map retained; the center mark links to analytics; fit changes require owner review |
+| Atlas home | native r18 renderer, `tools/r19/r20.js`, `tools/v25/home-fit.js`, `tools/v25/native-home.js` | approved native B arrangement; equal lower heights; rendered viewport checks; center mark requires fresh analytics password |
 | First-load reveal | head curtain in assembler, final `tools/v25/boot.js` module | `boot_check.cjs`, fresh first-load browser checks; early r20 readiness cannot reveal an older layer |
 | Module order | `tools/v25/runtime-manifest.json` | build rejects missing/duplicate modules; integrity hashes and line ranges |
 | Curated map geography | `tools/v25/geography.json`, `geography_build.py`, `geography.js` | `geography_check.py --check`, runtime lock/cache tests, bounded per-entry/district/region reasons |

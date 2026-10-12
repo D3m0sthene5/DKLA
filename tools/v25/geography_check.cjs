@@ -9,7 +9,7 @@ const study=html.match(/<script[^>]+id="studyCode"[^>]*>([\s\S]*?)<\/script>/)[1
 const pointerLines=study.split('\n').filter(line=>line.startsWith("svg.addEventListener('pointerdown',e=>{if(e.button")||line.startsWith("svg.addEventListener('pointermove',e=>{if(!S.pointers")||line.startsWith('function pointerEnd(')||line.startsWith("svg.addEventListener('pointerup',pointerEnd)"));
 assert.equal(pointerLines.length,4,'Baseline pointer-handler extraction drift');
 const handlers=new Map(),removed=[];
-let clicked=null,scheduled=0,steps=0,size={w:1200,h:900,x:0,y:0};
+let clicked=null,scheduled=0,steps=0,size={w:900,h:1200,x:0,y:0};
 const card={dataset:{mapNode:'cp-pennoyer'},closest(){return this;}};
 const controls=[{remove(){removed.push('place');}},{remove(){removed.push('layout');}}];
 const svg={addEventListener(type,fn){handlers.set(type,fn);},setPointerCapture(){},classList:{add(){},remove(){}}};
@@ -39,7 +39,7 @@ data.studyMap.homes['cp-pennoyer'].x=999999;data.studyMap.homes['cp-pennoyer'].c
 assert.equal(data.studyMap.view.region,'cp-personal-region');assert.equal(data.studyMap.view.district,'cp-specific');
 const imported=JSON.parse(JSON.stringify(data));imported.studyMap.homes['cp-pennoyer'].y=-99999;imported.nodes[1].notes='Imported notes survive';context.normalize(imported);assert.equal(JSON.stringify(imported.studyMap.homes['cp-pennoyer']),h);assert.equal(imported.nodes[1].notes,'Imported notes survive');
 assert.equal(context.window.DKLAGeography.apply(),false,'A second curated application must be idempotent');
-size={w:1800,h:800,x:0,y:0};context.draw();const wide=data.studyMap.homes['cp-pennoyer'];assert.equal(wide.x,JSON.parse(h).x-6870);assert.equal(wide.y,JSON.parse(h).y+1060);size={w:1200,h:900,x:0,y:0};context.draw();assert.equal(JSON.stringify(data.studyMap.homes['cp-pennoyer']),h,'Responsive course translation failed round trip');
+size={w:1800,h:800,x:0,y:0};context.draw();const wide=data.studyMap.homes['cp-pennoyer'];assert.equal(wide.x,JSON.parse(h).x-6870);assert.equal(wide.y,JSON.parse(h).y+1060);size={w:900,h:1200,x:0,y:0};context.draw();assert.equal(JSON.stringify(data.studyMap.homes['cp-pennoyer']),h,'Responsive course translation failed round trip');
 const personal={id:'owner-note',title:'Owner note',kind:'Note',summary:'Owner content',notes:'Personal notes',courses:[],position:{x:800000,y:-700000}};data.nodes.push(personal);context.draw();assert.equal(data.studyMap.homes[personal.id].district,'inbox');const personalHome=JSON.stringify(data.studyMap.homes[personal.id]);data.studyMap.homes[personal.id].x=999999;context.r6Place(personal.id,'cp-venue-area');context.draw();assert.equal(JSON.stringify(data.studyMap.homes[personal.id]),personalHome);assert.equal(personal.notes,'Personal notes');
 const repurposed={id:G.excludedPracticeIds[0],title:'Repurposed substantive account',kind:'Concept',summary:'Owner substance',notes:'Preserved'};data.nodes.push(repurposed);context.draw();assert.equal(data.studyMap.homes[repurposed.id].district,'inbox','Repurposed substantive practice account lost its visible home');
 assert(removed.includes('place')&&removed.includes('layout'));assert(!hint.textContent.includes('save a new map position'));

@@ -35,7 +35,7 @@ function fixture(options = {}) {
   const context = {document,location:{href:'https://example.test/#node=case'},S,selected,
     LegalAtlas:{ready:options.baseReady ?? true},R18:{afterDraw:[]},
     DKLABriefs:{apply,data:{version:'v2.5'}},DKLAPlain:{apply},DKLAAudit:{apply},
-    DKLAPracticeFilter:{apply},DKLAGeography:{apply},
+    DKLAPracticeFilter:{apply},DKLAGeography:{apply},DKLAHomeFit:{ready:true},
     DKLANativeHome:{ready:options.nativeHomeReady ?? true,refresh(){calls.overview++;}},
     renderHeading(){calls.heading++;},renderInspector(){calls.inspector++;},
     draw(){calls.draw++;if(installed)context.R18.afterDraw.forEach(fn=>fn());},
