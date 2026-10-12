@@ -4,11 +4,12 @@ import {test,expect} from '@playwright/test';
 import auditNativeHome from './home-audit.js';
 import {readFileSync} from 'node:fs';
 const geometry=JSON.parse(readFileSync(new URL('./geography.json',import.meta.url),'utf8'));
+const baseline=JSON.parse(readFileSync(new URL('./home-baseline-fonts.json',import.meta.url),'utf8'));
 const expectedRegions=geometry.regions.map(r=>r.id);
 const url=process.env.DKLA_HOME_TEST_URL;
+if(!url)throw new Error('Set DKLA_HOME_TEST_URL to the explicit preview; missing targets must not produce a green skipped run.');
 const sizes=[[2000,1040],[1440,900],[1366,768],[1000,700],[390,844],[320,568]];
 for(const [width,height]of sizes)test(`native Home fits ${width} x ${height}`,async({page},testInfo)=>{
-  test.skip(!url,'Choose a preview explicitly with DKLA_HOME_TEST_URL.');
   await page.setViewportSize({width,height});
   await page.goto(url);
   await page.locator('html.dkla-boot-ready').waitFor();
@@ -18,7 +19,7 @@ for(const [width,height]of sizes)test(`native Home fits ${width} x ${height}`,as
   // Read actual SVG glyph extents after the native entrance animation settles.
   await expect.poll(async()=>page.locator('#geoCanvas text.region-title').count()).toBeGreaterThan(0);
   await page.waitForTimeout(700); // Native 280ms entrances and 300ms label fades.
-  let first=await page.evaluate(auditNativeHome,{expectedRegions});
+  let first=await page.evaluate(auditNativeHome,{expectedRegions,baselineFonts:baseline.viewports[`${width}x${height}`]||{}});
   await testInfo.attach('home-first-load.json',{body:JSON.stringify(first,null,2),contentType:'application/json'});
   await page.screenshot({path:testInfo.outputPath('home.png'),fullPage:false});
   expect(first.issues,JSON.stringify(first.issues)).toEqual([]);

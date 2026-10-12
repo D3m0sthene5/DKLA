@@ -9,16 +9,29 @@
     if (!canvas || typeof S === 'undefined') return;
     canvas.dataset.dklaHomeView = JSON.stringify({ scope:S.scope, region:S.region, district:S.district,
       selected:!!selected, x:S.x, y:S.y, z:S.z });
+    if (S.scope!=='Atlas'||S.region||S.district||selected||S.panelOpen) return;
     const mark = canvas.querySelector('.dkla-map-monogram');
-    if (!mark || mark.closest('a[data-dkla-analytics]')) return;
-    const link = document.createElementNS('http://www.w3.org/2000/svg','a');
-    link.setAttribute('href','https://dkla.dev');
-    link.setAttribute('data-dkla-analytics','');
-    link.setAttribute('aria-label','Open private DKLA analytics');
-    link.setAttribute('tabindex','0');
-    link.addEventListener('click',event=>event.stopPropagation());
-    link.addEventListener('pointerdown',event=>event.stopPropagation());
-    mark.replaceWith(link); link.append(mark);
+    if (!mark) return;
+    let link=mark.closest('a[data-dkla-analytics]');
+    if(!link){
+      link = document.createElementNS('http://www.w3.org/2000/svg','a');
+      link.setAttribute('href','https://dkla.dev');
+      link.setAttribute('data-dkla-analytics','');
+      link.setAttribute('aria-label','Open private DKLA analytics');
+      link.setAttribute('tabindex','0');
+      link.style.cursor='pointer';
+      link.addEventListener('click',event=>event.stopPropagation());
+      link.addEventListener('pointerdown',event=>event.stopPropagation());
+      // The original SVG deliberately ignores pointer events. A transparent
+      // rectangle in its existing slot makes the link work without restyling it.
+      const hit=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      hit.setAttribute('data-native-logo-hit','');hit.setAttribute('fill','transparent');
+      hit.setAttribute('stroke','none');hit.setAttribute('pointer-events','all');
+      hit.setAttribute('aria-hidden','true');
+      mark.replaceWith(link);link.append(hit,mark);
+    }
+    const hit=link.querySelector('[data-native-logo-hit]');
+    for(const name of ['x','y','width','height'])if(hit.getAttribute(name)!==mark.getAttribute(name))hit.setAttribute(name,mark.getAttribute(name));
   }
   function install() {
     if (!window.LegalAtlas?.ready || !window.R18?.afterDraw) { setTimeout(install,80); return; }

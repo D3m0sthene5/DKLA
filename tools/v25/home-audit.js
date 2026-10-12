@@ -18,13 +18,24 @@ export default function auditNativeHome({expectedRegions=[],baselineFonts={},tol
     const b=box(e),ctm=typeof e.getScreenCTM==='function'?e.getScreenCTM():null,
       scale=ctm?Math.hypot(ctm.a,ctm.b):cb.w/Number(canvas.getAttribute('viewBox').split(/\s+/)[2]),
       font=Number(getComputedStyle(e).fontSize.replace(/px$/,''))*scale,region=e.getAttribute('data-map-region'),tile=e.classList.contains('region-title');
-    const item={text:e.textContent,region,tile,font:Number(font.toFixed(3)),box:b,class:e.getAttribute('class')||''};labels.push(item);
+    const heading=e.closest('.authority-title-control'),cover=e.closest('.authority-volume-cover'),
+      lineGroup=heading?.getAttribute('data-map-region')||heading?.getAttribute('aria-label')||null;
+    const item={text:e.textContent,region,tile,font:Number(font.toFixed(3)),box:b,class:e.getAttribute('class')||'',lineGroup,authority:cover?.getAttribute('data-authority-collection')||null};labels.push(item);
     if(!inside(b,frame))issues.push({type:'clipped-text',text:item.text,region,box:b});
     if(tile&&paths.has(region)&&!inside(b,box(paths.get(region))))issues.push({type:'tile-text-overflow',region,text:item.text,box:b});
+    if(cover&&!inside(b,box(cover.querySelector('.authority-cover-bg'))))issues.push({type:'authority-text-overflow',text:item.text,authority:item.authority});
     if(tile&&baselineFonts[region]&&font<baselineFonts[region]-.15)issues.push({type:'smaller-tile-text',region,font,baseline:baselineFonts[region]});
   }
   for(const id of expectedRegions)if(!labels.some(l=>l.tile&&l.region===id))issues.push({type:'unnamed-tile',region:id});
-  for(let i=0;i<labels.length;i++)for(let j=i+1;j<labels.length;j++)if(intersects(labels[i].box,labels[j].box))issues.push({type:'overlapping-text',a:labels[i].text,b:labels[j].text});
+  // Native wrapped authority headings use sibling <text> elements, whereas
+  // native course labels use <tspan>. Treat both as one semantic label: font
+  // line boxes contain leading that is not painted ink. Still reject tight
+  // row spacing, overflow, or collisions with any other label.
+  for(let i=0;i<labels.length;i++)for(let j=i+1;j<labels.length;j++){
+    const a=labels[i],b=labels[j],sameHeading=a.lineGroup&&a.lineGroup===b.lineGroup;
+    if(sameHeading){if(Math.abs(a.box.y-b.box.y)<Math.max(a.font,b.font)*1.1)issues.push({type:'crowded-heading-lines',a:a.text,b:b.text});}
+    else if(intersects(a.box,b.box))issues.push({type:'overlapping-text',a:a.text,b:b.text});
+  }
   for(const [id,path]of paths){const b=box(path);if(!visible(path))continue;components.push({id,box:b});if(!inside(b,frame))issues.push({type:'clipped-tile',id,box:b});}
   for(const e of canvas.querySelectorAll('.r19-tile > rect')){const b=box(e);components.push({id:'support-'+e.parentElement.getAttribute('data-r19-list'),box:b});if(!inside(b,frame))issues.push({type:'clipped-supporting-tile',box:b});}
   for(const selector of ['.dkla-map-monogram','.sh-block-bg','.authority-map-entrance > rect']){
@@ -40,6 +51,10 @@ export default function auditNativeHome({expectedRegions=[],baselineFonts={},tol
   const tiles=components.filter(c=>!c.id.startsWith('.'));
   for(let i=0;i<tiles.length;i++)for(let j=i+1;j<tiles.length;j++)if(intersects(tiles[i].box,tiles[j].box))issues.push({type:'overlapping-tiles',a:tiles[i].id,b:tiles[j].id});
   if(covers.length!==6)issues.push({type:'missing-authority-covers',count:covers.length});
+  for(const cover of covers){const id=cover.getAttribute('data-authority-collection');if(!labels.some(l=>l.authority===id))issues.push({type:'unnamed-authority-cover',id});}
   if(!canvas.querySelector('.authority-people-mark,.authority-people-fallback'))issues.push({type:'missing-we-the-people'});
+  const seats=[...canvas.querySelectorAll('[data-sh-seat]')];
+  if(seats.length!==11)issues.push({type:'missing-court-seat-tiles',count:seats.length});
+  for(const seat of seats){const names=[...seat.querySelectorAll('text')].filter(visible);if(!names.length)issues.push({type:'unnamed-court-seat',id:seat.getAttribute('data-sh-seat')});for(const name of names)if(!inside(box(name),box(seat.querySelector('rect'))))issues.push({type:'court-seat-text-overflow',text:name.textContent});}
   return{ok:issues.length===0,viewport:{w:innerWidth,h:innerHeight},frame,view,issues,labels,components};
 }
