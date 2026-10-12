@@ -4,7 +4,7 @@
   "title": "J. McIntyre Machinery, Ltd. v. Nicastro",
   "course": "Civil Procedure",
   "citation": "564 U.S. 873 (2011)",
-  "revision": 1,
+  "revision": 2,
   "origin": "narrative",
   "lead": "A British manufacturer builds a national sales channel, and one confirmed machine sale injures a New Jersey worker. The courts disagree whether seeking American customers establishes the necessary New Jersey connection.",
   "actors": [
@@ -38,10 +38,15 @@
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CPR-005"
+    },
+    {
+      "id": "nj-opinion",
+      "label": "New Jersey Supreme Court opinion and dissents",
+      "url": "https://law.justia.com/cases/new-jersey/supreme-court/2010/a-29-08-opn.html"
     }
   ],
   "review": {
-    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "basis": "Fresh comparison with the complete effective canonical brief, supplemented by a fresh direct reading of the reproduced New Jersey Hoens and Rivera-Soto dissents. The remaining federal opinion comparison uses the canonical brief.",
     "checkedOn": "2026-10-11",
     "chronology": true,
     "antecedents": true,
@@ -103,13 +108,18 @@
       "cue": "What premise did the United States Supreme Court later reject?",
       "paragraphs": [
         "After granting certification, the New Jersey Supreme Court affirmed on February 2, 2010, and remanded for merits proceedings. Justice Albin wrote for Chief Justice Rabner and Justices Long, LaVecchia and Wallace. A foreign manufacturer could be sued, the court reasoned, when it knew or reasonably should have known that its nationwide distribution system might produce sales in any state and took no reasonable step to exclude New Jersey.",
-        "Justice Hoens dissented, joined by Justice Rivera-Soto, who also wrote separately. The source brief records those alignments without supplying further details of their reasoning. The actual court opinion identifies Albin and the February 2 decision date; an ancillary website checklist’s contrary date and per-curiam label did not control.",
+        "Justice Hoens dissented, joined by Justice Rivera-Soto. Her directly reproduced opinion treats Gendler and both Asahi approaches as requiring a connection to the particular forum, rather than nationwide marketing alone. Gendler involved affiliated distributors and deliberate New Jersey sales; here she saw an unaffiliated Ohio distributor, occasional trade shows elsewhere, and one New Jersey machine. In her view, the majority had replaced purposeful forum direction or awareness of regular forum sales with the mere possibility that a nationally marketed product would arrive in New Jersey.",
+        "Hoens also objected to shifting the jurisdictional inquiry toward the severity of Nicastro’s injury, convenient relief, and the likely governing law. Those concerns could not replace the manufacturer’s due-process connection to the state. Rivera-Soto joined her reasoning and wrote separately that the new rule offended federalism and settled limits on state judicial power; he expressly called for U.S. Supreme Court review. These state dissents preceded the later Supreme Court opinions. The canonical brief records their alignment but omits their reasoning; this account supplements it from the reproduced state opinions. Albin’s opinion is dated February 2, 2010; the website’s inconsistent ancillary checklist is not used to change its author or date.",
         "McIntyre UK obtained certiorari. After argument on January 11, 2011, the U.S. Supreme Court divided into a four-Justice plurality, a two-Justice concurrence in the judgment and a three-Justice dissent."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "Procedural History; Vote, disposition and source verification; 201 N.J. 48, 987 A.2d 575 (2010)"
+        },
+        {
+          "id": "nj-opinion",
+          "pinpoint": "Hoens dissent, Parts I–IV; Rivera-Soto separate dissent"
         }
       ]
     },

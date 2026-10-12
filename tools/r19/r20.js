@@ -436,6 +436,11 @@
     box.innerHTML = '<h2 id="r20GuideH">New here? There is a short guide.</h2>' +
       '<div class="r20-guide-actions"><a class="r20-guide-go" href="' + PAGE + '">Open the guide</a><button type="button" data-r20-guide-close>Not now</button></div>';
     host.appendChild(box);
+    // The note lives inside the map's pointer-event host. Its controls must
+    // consume their gestures before the hidden map interprets the coordinates.
+    for (const type of ['pointerdown','pointerup','mousedown','mouseup','touchstart','touchend','click','dblclick','wheel']) {
+      box.addEventListener(type, event => event.stopPropagation());
+    }
     const close = () => { markSeen(); box.remove(); document.removeEventListener('keydown', onKey, true); };
     const onKey = e => { if (e.key === 'Escape') { close(); } };
     box.querySelector('[data-r20-guide-close]').addEventListener('click', close);

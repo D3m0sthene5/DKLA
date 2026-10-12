@@ -14,6 +14,8 @@ change from silently rewriting a source or a legal account.
 | Rules and authorities | `tools/v25/authorities.json`, `authorities_build.py`, linked source records | coverage/link/text checks and `authorities_check.cjs`; scope in `authorities_README.md` |
 | U.S. Code edition | `tools/v25/uscode.json`, `uscode_build.py` | pinned OLRC release, structural/lexical extraction and effectivity checks |
 | Reading interface | `tools/v25/reading.js`, `reading.css`, Cold Call reader | browser checks on desktop and phone |
+| Atlas home | `tools/v25/overview.js`, `overview.css`, `overview-dictionary.js` | compact destination layout and native-route checks; detailed course geography stays intact |
+| First-load reveal | head curtain in assembler, final `tools/v25/boot.js` module | `boot_check.cjs`, fresh first-load browser checks; early r20 readiness cannot reveal an older layer |
 | Module order | `tools/v25/runtime-manifest.json` | build rejects missing/duplicate modules; integrity hashes and line ranges |
 | Curated map geography | `tools/v25/geography.json`, `geography_build.py`, `geography.js` | `geography_check.py --check`, runtime lock/cache tests, bounded per-entry/district/region reasons |
 | Practice exercise visibility | `tools/v25/practice-filter.json`, `practice-filter.js` | source fingerprint and classification checks; recoverable export and cache-resilience tests |

@@ -4,7 +4,7 @@
   "title": "Cohen v. Cowles Media Co. — contract, First Amendment, and remand decisions",
   "course": "Contracts",
   "citation": "457 N.W.2d 199 (Minn. 1990); 501 U.S. 663 (1991); 479 N.W.2d 387 (Minn. 1992)",
-  "revision": 1,
+  "revision": 2,
   "origin": "narrative",
   "lead": "Dan Cohen supplied campaign documents only after two reporters promised anonymity. The newspapers identified him anyway, and his damages award traveled through separate contract, constitutional, and promissory-estoppel decisions.",
   "actors": [
@@ -39,10 +39,15 @@
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CT-CB-0135"
+    },
+    {
+      "id": "primary-1991-facts",
+      "label": "1991 Court opinion: targeted facts check",
+      "url": "https://supreme.justia.com/cases/federal/us/501/663/"
     }
   ],
   "review": {
-    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "basis": "Fresh comparison with complete effective canonical brief; no new independent primary-source audit claimed. Targeted primary-source check of 1991 opinion facts at 501 U.S. 665–666 and caption date; no full new opinion audit.",
     "checkedOn": "2026-10-11",
     "chronology": true,
     "antecedents": true,
@@ -55,14 +60,18 @@
       "title": "Cohen exchanges political records for anonymity",
       "cue": "What exactly did the reporters promise before receiving the information?",
       "paragraphs": [
-        "Dan Cohen worked in advertising and public relations and was associated with Republican gubernatorial candidate Wheelock Whitney. On October 27, 1982, near the end of Minnesota’s election campaign, Cohen approached two newspaper reporters with records about Marlene Johnson, the opposing candidate for lieutenant governor. The records concerned Johnson’s earlier unlawful-assembly arrest, whose charge had been dismissed, and a shoplifting conviction that had been vacated. Cohen wanted publication of the information but insisted that his identity remain confidential because he feared retaliation from the press and political actors.",
+        "Dan Cohen worked in advertising and public relations and was associated with Republican gubernatorial candidate Wheelock Whitney. On October 27, 1982, near the end of Minnesota’s election campaign, Cohen approached reporters for the St. Paul Pioneer Press Dispatch and the Minneapolis Star and Tribune with records about Marlene Johnson, the opposing candidate for lieutenant governor. One record concerned three 1969 unlawful-assembly charges arising from a protest about alleged failure to hire minority workers on municipal construction; those charges had been dismissed. The other concerned a 1970 petit-theft conviction for leaving a store without paying for $6 in sewing materials, apparently while emotionally distraught; that conviction had been vacated. Cohen wanted publication of the information but insisted that his identity remain confidential because he feared retaliation from the press and political actors.",
         "Reporters Lori Sturdevant and Bill Salisbury promised anonymity. Neither reserved a right for an editor to revoke the promise, and both intended to honor it. Cohen then supplied the records. This was a clear, serious undertaking followed by delivery of information, not a casual remark or a promise made after Cohen had already disclosed everything.",
-        "The newspapers’ editors independently concluded that the source’s identity belonged in the story. Their staffs debated the obligation, and both reporters strongly opposed disclosure. Sturdevant refused to place her name on the resulting story. The papers nevertheless published Cohen’s name, and his employer dismissed him. Later testimony from reporters, editors, and experts described source confidentiality as fundamental to journalism; witnesses could not recall comparable editorial overrides."
+        "The newspapers’ editors independently concluded that the source’s identity belonged in the story. Their staffs debated the obligation, and both reporters strongly opposed disclosure. Sturdevant refused to place her name on the resulting story. The papers nevertheless published Cohen’s name, identified his Whitney-campaign connection, and included campaign officials’ denials of involvement. His employer dismissed him the same day. Later testimony from reporters, editors, and experts described source confidentiality as fundamental to journalism; witnesses could not recall comparable editorial overrides."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "Parties and material facts; 457 N.W.2d at 200–03; 501 U.S. at 665–66"
+        },
+        {
+          "id": "primary-1991-facts",
+          "pinpoint": "501 U.S. 665–666: newspapers, political records, publication and same-day dismissal"
         }
       ]
     },
@@ -136,12 +145,16 @@
       "paragraphs": [
         "Justice Blackmun, joined by Justices Marshall and Souter, argued that general applicability did not remove the need for constitutional scrutiny. The act triggering liability was publication of truthful information on a matter of public concern. That directly burdened protected expression rather than incidentally regulating unrelated conduct. Changing a tort or other legal label could not avoid speech protections.",
         "Justice Souter, joined by Justices Marshall, Blackmun, and O’Connor, also rejected general applicability as a complete answer. He stressed the public’s interest in identifying a political source and understanding the source’s motives. A newspaper could not entirely waive that public interest through a private promise. Souter would balance the state’s enforcement interest against the particular expression’s value and regarded this political information as protected. He did not claim absolute immunity for all confidentiality breaches; other circumstances could warrant enforcement.",
-        "The Supreme Court reversed and remanded. It neither restored $200,000 by its own force nor revived fraud or punitive damages. Minnesota still had to decide its own law and any independent state-constitutional protection. These federal dissents addressed the 1991 constitutional judgment, not the 1990 state contract ruling or the eventual 1992 award."
+        "On June 24, 1991, the Supreme Court reversed and remanded. It neither restored $200,000 by its own force nor revived fraud or punitive damages. Minnesota still had to decide its own law and any independent state-constitutional protection. These federal dissents addressed the 1991 constitutional judgment, not the 1990 state contract ruling or the eventual 1992 award."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "1991 separate opinions and judgment; 501 U.S. at 672–79"
+        },
+        {
+          "id": "primary-1991-facts",
+          "pinpoint": "Official caption: June 24, 1991 decision"
         }
       ]
     },

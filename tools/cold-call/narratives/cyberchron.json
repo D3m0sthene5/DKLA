@@ -4,7 +4,7 @@
   "title": "Cyberchron Corp. v. Calldata Systems Development, Inc.",
   "course": "Contracts",
   "citation": "47 F.3d 39 (2d Cir. 1995)",
-  "revision": 1,
+  "revision": 2,
   "origin": "narrative",
   "lead": "Computer-equipment negotiations never produce a final purchase contract, but repeated directions to continue costly work generate a separate reliance claim and a remand over what losses that reliance caused.",
   "actors": [
@@ -41,10 +41,20 @@
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CT-CB-0340"
+    },
+    {
+      "id": "primary-participants",
+      "label": "Trial opinion: targeted participant check",
+      "url": "https://law.justia.com/cases/federal/district-courts/FSupp/831/94/1801842/"
+    },
+    {
+      "id": "primary-date",
+      "label": "Appeal opinion: targeted date and participant check",
+      "url": "https://law.justia.com/cases/federal/appellate-courts/F3/47/39/472179/"
     }
   ],
   "review": {
-    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "basis": "Fresh comparison with complete effective canonical brief; no new independent primary-source audit claimed. Targeted primary-source checks of participant identities and roles, August 8 takeover, and appellate date; no full new opinion audit.",
     "checkedOn": "2026-10-11",
     "chronology": true,
     "antecedents": true,
@@ -58,12 +68,16 @@
       "cue": "What promises had not become a purchase contract?",
       "paragraphs": [
         "Cyberchron made specialized computers. Calldata Systems Development, a Grumman subsidiary, sought three workstation components for a Marine Corps Advanced Tactical Air Command Central system. The proposed combined weight ceiling was 145 pounds with penalties for excess. Cyberchron never accepted that specification and penalty arrangement. Negotiations never yielded the contemplated purchase contract; no equipment was delivered or purchase payment made.",
-        "A May 15, 1990 purchase order contained a termination-liability provision capping exposure at $200,000, including termination expenses and cost changes. A June modification raised the cap to $700,000. Cyberchron later sought $1 million, which Calldata refused. Cyberchron representative Paul understood the clause as assuring reimbursement if the transaction ended; Calldata viewed it as termination for convenience of a valid purchase order, not default. Grumman retained unilateral power to delete it."
+        "A May 15, 1990 purchase order contained a termination-liability provision capping exposure at $200,000, including termination expenses and cost changes. A June modification raised the cap to $700,000. Cyberchron later sought $1 million, which Calldata refused. Cyberchron representative Howard Paul understood the clause as assuring reimbursement if the transaction ended; Calldata viewed it as termination for convenience of a valid purchase order, not default. Grumman retained unilateral power to delete it."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "47 F.3d at 41–43; Unfinished equipment contract"
+        },
+        {
+          "id": "primary-participants",
+          "pinpoint": "831 F. Supp. 100: Howard Paul"
         }
       ]
     },
@@ -72,7 +86,7 @@
       "title": "Specific assurances induce continued work despite the unresolved terms",
       "cue": "How did the relationship deteriorate?",
       "paragraphs": [
-        "Beginning in mid-July, Grumman’s Wilhelm told Cyberchron to proceed as though weight had been approved and that differences would be settled later. He repeatedly pressed continued performance and timely delivery. Cyberchron sought written confirmation without obtaining it, but received more directions to proceed. After an August 8 conversation, Drost continued reassuring Cyberchron that matters were fine and work should continue.",
+        "Beginning in mid-July, Grumman’s procurement manager, Calvin R. Wilhelm, told Cyberchron to proceed as though weight had been approved and that differences would be settled later. He repeatedly pressed continued performance and timely delivery. Cyberchron sought written confirmation without obtaining it, but received more directions to proceed. After an August 8 meeting, Robert C. Drost, Grumman’s director of material, took over the negotiations and continued reassuring Cyberchron that matters were fine and work should continue.",
         "Cyberchron requested a substantial progress payment on July 30 for costs through July 20 and received none. Meanwhile, Calldata explored alternative supplier Codar during August while pressing Cyberchron onward. Calldata issued a September 6 show-cause notice, received Cyberchron’s response, and terminated for asserted default on September 25. It contracted with Codar the next day.",
         "The record described Codar’s equipment as heavier and inferior. That comparison gave significance to Calldata’s continuing insistence on Cyberchron’s unresolved weight requirement. After hearing evidence, the trial court found Cyberchron reasonably understood the later assurances as promises of payment for work while negotiations continued."
       ],
@@ -80,6 +94,10 @@
         {
           "id": "brief",
           "pinpoint": "47 F.3d at 42–45; Unfinished equipment contract"
+        },
+        {
+          "id": "primary-participants",
+          "pinpoint": "831 F. Supp. 102–103: Wilhelm and Drost roles and August 8 takeover"
         }
       ]
     },
@@ -123,12 +141,16 @@
       "paragraphs": [
         "Reliance could include real indirect expenses, not only labor and materials. Cyberchron could establish an appropriate share of actual overhead attributable to induced work using operating history and rational allocation. It need not necessarily identify a lost alternative project. The court distinguished the Seventh Circuit’s Autotrol approach under Texas law that emphasized alternative-use proof.",
         "Post-September 25 shutdown expenses could also result from work undertaken on the protected promises. Payment timing alone did not break causation, but only costs caused by reliance beginning in July could be included; expenses tied to earlier unprotected work were excluded. The court authorized proof, not all overhead or all shutdown costs, and did not grant lost profits.",
-        "The Second Circuit affirmed estoppel entitlement, rejected independent termination-clause recovery, and vacated the judgment for damages redetermination on existing or additional evidence. It set no replacement amount, restored no abandoned contract claim, and ordered no equipment purchase. No separate opinion was reported."
+        "On February 1, 1995, the Second Circuit affirmed estoppel entitlement, rejected independent termination-clause recovery, and vacated the judgment for damages redetermination on existing or additional evidence. It set no replacement amount, restored no abandoned contract claim, and ordered no equipment purchase. No separate opinion was reported."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "47 F.3d at 45–47 & n.1; Damages and exact disposition"
+        },
+        {
+          "id": "primary-date",
+          "pinpoint": "47 F.3d 39: caption decision date"
         }
       ]
     }

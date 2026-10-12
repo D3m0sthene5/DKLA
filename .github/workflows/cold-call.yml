@@ -5,6 +5,7 @@ on:
       - codex/cold-call-v24
       - codex/v2.5-hotfix
       - codex/analytics-dashboard-preview
+      - codex/main-cold-call-narrative-audit
       - claude/atlas-design-content-audit-m1cw9x
     paths:
       - tools/cold-call/**
@@ -73,6 +74,8 @@ jobs:
           python3 tools/v25/generated_rule_connections_check.py
           node tools/v25/generated_rule_connections_check.cjs
           node tools/v25/authorities_check.cjs
+          node tools/v25/overview_check.cjs
+          node tools/v25/boot_check.cjs
           node tools/v25/reading_check.cjs
           python3 tools/v25/check_practice_filter.py
           node tools/v25/practice_filter_check.cjs
@@ -81,6 +84,7 @@ jobs:
           node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
           python3 tools/cold-call/check_narratives.py --write
+          python3 tools/cold-call/check_main_audit.py
           python3 tools/r19/audit24.py
       - name: Require complete production narrative coverage
         if: github.ref_name == 'claude/atlas-design-content-audit-m1cw9x'
