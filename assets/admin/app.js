@@ -46,7 +46,7 @@
     return normalize(raw);
   }
   async function refresh(force=false){
-    if(loading||document.visibilityState==='hidden')return;loading=true;
+    if(loading||document.visibilityState==='hidden'||document.getElementById('dashboard').hidden)return;loading=true;
     try{
       const b=bounds(),start=new Date(Math.min(b.start,D.now-112*DAY)).toISOString(),result=await pages({start,end:new Date(Math.max(b.end,Date.now())).toISOString()});
       const [identity,capacity]=await Promise.all([api('identity'),api('storage')]);D={...result,suggestions:identity.suggestions,storage:capacity};D.now=Date.now();
