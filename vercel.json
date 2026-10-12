@@ -20,6 +20,28 @@
   },
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "dkla\\.dev"
+        }
+      ],
+      "destination": "/admin",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "has": [
+        {
+          "type": "host",
+          "value": "dkla\\.dev"
+        }
+      ],
+      "destination": "/admin",
+      "permanent": false
+    },
+    {
       "source": "/DKLA-r17.html",
       "destination": "/DKLA-v2.5.html",
       "permanent": false
@@ -76,16 +98,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "dkla.dev"
-        }
-      ],
-      "destination": "/api/admin?action=page"
-    },
     {
       "source": "/admin",
       "destination": "/api/admin?action=page"
