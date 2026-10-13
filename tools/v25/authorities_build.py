@@ -370,6 +370,38 @@ def citation_matches(e,pattern,text):
         matches=[m for m in matches if not STATE_CONSTITUTION.search(re.split(r'[.!?;]',text[m.end():m.end()+140],maxsplit=1)[0])]
     return matches
 
+# Direct citation matching is every pattern against every atlas text: about
+# 700,000 regular-expression searches. The patterns are independent, so they
+# are shared out among worker processes. The result is exactly the serial
+# result; DKLA_SERIAL_LINKS=1 forces the one-process path for comparison.
+_MATCH={}
+def _match_init(slim,text_by_id):
+    _MATCH.update(text=text_by_id,folded={id:text.casefold() for id,text in text_by_id.items()},patterns=[(e,p) for e in slim if (p:=citation_pattern(e)) is not None])
+
+def _match_chunk(jobs):
+    text,folded,out=_MATCH['text'],_MATCH['folded'],[]
+    for index,candidates in jobs:
+        e,pattern=_MATCH['patterns'][index]
+        candidate=e.get('section','').casefold() if e['collection']=='uscode' else None
+        ids=text if candidates is None else candidates
+        out.append((index,sorted(id for id in ids if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text[id])) if e['id'].startswith('const-art-') else pattern.search(text[id])))))
+    return out
+
+def direct_matches(entries,text_by_id,jobs):
+    """For each (pattern index, candidate ids or None): the ids whose text cites that provision."""
+    import os
+    slim=[{k:e[k] for k in ('id','collection','titleNumber','section') if k in e} for e in entries]
+    workers=min(8,os.cpu_count() or 1)
+    if workers>1 and not os.environ.get('DKLA_SERIAL_LINKS'):
+        chunks=[jobs[i::workers*4] for i in range(workers*4)]
+        try:
+            with concurrent.futures.ProcessPoolExecutor(max_workers=workers,initializer=_match_init,initargs=(slim,text_by_id)) as pool:
+                return dict(pair for chunk in pool.map(_match_chunk,[c for c in chunks if c]) for pair in chunk)
+        except (OSError,concurrent.futures.process.BrokenProcessPool):
+            pass  # no worker processes available here: fall through to one process
+    _match_init(slim,text_by_id)
+    return dict(_match_chunk(jobs))
+
 def link_entries(entries):
     nodes,graph=graph_records(); reverse={}; links=0
     # A citation means the atlas account mentions the provision, not that the
@@ -382,13 +414,13 @@ def link_entries(entries):
     for title in {str(e['titleNumber']) for e in entries if e['collection']=='uscode' and e.get('titleNumber')}:
         coarse=re.compile(rf'{re.escape(title)}\s*U\.?\s*S\.?\s*C\.?\s*(?:§{{1,2}}\s*|Section\s*)|\bSection\s+\S+\s+of\s+title\s+{re.escape(title)}\b',re.I)
         title_candidates[title]={id for id,text in text_by_id.items() if coarse.search(text)}
-    for e,pattern in patterns:
+    found=direct_matches(entries,text_by_id,[(index,None if e['collection']!='uscode' else sorted(title_candidates.get(str(e.get('titleNumber')),set()))) for index,(e,pattern) in enumerate(patterns)])
+    for index,(e,pattern) in enumerate(patterns):
         # A USC section's literal identifier must occur in a valid regex match.
         # This cheap necessary condition avoids scanning the entire brief corpus
         # hundreds of times for sections never cited by this course collection.
         candidate=e.get('section','').casefold() if e['collection']=='uscode' else None
-        candidates=title_candidates.get(str(e.get('titleNumber')),set()) if candidate is not None else text_by_id
-        matched={id for id in candidates if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text_by_id[id])) if e['id'].startswith('const-art-') else pattern.search(text_by_id[id]))}
+        matched=set(found[index])
         direct=set(matched)
         # One hop from an explicitly cited rule/concept to a case keeps citations useful
         # while avoiding the transitive explosion of linking every constitutional case.

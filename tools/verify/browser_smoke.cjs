@@ -20,11 +20,19 @@ async function check(name,fn){try{const detail=await fn();report.checks.push({na
 async function shot(page,name){const file=path.join(output,name+'.png');await page.screenshot({path:file,fullPage:false});report.screenshots.push(file);}
 async function ready(page){await page.locator('html.dkla-boot-ready').waitFor({timeout:90000});await page.waitForFunction(()=>window.LegalAtlas?.ready&&window.DKLAColdCall&&window.DKLAStudy);}
 async function closeDialogs(page){await page.evaluate(()=>{window.DKLAColdCall?.close();window.DKLAStudy?.close();for(const d of document.querySelectorAll('dialog[open]'))d.close();});}
+// The map redraws itself several times a second, replacing its elements. A box
+// read in the instant between two draws comes back empty, so ask again until
+// the element is there. A control that is really missing still fails.
+async function boxOf(locator,timeout=8000){const end=Date.now()+timeout;for(;;){const box=await locator.first().boundingBox({timeout:1000}).catch(()=>null);if(box&&box.width>0&&box.height>0)return box;if(Date.now()>end)throw Error('No visible box for '+locator);await new Promise(r=>setTimeout(r,60));}}
+// A key press is lost if the focused element is replaced by a redraw first.
+// Focus and press again until the result shows; a dead control still fails.
+async function pressUntil(page,locator,key,result,attempts=6){for(let i=0;;i++){try{await locator.first().focus({timeout:1500});await page.keyboard.press(key);await result.waitFor({timeout:1500});return i+1;}catch(error){if(i+1>=attempts)throw error;}}}
 async function route(page,hash){await closeDialogs(page);await page.evaluate(hash=>{location.hash=hash;},hash);}
 (async()=>{
   const installedChrome=process.env.DKLA_CHROME||(process.platform==='win32'?'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe':process.platform==='darwin'?'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome':undefined);
   browser=await chromium.launch({headless:true,executablePath:option('--chrome',installedChrome)});
-  for(const viewport of [{name:'desktop',width:1440,height:900},{name:'phone-landscape',width:844,height:390},{name:'phone-portrait',width:390,height:844}]){
+  // The three screen sizes run side by side, each in its own isolated browser context.
+  await Promise.all([{name:'desktop',width:1440,height:900},{name:'phone-landscape',width:844,height:390},{name:'phone-portrait',width:390,height:844}].map(async viewport=>{
     const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height},isMobile:viewport.name!=='desktop',hasTouch:viewport.name!=='desktop',acceptDownloads:true,serviceWorkers:'block'});
     await context.route('**/*',async route=>{
       const request=route.request(),u=new URL(request.url());
@@ -45,13 +53,13 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
     await check(viewport.name+': dictionary home pointer and keyboard',async()=>{
       const spine=page.locator('[data-dictionary-spine]'),hasSpine=await spine.count();
       const control=hasSpine?spine:page.locator('#geoCanvas path[data-map-region="dictionary-region"]');
-      const box=await control.boundingBox();assert.ok(box);await page.mouse.click(box.x+box.width/2,box.y+box.height/2);
+      const box=await boxOf(control);await page.mouse.click(box.x+box.width/2,box.y+box.height/2);
       await page.locator('#glossaryDialog[open]').waitFor();await page.locator('#glClose').click();
-      if(hasSpine){await spine.focus();await page.keyboard.press('Enter');await page.locator('#glossaryDialog[open]').waitFor();await page.locator('#glClose').click();
+      if(hasSpine){await pressUntil(page,spine,'Enter',page.locator('#glossaryDialog[open]'));await page.locator('#glClose').click();
         const ghost=await page.locator('#geoCanvas text').evaluateAll(elements=>elements.filter(e=>/legal\s*dictionary/i.test(e.textContent)&&!e.closest('[data-dictionary-spine]')).length);assert.equal(ghost,0,'Old dictionary label remains outside the spine');}
       return {pointer:true,keyboard:!!hasSpine,spine:!!hasSpine};
     });
-    await check(viewport.name+': native region activation',async()=>{const box=await page.locator('#geoCanvas path[data-map-region="consideration"]').boundingBox();assert.ok(box);await page.mouse.click(box.x+box.width/2,box.y+box.height/2);await page.waitForTimeout(800);assert.match(await page.locator('#geoBreadcrumb').innerText(),/Consideration/i);await shot(page,viewport.name+'-region');});
+    await check(viewport.name+': native region activation',async()=>{const box=await boxOf(page.locator('#geoCanvas path[data-map-region="consideration"]'));await page.mouse.click(box.x+box.width/2,box.y+box.height/2);await page.waitForTimeout(800);assert.match(await page.locator('#geoBreadcrumb').innerText(),/Consideration/i);await shot(page,viewport.name+'-region');});
     await check(viewport.name+': legacy case route and narrative',async()=>{
       await route(page,'node=cp-pennoyer');await page.locator('#inspector [data-cold-call="cp-pennoyer"]').waitFor();
       assert.match(await page.locator('#inspector').innerText(),/Pennoyer/);await shot(page,viewport.name+'-case');
@@ -115,7 +123,7 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
       await check('owner-edited existing Note survives reload',async()=>{assert.ok(ownerProseResult,'Storage fixture did not complete');assert.ok(ownerProseResult.preserved,'Reload lost owner-edited prose on '+ownerProseResult.node);return ownerProseResult;});
     }
     await context.close();
-  }
+  }));
   report.finishedAt=new Date().toISOString();report.pass=report.checks.every(c=>c.pass)&&report.pageErrors.length===0;writeReport();
   console.log(JSON.stringify({pass:report.pass,checks:report.checks.length,failures:report.checks.filter(c=>!c.pass).map(c=>c.name),pageErrors:report.pageErrors,report:path.join(output,'report.json')}));
   process.exitCode=report.pass?0:1;

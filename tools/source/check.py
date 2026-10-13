@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--original', action='store_true', help='Require the approved r18 extraction identity')
     parser.add_argument('--record', nargs=2, metavar=('BLOCK', 'JSON_POINTER'))
     parser.add_argument('--chars', type=int, default=4000)
+    parser.add_argument('--verify', action='store_true', help='Re-read every file, require any cached copy to match, and refresh the cache')
     parser.add_argument('--emit', action='store_true', help='Write the reassembled original HTML bytes to standard output')
     args = parser.parse_args()
     if args.record:
@@ -24,7 +25,18 @@ def main():
             result.update(bytes=len(raw), sha256=source_hash(raw), text=raw.decode()[:max(0,args.chars)], truncated=len(raw.decode())>args.chars)
         print(json.dumps(result, ensure_ascii=True, indent=2))
         return
-    raw = read_source()
+    if args.verify:
+        # Read every source file afresh. If a cached copy exists for the
+        # current files it must be identical; then (re)write the cache so the
+        # steps that follow in this pass can share this one read.
+        from source.tree import assemble_source, cached_source, source_fingerprint, store_source
+        fingerprint = source_fingerprint()
+        raw, cached = assemble_source(), cached_source(fingerprint)
+        if cached is not None and cached != raw:
+            raise ValueError('The cached source differs from the files on disk. Delete work/cache and investigate.')
+        store_source(fingerprint, raw)
+    else:
+        raw = read_source()
     if args.emit:
         sys.stdout.buffer.write(raw)
         return

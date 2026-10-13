@@ -2,6 +2,7 @@
 from __future__ import annotations
 import hashlib
 import json
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -37,8 +38,66 @@ def read_part(part: dict) -> bytes:
         return b''.join(read_part(p) for p in load_manifest(part['manifest'])['parts'])
     raise ValueError('Unknown source part')
 
-def read_source() -> bytes:
+def assemble_source() -> bytes:
+    """Read every part from disk and join them. Never cached."""
     return b''.join(read_part(p) for p in load_manifest('manifest.json')['parts'])
+
+# Reassembling opens about 30,000 files, and many build and check steps need
+# the result. It is therefore kept in work/cache between steps, named after a
+# fingerprint of every file under src/ (path, size and modification time,
+# taken from the directory listing without opening anything). Any edit,
+# checkout or new file changes the fingerprint and the cache is rebuilt.
+#
+# The cache is a convenience, not a proof. `tools/source/check.py --verify`
+# always re-reads every file, compares the result with the original hash and
+# with the cache, and fails if they differ; a full verification pass runs it.
+# Set DKLA_NO_SOURCE_CACHE=1 to bypass the cache entirely.
+CACHE = ROOT / 'work' / 'cache'
+
+def source_fingerprint() -> str:
+    digest, pending = hashlib.sha256(), [SOURCE]
+    while pending:
+        with os.scandir(pending.pop()) as listing:
+            for entry in sorted(listing, key=lambda e: e.name):
+                if entry.is_dir(follow_symlinks=False):
+                    pending.append(entry.path)
+                else:
+                    info = entry.stat(follow_symlinks=False)
+                    digest.update(f'{os.path.relpath(entry.path, SOURCE)}\0{info.st_size}\0{info.st_mtime_ns}\n'.encode())
+    return digest.hexdigest()[:32]
+
+def cached_source(fingerprint: str) -> bytes | None:
+    """The cached bytes for this fingerprint, or None. A damaged file is ignored."""
+    for candidate in CACHE.glob(f'source-{fingerprint}-*.bin'):
+        raw = candidate.read_bytes()
+        if source_hash(raw) == candidate.stem.rsplit('-', 1)[1]:
+            return raw
+    return None
+
+def store_source(fingerprint: str, raw: bytes) -> None:
+    try:
+        CACHE.mkdir(parents=True, exist_ok=True)
+        target = CACHE / f'source-{fingerprint}-{source_hash(raw)}.bin'
+        if not target.exists():
+            partial = CACHE / f'{target.name}.{os.getpid()}.partial'
+            partial.write_bytes(raw)
+            os.replace(partial, target)  # readers never see a half-written file
+        for stale in CACHE.glob('source-*.bin'):
+            if stale != target:
+                stale.unlink(missing_ok=True)
+    except OSError:
+        pass  # a cache that cannot be written only costs time
+
+@lru_cache(maxsize=1)
+def read_source() -> bytes:
+    if os.environ.get('DKLA_NO_SOURCE_CACHE'):
+        return assemble_source()
+    fingerprint = source_fingerprint()
+    raw = cached_source(fingerprint)
+    if raw is None:
+        raw = assemble_source()
+        store_source(fingerprint, raw)
+    return raw
 
 def find_record(block: str, pointer: str) -> dict:
     """Resolve a JSON pointer to its bounded canonical file, never dump a block."""
