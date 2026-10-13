@@ -95,3 +95,30 @@ labels read from the DOM, a seat activation, and the note's bounds against the
 map and the save status. Not run for this change: the 29 smoke checks,
 typography-evidence.cjs (which still asserts eleven Orbitron seat names) and
 the phone viewports.
+
+### Later the same day: both fronts, sculpture and statues
+
+The owner asked for the building to join its two fronts. The pediment now
+carries the east pediment's group, "Justice, the Guardian of Liberty" (Hermon
+MacNeil), in the order of the Court's information sheet (10/12/2021) and its
+photograph, left to right: the hare; study and pondering of judgments; a
+shield (disputes between states); the means of enforcing the law (a man and a
+youth bearing the fasces); Confucius; Moses, seated, a tablet in each hand;
+Solon; justice tempered with mercy, with a youth; a shield (maritime and other
+functions); a tribute to the Court's supreme character; the tortoise. The
+west front's two statues by James Earle Fraser stand on pedestals at the ends
+of the steps: Contemplation of Justice on the left (a book of laws under her
+left arm, a small figure of Justice in her right hand) and Authority of Law on
+the right (the tablet of laws with the sheathed sword behind it). The walls
+stand in from the block's edges to make room for them. All eight columns have
+Corinthian capitals.
+
+Every figure is a link in its own layer above the block (`.dkla-court-links`),
+outside the block's click target: Moses, Confucius, Solon, The Tortoise and
+the Hare, Contemplation of Justice and Authority of Law open their Wikipedia
+articles; the allegorical groups open the article on the building.
+
+Checked on the real build: pnpm check and check:v26, the 29 browser
+interactions, Home at nine window sizes, and a headless test that figure
+links open the right address without opening SCOTUS History while seats and
+the roof still open it. Looked at in screenshots at 1440x900.

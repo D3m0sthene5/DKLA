@@ -93,10 +93,16 @@ html #geoCanvas .dkla-court-line{fill:none;stroke:#83d4ad;stroke-opacity:.65;str
 html #geoCanvas .dkla-court-faint{stroke-opacity:.28}
 html #geoCanvas .dkla-court-dentils{fill:none;stroke:#83d4ad;stroke-opacity:.3}
 html #geoCanvas .dkla-court-node{fill:#9bdfbd}
-html #geoCanvas .dkla-court-figure{fill:#9ddcbf;fill-opacity:.16;stroke:#9ddcbf;stroke-opacity:.85;stroke-width:1px;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-figure{fill:#9ddcbf;fill-opacity:.3;stroke:#b4ecd2;stroke-opacity:1;stroke-width:1px;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
 html #geoCanvas .dkla-court-figure>*{vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-figure-detail{fill:none;stroke-opacity:.45}
-html #geoCanvas .dkla-court-liberty{fill-opacity:.26;stroke:#c0f7df}
+html #geoCanvas .dkla-court-figure-detail{fill:none;stroke-opacity:.6}
+html #geoCanvas .dkla-court-liberty{fill-opacity:.42;stroke:#d4fbe9}
+html #geoCanvas .dkla-court-link{cursor:pointer}
+html #geoCanvas .dkla-court-hit{fill:#fff;fill-opacity:0;stroke:none}
+html #geoCanvas .dkla-court-link:hover .dkla-court-figure,html #geoCanvas .dkla-court-link:focus-visible .dkla-court-figure{fill-opacity:.6;stroke:#eafff5}
+html #geoCanvas .dkla-court-statue{fill-opacity:.34;stroke:#c0f7df}
+html #geoCanvas .dkla-court-capital{fill:#9ddcbf;fill-opacity:.2;stroke:#9ddcbf;stroke-opacity:.85;stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-capital>*{vector-effect:non-scaling-stroke}
 html #geoCanvas .dkla-court-step{fill:#1d4238;fill-opacity:.55;stroke:#73b494;stroke-opacity:.55;stroke-width:1px;vector-effect:non-scaling-stroke}
 html #geoCanvas .dkla-court-column{fill:#9ddcbf;fill-opacity:.12;stroke:#83d4ad;stroke-opacity:.7;stroke-width:1px;vector-effect:non-scaling-stroke}
 /* Seats are rebuilt on every frame, so an inherited transition would flash. */
