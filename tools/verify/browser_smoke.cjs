@@ -17,7 +17,7 @@ const report = {url, startedAt:new Date().toISOString(), checks:[], blockedReque
 const writeReport=()=>fs.writeFileSync(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
 let browser;
 async function check(name,fn){const began=Date.now();try{const detail=await fn();report.checks.push({name,pass:true,ms:Date.now()-began,detail});console.log('PASS '+name);}catch(error){report.checks.push({name,pass:false,ms:Date.now()-began,error:String(error.stack||error)});console.log('FAIL '+name+': '+error.message);}writeReport();}
-async function shot(page,name){const file=path.join(output,name+'.png');await page.screenshot({path:file,fullPage:false});report.screenshots.push(file);}
+async function shot(page,name){const began=Date.now(),file=path.join(output,name+'.png');await page.screenshot({path:file,fullPage:false});report.screenshots.push(file);report.screenshotMs=(report.screenshotMs||0)+Date.now()-began;}
 async function ready(page){await page.locator('html.dkla-boot-ready').waitFor({timeout:90000});await page.waitForFunction(()=>window.LegalAtlas?.ready&&window.DKLAColdCall&&window.DKLAStudy);}
 async function closeDialogs(page){await page.evaluate(()=>{window.DKLAColdCall?.close();window.DKLAStudy?.close();for(const d of document.querySelectorAll('dialog[open]'))d.close();});}
 // The map redraws itself several times a second, replacing its elements. A box

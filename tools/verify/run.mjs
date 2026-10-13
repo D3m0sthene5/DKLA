@@ -19,6 +19,8 @@ const argv=process.argv.slice(2),option=name=>{const i=argv.indexOf(name);return
 const group=option('--group'),serial=argv.includes('--serial');
 const tasks=group?all.filter(t=>t.group===group):all;
 if(!tasks.length)throw Error('No steps in group '+group);
+// Steps are tracked by name, so two with one name would silently run as one.
+for(const [index,task] of all.entries())if(all.findIndex(other=>other.name===task.name)!==index)throw Error('Two verification steps are both named "'+task.name+'"');
 
 // The older one-at-a-time entry points list the same scripts. If a script is
 // added there and not here, the fast pass would silently cover less: refuse.

@@ -378,12 +378,40 @@ _MATCH={}
 def _match_init(slim,text_by_id):
     _MATCH.update(text=text_by_id,folded={id:text.casefold() for id,text in text_by_id.items()},patterns=[(e,p) for e in slim if (p:=citation_pattern(e)) is not None])
 
+def _literals(e):
+    """Words one of which must appear, in any case, in a text for this entry's
+    citation pattern to match it (see citation_pattern). None: no shortcut."""
+    id=e['id']
+    if id.startswith('restatement-'): return ('restatement',)
+    if id.startswith('consumer-'): return ('rlcc','restatement')
+    if id.startswith('ucc-') and id[4:][0].isdigit(): return ('ucc','u.c.c.')
+    return None
+
+def _number(e):
+    id=e['id']
+    if id.startswith(('restatement-','consumer-')): return id.split('-')[-1]
+    if id.startswith('frcp-') and id[5:] not in ['71A','forms']: return id[5:].casefold()
+    if id.startswith('ucc-') and id[4:][0].isdigit(): return id[4:].casefold()
+    return None
+
 def _match_chunk(jobs):
     text,folded,out=_MATCH['text'],_MATCH['folded'],[]
+    mentioning=_MATCH.setdefault('mentioning',{})
     for index,candidates in jobs:
         e,pattern=_MATCH['patterns'][index]
         candidate=e.get('section','').casefold() if e['collection']=='uscode' else None
         ids=text if candidates is None else candidates
+        literals=_literals(e)
+        if literals and candidates is None:
+            # Most accounts never mention the Restatement or the UCC at all:
+            # search only those that do. The result is unchanged, and --check
+            # would fail on any link this dropped.
+            if literals not in mentioning: mentioning[literals]=[id for id in text if any(word in folded[id] for word in literals)]
+            ids=mentioning[literals]
+        # Likewise the provision's own number is written out in every pattern
+        # for these collections, so a text without it cannot match.
+        number=_number(e)
+        if number is not None: ids=[id for id in ids if number in folded[id]]
         out.append((index,sorted(id for id in ids if (candidate is None or candidate in folded[id]) and (bool(citation_matches(e,pattern,text[id])) if e['id'].startswith('const-art-') else pattern.search(text[id])))))
     return out
 

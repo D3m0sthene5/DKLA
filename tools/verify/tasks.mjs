@@ -9,16 +9,23 @@
    Which steps are independent of the build was established by running each
    with no build output present and by reading what it opens. If you add a
    step and are not sure, make it need 'package public files'. */
+import os from 'node:os';
 import {python} from '../runtime.mjs';
 import {buildSteps} from '../build-steps.mjs';
 const py=(...args)=>[python,['-X','utf8',...args]],node=(...args)=>[process.execPath,args],test=file=>node('--test',file);
+// Not a real dependency: the two steps that read tens of thousands of files
+// wait for the assembler so they do not slow the chain everything else hangs on.
+const AFTER_ASSEMBLY=['assemble the atlas'];
 const SOURCE=['source reassembles'],ASSEMBLED=['assemble the atlas','analytics catalogue'],PACKAGED=['package public files'],SERVER=['preview server'];
+// Each Home window size loads the whole atlas in its own browser. Nine at once
+// is fastest on a 16-thread machine; smaller machines get proportionally fewer.
+const HOME_WORKERS=Math.max(2,Math.min(9,Math.round(os.availableParallelism()*9/16)));
 const step=(group,name,command,needs=[])=>({group,name,command,needs});
 
 export const tasks=[
   // Reads every source file once, checks any cached copy against it and leaves
   // the cache fresh, so the steps below share this one read (see tools/source/tree.py).
-  step('source','source reassembles',py('tools/source/check.py','--verify')),
+  step('source','source reassembles',py('tools/source/check.py','--verify'),AFTER_ASSEMBLY),
   // The build does not wait for that step: it uses the cache if the files are
   // unchanged since it was written, and the step above fails the pass if the
   // cache and the files ever disagree.
@@ -33,10 +40,12 @@ export const tasks=[
   step('features','reading panel',node('tools/v25/reading_check.cjs')),
   step('features','geography module',node('tools/v25/geography_check.cjs')),
   step('features','ratings sync',test('tools/sync/sync.test.mjs')),
-  step('guards','content inventory',py('tools/verify/content.py')),
+  step('guards','content inventory',py('tools/verify/content.py'),AFTER_ASSEMBLY),
 
   // Dataset and review-record checks: they read the datasets, not the build.
-  step('datasets','authorities',py('tools/v25/authorities_build.py','--check'),SOURCE),
+  // The heaviest dataset check (it uses several processes): start it at once so
+  // it is finished before the browsers need the processor.
+  step('datasets','authority citation links',py('tools/v25/authorities_build.py','--check')),
   step('datasets','U.S. Code',py('tools/v25/uscode_build.py','--check')),
   step('datasets','timeline audit',py('tools/v25/check_timeline_audit.py','--json'),SOURCE),
   step('datasets','explanation inventory',py('tools/v25/explanation_inventory.py','--check'),SOURCE),
@@ -69,5 +78,5 @@ export const tasks=[
   step('browser','public files and server',node('tools/verify/check_public.mjs','{url}'),SERVER),
   step('browser','29 interactions',node('tools/verify/browser_smoke.cjs','--url','{page}','--output','work/browser-smoke'),SERVER),
   step('browser','map geometry',py('tools/verify/compare_geometry.py','tools/verify/geometry','work/browser-smoke'),['29 interactions']),
-  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers=9','--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'}},
+  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers='+HOME_WORKERS,'--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'}},
 ];
