@@ -138,9 +138,9 @@ test('configured preview reads and writes ratings without identity linkage, keep
   assert.ok(h.calls.limit.every(([key, count]) => key === 'sync:127.0.0.1' && count === 120));
 });
 
-test('configured production keeps identity linkage for successful reads and writes', async () => {
+test('configured production sync never links browser identities', async () => {
   const h = harness({ configured: true, environment: 'production' });
   assert.equal((await h.call('write', { production: rating() })).status, 200);
   assert.equal((await h.call('read')).status, 200);
-  assert.equal(h.calls.identity.length, 2); assert.equal(h.calls.limit.length, 2);
+  assert.equal(h.calls.identity.length, 0); assert.equal(h.calls.limit.length, 2);
 });

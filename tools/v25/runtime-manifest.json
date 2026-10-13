@@ -1,8 +1,11 @@
 {
   "schemaVersion": 1,
   "purpose": "Ordered source modules around the exact reconstructed src/ base (historical r18 is provenance, not a build input); beforeAppCode is the narrow saved-work bridge, and all other modules append normally. Edit source files rather than generated HTML.",
-  "beforeAppCode": ["tools/v25/saved-work.js"],
+  "beforeAppCode": [
+    "tools/v25/saved-work.js"
+  ],
   "javascript": [
+    "tools/performance/brief-loader.js",
     "tools/r19/briefs.js",
     "tools/r19/rlcc.js",
     "tools/r19/rules22.js",
@@ -23,6 +26,7 @@
     "tools/analytics/tracker.js",
     "tools/v25/home-fit.js",
     "tools/v25/native-home.js",
+    "tools/v26/typography.js",
     "tools/v25/boot.js"
   ],
   "stylesheets": [
@@ -35,6 +39,9 @@
     "tools/v25/authorities.css",
     "tools/v25/reading.css",
     "tools/cold-call/frost.css",
-    "tools/analytics/tracker.css"
+    "tools/analytics/tracker.css",
+    "tools/v26/release-font.css",
+    "tools/v26/release.css",
+    "tools/v26/typography.css"
   ]
 }

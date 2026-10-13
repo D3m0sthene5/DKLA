@@ -133,12 +133,12 @@
   document.body.appendChild(sourceDialog);
   let sourceReturn = null;
   function openSourceBrief(id, trigger) {
-    const text = window.DKLABriefs.text(id); if (!text) return;
     const title = window.DKLABriefs.data.entries.find(entry => entry[0] === id)?.[1] || current.title;
     sourceReturn = trigger;
-    sourceDialog.innerHTML = `<header><div><span class="cc-kicker">Full source brief</span><h2 id="ccBriefTitle">${esc(title)}</h2></div><button type="button" id="ccBriefClose" autofocus>← Back to cold call</button></header><div class="cc-brief-body" tabindex="0">${window.DKLABriefs.render(text)}</div>`;
+    sourceDialog.innerHTML = `<header><div><span class="cc-kicker">Full source brief</span><h2 id="ccBriefTitle">${esc(title)}</h2></div><button type="button" id="ccBriefClose" autofocus>← Back to cold call</button></header><div class="cc-brief-body" tabindex="0"></div>`;
     sourceDialog.querySelector('#ccBriefClose').onclick = closeSourceBrief;
     sourceDialog.showModal();
+    window.DKLABriefLoader.fill(sourceDialog.querySelector('.cc-brief-body'), id, window.DKLABriefs.render);
   }
   function closeSourceBrief() {
     sourceDialog.close(); sourceDialog.replaceChildren();

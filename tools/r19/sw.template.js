@@ -1,4 +1,4 @@
-/* DKLA offline worker. The build id below changes whenever the atlas changes (tools/r18/assemble.py
+/* DKLA offline worker. The build id below changes whenever the atlas changes (tools/r19/assemble.py
    stamps it), which installs a new worker beside the old one. The new copy waits until the reader
    accepts the reload prompt, so the page is never swapped mid-session. */
 const BUILD = '__DKLA_BUILD__';
@@ -12,7 +12,9 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
-    for (const key of await caches.keys()) if (key.startsWith('dkla-') && key !== CACHE) await caches.delete(key);
+    // Retain prior installed shells during the v2.6 migration. A reviewed cache
+    // retention policy belongs to the later demand-loading stage. Never delete
+    // the last offline copy while another release or tab may still need it.
     await self.clients.claim();
   })());
 });
@@ -34,14 +36,21 @@ self.addEventListener('fetch', event => {
   // Sync, version checks, source PDFs and page scans always go to the network: they are large, they are
   // fetched in byte ranges, and the atlas already shows their text when they cannot be reached.
   if (path.startsWith('api/') || path === 'admin' || path.startsWith('assets/admin/') || path.startsWith('__analytics_identity') || path === 'version.json' || path === 'sw.js' || path.startsWith('added-sources/') || path.startsWith('DKLA-sources/')) return;
-  const isAtlas = path === '' || path === 'index.html' || path === ATLAS;
+  const isAtlas = path === '' || path === 'index.html' || path === ATLAS || /^DKLA-[rv][0-9.]+\.html$/.test(path);
   if (!isAtlas && !SHELL.includes(path)) return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
     if (isAtlas) {
       try {
         const response = await fetch(request);
-        if (response.ok) { await cache.put(ATLAS, response.clone()); return response; }
+        if (response.ok) {
+          // Historical public HTML may still return its original body. Only the
+          // canonical route (including a verified redirect) may replace this shell.
+          const canonical = new URL(ATLAS, self.registration.scope).pathname;
+          const finalPath = new URL(response.url || request.url).pathname;
+          if (path === '' || path === 'index.html' || path === ATLAS || finalPath === canonical) await cache.put(ATLAS, response.clone());
+          return response;
+        }
         const offline = await cache.match(ATLAS);
         return offline || response;
       } catch (error) {

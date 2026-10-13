@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { configured,ready,query } from '../lib/analytics/db.js';
 import { noStore,send,body,sameOrigin,limit,ip,passwordMatches,randomUUID,sign,setCookie,ADMIN_COOKIE,admin,fail,digest } from '../lib/analytics/security.js';
-import { mergeProfiles,undoMerge,deleteProfile } from '../lib/analytics/identity.js';
+import { undoMerge,deleteProfile } from '../lib/analytics/identity.js';
 import { dataPage,locations,storage,suggestions,compactOldest,housekeeping } from '../lib/analytics/reports.js';
 import { validId } from '../lib/analytics/validate.js';
 const page=readFileSync(new URL('../assets/admin/index.html',import.meta.url),'utf8');
@@ -32,13 +32,7 @@ export default async function handler(req,res){
     if(action==='logout'){await query('UPDATE dkla_admin_sessions SET revoked=true WHERE id=$1',[auth.id]);setCookie(res,ADMIN_COOKIE,'',0);return send(res,200,{ok:true});}
     if(action==='label'){const label=typeof input.label==='string'?input.label.trim().slice(0,80):'';await query('UPDATE dkla_profiles SET label=$2 WHERE id=$1',[validId(input.id),label]);}
     else if(action==='watch'||action==='exclude'){await query(`UPDATE dkla_profiles SET ${action==='watch'?'watched':'excluded'}=$2 WHERE id=$1`,[validId(input.id),Boolean(input.enabled)]);}
-    else if(action==='merge'){
-      const source=validId(input.source),target=validId(input.target);await mergeProfiles(source,target);
-      await query('INSERT INTO dkla_reviews(pair,decision) VALUES($1,\'confirmed\') ON CONFLICT(pair) DO UPDATE SET decision=EXCLUDED.decision',[[source,target].sort().join(':')]);
-    }
-    else if(action==='reject'){
-      const source=validId(input.source),target=validId(input.target);await query('INSERT INTO dkla_reviews(pair,decision) VALUES($1,\'rejected\') ON CONFLICT(pair) DO UPDATE SET decision=EXCLUDED.decision',[[source,target].sort().join(':')]);
-    }
+    else if(action==='merge'||action==='reject')throw fail(410,'browser-matching-disabled');
     else if(action==='undo'){await undoMerge(validId(input.id));}
     else if(action==='delete'){
       const [profile]=await query('SELECT handle FROM dkla_profiles WHERE id=$1',[validId(input.id)]);if(!profile||input.confirmation!==profile.handle)throw fail(400,'confirmation-must-match-handle');await deleteProfile(input.id);

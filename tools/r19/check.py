@@ -94,7 +94,7 @@ else:
     require(False, 'Node.js is required to validate every rebuilt JavaScript block')
 
 version = json.loads((BUILD / "version.json").read_text(encoding="utf-8"))
-require(version.get("build") == data.get("build") and version.get("file") == TARGET.name, "version.json does not describe this build")
+require(version.get("build") == data.get("build") and version.get("file") == TARGET.name and version.get("version") == data.get("version"), "version.json does not describe this build")
 sw = (BUILD / "sw.js").read_text(encoding="utf-8")
 require(f"const BUILD = '{data['build']}';" in sw and TARGET.name in sw, "sw.js does not serve this build")
 require(TARGET.name in (BUILD / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")

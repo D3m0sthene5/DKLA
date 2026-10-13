@@ -20,10 +20,10 @@ DATA = PARTS / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 from source import read_source, source_hash
 BUILD = ROOT / "work/build"
-TARGET = BUILD / "DKLA-v2.5.html"
+TARGET = BUILD / "DKLA-v2.6.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v2.5"
-LABEL = "v2.5"
+VERSION = "v2.6"
+LABEL = "v2.6"
 
 def unique_config_object(pairs):
     """Reject ambiguous configuration, never apply this to inherited legal data."""
@@ -44,6 +44,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V26 = {
+    "v": "v2.6", "date": "2026-10-12",
+    "text": "The legal dictionary has a spine in the authorities header. Cold Call adds restrained ice and vapor detail, and technical typography improves atlas and Supreme Court readability. Hosted full briefs load when opened; complete portable HTML retains every brief. Analytics recognizes a browser only through its first-party cookie, without recovering cleared identifiers from browser storage or ratings sync.",
+}
 CHANGELOG_V25_READING = {
     "v": "v2.5", "date": "2026-10-11",
     "text": "Case reading panels open with one plain-English explanation and retain their full legal analysis. Timelines are visible immediately, with one synthesis and no repeated synopsis, step-count caption or expand control. Cold Call reads directly as a narrative without practice controls or a repeated introduction. Rules & authorities uses nested atlas rectangles and ribbons for the Constitution, Federal Rules, U.S. Code and assigned Contracts authorities. Recorded source comparisons, bounded source lookups and an explicit runtime-module manifest support later audits without editing generated HTML.",
@@ -377,7 +381,7 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V26, CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:

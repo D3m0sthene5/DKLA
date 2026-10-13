@@ -1,8 +1,14 @@
 # DKLA: current agent instructions
 
-Start with `tools/stage2/HANDOFF.md` and `tools/v25/ARCHITECTURE.md`.
+Start with `tools/v26/HANDOFF.md`, then `tools/stage2/HANDOFF.md` and `tools/v25/ARCHITECTURE.md`.
 The latest owner brief takes precedence. Work in bounded stages and branches;
 only the owner promotes production. Preview analytics must stay disabled.
+One explicit owner-authorized exception applies to the reviewed v2.6 release:
+the dictionary, ice, typography/version, full-brief demand loading, reviewed
+cookie-only analytics, and tested source/build/preservation
+changes may be published to dannykind.wiki and dkla.dev. Build again in the
+production environment; do not promote the collector-disabled preview artifact.
+Future rebuild stages remain preview-only without further owner authorization.
 Never inspect visitor records, secrets, production storage, or paid services.
 
 ## Source and commands
@@ -41,8 +47,9 @@ checks are not legal certification. All 392 main cases need authored Cold Call
 narratives; supporting narratives are optional and completed ones stay intact.
 
 Keep the original v2.5 native map geometry, colored course clusters, lower
-precincts, zoom and labels. Only the approved authorities-header dictionary spine
-and bounded downward Cold Call frost/vapor polish differ from the frozen baseline.
+precincts, zoom and labels. The approved authorities-header dictionary spine, bounded downward Cold Call
+frost/vapor polish, and v2.6 typography/SCOTUS internal readability refresh differ
+from the frozen baseline.
 No redesign. Curated placement stays locked while the camera pans and zooms.
 A case has one unlabeled plain-English introduction; timelines are visible with
 one synthesis. Cold Call opens its authored narrative without practice controls.
@@ -55,8 +62,9 @@ not an explicit storage service; see tools/v25/saved-work.js and its tests.
 
 ## Stage gate
 
-Run the source identity check, release checks, stage 1 content guard and all
-29 browser smoke checks plus geometry comparisons at all three viewports.
+Run the source identity check, release checks, v2.6 content guard, the full-brief
+lifecycle check, and all 29 browser smoke checks plus geometry comparisons at
+all three viewports.
 Use synthetic disposable browser storage; block external requests and APIs.
 Extend coverage for changed behavior. Obtain a fresh independent review before
 publishing each stage preview. Handoff notes must distinguish proved checks from

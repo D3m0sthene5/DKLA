@@ -60,7 +60,7 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
       // Pennoyer's source is an external opinion; use an account that actually
       // carries an embedded full-brief source for the nested return check.
       await page.locator('#ccClose').click();await route(page,'node=alaska-packers');await page.locator('#inspector [data-cold-call="alaska-packers"]').click();
-      await page.locator('#coldCallDialog [data-cc-source-brief]').first().click();await page.locator('#ccBriefDialog[open]').waitFor();assert.ok((await page.locator('.cc-brief-body').innerText()).length>500);await page.locator('#ccBriefClose').click();
+      await page.locator('#coldCallDialog [data-cc-source-brief]').first().click();await page.locator('#ccBriefDialog[open]').waitFor();await page.waitForFunction(()=>document.querySelector('.cc-brief-body')?.innerText.length>500);assert.ok((await page.locator('.cc-brief-body').innerText()).length>500);await page.locator('#ccBriefClose').click();
       assert.ok(await page.locator('#coldCallDialog').evaluate(d=>d.open));await page.locator('#ccClose').click();assert.ok(await page.locator('#inspector').isVisible());return {paragraphs,nestedSourceReturn:true};
     });
     await check(viewport.name+': dictionary legacy route and search',async()=>{

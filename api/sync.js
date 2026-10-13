@@ -6,7 +6,6 @@ import { createHash } from 'node:crypto';
 import { list, put, del, get } from '@vercel/blob';
 import { sameOrigin, body as readBody, ip, limit, fail } from '../lib/analytics/security.js';
 import { configured } from '../lib/analytics/db.js';
-import { verifiedSync } from '../lib/analytics/identity.js';
 
 const CODE = /^[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
 const MAX_BYTES = 512 * 1024;
@@ -109,7 +108,6 @@ export default async function handler(req, res) {
       if (body.action === 'read') {
         if (!blobs.length) return send(res, 404, { error: 'unknown-code' });
         const ratings = await readAll(blobs);
-        if (process.env.VERCEL_ENV !== 'preview' && configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
         return send(res, 200, { data: { ratings }, updatedAt: blobs[0].uploadedAt });
       }
       if (body.action && body.action !== 'write') return send(res, 400, { error: 'bad-action' });
@@ -122,7 +120,6 @@ export default async function handler(req, res) {
       // after our listing are not deletion candidates, so their independent updates remain safe.
       const stale = blobs.slice(KEEP - 1).map(b => b.url);
       if (stale.length) await del(stale).catch(() => {});
-      if (process.env.VERCEL_ENV !== 'preview' && configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
       return send(res, 200, { data: { ratings: merged }, updatedAt: new Date().toISOString(), id: saved.pathname });
     }
     res.setHeader('allow', 'POST');
