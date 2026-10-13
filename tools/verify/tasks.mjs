@@ -47,6 +47,7 @@ export const tasks = [
   step('features', 'geography module', node('tools/v25/geography_check.cjs')),
   step('features', 'ratings sync', test('tools/sync/sync.test.mjs')),
   step('public', 'old addresses redirect', node('tools/verify/check_routes.mjs')),
+  step('public', 'configuration files are valid', node('tools/verify/check_config.mjs')),
   // Code stays readable: run `pnpm format` if this fails.
   step(
     'source',

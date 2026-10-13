@@ -17,6 +17,7 @@
     "smoke": "node tools/verify/smoke.mjs",
     "verify": "node tools/verify/all.mjs",
     "verify:teeth": "node tools/verify/break.mjs",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.0",
