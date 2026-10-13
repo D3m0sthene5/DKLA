@@ -6,10 +6,10 @@ const assert = require('node:assert/strict');
 const { chromium } = require('@playwright/test');
 const args = process.argv.slice(2);
 const option = (name, fallback) => { const i=args.indexOf(name); return i<0?fallback:args[i+1]; };
-const url = option('--url', 'http://127.0.0.1:8765/DKLA-v2.5.html');
+const url = option('--url', 'http://127.0.0.1:8766/DKLA-v2.6.html');
 const target = new URL(url);
 if (!['127.0.0.1','localhost','[::1]'].includes(target.hostname)) throw Error('Only a loopback preview is allowed.');
-const output = path.resolve(option('--output', 'work/stage1-browser'));
+const output = path.resolve(option('--output', 'work/browser-smoke'));
 fs.mkdirSync(output,{recursive:true});
 const report = {url, startedAt:new Date().toISOString(), checks:[], blockedRequests:[], pageErrors:[], screenshots:[],
   coverage:'Representative real-browser smoke checks, not a complete legal/content/accessibility audit. Storage fixtures are synthetic and isolated.',

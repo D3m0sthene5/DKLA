@@ -1,20 +1,28 @@
-"""v2.6 gate: exact original legal data, narrowly pinned runtime and release metadata changes."""
-import contextlib
+"""Release guard: the built atlas still carries the original legal data and runtime.
+
+1. The editable source under src/ reassembles to the exact original bytes.
+2. Every executable and data block in the built HTML matches the approved
+   v2.5 block, apart from the reviewed replacements listed in
+   tools/performance/approved-runtime.json, the presentation module
+   tools/v26/typography.js, and the version/build/changelog metadata.
+3. The embedded font still carries its licence.
+
+Content files are covered by tools/verify/content.py. Run after `pnpm build`.
+"""
 import base64
 import hashlib
-import io
-import importlib.util
 import json
 import re
 import sys
 from pathlib import Path
-from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[2]
-spec = importlib.util.spec_from_file_location('stage2_guard', ROOT / 'tools/stage2/content_guard.py')
-previous = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(previous)
+sys.path.insert(0, str(ROOT / 'tools'))
+from source import read_source
 
+# SHA-256 of the approved v2.5 application and of the original source it was built from.
+APP_SHA = '185dcdbbb78113a5a7ed95c702f819d59eb687417f76534e1e6807cff8001f91'
+SOURCE_SHA = 'bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1'
 
 def script_identity(raw):
     records = []
@@ -23,7 +31,7 @@ def script_identity(raw):
         ident = ident[1].decode() if ident else None
         if ident == 'dklaR19Briefs':
             approved = json.loads((ROOT / 'tools/performance/approved-runtime.json').read_bytes())
-            assert approved['artifactSha256'] == previous.APP_SHA
+            assert approved['artifactSha256'] == APP_SHA
             # Restore only explicitly reviewed module replacements before comparing
             # the complete earlier runtime. Every other script/data byte stays pinned.
             for record in approved['replacements']:
@@ -61,44 +69,16 @@ def script_identity(raw):
 
 
 def main():
-    source = previous.read_source()
-    assert hashlib.sha256(source).hexdigest() == previous.SOURCE_SHA, 'Original legal/source bytes changed'
+    assert hashlib.sha256(read_source()).hexdigest() == SOURCE_SHA, 'Original legal/source bytes changed'
     frozen = json.loads((ROOT / 'tools/v26/approved-v25-scripts.json').read_bytes())
-    assert frozen['artifactSha256'] == previous.APP_SHA
+    assert frozen['artifactSha256'] == APP_SHA
     current = (ROOT / 'work/build/DKLA-v2.6.html').read_bytes()
     assert script_identity(current) == frozen['scripts'], 'Executable/data bytes changed beyond the pinned runtime and release metadata exceptions'
-    for css, font, license in [('release-font.css', 'Orbitron-wght.ttf', 'OFL.txt')]:
-        body = (ROOT / 'tools/v26' / css).read_bytes()
-        assert base64.b64encode((ROOT / 'tools/v26/assets' / font).read_bytes()) in body
-        assert (ROOT / 'tools/v26/assets' / license).read_text(encoding='utf-8').strip() in body.decode().replace('\r\n', '\n'), 'Font license missing'
-    stream = io.StringIO()
-    with contextlib.redirect_stdout(stream):
-        try:
-            previous.stage1.verify(SimpleNamespace(
-                manifest=ROOT / 'tools/stage1/baseline/content-manifest.json',
-                allow=previous.VISUAL_PATHS + ['api/admin.js', 'assets/admin/app.js',
-                    'assets/admin/us-map.js', 'assets/admin/management.css',
-                    'lib/analytics/collect.js', 'lib/analytics/identity.js',
-                    'lib/analytics/reports.js', 'lib/analytics/security.js'], canonical=['DKLA-r18.html'],
-                allow_config=['package.json', 'vercel.json'],
-                allow_build_source=previous.BUILD_PATHS + ['tools/r19/sw.template.js', 'tools/r19/check_worker.cjs',
-                    'tools/r19/briefs.js', 'tools/cold-call/reader.js',
-                    'assets/admin/index.html', 'how-to-use.html', 'privacy.html', 'tools/analytics/README.md',
-                    'tools/analytics/analytics.test.mjs',
-                    'tools/analytics/check.mjs', '.github/workflows/cold-call.yml',
-                    'tools/v25/home-fit.spec.mjs'],
-                allow_build_outputs=False, allow_module=[], allow_release_build=False,
-                allow_saved_work=False, report=None))
-        except SystemExit as result:
-            if result.code:
-                raise ValueError(stream.getvalue())
-    report = json.loads(stream.getvalue())
-    report.update(originalSourceSha256=previous.SOURCE_SHA, frozenV25Sha256=previous.APP_SHA,
-                  v26Sha256=hashlib.sha256(current).hexdigest(), pinnedScripts=len(frozen['scripts']),
-                  allowedDataChange='Only dklaR19Data top-level version/build and the exact first v2.6 changelog entry')
-    output = ROOT / 'work/v26-content-guard.json'
-    output.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps({k: report[k] for k in ['pass', 'checked', 'pinnedScripts', 'originalSourceSha256', 'v26Sha256']}))
+    body = (ROOT / 'tools/v26/release-font.css').read_bytes()
+    assert base64.b64encode((ROOT / 'tools/v26/assets/Orbitron-wght.ttf').read_bytes()) in body
+    assert (ROOT / 'tools/v26/assets/OFL.txt').read_text(encoding='utf-8').strip() in body.decode().replace('\r\n', '\n'), 'Font license missing'
+    print(json.dumps({'pass': True, 'originalSourceSha256': SOURCE_SHA, 'pinnedScripts': len(frozen['scripts']),
+                      'builtSha256': hashlib.sha256(current).hexdigest()}))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,42 @@
+name: Check DKLA
+# Builds the site from source and runs every check, including a real browser
+# against the built output. It never deploys; Vercel builds separately.
+on:
+  push:
+    branches:
+      - claude/atlas-design-content-audit-m1cw9x
+    paths: ['src/**', 'tools/**', 'api/**', 'lib/**', 'assets/**', 'package.json', 'pnpm-lock.yaml', 'vercel.json', '.github/workflows/check.yml']
+  pull_request:
+    paths: ['src/**', 'tools/**', 'api/**', 'lib/**', 'assets/**', 'package.json', 'pnpm-lock.yaml', 'vercel.json', '.github/workflows/check.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: pnpm/action-setup@v4
+      - name: Install
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+      - name: Build and run every check
+        run: pnpm verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-check-screenshots
+          path: |
+            work/browser-smoke/
+            test-results/

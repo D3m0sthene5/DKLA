@@ -1,5 +1,4 @@
 node_modules/
-DKLA-standalone.html
 .DS_Store
 .claude/
 __pycache__/
@@ -9,5 +8,7 @@ __pycache__/
 lib/analytics/asn/*.gz
 lib/analytics/asn/version.json
 tools/analytics/.qa/
+# Build output and scratch space: never commit these.
 dist/
 work/
+test-results/
