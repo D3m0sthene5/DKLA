@@ -67,8 +67,9 @@ for the SCOTUS History block to be drawn as the Supreme Court building.
 `court()` in typography.js draws, inside the block's original bounds, a
 pediment with nine abstract figures after the west pediment's sculpture group
 (an enthroned Liberty with scales, two guardians, councillors, a reclining
-figure in each corner), the Orbitron title on the frieze, ten columns and
-steps. `.sh-block-bg` stays as the invisible bounds and click target.
+figure in each corner), the Orbitron title on the frieze, eight columns (as
+on the building, so the two end seats stand outside them) and steps. Labels
+read "Todd's / Seat" so the name is plainly the seat's. `.sh-block-bg` stays as the invisible bounds and click target.
 
 Nine bays hold the seats that exist on the data's roster date, each with its
 sitting justice's portrait from the embedded sprite above the seat name. They

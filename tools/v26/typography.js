@@ -31,8 +31,8 @@
   recliner:[[.5,-.8,.14],'M.66 -.58L.36 -.64L-.05 -.34L-.95 -.2V0H.7Z','M.4 -.5L.15 -.05M-.05 -.34L.1 0']
  };
  // The History block is drawn as the Court's west front: a sculpted pediment,
- // the title on the frieze, ten columns, and one sitting justice in each of
- // the nine bays. Outer bounds stay those of the block.
+ // the title on the frieze, eight columns, and nine sitting justices: seven
+ // between the columns and one outside each end. Outer bounds stay those of the block.
  function court(canvas){
   const data=window.SCOTUSHistory?.data,root=canvas.querySelector('[data-sh-open]'),bg=root?.querySelector('.sh-block-bg');
   const groups=[...canvas.querySelectorAll('[data-sh-seat]')];
@@ -69,7 +69,8 @@
   line(`M${x+inset} ${top}H${x+w-inset}`);
   el(root,'path',{d:`M${x+inset+w*.02} ${y+P+E/2}H${mx-clear}M${mx+clear} ${y+P+E/2}H${x+w-inset-w*.02}`,class:'dkla-court-dentils','stroke-width':E*.2,'stroke-dasharray':dash});
   const cap=h*.016,shaftTop=top+cap,shaftBottom=bottom-cap;
-  for(let i=0;i<10;i++){
+  // The building has eight columns, so the two end seats sit outside them.
+  for(let i=1;i<9;i++){
    const cx=x+pad+i*pitch;
    el(root,'rect',{x:cx-cw*.25,y:top,width:cw*1.5,height:cap,class:'dkla-court-column'});
    el(root,'rect',{x:cx,y:shaftTop,width:cw,height:shaftBottom-shaftTop,class:'dkla-court-column'});
@@ -94,10 +95,11 @@
   live.filter(seat=>seat!==chief).sort((a,b)=>since(a)<since(b)?-1:since(a)>since(b)?1:0)
    .forEach((seat,rank)=>{order[centre+(rank%2?1:-1)*(Math.floor(rank/2)+1)]=seat;});
   const first=Math.max(0,Math.round((9-order.length)/2));
-  const names=order.map(seat=>seat.label.replace(/^The /,'').replace(/ seat$/,''));
+  // "Todd's / Seat": the name under a portrait is the seat's, not the justice's.
+  const names=order.map(seat=>/ seat$/.test(seat.label)?[seat.label.replace(/^The /,'').replace(/ seat$/,'')+'\u2019s','Seat']:seat.label.split(' '));
   const bw=pitch-cw,gap=bw*.07,sprite=getComputedStyle(document.documentElement).getPropertyValue('--sh-sprite').trim().replace(/^url\(["']?|["']?\)$/g,'');
-  const fs=Math.min(...names.map(name=>fitted(name,bw*.2,bw-2*gap,false)));
-  const pw=Math.min(bw-2*gap,(bottom-top-cap*2-fs*1.5-gap*3)*.8),ph=pw*1.25,py=(top+bottom-ph-gap-fs*1.2)/2;
+  const fs=Math.min(...names.flat().map(row=>fitted(row,bw*.185,bw-2*gap,false))),lead=fs*1.16,lines=Math.max(...names.map(rows=>rows.length));
+  const pw=Math.min(bw-2*gap,(bottom-top-cap*2-lead*lines-fs*.4-gap*3)*.8),ph=pw*1.25,py=(top+bottom-ph-gap-lead*lines)/2;
   for(const group of groups){
    const index=order.findIndex(seat=>seat.id===group.dataset.shSeat),r=group.querySelector('rect');
    if(index<0||!r){group.remove();continue;}
@@ -111,7 +113,9 @@
     el(group,'title',{}).textContent=`${order[index].label} · ${person.name}`;
    }
    el(group,'rect',{x:mid-pw/2,y:py,width:pw,height:ph,class:'dkla-court-frame','pointer-events':'none'});
-   text(group,names[index],mid,py+ph+gap+fs*.92,fs,'dkla-seat-label');
+   // One text element per seat, so wrapped rows count as a single label.
+   const label=text(group,'',mid,py+ph+gap+fs*.92,fs,'dkla-seat-label');
+   names[index].forEach((row,i)=>{el(label,'tspan',{x:mid,dy:i?lead:0}).textContent=row;});
   }
  }
  function refresh(){
