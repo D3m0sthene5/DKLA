@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--original', action='store_true', help='Require the approved r18 extraction identity')
     parser.add_argument('--record', nargs=2, metavar=('BLOCK', 'JSON_POINTER'))
     parser.add_argument('--chars', type=int, default=4000)
+    parser.add_argument('--emit', action='store_true', help='Write the reassembled original HTML bytes to standard output')
     args = parser.parse_args()
     if args.record:
         part = find_record(*args.record)
@@ -24,6 +25,9 @@ def main():
         print(json.dumps(result, ensure_ascii=True, indent=2))
         return
     raw = read_source()
+    if args.emit:
+        sys.stdout.buffer.write(raw)
+        return
     manifest = load_manifest('manifest.json')
     if args.original and source_hash(raw) != manifest['originSha256']:
         raise ValueError('Editable source does not reproduce the approved original bytes')

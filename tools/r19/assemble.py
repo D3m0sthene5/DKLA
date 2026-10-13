@@ -757,7 +757,7 @@ def main() -> None:
     (BUILD / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
     # Publish routing and metadata with the generated artifact, never a half-release.
     index = BUILD / "index.html"
-    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (ROOT / "index.html").read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (Path(__file__).with_name("index.template.html")).read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     route_path = ROOT / "vercel.json"
     routes = json.loads(route_path.read_text(encoding="utf-8"), object_pairs_hook=unique_config_object)
     destination = "/" + TARGET.name

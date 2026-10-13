@@ -33,6 +33,9 @@ CONTENT = [
 NOT_CONTENT = {'tools/v25/runtime-manifest.json', 'tools/v25/home-baseline-fonts.json'}
 
 
+TEXT = {'json', 'md', 'txt', 'html', 'htm', 'csv', 'css', 'js', 'svg', 'gitkeep'}
+
+
 def files(entry):
     base = ROOT / entry
     found = base.rglob('*') if base.is_dir() else ROOT.glob(entry)
@@ -49,6 +52,11 @@ def survey():
         digest, count, size = hashlib.sha256(), 0, 0
         for relative in sorted(files(entry)):
             raw = (ROOT / relative).read_bytes()
+            # Git stores these text files with Unix line endings, but an older
+            # Windows checkout of this repository holds some of them with
+            # CRLF. Treat the two alike for text; every other byte must match.
+            if relative.rsplit('.', 1)[-1].lower() in TEXT:
+                raw = raw.replace(b'\r\n', b'\n')
             sha = hashlib.sha256(raw).hexdigest()
             digest.update(f'{relative}\0{sha}\n'.encode())
             listing.append(f'{sha}  {relative}')
