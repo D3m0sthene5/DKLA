@@ -5,7 +5,7 @@
    case undid it, its fate. v2.5 adds a scoped synthesis and an authored guide to each line.
    - The saved graph's `timelines` is replaced by the new set once (stamped by `rev`). Steps that are not map
      entries get ids that match no entry, so the panel code that walks the steps simply skips them.
-   - r22: every statute or rule step opens an entry (six new rule entries, tools/r19/rules22.js; an event step may
+   - r22: every statute or rule step opens an entry (six new rule entries, src/features/r19/rules22.js; an event step may
      carry `link`, the entry it opens, where that entry is already a step of the same timeline).
    - After the panel draws a timeline, it is redrawn from the full data (turns, fates, supporting cases, events,
      the "where it stands" line).

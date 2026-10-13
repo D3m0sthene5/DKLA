@@ -56,7 +56,10 @@ const context = {
     return { merged: true };
   },
 };
-vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'practice-filter.js'), 'utf8'), context);
+vm.runInNewContext(
+  fs.readFileSync(path.join(__dirname, '../../src/features/v25/practice-filter.js'), 'utf8'),
+  context,
+);
 const api = context.window.DKLAPracticeFilter;
 assert.ok(api, 'Filter API missing');
 assert.equal(context.data.nodes.length, originals.nodes.length - 27);

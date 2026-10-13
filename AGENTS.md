@@ -44,7 +44,7 @@ python tools/atlas.py entry cp-gibbs --chars 12000
 
 The app is not modular. `src/runtime/*.js` are classic scripts loaded in the
 order given by `src/manifest.json`; later layers (listed in
-`tools/v25/runtime-manifest.json`) replace earlier functions by reassigning
+`src/features/manifest.json`) replace earlier functions by reassigning
 shared globals such as `draw`. Read how a function is wrapped before you
 change it: the version that runs is the last one assigned, which may be
 several layers after the one you are reading.
@@ -55,7 +55,7 @@ Until October 2026 every byte of code was frozen and features had to be added
 as new layers on top. That is over. The rule now:
 
 - **Code and styles may be edited in place**, anywhere: `src/runtime/`,
-  `src/styles/`, the feature folders under `tools/`. Fix a function where it
+  `src/styles/`, the feature folders under `src/features/`. Fix a function where it
   is defined instead of wrapping it in another layer.
 - **Nothing proves a code change is safe except what it does.** No guard
   compares code bytes any more. A change is only as safe as the checks that

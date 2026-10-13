@@ -197,7 +197,7 @@ const context = {
   },
   queueMicrotask: (fn) => fn(),
 };
-vm.runInNewContext(fs.readFileSync('tools/v25/reading.js', 'utf8'), context);
+vm.runInNewContext(fs.readFileSync('src/features/v25/reading.js', 'utf8'), context);
 for (let i = 0; i < 20; i++) window.DKLAReading.paint();
 assert.equal(intro.children.length, 1);
 assert.equal(intro.children[0], plain);

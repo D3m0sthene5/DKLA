@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Ordered feature modules (paths from the repository root) around the exact reconstructed src/ base (historical r18 is provenance, not a build input); beforeAppCode is the narrow saved-work bridge, and all other modules append normally. Edit source files rather than generated HTML.",
+  "beforeAppCode": [
+    "src/features/v25/saved-work.js"
+  ],
+  "javascript": [
+    "src/features/performance/brief-loader.js",
+    "src/features/r19/briefs.js",
+    "src/features/r19/rlcc.js",
+    "src/features/r19/rules22.js",
+    "src/features/r19/provisions.js",
+    "src/features/r19/fit.js",
+    "src/features/r19/plain.js",
+    "src/features/r19/r20.js",
+    "src/features/r19/timelines.js",
+    "src/features/r19/audit.js",
+    "src/features/r19/takeaways.js",
+    "src/features/cold-call/reader.js",
+    "src/features/cold-call/frost.js",
+    "src/features/v25/authorities.js",
+    "src/features/v25/reading.js",
+    "src/features/v25/practice-filter.js",
+    "src/features/v25/geography.js",
+    "src/features/analytics/attention.js",
+    "src/features/analytics/tracker.js",
+    "src/features/v25/home-fit.js",
+    "src/features/v25/native-home.js",
+    "src/features/v26/typography.js",
+    "src/features/v25/boot.js"
+  ],
+  "stylesheets": [
+    "src/features/r19/briefs.css",
+    "src/features/r19/polish.css",
+    "src/features/r19/r20.css",
+    "src/features/r19/timelines.css",
+    "src/features/r19/r22.css",
+    "src/features/cold-call/reader.css",
+    "src/features/v25/authorities.css",
+    "src/features/v25/reading.css",
+    "src/features/cold-call/frost.css",
+    "src/features/analytics/tracker.css",
+    "src/features/v26/release-font.css",
+    "src/features/v26/release.css",
+    "src/features/v26/typography.css"
+  ]
+}

@@ -78,6 +78,8 @@ for (const size of sizes)
     });
     await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
     const page = await context.newPage();
+    // A view that never opens fails in seconds instead of waiting out the whole test.
+    page.setDefaultTimeout(15000);
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
@@ -124,7 +126,7 @@ for (const size of sizes)
       () => go('node=cp-pennoyer'),
       async () => {
         await expect(inspector).toContainText('Pennoyer');
-        // The reading layout (tools/v25/reading.js) rebuilt the case header.
+        // The reading layout (src/features/v25/reading.js) rebuilt the case header.
         await expect(inspector.locator('.reader-body.v25-case-reader > .v25-record-header')).toBeVisible();
         await expect(inspector.locator('.v25-record-actions [data-cold-call="cp-pennoyer"]')).toBeVisible();
         await expect(inspector.locator('.v25-record-actions [data-v25-full-brief]')).toBeVisible();

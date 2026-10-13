@@ -12,11 +12,12 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | Path | What it is |
 |---|---|
 | `src/` | **Source of the base app.** The original atlas split into editable parts: `runtime/` (JavaScript), `styles/`, `markup/`, and `data/` (about 30,000 small JSON records: the map, the archives, the dictionary, SCOTUS records). `src/manifest.json` lists the parts in order. |
-| `tools/r19/` | **Source.** Briefs and their data (`data/`), the assembler that builds the app (`assemble.py`), and feature code for briefs, timelines and takeaways. |
-| `tools/cold-call/` | **Source.** Cold Call narratives (`narratives/`), the reader and the frosted button. |
-| `tools/v25/` | **Source.** Rules and authorities, the map geography, the reading panel, the Home layout, and their datasets. |
-| `tools/v26/` | **Source.** Typography, the embedded font, and the SCOTUS building drawn on the map (`typography.js`). |
-| `tools/performance/`, `tools/sync/`, `tools/analytics/` | **Source.** Loading briefs on demand, ratings sync, and the visitor analytics client. |
+| `src/features/` | **Source of everything added since.** The code and styles of each later feature, in a folder named after the revision that introduced it: `r19/` (briefs, timelines, takeaways, the offline worker), `cold-call/` (the reader and the frosted button), `v25/` (rules and authorities, map geography, the reading panel, the Home layout), `v26/` (typography, the embedded font, the SCOTUS building in `typography.js`), `performance/` (loading briefs on demand), `analytics/` (the visitor analytics client). `src/features/manifest.json` lists them in the order they load. |
+| `tools/r19/` | **Content and build.** Briefs and their data (`data/`), and the assembler that builds the app (`assemble.py`). |
+| `tools/cold-call/` | **Content.** Cold Call narratives (`narratives/`), their index and checks. |
+| `tools/v25/` | **Datasets and checks** for rules and authorities, the map geography, the reading panel and the Home layout, and the scripts that build those datasets. |
+| `tools/v26/` | The owner's typography and SCOTUS building decisions (`TYPOGRAPHY.md`) and the font file the embedded font was made from. |
+| `tools/performance/`, `tools/sync/`, `tools/analytics/` | Tests and build steps for loading briefs on demand, ratings sync and visitor analytics. |
 | `tools/r12/` | Three course layout designs still read by the geography check. |
 | `tools/verify/` | **Checks.** See "How to know it still works". |
 | `tools/*.mjs`, `tools/source/` | The build, the local preview server, and tools for reading single records out of `src/data`. |
@@ -31,10 +32,10 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | `archive/` | The retired pipeline that first built the SCOTUS data, and one old verification record. Not used by the build. |
 | `dist/`, `work/`, `test-results/`, `node_modules/` | **Output and scratch.** Created by the build and the checks. Never committed. |
 
-The shipped code lives partly under `tools/` for historical reasons: later
-features were added as layers on top of the base app, each in the folder of the
-revision that introduced it. `tools/v25/runtime-manifest.json` is the ordered
-list of those layers.
+All code that reaches a visitor is under `src/`. Later features were added as
+layers on top of the base app; `src/features/manifest.json` is the ordered list
+of those layers. Their datasets and checks are still under `tools/`, in the
+folder with the same name.
 
 ## How to build it
 

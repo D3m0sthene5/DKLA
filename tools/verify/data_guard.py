@@ -78,7 +78,7 @@ def main():
             print('The order or set of data blocks changed.')
         sys.exit(1)
     # The embedded font must still carry its licence.
-    body = (ROOT / 'tools/v26/release-font.css').read_bytes()
+    body = (ROOT / 'src/features/v26/release-font.css').read_bytes()
     assert base64.b64encode((ROOT / 'tools/v26/assets/Orbitron-wght.ttf').read_bytes()) in body
     assert (ROOT / 'tools/v26/assets/OFL.txt').read_text(encoding='utf-8').strip() in body.decode().replace('\r\n', '\n'), 'Font license missing'
     print(json.dumps({'pass': True, 'dataBlocks': len(current)}))

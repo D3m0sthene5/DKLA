@@ -158,9 +158,13 @@ context.R11.step = () => {
 };
 vm.createContext(context);
 vm.runInContext(pointerLines.join('\n'), context, { filename: 'immutable-pointer-handlers.js' });
-vm.runInContext(fs.readFileSync(path.join(__dirname, 'geography.js'), 'utf8'), context, {
-  filename: 'geography.js',
-});
+vm.runInContext(
+  fs.readFileSync(path.join(__dirname, '../../src/features/v25/geography.js'), 'utf8'),
+  context,
+  {
+    filename: 'geography.js',
+  },
+);
 assert(context.window.DKLAGeography.locked);
 const h = JSON.stringify(data.studyMap.homes['cp-pennoyer']);
 function event(type, x, y, pointerType = 'mouse', id = 1) {

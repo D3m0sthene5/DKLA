@@ -4,7 +4,10 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { webcrypto } from 'node:crypto';
 import { splitBriefs, sha } from './package.mjs';
-const source = fs.readFileSync(new URL('./brief-loader.js', import.meta.url), 'utf8');
+const source = fs.readFileSync(
+  new URL('../../src/features/performance/brief-loader.js', import.meta.url),
+  'utf8',
+);
 const raw = '{"alpha":"Exact \\u003cquote> \\/ café\\nnext","beta":"Second brief"}';
 const split = splitBriefs('<script type="application/json" id="dklaR19Full">' + raw + '</script>');
 function fixture(options = {}) {

@@ -15,7 +15,7 @@ import { root } from '../runtime.mjs';
 
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 const base = JSON.parse(read('src/manifest.json'));
-const layers = JSON.parse(read('tools/v25/runtime-manifest.json'));
+const layers = JSON.parse(read('src/features/manifest.json'));
 // Load order: the saved-work bridge, the base app's scripts, then the feature layers.
 const files = [
   ...layers.beforeAppCode,

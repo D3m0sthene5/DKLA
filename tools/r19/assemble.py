@@ -413,7 +413,7 @@ def load_runtime_modules() -> tuple[str, str, list[dict]]:
     Named boundary comments point a generated script error back to its source;
     integrity records preserve hashes and line ranges for each source module.
     """
-    manifest = json.loads((ROOT / 'tools/v25/runtime-manifest.json').read_text(encoding='utf-8'))
+    manifest = json.loads((ROOT / 'src/features/manifest.json').read_text(encoding='utf-8'))
     records, outputs = [], []
     for kind in ('javascript', 'stylesheets'):
         chunks, offset, seen = [], 1, set()
@@ -429,7 +429,7 @@ def load_runtime_modules() -> tuple[str, str, list[dict]]:
             chunks.append(chunk); offset += line_count
         outputs.append(''.join(chunks))
     pre_paths = manifest.get('beforeAppCode', [])
-    if pre_paths != ['tools/v25/saved-work.js']:
+    if pre_paths != ['src/features/v25/saved-work.js']:
         raise ValueError('Expected only the saved-work compatibility adapter before appCode')
     pre = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
     records.append(dict(path=pre_paths[0], kind='beforeAppCode', sha256=digest(pre.encode('utf-8')), startLine=1, sourceStartLine=1, endLine=pre.count('\n')))
@@ -704,9 +704,9 @@ def main() -> None:
     practice_filter = json.loads((ROOT / 'tools/v25/practice-filter.json').read_text(encoding='utf-8'))
     geography = json.loads((ROOT / 'tools/v25/geography.json').read_text(encoding='utf-8'))
     js, css, modules = load_runtime_modules()
-    runtime_manifest = json.loads((ROOT / 'tools/v25/runtime-manifest.json').read_text(encoding='utf-8'))
+    runtime_manifest = json.loads((ROOT / 'src/features/manifest.json').read_text(encoding='utf-8'))
     pre_paths = runtime_manifest.get('beforeAppCode', [])
-    if pre_paths != ['tools/v25/saved-work.js']:
+    if pre_paths != ['src/features/v25/saved-work.js']:
         raise ValueError('Expected only the saved-work compatibility adapter before appCode')
     saved_work = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
     if '</script' in saved_work.lower():
@@ -715,7 +715,7 @@ def main() -> None:
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
-    sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
+    sw_template = (ROOT / "src/features/r19/sw.template.js").read_text(encoding="utf-8")
     build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
@@ -764,7 +764,7 @@ def main() -> None:
     (BUILD / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
     # Publish routing and metadata with the generated artifact, never a half-release.
     index = BUILD / "index.html"
-    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (Path(__file__).with_name("index.template.html")).read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (ROOT / "src/features/r19/index.template.html").read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     route_path = ROOT / "vercel.json"
     routes = json.loads(route_path.read_text(encoding="utf-8"), object_pairs_hook=unique_config_object)
     destination = "/" + TARGET.name

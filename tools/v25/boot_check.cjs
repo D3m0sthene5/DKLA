@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
 const root = path.resolve(__dirname, '../..');
-const source = fs.readFileSync(path.join(__dirname, 'boot.js'), 'utf8');
+const source = fs.readFileSync(path.join(__dirname, '../../src/features/v25/boot.js'), 'utf8');
 
 function fixture(options = {}) {
   let now = 0,
@@ -233,9 +233,9 @@ assert.equal(f.nodes.has('dklaBootNotice'), false);
 const assembler = fs.readFileSync(path.join(root, 'tools/r19/assemble.py'), 'utf8');
 assert.match(assembler, /html:not\(\.dkla-boot-ready\).*?opacity:0!important/s);
 assert.doesNotMatch(assembler, /html:not\(\.r20-ready\) body/);
-const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, 'runtime-manifest.json'), 'utf8'));
-assert.equal(manifest.javascript.at(-1), 'tools/v25/boot.js');
-assert.ok(manifest.javascript.includes('tools/v25/native-home.js'));
+const manifest = JSON.parse(fs.readFileSync(path.join(root, 'src/features/manifest.json'), 'utf8'));
+assert.equal(manifest.javascript.at(-1), 'src/features/v25/boot.js');
+assert.ok(manifest.javascript.includes('src/features/v25/native-home.js'));
 assert.ok(!manifest.javascript.some((p) => p.includes('/overview')));
 console.log(
   'Boot checks passed: parsing, delayed storage, native timers/marks, final draw, routes and reload notice.',

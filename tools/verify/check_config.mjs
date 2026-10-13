@@ -18,7 +18,7 @@ const pack = json('package.json');
 const host = json('vercel.json');
 for (const file of [
   'tools/public-files.json',
-  'tools/v25/runtime-manifest.json',
+  'src/features/manifest.json',
   'src/manifest.json',
   '.prettierrc.json',
 ])

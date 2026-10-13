@@ -34,7 +34,7 @@ const context = {
   renderInspector() {},
   schedule() {},
 };
-vm.runInNewContext(fs.readFileSync(path.join(root, 'tools/r19/audit.js'), 'utf8'), context);
+vm.runInNewContext(fs.readFileSync(path.join(root, 'src/features/r19/audit.js'), 'utf8'), context);
 const apply = context.window.DKLAAudit.apply;
 for (const proposal of review.proposals) {
   assert.equal(context.data.edges.find((edge) => edge.id === proposal.id)[proposal.field], proposal.new);

@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '../..');
 const template = fs
-  .readFileSync(path.join(__dirname, 'sw.template.js'), 'utf8')
+  .readFileSync(path.join(__dirname, '../../src/features/r19/sw.template.js'), 'utf8')
   .replaceAll('__DKLA_BUILD__', 'worker-test')
   .replaceAll('__DKLA_ATLAS__', 'DKLA-v2.6.html');
 const sources = [['template', template]];

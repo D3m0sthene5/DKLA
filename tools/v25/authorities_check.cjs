@@ -268,7 +268,10 @@ const context = {
   draw() {},
   schedule() {},
 };
-vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'authorities.js'), 'utf8'), context);
+vm.runInNewContext(
+  fs.readFileSync(path.join(__dirname, '../../src/features/v25/authorities.js'), 'utf8'),
+  context,
+);
 const api = context.window.DKLAAuthorities,
   panel = ids.get('inspector');
 assert.ok(api, 'Map adapter missing');

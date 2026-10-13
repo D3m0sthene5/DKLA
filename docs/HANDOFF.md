@@ -46,9 +46,9 @@ Update or replace this file when the state changes.
    in `tools/verify/browser_smoke.cjs`. Add a breakage to
    `tools/verify/break.mjs` for each new area, and run the pass twenty-odd
    times to prove it does not flicker. Known gap: nothing notices if
-   `tools/v25/reading.js` silently fails to install.
+   `src/features/v25/reading.js` silently fails to install.
 2. **Move shipped feature code out of `tools/`** into `src/`. Mostly a path
-   rename across `tools/v25/runtime-manifest.json`, the assembler and the
+   rename across `src/features/manifest.json`, the assembler and the
    checks. The built page changes only in its marker comments.
 3. **Server** (`api/`, `lib/analytics/`): real migrations instead of
    re-running the schema on every start, one copy of the 1.46 MB catalogue,

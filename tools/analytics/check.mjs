@@ -21,8 +21,8 @@ const original = blocks(baseline),
 for (const [id, contents] of original) assert.equal(built.get(id), contents, `Baseline block changed: ${id}`);
 assert.ok(release.includes('First-party semantic analytics'));
 assert.ok(!release.includes('/assets/admin/app.js'));
-const manifest = JSON.parse(await readFile('tools/v25/runtime-manifest.json', 'utf8'));
-assert.equal(manifest.javascript.filter((s) => s === 'tools/analytics/tracker.js').length, 1);
+const manifest = JSON.parse(await readFile('src/features/manifest.json', 'utf8'));
+assert.equal(manifest.javascript.filter((s) => s === 'src/features/analytics/tracker.js').length, 1);
 assert.deepEqual((await readdir('api')).filter((s) => s.endsWith('.js')).sort(), [
   'admin.js',
   'analytics.js',
@@ -31,7 +31,7 @@ assert.deepEqual((await readdir('api')).filter((s) => s.endsWith('.js')).sort(),
 const worker = await readFile('work/build/sw.js', 'utf8');
 assert.ok(!/const SHELL[^;]*admin/.test(worker));
 assert.ok(worker.includes("path === 'admin'"));
-const tracker = await readFile('tools/analytics/tracker.js', 'utf8');
+const tracker = await readFile('src/features/analytics/tracker.js', 'utf8');
 assert.ok(!/localStorage|indexedDB|caches\.|recoveryTokens|saveToken/.test(tracker));
 assert.ok(!/getImageData|toDataURL|AudioContext|WebGLRenderingContext/.test(tracker));
 // The source data must still be the original page's data (code is free to change).

@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { runInNewContext } from 'node:vm';
 
-const tracker = readFileSync(new URL('./tracker.js', import.meta.url), 'utf8');
-const attention = readFileSync(new URL('./attention.js', import.meta.url), 'utf8');
+const tracker = readFileSync(new URL('../../src/features/analytics/tracker.js', import.meta.url), 'utf8');
+const attention = readFileSync(new URL('../../src/features/analytics/attention.js', import.meta.url), 'utf8');
 const settle = async () => {
   for (let i = 0; i < 8; i++) await new Promise((resolve) => setImmediate(resolve));
 };

@@ -19,8 +19,8 @@ or whitespace. Container manifests preserve the bytes between leaves.
 | Converted case sections | tools/r19/data/sections.json, plain-sections.json and recorded patches | tools/r19/check.py |
 | Authored Cold Call | tools/cold-call/narratives/<id>.json; three pilots in cases.json | validate, check_narratives, reader and browser checks |
 | Timeline | tools/r19/data/timelines.json and timeline-audit.json | check_timeline_audit; recorded legal review scope |
-| Authorities/geography/reading | existing tools/v25 JS/CSS/data and source ledgers | named checks and browser geometry |
-| Later feature order | tools/v25/runtime-manifest.json | hashes/source ranges in work/build/integrity.json |
+| Authorities/geography/reading | src/features/v25 JS/CSS; tools/v25 data and source ledgers | named checks and browser geometry |
+| Later feature order | src/features/manifest.json | hashes/source ranges in work/build/integrity.json |
 | Public files | tools/public-files.json | byte-verified copying into dist, route/API preview checks |
 
 ## Small queries

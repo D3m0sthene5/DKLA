@@ -2,7 +2,10 @@
 const assert = require('node:assert/strict'),
   fs = require('node:fs'),
   vm = require('node:vm');
-const source = fs.readFileSync(require('node:path').join(__dirname, 'saved-work.js'), 'utf8');
+const source = fs.readFileSync(
+  require('node:path').join(__dirname, '../../src/features/v25/saved-work.js'),
+  'utf8',
+);
 const seed = {
   graphId: 'owner-graph',
   dklaRelease: { contentBuild: 'current-content' },

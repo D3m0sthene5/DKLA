@@ -57,7 +57,7 @@ SCOTUS History pages, two Study tabs, the More menu) are opened at 1440 x 900
 and at 390 x 844 and compared with the pictures in `views/<system>/`. Each
 view also has a check that needs no picture: the panel opened and holds the
 expected words. The case view is where the reading layout
-(`tools/v25/reading.js`) is confirmed to have installed.
+(`src/features/v25/reading.js`) is confirmed to have installed.
 
 - A failure leaves the expected picture, the actual one and the difference in
   `work/views/`. Look at them before doing anything else.

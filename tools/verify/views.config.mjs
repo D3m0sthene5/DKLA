@@ -13,7 +13,7 @@ export default defineConfig({
   outputDir: '../../work/views',
   snapshotPathTemplate: 'views/{platform}/{arg}{ext}',
   fullyParallel: true,
-  timeout: 240000,
+  timeout: 150000,
   reporter: 'line',
   expect: {
     toHaveScreenshot: {

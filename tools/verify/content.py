@@ -31,7 +31,7 @@ CONTENT = [
     'tools/v25/*.json',          # authorities, U.S. Code, geography, reviews and audits
 ]
 # Build configuration that happens to sit beside the datasets.
-NOT_CONTENT = {'tools/v25/runtime-manifest.json', 'tools/v25/home-baseline-fonts.json'}
+NOT_CONTENT = {'src/features/manifest.json', 'tools/v25/home-baseline-fonts.json'}
 
 
 TEXT = {'json', 'md', 'txt', 'html', 'htm', 'csv', 'css', 'js', 'svg', 'gitkeep'}

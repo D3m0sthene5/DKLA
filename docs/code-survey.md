@@ -19,11 +19,11 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - dklaR16HistoryCode.js:468 — wraps the previous one
 - dklaR17Logo.js:45 — wraps the previous one
 - dklaR18Map.js:62 — wraps the previous one
-- r19/r20.js:505 — wraps the previous one
-- v25/authorities.js:1310 — wraps the previous one
-- v25/geography.js:425 — wraps the previous one
-- v25/home-fit.js:97 — wraps the previous one
-- v26/typography.js:503 — wraps the previous one
+- src/features/r19/r20.js:505 — wraps the previous one
+- src/features/v25/authorities.js:1310 — wraps the previous one
+- src/features/v25/geography.js:425 — wraps the previous one
+- src/features/v25/home-fit.js:97 — wraps the previous one
+- src/features/v26/typography.js:503 — wraps the previous one
 
 ### `renderInspector` — 9 versions
 
@@ -33,9 +33,9 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - dklaCore.js:107 — wraps the previous one
 - dklaUI.js:356 — wraps the previous one
 - dklaR16HistoryCode.js:509 — wraps the previous one
-- r19/timelines.js:201 — wraps the previous one
-- v25/authorities.js:877 — wraps the previous one
-- v25/geography.js:432 — wraps the previous one
+- src/features/r19/timelines.js:201 — wraps the previous one
+- src/features/v25/authorities.js:877 — wraps the previous one
+- src/features/v25/geography.js:432 — wraps the previous one
 
 ### `help` — 7 versions
 
@@ -45,7 +45,7 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - civilCode.js:306 — REPLACES it outright
 - dklaCore.js:809 — REPLACES it outright
 - dklaUI.js:495 — REPLACES it outright
-- v25/geography.js:449 — wraps the previous one
+- src/features/v25/geography.js:449 — wraps the previous one
 
 ### `goRegion` — 7 versions
 
@@ -53,9 +53,9 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - semesterCode.js:270 — wraps the previous one
 - dklaCore.js:79 — wraps the previous one
 - dklaR12Glossary.js:201 — wraps the previous one
-- r19/fit.js:181 — wraps the previous one
-- v25/authorities.js:810 — wraps the previous one
-- v25/geography.js:440 — wraps the previous one
+- src/features/r19/fit.js:181 — wraps the previous one
+- src/features/v25/authorities.js:810 — wraps the previous one
+- src/features/v25/geography.js:440 — wraps the previous one
 
 ### `home` — 6 versions
 
@@ -64,32 +64,32 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - dklaCore.js:41 — wraps the previous one
 - dklaUI.js:185 — wraps the previous one
 - dklaR16HistoryCode.js:474 — wraps the previous one
-- v25/authorities.js:805 — wraps the previous one
+- src/features/v25/authorities.js:805 — wraps the previous one
 
 ### `moreMenu` — 6 versions
 
 - studyCode.js:2766 — defined
 - dklaR18Study.js:1187 — wraps the previous one
-- r19/briefs.js:466 — wraps the previous one
-- r19/r20.js:966 — wraps the previous one
-- r19/timelines.js:309 — wraps the previous one
-- v25/authorities.js:1451 — wraps the previous one
+- src/features/r19/briefs.js:466 — wraps the previous one
+- src/features/r19/r20.js:966 — wraps the previous one
+- src/features/r19/timelines.js:309 — wraps the previous one
+- src/features/v25/authorities.js:1451 — wraps the previous one
 
 ### `normalize` — 5 versions
 
 - appCode.js:86 — defined
 - compatCode.js:47 — wraps the previous one
 - studyCode.js:114 — wraps the previous one
-- v25/practice-filter.js:92 — wraps the previous one
-- v25/geography.js:409 — wraps the previous one
+- src/features/v25/practice-filter.js:92 — wraps the previous one
+- src/features/v25/geography.js:409 — wraps the previous one
 
 ### `saveCache` — 5 versions
 
 - appCode.js:212 — defined
 - studyCode.js:2647 — wraps the previous one
 - civilCode.js:375 — REPLACES it outright
-- v25/practice-filter.js:146 — wraps the previous one
-- v25/geography.js:415 — wraps the previous one
+- src/features/v25/practice-filter.js:146 — wraps the previous one
+- src/features/v25/geography.js:415 — wraps the previous one
 
 ### `coverageDialog` — 5 versions
 
@@ -111,17 +111,17 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 
 - studyCode.js:433 — defined
 - dklaR18Map.js:8 — REPLACES it outright
-- r19/briefs.js:411 — wraps the previous one
-- r19/r20.js:697 — wraps the previous one
-- v25/authorities.js:801 — wraps the previous one
+- src/features/r19/briefs.js:411 — wraps the previous one
+- src/features/r19/r20.js:697 — wraps the previous one
+- src/features/v25/authorities.js:801 — wraps the previous one
 
 ### `goDistrict` — 5 versions
 
 - studyCode.js:488 — defined
 - semesterCode.js:277 — wraps the previous one
 - dklaCore.js:87 — wraps the previous one
-- r19/fit.js:193 — wraps the previous one
-- v25/geography.js:444 — wraps the previous one
+- src/features/r19/fit.js:193 — wraps the previous one
+- src/features/v25/geography.js:444 — wraps the previous one
 
 ### `renderHeading` — 5 versions
 
@@ -129,7 +129,7 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - civilCode.js:107 — wraps the previous one
 - dklaCore.js:97 — wraps the previous one
 - dklaUI.js:177 — wraps the previous one
-- v25/authorities.js:821 — wraps the previous one
+- src/features/v25/authorities.js:821 — wraps the previous one
 
 ### `sourceCaution` — 5 versions
 
@@ -137,14 +137,14 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - semesterCode.js:118 — REPLACES it outright
 - civilCode.js:85 — wraps the previous one
 - dklaCore.js:152 — wraps the previous one
-- r19/plain.js:99 — REPLACES it outright
+- src/features/r19/plain.js:99 — REPLACES it outright
 
 ### `exportHTML` — 4 versions
 
 - appCode.js:1370 — defined
 - studyCode.js:2838 — REPLACES it outright
 - dklaCore.js:528 — REPLACES it outright
-- performance/brief-loader.js:124 — wraps the previous one
+- src/features/performance/brief-loader.js:124 — wraps the previous one
 
 ### `markdownSourceURL` — 4 versions
 
@@ -165,14 +165,14 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - studyCode.js:319 — defined
 - semesterCode.js:302 — wraps the previous one
 - dklaCore.js:47 — wraps the previous one
-- v25/geography.js:420 — wraps the previous one
+- src/features/v25/geography.js:420 — wraps the previous one
 
 ### `goNode` — 4 versions
 
 - studyCode.js:514 — defined
 - semesterCode.js:257 — wraps the previous one
 - dklaR16HistoryCode.js:486 — wraps the previous one
-- v25/authorities.js:816 — wraps the previous one
+- src/features/v25/authorities.js:816 — wraps the previous one
 
 ### `back` — 4 versions
 
@@ -186,14 +186,14 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - studyCode.js:574 — defined
 - semesterCode.js:307 — wraps the previous one
 - dklaCore.js:53 — wraps the previous one
-- v25/authorities.js:1394 — wraps the previous one
+- src/features/v25/authorities.js:1394 — wraps the previous one
 
 ### `galaxy` — 4 versions
 
 - studyCode.js:880 — defined
 - dklaR16HistoryCode.js:448 — wraps the previous one
-- v25/authorities.js:795 — wraps the previous one
-- v25/home-fit.js:64 — wraps the previous one
+- src/features/v25/authorities.js:795 — wraps the previous one
+- src/features/v25/home-fit.js:64 — wraps the previous one
 
 ### `briefSourceStrip` — 4 versions
 
@@ -207,7 +207,7 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 - studyCode.js:2437 — defined
 - civilCode.js:97 — wraps the previous one
 - dklaCore.js:158 — wraps the previous one
-- r19/plain.js:146 — wraps the previous one
+- src/features/r19/plain.js:146 — wraps the previous one
 
 ### `classDialog` — 4 versions
 
@@ -220,54 +220,54 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 
 | Global | Versions | Replaced outright | Files, in order |
 |---|---|---|---|
-| `draw` | 10 | 0 | studyCode.js → dklaUI.js → dklaR16HistoryCode.js → dklaR17Logo.js → dklaR18Map.js → r19/r20.js → v25/authorities.js → v25/geography.js → v25/home-fit.js → v26/typography.js |
-| `renderInspector` | 9 | 2 | appCode.js → studyCode.js → semesterCode.js → dklaCore.js → dklaUI.js → dklaR16HistoryCode.js → r19/timelines.js → v25/authorities.js → v25/geography.js |
-| `help` | 7 | 5 | appCode.js → studyCode.js → semesterCode.js → civilCode.js → dklaCore.js → dklaUI.js → v25/geography.js |
-| `goRegion` | 7 | 0 | studyCode.js → semesterCode.js → dklaCore.js → dklaR12Glossary.js → r19/fit.js → v25/authorities.js → v25/geography.js |
-| `home` | 6 | 0 | studyCode.js → semesterCode.js → dklaCore.js → dklaUI.js → dklaR16HistoryCode.js → v25/authorities.js |
-| `moreMenu` | 6 | 0 | studyCode.js → dklaR18Study.js → r19/briefs.js → r19/r20.js → r19/timelines.js → v25/authorities.js |
-| `normalize` | 5 | 0 | appCode.js → compatCode.js → studyCode.js → v25/practice-filter.js → v25/geography.js |
-| `saveCache` | 5 | 1 | appCode.js → studyCode.js → civilCode.js → v25/practice-filter.js → v25/geography.js |
+| `draw` | 10 | 0 | studyCode.js → dklaUI.js → dklaR16HistoryCode.js → dklaR17Logo.js → dklaR18Map.js → src/features/r19/r20.js → src/features/v25/authorities.js → src/features/v25/geography.js → src/features/v25/home-fit.js → src/features/v26/typography.js |
+| `renderInspector` | 9 | 2 | appCode.js → studyCode.js → semesterCode.js → dklaCore.js → dklaUI.js → dklaR16HistoryCode.js → src/features/r19/timelines.js → src/features/v25/authorities.js → src/features/v25/geography.js |
+| `help` | 7 | 5 | appCode.js → studyCode.js → semesterCode.js → civilCode.js → dklaCore.js → dklaUI.js → src/features/v25/geography.js |
+| `goRegion` | 7 | 0 | studyCode.js → semesterCode.js → dklaCore.js → dklaR12Glossary.js → src/features/r19/fit.js → src/features/v25/authorities.js → src/features/v25/geography.js |
+| `home` | 6 | 0 | studyCode.js → semesterCode.js → dklaCore.js → dklaUI.js → dklaR16HistoryCode.js → src/features/v25/authorities.js |
+| `moreMenu` | 6 | 0 | studyCode.js → dklaR18Study.js → src/features/r19/briefs.js → src/features/r19/r20.js → src/features/r19/timelines.js → src/features/v25/authorities.js |
+| `normalize` | 5 | 0 | appCode.js → compatCode.js → studyCode.js → src/features/v25/practice-filter.js → src/features/v25/geography.js |
+| `saveCache` | 5 | 1 | appCode.js → studyCode.js → civilCode.js → src/features/v25/practice-filter.js → src/features/v25/geography.js |
 | `coverageDialog` | 5 | 1 | appCode.js → semesterCode.js → civilCode.js → dklaCore.js → dklaUI.js |
 | `markdown` | 5 | 0 | appCode.js → compatCode.js → semesterCode.js → civilCode.js → dklaCore.js |
-| `scopeBox` | 5 | 1 | studyCode.js → dklaR18Map.js → r19/briefs.js → r19/r20.js → v25/authorities.js |
-| `goDistrict` | 5 | 0 | studyCode.js → semesterCode.js → dklaCore.js → r19/fit.js → v25/geography.js |
-| `renderHeading` | 5 | 0 | studyCode.js → civilCode.js → dklaCore.js → dklaUI.js → v25/authorities.js |
-| `sourceCaution` | 5 | 2 | studyCode.js → semesterCode.js → civilCode.js → dklaCore.js → r19/plain.js |
-| `exportHTML` | 4 | 2 | appCode.js → studyCode.js → dklaCore.js → performance/brief-loader.js |
+| `scopeBox` | 5 | 1 | studyCode.js → dklaR18Map.js → src/features/r19/briefs.js → src/features/r19/r20.js → src/features/v25/authorities.js |
+| `goDistrict` | 5 | 0 | studyCode.js → semesterCode.js → dklaCore.js → src/features/r19/fit.js → src/features/v25/geography.js |
+| `renderHeading` | 5 | 0 | studyCode.js → civilCode.js → dklaCore.js → dklaUI.js → src/features/v25/authorities.js |
+| `sourceCaution` | 5 | 2 | studyCode.js → semesterCode.js → civilCode.js → dklaCore.js → src/features/r19/plain.js |
+| `exportHTML` | 4 | 2 | appCode.js → studyCode.js → dklaCore.js → src/features/performance/brief-loader.js |
 | `markdownSourceURL` | 4 | 1 | appCode.js → semesterCode.js → civilCode.js → dklaCore.js |
 | `exportMarkdown` | 4 | 3 | appCode.js → studyCode.js → civilCode.js → dklaCore.js |
-| `storeView` | 4 | 0 | studyCode.js → semesterCode.js → dklaCore.js → v25/geography.js |
-| `goNode` | 4 | 0 | studyCode.js → semesterCode.js → dklaR16HistoryCode.js → v25/authorities.js |
+| `storeView` | 4 | 0 | studyCode.js → semesterCode.js → dklaCore.js → src/features/v25/geography.js |
+| `goNode` | 4 | 0 | studyCode.js → semesterCode.js → dklaR16HistoryCode.js → src/features/v25/authorities.js |
 | `back` | 4 | 0 | studyCode.js → civilCode.js → dklaCore.js → dklaR16HistoryCode.js |
-| `restoreView` | 4 | 0 | studyCode.js → semesterCode.js → dklaCore.js → v25/authorities.js |
-| `galaxy` | 4 | 0 | studyCode.js → dklaR16HistoryCode.js → v25/authorities.js → v25/home-fit.js |
+| `restoreView` | 4 | 0 | studyCode.js → semesterCode.js → dklaCore.js → src/features/v25/authorities.js |
+| `galaxy` | 4 | 0 | studyCode.js → dklaR16HistoryCode.js → src/features/v25/authorities.js → src/features/v25/home-fit.js |
 | `briefSourceStrip` | 4 | 2 | studyCode.js → semesterCode.js → civilCode.js → dklaCore.js |
-| `auditDetails` | 4 | 0 | studyCode.js → civilCode.js → dklaCore.js → r19/plain.js |
+| `auditDetails` | 4 | 0 | studyCode.js → civilCode.js → dklaCore.js → src/features/r19/plain.js |
 | `classDialog` | 4 | 1 | studyCode.js → semesterCode.js → civilCode.js → dklaCore.js |
 | `openBook` | 3 | 0 | appCode.js → studyCode.js → semesterCode.js |
-| `renderGraph` | 3 | 1 | appCode.js → studyCode.js → v25/practice-filter.js |
-| `fit` | 3 | 1 | appCode.js → studyCode.js → v25/authorities.js |
+| `renderGraph` | 3 | 1 | appCode.js → studyCode.js → src/features/v25/practice-filter.js |
+| `fit` | 3 | 1 | appCode.js → studyCode.js → src/features/v25/authorities.js |
 | `nodeForm` | 3 | 1 | appCode.js → studyCode.js → semesterCode.js |
 | `exportJSON` | 3 | 1 | appCode.js → studyCode.js → dklaCore.js |
-| `rebuildIndex` | 3 | 1 | studyCode.js → dklaR13Search.js → v25/practice-filter.js |
-| `safeArea` | 3 | 0 | studyCode.js → r19/r20.js → v25/home-fit.js |
-| `fitBox` | 3 | 0 | studyCode.js → r19/r20.js → v25/home-fit.js |
+| `rebuildIndex` | 3 | 1 | studyCode.js → dklaR13Search.js → src/features/v25/practice-filter.js |
+| `safeArea` | 3 | 0 | studyCode.js → src/features/r19/r20.js → src/features/v25/home-fit.js |
+| `fitBox` | 3 | 0 | studyCode.js → src/features/r19/r20.js → src/features/v25/home-fit.js |
 | `guide` | 3 | 1 | studyCode.js → semesterCode.js → civilCode.js |
-| `autoScope` | 3 | 0 | studyCode.js → dklaR16HistoryCode.js → v25/home-fit.js |
-| `textLines` | 3 | 0 | studyCode.js → r19/fit.js → v25/home-fit.js |
+| `autoScope` | 3 | 0 | studyCode.js → dklaR16HistoryCode.js → src/features/v25/home-fit.js |
+| `textLines` | 3 | 0 | studyCode.js → src/features/r19/fit.js → src/features/v25/home-fit.js |
 | `connectionCard` | 3 | 2 | studyCode.js → semesterCode.js → dklaUI.js |
 | `connectionsSection` | 3 | 2 | studyCode.js → semesterCode.js → dklaUI.js |
-| `searchEntries` | 3 | 0 | studyCode.js → dklaR13Search.js → v25/practice-filter.js |
+| `searchEntries` | 3 | 0 | studyCode.js → dklaR13Search.js → src/features/v25/practice-filter.js |
 | `coursesDialog` | 3 | 2 | studyCode.js → civilCode.js → dklaUI.js |
 | `saveDialog` | 3 | 0 | studyCode.js → civilCode.js → dklaCore.js |
-| `placeForm` | 3 | 2 | studyCode.js → semesterCode.js → v25/geography.js |
-| `commitMove` | 3 | 1 | studyCode.js → semesterCode.js → v25/geography.js |
+| `placeForm` | 3 | 2 | studyCode.js → semesterCode.js → src/features/v25/geography.js |
+| `commitMove` | 3 | 1 | studyCode.js → semesterCode.js → src/features/v25/geography.js |
 | `r6CaseRows` | 3 | 0 | semesterCode.js → civilCode.js → dklaUI.js |
 | `r6CaseList` | 3 | 1 | semesterCode.js → civilCode.js → dklaUI.js |
-| `r6Place` | 3 | 1 | semesterCode.js → dklaCore.js → v25/geography.js |
+| `r6Place` | 3 | 1 | semesterCode.js → dklaCore.js → src/features/v25/geography.js |
 | `warning` | 2 | 0 | appCode.js → studyCode.js |
-| `toast` | 2 | 0 | appCode.js → r19/plain.js |
+| `toast` | 2 | 0 | appCode.js → src/features/r19/plain.js |
 | `readerPages` | 2 | 1 | appCode.js → semesterCode.js |
 | `renderSource` | 2 | 0 | appCode.js → semesterCode.js |
 | `openEntry` | 2 | 1 | appCode.js → studyCode.js |
@@ -280,25 +280,25 @@ Each line is one assignment, in the order the scripts load. The last one is the 
 | `resetView` | 2 | 1 | appCode.js → studyCode.js |
 | `renderWelcome` | 2 | 1 | appCode.js → studyCode.js |
 | `renderEdge` | 2 | 1 | appCode.js → studyCode.js |
-| `modal` | 2 | 0 | appCode.js → r19/plain.js |
+| `modal` | 2 | 0 | appCode.js → src/features/r19/plain.js |
 | `pathForm` | 2 | 1 | appCode.js → studyCode.js |
 | `applyPatch` | 2 | 0 | appCode.js → studyCode.js |
 | `zoom` | 2 | 1 | appCode.js → studyCode.js |
 | `geoMarkdownFiles` | 2 | 0 | compatCode.js → dklaCore.js |
 | `ensureMap` | 2 | 1 | studyCode.js → semesterCode.js |
-| `regionFor` | 2 | 0 | studyCode.js → v25/authorities.js |
-| `homeFor` | 2 | 1 | studyCode.js → v25/geography.js |
+| `regionFor` | 2 | 0 | studyCode.js → src/features/v25/authorities.js |
+| `homeFor` | 2 | 1 | studyCode.js → src/features/v25/geography.js |
 | `scopeRegions` | 2 | 0 | studyCode.js → dklaCore.js |
 | `setReader` | 2 | 0 | studyCode.js → semesterCode.js |
 | `setScopeFor` | 2 | 0 | studyCode.js → dklaCore.js |
 | `goEdge` | 2 | 0 | studyCode.js → semesterCode.js |
 | `shortRegionTitle` | 2 | 0 | studyCode.js → civilCode.js |
 | `shownEdges` | 2 | 1 | studyCode.js → semesterCode.js |
-| `morphBand` | 2 | 0 | studyCode.js → v25/home-fit.js |
+| `morphBand` | 2 | 0 | studyCode.js → src/features/v25/home-fit.js |
 | `clampCamera` | 2 | 0 | studyCode.js → dklaR16HistoryCode.js |
-| `wrapM` | 2 | 0 | studyCode.js → r19/fit.js |
-| `putLabel` | 2 | 0 | studyCode.js → r19/fit.js |
-| `readerChrome` | 2 | 0 | studyCode.js → r19/plain.js |
+| `wrapM` | 2 | 0 | studyCode.js → src/features/r19/fit.js |
+| `putLabel` | 2 | 0 | studyCode.js → src/features/r19/fit.js |
+| `readerChrome` | 2 | 0 | studyCode.js → src/features/r19/plain.js |
 | `renderDistrictReader` | 2 | 1 | studyCode.js → semesterCode.js |
 | `seeNeighborhood` | 2 | 1 | studyCode.js → semesterCode.js |
 | `r6Canonical` | 2 | 0 | semesterCode.js → dklaCore.js |
@@ -320,7 +320,7 @@ The earlier version of each of these is never called again, so its body is proba
 - `coverageDialog` at semesterCode.js:706
 - `scopeBox` at dklaR18Map.js:8
 - `sourceCaution` at semesterCode.js:118
-- `sourceCaution` at r19/plain.js:99
+- `sourceCaution` at src/features/r19/plain.js:99
 - `exportHTML` at studyCode.js:2838
 - `exportHTML` at dklaCore.js:528
 - `markdownSourceURL` at semesterCode.js:792
@@ -343,10 +343,10 @@ The earlier version of each of these is never called again, so its body is proba
 - `coursesDialog` at civilCode.js:119
 - `coursesDialog` at dklaUI.js:198
 - `placeForm` at semesterCode.js:655
-- `placeForm` at v25/geography.js:394
-- `commitMove` at v25/geography.js:393
+- `placeForm` at src/features/v25/geography.js:394
+- `commitMove` at src/features/v25/geography.js:393
 - `r6CaseList` at dklaUI.js:286
-- `r6Place` at v25/geography.js:397
+- `r6Place` at src/features/v25/geography.js:397
 - `readerPages` at semesterCode.js:341
 - `openEntry` at studyCode.js:2600
 - `chooseAssignment` at studyCode.js:2607
@@ -361,7 +361,7 @@ The earlier version of each of these is never called again, so its body is proba
 - `pathForm` at studyCode.js:2879
 - `zoom` at studyCode.js:2620
 - `ensureMap` at semesterCode.js:546
-- `homeFor` at v25/geography.js:405
+- `homeFor` at src/features/v25/geography.js:405
 - `shownEdges` at semesterCode.js:295
 - `renderDistrictReader` at semesterCode.js:205
 - `seeNeighborhood` at semesterCode.js:290
@@ -381,7 +381,7 @@ Top-level functions whose name appears exactly once across all scripts and not i
 
 | Script | Lines |
 |---|---|
-| v25/saved-work.js | 56 |
+| src/features/v25/saved-work.js | 56 |
 | appCode.js | 1,744 |
 | compatCode.js | 169 |
 | dklaR18Pre.js | 47 |
@@ -402,26 +402,26 @@ Top-level functions whose name appears exactly once across all scripts and not i
 | dklaR17Logo.js | 54 |
 | dklaR18Map.js | 120 |
 | dklaR18Study.js | 1,324 |
-| performance/brief-loader.js | 141 |
-| r19/briefs.js | 565 |
-| r19/rlcc.js | 150 |
-| r19/rules22.js | 154 |
-| r19/provisions.js | 68 |
-| r19/fit.js | 214 |
-| r19/plain.js | 183 |
-| r19/r20.js | 1,097 |
-| r19/timelines.js | 387 |
-| r19/audit.js | 147 |
-| r19/takeaways.js | 33 |
-| cold-call/reader.js | 223 |
-| cold-call/frost.js | 249 |
-| v25/authorities.js | 1,559 |
-| v25/reading.js | 205 |
-| v25/practice-filter.js | 187 |
-| v25/geography.js | 512 |
-| analytics/attention.js | 44 |
-| analytics/tracker.js | 887 |
-| v25/home-fit.js | 126 |
-| v25/native-home.js | 58 |
-| v26/typography.js | 516 |
-| v25/boot.js | 114 |
+| src/features/performance/brief-loader.js | 141 |
+| src/features/r19/briefs.js | 565 |
+| src/features/r19/rlcc.js | 150 |
+| src/features/r19/rules22.js | 154 |
+| src/features/r19/provisions.js | 68 |
+| src/features/r19/fit.js | 214 |
+| src/features/r19/plain.js | 183 |
+| src/features/r19/r20.js | 1,097 |
+| src/features/r19/timelines.js | 387 |
+| src/features/r19/audit.js | 147 |
+| src/features/r19/takeaways.js | 33 |
+| src/features/cold-call/reader.js | 223 |
+| src/features/cold-call/frost.js | 249 |
+| src/features/v25/authorities.js | 1,559 |
+| src/features/v25/reading.js | 205 |
+| src/features/v25/practice-filter.js | 187 |
+| src/features/v25/geography.js | 512 |
+| src/features/analytics/attention.js | 44 |
+| src/features/analytics/tracker.js | 887 |
+| src/features/v25/home-fit.js | 126 |
+| src/features/v25/native-home.js | 58 |
+| src/features/v26/typography.js | 516 |
+| src/features/v25/boot.js | 114 |

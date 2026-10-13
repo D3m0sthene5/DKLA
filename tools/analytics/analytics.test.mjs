@@ -725,7 +725,10 @@ test('current catalogue retains distinct responsive geometry; network lookup nev
 test('feature dwell intervals retain fractions on delivery and split when foreground views change', () => {
   const window = {},
     out = [];
-  runInNewContext(readFileSync(new URL('./attention.js', import.meta.url), 'utf8'), { window });
+  runInNewContext(
+    readFileSync(new URL('../../src/features/analytics/attention.js', import.meta.url), 'utf8'),
+    { window },
+  );
   const dwell = new window.DKLAFeatureAttention((kind, entity, details, seconds) =>
     out.push({ kind, entity, details, seconds }),
   );

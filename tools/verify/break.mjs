@@ -49,7 +49,7 @@ const first = (folder, extension) => {
 const record = first('src/data/seedData', '.json'),
   brief = first('tools/r19/data/briefs', '.md'),
   narrative = first('tools/cold-call/narratives', '.json');
-const TYPOGRAPHY = 'tools/v26/typography.js',
+const TYPOGRAPHY = 'src/features/v26/typography.js',
   STRICT = "'use strict';";
 
 const breakages = [
@@ -73,23 +73,24 @@ const breakages = [
   ],
   [
     'code: the Cold Call reader never installs',
-    'tools/cold-call/reader.js',
-    () => edit('tools/cold-call/reader.js', STRICT, STRICT + 'return;'),
+    'src/features/cold-call/reader.js',
+    () => edit('src/features/cold-call/reader.js', STRICT, STRICT + 'return;'),
   ],
   [
     'code: the reading layout never installs',
-    'tools/v25/reading.js',
-    () => edit('tools/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),
+    'src/features/v25/reading.js',
+    () => edit('src/features/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),
   ],
   [
     'a look: the Cold Call text recoloured by a style',
-    'tools/cold-call/reader.css',
-    () => append('tools/cold-call/reader.css', '\n#coldCallDialog p {\n  color: #e06060 !important;\n}\n'),
+    'src/features/cold-call/reader.css',
+    () =>
+      append('src/features/cold-call/reader.css', '\n#coldCallDialog p {\n  color: #e06060 !important;\n}\n'),
   ],
   [
     'a look: the doctrine timeline loses its year markers',
-    'tools/r19/timelines.css',
-    () => append('tools/r19/timelines.css', '\n#r21Timelines .r21-y {\n  opacity: 0 !important;\n}\n'),
+    'src/features/r19/timelines.css',
+    () => append('src/features/r19/timelines.css', '\n#r21Timelines .r21-y {\n  opacity: 0 !important;\n}\n'),
   ],
   [
     'a layout position: the History block moved',
@@ -132,13 +133,13 @@ const breakages = [
   ],
   [
     'a feature: the dictionary hidden by a style',
-    'tools/v26/typography.css',
-    () => append('tools/v26/typography.css', '\n#glossaryDialog[open]{display:none!important}\n'),
+    'src/features/v26/typography.css',
+    () => append('src/features/v26/typography.css', '\n#glossaryDialog[open]{display:none!important}\n'),
   ],
   [
     'offline use: the worker stops caching the atlas',
-    'tools/r19/sw.template.js',
-    () => edit('tools/r19/sw.template.js', 'cache.addAll(SHELL)', 'cache.addAll([])'),
+    'src/features/r19/sw.template.js',
+    () => edit('src/features/r19/sw.template.js', 'cache.addAll(SHELL)', 'cache.addAll([])'),
   ],
   [
     'an old link: one earlier address no longer redirects',

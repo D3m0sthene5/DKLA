@@ -91,7 +91,10 @@ const context = {
     return { matches: true, addEventListener() {} };
   },
 };
-vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'reader.js'), 'utf8'), context);
+vm.runInNewContext(
+  fs.readFileSync(path.join(__dirname, '../../src/features/cold-call/reader.js'), 'utf8'),
+  context,
+);
 const escape = (value) =>
   String(value ?? '').replace(
     /[&<>"']/g,

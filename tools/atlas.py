@@ -230,7 +230,7 @@ def main():
         parser.error('limit must be 1–100; chars must be 200–50000.')
     atlas=Atlas()
     if args.command=='overview':
-        emit(dict(courses=atlas.graph.get('courses'),counts=atlas.catalog()['counts'],sources=len(atlas.texts),canonicalData='tools/r19/data',runtimeManifest='tools/v25/runtime-manifest.json',warnings=['Inherited review records are not a fresh source audit.','Full opinions, assigned excerpts, and OCR must be distinguished.','Do not print generated HTML or entire inline JSON blocks.']))
+        emit(dict(courses=atlas.graph.get('courses'),counts=atlas.catalog()['counts'],sources=len(atlas.texts),canonicalData='tools/r19/data',runtimeManifest='src/features/manifest.json',warnings=['Inherited review records are not a fresh source audit.','Full opinions, assigned excerpts, and OCR must be distinguished.','Do not print generated HTML or entire inline JSON blocks.']))
     elif args.command=='search':
         q=args.query.casefold()
         hits=[dict(id=e[0],title=e[1],atlasId=e[6],review=e[3]) for e in atlas.entries.values() if q in e[1].casefold() or q in e[0].casefold()]
