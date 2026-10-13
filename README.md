@@ -57,8 +57,14 @@ run the same build and publish it to both domains. Nothing else deploys.
 ## How to know it still works
 
 ```sh
-pnpm verify      # builds, then runs everything below; about five minutes
+pnpm verify      # builds and runs everything below; about half a minute
 ```
+
+The steps run side by side as soon as what each one needs is ready. The list,
+with what every step waits for, is `tools/verify/tasks.mjs`. A failed step
+prints its full output at the end, and the last line names the chain of steps
+that set the total time. `node tools/verify/run.mjs --serial` runs the same
+steps one at a time.
 
 1. **Content.** `tools/verify/content.py` confirms that no brief, opinion,
    PDF, dictionary record or dataset was added, removed or altered.
@@ -67,7 +73,9 @@ pnpm verify      # builds, then runs everything below; about five minutes
    deliberately recorded (see AGENTS.md).
 3. **Features and data.** `pnpm check`, the analytics tests and the dataset
    checks under `tools/v25/` and `tools/cold-call/`.
-4. **A real browser.** `pnpm smoke` drives the built site at desktop, landscape
+4. **Old addresses.** `tools/verify/check_routes.mjs` confirms every earlier
+   version's address still redirects to the current atlas.
+5. **A real browser.** `pnpm smoke` drives the built site at desktop, landscape
    phone and portrait phone sizes: opening a subject, a case and its Cold
    Call, old links, the dictionary, authorities, SCOTUS History, Study,
    export and restore, and a saved note surviving a reload. It also checks
@@ -79,6 +87,14 @@ To see exactly what a change would alter for a visitor, keep a copy of
 nothing must report "identical".
 
 None of this touches the live site, the database or visitor data.
+
+Two things keep it fast, and neither is taken on trust. The source under
+`src/` is 30,000 files that a dozen steps need joined together, so the joined
+copy is kept in `work/cache`; every pass re-reads all the files and fails if
+the copy differs. Packaging leaves a file in `dist/` alone when it already has
+the right bytes, but still reads every file back and compares it. Deleting
+`work/` and `dist/` is always safe; the next pass rebuilds them (a few seconds
+slower).
 
 ## Things that must not break
 

@@ -40,6 +40,7 @@ export const tasks=[
   step('features','reading panel',node('tools/v25/reading_check.cjs')),
   step('features','geography module',node('tools/v25/geography_check.cjs')),
   step('features','ratings sync',test('tools/sync/sync.test.mjs')),
+  step('public','old addresses redirect',node('tools/verify/check_routes.mjs')),
   step('guards','content inventory',py('tools/verify/content.py'),AFTER_ASSEMBLY),
 
   // Dataset and review-record checks: they read the datasets, not the build.

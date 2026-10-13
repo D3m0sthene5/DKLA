@@ -72,6 +72,27 @@ Adding a file to the website means adding its path to
 `tools/public-files.json`. Renaming the app file for a new version means adding
 a redirect for the old name in `vercel.json`.
 
+## Adding or changing a check
+
+Every step of `pnpm verify` is one line in `tools/verify/tasks.mjs`, with the
+steps it must wait for. Steps run in parallel, so:
+
+- Give a new step a unique name (the runner refuses duplicates) and say what
+  it needs. If it reads `work/build` it needs the assembled atlas; if it reads
+  `dist/` it needs packaging; if it needs a web server, use `{url}` or
+  `{page}` and wait for the preview server. If unsure, wait for packaging.
+- A step must not write into the repository or depend on another step's
+  scratch files. Two steps must never write the same file.
+- Scripts that read thousands of files should read them through a thread pool
+  (see `tools/source/tree.py`). Opening files one at a time on Windows is
+  sometimes thirty times slower.
+- Browser steps: the map redraws itself several times a second, replacing its
+  elements. Never read a position once and assume the element is still there;
+  use `boxOf` and `pressUntil` in `tools/verify/browser_smoke.cjs`.
+- A speed-up must not make a check weaker. Prove it the way
+  `tools/verify/README.md` describes: break something on purpose and see the
+  pass fail.
+
 ## The Home map
 
 The map's layout is fixed and checked: course positions, the two lower blocks
