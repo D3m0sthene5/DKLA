@@ -331,10 +331,22 @@
     svg.innerHTML=out+'</g>';S.paintNodes=[];S.paintEdges=[];R11.starIndex=[];const hint=document.getElementById('mapHint');if(hint)hint.textContent='Click to explore · Scroll between levels · Drag to pan';
   }
 
+  function dictionarySpine(g){
+    // The dictionary keeps its legacy region/id and routes. Only its painted
+    // entrance moves: retain the existing map bounds, camera and course layout.
+    const u=g.unit,x=g.box.x+g.box.w*.48,y=g.box.y+17*u,
+      w=g.box.w*.52-26*u,h=53*u,r=5*u;
+    return `<g class="map-region dictionary-spine" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary"><title>Open legal dictionary</title><defs><linearGradient id="dictionary-leather" x2="0" y2="1"><stop stop-color="#514b61"/><stop offset=".28" stop-color="#393546"/><stop offset=".78" stop-color="#302d3b"/><stop offset="1" stop-color="#252630"/></linearGradient></defs><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x+r} ${y}H${x+w-r}Q${x+w} ${y} ${x+w} ${y+r}V${y+h-r}Q${x+w} ${y+h} ${x+w-r} ${y+h}H${x+r}Q${x} ${y+h} ${x} ${y+h-r}V${y+r}Q${x} ${y} ${x+r} ${y}Z" fill="url(#dictionary-leather)" stroke="#a89ab8" stroke-opacity=".65" stroke-width="${.8/S.z}"/><path d="M${x+10*u} ${y+5*u}H${x+w-10*u}M${x+10*u} ${y+h-5*u}H${x+w-10*u}" stroke="#c9bca5" stroke-opacity=".35" stroke-width="${.5/S.z}" fill="none" pointer-events="none"/><path d="M${x+27*u} ${y+7*u}V${y+h-7*u}M${x+34*u} ${y+7*u}V${y+h-7*u}M${x+w-34*u} ${y+7*u}V${y+h-7*u}M${x+w-27*u} ${y+7*u}V${y+h-7*u}" stroke="#c3af87" stroke-opacity=".5" stroke-width="${.7/S.z}" pointer-events="none"/><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${x+w/2}" y="${y+h*.65}" text-anchor="middle" font-size="${25*u}" font-weight="500" fill="#ebe0c8" pointer-events="none">Legal dictionary</text></g>`;
+  }
   function entrance(){
-    if(active()||window.SCOTUSHistory?.state?.().open)return;const g=geometry(root,true),B=visibleBox();if(!intersects(g.box,B,80))return;
+    if(active()||window.SCOTUSHistory?.state?.().open)return;
+    // Replace the native floating tile in the same draw, without changing any
+    // graph records or saved geography. The spine is its sole rendered target.
+    svg.querySelectorAll('g.map-region').forEach(el=>{if(el.querySelector('[data-map-region="dictionary-region"]'))el.remove();});
+    svg.querySelectorAll('[data-map-region="dictionary-region"]').forEach(el=>el.remove());
+    const g=geometry(root,true),B=visibleBox();if(!intersects(g.box,B,80))return;
     let out=`<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root,g,true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${g.box.x+26*g.unit}" y="${g.box.y+14*g.unit}" width="${g.box.w-52*g.unit}" height="${g.header-24*g.unit}" fill="transparent" pointer-events="all"/></g>`;
-    for(const card of g.cards.values())out+=tile(card,true);out+='</g>';
+    for(const card of g.cards.values())out+=tile(card,true);out+=dictionarySpine(g)+'</g>';
     svg.insertAdjacentHTML('beforeend',out);
   }
   const oldDraw=draw;draw=function(...args){if(active())return paintMap();return oldDraw.apply(this,args);};
@@ -360,9 +372,11 @@
   new ResizeObserver(()=>{geometryCache=null;clearTimeout(resizeTimer);resizeTimer=setTimeout(settleResize,120);schedule();}).observe(svg);
   if(typeof restoreView==='function'){const previousRestore=restoreView;restoreView=function(...args){const out=previousRestore.apply(this,args);if(active()){geometryCache=null;refitAuthority(false);}return out;};}
   document.addEventListener('click',ev=>{
+    if(ev.target.closest('[data-dictionary-spine]')){ev.preventDefault();ev.stopImmediatePropagation();goRegion('dictionary-region');return;}
     const b=ev.target.closest('[data-authority-open],[data-authority-menu],[data-authority-group],[data-authority-anchor]');if(!b)return;ev.preventDefault();ev.stopPropagation();closeSearch();
     if(b.dataset.authorityAnchor)panel.querySelector('#'+b.dataset.authorityAnchor)?.scrollIntoView({block:'start'});else if(b.dataset.authorityGroup)openGroup(b.dataset.authorityGroup);else open(b.dataset.authorityOpen||null);
   },true);
+  document.addEventListener('keydown',ev=>{if(ev.target.closest('[data-dictionary-spine]')&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();ev.stopImmediatePropagation();goRegion('dictionary-region');}},true);
   document.addEventListener('keydown',ev=>{const b=ev.target.closest('[data-authority-page]');if(b&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();ev.stopImmediatePropagation();changePage(b.dataset.authorityPage);}},true);
   if(typeof moreMenu==='function'){const prior=moreMenu;moreMenu=function(...args){const result=prior.apply(this,args),menu=document.getElementById('moreMenu');if(menu&&!menu.hidden&&!menu.querySelector('[data-authority-menu]')){const b=document.createElement('button');b.type='button';b.dataset.authorityMenu='1';b.role='menuitem';b.textContent=TITLE;menu.appendChild(b);}return result;};document.getElementById('moreBtn').onclick=()=>moreMenu();}
   function contextual(){

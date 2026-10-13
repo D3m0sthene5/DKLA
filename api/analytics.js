@@ -6,6 +6,9 @@ import { ingest,emailAlerts } from '../lib/analytics/collect.js';
 
 export default async function handler(req,res){
   try{
+    // Preview visitors are test traffic, and this rebuild has no authorization
+    // to collect new visitor data. Stop before parsing identity or touching DB.
+    if(process.env.VERCEL_ENV==='preview')return send(res,200,{tier:'none',scoring:false,configured:false,accepted:0});
     const action=new URL(req.url,'https://localhost').searchParams.get('action')||'ingest';
     const collection=policy(req);
     if(action==='policy'&&req.method==='GET')return send(res,200,{tier:isBot(req)||!configured()?'none':collection.tier,scoring:collection.scoring,configured:configured()});

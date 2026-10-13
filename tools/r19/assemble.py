@@ -410,6 +410,11 @@ def load_runtime_modules() -> tuple[str, str, list[dict]]:
             records.append(dict(path=relative,kind=kind,sha256=digest(text.encode('utf-8')),startLine=offset,sourceStartLine=offset+1,endLine=offset+line_count-1))
             chunks.append(chunk); offset += line_count
         outputs.append(''.join(chunks))
+    pre_paths = manifest.get('beforeAppCode', [])
+    if pre_paths != ['tools/v25/saved-work.js']:
+        raise ValueError('Expected only the saved-work compatibility adapter before appCode')
+    pre = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
+    records.append(dict(path=pre_paths[0], kind='beforeAppCode', sha256=digest(pre.encode('utf-8')), startLine=1, sourceStartLine=1, endLine=pre.count('\n')))
     return outputs[0], outputs[1], records
 
 
@@ -682,12 +687,19 @@ def main() -> None:
     practice_filter = json.loads((ROOT / 'tools/v25/practice-filter.json').read_text(encoding='utf-8'))
     geography = json.loads((ROOT / 'tools/v25/geography.json').read_text(encoding='utf-8'))
     js, css, modules = load_runtime_modules()
+    runtime_manifest = json.loads((ROOT / 'tools/v25/runtime-manifest.json').read_text(encoding='utf-8'))
+    pre_paths = runtime_manifest.get('beforeAppCode', [])
+    if pre_paths != ['tools/v25/saved-work.js']:
+        raise ValueError('Expected only the saved-work compatibility adapter before appCode')
+    saved_work = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
+    if '</script' in saved_work.lower():
+        raise ValueError('saved-work adapter would close its script tag')
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
@@ -700,6 +712,12 @@ def main() -> None:
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
+    # Execute before any legacy storage read; keep every original script body
+    # byte-identical. The adapter only bridges a returned layout marker.
+    app_marker = '<script id="appCode">'
+    if output.count(app_marker) != 1:
+        raise ValueError('Expected one original appCode insertion point')
+    output = output.replace(app_marker, f'<script id="dklaSavedWork">{saved_work}</script>\n' + app_marker, 1)
     # The baseline starts rendering before the appended release has finished
     # parsing. Only the final boot module may uncover the current interface;
     # r20-ready and its timeout are deliberately insufficient. Ancestor opacity

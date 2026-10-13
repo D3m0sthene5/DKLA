@@ -48,7 +48,12 @@ export default function auditNativeHome({expectedRegions=[],baselineFonts={},tol
   if(equalLowerHeights){const history=components.find(c=>c.id==='.sh-block-bg'),authority=components.find(c=>c.id==='.authority-map-entrance > rect');if(history&&authority&&(Math.abs(history.box.h-authority.box.h)>tolerance||Math.abs(history.box.y-authority.box.y)>tolerance))issues.push({type:'unequal-lower-blocks',history:history.box,authority:authority.box});}
   const featureBoxes=components.filter(c=>c.id.startsWith('.'));
   for(let i=0;i<featureBoxes.length;i++)for(let j=i+1;j<featureBoxes.length;j++)if(intersects(featureBoxes[i].box,featureBoxes[j].box))issues.push({type:'overlapping-sections',a:featureBoxes[i].id,b:featureBoxes[j].id});
-  for(const tile of components.filter(c=>!c.id.startsWith('.')))for(const feature of featureBoxes)if(intersects(tile.box,feature.box))issues.push({type:'tile-under-section',tile:tile.id,section:feature.id});
+  for(const tile of components.filter(c=>!c.id.startsWith('.')))for(const feature of featureBoxes)if(intersects(tile.box,feature.box)){
+    // The dictionary is now a book spine owned by the authorities frame. Its
+    // entire hit target must fit that frame; other overlaps remain failures.
+    if(tile.id==='dictionary-region'&&feature.id==='.authority-map-entrance > rect'&&canvas.querySelector('.dictionary-spine')&&inside(tile.box,feature.box))continue;
+    issues.push({type:'tile-under-section',tile:tile.id,section:feature.id});
+  }
   const tiles=components.filter(c=>!c.id.startsWith('.'));
   for(let i=0;i<tiles.length;i++)for(let j=i+1;j<tiles.length;j++)if(intersects(tiles[i].box,tiles[j].box))issues.push({type:'overlapping-tiles',a:tiles[i].id,b:tiles[j].id});
   if(covers.length!==6)issues.push({type:'missing-authority-covers',count:covers.length});

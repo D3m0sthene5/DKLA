@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
-  "purpose": "Ordered source modules appended to the immutable r18 artifact; edit source files rather than generated HTML.",
+  "purpose": "Ordered source modules around the immutable r18 artifact; beforeAppCode is the narrow saved-work bridge, and all other modules append normally. Edit source files rather than generated HTML.",
+  "beforeAppCode": ["tools/v25/saved-work.js"],
   "javascript": [
     "tools/r19/briefs.js",
     "tools/r19/rlcc.js",

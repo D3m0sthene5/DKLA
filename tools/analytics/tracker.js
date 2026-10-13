@@ -185,11 +185,14 @@
   }
   function footer(){const target=document.getElementById('courseHome')?.parentElement||document.querySelector('footer');if(target&&!document.getElementById('dklaPrivacyLink')){const a=document.createElement('a');a.id='dklaPrivacyLink';a.className='dkla-privacy-link';a.href='/privacy.html';a.textContent='Privacy';target.appendChild(a);}}
   async function start(){
-    session.metadata=browserMetadata();
+    // Preview and local study sessions must remain untracked, including offline
+    // sessions where a policy request cannot reach the server.
+    if(!['dannykind.wiki','www.dannykind.wiki','dkla.dev'].includes(location.hostname)){tier='none';footer();readyResolve();return;}
     try{
       const response=await originalFetch('/api/analytics?action=policy',{credentials:'same-origin',cache:'no-store'});
       if(!response.ok){tier='none';footer();readyResolve();return;}const result=await response.json();tier=result.tier;
     }catch{tier='full';} // Offline location is unknown; the server re-evaluates it before any storage write.
+    if(tier!=='none')session.metadata=browserMetadata();
     if(tier==='full'){
       token=await recovery();queue=await storage('getAll','queue')||[];
       if(navigator.onLine)try{await connect();}catch{}

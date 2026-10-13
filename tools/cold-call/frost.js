@@ -1,33 +1,33 @@
-/* Low cold fog: one shared 30 fps scheduler, cached soft sprites, visible buttons only. */
+/* Cold vapor settles under the rim: cached soft textures and one visible-only scheduler. */
 (() => {
   'use strict';
   const selector='button[data-cold-call]', motion=matchMedia('(prefers-reduced-motion: reduce), (update: slow), (forced-colors: active)'), states=new Map(), intersecting=new Set(), visible=new Set();
-  const PAD_X=32, PAD_TOP=4, PAD_BOTTOM=22, FPS=1000/30, PARTICLES=20;
+  const PAD_X=6, PAD_TOP=0, PAD_BOTTOM=18, FPS=1000/24, PARTICLES=14;
   let frame=0,lastFrame=0,installed=false,sprites=null,intersections,mutations;
   const rand=(a,b)=>a+Math.random()*(b-a);
 
   // Soft, irregular vapor textures are painted once and reused. No image download or pixel readback.
   function textures(){
-    return Array.from({length:3},(_,index)=>{
-      const canvas=document.createElement('canvas');canvas.width=canvas.height=96;
+    return Array.from({length:4},(_,index)=>{
+      const canvas=document.createElement('canvas');canvas.width=canvas.height=128;
       const ctx=canvas.getContext('2d');if(!ctx)return null;
-      const lobes=9;
+      const lobes=6;
       for(let i=0;i<lobes;i++){
-        const angle=i/lobes*Math.PI*2+index*.7,spread=rand(6,15),x=48+Math.cos(angle)*spread,y=48+Math.sin(angle)*spread*.62,r=rand(17,25);
+        const angle=i/lobes*Math.PI*2+index*.7,spread=rand(7,17),x=64+Math.cos(angle)*spread,y=64+Math.sin(angle)*spread*.7,r=rand(26,35);
         const mist=ctx.createRadialGradient(x,y,0,x,y,r);
-        mist.addColorStop(0,'rgba(229,243,248,.18)');mist.addColorStop(.36,'rgba(205,228,238,.11)');mist.addColorStop(1,'rgba(205,228,238,0)');
+        mist.addColorStop(0,'rgba(219,237,243,.14)');mist.addColorStop(.3,'rgba(205,228,238,.08)');mist.addColorStop(.65,'rgba(197,220,233,.025)');mist.addColorStop(1,'rgba(197,220,233,0)');
         ctx.fillStyle=mist;ctx.fillRect(x-r,y-r,r*2,r*2);
       }
-      // Rounded overlapping lobes make a rolling fog bank, without smoke-like filaments.
+      // A gradual circular envelope avoids visible puff outlines or polygon edges.
       ctx.globalCompositeOperation='destination-in';
-      const envelope=ctx.createRadialGradient(48,48,10,48,48,43);envelope.addColorStop(0,'#fff');envelope.addColorStop(.65,'#ffffffc0');envelope.addColorStop(1,'#ffffff00');
-      ctx.fillStyle=envelope;ctx.fillRect(0,0,96,96);
+      const envelope=ctx.createRadialGradient(64,64,8,64,64,57);envelope.addColorStop(0,'#fff');envelope.addColorStop(.5,'#ffffffb0');envelope.addColorStop(1,'#ffffff00');
+      ctx.fillStyle=envelope;ctx.fillRect(0,0,128,128);
       return canvas;
     }).filter(Boolean);
   }
   function particle(state,stagger=false){
-    const side=Math.random(),edge=side<.3?-1:side>.7?1:0,life=rand(3.2,4.8),x=edge<0?rand(-2,3):edge>0?state.width+rand(-3,2):rand(4,state.width-4);
-    return {age:stagger?rand(0,life):0,life,x,y:edge?rand(state.height*.55,state.height*.95):state.height+rand(-2,1),drift:(edge||Math.sign(x-state.width/2)||1)*rand(12,24),drop:rand(5,11),size:rand(25,39),sway:rand(1,3),phase:rand(0,Math.PI*2),sprite:Math.floor(rand(0,3)),opacity:rand(.5,.72)};
+    const life=rand(4.2,6.2),x=rand(6,Math.max(6,state.width-6));
+    return {age:stagger?rand(0,life):0,life,x,y:state.height+rand(.5,2),drift:rand(-6,6),drop:rand(7,12),size:rand(30,46),sway:rand(.7,1.8),phase:rand(0,Math.PI*2),sprite:Math.floor(rand(0,4)),opacity:rand(.25,.38)};
   }
   function fit(state,width,height){
     state.width=width;state.height=height;
@@ -35,6 +35,11 @@
     state.canvas.width=Math.ceil(w*ratio);state.canvas.height=Math.ceil(h*ratio);
     state.canvas.style.width=w+'px';state.canvas.style.height=h+'px';state.ratio=ratio;
     state.particles=Array.from({length:PARTICLES},()=>particle(state,true));
+    const {ctx}=state;ctx.setTransform(ratio,0,0,ratio,0,0);
+    state.falloff=ctx.createLinearGradient(0,height,0,h);
+    state.falloff.addColorStop(0,'#fff');state.falloff.addColorStop(.45,'#ffffff99');state.falloff.addColorStop(1,'#ffffff00');
+    state.edges=ctx.createLinearGradient(0,0,w,0);
+    state.edges.addColorStop(0,'#ffffff00');state.edges.addColorStop(.12,'#fff');state.edges.addColorStop(.88,'#fff');state.edges.addColorStop(1,'#ffffff00');
   }
   function initialize(state,rect){
     if(state.canvas)return;
@@ -54,21 +59,17 @@
     ctx.beginPath();ctx.rect(0,0,w,h);ctx.roundRect(PAD_X,PAD_TOP,width,height,7);ctx.clip('evenodd');
     for(let i=0;i<state.particles.length;i++){
       let p=state.particles[i];p.age+=delta;if(p.age>=p.life)p=state.particles[i]=particle(state);
-      const t=p.age/p.life,fade=Math.sin(Math.PI*t)**1.2,scale=p.size*(.65+t*.8);
-      // Dense cold vapor spills out and settles; its shallow eddies never rise above the rim.
-      const x=PAD_X+p.x+p.drift*t+Math.sin(p.phase+t*5)*p.sway*t,y=PAD_TOP+p.y+p.drop*(1-(1-t)**2)+Math.sin(p.phase+t*4)*.7*t;
-      ctx.save();ctx.translate(x,y);ctx.scale(1.35+t*.35,.3+t*.08);
+      const t=p.age/p.life,fade=Math.sin(Math.PI*t)**1.4,scale=p.size*(.8+t*.5);
+      // Slow lateral eddies stay beneath the lower edge, within a six-pixel side spill.
+      const x=PAD_X+p.x+p.drift*t+Math.sin(p.phase+t*4)*p.sway*t,y=PAD_TOP+p.y+p.drop*t+Math.sin(p.phase+t*3)*.35*t;
+      ctx.save();ctx.translate(x,y);ctx.scale(1.15+t*.15,.34+t*.08);
       ctx.globalAlpha=fade*p.opacity;ctx.drawImage(sprites[p.sprite%sprites.length],-scale/2,-scale/2,scale,scale);ctx.restore();
     }
     ctx.restore();ctx.globalAlpha=1;
     // Feather the shallow spill before the next reading line, also avoiding clipped canvas edges.
     ctx.globalCompositeOperation='destination-in';
-    const falloff=ctx.createLinearGradient(0,PAD_TOP+height,0,h);
-    falloff.addColorStop(0,'#fff');falloff.addColorStop(.35,'#ffffffb0');falloff.addColorStop(1,'#ffffff00');
-    ctx.fillStyle=falloff;ctx.fillRect(0,0,w,h);
-    const edges=ctx.createLinearGradient(0,0,w,0);
-    edges.addColorStop(0,'#ffffff00');edges.addColorStop(.1,'#fff');edges.addColorStop(.9,'#fff');edges.addColorStop(1,'#ffffff00');
-    ctx.fillStyle=edges;ctx.fillRect(0,0,w,h);ctx.globalCompositeOperation='source-over';
+    ctx.fillStyle=state.falloff;ctx.fillRect(0,0,w,h);
+    ctx.fillStyle=state.edges;ctx.fillRect(0,0,w,h);ctx.globalCompositeOperation='source-over';
   }
   function running(){return !motion.matches&&!document.hidden&&visible.size>0;}
   function animate(now){

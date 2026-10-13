@@ -51,6 +51,8 @@ for block, source_file in [('dklaPracticeFilter', 'practice-filter.json'), ('dkl
 expected_js, expected_css, modules = load_runtime_modules()
 require(r19['dklaR19Briefs'] == expected_js, 'generated runtime differs from the ordered source manifest')
 require('<style id="dklaR19Styles">' + expected_css + '</style>' in html, 'generated styles differ from source manifest')
+require(r19.get('dklaSavedWork') == (ROOT / 'tools/v25/saved-work.js').read_text(encoding='utf-8'), 'saved-work adapter differs from source')
+require(html.index('<script id="dklaSavedWork">') < html.index('<script id="appCode">'), 'saved-work adapter must precede original storage startup')
 runpy.run_path(str(ROOT / "tools/cold-call/validate.py"))["validate"](cold, graph, full, data)
 expected_cold = runpy.run_path(str(ROOT / "tools/cold-call/compile.py"))["compile_cases"](json.loads((ROOT / "tools/cold-call/cases.json").read_text()), graph, data, full)
 require(cold == expected_cold, "cold-call artifact differs from source")
