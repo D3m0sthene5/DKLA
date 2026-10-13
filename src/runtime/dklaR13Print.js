@@ -1,1 +1,12 @@
-window.addEventListener('beforeprint',()=>{document.querySelectorAll('#inspector details:not([open])').forEach(d=>{d.open=true;d.dataset.printOpened='1';});});window.addEventListener('afterprint',()=>{document.querySelectorAll('#inspector details[data-print-opened]').forEach(d=>{d.open=false;delete d.dataset.printOpened;});});
+window.addEventListener('beforeprint', () => {
+  document.querySelectorAll('#inspector details:not([open])').forEach((d) => {
+    d.open = true;
+    d.dataset.printOpened = '1';
+  });
+});
+window.addEventListener('afterprint', () => {
+  document.querySelectorAll('#inspector details[data-print-opened]').forEach((d) => {
+    d.open = false;
+    delete d.dataset.printOpened;
+  });
+});

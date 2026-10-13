@@ -1,51 +1,540 @@
 /* DKLA r8 additive presentation. Load after the complete r7 chain and dkla-core. */
-(()=>{
-'use strict';
-const COURSE_LRS='Legislation and the Regulatory State';
-const courses=[{id:'contracts',name:'Contracts',color:'#daba83',description:'Promises, agreement, performance, and remedies.',featured:['foundations','consideration','assent-region','interpretation-region','remedies-region']},{id:'lrs',name:COURSE_LRS,color:'#9fc8ae',description:'Legislation, interpretation, administration, and judicial review.'},{id:'civil',name:'Civil Procedure',color:'#88badd',description:'Courts, parties, claims, and adjudication.',featured:['cp-personal-region','cp-notice-region','cp-subject-region','cp-pleading-region','cp-class-region']}];
-const courseKey=c=>c==='LRS'?'lrs':courses.find(x=>x.name===c)?.id||'notes';
-const courseName=c=>['LRS','Legislation & Regulatory State'].includes(c)?COURSE_LRS:c;
-const icons=JSON.parse(document.getElementById('dklaIcons')?.textContent||'{"records":{},"paths":{}}');
-const logo=`<svg class="dkla-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="#192832" stroke="#8fa4ad" stroke-width="1.2"/><path d="M24 10v26M24 24 12 17v14l12 7M24 24l12-7v14l-12 7" fill="none" stroke="#dec294" stroke-width="1.5" stroke-linejoin="round"/><path d="m13 12 11 6 11-6M24 18v6" fill="none" stroke="#94bfc0" stroke-width="1.5"/><circle cx="24" cy="24" r="3.4" fill="#dfc49a"/></svg>`;
-function theme(){const c=courses.find(c=>c.id===courseKey(S.scope));document.body.dataset.dklaCourse=c?.id||'atlas';document.documentElement.style.setProperty('--dkla-course',c?.color||'#daba83');}
-function symbol(n,decorative=true){const meta=icons.records?.[n.id];const key=meta?.motif||(n.kind==='Case'?'case':n.kind==='Rule'?'provision':'concept');const path=icons.paths?.[key]||'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>';const mod=meta?.modifier&&icons.modifiers?.[meta.modifier];const badge=mod?`<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="var(--badge-bg,#1a242d)" stroke="none"/>${mod}</g>`:'';return `<svg class="dkla-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" ${decorative?'aria-hidden="true"':`role="img" aria-label="${E(meta?.label||n.kind+' entry')}"`}>${path}${badge}</svg>`;}
-function recordView(n){return window.DKLA?.treatment?.(n,S.scope)||n;}
-function courseRegions(c){return mapData().regions.filter(r=>c.id==='contracts'?r.col<3:c.id==='civil'?(r.course==='Civil Procedure'||r.id==='civil-region'||r.id.startsWith('cp-')):r.course===COURSE_LRS||r.course==='LRS'||r.id.startsWith('lrs-'));}
-function authoredCount(c){return data.nodes.filter(n=>(n.courses||[]).some(x=>courseName(x)===c.name)||c.id==='lrs'&&n.courseTreatments?.LRS).length;}
-function openDirectory(id){const c=courses.find(c=>c.id===id);if(!c)return;const regions=courseRegions(c);modal(c.name,`<p class="modal-copy">${regions.length} subjects.</p><div class="dkla-topic-directory">${regions.map(r=>`<button data-study-region="${E(r.id)}"><strong>${E(shortRegionTitle(r))}</strong><small>${(r.districtIds||[]).length} subtopics · ${Object.values(mapData().homes).filter(h=>h.region===r.id).length} saved entries</small></button>`).join('')}</div><p class="modal-copy"><button data-study-scope="${E(c.name)}">Open the whole ${c.id==='lrs'?'LRS':E(c.name)} map →</button></p>`);}
-function bridgeData(){return (data.dklaBridges||[]).filter(b=>(b.edgeIds||[]).some(id=>edgesById.has(id)));}
-function openBridge(id){const b=bridgeData().find(b=>b.id===id);if(!b)return;const es=(b.edgeIds||[]).map(id=>edgesById.get(id)).filter(Boolean);modal(b.label||b.title||'Connections between courses',`<div class="dkla-bridge-details"><p class="modal-copy">${E(b.explanation||'These records explain the relationship and its limits.')}</p><p class="modal-copy">${es.length} inspectable relationship${es.length===1?'':'s'}.</p>${es.map(e=>`<article><h3>${E(e.label)}</h3><p>${E(e.explanation)}</p><p><button data-study-node="${E(e.source)}">${E(nodesById.get(e.source)?.title||e.source)}</button></p><p><button data-study-node="${E(e.target)}">${E(nodesById.get(e.target)?.title||e.target)}</button></p><button data-study-edge="${E(e.id)}">Read sources and relationship status →</button></article>`).join('')}</div>`);}
-document.getElementById('dklaOverview')?.remove();const overview=document.createElement('section');overview.id='dklaOverview';overview.hidden=true;overview.setAttribute('aria-label','Three-course overview');svg.parentElement.appendChild(overview);
-let overviewSignature='';
-function renderOverview(){const show=S.scope==='Atlas'&&!selected&&!S.panelOpen;overview.hidden=!show;document.body.classList.toggle('dkla-overview-mode',show);if(!show)return;const sig=[data.revision,data.nodes.length,data.edges.length,mapData().regions.length].join(':');if(sig===overviewSignature)return;overviewSignature=sig;const bridges=bridgeData();overview.innerHTML=`<div class="dkla-overview-inner"><header class="dkla-overview-heading">${logo}<p>Danny Kind Legal Atlas · Fall 2026</p><h1>Pick a course</h1><p>Cases, rules, and concepts from the assigned reading, each linked to the page it came from.</p></header><div class="dkla-petals">${[courses[0],courses[2],courses[1]].map((c,i)=>{const rs=courseRegions(c);const featured=c.featured?.map(id=>rs.find(r=>r.id===id)).filter(Boolean)||rs.filter(r=>!/(source|reading|workbench)/i.test(r.id)).slice(0,5);return `<article class="dkla-course-petal" data-course="${c.id}" style="--petal-color:${c.color}"><div class="dkla-course-number">Course 0${i+1} · ${authoredCount(c)} entries</div><h2><button data-study-scope="${E(c.name)}">${E(c.name)}</button></h2><p>${E(c.description)}</p><div class="dkla-topic-fan" aria-label="Selected subjects">${featured.map(r=>`<button data-study-region="${E(r.id)}">${E(shortRegionTitle(r))}</button>`).join('')}</div><button class="dkla-all-topics" data-dkla-directory="${c.id}">All ${rs.length} subjects →</button></article>`;}).join('')}</div><footer class="dkla-overview-foot"><button data-study-scope="Study notes">Study notes</button><button data-dkla-coverage="1">Coverage and missing readings</button></footer></div>`;}
-function decorateMap(){for(const g of svg.querySelectorAll('.node-card[data-map-node]')){const n=nodesById.get(g.dataset.mapNode),c=homeFor(g.dataset.mapNode);if(!n||!c||c.w*S.z<170||c.h*S.z<38)continue;const z=S.z,size=Math.min(c.h*.5,22/z),reserve=size+10/z,fs=Math.min(c.h/(c.h*z<34?1.6:2.6),(c.h*z<34?11:c.w*z>450?17:14)/z),width=c.w-34-reserve,lines=c.h*z<34?1:2,rows=wrap(displayName(n),Math.floor(width/(fs*.56)),lines),ty=c.y+c.h/2-fs*(rows.length>1?.28:-.16);g.querySelectorAll('text').forEach(t=>t.remove());const meta=icons.records?.[n.id],path=icons.paths?.[meta?.motif||'case'],mod=meta?.modifier&&icons.modifiers?.[meta.modifier];if(path)g.insertAdjacentHTML('beforeend',`<g transform="translate(${c.x+14},${c.y+(c.h-size)/2}) scale(${size/24})" fill="none" stroke="${E(regionFor(c.region)?.color||'#b6c3cc')}" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" pointer-events="none">${path}${mod?`<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="#1a242d" stroke="none"/>${mod}</g>`:''}</g>`);g.insertAdjacentHTML('beforeend',text(displayName(n),c.x+17+reserve,ty,width,fs,selected?.id===n.id?'#f7e7cb':c.core?'#dce5ec':'#abbccb',lines,c.core?500:400));}}
-const priorDraw=draw;draw=function(...args){const v=priorDraw(...args);theme();renderOverview();if(!overview.hidden)return v;decorateMap();svg.setAttribute('aria-label',`Stable map of ${S.scope}. Select a subject or entry, or use search for a text alternative.`);return v;};
-const priorHeading=renderHeading;renderHeading=function(...args){const v=priorHeading(...args);theme();if(S.scope==='Atlas')document.getElementById('courseHome').textContent='Atlas';renderOverview();return v;};
-const priorHome=home;home=function(...args){const v=priorHome(...args);renderOverview();return v;};
-document.getElementById('atlasHome').innerHTML=logo+'<span class="dkla-wordmark">DKLA<small>DANNY KIND LEGAL ATLAS</small></span>';document.getElementById('atlasHome').title='Overview';document.getElementById('atlasHome').setAttribute('aria-label','DKLA — Danny Kind Legal Atlas. Open course overview.');document.getElementById('atlasHome').onclick=()=>home('Atlas');
-document.title='DKLA — Danny Kind Legal Atlas · r11b';
-coursesDialog=function(){modal('Choose a course',`<div class="course-options">${courses.map(c=>`<button data-study-scope="${E(c.name)}"><strong>${E(c.name)}</strong><small>${E(c.description)} ${authoredCount(c)} entries.</small></button>`).join('')}<button data-study-scope="Study notes"><strong>Study notes</strong><small>Your own entries.</small></button><button data-study-scope="Atlas"><strong>Overview</strong><small>All three courses.</small></button></div>`);};
+(() => {
+  'use strict';
+  const COURSE_LRS = 'Legislation and the Regulatory State';
+  const courses = [
+    {
+      id: 'contracts',
+      name: 'Contracts',
+      color: '#daba83',
+      description: 'Promises, agreement, performance, and remedies.',
+      featured: ['foundations', 'consideration', 'assent-region', 'interpretation-region', 'remedies-region'],
+    },
+    {
+      id: 'lrs',
+      name: COURSE_LRS,
+      color: '#9fc8ae',
+      description: 'Legislation, interpretation, administration, and judicial review.',
+    },
+    {
+      id: 'civil',
+      name: 'Civil Procedure',
+      color: '#88badd',
+      description: 'Courts, parties, claims, and adjudication.',
+      featured: [
+        'cp-personal-region',
+        'cp-notice-region',
+        'cp-subject-region',
+        'cp-pleading-region',
+        'cp-class-region',
+      ],
+    },
+  ];
+  const courseKey = (c) => (c === 'LRS' ? 'lrs' : courses.find((x) => x.name === c)?.id || 'notes');
+  const courseName = (c) => (['LRS', 'Legislation & Regulatory State'].includes(c) ? COURSE_LRS : c);
+  const icons = JSON.parse(document.getElementById('dklaIcons')?.textContent || '{"records":{},"paths":{}}');
+  const logo = `<svg class="dkla-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 42 13.5v21L24 45 6 34.5v-21Z" fill="#192832" stroke="#8fa4ad" stroke-width="1.2"/><path d="M24 10v26M24 24 12 17v14l12 7M24 24l12-7v14l-12 7" fill="none" stroke="#dec294" stroke-width="1.5" stroke-linejoin="round"/><path d="m13 12 11 6 11-6M24 18v6" fill="none" stroke="#94bfc0" stroke-width="1.5"/><circle cx="24" cy="24" r="3.4" fill="#dfc49a"/></svg>`;
+  function theme() {
+    const c = courses.find((c) => c.id === courseKey(S.scope));
+    document.body.dataset.dklaCourse = c?.id || 'atlas';
+    document.documentElement.style.setProperty('--dkla-course', c?.color || '#daba83');
+  }
+  function symbol(n, decorative = true) {
+    const meta = icons.records?.[n.id];
+    const key = meta?.motif || (n.kind === 'Case' ? 'case' : n.kind === 'Rule' ? 'provision' : 'concept');
+    const path =
+      icons.paths?.[key] ||
+      '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>';
+    const mod = meta?.modifier && icons.modifiers?.[meta.modifier];
+    const badge = mod
+      ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="var(--badge-bg,#1a242d)" stroke="none"/>${mod}</g>`
+      : '';
+    return `<svg class="dkla-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" ${decorative ? 'aria-hidden="true"' : `role="img" aria-label="${E(meta?.label || n.kind + ' entry')}"`}>${path}${badge}</svg>`;
+  }
+  function recordView(n) {
+    return window.DKLA?.treatment?.(n, S.scope) || n;
+  }
+  function courseRegions(c) {
+    return mapData().regions.filter((r) =>
+      c.id === 'contracts'
+        ? r.col < 3
+        : c.id === 'civil'
+          ? r.course === 'Civil Procedure' || r.id === 'civil-region' || r.id.startsWith('cp-')
+          : r.course === COURSE_LRS || r.course === 'LRS' || r.id.startsWith('lrs-'),
+    );
+  }
+  function authoredCount(c) {
+    return data.nodes.filter(
+      (n) =>
+        (n.courses || []).some((x) => courseName(x) === c.name) ||
+        (c.id === 'lrs' && n.courseTreatments?.LRS),
+    ).length;
+  }
+  function openDirectory(id) {
+    const c = courses.find((c) => c.id === id);
+    if (!c) return;
+    const regions = courseRegions(c);
+    modal(
+      c.name,
+      `<p class="modal-copy">${regions.length} subjects.</p><div class="dkla-topic-directory">${regions.map((r) => `<button data-study-region="${E(r.id)}"><strong>${E(shortRegionTitle(r))}</strong><small>${(r.districtIds || []).length} subtopics · ${Object.values(mapData().homes).filter((h) => h.region === r.id).length} saved entries</small></button>`).join('')}</div><p class="modal-copy"><button data-study-scope="${E(c.name)}">Open the whole ${c.id === 'lrs' ? 'LRS' : E(c.name)} map →</button></p>`,
+    );
+  }
+  function bridgeData() {
+    return (data.dklaBridges || []).filter((b) => (b.edgeIds || []).some((id) => edgesById.has(id)));
+  }
+  function openBridge(id) {
+    const b = bridgeData().find((b) => b.id === id);
+    if (!b) return;
+    const es = (b.edgeIds || []).map((id) => edgesById.get(id)).filter(Boolean);
+    modal(
+      b.label || b.title || 'Connections between courses',
+      `<div class="dkla-bridge-details"><p class="modal-copy">${E(b.explanation || 'These records explain the relationship and its limits.')}</p><p class="modal-copy">${es.length} inspectable relationship${es.length === 1 ? '' : 's'}.</p>${es.map((e) => `<article><h3>${E(e.label)}</h3><p>${E(e.explanation)}</p><p><button data-study-node="${E(e.source)}">${E(nodesById.get(e.source)?.title || e.source)}</button></p><p><button data-study-node="${E(e.target)}">${E(nodesById.get(e.target)?.title || e.target)}</button></p><button data-study-edge="${E(e.id)}">Read sources and relationship status →</button></article>`).join('')}</div>`,
+    );
+  }
+  document.getElementById('dklaOverview')?.remove();
+  const overview = document.createElement('section');
+  overview.id = 'dklaOverview';
+  overview.hidden = true;
+  overview.setAttribute('aria-label', 'Three-course overview');
+  svg.parentElement.appendChild(overview);
+  let overviewSignature = '';
+  function renderOverview() {
+    const show = S.scope === 'Atlas' && !selected && !S.panelOpen;
+    overview.hidden = !show;
+    document.body.classList.toggle('dkla-overview-mode', show);
+    if (!show) return;
+    const sig = [data.revision, data.nodes.length, data.edges.length, mapData().regions.length].join(':');
+    if (sig === overviewSignature) return;
+    overviewSignature = sig;
+    const bridges = bridgeData();
+    overview.innerHTML = `<div class="dkla-overview-inner"><header class="dkla-overview-heading">${logo}<p>Danny Kind Legal Atlas · Fall 2026</p><h1>Pick a course</h1><p>Cases, rules, and concepts from the assigned reading, each linked to the page it came from.</p></header><div class="dkla-petals">${[
+      courses[0],
+      courses[2],
+      courses[1],
+    ]
+      .map((c, i) => {
+        const rs = courseRegions(c);
+        const featured =
+          c.featured?.map((id) => rs.find((r) => r.id === id)).filter(Boolean) ||
+          rs.filter((r) => !/(source|reading|workbench)/i.test(r.id)).slice(0, 5);
+        return `<article class="dkla-course-petal" data-course="${c.id}" style="--petal-color:${c.color}"><div class="dkla-course-number">Course 0${i + 1} · ${authoredCount(c)} entries</div><h2><button data-study-scope="${E(c.name)}">${E(c.name)}</button></h2><p>${E(c.description)}</p><div class="dkla-topic-fan" aria-label="Selected subjects">${featured.map((r) => `<button data-study-region="${E(r.id)}">${E(shortRegionTitle(r))}</button>`).join('')}</div><button class="dkla-all-topics" data-dkla-directory="${c.id}">All ${rs.length} subjects →</button></article>`;
+      })
+      .join(
+        '',
+      )}</div><footer class="dkla-overview-foot"><button data-study-scope="Study notes">Study notes</button><button data-dkla-coverage="1">Coverage and missing readings</button></footer></div>`;
+  }
+  function decorateMap() {
+    for (const g of svg.querySelectorAll('.node-card[data-map-node]')) {
+      const n = nodesById.get(g.dataset.mapNode),
+        c = homeFor(g.dataset.mapNode);
+      if (!n || !c || c.w * S.z < 170 || c.h * S.z < 38) continue;
+      const z = S.z,
+        size = Math.min(c.h * 0.5, 22 / z),
+        reserve = size + 10 / z,
+        fs = Math.min(c.h / (c.h * z < 34 ? 1.6 : 2.6), (c.h * z < 34 ? 11 : c.w * z > 450 ? 17 : 14) / z),
+        width = c.w - 34 - reserve,
+        lines = c.h * z < 34 ? 1 : 2,
+        rows = wrap(displayName(n), Math.floor(width / (fs * 0.56)), lines),
+        ty = c.y + c.h / 2 - fs * (rows.length > 1 ? 0.28 : -0.16);
+      g.querySelectorAll('text').forEach((t) => t.remove());
+      const meta = icons.records?.[n.id],
+        path = icons.paths?.[meta?.motif || 'case'],
+        mod = meta?.modifier && icons.modifiers?.[meta.modifier];
+      if (path)
+        g.insertAdjacentHTML(
+          'beforeend',
+          `<g transform="translate(${c.x + 14},${c.y + (c.h - size) / 2}) scale(${size / 24})" fill="none" stroke="${E(regionFor(c.region)?.color || '#b6c3cc')}" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" pointer-events="none">${path}${mod ? `<g transform="translate(14.5 14.5) scale(.42)"><circle cx="12" cy="12" r="13" fill="#1a242d" stroke="none"/>${mod}</g>` : ''}</g>`,
+        );
+      g.insertAdjacentHTML(
+        'beforeend',
+        text(
+          displayName(n),
+          c.x + 17 + reserve,
+          ty,
+          width,
+          fs,
+          selected?.id === n.id ? '#f7e7cb' : c.core ? '#dce5ec' : '#abbccb',
+          lines,
+          c.core ? 500 : 400,
+        ),
+      );
+    }
+  }
+  const priorDraw = draw;
+  draw = function (...args) {
+    const v = priorDraw(...args);
+    theme();
+    renderOverview();
+    if (!overview.hidden) return v;
+    decorateMap();
+    svg.setAttribute(
+      'aria-label',
+      `Stable map of ${S.scope}. Select a subject or entry, or use search for a text alternative.`,
+    );
+    return v;
+  };
+  const priorHeading = renderHeading;
+  renderHeading = function (...args) {
+    const v = priorHeading(...args);
+    theme();
+    if (S.scope === 'Atlas') document.getElementById('courseHome').textContent = 'Atlas';
+    renderOverview();
+    return v;
+  };
+  const priorHome = home;
+  home = function (...args) {
+    const v = priorHome(...args);
+    renderOverview();
+    return v;
+  };
+  document.getElementById('atlasHome').innerHTML =
+    logo + '<span class="dkla-wordmark">DKLA<small>DANNY KIND LEGAL ATLAS</small></span>';
+  document.getElementById('atlasHome').title = 'Overview';
+  document
+    .getElementById('atlasHome')
+    .setAttribute('aria-label', 'DKLA — Danny Kind Legal Atlas. Open course overview.');
+  document.getElementById('atlasHome').onclick = () => home('Atlas');
+  document.title = 'DKLA — Danny Kind Legal Atlas · r11b';
+  coursesDialog = function () {
+    modal(
+      'Choose a course',
+      `<div class="course-options">${courses.map((c) => `<button data-study-scope="${E(c.name)}"><strong>${E(c.name)}</strong><small>${E(c.description)} ${authoredCount(c)} entries.</small></button>`).join('')}<button data-study-scope="Study notes"><strong>Study notes</strong><small>Your own entries.</small></button><button data-study-scope="Atlas"><strong>Overview</strong><small>All three courses.</small></button></div>`,
+    );
+  };
 
-// Extend explicit classifications across the entire corpus. Geometry never limits this index.
-const priorRows=r6CaseRows;
-r6CaseRows=function(topic){const root=r6Canonical(topic),out=new Map(priorRows(root).map(r=>[r.id,{...r}]));const n=nodesById.get(root);const permitted=new Set((n?.courses||[]).map(courseName));if(n?.lrsImport)permitted.add(COURSE_LRS);const keys=new Set([root]);const queue=[root];while(queue.length){for(const k of data.courseIndex?.groups?.[queue.shift()]||[]){const c=r6Canonical(k);if(!keys.has(c)){keys.add(c);queue.push(c);}}}for(const n of data.nodes){if(n.kind!=='Case'||out.has(n.id))continue;const views=[n,...Object.values(n.courseTreatments||{}).map(t=>({...n,...t}))];for(const v of views){if(permitted.size&&!(v.courses||n.courses||[]).some(c=>permitted.has(courseName(c)))&&!v.lrsImport)continue;const match=Object.entries(v.learning?.topics||{}).find(([k])=>keys.has(r6Canonical(k)));if(!match)continue;const [key,value]=match;const canonical=r6Canonical(key),detail=typeof value==='string'?{reason:value}:value||{};const e=incident(n.id).find(e=>(e.source===canonical||e.target===canonical)&&!navigationEdge(e));out.set(n.id,{id:n.id,reason:detail.reason||detail.explanation||e?.explanation||'Linked to this question.',edgeId:detail.edgeId||e?.id,basis:detail.basis||'Recorded topic account',via:canonical===root?undefined:canonical,sources:detail.sources||v.sources||[]});break;}}return [...out.values()];};
-function caseCoverage(n){const v=recordView(n);if(n.status==='Assigned source gap'||n.status==='Not among the supplied files')return 'Not on file';const raw=({'full-account':'Full brief','source-limited':'From the assigned reading','assigned-reading':'From the assigned reading','missing-source':'Source missing'}[v.lrsImport?.coverageLevel]||v.lrsImport?.coverageLevel)||v.civilImport?.coverageLevel||v.learning?.coverage||(geoPlacement(n.id).role==='Partial excerpt'?'Partial excerpt':v.status==='Starter'?'Early brief':n.kind==='Case'?'Brief':'Short note');return /^(Full brief|From the assigned reading|Source missing|Partial excerpt|Early brief|Brief|Short note|Assigned case|Account from the published opinion)$/.test(raw)?raw:/^Assigned|excerpt|Casebook discussion/i.test(raw)?raw.replace(/\s*\(casebook excerpt\)$/,''):/note|limited|partial/i.test(raw)?'From the assigned reading':'Brief';}
-r6CaseList=function(topic,heading='Cases across the course'){const root=r6Canonical(topic),rows=r6CaseRows(root),groups=new Map();for(const r of rows){const key=r.basis==='User classification'?'classification':r.via||'direct';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(r);}const entry=r=>{const n=nodesById.get(r.id);if(!n)return '';return `<article class="indexed-case ${r.basis==='User classification'?'dkla-classification':''}" data-indexed-case="${E(r.id)}"><button data-study-node="${E(r.id)}"><strong>${E(n.title)}</strong><span>${E(caseCoverage(n))}</span></button><span class="dkla-index-kind">${E(r.basis||'Recorded relationship')}${r.via?' · Through '+E(nodesById.get(r.via)?.title||r.via):''}</span><p>${E(r6StudySentence(r.reason||''))}</p>${r.edgeId?`<button class="text-button index-evidence" data-study-edge="${E(r.edgeId)}">Explanation and sources →</button>`:r.sources?.length?`<div class="dkla-source-evidence">${sourceHTML(r.sources)}</div>`:`<div class="dkla-source-evidence">${briefSourceStrip(recordView(n))}</div>`}</article>`;};let out=`<section class="course-case-index" id="courseCaseIndex"><h3>${E(heading)} <span class="case-count">${rows.length}</span></h3><div class="dkla-index-scope"><p>Every case in the course linked to this question.</p></div>`;if(!rows.length)out+='<p class="context-text">No case is linked to this question yet.</p>';for(const [key,rs]of groups){const title=key==='direct'?'Cases':key==='classification'?'Filed here by you':nodesById.get(key)?.title||key;out+=`<details class="case-group" ${key==='direct'?'open':''}><summary>${E(title)} (${rs.length})</summary>${key==='classification'?'<p class="context-text">You filed this case here.</p>':''}${rs.map(entry).join('')}</details>`;}if(nodesById.get(root)?.civilImport)out+='<p class="tiny-help"><button class="text-button" data-civil-inventory="1">Open the separate source-reference inventory</button></p>';return out+'</section>';};
+  // Extend explicit classifications across the entire corpus. Geometry never limits this index.
+  const priorRows = r6CaseRows;
+  r6CaseRows = function (topic) {
+    const root = r6Canonical(topic),
+      out = new Map(priorRows(root).map((r) => [r.id, { ...r }]));
+    const n = nodesById.get(root);
+    const permitted = new Set((n?.courses || []).map(courseName));
+    if (n?.lrsImport) permitted.add(COURSE_LRS);
+    const keys = new Set([root]);
+    const queue = [root];
+    while (queue.length) {
+      for (const k of data.courseIndex?.groups?.[queue.shift()] || []) {
+        const c = r6Canonical(k);
+        if (!keys.has(c)) {
+          keys.add(c);
+          queue.push(c);
+        }
+      }
+    }
+    for (const n of data.nodes) {
+      if (n.kind !== 'Case' || out.has(n.id)) continue;
+      const views = [n, ...Object.values(n.courseTreatments || {}).map((t) => ({ ...n, ...t }))];
+      for (const v of views) {
+        if (
+          permitted.size &&
+          !(v.courses || n.courses || []).some((c) => permitted.has(courseName(c))) &&
+          !v.lrsImport
+        )
+          continue;
+        const match = Object.entries(v.learning?.topics || {}).find(([k]) => keys.has(r6Canonical(k)));
+        if (!match) continue;
+        const [key, value] = match;
+        const canonical = r6Canonical(key),
+          detail = typeof value === 'string' ? { reason: value } : value || {};
+        const e = incident(n.id).find(
+          (e) => (e.source === canonical || e.target === canonical) && !navigationEdge(e),
+        );
+        out.set(n.id, {
+          id: n.id,
+          reason: detail.reason || detail.explanation || e?.explanation || 'Linked to this question.',
+          edgeId: detail.edgeId || e?.id,
+          basis: detail.basis || 'Recorded topic account',
+          via: canonical === root ? undefined : canonical,
+          sources: detail.sources || v.sources || [],
+        });
+        break;
+      }
+    }
+    return [...out.values()];
+  };
+  function caseCoverage(n) {
+    const v = recordView(n);
+    if (n.status === 'Assigned source gap' || n.status === 'Not among the supplied files')
+      return 'Not on file';
+    const raw =
+      {
+        'full-account': 'Full brief',
+        'source-limited': 'From the assigned reading',
+        'assigned-reading': 'From the assigned reading',
+        'missing-source': 'Source missing',
+      }[v.lrsImport?.coverageLevel] ||
+      v.lrsImport?.coverageLevel ||
+      v.civilImport?.coverageLevel ||
+      v.learning?.coverage ||
+      (geoPlacement(n.id).role === 'Partial excerpt'
+        ? 'Partial excerpt'
+        : v.status === 'Starter'
+          ? 'Early brief'
+          : n.kind === 'Case'
+            ? 'Brief'
+            : 'Short note');
+    return /^(Full brief|From the assigned reading|Source missing|Partial excerpt|Early brief|Brief|Short note|Assigned case|Account from the published opinion)$/.test(
+      raw,
+    )
+      ? raw
+      : /^Assigned|excerpt|Casebook discussion/i.test(raw)
+        ? raw.replace(/\s*\(casebook excerpt\)$/, '')
+        : /note|limited|partial/i.test(raw)
+          ? 'From the assigned reading'
+          : 'Brief';
+  }
+  r6CaseList = function (topic, heading = 'Cases across the course') {
+    const root = r6Canonical(topic),
+      rows = r6CaseRows(root),
+      groups = new Map();
+    for (const r of rows) {
+      const key = r.basis === 'User classification' ? 'classification' : r.via || 'direct';
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(r);
+    }
+    const entry = (r) => {
+      const n = nodesById.get(r.id);
+      if (!n) return '';
+      return `<article class="indexed-case ${r.basis === 'User classification' ? 'dkla-classification' : ''}" data-indexed-case="${E(r.id)}"><button data-study-node="${E(r.id)}"><strong>${E(n.title)}</strong><span>${E(caseCoverage(n))}</span></button><span class="dkla-index-kind">${E(r.basis || 'Recorded relationship')}${r.via ? ' · Through ' + E(nodesById.get(r.via)?.title || r.via) : ''}</span><p>${E(r6StudySentence(r.reason || ''))}</p>${r.edgeId ? `<button class="text-button index-evidence" data-study-edge="${E(r.edgeId)}">Explanation and sources →</button>` : r.sources?.length ? `<div class="dkla-source-evidence">${sourceHTML(r.sources)}</div>` : `<div class="dkla-source-evidence">${briefSourceStrip(recordView(n))}</div>`}</article>`;
+    };
+    let out = `<section class="course-case-index" id="courseCaseIndex"><h3>${E(heading)} <span class="case-count">${rows.length}</span></h3><div class="dkla-index-scope"><p>Every case in the course linked to this question.</p></div>`;
+    if (!rows.length) out += '<p class="context-text">No case is linked to this question yet.</p>';
+    for (const [key, rs] of groups) {
+      const title =
+        key === 'direct'
+          ? 'Cases'
+          : key === 'classification'
+            ? 'Filed here by you'
+            : nodesById.get(key)?.title || key;
+      out += `<details class="case-group" ${key === 'direct' ? 'open' : ''}><summary>${E(title)} (${rs.length})</summary>${key === 'classification' ? '<p class="context-text">You filed this case here.</p>' : ''}${rs.map(entry).join('')}</details>`;
+    }
+    if (nodesById.get(root)?.civilImport)
+      out +=
+        '<p class="tiny-help"><button class="text-button" data-civil-inventory="1">Open the separate source-reference inventory</button></p>';
+    return out + '</section>';
+  };
 
-connectionCard=function(e,id){const otherId=e.source===id?e.target:e.source,n=nodesById.get(otherId);if(!n)return '';const place=geoPlacement(otherId);return `<article class="study-connection simple-connection" data-connection-record="${E(e.id)}"><button class="connection-destination" data-study-node="${E(otherId)}">${E(n.title)}</button><div class="dkla-location">${E(geoDistrict(place.district)?.title||'Study notes')} · ${E((n.courses||[]).join(', '))}</div><p>${E(r6StudySentence(e.explanation||e.label))}</p><button class="text-button" data-study-edge="${E(e.id)}">${e.status==='Disputed'?'Disputed relationship · read the qualification':e.status==='Reviewed'?'Reviewed ✓ · explanation and sources':'Explanation and sources'}</button></article>`;};
-connectionsSection=function(n){const all=orderedEdges(n.id).filter(e=>!navigationEdge(e)),top=focusEdges(n.id,4),used=new Set(top.map(e=>e.id)),rest=all.filter(e=>!used.has(e.id));return `<section class="r6-connections"><div class="related-heading"><h3>Connections <span class="case-count">${all.length}</span></h3><button id="showNeighborhood">Show all</button></div>${top.map(e=>connectionCard(e,n.id)).join('')}${rest.length?`<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded?'open':''}><summary>More connections (${rest.length})</summary>${rest.map(e=>connectionCard(e,n.id)).join('')}</details>`:''}</section>`;};
-r6RenderLens=function(){const show=r6LensOpen&&S.panelOpen&&selected?.type==='node';r6Lens.hidden=!show;document.body.classList.toggle('has-lens',!!show);if(!show)return;const raw=nodesById.get(selected.id);if(!raw){r6Lens.hidden=true;return;}const n=recordView(raw),es=focusEdges(n.id,4),count=orderedEdges(n.id).filter(e=>!navigationEdge(e)).length;r6Lens.innerHTML=`<div class="lens-header"><span>Connections of this ${n.kind==='Case'?'case':n.kind==='Rule'?'provision':n.kind==='Hypothetical'?'question':n.kind==='Note'?'note':'concept'} <span class="dkla-portal-count">${es.length} of ${count}</span></span><button data-close-lens="true" aria-label="Return to the permanent map">×</button></div><div class="lens-content"><div class="lens-anchor dkla-lens-compact"><small>${E(geoDistrict(geoPlacement(n.id).district)?.title||S.scope)}</small><h2>${E(n.title)}</h2><button data-home-reference="${E(n.id)}">Show on map →</button></div>${es.map(e=>{const k=e.source===n.id?e.target:e.source,o=nodesById.get(k);if(!o)return '';return `<article class="lens-reference" data-lens-reference="${E(k)}"><div><button class="lens-title" data-study-node="${E(k)}">${E(o.title)}</button><p>${E(r6StudySentence(e.explanation||e.label))}</p><div class="lens-reference-actions"><button data-study-edge="${E(e.id)}">${e.status==='Reviewed'?'Reviewed ✓ · ':e.status==='Disputed'?'Disputed · ':''}Read sources</button><button data-home-reference="${E(k)}">Show on map →</button></div></div></article>`;}).join('')||'<p class="context-text">No connections yet.</p>'}<div class="dkla-lens-footer">${count>es.length?`<button data-dkla-all-connections="1">All ${count} connections →</button>`:''}</div></div>`;};
-const priorInspector=renderInspector;renderInspector=function(...args){const v=priorInspector(...args);if(selected?.type==='node'&&S.panelOpen){const raw=nodesById.get(selected.id);if(raw){const heading=document.querySelector('#inspector .reader-body>h2');if(heading&&!heading.parentElement.classList.contains('dkla-record-title')){const wrap=document.createElement('div');wrap.className='dkla-record-title';heading.before(wrap);wrap.innerHTML=symbol(raw);wrap.appendChild(heading);}const choices=Object.keys(raw.courseTreatments||{});if(choices.length&&window.DKLA?.selectTreatment&&!document.querySelector('#inspector .dkla-course-tabs')){const tab=document.createElement('nav');tab.className='dkla-course-tabs';tab.setAttribute('aria-label','Course-specific treatment');const active=courseName(recordView(raw)._treatmentCourse||S.scope);const cs=[...new Set([...(raw.courses||[]),...choices].map(courseName).filter(c=>courses.some(x=>x.name===c)))];tab.innerHTML=cs.map(c=>`<button data-dkla-treatment="${E(c)}" aria-pressed="${courseName(c)===active}">${E(c==='Legislation and the Regulatory State'?'LRS':c)}</button>`).join('');document.querySelector('#inspector .reader-body')?.prepend(tab);}if(raw.kind==='Case'){const tk=document.querySelector('#inspector .takeaway');if(tk&&!tk.classList.contains('dkla-rule')){tk.classList.add('dkla-rule');const lab=document.createElement('p');lab.className='dkla-rule-label';lab.textContent='Rule in one line';tk.before(lab);}}const tls=timelinesFor(raw);if(tls.length&&!document.querySelector('#inspector .dkla-timeline')){const anchor=document.querySelector('#inspector .reader-body .source-strip')||document.querySelector('#inspector .takeaway');if(anchor){anchor.insertAdjacentHTML('afterend',tls.map(x=>timelineHTML(x.t,x.current)).join(''));const li=document.querySelector('#inspector .dkla-timeline li.is-current');if(li){const track=li.parentElement;track.scrollLeft=Math.max(0,li.offsetLeft-track.clientWidth/2+li.offsetWidth/2);}}}document.querySelectorAll('#inspector .reader-body>*').forEach((el,i)=>el.style.setProperty('--i',Math.min(i,14)));const meta=icons.records?.[raw.id];const audit=document.querySelector('#entryAudit');if(meta&&meta.status==='unique'&&!document.querySelector('#inspector .dkla-icon-caption')){const cap=document.createElement('p');cap.className='dkla-icon-caption';cap.textContent=meta.label;document.querySelector('#inspector .dkla-record-title')?.insertAdjacentElement('afterend',cap);}}}r6RenderLens();renderOverview();return v;};
-document.addEventListener('click',e=>{const el=e.target.closest('[data-dkla-directory],[data-dkla-bridge],[data-dkla-coverage],[data-dkla-treatment],[data-dkla-all-connections]');if(!el)return;e.preventDefault();if(el.dataset.dklaDirectory)openDirectory(el.dataset.dklaDirectory);if(el.dataset.dklaBridge)openBridge(el.dataset.dklaBridge);if(el.dataset.dklaCoverage)coverageDialog();if(el.dataset.dklaTreatment){window.DKLA.selectTreatment(el.dataset.dklaTreatment);}if(el.dataset.dklaAllConnections){const details=document.getElementById('remainingConnections');if(details){details.open=true;S.connectionsExpanded=true;details.scrollIntoView({block:'start',behavior:reducedMotion?'auto':'smooth'});}}});
-function timelinesFor(n){const all=data.timelines||[];const direct=all.filter(t=>t.steps.some(s=>s.id===n.id));if(direct.length)return direct.map(t=>({t,current:n.id}));if(n.kind==='Concept'||n.kind==='Rule'){const c=r6Canonical(n.id);return all.filter(t=>t.steps.filter(s=>Object.keys(nodesById.get(s.id)?.learning?.topics||{}).some(k=>r6Canonical(k)===c)).length>=3).map(t=>({t,current:null}));}return [];}
-function timelineHTML(t,current){return `<section class="dkla-timeline" aria-label="${E(t.title)}"><div class="dkla-timeline-head"><span>How the doctrine developed</span><h3>${E(t.title)}</h3><p>${E(t.question)}</p></div><ol class="dkla-timeline-track">${t.steps.map((s,i)=>{const n=nodesById.get(s.id);if(!n)return '';return `<li class="${s.id===current?'is-current':''}" style="--i:${i}"><button data-study-node="${E(s.id)}" ${s.id===current?'aria-current="true"':''}><span class="dkla-tl-year">${s.year}</span><strong>${E(displayName(n).replace(/\s*\(\d{4}\)\s*/,' ').replace(/\s+[—–]\s+.*$/,'').trim())}</strong><small>${E(s.note)}</small></button></li>`;}).join('')}</ol></section>`;}
-document.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'&&navigator.vibrate&&e.target.closest('button,[role=button],a'))navigator.vibrate(6);},{passive:true});
-help=function(){modal('How to use the atlas',`<div class="modal-copy"><p><strong>Map.</strong> Click a subject to open it, then a case or concept to read it. Scroll to zoom, drag to pan. Two zoom-out ticks past the edge return to the overview.</p><p><strong>Reading.</strong> Each case opens with its rule in one line, then the brief, separate opinions, and connections. Where a doctrine developed over time, a timeline shows the line of cases; click any step.</p><p><strong>Sources.</strong> Source buttons open the assigned page image. Close it to return to the same place.</p><p><strong>Keys.</strong> <kbd>/</kbd> search · <kbd>+</kbd> <kbd>−</kbd> zoom · <kbd>0</kbd> fit · <kbd>Alt</kbd>+<kbd>←</kbd> back · <kbd>Esc</kbd> close.</p><p><strong>Saving.</strong> Edits stay in this browser. Use Save for a portable copy.</p></div>`);};
-const priorCoverage=coverageDialog;coverageDialog=function(...args){const v=priorCoverage(...args);const body=document.getElementById('modalBody'),note=(data.scopeNotes||{})[S.scope];if(body&&note&&!body.querySelector('.dkla-scope-note'))body.insertAdjacentHTML('afterbegin',`<section class="dkla-scope-note"><h3>Scope of these entries</h3><p>${E(note)}</p></section>`);return v;};
+  connectionCard = function (e, id) {
+    const otherId = e.source === id ? e.target : e.source,
+      n = nodesById.get(otherId);
+    if (!n) return '';
+    const place = geoPlacement(otherId);
+    return `<article class="study-connection simple-connection" data-connection-record="${E(e.id)}"><button class="connection-destination" data-study-node="${E(otherId)}">${E(n.title)}</button><div class="dkla-location">${E(geoDistrict(place.district)?.title || 'Study notes')} · ${E((n.courses || []).join(', '))}</div><p>${E(r6StudySentence(e.explanation || e.label))}</p><button class="text-button" data-study-edge="${E(e.id)}">${e.status === 'Disputed' ? 'Disputed relationship · read the qualification' : e.status === 'Reviewed' ? 'Reviewed ✓ · explanation and sources' : 'Explanation and sources'}</button></article>`;
+  };
+  connectionsSection = function (n) {
+    const all = orderedEdges(n.id).filter((e) => !navigationEdge(e)),
+      top = focusEdges(n.id, 4),
+      used = new Set(top.map((e) => e.id)),
+      rest = all.filter((e) => !used.has(e.id));
+    return `<section class="r6-connections"><div class="related-heading"><h3>Connections <span class="case-count">${all.length}</span></h3><button id="showNeighborhood">Show all</button></div>${top.map((e) => connectionCard(e, n.id)).join('')}${rest.length ? `<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded ? 'open' : ''}><summary>More connections (${rest.length})</summary>${rest.map((e) => connectionCard(e, n.id)).join('')}</details>` : ''}</section>`;
+  };
+  r6RenderLens = function () {
+    const show = r6LensOpen && S.panelOpen && selected?.type === 'node';
+    r6Lens.hidden = !show;
+    document.body.classList.toggle('has-lens', !!show);
+    if (!show) return;
+    const raw = nodesById.get(selected.id);
+    if (!raw) {
+      r6Lens.hidden = true;
+      return;
+    }
+    const n = recordView(raw),
+      es = focusEdges(n.id, 4),
+      count = orderedEdges(n.id).filter((e) => !navigationEdge(e)).length;
+    r6Lens.innerHTML = `<div class="lens-header"><span>Connections of this ${n.kind === 'Case' ? 'case' : n.kind === 'Rule' ? 'provision' : n.kind === 'Hypothetical' ? 'question' : n.kind === 'Note' ? 'note' : 'concept'} <span class="dkla-portal-count">${es.length} of ${count}</span></span><button data-close-lens="true" aria-label="Return to the permanent map">×</button></div><div class="lens-content"><div class="lens-anchor dkla-lens-compact"><small>${E(geoDistrict(geoPlacement(n.id).district)?.title || S.scope)}</small><h2>${E(n.title)}</h2><button data-home-reference="${E(n.id)}">Show on map →</button></div>${
+      es
+        .map((e) => {
+          const k = e.source === n.id ? e.target : e.source,
+            o = nodesById.get(k);
+          if (!o) return '';
+          return `<article class="lens-reference" data-lens-reference="${E(k)}"><div><button class="lens-title" data-study-node="${E(k)}">${E(o.title)}</button><p>${E(r6StudySentence(e.explanation || e.label))}</p><div class="lens-reference-actions"><button data-study-edge="${E(e.id)}">${e.status === 'Reviewed' ? 'Reviewed ✓ · ' : e.status === 'Disputed' ? 'Disputed · ' : ''}Read sources</button><button data-home-reference="${E(k)}">Show on map →</button></div></div></article>`;
+        })
+        .join('') || '<p class="context-text">No connections yet.</p>'
+    }<div class="dkla-lens-footer">${count > es.length ? `<button data-dkla-all-connections="1">All ${count} connections →</button>` : ''}</div></div>`;
+  };
+  const priorInspector = renderInspector;
+  renderInspector = function (...args) {
+    const v = priorInspector(...args);
+    if (selected?.type === 'node' && S.panelOpen) {
+      const raw = nodesById.get(selected.id);
+      if (raw) {
+        const heading = document.querySelector('#inspector .reader-body>h2');
+        if (heading && !heading.parentElement.classList.contains('dkla-record-title')) {
+          const wrap = document.createElement('div');
+          wrap.className = 'dkla-record-title';
+          heading.before(wrap);
+          wrap.innerHTML = symbol(raw);
+          wrap.appendChild(heading);
+        }
+        const choices = Object.keys(raw.courseTreatments || {});
+        if (
+          choices.length &&
+          window.DKLA?.selectTreatment &&
+          !document.querySelector('#inspector .dkla-course-tabs')
+        ) {
+          const tab = document.createElement('nav');
+          tab.className = 'dkla-course-tabs';
+          tab.setAttribute('aria-label', 'Course-specific treatment');
+          const active = courseName(recordView(raw)._treatmentCourse || S.scope);
+          const cs = [
+            ...new Set(
+              [...(raw.courses || []), ...choices]
+                .map(courseName)
+                .filter((c) => courses.some((x) => x.name === c)),
+            ),
+          ];
+          tab.innerHTML = cs
+            .map(
+              (c) =>
+                `<button data-dkla-treatment="${E(c)}" aria-pressed="${courseName(c) === active}">${E(c === 'Legislation and the Regulatory State' ? 'LRS' : c)}</button>`,
+            )
+            .join('');
+          document.querySelector('#inspector .reader-body')?.prepend(tab);
+        }
+        if (raw.kind === 'Case') {
+          const tk = document.querySelector('#inspector .takeaway');
+          if (tk && !tk.classList.contains('dkla-rule')) {
+            tk.classList.add('dkla-rule');
+            const lab = document.createElement('p');
+            lab.className = 'dkla-rule-label';
+            lab.textContent = 'Rule in one line';
+            tk.before(lab);
+          }
+        }
+        const tls = timelinesFor(raw);
+        if (tls.length && !document.querySelector('#inspector .dkla-timeline')) {
+          const anchor =
+            document.querySelector('#inspector .reader-body .source-strip') ||
+            document.querySelector('#inspector .takeaway');
+          if (anchor) {
+            anchor.insertAdjacentHTML('afterend', tls.map((x) => timelineHTML(x.t, x.current)).join(''));
+            const li = document.querySelector('#inspector .dkla-timeline li.is-current');
+            if (li) {
+              const track = li.parentElement;
+              track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2);
+            }
+          }
+        }
+        document
+          .querySelectorAll('#inspector .reader-body>*')
+          .forEach((el, i) => el.style.setProperty('--i', Math.min(i, 14)));
+        const meta = icons.records?.[raw.id];
+        const audit = document.querySelector('#entryAudit');
+        if (meta && meta.status === 'unique' && !document.querySelector('#inspector .dkla-icon-caption')) {
+          const cap = document.createElement('p');
+          cap.className = 'dkla-icon-caption';
+          cap.textContent = meta.label;
+          document.querySelector('#inspector .dkla-record-title')?.insertAdjacentElement('afterend', cap);
+        }
+      }
+    }
+    r6RenderLens();
+    renderOverview();
+    return v;
+  };
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest(
+      '[data-dkla-directory],[data-dkla-bridge],[data-dkla-coverage],[data-dkla-treatment],[data-dkla-all-connections]',
+    );
+    if (!el) return;
+    e.preventDefault();
+    if (el.dataset.dklaDirectory) openDirectory(el.dataset.dklaDirectory);
+    if (el.dataset.dklaBridge) openBridge(el.dataset.dklaBridge);
+    if (el.dataset.dklaCoverage) coverageDialog();
+    if (el.dataset.dklaTreatment) {
+      window.DKLA.selectTreatment(el.dataset.dklaTreatment);
+    }
+    if (el.dataset.dklaAllConnections) {
+      const details = document.getElementById('remainingConnections');
+      if (details) {
+        details.open = true;
+        S.connectionsExpanded = true;
+        details.scrollIntoView({ block: 'start', behavior: reducedMotion ? 'auto' : 'smooth' });
+      }
+    }
+  });
+  function timelinesFor(n) {
+    const all = data.timelines || [];
+    const direct = all.filter((t) => t.steps.some((s) => s.id === n.id));
+    if (direct.length) return direct.map((t) => ({ t, current: n.id }));
+    if (n.kind === 'Concept' || n.kind === 'Rule') {
+      const c = r6Canonical(n.id);
+      return all
+        .filter(
+          (t) =>
+            t.steps.filter((s) =>
+              Object.keys(nodesById.get(s.id)?.learning?.topics || {}).some((k) => r6Canonical(k) === c),
+            ).length >= 3,
+        )
+        .map((t) => ({ t, current: null }));
+    }
+    return [];
+  }
+  function timelineHTML(t, current) {
+    return `<section class="dkla-timeline" aria-label="${E(t.title)}"><div class="dkla-timeline-head"><span>How the doctrine developed</span><h3>${E(t.title)}</h3><p>${E(t.question)}</p></div><ol class="dkla-timeline-track">${t.steps
+      .map((s, i) => {
+        const n = nodesById.get(s.id);
+        if (!n) return '';
+        return `<li class="${s.id === current ? 'is-current' : ''}" style="--i:${i}"><button data-study-node="${E(s.id)}" ${s.id === current ? 'aria-current="true"' : ''}><span class="dkla-tl-year">${s.year}</span><strong>${E(
+          displayName(n)
+            .replace(/\s*\(\d{4}\)\s*/, ' ')
+            .replace(/\s+[—–]\s+.*$/, '')
+            .trim(),
+        )}</strong><small>${E(s.note)}</small></button></li>`;
+      })
+      .join('')}</ol></section>`;
+  }
+  document.addEventListener(
+    'pointerdown',
+    (e) => {
+      if (e.pointerType === 'touch' && navigator.vibrate && e.target.closest('button,[role=button],a'))
+        navigator.vibrate(6);
+    },
+    { passive: true },
+  );
+  help = function () {
+    modal(
+      'How to use the atlas',
+      `<div class="modal-copy"><p><strong>Map.</strong> Click a subject to open it, then a case or concept to read it. Scroll to zoom, drag to pan. Two zoom-out ticks past the edge return to the overview.</p><p><strong>Reading.</strong> Each case opens with its rule in one line, then the brief, separate opinions, and connections. Where a doctrine developed over time, a timeline shows the line of cases; click any step.</p><p><strong>Sources.</strong> Source buttons open the assigned page image. Close it to return to the same place.</p><p><strong>Keys.</strong> <kbd>/</kbd> search · <kbd>+</kbd> <kbd>−</kbd> zoom · <kbd>0</kbd> fit · <kbd>Alt</kbd>+<kbd>←</kbd> back · <kbd>Esc</kbd> close.</p><p><strong>Saving.</strong> Edits stay in this browser. Use Save for a portable copy.</p></div>`,
+    );
+  };
+  const priorCoverage = coverageDialog;
+  coverageDialog = function (...args) {
+    const v = priorCoverage(...args);
+    const body = document.getElementById('modalBody'),
+      note = (data.scopeNotes || {})[S.scope];
+    if (body && note && !body.querySelector('.dkla-scope-note'))
+      body.insertAdjacentHTML(
+        'afterbegin',
+        `<section class="dkla-scope-note"><h3>Scope of these entries</h3><p>${E(note)}</p></section>`,
+      );
+    return v;
+  };
 
-// ---- r11: the overview page is gone. The map itself is the galaxy at the floor zoom (see the r11 section of studyCode).
-renderOverview=function(){overview.hidden=true;document.body.classList.remove('dkla-overview-mode');};
-const api=window.DKLA||{};window.DKLA={...api,overview:()=>home('Atlas'),openDirectory,openBridge,iconFor:id=>icons.records?.[id]||null,iconCoverage:()=>icons.coverage||null};
-window.LegalAtlas={...window.LegalAtlas,caseIndex:id=>clone(r6CaseRows(id)),showConnections:()=>{r6LensOpen=true;r6RenderLens();},overview:()=>home('Atlas')};
-renderInspector();renderHeading();schedule();
+  // ---- r11: the overview page is gone. The map itself is the galaxy at the floor zoom (see the r11 section of studyCode).
+  renderOverview = function () {
+    overview.hidden = true;
+    document.body.classList.remove('dkla-overview-mode');
+  };
+  const api = window.DKLA || {};
+  window.DKLA = {
+    ...api,
+    overview: () => home('Atlas'),
+    openDirectory,
+    openBridge,
+    iconFor: (id) => icons.records?.[id] || null,
+    iconCoverage: () => icons.coverage || null,
+  };
+  window.LegalAtlas = {
+    ...window.LegalAtlas,
+    caseIndex: (id) => clone(r6CaseRows(id)),
+    showConnections: () => {
+      r6LensOpen = true;
+      r6RenderLens();
+    },
+    overview: () => home('Atlas'),
+  };
+  renderInspector();
+  renderHeading();
+  schedule();
 })();

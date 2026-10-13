@@ -16,7 +16,7 @@
     "check:content": "node tools/verify/check.mjs",
     "smoke": "node tools/verify/smoke.mjs",
     "verify": "node tools/verify/all.mjs",
-    "verify:teeth": "node tools/verify/break.mjs"
+    "verify:teeth": "node tools/verify/break.mjs",
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.0",
@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
-    "@playwright/test": "1.64.0"
+    "@playwright/test": "1.64.0",
+    "acorn": "8.15.0",
+    "prettier": "3.6.2"
   }
 }

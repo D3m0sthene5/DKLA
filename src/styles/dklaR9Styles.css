@@ -1,1 +1,122 @@
-.map-nav{background:#111820e6;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid #2b3844;border-radius:9px;padding:3px 6px 3px 3px;box-shadow:0 4px 18px #0006}.map-nav>button,.map-nav #geoBreadcrumb{background:transparent}#mapHint{background:#111820d9;padding:6px 11px;border-radius:7px;border:1px solid #2b3844;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);bottom:26px}.study-zoom{box-shadow:0 4px 18px #0006}#geoCanvas .node-card{transition:none}.dkla-overview-heading .dkla-mark{width:54px;height:54px;display:block;margin:0 auto 12px}.dkla-petals{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1240px;margin:26px auto 20px}.dkla-course-petal,.dkla-course-petal[data-course=contracts],.dkla-course-petal[data-course=civil],.dkla-course-petal[data-course=lrs]{grid-column:auto;grid-row:auto;width:auto;max-width:none;justify-self:stretch;min-height:0;border-radius:18px;border-top:3px solid var(--petal-color);display:flex;flex-direction:column}.dkla-course-petal .dkla-all-topics{margin-top:auto;padding-top:16px}.dkla-overview-core,.dkla-petal-traces{display:none}.dkla-rule-label{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--dkla-course);margin:16px 0 -6px!important;font-weight:600}#inspector .takeaway.dkla-rule{font:500 17px/1.6 Georgia,"Times New Roman",serif;border-left:3px solid var(--dkla-course);padding-left:14px;color:#f3eee4}.dkla-lens-compact h2{font-size:19px!important;margin:4px 0 8px!important}.dkla-scope-note{border:1px solid #3a4b58;border-radius:8px;padding:12px 16px;margin:0 0 16px;background:#16212b}.dkla-scope-note h3{margin:0 0 6px;font-size:13px}.dkla-scope-note p{margin:0;font-size:13px;line-height:1.6;color:#c4d0da}@media(max-width:1200px){.dkla-petals,.dkla-petals{grid-template-columns:repeat(3,1fr);gap:14px}}@media(max-width:860px){.dkla-petals,.dkla-petals{grid-template-columns:1fr;gap:14px}}@media(max-width:650px){.dkla-petals,.dkla-petals{display:grid}}
+.map-nav {
+  background: #111820e6;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #2b3844;
+  border-radius: 9px;
+  padding: 3px 6px 3px 3px;
+  box-shadow: 0 4px 18px #0006;
+}
+.map-nav > button,
+.map-nav #geoBreadcrumb {
+  background: transparent;
+}
+#mapHint {
+  background: #111820d9;
+  padding: 6px 11px;
+  border-radius: 7px;
+  border: 1px solid #2b3844;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  bottom: 26px;
+}
+.study-zoom {
+  box-shadow: 0 4px 18px #0006;
+}
+#geoCanvas .node-card {
+  transition: none;
+}
+.dkla-overview-heading .dkla-mark {
+  width: 54px;
+  height: 54px;
+  display: block;
+  margin: 0 auto 12px;
+}
+.dkla-petals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 26px auto 20px;
+}
+.dkla-course-petal,
+.dkla-course-petal[data-course='contracts'],
+.dkla-course-petal[data-course='civil'],
+.dkla-course-petal[data-course='lrs'] {
+  grid-column: auto;
+  grid-row: auto;
+  width: auto;
+  max-width: none;
+  justify-self: stretch;
+  min-height: 0;
+  border-radius: 18px;
+  border-top: 3px solid var(--petal-color);
+  display: flex;
+  flex-direction: column;
+}
+.dkla-course-petal .dkla-all-topics {
+  margin-top: auto;
+  padding-top: 16px;
+}
+.dkla-overview-core,
+.dkla-petal-traces {
+  display: none;
+}
+.dkla-rule-label {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--dkla-course);
+  margin: 16px 0 -6px !important;
+  font-weight: 600;
+}
+#inspector .takeaway.dkla-rule {
+  font:
+    500 17px/1.6 Georgia,
+    'Times New Roman',
+    serif;
+  border-left: 3px solid var(--dkla-course);
+  padding-left: 14px;
+  color: #f3eee4;
+}
+.dkla-lens-compact h2 {
+  font-size: 19px !important;
+  margin: 4px 0 8px !important;
+}
+.dkla-scope-note {
+  border: 1px solid #3a4b58;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 0 0 16px;
+  background: #16212b;
+}
+.dkla-scope-note h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+.dkla-scope-note p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #c4d0da;
+}
+@media (max-width: 1200px) {
+  .dkla-petals,
+  .dkla-petals {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+@media (max-width: 860px) {
+  .dkla-petals,
+  .dkla-petals {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+@media (max-width: 650px) {
+  .dkla-petals,
+  .dkla-petals {
+    display: grid;
+  }
+}

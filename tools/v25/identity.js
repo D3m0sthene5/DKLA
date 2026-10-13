@@ -4,7 +4,7 @@
   'use strict';
   if (window.DKLAIdentity) return;
   let serial = 0;
-  const identity = window.DKLAIdentity = { ready: false, mark, refresh };
+  const identity = (window.DKLAIdentity = { ready: false, mark, refresh });
   function headerMark() {
     const svg = document.querySelector('#atlasHome .dkla-header-monogram');
     return svg?.querySelector('.dkla-letter-d[data-r21-shaped]') ? svg : null;
@@ -12,7 +12,8 @@
   function mark() {
     const source = headerMark();
     if (!source) return '';
-    const svg = source.cloneNode(true), prefix = 'dklaIdentity' + (++serial) + '-';
+    const svg = source.cloneNode(true),
+      prefix = 'dklaIdentity' + ++serial + '-';
     const ids = new Map();
     for (const el of svg.querySelectorAll('[id]')) {
       ids.set(el.id, prefix + el.id);
@@ -40,7 +41,10 @@
     }
   }
   function install() {
-    if (!window.SCOTUSHistory || !headerMark()) { setTimeout(install, 80); return; }
+    if (!window.SCOTUSHistory || !headerMark()) {
+      setTimeout(install, 80);
+      return;
+    }
     // A getter supplies distinct clipping IDs for each dynamic insertion.
     Object.defineProperty(window.SCOTUSHistory, 'logo', { configurable: true, enumerable: true, get: mark });
     identity.ready = true;

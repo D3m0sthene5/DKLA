@@ -1,3 +1,17 @@
 /* v2.6 version label only; embedded font lives in release-font.css. */
-#atlasHome .dkla-release{font-family:"DKLA Orbitron","Segoe UI",sans-serif;font-size:24px;font-weight:600;letter-spacing:.035em;line-height:1.1;font-variant-numeric:tabular-nums;color:#d5edf3;text-shadow:0 0 10px #8de5ff26}
-@media(max-width:620px){#atlasHome .dkla-release{font-size:20px;letter-spacing:.02em}}
+#atlasHome .dkla-release {
+  font-family: 'DKLA Orbitron', 'Segoe UI', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  color: #d5edf3;
+  text-shadow: 0 0 10px #8de5ff26;
+}
+@media (max-width: 620px) {
+  #atlasHome .dkla-release {
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+}

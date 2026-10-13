@@ -1,5 +1,255 @@
 /* The r7 layer uses the existing typography and a single course selector. */
-.civil-source-scope{font-size:12px;line-height:1.55;color:var(--muted,#637080);margin:8px 0 12px}.civil-list-entry{margin:10px 0 16px}.civil-list-entry .study-entry-link{margin-bottom:3px}.civil-list-entry .study-entry-link small{display:block;font-size:12px;color:var(--muted,#637080);font-weight:400;margin-top:5px}.civil-list-entry>p{margin:6px 8px 0;line-height:1.65}.civil-week-row small,.civil-week-row strong{display:block}.civil-week-row small{margin-bottom:6px;color:var(--muted,#637080)}.civil-week-row{margin-bottom:10px!important}.civil-inventory-tools{display:grid;grid-template-columns:1fr auto;gap:12px;margin:20px 0}.civil-inventory-tools>input{min-width:0;padding:10px}.civil-inventory-tools>label{grid-row:2;grid-column:1 / -1;font-size:13px}.civil-reference{padding:12px 0;border-bottom:1px solid #d7dde2}.civil-reference h3{font-size:16px;margin:5px 0}.civil-reference p{font-size:13px;margin:5px 0}.civil-reference .source-strip{margin:8px 0}
-#civilSourceDialog{width:min(1240px,96vw);max-width:96vw;height:94vh;max-height:94vh;padding:0;border:1px solid #bcc8d0;border-radius:12px;background:#f7f7f3;color:#263341;overflow:hidden;box-shadow:0 18px 80px #0004}#civilSourceDialog[open]{display:flex;flex-direction:column}#civilSourceDialog::backdrop{background:#17232f88}.civil-source-header{padding:17px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d7dde2;gap:20px;flex-shrink:0}.civil-source-header strong{display:block;font-size:17px}.civil-source-header span{display:block;font-size:12px;margin-top:5px;color:#5a6773}.civil-source-tools{padding:10px 20px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #d7dde2;flex-shrink:0}.civil-source-tools input{width:78px;padding:8px;font-size:14px}.civil-source-tools select{max-width:240px;padding:9px}.civil-source-tools .active{background:#dfe8ee}.civil-source-note{font-size:12px;line-height:1.5;padding:9px 22px;color:#516270;border-bottom:1px solid #d7dde2;flex-shrink:0}#civilSourceBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;background:#eeefeb}.civil-page-text{white-space:pre-wrap;overflow-wrap:break-word;max-width:850px;margin:24px auto;padding:36px 46px;background:#fff;font:18px/1.7 Georgia,'Times New Roman',serif;color:#24282d;box-shadow:0 2px 14px #0001}.civil-source-image{display:block;width:100%;max-width:1120px;margin:16px auto;background:white}.civil-source-footer{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 20px;border-top:1px solid #d7dde2;font-size:12px;flex-shrink:0}#civilPDFFrame{display:block;width:100%;height:calc(100% - 42px);min-height:400px;border:0}.civil-pdf-links{padding:6px 15px;display:flex;align-items:center;gap:12px;font-size:13px;min-height:42px}.civil-source-tools button,.civil-source-header button,.civil-source-footer button{padding:8px 12px;font-size:13px;line-height:1.3}#mapWelcome{max-width:380px}#mapWelcome h1{font-size:30px}.has-reader #mapWelcome{display:none}
-@media(max-width:800px){.civil-page-text{margin:8px;padding:22px 16px;font-size:17px}.civil-source-tools{padding:8px}.civil-source-header{padding:12px}.civil-source-note{padding:8px 12px}.civil-source-tools select{max-width:185px}#civilSourceDialog{width:98vw;max-width:98vw;height:97vh;max-height:97vh}.civil-inventory-tools{grid-template-columns:1fr}}
-#civilSourceDialog button,#civilSourceDialog input,#civilSourceDialog select{color:#243746;background:#f7fafb;border:1px solid #9cabb5}#civilSourceDialog button:hover{background:#e3ecf1}#civilSourceDialog button.active{background:#d4e2eb;color:#183243}#civilSourceDialog button:disabled{color:#6b7d89;background:#eff2f3;opacity:.55}#civilSourceDialog a{color:#215878}#civilSourceDialog input{color-scheme:light}
+.civil-source-scope {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted, #637080);
+  margin: 8px 0 12px;
+}
+.civil-list-entry {
+  margin: 10px 0 16px;
+}
+.civil-list-entry .study-entry-link {
+  margin-bottom: 3px;
+}
+.civil-list-entry .study-entry-link small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted, #637080);
+  font-weight: 400;
+  margin-top: 5px;
+}
+.civil-list-entry > p {
+  margin: 6px 8px 0;
+  line-height: 1.65;
+}
+.civil-week-row small,
+.civil-week-row strong {
+  display: block;
+}
+.civil-week-row small {
+  margin-bottom: 6px;
+  color: var(--muted, #637080);
+}
+.civil-week-row {
+  margin-bottom: 10px !important;
+}
+.civil-inventory-tools {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin: 20px 0;
+}
+.civil-inventory-tools > input {
+  min-width: 0;
+  padding: 10px;
+}
+.civil-inventory-tools > label {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  font-size: 13px;
+}
+.civil-reference {
+  padding: 12px 0;
+  border-bottom: 1px solid #d7dde2;
+}
+.civil-reference h3 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+.civil-reference p {
+  font-size: 13px;
+  margin: 5px 0;
+}
+.civil-reference .source-strip {
+  margin: 8px 0;
+}
+#civilSourceDialog {
+  width: min(1240px, 96vw);
+  max-width: 96vw;
+  height: 94vh;
+  max-height: 94vh;
+  padding: 0;
+  border: 1px solid #bcc8d0;
+  border-radius: 12px;
+  background: #f7f7f3;
+  color: #263341;
+  overflow: hidden;
+  box-shadow: 0 18px 80px #0004;
+}
+#civilSourceDialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+#civilSourceDialog::backdrop {
+  background: #17232f88;
+}
+.civil-source-header {
+  padding: 17px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d7dde2;
+  gap: 20px;
+  flex-shrink: 0;
+}
+.civil-source-header strong {
+  display: block;
+  font-size: 17px;
+}
+.civil-source-header span {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  color: #5a6773;
+}
+.civil-source-tools {
+  padding: 10px 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #d7dde2;
+  flex-shrink: 0;
+}
+.civil-source-tools input {
+  width: 78px;
+  padding: 8px;
+  font-size: 14px;
+}
+.civil-source-tools select {
+  max-width: 240px;
+  padding: 9px;
+}
+.civil-source-tools .active {
+  background: #dfe8ee;
+}
+.civil-source-note {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 9px 22px;
+  color: #516270;
+  border-bottom: 1px solid #d7dde2;
+  flex-shrink: 0;
+}
+#civilSourceBody {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #eeefeb;
+}
+.civil-page-text {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 36px 46px;
+  background: #fff;
+  font:
+    18px/1.7 Georgia,
+    'Times New Roman',
+    serif;
+  color: #24282d;
+  box-shadow: 0 2px 14px #0001;
+}
+.civil-source-image {
+  display: block;
+  width: 100%;
+  max-width: 1120px;
+  margin: 16px auto;
+  background: white;
+}
+.civil-source-footer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  border-top: 1px solid #d7dde2;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+#civilPDFFrame {
+  display: block;
+  width: 100%;
+  height: calc(100% - 42px);
+  min-height: 400px;
+  border: 0;
+}
+.civil-pdf-links {
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  min-height: 42px;
+}
+.civil-source-tools button,
+.civil-source-header button,
+.civil-source-footer button {
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+#mapWelcome {
+  max-width: 380px;
+}
+#mapWelcome h1 {
+  font-size: 30px;
+}
+.has-reader #mapWelcome {
+  display: none;
+}
+@media (max-width: 800px) {
+  .civil-page-text {
+    margin: 8px;
+    padding: 22px 16px;
+    font-size: 17px;
+  }
+  .civil-source-tools {
+    padding: 8px;
+  }
+  .civil-source-header {
+    padding: 12px;
+  }
+  .civil-source-note {
+    padding: 8px 12px;
+  }
+  .civil-source-tools select {
+    max-width: 185px;
+  }
+  #civilSourceDialog {
+    width: 98vw;
+    max-width: 98vw;
+    height: 97vh;
+    max-height: 97vh;
+  }
+  .civil-inventory-tools {
+    grid-template-columns: 1fr;
+  }
+}
+#civilSourceDialog button,
+#civilSourceDialog input,
+#civilSourceDialog select {
+  color: #243746;
+  background: #f7fafb;
+  border: 1px solid #9cabb5;
+}
+#civilSourceDialog button:hover {
+  background: #e3ecf1;
+}
+#civilSourceDialog button.active {
+  background: #d4e2eb;
+  color: #183243;
+}
+#civilSourceDialog button:disabled {
+  color: #6b7d89;
+  background: #eff2f3;
+  opacity: 0.55;
+}
+#civilSourceDialog a {
+  color: #215878;
+}
+#civilSourceDialog input {
+  color-scheme: light;
+}

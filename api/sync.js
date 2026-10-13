@@ -22,8 +22,17 @@ export function cleanRatings(input) {
   const out = Object.create(null);
   if (!input || typeof input !== 'object') return out;
   for (const [id, value] of Object.entries(input)) {
-    if (typeof id !== 'string' || id.length > 200 || ['__proto__','constructor','prototype'].includes(id) || !value || typeof value !== 'object') continue;
-    const r = Number(value.r), t = Number(value.t), n = Number(value.n) || 0;
+    if (
+      typeof id !== 'string' ||
+      id.length > 200 ||
+      ['__proto__', 'constructor', 'prototype'].includes(id) ||
+      !value ||
+      typeof value !== 'object'
+    )
+      continue;
+    const r = Number(value.r),
+      t = Number(value.t),
+      n = Number(value.n) || 0;
     if (![0, 1, 2, 3].includes(r) || !Number.isFinite(t) || t <= 0) continue;
     out[id] = { r, t: Math.min(t, Date.now() + 86400000), n: Math.max(0, Math.min(100000, Math.floor(n))) };
   }
@@ -37,14 +46,16 @@ export function merge(a, b) {
 }
 
 async function stored(prefix) {
-  const found = new Map(), cursors = new Set();
+  const found = new Map(),
+    cursors = new Set();
   let cursor;
   do {
     const page = await list({ prefix, limit: 50, ...(cursor ? { cursor } : {}) });
     for (const blob of page.blobs) found.set(blob.url, blob);
     if (!page.hasMore) break;
     if (!page.cursor || cursors.has(page.cursor)) throw new Error('incomplete ratings listing');
-    cursor = page.cursor; cursors.add(cursor);
+    cursor = page.cursor;
+    cursors.add(cursor);
   } while (true);
   const blobs = [...found.values()];
   blobs.sort((x, y) => new Date(y.uploadedAt) - new Date(x.uploadedAt));
@@ -55,21 +66,34 @@ async function stored(prefix) {
 // business); a store created as public still works, and the choice is remembered for the instance.
 let access = process.env.DKLA_BLOB_ACCESS === 'public' ? 'public' : 'private';
 async function withAccess(run) {
-  try { return await run(access); } catch (first) {
+  try {
+    return await run(access);
+  } catch (first) {
     const other = access === 'private' ? 'public' : 'private';
-    try { const out = await run(other); access = other; return out; } catch { throw first; }
+    try {
+      const out = await run(other);
+      access = other;
+      return out;
+    } catch {
+      throw first;
+    }
   }
 }
 
 // A blob that list() returned but that cannot be read or parsed is an error, never "no ratings":
 // treating it as empty would let the next upload overwrite and prune real data.
 async function read(blob) {
-  const found = await get(blob.url, { access: blob.url.includes('.private.') ? 'private' : 'public', useCache: false });
+  const found = await get(blob.url, {
+    access: blob.url.includes('.private.') ? 'private' : 'public',
+    useCache: false,
+  });
   if (!found?.stream) throw new Error('stored ratings unreadable');
   const json = await new Response(found.stream).json();
-  if (!json?.ratings || typeof json.ratings !== 'object' || Array.isArray(json.ratings)) throw new Error('stored ratings malformed');
+  if (!json?.ratings || typeof json.ratings !== 'object' || Array.isArray(json.ratings))
+    throw new Error('stored ratings malformed');
   const ratings = cleanRatings(json.ratings);
-  if (Object.keys(ratings).length !== Object.keys(json.ratings).length) throw new Error('stored ratings malformed');
+  if (Object.keys(ratings).length !== Object.keys(json.ratings).length)
+    throw new Error('stored ratings malformed');
   return ratings;
 }
 
@@ -85,12 +109,20 @@ async function readAll(blobs) {
 const fallbackLimits = new Map();
 async function syncLimit(req) {
   if (configured()) {
-    try { await limit('sync:' + ip(req), 120); return; } catch (error) { if (error.status === 429) throw error; }
+    try {
+      await limit('sync:' + ip(req), 120);
+      return;
+    } catch (error) {
+      if (error.status === 429) throw error;
+    }
   }
   // Ratings remain available if the optional analytics database is unavailable.
-  const minute = Math.floor(Date.now() / 60000), key = ip(req) + ':' + minute;
+  const minute = Math.floor(Date.now() / 60000),
+    key = ip(req) + ':' + minute;
   for (const [old, item] of fallbackLimits) if (item.minute < minute - 1) fallbackLimits.delete(old);
-  const item = fallbackLimits.get(key) || { minute, count: 0 }; item.count++; fallbackLimits.set(key, item);
+  const item = fallbackLimits.get(key) || { minute, count: 0 };
+  item.count++;
+  fallbackLimits.set(key, item);
   if (item.count > 120) throw fail(429, 'rate-limited');
 }
 export default async function handler(req, res) {
@@ -98,7 +130,8 @@ export default async function handler(req, res) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return send(res, 503, { error: 'not-configured' });
   try {
     if (req.method === 'POST') {
-      sameOrigin(req); await syncLimit(req);
+      sameOrigin(req);
+      await syncLimit(req);
       const body = await readBody(req, MAX_BYTES);
       const code = String(body.code || '').toUpperCase();
       if (!CODE.test(code)) return send(res, 400, { error: 'bad-code' });
@@ -115,12 +148,22 @@ export default async function handler(req, res) {
       const merged = merge(await readAll(blobs), incoming);
       const text = JSON.stringify({ v: 1, ratings: merged });
       if (Buffer.byteLength(text) > MAX_BYTES) return send(res, 413, { error: 'too-large' });
-      const saved = await withAccess(mode => put(prefix + Date.now() + '.json', text, { access: mode, contentType: 'application/json', addRandomSuffix: true }));
+      const saved = await withAccess((mode) =>
+        put(prefix + Date.now() + '.json', text, {
+          access: mode,
+          contentType: 'application/json',
+          addRandomSuffix: true,
+        }),
+      );
       // These exact immutable URLs were all successfully merged into saved. Uploads that arrived
       // after our listing are not deletion candidates, so their independent updates remain safe.
-      const stale = blobs.slice(KEEP - 1).map(b => b.url);
+      const stale = blobs.slice(KEEP - 1).map((b) => b.url);
       if (stale.length) await del(stale).catch(() => {});
-      return send(res, 200, { data: { ratings: merged }, updatedAt: new Date().toISOString(), id: saved.pathname });
+      return send(res, 200, {
+        data: { ratings: merged },
+        updatedAt: new Date().toISOString(),
+        id: saved.pathname,
+      });
     }
     res.setHeader('allow', 'POST');
     return send(res, 405, { error: 'method-not-allowed' });

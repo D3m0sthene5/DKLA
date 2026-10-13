@@ -14,13 +14,19 @@
     if (!text || !rule || rule.dataset.r22 === id) return;
     // Remove the inherited label and replace the compact rule with the explanation.
     // The legal analysis remains in the case sections and source brief.
-    const label = rule.previousElementSibling && rule.previousElementSibling.classList.contains('dkla-rule-label') ? rule.previousElementSibling : null;
+    const label =
+      rule.previousElementSibling && rule.previousElementSibling.classList.contains('dkla-rule-label')
+        ? rule.previousElementSibling
+        : null;
     if (label) label.remove();
-    const plain = document.createElement('p'); plain.className = 'r22-plain-text'; plain.textContent = text;
+    const plain = document.createElement('p');
+    plain.className = 'r22-plain-text';
+    plain.textContent = text;
     rule.replaceChildren(plain);
-    rule.classList.add('r22-plain'); rule.dataset.r22 = id;
+    rule.classList.add('r22-plain');
+    rule.dataset.r22 = id;
   }
   new MutationObserver(paint).observe(panel, { childList: true, subtree: true });
   paint();
-  window.DKLATakeaways = { count: Object.keys(T).length, for: id => T[id] || null };
+  window.DKLATakeaways = { count: Object.keys(T).length, for: (id) => T[id] || null };
 })();

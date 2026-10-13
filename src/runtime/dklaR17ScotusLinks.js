@@ -39,12 +39,22 @@
     section.setAttribute('aria-label', 'Supreme Court voting record');
     section.append(element('div', 'Supreme Court · voting record', 'sh-kicker'));
     section.append(element('h3', record.title));
-    section.append(element('div', [record.date, record.citation].filter(Boolean).join(' · '), 'sh-case-meta'));
+    section.append(
+      element('div', [record.date, record.citation].filter(Boolean).join(' · '), 'sh-case-meta'),
+    );
     for (const [index, decision] of record.decisions.entries()) {
       const title = record.decisions.length > 1 ? `Question ${index + 1}: ` : '';
-      section.append(element('p', `${title}${decision.headline || `${decision.for}–${decision.against}`}${decision.description ? ` · ${decision.description}` : ''}`, 'r17-alias-tally'));
+      section.append(
+        element(
+          'p',
+          `${title}${decision.headline || `${decision.for}–${decision.against}`}${decision.description ? ` · ${decision.description}` : ''}`,
+          'r17-alias-tally',
+        ),
+      );
       const votes = element('div', null, 'r17-alias-votes');
-      for (const vote of [...decision.votes].sort((a, b) => (a.seniority ?? Infinity) - (b.seniority ?? Infinity))) {
+      for (const vote of [...decision.votes].sort(
+        (a, b) => (a.seniority ?? Infinity) - (b.seniority ?? Infinity),
+      )) {
         const item = element('div', null, 'r17-alias-vote');
         item.dataset.align = vote.alignment;
         item.append(element('strong', window.SCOTUSHistory.data.people[vote.justice]?.name || vote.justice));
@@ -65,7 +75,7 @@
     actions.append(brief);
     section.append(actions);
     const sources = element('div', null, 'sh-source');
-    for (const source of record.sources.filter(s => /^https:\/\//.test(s.url))) {
+    for (const source of record.sources.filter((s) => /^https:\/\//.test(s.url))) {
       const link = element('a', `${source.label} ↗`);
       link.href = source.url;
       link.target = '_blank';
@@ -117,7 +127,7 @@
 
     // r16 redraws a vote panel directly when the voting question or sort order
     // changes, without calling renderInspector. Reattach the link after that redraw.
-    new MutationObserver(linkPanels).observe(inspector, {childList: true, subtree: true});
+    new MutationObserver(linkPanels).observe(inspector, { childList: true, subtree: true });
     linkPanels();
   }
 

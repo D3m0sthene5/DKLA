@@ -5,7 +5,8 @@
   // The D is the outside contour; its stem doubles as K and L. K crosses the
   // center, the L resolves into the base, and the A occupies the right counter.
   // The four course-palette strokes remain discernible in the 28 px header mark.
-  const paths = '<path class="dkla-letter-d" d="M22 13H44C71 13 86 29 86 50S71 87 44 87H22V13Z"/>' +
+  const paths =
+    '<path class="dkla-letter-d" d="M22 13H44C71 13 86 29 86 50S71 87 44 87H22V13Z"/>' +
     '<path class="dkla-letter-k" d="M22 52 56 17M22 52 58 86"/>' +
     '<path class="dkla-letter-l" d="M22 85H54"/>' +
     '<path class="dkla-letter-a" d="M52 85 72 28 91 85M59 65H82"/>';

@@ -1,132 +1,445 @@
 /* v2.6 typography: a restrained technical interface and comfortable reading.
    Orbitron is embedded by release-font.css from the licensed asset;
    the interface and reading text use system fonts. */
-:root{
- --dkla-interface:"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
- --dkla-display:"DKLA Orbitron","Segoe UI",Arial,sans-serif;
- --dkla-reading:var(--dkla-interface);
- --r16-sans:var(--dkla-interface);
+:root {
+  --dkla-interface: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --dkla-display: 'DKLA Orbitron', 'Segoe UI', Arial, sans-serif;
+  --dkla-reading: var(--dkla-interface);
+  --r16-sans: var(--dkla-interface);
 }
-html body{font-family:var(--dkla-interface)!important;text-rendering:optimizeLegibility}
-button,input,select,textarea{font-family:var(--dkla-interface)}
-html #geoCanvas text,html #geoCanvas .region-title,html #geoCanvas .course-label{
- font-family:var(--dkla-interface);
+html body {
+  font-family: var(--dkla-interface) !important;
+  text-rendering: optimizeLegibility;
 }
-html #geoCanvas .course-name,html #geoCanvas .course-label,
-html #geoCanvas .dictionary-spine-title{
- font-family:var(--dkla-display);font-weight:600;letter-spacing:.015em;
+button,
+input,
+select,
+textarea {
+  font-family: var(--dkla-interface);
 }
-html #geoCanvas text:is(.authority-volume-title,.authority-map-heading,.authority-document-label,.authority-preview-label){font-family:var(--dkla-interface)}
-html #geoCanvas .authority-map-entrance>.authority-map-heading{font-family:var(--dkla-display);font-weight:600;letter-spacing:.015em}
+html #geoCanvas text,
+html #geoCanvas .region-title,
+html #geoCanvas .course-label {
+  font-family: var(--dkla-interface);
+}
+html #geoCanvas .course-name,
+html #geoCanvas .course-label,
+html #geoCanvas .dictionary-spine-title {
+  font-family: var(--dkla-display);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+html
+  #geoCanvas
+  text:is(
+    .authority-volume-title,
+    .authority-map-heading,
+    .authority-document-label,
+    .authority-preview-label
+  ) {
+  font-family: var(--dkla-interface);
+}
+html #geoCanvas .authority-map-entrance > .authority-map-heading {
+  font-family: var(--dkla-display);
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
 /* Keep provenance facsimiles, code references, and case citations recognizable. */
-html #geoCanvas .authority-preamble-excerpt{font-family:Georgia,Cambria,serif}
-html #geoCanvas .authority-preview-code{font-family:Consolas,monospace}
-html #geoCanvas .authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
-.brand,.map-nav,.topactions button,#geoBreadcrumb,#mapHint,#saveStatus,
-.search-results,.r18-body,.sh-shell,.sh-case-panel{font-family:var(--dkla-interface)}
-.brand{font-weight:650;letter-spacing:.06em}
-.brand small{letter-spacing:.12em}
-html #atlasHome .dkla-wordmark,html #atlasHome .dkla-wordmark small,
-html .study-header>button{font-family:var(--dkla-display)!important}
+html #geoCanvas .authority-preamble-excerpt {
+  font-family: Georgia, Cambria, serif;
+}
+html #geoCanvas .authority-preview-code {
+  font-family: Consolas, monospace;
+}
+html #geoCanvas .authority-people-fallback {
+  font-family: 'Old English Text MT', Georgia, serif;
+}
+.brand,
+.map-nav,
+.topactions button,
+#geoBreadcrumb,
+#mapHint,
+#saveStatus,
+.search-results,
+.r18-body,
+.sh-shell,
+.sh-case-panel {
+  font-family: var(--dkla-interface);
+}
+.brand {
+  font-weight: 650;
+  letter-spacing: 0.06em;
+}
+.brand small {
+  letter-spacing: 0.12em;
+}
+html #atlasHome .dkla-wordmark,
+html #atlasHome .dkla-wordmark small,
+html .study-header > button {
+  font-family: var(--dkla-display) !important;
+}
 /* The trail (Atlas > Civil Procedure > ...) and its Atlas button read like the
    tile names on the map, not like headings. */
-html #geoBreadcrumb,html #geoBreadcrumb button,html .map-nav>button{font-family:var(--dkla-interface)!important;font-weight:550;letter-spacing:0}
-.topactions button,#atlasHome .dkla-release{font-variant-numeric:tabular-nums}
+html #geoBreadcrumb,
+html #geoBreadcrumb button,
+html .map-nav > button {
+  font-family: var(--dkla-interface) !important;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+.topactions button,
+#atlasHome .dkla-release {
+  font-variant-numeric: tabular-nums;
+}
 /* Old launcher font shorthands deliberately use !important; supersede family
    alone, then retain their existing button bounds and compact label sizes. */
-html .study-header>.r18-launcher,html .study-header>.sh-launcher{
- font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:.04em;
+html .study-header > .r18-launcher,
+html .study-header > .sh-launcher {
+  font-family: var(--dkla-display) !important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
-#r18Dialog,#r19Dialog,#coldCallDialog,#ccBriefDialog,#bookDialog,#fileDialog,#glossaryDialog{
- font-family:var(--dkla-interface);
+#r18Dialog,
+#r19Dialog,
+#coldCallDialog,
+#ccBriefDialog,
+#bookDialog,
+#fileDialog,
+#glossaryDialog {
+  font-family: var(--dkla-interface);
 }
-#coldCallDialog button,#ccBriefDialog button,#r18Dialog button,#r19Dialog button{
- font-family:var(--dkla-interface);
+#coldCallDialog button,
+#ccBriefDialog button,
+#r18Dialog button,
+#r19Dialog button {
+  font-family: var(--dkla-interface);
 }
-html #inspector h2,html #inspector h3,#glossaryDialog .gl-detail h2,
-#r19Dialog h2,#r18Dialog h2,#coldCallDialog h2,#coldCallDialog h3,
-#ccBriefDialog h2,#ccBriefDialog h3,.sh-head h1,.sh-section-head h2,.sh-profile h1{
- font-family:var(--dkla-interface)!important;font-weight:650;letter-spacing:-.025em;line-height:1.3;
+html #inspector h2,
+html #inspector h3,
+#glossaryDialog .gl-detail h2,
+#r19Dialog h2,
+#r18Dialog h2,
+#coldCallDialog h2,
+#coldCallDialog h3,
+#ccBriefDialog h2,
+#ccBriefDialog h3,
+.sh-head h1,
+.sh-section-head h2,
+.sh-profile h1 {
+  font-family: var(--dkla-interface) !important;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
 }
-#inspector .reader-body,#inspector .r19-text,#inspector .authority-text,
-#glossaryDialog .gl-detail,#fileDialog .file-text,#fileDialog .file-pagetext,
-#coldCallDialog #ccNarrative,#ccBriefDialog .cc-brief-body{
- font-family:var(--dkla-reading)!important;font-size:16px;line-height:1.75;letter-spacing:0;
+#inspector .reader-body,
+#inspector .r19-text,
+#inspector .authority-text,
+#glossaryDialog .gl-detail,
+#fileDialog .file-text,
+#fileDialog .file-pagetext,
+#coldCallDialog #ccNarrative,
+#ccBriefDialog .cc-brief-body {
+  font-family: var(--dkla-reading) !important;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0;
 }
-html #inspector .reader-body p,html #inspector .reader-body li,
-html #inspector .r19-text p,html #inspector .r19-text li,
-#glossaryDialog .gl-def,#ccBriefDialog .cc-brief-body p{
- font-size:16px;line-height:1.75;
+html #inspector .reader-body p,
+html #inspector .reader-body li,
+html #inspector .r19-text p,
+html #inspector .r19-text li,
+#glossaryDialog .gl-def,
+#ccBriefDialog .cc-brief-body p {
+  font-size: 16px;
+  line-height: 1.75;
 }
-html #inspector .reader-body h3,html #inspector .r19-text h3{
- font-size:19px;line-height:1.4;
+html #inspector .reader-body h3,
+html #inspector .r19-text h3 {
+  font-size: 19px;
+  line-height: 1.4;
 }
-html #inspector .reader-body h4,html #inspector .r19-text h4{
- font-family:var(--dkla-interface);font-size:13px;line-height:1.5;letter-spacing:.06em;
+html #inspector .reader-body h4,
+html #inspector .r19-text h4 {
+  font-family: var(--dkla-interface);
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
 }
-#coldCallDialog .cc-header,#coldCallDialog #ccSections,#coldCallDialog .cc-kicker,
-#coldCallDialog .cc-citations,#coldCallDialog .cc-end,#ccBriefDialog .cc-kicker,
-#glossaryDialog .gl-meta,#glossaryDialog .gl-detail h3{
- font-family:var(--dkla-interface);letter-spacing:.025em;
+#coldCallDialog .cc-header,
+#coldCallDialog #ccSections,
+#coldCallDialog .cc-kicker,
+#coldCallDialog .cc-citations,
+#coldCallDialog .cc-end,
+#ccBriefDialog .cc-kicker,
+#glossaryDialog .gl-meta,
+#glossaryDialog .gl-detail h3 {
+  font-family: var(--dkla-interface);
+  letter-spacing: 0.025em;
 }
-#coldCallDialog nav button{font-family:var(--dkla-interface);font-size:13px;line-height:1.6}
-#coldCallDialog .cc-index-label,#coldCallDialog .cc-kicker{font-size:12px}
-.sh-shell .sh-head p,.sh-shell .sh-profile p{font-size:15px;line-height:1.75}
-.sh-shell .sh-seat-name{font-size:18px;line-height:1.4;font-weight:600}
+#coldCallDialog nav button {
+  font-family: var(--dkla-interface);
+  font-size: 13px;
+  line-height: 1.6;
+}
+#coldCallDialog .cc-index-label,
+#coldCallDialog .cc-kicker {
+  font-size: 12px;
+}
+.sh-shell .sh-head p,
+.sh-shell .sh-profile p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.sh-shell .sh-seat-name {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+}
 /* Everything inside SCOTUS History reads in the same sans as the case panels. */
-.sh-shell,.sh-shell *{font-family:var(--dkla-interface)!important}
-.sh-shell .sh-seat-meta,.sh-shell .sh-footnote,.sh-shell .sh-date-foot{font-size:13px;line-height:1.65}
-.sh-shell .sh-seat-label,.sh-shell .sh-tag,.sh-shell .sh-case-link small{font-size:12px}
-.sh-shell .sh-case-link strong{font-size:15px;line-height:1.55}
-.sh-shell .sh-section-head p{font-family:var(--dkla-interface);font-size:12px}
+.sh-shell,
+.sh-shell * {
+  font-family: var(--dkla-interface) !important;
+}
+.sh-shell .sh-seat-meta,
+.sh-shell .sh-footnote,
+.sh-shell .sh-date-foot {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.sh-shell .sh-seat-label,
+.sh-shell .sh-tag,
+.sh-shell .sh-case-link small {
+  font-size: 12px;
+}
+.sh-shell .sh-case-link strong {
+  font-size: 15px;
+  line-height: 1.55;
+}
+.sh-shell .sh-section-head p {
+  font-family: var(--dkla-interface);
+  font-size: 12px;
+}
 /* Seat names read like the course tiles. The legacy tiny-text fade must not
    erase a name after the presentation module paints it. */
-html #geoCanvas .dkla-court-seat .dkla-seat-label{fill:#e4ecee;font-family:var(--dkla-interface);font-weight:550;letter-spacing:0;opacity:1!important}
+html #geoCanvas .dkla-court-seat .dkla-seat-label {
+  fill: #e4ecee;
+  font-family: var(--dkla-interface);
+  font-weight: 550;
+  letter-spacing: 0;
+  opacity: 1 !important;
+}
 /* The History block as the Court's west front, in the block's own translucent greens. */
 /* The original rectangle is only bounds and click target; hover lights the roof line instead. */
-html #geoCanvas [data-dkla-court]>.sh-block-bg{fill-opacity:0!important;stroke:none;transition:none!important}
-html #geoCanvas [data-dkla-court]:hover>.dkla-court-pediment{stroke-opacity:1}
-html #geoCanvas .dkla-court-body{fill:#16332c;fill-opacity:.5;stroke:#73b494;stroke-opacity:.5;stroke-width:1px;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-pediment{fill:#16332c;fill-opacity:.63;stroke:#83d4ad;stroke-opacity:.8;stroke-width:1.3px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-line{fill:none;stroke:#83d4ad;stroke-opacity:.65;stroke-width:1px;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-faint{stroke-opacity:.28}
-html #geoCanvas .dkla-court-dentils{fill:none;stroke:#83d4ad;stroke-opacity:.3}
-html #geoCanvas .dkla-court-node{fill:#9bdfbd}
-html #geoCanvas .dkla-court-figure{fill:#9ddcbf;fill-opacity:.3;stroke:#b4ecd2;stroke-opacity:1;stroke-width:1px;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-figure>*{vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-figure-detail{fill:none;stroke-opacity:.6}
-html #geoCanvas .dkla-court-liberty{fill-opacity:.42;stroke:#d4fbe9}
-html #geoCanvas .dkla-court-link{cursor:pointer}
-html #geoCanvas .dkla-court-hit{fill:#fff;fill-opacity:0;stroke:none}
-html #geoCanvas .dkla-court-link:hover .dkla-court-figure,html #geoCanvas .dkla-court-link:focus-visible .dkla-court-figure{fill-opacity:.6;stroke:#eafff5}
-html #geoCanvas .dkla-court-statue{fill-opacity:.34;stroke:#c0f7df}
-html #geoCanvas .dkla-court-capital{fill:#9ddcbf;fill-opacity:.2;stroke:#9ddcbf;stroke-opacity:.85;stroke-width:1px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-capital>*{vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-step{fill:#1d4238;fill-opacity:.55;stroke:#73b494;stroke-opacity:.55;stroke-width:1px;vector-effect:non-scaling-stroke}
-html #geoCanvas .dkla-court-column{fill:#9ddcbf;fill-opacity:.12;stroke:#83d4ad;stroke-opacity:.7;stroke-width:1px;vector-effect:non-scaling-stroke}
+html #geoCanvas [data-dkla-court] > .sh-block-bg {
+  fill-opacity: 0 !important;
+  stroke: none;
+  transition: none !important;
+}
+html #geoCanvas [data-dkla-court]:hover > .dkla-court-pediment {
+  stroke-opacity: 1;
+}
+html #geoCanvas .dkla-court-body {
+  fill: #16332c;
+  fill-opacity: 0.5;
+  stroke: #73b494;
+  stroke-opacity: 0.5;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-pediment {
+  fill: #16332c;
+  fill-opacity: 0.63;
+  stroke: #83d4ad;
+  stroke-opacity: 0.8;
+  stroke-width: 1.3px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-line {
+  fill: none;
+  stroke: #83d4ad;
+  stroke-opacity: 0.65;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-faint {
+  stroke-opacity: 0.28;
+}
+html #geoCanvas .dkla-court-dentils {
+  fill: none;
+  stroke: #83d4ad;
+  stroke-opacity: 0.3;
+}
+html #geoCanvas .dkla-court-node {
+  fill: #9bdfbd;
+}
+html #geoCanvas .dkla-court-figure {
+  fill: #9ddcbf;
+  fill-opacity: 0.3;
+  stroke: #b4ecd2;
+  stroke-opacity: 1;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-figure > * {
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-figure-detail {
+  fill: none;
+  stroke-opacity: 0.6;
+}
+html #geoCanvas .dkla-court-liberty {
+  fill-opacity: 0.42;
+  stroke: #d4fbe9;
+}
+html #geoCanvas .dkla-court-link {
+  cursor: pointer;
+}
+html #geoCanvas .dkla-court-hit {
+  fill: #fff;
+  fill-opacity: 0;
+  stroke: none;
+}
+html #geoCanvas .dkla-court-link:hover .dkla-court-figure,
+html #geoCanvas .dkla-court-link:focus-visible .dkla-court-figure {
+  fill-opacity: 0.6;
+  stroke: #eafff5;
+}
+html #geoCanvas .dkla-court-statue {
+  fill-opacity: 0.34;
+  stroke: #c0f7df;
+}
+html #geoCanvas .dkla-court-capital {
+  fill: #9ddcbf;
+  fill-opacity: 0.2;
+  stroke: #9ddcbf;
+  stroke-opacity: 0.85;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-capital > * {
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-step {
+  fill: #1d4238;
+  fill-opacity: 0.55;
+  stroke: #73b494;
+  stroke-opacity: 0.55;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas .dkla-court-column {
+  fill: #9ddcbf;
+  fill-opacity: 0.12;
+  stroke: #83d4ad;
+  stroke-opacity: 0.7;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
 /* Seats are rebuilt on every frame, so an inherited transition would flash. */
-html #geoCanvas .dkla-court-seat>rect:first-of-type{fill:#9ddcbf;fill-opacity:0;stroke:none;transition:none!important}
-html #geoCanvas .dkla-court-seat:hover>rect:first-of-type{fill-opacity:.09}
-html #geoCanvas .dkla-court-frame{fill:none;stroke:#83d4ad;stroke-opacity:.6;stroke-width:1px;vector-effect:non-scaling-stroke}
-html #geoCanvas [data-sh-open]>.sh-map-label{font-family:var(--dkla-display);font-weight:600;letter-spacing:.025em}
+html #geoCanvas .dkla-court-seat > rect:first-of-type {
+  fill: #9ddcbf;
+  fill-opacity: 0;
+  stroke: none;
+  transition: none !important;
+}
+html #geoCanvas .dkla-court-seat:hover > rect:first-of-type {
+  fill-opacity: 0.09;
+}
+html #geoCanvas .dkla-court-frame {
+  fill: none;
+  stroke: #83d4ad;
+  stroke-opacity: 0.6;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+html #geoCanvas [data-sh-open] > .sh-map-label {
+  font-family: var(--dkla-display);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
 /* Notes and the Supporting cases entrances read like the course tiles beside them. */
-html #geoCanvas [data-dkla-display-label],html #geoCanvas .r19-tile text{font-family:var(--dkla-interface)!important;font-weight:550;letter-spacing:0}
-html #geoCanvas .sh-hit:focus-visible>rect,html #geoCanvas [data-dictionary-spine]:focus-visible>rect{
- stroke:#c0f7df!important;stroke-opacity:1!important;stroke-width:2px!important;vector-effect:non-scaling-stroke;
+html #geoCanvas [data-dkla-display-label],
+html #geoCanvas .r19-tile text {
+  font-family: var(--dkla-interface) !important;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+html #geoCanvas .sh-hit:focus-visible > rect,
+html #geoCanvas [data-dictionary-spine]:focus-visible > rect {
+  stroke: #c0f7df !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 2px !important;
+  vector-effect: non-scaling-stroke;
 }
 /* First-visit note: one slim bar in the strip Home keeps clear below the map,
    between the zoom controls and the save status, so it covers nothing. */
-html #r20Guide{bottom:12px;width:auto;max-width:calc(100% - 24px);display:flex;align-items:center;gap:14px;padding:6px 7px 6px 16px;border-radius:999px;font-size:13px;line-height:1.3;box-shadow:0 8px 24px #0008;animation:r20GuideIn .35s ease-out both}
-html #r20Guide h2{margin:0;font-size:13.5px;font-weight:600;white-space:nowrap}
-html #r20Guide .r20-guide-actions{flex-wrap:nowrap;gap:7px}
-html #r20Guide a.r20-guide-go,html #r20Guide button{min-height:32px;padding:4px 13px;font-size:13px;white-space:nowrap}
-@media(max-width:640px){html #r20Guide{bottom:64px;border-radius:16px;flex-wrap:wrap;justify-content:center;padding:10px 12px}}
-@media(prefers-reduced-motion:reduce){html #r20Guide{animation:none}}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
- outline-color:#a5dfd3;outline-offset:3px;
+html #r20Guide {
+  bottom: 12px;
+  width: auto;
+  max-width: calc(100% - 24px);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 7px 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  line-height: 1.3;
+  box-shadow: 0 8px 24px #0008;
+  animation: r20GuideIn 0.35s ease-out both;
 }
-@media(max-width:680px){
- .sh-shell .sh-seat-name{font-size:16px}
- .sh-shell .sh-head p,.sh-shell .sh-profile p{font-size:14px}
- #glossaryDialog .gl-detail{padding-left:20px;padding-right:20px}
+html #r20Guide h2 {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+html #r20Guide .r20-guide-actions {
+  flex-wrap: nowrap;
+  gap: 7px;
+}
+html #r20Guide a.r20-guide-go,
+html #r20Guide button {
+  min-height: 32px;
+  padding: 4px 13px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  html #r20Guide {
+    bottom: 64px;
+    border-radius: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html #r20Guide {
+    animation: none;
+  }
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: #a5dfd3;
+  outline-offset: 3px;
+}
+@media (max-width: 680px) {
+  .sh-shell .sh-seat-name {
+    font-size: 16px;
+  }
+  .sh-shell .sh-head p,
+  .sh-shell .sh-profile p {
+    font-size: 14px;
+  }
+  #glossaryDialog .gl-detail {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }

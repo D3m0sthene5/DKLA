@@ -1,80 +1,497 @@
 /* Isolated narrative and full-source readers; no atlas geometry overrides. */
-.cc-launch{display:inline-flex!important;align-items:center;min-height:40px;margin:12px 0 18px;padding:8px 16px!important;border:1px solid #8297a9!important;border-radius:8px!important;font-weight:600!important;cursor:pointer}
-#coldCallDialog{--cc-accent:#edac72;box-sizing:border-box;width:min(1180px,96vw);max-width:1180px;height:min(960px,94dvh);max-height:94dvh;margin:auto;padding:0;border:1px solid #455464;border-radius:14px;background:#17212b;color:#e2e9ef;box-shadow:0 24px 100px #0008;font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden}
-#coldCallDialog[open]{display:flex;flex-direction:column}
-#coldCallDialog::backdrop{background:#060c13cf;backdrop-filter:blur(3px)}
-#coldCallDialog[data-course="Civil Procedure"]{--cc-accent:#92caff}
-#coldCallDialog[data-course="Legislation and the Regulatory State"]{--cc-accent:#88d7b0}
-#coldCallDialog *{box-sizing:border-box}
-#coldCallDialog [hidden]{display:none!important}
-#coldCallDialog button{font:inherit;line-height:1.4;background:transparent;color:#d9e4ed;border:1px solid #475868;border-radius:7px;padding:8px 12px;min-height:40px;cursor:pointer}
-#coldCallDialog button:hover{background:#263646;border-color:var(--cc-accent)}
-#coldCallDialog :focus-visible{outline:2px solid var(--cc-accent);outline-offset:4px}
-#coldCallDialog a{color:var(--cc-accent);text-underline-offset:3px}
-#coldCallDialog .cc-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:24px 30px 22px;border-bottom:1px solid #354451;flex:none}
-#coldCallDialog .cc-heading{min-width:0;max-width:780px}
-#coldCallDialog .cc-header h2{font-size:clamp(23px,2.4vw,31px);line-height:1.22;margin:5px 0 0;color:#f3f5f7;letter-spacing:-.025em;overflow-wrap:break-word}
-#coldCallDialog .cc-kicker{color:var(--cc-accent);font-size:11px;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;font-weight:650;margin:0 0 10px}
-#coldCallDialog .cc-cite{color:#9fb2c3;font-size:13px;margin:9px 0 0}
-#coldCallDialog .cc-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;flex-shrink:0;max-width:210px}
-#coldCallDialog .cc-actions button{font-size:12px;white-space:nowrap}
-#coldCallDialog .cc-layout{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:0;flex:1}
-#coldCallDialog #ccSections{border-right:1px solid #354451;overflow:auto;overscroll-behavior:contain;background:#131d26}
-#coldCallDialog #ccSections>summary{display:none}
-#coldCallDialog .cc-index-inner{padding:24px 14px}
-#coldCallDialog .cc-index-label{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#a8bac9;margin:0 8px 14px;letter-spacing:.07em;text-transform:uppercase}
-#coldCallDialog #ccProgress{font-variant-numeric:tabular-nums;color:#849bac}
-#coldCallDialog nav{display:grid;gap:6px}
-#coldCallDialog nav button{display:grid;grid-template-columns:20px 1fr;text-align:left;gap:10px;border:1px solid transparent;font-size:12px;line-height:1.6;padding:10px 8px;color:#adbdca}
-#coldCallDialog nav button[aria-current]{background:#233341;border-color:#445e73;color:#eef4f8}
-#coldCallDialog .cc-number{color:var(--cc-accent);font-variant-numeric:tabular-nums;font-size:11px}
-#coldCallDialog #ccScroll{overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:40px clamp(28px,4vw,56px) 64px;min-height:0;outline-offset:-4px}
-#coldCallDialog article{max-width:66ch;margin:0 auto}
-#coldCallDialog p{margin:0 0 20px}
-#coldCallDialog .cc-section{padding-top:34px;margin-top:40px;border-top:1px solid #354451}
-#coldCallDialog .cc-section:first-of-type{margin-top:0;padding-top:0;border-top:0}
-#coldCallDialog h3{font-size:clamp(23px,2.1vw,28px);line-height:1.35;font-weight:650;letter-spacing:-.02em;color:#f0f4f8;margin:0 0 24px}
-#coldCallDialog .cc-citations{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:11px;margin:20px 0 0}
-#coldCallDialog .cc-citations button{font-size:11px;color:#9bb7cc;border:0;background:none;padding:3px 0;min-height:28px;text-align:left;text-decoration:underline;text-underline-offset:3px;max-width:100%;overflow-wrap:anywhere}
-#coldCallDialog .cc-citations a{color:#9bb7cc;overflow-wrap:anywhere}
-#coldCallDialog .cc-notice{border-left:3px solid var(--cc-accent);padding:10px 14px;background:#202f3b;font-size:13px;color:#cbd9e4}
-#coldCallDialog summary{cursor:pointer;font-size:13px;font-weight:600;color:#bdcfdd;padding:10px 0;line-height:1.5}
-#coldCallDialog details>p{font-size:14px;color:#bccbd6;line-height:1.75;margin-top:14px}
-#coldCallDialog .cc-followup{margin:20px 0;border-left:2px solid #486274;padding-left:16px}
-#coldCallDialog .cc-end{border-top:1px solid #354451;margin-top:44px;padding-top:16px;font-size:13px;color:#b4c4d0}
-#coldCallDialog .cc-source-list{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:14px}
-#coldCallDialog .cc-source-list button{border:0;padding:4px 0;font-size:12px;color:var(--cc-accent);min-height:32px;text-decoration:underline;text-underline-offset:3px}
-#coldCallDialog .cc-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-@media(max-width:899px){
- #coldCallDialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:0}
- #coldCallDialog .cc-header{padding:20px 22px 18px;gap:16px;flex-wrap:wrap}
- #coldCallDialog .cc-heading{flex-basis:100%}
- #coldCallDialog .cc-header h2{font-size:26px}
- #coldCallDialog .cc-actions{justify-content:flex-start;max-width:none;gap:10px}
- #coldCallDialog .cc-layout{display:flex;flex-direction:column}
- #coldCallDialog #ccSections{flex:none;border-right:0;border-bottom:1px solid #354451;max-height:38dvh}
- #coldCallDialog #ccSections>summary{display:flex;align-items:center;gap:12px;padding:12px 22px;font-size:13px;list-style:none}
- #coldCallDialog #ccSections>summary::-webkit-details-marker{display:none}
- #coldCallDialog #ccProgressMobile{margin-left:auto;font-size:11px;font-weight:400;color:#91a6b8}
- #coldCallDialog .cc-index-label{display:none}
- #coldCallDialog .cc-index-inner{padding:0 14px 12px}
- #coldCallDialog nav button{font-size:13px;min-height:44px}
- #coldCallDialog #ccScroll{flex:1;padding:28px 24px 50px}
- #coldCallDialog h3{font-size:23px}
+.cc-launch {
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 40px;
+  margin: 12px 0 18px;
+  padding: 8px 16px !important;
+  border: 1px solid #8297a9 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
 }
-@media(max-width:420px){#coldCallDialog .cc-header{padding:18px 20px 14px}#coldCallDialog .cc-header h2{font-size:23px}#coldCallDialog .cc-kicker{font-size:10px}#coldCallDialog #ccScroll{padding:26px 20px 44px}#coldCallDialog{font-size:15px}}
-#ccBriefDialog{box-sizing:border-box;width:min(900px,96vw);height:min(920px,94dvh);max-height:94dvh;margin:auto;padding:0;border:1px solid #455464;border-radius:12px;background:#17212b;color:#e2e9ef;overflow:hidden;font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-#ccBriefDialog[open]{display:flex;flex-direction:column}
-#ccBriefDialog::backdrop{background:#050b13d9}
-#ccBriefDialog header{display:flex;align-items:flex-start;gap:20px;justify-content:space-between;padding:22px 28px;border-bottom:1px solid #354451;flex:none}
-#ccBriefDialog header>div{min-width:0}
-#ccBriefDialog .cc-kicker{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9bb7cc}
-#ccBriefDialog h2{font-size:23px;line-height:1.3;margin:6px 0 0;overflow-wrap:break-word}
-#ccBriefDialog button{font:inherit;font-size:12px;white-space:nowrap;background:transparent;color:#d9e4ed;border:1px solid #607587;border-radius:7px;min-height:40px;padding:8px 12px;cursor:pointer}
-#ccBriefDialog :focus-visible{outline:2px solid #edac72;outline-offset:3px}
-#ccBriefDialog .cc-brief-body{padding:30px 40px 50px;overflow:auto;overscroll-behavior:contain;min-height:0;overflow-wrap:break-word}
-#ccBriefDialog p{margin:0 0 20px}
-#ccBriefDialog h3{font-size:23px;line-height:1.3;margin:0 0 24px}
-#ccBriefDialog h4{font-size:17px;line-height:1.4;margin:30px 0 12px}
-@media(max-width:600px){#ccBriefDialog{width:100vw;height:100dvh;max-height:100dvh;border:0;border-radius:0}#ccBriefDialog header{padding:20px;gap:14px;flex-wrap:wrap}#ccBriefDialog header>div{flex-basis:100%}#ccBriefDialog h2{font-size:22px}#ccBriefDialog .cc-brief-body{padding:24px 20px 40px}}
-@media(prefers-reduced-motion:reduce){#coldCallDialog *{scroll-behavior:auto!important;transition:none!important}}
+#coldCallDialog {
+  --cc-accent: #edac72;
+  box-sizing: border-box;
+  width: min(1180px, 96vw);
+  max-width: 1180px;
+  height: min(960px, 94dvh);
+  max-height: 94dvh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #455464;
+  border-radius: 14px;
+  background: #17212b;
+  color: #e2e9ef;
+  box-shadow: 0 24px 100px #0008;
+  font:
+    16px/1.75 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  overflow: hidden;
+}
+#coldCallDialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+#coldCallDialog::backdrop {
+  background: #060c13cf;
+  backdrop-filter: blur(3px);
+}
+#coldCallDialog[data-course='Civil Procedure'] {
+  --cc-accent: #92caff;
+}
+#coldCallDialog[data-course='Legislation and the Regulatory State'] {
+  --cc-accent: #88d7b0;
+}
+#coldCallDialog * {
+  box-sizing: border-box;
+}
+#coldCallDialog [hidden] {
+  display: none !important;
+}
+#coldCallDialog button {
+  font: inherit;
+  line-height: 1.4;
+  background: transparent;
+  color: #d9e4ed;
+  border: 1px solid #475868;
+  border-radius: 7px;
+  padding: 8px 12px;
+  min-height: 40px;
+  cursor: pointer;
+}
+#coldCallDialog button:hover {
+  background: #263646;
+  border-color: var(--cc-accent);
+}
+#coldCallDialog :focus-visible {
+  outline: 2px solid var(--cc-accent);
+  outline-offset: 4px;
+}
+#coldCallDialog a {
+  color: var(--cc-accent);
+  text-underline-offset: 3px;
+}
+#coldCallDialog .cc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 30px 22px;
+  border-bottom: 1px solid #354451;
+  flex: none;
+}
+#coldCallDialog .cc-heading {
+  min-width: 0;
+  max-width: 780px;
+}
+#coldCallDialog .cc-header h2 {
+  font-size: clamp(23px, 2.4vw, 31px);
+  line-height: 1.22;
+  margin: 5px 0 0;
+  color: #f3f5f7;
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+}
+#coldCallDialog .cc-kicker {
+  color: var(--cc-accent);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 650;
+  margin: 0 0 10px;
+}
+#coldCallDialog .cc-cite {
+  color: #9fb2c3;
+  font-size: 13px;
+  margin: 9px 0 0;
+}
+#coldCallDialog .cc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+  max-width: 210px;
+}
+#coldCallDialog .cc-actions button {
+  font-size: 12px;
+  white-space: nowrap;
+}
+#coldCallDialog .cc-layout {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  min-height: 0;
+  flex: 1;
+}
+#coldCallDialog #ccSections {
+  border-right: 1px solid #354451;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #131d26;
+}
+#coldCallDialog #ccSections > summary {
+  display: none;
+}
+#coldCallDialog .cc-index-inner {
+  padding: 24px 14px;
+}
+#coldCallDialog .cc-index-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: #a8bac9;
+  margin: 0 8px 14px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+#coldCallDialog #ccProgress {
+  font-variant-numeric: tabular-nums;
+  color: #849bac;
+}
+#coldCallDialog nav {
+  display: grid;
+  gap: 6px;
+}
+#coldCallDialog nav button {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  text-align: left;
+  gap: 10px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 10px 8px;
+  color: #adbdca;
+}
+#coldCallDialog nav button[aria-current] {
+  background: #233341;
+  border-color: #445e73;
+  color: #eef4f8;
+}
+#coldCallDialog .cc-number {
+  color: var(--cc-accent);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+#coldCallDialog #ccScroll {
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding: 40px clamp(28px, 4vw, 56px) 64px;
+  min-height: 0;
+  outline-offset: -4px;
+}
+#coldCallDialog article {
+  max-width: 66ch;
+  margin: 0 auto;
+}
+#coldCallDialog p {
+  margin: 0 0 20px;
+}
+#coldCallDialog .cc-section {
+  padding-top: 34px;
+  margin-top: 40px;
+  border-top: 1px solid #354451;
+}
+#coldCallDialog .cc-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+#coldCallDialog h3 {
+  font-size: clamp(23px, 2.1vw, 28px);
+  line-height: 1.35;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: #f0f4f8;
+  margin: 0 0 24px;
+}
+#coldCallDialog .cc-citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 11px;
+  margin: 20px 0 0;
+}
+#coldCallDialog .cc-citations button {
+  font-size: 11px;
+  color: #9bb7cc;
+  border: 0;
+  background: none;
+  padding: 3px 0;
+  min-height: 28px;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+#coldCallDialog .cc-citations a {
+  color: #9bb7cc;
+  overflow-wrap: anywhere;
+}
+#coldCallDialog .cc-notice {
+  border-left: 3px solid var(--cc-accent);
+  padding: 10px 14px;
+  background: #202f3b;
+  font-size: 13px;
+  color: #cbd9e4;
+}
+#coldCallDialog summary {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #bdcfdd;
+  padding: 10px 0;
+  line-height: 1.5;
+}
+#coldCallDialog details > p {
+  font-size: 14px;
+  color: #bccbd6;
+  line-height: 1.75;
+  margin-top: 14px;
+}
+#coldCallDialog .cc-followup {
+  margin: 20px 0;
+  border-left: 2px solid #486274;
+  padding-left: 16px;
+}
+#coldCallDialog .cc-end {
+  border-top: 1px solid #354451;
+  margin-top: 44px;
+  padding-top: 16px;
+  font-size: 13px;
+  color: #b4c4d0;
+}
+#coldCallDialog .cc-source-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 14px;
+}
+#coldCallDialog .cc-source-list button {
+  border: 0;
+  padding: 4px 0;
+  font-size: 12px;
+  color: var(--cc-accent);
+  min-height: 32px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#coldCallDialog .cc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 899px) {
+  #coldCallDialog {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+    border: 0;
+  }
+  #coldCallDialog .cc-header {
+    padding: 20px 22px 18px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  #coldCallDialog .cc-heading {
+    flex-basis: 100%;
+  }
+  #coldCallDialog .cc-header h2 {
+    font-size: 26px;
+  }
+  #coldCallDialog .cc-actions {
+    justify-content: flex-start;
+    max-width: none;
+    gap: 10px;
+  }
+  #coldCallDialog .cc-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  #coldCallDialog #ccSections {
+    flex: none;
+    border-right: 0;
+    border-bottom: 1px solid #354451;
+    max-height: 38dvh;
+  }
+  #coldCallDialog #ccSections > summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    font-size: 13px;
+    list-style: none;
+  }
+  #coldCallDialog #ccSections > summary::-webkit-details-marker {
+    display: none;
+  }
+  #coldCallDialog #ccProgressMobile {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 400;
+    color: #91a6b8;
+  }
+  #coldCallDialog .cc-index-label {
+    display: none;
+  }
+  #coldCallDialog .cc-index-inner {
+    padding: 0 14px 12px;
+  }
+  #coldCallDialog nav button {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  #coldCallDialog #ccScroll {
+    flex: 1;
+    padding: 28px 24px 50px;
+  }
+  #coldCallDialog h3 {
+    font-size: 23px;
+  }
+}
+@media (max-width: 420px) {
+  #coldCallDialog .cc-header {
+    padding: 18px 20px 14px;
+  }
+  #coldCallDialog .cc-header h2 {
+    font-size: 23px;
+  }
+  #coldCallDialog .cc-kicker {
+    font-size: 10px;
+  }
+  #coldCallDialog #ccScroll {
+    padding: 26px 20px 44px;
+  }
+  #coldCallDialog {
+    font-size: 15px;
+  }
+}
+#ccBriefDialog {
+  box-sizing: border-box;
+  width: min(900px, 96vw);
+  height: min(920px, 94dvh);
+  max-height: 94dvh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #455464;
+  border-radius: 12px;
+  background: #17212b;
+  color: #e2e9ef;
+  overflow: hidden;
+  font:
+    16px/1.75 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+#ccBriefDialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+#ccBriefDialog::backdrop {
+  background: #050b13d9;
+}
+#ccBriefDialog header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 22px 28px;
+  border-bottom: 1px solid #354451;
+  flex: none;
+}
+#ccBriefDialog header > div {
+  min-width: 0;
+}
+#ccBriefDialog .cc-kicker {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9bb7cc;
+}
+#ccBriefDialog h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 6px 0 0;
+  overflow-wrap: break-word;
+}
+#ccBriefDialog button {
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  background: transparent;
+  color: #d9e4ed;
+  border: 1px solid #607587;
+  border-radius: 7px;
+  min-height: 40px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+#ccBriefDialog :focus-visible {
+  outline: 2px solid #edac72;
+  outline-offset: 3px;
+}
+#ccBriefDialog .cc-brief-body {
+  padding: 30px 40px 50px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  min-height: 0;
+  overflow-wrap: break-word;
+}
+#ccBriefDialog p {
+  margin: 0 0 20px;
+}
+#ccBriefDialog h3 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin: 0 0 24px;
+}
+#ccBriefDialog h4 {
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 30px 0 12px;
+}
+@media (max-width: 600px) {
+  #ccBriefDialog {
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+  #ccBriefDialog header {
+    padding: 20px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  #ccBriefDialog header > div {
+    flex-basis: 100%;
+  }
+  #ccBriefDialog h2 {
+    font-size: 22px;
+  }
+  #ccBriefDialog .cc-brief-body {
+    padding: 24px 20px 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #coldCallDialog * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

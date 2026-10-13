@@ -15,11 +15,11 @@
     const area = safeArea();
     const rows = R18.courseTitleRows(S.scope);
     let box = core;
-    let z = Math.min((area.w - 40) / core.w, (area.h - 40) / core.h, .7);
+    let z = Math.min((area.w - 40) / core.w, (area.h - 40) / core.h, 0.7);
     for (let pass = 0; pass < 3; pass++) {
       const fs = R18.courseTitlePx(z) / z;
-      const head = fs * (.9 + 1.23 * (rows.length - 1) + 1.1);
-      const titleW = Math.max(...rows.map(row => measure(row, fs, 600, 'course-label')));
+      const head = fs * (0.9 + 1.23 * (rows.length - 1) + 1.1);
+      const titleW = Math.max(...rows.map((row) => measure(row, fs, 600, 'course-label')));
       const items = [
         { x: core.x, y: core.y - head, w: core.w, h: core.h + head },
         { x: core.x + core.w / 2 - titleW / 2, y: core.y - head, w: titleW, h: head },
@@ -28,12 +28,13 @@
         if (label.size !== 'large') continue;
         // An annotation is framed only where it is a margin note; on a small screen it is as wide as
         // the course itself, would shrink everything else, and the label engine hides it anyway.
-        const lfs = 17 / z, lw = measure(label.text, lfs, 500, 'region-title');
-        if (lw > core.w * .22) continue;
+        const lfs = 17 / z,
+          lw = measure(label.text, lfs, 500, 'region-title');
+        if (lw > core.w * 0.22) continue;
         items.push({ x: label.x, y: label.y - lfs, w: lw, h: lfs * 1.4 });
       }
       box = bounds(items);
-      z = Math.min((area.w - 40) / box.w, (area.h - 40) / box.h, .7);
+      z = Math.min((area.w - 40) / box.w, (area.h - 40) / box.h, 0.7);
     }
     return box;
   };
@@ -42,21 +43,32 @@
   // screen to screen, which left a cropped half-mark over some course views. It now belongs to the
   // three-course view only and is gone by the time a course has opened.
   function settleMark() {
-    const mark = document.querySelector('#geoCanvas .dkla-map-monogram, #geoCanvas svg[viewBox="0 0 244 78"]');
+    const mark = document.querySelector(
+      '#geoCanvas .dkla-map-monogram, #geoCanvas svg[viewBox="0 0 244 78"]',
+    );
     if (!mark || !mark.parentNode) return;
     const floor = zoomFloor();
-    const o = Math.min(1, Math.max(0, (floor * 1.7 - S.z) / (floor * .5)));
+    const o = Math.min(1, Math.max(0, (floor * 1.7 - S.z) / (floor * 0.5)));
     mark.parentNode.setAttribute('opacity', o.toFixed(3));
   }
 
   function install() {
-    if (!window.SCOTUSHistory || typeof draw !== 'function' || !document.getElementById('dklaR17Logo')) { setTimeout(install, 80); return; }
+    if (!window.SCOTUSHistory || typeof draw !== 'function' || !document.getElementById('dklaR17Logo')) {
+      setTimeout(install, 80);
+      return;
+    }
     document.title = 'DKLA · ' + R18.version; // r16 sets its own title during boot, which has finished by now
     const previousDraw = draw;
     draw = function (...args) {
       const result = previousDraw.apply(this, args);
       settleMark();
-      for (const fn of R18.afterDraw) { try { fn(); } catch (error) { console.error('DKLA r18 overlay', error); } }
+      for (const fn of R18.afterDraw) {
+        try {
+          fn();
+        } catch (error) {
+          console.error('DKLA r18 overlay', error);
+        }
+      }
       return result;
     };
     schedule();
@@ -68,24 +80,36 @@
   // darker tile shade r10 used, so the drawings read clearly against the card.
   R18.afterDraw.push(() => {
     for (const mark of svg.querySelectorAll('.node-card[data-map-node] > g[stroke][transform]')) {
-      const home = homeFor(mark.parentNode.dataset.mapNode), region = home && regionFor(home.region);
+      const home = homeFor(mark.parentNode.dataset.mapNode),
+        region = home && regionFor(home.region);
       // color as well, so shapes filled with currentColor match the outline
-      if (region) { mark.setAttribute('stroke', regionAccent(region)); mark.style.color = regionAccent(region); }
+      if (region) {
+        mark.setAttribute('stroke', regionAccent(region));
+        mark.style.color = regionAccent(region);
+      }
     }
   });
 
   // Keep the current level framed when the window or the device orientation changes.
-  let last = null, timer = 0;
+  let last = null,
+    timer = 0;
   function refit() {
     if (window.SCOTUSHistory && window.SCOTUSHistory.state().open) return;
     if (R11.anim || S.drag || (S.pointers && S.pointers.size)) return;
     if (selected || S.district) return;
-    if (S.scope !== 'Atlas' && S.region) { const r = regionFor(S.region); if (r) fitBox(r, false, R18.subjectPad(), .95); return; }
-    fitBox(scopeBox(), false, 20, .7);
+    if (S.scope !== 'Atlas' && S.region) {
+      const r = regionFor(S.region);
+      if (r) fitBox(r, false, R18.subjectPad(), 0.95);
+      return;
+    }
+    fitBox(scopeBox(), false, 20, 0.7);
   }
   new ResizeObserver(() => {
     const v = rect();
-    if (!last) { last = { w: v.w, h: v.h }; return; }
+    if (!last) {
+      last = { w: v.w, h: v.h };
+      return;
+    }
     if (Math.abs(v.w - last.w) < 2 && Math.abs(v.h - last.h) < 80) return;
     last = { w: v.w, h: v.h };
     clearTimeout(timer);

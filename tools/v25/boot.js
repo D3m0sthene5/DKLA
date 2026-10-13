@@ -4,16 +4,29 @@
   'use strict';
   if (window.DKLABoot) return;
   const root = document.documentElement;
-  const boot = window.DKLABoot = { ready: false };
-  let parsed = document.readyState !== 'loading', prepared = false, waitingFrame = false, painted = false, retryTimer = 0;
-  if (window.R18?.afterDraw) R18.afterDraw.push(() => { if (!boot.ready) painted = true; });
+  const boot = (window.DKLABoot = { ready: false });
+  let parsed = document.readyState !== 'loading',
+    prepared = false,
+    waitingFrame = false,
+    painted = false,
+    retryTimer = 0;
+  if (window.R18?.afterDraw)
+    R18.afterDraw.push(() => {
+      if (!boot.ready) painted = true;
+    });
 
   function available() {
     const release = document.querySelector('#atlasHome .dkla-release');
-    return parsed && window.LegalAtlas?.ready && root.classList.contains('r20-ready') &&
-      root.classList.contains('geography-locked') && window.DKLAHomeFit?.ready && window.DKLANativeHome?.ready &&
+    return (
+      parsed &&
+      window.LegalAtlas?.ready &&
+      root.classList.contains('r20-ready') &&
+      root.classList.contains('geography-locked') &&
+      window.DKLAHomeFit?.ready &&
+      window.DKLANativeHome?.ready &&
       release?.textContent === window.DKLABriefs?.data.version &&
-      typeof draw === 'function';
+      typeof draw === 'function'
+    );
   }
   function currentMark() {
     if (document.querySelector('#geoCanvas svg[viewBox="0 0 244 78"]')) return false;
@@ -21,16 +34,29 @@
     return !mark || mark.dataset.r20 === '1';
   }
   function retry() {
-    if (!retryTimer) retryTimer = setTimeout(() => { retryTimer = 0; check(); }, 80);
+    if (!retryTimer)
+      retryTimer = setTimeout(() => {
+        retryTimer = 0;
+        check();
+      }, 80);
   }
   function check() {
     if (boot.ready || waitingFrame) return;
-    if (!available()) { retry(); return; }
+    if (!available()) {
+      retry();
+      return;
+    }
     if (!prepared) {
       // These exposed layers are idempotent and preserve the owner's prose,
       // notes, ratings and current route. Do not rerun import/layout installers.
-      for (const layer of [window.DKLABriefs, window.DKLAPlain, window.DKLAAudit,
-        window.DKLAPracticeFilter, window.DKLAGeography]) layer?.apply?.();
+      for (const layer of [
+        window.DKLABriefs,
+        window.DKLAPlain,
+        window.DKLAAudit,
+        window.DKLAPracticeFilter,
+        window.DKLAGeography,
+      ])
+        layer?.apply?.();
       renderHeading();
       renderInspector();
       window.DKLANativeHome.refresh();
@@ -44,7 +70,10 @@
       // before any content becomes visible, including on a hash/deep link.
       requestAnimationFrame(() => {
         waitingFrame = false;
-        if (!available() || !painted || !currentMark()) { retry(); return; }
+        if (!available() || !painted || !currentMark()) {
+          retry();
+          return;
+        }
         window.DKLANativeHome.refresh();
         boot.ready = true;
         root.classList.add('dkla-boot-ready');
@@ -52,12 +81,22 @@
       });
     });
   }
-  document.addEventListener('DOMContentLoaded', () => { parsed = true; check(); }, { once: true });
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      parsed = true;
+      check();
+    },
+    { once: true },
+  );
   // Slow storage or a failed layer must not expose an older interface just
   // because six seconds elapsed. Offer a reload while retaining the curtain.
   function delayedNotice() {
     if (boot.ready) return;
-    if (document.hidden) { setTimeout(delayedNotice, 2000); return; }
+    if (document.hidden) {
+      setTimeout(delayedNotice, 2000);
+      return;
+    }
     if (document.getElementById('dklaBootNotice')) return;
     const notice = document.createElement('section');
     notice.id = 'dklaBootNotice';

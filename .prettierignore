@@ -1,0 +1,32 @@
+# Formatting covers the code people edit: JavaScript and style sheets.
+# Everything below is left exactly as it is.
+
+# Output and scratch
+dist/
+work/
+test-results/
+node_modules/
+pnpm-lock.yaml
+
+# Content and data: never reformatted
+added-sources/
+archive/
+docs/
+src/data/
+src/assets/
+src/markup/
+src/manifest.json
+tools/r19/data/
+tools/cold-call/narratives/
+tools/verify/geometry/
+**/*.json
+**/*.md
+**/*.html
+**/*.yml
+
+# Third-party code and generated or data-bearing scripts, kept verbatim
+src/runtime/dklaMiniSearch.js
+assets/admin/catalog.js
+assets/admin/us-boundaries.js
+tools/v26/release-font.css
+tools/analytics/preview/catalog.js

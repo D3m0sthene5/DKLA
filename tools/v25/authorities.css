@@ -1,63 +1,293 @@
 /* Authority navigation uses geoCanvas and the existing inspector. */
-.authority-map-entrance,.authority-map-tile{cursor:pointer}
-.authority-map-entrance:hover>rect,.authority-map-tile:hover>rect:hover>rect{stroke-opacity:1}
-.authority-map-tile:hover>.authority-cover-bg{filter:brightness(1.12)}
-.authority-preview{cursor:pointer}
-.authority-title-control{cursor:pointer}
-.dictionary-spine{cursor:pointer}
-.dictionary-spine:hover>.dictionary-spine-cover{filter:brightness(1.13)}
-.dictionary-spine:focus-visible{outline:none}
-.dictionary-spine:focus-visible>.dictionary-spine-cover{stroke:#f1daba;stroke-opacity:1;stroke-width:2;vector-effect:non-scaling-stroke}
-#geoCanvas text.dictionary-spine-title{font-family:Georgia,Cambria,serif;letter-spacing:.3px}
-.authority-title-control:focus{outline:none}
-.authority-title-control:focus>rect{stroke:#f1daba;stroke-width:2;vector-effect:non-scaling-stroke}
-.authority-preview:hover>rect,.authority-preview:focus>rect{stroke-opacity:1;filter:brightness(1.2)}
-.authority-preview:focus{outline:none}
-#geoCanvas text.authority-volume-title,#geoCanvas text.authority-map-heading,#geoCanvas text.authority-document-label,#geoCanvas text.authority-preview-label{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;letter-spacing:0}
-#geoCanvas text.authority-preview-code{font-family:Consolas,"SFMono-Regular",monospace;font-variant-numeric:tabular-nums;letter-spacing:0}
-#geoCanvas text.authority-preamble-excerpt{font-family:Georgia,Cambria,serif;font-style:italic;letter-spacing:0}
-.authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
-.authority-identity{opacity:.85}
-.authority-map-entrance:focus,.authority-map-tile:focus:focus{outline:none}
-.authority-map-entrance:focus>rect,.authority-map-tile:focus>rect:focus>rect{stroke:#f1daba;stroke-opacity:1}
-#geoBreadcrumb button[data-authority-group]{max-width:230px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#inspector .authority-reading h2{margin:0 0 24px;line-height:1.3}
-#inspector .authority-reading h2 span{display:block;font-size:.76em;font-weight:550;line-height:1.45;margin-top:10px}
-#inspector .authority-reading .authority-status{font-size:13px;color:#d6b789;margin:0 0 18px}
-#inspector .authority-reading .authority-note{font-size:14px;line-height:1.7;color:#d7c29f;border-left:2px solid #a88e65;padding-left:14px}
-#inspector .authority-text p{margin-left:calc(var(--authority-indent,0)*.9rem);line-height:1.8}
-#inspector .authority-text h3{font-size:18px;line-height:1.5;margin:27px 0 16px}
-#inspector .authority-subsections{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 25px}
-#inspector .authority-subsections button{background:transparent;border:1px solid #465d6c;border-radius:5px;padding:5px 8px;color:#b9d2e3;font-size:12px;cursor:pointer}
-#inspector .authority-case-links,#inspector .authority-related{border-top:1px solid #40525f;padding-top:22px;margin-top:28px}
-#inspector .authority-case-links ul{list-style:none;padding:0;margin:0}
-#inspector .authority-case-links li{margin:0 0 14px}
-#inspector .authority-case-links li button,#inspector .authority-related button{background:transparent;padding:0;border:0;font:inherit;font-size:14px;color:#a3d1ff;text-align:left;line-height:1.5;cursor:pointer}
-#inspector .authority-case-links li small{display:block;font-size:11px;color:#9eafbc;line-height:1.5;margin-top:3px}
-#inspector .authority-related button{display:block;margin:0 0 9px}
-#inspector .authority-provenance{margin-top:27px;padding-top:18px;border-top:1px solid #40525f}
-#inspector .authority-provenance summary,#inspector .authority-case-links summary{font-size:13px;color:#b5cbdc;cursor:pointer}
-#inspector .authority-provenance p{font-size:12px;line-height:1.7;margin:14px 0}
-#inspector .authority-provenance h4{font-size:13px;font-weight:650;line-height:1.5;margin:18px 0 8px;color:#cfdae2}
-#inspector .authority-provenance a,#inspector .authority-provenance button{font-size:12px;color:#a3d1ff;background:transparent;border:0;padding:0;text-decoration:none;cursor:pointer}
-#inspector .authority-next{border-top:1px solid #40525f;padding-top:20px;margin-top:28px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-#inspector .authority-next button{border:1px solid #536d7f;border-radius:6px;background:transparent;padding:8px 12px;font:inherit;font-size:13px;color:#b9d2e3;cursor:pointer}
-#inspector .authority-next button:disabled{opacity:.4;cursor:default}
-#inspector .authority-context{margin-top:24px;border-top:1px solid #415562;padding-top:18px}
-#inspector .authority-context summary{font-size:13px;color:#aec9df;cursor:pointer}
-#inspector .authority-context summary small{margin-left:7px;color:#96aebf}
-#inspector .authority-context div{display:grid;gap:8px;margin-top:13px}
-#inspector .authority-context button{border:0;background:transparent;padding:0;text-align:left;color:#a3d1ff;font-size:12px;line-height:1.5;cursor:pointer}
-@media(max-width:700px){
- #geoBreadcrumb button[data-authority-group]{max-width:160px}
- #inspector .authority-text p{margin-left:calc(var(--authority-indent,0)*.55rem)}
- #inspector .authority-reading h2 span{font-size:.8em}
+.authority-map-entrance,
+.authority-map-tile {
+  cursor: pointer;
 }
-@media print{
- #inspector .authority-text p{color:#000}
- #inspector .authority-next,#inspector .authority-subsections,#inspector .authority-case-links{display:none}
+.authority-map-entrance:hover > rect,
+.authority-map-tile:hover > rect:hover > rect {
+  stroke-opacity: 1;
+}
+.authority-map-tile:hover > .authority-cover-bg {
+  filter: brightness(1.12);
+}
+.authority-preview {
+  cursor: pointer;
+}
+.authority-title-control {
+  cursor: pointer;
+}
+.dictionary-spine {
+  cursor: pointer;
+}
+.dictionary-spine:hover > .dictionary-spine-cover {
+  filter: brightness(1.13);
+}
+.dictionary-spine:focus-visible {
+  outline: none;
+}
+.dictionary-spine:focus-visible > .dictionary-spine-cover {
+  stroke: #f1daba;
+  stroke-opacity: 1;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+#geoCanvas text.dictionary-spine-title {
+  font-family: Georgia, Cambria, serif;
+  letter-spacing: 0.3px;
+}
+.authority-title-control:focus {
+  outline: none;
+}
+.authority-title-control:focus > rect {
+  stroke: #f1daba;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.authority-preview:hover > rect,
+.authority-preview:focus > rect {
+  stroke-opacity: 1;
+  filter: brightness(1.2);
+}
+.authority-preview:focus {
+  outline: none;
+}
+#geoCanvas text.authority-volume-title,
+#geoCanvas text.authority-map-heading,
+#geoCanvas text.authority-document-label,
+#geoCanvas text.authority-preview-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0;
+}
+#geoCanvas text.authority-preview-code {
+  font-family: Consolas, 'SFMono-Regular', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+#geoCanvas text.authority-preamble-excerpt {
+  font-family: Georgia, Cambria, serif;
+  font-style: italic;
+  letter-spacing: 0;
+}
+.authority-people-fallback {
+  font-family: 'Old English Text MT', Georgia, serif;
+}
+.authority-identity {
+  opacity: 0.85;
+}
+.authority-map-entrance:focus,
+.authority-map-tile:focus:focus {
+  outline: none;
+}
+.authority-map-entrance:focus > rect,
+.authority-map-tile:focus > rect:focus > rect {
+  stroke: #f1daba;
+  stroke-opacity: 1;
+}
+#geoBreadcrumb button[data-authority-group] {
+  max-width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#inspector .authority-reading h2 {
+  margin: 0 0 24px;
+  line-height: 1.3;
+}
+#inspector .authority-reading h2 span {
+  display: block;
+  font-size: 0.76em;
+  font-weight: 550;
+  line-height: 1.45;
+  margin-top: 10px;
+}
+#inspector .authority-reading .authority-status {
+  font-size: 13px;
+  color: #d6b789;
+  margin: 0 0 18px;
+}
+#inspector .authority-reading .authority-note {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #d7c29f;
+  border-left: 2px solid #a88e65;
+  padding-left: 14px;
+}
+#inspector .authority-text p {
+  margin-left: calc(var(--authority-indent, 0) * 0.9rem);
+  line-height: 1.8;
+}
+#inspector .authority-text h3 {
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 27px 0 16px;
+}
+#inspector .authority-subsections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 25px;
+}
+#inspector .authority-subsections button {
+  background: transparent;
+  border: 1px solid #465d6c;
+  border-radius: 5px;
+  padding: 5px 8px;
+  color: #b9d2e3;
+  font-size: 12px;
+  cursor: pointer;
+}
+#inspector .authority-case-links,
+#inspector .authority-related {
+  border-top: 1px solid #40525f;
+  padding-top: 22px;
+  margin-top: 28px;
+}
+#inspector .authority-case-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#inspector .authority-case-links li {
+  margin: 0 0 14px;
+}
+#inspector .authority-case-links li button,
+#inspector .authority-related button {
+  background: transparent;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 14px;
+  color: #a3d1ff;
+  text-align: left;
+  line-height: 1.5;
+  cursor: pointer;
+}
+#inspector .authority-case-links li small {
+  display: block;
+  font-size: 11px;
+  color: #9eafbc;
+  line-height: 1.5;
+  margin-top: 3px;
+}
+#inspector .authority-related button {
+  display: block;
+  margin: 0 0 9px;
+}
+#inspector .authority-provenance {
+  margin-top: 27px;
+  padding-top: 18px;
+  border-top: 1px solid #40525f;
+}
+#inspector .authority-provenance summary,
+#inspector .authority-case-links summary {
+  font-size: 13px;
+  color: #b5cbdc;
+  cursor: pointer;
+}
+#inspector .authority-provenance p {
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 14px 0;
+}
+#inspector .authority-provenance h4 {
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  margin: 18px 0 8px;
+  color: #cfdae2;
+}
+#inspector .authority-provenance a,
+#inspector .authority-provenance button {
+  font-size: 12px;
+  color: #a3d1ff;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+#inspector .authority-next {
+  border-top: 1px solid #40525f;
+  padding-top: 20px;
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+#inspector .authority-next button {
+  border: 1px solid #536d7f;
+  border-radius: 6px;
+  background: transparent;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 13px;
+  color: #b9d2e3;
+  cursor: pointer;
+}
+#inspector .authority-next button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+#inspector .authority-context {
+  margin-top: 24px;
+  border-top: 1px solid #415562;
+  padding-top: 18px;
+}
+#inspector .authority-context summary {
+  font-size: 13px;
+  color: #aec9df;
+  cursor: pointer;
+}
+#inspector .authority-context summary small {
+  margin-left: 7px;
+  color: #96aebf;
+}
+#inspector .authority-context div {
+  display: grid;
+  gap: 8px;
+  margin-top: 13px;
+}
+#inspector .authority-context button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  color: #a3d1ff;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  #geoBreadcrumb button[data-authority-group] {
+    max-width: 160px;
+  }
+  #inspector .authority-text p {
+    margin-left: calc(var(--authority-indent, 0) * 0.55rem);
+  }
+  #inspector .authority-reading h2 span {
+    font-size: 0.8em;
+  }
+}
+@media print {
+  #inspector .authority-text p {
+    color: #000;
+  }
+  #inspector .authority-next,
+  #inspector .authority-subsections,
+  #inspector .authority-case-links {
+    display: none;
+  }
 }
 
-.authority-page-control{cursor:pointer}
-.authority-page-control:hover>rect,.authority-page-control:focus>rect{stroke:#f1daba;filter:brightness(1.15)}
-.authority-page-control:focus{outline:none}
+.authority-page-control {
+  cursor: pointer;
+}
+.authority-page-control:hover > rect,
+.authority-page-control:focus > rect {
+  stroke: #f1daba;
+  filter: brightness(1.15);
+}
+.authority-page-control:focus {
+  outline: none;
+}

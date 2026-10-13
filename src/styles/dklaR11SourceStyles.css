@@ -1,23 +1,305 @@
-
-#fileDialog{width:min(1200px,96vw);height:min(92vh,1100px);max-width:none;max-height:none;padding:0;border:1px solid #3a4a58;border-radius:12px;background:#111a22;color:#e4ebf1;display:flex;flex-direction:column;overflow:hidden}
-#fileDialog:not([open]){display:none}#fileDialog::backdrop{background:#05090dcc}
-#fileDialog .file-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid #26333f;background:#141e27;flex-wrap:wrap}
-#fileDialog .file-title{display:flex;flex-direction:column;min-width:0}#fileDialog .file-title strong{font-size:15px}#fileDialog .file-title span{font-size:12px;color:#93a7b7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70vw}
-#fileDialog .file-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}#fileDialog .file-tools button,#fileDialog .file-tools a{background:#1f2a35;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12.5px;padding:6px 12px;text-decoration:none;cursor:pointer}
-#fileDialog .file-page{font-size:12.5px;color:#aeb9c6;display:flex;align-items:center;gap:6px}#fileDialog .file-page input{width:64px;background:#0f171e;color:#e4ebf1;border:1px solid #435466;border-radius:6px;padding:5px 6px;font-size:13px}
-#fileDialog #fileFind{background:#0f171e;color:#e4ebf1;border:1px solid #435466;border-radius:16px;padding:6px 12px;font-size:12.5px;min-width:220px}
-#fileDialog iframe{flex:1;width:100%;border:0;background:#fff}#fileDialog iframe.is-text{background:#fbfaf7}
-#fileDialog .file-object{display:block;flex:1;width:100%;min-height:0;background:#fbfaf7}
-#fileDialog .file-fallback,#fileDialog .file-scroll{height:100%;overflow:auto;background:#fbfaf7;color:#1c2128}
-#fileDialog .file-notice{margin:0;padding:14px 22px;background:#f1e9d6;color:#4a3d22;font-size:14px;line-height:1.5;border-bottom:1px solid #e0d3b4}#fileDialog .file-notice code{font-size:13px}#fileDialog .file-notice button{background:none;border:0;color:#7a4b12;text-decoration:underline;cursor:pointer;font:inherit}
-#fileDialog .file-gh{display:inline-block;margin:6px 10px 0 0;background:#1f2a35;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12.5px;padding:5px 12px;text-decoration:none}
-#fileDialog .file-text,#fileDialog .file-pagetext{max-width:780px;margin:0 auto;padding:28px 24px 80px;font:17px/1.6 Georgia,serif}#fileDialog .file-text p,#fileDialog .file-pagetext p{margin:0 0 1em}#fileDialog .file-pagetext h4{margin:0 0 14px;font:600 13px/1.3 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#7a6b4e;letter-spacing:.06em;text-transform:uppercase}#fileDialog .file-empty{padding:28px 24px;color:#5b6570}
-.dkla-missing-image{padding:18px 22px;margin:8px auto;background:#f1e9d6;color:#4a3d22;border-radius:8px;font-size:14px;line-height:1.5;max-width:760px;text-align:left}.dkla-missing-image code{font-size:13px}.dkla-missing-image a{color:#7a4b12;font-weight:600}.dkla-missing-image h4{margin:14px 0 6px;font:600 12px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#7a6b4e}.dkla-missing-image .dkla-page-text{white-space:pre-wrap;font:15px/1.6 Georgia,serif;color:#1c2128;max-height:60vh;overflow:auto}.dkla-missing-image button{background:#1f2a35;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12.5px;padding:6px 12px;cursor:pointer}
-#fileDialog #fileFindResults{position:absolute;top:58px;right:14px;z-index:2;background:#141e27;border:1px solid #3a4a58;border-radius:10px;max-width:420px;max-height:50vh;overflow:auto;box-shadow:0 10px 30px #0009}
-#fileDialog #fileFindResults button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #26333f;color:#e4ebf1;padding:8px 12px;cursor:pointer}#fileDialog #fileFindResults button:hover{background:#1f2a35}#fileDialog #fileFindResults small{display:block;color:#93a7b7;font-size:11.5px}
-#fileDialog .file-note{padding:24px;font-size:15px}#fileDialog .file-note button{background:none;border:0;color:#dabd94;text-decoration:underline;cursor:pointer;font:inherit}
-.search-sources{border-top:1px solid #26333f;margin-top:4px}
-.dkla-file-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}.dkla-file-chips button{background:#1f2a35b8;color:#dabd94;border:1px solid #435466;border-radius:16px;font-size:12px;padding:5px 11px;cursor:pointer}.dkla-file-chips button:hover{background:#26333f}
-.source-link.file-link small::after{content:" · opens inside the atlas"}
-@media(min-width:760px){body.study-mode #mapWelcome h1,body.study-mode #mapWelcome p{display:none}#mapWelcome{top:66px}}
-@media(max-width:700px){#fileDialog{width:100vw;height:100vh;border-radius:0}#fileDialog .file-title span{max-width:90vw}}
+#fileDialog {
+  width: min(1200px, 96vw);
+  height: min(92vh, 1100px);
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 1px solid #3a4a58;
+  border-radius: 12px;
+  background: #111a22;
+  color: #e4ebf1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#fileDialog:not([open]) {
+  display: none;
+}
+#fileDialog::backdrop {
+  background: #05090dcc;
+}
+#fileDialog .file-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #26333f;
+  background: #141e27;
+  flex-wrap: wrap;
+}
+#fileDialog .file-title {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+#fileDialog .file-title strong {
+  font-size: 15px;
+}
+#fileDialog .file-title span {
+  font-size: 12px;
+  color: #93a7b7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70vw;
+}
+#fileDialog .file-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#fileDialog .file-tools button,
+#fileDialog .file-tools a {
+  background: #1f2a35;
+  color: #dabd94;
+  border: 1px solid #435466;
+  border-radius: 16px;
+  font-size: 12.5px;
+  padding: 6px 12px;
+  text-decoration: none;
+  cursor: pointer;
+}
+#fileDialog .file-page {
+  font-size: 12.5px;
+  color: #aeb9c6;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#fileDialog .file-page input {
+  width: 64px;
+  background: #0f171e;
+  color: #e4ebf1;
+  border: 1px solid #435466;
+  border-radius: 6px;
+  padding: 5px 6px;
+  font-size: 13px;
+}
+#fileDialog #fileFind {
+  background: #0f171e;
+  color: #e4ebf1;
+  border: 1px solid #435466;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  min-width: 220px;
+}
+#fileDialog iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #fff;
+}
+#fileDialog iframe.is-text {
+  background: #fbfaf7;
+}
+#fileDialog .file-object {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: #fbfaf7;
+}
+#fileDialog .file-fallback,
+#fileDialog .file-scroll {
+  height: 100%;
+  overflow: auto;
+  background: #fbfaf7;
+  color: #1c2128;
+}
+#fileDialog .file-notice {
+  margin: 0;
+  padding: 14px 22px;
+  background: #f1e9d6;
+  color: #4a3d22;
+  font-size: 14px;
+  line-height: 1.5;
+  border-bottom: 1px solid #e0d3b4;
+}
+#fileDialog .file-notice code {
+  font-size: 13px;
+}
+#fileDialog .file-notice button {
+  background: none;
+  border: 0;
+  color: #7a4b12;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+#fileDialog .file-gh {
+  display: inline-block;
+  margin: 6px 10px 0 0;
+  background: #1f2a35;
+  color: #dabd94;
+  border: 1px solid #435466;
+  border-radius: 16px;
+  font-size: 12.5px;
+  padding: 5px 12px;
+  text-decoration: none;
+}
+#fileDialog .file-text,
+#fileDialog .file-pagetext {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+  font:
+    17px/1.6 Georgia,
+    serif;
+}
+#fileDialog .file-text p,
+#fileDialog .file-pagetext p {
+  margin: 0 0 1em;
+}
+#fileDialog .file-pagetext h4 {
+  margin: 0 0 14px;
+  font:
+    600 13px/1.3 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  color: #7a6b4e;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+#fileDialog .file-empty {
+  padding: 28px 24px;
+  color: #5b6570;
+}
+.dkla-missing-image {
+  padding: 18px 22px;
+  margin: 8px auto;
+  background: #f1e9d6;
+  color: #4a3d22;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 760px;
+  text-align: left;
+}
+.dkla-missing-image code {
+  font-size: 13px;
+}
+.dkla-missing-image a {
+  color: #7a4b12;
+  font-weight: 600;
+}
+.dkla-missing-image h4 {
+  margin: 14px 0 6px;
+  font:
+    600 12px -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7a6b4e;
+}
+.dkla-missing-image .dkla-page-text {
+  white-space: pre-wrap;
+  font:
+    15px/1.6 Georgia,
+    serif;
+  color: #1c2128;
+  max-height: 60vh;
+  overflow: auto;
+}
+.dkla-missing-image button {
+  background: #1f2a35;
+  color: #dabd94;
+  border: 1px solid #435466;
+  border-radius: 16px;
+  font-size: 12.5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+#fileDialog #fileFindResults {
+  position: absolute;
+  top: 58px;
+  right: 14px;
+  z-index: 2;
+  background: #141e27;
+  border: 1px solid #3a4a58;
+  border-radius: 10px;
+  max-width: 420px;
+  max-height: 50vh;
+  overflow: auto;
+  box-shadow: 0 10px 30px #0009;
+}
+#fileDialog #fileFindResults button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #26333f;
+  color: #e4ebf1;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+#fileDialog #fileFindResults button:hover {
+  background: #1f2a35;
+}
+#fileDialog #fileFindResults small {
+  display: block;
+  color: #93a7b7;
+  font-size: 11.5px;
+}
+#fileDialog .file-note {
+  padding: 24px;
+  font-size: 15px;
+}
+#fileDialog .file-note button {
+  background: none;
+  border: 0;
+  color: #dabd94;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+.search-sources {
+  border-top: 1px solid #26333f;
+  margin-top: 4px;
+}
+.dkla-file-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+.dkla-file-chips button {
+  background: #1f2a35b8;
+  color: #dabd94;
+  border: 1px solid #435466;
+  border-radius: 16px;
+  font-size: 12px;
+  padding: 5px 11px;
+  cursor: pointer;
+}
+.dkla-file-chips button:hover {
+  background: #26333f;
+}
+.source-link.file-link small::after {
+  content: ' · opens inside the atlas';
+}
+@media (min-width: 760px) {
+  body.study-mode #mapWelcome h1,
+  body.study-mode #mapWelcome p {
+    display: none;
+  }
+  #mapWelcome {
+    top: 66px;
+  }
+}
+@media (max-width: 700px) {
+  #fileDialog {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  #fileDialog .file-title span {
+    max-width: 90vw;
+  }
+}

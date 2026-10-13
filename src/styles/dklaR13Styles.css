@@ -1,21 +1,115 @@
-
-#searchResults mark{background:none;color:#f2dcb4;font-weight:700}
-::highlight(dkla-hit){background-color:#dabd9440;color:inherit}
-#inspector a.cite-link{color:#c9b8e6;text-decoration:underline dotted;text-underline-offset:2px}#inspector a.cite-link.file-link{color:#dabd94;text-decoration-style:solid}#inspector a.cite-link.file-link::after{content:" ↗";font-size:.8em}
-@media print{
- body{background:#fff!important;color:#000!important}
- body *{visibility:hidden}
- #inspector,#inspector *{visibility:visible}
- #inspector{position:absolute!important;left:0!important;top:0!important;right:auto!important;bottom:auto!important;width:100%!important;height:auto!important;overflow:visible!important;background:#fff!important;color:#000!important;border:0!important;box-shadow:none!important;font:11.5pt/1.5 Georgia,serif!important}
- #inspector .reader-body{padding:0 0 30px!important}
- #inspector *{background:none!important;background-color:transparent!important;box-shadow:none!important;border-color:#bbb!important}
- #inspector .dkla-terms,#inspector .dkla-file-chips,#inspector .source-strip,#inspector nav{display:none!important}
- #inspector h1,#inspector h2,#inspector h3,#inspector strong,#inspector .takeaway,#inspector p,#inspector li,#inspector small,#inspector span{color:#000!important}
- #inspector .takeaway,#inspector .dkla-rule{border-left:3px solid #000!important;padding-left:12px!important;background:none!important}
- #inspector button,#inspector .dkla-file-chips,#inspector .dkla-term-chips,#inspector .dkla-course-tabs,#inspector [aria-label="Close"],#inspector .reader-close{display:none!important}
- #inspector a{color:#000!important;text-decoration:none!important}
- #inspector a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;color:#444}
- #inspector section,#inspector .dkla-timeline,#inspector details{break-inside:avoid}
- #inspector details{display:block}#inspector details>*{display:block}
- @page{margin:18mm 16mm}
+#searchResults mark {
+  background: none;
+  color: #f2dcb4;
+  font-weight: 700;
+}
+::highlight(dkla-hit) {
+  background-color: #dabd9440;
+  color: inherit;
+}
+#inspector a.cite-link {
+  color: #c9b8e6;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+#inspector a.cite-link.file-link {
+  color: #dabd94;
+  text-decoration-style: solid;
+}
+#inspector a.cite-link.file-link::after {
+  content: ' ↗';
+  font-size: 0.8em;
+}
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #inspector,
+  #inspector * {
+    visibility: visible;
+  }
+  #inspector {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+    color: #000 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    font:
+      11.5pt/1.5 Georgia,
+      serif !important;
+  }
+  #inspector .reader-body {
+    padding: 0 0 30px !important;
+  }
+  #inspector * {
+    background: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-color: #bbb !important;
+  }
+  #inspector .dkla-terms,
+  #inspector .dkla-file-chips,
+  #inspector .source-strip,
+  #inspector nav {
+    display: none !important;
+  }
+  #inspector h1,
+  #inspector h2,
+  #inspector h3,
+  #inspector strong,
+  #inspector .takeaway,
+  #inspector p,
+  #inspector li,
+  #inspector small,
+  #inspector span {
+    color: #000 !important;
+  }
+  #inspector .takeaway,
+  #inspector .dkla-rule {
+    border-left: 3px solid #000 !important;
+    padding-left: 12px !important;
+    background: none !important;
+  }
+  #inspector button,
+  #inspector .dkla-file-chips,
+  #inspector .dkla-term-chips,
+  #inspector .dkla-course-tabs,
+  #inspector [aria-label='Close'],
+  #inspector .reader-close {
+    display: none !important;
+  }
+  #inspector a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+  #inspector a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: #444;
+  }
+  #inspector section,
+  #inspector .dkla-timeline,
+  #inspector details {
+    break-inside: avoid;
+  }
+  #inspector details {
+    display: block;
+  }
+  #inspector details > * {
+    display: block;
+  }
+  @page {
+    margin: 18mm 16mm;
+  }
 }
