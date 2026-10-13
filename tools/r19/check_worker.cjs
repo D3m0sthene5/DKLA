@@ -5,9 +5,9 @@ const path=require('node:path');
 const vm=require('node:vm');
 const root=path.resolve(__dirname,'../..');
 const template=fs.readFileSync(path.join(__dirname,'sw.template.js'),'utf8')
-  .replaceAll('__DKLA_BUILD__','worker-test').replaceAll('__DKLA_ATLAS__','DKLA-v2.5.html');
+  .replaceAll('__DKLA_BUILD__','worker-test').replaceAll('__DKLA_ATLAS__','DKLA-v2.6.html');
 const sources=[['template',template]];
-if(fs.existsSync(path.join(root,'sw.js')))sources.push(['generated',fs.readFileSync(path.join(root,'sw.js'),'utf8')]);
+if(fs.existsSync(path.join(root,'work/build/sw.js')))sources.push(['generated',fs.readFileSync(path.join(root,'work/build/sw.js'),'utf8')]);
 
 function harness(source,{origin='https://atlas.test',scope='/',online=()=>new Response('fresh atlas')}={}){
   const listeners={},stores=new Map(),calls={fetch:[],put:[],addAll:[],deleted:[],claim:0,skip:0};
@@ -20,7 +20,7 @@ function harness(source,{origin='https://atlas.test',scope='/',online=()=>new Re
   const self={location:{origin},registration:{scope:origin+scope},clients:{claim:async()=>{calls.claim++;}},
     skipWaiting:()=>{calls.skip++;},addEventListener:(kind,fn)=>{listeners[kind]=fn;}};
   const caches={open:async name=>store(name),keys:async()=>[...stores.keys()],delete:async name=>{calls.deleted.push(name);return stores.delete(name);}};
-  vm.runInNewContext(source,{self,caches,URL,fetch:async request=>{calls.fetch.push(request.url);return online(request);}}, {timeout:1000});
+  vm.runInNewContext(source,{self,caches,URL,fetch:async request=>{calls.fetch.push(request.url);const response=await online(request);if(!response.url)Object.defineProperty(response,'url',{value:new URL(source.match(/const ATLAS = '([^']+)'/)[1],self.registration.scope).href});return response;}}, {timeout:1000});
   const atlas=source.match(/const ATLAS = '([^']+)'/)[1],cache='dkla-'+source.match(/const BUILD = '([^']+)'/)[1];
   return {calls,stores,atlas,cache,listeners,
     seed:(key,body='cached atlas',name=cache)=>{store(name);stores.get(name).set(key,new Response(body));},
@@ -38,14 +38,20 @@ function harness(source,{origin='https://atlas.test',scope='/',online=()=>new Re
 
 async function check(source){
   // Root, index and canonical atlas URLs must all refresh a stale cached release.
-  for(const pathname of ['/', '/index.html', '/'+harness(source).atlas]){
+  for(const pathname of ['/', '/index.html', '/DKLA-v2.5.html', '/DKLA-r18.html', '/'+harness(source).atlas]){
     const h=harness(source);h.seed(h.atlas,'old release');
     assert.equal(await(await h.fetch(pathname)).text(),'fresh atlas');
     assert.equal(await h.cached(h.atlas),'fresh atlas');assert.deepEqual(h.calls.put,[h.atlas]);assert.equal(h.calls.fetch.length,1);
   }
   const failure=new Error('fixture network offline');
+  let oldOnline=true;
+  const historical=harness(source,{online:request=>{if(!oldOnline)throw Error('offline');const response=new Response('historical r8 body');Object.defineProperty(response,'url',{value:request.url});return response;}});
+  historical.seed(historical.atlas,'current v2.6 shell');
+  assert.equal(await(await historical.fetch('/DKLA-r8.html')).text(),'historical r8 body');
+  assert.equal(await historical.cached(historical.atlas),'current v2.6 shell');assert.equal(historical.calls.put.length,0);
+  oldOnline=false;assert.equal(await(await historical.fetch('/'+historical.atlas)).text(),'current v2.6 shell');
   const offline=harness(source,{online:()=>{throw failure;}});offline.seed(offline.atlas,'offline release');
-  assert.equal(await(await offline.fetch('/')).text(),'offline release');assert.equal(offline.calls.put.length,0);
+  for(const route of ['/', '/DKLA-v2.5.html', '/DKLA-r18.html'])assert.equal(await(await offline.fetch(route)).text(),'offline release');assert.equal(offline.calls.put.length,0);
   const emptyOffline=harness(source,{online:()=>{throw failure;}});
   await assert.rejects(emptyOffline.fetch('/'),error=>error===failure);
 
@@ -79,7 +85,7 @@ async function check(source){
   shell.stores.get(shell.cache).delete('icons/icon.svg');
   assert.equal(await(await shell.fetch('/icons/icon.svg')).text(),'fresh atlas');assert.equal(shell.calls.fetch.length,1);
   shell.seed('old','older build','dkla-older-build');shell.seed('proof','own-origin proof','atlas-analytics-identity-v1');
-  await shell.lifecycle('activate');assert.deepEqual(shell.calls.deleted,['dkla-older-build']);
+  await shell.lifecycle('activate');assert.deepEqual(shell.calls.deleted,[]);assert.ok(shell.stores.has('dkla-older-build'));
   assert.ok(shell.stores.has(shell.cache));assert.ok(shell.stores.has('atlas-analytics-identity-v1'));assert.equal(shell.calls.claim,1);
   shell.listeners.message({data:'unrelated'});assert.equal(shell.calls.skip,0);
   shell.listeners.message({data:'skip-waiting'});assert.equal(shell.calls.skip,1);

@@ -7,8 +7,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const root = path.resolve(__dirname, '../..');
-const release = JSON.parse(fs.readFileSync(path.join(root, 'version.json'))).file;
-const html = fs.readFileSync(process.argv[2] ? path.resolve(process.argv[2]) : path.join(root, release), 'utf8');
+const release = JSON.parse(fs.readFileSync(path.join(root, 'work/build/version.json'))).file;
+const html = fs.readFileSync(process.argv[2] ? path.resolve(process.argv[2]) : path.join(root, "work/build", release), 'utf8');
 const match = html.match(/<script\b[^>]*\bid="dklaColdCallData"[^>]*>([\s\S]*?)<\/script>/);
 assert.ok(match, 'Built narrative data is missing');
 const data = JSON.parse(match[1]);
@@ -32,6 +32,8 @@ const document = {
   addEventListener() {},
 };
 const window = {LegalAtlas: {ready: true}, DKLABriefs: {text: id => 'Full source: ' + id, data: {entries: []}, render: text => '<p>' + text + '</p>'}};
+// Async fetch/cache/race behavior is tested against the actual loader separately.
+window.DKLABriefLoader = {fill: (target,id,render) => {target.innerHTML=render(window.DKLABriefs.text(id));}};
 const context = {window, document, localStorage: {getItem() { return null; }}, matchMedia() { return {matches: true, addEventListener() {}}; }};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname, 'reader.js'), 'utf8'), context);
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
@@ -61,7 +63,7 @@ const briefId = account.sources.find(s => s.briefId).briefId;
 dialog.events.click({target: {closest: () => ({hasAttribute: name => name === 'data-cc-source-brief', dataset: {ccSourceBrief: briefId}})}});
 const sourceDialog = document.getElementById('ccBriefDialog');
 assert.equal(sourceDialog.open, true, 'Full source brief did not open');
-assert.ok(sourceDialog.innerHTML.includes('Full source: ' + briefId), 'Source view lost source content');
+assert.ok(sourceDialog.querySelector('.cc-brief-body').innerHTML.includes('Full source: ' + briefId), 'Source view lost source content');
 sourceDialog.querySelector('#ccBriefClose').onclick();
 assert.equal(sourceDialog.open, false, 'Source return failed');
 assert.equal(dialog.open, true, 'Source return closed the narrative');

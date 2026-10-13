@@ -1,109 +1,90 @@
-# Editing and auditing DKLA
+# Current source and bounded editing
 
-The published HTML is a generated, offline-capable artifact. Do not edit it.
-The map, sources, briefs, narratives and later interface layers have different
-owners and different evidence. Keeping those distinctions prevents a visual
-change from silently rewriting a source or a legal account.
+The current build does not read any historical HTML. `src/manifest.json` orders
+markup fragments, 20 early classic JavaScript bodies, CSS, an encoded sprite,
+and byte-preserving JSON container manifests. JSON leaves are exact original
+UTF-8 slices: no parsing/serialization changes their legal text, escaping, order
+or whitespace. Container manifests preserve the bytes between leaves.
+`pnpm source --original` proves the initial tree recreates the approved
+42,368,867-byte r18 artifact exactly. The historical file stays unchanged in Git.
 
-| Work | Canonical input | Validation |
+## Ownership
+
+| Task | Editable source | Main validation |
 | --- | --- | --- |
-| Case brief text | `tools/r19/data/briefs/<id>.md`, corrected text in `audited/`, recorded exact corrections in `accuracy24.json` | `build_data()`, source comparison and narrative fingerprint checks |
-| Six brief sections | `sections.json`, `plain-sections.json`, recorded conversion patches | `tools/r19/check.py` |
-| Chronological Cold Call | `tools/cold-call/narratives/<case-id>.json`; three original pilots in `cases.json` | `validate.py`, `check_narratives.py`, `check_reader.cjs` |
-| Doctrine development | `tools/r19/data/timelines.json` | `timeline-audit.json`, `check_timeline_audit.py`; scope in root `TIMELINE_AUDIT.md` |
-| Rules and authorities | `tools/v25/authorities.json`, `authorities_build.py`, linked source records | coverage/link/text checks and `authorities_check.cjs`; scope in `authorities_README.md` |
-| U.S. Code edition | `tools/v25/uscode.json`, `uscode_build.py` | pinned OLRC release, structural/lexical extraction and effectivity checks |
-| Reading interface | `tools/v25/reading.js`, `reading.css`, Cold Call reader | browser checks on desktop and phone |
-| Atlas home | native r18 renderer, `tools/r19/r20.js`, `tools/v25/home-fit.js`, `tools/v25/native-home.js` | approved native B arrangement; equal lower heights; rendered viewport checks; center mark requires fresh analytics password |
-| First-load reveal | head curtain in assembler, final `tools/v25/boot.js` module | `boot_check.cjs`, fresh first-load browser checks; early r20 readiness cannot reveal an older layer |
-| Module order | `tools/v25/runtime-manifest.json` | build rejects missing/duplicate modules; integrity hashes and line ranges |
-| Curated map geography | `tools/v25/geography.json`, `geography_build.py`, `geography.js` | `geography_check.py --check`, runtime lock/cache tests, bounded per-entry/district/region reasons |
-| Practice exercise visibility | `tools/v25/practice-filter.json`, `practice-filter.js` | source fingerprint and classification checks; recoverable export and cache-resilience tests |
-| Constitution lettering | `tools/v25/assets/we-the-people.png` and `.json` | transparent owner-reference asset embedded offline; bytes/hash validated independently of legal text |
-| Existing map and archives | immutable `DKLA-r18.html` baseline | SHA-256 and all 35 original script blocks preserved |
-| Routing and cache | assembler, worker template | release filename/version/build checks |
+| Early map/storage/study engine | src/runtime/appCode.js, studyCode.js and other named bodies | current release checker, saved-work and browser tests |
+| Original node or edge | src/data/seedData/ record resolved by helper | exact source reconstruction, geometry/persistence checks |
+| Book page/source extraction/dictionary term | src/data/bookArchive, civilArchive, lrsArchive, sourceTexts, dklaGlossary | source/content hashes; source comparison for deliberate edits |
+| Canonical full case brief | tools/r19/data/briefs or audited, accuracy24 exact corrections | build_data and source/narrative fingerprint review |
+| Converted case sections | tools/r19/data/sections.json, plain-sections.json and recorded patches | tools/r19/check.py |
+| Authored Cold Call | tools/cold-call/narratives/<id>.json; three pilots in cases.json | validate, check_narratives, reader and browser checks |
+| Timeline | tools/r19/data/timelines.json and timeline-audit.json | check_timeline_audit; recorded legal review scope |
+| Authorities/geography/reading | existing tools/v25 JS/CSS/data and source ledgers | named checks and browser geometry |
+| Later feature order | tools/v25/runtime-manifest.json | hashes/source ranges in work/build/integrity.json |
+| Public files | tools/public-files.json | byte-verified copying into dist, route/API preview checks |
 
-The older interface uses successive function wrappers and DOM observers. This
-does make cause and effect harder to follow, but the full legal corpus is already
-stored in separate source files. A wholesale framework migration would carry
-more regression risk than the present task warrants. The explicit manifest,
-named generated module boundaries, bounded lookup commands and source catalog
-remove the immediate navigation friction while preserving saved edits and
-offline behavior.
-
-## Read a small, relevant slice
-
-From the repository root, use Python 3.10 or later:
+## Small queries
 
 ```sh
-python tools/atlas.py overview
-python tools/atlas.py search Gibbs
+pnpm source --record seedData /nodes/@cp-gibbs --chars 4000
+pnpm source --record bookArchive /353 --chars 4000
+pnpm source --record dklaGlossary /terms/@consideration --chars 4000
 python tools/atlas.py entry cp-gibbs --chars 12000
 python tools/atlas.py authority usc-28-1367 --chars 12000
-python tools/atlas.py sources "Rule 4" --limit 8
-python tools/atlas.py page civil 353 --chars 12000
-python tools/atlas.py page "added-sources/Contracts- Selections.pdf" 100
 python tools/atlas.py page "#lrs=lrs-november-a:34" --chars 4000
 python tools/atlas.py catalog november --limit 4
-python tools/atlas.py timeline supp
-python tools/atlas.py catalog --write
-python tools/v25/geography_check.py --inventory districts --course Contracts --limit 20
-python tools/v25/geography_check.py --inventory nodes --district specific-relief --limit 20
 ```
 
-`entry` identifies the immutable seed, canonical full brief, compact conversion,
-runtime corrections, narrative review/fingerprint sources and timeline steps.
-The seed alone is not the currently displayed brief. The full brief is tidied
-and patched by `build_data()` before hashing; do not copy a hash from an unpatched
-Markdown file to bypass a failed narrative check. `--chars` bounds each selected
-prose excerpt, while identifiers, source references and review metadata remain
-structured. Longer input is reported as truncated, never silently shortened.
-`authority` returns a bounded provision with its edition, source, text hash and
-recorded connections. `search` covers both case briefs and library provisions.
-Integrity `sourceStartLine` maps source line 1 to the generated combined module;
-`startLine` also includes its named boundary comment.
+The source helper follows only relevant container manifests and reads one record.
+Use /@ID for uniquely identified array records or a numeric JSON pointer. Repeated
+inherited IDs/slugs stay in separate files; ambiguous ID selection fails and
+requires a numeric pointer. Array filenames include their original index and ID.
+An ID is navigation, not a new canonical legal claim.
 
-`sources` returns file/heading/page matches and bounded OCR excerpts. `page`
-returns a single embedded page with its PDF-page mapping when available.
-The `civil` and `contracts` aliases use printed-page keys; an `added-sources/`
-PDF uses its embedded extraction's PDF-page keys. Unpaginated opinion text does
-not establish a pinpoint. Always inspect the original opinion or assigned PDF
-when OCR, an antecedent, a quotation, or an opinion boundary is material.
+The atlas helper explains effective brief/correction/narrative layers; reading
+the original seed alone does not establish the current displayed case text.
+LRS links use physical PDF pages and separately report printed labels. Inspect
+the actual assigned PDF or opinion whenever OCR, attribution or pinpoint matters.
 
-LRS source IDs and native `#lrs=source-id:page` links use physical PDF pages.
-Their results report the printed-page label separately; a missing label remains
-missing. Catalog search respects its global result limit, while `--write` saves
-the complete source catalog independent of display filters.
+## Build boundaries and remaining coupling
 
-`source-catalog.json` identifies the repository source files by Git blob hash,
-their embedded text availability and existing heading indexes. It does not
-duplicate textbook text or certify a legal proposition. Regenerate it after
-source files are committed. Use the existing `added-sources/index/*.json` and
-`added-sources/text/*` files to trace the extraction back to the uploaded PDF.
+`tools/source/` has explicit Python imports/exports for extraction and assembly.
+`tools/runtime.mjs` supplies shared cross-platform process handling to build,
+check, source and preview commands. Browser JS remains classic ordered scripts;
+appCode (~62 KB) and studyCode (~106 KB) still share globals, poll readiness and
+accept later wrappers. These files are addressable source, not yet independent
+ES modules. Do not reorder or wrap them without a new regression-tested stage.
+The saved-work adapter still normalizes exactly one known boot clone before the
+legacy reader; replacing it with a storage service requires recovery fixtures.
 
-## Make an evidence-backed content change
+Builds generate work/build HTML, worker, version, index and integrity metadata;
+Vercel and local preview serve the allowlisted dist copy. Historical tracked
+outputs remain byte-unchanged. No generated file is an editing source.
+The optional standalone HTML is already produced, with its original export behavior.
+Existing source PDFs/scans still accompany it for linked readings.
 
-1. Identify the case/rule/timeline ID and read its whole relevant account.
-2. Locate the assigned pages and the opinion or enacted authority. Distinguish
-   the holding, separate writings, allegations and later treatment.
-3. Save the exact reason, authority, pinpoint and review scope. Inherited review
-   records and structural checks are not a newly performed opinion audit.
-4. Update the canonical source or an explicit exact-match correction. A full
-   brief change requires comparing its Cold Call again before updating the
-   fingerprint; preserve qualified or missing source facts.
-5. Build and run the relevant validators, then inspect the changed view in a
-   browser. Check mobile wrapping and intermediate map zoom when affected.
+Demand loading is next: small shell, feature/course/book/dictionary boundaries,
+cache only loaded content offline, preserve old caches during migration and make
+portable export hydrate the full corpus deliberately. Future public source
+protection must address historical HTML's embedded text as well as PDF URLs.
+No current-load speed, private-source delivery, complete offline coverage or
+fully modular runtime claim is made here. Historical architecture prose is
+preserved verbatim in tools/history/ARCHITECTURE-through-stage1.md.
 
-`explanation_inventory.py --pack` provides bounded effective prose for review.
-`--check` catches drift from the reviewed introduction text and its compared
-canonical sections. The inventory is navigation, not legal review; recorded
-review scope lives in `EXPLANATION_AUDIT.md` and its named JSON ledgers.
-`reading_check.cjs` exercises repeated repainting and content preservation,
-including the one-introduction rule and exact duplicate removal. Real browser
-inspection still verifies visible timelines, wrapping and map navigation.
+## Intended later edits
 
-All main cases require authored narratives. Supplemental narratives remain
-optional and existing completed accounts are preserved. Cosmetic cleanup may
-collapse repeated metadata, but must retain the substantive narrative and source
-qualifications. Source PDFs stay separate from the standalone HTML; embedded
-OCR is available offline, while uncached scans and external links need a network.
+The manifest's origin hashes describe the untouched extraction, not a permanent
+ban on editing. A deliberately reviewed leaf edit changes the dynamic source hash
+and resulting build token; `pnpm build` and `pnpm check` still work. Stage 2's
+`pnpm check:stage2` intentionally fails any such edit because its gate pins this
+specific no-content-change stage. Do not update that golden gate automatically.
+Establish the next reviewed stage's scope and evidence instead. Preserve the
+original release artifacts and provenance hashes. Changes to a full brief also
+require source comparison and a deliberate narrative fingerprint review.
+
+Adding a case is larger than correcting one record: add the canonical brief,
+converted sections and main-case narrative, map placement/relationships, relevant
+source routes and geography review. Small seed record files do not eliminate
+those coordinated invariants. Later compact data files are still in historical
+aggregate JSON inputs; use the bounded atlas helper and defer their own exact
+record extraction to a separate substage.

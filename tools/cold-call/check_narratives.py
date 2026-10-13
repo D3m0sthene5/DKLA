@@ -14,7 +14,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import build_data, script_blocks, SOURCE, LABEL
+from assemble import build_data, script_blocks, read_source, LABEL
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--require-complete', action='store_true',
@@ -22,7 +22,7 @@ parser.add_argument('--require-complete', action='store_true',
 parser.add_argument('--write', action='store_true')
 args = parser.parse_args()
 data, full = build_data()
-graph = json.loads(script_blocks(SOURCE.read_text())['seedData'])
+graph = json.loads(script_blocks(read_source().decode("utf-8"))['seedData'])
 directory = ROOT / 'tools/cold-call'
 compiler = runpy.run_path(str(directory / 'compile.py'))
 stories = compiler['compile_cases'](json.loads((directory / 'cases.json').read_text()), graph, data, full)

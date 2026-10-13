@@ -1,0 +1,100 @@
+/* v2.6 typography: a restrained technical interface and comfortable reading.
+   Orbitron is embedded by release-font.css from the licensed asset;
+   the interface and reading text use system fonts. */
+:root{
+ --dkla-interface:"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+ --dkla-display:"DKLA Orbitron","Segoe UI",Arial,sans-serif;
+ --dkla-reading:var(--dkla-interface);
+ --r16-sans:var(--dkla-interface);
+}
+html body{font-family:var(--dkla-interface)!important;text-rendering:optimizeLegibility}
+button,input,select,textarea{font-family:var(--dkla-interface)}
+html #geoCanvas text,html #geoCanvas .region-title,html #geoCanvas .course-label{
+ font-family:var(--dkla-interface);
+}
+html #geoCanvas .course-name,html #geoCanvas .course-label,
+html #geoCanvas .dictionary-spine-title{
+ font-family:var(--dkla-display);font-weight:600;letter-spacing:.015em;
+}
+html #geoCanvas text:is(.authority-volume-title,.authority-map-heading,.authority-document-label,.authority-preview-label){font-family:var(--dkla-interface)}
+html #geoCanvas .authority-map-entrance>.authority-map-heading{font-family:var(--dkla-display);font-weight:600;letter-spacing:.015em}
+/* Keep provenance facsimiles, code references, and case citations recognizable. */
+html #geoCanvas .authority-preamble-excerpt{font-family:Georgia,Cambria,serif}
+html #geoCanvas .authority-preview-code{font-family:Consolas,monospace}
+html #geoCanvas .authority-people-fallback{font-family:"Old English Text MT",Georgia,serif}
+.brand,.map-nav,.topactions button,#geoBreadcrumb,#mapHint,#saveStatus,
+.search-results,.r18-body,.sh-shell,.sh-case-panel{font-family:var(--dkla-interface)}
+.brand{font-weight:650;letter-spacing:.06em}
+.brand small{letter-spacing:.12em}
+html #atlasHome .dkla-wordmark,html #atlasHome .dkla-wordmark small,
+html .study-header>button,html #geoBreadcrumb,html #geoBreadcrumb button,
+html .map-nav>button{font-family:var(--dkla-display)!important}
+.topactions button,#atlasHome .dkla-release{font-variant-numeric:tabular-nums}
+/* Old launcher font shorthands deliberately use !important; supersede family
+   alone, then retain their existing button bounds and compact label sizes. */
+html .study-header>.r18-launcher,html .study-header>.sh-launcher{
+ font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:.04em;
+}
+#r18Dialog,#r19Dialog,#coldCallDialog,#ccBriefDialog,#bookDialog,#fileDialog,#glossaryDialog{
+ font-family:var(--dkla-interface);
+}
+#coldCallDialog button,#ccBriefDialog button,#r18Dialog button,#r19Dialog button{
+ font-family:var(--dkla-interface);
+}
+html #inspector h2,html #inspector h3,#glossaryDialog .gl-detail h2,
+#r19Dialog h2,#r18Dialog h2,#coldCallDialog h2,#coldCallDialog h3,
+#ccBriefDialog h2,#ccBriefDialog h3,.sh-head h1,.sh-section-head h2,.sh-profile h1{
+ font-family:var(--dkla-interface)!important;font-weight:650;letter-spacing:-.025em;line-height:1.3;
+}
+#inspector .reader-body,#inspector .r19-text,#inspector .authority-text,
+#glossaryDialog .gl-detail,#fileDialog .file-text,#fileDialog .file-pagetext,
+#coldCallDialog #ccNarrative,#ccBriefDialog .cc-brief-body{
+ font-family:var(--dkla-reading)!important;font-size:16px;line-height:1.75;letter-spacing:0;
+}
+html #inspector .reader-body p,html #inspector .reader-body li,
+html #inspector .r19-text p,html #inspector .r19-text li,
+#glossaryDialog .gl-def,#ccBriefDialog .cc-brief-body p{
+ font-size:16px;line-height:1.75;
+}
+html #inspector .reader-body h3,html #inspector .r19-text h3{
+ font-size:19px;line-height:1.4;
+}
+html #inspector .reader-body h4,html #inspector .r19-text h4{
+ font-family:var(--dkla-interface);font-size:13px;line-height:1.5;letter-spacing:.06em;
+}
+#coldCallDialog .cc-header,#coldCallDialog #ccSections,#coldCallDialog .cc-kicker,
+#coldCallDialog .cc-citations,#coldCallDialog .cc-end,#ccBriefDialog .cc-kicker,
+#glossaryDialog .gl-meta,#glossaryDialog .gl-detail h3{
+ font-family:var(--dkla-interface);letter-spacing:.025em;
+}
+#coldCallDialog nav button{font-family:var(--dkla-interface);font-size:13px;line-height:1.6}
+#coldCallDialog .cc-index-label,#coldCallDialog .cc-kicker{font-size:12px}
+.sh-shell .sh-head p,.sh-shell .sh-profile p{font-size:15px;line-height:1.75}
+.sh-shell .sh-seat-name{font-size:18px;line-height:1.4;font-weight:600}
+.sh-shell .sh-seat-name,.sh-shell .sh-seat-label,.sh-shell .sh-lineage-card strong,
+.sh-shell .sh-vote strong,.sh-shell .sh-head h1,.sh-shell .sh-section-head h2,
+.sh-shell .sh-profile h1{font-family:var(--dkla-display)!important}
+.sh-shell .sh-seat-meta,.sh-shell .sh-footnote,.sh-shell .sh-date-foot{font-size:13px;line-height:1.65}
+.sh-shell .sh-seat-label,.sh-shell .sh-tag,.sh-shell .sh-case-link small{font-size:12px}
+.sh-shell .sh-case-link strong{font-size:15px;line-height:1.55}
+.sh-shell .sh-section-head p{font-family:var(--dkla-interface);font-size:12px}
+html #geoCanvas [data-dkla-seat-type] .dkla-seat-label{fill:#e0f4e9;font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:0}
+html #geoCanvas [data-dkla-seat-type] .dkla-seat-meta{fill:#b6d7c7;font-family:var(--dkla-interface);font-weight:450;letter-spacing:.015em}
+/* These fitted home labels have their own density rules. The legacy tiny-text
+   fade must not erase a seat name after the presentation module paints it. */
+html #geoCanvas [data-dkla-seat-type] .dkla-seat-label,
+html #geoCanvas [data-dkla-seat-type] .dkla-seat-meta{opacity:1!important}
+html #geoCanvas [data-dkla-seat-type]>rect{fill:#203e35;fill-opacity:.88;stroke:#83b9a0;stroke-opacity:.5}
+html #geoCanvas [data-sh-open]>.sh-map-label{font-family:var(--dkla-display);font-weight:600;letter-spacing:.025em}
+html #geoCanvas [data-dkla-display-label],html #geoCanvas .r19-tile text{font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:0}
+html #geoCanvas .sh-hit:focus-visible>rect,html #geoCanvas [data-dictionary-spine]:focus-visible>rect{
+ stroke:#c0f7df!important;stroke-opacity:1!important;stroke-width:2px!important;vector-effect:non-scaling-stroke;
+}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+ outline-color:#a5dfd3;outline-offset:3px;
+}
+@media(max-width:680px){
+ .sh-shell .sh-seat-name{font-size:16px}
+ .sh-shell .sh-head p,.sh-shell .sh-profile p{font-size:14px}
+ #glossaryDialog .gl-detail{padding-left:20px;padding-right:20px}
+}

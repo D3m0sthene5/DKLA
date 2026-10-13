@@ -1,115 +1,59 @@
-name: Build DKLA release
+name: Check DKLA release
 on:
   push:
     branches:
-      - codex/cold-call-v24
-      - codex/v2.5-hotfix
-      - codex/analytics-dashboard-preview
-      - codex/main-cold-call-narrative-audit
+      - codex/v2.6-release
       - claude/atlas-design-content-audit-m1cw9x
-    paths:
-      - tools/cold-call/**
-      - tools/r19/**
-      - tools/v25/**
-      - tools/analytics/**
-      - api/**
-      - lib/analytics/**
-      - assets/**
-      - privacy.html
-      - package.json
-      - pnpm-lock.yaml
-      - tools/atlas.py
-      - .github/workflows/cold-call.yml
+    paths: ['src/**', 'tools/**', 'api/**', 'lib/**', 'assets/**', 'package.json', 'pnpm-lock.yaml', 'vercel.json', '.github/workflows/cold-call.yml']
+  pull_request:
+    paths: ['src/**', 'tools/**', 'api/**', 'lib/**', 'assets/**', 'package.json', 'pnpm-lock.yaml', 'vercel.json', '.github/workflows/cold-call.yml']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
-  group: cold-call-${{ github.ref }}
-  cancel-in-progress: false
+  group: release-check-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-        with:
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            /DKLA-r18.html
-            /tools/r19/
-            /tools/r12/
-            /tools/cold-call/
-            /tools/v25/
-            /tools/analytics/
-            /api/
-            /lib/analytics/
-            /assets/
-            /privacy.html
-            /package.json
-            /pnpm-lock.yaml
-            /tools/atlas.py
-            /added-sources/opinions/lrs-s-chadha.txt
-            /index.html
-            /vercel.json
-            /version.json
-            /sw.js
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - uses: pnpm/action-setup@v4
-      - name: Validate analytics
+      - name: Build and check current source
         run: |
           pnpm install --frozen-lockfile
-          node tools/analytics/prepare.mjs --catalog-only
-          pnpm test:analytics
-      - name: Build and validate
-        run: |
-          python3 tools/r19/assemble.py
+          pnpm build
+          pnpm check
+          pnpm check:v26
           pnpm check:analytics
-          python3 tools/r19/check.py
-          node tools/r19/check_worker.cjs
+          pnpm test:analytics
           python3 tools/v25/authorities_build.py --check
           python3 tools/v25/uscode_build.py --check
           python3 tools/v25/check_timeline_audit.py --json
           python3 tools/v25/explanation_inventory.py --check
           python3 tools/v25/generated_rule_connections_check.py
           node tools/v25/generated_rule_connections_check.cjs
-          node tools/v25/authorities_check.cjs
-          node tools/v25/boot_check.cjs
-          node tools/v25/reading_check.cjs
           python3 tools/v25/check_practice_filter.py
-          node tools/v25/practice_filter_check.cjs
           python3 tools/v25/geography_check.py --check
-          node tools/v25/geography_check.cjs
-          node tools/cold-call/check_reader.cjs
           python3 tools/cold-call/check_index.py
-          python3 tools/cold-call/check_narratives.py --write
+          python3 tools/cold-call/check_narratives.py --require-complete
           python3 tools/cold-call/check_main_audit.py
-          python3 tools/r19/audit24.py
-      - name: Require complete production narrative coverage
-        if: github.ref_name == 'claude/atlas-design-content-audit-m1cw9x'
-        run: python3 tools/cold-call/check_narratives.py --require-complete
-      - name: Check native Home viewport contract
+      - name: Check native Home against generated public output
         run: |
           pnpm exec playwright install --with-deps chromium
-          python3 -m http.server 4321 --bind 127.0.0.1 >/tmp/dkla-home-server.log 2>&1 &
-          HOME_SERVER_PID=$!
-          trap 'kill "$HOME_SERVER_PID"' EXIT
-          DKLA_HOME_TEST_URL=http://127.0.0.1:4321/DKLA-v2.5.html pnpm run test:home -- --workers=1
+          python3 -m http.server 4321 --bind 127.0.0.1 --directory dist >/tmp/dkla-home-server.log 2>&1 &
+          DKLA_SERVER_PID=$!
+          trap 'kill "$DKLA_SERVER_PID"' EXIT
+          DKLA_HOME_TEST_URL=http://127.0.0.1:4321/DKLA-v2.6.html pnpm run test:home -- --workers=1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: native-home-screenshots-and-bounds
           path: test-results/
-      - name: Commit generated release
-        env:
-          RELEASE_BRANCH: ${{ github.ref_name }}
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          RELEASE_FILE="$(python3 -c 'import json; print(json.load(open("version.json"))["file"])')"
-          git add --sparse "$RELEASE_FILE" index.html vercel.json version.json sw.js tools/r19/integrity.json tools/r19/data/accuracy24-inventory.json tools/cold-call/coverage.json lib/analytics/catalog.json assets/admin/catalog.js
-          if ! git diff --cached --quiet; then
-            git commit -m "Build $RELEASE_FILE release"
-            git push origin "HEAD:$RELEASE_BRANCH"
-          fi

@@ -1,0 +1,12 @@
+/* Voting details on the three older source-gap notes that duplicate SCOTUS cases. */
+.sh-case-panel .r17-scotus-link{border-color:#82bda3!important;color:#d7f2e3!important;background:#224a3977!important}
+.sh-case-panel .r17-scotus-link:hover{background:#295746aa!important}
+.r17-scotus-alias .r17-alias-tally{margin:15px 0 12px;color:#dcf1e4;font:600 17px/1.4 var(--r16-sans)}
+.r17-scotus-alias .r17-alias-votes{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:7px}
+.r17-scotus-alias .r17-alias-vote{display:flex;flex-direction:column;gap:3px;padding:9px 11px;border:1px solid #5b97765c;border-radius:8px;background:#1730297d;font:11px/1.3 var(--r16-sans);color:#dcebe3}
+.r17-scotus-alias .r17-alias-vote strong{font-weight:600}
+.r17-scotus-alias .r17-alias-vote span{font-size:10px;color:#a6d6b9}
+.r17-scotus-alias .r17-alias-vote[data-align="dissent"]{border-color:#b17f9366;background:#38232b7d}
+.r17-scotus-alias .r17-alias-vote[data-align="dissent"] span{color:#e1b9c5}
+.r17-scotus-alias .r17-alias-vote[data-align="nonparticipation"]{border-color:#7a8d9b66;background:#2932397d}
+.r17-scotus-alias .r17-alias-vote[data-align="nonparticipation"] span{color:#b2c0cb}

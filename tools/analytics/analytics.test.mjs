@@ -7,7 +7,7 @@ import {runInNewContext} from 'node:vm';
 import {setTestDatabase,ready,query,transaction} from '../../lib/analytics/db.js';
 import {sign,verify,policy,geography,ADMIN_COOKIE} from '../../lib/analytics/security.js';
 import {metadata,batch,catalog} from '../../lib/analytics/validate.js';
-import {mergeProfiles,undoMerge,verifiedSync,deleteProfile} from '../../lib/analytics/identity.js';
+import {mergeProfiles,undoMerge,deleteProfile} from '../../lib/analytics/identity.js';
 import {suggestions,compactOldest,dataPage,locations,housekeeping} from '../../lib/analytics/reports.js';
 import {networkFor} from '../../lib/analytics/network.js';
 import analytics from '../../api/analytics.js';
@@ -18,9 +18,9 @@ const db=new PGlite();
 before(async()=>{setTestDatabase(db);await ready();});
 beforeEach(async()=>{const tables=await query("SELECT tablename FROM pg_tables WHERE schemaname='public' AND tablename LIKE 'dkla_%'");await query('TRUNCATE '+tables.map(t=>t.tablename).join(',')+' CASCADE');});
 after(async()=>db.close());
-function req(action='bootstrap',body={},region='AK',extra={}){return {url:'/api/analytics?action='+action,method:'POST',headers:{host:'dkla.test',origin:'https://dkla.test','user-agent':'Mozilla/5.0 Chrome/130.0','x-vercel-ip-country':'US','x-vercel-ip-country-region':region,'x-vercel-ip-city':'Anchorage',...extra},socket:{remoteAddress:'198.51.100.42'},body};}
+function req(action='bootstrap',body={},region='AK',extra={}){return {url:'/api/analytics?action='+action,method:'POST',headers:{host:'dkla.test',origin:'https://dkla.test','user-agent':'Mozilla/5.0 Chrome/130.0','x-vercel-ip-country':'US','x-vercel-ip-country-region':region,'x-vercel-ip-city':'Anchorage',...(body.token?{cookie:'__Host-dkla_visitor='+body.token}:{}),...extra},socket:{remoteAddress:'198.51.100.42'},body};}
 async function call(handler,request){const headers={};let output;const res={setHeader:(k,v)=>headers[k.toLowerCase()]=v,getHeader:k=>headers[k.toLowerCase()],end:value=>output=value,statusCode:0};await handler(request,res);let data;try{data=JSON.parse(output);}catch{data=output;}return {status:res.statusCode,data,headers};}
-async function visitor(region='AK',token=''){const out=await call(analytics,req('bootstrap',{token,metadata:{browser:'Safari',browserVersion:'18',os:'macOS',osVersion:'15',screenWidth:1440,screenHeight:900,viewportWidth:1440,viewportHeight:900,timezone:'America/Anchorage',language:'en-US'}},region));assert.equal(out.status,200);return {token:out.data.token,id:verify(out.data.token,'visitor').id,headers:out.headers};}
+async function visitor(region='AK',token=''){const out=await call(analytics,req('bootstrap',{token,metadata:{browser:'Safari',browserVersion:'18',os:'macOS',osVersion:'15',screenWidth:1440,screenHeight:900,viewportWidth:1440,viewportHeight:900,timezone:'America/Anchorage',language:'en-US'}},region));assert.equal(out.status,200);const proof=out.headers['set-cookie'].split(';')[0].split('=')[1];assert.equal(out.data.token,undefined);return {token:proof,id:verify(proof,'visitor').id,headers:out.headers};}
 function payload(token,entity='hamer'){const start=new Date(Date.now()-600000).toISOString(),end=new Date().toISOString();return {token,batchId:randomUUID(),session:{id:randomUUID(),startedAt:start,endedAt:end,activeSeconds:300,activeNow:true,build:'v2.5',metadata:{browser:'Safari',timezone:'America/Anchorage'}},events:[{id:randomUUID(),at:start,kind:'entry_open',entity,details:{}},{id:randomUUID(),at:end,kind:'entry_close',entity,activeSeconds:260,details:{depth:90}},{id:randomUUID(),at:end,kind:'search',details:{query:'consideration',results:0,notes:'do not collect',copiedText:'do not collect',code:'AAAA-BBBB-CCCC'}}]};}
 
 for(const authenticated of [true,false])test(`Atlas logo entry requires a fresh password with ${authenticated?'an existing':'no'} admin session`,async()=>{
@@ -123,13 +123,22 @@ test('region policy: California is full with scoring off; unknown is full; EEA/U
   assert.equal(policy(req('',{},'',{'x-vercel-ip-country':'DE'})).tier,'reduced');assert.equal(policy(req('',{},'',{'x-vercel-ip-country':'GB'})).tier,'reduced');
 });
 test('signed proofs reject tampering, expired proofs, and wrong token purpose',()=>{const id=randomUUID(),proof=sign('visitor',id,60);assert.equal(verify(proof,'visitor').id,id);assert.equal(verify(proof+'x','visitor'),null);assert.equal(verify(proof,'admin'),null);assert.equal(verify(sign('visitor',id,-10),'visitor'),null);});
-test('server cookie restores the device and takes precedence over a conflicting recovery token',async()=>{
-  const a=await visitor(),b=await visitor();assert.match(a.headers['set-cookie'],/HttpOnly; Secure; SameSite=Lax/);
-  const out=await call(analytics,req('bootstrap',{token:b.token,metadata:{}},'AK',{cookie:'__Host-dkla_visitor='+a.token}));assert.equal(verify(out.data.token,'visitor').id,a.id);
-  const recovered=await visitor('AK',a.token);assert.equal(recovered.id,a.id);assert.equal((await query('SELECT * FROM dkla_devices')).length,2);
+test('the existing signed cookie preserves browser continuity without a body token',async()=>{
+  const a=await visitor();assert.match(a.headers['set-cookie'],/HttpOnly; Secure; SameSite=Lax/);assert.match(a.headers['set-cookie'],/Max-Age=31622400/);
+  const out=await call(analytics,req('bootstrap',{metadata:{}},'AK',{cookie:'__Host-dkla_visitor='+a.token}));assert.equal(out.status,200);assert.equal(out.data.token,undefined);
+  const proof=out.headers['set-cookie'].split(';')[0].split('=')[1];assert.equal(verify(proof,'visitor').id,a.id);
+  assert.equal((await query('SELECT * FROM dkla_devices')).length,1);
 });
-test('a damaged local copy does not block recovery from another signed own-origin copy',async()=>{
-  const a=await visitor();const out=await call(analytics,req('bootstrap',{token:'damaged',recoveryTokens:['damaged',a.token],metadata:{}}));assert.equal(out.status,200);assert.equal(verify(out.data.token,'visitor').id,a.id);assert.equal((await query('SELECT * FROM dkla_devices')).length,1);
+test('cookie deletion creates a new browser and ignores every old recovery proof',async()=>{
+  const a=await visitor();const out=await call(analytics,req('bootstrap',{token:a.token,recoveryTokens:[a.token],metadata:{}},'AK',{cookie:''}));assert.equal(out.status,200);
+  const proof=out.headers['set-cookie'].split(';')[0].split('=')[1];assert.notEqual(verify(proof,'visitor').id,a.id);
+  assert.equal((await query('SELECT * FROM dkla_devices')).length,2);
+  const denied=await call(analytics,req('ingest',payload(a.token),'AK',{cookie:''}));assert.equal(denied.status,401);
+  assert.equal((await query('SELECT * FROM dkla_sessions')).length,0);
+});
+test('a valid cookie wins over an obsolete conflicting body token',async()=>{
+  const a=await visitor(),b=await visitor();const out=await call(analytics,req('bootstrap',{token:b.token,recoveryTokens:[b.token],metadata:{}},'AK',{cookie:'__Host-dkla_visitor='+a.token}));
+  const proof=out.headers['set-cookie'].split(';')[0].split('=')[1];assert.equal(verify(proof,'visitor').id,a.id);
 });
 test('ingest retains raw session IP and metadata, rejects unwanted fields, and deduplicates events',async()=>{
   const a=await visitor(),input=payload(a.token);const first=await call(analytics,req('ingest',input));assert.equal(first.status,200);assert.equal((await call(analytics,req('ingest',input))).status,200);
@@ -151,18 +160,31 @@ test('reduced collection stores anonymous totals without cookies, profiles, IPs 
   const input=payload('');input.visit=true;assert.equal((await call(analytics,req('ingest',input,'',{'x-vercel-ip-country':'DE'}))).status,200);await call(analytics,req('ingest',input,'',{'x-vercel-ip-country':'DE'}));
   assert.equal((await query('SELECT * FROM dkla_devices')).length,0);assert.equal((await query('SELECT * FROM dkla_sessions')).length,0);assert.equal((await query('SELECT sum(visits)::int AS visits,sum(opens)::int AS opens FROM dkla_anonymous_totals'))[0].visits,1);assert.equal((await query('SELECT sum(opens)::int AS opens FROM dkla_anonymous_totals'))[0].opens,1);
 });
-test('California exclusion is permanent for the device and propagates through a manual profile link',async()=>{
-  const a=await visitor(),b=await visitor(),c=await visitor();await call(analytics,req('ingest',payload(a.token)));await call(analytics,req('ingest',payload(b.token)));await call(analytics,req('ingest',payload(c.token)));
-  assert.ok((await suggestions()).length>0);await visitor('CA',a.token);await visitor('AK',a.token);assert.equal((await query('SELECT scoring_allowed FROM dkla_devices WHERE id=$1',[a.id]))[0].scoring_allowed,false);
-  assert.ok((await suggestions()).every(s=>s.source!==a.id&&s.target!==a.id));await mergeProfiles(a.id,b.id);assert.ok((await suggestions()).every(s=>s.source!==b.id&&s.target!==b.id));
+test('similar browser and network metadata never suggests or creates identity links',async()=>{
+  const a=await visitor(),b=await visitor();await call(analytics,req('ingest',payload(a.token)));await call(analytics,req('ingest',payload(b.token)));
+  assert.deepEqual(await suggestions(),[]);assert.equal(policy(req()).scoring,false);
+  const devices=await query('SELECT profile_id FROM dkla_devices');assert.notEqual(devices[0].profile_id,devices[1].profile_id);
+  assert.equal((await query('SELECT * FROM dkla_merges')).length,0);assert.equal((await query('SELECT * FROM dkla_sync_links')).length,0);
 });
 test('manual merge is reversible while original session device ids are retained',async()=>{
   const a=await visitor(),b=await visitor();const input=payload(a.token);await call(analytics,req('ingest',input));const id=await mergeProfiles(a.id,b.id);
   assert.equal((await query('SELECT profile_id FROM dkla_devices WHERE id=$1',[a.id]))[0].profile_id,b.id);assert.equal((await query('SELECT device_id FROM dkla_sessions'))[0].device_id,a.id);await undoMerge(id);assert.equal((await query('SELECT profile_id FROM dkla_devices WHERE id=$1',[a.id]))[0].profile_id,a.id);
 });
-test('verified sync digest links devices; no clear sync code is stored',async()=>{
-  const a=await visitor('CA'),b=await visitor(),codeDigest=createHash('sha256').update('AAAA-BBBB-CCCC').digest('hex');await verifiedSync(req(),a.token,codeDigest);await verifiedSync(req(),b.token,codeDigest);
-  const devices=await query('SELECT profile_id FROM dkla_devices');assert.equal(devices[0].profile_id,devices[1].profile_id);assert.equal((await query('SELECT digest FROM dkla_sync_links'))[0].digest,codeDigest);assert.ok((await suggestions()).length===0);
+test('cookie recognition retains historical combined records without creating new links',async()=>{
+  const a=await visitor(),b=await visitor();const input=payload(a.token);await call(analytics,req('ingest',input));
+  const prior=await mergeProfiles(a.id,b.id);await visitor('AK',a.token);
+  const [device]=await query('SELECT profile_id FROM dkla_devices WHERE id=$1',[a.id]);assert.equal(device.profile_id,b.id);
+  const merges=await query('SELECT id FROM dkla_merges');assert.deepEqual(merges.map(m=>m.id),[prior]);
+  assert.equal((await query('SELECT * FROM dkla_sessions')).length,1);assert.equal((await query('SELECT * FROM dkla_events')).length,3);
+});
+test('authenticated dashboard refuses new browser merges but still serves private reports',async()=>{
+  const a=await visitor(),b=await visitor();await call(analytics,req('ingest',payload(a.token)));
+  const login=await call(adminHandler,{...req('',{password:process.env.ANALYTICS_ADMIN_PASSWORD}),url:'/api/admin?action=login'});
+  const headers={...req().headers,cookie:login.headers['set-cookie'].split(';')[0],'x-dkla-csrf':login.data.csrf};
+  const denied=await call(adminHandler,{...req('',{source:a.id,target:b.id}),url:'/api/admin?action=merge',headers});assert.equal(denied.status,410);
+  const data=await call(adminHandler,{...req(),url:'/api/admin?action=data',method:'GET',headers});assert.equal(data.status,200);
+  assert.equal(data.data.sessions[0].ip,'198.51.100.42');assert.equal(data.data.sessions[0].active_seconds,300);assert.equal(data.data.sessions[0].metadata.browser,'Safari');
+  assert.equal((await query('SELECT * FROM dkla_merges')).length,0);
 });
 test('unconfigured or unauthenticated admin APIs are private, and authenticated mutations require CSRF',async()=>{
   const request=req();request.url='/api/admin?action=data';request.method='GET';const denied=await call(adminHandler,request);assert.equal(denied.status,401);assert.match(denied.headers['cache-control'],/no-store/);

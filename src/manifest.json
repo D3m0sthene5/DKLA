@@ -1,0 +1,689 @@
+{
+  "schemaVersion": 1,
+  "origin": "DKLA-r18.html",
+  "originSha256": "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1",
+  "originBytes": 42368867,
+  "blocks": [
+    {
+      "id": "base-00",
+      "kind": "styles",
+      "source": "styles/base-00.css",
+      "bytes": 18056,
+      "sha256": "1be9d5d94dfe5cd2320481feb932f6b967234faff5a65484a1d725560f484c58"
+    },
+    {
+      "id": "studyStyle",
+      "kind": "styles",
+      "source": "styles/studyStyle.css",
+      "bytes": 17410,
+      "sha256": "287dd37a6fa7be147b0db295828cc88f5b466cac2b5ae53e428be28575b94364"
+    },
+    {
+      "id": "semesterStyle",
+      "kind": "styles",
+      "source": "styles/semesterStyle.css",
+      "bytes": 4994,
+      "sha256": "c72d1be2e90d5a52c43bfff4fb5f7339b14bf3aab16486098151216f9a4212b0"
+    },
+    {
+      "id": "civilStyle",
+      "kind": "styles",
+      "source": "styles/civilStyle.css",
+      "bytes": 3852,
+      "sha256": "6120facd6937d991e8567e78239f791185bcc768197a89f5674137cc098a9172"
+    },
+    {
+      "id": "dklaStyles",
+      "kind": "styles",
+      "source": "styles/dklaStyles.css",
+      "bytes": 13978,
+      "sha256": "ba8fc303247875ec5b821eebb19e3b169525fbeea570bb96860ff3d27a4bb48a"
+    },
+    {
+      "id": "dklaR9Styles",
+      "kind": "styles",
+      "source": "styles/dklaR9Styles.css",
+      "bytes": 1988,
+      "sha256": "ff4234e1232e163f8815c763d3bc04e5797154ac8eba92b6b4b6e747d0b5baf0"
+    },
+    {
+      "id": "dklaR9bStyles",
+      "kind": "styles",
+      "source": "styles/dklaR9bStyles.css",
+      "bytes": 3607,
+      "sha256": "774917b91d8b3ed779975ffdbb203984eb890e47dfbad39d8832d601954c3d09"
+    },
+    {
+      "id": "dklaR10Styles",
+      "kind": "styles",
+      "source": "styles/dklaR10Styles.css",
+      "bytes": 4013,
+      "sha256": "b233e851b67459ba826f3b101f2906aec665c7704a5048aa05eb20b1583e8dd3"
+    },
+    {
+      "id": "dklaR10bStyles",
+      "kind": "styles",
+      "source": "styles/dklaR10bStyles.css",
+      "bytes": 171,
+      "sha256": "f24c5e00e0b065c1f2d8f51b69a4c64015fae84d0ef839c95bd53453e47ecfa9"
+    },
+    {
+      "id": "dklaR11Styles",
+      "kind": "styles",
+      "source": "styles/dklaR11Styles.css",
+      "bytes": 2378,
+      "sha256": "235b259263776897846924384625c3c50643232bad0d4535cbc293fa42757f1a"
+    },
+    {
+      "id": "dklaR11SourceStyles",
+      "kind": "styles",
+      "source": "styles/dklaR11SourceStyles.css",
+      "bytes": 4752,
+      "sha256": "4c4a268d24375bf5a581da6007e9d85cff37dfbab84123761c8bf5c6c84d7641"
+    },
+    {
+      "id": "dklaR12Styles",
+      "kind": "styles",
+      "source": "styles/dklaR12Styles.css",
+      "bytes": 3971,
+      "sha256": "0bc1ebb2ba00931e35d81c9a7ba5b7c99d39007995ea5651e73210abebc94118"
+    },
+    {
+      "id": "dklaR13Styles",
+      "kind": "styles",
+      "source": "styles/dklaR13Styles.css",
+      "bytes": 1960,
+      "sha256": "85d02157ec2f104fe59574b19674c29507c5da15454a04a60f7a71f72d569a68"
+    },
+    {
+      "id": "seedData",
+      "kind": "data",
+      "source": "data/seedData/block.json",
+      "bytes": 7290313,
+      "sha256": "0b79f97ed287b38ad9ff3cde6b782edc3901630c8464b4ccdff6159ac77d2e0a"
+    },
+    {
+      "id": "textbookUpdate",
+      "kind": "data",
+      "source": "data/textbookUpdate/block.json",
+      "bytes": 843585,
+      "sha256": "b8a8881c1f52ec024717b900e75eedaa4eddeb8e2764efbaf71dce1b543551e5"
+    },
+    {
+      "id": "bookArchive",
+      "kind": "data",
+      "source": "data/bookArchive/block.json",
+      "bytes": 2399171,
+      "sha256": "40c53836c17cc5c2a94dc29a885623cb70b896f49183d34925e4ef15846964e5"
+    },
+    {
+      "id": "suppArchive",
+      "kind": "data",
+      "source": "data/suppArchive/block.json",
+      "bytes": 366828,
+      "sha256": "5cbabb9c2a732818c8544b19b0a1530bbc7cd78843ca4998e3a6a358743fa479"
+    },
+    {
+      "id": "appCode",
+      "kind": "runtime",
+      "source": "runtime/appCode.js",
+      "bytes": 62445,
+      "sha256": "31ad9447b5936bd56c0c6a4411ca7252cc582e2986faf34fdeb83dd85b52d6e3"
+    },
+    {
+      "id": "compatCode",
+      "kind": "runtime",
+      "source": "runtime/compatCode.js",
+      "bytes": 6105,
+      "sha256": "b3239e709aa61e26e8149734869161618f0fb03b282f289873a5b4cf6cf87640"
+    },
+    {
+      "id": "dklaR18Pre",
+      "kind": "runtime",
+      "source": "runtime/dklaR18Pre.js",
+      "bytes": 1724,
+      "sha256": "cefeb7159b27acf974d5ed8dbc4804a015f6be96b9852b94406963db7a470633"
+    },
+    {
+      "id": "studyCode",
+      "kind": "runtime",
+      "source": "runtime/studyCode.js",
+      "bytes": 105925,
+      "sha256": "78ae9c3981c687eb12242a1d10c8f427b981db9ae3e15c6b2f92aadef9ade9b1"
+    },
+    {
+      "id": "semesterCode",
+      "kind": "runtime",
+      "source": "runtime/semesterCode.js",
+      "bytes": 32358,
+      "sha256": "41f6193b8e7b6d9825c96e446ef16c67ea36dcb713809323b849f1f220b5ea36"
+    },
+    {
+      "id": "civilArchive",
+      "kind": "data",
+      "source": "data/civilArchive/block.json",
+      "bytes": 4063384,
+      "sha256": "01865d2e072ea039ac33ae0c8a6bf1445e87bc787652dc2c152826930eec7e62"
+    },
+    {
+      "id": "civilCode",
+      "kind": "runtime",
+      "source": "runtime/civilCode.js",
+      "bytes": 27838,
+      "sha256": "af66df9a47b3211928d0eaefc4c68b3e0536363e0b61eca7d46cbe98d48f94f6"
+    },
+    {
+      "id": "lrsArchive",
+      "kind": "data",
+      "source": "data/lrsArchive/block.json",
+      "bytes": 2738546,
+      "sha256": "4140a748b1a7815e873088cf0d9a9351acc792428fc5765c18d1c6e0f0495ce6"
+    },
+    {
+      "id": "lrsSyllabusText",
+      "kind": "data",
+      "source": "data/lrsSyllabusText/block.json",
+      "bytes": 16534,
+      "sha256": "9e11153997867ba6837e58348eb83dcbac0d28ba787b80414ea01ca5cbad2e47"
+    },
+    {
+      "id": "sourceTexts",
+      "kind": "data",
+      "source": "data/sourceTexts/block.json",
+      "bytes": 13573506,
+      "sha256": "d2c4bad4816db606fc9afb3d78c8ac1dea74febe164f700d8b18ba9f9a805383"
+    },
+    {
+      "id": "sourceIndex",
+      "kind": "data",
+      "source": "data/sourceIndex/block.json",
+      "bytes": 429162,
+      "sha256": "c6e6daf88424d2f3ee1ce19b8132862d0dd6696a869fcf499f361bbf79d301e7"
+    },
+    {
+      "id": "dklaGlossary",
+      "kind": "data",
+      "source": "data/dklaGlossary/block.json",
+      "bytes": 7229969,
+      "sha256": "bc1545454045b7087be75db660fa766fa07a28d58a6428d27b10d720db9ab135"
+    },
+    {
+      "id": "dklaIcons",
+      "kind": "data",
+      "source": "data/dklaIcons/block.json",
+      "bytes": 522550,
+      "sha256": "c47202b356912514c414e6960ce5dce39fdf8eeb49a1d6adc4a987ec29ab5fae"
+    },
+    {
+      "id": "dklaCore",
+      "kind": "runtime",
+      "source": "runtime/dklaCore.js",
+      "bytes": 30894,
+      "sha256": "0d882e32e1acae06b034015724a488a1b26824e3197a1e02cf652b6c6159ded1"
+    },
+    {
+      "id": "dklaUI",
+      "kind": "runtime",
+      "source": "runtime/dklaUI.js",
+      "bytes": 22780,
+      "sha256": "e2b3f730c9fba7b4ed499237eae520a8123ea4f6963e4a3a54b516c5635b38b3"
+    },
+    {
+      "id": "dklaR11Sources",
+      "kind": "runtime",
+      "source": "runtime/dklaR11Sources.js",
+      "bytes": 12822,
+      "sha256": "3e20b3b0ff35d0b5348f5a4ac4df318e32c4c553ae6da7814b6f36b4d9971a62"
+    },
+    {
+      "id": "dklaR12Glossary",
+      "kind": "runtime",
+      "source": "runtime/dklaR12Glossary.js",
+      "bytes": 10212,
+      "sha256": "6b2b8ce1897a7021c311222130f4c8f0c4e70cf4b58fc2512104f73d8a2d0244"
+    },
+    {
+      "id": "dklaMiniSearch",
+      "kind": "runtime",
+      "source": "runtime/dklaMiniSearch.js",
+      "bytes": 86425,
+      "sha256": "e91b0b22cccfeac2e0f00a4de6e25a293f2697fb2e7f55fd876e1038d7ab36a3"
+    },
+    {
+      "id": "dklaR13Search",
+      "kind": "runtime",
+      "source": "runtime/dklaR13Search.js",
+      "bytes": 4835,
+      "sha256": "4ac69046c1b88c108dbfad8e7005f46525b89c42a0e70d68272502daeb14e15a"
+    },
+    {
+      "id": "dklaR13Cite",
+      "kind": "runtime",
+      "source": "runtime/dklaR13Cite.js",
+      "bytes": 2789,
+      "sha256": "cba50f125caf5b597c59415d7d455d014db28d98fad2ca91b721a2219d20c5ec"
+    },
+    {
+      "id": "dklaR13Print",
+      "kind": "runtime",
+      "source": "runtime/dklaR13Print.js",
+      "bytes": 328,
+      "sha256": "3545494e2ea275d81d59d2996616f7153d2ae5d41ddb84f255bf80c2358ec3f8"
+    },
+    {
+      "id": "dklaR16HistoryStyle",
+      "kind": "styles",
+      "source": "styles/dklaR16HistoryStyle.css",
+      "bytes": 17648,
+      "sha256": "4cda8f999639d471797b62e17b6d8b5d5d085a8dfc353678d07240292de312fe"
+    },
+    {
+      "id": "scotusHistoryData",
+      "kind": "data",
+      "source": "data/scotusHistoryData/block.json",
+      "bytes": 760685,
+      "sha256": "04af2363f40314571421af080c3d221f38f1c61e67db56b4617fc60f92324af2"
+    },
+    {
+      "id": "scotusSprite",
+      "kind": "assets",
+      "source": "assets/scotusSprite.txt",
+      "bytes": 1207992,
+      "sha256": "8040e776632ff048d8fcfdbc0d1ba20d18da0248f3f949748dbb3e0ffc1b5a16"
+    },
+    {
+      "id": "dklaR16HistoryCode",
+      "kind": "runtime",
+      "source": "runtime/dklaR16HistoryCode.js",
+      "bytes": 31239,
+      "sha256": "62695f46b8415c7f08f301b007f666cdd722e59f9e17609842cdbf32409ee6e0"
+    },
+    {
+      "id": "dklaR17LogoStyle",
+      "kind": "styles",
+      "source": "styles/dklaR17LogoStyle.css",
+      "bytes": 594,
+      "sha256": "e2115dffb32b95ba8e4fee45857fbb743e92a6e19c4f4abd618afd8037070eeb"
+    },
+    {
+      "id": "dklaR17ScotusLinksStyle",
+      "kind": "styles",
+      "source": "styles/dklaR17ScotusLinksStyle.css",
+      "bytes": 1196,
+      "sha256": "01cfb1c709b46d0331229e21bfb5b7dbc2fe503a3770ae81bc9827c2d0766466"
+    },
+    {
+      "id": "dklaR17PdfRoutes",
+      "kind": "data",
+      "source": "data/dklaR17PdfRoutes/block.json",
+      "bytes": 284361,
+      "sha256": "1c4b4344a28b5d80558401375dae418eb84a4ab94d8c6ab756f8e946a938fd7e"
+    },
+    {
+      "id": "dklaR17PdfSources",
+      "kind": "runtime",
+      "source": "runtime/dklaR17PdfSources.js",
+      "bytes": 6587,
+      "sha256": "3c08f23673197cbd84177e954215e1125d281fded473dd059bfe6d9acc07c55d"
+    },
+    {
+      "id": "dklaR17ScotusLinks",
+      "kind": "runtime",
+      "source": "runtime/dklaR17ScotusLinks.js",
+      "bytes": 5602,
+      "sha256": "9fba777259572f5f751456afbba20d8c2c2f1f1936ebec5a68683cb97b3710fb"
+    },
+    {
+      "id": "dklaR17Logo",
+      "kind": "runtime",
+      "source": "runtime/dklaR17Logo.js",
+      "bytes": 2176,
+      "sha256": "f4d51b5446b2191e860681a01950776150310fbe8f29ca0895e2b4a19562db6b"
+    },
+    {
+      "id": "dklaR18Changelog",
+      "kind": "data",
+      "source": "data/dklaR18Changelog/block.json",
+      "bytes": 2519,
+      "sha256": "99b8efba1499cfd9b8b25fc2df79c44d151594aa3a1685208d4279b2443eed2f"
+    },
+    {
+      "id": "dklaR18Styles",
+      "kind": "styles",
+      "source": "styles/dklaR18Styles.css",
+      "bytes": 16149,
+      "sha256": "d389d41b3b23b27aafd44b15cc40882f0729c30236a1bc081893c53db9c9394f"
+    },
+    {
+      "id": "dklaR18Map",
+      "kind": "runtime",
+      "source": "runtime/dklaR18Map.js",
+      "bytes": 4730,
+      "sha256": "8fbf63e787e0e5d72157415a4ba1b7806dcd8d376597acaf5d633e966e4aeb6c"
+    },
+    {
+      "id": "dklaR18Study",
+      "kind": "runtime",
+      "source": "runtime/dklaR18Study.js",
+      "bytes": 52241,
+      "sha256": "e8b43a76cfd95558a41966704963d5353ce0f730f73ecff3428ce141659384c3"
+    }
+  ],
+  "parts": [
+    {
+      "path": "markup/00.html"
+    },
+    {
+      "path": "styles/base-00.css"
+    },
+    {
+      "path": "markup/01.html"
+    },
+    {
+      "path": "styles/studyStyle.css"
+    },
+    {
+      "path": "markup/02.html"
+    },
+    {
+      "path": "styles/semesterStyle.css"
+    },
+    {
+      "path": "markup/03.html"
+    },
+    {
+      "path": "styles/civilStyle.css"
+    },
+    {
+      "path": "markup/04.html"
+    },
+    {
+      "path": "styles/dklaStyles.css"
+    },
+    {
+      "path": "markup/05.html"
+    },
+    {
+      "path": "styles/dklaR9Styles.css"
+    },
+    {
+      "path": "markup/06.html"
+    },
+    {
+      "path": "styles/dklaR9bStyles.css"
+    },
+    {
+      "path": "markup/07.html"
+    },
+    {
+      "path": "styles/dklaR10Styles.css"
+    },
+    {
+      "path": "markup/08.html"
+    },
+    {
+      "path": "styles/dklaR10bStyles.css"
+    },
+    {
+      "path": "markup/09.html"
+    },
+    {
+      "path": "styles/dklaR11Styles.css"
+    },
+    {
+      "path": "markup/10.html"
+    },
+    {
+      "path": "styles/dklaR11SourceStyles.css"
+    },
+    {
+      "path": "markup/11.html"
+    },
+    {
+      "path": "styles/dklaR12Styles.css"
+    },
+    {
+      "path": "markup/12.html"
+    },
+    {
+      "path": "styles/dklaR13Styles.css"
+    },
+    {
+      "path": "markup/13.html"
+    },
+    {
+      "manifest": "data/seedData/block.json"
+    },
+    {
+      "path": "markup/14.html"
+    },
+    {
+      "manifest": "data/textbookUpdate/block.json"
+    },
+    {
+      "path": "markup/15.html"
+    },
+    {
+      "manifest": "data/bookArchive/block.json"
+    },
+    {
+      "path": "markup/16.html"
+    },
+    {
+      "manifest": "data/suppArchive/block.json"
+    },
+    {
+      "path": "markup/17.html"
+    },
+    {
+      "path": "runtime/appCode.js"
+    },
+    {
+      "path": "markup/18.html"
+    },
+    {
+      "path": "runtime/compatCode.js"
+    },
+    {
+      "path": "markup/19.html"
+    },
+    {
+      "path": "runtime/dklaR18Pre.js"
+    },
+    {
+      "path": "markup/20.html"
+    },
+    {
+      "path": "runtime/studyCode.js"
+    },
+    {
+      "path": "markup/21.html"
+    },
+    {
+      "path": "runtime/semesterCode.js"
+    },
+    {
+      "path": "markup/22.html"
+    },
+    {
+      "manifest": "data/civilArchive/block.json"
+    },
+    {
+      "path": "markup/23.html"
+    },
+    {
+      "path": "runtime/civilCode.js"
+    },
+    {
+      "path": "markup/24.html"
+    },
+    {
+      "manifest": "data/lrsArchive/block.json"
+    },
+    {
+      "path": "markup/25.html"
+    },
+    {
+      "manifest": "data/lrsSyllabusText/block.json"
+    },
+    {
+      "path": "markup/26.html"
+    },
+    {
+      "manifest": "data/sourceTexts/block.json"
+    },
+    {
+      "path": "markup/27.html"
+    },
+    {
+      "manifest": "data/sourceIndex/block.json"
+    },
+    {
+      "path": "markup/28.html"
+    },
+    {
+      "manifest": "data/dklaGlossary/block.json"
+    },
+    {
+      "path": "markup/29.html"
+    },
+    {
+      "manifest": "data/dklaIcons/block.json"
+    },
+    {
+      "path": "markup/30.html"
+    },
+    {
+      "path": "runtime/dklaCore.js"
+    },
+    {
+      "path": "markup/31.html"
+    },
+    {
+      "path": "runtime/dklaUI.js"
+    },
+    {
+      "path": "markup/32.html"
+    },
+    {
+      "path": "runtime/dklaR11Sources.js"
+    },
+    {
+      "path": "markup/33.html"
+    },
+    {
+      "path": "runtime/dklaR12Glossary.js"
+    },
+    {
+      "path": "markup/34.html"
+    },
+    {
+      "path": "runtime/dklaMiniSearch.js"
+    },
+    {
+      "path": "markup/35.html"
+    },
+    {
+      "path": "runtime/dklaR13Search.js"
+    },
+    {
+      "path": "markup/36.html"
+    },
+    {
+      "path": "runtime/dklaR13Cite.js"
+    },
+    {
+      "path": "markup/37.html"
+    },
+    {
+      "path": "runtime/dklaR13Print.js"
+    },
+    {
+      "path": "markup/38.html"
+    },
+    {
+      "path": "styles/dklaR16HistoryStyle.css"
+    },
+    {
+      "path": "markup/39.html"
+    },
+    {
+      "manifest": "data/scotusHistoryData/block.json"
+    },
+    {
+      "path": "markup/40.html"
+    },
+    {
+      "path": "assets/scotusSprite.txt"
+    },
+    {
+      "path": "markup/41.html"
+    },
+    {
+      "path": "runtime/dklaR16HistoryCode.js"
+    },
+    {
+      "path": "markup/42.html"
+    },
+    {
+      "path": "styles/dklaR17LogoStyle.css"
+    },
+    {
+      "path": "markup/43.html"
+    },
+    {
+      "path": "styles/dklaR17ScotusLinksStyle.css"
+    },
+    {
+      "path": "markup/44.html"
+    },
+    {
+      "manifest": "data/dklaR17PdfRoutes/block.json"
+    },
+    {
+      "path": "markup/45.html"
+    },
+    {
+      "path": "runtime/dklaR17PdfSources.js"
+    },
+    {
+      "path": "markup/46.html"
+    },
+    {
+      "path": "runtime/dklaR17ScotusLinks.js"
+    },
+    {
+      "path": "markup/47.html"
+    },
+    {
+      "path": "runtime/dklaR17Logo.js"
+    },
+    {
+      "path": "markup/48.html"
+    },
+    {
+      "manifest": "data/dklaR18Changelog/block.json"
+    },
+    {
+      "path": "markup/49.html"
+    },
+    {
+      "path": "styles/dklaR18Styles.css"
+    },
+    {
+      "path": "markup/50.html"
+    },
+    {
+      "path": "runtime/dklaR18Map.js"
+    },
+    {
+      "path": "markup/51.html"
+    },
+    {
+      "path": "runtime/dklaR18Study.js"
+    },
+    {
+      "path": "markup/closing.html"
+    }
+  ]
+}

@@ -14,8 +14,7 @@
   const KEYS = ['Parties', 'Procedural History', 'Material Facts', 'Issue', 'Holding', 'Reasoning'];
   const byId = new Map(D.entries.map(e => [e[0], { id: e[0], title: e[1], course: e[2], k: e[3], status: e[4], sha: e[5], main: e[6] || null }]));
   const supporting = D.entries.filter(e => !e[6]).map(e => byId.get(e[0]));
-  let full = null;
-  function fullText(id) { try { full ||= JSON.parse(el('dklaR19Full').textContent); } catch { full = {}; } return full[id] || ''; }
+  function fullText(id) { return window.DKLABriefLoader.text(id); }
 
   // The reader lists case sections in this fixed order everywhere (reading panel, edit form, exports).
   if (typeof CASE_HEADINGS !== 'undefined' && Array.isArray(CASE_HEADINGS)) CASE_HEADINGS.splice(0, CASE_HEADINGS.length, ...KEYS);
@@ -111,7 +110,7 @@
     bodyEl.appendChild(box);
   }
   if (el('inspector')) new MutationObserver(paintReader).observe(el('inspector'), { childList: true, subtree: true });
-  document.addEventListener('toggle', ev => { const d = ev.target; if (!d.classList?.contains('r19-full') || !d.open) return; const t = d.querySelector('[data-r19-fill]'); if (t && !t.dataset.done) { t.innerHTML = renderBrief(fullText(t.dataset.r19Fill)) || '<p>The full text is not in this copy.</p>'; t.dataset.done = '1'; } }, true);
+  document.addEventListener('toggle', ev => { const d = ev.target; if (!d.classList?.contains('r19-full') || !d.open) return; const t = d.querySelector('[data-r19-fill]'); if (t) window.DKLABriefLoader.fill(t, t.dataset.r19Fill, renderBrief); }, true);
 
   /* ---------- supporting cases: one list per course ---------- */
   const dialog = document.createElement('dialog'); dialog.id = 'r19Dialog'; dialog.setAttribute('aria-label', 'Supporting cases');
@@ -137,9 +136,9 @@
     el('r19Title').innerHTML = `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
     return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Archived compilation; use Full brief or Cold call for current corrections">Archived briefs PDF, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
       ${conv ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(k => conv.sections[k] ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k]).split(/\n{2,}/).map(p => '<p>' + esc(p) + '</p>').join('')}</section>` : '').join('')}<details class="r19-full"><summary>Full brief</summary><div class="r19-text" data-r19-fill="${esc(e.id)}"></div></details>${auditHTML(e.id)}`
-        : `${auditHTML(e.id)}<div class="r19-text">${renderBrief(fullText(e.id)) || '<p>The full text is not in this copy.</p>'}</div>`}`;
+        : `${auditHTML(e.id)}<div class="r19-text" data-r19-immediate="${esc(e.id)}"></div>`}`;
   }
-  function render() { const e = V.open && byId.get(V.open); body.innerHTML = e ? entryHTML(e) : listHTML(); if (e) body.scrollTop = 0; }
+  function render() { const e = V.open && byId.get(V.open); body.innerHTML = e ? entryHTML(e) : listHTML(); if (e) body.scrollTop = 0; const t = body.querySelector('[data-r19-immediate]'); if (t) window.DKLABriefLoader.fill(t, t.dataset.r19Immediate, renderBrief); }
   function open(course, id) {
     if (typeof dismissMenu === 'function') dismissMenu();
     if (typeof course === 'number') V.course = course;

@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import SOURCE, EXPECTED_R18, build_data, script_blocks  # noqa: E402
+from assemble import read_source, EXPECTED_R18, build_data, script_blocks  # noqa: E402
 
 
 def emit(value):
@@ -31,9 +31,7 @@ def bounded(text, maximum):
 
 class Atlas:
     def __init__(self):
-        raw = SOURCE.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != EXPECTED_R18:
-            raise ValueError('Immutable baseline checksum differs; do not audit a stale extraction.')
+        raw = read_source()
         self.blocks = script_blocks(raw.decode('utf-8'))
         self.graph = json.loads(self.blocks['seedData'])
         self.nodes = {n['id']: n for n in self.graph['nodes']}

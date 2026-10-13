@@ -72,7 +72,7 @@ def check(inv):
                     problems.append(nid + ': missing independent primary check ' + pid)
             if record.get('freshCompleteOpinionReview') is not False:
                 problems.append(nid + ': unsupported complete fresh opinion-review claim.')
-        blocks = assemble.script_blocks(assemble.SOURCE.read_text(encoding='utf-8'))
+        blocks = assemble.script_blocks(assemble.read_source().decode('utf-8'))
         supplement = json.loads(blocks['suppArchive'])
         supplement = supplement.get('pages', supplement)
         for page in audit.get('assignedSourcePages', []):
@@ -86,7 +86,7 @@ def check(inv):
 
 
 def effective():
-    blocks = assemble.script_blocks(assemble.SOURCE.read_text(encoding='utf-8'))
+    blocks = assemble.script_blocks(assemble.read_source().decode('utf-8'))
     graph = json.loads(blocks['seedData'])
     nodes = {n['id']: n for n in graph['nodes']}
     data, full = assemble.build_data()

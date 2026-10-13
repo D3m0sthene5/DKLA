@@ -4,6 +4,11 @@
 .authority-map-tile:hover>.authority-cover-bg{filter:brightness(1.12)}
 .authority-preview{cursor:pointer}
 .authority-title-control{cursor:pointer}
+.dictionary-spine{cursor:pointer}
+.dictionary-spine:hover>.dictionary-spine-cover{filter:brightness(1.13)}
+.dictionary-spine:focus-visible{outline:none}
+.dictionary-spine:focus-visible>.dictionary-spine-cover{stroke:#f1daba;stroke-opacity:1;stroke-width:2;vector-effect:non-scaling-stroke}
+#geoCanvas text.dictionary-spine-title{font-family:Georgia,Cambria,serif;letter-spacing:.3px}
 .authority-title-control:focus{outline:none}
 .authority-title-control:focus>rect{stroke:#f1daba;stroke-width:2;vector-effect:non-scaling-stroke}
 .authority-preview:hover>rect,.authority-preview:focus>rect{stroke-opacity:1;filter:brightness(1.2)}

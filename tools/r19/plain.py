@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+from assemble import read_source
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -66,7 +67,7 @@ def get(obj, path):
 
 
 def main() -> None:
-    html = (ROOT / "DKLA-r18.html").read_text(encoding="utf-8")
+    html = read_source().decode("utf-8")
     graph = json.loads(script_block(html, "seedData"))
     conv = json.loads((DATA / "sections.json").read_text(encoding="utf-8"))
     decisions = json.loads((DATA / "plain-decisions.json").read_text(encoding="utf-8"))

@@ -1,14 +1,8 @@
-"""Build DKLA-r19.html from the published r18 artifact.
+"""Build the current release from src/ plus the existing canonical later layers.
 
-r19 adds Codex's audited briefs. Every r18 block is preserved byte for byte; everything is appended:
-  dklaR19Data   map of atlas cases to briefs, the converted six sections, review status, supporting cases
-  dklaR19Full   the complete text of every audited brief
-  dklaR19Styles, dklaR19Briefs
-
-Inputs live in tools/r19/data (written by snapshot.py and merge_conv.py); the step is re-runnable:
-take a new snapshot, convert what changed, rebuild.
-
-Run after tools/r18/assemble.py: python3 tools/r19/assemble.py
+Early script/style/JSON records reassemble byte-for-byte; their classic browser
+execution order stays intact. Generated files live in ignored work/build/.
+Do not run historical assemblers as a prerequisite.
 """
 from __future__ import annotations
 
@@ -17,16 +11,29 @@ import hashlib
 import json
 import re
 import runpy
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
-SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v2.5.html"
+sys.path.insert(0, str(ROOT / "tools"))
+from source import read_source, source_hash
+BUILD = ROOT / "work/build"
+TARGET = BUILD / "DKLA-v2.6.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
-VERSION = "v2.5"
-LABEL = "v2.5"
+VERSION = "v2.6"
+LABEL = "v2.6"
+
+def unique_config_object(pairs):
+    """Reject ambiguous configuration, never apply this to inherited legal data."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('Duplicate configuration key: ' + key)
+        result[key] = value
+    return result
+
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -37,6 +44,10 @@ def vform_log(entries: list[dict]) -> list[dict]:
     return [dict(e, v=VREF.sub(r"v\1", e["v"]), text=VREF.sub(r"v\1", e["text"])) for e in entries]
 
 
+CHANGELOG_V26 = {
+    "v": "v2.6", "date": "2026-10-12",
+    "text": "The legal dictionary has a spine in the authorities header. Cold Call adds restrained ice and vapor detail, and technical typography improves atlas and Supreme Court readability. Hosted full briefs load when opened; complete portable HTML retains every brief. Analytics recognizes a browser only through its first-party cookie, without recovering cleared identifiers from browser storage or ratings sync.",
+}
 CHANGELOG_V25_READING = {
     "v": "v2.5", "date": "2026-10-11",
     "text": "Case reading panels open with one plain-English explanation and retain their full legal analysis. Timelines are visible immediately, with one synthesis and no repeated synopsis, step-count caption or expand control. Cold Call reads directly as a narrative without practice controls or a repeated introduction. Rules & authorities uses nested atlas rectangles and ribbons for the Constitution, Federal Rules, U.S. Code and assigned Contracts authorities. Recorded source comparisons, bounded source lookups and an explicit runtime-module manifest support later audits without editing generated HTML.",
@@ -370,7 +381,7 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
-    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
+    return dict(pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V26, CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 
 def tiles(graph: dict) -> dict:
@@ -410,6 +421,11 @@ def load_runtime_modules() -> tuple[str, str, list[dict]]:
             records.append(dict(path=relative,kind=kind,sha256=digest(text.encode('utf-8')),startLine=offset,sourceStartLine=offset+1,endLine=offset+line_count-1))
             chunks.append(chunk); offset += line_count
         outputs.append(''.join(chunks))
+    pre_paths = manifest.get('beforeAppCode', [])
+    if pre_paths != ['tools/v25/saved-work.js']:
+        raise ValueError('Expected only the saved-work compatibility adapter before appCode')
+    pre = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
+    records.append(dict(path=pre_paths[0], kind='beforeAppCode', sha256=digest(pre.encode('utf-8')), startLine=1, sourceStartLine=1, endLine=pre.count('\n')))
     return outputs[0], outputs[1], records
 
 
@@ -614,9 +630,8 @@ def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
 
 
 def main() -> None:
-    source_bytes = SOURCE.read_bytes()
-    if digest(source_bytes) != EXPECTED_R18:
-        raise ValueError("DKLA-r18.html is not the build r19 was made from; rebuild r18 or update EXPECTED_R18")
+    BUILD.mkdir(parents=True, exist_ok=True)
+    source_bytes = read_source()
     source = source_bytes.decode("utf-8")
     old = script_blocks(source)
     graph = json.loads(old["seedData"])
@@ -682,12 +697,19 @@ def main() -> None:
     practice_filter = json.loads((ROOT / 'tools/v25/practice-filter.json').read_text(encoding='utf-8'))
     geography = json.loads((ROOT / 'tools/v25/geography.json').read_text(encoding='utf-8'))
     js, css, modules = load_runtime_modules()
+    runtime_manifest = json.loads((ROOT / 'tools/v25/runtime-manifest.json').read_text(encoding='utf-8'))
+    pre_paths = runtime_manifest.get('beforeAppCode', [])
+    if pre_paths != ['tools/v25/saved-work.js']:
+        raise ValueError('Expected only the saved-work compatibility adapter before appCode')
+    saved_work = (ROOT / pre_paths[0]).read_text(encoding='utf-8')
+    if '</script' in saved_work.lower():
+        raise ValueError('saved-work adapter would close its script tag')
     if "</style" in css.lower():
         raise ValueError("a stylesheet would close its style tag")
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
@@ -700,6 +722,12 @@ def main() -> None:
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
+    # Execute before any legacy storage read; keep every original script body
+    # byte-identical. The adapter only bridges a returned layout marker.
+    app_marker = '<script id="appCode">'
+    if output.count(app_marker) != 1:
+        raise ValueError('Expected one original appCode insertion point')
+    output = output.replace(app_marker, f'<script id="dklaSavedWork">{saved_work}</script>\n' + app_marker, 1)
     # The baseline starts rendering before the appended release has finished
     # parsing. Only the final boot module may uncover the current interface;
     # r20-ready and its timeout are deliberately insufficient. Ancestor opacity
@@ -725,13 +753,13 @@ def main() -> None:
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
     TARGET.write_text(output, encoding="utf-8", newline="\n")
-    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8", newline="\n")
-    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
+    (BUILD / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8", newline="\n")
+    (BUILD / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
     # Publish routing and metadata with the generated artifact, never a half-release.
-    index = ROOT / "index.html"
-    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, index.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
+    index = BUILD / "index.html"
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (ROOT / "index.html").read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     route_path = ROOT / "vercel.json"
-    routes = json.loads(route_path.read_text(encoding="utf-8"))
+    routes = json.loads(route_path.read_text(encoding="utf-8"), object_pairs_hook=unique_config_object)
     destination = "/" + TARGET.name
     previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/" and not r.get("has") and not r.get("missing"))
     if previous != destination and not any(r["source"] == previous for r in routes.get("redirects", [])):
@@ -739,12 +767,13 @@ def main() -> None:
     for route in routes.get("redirects", []) + routes["rewrites"]:
         if re.fullmatch(r"/DKLA-[rv][0-9.]+\.html", route.get("destination", "")):
             route["destination"] = destination
-    route_path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8", newline="\n")
+    if routes != json.loads(route_path.read_text(encoding="utf-8")):
+        raise ValueError("Update canonical vercel.json routing explicitly for this release")
     kinds = {}
     for e in data["entries"]:
         kinds[e[3]] = kinds.get(e[3], 0) + 1
     audit = {
-        "r18_sha256": EXPECTED_R18, "r19_sha256": digest(TARGET.read_bytes()), "build": build, "snapshot": data["taken"],
+        "r18_sha256": source_hash(source_bytes), "r19_sha256": digest(TARGET.read_bytes()), "build": build, "snapshot": data["taken"],
         "briefs": len(data["entries"]), "mapped_cases": len(data["map"]), "converted": len(data["sections"]),
         "mapped_without_conversion": sorted(a for a, c in data["map"].items() if c not in data["sections"]),
         "supporting": sum(1 for e in data["entries"] if not e[6]), "review": kinds,
@@ -754,7 +783,7 @@ def main() -> None:
         "runtime_modules": modules,
         "design_assets": [{"path": 'tools/v25/assets/we-the-people.png', "sha256": digest(masthead_bytes), "bytes": len(masthead_bytes)}],
     }
-    (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
+    (BUILD / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({k: (v if k != "mapped_without_conversion" else len(v)) for k, v in audit.items()}, indent=1))
 
 

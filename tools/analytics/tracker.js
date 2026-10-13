@@ -2,9 +2,9 @@
 (() => {
   'use strict';
   if (!/^https?:$/.test(location.protocol) || window.DKLAAnalytics) return;
-  const originalFetch=window.fetch.bind(window), STORE='dkla-analytics-v1', KEY='dkla.analytics.recovery', CACHE='atlas-analytics-identity-v1';
+  const originalFetch=window.fetch.bind(window);
   const uuid=()=>crypto.randomUUID(), iso=()=>new Date().toISOString(), clean=s=>String(s||'').slice(0,200).replace(/\b[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}\b/gi,'[sync code]');
-  let tier='pending',token='',candidates=[],db,queue=[],buffer=[],flushing=false,readyResolve,active=0,lastTick=Date.now(),lastAction=Date.now(),lastVisible=document.visibilityState==='visible',lastState='',current='',modalEntry='',attention=0,sectionAttention=0,section='reading',search=null,scrollDepth=0,lastScroll=0,lastCamera='',lastFeature='',lastRatings={},ratingsInitialized=false,cleanStreak=0,lastStudy='',lastHistory='',lastSource='',repeats=new Map(),sourcePages=new Map(),clicks=[];
+  let tier='pending',connected=false,cookieFailures=0,queue=[],buffer=[],flushing=false,readyResolve,active=0,lastTick=Date.now(),lastAction=Date.now(),lastVisible=document.visibilityState==='visible',lastState='',current='',modalEntry='',attention=0,sectionAttention=0,section='reading',search=null,scrollDepth=0,lastScroll=0,lastCamera='',lastFeature='',lastRatings={},ratingsInitialized=false,cleanStreak=0,lastStudy='',lastHistory='',lastSource='',repeats=new Map(),sourcePages=new Map(),clicks=[];
   const startup=new Promise(resolve=>readyResolve=resolve);
   const featureAttention=new window.DKLAFeatureAttention(emit);
   const session={id:uuid(),startedAt:iso(),endedAt:iso(),activeSeconds:0,activeNow:false,build:window.DKLABriefs?.data?.build||'v2.5',metadata:{}};
@@ -13,22 +13,12 @@
     const params=new URLSearchParams(location.search),connection=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
     return {browser:match?.[1]==='Version'?'Safari':match?.[1]==='Edg'?'Edge':match?.[1]||'Unknown',browserVersion:match?.[2]||'',os:os?.[1]?'Windows':/iPhone|iPad/.test(ua)?'iOS':os?.[2]?'macOS':os?.[3]?'Android':'Other',osVersion:(os?.[1]||os?.[2]||os?.[3]||'').replaceAll('_','.'),platform:navigator.platform,language:navigator.language,timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,viewportWidth:innerWidth,viewportHeight:innerHeight,screenWidth:screen.width,screenHeight:screen.height,pixelRatio:devicePixelRatio,touchPoints:navigator.maxTouchPoints,pointer:matchMedia('(pointer:coarse)').matches?'touch':'pointer',colourScheme:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light',reducedMotion:matchMedia('(prefers-reduced-motion:reduce)').matches?'reduce':'no-preference',connection:connection?.type||'',effectiveType:connection?.effectiveType||'',memory:navigator.deviceMemory,cores:navigator.hardwareConcurrency,downlink:connection?.downlink,rtt:connection?.rtt,saveData:connection?.saveData,displayMode:matchMedia('(display-mode:standalone)').matches?'standalone':'browser',referrer:document.referrer,landing:location.pathname+clean(location.hash),utm:Object.fromEntries(['source','medium','campaign','term','content'].map(k=>[k,clean(params.get('utm_'+k))]))};
   }
-  function openDatabase(){return new Promise(resolve=>{
-    try{const req=indexedDB.open(STORE,1);req.onupgradeneeded=()=>{req.result.createObjectStore('identity');req.result.createObjectStore('queue',{keyPath:'batchId'});};req.onsuccess=()=>{db=req.result;resolve(db);};req.onerror=()=>resolve(null);}catch{resolve(null);}
-  });}
-  function storage(op,store,key,value){return new Promise(resolve=>{
-    if(!db)return resolve(null);try{const tx=db.transaction(store,op==='get'||op==='getAll'?'readonly':'readwrite'),os=tx.objectStore(store),r=op==='getAll'?os.getAll():op==='put'?os.put(value,key):op==='delete'?os.delete(key):os.get(key);r.onsuccess=()=>resolve(r.result);r.onerror=()=>resolve(null);}catch{resolve(null);}
-  });}
-  async function recovery(){
-    await openDatabase();let local='',indexed='',cached='';try{local=localStorage.getItem(KEY)||'';}catch{}
-    indexed=await storage('get','identity','token');try{const response=await(await caches.open(CACHE)).match(new URL('/__analytics_identity',location.origin).href);cached=response?await response.text():'';}catch{}
-    candidates=[local,indexed,cached].filter(Boolean);return candidates[0]||'';
+  // Activity waits only in this page's memory. Never restore an identity or old batches from browser storage.
+  async function clearPending(){queue=[];buffer=[];}
+  function freshSession(){
+    Object.assign(session,{id:uuid(),startedAt:iso(),endedAt:iso(),activeSeconds:0,activeNow:false,metadata:browserMetadata()});
+    active=0;attention=0;sectionAttention=0;featureAttention.clear();current='';modalEntry='';lastState='';lastCamera='';scrollDepth=0;repeats.clear();
   }
-  async function saveToken(value){
-    token=value;candidates=[value];if(!value)return;try{localStorage.setItem(KEY,value);}catch{}
-    await storage('put','identity','token',value);try{await(await caches.open(CACHE)).put(new URL('/__analytics_identity',location.origin).href,new Response(value,{headers:{'content-type':'text/plain'}}));}catch{}
-  }
-  async function clearPending(){queue=[];buffer=[];if(db){const old=await storage('getAll','queue');for(const item of old||[])await storage('delete','queue',item.batchId);}}
   function emit(kind,entity=current,details={},seconds=0){
     if(tier==='none'||tier==='pending')return;
     if(tier==='reduced'&&!['visit','entry_open'].includes(kind))return;
@@ -40,33 +30,33 @@
   async function enqueue(){
     if(tier==='none'||tier==='pending')return;
     closeAttention(false);emit('presence',current,{active:lastVisible&&Date.now()-lastAction<60000,visible:lastVisible});
-    while(buffer.length){const events=buffer.splice(0,60),item={batchId:uuid(),session:snapshot(),events,visit:events.some(e=>e.kind==='visit')};queue.push(item);if(tier==='full')await storage('put','queue',undefined,item);}
-    if(!queue.length&&tier==='full'){const item={batchId:uuid(),session:snapshot(),events:[],visit:false};queue.push(item);await storage('put','queue',undefined,item);}
+    while(buffer.length){const events=buffer.splice(0,60),item={batchId:uuid(),session:snapshot(),events,visit:events.some(e=>e.kind==='visit')};queue.push(item);}
+    if(!queue.length&&tier==='full'){const item={batchId:uuid(),session:snapshot(),events:[],visit:false};queue.push(item);}
   }
   async function flush(beacon=false){
     if(flushing||tier==='none'||tier==='pending'||(Date.now()-lastAction>1800000&&!buffer.length&&!queue.length))return;flushing=true;
     try{
       await enqueue();if(!navigator.onLine)return;
-      if(tier==='full'&&!token){await connect();if(!token)return;}
+      if(tier==='full'&&!connected){await connect();if(!connected)return;}
       for(const item of [...queue]){
-        const payload=JSON.stringify({...item,token:tier==='full'?token:undefined});
+        const payload=JSON.stringify(item);
         if(beacon){navigator.sendBeacon('/api/analytics',new Blob([payload],{type:'application/json'}));continue;}
         const response=await originalFetch('/api/analytics',{method:'POST',headers:{'content-type':'application/json'},body:payload,credentials:'same-origin',cache:'no-store'});
-        if(response.status===401){token='';await connect();break;}
-        if(!response.ok)break;const result=await response.json();
+        if(response.status===401||response.status===409){if(response.status===409&&(await response.json()).error!=='session-owner-conflict')break;connected=false;await clearPending();if(++cookieFailures>1){tier='none';break;}freshSession();await connect();if(connected)emit('visit','');break;}
+        if(!response.ok)break;cookieFailures=0;const result=await response.json();
         if(result.tier==='none'){tier='none';await clearPending();break;}
         if(result.tier==='reduced'&&tier==='full'){tier='reduced';await clearPending();break;}
-        queue=queue.filter(q=>q.batchId!==item.batchId);if(db)await storage('delete','queue',item.batchId);
+        queue=queue.filter(q=>q.batchId!==item.batchId);
       }
     }catch{}finally{flushing=false;}
   }
   function beaconFlush(final=false){
     if(tier==='pending'||tier==='none')return;finishSearch();closeAttention(final);
-    do {const events=buffer.splice(0,60),item={batchId:uuid(),session:snapshot(),events,visit:events.some(e=>e.kind==='visit')};queue.push(item);if(tier==='full')storage('put','queue',undefined,item);if(navigator.onLine&&(tier!=='full'||token))navigator.sendBeacon('/api/analytics',new Blob([JSON.stringify({...item,token:tier==='full'?token:undefined})],{type:'application/json'}));}while(buffer.length);
+    do {const events=buffer.splice(0,60),item={batchId:uuid(),session:snapshot(),events,visit:events.some(e=>e.kind==='visit')};queue.push(item);if(navigator.onLine&&(tier!=='full'||connected))navigator.sendBeacon('/api/analytics',new Blob([JSON.stringify(item)],{type:'application/json'}));}while(buffer.length);
   }
   async function connect(){
-    const response=await originalFetch('/api/analytics?action=bootstrap',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'content-type':'application/json'},body:JSON.stringify({token,recoveryTokens:candidates,metadata:session.metadata})});
-    if(!response.ok)return;const result=await response.json();tier=result.tier;if(tier==='full')await saveToken(result.token);else await clearPending();
+    const response=await originalFetch('/api/analytics?action=bootstrap',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'content-type':'application/json'},body:JSON.stringify({metadata:session.metadata})});
+    if(!response.ok)return;const result=await response.json();if(connected&&result.recognized===false){await clearPending();freshSession();}tier=result.tier;connected=tier==='full';if(!connected)await clearPending();
   }
   // Change legacy reads into POST before a raw sync credential can enter a request URL.
   window.fetch=async function(input,options){
@@ -75,7 +65,7 @@
     const method=String(options?.method||input?.method||'GET').toUpperCase();let payload;
     if(method==='GET'){payload={action:'read',code:url.searchParams.get('code')};url.search='';}
     else{try{payload=JSON.parse(options?.body||'{}');payload.action='write';}catch{return originalFetch(input,options);}}
-    await Promise.race([startup,new Promise(r=>setTimeout(r,800))]);if(tier==='full'&&token)payload.analyticsToken=token;
+    delete payload.analyticsToken; // Ratings credentials never link analytics profiles.
     const response=await originalFetch(url.pathname,{...options,method:'POST',headers:{...options?.headers,'content-type':'application/json'},body:JSON.stringify(payload)});
     if(response.ok)emit(method==='GET'?'sync_linked':'sync_created','',{success:true});return response;
   };
@@ -86,7 +76,7 @@
   function rotateSession(){
     if(tier==='pending'||tier==='none')return;
     const end=Math.min(Date.now(),+new Date(session.startedAt)+86400000);closeAttention();
-    while(buffer.length){const events=buffer.splice(0,60).map(e=>({...e,at:new Date(Math.min(+new Date(e.at),end)).toISOString()})),item={batchId:uuid(),session:{...snapshot(),endedAt:new Date(end).toISOString(),activeNow:false},events,visit:events.some(e=>e.kind==='visit')};queue.push(item);if(tier==='full')storage('put','queue',undefined,item);}
+    while(buffer.length){const events=buffer.splice(0,60).map(e=>({...e,at:new Date(Math.min(+new Date(e.at),end)).toISOString()})),item={batchId:uuid(),session:{...snapshot(),endedAt:new Date(end).toISOString(),activeNow:false},events,visit:events.some(e=>e.kind==='visit')};queue.push(item);}
     Object.assign(session,{id:uuid(),startedAt:iso(),endedAt:iso(),activeSeconds:0,activeNow:false,metadata:browserMetadata()});active=0;featureAttention.clear();current='';lastState='';lastCamera='';scrollDepth=0;emit('visit','');
   }
   function selectedId(){try{if(document.querySelector('#coldCallDialog[open],#ccBriefDialog[open],#r19Dialog[open]')&&modalEntry)return modalEntry;return !document.getElementById('inspector')?.hidden&&typeof selected!=='undefined'&&['node','authority'].includes(selected?.type)?(selected.type==='authority'?'authority:'+selected.id:selected.id):'';}catch{return '';}}
@@ -185,18 +175,20 @@
   }
   function footer(){const target=document.getElementById('courseHome')?.parentElement||document.querySelector('footer');if(target&&!document.getElementById('dklaPrivacyLink')){const a=document.createElement('a');a.id='dklaPrivacyLink';a.className='dkla-privacy-link';a.href='/privacy.html';a.textContent='Privacy';target.appendChild(a);}}
   async function start(){
-    session.metadata=browserMetadata();
+    // Preview and local study sessions must remain untracked, including offline
+    // sessions where a policy request cannot reach the server.
+    if(!['dannykind.wiki','www.dannykind.wiki','dkla.dev'].includes(location.hostname)){tier='none';footer();readyResolve();return;}
     try{
       const response=await originalFetch('/api/analytics?action=policy',{credentials:'same-origin',cache:'no-store'});
       if(!response.ok){tier='none';footer();readyResolve();return;}const result=await response.json();tier=result.tier;
     }catch{tier='full';} // Offline location is unknown; the server re-evaluates it before any storage write.
+    if(tier!=='none')session.metadata=browserMetadata();
     if(tier==='full'){
-      token=await recovery();queue=await storage('getAll','queue')||[];
       if(navigator.onLine)try{await connect();}catch{}
     }
     readyResolve();footer();if(tier==='none')return;
     emit('visit','');poll();flush();setInterval(poll,1000);setInterval(()=>flush(),15000);
   }
-  window.DKLAAnalytics={version:1,flush,ready:startup};
+  window.DKLAAnalytics={version:2,flush,ready:startup};
   start();
 })();

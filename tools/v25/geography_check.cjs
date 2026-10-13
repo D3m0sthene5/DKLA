@@ -4,8 +4,7 @@
 const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('assert');
 const root=path.resolve(__dirname,'../..');
 const G=JSON.parse(fs.readFileSync(path.join(__dirname,'geography.json'),'utf8'));
-const html=fs.readFileSync(path.join(root,'DKLA-r18.html'),'utf8');
-const study=html.match(/<script[^>]+id="studyCode"[^>]*>([\s\S]*?)<\/script>/)[1];
+const study=fs.readFileSync(path.join(root,'src/runtime/studyCode.js'),'utf8');
 const pointerLines=study.split('\n').filter(line=>line.startsWith("svg.addEventListener('pointerdown',e=>{if(e.button")||line.startsWith("svg.addEventListener('pointermove',e=>{if(!S.pointers")||line.startsWith('function pointerEnd(')||line.startsWith("svg.addEventListener('pointerup',pointerEnd)"));
 assert.equal(pointerLines.length,4,'Baseline pointer-handler extraction drift');
 const handlers=new Map(),removed=[];

@@ -5,10 +5,16 @@
   "description": "Danny Kind Legal Atlas: static atlas with first-party analytics, private admin and ratings sync",
   "packageManager": "pnpm@11.25.0",
   "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "node tools/check.mjs",
+    "check:stage2": "node tools/stage2/check.mjs",
+    "preview": "node tools/preview.mjs",
+    "source": "node tools/source-cli.mjs",
     "test:analytics": "node --test tools/analytics/analytics.test.mjs",
     "check:analytics": "node tools/analytics/check.mjs",
     "build:analytics": "node tools/analytics/prepare.mjs",
-    "test:home": "playwright test tools/v25/home-fit.spec.mjs"
+    "test:home": "playwright test tools/v25/home-fit.spec.mjs",
+    "check:v26": "node tools/v26/check.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.0",
