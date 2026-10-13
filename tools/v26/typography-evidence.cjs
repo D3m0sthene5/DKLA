@@ -36,7 +36,7 @@ const output=path.resolve(process.argv[3]||'../typography-evidence/after');fs.mk
     if(view.name==='desktop'){
      detail.fitBands=await page.evaluate(()=>{
       const groups=[...document.querySelectorAll('#geoCanvas [data-sh-seat]')],original=groups.map(g=>g.querySelector('rect').getAttribute('height')),results=[];
-      for(const height of [42,54,61,62,70]){
+      for(const height of [20,21,22,24,28,32,36,40,42,54,61,62,70]){
        for(const group of groups){const r=group.querySelector('rect'),scale=Math.hypot(r.getScreenCTM().a,r.getScreenCTM().b);r.setAttribute('height',height/scale);}
        DKLATypography.refresh();const bad=groups.filter(g=>{const r=g.querySelector('rect');return [...g.querySelectorAll('text')].some(t=>{const b=t.getBBox();return b.y<Number(r.getAttribute('y'))||b.y+b.height>Number(r.getAttribute('y'))+Number(r.getAttribute('height'));});}).map(g=>g.dataset.shSeat);results.push({height,bad});
       }

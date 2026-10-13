@@ -20,6 +20,7 @@ for(const [width,height]of sizes)test(`native Home fits ${width} x ${height}`,as
   await expect.poll(async()=>JSON.parse(await page.locator('#geoCanvas').getAttribute('data-dkla-home-view')).scope).toBe('Atlas');
   // Read actual SVG glyph extents after the native entrance animation settles.
   await expect.poll(async()=>page.locator('#geoCanvas g.map-region path[data-map-region]').count()).toBe(expectedRegions.length);
+  await page.evaluate(()=>document.fonts.ready);
   await page.waitForTimeout(700); // Native 280ms entrances and 300ms label fades.
   const contract={expectedRegions,equalLowerHeights:true,allowZoomLabels:height<500};
   let first=await page.evaluate(auditNativeHome,{...contract,baselineFonts:baseline.viewports[`${width}x${height}`]||{}});

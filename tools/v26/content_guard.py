@@ -85,7 +85,8 @@ def main():
                     'tools/r19/briefs.js', 'tools/cold-call/reader.js',
                     'assets/admin/index.html', 'privacy.html', 'tools/analytics/README.md',
                     'tools/analytics/analytics.test.mjs',
-                    'tools/analytics/check.mjs', '.github/workflows/cold-call.yml'],
+                    'tools/analytics/check.mjs', '.github/workflows/cold-call.yml',
+                    'tools/v25/home-fit.spec.mjs'],
                 allow_build_outputs=False, allow_module=[], allow_release_build=False,
                 allow_saved_work=False, report=None))
         except SystemExit as result:

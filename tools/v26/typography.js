@@ -20,9 +20,13 @@
   const hint=document.getElementById('mapHint'),hideHint=neutral&&hint&&/^Three courses[\s·]/.test(hint.textContent.trim());
   if(hideHint){if(state.hintWasHidden===undefined)state.hintWasHidden=hint.hidden;hint.hidden=true;}
   else if(hint&&state.hintWasHidden!==undefined){hint.hidden=state.hintWasHidden;delete state.hintWasHidden;}
+  const canvas=document.getElementById('geoCanvas');if(!canvas)return;
+  for(const label of canvas.querySelectorAll('text[data-map-region="workbench-region"]')){
+   if(label.textContent.trim()==='Notes')label.dataset.dklaDisplayLabel='notes';
+   else delete label.dataset.dklaDisplayLabel;
+  }
   if(!neutral)return;
-  const canvas=document.getElementById('geoCanvas'),data=window.SCOTUSHistory?.data;
-  if(!canvas||!data)return;
+  const data=window.SCOTUSHistory?.data;if(!data)return;
   const byId=new Map(data.seats.map(seat=>[seat.id,seat]));
   for(const group of canvas.querySelectorAll('[data-sh-seat]')){
    const record=byId.get(group.dataset.shSeat),r=group.querySelector('rect');if(!record||!r)continue;
@@ -39,9 +43,18 @@
     const rows=label.split(/\s+/),size=Math.min(...rows.map(row=>fitted(row,14,available)));
     rows.forEach((row,index)=>text(group,row,x+w/2,y+h/2+(-11+index*17)/scale,size/scale,'dkla-seat-label'));
    }else if(!roomy&&label==='Chief Justice'&&height>=20){
-    const size=Math.min(fitted('Chief',9.5,available),fitted('Justice',9.5,available));
-    text(group,'Chief',x+w/2,y+h/2-2.5/scale,size/scale,'dkla-seat-label');
-    text(group,'Justice',x+w/2,y+h/2+7.5/scale,size/scale,'dkla-seat-label');
+    let size=Math.min(fitted('Chief',9.5,available),fitted('Justice',9.5,available));
+    const lines=['Chief','Justice'].map(row=>text(group,row,x+w/2,0,size/scale,'dkla-seat-label'));
+    let boxes=lines.map(line=>line.getBBox());
+    const gap=1.5/scale,availableHeight=h-2/scale;
+    let inkHeight=boxes.reduce((sum,box)=>sum+box.height,0);
+    if(inkHeight+gap>availableHeight){
+     size*=Math.max(0,(availableHeight-gap)/inkHeight);
+     lines.forEach(line=>line.setAttribute('font-size',size/scale));
+     boxes=lines.map(line=>line.getBBox());inkHeight=boxes.reduce((sum,box)=>sum+box.height,0);
+    }
+    let top=y+(h-inkHeight-gap)/2;
+    lines.forEach((line,index)=>{line.setAttribute('y',top-boxes[index].y);top+=boxes[index].height+gap;});
    }else{
     text(group,label,x+w/2,y+h/2+(roomy?-5:Math.min(3,height*.24))/scale,fitted(label,desired,available)/scale,'dkla-seat-label');
    }
@@ -70,9 +83,6 @@
    const y=Number(heading.getAttribute('y')),rows=heading.querySelectorAll('tspan');
    if(rows.length>1)heading.setAttribute('y',y+(rows.length-1)*Number(heading.getAttribute('font-size'))*1.23/2);
    heading.textContent='LRS';
-  }
-  for(const label of canvas.querySelectorAll('text[data-map-region="workbench-region"]')){
-   if(label.textContent.trim()==='Notes')label.dataset.dklaDisplayLabel='notes';
   }
   for(const group of canvas.querySelectorAll('.r19-tile')){
    const r=group.querySelector('rect'),label=group.querySelector('text');if(!r||!label)continue;

@@ -93,30 +93,37 @@ runtime hashes are pinned in `tools/performance/approved-runtime.json`.
 Generated historical files are excluded from the source publication manifest;
 their checkout-only line-ending changes are not release edits.
 
-Current combined local artifact is build `v2.6-4489b9e84b`. Canonical HTML
-SHA-256: `2916290230b10e9c72ba3c8120724621165d212a44d2329b4de92f87e1a1ad9e`.
+Current combined local artifact is build `v2.6-83039be295`. Canonical HTML
+SHA-256: `935d3befa5836149b57b5496104e798915cc739608aa18bb9fbc88de3f5ae878`.
 Hosted HTML SHA-256:
-`4db9fbfb634468b98de35a0e140baed8177970b8952c2b6834c5ab08b9f4a6a3`.
-The latest content guard passed all original paths and all 46 pinned blocks.
-The full-brief browser lifecycle passed against this hosted artifact with
+`b21cf1f7639a3e7874170ccadf193e5761bfff26a0bae8903efc190e733338cc`.
+The latest content guard checks all original paths and all 46 pinned blocks.
+The full-brief browser lifecycle passed against the preceding typography
+artifact with
 zero page errors. It covered startup, main/supporting/Cold Call readers,
 cached-offline and uncached retry, close-before-load, Save UI, direct portable
 export, file reopening, and a second-generation export/reopen. Its synthetic
-report is `../startup-performance/final-4489b9e84b/browser-report.json`.
+report is `../startup-performance/final-4489b9e84b/browser-report.json`. The
+subsequent CI fit correction changes only typography and test font readiness.
 
 The earlier controlled local comparison used the same gzip server, fresh
 Chrome, 20 Mbps, 60 ms, disabled cache and worker, with three samples per
 candidate: median visible time 12.279s on baseline versus 10.842s after the
 brief split (11.7% lower); transferred HTML 24,505,705 versus 20,230,615
-bytes (17.4% lower). This is a local result before final combined typography
-and analytics, not a deployed-network speed claim.
+bytes (17.4% lower). A later controlled hosted comparison of v2.5 with the
+preceding v2.6 typography build measured median cold visible time 12.553s versus
+10.692s (14.8% lower) and transferred bytes 24,606,997 versus 20,126,204
+(18.2% lower). These are controlled comparisons, not an unrestricted visitor
+network speed guarantee.
 
 The final v2.5-to-v2.6 synthetic migration passed. The parent ran all 29
 browser smoke checks and exact geometry comparisons at desktop, portrait
-phone, and landscape phone on this artifact, with zero browser errors. The
+phone, and landscape phone on the preceding typography build, with zero browser
+errors. The
 focused Cold Call ice check passed those viewports, reduced motion, and forced
-colors. A fresh independent review found no release blocker. Production build,
-hosted Linux CI, and live URL checks remain deployment follow-up; local checks
+colors. A fresh independent review found no release blocker. The current
+artifact's nine-viewport home-fit retest, production build, hosted Linux CI, and
+live URL checks remain deployment follow-up; local checks
 do not establish a production deployment. No visitor records, live storage,
 secrets, or production database were used for these checks.
 
