@@ -78,13 +78,23 @@ html #inspector .reader-body h4,html #inspector .r19-text h4{
 .sh-shell .sh-seat-label,.sh-shell .sh-tag,.sh-shell .sh-case-link small{font-size:12px}
 .sh-shell .sh-case-link strong{font-size:15px;line-height:1.55}
 .sh-shell .sh-section-head p{font-family:var(--dkla-interface);font-size:12px}
-html #geoCanvas [data-dkla-seat-type] .dkla-seat-label{fill:#e0f4e9;font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:0}
-html #geoCanvas [data-dkla-seat-type] .dkla-seat-meta{fill:#b6d7c7;font-family:var(--dkla-interface);font-weight:450;letter-spacing:.015em}
-/* These fitted home labels have their own density rules. The legacy tiny-text
-   fade must not erase a seat name after the presentation module paints it. */
-html #geoCanvas [data-dkla-seat-type] .dkla-seat-label,
-html #geoCanvas [data-dkla-seat-type] .dkla-seat-meta{opacity:1!important}
-html #geoCanvas [data-dkla-seat-type]>rect{fill:#203e35;fill-opacity:.88;stroke:#83b9a0;stroke-opacity:.5}
+/* Seat names read like the course tiles. The legacy tiny-text fade must not
+   erase a name after the presentation module paints it. */
+html #geoCanvas .dkla-court-seat .dkla-seat-label{fill:#e4ecee;font-family:var(--dkla-interface);font-weight:550;letter-spacing:0;opacity:1!important}
+/* The History block as the Court's west front, in the block's own translucent greens. */
+html #geoCanvas [data-dkla-court]>.sh-block-bg{fill-opacity:0;stroke:none}
+html #geoCanvas .dkla-court-body{fill:#16332c;fill-opacity:.5;stroke:#73b494;stroke-opacity:.5;stroke-width:1px;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-pediment{fill:#16332c;fill-opacity:.63;stroke:#83d4ad;stroke-opacity:.8;stroke-width:1.3px;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-line{fill:none;stroke:#83d4ad;stroke-opacity:.65;stroke-width:1px;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-faint{stroke-opacity:.28}
+html #geoCanvas .dkla-court-dentils{fill:none;stroke:#83d4ad;stroke-opacity:.3}
+html #geoCanvas .dkla-court-node{fill:#9bdfbd}
+html #geoCanvas .dkla-court-step{fill:#1d4238;fill-opacity:.55;stroke:#73b494;stroke-opacity:.55;stroke-width:1px;vector-effect:non-scaling-stroke}
+html #geoCanvas .dkla-court-column{fill:#9ddcbf;fill-opacity:.12;stroke:#83d4ad;stroke-opacity:.7;stroke-width:1px;vector-effect:non-scaling-stroke}
+/* Seats are rebuilt on every frame, so an inherited transition would flash. */
+html #geoCanvas .dkla-court-seat>rect:first-of-type{fill:#9ddcbf;fill-opacity:0;stroke:none;transition:none!important}
+html #geoCanvas .dkla-court-seat:hover>rect:first-of-type{fill-opacity:.09}
+html #geoCanvas .dkla-court-frame{fill:none;stroke:#83d4ad;stroke-opacity:.6;stroke-width:1px;vector-effect:non-scaling-stroke}
 html #geoCanvas [data-sh-open]>.sh-map-label{font-family:var(--dkla-display);font-weight:600;letter-spacing:.025em}
 html #geoCanvas [data-dkla-display-label],html #geoCanvas .r19-tile text{font-family:var(--dkla-display)!important;font-weight:600;letter-spacing:0}
 html #geoCanvas .sh-hit:focus-visible>rect,html #geoCanvas [data-dictionary-spine]:focus-visible>rect{

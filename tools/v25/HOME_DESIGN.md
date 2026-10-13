@@ -31,3 +31,7 @@ inspected. Mechanical checks do not decide appearance for the owner.
 The original r18 artifact and its 35 script blocks are immutable. Existing Cold
 Call narratives, analytics and saved prose/study progress are retained. The
 center mark opens dkla.dev with a fresh-password entry flow.
+
+On October 13 the owner replaced the two seat rows with the Court's west front:
+nine sitting seats between ten columns under a pediment, inside the same
+History box. See `tools/v26/TYPOGRAPHY.md`. dkla.dev gained a Back to DKLA link.

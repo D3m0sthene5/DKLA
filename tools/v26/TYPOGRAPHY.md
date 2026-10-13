@@ -59,3 +59,22 @@ independent review and publication. Full cached-source offline coverage, live
 sync, exhaustive accessibility/legacy recovery/portable export and legal accuracy
 remain outside the typography check. No legal/source data, storage or exports
 are edited by this presentation module.
+
+## Owner brief, 13 October 2026: the Court's west front
+
+This supersedes the seat paragraphs above for the map block. The owner asked
+for the SCOTUS History block to be drawn as the Supreme Court building, for
+each seat to show its sitting justice's portrait above the seat name, for seat
+names to use the same system sans as the course tiles (not Orbitron), and for
+abolished seats to leave the main view. `court()` in typography.js draws a
+pediment carrying the Orbitron title, ten columns and steps inside the block's
+original bounds; `.sh-block-bg` stays as the invisible bounds and click target.
+Nine bays hold the seats that exist on the data's roster date, the Chief
+Justice in the centre. The Iredell and Catron lineages are removed from the map
+only; the History view, seat IDs, labels and actions are unchanged. Portraits
+come from the embedded sprite. home-audit.js now expects nine seats.
+
+This was checked by running the same function against the live v2.6 page at
+1440x900 (home and zoomed in) and activating a seat. The 29 smoke checks,
+typography-evidence.cjs (which still asserts eleven Orbitron seat names), the
+phone viewports and the content guard were not run for this change.

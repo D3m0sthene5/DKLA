@@ -60,7 +60,8 @@ export default function auditNativeHome({expectedRegions=[],baselineFonts={},tol
   if(!allowZoomLabels)for(const cover of covers){const id=cover.getAttribute('data-authority-collection');if(!labels.some(l=>l.authority===id))issues.push({type:'unnamed-authority-cover',id});}
   if(!allowZoomLabels&&!canvas.querySelector('.authority-people-mark,.authority-people-fallback'))issues.push({type:'missing-we-the-people'});
   const seats=[...canvas.querySelectorAll('[data-sh-seat]')];
-  if(seats.length!==11)issues.push({type:'missing-court-seat-tiles',count:seats.length});
+  // Home shows the nine seats that still exist; History keeps all eleven lineages.
+  if(seats.length!==9)issues.push({type:'missing-court-seat-tiles',count:seats.length});
   for(const seat of seats){const names=[...seat.querySelectorAll('text')].filter(visible);if(!allowZoomLabels&&!names.length)issues.push({type:'unnamed-court-seat',id:seat.getAttribute('data-sh-seat')});for(const name of names)if(!inside(box(name),box(seat.querySelector('rect'))))issues.push({type:'court-seat-text-overflow',text:name.textContent});}
   return{ok:issues.length===0,viewport:{w:innerWidth,h:innerHeight},frame,view,issues,labels,components};
 }

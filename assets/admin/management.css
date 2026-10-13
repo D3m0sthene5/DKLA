@@ -16,3 +16,5 @@
 .dkla-brand-mark{display:block;flex:none;width:56px;height:56px;object-fit:contain;border-radius:7px}
 .login-panel>.dkla-brand-mark{width:84px;height:84px;margin-bottom:16px}
 @media(max-width:640px){.brand>.dkla-brand-mark{width:40px;height:40px}.login-panel>.dkla-brand-mark{width:72px;height:72px}}
+/* Way back from the private workspace to the public Atlas. */
+a.atlas-link{text-decoration:none}a.atlas-link:hover{border-color:#5d7387}.login-panel a.atlas-link{width:100%;margin-top:4px}
