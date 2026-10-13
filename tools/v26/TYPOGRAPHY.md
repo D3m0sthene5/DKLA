@@ -85,9 +85,13 @@ The first-visit note (`#r20Guide`) is restyled here as one slim bar in the
 markup in r20.js is unchanged. how-to-use.html was rewritten for v2.6 with two
 real captures in `guide/`.
 
-Checked on a local copy of the hosted v2.6 HTML with this module and
-stylesheet spliced in, at 1280x800: Home, zoomed in, bench order read from
-the DOM, a seat activation, and the note's bounds against the zoom controls
-and save status. Not run for this change: the build, the 29 smoke checks,
-typography-evidence.cjs (which still asserts eleven Orbitron seat names), the
-phone viewports and the content guard.
+The two columns at each end are square piers and the middle four are round,
+as built. The trail (Atlas > course > subject) and its Atlas button use the
+system sans.
+
+Checked with the real build (pnpm build, pnpm check and pnpm check:v26 all
+pass locally) served by tools/preview.mjs: Home, zoomed in, bench order and
+labels read from the DOM, a seat activation, and the note's bounds against the
+map and the save status. Not run for this change: the 29 smoke checks,
+typography-evidence.cjs (which still asserts eleven Orbitron seat names) and
+the phone viewports.

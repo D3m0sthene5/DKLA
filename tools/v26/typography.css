@@ -27,8 +27,10 @@ html #geoCanvas .authority-people-fallback{font-family:"Old English Text MT",Geo
 .brand{font-weight:650;letter-spacing:.06em}
 .brand small{letter-spacing:.12em}
 html #atlasHome .dkla-wordmark,html #atlasHome .dkla-wordmark small,
-html .study-header>button,html #geoBreadcrumb,html #geoBreadcrumb button,
-html .map-nav>button{font-family:var(--dkla-display)!important}
+html .study-header>button{font-family:var(--dkla-display)!important}
+/* The trail (Atlas > Civil Procedure > ...) and its Atlas button read like the
+   tile names on the map, not like headings. */
+html #geoBreadcrumb,html #geoBreadcrumb button,html .map-nav>button{font-family:var(--dkla-interface)!important;font-weight:550;letter-spacing:0}
 .topactions button,#atlasHome .dkla-release{font-variant-numeric:tabular-nums}
 /* Old launcher font shorthands deliberately use !important; supersede family
    alone, then retain their existing button bounds and compact label sizes. */

@@ -70,12 +70,22 @@
   el(root,'path',{d:`M${x+inset+w*.02} ${y+P+E/2}H${mx-clear}M${mx+clear} ${y+P+E/2}H${x+w-inset-w*.02}`,class:'dkla-court-dentils','stroke-width':E*.2,'stroke-dasharray':dash});
   const cap=h*.016,shaftTop=top+cap,shaftBottom=bottom-cap;
   // The building has eight columns, so the two end seats sit outside them.
+  // As built, the two at each end are square piers and the middle four are
+  // round: piers are wider with flat, even flutes and sharp blocks; round
+  // shafts taper upward, crowd their flutes toward the edges and carry
+  // rounded capitals and bases.
   for(let i=1;i<9;i++){
-   const cx=x+pad+i*pitch;
-   el(root,'rect',{x:cx-cw*.25,y:top,width:cw*1.5,height:cap,class:'dkla-court-column'});
-   el(root,'rect',{x:cx,y:shaftTop,width:cw,height:shaftBottom-shaftTop,class:'dkla-court-column'});
-   el(root,'rect',{x:cx-cw*.25,y:shaftBottom,width:cw*1.5,height:cap,class:'dkla-court-column'});
-   line(`M${cx+cw/3} ${shaftTop}V${shaftBottom}M${cx+cw*2/3} ${shaftTop}V${shaftBottom}`,'dkla-court-line dkla-court-faint');
+   const round=i>2&&i<7,sw=round?cw:cw*1.3,cx=x+pad+i*pitch+(cw-sw)/2,block=sw*1.4,rx=round?cap*.5:0;
+   el(root,'rect',{x:cx+(sw-block)/2,y:top,width:block,height:cap,rx,class:'dkla-court-column'});
+   el(root,'rect',{x:cx+(sw-block)/2,y:shaftBottom,width:block,height:cap,rx,class:'dkla-court-column'});
+   if(round){
+    const t=sw*.08,at=f=>`M${cx+t+(sw-2*t)*f} ${shaftTop}L${cx+sw*f} ${shaftBottom}`;
+    line(`M${cx+t} ${shaftTop}H${cx+sw-t}L${cx+sw} ${shaftBottom}H${cx}Z`,'dkla-court-column');
+    line([.13,.3,.5,.7,.87].map(at).join(''),'dkla-court-line dkla-court-faint');
+   }else{
+    el(root,'rect',{x:cx,y:shaftTop,width:sw,height:shaftBottom-shaftTop,class:'dkla-court-column'});
+    line([.25,.5,.75].map(f=>`M${cx+sw*f} ${shaftTop}V${shaftBottom}`).join(''),'dkla-court-line dkla-court-faint');
+   }
   }
   const title=root.querySelector('.sh-map-label');
   if(title){
