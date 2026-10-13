@@ -73,9 +73,8 @@ html #inspector .reader-body h4,html #inspector .r19-text h4{
 #coldCallDialog .cc-index-label,#coldCallDialog .cc-kicker{font-size:12px}
 .sh-shell .sh-head p,.sh-shell .sh-profile p{font-size:15px;line-height:1.75}
 .sh-shell .sh-seat-name{font-size:18px;line-height:1.4;font-weight:600}
-.sh-shell .sh-seat-name,.sh-shell .sh-seat-label,.sh-shell .sh-lineage-card strong,
-.sh-shell .sh-vote strong,.sh-shell .sh-head h1,.sh-shell .sh-section-head h2,
-.sh-shell .sh-profile h1{font-family:var(--dkla-display)!important}
+/* Everything inside SCOTUS History reads in the same sans as the case panels. */
+.sh-shell,.sh-shell *{font-family:var(--dkla-interface)!important}
 .sh-shell .sh-seat-meta,.sh-shell .sh-footnote,.sh-shell .sh-date-foot{font-size:13px;line-height:1.65}
 .sh-shell .sh-seat-label,.sh-shell .sh-tag,.sh-shell .sh-case-link small{font-size:12px}
 .sh-shell .sh-case-link strong{font-size:15px;line-height:1.55}

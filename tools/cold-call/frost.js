@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const selector='button[data-cold-call]', motion=matchMedia('(prefers-reduced-motion: reduce), (update: slow), (forced-colors: active)'), states=new Map(), intersecting=new Set(), visible=new Set();
-  const PAD_X=6, PAD_TOP=0, PAD_BOTTOM=18, FPS=1000/24, PARTICLES=14;
+  const PAD_X=6, PAD_TOP=0, PAD_BOTTOM=18, FPS=1000/24, PARTICLES=18;
   let frame=0,lastFrame=0,installed=false,sprites=null,intersections,mutations;
   const rand=(a,b)=>a+Math.random()*(b-a);
 
