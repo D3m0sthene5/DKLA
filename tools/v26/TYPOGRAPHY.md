@@ -63,18 +63,30 @@ are edited by this presentation module.
 ## Owner brief, 13 October 2026: the Court's west front
 
 This supersedes the seat paragraphs above for the map block. The owner asked
-for the SCOTUS History block to be drawn as the Supreme Court building, for
-each seat to show its sitting justice's portrait above the seat name, for seat
-names to use the same system sans as the course tiles (not Orbitron), and for
-abolished seats to leave the main view. `court()` in typography.js draws a
-pediment carrying the Orbitron title, ten columns and steps inside the block's
-original bounds; `.sh-block-bg` stays as the invisible bounds and click target.
-Nine bays hold the seats that exist on the data's roster date, the Chief
-Justice in the centre. The Iredell and Catron lineages are removed from the map
-only; the History view, seat IDs, labels and actions are unchanged. Portraits
-come from the embedded sprite. home-audit.js now expects nine seats.
+for the SCOTUS History block to be drawn as the Supreme Court building.
+`court()` in typography.js draws, inside the block's original bounds, a
+pediment with nine abstract figures after the west pediment's sculpture group
+(an enthroned Liberty with scales, two guardians, councillors, a reclining
+figure in each corner), the Orbitron title on the frieze, ten columns and
+steps. `.sh-block-bg` stays as the invisible bounds and click target.
 
-This was checked by running the same function against the live v2.6 page at
-1440x900 (home and zoomed in) and activating a seat. The 29 smoke checks,
+Nine bays hold the seats that exist on the data's roster date, each with its
+sitting justice's portrait from the embedded sprite above the seat name. They
+sit in bench order: the Chief Justice in the centre, the senior associate at
+the Chief's right hand (the viewer's left), then alternating outward by first
+service date. The Iredell and Catron lineages are removed from the map only;
+the History view, seat IDs, labels and actions are unchanged. Seat names, the
+Notes label and the Supporting cases entrances use the system sans of the
+course tiles, not Orbitron. home-audit.js expects nine seats.
+
+The first-visit note (`#r20Guide`) is restyled here as one slim bar in the
+70px strip Home reserves below the map, so it covers no tile or label. Its
+markup in r20.js is unchanged. how-to-use.html was rewritten for v2.6 with two
+real captures in `guide/`.
+
+Checked on a local copy of the hosted v2.6 HTML with this module and
+stylesheet spliced in, at 1280x800: Home, zoomed in, bench order read from
+the DOM, a seat activation, and the note's bounds against the zoom controls
+and save status. Not run for this change: the build, the 29 smoke checks,
 typography-evidence.cjs (which still asserts eleven Orbitron seat names), the
-phone viewports and the content guard were not run for this change.
+phone viewports and the content guard.

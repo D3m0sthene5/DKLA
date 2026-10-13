@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to use the atlas · DKLA</title>
-<meta name="description" content="How to use the Danny Kind Legal Atlas.">
+<meta name="description" content="How to use the Danny Kind Legal Atlas: the map, a case, search, Cold Call, authorities, SCOTUS History, study tools and working methods.">
 <meta name="color-scheme" content="dark light">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <style>
@@ -21,7 +21,7 @@
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
   body{margin:0;background:var(--bg);color:var(--ink);
-       font:18px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+       font:17px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
   a{color:var(--blue)} a:hover{text-decoration-thickness:2px}
   :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
   .skip{position:absolute;left:-999px;top:8px;background:var(--panel);color:var(--ink);padding:10px 14px;border:2px solid var(--focus);z-index:9}
@@ -34,41 +34,39 @@
   header.top .back{margin-left:auto;display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:16px}
   header.top .back:hover{border-color:var(--gold)}
 
-  main{max-width:700px;margin:0 auto;padding:36px 20px 80px}
-  h1{font-size:34px;line-height:1.2;margin:0 0 22px;font-weight:600}
-  .lead{font-size:20px;color:var(--muted);margin:0 0 28px}
+  main{max-width:760px;margin:0 auto;padding:36px 20px 80px}
+  h1{font-size:34px;line-height:1.2;margin:0 0 10px;font-weight:600}
+  .lead{font-size:19px;color:var(--muted);margin:0 0 26px}
+  h2.part{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:38px 0 12px}
 
-  nav.steps ol{list-style:none;margin:0 0 40px;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-  nav.steps a{display:flex;align-items:center;gap:12px;min-height:48px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);text-decoration:none;font-size:16px}
+  nav.steps ol{list-style:none;margin:0 0 8px;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  nav.steps a{display:flex;align-items:center;gap:12px;min-height:46px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);text-decoration:none;font-size:15.5px}
   nav.steps a:hover{border-color:var(--gold)}
-  .num{flex:none;width:30px;height:30px;border-radius:50%;background:var(--orange);color:var(--on-orange);font-weight:700;display:grid;place-items:center;font-size:15px}
+  .num{flex:none;width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--on-orange);font-weight:700;display:grid;place-items:center;font-size:14px}
 
-  section.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px 8px;margin:0 0 18px;scroll-margin-top:16px}
-  section.step p{margin:0 0 14px}
+  section.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:22px 24px 10px;margin:0 0 18px;scroll-margin-top:16px}
+  section.step p,section.step ul,section.step ol{margin:0 0 14px}
+  section.step ul,section.step ol{padding-left:22px}
+  section.step li{margin:5px 0}
   section.step b{font-weight:600}
-  section.step .count{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
-  section.step h2{display:flex;align-items:center;gap:14px;font-size:26px;line-height:1.25;margin:0 0 16px;font-weight:600}
-  section.step h2 .num{width:34px;height:34px;font-size:16px}
-  .do{font-size:19px;margin:0 0 12px}
-  .do strong{color:var(--gold);font-weight:600}
-  .see{margin:0 0 12px;color:var(--ink)}
-  .tip{margin:0;padding:12px 14px;border-left:4px solid var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border-radius:0 8px 8px 0;font-size:16px}
-  .tip b{color:var(--green);font-weight:600}
-  .try{display:inline-flex;align-items:center;min-height:44px;margin:14px 10px 0 0;padding:8px 18px;border-radius:999px;background:var(--orange);color:var(--on-orange);font-weight:600;text-decoration:none;font-size:16px}
-  .try:hover{filter:brightness(1.08)}
-  .next{display:inline-flex;align-items:center;min-height:44px;margin:14px 0 0;padding:8px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:16px}
-  .next:hover{border-color:var(--gold)}
-  .actions{display:flex;flex-wrap:wrap;gap:6px 0}
+  section.step h2{display:flex;align-items:center;gap:14px;font-size:24px;line-height:1.25;margin:0 0 14px;font-weight:600}
+  section.step h2 .num{width:32px;height:32px;font-size:15px}
+  section.step h3{font-size:17px;margin:18px 0 6px;font-weight:600;color:var(--gold)}
+  .tip{margin:0 0 14px;padding:11px 14px;border-left:4px solid var(--green);background:color-mix(in srgb,var(--green) 10%,transparent);border-radius:0 8px 8px 0;font-size:16px}
+  .tip b{color:var(--green)}
 
-  kbd{font:15px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);background:var(--kbd-bg);border:1px solid var(--kbd-line);border-bottom-width:2px;padding:1px 7px;border-radius:5px;white-space:nowrap}
+  /* Screenshots are real captures of the atlas; crops show one control at a time. */
+  figure{margin:0 0 16px}
+  figure img.full{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:10px}
+  figure .crop{display:block;max-width:100%;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#0c1319}
+  figure .crop img{display:block;width:800px;height:500px;max-width:none}
+  figcaption{font-size:14.5px;color:var(--muted);margin-top:7px}
+  .pair{display:grid;gap:14px 18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
+
+  kbd{font:14.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink);background:var(--kbd-bg);border:1px solid var(--kbd-line);border-bottom-width:2px;padding:1px 7px;border-radius:5px;white-space:nowrap}
   .ui{font-weight:600;color:var(--gold)}
 
-  .lost{border:2px dashed var(--line);border-radius:14px;padding:20px 24px;margin:34px 0 22px}
-  .lost h2{font-size:22px;margin:0 0 10px}
-  .lost ul{margin:0;padding-left:22px}
-  .lost li{margin:6px 0}
-
-  details.keys{margin:0 0 30px}
+  details.keys{margin:30px 0}
   details.keys summary{cursor:pointer;font-size:18px;font-weight:600;min-height:44px;line-height:44px;list-style:disclosure-closed}
   details.keys[open] summary{list-style:disclosure-open}
   table{border-collapse:collapse;width:100%;margin-top:8px;font-size:16px}
@@ -77,65 +75,160 @@
 
   footer{color:var(--muted);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
   @media (max-width:520px){
-    body{font-size:17px} h1{font-size:28px} section.step{padding:18px 16px} section.step h2{font-size:22px}
+    body{font-size:16.5px} h1{font-size:28px} section.step{padding:18px 16px 6px} section.step h2{font-size:21px}
     header.top .name small{display:none}
   }
-  @media print{ body{background:#fff;color:#000} .try,.next,.back,.skip,nav.steps{display:none} section.step{break-inside:avoid;border-color:#999} }
+  @media print{ body{background:#fff;color:#000} .back,.skip,nav.steps{display:none} section.step{break-inside:avoid;border-color:#999} }
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to the steps</a>
+<a class="skip" href="#main">Skip to the guide</a>
 <header class="top">
   <img src="icons/icon.svg" alt="">
   <div class="name">DKLA<small>Danny Kind Legal Atlas</small></div>
-  <a class="back" href="DKLA-v23.html">Open the atlas →</a>
+  <a class="back" href="DKLA-v2.6.html">Open the atlas →</a>
 </header>
 
 <main id="main">
   <h1>How to use the atlas</h1>
+  <p class="lead">Three first-year courses as one map: every case briefed, every rule linked to its source, and tools for recall. The first half shows where things are. The second half is how to work with it.</p>
 
-  <nav class="steps" aria-label="Steps">
+  <nav class="steps" aria-label="Contents">
     <ol>
       <li><a href="#s1"><span class="num" aria-hidden="true">1</span>The map</a></li>
       <li><a href="#s2"><span class="num" aria-hidden="true">2</span>A case</a></li>
       <li><a href="#s3"><span class="num" aria-hidden="true">3</span>Search</a></li>
-      <li><a href="#s4"><span class="num" aria-hidden="true">4</span>Connections</a></li>
-      <li><a href="#s5"><span class="num" aria-hidden="true">5</span>Sources</a></li>
-      <li><a href="#s6"><span class="num" aria-hidden="true">6</span>Study</a></li>
+      <li><a href="#s4"><span class="num" aria-hidden="true">4</span>Cold Call</a></li>
+      <li><a href="#s5"><span class="num" aria-hidden="true">5</span>Rules &amp; authorities</a></li>
+      <li><a href="#s6"><span class="num" aria-hidden="true">6</span>SCOTUS History</a></li>
+      <li><a href="#s7"><span class="num" aria-hidden="true">7</span>Study</a></li>
+      <li><a href="#s8"><span class="num" aria-hidden="true">8</span>Working methods</a></li>
     </ol>
   </nav>
 
+  <h2 class="part">Where things are</h2>
+
   <section class="step" id="s1" aria-labelledby="h1s">
     <h2 id="h1s"><span class="num" aria-hidden="true">1</span>The map</h2>
-    <p>Three courses: <b>Contracts</b> (orange), <b>Civil Procedure</b> (blue), <b>Legislation and the Regulatory State</b> (green). Each block is a subject. Click one to open it; its topics and cases appear.</p>
-    <p>Scroll to zoom, drag to move. <span class="ui">⌂</span> fits the current area on screen. <span class="ui">←</span> goes back one view.</p>
+    <figure>
+      <img class="full" src="guide/home.jpg" width="800" height="500" alt="The atlas home view: Civil Procedure in blue, Contracts in orange and LRS in green, with Rules and authorities and SCOTUS History beneath.">
+      <figcaption>Home. Each tile is a subject. The colour tells you the course.</figcaption>
+    </figure>
+    <p><b>Civil Procedure</b> is blue, <b>Contracts</b> orange, <b>LRS</b> (Legislation and the Regulatory State) green. Click a tile to open the subject; its topics appear, then the cases inside each topic. The lines between tiles are real connections between their cases.</p>
+    <p>Scroll to move one level in or out. Drag to pan. <span class="ui">⌂</span> at the bottom left fits the current area, <span class="ui">←</span> goes back one view, and the trail beside it (<span class="ui">Atlas › Contracts › …</span>) jumps to any level above.</p>
+    <p>Under the courses: <span class="ui">Supporting cases</span> lists the cases each course cites but does not assign, <span class="ui">Notes</span> is your own workbench, and the two wide blocks are the source library and the Court (sections 5 and 6).</p>
   </section>
 
   <section class="step" id="s2" aria-labelledby="h2s">
     <h2 id="h2s"><span class="num" aria-hidden="true">2</span>A case</h2>
-    <p>Click a card. The panel opens with the rule in one line, then Parties, Procedural History, Material Facts, Issue, Holding and Reasoning. The complete brief is under <span class="ui">Full brief</span>. <kbd>Esc</kbd> closes the panel.</p>
-    <p>The drawing beside the title is taken from the facts of the case.</p>
+    <figure>
+      <img class="full" src="guide/case.jpg" width="800" height="500" alt="Hadley v. Baxendale open in the reading panel, with Cold call and Full brief buttons, a plain-English summary and a doctrine timeline.">
+      <figcaption>A case open. The map keeps its place on the left; the panel reads on the right.</figcaption>
+    </figure>
+    <p>Click a case card. The panel reads top to bottom in the order you would want it in class:</p>
+    <ol>
+      <li><b>The takeaway</b>, in plain English, before anything else.</li>
+      <li><b>The doctrine timeline</b>, when the case is a step in one: what came before, what this case changed, what came after. Click any step to go there.</li>
+      <li><b>The brief</b>: Parties, Procedure, Material Facts, Issue, Holding, Reasoning. Each opens on its own.</li>
+      <li><b>Connections</b> to other entries, each with a sentence saying why, and <span class="ui">Explanation and sources</span> behind it.</li>
+      <li><b>Sources</b>: chips that open the casebook page, the opinion or the brief PDF at the right page.</li>
+    </ol>
+    <p><span class="ui">Full brief</span> opens the complete brief. <span class="ui">Cold call</span> opens the narrated version (section 4). Terms listed at the bottom open the legal dictionary. <kbd>Esc</kbd> closes the panel.</p>
+    <p class="tip"><b>Rate as you read.</b> <span class="ui">Clean</span>, <span class="ui">Patchy</span> or <span class="ui">Blank</span> at the bottom of a case is the same rating the drill and <span class="ui">Progress</span> in section 7 keep, so you can see what is still weak.</p>
   </section>
 
   <section class="step" id="s3" aria-labelledby="h3s">
     <h2 id="h3s"><span class="num" aria-hidden="true">3</span>Search</h2>
-    <p>Press <kbd>/</kbd> and type. Typos and word order do not matter. Results cover entries, subjects, dictionary terms and sources on file (Rule 12, UCC 2-207, a case name). <kbd>Ctrl</kbd>+<kbd>K</kbd> also opens it, from any view.</p>
+    <figure>
+      <span class="crop" style="width:262px;height:36px"><img src="guide/home.jpg" alt="The search bar in the top bar." style="margin:-6px 0 0 -268px"></span>
+      <figcaption>Press <kbd>/</kbd> from anywhere.</figcaption>
+    </figure>
+    <p>Press <kbd>/</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> and type. Typos and word order do not matter. One box covers case names, concepts, subjects, dictionary terms and the sources on file, so <i>Rule 12</i>, <i>UCC 2-207</i>, <i>§ 1367</i>, <i>Restatement 90</i> and <i>mirror image</i> all work.</p>
+    <p>Search by the thing you half remember: a fact (“crankshaft”), a party, or the question the case answers.</p>
   </section>
 
   <section class="step" id="s4" aria-labelledby="h4s">
-    <h2 id="h4s"><span class="num" aria-hidden="true">4</span>Connections</h2>
-    <p>With a case open, ribbons run to its related entries, and the panel lists them with a sentence each. A pill at the far end of a ribbon names entries that are off screen; click it to go there. Many cases carry a timeline of the doctrine, one line per case.</p>
+    <h2 id="h4s"><span class="num" aria-hidden="true">4</span>Cold Call</h2>
+    <figure>
+      <span class="crop" style="width:330px;height:130px"><img src="guide/case.jpg" alt="The Cold call and Full brief buttons under a case title." style="margin:-88px 0 0 -456px"></span>
+      <figcaption><span class="ui">Cold call</span> sits under the case title.</figcaption>
+    </figure>
+    <p>Every assigned case has a Cold Call: the case told as a short sequence of numbered beats, from what happened, through what each side argued, to what the court decided and what it left open. Each beat cites the pages of the opinion it rests on and links to the full brief.</p>
+    <p>Use it the night before class. If you can retell the beats in order without looking, you can answer the questions a professor opens with.</p>
   </section>
 
   <section class="step" id="s5" aria-labelledby="h5s">
-    <h2 id="h5s"><span class="num" aria-hidden="true">5</span>Sources</h2>
-    <p>The chips under a title open the casebook page, the opinion or the brief at the right page, inside the atlas. Terms in the text open the dictionary with the definition and every entry that uses the term. Reporter citations are links to the opinion. <kbd>Ctrl</kbd>+<kbd>P</kbd> prints the open entry on its own.</p>
-    <p><a href="DKLA-v23.html#term=consideration">Example: “consideration” in the dictionary</a></p>
+    <h2 id="h5s"><span class="num" aria-hidden="true">5</span>Rules &amp; authorities</h2>
+    <figure>
+      <span class="crop" style="width:386px;height:124px"><img src="guide/home.jpg" alt="The Rules and authorities block: the Constitution, Federal Rules of Civil Procedure, United States Code, Uniform Commercial Code and two Restatements, with the Legal dictionary above." style="margin:-334px 0 0 -6px"></span>
+      <figcaption>The source library, bottom left of Home.</figcaption>
+    </figure>
+    <p>Six books: the Constitution, the Federal Rules of Civil Procedure, the United States Code, the Uniform Commercial Code, the Restatement (Second) of Contracts and the Restatement of Consumer Contracts. Open one to read a provision in full, next to the cases you are studying.</p>
+    <p>It works in the other direction too: a case lists its <span class="ui">Authorities cited</span>, and each one opens the provision. The <span class="ui">Legal dictionary</span> bar above the books holds 5,583 terms, each with the entries that use it.</p>
   </section>
 
   <section class="step" id="s6" aria-labelledby="h6s">
-    <h2 id="h6s"><span class="num" aria-hidden="true">6</span>Study</h2>
-    <p><span class="ui">STUDY</span> in the top bar, or <kbd>Shift</kbd>+<kbd>D</kbd>. <b>Drill</b> shows a case name and hides the rest; reveal the issue, the holding, the reasoning, and rate yourself. <b>Pairs</b> puts two confusable cases side by side. <b>Sheets</b> prints every rule in a subject on one page. <b>Progress</b> shows what you have rated. Ratings are kept in this browser; a sync code under Progress copies them to another device.</p>
+    <h2 id="h6s"><span class="num" aria-hidden="true">6</span>SCOTUS History</h2>
+    <figure>
+      <span class="crop" style="width:392px;height:128px"><img src="guide/home.jpg" alt="The SCOTUS History block drawn as the Supreme Court building, with the nine sitting justices between its columns." style="margin:-334px 0 0 -402px"></span>
+      <figcaption>The Court, bottom right of Home. The justices sit in bench order: the Chief in the centre, then alternating outward by seniority.</figcaption>
+    </figure>
+    <p>Click the building, or <span class="ui">SCOTUS</span> in the top bar. Inside:</p>
+    <ul>
+      <li><b>Court by date.</b> Pick any day since 1789 and see who sat.</li>
+      <li><b>Seat lineages.</b> Each seat traced from its first occupant to the present. Clicking a justice on the map opens that seat. The label under each portrait names the seat by its first occupant.</li>
+      <li><b>Case votes.</b> For every Supreme Court case in the atlas: who joined the judgment, who wrote, who dissented.</li>
+    </ul>
+    <p>From a Supreme Court case’s reading panel, the vote line opens that case here, and ribbons on the map tie the case to the bench that decided it.</p>
+  </section>
+
+  <section class="step" id="s7" aria-labelledby="h7s">
+    <h2 id="h7s"><span class="num" aria-hidden="true">7</span>Study</h2>
+    <figure>
+      <span class="crop" style="width:236px;height:36px"><img src="guide/home.jpg" alt="Save, More, STUDY and SCOTUS in the top bar." style="margin:-6px 0 0 -512px"></span>
+      <figcaption><span class="ui">STUDY</span> in the top bar, or <kbd>Shift</kbd>+<kbd>D</kbd>.</figcaption>
+    </figure>
+    <ul>
+      <li><b>Drill.</b> A case name with the rest hidden. Reveal the issue, the holding, the reasoning, then rate yourself.</li>
+      <li><b>Pairs.</b> Two cases that are easy to confuse, side by side.</li>
+      <li><b>Sheets.</b> Every rule in a subject on one printable page.</li>
+      <li><b>Progress.</b> What you have rated, and a sync code that copies your ratings to another device.</li>
+    </ul>
+  </section>
+
+  <h2 class="part">How to work with it</h2>
+
+  <section class="step" id="s8" aria-labelledby="h8s">
+    <h2 id="h8s"><span class="num" aria-hidden="true">8</span>Working methods</h2>
+
+    <h3>Preparing for class</h3>
+    <p><span class="ui">More → Reading assignments</span> lists each class’s reading. For each case: read the takeaway, run the Cold Call, then open only the brief sections you could not have stated yourself. Rate it before you close it.</p>
+
+    <h3>Building an outline</h3>
+    <p>An outline is a subject’s rules in order, with the cases that mark each turn. The atlas already holds both halves:</p>
+    <ul>
+      <li><span class="ui">More → Doctrine timelines</span> gives the order: how personal jurisdiction, Erie, consideration or deference moved, case by case, with one line on what each changed.</li>
+      <li><span class="ui">STUDY → Sheets</span> gives the rules for a subject on one page. Print it and annotate.</li>
+      <li><span class="ui">More → Browse subjects</span> is the same map as a plain list, when you want a table of contents.</li>
+    </ul>
+
+    <h3>Seeing how two things relate</h3>
+    <p>With a case open, ribbons run to everything it connects to; a pill at the far end names entries that are off screen. For two entries that are not directly linked, <span class="ui">More → Find a connection path</span> finds the chain between them. This is the fastest way to answer “how does this case bear on that doctrine,” which is most of an issue-spotter.</p>
+
+    <h3>Checking a claim against the source</h3>
+    <p>Nothing here asks to be taken on trust. Reporter citations in a brief are links to the opinion. The source chips open the casebook, supplement or opinion PDF at the page. <span class="ui">More → Open textbook</span> opens the assigned books directly, and <span class="ui">More → Sources and coverage</span> says exactly what each course includes and what it does not.</p>
+
+    <h3>The week before an exam</h3>
+    <ol>
+      <li>Drill a subject until nothing is Blank.</li>
+      <li>Run <span class="ui">Pairs</span> for that subject. Confusing two similar cases costs more points than forgetting one.</li>
+      <li>Read the subject’s timeline once more, top to bottom, and say aloud what each step changed.</li>
+      <li>Print the sheet.</li>
+    </ol>
+
+    <h3>Making it yours</h3>
+    <p>Each entry has <span class="ui">Your notes and editing</span>. <span class="ui">More → Add an entry</span> and <span class="ui">Add a connection</span> put your own material on the map, and <span class="ui">Undo last edit</span> takes the last change back. Everything is saved in this browser. <span class="ui">Save</span> downloads a complete copy of the atlas with your work in it, which is also your backup; <span class="ui">More → Save &amp; import</span> brings one back in.</p>
+    <p class="tip"><b>Offline.</b> The atlas works without a connection after its first load. A full brief you have opened once stays available; one you have never opened needs a connection the first time.</p>
   </section>
 
   <details class="keys" open>
@@ -150,14 +243,14 @@
         <tr><td><kbd>Space</kbd> or <kbd>Enter</kbd></td><td>Drill: reveal the next part</td></tr>
         <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>Drill: rate the card</td></tr>
         <tr><td><kbd>H</kbd> / <kbd>S</kbd> / <kbd>A</kbd></td><td>Drill: hint, skip, open on the atlas</td></tr>
-        <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print the open entry</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Print the open entry on its own</td></tr>
       </tbody>
     </table>
   </details>
 
   <footer>
-    <p>Edits are saved in this browser. <span class="ui">Save</span> downloads a copy. The atlas works offline after its first load. The <span class="ui">More</span> menu holds the rest: courses, subjects, reading assignments, supporting cases, and this page.</p>
-    <p><a href="DKLA-v23.html">Open the atlas →</a></p>
+    <p>This page is always under <span class="ui">More → Guided walkthrough</span>.</p>
+    <p><a href="DKLA-v2.6.html">Open the atlas →</a></p>
   </footer>
 </main>
 </body>
