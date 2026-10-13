@@ -11,6 +11,7 @@ import {spawn} from 'node:child_process';
 import fs from 'node:fs';
 import http from 'node:http';
 import net from 'node:net';
+import os from 'node:os';
 import path from 'node:path';
 import {root} from '../runtime.mjs';
 import {tasks as all} from './tasks.mjs';
@@ -32,7 +33,14 @@ for(const file of ['tools/check.mjs','tools/verify/check.mjs','tools/build.mjs',
 const started=Date.now(),seconds=since=>((Date.now()-since)/1000).toFixed(1).padStart(6)+'s';
 const state=new Map(tasks.map(t=>[t.name,{task:t,status:'waiting',output:''}]));
 const known=name=>state.has(name);
-let server=null,base='',running=0;
+let server=null,base='',running=0,load=0;
+// How much may run at once. Each step has a weight (roughly the processors it
+// keeps busy; 1 unless tasks.mjs says otherwise) and the weights of running
+// steps stay within the budget. Without this a small machine, such as a
+// four-processor CI runner, is given thirteen browsers at once and steps with
+// time limits fail for lack of processor time. On a large machine the budget
+// is generous enough that nothing waits.
+const cores=os.availableParallelism(),budget=cores>8?cores+4:cores;
 
 const freePort=()=>new Promise((resolve,reject)=>{const s=net.createServer();s.once('error',reject);s.listen(0,'127.0.0.1',()=>{const {port}=s.address();s.close(()=>resolve(port));});});
 const reachable=url=>new Promise(resolve=>http.get(url,res=>{res.resume();resolve(res.statusCode===200);}).on('error',()=>resolve(false)));
@@ -64,9 +72,11 @@ await new Promise(done=>{
         const blocker=needs.find(n=>n.status==='failed'||n.status==='skipped');
         if(blocker){skip(entry,`it needs "${blocker.task.name}", which did not pass`);changed=true;continue;}
         if(!needs.every(n=>n.status==='passed')||(serial&&running))continue;
-        entry.status='running';entry.startedAt=Date.now();entry.offset=entry.startedAt-started;running++;changed=true;
+        const weight=entry.task.weight??1;
+        if(load>0&&load+weight>budget)continue;   // no room yet; a step always starts when nothing else is running
+        entry.status='running';entry.startedAt=Date.now();entry.offset=entry.startedAt-started;running++;load+=weight;changed=true;
         execute(entry.task).then(({code,output})=>{
-          running--;entry.output=output;entry.seconds=(Date.now()-entry.startedAt)/1000;entry.status=code===0?'passed':'failed';
+          running--;load-=weight;entry.output=output;entry.seconds=(Date.now()-entry.startedAt)/1000;entry.status=code===0?'passed':'failed';
           console.log(`${code===0?'ok  ':'FAIL'} ${seconds(entry.startedAt)}  ${entry.task.name}`);schedule();
         });
       }
@@ -84,6 +94,12 @@ const entries=[...state.values()],bad=entries.filter(e=>e.status!=='passed');
 for(const entry of bad){
   console.log(`\n===== ${entry.status.toUpperCase()}: ${entry.task.name} =====`);
   console.log(entry.output.trimEnd()||'(no output)');
+}
+// On GitHub, also raise each failure as an annotation: those can be read from
+// the run's summary page without opening (or being signed in to see) the log.
+if(process.env.GITHUB_ACTIONS)for(const entry of bad.filter(e=>e.status==='failed')){
+  const tail=entry.output.replace(/\x1b\[[0-9;]*m/g,'').trimEnd().slice(-3000),encode=text=>text.replaceAll('%','%25').replaceAll('\r','%0D').replaceAll('\n','%0A');
+  console.log(`::error title=${encode(entry.task.name).replaceAll(':','%3A').replaceAll(',','%2C')}::${encode(tail||'(no output)')}`);
 }
 // What set the total: follow the chain of waits back from the step that finished last.
 const finish=e=>e.offset+e.seconds*1000,done=entries.filter(e=>e.seconds!==undefined);

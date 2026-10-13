@@ -36,7 +36,16 @@ takes about half a minute.
   the collection or the section number) and shares the work among processes.
   The result is identical to the original algorithm's.
 
+- **It scales to the machine.** Heavy steps carry a weight (about how many
+  processors they keep busy) and the runner keeps the running total within
+  what the machine has. A 16-thread desktop runs everything at once; a
+  four-processor CI runner runs the two browser steps one after the other.
+  Without this, small machines starve steps that have time limits.
+
 Nothing is skipped. There is no quick tier.
+
+On GitHub, each failed step is also raised as an annotation with the end of its
+output, so a failure can be read from the run's summary page.
 
 ## Proving it after you change it
 

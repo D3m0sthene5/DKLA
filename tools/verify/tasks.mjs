@@ -19,7 +19,7 @@ const AFTER_ASSEMBLY=['assemble the atlas'];
 const SOURCE=['source reassembles'],ASSEMBLED=['assemble the atlas','analytics catalogue'],PACKAGED=['package public files'],SERVER=['preview server'];
 // Each Home window size loads the whole atlas in its own browser. Nine at once
 // is fastest on a 16-thread machine; smaller machines get proportionally fewer.
-const HOME_WORKERS=Math.max(2,Math.min(9,Math.round(os.availableParallelism()*9/16)));
+const CORES=os.availableParallelism(),HOME_WORKERS=Math.max(1,Math.min(9,Math.round(CORES*9/16)));
 const step=(group,name,command,needs=[])=>({group,name,command,needs});
 
 export const tasks=[
@@ -46,7 +46,7 @@ export const tasks=[
   // Dataset and review-record checks: they read the datasets, not the build.
   // The heaviest dataset check (it uses several processes): start it at once so
   // it is finished before the browsers need the processor.
-  step('datasets','authority citation links',py('tools/v25/authorities_build.py','--check')),
+  {...step('datasets','authority citation links',py('tools/v25/authorities_build.py','--check')),weight:Math.min(4,CORES)},
   step('datasets','U.S. Code',py('tools/v25/uscode_build.py','--check')),
   step('datasets','timeline audit',py('tools/v25/check_timeline_audit.py','--json'),SOURCE),
   step('datasets','explanation inventory',py('tools/v25/explanation_inventory.py','--check'),SOURCE),
@@ -73,11 +73,12 @@ export const tasks=[
 
   // These read the public output in dist/.
   step('public','hosted page parses',node('tools/source/check_html.cjs','dist/DKLA-v2.6.html'),PACKAGED),
-  {group:'browser',name:'preview server',server:true,needs:PACKAGED},
+  {group:'browser',name:'preview server',server:true,needs:PACKAGED,weight:0},
 
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser','public files and server',node('tools/verify/check_public.mjs','{url}'),SERVER),
-  step('browser','29 interactions',node('tools/verify/browser_smoke.cjs','--url','{page}','--output','work/browser-smoke'),SERVER),
+  // Four pages at once: three screen sizes and the saved-work test.
+  {...step('browser','29 interactions',node('tools/verify/browser_smoke.cjs','--url','{page}','--output','work/browser-smoke'),SERVER),weight:Math.min(4,CORES)},
   step('browser','map geometry',py('tools/verify/compare_geometry.py','tools/verify/geometry','work/browser-smoke'),['29 interactions']),
-  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers='+HOME_WORKERS,'--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'}},
+  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers='+HOME_WORKERS,'--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'},weight:HOME_WORKERS},
 ];
