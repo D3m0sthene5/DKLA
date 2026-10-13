@@ -1,48 +1,98 @@
-# Danny Kind Legal Atlas
+# Danny Kind Legal Atlas (DKLA)
 
-DKLA v2.6 is an offline-capable law study atlas. The native v2.5 design, legal content,
-reading views, dictionary, Cold Call, Study and saved work are preserved.
+A law-study web app: three first-year courses (Contracts, Civil Procedure,
+Legislation and the Regulatory State) as one zoomable map, with a brief for
+every case, the source readings, a legal dictionary, Cold Call narratives,
+study drills and Supreme Court history. It works offline after the first load.
 
-Install Node, pnpm and Python 3.10+ on Windows or macOS, then run:
+Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
+
+## What is in this repository
+
+| Path | What it is |
+|---|---|
+| `src/` | **Source of the base app.** The original atlas split into editable parts: `runtime/` (JavaScript), `styles/`, `markup/`, and `data/` (about 30,000 small JSON records: the map, the archives, the dictionary, SCOTUS records). `src/manifest.json` lists the parts in order. |
+| `tools/r19/` | **Source.** Briefs and their data (`data/`), the assembler that builds the app (`assemble.py`), and feature code for briefs, timelines and takeaways. |
+| `tools/cold-call/` | **Source.** Cold Call narratives (`narratives/`), the reader and the frosted button. |
+| `tools/v25/` | **Source.** Rules and authorities, the map geography, the reading panel, the Home layout, and their datasets. |
+| `tools/v26/` | **Source.** Typography, the embedded font, and the SCOTUS building drawn on the map (`typography.js`). |
+| `tools/performance/`, `tools/sync/`, `tools/analytics/` | **Source.** Loading briefs on demand, ratings sync, and the visitor analytics client. |
+| `tools/r12/` | Three course layout designs still read by the geography check. |
+| `tools/verify/` | **Checks.** See "How to know it still works". |
+| `tools/*.mjs`, `tools/source/` | The build, the local preview server, and tools for reading single records out of `src/data`. |
+| `api/`, `lib/` | **Server.** Three Vercel functions (analytics, the admin dashboard, ratings sync) and their library. |
+| `assets/admin/` | The private dashboard's page, script and styles. |
+| `added-sources/` | **Content.** The assigned readings, opinions, briefs and dictionary source (660 MB of PDFs and text). Published as-is. |
+| `DKLA-sources/` | Manifest of the scanned casebook pages (the images themselves are not in the repository). |
+| `how-to-use.html`, `guide/`, `privacy.html`, `restore-page-images.html`, `icons/`, `manifest.webmanifest` | Small published pages and assets, served as they are. |
+| `tools/public-files.json` | The exact list of files that get published. Nothing else leaves the repository. |
+| `vercel.json` | Hosting: the build command, redirects from every old version's address to the current one, and cache rules. |
+| `docs/history/` | Old handoffs and audit notes from earlier agent sessions. History, not instructions. |
+| `archive/` | The retired pipeline that first built the SCOTUS data, and one old verification record. Not used by the build. |
+| `dist/`, `work/`, `test-results/`, `node_modules/` | **Output and scratch.** Created by the build and the checks. Never committed. |
+
+The shipped code lives partly under `tools/` for historical reasons: later
+features were added as layers on top of the base app, each in the folder of the
+revision that introduced it. `tools/v25/runtime-manifest.json` is the ordered
+list of those layers.
+
+## How to build it
+
+You need Node 24, pnpm 11 and Python 3.10 or newer. On Windows, if Python is
+not on PATH, set `DKLA_PYTHON` to its `python.exe`.
 
 ```sh
 pnpm install --frozen-lockfile
-pnpm build
-pnpm check
-pnpm preview --no-build
+pnpm build       # writes work/build/ and the public dist/
+pnpm preview     # builds, then serves dist/ at http://127.0.0.1:8766/
 ```
 
-Preview opens at http://127.0.0.1:8766/ and serves the same `dist/` output Vercel
-publishes. `pnpm preview` builds first. Local preview is static: it does not proxy
-sync or analytics APIs. On Windows without Python on PATH, set `DKLA_PYTHON` to
-its executable. Python text mode is forced to UTF-8 on both platforms.
+`work/build/DKLA-v2.6.html` is a complete single-file copy of the atlas.
+`dist/` is exactly what the website serves: the same page with the full
+briefs split out so they load when opened.
 
-The editable source starts at `src/manifest.json`, with named early JavaScript,
-CSS, markup and individual JSON records. Later canonical briefs, authored
-narratives, authority data and feature files remain in their existing tools
-folders. [Architecture and bounded editing](tools/v25/ARCHITECTURE.md) describes
-ownership. [Current agent instructions](AGENTS.md) and
-[v2.6 handoff](tools/v26/HANDOFF.md) describe preservation and checks.
+Pushing to the branch `claude/atlas-design-content-audit-m1cw9x` makes Vercel
+run the same build and publish it to both domains. Nothing else deploys.
 
-This release includes the integrated dictionary spine, Cold Call ice polish, saved-work
-and sync-preservation fixes, source-tree extraction, and typography refresh.
-`pnpm check:v26` checks the v2.6 preservation gate; `check:stage2` remains the
-historical unchanged-app gate and intentionally fails on the new release.
+## How to know it still works
 
-The source-tree stage replaces the monolithic base as editable input. Runtime globals and
-wrapper order remain, and the hosted page still embeds the corpus. It makes no
-speed improvement claim. Explicit runtime imports, a storage service, demand
-loading and offline cache migration are separate next substages.
+```sh
+pnpm verify      # builds, then runs everything below; about five minutes
+```
 
-`work/build/DKLA-v2.6.html` is the current standalone output. Keep it beside the
-source PDF/image folders when using linked readings from disk. `dist/` is the
-public hosting output. Historical committed release artifacts remain unchanged;
-new build outputs are ignored. Current source records and local work are excluded
-from hosting, but original PDFs and historical embedded text remain public until
-the later source-protection stage. Production promotion belongs to the owner.
+1. **Content.** `tools/verify/content.py` confirms that no brief, opinion,
+   PDF, dictionary record or dataset was added, removed or altered.
+2. **Release.** `tools/verify/release_guard.py` confirms the built app still
+   carries the original data and code, apart from changes that were
+   deliberately recorded (see AGENTS.md).
+3. **Features and data.** `pnpm check`, the analytics tests and the dataset
+   checks under `tools/v25/` and `tools/cold-call/`.
+4. **A real browser.** `pnpm smoke` drives the built site at desktop, landscape
+   phone and portrait phone sizes: opening a subject, a case and its Cold
+   Call, old links, the dictionary, authorities, SCOTUS History, Study,
+   export and restore, and a saved note surviving a reload. It also checks
+   that the map layout has not moved and that Home fits nine window sizes.
 
-Earlier documentation is preserved verbatim in
-[README history](tools/history/README-through-stage1.md), with legal review scope
-in [v2.4 audit](AUDIT_V2.4.md), [timeline audit](TIMELINE_AUDIT.md) and
-[explanation audit](EXPLANATION_AUDIT.md). These distinguish inherited reviews,
-source comparisons and mechanical checks.
+To see exactly what a change would alter for a visitor, keep a copy of
+`work/public-manifest.json` from before, rebuild, and run
+`node tools/verify/compare-output.mjs before.json`. A change meant to alter
+nothing must report "identical".
+
+None of this touches the live site, the database or visitor data.
+
+## Things that must not break
+
+- Saved work. The browser storage keys `legal-atlas-v1:<graphId>:dkla-r8-rebuilt`,
+  `dkla.study.v1` and `dkla.coldCall.v1`, and the IndexedDB database
+  `LegalAtlasPortable`.
+- The export, import and sync formats.
+- Old links: every earlier version's address redirects to the current atlas,
+  and old `#` routes still open the right entry.
+- Offline use.
+- The legal content: briefs, opinions, PDFs, dictionary records and datasets.
+
+## Recovering anything that was removed
+
+The October 2026 cleanup removed nine old committed builds, the patch scripts
+of revisions 9 to 14 and other leftovers. They remain in git history; the tag
+`pre-cleanup-2026-10-13` marks the last commit that had them all.

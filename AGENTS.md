@@ -1,74 +1,96 @@
-# DKLA: current agent instructions
+# DKLA: instructions for coding agents
 
-Start with `tools/v26/HANDOFF.md`, then `tools/stage2/HANDOFF.md` and `tools/v25/ARCHITECTURE.md`.
-The latest owner brief takes precedence. Work in bounded stages and branches;
-only the owner promotes production. Preview analytics must stay disabled.
-One explicit owner-authorized exception applies to the reviewed v2.6 release:
-the dictionary, ice, typography/version, full-brief demand loading, reviewed
-cookie-only analytics, and tested source/build/preservation
-changes may be published to dannykind.wiki and dkla.dev. Build again in the
-production environment; do not promote the collector-disabled preview artifact.
-Future rebuild stages remain preview-only without further owner authorization.
-Never inspect visitor records, secrets, production storage, or paid services.
+Read `README.md` first: it says what each folder is, how to build, and how to
+check. This file adds the rules.
 
-## Source and commands
+The owner is not a programmer and cannot review code. Safety rests on you:
+do not make a change you cannot verify, and say plainly what you did not check.
 
-Use Node, pnpm and Python 3.10+. On Windows set DKLA_PYTHON if Python is not
-on PATH. `pnpm build` creates `work/build/` and byte-verified `dist/`;
-`pnpm check` checks that build; `pnpm preview` builds and serves dist on
-127.0.0.1:8766. `pnpm preview --no-build` serves an existing build.
-Run `pnpm install --frozen-lockfile` first on a new checkout.
+## Rules
 
-`src/manifest.json` orders exact markup, early JS/CSS, and JSON records. It
-replaces the historical HTML as editable input. `src/runtime/` still executes
-as ordered classic scripts with shared globals. Extraction is not a completed
-ES-module migration. Later feature inputs remain in tools/r19, tools/v25 and
-tools/cold-call; `tools/v25/runtime-manifest.json` is their ordered list.
-Never edit or newly commit generated HTML, worker, version, integrity or catalog
-outputs. Historical tracked artifacts stay unchanged; they are not build inputs.
-`tools/public-files.json` explicitly defines public output. Source code, tools,
-local evidence and work/ are excluded. Existing PDFs and embedded historical
-HTML are still public until the separately reviewed protection stage.
+1. **The latest owner brief wins** over anything written here.
+2. **Never alter or delete legal content**: briefs, opinions, PDFs, dictionary
+   records and datasets (`added-sources/`, `src/data/`, `tools/r19/data/`,
+   `tools/cold-call/narratives/`, the JSON datasets in `tools/v25/` and
+   `tools/cold-call/`). A content edit needs a stated source and the owner's
+   say-so. Passing checks is not legal accuracy.
+3. **Saved work must survive.** Keep the storage keys
+   `legal-atlas-v1:<graphId>:dkla-r8-rebuilt`, `dkla.study.v1`,
+   `dkla.coldCall.v1`, the IndexedDB database `LegalAtlasPortable`, the
+   export/import and sync formats, old version addresses (redirects in
+   `vercel.json`) and old `#` routes.
+4. **Only the owner publishes.** A push to
+   `claude/atlas-design-content-audit-m1cw9x` deploys to dannykind.wiki and
+   dkla.dev. Do not push it, deploy, or rewrite history unless the owner asks
+   in that session. Work on a branch and commit in small steps.
+5. **Hands off live data.** Never inspect visitor records, secrets, the
+   production database or paid services. Ask the owner before any change to
+   `api/` or `lib/` that alters what is stored or collected.
+6. **Never commit build output**: `dist/`, `work/`, `test-results/`.
+7. **Run `pnpm verify` before you call anything done**, and look at the
+   result in a browser when the change is visual. Report what passed, what you
+   did not run, and what you only inferred.
 
-Find a single seed case with
-`pnpm source --record seedData /nodes/@cp-gibbs --chars 4000`.
-Array numeric JSON pointers also work; repeated IDs remain separate records.
-`python tools/atlas.py entry cp-gibbs --chars 12000` explains later canonical
-brief/correction/narrative ownership. Use bounded searches, not full HTML/JSON
-prints. Each record is an exact raw JSON slice; preserve escaping and legal text.
-Do not run historical release assemblers as the current build.
+## Working with the files
 
-## Preservation requirements
+Some files are enormous. `src/data/` holds about 30,000 JSON records and some
+single lines are megabytes long. Search and read bounded slices; never print a
+whole data file. To read one record:
 
-Preserve every PDF, brief, opinion, dictionary record, dataset and source byte.
-Do not delete, re-encode, deduplicate or regenerate legal content as a side effect.
-A content edit needs its stated source/evidence and deliberate review; structural
-checks are not legal certification. All 392 main cases need authored Cold Call
-narratives; supporting narratives are optional and completed ones stay intact.
+```sh
+pnpm source --record seedData /nodes/@cp-gibbs --chars 4000
+python tools/atlas.py entry cp-gibbs --chars 12000
+```
 
-Keep the original v2.5 native map geometry, colored course clusters, lower
-precincts, zoom and labels. The approved authorities-header dictionary spine, bounded downward Cold Call
-frost/vapor polish, and v2.6 typography/SCOTUS internal readability refresh differ
-from the frozen baseline.
-No redesign. Curated placement stays locked while the camera pans and zooms.
-A case has one unlabeled plain-English introduction; timelines are visible with
-one synthesis. Cold Call opens its authored narrative without practice controls.
+The app is not modular. `src/runtime/*.js` are classic scripts loaded in the
+order given by `src/manifest.json`; later layers (listed in
+`tools/v25/runtime-manifest.json`) replace earlier functions by reassigning
+shared globals such as `draw`. Read how a function is wrapped before you
+change it, and prefer adding to the last layer that owns the behaviour.
 
-Retain localStorage keys `legal-atlas-v1:<graphId>:dkla-r8-rebuilt`,
-`dkla.study.v1` and `dkla.coldCall.v1`; IndexedDB `LegalAtlasPortable`;
-existing graph/import/export formats, sync shapes and all old hash routes.
-Keep recovery code. The one-read saved-work adapter is a temporary boundary,
-not an explicit storage service; see tools/v25/saved-work.js and its tests.
+## Changing code the guards protect
 
-## Stage gate
+The checks will stop you in three places. Each has a deliberate way through;
+none should be bypassed.
 
-Run the source identity check, release checks, v2.6 content guard, the full-brief
-lifecycle check, and all 29 browser smoke checks plus geometry comparisons at
-all three viewports.
-Use synthetic disposable browser storage; block external requests and APIs.
-Extend coverage for changed behavior. Obtain a fresh independent review before
-publishing each stage preview. Handoff notes must distinguish proved checks from
-untested offline, sync, legacy recovery and legal/source accuracy claims.
+- **`src/` (the base app).** `tools/verify/release_guard.py` requires `src/`
+  to reassemble to the exact original page (`SOURCE_SHA`). Do not edit files
+  under `src/` for a feature. Add or change a layer instead.
+- **A layer that existed in v2.5** (most of `tools/r19/*.js`,
+  `tools/cold-call/*.js`, `tools/v25/*.js`). The guard compares the built code
+  with the approved v2.5 blocks. To change one of these files, add an entry
+  for it to `tools/performance/approved-runtime.json` holding the file's
+  previous text as `baseline` and the new file's SHA-256 as `approvedSha256`.
+  `tools/cold-call/frost.js` is a worked example.
+- **`tools/v26/typography.js` and all style sheets** are not pinned and can be
+  edited directly.
+- **Content.** After a reviewed, intended content change, run
+  `python tools/verify/content.py --update` and commit the new
+  `tools/verify/content-inventory.json` with it.
 
-Full earlier instructions are preserved verbatim in
-`tools/history/AGENTS-through-stage1.md`; they are history, not the current brief.
+Adding a file to the website means adding its path to
+`tools/public-files.json`. Renaming the app file for a new version means adding
+a redirect for the old name in `vercel.json`.
+
+## The Home map
+
+The map's layout is fixed and checked: course positions, the two lower blocks
+at equal height, every tile named, nothing clipped at nine window sizes
+(`tools/v25/home-fit.spec.mjs`, `tools/verify/geometry/`). The 70 pixels below
+the map are kept clear for the zoom controls, the save status and the
+first-visit note. `tools/v26/TYPOGRAPHY.md` records the owner's decisions on
+fonts and on the SCOTUS building.
+
+## This machine (the owner's Windows PC)
+
+Nothing is on PATH. Node 24 and pnpm are in `%LOCALAPPDATA%\dkla-tools\node`;
+Python 3.12 is at `%LOCALAPPDATA%\Programs\Python\Python312\python.exe` (set
+`DKLA_PYTHON` to it); git is inside the GitHub Desktop installation. Git here
+has no stored GitHub login, so the owner pushes with GitHub Desktop.
+
+## History
+
+`docs/history/` holds earlier agents' instructions, handoffs and audits. They
+describe how the project got here and are not current instructions. Files
+removed in the October 2026 cleanup are in git history under the tag
+`pre-cleanup-2026-10-13`.

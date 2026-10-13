@@ -56,7 +56,7 @@ must introduce its participants; the optional actor list is only an aid. Do not
 pad a sparse source into an invented judicial history.
 
 When substantive prose changes, increment its revision. When a source changes, compare the
-account again before updating its fingerprint. Root `AUDIT_V2.4.md` describes
+account again before updating its fingerprint. `docs/history/AUDIT_V2.4.md` describes
 the separate legal audit and its limits.
 
 ## Build and validate

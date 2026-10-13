@@ -37,7 +37,7 @@ if(!process.argv[2]){
   console.log(JSON.stringify({outputDirectory:config.outputDirectory,byteVerifiedFiles:manifest.files.length,sourceExcluded:true}));
 }else{
 const report=[];
-for(const pathname of ['/src/manifest.json','/src/runtime/appCode.js','/tools/stage2/HANDOFF.md','/work/build/version.json']){
+for(const pathname of ['/src/manifest.json','/src/runtime/appCode.js','/tools/build.mjs','/work/build/version.json']){
   const response=await fetch(new URL(pathname,base));assert.equal(response.status,404);report.push({path:pathname,status:response.status});
 }
 for(const prefix of ['added-sources/','DKLA-sources/','icons/']){

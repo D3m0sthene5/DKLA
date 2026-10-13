@@ -69,16 +69,16 @@ portable export hydrate the full corpus deliberately. Future public source
 protection must address historical HTML's embedded text as well as PDF URLs.
 No current-load speed, private-source delivery, complete offline coverage or
 fully modular runtime claim is made here. Historical architecture prose is
-preserved verbatim in tools/history/ARCHITECTURE-through-stage1.md.
+preserved verbatim in docs/history/ARCHITECTURE-through-stage1.md.
 
 ## Intended later edits
 
 The manifest's origin hashes describe the untouched extraction, not a permanent
 ban on editing. A deliberately reviewed leaf edit changes the dynamic source hash
-and resulting build token; `pnpm build` and `pnpm check` still work. Stage 2's
-`pnpm check:stage2` intentionally fails any such edit because its gate pins this
-specific no-content-change stage. Do not update that golden gate automatically.
-Establish the next reviewed stage's scope and evidence instead. Preserve the
+and resulting build token; `pnpm build` and `pnpm check` still work. The release
+guard (`tools/verify/release_guard.py`) and the content inventory
+(`tools/verify/content.py`) will then fail until the change is deliberately
+recorded; AGENTS.md says how. Do not update those records automatically. Preserve the
 original release artifacts and provenance hashes. Changes to a full brief also
 require source comparison and a deliberate narrative fingerprint review.
 
