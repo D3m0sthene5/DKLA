@@ -128,3 +128,7 @@ Orbitron in the lists, cards or headings). The Cold call button's vapour has
 18 particles instead of 14 (about 30% more) within the same six-pixel side
 spill, so it still stops short of Full brief; frost.js is recorded as a
 reviewed replacement in tools/performance/approved-runtime.json.
+
+The two statues link to the Court's own information sheets on supremecourt.gov
+instead of Wikipedia, at the owner's request (the links he supplied, without
+their random cache parameter).

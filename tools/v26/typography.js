@@ -53,15 +53,17 @@
   authority:[[[0,-.87,.085]],'M-.24 -.75Q0 -.81 .24 -.75L.28 -.42L.34 -.36L.3 0H-.3L-.34 -.36L-.28 -.42ZM.26 -.64h.24v.56h-.24Z',
    'M.38 -.64V-.98M.3 -.86h.16M.31 -.5h.14M.31 -.4h.14M.31 -.3h.14M-.38 0V-.62M-.38 -.62H-.22M-.3 -.36H.26']
  };
- // What each figure is, and the article a click opens. The allegorical groups
- // have no article of their own, so they open the building's.
+ // What each figure is, and what a click opens: a Wikipedia article by name,
+ // or a full address. The allegorical groups have no article of their own, so
+ // they open the building's; the two statues open the Court's own sheets.
  const BUILDING='United_States_Supreme_Court_Building',SUBJECTS={
   moses:['Moses','Moses'],confucius:['Confucius','Confucius'],solon:['Solon','Solon'],
   enforcer:['The means of enforcing the law',BUILDING],mercy:['Justice tempered with mercy',BUILDING],
   shield:['The settlement of disputes between states',BUILDING],'shield-right':['The maritime and other functions of the Court',BUILDING],
   study:['Study and pondering of judgments',BUILDING],tribute:['The supreme character of the Court',BUILDING],
   hare:['The Hare','The_Tortoise_and_the_Hare'],tortoise:['The Tortoise','The_Tortoise_and_the_Hare'],
-  contemplation:['Contemplation of Justice','Contemplation_of_Justice'],authority:['Authority of Law','Authority_of_Law']
+  contemplation:['Contemplation of Justice','https://www.supremecourt.gov/about/infosheets/ContemplationOfJustice.html'],
+  authority:['Authority of Law','https://www.supremecourt.gov/about/infosheets/authorityOfLawt.html']
  };
  // A Corinthian capital in a unit square: abacus and bell, then acanthus leaves.
  const CAPITAL=['M-.06 0H1.06V.13H-.06ZM.15 1C.15 .62 .02 .46 -.02 .13H1.02C.98 .46 .85 .62 .85 1Z',
@@ -90,9 +92,10 @@
   const layer=el(canvas,'g',{class:'dkla-court-links'});
   function sculpt(pose,cx,base,size,mirror,cls){
    const [name,article]=SUBJECTS[pose+(mirror?'-right':'')]||SUBJECTS[pose];
-   const link=el(layer,'a',{href:'https://en.wikipedia.org/wiki/'+article,target:'_blank',rel:'noopener','aria-label':name+' (Wikipedia)',class:'dkla-court-link'});
+   const site=article.startsWith('https://')?'supremecourt.gov':'Wikipedia';
+   const link=el(layer,'a',{href:site==='Wikipedia'?'https://en.wikipedia.org/wiki/'+article:article,target:'_blank',rel:'noopener','aria-label':name+' ('+site+')',class:'dkla-court-link'});
    for(const type of ['click','pointerdown'])link.addEventListener(type,event=>event.stopPropagation());
-   el(link,'title',{}).textContent=name+' · Wikipedia';
+   el(link,'title',{}).textContent=name+' · '+site;
    const [circles,body,detail]=FIGURES[pose],figure=el(link,'g',{transform:`translate(${cx} ${base}) scale(${mirror?-size:size} ${size})`,class:cls});
    el(figure,'rect',{x:-.6,y:-1,width:1.2,height:1,class:'dkla-court-hit'});
    el(figure,'path',{d:detail,class:'dkla-court-figure-detail'});el(figure,'path',{d:body});
