@@ -62,6 +62,11 @@ as new layers on top. That is over. The rule now:
   exercise it, so: run `pnpm verify`, look at the result in a browser, and if
   the thing you changed is not covered by a browser check, add one (and a
   breakage for it in `tools/verify/break.mjs`) in the same change.
+- **A visual change needs new pictures.** `tools/verify/views.spec.mjs` compares
+  the main views with recorded pictures. If you meant to change how a view
+  looks, check the differences in `work/views/`, run `pnpm views:update` and
+  commit the new pictures with the change. Never re-record to make an
+  unexplained difference go away.
 - **Data stays pinned twice.** `tools/verify/content.py` pins every content
   file. `tools/verify/data_guard.py` pins every data block in the built page.
   After a reviewed, intended content change, run both with `--update`

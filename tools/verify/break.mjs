@@ -3,7 +3,7 @@
    Breaks one thing at a time (a case record, a brief, working code, a layout
    position, the saved-work path, ...), runs the whole verification pass, and
    requires it to FAIL each time. Every file is put back exactly as it was,
-   and a final clean pass must succeed. Takes about eight minutes.
+   and a final clean pass must succeed. Takes about twelve minutes.
 
    Run this after changing how verification works (what runs, in what order,
    what is cached or skipped). A change that makes the pass faster must still
@@ -75,6 +75,21 @@ const breakages = [
     'code: the Cold Call reader never installs',
     'tools/cold-call/reader.js',
     () => edit('tools/cold-call/reader.js', STRICT, STRICT + 'return;'),
+  ],
+  [
+    'code: the reading layout never installs',
+    'tools/v25/reading.js',
+    () => edit('tools/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),
+  ],
+  [
+    'a look: the Cold Call text recoloured by a style',
+    'tools/cold-call/reader.css',
+    () => append('tools/cold-call/reader.css', '\n#coldCallDialog p {\n  color: #e06060 !important;\n}\n'),
+  ],
+  [
+    'a look: the doctrine timeline loses its year markers',
+    'tools/r19/timelines.css',
+    () => append('tools/r19/timelines.css', '\n#r21Timelines .r21-y {\n  opacity: 0 !important;\n}\n'),
   ],
   [
     'a layout position: the History block moved',

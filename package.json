@@ -15,6 +15,8 @@
     "test:home": "playwright test tools/v25/home-fit.spec.mjs",
     "check:content": "node tools/verify/check.mjs",
     "smoke": "node tools/verify/smoke.mjs",
+    "views": "node tools/verify/views.mjs",
+    "views:update": "node tools/verify/views.mjs --update",
     "verify": "node tools/verify/all.mjs",
     "verify:teeth": "node tools/verify/break.mjs",
     "format": "prettier --write ."

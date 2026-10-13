@@ -137,4 +137,21 @@ export const tasks = [
     env: { DKLA_HOME_TEST_URL: '{page}' },
     weight: HOME_WORKERS,
   },
+  // Two pages (desktop and phone), each walking through the main views.
+  {
+    ...step(
+      'browser',
+      'main views match their pictures',
+      node(
+        'node_modules/@playwright/test/cli.js',
+        'test',
+        '-c',
+        'tools/verify/views.config.mjs',
+        '--workers=' + Math.min(2, CORES),
+      ),
+      SERVER,
+    ),
+    env: { DKLA_VIEWS_URL: '{page}' },
+    weight: Math.min(2, CORES),
+  },
 ];

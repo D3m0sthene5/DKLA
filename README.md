@@ -79,7 +79,9 @@ steps one at a time.
    phone and portrait phone sizes: opening a subject, a case and its Cold
    Call, old links, the dictionary, authorities, SCOTUS History, Study,
    export and restore, and a saved note surviving a reload. It also checks
-   that the map layout has not moved and that Home fits nine window sizes.
+   that the map layout has not moved, that Home fits nine window sizes, and
+   that fifteen main views still look like their recorded pictures
+   (`pnpm views`; see `tools/verify/README.md`).
 
 To see exactly what a change would alter for a visitor, keep a copy of
 `work/public-manifest.json` from before, rebuild, and run

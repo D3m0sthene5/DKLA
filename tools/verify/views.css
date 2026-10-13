@@ -1,0 +1,5 @@
+/* Applied only while a picture of a view is taken (see views.config.mjs).
+   The save status changes with the clock, so it is left out of every picture. */
+#saveStatus {
+  visibility: hidden !important;
+}

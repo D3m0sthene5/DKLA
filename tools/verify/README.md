@@ -13,6 +13,8 @@ takes about half a minute.
 | `check_routes.mjs` | Every earlier version's address redirects to the current atlas. |
 | `browser_smoke.cjs` | 29 interactions in a real browser at three screen sizes, plus saved work surviving export, import and reload. |
 | `compare_geometry.py`, `geometry/` | The map layout matches the recorded one. |
+| `views.spec.mjs`, `views.config.mjs`, `views/` | The main views, at a desktop and a phone size, look like their recorded pictures. See "Pictures of the main views" below. |
+| `views.mjs` | Runs that comparison on its own (`pnpm views`) or records new pictures (`pnpm views:update`). |
 | `compare-output.mjs` | Compares the public output of two builds file by file. |
 | `break.mjs` | Breaks things on purpose to prove the pass still fails. |
 
@@ -47,14 +49,38 @@ Nothing is skipped. There is no quick tier.
 On GitHub, each failed step is also raised as an annotation with the end of its
 output, so a failure can be read from the run's summary page.
 
+## Pictures of the main views
+
+Fifteen views (Home, a subject, a case, its full brief, Cold Call, the
+dictionary, an authority, a doctrine timeline, a source page, search, two
+SCOTUS History pages, two Study tabs, the More menu) are opened at 1440 x 900
+and at 390 x 844 and compared with the pictures in `views/<system>/`. Each
+view also has a check that needs no picture: the panel opened and holds the
+expected words. The case view is where the reading layout
+(`tools/v25/reading.js`) is confirmed to have installed.
+
+- A failure leaves the expected picture, the actual one and the difference in
+  `work/views/`. Look at them before doing anything else.
+- After an **intended** visual change, run `pnpm build` and then
+  `pnpm views:update`, look at what changed with `git diff --stat` and by
+  opening the new pictures, and commit them with the change.
+- Pictures are only comparable on the system that made them, because letters
+  are drawn differently on Windows and Linux. The recorded ones are from the
+  owner's Windows machine. GitHub's Linux runner has none, so there the views
+  are opened and checked but not compared, and the step's output says so. On
+  Windows, missing pictures fail the pass.
+- The save status in the corner changes with the clock; `views.css` hides it
+  while a picture is taken.
+
 ## Proving it after you change it
 
 ```sh
-pnpm verify:teeth     # about eight minutes
+pnpm verify:teeth     # about twelve minutes
 ```
 
 This alters one thing at a time (a case record, a brief, a narrative, a dataset
-entry, base and layer runtime code, two layout positions, two saved-work paths,
+entry, base and layer runtime code, the reading layout, two looks that only a
+picture can catch, two layout positions, two saved-work paths,
 a feature, the offline worker, an old address), runs the whole pass, and
 requires it to fail every time. It restores each file and finishes with a clean
 pass. Run it whenever you change what runs, the order, or anything cached.
@@ -66,6 +92,7 @@ twenty identical runs is a broken check, not bad luck: find the race.
 
 The last line of every run names the longest chain. At present it is:
 assemble the atlas (about 4 s), package (1 to 2 s), then the browser steps
-(about 20 s). The browser steps load the 68 MB atlas thirteen times in separate
-pages (three screen sizes, the saved-work test, and nine Home window sizes);
+(about 20 s). The browser steps load the 68 MB atlas fifteen times in separate
+pages (three screen sizes, the saved-work test, nine Home window sizes and the
+two sizes of the picture comparison);
 that is processor-bound and scales with the number of cores.
