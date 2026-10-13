@@ -13,7 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/v25'))
 sys.path.insert(0, str(ROOT / 'tools'))
-from source import read_source  # reproduces the original r18 page from src/
+from source.tree import origin_identity  # the original page's hash, checked against the source data
 import explanation_inventory as explanations
 
 OUT = ROOT / 'tools/v25/geography.json'
@@ -389,9 +389,9 @@ def build():
         why=f"{position.capitalize()} in {d['title']}: {d.get('question','Reading/source index rather than a doctrinal relationship.')}"
         if lead and nid!=d.get('lead'):why+=f' The local lead is {lead}.'
         result['audit']['nodeReviews'].append(dict(id=nid,title=nodes[nid]['title'],kind=nodes[nid]['kind'],district=h['district'],region=h['region'],role=placements[nid].get('role'),action='Relocated' if nid in relocated else 'Retained in topic',rationale=relocated.get(nid,{}).get('rationale',why),summarySha256=hashlib.sha256(nodes[nid]['summary'].encode('utf-8')).hexdigest(),screening='Member title and district topic; separate source-review scope in linked ledgers',sameDistrictNeighbors=neighbors,totalGraphNeighbors=len(ns)))
-    # Immutable HTML retains its byte-exact fingerprint. Text JSON sources use
+    # The original page is named by its hash once its data is confirmed intact. Text JSON sources use
     # universal-newline reads so a Git CRLF/LF checkout changes no audit claim.
-    result['sourceHashes']={path:hashlib.sha256(read_source() if path=='DKLA-r18.html' else (ROOT/path).read_text(encoding='utf-8').encode('utf-8')).hexdigest() for path in ['DKLA-r18.html','tools/r12/contracts.json','tools/r12/civil.json','tools/r12/legislation.json','tools/r19/data/rlcc.json','tools/r19/data/rules22.json','tools/r19/data/r21-audit.json','tools/r19/data/plain.json','tools/r19/data/sections.json','tools/r19/data/patches.json','tools/r19/data/plain-sections.json']}
+    result['sourceHashes']={path:origin_identity() if path=='DKLA-r18.html' else hashlib.sha256((ROOT/path).read_text(encoding='utf-8').encode('utf-8')).hexdigest() for path in ['DKLA-r18.html','tools/r12/contracts.json','tools/r12/civil.json','tools/r12/legislation.json','tools/r19/data/rlcc.json','tools/r19/data/rules22.json','tools/r19/data/r21-audit.json','tools/r19/data/plain.json','tools/r19/data/sections.json','tools/r19/data/patches.json','tools/r19/data/plain-sections.json']}
     return result
 
 

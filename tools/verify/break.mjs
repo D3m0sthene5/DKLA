@@ -1,6 +1,6 @@
 /* Proof that the checks have teeth: `pnpm verify:teeth`.
 
-   Breaks one thing at a time (a case record, a brief, runtime code, a layout
+   Breaks one thing at a time (a case record, a brief, working code, a layout
    position, the saved-work path, ...), runs the whole verification pass, and
    requires it to FAIL each time. Every file is put back exactly as it was,
    and a final clean pass must succeed. Takes about eight minutes.
@@ -18,6 +18,7 @@ import {root} from '../runtime.mjs';
 const at=file=>path.join(root,file);
 const edit=(file,from,to)=>{const text=fs.readFileSync(at(file),'utf8');if(!text.includes(from))throw Error(`Cannot break ${file}: "${from}" is no longer there. Update tools/verify/break.mjs.`);fs.writeFileSync(at(file),text.replace(from,to));};
 const append=(file,text)=>fs.appendFileSync(at(file),text);
+const prepend=(file,text)=>fs.writeFileSync(at(file),text+fs.readFileSync(at(file),'utf8'));
 // Change one lower-case letter near the middle of a file.
 const flip=file=>{const bytes=fs.readFileSync(at(file));let i=bytes.length>>1;while(bytes[i]<97||bytes[i]>121)i++;bytes[i]++;fs.writeFileSync(at(file),bytes);};
 const first=(folder,extension)=>{const walk=dir=>{for(const entry of fs.readdirSync(at(dir),{withFileTypes:true}).sort((a,b)=>a.name<b.name?-1:1)){const child=dir+'/'+entry.name;if(entry.isDirectory()){const found=walk(child);if(found)return found;}else if(child.endsWith(extension)&&fs.statSync(at(child)).size>400)return child;}};return walk(folder);};
@@ -29,8 +30,8 @@ const breakages=[
   ['a case brief',brief,()=>flip(brief)],
   ['a Cold Call narrative',narrative,()=>flip(narrative)],
   ['an entry in the authorities dataset','tools/v25/authorities.json',()=>edit('tools/v25/authorities.json','"basis": "Explicit citation in atlas entry"','"basis": "Explicit citation in atlas entri"')],
-  ['runtime code in the base app','src/runtime/dklaUI.js',()=>flip('src/runtime/dklaUI.js')],
-  ['runtime code in a feature layer','tools/v25/reading.js',()=>edit('tools/v25/reading.js',STRICT,STRICT+'window.__changed=1;')],
+  ['code: the base app throws while loading','src/runtime/dklaUI.js',()=>prepend('src/runtime/dklaUI.js','throw new Error("broken on purpose");\n')],
+  ['code: the Cold Call reader never installs','tools/cold-call/reader.js',()=>edit('tools/cold-call/reader.js',STRICT,STRICT+'return;')],
   ['a layout position: the History block moved',TYPOGRAPHY,()=>edit(TYPOGRAPHY,"root.dataset.dklaCourt='1';","root.dataset.dklaCourt='1';bg.setAttribute('x',Number(bg.getAttribute('x'))+3000);")],
   ['a layout position: a subject moved in the map data','tools/v25/geography.json',()=>{const text=fs.readFileSync(at('tools/v25/geography.json'),'utf8'),found=text.match(/"x":\s*(-?\d+(?:\.\d+)?)/);if(!found)throw Error('No x coordinate found in geography.json');fs.writeFileSync(at('tools/v25/geography.json'),text.replace(found[0],found[0].replace(found[1],String(Number(found[1])+900))));}],
   ['saved work: study ratings wiped when the atlas loads',TYPOGRAPHY,()=>edit(TYPOGRAPHY,STRICT,STRICT+"try{localStorage.removeItem('dkla.study.v1');}catch{}")],

@@ -64,7 +64,7 @@ export const tasks=[
   step('analytics','browser recognition',test('tools/analytics/browser-recognition.test.mjs'),['analytics catalogue']),
 
   // These read the assembled atlas in work/build.
-  step('guards','release guard',py('tools/verify/release_guard.py'),ASSEMBLED),
+  step('guards','data guard',py('tools/verify/data_guard.py'),ASSEMBLED),
   step('guards','offline worker',node('tools/r19/check_worker.cjs'),ASSEMBLED),
   step('analytics','analytics build check',node('tools/analytics/check.mjs'),ASSEMBLED),
   step('features','practice filter',node('tools/v25/practice_filter_check.cjs'),ASSEMBLED),

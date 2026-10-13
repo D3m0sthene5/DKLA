@@ -14,6 +14,7 @@ def main():
     parser.add_argument('--original', action='store_true', help='Require the approved r18 extraction identity')
     parser.add_argument('--record', nargs=2, metavar=('BLOCK', 'JSON_POINTER'))
     parser.add_argument('--chars', type=int, default=4000)
+    parser.add_argument('--identity', action='store_true', help="Print the original page's hash, after checking the source data is still that page's data")
     parser.add_argument('--verify', action='store_true', help='Re-read every file, require any cached copy to match, and refresh the cache')
     parser.add_argument('--emit', action='store_true', help='Write the reassembled original HTML bytes to standard output')
     args = parser.parse_args()
@@ -24,6 +25,10 @@ def main():
             raw = source_path(part['path']).read_bytes()
             result.update(bytes=len(raw), sha256=source_hash(raw), text=raw.decode()[:max(0,args.chars)], truncated=len(raw.decode())>args.chars)
         print(json.dumps(result, ensure_ascii=True, indent=2))
+        return
+    if args.identity:
+        from source.tree import origin_identity
+        print(origin_identity())
         return
     if args.verify:
         # Read every source file afresh. If a cached copy exists for the

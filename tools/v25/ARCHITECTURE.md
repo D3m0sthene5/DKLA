@@ -75,10 +75,11 @@ preserved verbatim in docs/history/ARCHITECTURE-through-stage1.md.
 
 The manifest's origin hashes describe the untouched extraction, not a permanent
 ban on editing. A deliberately reviewed leaf edit changes the dynamic source hash
-and resulting build token; `pnpm build` and `pnpm check` still work. The release
-guard (`tools/verify/release_guard.py`) and the content inventory
-(`tools/verify/content.py`) will then fail until the change is deliberately
-recorded; AGENTS.md says how. Do not update those records automatically. Preserve the
+and resulting build token; `pnpm build` and `pnpm check` still work. Code edits
+need no record. A data edit makes the content inventory
+(`tools/verify/content.py`) and the data guard (`tools/verify/data_guard.py`)
+fail until it is deliberately recorded; AGENTS.md says how. Do not update those
+records automatically. Preserve the
 original release artifacts and provenance hashes. Changes to a full brief also
 require source comparison and a deliberate narrative fingerprint review.
 

@@ -68,9 +68,9 @@ steps one at a time.
 
 1. **Content.** `tools/verify/content.py` confirms that no brief, opinion,
    PDF, dictionary record or dataset was added, removed or altered.
-2. **Release.** `tools/verify/release_guard.py` confirms the built app still
-   carries the original data and code, apart from changes that were
-   deliberately recorded (see AGENTS.md).
+2. **Data in the built page.** `tools/verify/data_guard.py` confirms every
+   data block in the built atlas is exactly the approved one. Code is not
+   pinned: it is free to change and is judged by the checks below.
 3. **Features and data.** `pnpm check`, the analytics tests and the dataset
    checks under `tools/v25/` and `tools/cold-call/`.
 4. **Old addresses.** `tools/verify/check_routes.mjs` confirms every earlier

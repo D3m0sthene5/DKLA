@@ -1,0 +1,9 @@
+# Every text file in this repository uses Unix line endings. The build compares
+# source blocks with built blocks byte for byte, so a file saved with Windows
+# line endings fails the build check.
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+insert_final_newline = true

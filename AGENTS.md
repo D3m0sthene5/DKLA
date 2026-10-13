@@ -46,27 +46,29 @@ The app is not modular. `src/runtime/*.js` are classic scripts loaded in the
 order given by `src/manifest.json`; later layers (listed in
 `tools/v25/runtime-manifest.json`) replace earlier functions by reassigning
 shared globals such as `draw`. Read how a function is wrapped before you
-change it, and prefer adding to the last layer that owns the behaviour.
+change it: the version that runs is the last one assigned, which may be
+several layers after the one you are reading.
 
-## Changing code the guards protect
+## Data is pinned; code is free
 
-The checks will stop you in three places. Each has a deliberate way through;
-none should be bypassed.
+Until October 2026 every byte of code was frozen and features had to be added
+as new layers on top. That is over. The rule now:
 
-- **`src/` (the base app).** `tools/verify/release_guard.py` requires `src/`
-  to reassemble to the exact original page (`SOURCE_SHA`). Do not edit files
-  under `src/` for a feature. Add or change a layer instead.
-- **A layer that existed in v2.5** (most of `tools/r19/*.js`,
-  `tools/cold-call/*.js`, `tools/v25/*.js`). The guard compares the built code
-  with the approved v2.5 blocks. To change one of these files, add an entry
-  for it to `tools/performance/approved-runtime.json` holding the file's
-  previous text as `baseline` and the new file's SHA-256 as `approvedSha256`.
-  `tools/cold-call/frost.js` is a worked example.
-- **`tools/v26/typography.js` and all style sheets** are not pinned and can be
-  edited directly.
-- **Content.** After a reviewed, intended content change, run
-  `python tools/verify/content.py --update` and commit the new
-  `tools/verify/content-inventory.json` with it.
+- **Code and styles may be edited in place**, anywhere: `src/runtime/`,
+  `src/styles/`, the feature folders under `tools/`. Fix a function where it
+  is defined instead of wrapping it in another layer.
+- **Nothing proves a code change is safe except what it does.** No guard
+  compares code bytes any more. A change is only as safe as the checks that
+  exercise it, so: run `pnpm verify`, look at the result in a browser, and if
+  the thing you changed is not covered by a browser check, add one (and a
+  breakage for it in `tools/verify/break.mjs`) in the same change.
+- **Data stays pinned twice.** `tools/verify/content.py` pins every content
+  file. `tools/verify/data_guard.py` pins every data block in the built page.
+  After a reviewed, intended content change, run both with `--update`
+  (`data_guard.py` after `pnpm build`) and commit the two record files.
+- Records that name the original page by its hash (the map geography's audit,
+  the analytics check) use `origin_identity()` in `tools/source/tree.py`,
+  which confirms the source data is still that page's data.
 
 Adding a file to the website means adding its path to
 `tools/public-files.json`. Renaming the app file for a new version means adding

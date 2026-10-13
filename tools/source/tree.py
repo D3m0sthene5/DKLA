@@ -127,6 +127,30 @@ def read_source() -> bytes:
         store_source(fingerprint, raw)
     return raw
 
+def origin_identity() -> str:
+    """The SHA-256 of the original page this source was extracted from, given
+    only that its DATA is still that page's data.
+
+    Some records (the map geography's audit, the analytics check) name the
+    original page by its hash to say "built from that data". The code under
+    src/ is now free to change, so the whole source no longer hashes to that
+    value. This checks every data block (and the embedded portrait sheet)
+    against the hash recorded for it at extraction and, if all match, returns
+    the original page's hash. It raises if any data block differs.
+    """
+    import re
+    manifest = load_manifest('manifest.json')
+    recorded = {b['id']: b['sha256'] for b in manifest['blocks'] if b['kind'] in ('data', 'assets')}
+    found = {}
+    for attributes, body in re.findall(rb'<script\b([^>]*)>(.*?)</script\s*>', read_source(), re.I | re.S):
+        ident = re.search(rb'\bid="([^"]+)"', attributes)
+        if ident and ident[1].decode() in recorded:
+            found[ident[1].decode()] = source_hash(body)
+    changed = sorted(i for i in recorded if found.get(i) != recorded[i])
+    if changed:
+        raise ValueError('Source data differs from the original page: ' + ', '.join(changed))
+    return manifest['originSha256']
+
 def find_record(block: str, pointer: str) -> dict:
     """Resolve a JSON pointer to its bounded canonical file, never dump a block."""
     if '/@' in pointer:

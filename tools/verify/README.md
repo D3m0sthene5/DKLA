@@ -8,7 +8,7 @@ takes about half a minute.
 | `tasks.mjs` | The list of steps and what each one waits for. Add checks here. |
 | `run.mjs` | Runs the steps side by side, keeps each one's output, prints failures in full and reports what set the total time. Writes `work/verify-timing.json`. |
 | `content.py` | No brief, opinion, PDF, dictionary record or dataset changed. |
-| `release_guard.py` | The built atlas still carries the original data and code. |
+| `data_guard.py` | Every data block in the built page is exactly the approved one. Code is not pinned. |
 | `check_public.mjs` | `dist/` holds exactly the allowed files with the recorded bytes, and the server does not serve source. |
 | `check_routes.mjs` | Every earlier version's address redirects to the current atlas. |
 | `browser_smoke.cjs` | 29 interactions in a real browser at three screen sizes, plus saved work surviving export, import and reload. |
