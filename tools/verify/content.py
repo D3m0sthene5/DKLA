@@ -13,6 +13,7 @@ import argparse
 import hashlib
 import json
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,23 +46,30 @@ def files(entry):
             yield relative
 
 
+def fingerprint(relative):
+    raw = (ROOT / relative).read_bytes()
+    # Git stores these text files with Unix line endings, but an older
+    # Windows checkout of this repository holds some of them with
+    # CRLF. Treat the two alike for text; every other byte must match.
+    if relative.rsplit('.', 1)[-1].lower() in TEXT:
+        raw = raw.replace(b'\r\n', b'\n')
+    return hashlib.sha256(raw).hexdigest(), len(raw)
+
+
 def survey():
     """One digest per entry over its sorted (path, sha256) pairs."""
     result, listing = {}, []
     for entry in CONTENT:
         digest, count, size = hashlib.sha256(), 0, 0
-        for relative in sorted(files(entry)):
-            raw = (ROOT / relative).read_bytes()
-            # Git stores these text files with Unix line endings, but an older
-            # Windows checkout of this repository holds some of them with
-            # CRLF. Treat the two alike for text; every other byte must match.
-            if relative.rsplit('.', 1)[-1].lower() in TEXT:
-                raw = raw.replace(b'\r\n', b'\n')
-            sha = hashlib.sha256(raw).hexdigest()
-            digest.update(f'{relative}\0{sha}\n'.encode())
-            listing.append(f'{sha}  {relative}')
-            count += 1
-            size += len(raw)
+        names = sorted(files(entry))
+        # Files are read and hashed a few at a time (opening them one by one
+        # can be very slow on Windows); the digest still takes them in order.
+        with ThreadPoolExecutor(16) as pool:
+            for relative, (sha, length) in zip(names, pool.map(fingerprint, names, chunksize=32)):
+                digest.update(f'{relative}\0{sha}\n'.encode())
+                listing.append(f'{sha}  {relative}')
+                count += 1
+                size += length
         result[entry] = {'files': count, 'bytes': size, 'sha256': digest.hexdigest()}
     return result, listing
 

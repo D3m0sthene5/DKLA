@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor
 from functools import lru_cache
 from pathlib import Path
 
@@ -38,9 +39,36 @@ def read_part(part: dict) -> bytes:
         return b''.join(read_part(p) for p in load_manifest(part['manifest'])['parts'])
     raise ValueError('Unknown source part')
 
+# Opening a file on Windows can take milliseconds (antivirus scans each open),
+# and the wait is per file, so tens of thousands of opens one after another
+# can take over a minute while the same opens made a few at a time take two
+# seconds. Bulk reads therefore go through a small thread pool. Order and
+# every path check are unchanged.
+READERS = 16
+
+def flatten(parts: list[dict], pool: ThreadPoolExecutor) -> list:
+    """The leaves of a manifest tree in order: literal bytes, or the path of a part file."""
+    names = [p['manifest'] for p in parts if 'manifest' in p]
+    loaded = dict(zip(names, pool.map(load_manifest, names)))
+    leaves: list = []
+    for part in parts:
+        if 'literal' in part:
+            leaves.append(part['literal'].encode('utf-8'))
+        elif 'path' in part:
+            leaves.append(source_path(part['path']))
+        elif 'manifest' in part:
+            leaves.extend(flatten(loaded[part['manifest']]['parts'], pool))
+        else:
+            raise ValueError('Unknown source part')
+    return leaves
+
 def assemble_source() -> bytes:
     """Read every part from disk and join them. Never cached."""
-    return b''.join(read_part(p) for p in load_manifest('manifest.json')['parts'])
+    with ThreadPoolExecutor(READERS) as pool:
+        leaves = flatten(load_manifest('manifest.json')['parts'], pool)
+        files = [leaf for leaf in leaves if isinstance(leaf, Path)]
+        contents = iter(pool.map(Path.read_bytes, files, chunksize=32))
+        return b''.join(next(contents) if isinstance(leaf, Path) else leaf for leaf in leaves)
 
 # Reassembling opens about 30,000 files, and many build and check steps need
 # the result. It is therefore kept in work/cache between steps, named after a

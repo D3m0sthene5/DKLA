@@ -16,7 +16,7 @@ const report = {url, startedAt:new Date().toISOString(), checks:[], blockedReque
   gaps:['Full portable-HTML export and file:// reopening', 'Every source page and legacy route', 'Cross-device sync', 'Exhaustive keyboard and screen-reader audit', 'Offline cached PDF/image coverage']};
 const writeReport=()=>fs.writeFileSync(path.join(output,'report.json'),JSON.stringify(report,null,2)+'\n');
 let browser;
-async function check(name,fn){try{const detail=await fn();report.checks.push({name,pass:true,detail});console.log('PASS '+name);}catch(error){report.checks.push({name,pass:false,error:String(error.stack||error)});console.log('FAIL '+name+': '+error.message);}writeReport();}
+async function check(name,fn){const began=Date.now();try{const detail=await fn();report.checks.push({name,pass:true,ms:Date.now()-began,detail});console.log('PASS '+name);}catch(error){report.checks.push({name,pass:false,ms:Date.now()-began,error:String(error.stack||error)});console.log('FAIL '+name+': '+error.message);}writeReport();}
 async function shot(page,name){const file=path.join(output,name+'.png');await page.screenshot({path:file,fullPage:false});report.screenshots.push(file);}
 async function ready(page){await page.locator('html.dkla-boot-ready').waitFor({timeout:90000});await page.waitForFunction(()=>window.LegalAtlas?.ready&&window.DKLAColdCall&&window.DKLAStudy);}
 async function closeDialogs(page){await page.evaluate(()=>{window.DKLAColdCall?.close();window.DKLAStudy?.close();for(const d of document.querySelectorAll('dialog[open]'))d.close();});}
@@ -32,7 +32,9 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
   const installedChrome=process.env.DKLA_CHROME||(process.platform==='win32'?'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe':process.platform==='darwin'?'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome':undefined);
   browser=await chromium.launch({headless:true,executablePath:option('--chrome',installedChrome)});
   // The three screen sizes run side by side, each in its own isolated browser context.
-  await Promise.all([{name:'desktop',width:1440,height:900},{name:'phone-landscape',width:844,height:390},{name:'phone-portrait',width:390,height:844}].map(async viewport=>{
+  await Promise.all([{name:'desktop',width:1440,height:900},{name:'phone-landscape',width:844,height:390},{name:'phone-portrait',width:390,height:844},
+    // The saved-work round trip gets a desktop context of its own, so it does not queue behind the desktop interactions.
+    {name:'desktop',width:1440,height:900,storage:true}].map(async viewport=>{
     const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height},isMobile:viewport.name!=='desktop',hasTouch:viewport.name!=='desktop',acceptDownloads:true,serviceWorkers:'block'});
     await context.route('**/*',async route=>{
       const request=route.request(),u=new URL(request.url());
@@ -46,6 +48,7 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
     await context.addInitScript(()=>{localStorage.setItem('dkla.guide.v1','seen');});
     const page=await context.newPage();page.setDefaultTimeout(12000);
     page.on('pageerror',e=>report.pageErrors.push({viewport:viewport.name,error:e.message}));
+    if(!viewport.storage){
     await check(viewport.name+': boot and home',async()=>{await page.goto(url,{waitUntil:'domcontentloaded',timeout:90000});await ready(page);await page.waitForTimeout(900);assert.ok(await page.locator('#geoCanvas').isVisible());await shot(page,viewport.name+'-home');
       const geometry=await page.evaluate(()=>({view:LegalAtlas.geography().view,regions:LegalAtlas.geography().regions.map(({id,x,y,w,h})=>({id,x,y,w,h})),rendered:[...document.querySelectorAll('#geoCanvas g.map-region path[data-map-region],#geoCanvas .sh-block-bg,#geoCanvas .authority-map-entrance > rect')].map(e=>({id:e.getAttribute('data-map-region')||e.getAttribute('class'),d:e.getAttribute('d'),x:e.getAttribute('x'),y:e.getAttribute('y'),w:e.getAttribute('width'),h:e.getAttribute('height')}))}));
       fs.writeFileSync(path.join(output,viewport.name+'-geometry.json'),JSON.stringify(geometry,null,2)+'\n');
@@ -84,9 +87,11 @@ async function route(page,hash){await closeDialogs(page);await page.evaluate(has
     });
     await check(viewport.name+': SCOTUS history',async()=>{await closeDialogs(page);await page.evaluate(()=>SCOTUSHistory.open());await page.waitForTimeout(600);assert.equal(await page.evaluate(()=>SCOTUSHistory.state().open),true);await shot(page,viewport.name+'-scotus');await page.evaluate(()=>SCOTUSHistory.close());});
     await check(viewport.name+': study interaction',async()=>{await closeDialogs(page);await page.evaluate(()=>DKLAStudy.open('drill'));await page.locator('#r18Dialog[open]').waitFor();await page.locator('[data-r18-tab="progress"]').click();assert.equal(await page.locator('#r18Dialog').getAttribute('data-tab'),'progress');await shot(page,viewport.name+'-study');await page.evaluate(()=>DKLAStudy.close());});
-    if(viewport.name==='desktop'){
+    }
+    if(viewport.storage){
       let ownerProseResult;
       await check('synthetic storage, master JSON export and restore',async()=>{
+        await page.goto(url,{waitUntil:'domcontentloaded',timeout:90000});await ready(page);await page.waitForTimeout(900);
         await closeDialogs(page);
         const ownerFixture=await page.evaluate(()=>{const n=LegalAtlas.snapshot().nodes.find(n=>n.kind==='Note');return {id:n.id,oldUpdatedAt:n.updatedAt,text:n.notes+'\n\nStage 1 synthetic owner annotation: preserve these exact words.'};});
         await page.evaluate(id=>nodeForm(id),ownerFixture.id);

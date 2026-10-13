@@ -11,6 +11,7 @@ each passage the author's order and qualifications remain intact. Unknown
 headings stay with the surrounding passage rather than being interpreted as events.
 """
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
 import hashlib
 import re
@@ -143,8 +144,12 @@ def compile_cases(manual, graph, briefs, full):
     for account in result['cases']:
         account.setdefault('origin', 'narrative')
     directory = Path(__file__).resolve().parent / 'narratives'
-    for path in sorted(directory.glob('*.json')):
-        account = json.loads(path.read_text(encoding='utf-8'))
+    paths = sorted(directory.glob('*.json'))
+    # Hundreds of small files: read a few at a time (see tools/source/tree.py).
+    with ThreadPoolExecutor(16) as pool:
+        texts = list(pool.map(lambda p: p.read_text(encoding='utf-8'), paths, chunksize=16))
+    for path, text in zip(paths, texts):
+        account = json.loads(text)
         assert path.stem == account['id'], f'{path.name}: file and case identities differ'
         assert account.get('origin') == 'narrative', f'{path.name}: only authored narratives may be compiled'
         result['cases'].append(account)

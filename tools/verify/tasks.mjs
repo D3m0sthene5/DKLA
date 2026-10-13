@@ -19,7 +19,10 @@ export const tasks=[
   // Reads every source file once, checks any cached copy against it and leaves
   // the cache fresh, so the steps below share this one read (see tools/source/tree.py).
   step('source','source reassembles',py('tools/source/check.py','--verify')),
-  ...buildSteps.map(s=>({group:'build',...s,needs:s.needs.length?s.needs:SOURCE})),
+  // The build does not wait for that step: it uses the cache if the files are
+  // unchanged since it was written, and the step above fails the pass if the
+  // cache and the files ever disagree.
+  ...buildSteps.map(s=>({group:'build',...s})),
 
   // Source and unit checks: no build output involved.
   step('source','source parts',py('tools/source/test_parts.py')),
@@ -66,5 +69,5 @@ export const tasks=[
   step('browser','public files and server',node('tools/verify/check_public.mjs','{url}'),SERVER),
   step('browser','29 interactions',node('tools/verify/browser_smoke.cjs','--url','{page}','--output','work/browser-smoke'),SERVER),
   step('browser','map geometry',py('tools/verify/compare_geometry.py','tools/verify/geometry','work/browser-smoke'),['29 interactions']),
-  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers=5','--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'}},
+  {...step('browser','Home at nine window sizes',node('node_modules/@playwright/test/cli.js','test','tools/v25/home-fit.spec.mjs','--fully-parallel','--workers=9','--reporter=line'),SERVER),env:{DKLA_HOME_TEST_URL:'{page}'}},
 ];

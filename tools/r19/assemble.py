@@ -12,6 +12,7 @@ import json
 import re
 import runpy
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -313,12 +314,18 @@ def build_data() -> tuple[dict, dict]:
     audit_raw = json.loads((DATA / "audit.json").read_text(encoding="utf-8")) if (DATA / "audit.json").is_file() else {}
     audit, skips = {}, {}
     plain = json.loads((DATA / "plain-sections.json").read_text(encoding="utf-8")) if (DATA / "plain-sections.json").is_file() else {}
-    for m in meta["entries"]:
+    def pick(m):
+        # A brief Claude audited and corrected is shown in its corrected form; the corrections are listed beside it.
         corrected = DATA / "audited" / (m["id"] + ".md")
         a = audit_raw.get(m["id"])
-        # A brief Claude audited and corrected is shown in its corrected form; the corrections are listed beside it.
-        use_corrected = bool(a) and a.get("verdict") == "corrected" and corrected.is_file()
-        text = (corrected if use_corrected else DATA / "briefs" / (m["id"] + ".md")).read_text(encoding="utf-8")
+        use = bool(a) and a.get("verdict") == "corrected" and corrected.is_file()
+        return use, corrected if use else DATA / "briefs" / (m["id"] + ".md")
+    picks = [pick(m) for m in meta["entries"]]
+    # About 1,500 small files: read a few at a time (opening them one by one can be very slow on Windows).
+    with ThreadPoolExecutor(16) as pool:
+        texts = list(pool.map(lambda chosen: chosen[1].read_text(encoding="utf-8"), picks, chunksize=16))
+    for m, (use_corrected, _), text in zip(meta["entries"], picks, texts):
+        a = audit_raw.get(m["id"])
         if m["fmt"] == "pdf" and not use_corrected:
             text = tidy_pdf_text(text)
         if a:
