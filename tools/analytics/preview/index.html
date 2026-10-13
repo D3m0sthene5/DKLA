@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="color-scheme" content="dark">
+  <title>DKLA · Analytics preview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="DKLA Analytics overview">
+      <svg class="mark" viewBox="0 0 104 104" aria-hidden="true"><path class="d" d="M22 13H44C71 13 86 29 86 50S71 87 44 87H22V13Z"/><path class="k" d="M22 52 56 17M22 52 58 86"/><path class="l" d="M22 85H54"/><path class="a" d="M52 85 72 28 91 85M59 65H82"/></svg>
+      <span>DKLA<small>PRIVATE ANALYTICS</small></span>
+    </a>
+    <div class="nav-label">WORKSPACE</div>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"><span data-icon="overview"></span>Overview</a>
+      <a href="#visitor=demo-01" data-nav="visitor"><span data-icon="people"></span>Visitor profile</a>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot"></span>Design preview<p>Fictional visitors.<br>No live collection.</p></div>
+    <div class="sidebar-bottom"><span class="owner-avatar">DK</span><div>Danny’s workspace<small>Personal project</small></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div><span class="breadcrumb">DKLA</span><span class="slash">/</span><span id="breadcrumb">Overview</span></div><div class="topbar-right"><span class="demo-pill">SAMPLE DATA</span><button class="icon-button" id="helpButton" aria-label="About this preview" data-icon="info"></button></div></header>
+    <main id="main" tabindex="-1"></main>
+    <footer>DKLA Analytics <span>·</span> Screen review, October 11, 2026 <span>·</span> All people, networks and activity shown are fictional.</footer>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="dialog"><form method="dialog" class="dialog-shell"><div class="dialog-head"><h2 id="dialogTitle"></h2><button class="icon-button" value="cancel" aria-label="Close dialog" data-icon="close"></button></div><div id="dialogBody"></div></form></dialog>
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  <script src="catalog.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

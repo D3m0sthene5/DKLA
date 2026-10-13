@@ -140,6 +140,7 @@
   const pageOffsets=new Map();
   function anchor(){
     const scotus=window.DKLAScotusBox||{x:-11400,y:10400,w:22800,h:4200},b=window.DKLAGeography?.bounds?.(),narrow=rect().w<700;
+    const v=rect();if(v.w>=600&&v.w/Math.max(1,v.h)>=1.25){Object.assign(BOX,{x:scotus.x-scotus.w-900,y:scotus.y,w:scotus.w});return BOX;}
     const bottom=Math.max(scotus.y+scotus.h,b&&Number.isFinite(b.y+b.h)?b.y+b.h:0),w=narrow?Math.min(scotus.w,15200):scotus.w;
     Object.assign(BOX,{x:scotus.x+(scotus.w-w)/2,y:bottom+900,w});return BOX;
   }
@@ -186,7 +187,7 @@
       layout=arrange(0,n.children.slice(pages[page].start,pages[page].end));layout.h+=62;
     }
     const unit=overview?BOX.w/width:1,cards=new Map([...layout.cards].map(([key,c])=>[key,{...c,x:BOX.x+c.x*unit,y:BOX.y+c.y*unit,w:c.w*unit,h:c.h*unit,unit}]));
-    const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit},fit={...box};if(overview)BOX.h=box.h;
+    const box={x:BOX.x,y:BOX.y,w:width*unit,h:layout.h*unit},fit={...box};if(overview){BOX.h=box.h;const v=rect();if(window.DKLAScotusBox&&v.w>=600&&v.w/Math.max(1,v.h)>=1.25)window.DKLAScotusBox.h=box.h;}
     geometryCache={key,box,cards,fit,unit,cols,density,header:header*unit,heading,headingFs,masthead,visibleRows:layout.rowEnds.length,safe:{...a},pages,page};return geometryCache;
   }
 
@@ -286,7 +287,7 @@
     const attrs=e?`data-map-jump="${esc(n.key)}"`:`data-map-region="${esc(n.key)}"`,clip='authority-clip-'+n.key.replace(/[^a-zA-Z0-9]/g,c=>'_'+c.charCodeAt(0).toString(16));
     let out=`<g class="authority-map-tile${e?' authority-map-provision':''}${card.cover?' authority-volume-cover':''}${chosen?' is-selected':''}" data-authority-collection="${esc(n.collection)}" data-authority-box="${card.x},${card.y},${card.w},${card.h}" ${attrs} role="${e?'button':'group'}"${e?' tabindex="0"':''} aria-label="${esc(e?'Read '+entryName(e):n.title)}"><title>${esc(e?entryName(e):n.title)}</title><rect class="authority-cover-bg" x="${card.x}" y="${card.y}" width="${card.w}" height="${card.h}" rx="${12*u}" fill="${chosen?s.paper:s.base}" stroke="${chosen?'#eee0bf':s.edge}" stroke-opacity=".85" stroke-width="${(chosen?2:1)/z}"/><path d="M${card.x+7*u} ${card.y+15*u}V${card.y+card.h-15*u}" stroke="${s.edge}" stroke-opacity=".6" stroke-width="${3*u}" pointer-events="none"/><defs><clipPath id="${clip}"><rect x="${card.x+pad}" y="${card.y+10*u}" width="${card.w-pad*2}" height="${card.h-20*u}"/></clipPath></defs><g clip-path="url(#${clip})">`;
     if(!e)out+=`<g class="authority-title-control" ${attrs} role="button" tabindex="0" aria-label="${esc('Explore '+n.title)}">`;
-    if(overview&&card.w*z<150){
+    if(overview&&card.w*z<150&&!window.DKLAHomeFit?.fullLabels?.()){
       const title=shortTitles[n.collection]||n.title,fs=Math.min(20,(card.w/u-m.pad*2)/Math.max(6,title.length*.60));
       if(fs*z*u>=10){const lines=rows(title,card.w/u-m.pad*2,fs,550,Infinity,'authority-volume-title');out+=text(lines,card.x+pad,card.y+pad+fs*u,fs*u,s.ink,550,'authority-volume-title');}
       out+=identity(n,card.x+card.w-pad-42*u,card.y+card.h-pad-42*u,42*u);

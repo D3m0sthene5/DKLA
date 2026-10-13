@@ -101,6 +101,21 @@ and full-source return. Use
 `tools/cold-call/preview.html` at 390px, 768px and 1100px. Keep all narrative
 paragraphs visible in reading mode.
 
+## Main-case narrative audit
+
+`main-audit.json` records the fresh case-by-case comparison of all 392 illustrated
+main accounts with their complete effective canonical sources. It records specific
+repairs, retained accounts, supported opening sequences, and source limits.
+Targeted primary-source checks are recorded separately; a full-brief comparison
+must not be described as an independent check of every reported opinion.
+
+Run `python3 tools/cold-call/check_main_audit.py` after the normal narrative checks.
+It verifies exact scope, source fingerprints, and the reviewed prose and account
+hashes. It does not prove semantic accuracy. After changing an audited main account,
+read it against the complete effective source again and update its individual
+review record; do not simply refresh hashes to bypass a failed check. Supporting
+accounts remain outside this audit.
+
 ## Rejected fallback
 
 The earlier v25/v2.4 implementation indexed full-brief sections and counted

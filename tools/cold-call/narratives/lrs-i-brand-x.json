@@ -4,7 +4,7 @@
   "title": "National Cable & Telecommunications Association v. Brand X Internet Services",
   "course": "Legislation and the Regulatory State",
   "citation": "545 U.S. 967 (2005)",
-  "revision": 1,
+  "revision": 2,
   "origin": "narrative",
   "lead": "The Federal Communications Commission classifies integrated cable Internet service after an appellate court has interpreted the same statute, producing a historical dispute about administrative deference, precedent, and the meaning of an offered service.",
   "actors": [
@@ -37,10 +37,15 @@
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "LRS-ATLAS-I-BRAND-X"
+    },
+    {
+      "id": "primary-parties",
+      "label": "Court opinion: targeted party check",
+      "url": "https://supreme.justia.com/cases/federal/us/545/967/"
     }
   ],
   "review": {
-    "basis": "Individually written and compared with the canonical full brief; no new independent opinion audit claimed.",
+    "basis": "Fresh comparison with complete effective canonical brief; no new independent primary-source audit claimed. Targeted primary-source check of named parties and consolidated petitions; no full new opinion audit.",
     "checkedOn": "2026-10-11",
     "chronology": true,
     "antecedents": true,
@@ -54,7 +59,7 @@
       "cue": "Why did classification change regulatory obligations?",
       "paragraphs": [
         "Cable-modem service delivered fast Internet access over cable television networks. The Communications Act automatically imposed Title II common-carrier duties on telecommunications carriers, including nondiscriminatory and reasonable rates, interconnection, and universal-service contributions. Information-service providers did not automatically bear those obligations.",
-        "The Federal Communications Commission’s earlier Computer II regime distinguished essentially transparent basic transmission from enhanced processing or storage. The 1996 Act defined telecommunications, telecommunications service, and information service separately. Internet access used transmission but also browsing, email, file transfer, domain-name lookup, and other processing. The question was what service the company offered customers, not whether wires transmitted data at all.",
+        "The Federal Communications Commission (FCC), in its earlier Computer II regime, distinguished essentially transparent basic transmission from enhanced processing or storage. The 1996 Act defined telecommunications, telecommunications service, and information service separately. Internet access used transmission but also browsing, email, file transfer, domain-name lookup, and other processing. The question was what service the company offered customers, not whether wires transmitted data at all.",
         "After starting a proceeding in September 2000, the FCC issued its March 2002 declaratory ruling treating cable-modem access solely as an information service. Transmission and processing formed an integrated offer. An earlier Universal Service Report had classified providers leasing transmission facilities as information services; the agency saw no statutory reason to change the result because cable firms owned those facilities. It left open access duties for independent providers under ancillary Title I authority."
       ],
       "sources": [
@@ -69,13 +74,17 @@
       "title": "The Ninth Circuit applies its earlier construction and the agency seeks review",
       "cue": "What made the precedent problem different from an ordinary agency appeal?",
       "paragraphs": [
-        "Many parties petitioned for review, and a judicial lottery placed the cases in the Ninth Circuit. That court partly vacated the rule by following AT&T Corp. v. Portland, its earlier classification of cable-modem service as telecommunications service. Portland had not reviewed an FCC proceeding, and the agency had not participated. The Ninth Circuit did not evaluate the new interpretation under Chevron.",
-        "The FCC and cable-industry parties separately sought Supreme Court review. Justice Thomas wrote for Chief Justice Rehnquist and Justices Stevens, O’Connor, Kennedy, and Breyer. The Court addressed the effect of precedent, the reasonableness of the classification, and the agency’s explanation for differing cable and DSL treatment."
+        "Brand X Internet Services and other parties petitioned for review, and a judicial lottery placed the cases in the Ninth Circuit. That court partly vacated the rule by following AT&T Corp. v. Portland, its earlier classification of cable-modem service as telecommunications service. Portland had not reviewed an FCC proceeding, and the agency had not participated. The Ninth Circuit did not evaluate the new interpretation under Chevron.",
+        "The FCC and the United States brought one Supreme Court petition; the National Cable & Telecommunications Association and other cable-industry parties brought the other. Justice Thomas wrote for Chief Justice Rehnquist and Justices Stevens, O’Connor, Kennedy, and Breyer. The Court addressed the effect of precedent, the reasonableness of the classification, and the agency’s explanation for differing cable and digital subscriber line (DSL) treatment."
       ],
       "sources": [
         {
           "id": "brief",
           "pinpoint": "545 U.S. at 967 note, 979–980; Questions and procedure"
+        },
+        {
+          "id": "primary-parties",
+          "pinpoint": "545 U.S. 967–972 caption and 979–980: two petitions and challenged ruling"
         }
       ]
     },

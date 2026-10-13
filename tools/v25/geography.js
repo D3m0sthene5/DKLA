@@ -11,7 +11,7 @@
   const LRS = 'Legislation and the Regulatory State';
   const targets = {
     tall: { Contracts: [-7370,-13364], 'Civil Procedure': [-16440,-360], [LRS]: [1500,-360], 'workbench-region': [-1700,900], 'dictionary-region': [-1700,2700] },
-    wide: { Contracts: [-7370,700], 'Civil Procedure': [-23310,700], [LRS]: [8370,700], 'workbench-region': [12700,13500], 'dictionary-region': [15500,13500] },
+    wide: { Contracts: [-7370,700], 'Civil Procedure': [-23310,700], [LRS]: [8370,700], 'workbench-region': [0,9650], 'dictionary-region': [15500,9650] },
   };
   const retiredRegions = { 'civil-region': 'cp-personal-region', 'extension-iekfaa-1': 'cp-governing-region', 'extension-cjl74v-1': 'lrs-region-legislative-process-and-statutory-interpretation' };
   const retiredDistricts = { 'civil-contacts': 'cp-specific', 'civil-jurisdiction': 'cp-consent', 'extension-iekfaa-1-area': 'cp-erie-rules', 'extension-cjl74v-1-area': 'lrs-topic-legislative-process-and-statutory-interpretation-statutory-applications', 'reading-index': 'semester-readings', 'source-gaps': 'semester-sources', 'lrs-topic-rulemaking-reasoned-decisionmaking': 'lrs-topic-judicial-review-reasoned-decisionmaking', 'lrs-topic-judicial-review-and-standing-substantial-note-authorities': 'lrs-topic-judicial-review-and-standing-constitutional-standing' };
@@ -52,7 +52,7 @@
 
   function arrangement() {
     const v = typeof rect === 'function' ? rect() : { w:window.innerWidth, h:window.innerHeight };
-    return v.w >= 900 && v.w / Math.max(1,v.h) >= 1.7 ? 'wide' : 'tall';
+    return v.w >= 600 && v.w / Math.max(1,v.h) >= 1.25 ? 'wide' : 'tall';
   }
   function absolute(o,T) {
     const out=copy(o), a=T[o.anchor];

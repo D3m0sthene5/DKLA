@@ -700,15 +700,18 @@ def main() -> None:
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]
-    # r20.6: the atlas boots from studyCode while the browser is still parsing the r19 blocks at the end of the file,
-    # so for about half a second it ran as the old atlas (the "Legal Atlas" header, the triangle layout, no SCOTUS
-    # block, the old centre mark, the Contracts welcome block). A head rule keeps everything invisible behind a dark
-    # page with a small DKLA label until r20.js has arranged the map (html.r20-ready), and keeps the welcome block
-    # and the unreshaped mark hidden after that.
+    # The baseline starts rendering before the appended release has finished
+    # parsing. Only the final boot module may uncover the current interface;
+    # r20-ready and its timeout are deliberately insufficient. Ancestor opacity
+    # also contains descendants that explicitly set visibility:visible.
     boot = ('<style id="dklaR20Boot">html{background:#101820}'
-            'html:not(.r20-ready) body>*{visibility:hidden!important}'
-            'html:not(.r20-ready) body::before{content:"DKLA";position:fixed;inset:0;display:grid;place-items:center;'
+            'html:not(.dkla-boot-ready) body>*:not(#dklaBootNotice),html:not(.dkla-boot-ready) dialog,html:not(.dkla-boot-ready) [popover]'
+            '{opacity:0!important;visibility:hidden!important;pointer-events:none!important}'
+            'html:not(.dkla-boot-ready) body::before{content:"DKLA";position:fixed;inset:0;display:grid;place-items:center;'
             'font:600 20px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.35em;color:#6f8294}'
+            '#dklaBootNotice{position:fixed;top:calc(50% + 40px);left:24px;right:24px;text-align:center;'
+            'font:400 14px/1.6 "Segoe UI",Arial,sans-serif;color:#b6c8d3}'
+            '#dklaBootNotice a{color:#d1e8f7;text-underline-offset:3px}'
             '#mapWelcome{visibility:hidden}body.r20-settled #mapWelcome{visibility:visible}'
             '#geoCanvas svg[viewBox="0 0 244 78"],#geoCanvas .dkla-map-monogram:not([data-r20]){visibility:hidden}</style>')
     if output.count("</head>") != 1:
@@ -730,7 +733,7 @@ def main() -> None:
     route_path = ROOT / "vercel.json"
     routes = json.loads(route_path.read_text(encoding="utf-8"))
     destination = "/" + TARGET.name
-    previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/")
+    previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/" and not r.get("has") and not r.get("missing"))
     if previous != destination and not any(r["source"] == previous for r in routes.get("redirects", [])):
         routes.setdefault("redirects", []).append(dict(source=previous, destination=destination, permanent=False))
     for route in routes.get("redirects", []) + routes["rewrites"]:

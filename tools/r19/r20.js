@@ -245,7 +245,7 @@
 
   /* ---------- 3. a course sits in the middle of the screen ----------
      The two small buttons at the top left reserved a whole column, pushing each course to the right. */
-  const wideScreen = () => { const v = rect(); return v.w >= 900 && v.w / Math.max(1, v.h) >= 1.7; };
+  const wideScreen = () => { const v = rect(); return v.w >= 600 && v.w / Math.max(1, v.h) >= 1.25; };
   if (typeof safeArea === 'function') {
     const safe0 = safeArea;
     safeArea = function () {
@@ -275,7 +275,7 @@
   const LRS = 'Legislation and the Regulatory State';
   const ARR = {
     tall: { 'Contracts': [-7370, -13364], 'Civil Procedure': [-16440, -360], [LRS]: [1500, -360], 'workbench-region': [-1700, 900], 'dictionary-region': [-1700, 2700] },
-    wide: { 'Contracts': [-7370, 700], 'Civil Procedure': [-23310, 700], [LRS]: [8370, 700], 'workbench-region': [12700, 13500], 'dictionary-region': [15500, 13500] },
+    wide: { 'Contracts': [-7370, 700], 'Civil Procedure': [-23310, 700], [LRS]: [8370, 700], 'workbench-region': [0, 9650], 'dictionary-region': [15500, 9650] },
   };
   let arranged = null;
   function arrange(mode) {
@@ -297,7 +297,7 @@
       moved = true;
     }
     // SCOTUS History stands clear below the courses and their supporting-cases tiles
-    if (window.DKLAScotusBox) { const y = mode === 'wide' ? 12300 : 11200; if (window.DKLAScotusBox.y !== y) { window.DKLAScotusBox.y = y; moved = true; } }
+    if (window.DKLAScotusBox) { const p = mode === 'wide' ? {x:200,y:11200} : {x:-11400,y:11200,h:4200}; for(const [key,value]of Object.entries(p))if(window.DKLAScotusBox[key]!==value){window.DKLAScotusBox[key]=value;moved=true;} }
     for (const id of ['workbench-region', 'dictionary-region']) {
       const r = M.regions.find(x => x.id === id), t = T[id]; if (!r || !t) continue;
       const dx = t[0] - r.x, dy = t[1] - r.y; if (dx || dy) { shift([id], dx, dy); moved = true; }

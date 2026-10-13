@@ -51,6 +51,9 @@ number_resolutions = {
     ('lrs-n-standing-thompson', '1964'): 'Expansion of the source’s Title VII reference. The statutory title was checked against https://www.eeoc.gov/statutes/title-vii-civil-rights-act-1964 on 2026-10-11.',
     ('hamer', '1877'): 'The pilot cites the opinion directly: 124 N.Y. 549 records the March 1, 1877 assignment to Libbie. Rechecked in the linked Justia opinion on 2026-10-11.',
     ('cp-pennoyer', '1865'): 'The pilot cites the opinion directly: 95 U.S. 716–717 records the November 13, 1865 publication order. Rechecked in the linked Justia opinion on 2026-10-11.',
+    ('cohen-cowles', '1969'): 'Targeted fresh check of 501 U.S. 663, 665–666 (1991), https://supreme.justia.com/cases/federal/us/501/663/, supplies the dismissed 1969 protest charges. Recorded separately from the canonical-brief comparison in main-audit.json.',
+    ('cohen-cowles', '1970'): 'Targeted fresh check of 501 U.S. 663, 665–666 (1991), https://supreme.justia.com/cases/federal/us/501/663/, supplies the 1970 conviction later vacated. Recorded separately from the canonical-brief comparison in main-audit.json.',
+    ('cohen-cowles', '$6'): 'Targeted fresh check of 501 U.S. 663, 665–666 (1991), https://supreme.justia.com/cases/federal/us/501/663/, supplies the value of the sewing materials. Recorded separately from the canonical-brief comparison in main-audit.json.',
 }
 for story in stories['cases']:
     paragraphs = [p for section in story['sections'] for p in section['paragraphs']]

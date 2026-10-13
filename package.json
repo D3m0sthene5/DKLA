@@ -2,8 +2,20 @@
   "name": "dkla",
   "private": true,
   "type": "module",
-  "description": "Danny Kind Legal Atlas: static atlas plus one serverless function for ratings sync",
+  "description": "Danny Kind Legal Atlas: static atlas with first-party analytics, private admin and ratings sync",
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "test:analytics": "node --test tools/analytics/analytics.test.mjs",
+    "check:analytics": "node tools/analytics/check.mjs",
+    "build:analytics": "node tools/analytics/prepare.mjs",
+    "test:home": "playwright test tools/v25/home-fit.spec.mjs"
+  },
   "dependencies": {
+    "@neondatabase/serverless": "1.2.0",
     "@vercel/blob": "^2.8.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@playwright/test": "1.64.0"
   }
 }
