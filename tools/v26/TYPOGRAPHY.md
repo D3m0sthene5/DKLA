@@ -122,3 +122,9 @@ Checked on the real build: pnpm check and check:v26, the 29 browser
 interactions, Home at nine window sizes, and a headless test that figure
 links open the right address without opening SCOTUS History while seats and
 the roof still open it. Looked at in screenshots at 1440x900.
+
+Everything inside the SCOTUS History view now uses the system sans (no
+Orbitron in the lists, cards or headings). The Cold call button's vapour has
+18 particles instead of 14 (about 30% more) within the same six-pixel side
+spill, so it still stops short of Full brief; frost.js is recorded as a
+reviewed replacement in tools/performance/approved-runtime.json.
