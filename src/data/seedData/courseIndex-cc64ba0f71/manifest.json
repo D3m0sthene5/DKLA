@@ -1,0 +1,43 @@
+{
+  "pointer": "/courseIndex",
+  "parts": [
+    {
+      "literal": "{\"version\":"
+    },
+    {
+      "path": "data/seedData/courseIndex-cc64ba0f71/version-5ca4f3850c.json",
+      "pointer": "/courseIndex/version"
+    },
+    {
+      "literal": ",\"scope\":"
+    },
+    {
+      "path": "data/seedData/courseIndex-cc64ba0f71/scope-5f161c9149.json",
+      "pointer": "/courseIndex/scope"
+    },
+    {
+      "literal": ",\"groups\":"
+    },
+    {
+      "manifest": "data/seedData/courseIndex-cc64ba0f71/groups-4ed379d418/manifest.json",
+      "pointer": "/courseIndex/groups"
+    },
+    {
+      "literal": ",\"topics\":"
+    },
+    {
+      "manifest": "data/seedData/courseIndex-cc64ba0f71/topics-f013aa4b8d/manifest.json",
+      "pointer": "/courseIndex/topics"
+    },
+    {
+      "literal": ",\"review\":"
+    },
+    {
+      "path": "data/seedData/courseIndex-cc64ba0f71/review-c97ace4c8f.json",
+      "pointer": "/courseIndex/review"
+    },
+    {
+      "literal": "}"
+    }
+  ]
+}

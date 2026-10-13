@@ -29,7 +29,7 @@ def check():
     if hashlib.sha256(timeline_path.read_bytes()).hexdigest() != audit.get('timelinesSha256'):
         problems.append('Timeline data changed after the recorded review; review the change and update its ledger deliberately.')
     data, full = assemble.build_data()
-    baseline = (ROOT / 'DKLA-r18.html').read_text(encoding='utf-8')
+    baseline = assemble.read_source().decode('utf-8')
     seed = json.loads(re.search(r'<script[^>]*id="seedData"[^>]*>(.*?)</script>', baseline, re.S).group(1))
     nodes = {n['id']: n for n in seed['nodes']}
     nodes.update({n['id']: n for n in json.loads((ROOT / 'tools/r19/data/rules22.json').read_text(encoding='utf-8'))['rules']})

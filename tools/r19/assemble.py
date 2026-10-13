@@ -1,14 +1,8 @@
-"""Build DKLA-r19.html from the published r18 artifact.
+"""Build the current release from src/ plus the existing canonical later layers.
 
-r19 adds Codex's audited briefs. Every r18 block is preserved byte for byte; everything is appended:
-  dklaR19Data   map of atlas cases to briefs, the converted six sections, review status, supporting cases
-  dklaR19Full   the complete text of every audited brief
-  dklaR19Styles, dklaR19Briefs
-
-Inputs live in tools/r19/data (written by snapshot.py and merge_conv.py); the step is re-runnable:
-take a new snapshot, convert what changed, rebuild.
-
-Run after tools/r18/assemble.py: python3 tools/r19/assemble.py
+Early script/style/JSON records reassemble byte-for-byte; their classic browser
+execution order stays intact. Generated files live in ignored work/build/.
+Do not run historical assemblers as a prerequisite.
 """
 from __future__ import annotations
 
@@ -17,16 +11,29 @@ import hashlib
 import json
 import re
 import runpy
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 DATA = PARTS / "data"
-SOURCE = ROOT / "DKLA-r18.html"
-TARGET = ROOT / "DKLA-v2.5.html"
+sys.path.insert(0, str(ROOT / "tools"))
+from source import read_source, source_hash
+BUILD = ROOT / "work/build"
+TARGET = BUILD / "DKLA-v2.5.html"
 EXPECTED_R18 = "bffd3d4469836a19eaafbd2e29eff443b08b87d496147c887f5d2589d3cb45c1"
 VERSION = "v2.5"
 LABEL = "v2.5"
+
+def unique_config_object(pairs):
+    """Reject ambiguous configuration, never apply this to inherited legal data."""
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError('Duplicate configuration key: ' + key)
+        result[key] = value
+    return result
+
 COURSES = ["Contracts", "Civil Procedure", "Legislation and the Regulatory State"]
 KEYS = ["Parties", "Procedural History", "Material Facts", "Issue", "Holding", "Reasoning"]
 # v22.1: every version is written v"number" (v22.1, v19.13), retconned through the whole history.
@@ -619,9 +626,8 @@ def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
 
 
 def main() -> None:
-    source_bytes = SOURCE.read_bytes()
-    if digest(source_bytes) != EXPECTED_R18:
-        raise ValueError("DKLA-r18.html is not the build r19 was made from; rebuild r18 or update EXPECTED_R18")
+    BUILD.mkdir(parents=True, exist_ok=True)
+    source_bytes = read_source()
     source = source_bytes.decode("utf-8")
     old = script_blocks(source)
     graph = json.loads(old["seedData"])
@@ -699,7 +705,7 @@ def main() -> None:
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (PARTS / "sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([EXPECTED_R18, json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
@@ -743,13 +749,13 @@ def main() -> None:
     if any(new.get(k) != v for k, v in old.items()):
         raise ValueError("an r18 block changed during the r19 build")
     TARGET.write_text(output, encoding="utf-8", newline="\n")
-    (ROOT / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8", newline="\n")
-    (ROOT / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
+    (BUILD / "sw.js").write_text(sw_template.replace("__DKLA_BUILD__", build).replace("__DKLA_ATLAS__", TARGET.name), encoding="utf-8", newline="\n")
+    (BUILD / "version.json").write_text(json.dumps({"version": LABEL, "build": build, "file": TARGET.name}) + "\n", encoding="utf-8", newline="\n")
     # Publish routing and metadata with the generated artifact, never a half-release.
-    index = ROOT / "index.html"
-    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, index.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
+    index = BUILD / "index.html"
+    index.write_text(re.sub(r"DKLA-[rv][0-9.]+\.html", TARGET.name, (ROOT / "index.html").read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     route_path = ROOT / "vercel.json"
-    routes = json.loads(route_path.read_text(encoding="utf-8"))
+    routes = json.loads(route_path.read_text(encoding="utf-8"), object_pairs_hook=unique_config_object)
     destination = "/" + TARGET.name
     previous = next(r["destination"] for r in routes["rewrites"] if r["source"] == "/" and not r.get("has") and not r.get("missing"))
     if previous != destination and not any(r["source"] == previous for r in routes.get("redirects", [])):
@@ -757,12 +763,13 @@ def main() -> None:
     for route in routes.get("redirects", []) + routes["rewrites"]:
         if re.fullmatch(r"/DKLA-[rv][0-9.]+\.html", route.get("destination", "")):
             route["destination"] = destination
-    route_path.write_text(json.dumps(routes, indent=2) + "\n", encoding="utf-8", newline="\n")
+    if routes != json.loads(route_path.read_text(encoding="utf-8")):
+        raise ValueError("Update canonical vercel.json routing explicitly for this release")
     kinds = {}
     for e in data["entries"]:
         kinds[e[3]] = kinds.get(e[3], 0) + 1
     audit = {
-        "r18_sha256": EXPECTED_R18, "r19_sha256": digest(TARGET.read_bytes()), "build": build, "snapshot": data["taken"],
+        "r18_sha256": source_hash(source_bytes), "r19_sha256": digest(TARGET.read_bytes()), "build": build, "snapshot": data["taken"],
         "briefs": len(data["entries"]), "mapped_cases": len(data["map"]), "converted": len(data["sections"]),
         "mapped_without_conversion": sorted(a for a, c in data["map"].items() if c not in data["sections"]),
         "supporting": sum(1 for e in data["entries"] if not e[6]), "review": kinds,
@@ -772,7 +779,7 @@ def main() -> None:
         "runtime_modules": modules,
         "design_assets": [{"path": 'tools/v25/assets/we-the-people.png', "sha256": digest(masthead_bytes), "bytes": len(masthead_bytes)}],
     }
-    (PARTS / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
+    (BUILD / "integrity.json").write_text(json.dumps(audit, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({k: (v if k != "mapped_without_conversion" else len(v)) for k, v in audit.items()}, indent=1))
 
 

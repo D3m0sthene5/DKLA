@@ -2,7 +2,7 @@
  * Camera layout, real pointer activation and typography also need browser QA. */
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
 const root=path.resolve(__dirname,'../..');
-const file=process.argv[2]?path.resolve(process.argv[2]):path.join(root,JSON.parse(fs.readFileSync(path.join(root,'version.json'),'utf8')).file);
+const file=process.argv[2]?path.resolve(process.argv[2]):path.join(root,'work/build',JSON.parse(fs.readFileSync(path.join(root,'work/build/version.json'),'utf8')).file);
 const html=fs.readFileSync(file,'utf8'),embedded=html.match(/<script\b[^>]*\bid="dklaAuthoritiesData"[^>]*>([\s\S]*?)<\/script>/);
 assert.ok(embedded,'Authority data missing from release');const data=JSON.parse(embedded[1]);
 const markBlock=html.match(/<script\b[^>]*\bid="dklaWeThePeopleAsset"[^>]*>([\s\S]*?)<\/script>/);

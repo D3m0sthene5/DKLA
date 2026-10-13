@@ -3,7 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
-const { chromium } = require('playwright');
+const { chromium } = require('@playwright/test');
 const args = process.argv.slice(2);
 const option = (name, fallback) => { const i=args.indexOf(name); return i<0?fallback:args[i+1]; };
 const url = option('--url', 'http://127.0.0.1:8765/DKLA-v2.5.html');
@@ -22,7 +22,8 @@ async function ready(page){await page.locator('html.dkla-boot-ready').waitFor({t
 async function closeDialogs(page){await page.evaluate(()=>{window.DKLAColdCall?.close();window.DKLAStudy?.close();for(const d of document.querySelectorAll('dialog[open]'))d.close();});}
 async function route(page,hash){await closeDialogs(page);await page.evaluate(hash=>{location.hash=hash;},hash);}
 (async()=>{
-  browser=await chromium.launch({headless:true,executablePath:option('--chrome','C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe')});
+  const installedChrome=process.env.DKLA_CHROME||(process.platform==='win32'?'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe':process.platform==='darwin'?'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome':undefined);
+  browser=await chromium.launch({headless:true,executablePath:option('--chrome',installedChrome)});
   for(const viewport of [{name:'desktop',width:1440,height:900},{name:'phone-landscape',width:844,height:390},{name:'phone-portrait',width:390,height:844}]){
     const context=await browser.newContext({viewport:{width:viewport.width,height:viewport.height},isMobile:viewport.name!=='desktop',hasTouch:viewport.name!=='desktop',acceptDownloads:true,serviceWorkers:'block'});
     await context.route('**/*',async route=>{

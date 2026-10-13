@@ -14,6 +14,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from source import read_source
 CACHE = ROOT.parent / 'authorities-cache'
 DATA = HERE / 'authorities.json'
 DATE = '2026-10-11'
@@ -292,7 +294,7 @@ def selections():
     return out,[dict(file='added-sources/index/contracts-selections.json',sha256=h),pdf_source],fixes
 
 def graph_records():
-    text=(ROOT/'DKLA-r18.html').read_text(encoding='utf8')
+    text=read_source().decode('utf8')
     graph=json.loads(re.search(r'<script[^>]+id="seedData"[^>]*>(.*?)</script>',text,re.S)[1])
     nodes=graph['nodes'][:]
     for name in ['rules22','rlcc']:

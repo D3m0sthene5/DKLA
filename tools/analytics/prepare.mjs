@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const html = await readFile(path.join(root, 'DKLA-r18.html'), 'utf8');
+const html = await readFile(path.join(root, 'work/build/DKLA-v2.5.html'), 'utf8');
 const seed = JSON.parse(html.match(/<script\b[^>]*id="seedData"[^>]*>([\s\S]*?)<\/script>/i)[1]);
 const geometry = JSON.parse(await readFile(path.join(root, 'tools/v25/geography.json'), 'utf8'));
 const targets = { tall: { Contracts: [-7370,-13364], 'Civil Procedure': [-16440,-360], 'Legislation and the Regulatory State': [1500,-360], 'workbench-region': [-1700,900], 'dictionary-region': [-1700,2700] }, wide: { Contracts: [-7370,700], 'Civil Procedure': [-23310,700], 'Legislation and the Regulatory State': [8370,700], 'workbench-region': [12700,13500], 'dictionary-region': [15500,13500] } };
@@ -24,9 +24,9 @@ const courses=['Contracts','Civil Procedure','Legislation and the Regulatory Sta
 for(const entry of authorityData.entries){const collection=authorityCollections.get(entry.collection);nodes.push({id:'authority:'+entry.id,title:entry.cite+(entry.title!==entry.cite?' — '+entry.title:''),kind:'Authority',course:courses[collection?.course]||'',region:'',district:'',subject:collection?.title||'Rules & authorities'});}
 const catalog = { layoutId:geometry.layoutId,source:'Current locked v2.5 geography',layouts,nodes,...layouts.wide };
 await mkdir(path.join(root,'lib/analytics'),{recursive:true});
-await mkdir(path.join(root,'assets/admin'),{recursive:true});
+await mkdir(path.join(root,'work/build/assets/admin'),{recursive:true});
 await writeFile(path.join(root,'lib/analytics/catalog.json'),JSON.stringify(catalog));
-await writeFile(path.join(root,'assets/admin/catalog.js'),'window.DKLA_CATALOG = '+JSON.stringify(catalog)+';\n');
+await writeFile(path.join(root,'work/build/assets/admin/catalog.js'),'window.DKLA_CATALOG = '+JSON.stringify(catalog)+';\n');
 console.log(`Analytics catalogue: ${nodes.length} entries; ${catalog.regions.length} subjects; tall and wide layouts.`);
 if (!process.argv.includes('--catalog-only')) {
   await mkdir(path.join(root,'lib/analytics/asn'),{recursive:true});

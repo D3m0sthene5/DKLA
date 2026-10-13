@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PARTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(PARTS))
-from assemble import EXPECTED_R18, KEYS, TARGET, script_blocks, load_runtime_modules  # noqa: E402
+from assemble import BUILD, read_source, KEYS, TARGET, script_blocks, load_runtime_modules, unique_config_object  # noqa: E402
 
 errors: list[str] = []
 
@@ -26,8 +26,7 @@ def require(condition: bool, message: str) -> None:
         errors.append(message)
 
 
-r18_bytes = (ROOT / "DKLA-r18.html").read_bytes()
-require(hashlib.sha256(r18_bytes).hexdigest() == EXPECTED_R18, "DKLA-r18.html is not the build r19 was made from")
+r18_bytes = read_source()
 r18 = script_blocks(r18_bytes.decode("utf-8"))
 html = TARGET.read_text(encoding="utf-8")
 r19 = script_blocks(html)
@@ -81,21 +80,28 @@ for course, t in data["tiles"].items():
 
 node = shutil.which("node")
 if node:
+    res = subprocess.run([node, '--experimental-vm-modules', str(ROOT / 'tools/source/check_html.cjs'), str(TARGET)], capture_output=True, text=True)
+    require(res.returncode == 0, 'built script/JSON parse failure: ' + res.stderr.strip()[:500])
+    if res.returncode == 0:
+        print('All rebuilt inline blocks parsed: ' + res.stdout.strip())
     with tempfile.TemporaryDirectory() as tmp:
-        for name, src in (("dklaR19Briefs.js", r19["dklaR19Briefs"]), ("sw.js", (ROOT / "sw.js").read_text(encoding="utf-8"))):
+        for name, src in (("dklaR19Briefs.js", r19["dklaR19Briefs"]), ("sw.js", (BUILD / "sw.js").read_text(encoding="utf-8"))):
             p = Path(tmp) / name
             p.write_text(src, encoding="utf-8")
             res = subprocess.run([node, "--check", str(p)], capture_output=True, text=True)
             require(res.returncode == 0, f"{name} does not parse: {res.stderr.strip()[:200]}")
+else:
+    require(False, 'Node.js is required to validate every rebuilt JavaScript block')
 
-version = json.loads((ROOT / "version.json").read_text(encoding="utf-8"))
+version = json.loads((BUILD / "version.json").read_text(encoding="utf-8"))
 require(version.get("build") == data.get("build") and version.get("file") == TARGET.name, "version.json does not describe this build")
-sw = (ROOT / "sw.js").read_text(encoding="utf-8")
+sw = (BUILD / "sw.js").read_text(encoding="utf-8")
 require(f"const BUILD = '{data['build']}';" in sw and TARGET.name in sw, "sw.js does not serve this build")
-require(TARGET.name in (ROOT / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
-vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))
+require(TARGET.name in (BUILD / "index.html").read_text(encoding="utf-8"), "index.html does not open r19")
+vercel = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"), object_pairs_hook=unique_config_object)
+require(vercel.get('outputDirectory') == 'dist', 'Vercel must publish only the allowlisted dist directory')
 require(any(r.get("destination") == "/" + TARGET.name for r in vercel.get("rewrites", [])), "vercel.json does not serve r19 at the root")
-integrity = json.loads((PARTS / "integrity.json").read_text(encoding="utf-8"))
+integrity = json.loads((BUILD / "integrity.json").read_text(encoding="utf-8"))
 require(integrity.get("r19_sha256") == hashlib.sha256(TARGET.read_bytes()).hexdigest(), "integrity.json does not describe the current artifact")
 require(integrity.get('runtime_modules') == modules, 'module provenance or line ranges differ')
 

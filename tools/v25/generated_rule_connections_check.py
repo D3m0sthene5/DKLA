@@ -70,7 +70,7 @@ def check():
         assert inventory.sha((inventory.ROOT / path).read_text(encoding='utf-8')) == digest, 'Canonical rule catalogue changed after guarded integration: ' + path
     # Exercise the actual assembler validator with its baseline node set. An
     # arbitrary generated-looking ID and a nonexistent endpoint must fail.
-    baseline = json.loads(inventory.assemble.script_blocks(inventory.assemble.SOURCE.read_text(encoding='utf-8'))['seedData'])
+    baseline = json.loads(inventory.assemble.script_blocks(inventory.assemble.read_source().decode('utf-8'))['seedData'])
     baseline_nodes = {node['id']: node for node in baseline['nodes']}
     baseline_nodes.update({rule['id']: rule for rule in catalogues['rules22.json']['rules']})
     baseline_ids = {edge['id'] for edge in baseline['edges']}

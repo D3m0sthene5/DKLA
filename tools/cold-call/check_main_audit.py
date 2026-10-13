@@ -11,7 +11,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import SOURCE, build_data, script_blocks
+from assemble import read_source, build_data, script_blocks
 
 
 def account_hash(account):
@@ -22,7 +22,7 @@ def account_hash(account):
 def check():
     directory = ROOT / 'tools/cold-call'
     audit = json.loads((directory / 'main-audit.json').read_text(encoding='utf-8'))
-    graph = json.loads(script_blocks(SOURCE.read_text(encoding='utf-8'))['seedData'])
+    graph = json.loads(script_blocks(read_source().decode('utf-8'))['seedData'])
     data, full = build_data()
     compiler = runpy.run_path(str(directory / 'compile.py'))['compile_cases']
     stories = compiler(json.loads((directory / 'cases.json').read_text(encoding='utf-8')),

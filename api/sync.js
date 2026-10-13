@@ -38,7 +38,16 @@ export function merge(a, b) {
 }
 
 async function stored(prefix) {
-  const { blobs } = await list({ prefix, limit: 50 });
+  const found = new Map(), cursors = new Set();
+  let cursor;
+  do {
+    const page = await list({ prefix, limit: 50, ...(cursor ? { cursor } : {}) });
+    for (const blob of page.blobs) found.set(blob.url, blob);
+    if (!page.hasMore) break;
+    if (!page.cursor || cursors.has(page.cursor)) throw new Error('incomplete ratings listing');
+    cursor = page.cursor; cursors.add(cursor);
+  } while (true);
+  const blobs = [...found.values()];
   blobs.sort((x, y) => new Date(y.uploadedAt) - new Date(x.uploadedAt));
   return blobs;
 }
@@ -59,14 +68,18 @@ async function read(blob) {
   const found = await get(blob.url, { access: blob.url.includes('.private.') ? 'private' : 'public', useCache: false });
   if (!found?.stream) throw new Error('stored ratings unreadable');
   const json = await new Response(found.stream).json();
-  return cleanRatings(json?.ratings);
+  if (!json?.ratings || typeof json.ratings !== 'object' || Array.isArray(json.ratings)) throw new Error('stored ratings malformed');
+  const ratings = cleanRatings(json.ratings);
+  if (Object.keys(ratings).length !== Object.keys(json.ratings).length) throw new Error('stored ratings malformed');
+  return ratings;
 }
 
-// Two devices can upload at the same moment, each from the same older blob; merging every retained
-// blob (not just the newest) keeps both sets.
+// Concurrent uploads can each start from the same older snapshot. Merge every listed immutable
+// blob, including later listing pages, before acknowledging or pruning any part of that snapshot.
+// If another request pruned one while we read it, fail safely; the client can retry a fresh listing.
 async function readAll(blobs) {
   let base = {};
-  for (const blob of blobs.slice(0, KEEP + 2)) base = merge(base, await read(blob));
+  for (const blob of blobs) base = merge(base, await read(blob));
   return base;
 }
 
@@ -96,7 +109,7 @@ export default async function handler(req, res) {
       if (body.action === 'read') {
         if (!blobs.length) return send(res, 404, { error: 'unknown-code' });
         const ratings = await readAll(blobs);
-        if (configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
+        if (process.env.VERCEL_ENV !== 'preview' && configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
         return send(res, 200, { data: { ratings }, updatedAt: blobs[0].uploadedAt });
       }
       if (body.action && body.action !== 'write') return send(res, 400, { error: 'bad-action' });
@@ -105,9 +118,11 @@ export default async function handler(req, res) {
       const text = JSON.stringify({ v: 1, ratings: merged });
       if (Buffer.byteLength(text) > MAX_BYTES) return send(res, 413, { error: 'too-large' });
       const saved = await withAccess(mode => put(prefix + Date.now() + '.json', text, { access: mode, contentType: 'application/json', addRandomSuffix: true }));
+      // These exact immutable URLs were all successfully merged into saved. Uploads that arrived
+      // after our listing are not deletion candidates, so their independent updates remain safe.
       const stale = blobs.slice(KEEP - 1).map(b => b.url);
       if (stale.length) await del(stale).catch(() => {});
-      if (configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
+      if (process.env.VERCEL_ENV !== 'preview' && configured()) await verifiedSync(req, body.analyticsToken, codeDigest).catch(() => {});
       return send(res, 200, { data: { ratings: merged }, updatedAt: new Date().toISOString(), id: saved.pathname });
     }
     res.setHeader('allow', 'POST');

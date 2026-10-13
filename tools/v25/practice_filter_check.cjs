@@ -3,7 +3,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
 const root=path.resolve(__dirname,'../..');
 const review=JSON.parse(fs.readFileSync(path.join(__dirname,'practice-filter.json'),'utf8'));
 const clone=value=>JSON.parse(JSON.stringify(value));
-const html=fs.readFileSync(path.join(root,'DKLA-r18.html'),'utf8');
+const html=fs.readFileSync(path.join(root,'work/build/DKLA-v2.5.html'),'utf8');
 const seed=JSON.parse(html.match(/<script\b[^>]*\bid="seedData"[^>]*>([\s\S]*?)<\/script>/)[1]);
 const originals=clone(seed),ids=new Set(review.excluded.map(record=>record.id));
 const expectedEdges=seed.edges.filter(edge=>ids.has(edge.source)||ids.has(edge.target)).length;

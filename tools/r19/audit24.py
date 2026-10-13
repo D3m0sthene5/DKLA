@@ -7,10 +7,10 @@ import runpy
 import sys
 from collections import Counter
 
-from assemble import build_data, script_blocks, SOURCE, ROOT, DATA
+from assemble import build_data, script_blocks, read_source, ROOT, DATA
 
 data, full = build_data()
-graph = json.loads(script_blocks(SOURCE.read_text())["seedData"])
+graph = json.loads(script_blocks(read_source().decode("utf-8"))["seedData"])
 compiler = runpy.run_path(str(ROOT / 'tools/cold-call/compile.py'))
 cold = compiler['compile_cases'](json.loads((ROOT / 'tools/cold-call/cases.json').read_text()), graph, data, full)
 runpy.run_path(str(ROOT / 'tools/cold-call/validate.py'))['validate'](cold, graph, full, data)
