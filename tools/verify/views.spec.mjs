@@ -116,12 +116,17 @@ for (const size of sizes)
       async () => {
         await expect(page.locator('#geoCanvas g.map-region path[data-map-region]').first()).toBeAttached();
         await expect(page.locator('#geoCanvas [data-dkla-court]')).toBeAttached();
+        // The session cards belong to a course's own view, never to Home.
+        await expect(page.locator('#dklaSessions')).toBeHidden();
       },
     );
     await view(
       'subject',
       () => page.evaluate(() => LegalAtlas.navigate('region', 'consideration')),
-      () => expect(page.locator('#geoBreadcrumb')).toContainText('Consideration'),
+      async () => {
+        await expect(page.locator('#geoBreadcrumb')).toContainText('Consideration');
+        await expect(page.locator('#dklaSessions')).toBeHidden();
+      },
     );
     await view(
       'case',
@@ -221,6 +226,7 @@ for (const size of sizes)
       async () => {
         expect(await page.evaluate(() => SCOTUSHistory.state().open)).toBe(true);
         await expect(page.getByRole('heading', { name: 'The Court on this date' })).toBeVisible();
+        await expect(page.locator('#dklaSessions')).toBeHidden();
       },
     );
     await view(
@@ -254,6 +260,91 @@ for (const size of sizes)
         await expect(page.locator('#moreMenu')).toContainText('Doctrine timelines');
       },
     );
+    // The session cards (src/features/sessions/): one card per class session on
+    // each course's own map. Each course is opened, its cards counted, one known
+    // card read, and one card used to open the existing view for that session.
+    const strip = page.locator('#dklaSessions'),
+      card = (n) => strip.locator(`.dkla-session-card[data-session="${n}"]`),
+      dialog = page.locator('#modal');
+    const sessions = (name, course, count, check) =>
+      view(
+        name,
+        () => page.evaluate((course) => LegalAtlas.navigate('scope', course), course),
+        async () => {
+          await expect(strip).toBeVisible();
+          await expect(strip.locator('.dkla-session-card')).toHaveCount(count);
+          await expect(strip).toHaveAttribute('data-state', 'open');
+          await check();
+          await expect(dialog).toHaveAttribute('open', '');
+          await dialog.evaluate((d) => d.close());
+          // The strip covers none of the other controls and does not widen the page.
+          const overlaps = await page.evaluate(() => {
+            const box = (el) => el.getBoundingClientRect(),
+              a = box(document.getElementById('dklaSessions'));
+            const hit = [
+              ...document.querySelectorAll('.map-nav,#mapWelcome,.study-zoom,#mapHint,#saveStatus'),
+            ]
+              .filter((el) => el.offsetParent !== null && !el.hidden)
+              .filter((el) => {
+                const b = box(el);
+                return a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+              })
+              .map((el) => el.id || el.className);
+            if (a.left < 0 || a.right > innerWidth || a.bottom > innerHeight) hit.push('outside the window');
+            if (document.documentElement.scrollWidth > innerWidth) hit.push('the page scrolls sideways');
+            if (scrollX || scrollY) hit.push('using the cards moved the whole page');
+            return hit;
+          });
+          expect(overlaps, 'what the session cards cover').toEqual([]);
+          // Back to the first card, with nothing focused, so the picture is the same every time.
+          await page.evaluate(() => {
+            document.activeElement?.blur?.();
+            document.querySelector('#dklaSessions .dkla-sessions-list').scrollLeft = 0;
+          });
+          // A pointer left resting on a card would light it up in the picture.
+          await page.mouse.move(2, 2);
+        },
+      );
+    await sessions('sessions-contracts', 'Contracts', 26, async () => {
+      await expect(card(9)).toContainText('Assignment 9');
+      await expect(card(9)).toContainText('Battle of the forms and later-delivered terms');
+      await expect(card(9)).toContainText('C&M 284–304');
+      // The Contracts syllabus gives no dates, so no card may show one.
+      await expect(strip.locator('.dkla-session-when')).toHaveCount(0);
+      // The strip is moved sideways to the card first, as a visitor would do.
+      await page.evaluate(() => DKLASessions.show(9));
+      await card(9).click();
+      await expect(dialog).toContainText('Assignment 9 · Battle of the forms');
+      await expect(page.locator('#readingClass')).toHaveValue('9');
+    });
+    await sessions('sessions-civil-procedure', 'Civil Procedure', 14, async () => {
+      // Week 6 as the October 1, 2026 syllabus divides it: federal questions moved up, Eliscu added.
+      await expect(card(6)).toContainText('Week 6');
+      await expect(card(6)).toContainText('Week of Sep 28');
+      await expect(card(6)).toContainText('Subject-matter jurisdiction: diversity and federal questions');
+      await expect(card(6)).toContainText('Mottley, Eliscu, American Well Works');
+      await expect(card(14)).toContainText('Nov 24');
+      await page.evaluate(() => DKLASessions.show(6));
+      await card(6).click();
+      await expect(dialog).toContainText('Civil Procedure · Week 6');
+      await expect(page.locator('#civilWeekSelect')).toHaveValue('6');
+      await expect(dialog.locator('[data-study-node="cp-mottley"]')).toBeVisible();
+      await expect(dialog.locator('[data-study-node="cp-gibbs"]')).toHaveCount(0);
+      await expect(dialog).toContainText('follows the syllabus of October 1, 2026');
+    });
+    await sessions('sessions-lrs', 'Legislation and the Regulatory State', 26, async () => {
+      await expect(card(8)).toContainText('Class 8');
+      await expect(card(8)).toContainText('Sep 23');
+      await expect(card(8)).toContainText('Cont’d');
+      await expect(card(8)).toContainText('Mashaw 76-106');
+      // By keyboard: the arrow keys move along the cards and Enter opens one.
+      await card(7).focus();
+      await page.keyboard.press('ArrowRight');
+      await expect(card(8)).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(dialog).toContainText('LRS · Class 8');
+      await expect(page.locator('#lrsClassSelect')).toHaveValue('8');
+    });
     // An old link opened cold: the address already names a dictionary term when
     // the page starts, so the route is read while the app is still loading.
     // (A cold `#node=` link currently lands on Home instead of the entry; that

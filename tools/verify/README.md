@@ -51,14 +51,18 @@ output, so a failure can be read from the run's summary page.
 
 ## Pictures of the main views
 
-Sixteen views (Home, a subject, a case, its full brief, Cold Call, the
+Nineteen views (Home, a subject, a case, its full brief, Cold Call, the
 dictionary, an authority, a doctrine timeline, a source page, search, two
-SCOTUS History pages, two Study tabs, the More menu, and an old link opened
-cold) are opened at 1440 x 900
+SCOTUS History pages, two Study tabs, the More menu, the three course maps
+with their session cards, and an old link opened cold) are opened at 1440 x 900
 and at 390 x 844 and compared with the pictures in `views/<system>/`. Each
 view also has a check that needs no picture: the panel opened and holds the
 expected words. The case view is where the reading layout
-(`src/features/v25/reading.js`) is confirmed to have installed.
+(`src/features/v25/reading.js`) is confirmed to have installed. The three
+course views count the session cards (26, 14, 26), read one known card, open
+that session's existing view from the card (by click, and by keyboard in LRS),
+and require that the strip covers no other control. The Civil Procedure one
+also confirms week 6 is the October 1, 2026 week (see `tools/sessions/`).
 
 - A failure leaves the expected picture, the actual one and the difference in
   `work/views/`. Look at them before doing anything else.
@@ -82,7 +86,8 @@ pnpm verify:teeth     # about twelve minutes
 This alters one thing at a time (a case record, a brief, a narrative, a dataset
 entry, base and layer runtime code, the reading layout, two looks that only a
 picture can catch, two layout positions, two saved-work paths,
-a feature, the offline worker, an old address), runs the whole pass, and
+a feature, the offline worker, the session cards, the Civil Procedure
+syllabus revision, an old address), runs the whole pass, and
 requires it to fail every time. It restores each file and finishes with a clean
 pass. Run it whenever you change what runs, the order, or anything cached.
 

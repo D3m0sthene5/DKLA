@@ -54,6 +54,8 @@
       try {
         renderInspector();
         schedule();
+        // The session cards (sessions.js) redraw the Civil Procedure weeks.
+        document.dispatchEvent(new CustomEvent('dkla-civil-syllabus'));
       } catch {
         /* not ready to draw */
       }

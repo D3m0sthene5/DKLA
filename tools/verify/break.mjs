@@ -142,6 +142,16 @@ const breakages = [
     () => edit('src/features/r19/sw.template.js', 'cache.addAll(SHELL)', 'cache.addAll([])'),
   ],
   [
+    'code: the session cards never appear on a course map',
+    'src/features/sessions/sessions.js',
+    () => edit('src/features/sessions/sessions.js', 'if (window.DKLASessions) return;', 'return;'),
+  ],
+  [
+    'code: Civil Procedure goes back to the September 3 syllabus',
+    'src/features/sessions/civil-syllabus.js',
+    () => edit('src/features/sessions/civil-syllabus.js', 'if (!R?.weeks || !R.entries) return;', 'return;'),
+  ],
+  [
     'an old link: one earlier address no longer redirects',
     'vercel.json',
     () => edit('vercel.json', '"source": "/DKLA-r17.html"', '"source": "/DKLA-r17x.html"'),

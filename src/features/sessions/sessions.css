@@ -1,0 +1,228 @@
+/* DKLA sessions: the strip of session cards on a course map (sessions.js).
+
+   It is drawn like the other controls that float over the map (the location bar, the zoom buttons, the hint)
+   and takes the open course's colour from --dkla-course. Titles use the display face the owner chose for
+   section titles; card text uses the system face used for dense labels (tools/v26/TYPOGRAPHY.md).
+
+   Where it sits. On a wide window: in the band at the bottom of the map, between the hint and the save status,
+   so it covers neither, nor the "Supporting cases" entrance at the lower left. On a narrow or short window:
+   across the width, just above the zoom buttons. The location bar is at the top and the reading panel hides
+   the strip altogether. */
+#dklaSessions {
+  position: absolute;
+  z-index: 3;
+  left: 12px;
+  right: 12px;
+  bottom: 72px;
+  box-sizing: border-box;
+  padding: 4px 6px 5px;
+  color: #e1e5e9;
+  background: rgba(12, 23, 30, 0.93);
+  border: 1px solid #50677966;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px #0003;
+  backdrop-filter: blur(18px);
+  font-family: var(--dkla-interface, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif);
+}
+#dklaSessions[hidden],
+#dklaSessions .dkla-sessions-list[hidden] {
+  display: none !important;
+}
+/* Not beside the reading panel, not in SCOTUS History, not in the course overview. */
+.has-reader #dklaSessions,
+.dkla-overview-mode #dklaSessions,
+body[data-dkla-course='atlas'] #dklaSessions,
+body:has(.sh-shell:not([hidden])) #dklaSessions {
+  display: none !important;
+}
+/* The first-visit note (r19/r20.js) stands in the same band. The strip waits until it has been answered. */
+#studyMain:has(#r20Guide) #dklaSessions {
+  display: none !important;
+}
+#dklaSessions[data-state='closed'] {
+  right: auto;
+  padding: 3px;
+}
+.dkla-sessions-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 22px;
+}
+#dklaSessions[data-state='closed'] .dkla-sessions-note,
+#dklaSessions[data-state='closed'] .dkla-sessions-step {
+  display: none;
+}
+#dklaSessions button {
+  font: inherit;
+  cursor: pointer;
+}
+.dkla-sessions-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+  padding: 1px 8px;
+  color: var(--dkla-course, #daba83);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 7px;
+}
+#dklaSessions[data-state='closed'] .dkla-sessions-toggle {
+  min-height: 30px;
+  padding: 4px 10px;
+}
+.dkla-sessions-title,
+.dkla-sessions-brief {
+  font-family: var(--dkla-display, inherit);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Folded, the button is short enough to stand beside the map on a phone held sideways. */
+.dkla-sessions-brief,
+#dklaSessions[data-state='closed'] .dkla-sessions-title {
+  display: none;
+}
+#dklaSessions[data-state='closed'] .dkla-sessions-brief {
+  display: inline;
+}
+.dkla-sessions-chevron {
+  width: 6px;
+  height: 6px;
+  margin-top: -4px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+#dklaSessions[data-state='closed'] .dkla-sessions-chevron {
+  margin-top: 3px;
+  transform: rotate(225deg);
+}
+.dkla-sessions-note {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #7e91a3;
+  font-size: 11px;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dkla-sessions-step {
+  flex: none;
+  width: 26px;
+  height: 22px;
+  padding: 0;
+  color: #aeb9c6;
+  background: rgba(31, 42, 53, 0.72);
+  border: 1px solid #435466;
+  border-radius: 6px;
+  line-height: 1;
+}
+.dkla-sessions-note:empty + .dkla-sessions-step {
+  margin-left: auto;
+}
+.dkla-sessions-toggle:hover,
+.dkla-sessions-step:hover {
+  border-color: var(--dkla-course, #daba83);
+}
+.dkla-sessions-list {
+  display: flex;
+  gap: 6px;
+  margin: 3px 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  scroll-snap-type: x proximity;
+  /* The arrow buttons, the wheel, the keyboard and a finger all move the strip; a bar would only add height. */
+  scrollbar-width: none;
+}
+.dkla-sessions-list li {
+  flex: none;
+  scroll-snap-align: start;
+}
+.dkla-session-card {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 1px;
+  width: 196px;
+  height: 54px;
+  box-sizing: border-box;
+  padding: 4px 9px 5px;
+  color: inherit;
+  text-align: left;
+  background: rgba(31, 42, 53, 0.72);
+  border: 1px solid #435466;
+  border-left: 3px solid var(--dkla-course, #daba83);
+  border-radius: 7px;
+}
+.dkla-session-card:hover {
+  background: rgba(43, 57, 71, 0.9);
+  border-color: var(--dkla-course, #daba83);
+}
+#dklaSessions button:focus-visible {
+  outline: 2px solid var(--dkla-course, #daba83);
+  outline-offset: -2px;
+}
+.dkla-session-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dkla-session-number {
+  color: var(--dkla-course, #daba83);
+  font-weight: 700;
+}
+.dkla-session-when {
+  color: #9fb0bf;
+}
+.dkla-session-title,
+.dkla-session-reading {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dkla-session-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 15px;
+}
+.dkla-session-reading {
+  color: #9fb0bf;
+  font-size: 11px;
+  line-height: 14px;
+}
+@media (min-width: 1000px) and (min-height: 600px) {
+  #dklaSessions {
+    left: 39vw;
+    right: 250px;
+    bottom: 10px;
+  }
+}
+/* A storage warning, when there is one, stands above the zoom buttons; on a narrow window the strip moves above it. */
+@media not ((min-width: 1000px) and (min-height: 600px)) {
+  #studyMain:has(#storageWarning:not([hidden])) #dklaSessions {
+    bottom: 176px;
+  }
+}
+@media (max-width: 699px) {
+  .dkla-sessions-note {
+    visibility: hidden;
+  }
+}
+@media print {
+  #dklaSessions {
+    display: none !important;
+  }
+}
