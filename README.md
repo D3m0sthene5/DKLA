@@ -12,12 +12,13 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | Path | What it is |
 |---|---|
 | `src/` | **Source of the base app.** The original atlas split into editable parts: `runtime/` (JavaScript), `styles/`, `markup/`, and `data/` (about 30,000 small JSON records: the map, the archives, the dictionary, SCOTUS records). `src/manifest.json` lists the parts in order. |
-| `src/features/` | **Source of everything added since.** The code and styles of each later feature, in a folder named after the revision that introduced it: `r19/` (briefs, timelines, takeaways, the offline worker), `cold-call/` (the reader and the frosted button), `v25/` (rules and authorities, map geography, the reading panel, the Home layout), `v26/` (typography, the embedded font, the SCOTUS building in `typography.js`), `performance/` (loading briefs on demand), `analytics/` (the visitor analytics client). `src/features/manifest.json` lists them in the order they load. |
+| `src/features/` | **Source of everything added since.** The code and styles of each later feature, in a folder named after the revision that introduced it: `r19/` (briefs, timelines, takeaways, the offline worker), `cold-call/` (the reader and the frosted button), `v25/` (rules and authorities, map geography, the reading panel, the Home layout), `v26/` (typography, the embedded font, the SCOTUS building in `typography.js`), `performance/` (loading briefs on demand), `analytics/` (the visitor analytics client), `sessions/` (the session cards on each course map, and the October 1, 2026 Civil Procedure syllabus). `src/features/manifest.json` lists them in the order they load. |
 | `tools/r19/` | **Content and build.** Briefs and their data (`data/`), and the assembler that builds the app (`assemble.py`). |
 | `tools/cold-call/` | **Content.** Cold Call narratives (`narratives/`), their index and checks. |
 | `tools/v25/` | **Datasets and checks** for rules and authorities, the map geography, the reading panel and the Home layout, and the scripts that build those datasets. |
 | `tools/v26/` | The owner's typography and SCOTUS building decisions (`TYPOGRAPHY.md`) and the font file the embedded font was made from. |
 | `tools/performance/`, `tools/sync/`, `tools/analytics/` | Tests and build steps for loading briefs on demand, ratings sync and visitor analytics. |
+| `tools/sessions/` | **Content and a check.** The October 1, 2026 Civil Procedure syllabus as a list of edits over the September weeks (`civil-syllabus.json`), and the check that the weeks follow it. |
 | `tools/r12/` | Three course layout designs still read by the geography check. |
 | `tools/verify/` | **Checks.** See "How to know it still works". |
 | `tools/*.mjs`, `tools/source/` | The build, the local preview server, and tools for reading single records out of `src/data`. |
@@ -81,7 +82,7 @@ steps one at a time.
    Call, old links, the dictionary, authorities, SCOTUS History, Study,
    export and restore, and a saved note surviving a reload. It also checks
    that the map layout has not moved, that Home fits nine window sizes, and
-   that sixteen main views still look like their recorded pictures
+   that nineteen main views still look like their recorded pictures
    (`pnpm views`; see `tools/verify/README.md`).
 
 Before removing or restructuring code, three report-only surveys show what

@@ -16,8 +16,8 @@ Update or replace this file when the state changes.
   listed below.
 - **Waiting for Danny's say-so:** the local branch `improve/server` (one
   commit on top of the move). See "The server branch".
-- `pnpm verify` builds and runs 43 steps in 30 to 50 seconds.
-  `pnpm verify:teeth` breaks sixteen things on purpose and requires the pass
+- `pnpm verify` builds and runs 44 steps in 30 to 50 seconds.
+  `pnpm verify:teeth` breaks eighteen things on purpose and requires the pass
   to fail each time (about twelve minutes).
 - Tools are not on PATH. Each shell call needs
   `%LOCALAPPDATA%\dkla-tools\node` prepended to PATH and `DKLA_PYTHON` set to
@@ -41,6 +41,59 @@ Update or replace this file when the state changes.
    `src/features/manifest.json`. Datasets, build scripts and checks stayed
    under `tools/`. The built page differs from before only in the 36 path
    comments that mark each module and in the build stamp.
+
+## Session cards and the October 1 Civil Procedure syllabus
+
+On the branch `feature/session-cards`, not merged and not pushed. Danny asked
+for both.
+
+**Built**
+
+- **Session cards.** Opening Contracts, Civil Procedure or LRS now shows a
+  strip of cards on that course's map: 26 reading assignments, 14 syllabus
+  weeks, 26 classes. A card has the number, the date where the syllabus gives
+  one (Contracts gives none), the title and a line of the reading; it opens
+  the view that already existed for that session. Code:
+  `src/features/sessions/sessions.js` and `sessions.css`. The cards are built
+  from the schedule records already in the graph; nothing was copied. The
+  strip shows only at course level (the location bar reads "Atlas > course"),
+  folds to a small button (remembered in `localStorage` as
+  `dkla.sessions.v1`), starts folded on a window under 560 pixels tall, and
+  is absent from Home, subjects, the reading panel, SCOTUS History and print.
+- **Civil Procedure follows the October 1, 2026 syllabus.** Weeks 6 to 9 were
+  re-divided and Eliscu added to week 6. `src/data` was **not** edited (see
+  the new note in `AGENTS.md`: a saved copy would hide the change). The
+  revision is `tools/sessions/civil-syllabus.json`, applied at run time by
+  `src/features/sessions/civil-syllabus.js`; the step "Civil Procedure follows
+  the October 1 syllabus" checks it against readings copied from the PDF.
+- Three new views in the picture check and two new breakages (16 and 17).
+
+**Remains, for Danny to decide or for a later session**
+
+1. **Eliscu has no map entry.** Week 6 names it in its text and the brief
+   `CP-034` (T. B. Harms Co. v. Eliscu) is on file, but the week's case list
+   cannot link it. That "Eliscu" means that case is an inference: the syllabus
+   prints one word and no page.
+2. **The syllabus pages shown in the atlas are still September 3** (four page
+   images and the PDF link). They are labelled as such. Replacing them means
+   new page images in `src/data/civilArchive`, a fifth page in
+   `openCivil` (`src/runtime/civilCode.js`), and publishing
+   `added-sources/Syllabus 10_1_2026.docx.pdf` through
+   `tools/public-files.json`, which is Danny's decision.
+3. **Proposed, not printed in the syllabus:** the titles of weeks 6 to 9, their
+   casebook page spans, and listing the venue entries under week 8
+   ("Continuing venue") as well as week 7. All are listed in the dataset
+   under `notPrinted`.
+4. Left alone, wrong regardless of the new syllabus: week 14 still says Cross
+   "remains a visible gap", week 10 and 14 point at the stub notes
+   `cp-berk-gap` and `cp-cross-gap` although `cp-berk` and `cp-cross` exist,
+   and the Help text says the same.
+5. Not built: marking today's class or week on the strip, the lecture or
+   cold-call letter (S / L) on Civil Procedure cases, slide decks on LRS
+   cards, the review-session card proposed in
+   `docs/new-sources-review/civil-procedure.md`.
+6. On a wide window the open strip covers the dimmed "Study workbench" tile
+   at the foot of the Contracts map. Folding the strip uncovers it.
 
 ## The server branch (`improve/server`)
 

@@ -11,8 +11,8 @@ do not make a change you cannot verify, and say plainly what you did not check.
 1. **The latest owner brief wins** over anything written here.
 2. **Never alter or delete legal content**: briefs, opinions, PDFs, dictionary
    records and datasets (`added-sources/`, `src/data/`, `tools/r19/data/`,
-   `tools/cold-call/narratives/`, the JSON datasets in `tools/v25/` and
-   `tools/cold-call/`). A content edit needs a stated source and the owner's
+   `tools/cold-call/narratives/`, the JSON datasets in `tools/v25/`,
+   `tools/cold-call/` and `tools/sessions/`). A content edit needs a stated source and the owner's
    say-so. Passing checks is not legal accuracy.
 3. **Saved work must survive.** Keep the storage keys
    `legal-atlas-v1:<graphId>:dkla-r8-rebuilt`, `dkla.study.v1`,
@@ -76,6 +76,15 @@ as new layers on top. That is over. The rule now:
   file. `tools/verify/data_guard.py` pins every data block in the built page.
   After a reviewed, intended content change, run both with `--update`
   (`data_guard.py` after `pnpm build`) and commit the two record files.
+- **A correction to the graph is a run-time edit, not an edit to `src/data`.**
+  A visitor who has opened the atlas before has a saved copy of the whole
+  graph in the browser, and that copy opens instead of the seed, so a change
+  made only to `src/data/seedData` never reaches them (and it would break the
+  hash check described next). Corrections are lists of edits applied over
+  whichever graph is open, only where a field still holds its old value:
+  `src/features/r19/audit.js` (the October 2026 audit) and
+  `src/features/sessions/civil-syllabus.js` (the October 1 Civil Procedure
+  syllabus, weeks 6 to 9). Follow that pattern.
 - Records that name the original page by its hash (the map geography's audit,
   the analytics check) use `origin_identity()` in `tools/source/tree.py`,
   which confirms the source data is still that page's data.
