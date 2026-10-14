@@ -1,0 +1,193 @@
+{
+ "schemaVersion": 1,
+ "revision": "2026-10-01",
+ "course": "Civil Procedure",
+ "source": "added-sources/Syllabus 10_1_2026.docx.pdf, PDF page 3 (weeks 6 to 9). It replaces the division in added-sources/Syllabus 9_3_26.pdf; weeks 1 to 5 and 10 to 14 are the same in both.",
+ "method": "Each edit is [field, value under the September 3 syllabus, value under the October 1 syllabus]. src/features/sessions/civil-syllabus.js applies an edit only while the field still holds the September value, over the graph seed and over a saved copy alike, in the manner of the October 2026 audit corrections. namedCases and the wording of instructions follow the printed syllabus row. caseAccounts, concepts, availablePrintedPages and each entry's week tags are derived the way the September records were: an entry belongs to every week whose page spans overlap its own printed pages.",
+ "notPrinted": [
+  "The week titles for 6 to 9. The syllabus prints only chapter names.",
+  "The casebook page spans for 6 to 9 (297-352; 353-393 and 395-439; 395-439 and 441-453; 454-480). The syllabus prints a first page for most cases, not spans.",
+  "That \"Eliscu\" is T. B. Harms Co. v. Eliscu, 339 F.2d 823 (2d Cir. 1964). The syllabus prints the one word and no page.",
+  "Listing the Chapter 5 venue entries under week 8 as well as week 7. The syllabus prints \"Continuing venue\" for week 8 and names no venue case there."
+ ],
+ "unmappedReadings": [
+  {"week":6,"printed":"Eliscu","briefId":"CP-034","note":"A brief is on file; there is no map entry."}
+ ],
+ "weeks": {
+  "6": [
+   ["title","Subject-matter jurisdiction and diversity","Subject-matter jurisdiction: diversity and federal questions"],
+   ["readingRanges",[[297,328]],[[297,352]]],
+   ["namedCases",["cp-lacks","cp-strawbridge","cp-mas-perry","cp-afa"],["cp-lacks","cp-strawbridge","cp-mas-perry","cp-afa","cp-mottley","cp-american-well","cp-shoshone","cp-smith","cp-grable","cp-gunn"]],
+   ["instructions","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course.","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course. Then federal-question jurisdiction and § 1331: Mottley, Eliscu, American Well Works, Shoshone, Smith, Grable, and Gunn. Eliscu is new in the October 1 syllabus, which gives the name alone and no page. A brief of T. B. Harms Co. v. Eliscu is on file; the case has no map entry yet."],
+   ["availablePrintedPages",[297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328],[297,298,299,300,301,302,303,304,305,306,307,308,309,310,311,312,313,314,315,316,317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352]],
+   ["caseAccounts",["cp-lacks","cp-strawbridge","cp-mas-perry","cp-afa"],["cp-lacks","cp-strawbridge","cp-mas-perry","cp-afa","cp-mottley","cp-american-well","cp-shoshone","cp-smith","cp-grable","cp-gunn"]],
+   ["concepts",["cp-subject-matter","cp-federalism","cp-domicile","cp-diversity","cp-citizenship","cp-amount-in-controversy","cp-aggregation","cp-federal-question","cp-usc-1331","cp-usc-1332","cp-article-iii"],["cp-subject-matter","cp-federalism","cp-domicile","cp-diversity","cp-citizenship","cp-amount-in-controversy","cp-aggregation","cp-federal-question","cp-well-pleaded","cp-embedded-question","cp-usc-1331","cp-usc-1332","cp-article-iii"]]
+  ],
+  "7": [
+   ["title","Federal questions, supplemental jurisdiction, and removal","Supplemental jurisdiction, removal, and venue"],
+   ["readingRanges",[[328,393]],[[353,393],[395,439]]],
+   ["namedCases",["cp-mottley","cp-american-well","cp-shoshone","cp-smith","cp-grable","cp-gunn","cp-gibbs","cp-aldinger","cp-kroger","cp-finley","cp-exxon","cp-shamrock","cp-home-depot","cp-bechtel","cp-wild-oats","cp-dart"],["cp-gibbs","cp-aldinger","cp-kroger","cp-finley","cp-exxon","cp-shamrock","cp-home-depot","cp-bechtel","cp-wild-oats","cp-dart","cp-reasor","cp-bates","cp-livingston","cp-hoffman","cp-piper"]],
+   ["instructions","Federal-question jurisdiction and § 1331; Mottley, American Well Works, Shoshone, Smith, Grable, Gunn; Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee.","The syllabus opens the week with § 1331, then Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee. It then moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context."],
+   ["availablePrintedPages",[328,329,330,331,332,333,334,335,336,337,338,339,340,341,342,343,344,345,346,347,348,349,350,351,352,353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393],[353,354,355,356,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439]],
+   ["caseAccounts",["cp-mottley","cp-american-well","cp-shoshone","cp-smith","cp-grable","cp-gunn","cp-gibbs","cp-aldinger","cp-kroger","cp-finley","cp-exxon","cp-shamrock","cp-home-depot","cp-bechtel","cp-wild-oats","cp-dart"],["cp-gibbs","cp-aldinger","cp-kroger","cp-finley","cp-exxon","cp-shamrock","cp-home-depot","cp-bechtel","cp-wild-oats","cp-dart","cp-reasor","cp-bates","cp-livingston","cp-hoffman","cp-piper","cp-atlantic-marine","cp-lexecon"]],
+   ["concepts",["cp-federalism","cp-finality","cp-diversity","cp-federal-question","cp-well-pleaded","cp-embedded-question","cp-supplemental","cp-supplemental-history","cp-pendent-parties","cp-supplemental-diversity","cp-supplemental-discretion","cp-removal","cp-forum-defendant","cp-statute-interpretation","cp-usc-1331","cp-usc-1332","cp-usc-1367","cp-usc-1441"],["cp-finality","cp-federal-question","cp-embedded-question","cp-supplemental","cp-supplemental-history","cp-pendent-parties","cp-supplemental-diversity","cp-supplemental-discretion","cp-removal","cp-forum-defendant","cp-venue","cp-local-actions","cp-transfer","cp-forum-non-conveniens","cp-statute-interpretation","cp-mdl","cp-usc-1331","cp-usc-1367","cp-usc-1441","cp-usc-1391","cp-usc-1404","cp-usc-1406","cp-usc-1407"]]
+  ],
+  "8": [
+   ["title","Venue, transfer, and forum non conveniens","Continuing venue; Erie"],
+   ["readingRanges",[[395,439]],[[395,439],[441,453]]],
+   ["namedCases",["cp-reasor","cp-bates","cp-livingston","cp-hoffman","cp-piper"],["cp-erie-decision","cp-swift","cp-taxicab"]],
+   ["instructions","The syllabus moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context.","Continuing venue: the syllabus names no further venue reading, so the Chapter 5 cases named in week 7 stay listed here as context. Then Erie, with Swift and Black & White Taxicab as discussed in Erie."],
+   ["availablePrintedPages",[395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439],[395,396,397,398,399,400,401,402,403,404,405,406,407,408,409,410,411,412,413,414,415,416,417,418,419,420,421,422,423,424,425,426,427,428,429,430,431,432,433,434,435,436,437,438,439,441,442,443,444,445,446,447,448,449,450,451,452,453]],
+   ["caseAccounts",["cp-reasor","cp-bates","cp-livingston","cp-hoffman","cp-piper","cp-atlantic-marine","cp-lexecon"],["cp-reasor","cp-bates","cp-livingston","cp-hoffman","cp-piper","cp-atlantic-marine","cp-erie-decision","cp-swift","cp-taxicab","cp-lexecon"]],
+   ["concepts",["cp-venue","cp-local-actions","cp-transfer","cp-forum-non-conveniens","cp-mdl","cp-usc-1391","cp-usc-1404","cp-usc-1406","cp-usc-1407"],["cp-venue","cp-local-actions","cp-transfer","cp-forum-non-conveniens","cp-erie","cp-erie-history","cp-forum-shopping","cp-mdl","cp-usc-1391","cp-usc-1404","cp-usc-1406","cp-usc-1407","cp-usc-1652"]]
+  ],
+  "9": [
+   ["title","Erie and the law applied in federal court","After Erie: York to Hanna"],
+   ["readingRanges",[[441,480]],[[454,480]]],
+   ["namedCases",["cp-erie-decision","cp-swift","cp-taxicab","cp-york","cp-ragan","cp-woods","cp-cohen-beneficial","cp-byrd","cp-hanna-decision","cp-sibbach"],["cp-york","cp-ragan","cp-woods","cp-cohen-beneficial","cp-byrd","cp-hanna-decision","cp-sibbach"]],
+   ["instructions","Erie, Swift and Black & White Taxicab as discussed in Erie, York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach.","York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach."],
+   ["availablePrintedPages",[441,442,443,444,445,446,447,448,449,450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480],[454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480]],
+   ["caseAccounts",["cp-erie-decision","cp-swift","cp-taxicab","cp-york","cp-ragan","cp-woods","cp-cohen-beneficial","cp-byrd","cp-hanna-decision","cp-sibbach","cp-walker"],["cp-york","cp-ragan","cp-woods","cp-cohen-beneficial","cp-byrd","cp-hanna-decision","cp-sibbach","cp-walker"]]
+  ]
+ },
+ "entries": {
+  "cp-week-6": [
+   ["title","Week 6 — Subject-matter jurisdiction and diversity","Week 6 — Subject-matter jurisdiction: diversity and federal questions"],
+   ["shortTitle","Week 6 — Subject-matter jurisdiction and diversity","Week 6 — Subject-matter jurisdiction: diversity and federal questions"],
+   ["summary","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course.","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course. Then federal-question jurisdiction and § 1331: Mottley, Eliscu, American Well Works, Shoshone, Smith, Grable, and Gunn. Eliscu is new in the October 1 syllabus, which gives the name alone and no page. A brief of T. B. Harms Co. v. Eliscu is on file; the case has no map entry yet."],
+   ["sections.Reading plan","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course.","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course. Then federal-question jurisdiction and § 1331: Mottley, Eliscu, American Well Works, Shoshone, Smith, Grable, and Gunn. Eliscu is new in the October 1 syllabus, which gives the name alone and no page. A brief of T. B. Harms Co. v. Eliscu is on file; the case has no map entry yet."],
+   ["learning.why","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course.","Lacks, Article III, Strawbridge, § 1332, Mas v. Perry, and A.F.A. Tours. Read the statutes identified in the chapter, especially §§ 1331, 1332, 1367, and 1441. Subject-matter jurisdiction recurs later in the course. Then federal-question jurisdiction and § 1331: Mottley, Eliscu, American Well Works, Shoshone, Smith, Grable, and Gunn. Eliscu is new in the October 1 syllabus, which gives the name alone and no page. A brief of T. B. Harms Co. v. Eliscu is on file; the case has no map entry yet."],
+   ["sources",[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 297–328","url":"#civ=297"}],[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 297–352","url":"#civ=297"}]],
+   ["civilImport.printedRanges",[[297,328]],[[297,352]]]
+  ],
+  "cp-week-7": [
+   ["title","Week 7 — Federal questions, supplemental jurisdiction, and removal","Week 7 — Supplemental jurisdiction, removal, and venue"],
+   ["shortTitle","Week 7 — Federal questions, supplemental jurisdiction, and removal","Week 7 — Supplemental jurisdiction, removal, and venue"],
+   ["summary","Federal-question jurisdiction and § 1331; Mottley, American Well Works, Shoshone, Smith, Grable, Gunn; Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee.","The syllabus opens the week with § 1331, then Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee. It then moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context."],
+   ["sections.Reading plan","Federal-question jurisdiction and § 1331; Mottley, American Well Works, Shoshone, Smith, Grable, Gunn; Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee.","The syllabus opens the week with § 1331, then Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee. It then moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context."],
+   ["learning.why","Federal-question jurisdiction and § 1331; Mottley, American Well Works, Shoshone, Smith, Grable, Gunn; Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee.","The syllabus opens the week with § 1331, then Gibbs, Aldinger, Kroger, Finley, § 1367, Exxon; removal and § 1441, Shamrock Oil, Home Depot, Bright v. Bechtel, Lively v. Wild Oats, and Dart Cherokee. It then moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context."],
+   ["sources",[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 328–393","url":"#civ=328"}],[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 353–393","url":"#civ=353"},{"label":"Civil Procedure casebook, printed pp. 395–439","url":"#civ=395"}]],
+   ["civilImport.printedRanges",[[328,393]],[[353,393],[395,439]]]
+  ],
+  "cp-week-8": [
+   ["title","Week 8 — Venue, transfer, and forum non conveniens","Week 8 — Continuing venue; Erie"],
+   ["shortTitle","Week 8 — Venue, transfer, and forum non conveniens","Week 8 — Continuing venue; Erie"],
+   ["summary","The syllabus moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context.","Continuing venue: the syllabus names no further venue reading, so the Chapter 5 cases named in week 7 stay listed here as context. Then Erie, with Swift and Black & White Taxicab as discussed in Erie."],
+   ["sections.Reading plan","The syllabus moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context.","Continuing venue: the syllabus names no further venue reading, so the Chapter 5 cases named in week 7 stay listed here as context. Then Erie, with Swift and Black & White Taxicab as discussed in Erie."],
+   ["learning.why","The syllabus moves quickly through Chapter 5 and names Reasor-Hill, Bates, Livingston, Hoffman, and Piper Aircraft. Read §§ 1391, 1404, 1406, and 1407. Atlantic Marine and other chapter discussion remain available as context.","Continuing venue: the syllabus names no further venue reading, so the Chapter 5 cases named in week 7 stay listed here as context. Then Erie, with Swift and Black & White Taxicab as discussed in Erie."],
+   ["sources",[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 395–439","url":"#civ=395"}],[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 395–439","url":"#civ=395"},{"label":"Civil Procedure casebook, printed pp. 441–453","url":"#civ=441"}]],
+   ["civilImport.printedRanges",[[395,439]],[[395,439],[441,453]]]
+  ],
+  "cp-week-9": [
+   ["title","Week 9 — Erie and the law applied in federal court","Week 9 — After Erie: York to Hanna"],
+   ["shortTitle","Week 9 — Erie and the law applied in federal court","Week 9 — After Erie: York to Hanna"],
+   ["summary","Erie, Swift and Black & White Taxicab as discussed in Erie, York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach.","York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach."],
+   ["sections.Reading plan","Erie, Swift and Black & White Taxicab as discussed in Erie, York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach.","York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach."],
+   ["learning.why","Erie, Swift and Black & White Taxicab as discussed in Erie, York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach.","York, Ragan, Woods, Cohen, Byrd, Hanna, and Sibbach."],
+   ["sources",[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 441–480","url":"#civ=441"}],[{"label":"Miller syllabus, PDF p. 3","url":"#civil-syllabus=3"},{"label":"Civil Procedure casebook, printed pp. 454–480","url":"#civ=454"}]],
+   ["civilImport.printedRanges",[[441,480]],[[454,480]]]
+  ],
+  "cp-mottley": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-american-well": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-shoshone": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-smith": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-grable": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-gunn": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-reasor": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-bates": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-livingston": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-hoffman": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-piper": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-atlantic-marine": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-erie-decision": [
+   ["civilImport.weeks",[9],[8]]
+  ],
+  "cp-swift": [
+   ["civilImport.weeks",[9],[8]]
+  ],
+  "cp-taxicab": [
+   ["civilImport.weeks",[9],[8]]
+  ],
+  "cp-lexecon": [
+   ["civilImport.weeks",[8,12,13],[7,8,12,13]]
+  ],
+  "cp-federalism": [
+   ["civilImport.weeks",[6,7],[6]]
+  ],
+  "cp-diversity": [
+   ["civilImport.weeks",[6,7],[6]]
+  ],
+  "cp-well-pleaded": [
+   ["civilImport.weeks",[7],[6]]
+  ],
+  "cp-embedded-question": [
+   ["civilImport.weeks",[7],[6,7]]
+  ],
+  "cp-venue": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-local-actions": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-transfer": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-forum-non-conveniens": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-erie": [
+   ["civilImport.weeks",[9,10],[8,9,10]]
+  ],
+  "cp-erie-history": [
+   ["civilImport.weeks",[9],[8,9]]
+  ],
+  "cp-forum-shopping": [
+   ["civilImport.weeks",[9,10],[8,9,10]]
+  ],
+  "cp-mdl": [
+   ["civilImport.weeks",[8,12,13],[7,8,12,13]]
+  ],
+  "cp-usc-1332": [
+   ["civilImport.weeks",[6,7],[6]]
+  ],
+  "cp-usc-1391": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-usc-1404": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-usc-1406": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-usc-1407": [
+   ["civilImport.weeks",[8],[7,8]]
+  ],
+  "cp-usc-1652": [
+   ["civilImport.weeks",[9],[8,9]]
+  ]
+ }
+}

@@ -703,6 +703,8 @@ def main() -> None:
                     width=masthead_meta['width'], height=masthead_meta['height'])
     practice_filter = json.loads((ROOT / 'tools/v25/practice-filter.json').read_text(encoding='utf-8'))
     geography = json.loads((ROOT / 'tools/v25/geography.json').read_text(encoding='utf-8'))
+    # The October 1, 2026 Civil Procedure syllabus, as edits over the September graph (src/features/sessions/civil-syllabus.js).
+    civil_syllabus = json.loads((ROOT / 'tools/sessions/civil-syllabus.json').read_text(encoding='utf-8'))
     js, css, modules = load_runtime_modules()
     runtime_manifest = json.loads((ROOT / 'src/features/manifest.json').read_text(encoding='utf-8'))
     pre_paths = runtime_manifest.get('beforeAppCode', [])
@@ -716,7 +718,7 @@ def main() -> None:
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (ROOT / "src/features/r19/sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), json.dumps(civil_syllabus, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
@@ -726,6 +728,7 @@ def main() -> None:
     addition += embed_json("dklaWeThePeopleAsset", masthead)
     addition += embed_json("dklaPracticeFilter", practice_filter)
     addition += embed_json("dklaGeographyData", geography)
+    addition += embed_json("dklaCivilSyllabus", civil_syllabus)
     addition += f'<style id="dklaR19Styles">{css}</style>\n<script id="dklaR19Briefs">{js}</script>\n'
     position = source.lower().rfind("</body>")
     output = source[:position] + addition + source[position:]

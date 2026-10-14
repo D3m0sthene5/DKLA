@@ -82,6 +82,12 @@ export const tasks = [
     SOURCE,
   ),
   step('datasets', 'Cold Call main audit', py('tools/cold-call/check_main_audit.py'), SOURCE),
+  // Weeks 6 to 9 name the readings of the October 1, 2026 syllabus (reads the graph seed, not the build).
+  step(
+    'datasets',
+    'Civil Procedure follows the October 1 syllabus',
+    node('tools/sessions/civil_syllabus_check.mjs'),
+  ),
 
   // The analytics catalogue step rewrites lib/analytics/catalog.json, so
   // anything that may load it waits for that step.

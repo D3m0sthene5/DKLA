@@ -29,6 +29,7 @@ CONTENT = [
     'tools/cold-call/narratives',
     'tools/cold-call/*.json',
     'tools/v25/*.json',          # authorities, U.S. Code, geography, reviews and audits
+    'tools/sessions/*.json',     # the October 1, 2026 Civil Procedure syllabus revision
 ]
 # Build configuration that happens to sit beside the datasets.
 NOT_CONTENT = {'src/features/manifest.json', 'tools/v25/home-baseline-fonts.json'}
