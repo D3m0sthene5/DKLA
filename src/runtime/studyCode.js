@@ -621,10 +621,6 @@ function shortRegionTitle(r) {
       ? 'Article 2 · Battle of the forms'
       : r.title;
 }
-function guide(n) {
-  const a = mapData().guides[n.id];
-  return a && a.sourceUpdatedAt === n.updatedAt && a.sourceSummary === n.summary ? a.text : null;
-}
 function incident(id) {
   return adj.get(id) || [];
 }
@@ -2397,40 +2393,6 @@ svg.addEventListener('click', (e) => {
   const id = nearestStar(e.clientX, e.clientY, 10);
   if (id) goNode(id, false);
 });
-function briefSourceStrip(n) {
-  const ranges = n.textbookImport?.printedRanges || [];
-  let s = ranges
-    .map(([a, b]) => `<button data-book="${a}">C&amp;M ${a}${a === b ? '' : '–' + b} ↗</button>`)
-    .join('');
-  if (!s) {
-    s = (n.sources || [])
-      .filter((a) => a.url)
-      .slice(0, 2)
-      .map((a) => {
-        const u = safeURL(a.url);
-        return u?.startsWith('#book=')
-          ? `<button data-book="${u.slice(6)}">${E(a.label)} ↗</button>`
-          : u
-            ? `<a href="${E(u)}" target="_blank" rel="noopener noreferrer">${E(a.label || 'Source')} ↗</a>`
-            : '';
-      })
-      .join('');
-  }
-  return s ? `<div class="source-strip">${s}</div>` : '';
-}
-function sourceCaution(n) {
-  const role = geoPlacement(n.id).role,
-    status = n.status || '',
-    parts = [];
-  if (role === 'Partial excerpt' || n.id.endsWith('-boundary'))
-    parts.push('Only part of the case was assigned.');
-  if (role === 'Source gap' || status === 'Assigned source gap')
-    parts.push('The assigned source is missing.');
-  if (status === 'Starter' || role === 'Earlier overview' || role === 'Earlier case')
-    parts.push('Early brief, not yet checked against the casebook.');
-  if (/needs review|disputed/i.test(status)) parts.push('This entry is marked ' + status + '.');
-  return parts.length ? `<div class="source-caution">${parts.map(E).join('<br>')}</div>` : '';
-}
 function readerChrome(body, label = 'Reading') {
   return `<div class="reader-top"><span>${E(label)}</span><button id="closeInspector" aria-label="Close reading panel">×</button></div><div class="reader-body">${body}</div>`;
 }
@@ -2457,24 +2419,7 @@ function auditDetails(n) {
   );
   return `<details class="quiet-details" id="entryAudit"><summary>Sources & record details</summary><h4>Source scope</h4><p>${E(n.textbookImport?.basis || 'Earlier entry.')}</p>${sourceHTML(n.sources)}<p>${E(p.reviewNote || '')}${guideInfo && !guide(n) ? '<br>The placement guide is hidden because this entry has changed since it was written.' : ''}</p><dl class="metadata-grid"><dt>Record ID</dt><dd>${E(n.id)}</dd><dt>Review status</dt><dd>${E(n.status)}</dd><dt>Original title</dt><dd>${E(n.title)}</dd><dt>Original label</dt><dd>${E(n.shortTitle)}</dd><dt>Reading role</dt><dd>${E(p.role)}</dd><dt>Courses</dt><dd>${E(n.courses.join(', '))}</dd><dt>Tags</dt><dd>${E(n.tags.join(', ')) || 'None'}</dd></dl><details id="originalMetadata"><summary>Full provenance and original metadata</summary><pre>${E(JSON.stringify(extra, null, 2))}</pre></details><p><button class="text-button" data-place="${E(n.id)}">Change subject placement</button></p><button class="text-button danger" data-delete-node="${E(n.id)}">Delete entry</button></details>`;
 }
-function connectionCard(e, id) {
-  const otherId = e.source === id ? e.target : e.source,
-    other = nodesById.get(otherId);
-  if (!other) return '';
-  const source = nodesById.get(e.source),
-    target = nodesById.get(e.target),
-    p = geoPlacement(otherId),
-    pins = mapData().connectionPins[id] || [];
-  return `<article class="study-connection ${e.status === 'Disputed' ? 'disputed' : ''}" data-connection-record="${E(e.id)}"><button class="connection-destination" data-study-node="${E(otherId)}">${E(displayName(other))}<small>${E(geoDistrict(p.district)?.title || 'Elsewhere in the atlas')}</small></button><button class="connection-explanation" data-study-edge="${E(e.id)}"><span class="direction">${E(displayName(source))} → ${E(displayName(target))} · ${E(e.label)}</span><p>${E(e.explanation || e.label)}</p><span class="connection-review">${e.status === 'Disputed' ? 'Disputed relationship — read the qualification' : e.status === 'Reviewed' ? 'Marked reviewed' : 'Suggested relationship'} · Open explanation and sources</span></button><div class="connection-foot"><button data-pin="${E(otherId)}" data-pin-from="${E(id)}" class="${pins.includes(otherId) ? 'active' : ''}">${pins.includes(otherId) ? 'Prioritized for study' : 'Prioritize for study'}</button></div></article>`;
-}
-function connectionsSection(n) {
-  const all = incident(n.id),
-    top = focusEdges(n.id, n.id === 'ucc207' ? 8 : 6),
-    used = new Set(top.map((e) => e.id)),
-    rest = orderedEdges(n.id).filter((e) => !used.has(e.id));
-  return `<div class="related-heading"><h3>Connections</h3>${top.length ? '<button id="showNeighborhood">See on map</button>' : ''}</div><p class="tiny-help">${all.length} recorded relationships. Suggested links retain their original review status.</p>${n.id === 'ucc207' ? '<p class="tiny-help">The local map also follows existing links through conditional acceptance to <button class="text-button" data-study-node="dorton">Dorton</button> and <button class="text-button" data-study-node="citoh">C. Itoh</button>. These are indirect paths.</p>' : ''}<div class="connection-list">${top.map((e) => connectionCard(e, n.id)).join('')}</div>${rest.length ? `<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded ? 'open' : ''}><summary>All remaining connections (${rest.length})</summary><div class="connection-list" style="margin-top:13px">${rest.map((e) => connectionCard(e, n.id)).join('')}</div></details>` : ''}`;
-}
-renderInspector = function () {
+function renderInspector() {
   if (!S.panelOpen || !selected) {
     $('inspector').innerHTML = '';
     return;
@@ -2511,27 +2456,11 @@ renderInspector = function () {
   $('inspector').innerHTML = readerChrome(body, parent);
   $('inspector').scrollTop = 0;
   wireReader();
-};
-renderWelcome = function () {
-  setReader(false);
-};
-function renderDistrictReader(id) {
-  const d = districtFor(id);
-  if (!d) return;
-  const ns = geoMembers(id).sort((a, b) => geoRoleOrder(a, d) - geoRoleOrder(b, d)),
-    main = ns.filter((n) => geoPlacement(n.id).tier === 'main'),
-    sup = ns.filter((n) => geoPlacement(n.id).tier !== 'main');
-  const link = (n) =>
-    `<button class="study-entry-link" data-study-node="${E(n.id)}"><strong>${E(displayName(n))}</strong><small>${E(roleLabel(n))}</small><p>${E(n.summary)}</p></button>`;
-  const lead = nodesById.get(d.lead);
-  $('inspector').innerHTML = readerChrome(
-    `<h2>${E(d.title)}</h2><p class="takeaway">${E(d.question)}</p>${lead ? `<p>${E(lead.summary)}</p>${briefSourceStrip(lead)}` : ''}<h3>Ideas & cases</h3>${main.map(link).join('') || '<p>Nothing filed here yet.</p>'}${sup.length ? `<details class="quiet-details" id="topicFurther"><summary>Related notes & questions (${sup.length})</summary>${sup.map(link).join('')}</details>` : ''}<p class="context-text">Zoom in on the map to see the related notes.</p>`,
-    shortRegionTitle(regionFor(d.region)),
-  );
-  $('inspector').scrollTop = 0;
-  wireReader();
 }
-renderEdge = function (e) {
+function renderWelcome() {
+  setReader(false);
+}
+function renderEdge(e) {
   if (!e) {
     setReader(false);
     return;
@@ -2551,7 +2480,7 @@ renderEdge = function (e) {
   );
   $('inspector').scrollTop = 0;
   wireReader();
-};
+}
 function wireReader() {
   $('closeInspector').onclick = () => {
     remember();
@@ -2577,37 +2506,27 @@ function wireReader() {
     .querySelectorAll('details')
     .forEach((el) => el.addEventListener('toggle', deferPersist));
 }
-function seeNeighborhood() {
-  if (selected?.type !== 'node') return;
-  remember();
-  S.connectionOverview = true;
-  const es = shownEdges(),
-    ids = uniq([selected.id, ...es.flatMap((e) => [e.source, e.target])]);
-  const b = bounds(ids.map(homeFor));
-  fitBox({ x: b.x - 25, y: b.y - 95, w: b.w + 50, h: b.h + 130 }, true, 35, 1.2);
-  if (!es.length) toast('Cross-subject connections remain in the reading panel.');
-}
 // Navigation never resets the search or rewrites record positions.
-selectNode = function (id, center = false) {
+function selectNode(id, center = false) {
   goNode(id, center);
-};
-selectEdge = function (id) {
+}
+function selectEdge(id) {
   goEdge(id, false);
-};
-focusNode = function (id) {
+}
+function focusNode(id) {
   goNode(id, true);
-};
-openEntry = function (id) {
+}
+function openEntry(id) {
   if ($('bookDialog').open) closeBookReader();
   goNode(id, true);
-};
+}
 resetView = function () {
   home('Contracts');
 };
-chooseAssignment = function (v) {
+function chooseAssignment(v) {
   closeModal();
   classDialog(v);
-};
+}
 fit = function () {
   remember();
   const b = S.district
@@ -2617,13 +2536,13 @@ fit = function () {
       : scopeBox();
   fitBox(b, true, 35, 1.15);
 };
-zoom = function (factor) {
+function zoom(factor) {
   R11.step(factor > 1 ? 1 : -1, null);
-};
+}
 applyView = function () {
   schedule();
 };
-renderGraph = function () {
+function renderGraph() {
   ensureMap();
   rebuildIndex();
   if (
@@ -2635,7 +2554,7 @@ renderGraph = function () {
   renderHeading();
   schedule();
   deferPersist();
-};
+}
 const oldWarning = warning;
 warning = function (msg) {
   $('storageWarning').hidden = false;
@@ -2793,18 +2712,6 @@ function outlineDialog() {
       .join('')}</div>`,
   );
 }
-function classDialog(v = '9') {
-  const c = Number(v) || 9,
-    ns = data.nodes.filter((n) => classNumbers(n).includes(c)),
-    main = ns.filter((n) => geoPlacement(n.id).tier === 'main'),
-    sup = ns.filter((n) => geoPlacement(n.id).tier !== 'main'),
-    ranges = (data.corpus || base.corpus).assignedRanges[c] || [];
-  modal(
-    'Reading assignment ' + c,
-    `<label class="form-field"><span>Assignment</span><select id="readingClass">${Array.from({ length: 9 }, (_, i) => `<option value="${i + 1}" ${i + 1 === c ? 'selected' : ''}>Class ${i + 1}</option>`).join('')}</select></label><p class="modal-copy">The reading list for this class.</p><div class="source-strip">${ranges.map(([a, b]) => `<button data-book="${a}">C&amp;M ${a}–${b}</button>`).join('')}</div>${main.map((n) => `<button class="study-entry-link" data-study-node="${E(n.id)}">${E(n.title)}</button>`).join('')}<details class="quiet-details"><summary>Related notes and source records (${sup.length})</summary>${sup.map((n) => `<button class="study-entry-link" data-study-node="${E(n.id)}">${E(n.title)}</button>`).join('')}</details>`,
-  );
-  $('readingClass').onchange = (e) => classDialog(e.target.value);
-}
 function saveDialog() {
   modal(
     'Keep your atlas',
@@ -2936,16 +2843,6 @@ help = function () {
   );
 };
 const originalNodeForm = nodeForm;
-nodeForm = function (id = null) {
-  originalNodeForm(id);
-  if (!id)
-    $('editForm').elements.courses.value =
-      S.scope === 'Contracts'
-        ? 'Contracts'
-        : S.scope === 'Civil Procedure'
-          ? 'Civil Procedure'
-          : 'Cross-course';
-};
 function setPin(from, to) {
   const wasOpen = S.connectionsExpanded,
     sc = $('inspector').scrollTop;
@@ -2957,29 +2854,6 @@ function setPin(from, to) {
   renderInspector();
   $('inspector').scrollTop = sc;
   toast('Study display priority saved. The relationship and review status are unchanged.');
-}
-function placeForm(id) {
-  const n = nodesById.get(id),
-    p = geoPlacement(id);
-  modal(
-    'Place this entry',
-    formWrap(
-      `<p class="modal-copy">This changes the topic reference, not the entry’s legal content. The saved map home stays where you placed it until you drag it.</p><label class="form-field"><span>Subject and subtopic</span><select name="district">${mapData()
-        .regions.map(
-          (r) =>
-            `<optgroup label="${E(shortRegionTitle(r))}">${r.districtIds.map((id) => `<option value="${E(id)}" ${p.district === id ? 'selected' : ''}>${E(districtFor(id).title)}</option>`).join('')}</optgroup>`,
-        )
-        .join('')}</select></label>`,
-    ),
-  );
-  wireForm((f) => {
-    const d = districtFor(f.get('district'));
-    transact('Changed subject placement: ' + n.title, () => {
-      data.geography.placements[id] = { ...p, region: d.region, district: d.id };
-      mapData().homes[id].region = d.region;
-      mapData().homes[id].district = d.id;
-    });
-  });
 }
 function collisionAt(id, c) {
   for (const [other, h] of Object.entries(mapData().homes))

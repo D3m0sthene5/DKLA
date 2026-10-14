@@ -62,7 +62,7 @@ r6CaseList = function (id, heading = 'Cases across the semester') {
   }
   return out;
 };
-briefSourceStrip = function (n) {
+function briefSourceStrip(n) {
   const items = [];
   for (const [a, b] of n.textbookImport?.printedRanges || [])
     items.push(`<button data-book="${a}">C&amp;M ${civilRange(a, b)}</button>`);
@@ -80,7 +80,7 @@ briefSourceStrip = function (n) {
   return items.length
     ? `<div class="source-strip">${uniq(items).join('')}</div>`
     : `<div class="source-strip">${sourceHTML((n.sources || []).slice(0, 3))}</div>`;
-};
+}
 const r7SourceCautionBase = sourceCaution;
 sourceCaution = function (n) {
   if (!n.civilImport) return r7SourceCautionBase(n);

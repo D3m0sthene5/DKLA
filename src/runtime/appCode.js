@@ -288,9 +288,6 @@ function classNumbers(n) {
 function coreNode(n) {
   return ['Case', 'Concept', 'Rule'].includes(n.kind) || n.id.startsWith('contracts-class-');
 }
-function readerPages() {
-  return BOOK_PAGES.filter((p) => !bookClass || BOOK[p].assignments.includes(+bookClass));
-}
 function sourcePanel(n) {
   if (!n.textbookImport)
     return '<div class="provenance-note">Earlier notebook entry · retained from revision 2. This import did not audit its sources.</div>';
@@ -345,37 +342,6 @@ function openBook(p = 284) {
   }
   renderSource();
   if (!$('bookDialog').open) $('bookDialog').showModal();
-}
-function openEntry(id) {
-  if ($('bookDialog').open) $('bookDialog').close();
-  assignment = '';
-  detailLevel = 'full';
-  $('assignmentFilter').value = '';
-  $('detailFilter').value = 'full';
-  activeCourses = null;
-  $('kindFilter').value = '';
-  $('relationFilter').value = '';
-  query = '';
-  $('search').value = '';
-  trail = null;
-  focusId = id;
-  renderCourses();
-  selectNode(id, true);
-  arrangeVisible();
-}
-function chooseAssignment(value) {
-  assignment = value;
-  detailLevel = $('detailFilter').value;
-  focusId = null;
-  trail = null;
-  query = '';
-  $('search').value = '';
-  selected = null;
-  activeCourses = null;
-  renderCourses();
-  applyView();
-  renderInspector();
-  arrangeVisible();
 }
 function arrangeVisible() {
   /* Study view never executes a randomized layout. */
@@ -643,24 +609,6 @@ const styles = [
 ];
 cy = { extent: () => ({ x1: 0, x2: 100, y1: 0, y2: 100 }), resize: () => {} };
 
-function renderGraph() {
-  const pan = cy.pan(),
-    zoom = cy.zoom();
-  cy.batch(() => {
-    cy.elements().remove();
-    cy.add(graphElements());
-  });
-  cy.zoom(zoom);
-  cy.pan(pan);
-  if (selected?.type === 'node' && !nodeById(selected.id)) selected = null;
-  if (selected?.type === 'edge' && !edgeById(selected.id)) selected = null;
-  if (focusId && !nodeById(focusId)) focusId = null;
-  if (trail && (trail.nodes.some((id) => !nodeById(id)) || trail.edges.some((id) => !edgeById(id))))
-    trail = null;
-  renderCourses();
-  applyView();
-  renderInspector();
-}
 function renderCourses() {
   const names = uniq(data.nodes.flatMap((n) => n.courses)).sort((a, b) => {
     const keys = Object.keys(COLORS);
@@ -827,41 +775,6 @@ function fit() {
   const shown = cy.elements().not('.hidden');
   if (shown.length) cy.animate({ fit: { eles: shown, padding: 65 }, duration: 280 });
 }
-function selectNode(id, center = false) {
-  if (!nodeById(id)) return;
-  selected = { type: 'node', id };
-  applyView();
-  renderInspector();
-  if (center) {
-    const el = cy.getElementById(id);
-    if (!el.hasClass('hidden')) cy.animate({ center: { eles: el }, duration: 250 });
-  }
-}
-function selectEdge(id) {
-  if (!edgeById(id)) return;
-  selected = { type: 'edge', id };
-  applyView();
-  renderInspector();
-}
-function focusNode(id) {
-  if (!nodeById(id)) return;
-  assignment = '';
-  detailLevel = 'full';
-  $('assignmentFilter').value = '';
-  $('detailFilter').value = 'full';
-  activeCourses = null;
-  $('kindFilter').value = '';
-  $('relationFilter').value = '';
-  query = '';
-  $('search').value = '';
-  focusId = id;
-  trail = null;
-  selected = { type: 'node', id };
-  renderCourses();
-  applyView();
-  renderInspector();
-  fit();
-}
 function resetView() {
   assignment = '';
   detailLevel = 'full';
@@ -879,105 +792,6 @@ function resetView() {
   applyView();
   renderInspector();
   fit();
-}
-function renderInspector() {
-  if (!selected) {
-    renderWelcome();
-    return;
-  }
-  if (selected.type === 'edge') {
-    renderEdge(edgeById(selected.id));
-    return;
-  }
-  const n = nodeById(selected.id);
-  if (!n) {
-    renderWelcome();
-    return;
-  }
-  const links = data.edges.filter((e) => e.source === n.id || e.target === n.id);
-  $('inspector').innerHTML =
-    `<div class="eyebrow">${escapeHTML(n.kind)}<span style="color:${color(n)}">${symbol(n)}</span></div><h2>${escapeHTML(n.title)}</h2><div class="badges">${badge(n.status)}${n.courses.map((c) => badge(c)).join('')}</div>${sourcePanel(n)}<p class="summary">${escapeHTML(n.summary || 'Add a summary to this entry.')}</p><div class="inspector-actions"><button id="editNode">Edit entry</button><button id="connectNode">↗ Connect</button><button id="focusNode">Neighborhood</button></div>${n.kind === 'Case' ? `<div class="case-box">${CASE_HEADINGS.map((h) => `<h3>${h}</h3><p>${escapeHTML(n.sections?.[h] || 'Not yet added.')}</p>`).join('')}</div>` : ''}${n.notes ? `<h3>Notes and qualifications</h3><div class="note-text">${escapeHTML(n.notes)}</div>` : ''}${n.tags.length ? `<div class="badges">${n.tags.map((t) => badge('#' + t)).join('')}</div>` : ''}<h3>Sources</h3>${n.sources.length ? sourceHTML(n.sources) : '<p class="micro">No source attached. Add a citation, reading, or dated class note before relying on a doctrinal claim.</p>'}<div class="divider"></div><h3>${links.length} explained connection${links.length === 1 ? '' : 's'}</h3>${
-      links
-        .map((e) => {
-          const other = nodeById(e.source === n.id ? e.target : e.source);
-          return `<button class="connection-card" data-edge="${escapeHTML(e.id)}"><div class="rel-label">${e.source === n.id ? '→' : '←'} ${escapeHTML(e.label)}</div><div class="rel-target">${escapeHTML(other?.title || 'Missing entry')}</div><div class="rel-meta">${escapeHTML(e.kind)} · ${escapeHTML(e.status)} · ${e.supports.length} supporting notes</div></button>`;
-        })
-        .join('') || '<p class="micro">Connect this entry to another idea or case.</p>'
-    }${n.provenance?.priorVersions?.length ? `<details><summary>Earlier notebook text · superseded</summary><div class="note-text">${escapeHTML(JSON.stringify(n.provenance.priorVersions, null, 2))}</div></details>` : ''}<div class="divider"></div><button id="deleteNode" class="text-button danger">Delete this entry</button><p class="micro">ID: ${escapeHTML(n.id)}<br>Updated ${escapeHTML((n.updatedAt || data.updatedAt).slice(0, 10))}</p>`;
-  $('editNode').onclick = () => nodeForm(n.id);
-  $('connectNode').onclick = () => edgeForm(null, n.id);
-  $('focusNode').onclick = () => focusNode(n.id);
-  $('inspector')
-    .querySelectorAll('[data-edge]')
-    .forEach((b) => (b.onclick = () => selectEdge(b.dataset.edge)));
-  $('deleteNode').onclick = () =>
-    confirmDialog(
-      'Delete entry?',
-      `This deletes “${n.title}” and its ${links.length} connections. Undo is available during this session.`,
-      () => {
-        transact('Deleted entry: ' + n.title, () => {
-          data.nodes = data.nodes.filter((x) => x.id !== n.id);
-          data.edges = data.edges.filter((e) => e.source !== n.id && e.target !== n.id);
-        });
-        toast('Entry deleted.');
-      },
-    );
-}
-function renderWelcome() {
-  $('inspector').innerHTML =
-    `<div class="eyebrow">CONTRACTS · ASSIGNMENTS 1–9</div><h2>The casebook,<br>connected.</h2><p>Start with today’s cases, or choose an assignment in the left panel. Every study entry opens its assigned source pages.</p><div class="metric-row"><div class="metric"><b>${BOOK_PAGES.length}</b><span>assigned source pages</span></div><div class="metric"><b>${data.nodes.filter((n) => n.status === 'Casebook brief').length}</b><span>casebook briefs</span></div></div><button class="starter-trail" data-quick-node="bayway"><strong>Bayway · material alteration</strong><span>Burden of proof, surprise, and hardship</span></button><button class="starter-trail" data-quick-node="northrop"><strong>Northrop · different terms</strong><span>Three approaches and the Illinois-law prediction</span></button><button class="starter-trail" data-quick-node="hill-gateway"><strong>Hill and Klocek · terms later</strong><span>Formation timing, notice, and the evidentiary record</span></button><button class="starter-trail" data-book="284"><strong>Read today’s textbook pages</strong><span>Printed pp. 284–304 · full page images</span></button><div class="welcome-block"><p>Switch <b>Core map</b> to <b>All notes + problems</b> to see editorial discussions, shorter authorities, and unanswered problems. Use <b>Scope & gaps</b> for missing SEL/SUPP readings and page coverage.</p></div><p class="micro">New connections are Proposed study interpretations. Line thickness is connectivity, not legal authority. Assignment-membership links are hidden by default and excluded from node size. No lecture notes or current-law verification are included.</p><p class="micro">${data.nodes.length} total entries · ${data.edges.length} total relationships<br>Keep the latest exported JSON for future updates.</p>`;
-}
-function renderEdge(e) {
-  if (!e) {
-    renderWelcome();
-    return;
-  }
-  const from = nodeById(e.source),
-    to = nodeById(e.target),
-    s = strength(e);
-  $('inspector').innerHTML =
-    `<div class="eyebrow">EXPLAINED CONNECTION</div><h2>${escapeHTML(e.label)}</h2><div class="badges">${badge(e.kind)}${badge(e.status)}</div><div class="divider"></div><button class="starter-trail" id="edgeFrom"><strong>${escapeHTML(from.title)}</strong><span>From this entry ↓</span></button><button class="starter-trail" id="edgeTo"><strong>${escapeHTML(to.title)}</strong><span>To this entry</span></button><p class="summary">${escapeHTML(e.explanation || 'Add an explanation of this relationship.')}</p><div class="inspector-actions"><button id="editEdge">Edit connection</button><button id="addSupport">＋ Supporting note</button>${e.status !== 'Reviewed' ? '<button id="reviewEdge">Mark reviewed</button>' : ''}</div><h3>Connection strength</h3><p class="micro">${s.relations} distinct labeled relationship${s.relations === 1 ? '' : 's'} between these entries, plus ${s.supports} distinct supporting note${s.supports === 1 ? '' : 's'} on this relationship. Thickness is 1 + log₂(1 + these counts). This measures recorded connectivity, not legal authority, truth, or your mastery.</p><h3>Sources for this connection</h3>${e.sources.length ? sourceHTML(e.sources) : '<p class="micro">No external source attached. This may be your own comparison or a class-note connection.</p>'}<h3>Supporting notes (${e.supports.length})</h3>${e.supports.map((s) => `<div class="support-card"><p>${escapeHTML(s.text)}</p><small>${escapeHTML(s.source || 'No source recorded')}</small><button class="mini-button" data-edit-support="${escapeHTML(s.id)}">Edit</button> <button class="mini-button danger" data-remove-support="${escapeHTML(s.id)}">Remove</button></div>`).join('') || '<p class="micro">Add distinct cases, observations, or class notes that explain this connection. Exact duplicate text-and-source pairs are ignored.</p>'}<div class="divider"></div><button id="deleteEdge" class="text-button danger">Delete this connection</button>`;
-  $('edgeFrom').onclick = () => selectNode(e.source, true);
-  $('edgeTo').onclick = () => selectNode(e.target, true);
-  $('editEdge').onclick = () => edgeForm(e.id);
-  $('addSupport').onclick = () => supportForm(e.id);
-  if ($('reviewEdge'))
-    $('reviewEdge').onclick = () => {
-      transact('Reviewed connection: ' + e.label, () => {
-        edgeById(e.id).status = 'Reviewed';
-        edgeById(e.id).updatedAt = now();
-      });
-      toast('Marked reviewed. This records your review, not automated legal verification.');
-    };
-  $('inspector')
-    .querySelectorAll('[data-edit-support]')
-    .forEach((b) => (b.onclick = () => supportForm(e.id, b.dataset.editSupport)));
-  $('inspector')
-    .querySelectorAll('[data-remove-support]')
-    .forEach(
-      (b) =>
-        (b.onclick = () =>
-          confirmDialog(
-            'Remove supporting note?',
-            'The relationship will remain. Undo is available during this session.',
-            () =>
-              transact('Removed supporting note', () => {
-                edgeById(e.id).supports = edgeById(e.id).supports.filter(
-                  (s) => s.id !== b.dataset.removeSupport,
-                );
-                edgeById(e.id).updatedAt = now();
-              }),
-          )),
-    );
-  $('deleteEdge').onclick = () =>
-    confirmDialog(
-      'Delete connection?',
-      `This deletes “${e.label}” and its supporting notes. Undo is available during this session.`,
-      () =>
-        transact('Deleted connection: ' + e.label, () => {
-          data.edges = data.edges.filter((x) => x.id !== e.id);
-        }),
-    );
 }
 function modal(title, html) {
   $('modalTitle').textContent = title;
@@ -1386,13 +1200,6 @@ function exportHTML() {
   saveCache();
   toast('Portable HTML downloaded with the current graph embedded.');
 }
-function markdownSourceURL(url) {
-  if (/^#book=\d+$/.test(url)) {
-    const r = BOOK[+url.split('=')[1]];
-    return r ? 'Contracts-Assigned-Source-Pages.pdf#page=' + r.packetPage : url;
-  }
-  return url;
-}
 function markdown(n, names) {
   const lines = [
     '---',
@@ -1694,13 +1501,6 @@ $('hops').onchange = () => {
 };
 $('pathBtn').onclick = pathForm;
 $('fitBtn').onclick = fit;
-function zoom(factor) {
-  const rect = $('graph').getBoundingClientRect();
-  cy.zoom({
-    level: Math.max(cy.minZoom(), Math.min(cy.maxZoom(), cy.zoom() * factor)),
-    renderedPosition: { x: rect.width / 2, y: rect.height / 2 },
-  });
-}
 $('zoomIn').onclick = () => zoom(1.3);
 $('zoomOut').onclick = () => zoom(1 / 1.3);
 $('layoutBtn').onclick = arrangeVisible;

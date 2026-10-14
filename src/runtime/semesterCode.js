@@ -93,29 +93,10 @@ function r6Paragraphs(t) {
     .map((p) => `<p>${E(p)}</p>`)
     .join('');
 }
-briefSourceStrip = function (n) {
-  const rs = n.textbookImport?.printedRanges || [],
-    ss = n.textbookImport?.supplementalRanges || [];
-  let html =
-    rs.map(([a, b]) => `<button data-book="${a}">C&amp;M ${a}${a === b ? '' : '–' + b}</button>`).join('') +
-    ss.map(([a, b]) => `<button data-supp="${a}">Supplement ${a}${a === b ? '' : '–' + b}</button>`).join('');
-  if (!html)
-    html = (n.sources || [])
-      .slice(0, 3)
-      .map((s) => {
-        if (/^#book=/.test(s.url)) return `<button data-book="${s.url.slice(6)}">${E(s.label)}</button>`;
-        if (/^#supp=/.test(s.url)) return `<button data-supp="${s.url.slice(6)}">${E(s.label)}</button>`;
-        return safeURL(s.url)
-          ? `<a href="${E(s.url)}" target="_blank" rel="noopener">${E(s.label || 'Source')}</a>`
-          : '';
-      })
-      .join('');
-  return html ? `<div class="source-strip">${html}</div>` : '';
-};
-guide = function (n) {
+function guide(n) {
   return n.learning?.why || mapData().guides?.[n.id]?.text || null;
-};
-sourceCaution = function (n) {
+}
+function sourceCaution(n) {
   const p = geoPlacement(n.id),
     a = [];
   if (
@@ -134,20 +115,20 @@ sourceCaution = function (n) {
   )
     a.push(n.learning.coverage);
   return a.length ? `<div class="source-caution">${uniq(a).map(E).join('<br>')}</div>` : '';
-};
-connectionCard = function (e, id) {
+}
+function connectionCard(e, id) {
   const k = e.source === id ? e.target : e.source,
     n = nodesById.get(k);
   if (!n) return '';
   return `<article class="study-connection simple-connection" data-connection-record="${E(e.id)}"><button class="connection-destination" data-study-node="${E(k)}">${E(n.title)}</button><p>${E(r6StudySentence(e.explanation || e.label))}</p><button class="text-button" data-study-edge="${E(e.id)}">${e.status === 'Disputed' ? 'Disputed · read qualification' : 'Sources and relationship details'}</button></article>`;
-};
-connectionsSection = function (n) {
+}
+function connectionsSection(n) {
   const all = orderedEdges(n.id).filter((e) => !navigationEdge(e)),
     top = focusEdges(n.id, 4),
     used = new Set(top.map((e) => e.id)),
     rest = all.filter((e) => !used.has(e.id));
   return `<section class="r6-connections"><div class="related-heading"><h3>Connections</h3><button id="showNeighborhood">Show all</button></div><p class="context-text">${all.length} explained relationships, including connections to other subjects. The map shows four at a time; the complete list is retained here.</p>${top.map((e) => connectionCard(e, n.id)).join('')}${rest.length ? `<details id="remainingConnections" class="quiet-details" ${S.connectionsExpanded ? 'open' : ''}><summary>More connections (${rest.length})</summary>${rest.map((e) => connectionCard(e, n.id)).join('')}</details>` : ''}</section>`;
-};
+}
 renderInspector = function () {
   if (!S.panelOpen || !selected) {
     $('inspector').innerHTML = '';
@@ -202,7 +183,7 @@ renderInspector = function () {
   wireReader();
   r6RenderLens();
 };
-renderDistrictReader = function (id) {
+function renderDistrictReader(id) {
   const d = districtFor(id);
   if (!d) return;
   const lead = nodesById.get(d.lead),
@@ -230,7 +211,7 @@ renderDistrictReader = function (id) {
   $('inspector').innerHTML = readerChrome(h, shortRegionTitle(regionFor(d.region)));
   $('inspector').scrollTop = 0;
   wireReader();
-};
+}
 // Nearby references are temporary presentation objects pointing to canonical records.
 function r6RenderLens() {
   const show = r6LensOpen && S.panelOpen && selected?.type === 'node';
@@ -287,11 +268,11 @@ goEdge = function (...args) {
   r6RenderLens();
   return v;
 };
-seeNeighborhood = function () {
+function seeNeighborhood() {
   if (selected?.type !== 'node') return;
   r6LensOpen = true;
   r6RenderLens();
-};
+}
 shownEdges = function () {
   if (r6LensOpen) return [];
   if (selected?.type === 'edge') return [edgesById.get(selected.id)].filter(Boolean);
@@ -338,11 +319,11 @@ function openSupplement(p = 1) {
   $('closeBook').textContent = '← Back to entry';
   if (!$('bookDialog').open) $('bookDialog').showModal();
 }
-readerPages = function () {
+function readerPages() {
   const arc = sourceMode === 'supp' ? SUPP : BOOK,
     pages = sourceMode === 'supp' ? SUPP_PAGES : BOOK_PAGES;
   return pages.filter((p) => !bookClass || arc[p].assignments.includes(+bookClass));
-};
+}
 renderSource = function () {
   $('bookPageInput').max = sourceMode === 'supp' ? 138 : 1227;
   $('bookClass').options[0].textContent =
@@ -652,7 +633,7 @@ nodeForm = function (id = null) {
     goNode(k, true);
   });
 };
-placeForm = function (id) {
+function placeForm(id) {
   const n = nodesById.get(id);
   modal(
     'Move entry to a subject',
@@ -665,7 +646,7 @@ placeForm = function (id) {
     transact('Moved ' + n.title + ' to a subject', () => r6Place(id, f.get('r6district')));
     goNode(id, true);
   });
-};
+}
 // A manual drop cannot silently give an entry the address of an unrelated topic.
 const r6CommitOriginal = commitMove;
 commitMove = function (id, x, y) {
@@ -679,7 +660,7 @@ commitMove = function (id, x, y) {
   }
   return r6CommitOriginal(id, x, y);
 };
-classDialog = function (v = '9') {
+function classDialog(v = '9') {
   const c = Math.max(1, Math.min(26, +v || 9)),
     cor = data.corpus,
     ids = cor.principalCases[c] || [],
@@ -702,7 +683,7 @@ classDialog = function (v = '9') {
       )}<h3>Other assigned materials</h3><p class="modal-copy">${E((cor.additionalAssignedMaterials?.[c] || []).join('; ') || 'Read the editorial notes and questions in the complete assigned ranges.')}</p><details class="quiet-details"><summary>Concepts, notes, and source records (${others.length})</summary>${others.map((n) => `<button class="study-entry-link" data-study-node="${E(n.id)}">${E(n.title)}</button>`).join('')}</details>`,
   );
   $('readingClass').onchange = (e) => classDialog(e.target.value);
-};
+}
 coverageDialog = function () {
   modal(
     'Semester coverage and source limits',
@@ -789,14 +770,14 @@ $('mapWelcome').innerHTML =
 $('startContractGuide').onclick = () => goNode('legal-framework', true);
 $('semesterReadings').onclick = () => classDialog(9);
 // Preserve source collection and extra state in the same portable document.
-markdownSourceURL = function (url) {
+function markdownSourceURL(url) {
   if (/^#book=\d+$/.test(url)) {
     const r = BOOK[+url.split('=')[1]];
     return r ? 'Contracts-Semester-Source-Pages.pdf#page=' + r.packetPage : url;
   }
   if (/^#supp=\d+$/.test(url)) return 'FA26%20Contracts%20Supplement.pdf#page=' + url.split('=')[1];
   return url;
-};
+}
 const r6MarkdownOriginal = markdown;
 markdown = function (n, names) {
   let out = r6MarkdownOriginal(n, names);
