@@ -3,6 +3,39 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
+## Latest (13 October 2026, later the same day)
+
+Read this first; the sections below it are older.
+
+- Pushed and confirmed live earlier today: the picture check and the move to
+  `src/features/` (GitHub check passed, Vercel deployed, live build stamp
+  matched). The owner then uploaded 32 course files to `added-sources/`
+  (commit `c548102a`).
+- **Committed locally on the live branch, not yet pushed** (everything after
+  `c548102a`): the 32 files recorded in the content inventory; `pnpm coverage`
+  and `pnpm lint:survey` and the ast-grep removal tool; 22 dead earlier
+  versions of functions removed; the review plans in
+  `docs/new-sources-review/`; Civil Procedure on the October 1 syllabus;
+  session cards in each course. `pnpm verify` passes 44 of 44.
+- Restore points (local tags): `session-start-2026-10-13b`,
+  `pre-dead-code-2026-10-13`.
+- **Still waiting for the owner:** the `improve/server` branch (now several
+  commits behind; rebase before use); whether the 32 new files may be
+  published (they are NOT in `tools/public-files.json`, so session cards
+  carry no slide links); the "Conflicts to settle" lists in the three review
+  plans.
+- **Not started:** applying the review plans to the atlas content (new entries
+  and deeper existing entries). That is the next large piece of work. Follow
+  the pattern the session-cards work used for corrections (run-time edits over
+  the open graph, see AGENTS.md), keep every sentence tied to a slide or page,
+  and never publish an answer to a slide question as the professor's answer.
+- Found and left alone: a cold `#node=` link lands on Home instead of the
+  entry (older than today); `mergeGraph` and `D` are referenced in
+  `src/features/v25/practice-filter.js:105` and `geography.js:335` but are not
+  visible there, so those two guarded branches never run (see
+  `docs/lint-survey.md`); ten more replaced-before-run functions the removal
+  tool refused (listed by `node tools/codemods/remove-dead-versions.mjs`).
+
 ## State
 
 - One working folder: `C:\Users\danie\Projects\DKLA`. The old OneDrive copy
