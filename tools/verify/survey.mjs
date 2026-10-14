@@ -81,11 +81,19 @@ for (const file of files) {
         line: node.loc.start.line,
         how: 'defined',
         size: node.loc.end.line - node.loc.start.line + 1,
+        range: [node.start, node.end],
+        top: true,
       });
     if (node.type === 'VariableDeclaration')
       for (const declaration of node.declarations)
         if (declaration.id.type === 'Identifier' && isFunction(declaration.init))
-          note(declaration.id.name, { file, line: node.loc.start.line, how: 'defined' });
+          note(declaration.id.name, {
+            file,
+            line: node.loc.start.line,
+            how: 'defined',
+            range: [declaration.init.start, declaration.init.end],
+            top: true,
+          });
   }
   const walk = (node, scopes, saved) => {
     if (node.type === 'Identifier') seen.add(node.name);
@@ -118,6 +126,9 @@ for (const file of files) {
           file,
           line: node.loc.start.line,
           how: innerSaved.has(name) ? 'wraps the previous one' : 'REPLACES it outright',
+          range: [node.right.start, node.right.end],
+          // Assigned as the script loads, not later from inside a function.
+          top: scopes.length === 1,
         });
     }
     for (const child of children(node)) walk(child, inner, innerSaved);
@@ -196,6 +207,12 @@ for (const entry of unused.sort((a, b) => b.size - a.size))
   out.push(`- \`${entry.name}\` (${entry.size} lines) at ${short(entry.file)}:${entry.line}`);
 out.push('', '## Size of each script', '', '| Script | Lines |', '|---|---|');
 for (const file of files) out.push(`| ${short(file)} | ${lines[file].toLocaleString('en-US')} |`);
+// The same facts as data, for tools/verify/coverage/report.mjs.
+fs.mkdirSync(path.join(root, 'work'), { recursive: true });
+fs.writeFileSync(
+  path.join(root, 'work/survey.json'),
+  JSON.stringify({ files, globals: Object.fromEntries(globals) }, null, 1),
+);
 fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
 fs.writeFileSync(path.join(root, 'docs/code-survey.md'), out.join('\n') + '\n');
 console.log(out.slice(3, 9).join('\n'));

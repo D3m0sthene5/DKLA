@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const { chromium } = require('@playwright/test');
+const coverage = require('./coverage/collect.cjs');
 const args = process.argv.slice(2);
 const option = (name, fallback) => {
   const i = args.indexOf(name);
@@ -140,6 +141,7 @@ async function route(page, hash) {
       });
       const page = await context.newPage();
       page.setDefaultTimeout(12000);
+      await coverage.start(page);
       page.on('pageerror', (e) => report.pageErrors.push({ viewport: viewport.name, error: e.message }));
       if (!viewport.storage) {
         await check(viewport.name + ': boot and home', async () => {
@@ -401,6 +403,7 @@ async function route(page, hash) {
           return ownerProseResult;
         });
       }
+      await coverage.stop(page, 'interactions-' + viewport.name + (viewport.storage ? '-saved-work' : ''));
       await context.close();
     }),
   );

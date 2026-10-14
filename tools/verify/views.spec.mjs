@@ -21,6 +21,7 @@
    Run against a local preview only. */
 import { test, expect } from '@playwright/test';
 import fs from 'node:fs';
+import coverage from './coverage/collect.cjs';
 const url = process.env.DKLA_VIEWS_URL;
 if (!url) throw new Error('Set DKLA_VIEWS_URL to the local preview page.');
 if (!['127.0.0.1', 'localhost', '[::1]'].includes(new URL(url).hostname))
@@ -80,6 +81,7 @@ for (const size of sizes)
     const page = await context.newPage();
     // A view that never opens fails in seconds instead of waiting out the whole test.
     page.setDefaultTimeout(15000);
+    await coverage.start(page);
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
@@ -87,17 +89,17 @@ for (const size of sizes)
     await page.waitForFunction(() => window.LegalAtlas?.ready && window.DKLAColdCall && window.DKLAStudy);
     await page.evaluate(() => document.fonts.ready);
 
-    const picture = async (name) => {
+    const picture = async (name, options = {}) => {
       if (!compare) return;
-      await expect.soft(page, name).toHaveScreenshot(`${size.name}-${name}.png`);
+      await expect.soft(page, name).toHaveScreenshot(`${size.name}-${name}.png`, options);
     };
-    const view = async (name, open, check) =>
+    const view = async (name, open, check, options) =>
       test.step(name, async () => {
         const began = Date.now();
         await closeAll(page);
         await open();
         await check();
-        await picture(name);
+        await picture(name, options);
         if (process.env.DKLA_VIEWS_TIMING) console.log(size.name, name, Date.now() - began);
       });
     const go = (hash) =>
@@ -208,6 +210,10 @@ for (const size of sizes)
         await expect(page.locator('#searchResults')).toBeVisible();
         await expect(page.locator('#searchResults button').first()).toBeVisible();
       },
+      // While the search box has the keyboard, the map behind it keeps redrawing
+      // and about one run in four never held still for a picture. This view is
+      // about the results panel; the map is compared in the other views.
+      { mask: [page.locator('#geoCanvas')] },
     );
     await view(
       'scotus-court',
@@ -248,7 +254,23 @@ for (const size of sizes)
         await expect(page.locator('#moreMenu')).toContainText('Doctrine timelines');
       },
     );
+    // An old link opened cold: the address already names a dictionary term when
+    // the page starts, so the route is read while the app is still loading.
+    // (A cold `#node=` link currently lands on Home instead of the entry; that
+    // was so before this check existed and is recorded in docs/HANDOFF.md.)
+    await test.step('deep-link', async () => {
+      // Leave the page first: changing only the part after # would not reload it.
+      await page.goto(new URL('/version.json', url).href);
+      await page.goto(url + '#term=consideration', { waitUntil: 'domcontentloaded', timeout: 90000 });
+      await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90000 });
+      await page.waitForFunction(() => window.LegalAtlas?.ready && window.DKLAColdCall && window.DKLAStudy);
+      await page.evaluate(() => document.fonts.ready);
+      await expect(page.locator('#glossaryDialog')).toHaveAttribute('open', '');
+      await expect(page.locator('#glossaryDialog')).toContainText(/consideration/i);
+      await picture('deep-link');
+    });
     await closeAll(page);
+    await coverage.stop(page, 'views-' + size.name);
     expect(errors, 'errors thrown by the page').toEqual([]);
     await context.close();
   });

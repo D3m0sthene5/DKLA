@@ -51,9 +51,10 @@ output, so a failure can be read from the run's summary page.
 
 ## Pictures of the main views
 
-Fifteen views (Home, a subject, a case, its full brief, Cold Call, the
+Sixteen views (Home, a subject, a case, its full brief, Cold Call, the
 dictionary, an authority, a doctrine timeline, a source page, search, two
-SCOTUS History pages, two Study tabs, the More menu) are opened at 1440 x 900
+SCOTUS History pages, two Study tabs, the More menu, and an old link opened
+cold) are opened at 1440 x 900
 and at 390 x 844 and compared with the pictures in `views/<system>/`. Each
 view also has a check that needs no picture: the panel opened and holds the
 expected words. The case view is where the reading layout
@@ -96,3 +97,47 @@ assemble the atlas (about 4 s), package (1 to 2 s), then the browser steps
 pages (three screen sizes, the saved-work test, nine Home window sizes and the
 two sizes of the picture comparison);
 that is processor-bound and scales with the number of cores.
+
+## Looking before changing code: three surveys and one editing tool
+
+None of these run in `pnpm verify`. They are for whoever is about to remove or
+restructure code. Each writes a report under `docs/` and changes no code.
+
+| Command | Tool | What it tells you |
+|---|---|---|
+| `pnpm coverage` | Chromium's built-in JavaScript coverage, recorded through Playwright (`coverage/`) | Which functions actually ran while the three browser checks drove the app: `docs/coverage-survey.md`. Two uses: evidence that an old version of a function never executes, and a map of what the checks never reach. |
+| `pnpm lint:survey` | ESLint and TypeScript in check-only mode (`lint.mjs`) | Functions that get reassigned, names never used, names used but never defined: `docs/lint-survey.md`. The scripts are joined in load order first, because they share one global scope. |
+| `node tools/verify/survey.mjs` | acorn | Every global function that is assigned more than once, in load order: `docs/code-survey.md`. |
+
+**"Never ran in the checks" is a reason to look closer, not proof.** The checks
+run about half of the app's functions. The first attempt to delete on that
+evidence alone removed a function a button was still wired to
+(`button.onclick = name` holds the old function without ever calling it); the
+browser checks caught it and the rule was tightened.
+
+`tools/codemods/remove-dead-versions.mjs` removes earlier versions of a global
+function that were replaced before they ever ran. It edits the syntax tree
+with ast-grep, never text, and refuses any candidate whose name is mentioned
+other than as a call inside a function before its replacement loads. Run it
+without `--write` first: it lists what it would remove and what it leaves
+alone, with the reason. After `--write`: `pnpm format`, `pnpm verify`,
+`pnpm coverage` (the same functions should still run), and
+`pnpm lint:survey` (no new undefined names).
+
+What was considered and not used: `v8-to-istanbul` and
+`monocart-coverage-reports` turn the same browser data into line-by-line HTML
+reports for source files on disk; here the scripts are inline in one built
+page and the question is per function, joined with the override survey, so
+the raw data is read directly. `jscodeshift` does the same job as ast-grep
+with more machinery; Meta stopped maintaining it in 2024 and it is now
+community-run. `oxlint` is faster than ESLint but is not needed at this size. `knip`
+needs real imports, which this code does not have yet. `Stryker` (mutation
+testing) is not adopted; `pnpm verify:teeth` is the hand-written equivalent.
+
+## A note on the picture of the search view
+
+While the search box has the keyboard, the map behind it keeps redrawing and
+about one run in four never held still long enough for a picture. That view's
+picture therefore leaves the map out (it is compared in every other view).
+After recording pictures, always run `pnpm views` a few times: a picture
+recorded while the map was still gliding makes later runs fail.

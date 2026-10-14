@@ -17,6 +17,8 @@
     "smoke": "node tools/verify/smoke.mjs",
     "views": "node tools/verify/views.mjs",
     "views:update": "node tools/verify/views.mjs --update",
+    "coverage": "node tools/verify/coverage/run.mjs",
+    "lint:survey": "node tools/verify/lint.mjs",
     "verify": "node tools/verify/all.mjs",
     "verify:teeth": "node tools/verify/break.mjs",
     "format": "prettier --write ."
@@ -26,9 +28,13 @@
     "@vercel/blob": "^2.8.0"
   },
   "devDependencies": {
+    "@ast-grep/napi": "0.50.0",
     "@electric-sql/pglite": "^0.5.8",
     "@playwright/test": "1.64.0",
     "acorn": "8.15.0",
-    "prettier": "3.6.2"
+    "eslint": "10.12.0",
+    "globals": "17.13.0",
+    "prettier": "3.6.2",
+    "typescript": "7.0.2"
   }
 }

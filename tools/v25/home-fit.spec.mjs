@@ -3,6 +3,7 @@
 import { test, expect } from '@playwright/test';
 import auditNativeHome from './home-audit.js';
 import { readFileSync } from 'node:fs';
+import coverage from '../verify/coverage/collect.cjs';
 const geometry = JSON.parse(readFileSync(new URL('./geography.json', import.meta.url), 'utf8'));
 const baseline = JSON.parse(readFileSync(new URL('./home-baseline-fonts.json', import.meta.url), 'utf8'));
 const expectedRegions = geometry.regions.map((r) => r.id);
@@ -27,6 +28,7 @@ for (const [width, height] of sizes)
     await page.setViewportSize({ width, height });
     // The first-visit guide is a separate onboarding flow, not the Home layout.
     await page.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+    await coverage.start(page);
     await page.goto(url);
     await page.locator('html.dkla-boot-ready').waitFor();
     const guide = page.getByRole('button', { name: 'Not now', exact: true });
@@ -77,4 +79,5 @@ for (const [width, height] of sizes)
       await expect(page.locator('#geoBreadcrumb')).toContainText('Consideration');
       await page.screenshot({ path: testInfo.outputPath('phone-zoom.png'), fullPage: false });
     }
+    await coverage.stop(page, `home-${width}x${height}`);
   });

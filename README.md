@@ -81,8 +81,13 @@ steps one at a time.
    Call, old links, the dictionary, authorities, SCOTUS History, Study,
    export and restore, and a saved note surviving a reload. It also checks
    that the map layout has not moved, that Home fits nine window sizes, and
-   that fifteen main views still look like their recorded pictures
+   that sixteen main views still look like their recorded pictures
    (`pnpm views`; see `tools/verify/README.md`).
+
+Before removing or restructuring code, three report-only surveys show what
+actually runs and what is redefined or unused: `pnpm coverage`,
+`pnpm lint:survey` and `node tools/verify/survey.mjs` (see
+`tools/verify/README.md`).
 
 To see exactly what a change would alter for a visitor, keep a copy of
 `work/public-manifest.json` from before, rebuild, and run

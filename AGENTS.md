@@ -67,6 +67,11 @@ as new layers on top. That is over. The rule now:
   looks, check the differences in `work/views/`, run `pnpm views:update` and
   commit the new pictures with the change. Never re-record to make an
   unexplained difference go away.
+- **Look before you remove, and edit structure, not text.** `pnpm coverage`
+  records which functions run in the browser checks; `pnpm lint:survey` lists
+  reassigned, unused and undefined names. Never-ran is a reason to look
+  closer, not proof. Make removals and renames with ast-grep (see
+  `tools/codemods/`), not find-and-replace.
 - **Data stays pinned twice.** `tools/verify/content.py` pins every content
   file. `tools/verify/data_guard.py` pins every data block in the built page.
   After a reviewed, intended content change, run both with `--update`
