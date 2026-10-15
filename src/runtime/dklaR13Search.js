@@ -27,8 +27,11 @@
     },
   };
   let ms = null,
-    building = false;
+    building = false,
+    pending = null,
+    idle = null;
   function build() {
+    pending = null;
     building = true;
     try {
       const m = new MiniSearch(OPTS);
@@ -52,13 +55,30 @@
     }
     building = false;
   }
-  if ('requestIdleCallback' in window) requestIdleCallback(build, { timeout: 1500 });
-  else setTimeout(build, 300);
+  // One build, however many times the start-up scripts patch the content and call rebuildIndex: each call
+  // pushes the same deferred build back, instead of queuing another second of indexing on the main thread.
+  function schedule(delay) {
+    if (pending) clearTimeout(pending);
+    if (idle !== null && 'cancelIdleCallback' in window) {
+      cancelIdleCallback(idle);
+      idle = null;
+    }
+    pending = setTimeout(build, delay);
+  }
+  if ('requestIdleCallback' in window)
+    idle = requestIdleCallback(
+      () => {
+        idle = null;
+        if (!pending) build();
+      },
+      { timeout: 1500 },
+    );
+  else schedule(300);
   const priorRebuild = typeof rebuildIndex === 'function' ? rebuildIndex : null;
   if (priorRebuild)
     rebuildIndex = function (...a) {
       const r = priorRebuild.apply(this, a);
-      setTimeout(build, 0);
+      schedule(400);
       return r;
     };
   const norm = (s) =>
