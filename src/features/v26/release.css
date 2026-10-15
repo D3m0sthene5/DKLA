@@ -15,3 +15,20 @@
     letter-spacing: 0.02em;
   }
 }
+/* v2.7 hotfix: the owner writes a seven with a bar through it. The bar is a pseudo-element, so
+   the label's text is still "v2.7" for search, copy and screen readers. */
+#atlasHome .dkla-release .dkla-crossed-seven {
+  position: relative;
+  display: inline-block;
+}
+#atlasHome .dkla-release .dkla-crossed-seven::after {
+  content: '';
+  position: absolute;
+  left: 14%;
+  right: 10%;
+  top: 54%;
+  height: 0.075em;
+  background: currentColor;
+  border-radius: 1px;
+  pointer-events: none;
+}

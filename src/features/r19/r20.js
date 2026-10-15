@@ -1060,6 +1060,20 @@
       release.className = 'dkla-release';
       const version = window.DKLABriefs.data.version;
       release.textContent = version;
+      // v2.7 hotfix: a horizontal stroke through each 7, drawn by CSS on a span so the text
+      // and the accessible name stay exactly "v2.7".
+      release.replaceChildren(
+        ...version
+          .split(/(7)/)
+          .filter(Boolean)
+          .map((part) => {
+            if (part !== '7') return document.createTextNode(part);
+            const seven = document.createElement('span');
+            seven.className = 'dkla-crossed-seven';
+            seven.textContent = part;
+            return seven;
+          }),
+      );
       home.appendChild(release);
       home.setAttribute('aria-label', `DKLA ${version} — Danny Kind Legal Atlas. Open the atlas.`);
     }
