@@ -269,8 +269,19 @@ function taperedRibbon(x0, y0, x1, y1, x2, y2, x3, y3, w0, w1, n = 28, tEnd = 1)
 // r9: how much each subject holds, for visual weight at the overview level.
 let tallyCache = new Map(),
   tallyKey = '';
+let tallyHomes = null,
+  tallyHomesAt = 0,
+  tallyHomesCount = 0;
 function regionTally(id) {
-  const key = data.nodes.length + ':' + Object.keys(mapData().homes).length;
+  // v2.7: this runs thousands of times while the map animates in; counting every card on each call was slow.
+  const homes = mapData().homes,
+    now = performance.now();
+  if (homes !== tallyHomes || now - tallyHomesAt > 250) {
+    tallyHomes = homes;
+    tallyHomesAt = now;
+    tallyHomesCount = Object.keys(homes).length;
+  }
+  const key = data.nodes.length + ':' + tallyHomesCount;
   if (tallyKey !== key) {
     tallyKey = key;
     tallyCache = new Map();

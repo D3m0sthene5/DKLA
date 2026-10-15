@@ -77,7 +77,7 @@
     }
     apply();
     // A saved copy restored by sync or import arrives a little later.
-    setTimeout(apply, 3400);
+    (window.DKLALayers = window.DKLALayers || []).push(apply);
   })();
   window.DKLACivilSyllabus = { apply, current, revision: R.revision, data: R };
 })();

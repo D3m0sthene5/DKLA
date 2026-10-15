@@ -375,6 +375,11 @@ function r7GetStored() {
     r.onerror = () => reject(r.error);
   });
 }
+/* v2.7: the start-up layers (briefs, plain, audit, fit, rules, syllabus) each call saveCache after patching the
+   graph. Copying and writing the whole graph once per caller cost seconds on the main thread, so a call now
+   schedules one snapshot a moment later and later calls fold into it. The copy is taken when the timer fires,
+   so it holds every change made up to then. */
+let r7SaveTimer = 0;
 saveCache = function () {
   $('undoBtn').disabled = !undoStack.length;
   if (!r7Ready) return;
@@ -382,9 +387,15 @@ saveCache = function () {
     $('saveStatus').textContent = 'Session only · use Save to keep edits';
     return;
   }
+  $('saveStatus').textContent = 'Saving locally…';
+  if (r7SaveTimer) clearTimeout(r7SaveTimer);
+  r7SaveTimer = setTimeout(r7SaveNow, 250);
+};
+function r7SaveNow() {
+  r7SaveTimer = 0;
+  if (!r7DB) return;
   const serial = ++r7SaveSerial,
     snapshot = clone(data);
-  $('saveStatus').textContent = 'Saving locally…';
   r7SavePending = r7SavePending
     .catch(() => {})
     .then(
@@ -405,7 +416,7 @@ saveCache = function () {
         }),
     );
   r7SavePending.catch(() => {});
-};
+}
 exportMarkdown = function () {
   storeView();
   const files = geoMarkdownFiles();

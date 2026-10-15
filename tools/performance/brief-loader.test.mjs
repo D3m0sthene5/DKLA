@@ -30,7 +30,7 @@ function fixture(options = {}) {
     crypto: webcrypto,
     Response,
     document: {
-      baseURI: 'https://atlas.test/DKLA-v2.6.html',
+      baseURI: 'https://atlas.test/DKLA-v2.7.html',
       getElementById: (id) =>
         id === 'dklaR19Full'
           ? block

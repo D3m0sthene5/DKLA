@@ -140,7 +140,7 @@
       return;
     }
     apply();
-    setTimeout(apply, 3400);
+    (window.DKLALayers = window.DKLALayers || []).push(apply);
   })();
   window.DKLAAudit = { apply, data: A };
 })();

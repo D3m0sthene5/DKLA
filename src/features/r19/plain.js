@@ -90,7 +90,7 @@
       return;
     }
     applyPlain();
-    setTimeout(applyPlain, 3200);
+    (window.DKLALayers = window.DKLALayers || []).push(applyPlain);
   })();
 
   /* ---------- interface text ---------- */

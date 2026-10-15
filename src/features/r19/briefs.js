@@ -100,7 +100,7 @@
       return;
     }
     applyBriefs();
-    setTimeout(applyBriefs, 3000);
+    (window.DKLALayers = window.DKLALayers || []).push(applyBriefs);
   })();
 
   /* ---------- rendering the full brief ---------- */

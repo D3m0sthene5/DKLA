@@ -3246,6 +3246,99 @@
       "reviewedAt": "2026-10-11"
     },
     {
+      "id": "mdl",
+      "course": "Civil Procedure",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "question": "When are cases from different districts gathered before one judge, and what may that judge do with them?",
+      "anchor": "how far the Panel's pretrial centralization reaches",
+      "up": "Wider centralization",
+      "down": "Narrower centralization",
+      "now": "When civil actions in different districts share common questions of fact, the Judicial Panel on Multidistrict Litigation may transfer them to one district for coordinated or consolidated pretrial proceedings if that serves convenience and the just and efficient conduct of the actions (§ 1407(a)). The transferee court manages pretrial work (Rule 16.1) and decides federal questions under its own circuit's law, but it cannot keep a case for trial: each action must be remanded unless it has ended (Lexecon), though a party may waive remand if the waiver is clear and unambiguous. Centralization is pretrial coordination, not merger: it does not make anyone a party to another action, and a settlement class built inside an MDL must still satisfy Rule 23 (Amchem).",
+      "steps": [
+        {
+          "event": "Multidistrict Litigation Act, 28 U.S.C. § 1407",
+          "link": "cp-usc-1407",
+          "year": 1968,
+          "date": "1968-04-29",
+          "turn": "origin",
+          "note": "Congress creates the Judicial Panel on Multidistrict Litigation and lets it send civil actions in different districts that share common questions of fact to one district for coordinated or consolidated pretrial proceedings, each to be remanded for trial unless already ended. The statute codified the practice used for the 1,800 electrical-equipment antitrust cases of the early 1960s.",
+          "authorityKind": "Federal statute"
+        },
+        {
+          "sup": "CP-COMP-CB-KOREAN-AIR-1987",
+          "year": 1987,
+          "date": "1987-09-25",
+          "turn": "widens",
+          "note": "A transferee court deciding a federal question applies its own circuit's law, considering but not bound by the transferor circuit; Van Dusen's rule that transferor law travels with the case is for state law in diversity (D.C. Circuit, Ginsburg, J.).",
+          "authorityKind": "Court decision"
+        },
+        {
+          "id": "cp-amchem",
+          "year": 1997,
+          "date": "1997-06-25",
+          "turn": "applies",
+          "note": "After the Panel gathered the federal asbestos cases in one district, the parties built a nationwide settlement class there. The Court rejected it: centralization does not relax Rule 23, so a settlement class must still show predominance and adequate representation.",
+          "authorityKind": "Court decision"
+        },
+        {
+          "id": "cp-lexecon",
+          "year": 1998,
+          "date": "1998-03-03",
+          "turn": "limits",
+          "note": "The transferee court cannot use § 1404(a) to assign a transferred case to itself for trial; § 1407 obliges the Panel to remand it when pretrial proceedings end, ending a thirty-year practice of self-assignment that the Panel's rules had allowed.",
+          "authorityKind": "Court decision"
+        },
+        {
+          "event": "Gelboim v. Bank of America",
+          "link": "cp-usc-1407",
+          "year": 2015,
+          "date": "2015-01-21",
+          "turn": "reaffirms",
+          "note": "The Court restates the design: § 1407 centralizes pretrial work to eliminate duplicate discovery, avoid conflicting rulings and save the parties' and courts' time, and each action must be remanded at or before the end of pretrial proceedings unless it has already ended.",
+          "authorityKind": "Court decision"
+        },
+        {
+          "event": "Panel centralizes the Volkswagen diesel cases",
+          "link": "cp-usc-1407",
+          "year": 2015,
+          "date": "2015-12-08",
+          "turn": "applies",
+          "note": "Marketing, sales-practice and product cases about Volkswagen diesel vehicles go to the Northern District of California for coordinated pretrial proceedings. The court's first order consolidates them for pretrial only, sweeps in later tag-along actions, and makes no one a party to an action it was not named in.",
+          "authorityKind": "Court decision"
+        },
+        {
+          "event": "In re DePuy Orthopaedics",
+          "link": "cp-lexecon",
+          "year": 2017,
+          "turn": "sharpens",
+          "note": "Because § 1407 transfer is a rule of venue, a party may waive Lexecon's remand right, but only by a waiver that is clear and unambiguous (Fifth Circuit).",
+          "authorityKind": "Court decision"
+        },
+        {
+          "event": "Panel refuses to centralize the Kaiser vaccine-exemption suits",
+          "link": "cp-usc-1407",
+          "year": 2024,
+          "date": "2024-01-30",
+          "turn": "limits",
+          "note": "Sixteen suits by workers whose religious-exemption requests Kaiser denied shared its policy, but each turned on the plaintiff's sincerity, duties and timing, so centralization would bring few efficiencies; courts can treat rulings in related cases as persuasive instead.",
+          "authorityKind": "Court decision"
+        },
+        {
+          "event": "Rule 16.1 takes effect",
+          "link": "cp-usc-1407",
+          "year": 2025,
+          "date": "2025-12-01",
+          "turn": "codifies",
+          "object": "MDL management practice",
+          "note": "The first Federal Rule written for multidistrict litigation: after the Panel transfers actions, the transferee court should hold an initial management conference, take the parties' report on leadership counsel and other matters, and enter an initial management order that controls the proceedings.",
+          "authorityKind": "Federal rule"
+        }
+      ],
+      "guide": "Section 1407 is a venue and case-management device, not a merger. The line runs from the 1968 statute through what the transferee court may do (its own circuit's federal law; pretrial management now framed by Rule 16.1) and what it may not (keep a case for trial, or treat centralization as a substitute for Rule 23). The two Panel orders show the common-question and efficiency test applied both ways.",
+      "summaryLabel": "What these sources establish",
+      "reviewedAt": "2026-10-15"
+    },
+    {
       "id": "nondelegation",
       "course": "Legislation and the Regulatory State",
       "title": "Nondelegation: from contingency to the intelligible principle",

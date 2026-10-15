@@ -49,7 +49,7 @@ pnpm build       # writes work/build/ and the public dist/
 pnpm preview     # builds, then serves dist/ at http://127.0.0.1:8766/
 ```
 
-`work/build/DKLA-v2.6.html` is a complete single-file copy of the atlas.
+`work/build/DKLA-v2.7.html` is a complete single-file copy of the atlas.
 `dist/` is exactly what the website serves: the same page with the full
 briefs split out so they load when opened.
 

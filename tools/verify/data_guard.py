@@ -23,9 +23,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 APPROVED = Path(__file__).with_name('data-blocks.json')
-BUILT = ROOT / 'work/build/DKLA-v2.6.html'
+BUILT = ROOT / 'work/build/DKLA-v2.7.html'
 # The first changelog entry of the current release; any other change to the release record is a data change.
-RELEASE_ENTRY = {"v": "v2.6", "date": "2026-10-12", "text": "The legal dictionary has a spine in the authorities header. Cold Call adds restrained ice and vapor detail, and technical typography improves atlas and Supreme Court readability. Hosted full briefs load when opened; complete portable HTML retains every brief. Analytics recognizes a browser only through its first-party cookie, without recovering cleared identifiers from browser storage or ratings sync."}
+RELEASE_ENTRY = {"v": "v2.7", "date": "2026-10-15", "text": "A multidistrict litigation timeline joins the Civil Procedure timelines: nine steps from the 1968 statute through Korean Air Lines, Amchem, Lexecon, Gelboim, the Volkswagen and Kaiser Panel orders and the DePuy waiver rule to Rule 16.1, each traced to the casebook, the supplement or the public record. Recall cards show the plain-English takeaway beside the holding. A link to an entry now opens the entry instead of only its course. Start-up does less work: the graph is saved to the browser once instead of once per content layer, subject weights are counted a few times a second instead of on every frame, and the content layers finish before the atlas is shown instead of rewriting text on timers after it. The slow-loading notice appears only when loading has stalled, not after a fixed twelve seconds."}
 
 
 def executable(attributes: str) -> bool:
@@ -43,7 +43,7 @@ def data_blocks(raw: bytes) -> list[dict]:
         ident = ident[1] if ident else None
         if ident == 'dklaR19Data':
             parsed = json.loads(body)
-            assert parsed['version'] == 'v2.6' and re.fullmatch(r'v2\.6-[0-9a-f]{10}', parsed['build'])
+            assert parsed['version'] == 'v2.7' and re.fullmatch(r'v2\.7-[0-9a-f]{10}', parsed['build'])
             assert parsed['changelog'][0] == RELEASE_ENTRY, 'Unreviewed release-history entry'
             token = b'"changelog":[' + json.dumps(RELEASE_ENTRY, ensure_ascii=False, separators=(',', ':')).encode() + b','
             assert body.count(token) == 1

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-10-11",
   "dataPath": "tools/r19/data/timelines.json",
-  "timelinesSha256": "a5b4cf13a342e7b34379ee15ba934616c57e6e0a10ab645c7d5badb733ad957b",
+  "timelinesSha256": "1ee4e994628851a2b100f9b078da09c3d429ed090650e052b4275c33302426d8",
   "baselineGitRevision": "347d2e9759a7b5429f24825c521a967ce2b14eb9",
   "scope": "Every timeline and step was read in context and compared with available saved canonical rules/accounts. Selected doubts and recent holdings were checked against primary passages. This is not a fresh complete-opinion review of all authorities or a certification of all current law.",
   "limitations": [
@@ -14,32 +14,32 @@
     "External Consumers’ Research and FDA later-treatment comparisons do not create new authored case briefs."
   ],
   "coverage": {
-    "timelines": 66,
-    "steps": 505,
+    "timelines": 67,
+    "steps": 514,
     "distinctStepKeys": 472,
     "distinctAuthorityKeys": 468,
     "casesWithCanonicalRule": 467,
     "savedProvisionOrAccountSteps": 38,
     "completeSavedBriefsRead": 3,
     "dividedCasesHoldingReasoningRead": 7,
-    "freshPrimaryDocuments": 17,
-    "stepsWithFreshPrimaryComparison": 19,
+    "freshPrimaryDocuments": 22,
+    "stepsWithFreshPrimaryComparison": 24,
     "rewrittenGuides": 66,
     "rewrittenSyntheses": 37,
     "changedSteps": 61,
     "courseTimelineCounts": {
       "Contracts": 21,
-      "Civil Procedure": 24,
+      "Civil Procedure": 25,
       "Legislation and the Regulatory State": 21
     },
     "authorityKindCounts": {
-      "Court decision": 468,
+      "Court decision": 475,
       "Restatement": 7,
       "Model UCC text": 9,
       "State statute": 2,
       "Foreign statute": 1,
-      "Federal statute": 11,
-      "Federal rule": 7
+      "Federal statute": 12,
+      "Federal rule": 8
     }
   },
   "primaryChecks": [
@@ -262,6 +262,71 @@
       "checkedIssues": "Five-Justice direct-conflict/disposition distinguished from fractured validity analyses.",
       "reviewedBy": "root skeptical review",
       "accessedAt": "2026-10-11"
+    },
+    {
+      "id": "pl-90-296",
+      "title": "Pub. L. 90-296, 82 Stat. 109 (Multidistrict Litigation Act)",
+      "url": "https://www.govinfo.gov/content/pkg/STATUTE-82/pdf/STATUTE-82-Pg109.pdf",
+      "pinpoints": "82 Stat. 109, the enacting text and approval date (April 29, 1968).",
+      "targets": [
+        "cp-usc-1407"
+      ],
+      "basis": "Enactment date only; the statute's text was compared from the supplement.",
+      "checkedIssues": "Date of enactment for the origin step.",
+      "reviewedBy": "v2.7 mdl timeline",
+      "accessedAt": "2026-10-15"
+    },
+    {
+      "id": "gelboim",
+      "title": "Gelboim v. Bank of America Corp., 574 U.S. 405 (2015)",
+      "url": "https://law.cornell.edu/supct/pdf/13-1174.pdf",
+      "pinpoints": "Slip opinion, decided January 21, 2015; the § 1407 passage quoted at casebook p. 795.",
+      "targets": [
+        "cp-usc-1407"
+      ],
+      "basis": "Decision date; the note states only what the casebook quotes (purpose of § 1407 and the remand command), not the finality holding.",
+      "checkedIssues": "Decision date; wording of the quoted passage.",
+      "reviewedBy": "v2.7 mdl timeline",
+      "accessedAt": "2026-10-15"
+    },
+    {
+      "id": "jpml-2672",
+      "title": "In re Volkswagen 'Clean Diesel' Marketing, Sales Practices, and Products Liability Litigation, MDL No. 2672, transfer order (J.P.M.L. Dec. 8, 2015)",
+      "url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-2672-Tag-Along-Transfer-12-19.pdf",
+      "pinpoints": "Conditional transfer order reciting the December 8, 2015 centralization in the Northern District of California (148 F. Supp. 3d 1367).",
+      "targets": [
+        "cp-usc-1407"
+      ],
+      "basis": "Order date; the step's content is from the supplement's Pretrial Orders No. 1 and 2.",
+      "checkedIssues": "Date and transferee district.",
+      "reviewedBy": "v2.7 mdl timeline",
+      "accessedAt": "2026-10-15"
+    },
+    {
+      "id": "jpml-3095",
+      "title": "In re Kaiser COVID-19 Vaccination Employment Practices Litigation, MDL No. 3095, order denying transfer (J.P.M.L. Jan. 30, 2024)",
+      "url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3095-Order_Denying_Transfer-1-24.pdf",
+      "pinpoints": "The order denying centralization of sixteen actions in five districts.",
+      "targets": [
+        "cp-usc-1407"
+      ],
+      "basis": "Order date; the step's content is from the supplement's reprint of the order.",
+      "checkedIssues": "Date; number of actions and districts.",
+      "reviewedBy": "v2.7 mdl timeline",
+      "accessedAt": "2026-10-15"
+    },
+    {
+      "id": "frcp-16-1-effective",
+      "title": "HSF Kramer, New mass tort procedural rules have taken effect (December 2025)",
+      "url": "https://www.hsfkramer.com/insights/2025-12/new-mass-tort-procedural-rules-have-taken-effect",
+      "pinpoints": "Opening paragraph: Rule 16.1 took effect on December 1, 2025.",
+      "targets": [
+        "cp-usc-1407"
+      ],
+      "basis": "Effective date only; the rule's text was compared from the supplement.",
+      "checkedIssues": "Effective date of Rule 16.1.",
+      "reviewedBy": "v2.7 mdl timeline",
+      "accessedAt": "2026-10-15"
     }
   ],
   "timelineReviews": [
@@ -1094,6 +1159,18 @@
         "guide"
       ],
       "summaryScope": "Synthesis of selected authorities, not certification of every jurisdiction’s current law.",
+      "freshSummarySources": []
+    },
+    {
+      "id": "mdl",
+      "course": "Civil Procedure",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "reviewedInCompleteContext": true,
+      "stepCount": 9,
+      "contextFieldsChanged": [
+        "new timeline (v2.7, 2026-10-15)"
+      ],
+      "summaryScope": "Synthesis of the casebook (pp. 417–420, 794–799), the 2026–27 supplement (§ 1407, Rule 16.1, the Panel orders) and the saved briefs; not certification of current MDL practice.",
       "freshSummarySources": []
     }
   ],
@@ -22872,6 +22949,316 @@
         "inheritedAccuracyStatus": "not recorded",
         "scope": "Inherited saved brief provenance is not a fresh source verification or an independent full-opinion review."
       }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 1,
+      "key": "Multidistrict Litigation Act, 28 U.S.C. § 1407",
+      "authorityKey": "cp-usc-1407",
+      "authorityKind": "Federal statute",
+      "year": 1968,
+      "date": "1968-04-29",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [
+        "pl-90-296"
+      ],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-usc-1407",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-usc-1407; rules22.json or baseline seed node",
+        "savedAccountSha256": "66926049bf8f1b1d61968d0ee074a03b8348eeac5c7ba1ffde3c87c8eadcd321",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 2,
+      "key": "CP-COMP-CB-KOREAN-AIR-1987",
+      "authorityKey": "CP-COMP-CB-KOREAN-AIR-1987",
+      "authorityKind": "Court decision",
+      "year": 1987,
+      "date": "1987-09-25",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Inherited canonical rule comparison in complete timeline context",
+        "briefId": "CP-COMP-CB-KOREAN-AIR-1987",
+        "savedBriefPath": "tools/r19/data/briefs/CP-COMP-CB-KOREAN-AIR-1987.md",
+        "sourceLocator": "tools/r19/data/sections.json :: CP-COMP-CB-KOREAN-AIR-1987.rule (effective assembler overlays included)",
+        "comparedRule": "A multidistrict transferee court deciding a question of federal law should consider the transferor circuit's precedents but is not bound by them; Van Dusen's preservation of transferor law applies to state law in diversity cases.",
+        "comparedRuleSha256": "a71a6f268d65b6338c11c73459944b6211b5afe66a6a395befdeb0f493e189d1",
+        "effectiveFullBriefSha256": "3c0a3b45b0ed291bc8944facf410195c0b3fcf3171a807d6a908df6795981d1e",
+        "additionalReading": "Casebook pp. 417–420 and 794–799 (MDL note and Rule 42 note); the brief's procedural history for the Panel transfer",
+        "inheritedAccuracyStatus": "not recorded",
+        "scope": "Inherited saved brief provenance is not a fresh source verification or an independent full-opinion review."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 3,
+      "key": "cp-amchem",
+      "authorityKey": "cp-amchem",
+      "authorityKind": "Court decision",
+      "year": 1997,
+      "date": "1997-06-25",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Inherited canonical rule comparison in complete timeline context",
+        "briefId": "CP-ATLAS-AMCHEM",
+        "savedBriefPath": "tools/r19/data/briefs/CP-ATLAS-AMCHEM.md",
+        "sourceLocator": "tools/r19/data/sections.json :: CP-ATLAS-AMCHEM.rule (effective assembler overlays included)",
+        "comparedRule": "A class certified only for settlement must still satisfy Rule 23(a) and (b), apart from trial manageability; the fairness of the settlement under Rule 23(e) cannot substitute for predominance of common questions and adequate representation of conflicting groups within the class.",
+        "comparedRuleSha256": "5999dd0a0f1b4c138ed8e3b90d982f6acd0056baa1ffcded93d79fee6f335540",
+        "effectiveFullBriefSha256": "7be196158c36fe65c2103b5b59b2fecfe38535ce6a26a3079e7584207f0523c2",
+        "additionalReading": "Casebook pp. 417–420 and 794–799 (MDL note and Rule 42 note); the brief's procedural history for the Panel transfer",
+        "inheritedAccuracyStatus": "not recorded",
+        "scope": "Inherited saved brief provenance is not a fresh source verification or an independent full-opinion review."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 4,
+      "key": "cp-lexecon",
+      "authorityKey": "cp-lexecon",
+      "authorityKind": "Court decision",
+      "year": 1998,
+      "date": "1998-03-03",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Inherited canonical rule comparison in complete timeline context",
+        "briefId": "CP-ATLAS-LEXECON",
+        "savedBriefPath": "tools/r19/data/briefs/CP-ATLAS-LEXECON.md",
+        "sourceLocator": "tools/r19/data/sections.json :: CP-ATLAS-LEXECON.rule (effective assembler overlays included)",
+        "comparedRule": "A district court conducting coordinated pretrial proceedings under 28 U.S.C. § 1407(a) may not use § 1404(a) to assign a transferred case to itself for trial, because § 1407(a) obligates the Panel to remand each action to its original district.",
+        "comparedRuleSha256": "40c95b95b955610f76aa7f71bb7374d90b684b2df8a4ec3c99a4c178052fcc2d",
+        "effectiveFullBriefSha256": "11a53488c2e86519afca4f8b0da02921f0acca751a3e3525510d640ceeaf4b6c",
+        "additionalReading": "Casebook pp. 417–420 and 794–799 (MDL note and Rule 42 note); the brief's procedural history for the Panel transfer",
+        "inheritedAccuracyStatus": "not recorded",
+        "scope": "Inherited saved brief provenance is not a fresh source verification or an independent full-opinion review."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 5,
+      "key": "Gelboim v. Bank of America",
+      "authorityKey": "cp-usc-1407",
+      "authorityKind": "Court decision",
+      "year": 2015,
+      "date": "2015-01-21",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [
+        "gelboim"
+      ],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-usc-1407",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-usc-1407; rules22.json or baseline seed node",
+        "savedAccountSha256": "66926049bf8f1b1d61968d0ee074a03b8348eeac5c7ba1ffde3c87c8eadcd321",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 6,
+      "key": "Panel centralizes the Volkswagen diesel cases",
+      "authorityKey": "cp-usc-1407",
+      "authorityKind": "Court decision",
+      "year": 2015,
+      "date": "2015-12-08",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [
+        "jpml-2672"
+      ],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-usc-1407",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-usc-1407; rules22.json or baseline seed node",
+        "savedAccountSha256": "66926049bf8f1b1d61968d0ee074a03b8348eeac5c7ba1ffde3c87c8eadcd321",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 7,
+      "key": "In re DePuy Orthopaedics",
+      "authorityKey": "cp-lexecon",
+      "authorityKind": "Court decision",
+      "year": 2017,
+      "date": null,
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-lexecon",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-lexecon; rules22.json or baseline seed node",
+        "savedAccountSha256": "bb17f2eea6eacaac71bc2886759c7a84f820cf09326068df14998ed3b6695c6d",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 8,
+      "key": "Panel refuses to centralize the Kaiser vaccine-exemption suits",
+      "authorityKey": "cp-usc-1407",
+      "authorityKind": "Court decision",
+      "year": 2024,
+      "date": "2024-01-30",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [
+        "jpml-3095"
+      ],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-usc-1407",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-usc-1407; rules22.json or baseline seed node",
+        "savedAccountSha256": "66926049bf8f1b1d61968d0ee074a03b8348eeac5c7ba1ffde3c87c8eadcd321",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
+    },
+    {
+      "timelineId": "mdl",
+      "course": "Civil Procedure",
+      "step": 9,
+      "key": "Rule 16.1 takes effect",
+      "authorityKey": "cp-usc-1407",
+      "authorityKind": "Federal rule",
+      "year": 2025,
+      "date": "2025-12-01",
+      "reviewedFields": [
+        "chronology",
+        "note",
+        "turn measured against timeline anchor",
+        "object",
+        "fate",
+        "links",
+        "authority type"
+      ],
+      "changedFields": [
+        "new step (v2.7)"
+      ],
+      "independentPrimaryChecks": [
+        "frcp-16-1-effective"
+      ],
+      "freshCompleteOpinionReview": false,
+      "basis": {
+        "kind": "Saved atlas provision or assigned comparative account comparison",
+        "nodeId": "cp-usc-1407",
+        "sourceLocator": "tools/r19/data/provisions.json :: cp-usc-1407; rules22.json or baseline seed node",
+        "savedAccountSha256": "66926049bf8f1b1d61968d0ee074a03b8348eeac5c7ba1ffde3c87c8eadcd321",
+        "inheritedSource": "Civil Procedure supplement 2026–27 (§ 1407 at PDF page 155; Rule 16.1; the Panel orders) and casebook pp. 417–420, 794–799",
+        "scope": "Saved text/account was consulted; the step's date comes from the public record named in its primary check."
+      }
     }
   ],
   "substantiveChanges": [
@@ -23876,6 +24263,12 @@
       "beforeNote": "The Second Restatement replaces its creditor/donee terminology with intended and incidental beneficiaries, conditioned on the contracting parties’ intention. It proposes a framework; it does not enact a uniform state rule.",
       "afterNote": "The Second Restatement replaces its creditor/donee terminology with intended and incidental beneficiaries, conditioned on the contracting parties’ intention. It proposes a framework; it does not enact a uniform state rule.",
       "freshIndependentSourceReview": false
+    }
+  ],
+  "addenda": [
+    {
+      "date": "2026-10-15",
+      "what": "v2.7 added the mdl timeline (nine steps); records above dated 2026-10-15 cover it. Nothing else was re-reviewed."
     }
   ]
 }

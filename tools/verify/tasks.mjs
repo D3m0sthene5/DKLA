@@ -105,7 +105,7 @@ export const tasks = [
   step('features', 'Cold Call reader', node('tools/cold-call/check_reader.cjs'), ASSEMBLED),
 
   // These read the public output in dist/.
-  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.6.html'), PACKAGED),
+  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.7.html'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
   // These use the preview server. {url} and {page} are filled in by the runner.

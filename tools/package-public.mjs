@@ -30,7 +30,7 @@ async function each(items, limit, work) {
   return results;
 }
 const generated = new Set([
-  'DKLA-v2.6.html',
+  'DKLA-v2.7.html',
   'index.html',
   'sw.js',
   'version.json',
@@ -81,7 +81,7 @@ try {
 await fs.mkdir(output, { recursive: true });
 // Only the current hosted release is split. Every other public file and the
 // canonical work/build portable HTML remain untouched.
-const hostedPath = 'DKLA-v2.6.html';
+const hostedPath = 'DKLA-v2.7.html';
 const split = splitBriefs(await fs.readFile(path.join(root, 'work/build', hostedPath), 'utf8'));
 const hosted = new Map(
   [...split.files, { path: hostedPath, bytes: Buffer.from(split.html) }].map((item) => [

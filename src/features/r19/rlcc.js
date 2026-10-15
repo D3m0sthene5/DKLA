@@ -143,7 +143,7 @@
       return;
     }
     apply();
-    setTimeout(apply, 3200);
+    (window.DKLALayers = window.DKLALayers || []).push(apply);
   })();
   window.DKLABriefs.rlcc = apply;
 })();

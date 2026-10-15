@@ -1,7 +1,34 @@
-# Where the work stands (13 October 2026, second session)
+# Where the work stands (15 October 2026)
 
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
+
+## Latest (15 October 2026, v2.7)
+
+Read this first; the sections below it are older.
+
+- **v2.7 released** from a cloud session (served file `DKLA-v2.7.html`; the
+  v2.6 address redirects). What changed: a multidistrict litigation timeline
+  (`mdl`, nine steps, Civil Procedure) in `tools/r19/data/timelines.json`;
+  recall drill cards show the "In plain English" takeaway with the holding
+  (`src/runtime/dklaR18Study.js`); a `#node=` deep link opens the entry after
+  boot (`src/features/v25/boot.js`); start-up work cut: `saveCache` in
+  `src/runtime/civilCode.js` folds the layers' saves into one deferred
+  snapshot, `regionTally` in `src/runtime/studyCode.js` counts the cards at
+  most four times a second, and the seven content layers that re-ran on fixed
+  3-second timers now register in `window.DKLALayers` and run once from
+  `boot.js` before the curtain lifts; the slow-loading notice waits for a
+  stall (no readiness condition changing for 12 s) instead of a fixed 12 s.
+  Report for the owner: `/mnt/project-files/dkla-audit/v27-timeline-audit.md`
+  (in the project's shared folder, not the repository).
+- Measured in headless Chromium before and after (same container): main
+  thread busy 12.6 s in 54 long tasks before, 7.0 s in 23 after; the curtain
+  lifted at 12.4 s before, 9.5 s after. The page is still one 65 MB file
+  (19 MB compressed); splitting the source texts and page images into
+  on-demand files is the next large start-up win and is not a hotfix.
+- Earlier the same day (commit `4014cf04`): the search index is built once at
+  start-up instead of sixteen times (`src/runtime/dklaR13Search.js`).
+- Still waiting for the owner: everything in the 13 October list below.
 
 ## Latest (13 October 2026, later the same day)
 

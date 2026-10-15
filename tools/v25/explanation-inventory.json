@@ -9,8 +9,8 @@
     "noncase": 1667,
     "course-treatment": 5,
     "connection": 2744,
-    "timeline-context": 132,
-    "timeline-step": 505
+    "timeline-context": 134,
+    "timeline-step": 514
   },
   "nodeCount": 1079,
   "appliedNodeOverlays": [
@@ -107800,6 +107800,156 @@
         "auditPath": "tools/v25/timeline-audit.json",
         "timeline": "interpleader",
         "step": 4
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-context",
+      "id": "mdl",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "guide",
+      "text": "Section 1407 is a venue and case-management device, not a merger. The line runs from the 1968 statute through what the transferee court may do (its own circuit's federal law; pretrial management now framed by Rule 16.1) and what it may not (keep a case for trial, or treat centralization as a substitute for Rule 23). The two Panel orders show the common-question and efficiency test applied both ways.",
+      "textSha256": "daadb91d717c5485afd65c4f9fef4860c30859457c1260f12d76c2c6da76aef0",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json"
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-context",
+      "id": "mdl",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "now",
+      "text": "When civil actions in different districts share common questions of fact, the Judicial Panel on Multidistrict Litigation may transfer them to one district for coordinated or consolidated pretrial proceedings if that serves convenience and the just and efficient conduct of the actions (§ 1407(a)). The transferee court manages pretrial work (Rule 16.1) and decides federal questions under its own circuit's law, but it cannot keep a case for trial: each action must be remanded unless it has ended (Lexecon), though a party may waive remand if the waiver is clear and unambiguous. Centralization is pretrial coordination, not merger: it does not make anyone a party to another action, and a settlement class built inside an MDL must still satisfy Rule 23 (Amchem).",
+      "textSha256": "d0b3ecf9676099b5f4d090cb0d1c59b95a36905ce3b1970be79f9ae669da3ba2",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json"
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:1",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "Congress creates the Judicial Panel on Multidistrict Litigation and lets it send civil actions in different districts that share common questions of fact to one district for coordinated or consolidated pretrial proceedings, each to be remanded for trial unless already ended. The statute codified the practice used for the 1,800 electrical-equipment antitrust cases of the early 1960s.",
+      "textSha256": "0f73c9c379c7a102cc8223b258b7f597fc9b03afbc40a5f8e6f6fd6d8be71379",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 1
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:2",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "A transferee court deciding a federal question applies its own circuit's law, considering but not bound by the transferor circuit; Van Dusen's rule that transferor law travels with the case is for state law in diversity (D.C. Circuit, Ginsburg, J.).",
+      "textSha256": "94cc07c9b0d24bee08ddb77ea11986f74484405bb5cc466ee55b2ab852034269",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 2
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:3",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "After the Panel gathered the federal asbestos cases in one district, the parties built a nationwide settlement class there. The Court rejected it: centralization does not relax Rule 23, so a settlement class must still show predominance and adequate representation.",
+      "textSha256": "9e20d0ca6048a1f50304509667e23c5c923bdd9bead06f7c75e580cb3fbaf24b",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 3
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:4",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "The transferee court cannot use § 1404(a) to assign a transferred case to itself for trial; § 1407 obliges the Panel to remand it when pretrial proceedings end, ending a thirty-year practice of self-assignment that the Panel's rules had allowed.",
+      "textSha256": "38fe0e327528c112d2b9c454799e325e15a96096b8b01b9c192721acb5061f31",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 4
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:5",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "The Court restates the design: § 1407 centralizes pretrial work to eliminate duplicate discovery, avoid conflicting rulings and save the parties' and courts' time, and each action must be remanded at or before the end of pretrial proceedings unless it has already ended.",
+      "textSha256": "cb6f20958bf65b66577da3a83b9929afff2f300ccb10daae26bff17561bf1ac2",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 5
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:6",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "Marketing, sales-practice and product cases about Volkswagen diesel vehicles go to the Northern District of California for coordinated pretrial proceedings. The court's first order consolidates them for pretrial only, sweeps in later tag-along actions, and makes no one a party to an action it was not named in.",
+      "textSha256": "e0f73a2f74a01ca408b0f1623c6a27ee4df3903b436a83e9f852adb219689291",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 6
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:7",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "Because § 1407 transfer is a rule of venue, a party may waive Lexecon's remand right, but only by a waiver that is clear and unambiguous (Fifth Circuit).",
+      "textSha256": "c550bac13271f92550f5e8777f69b225b160c64c6819466aad09a24003a8d9fa",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 7
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:8",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "Sixteen suits by workers whose religious-exemption requests Kaiser denied shared its policy, but each turned on the plaintiff's sincerity, duties and timing, so centralization would bring few efficiencies; courts can treat rulings in related cases as persuasive instead.",
+      "textSha256": "821313f76eb4d5b8ec9adfc606ff623bcfb7a2371cca48bfef8a3eb0cd3b3cef",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 8
+      },
+      "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
+    },
+    {
+      "kind": "timeline-step",
+      "id": "mdl:9",
+      "title": "Multidistrict litigation: pretrial coordination under § 1407",
+      "field": "note",
+      "text": "The first Federal Rule written for multidistrict litigation: after the Panel transfers actions, the transferee court should hold an initial management conference, take the parties' report on leadership counsel and other matters, and enter an initial management order that controls the proceedings.",
+      "textSha256": "7d7cc78037d6c4e1690e0d660170ff13ad8f8690b505a7339120f86bf34e5c11",
+      "source": {
+        "auditPath": "tools/v25/timeline-audit.json",
+        "timeline": "mdl",
+        "step": 9
       },
       "reviewStatus": "Reviewed in timeline pass; scope recorded in its audit."
     },

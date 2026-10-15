@@ -106,7 +106,11 @@
       out = [];
     if (n.kind === 'Case') {
       if (s.Issue) out.push({ label: 'Issue', html: paras(s.Issue) });
+      // v2.7: the "In plain English" takeaway written for the reading panel shows on the recall card too,
+      // once the holding is revealed, so the card and the entry say the same thing.
+      const plain = window.DKLATakeaways && window.DKLATakeaways.for(n.id);
       const hold =
+        (plain ? `<h4>In plain English</h4>${paras(plain)}` : '') +
         (s.Holding ? `<h4>Holding</h4>${paras(s.Holding)}` : '') +
         (n.summary ? `<h4>Rule in one line</h4>${paras(n.summary)}` : '');
       if (hold) out.push({ label: 'Holding and rule', html: hold });

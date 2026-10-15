@@ -161,7 +161,7 @@
       return;
     }
     mend();
-    setTimeout(mend, 3400);
+    (window.DKLALayers = window.DKLALayers || []).push(mend);
   })();
 })();
 

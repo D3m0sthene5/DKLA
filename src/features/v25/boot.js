@@ -57,6 +57,14 @@
         window.DKLAGeography,
       ])
         layer?.apply?.();
+      // v2.7: the other content layers register their second pass here instead of running it on a fixed
+      // timer after the atlas is visible, so nothing rewrites text the reader has started on.
+      for (const fn of window.DKLALayers || [])
+        try {
+          fn();
+        } catch {
+          /* a layer that cannot run again changes nothing */
+        }
       renderHeading();
       renderInspector();
       window.DKLANativeHome.refresh();
@@ -78,6 +86,7 @@
         boot.ready = true;
         root.classList.add('dkla-boot-ready');
         document.getElementById('dklaBootNotice')?.remove();
+        openDeepLink();
       });
     });
   }
@@ -89,12 +98,47 @@
     },
     { once: true },
   );
+  // v2.7: a link to an entry (#node=…) opened the course but not the entry, because the home
+  // layers that run during boot reset the selection after the runtime had opened it.
+  function openDeepLink() {
+    const h = decodeURIComponent(location.hash || '');
+    if (!h.startsWith('#node=')) return;
+    const id = h.slice(6);
+    if (typeof nodesById === 'undefined' || !nodesById.has(id)) return;
+    if (typeof selected !== 'undefined' && selected && selected.type === 'node' && selected.id === id) return;
+    try {
+      goNode(id, true);
+    } catch {
+      /* the entry stays closed; the course is still shown */
+    }
+  }
   // Slow storage or a failed layer must not expose an older interface just
   // because six seconds elapsed. Offer a reload while retaining the curtain.
+  // v2.7: the notice waits for a stall, not for a fixed twelve seconds, because a phone or an older
+  // laptop can take longer than that on an ordinary load and was being told to reload a page that was
+  // about to finish. Progress is any of the readiness conditions becoming true.
+  const progress = { count: -1, stalledFor: 0 };
+  function readinessCount() {
+    return [
+      parsed,
+      !!window.LegalAtlas?.ready,
+      root.classList.contains('r20-ready'),
+      root.classList.contains('geography-locked'),
+      !!window.DKLAHomeFit?.ready,
+      !!window.DKLANativeHome?.ready,
+      document.querySelector('#atlasHome .dkla-release')?.textContent === window.DKLABriefs?.data.version,
+      typeof draw === 'function',
+    ].filter(Boolean).length;
+  }
+  const TICK = 2000,
+    STALL = 12000;
   function delayedNotice() {
     if (boot.ready) return;
-    if (document.hidden) {
-      setTimeout(delayedNotice, 2000);
+    const n = readinessCount();
+    progress.stalledFor = n === progress.count ? progress.stalledFor + TICK : 0;
+    progress.count = n;
+    if (document.hidden || progress.stalledFor < STALL) {
+      setTimeout(delayedNotice, TICK);
       return;
     }
     if (document.getElementById('dklaBootNotice')) return;
@@ -108,6 +152,7 @@
     notice.append(reload);
     document.body.append(notice);
   }
-  setTimeout(delayedNotice, 12000);
+  progress.count = readinessCount();
+  setTimeout(delayedNotice, TICK);
   check();
 })();

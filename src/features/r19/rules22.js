@@ -147,7 +147,7 @@
       return;
     }
     apply();
-    setTimeout(apply, 3500);
+    (window.DKLALayers = window.DKLALayers || []).push(apply);
   })();
   window.DKLABriefs.rules22 = apply;
 })();
