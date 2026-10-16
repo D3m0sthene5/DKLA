@@ -1,0 +1,49 @@
+{
+ "accepted_any_effect_breakdown": {
+  "indeterminate": 2,
+  "no": 79,
+  "yes": 5
+ },
+ "added_ACCEPTED_NO": 81,
+ "added_ACCEPTED_YES": 5,
+ "baseline_source": "RECONCILED_STATUS_LEDGER_STAGE11_PROVISIONAL.jsonl sha256 c0308e008cd719cd153ca667271c93267d5d855bf3eb26d48076e41938fc7729",
+ "codebook_version": "2.0.0",
+ "coverage_pct": 17.371268,
+ "coverage_pct_prior": 16.796901,
+ "cutoff": "2026-10-14 America/New_York",
+ "denominator": 14973,
+ "held_ids": 457,
+ "historical_census_complete": false,
+ "newly_accepted": 86,
+ "numerator": 2601,
+ "patched_ledger_sha256": "b68095989fc6c2590987f147b3aa82a966de3b108ef183e2afd0f75d66d1c5e2",
+ "patched_rows": 86,
+ "post_stage11_any_effect": {
+  "NO": 2244,
+  "UNKNOWN": 12519,
+  "YES": 210,
+  "coverage_pct": 16.389501
+ },
+ "post_stage11_substantive": {
+  "NO": 2403,
+  "UNKNOWN": 12372,
+  "YES": 198
+ },
+ "previously_accepted_overturned": 0,
+ "prior_accepted_substantive_determinate": 2515,
+ "prior_any_effect": {
+  "NO": 2165,
+  "UNKNOWN": 12603,
+  "YES": 205
+ },
+ "prior_breakdown": {
+  "NO": 2322,
+  "UNKNOWN": 12458,
+  "YES": 193
+ },
+ "prior_note": "Stage 9 v2's 180 and Astra Stage 10's results are PRIOR work, not Stage 11 throughput.",
+ "researched_ids": 227,
+ "substantive_UNKNOWN_remaining": 12372,
+ "unprocessed_ids": 934,
+ "untouched_rows_byte_identical": true
+}

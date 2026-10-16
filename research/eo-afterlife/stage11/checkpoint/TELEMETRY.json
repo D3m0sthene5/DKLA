@@ -1,0 +1,479 @@
+{
+ "note": "Subagent tokens/durations as reported by the harness at completion; agents ran in parallel; coordinator tokens not exposed.",
+ "per_lane": {
+  "A_CLOSED_INSTITUTION_OR_NAMED_ENDING": {
+   "accepted": 21,
+   "accepted_no": 21,
+   "accepted_per_100k_tokens": 5.98,
+   "accepted_per_agent_hour": 31.66,
+   "accepted_yes": 0,
+   "agent_minutes": 39.8,
+   "any_effect_indeterminate_among_accepted": 0,
+   "researched": 27,
+   "review_accept": 24,
+   "review_corrections": 3,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 27,
+   "subagent_tokens": 351001,
+   "texts_complete": 27
+  },
+  "B_NARA_EXECUTED_OBSOLETE": {
+   "accepted": 7,
+   "accepted_no": 7,
+   "accepted_per_100k_tokens": 1.18,
+   "accepted_per_agent_hour": 7.98,
+   "accepted_yes": 0,
+   "agent_minutes": 52.7,
+   "any_effect_indeterminate_among_accepted": 1,
+   "researched": 12,
+   "review_accept": 10,
+   "review_corrections": 2,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 12,
+   "subagent_tokens": 592305,
+   "texts_complete": 10
+  },
+  "C_NARA_TEMPORARY": {
+   "accepted": 11,
+   "accepted_no": 11,
+   "accepted_per_100k_tokens": 1.02,
+   "accepted_per_agent_hour": 6.3,
+   "accepted_yes": 0,
+   "agent_minutes": 104.8,
+   "any_effect_indeterminate_among_accepted": 1,
+   "missing_producer_record": 40,
+   "researched": 92,
+   "review_accept": 10,
+   "review_corrections": 1,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 1,
+   "reviewed": 12,
+   "subagent_tokens": 1080158,
+   "texts_complete": 88
+  },
+  "D_AUTHORITY_REPEALED": {
+   "accepted": 14,
+   "accepted_no": 14,
+   "accepted_per_100k_tokens": 1.47,
+   "accepted_per_agent_hour": 9.98,
+   "accepted_yes": 0,
+   "agent_minutes": 84.2,
+   "any_effect_indeterminate_among_accepted": 0,
+   "missing_producer_record": 66,
+   "researched": 60,
+   "review_accept": 13,
+   "review_corrections": 1,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 14,
+   "subagent_tokens": 955362,
+   "texts_complete": 60
+  },
+  "E_POSITIVE_CONTINUITY": {
+   "accepted": 7,
+   "accepted_no": 2,
+   "accepted_per_100k_tokens": 1.44,
+   "accepted_per_agent_hour": 9.74,
+   "accepted_yes": 5,
+   "agent_minutes": 43.1,
+   "any_effect_indeterminate_among_accepted": 0,
+   "missing_producer_record": 120,
+   "researched": 10,
+   "review_accept": 5,
+   "review_corrections": 3,
+   "review_reject_other": 1,
+   "review_reject_to_indeterminate": 1,
+   "reviewed": 10,
+   "subagent_tokens": 484952,
+   "texts_complete": 10
+  },
+  "F_NRA_P3_RECOVERED": {
+   "accepted": 16,
+   "accepted_no": 16,
+   "accepted_per_100k_tokens": 2.12,
+   "accepted_per_agent_hour": 15.61,
+   "accepted_yes": 0,
+   "agent_minutes": 61.5,
+   "any_effect_indeterminate_among_accepted": 0,
+   "researched": 16,
+   "review_accept": 13,
+   "review_corrections": 3,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 16,
+   "subagent_tokens": 754271,
+   "texts_complete": 16
+  },
+  "G_LATER_ENDING_EVENT": {
+   "accepted": 10,
+   "accepted_no": 10,
+   "accepted_per_100k_tokens": 1.75,
+   "accepted_per_agent_hour": 12.39,
+   "accepted_yes": 0,
+   "agent_minutes": 48.4,
+   "any_effect_indeterminate_among_accepted": 0,
+   "missing_producer_record": 90,
+   "researched": 10,
+   "review_accept": 8,
+   "review_corrections": 2,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 10,
+   "subagent_tokens": 571338,
+   "texts_complete": 9
+  }
+ },
+ "per_lane_phase": [
+  {
+   "accepted_no": 21,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "A_CLOSED_INSTITUTION_OR_NAMED_ENDING",
+   "phase": "pilot",
+   "researched": 27,
+   "review_accept": 24,
+   "review_corrections": 3,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 27,
+   "texts_complete": 27
+  },
+  {
+   "accepted_no": 7,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 1,
+   "lane": "B_NARA_EXECUTED_OBSOLETE",
+   "phase": "pilot",
+   "researched": 12,
+   "review_accept": 10,
+   "review_corrections": 2,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 12,
+   "texts_complete": 10
+  },
+  {
+   "accepted_no": 0,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "C_NARA_TEMPORARY",
+   "missing_producer_record": 40,
+   "phase": "expansion",
+   "researched": 80,
+   "review_accept": 0,
+   "review_corrections": 0,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 0,
+   "texts_complete": 77
+  },
+  {
+   "accepted_no": 11,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 1,
+   "lane": "C_NARA_TEMPORARY",
+   "phase": "pilot",
+   "researched": 12,
+   "review_accept": 10,
+   "review_corrections": 1,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 1,
+   "reviewed": 12,
+   "texts_complete": 11
+  },
+  {
+   "accepted_no": 0,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "D_AUTHORITY_REPEALED",
+   "missing_producer_record": 66,
+   "phase": "expansion",
+   "researched": 46,
+   "review_accept": 0,
+   "review_corrections": 0,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 0,
+   "texts_complete": 46
+  },
+  {
+   "accepted_no": 14,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "D_AUTHORITY_REPEALED",
+   "phase": "pilot",
+   "researched": 14,
+   "review_accept": 13,
+   "review_corrections": 1,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 14,
+   "texts_complete": 14
+  },
+  {
+   "lane": "E_POSITIVE_CONTINUITY",
+   "missing_producer_record": 120,
+   "phase": "expansion"
+  },
+  {
+   "accepted_no": 2,
+   "accepted_yes": 5,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "E_POSITIVE_CONTINUITY",
+   "phase": "pilot",
+   "researched": 10,
+   "review_accept": 5,
+   "review_corrections": 3,
+   "review_reject_other": 1,
+   "review_reject_to_indeterminate": 1,
+   "reviewed": 10,
+   "texts_complete": 10
+  },
+  {
+   "accepted_no": 8,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "F_NRA_P3_RECOVERED",
+   "phase": "expansion",
+   "researched": 8,
+   "review_accept": 6,
+   "review_corrections": 2,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 8,
+   "texts_complete": 8
+  },
+  {
+   "accepted_no": 8,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "F_NRA_P3_RECOVERED",
+   "phase": "pilot",
+   "researched": 8,
+   "review_accept": 7,
+   "review_corrections": 1,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 8,
+   "texts_complete": 8
+  },
+  {
+   "lane": "G_LATER_ENDING_EVENT",
+   "missing_producer_record": 90,
+   "phase": "expansion"
+  },
+  {
+   "accepted_no": 10,
+   "accepted_yes": 0,
+   "any_effect_indeterminate_among_accepted": 0,
+   "lane": "G_LATER_ENDING_EVENT",
+   "phase": "pilot",
+   "researched": 10,
+   "review_accept": 8,
+   "review_corrections": 2,
+   "review_reject_other": 0,
+   "review_reject_to_indeterminate": 0,
+   "reviewed": 10,
+   "texts_complete": 9
+  }
+ ],
+ "raw_agent_log": [
+  {
+   "agent": "S11_F_NRA_producer",
+   "agent_reported_utc": "2026-10-16T20:58:20Z-21:14:06Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_F_NRA_producer",
+   "duration_ms": 966617,
+   "subagent_tokens": 186413,
+   "tool_uses": 67
+  },
+  {
+   "agent": "S11_C_TEMP_producer",
+   "agent_reported_utc": "2026-10-16T20:58:21Z-21:20Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_C_TEMP_producer",
+   "duration_ms": 1331996,
+   "subagent_tokens": 216866,
+   "tool_uses": 97
+  },
+  {
+   "agent": "V11_F_NRA_REV",
+   "note": "completed; usage pending"
+  },
+  {
+   "agent": "V11_F_NRA_REV",
+   "duration_ms": 601336,
+   "subagent_tokens": 179363,
+   "tool_uses": 41
+  },
+  {
+   "agent": "S11_G_EVENT_producer",
+   "agent_reported_utc": "2026-10-16T20:58:54Z-21:26:24Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_G_EVENT_producer",
+   "duration_ms": 1724026,
+   "subagent_tokens": 306869,
+   "tool_uses": 162
+  },
+  {
+   "agent": "S11_E_CONT_producer",
+   "agent_reported_utc": "2026-10-16T20:58:21Z-21:26:50Z",
+   "duration_ms": 1726892,
+   "subagent_tokens": 285397,
+   "tool_uses": 124
+  },
+  {
+   "agent": "S11_G_EVENT_producer",
+   "duration_ms_cumulative": 1899817,
+   "subagent_tokens_cumulative": 317327,
+   "tool_uses_cumulative": 174
+  },
+  {
+   "agent": "S11_D_REPEAL_producer",
+   "agent_reported_utc": "2026-10-16T20:58:20Z-21:31:29Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_D_REPEAL_producer",
+   "duration_ms": 2006154,
+   "subagent_tokens": 326268,
+   "tool_uses": 138
+  },
+  {
+   "agent": "S11_F_NRA_X1_producer",
+   "agent_reported_utc": "2026-10-16T21:14:52Z-21:34:31Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_F_NRA_X1_producer",
+   "duration_ms": 1198468,
+   "subagent_tokens": 196929,
+   "tool_uses": 54
+  },
+  {
+   "agent": "S11_A_INST_producer",
+   "agent_reported_utc": "2026-10-16T20:58:21Z-21:36:45Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_A_INST_producer",
+   "duration_ms": 2387511,
+   "subagent_tokens": 351001,
+   "tool_uses": 135
+  },
+  {
+   "agent": "S11_B_EXEC_producer",
+   "agent_reported_utc": "2026-10-16T20:58:22Z-21:39:05Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_B_EXEC_producer",
+   "duration_ms": 2491527,
+   "subagent_tokens": 397221,
+   "tool_uses": 176
+  },
+  {
+   "agent": "V11_E_CONT_REV",
+   "note": "completed; usage pending"
+  },
+  {
+   "agent": "V11_E_CONT_REV",
+   "duration_ms": 861557,
+   "subagent_tokens": 199555,
+   "tool_uses": 60
+  },
+  {
+   "agent": "V11_C_TEMP_REV",
+   "note": "completed; usage pending"
+  },
+  {
+   "agent": "V11_C_TEMP_REV",
+   "duration_ms": 1386847,
+   "subagent_tokens": 248447,
+   "tool_uses": 98
+  },
+  {
+   "agent": "V11_G_EVENT_REV",
+   "agent_reported_utc": "2026-10-16T21:28:24Z-21:44Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "V11_G_EVENT_REV",
+   "duration_ms": 1006116,
+   "subagent_tokens": 254011,
+   "tool_uses": 88
+  },
+  {
+   "agent": "S11_C_TEMP_X2_producer",
+   "agent_reported_utc": "2026-10-16T21:21:18Z-21:46:04Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_C_TEMP_X2_producer",
+   "duration_ms": 1535912,
+   "subagent_tokens": 284641,
+   "tool_uses": 107
+  },
+  {
+   "agent": "V11_F_NRA_X1_REV",
+   "note": "completed; usage pending"
+  },
+  {
+   "agent": "V11_F_NRA_X1_REV",
+   "duration_ms": 922470,
+   "subagent_tokens": 191566,
+   "tool_uses": 56
+  },
+  {
+   "agent": "V11_B_EXEC_REV",
+   "note": "completed; usage pending"
+  },
+  {
+   "agent": "V11_B_EXEC_REV",
+   "duration_ms": 668113,
+   "subagent_tokens": 195084,
+   "tool_uses": 60
+  },
+  {
+   "agent": "S11_C_TEMP_X1_producer",
+   "agent_reported_utc": "2026-10-16T21:21:16Z-21:54:12Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_C_TEMP_X1_producer",
+   "duration_ms": 2034593,
+   "subagent_tokens": 330204,
+   "tool_uses": 136
+  },
+  {
+   "agent": "V11_D_REPEAL_REV",
+   "duration_ms": 1362001,
+   "subagent_tokens": 278842,
+   "tool_uses": 110
+  },
+  {
+   "agent": "S11_D_REPEAL_X1_producer",
+   "agent_reported_utc": "2026-10-16T21:32:38Z-22:00:10Z",
+   "note": "usage pending"
+  },
+  {
+   "agent": "S11_D_REPEAL_X1_producer",
+   "duration_ms": 1681620,
+   "subagent_tokens": 350252,
+   "tool_uses": 101
+  },
+  {
+   "agent": "V11_A_INST_REV",
+   "agent_reported_utc": "2026-10-16T21:38:28Z-22:00:44Z",
+   "note": "usage pending"
+  }
+ ]
+}
