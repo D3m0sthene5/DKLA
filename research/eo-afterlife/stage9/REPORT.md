@@ -1,77 +1,95 @@
-# Opus Stage 9 present-status delta
+# Opus Stage 9 present-status delta (version 2)
 
-Legal cutoff: October 14, 2026 (America/New_York). Codebook 2.0.0, unchanged. Built 2026-10-16.
+Legal cutoff: October 14, 2026 (America/New_York). Codebook 2.0.0, unchanged. Built 2026-10-16. This version replaces version 1 of the same day, whose 5 retirement confirmations are carried over unchanged.
 
 ## Result
 
 | | YES | NO | UNKNOWN | Determinate | Coverage |
 |---|---:|---:|---:|---:|---:|
 | Prior (Stage 8 technical merge; the 340 are **prior** work) | 191 | 2,035 | 12,747 | 2,226 | 14.866760% |
-| Stage 9 added | 0 | **5** | -5 | +5 | |
-| After Stage 9 (provisional) | 191 | 2,040 | 12,742 | 2,231 | **14.900154%** |
+| Stage 9 accepted (provisional) | **+2** | **+47** | -49 | +49 | |
+| After Stage 9 | 193 | 2,082 | 12,698 | 2,275 | **15.194016%** |
 
 - `prior_accepted_substantive_determinate = 2,226`
-- `added_ACCEPTED_YES = 0`
-- `added_ACCEPTED_NO = 5`
-- `substantive_UNKNOWN_remaining = 12,747 - 5 = 12,742`
-- `coverage_pct = (2,226 + 5) / 14,973 * 100 = 14.900154%`; numerator 2,231, denominator 14,973 validated orders (15,010 ledger rows). No earlier status was overturned.
+- `added_ACCEPTED_YES = 2`
+- `added_ACCEPTED_NO = 47`
+- `substantive_UNKNOWN_remaining = 12,747 - 49 = 12,698`
+- `coverage_pct = (2,226 + 49) / 14,973 * 100 = 15.194016%`
 
-The historical census is not proved complete.
+The numerator is 2,275; the denominator is 14,973 validated orders out of 15,010 ledger rows. No earlier status was overturned. The historical census is not proved complete.
 
-## What was accepted
+**Reviewed but not counted (ownership not verified):** 131 further orders reached a reviewed determinate substantive status: 90 tax-inspection, 39 WWI eight-hour and 2 alien-property. They cannot be counted until Astra's 1,181-ID manifest shows they are outside Astra's reserved scope. If all were cleared, coverage would be 2,406 / 14,973 = 16.068924%. That figure is a ceiling, not a claim.
 
-The five Stage 8 reviewer-only cases, each now with three concurring NO/NO judgments: the Stage 8 reviewer V8_RET, a Stage 9 coordinator check, and a separately instantiated Stage 9 reviewer subagent (V9_RET_CONFIRM). The subagent read only copied input files and did not see the coordinator's verdict.
+## What was accepted (49)
 
-| EO | Person | Rule | Why NO/NO at the cutoff | Confidence |
-|---|---|---|---|---|
-| 8256, 8497, 8904 | Maurice C. Latta | RET-CHAIN-C | Each grant ran to a stated date (1940-10-31, 1941-10-31, 1942-10-31). As a fresh grant, each order ended on its own date. As an extension, each follows EO 9238, which is already accepted NO (RET-R2, no later than 1978-09-30). Both readings give NO. | high |
-| 10225 | Bernice Pyke | RET-CHAIN-C | Grant "not extending beyond March 31, 1952". Under the extension reading it follows EO 10333, which is already accepted NO. | high |
-| 11619 | Rose A. Conway | RET-R2/NONLIMIT | The exemption was open-ended under 5 U.S.C. 8335. Pub. L. 95-256 struck the general mandatory-separation rule effective 1978-09-30, and her position falls in none of the categories that kept mandatory separation. The "nothing in this Order shall be deemed to limit" clause is a rule of construction, as for EO 11378 (already accepted). | medium |
+Every accepted order passed four gates:
+1. Its ID was promotable: either one of the five Opus Stage 8 cases, or a lead that passed Astra's own exclusion scan and has no civil-service title.
+2. It was `indeterminate` in the Stage 8 ledger and in no frozen or assigned list.
+3. A producer agent read the full operative text and mapped every clause against the controlling law.
+4. A separate reviewer agent re-downloaded the texts, re-checked every quote and hash, and reached the same statuses.
 
-**Limits.**
-- The order texts are hosted transcripts (American Presidency Project) cached by Stage 8 through WebFetch, not original bytes. "No other provision" in those caches is the fetch tool's statement, not the order's own words.
-- The Pub. L. 95-256 and 8335 renderings are partial, and 8335 is the 2011 edition.
-- The extension reading for the Latta and Pyke orders relies on the Stage 8 acceptances of EO 9238 and 10333, which are a technical integration rather than a fresh audit. The fresh-grant reading does not depend on them.
-- One dissent is recorded on EO 11619: if the non-limitation clause were operative, any-effect would be indeterminate.
-- The 26 quotes used for these decisions are exact substrings of SHA-256-hashed local files (`evidence/STAGE9_EVIDENCE.jsonl`), and the reviewer verified its 70 quotes the same way.
-- Counterevidence searches found no later order for any of the three people. These were WebSearch summaries, used only as leads.
+| Family | Accepted | YES | NO | Notes |
+|---|---:|---:|---:|---|
+| Retirement reviewer confirmations (EO 8256, 8497, 8904, 10225, 11619) | 5 | 0 | 5 | version 1; three concurring reviews |
+| Advisory-committee continuance orders | 14 | 2 | 12 | EO 14354 (continues committees to 2027-09-30) and EO 13708 (its amendment of EO 12829 sec. 103 is still in force) are **YES** |
+| Office closings and rail/airline emergency boards | 17 | 0 | 17 | dated closings spent; boards reported, panel revoked 1947 |
+| Commemoration and exposition orders | 13 | 0 | 13 | EO 12001 is NO substantive but any-effect indeterminate (open-ended administration of Bicentennial contracts) |
 
-## What could not be done, and why
+Still held in these families: EO 3885-A and EO 3665 (no operative text after the full source ladder), and EO 8273 (civil-service title, not touched).
 
-1. **No network access to primary sources.** Every primary host failed: the shell got a proxy policy 403 for presidency.ucsb.edu, govinfo.gov, archives.gov, law.cornell.edu, uscode.house.gov, HathiTrust, loc.gov, archive.org, federalregister.gov and others, and WebFetch could not resolve them. WebSearch works but returns summaries only, which gate 3 forbids as a basis for NO. As a result, none of the 44 pilot orders (14 tax inspection, 10 WWI eight-hour, 10 alien property, 10 secondary) had its operative text obtained. All 44 are **held, not decided**, each with its blockers and the law to retrieve. This is unmeasured yield, not a failed rule.
-2. **The Astra 1,181-ID manifest is missing.** It is in neither bundled archive. All tax, WWI and alien-property leads are therefore `OWNERSHIP_NOT_VERIFIED` and could not be promoted even if decided. Only the 49 Astra-screened leads and the five Opus Stage 8 cases are promotable. This is recorded as a blocker, not as proof of non-overlap. Three leads have civil-service titles (EO 3441, 8273, 8975) and are flagged as do-not-touch.
-3. **The 16 NRA P3 IDs are not in any bundled file.** They were in the unbundled Stage 7 split package, so they were left untouched as instructed.
+## Pilots and expansion (reviewed, held for ownership)
 
-## New legal blockers found (leads only, to verify with primary text)
+| Family | Researched | Reviewed determinate | Held indeterminate | Review result |
+|---|---:|---:|---:|---|
+| Tax-return inspection (14 pilot + 84 committee expansion) | 98 | 90 substantive NO (25 NO/NO, 65 NO with any-effect indeterminate) | 8 | Rule: committee permission limited to a named Congress, a resolution, a date, or a committee that ended. Counterexample: orders reaching pre-1954 (1939-Code) returns are not closed by the 1976 Tax Reform Act. |
+| WWI eight-hour suspensions (10 pilot + 36 expansion) | 46 | 39 NO/NO | 7 (no text) | Rule: suspension tied to the war emergency, a date, or one project; the 1962 repeal is the outer bound. 18 reasoning corrections, 0 status changes. |
+| Alien Property Custodian single sales | 10 | 2 NO/NO | 8 | **Low yield, stopped**: a grant to sell is not proof of a sale; the sale power is still law (50 U.S.C. 4312). |
 
-- **Tax returns (TAX-B1).** 26 CFR 301.6103(a)-1 appears to allow continued use, after 1976, of returns disclosed before 1977 "for purposes permitted by the prior authority". For agency-recipient orders (FTC, HEW, SEC, Renegotiation Board) this is a candidate saved residual of the order's own terms, so any-effect NO is blocked until the regulation is read. Congressional-committee orders look more tractable: about 70 share one transition, Tax Reform Act of 1976 sec. 1202(i), effective 1977-01-01.
-- **WWI eight-hour (WWI-B1).** The 1917 suspension power was still cited in 1939 (EO 8198, 40 U.S.C. 326), so it did not lapse with the war. Each order's end trigger ("pending emergency", contract completion) and the 1962 repeal's savings clause must be read.
-- **Alien property (APC-B1 to B3).** A grant to sell is not proof of a sale, and execution records (APC annual reports) are needed. EO 3639A's perpetual lease is a continuing-interest counterexample. Triage by title of the 196 leads: 155 single identified sales or dispositions, 16 continuing delegations, 9 institutional, 5 class authorizations, 1 perpetual lease, 10 other or misfiled.
+## Coordinator rulings (in `rules/COORDINATOR_RULINGS.md`)
 
-## Telemetry
+- **CR-1.** Committee text in an unrevoked host order, where the committee ended under an operative termination rule, is not a "dormant" effect. This holds only if bringing it back would need a new presidential act and no standing power remains.
+- **CR-2.** WWI suspensions whose own text ties them to the war emergency ended with it (7 Comp. Gen. 73, 76-77 (1927)). Limit: such rulings bind accounting officers, not courts. Records that rest on CR-2 alone are marked medium confidence.
+- **CR-3.** Committee tax orders reaching 1939-Code returns carry a Treasury "held confidential" term whose removal was not found. The two reviewers split on whether that term is part of the order, so the stricter view applies: substantive NO, any-effect indeterminate (65 orders). It would be settled by finding the removal of 26 CFR 458.324; a full govinfo search with an api.data.gov key would do it.
+- **CR-4.** The 1946 savings clause in EO 9801 keeps only claims that are now time-barred, so it is not a present effect.
 
-The reviewer subagent used 96,854 tokens, 14 tool uses and 3.3 minutes. Coordinator tokens are not exposed. The coordinator's elapsed time ran from about 15:55Z to packaging. See `TELEMETRY.json`.
+## Quality and limits
 
-## Recommended next step
+- **Review outcome.** Reviewers changed no determinate status to a different determinate status. Of the 200 shard records reviewed, 89 were accepted as proposed and 77 were "accept with correction" (reasoning, dates or evidence fixed). The 34 tax-expansion records the reviewer rejected to indeterminate affected any-effect only (CR-3).
+- **Independence.** Producers and reviewers are separately instantiated agents of the same model, each with its own context, and the reviewers re-fetched sources themselves. They are not human reviewers.
+- **Text grades.**
+  - Most texts are official publications: Federal Register issues on govinfo, and Official U.S. Bulletin scans on archive.org.
+  - Many are American Presidency Project transcripts, graded `hosted_transcript`.
+  - Six closing orders come from 1904-1928 newspaper printings (Library of Congress Chronicling America); five of these were checked against page images.
+- **Unreachable sources.** HathiTrust and Google Books full text (CAPTCHAs, not bypassed), the Wayback Machine (the archive drops connections from this environment), federalregister.gov full-text pages (CAPTCHA), and some NARA disposition-table years (404). Every attempt is logged in each shard's report and attempts log.
+- **Identity conflicts.** Logged in `CONFLICT_LOG.jsonl` and never corrected in the ledger. Examples: EO 2858 and EO 2814 dates; EO 3016C and EO 3016N are orders by Frank L. Polk under a delegation, not presidential signatures; EO 7700 numbering.
+- **Unchanged fields.** Historical causes stay UNKNOWN. No first-cessation, housekeeping, identity or formal-disposition field was changed.
 
-Rerun Stage 9 production in a session that has (a) the Astra 1,181-ID manifest (`EO_Stage7_Astra_Opus_Split_2026-10-15.zip`) and (b) network access to presidency.ucsb.edu, govinfo.gov, ecfr.gov, uscode.house.gov and babel.hathitrust.org. The pilot packets in `STAGE9_HELD_QUEUE.jsonl` are ready to run. The suggested order is in `NEXT_FAMILY_CANDIDATES.json`: WWI single-project orders first, then the tax congressional-committee stratum, then one-day closings, and alien property last.
+## Yield and cost (subagent tokens as reported; coordinator tokens not exposed)
+
+See `TELEMETRY.json` for each family's tokens, agent-minutes, review error and correction rates, and reviewed determinate statuses per 100,000 tokens. Measured yield per 100k tokens: tax inspection 5.7, office closings and boards 5.4, advisory 2.7, commemoration 2.5, WWI 2.1, alien property 0.4.
+
+## Blockers and next steps
+
+1. **Upload Astra's manifest.** The file is `ASTRA_STAGE7_CIVIL_STATUS_DELTA_2026-10-15.zip`, which contains `FROZEN_STAGE7_ASSIGNMENT_SPLIT_ORIGINAL.zip` (sha256 5b553c02...). With it, the 131 reviewed results can be checked and, where outside Astra's scope, promoted without new research.
+2. **CR-3 (65 tax any-effects).** Settle it with an api.data.gov key, or by locating the removal of 26 CFR 458.324.
+3. **Next families.** These are ranked in `NEXT_FAMILY_CANDIDATES.json` from the current ledger; Indian trust-period orders must never be bulk-expired by date.
+4. **NRA P3.** The 16 NRA P3 IDs remain unrecoverable from the bundled files.
 
 ## Files
 
-- `STAGE9_STATUS_RECORDS.jsonl`: one record for each of the 49 researched IDs.
+- `STAGE9_STATUS_RECORDS.jsonl`: one record for each of the 205 researched orders.
 - `STAGE9_ACCEPTED.jsonl`
+- `CLAUDE_NEW_NO_V7_OPUS_PROVISIONAL.jsonl`: the 47 accepted NO only.
+- `STAGE9_NEW_YES_PROVISIONAL.jsonl`
+- `STAGE9_REVIEWED_DETERMINATE_HELD_FOR_OWNERSHIP.jsonl`
 - `STAGE9_HELD_QUEUE.jsonl`
-- `CLAUDE_NEW_NO_V7_OPUS_PROVISIONAL.jsonl`: the 5 new NO only.
 - `ACCOUNTING.json`
-- `checks/OWNER_AND_BASELINE_CHECKS.jsonl`: all 397 leads and cases, with ledger status and exclusion hits.
-- `rules/STAGE9_RULES.jsonl`: applied rules plus untested family hypotheses.
-- `reviews/`: the coordinator checks and the independent reviewer's records and summary.
-- `evidence/`: quote ledger and hashed source copies.
-- `leads/`: WebSearch lead log, graded search_summary_only.
-- `CONFLICT_LOG.jsonl`
 - `TELEMETRY.json`
-- `NEXT_FAMILY_CANDIDATES.json`: computed from the current Stage 8 ledger.
-- `MANIFEST.json`: SHA-256 for every file.
-- `code/build_stage9.py`: rebuilds everything from the handoff.
+- `CONFLICT_LOG.jsonl`
+- `checks/OWNER_AND_BASELINE_CHECKS.jsonl`
+- `rules/`: shard rules, coordinator rulings, and the producer and reviewer protocols.
+- `evidence/`: every shard's and reviewer's records, text extractions, metadata with original-byte SHA-256, and code. Large originals are listed in `evidence/UNPACKAGED_LARGE_ORIGINALS.jsonl` with their hashes. Very large text extractions are packaged as quote windows.
+- `MANIFEST.json`
+- `code/build_stage9_v2.py`
 
-Historical causes stay UNKNOWN. No first-cessation, housekeeping, identity or formal-disposition field was changed.
+Page images and PDF page excerpts are in the companion `OPUS_STAGE9_EVIDENCE_IMAGES.zip`.
