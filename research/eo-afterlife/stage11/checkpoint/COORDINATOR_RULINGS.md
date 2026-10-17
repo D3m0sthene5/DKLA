@@ -95,3 +95,41 @@ otherwise excludes. Before using the FACA backstop (e.g. under CR-1), show the c
 included non-federal members (or otherwise met the definition). If not, rest the ending on another
 operative ground (the order's own term, revocation, the end of the authority it advised on) or hold.
 Found by V11_B_EXEC_REV (EO 11447).
+
+## CR-7 (2026-10-16, Stage 11): a later identical restatement does not by itself end an unrevoked order
+
+Question (S11_D_REPEAL_X2): an order was never revoked, and a later presidential instrument repeats the
+same rule or delegation (e.g. delegations later restated in a Manual for Courts-Martial issued by
+executive order; EO 3550's budget rule repeated word for word in EO 3578).
+Ruling: implied repeal requires an irreconcilable conflict, or a later instrument that plainly covers
+the whole subject and is intended as a complete substitute. An identical or consistent restatement is
+neither, so it does NOT by itself end the earlier order. Record NO only on: an express revocation or
+supersession clause; an official disposition (NARA/FR 'Superseded by') supported by the later text; or
+a later comprehensive instrument whose text shows it replaces the whole subject. Otherwise hold the
+order as indeterminate; if the earlier order itself is still applied by a present actor (cited as
+authority in current materials), evaluate a YES under TC05/TC14 instead.
+
+## CR-8 (2026-10-16, Stage 11): revoking an amending order does not by itself remove its amendment
+
+Question (S11_E_CONT_X1, EO 12374/12408/12553): does revoking an amending order remove the text it
+added to its host? Ruling under TC09 ("no automatic formal revocation cascade"): an amendment, once
+effective, is part of the host's text; revoking the amending instrument does not by itself delete the
+added text or revive the earlier text. The added text ends only if (a) the revoking instrument expressly
+strikes or revokes that host provision or the host itself, (b) a later instrument rewrites the host
+provision, or (c) the host ends. Where the revoker's text is ambiguous about the host provision, the
+host provision's status is indeterminate (hold), not no.
+
+## CR-9 (2026-10-17, Stage 11): land status that still traces to an order is durable, not spent
+
+Codebook primary convention: "Spent pure dispositive acts: historical repeal/transfer alone is not current
+operative EO effect; enduring constitutive status and traceable incorporated norms may be." (TC06, TC07)
+(a) Boundary or reservation changes (e.g. moving lands from one national forest to another, enlarging a
+refuge) constitute the land's status. If the land's present status/boundary still rests on the order
+(no later proclamation, statute or land order re-establishes the boundary in its own terms, and the land
+was not disposed of), the order has a continuing effect: evaluate YES under TC05/TC06/TC14, or hold.
+Record NO only when the status was later re-established, revoked or the land left federal ownership by
+another instrument. (b) Federal property interests that survived statehood or a conveyance count as the
+order's present effect only if the controlling statute keys the retention to this order's withdrawal or
+reservation (e.g. Submerged Lands Act exceptions, 43 U.S.C. 1313(a), for lands withdrawn for federal use);
+then the order is not NO (evaluate YES or hold). If retention rests on the statute independently, it is
+not the order's effect (TC08).
