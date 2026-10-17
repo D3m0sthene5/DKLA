@@ -133,3 +133,11 @@ order's present effect only if the controlling statute keys the retention to thi
 reservation (e.g. Submerged Lands Act exceptions, 43 U.S.C. 1313(a), for lands withdrawn for federal use);
 then the order is not NO (evaluate YES or hold). If retention rests on the statute independently, it is
 not the order's effect (TC08).
+
+## CR-10 (2026-10-17): later instrument that describes land "by reference to" a revoked order
+
+Question raised by V11_G_EVENT_X3_REV on EO 8278: a 1975 Public Land Order revoked the order's withdrawal and re-reserved the same land to the Coast Guard, describing the tract by reference to EO 8278.
+
+Ruling: borrowing an order's land description does not by itself keep that order operating. The reservation then rests on the later instrument. TC08 asks whether current law relies on the order's own operation, and a cross-reference used only as a description is not that. Whether the 1975 order relies only on the description must still be shown on its own text.
+
+Application in Stage 11: none. Coordinator overrides may only make an axis stricter, so this ruling cannot turn the reviewer's hold into NO. EO 8278 stays held, and the ruling is guidance for the next stage, which must read the 1975 order's text (PLO 5550) and its current status.
