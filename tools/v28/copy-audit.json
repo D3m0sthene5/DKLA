@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "release": "v2.8",
+  "reviewedAt": "2026-10-28",
+  "authorization": "Owner requested minor spelling/grammar audit and production v2.8 hotfix in this chat.",
+  "scope": "Local dictionary and targeted grammar scan of effective authored explanations, brief sections, full briefs, Cold Call narratives and interface strings; manual readability review of all 392 mapped-case takeaways. Not a new legal-accuracy review.",
+  "corpus": {
+    "recordsScanned": 48763,
+    "approximateWordsScanned": 4116152,
+    "mappedCaseTakeawaysReviewed": 392
+  },
+  "method": {
+    "spelling": "nspell with dictionary-en-us; reviewed lowercase unknown-word candidates in context; legal terminology, proper names, foreign-language text and the intentional typo example in the search tutorial retained.",
+    "grammar": "Repeated-word, modal-verb, article and common-typo patterns plus manual takeaway review. Automated flags were treated as candidates, not automatic replacements."
+  },
+  "source": "Existing authored takeaways in tools/r19/data/takeaways.json; original legal source evidence remains in tools/v25/explanation-audit.json.",
+  "limitations": [
+    "Automated scans do not guarantee the absence of all grammatical or spelling errors.",
+    "Original PDFs, quoted source records and dictionary definitions were not rewritten."
+  ],
+  "changes": [
+    {
+      "id": "cp-gasperini",
+      "field": "takeaway",
+      "before": "A state's limit on how big a damages award can be applies in federal court too. The trial judge applies that standard first, and the appeals court only checks for abuse of discretion. The case involved lost photographs and a jury award of $450,000.",
+      "after": "State limits on excessive damages awards also apply in federal court. The trial judge applies that standard first, and the appeals court only checks for abuse of discretion. The case involved lost photographs and a jury award of $450,000.",
+      "reason": "Replace the nested “how big … can be applies” construction with a direct subject and verb."
+    },
+    {
+      "id": "hamer",
+      "field": "takeaway",
+      "before": "Giving up something you had a legal right to do, because someone promised to pay you for it, is enough to make the promise enforceable. It does not matter whether the promisor gained anything and that quitting was good for you.",
+      "after": "Giving up something you had a legal right to do, because someone promised to pay you for it, is enough to make the promise enforceable. It does not matter that the promisor gained nothing or that quitting was good for you.",
+      "reason": "Make the two clauses after “does not matter” grammatically parallel."
+    },
+    {
+      "id": "nelson-hazel",
+      "field": "takeaway",
+      "before": "A contractor whose work fell short of substantial performance still cannot be made to hand over the value of the work for free. He recovers whatever the benefit to the owner exceeds the owner's damages.",
+      "after": "A contractor whose work fell short of substantial performance still cannot be made to hand over the value of the work for free. He recovers the amount by which the benefit to the owner exceeds the owner's damages.",
+      "reason": "Supply “the amount by which” in the recovery comparison."
+    },
+    {
+      "id": "cp-krupski",
+      "field": "takeaway",
+      "before": "When a plaintiff sued the wrong company and fixes it late, the question is what the company she meant to sue knew, not how careless she was. Costa Crociere should have known it was left out only because of a mix-up, so the Court reversed.",
+      "after": "When a plaintiff sues the wrong company and corrects the mistake late, the question is what the company she meant to sue knew, not how careless she was. Costa Crociere should have known it was left out only because of a mix-up, so the Court reversed.",
+      "reason": "Use consistent present tense and give “corrects” a clear object."
+    }
+  ]
+}
