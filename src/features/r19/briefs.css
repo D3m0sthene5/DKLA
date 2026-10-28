@@ -474,3 +474,28 @@
 .r19-line:empty {
   display: none;
 }
+
+.r28-original-sources,
+.r28-case-timelines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.r28-original-sources button,
+.r28-original-sources a,
+.r28-case-timelines button,
+.r28-step-source {
+  color: #d6c39c;
+  background: #1e2b37;
+  border: 1px solid #43576a;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+.r28-case-timelines > span {
+  width: 100%;
+}

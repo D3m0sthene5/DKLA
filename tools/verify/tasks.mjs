@@ -65,6 +65,7 @@ export const tasks = [
   },
   step('datasets', 'U.S. Code', py('tools/v25/uscode_build.py', '--check')),
   step('datasets', 'timeline audit', py('tools/v25/check_timeline_audit.py', '--json'), SOURCE),
+  step('datasets', 'every case has an original source and chronology', py('tools/v28/check.py'), SOURCE),
   step('datasets', 'explanation inventory', py('tools/v25/explanation_inventory.py', '--check'), SOURCE),
   step('datasets', 'generated rule connections', py('tools/v25/generated_rule_connections_check.py'), SOURCE),
   step(
@@ -105,11 +106,17 @@ export const tasks = [
   step('features', 'Cold Call reader', node('tools/cold-call/check_reader.cjs'), ASSEMBLED),
 
   // These read the public output in dist/.
-  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.7.html'), PACKAGED),
+  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.8.html'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
+  step(
+    'browser',
+    'source pages and complete course chronologies',
+    node('tools/v28/browser.cjs', '{page}'),
+    SERVER,
+  ),
   // Four pages at once: three screen sizes and the saved-work test.
   {
     ...step(

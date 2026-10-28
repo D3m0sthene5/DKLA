@@ -211,7 +211,14 @@ document.body.appendChild(civilDialog);
 function civilPDF(mode) {
   if (civilPDFURLs[mode]) return civilPDFURLs[mode];
   const b64 = CIV[mode === 'civ' ? 'casebookPDF' : mode === 'mallory' ? 'malloryPDF' : 'syllabusPDF'];
-  if (/\.pdf$/i.test(b64)) return (civilPDFURLs[mode] = b64);
+  if (/\.pdf$/i.test(b64)) {
+    const originals = {
+      civ: 'added-sources/CivPro.pdf',
+      mallory: 'added-sources/Mallory.pdf',
+      syllabus: 'added-sources/Syllabus 9_3_26.pdf',
+    };
+    return (civilPDFURLs[mode] = b64.startsWith('DKLA-sources/') ? originals[mode] : b64);
+  }
   const bin = atob(b64),
     bytes = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);

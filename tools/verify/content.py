@@ -29,6 +29,8 @@ CONTENT = [
     'tools/cold-call/narratives',
     'tools/cold-call/*.json',
     'tools/v25/*.json',          # authorities, U.S. Code, geography, reviews and audits
+    'tools/v28/*.json',          # original-source registry and complete course chronologies
+    'assets/pdfjs',              # pinned PDF renderer, worker, fonts and decoders
     'tools/sessions/*.json',     # the October 1, 2026 Civil Procedure syllabus revision
 ]
 # Build configuration that happens to sit beside the datasets.

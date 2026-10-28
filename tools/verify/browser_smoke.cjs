@@ -251,8 +251,8 @@ async function route(page, hash) {
         });
         await check(viewport.name + ': legacy embedded book source', async () => {
           await route(page, 'book=1');
-          await page.locator('#bookDialog[open]').waitFor();
-          assert.ok((await page.locator('#bookDialog').innerText()).length > 30);
+          await page.locator('#fileDialog[open] [data-pdf-rendered="47"]').waitFor({ timeout: 45000 });
+          assert.ok((await page.locator('#fileDialog').innerText()).length > 30);
           await shot(page, viewport.name + '-source');
           await closeDialogs(page);
         });

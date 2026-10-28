@@ -53,6 +53,26 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
   STRICT = "'use strict';";
 
 const breakages = [
+  [
+    'source reader: original PDF pages never render',
+    'src/runtime/dklaR11Sources.js',
+    () =>
+      edit(
+        'src/runtime/dklaR11Sources.js',
+        'async function renderPDF(host, path, page) {',
+        'async function renderPDF(host, path, page) { return;',
+      ),
+  ],
+  [
+    'source navigation: case readers lose their original sources',
+    'src/features/r19/briefs.js',
+    () =>
+      edit(
+        'src/features/r19/briefs.js',
+        'function sourceLinks(id) {',
+        'function sourceLinks(id) { return "";',
+      ),
+  ],
   ['a case record in the atlas data', record, () => flip(record)],
   ['a case brief', brief, () => flip(brief)],
   ['a Cold Call narrative', narrative, () => flip(narrative)],

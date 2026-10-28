@@ -8,6 +8,8 @@ const SHELL = [
   ATLAS,
   'manifest.webmanifest',
   'icons/icon.svg',
+  'assets/pdfjs/pdf.min.mjs',
+  'assets/pdfjs/pdf.worker.min.mjs',
   'icons/icon-180.png',
   'icons/icon-192.png',
   'icons/icon-512.png',

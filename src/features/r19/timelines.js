@@ -79,8 +79,9 @@
     }
   };
   const SUP = new Map(D.entries.filter((e) => !e[6]).map((e) => [e[0], e[1]]));
+  const allLines = [...(D.chronologies || []), ...TL.list];
   const byTitle = new Map(TL.list.map((t) => [t.title, t])),
-    byId = new Map(TL.list.map((t) => [t.id, t]));
+    byId = new Map(allLines.map((t) => [t.id, t]));
   const stepId = (s, i, t) => s.id || (s.sup ? 'sup:' + s.sup : `event:${t.id}:${i}`);
 
   /* ---------- the saved graph carries the new set ---------- */
@@ -126,6 +127,20 @@
       : '';
   const synthesis = (t) => (t.now ? `<p class="r25-timeline-synthesis">${esc(t.now)}</p>` : '');
   const fate = (s) => (s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '');
+  const source = (s) => {
+    const bid = s.sup || D.map[s.id] || s.id;
+    const links = D.sourceLinks?.[bid] || [];
+    const reading = links.find((r) => r.path);
+    return reading
+      ? `<button type="button" class="r28-step-source" data-dkla-file="${esc(reading.path + '#page=' + reading.page)}" title="${esc(reading.label)}">Read original source ↗</button>`
+      : '';
+  };
+  function linksFor(id) {
+    const lines = TL.list.filter((t) => t.steps.some((s) => s.id === id || s.sup === id));
+    return lines.length
+      ? `<nav class="r28-case-timelines" aria-label="Timelines containing this case"><span>In ${lines.length} timeline${lines.length === 1 ? '' : 's'}</span>${lines.map((t) => `<button type="button" data-r21-open="${esc(t.id)}">${esc(t.title)}</button>`).join('')}</nav>`
+      : '';
+  }
   // the button a step opens with: an entry on the map, a supporting brief, or nothing for a statute or rule change
   function opener(s, inner, cls) {
     if (s.event && s.link)
@@ -223,10 +238,10 @@
   const V = { course: 0, open: null };
   const results = document.getElementById('searchResults'),
     input = document.getElementById('search');
-  const inCourse = (i) => TL.list.filter((t) => t.course === COURSES[i]);
+  const inCourse = (i) => allLines.filter((t) => t.course === COURSES[i]);
   function listHTML() {
     title.innerHTML = '<h2>Doctrine timelines</h2>';
-    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]}</button>`).join('')}</div>
+    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]}</button>`).join('')}</div><p class="r28-timeline-scope">Cases can appear in several timelines. Each line follows its stated question; read the linked casebook passage for context.</p>
       <div class="r21-cards">${inCourse(V.course)
         .map(
           (t) =>
@@ -241,7 +256,7 @@
         .filter(live)
         .map(
           (s) =>
-            `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year)}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}</div></li>`,
+            `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year ?? 'Undated')}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}${source(s)}</div></li>`,
         )
         .join('')}</ol>
       ${synthesis(t)}`;
@@ -339,7 +354,7 @@
       if (q.length < 3) return;
       // every word of the query must appear in the timeline's title, question, summary or the names of its steps
       const words = q.split(/\s+/).filter((w) => w.length > 1);
-      const hits = TL.list
+      const hits = allLines
         .filter((t) => {
           const hay = haystack(t);
           return words.every((w) => hay.includes(w));
@@ -382,5 +397,5 @@
         }
     }, 3300);
   })();
-  window.DKLATimelines = { open, apply, list: () => TL.list.slice(), rev: TL.rev };
+  window.DKLATimelines = { open, apply, linksFor, list: () => TL.list.slice(), rev: TL.rev };
 })();

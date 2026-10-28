@@ -40,6 +40,88 @@
   const GH_BLOB = 'https://github.com/D3m0sthene5/DKLA/blob/claude/atlas-design-content-audit-m1cw9x/',
     GH_RAW = 'https://raw.githubusercontent.com/D3m0sthene5/DKLA/claude/atlas-design-content-audit-m1cw9x/';
   const TEXTS = JSON.parse($('sourceTexts')?.textContent || '{}');
+  // Render the actual PDF here: mobile browsers and embedded browsers often
+  // cannot display <object type="application/pdf"> even when the file exists.
+  let pdfLibrary,
+    pdfTask,
+    pdfRender,
+    activePDFPath,
+    pdfZoom = 1,
+    renderRevision = 0;
+  async function renderPDF(host, path, page) {
+    const revision = ++renderRevision;
+    pdfRender?.cancel();
+    try {
+      pdfLibrary ||= import('./assets/pdfjs/pdf.min.mjs');
+      const pdfjs = await pdfLibrary;
+      if (revision !== renderRevision || !host.isConnected) return;
+      pdfjs.GlobalWorkerOptions.workerSrc = './assets/pdfjs/pdf.worker.min.mjs';
+      // PDF.js shares page-mapping state between documents. Keep one active
+      // document, disposing it before switching books; a cached older proxy can
+      // otherwise reject a valid page after a shorter opinion was opened.
+      if (activePDFPath !== path) {
+        const previous = pdfTask;
+        pdfTask = null;
+        activePDFPath = null;
+        if (previous) await previous.destroy();
+        if (revision !== renderRevision || !host.isConnected) return;
+        pdfTask = pdfjs.getDocument({
+          url: encodeURI(path),
+          cMapUrl: './assets/pdfjs/cmaps/',
+          cMapPacked: true,
+          standardFontDataUrl: './assets/pdfjs/standard_fonts/',
+          wasmUrl: './assets/pdfjs/wasm/',
+        });
+        activePDFPath = path;
+      }
+      const pdf = await pdfTask.promise;
+      if (revision !== renderRevision || !host.isConnected) return;
+      if (page > pdf.numPages) {
+        go(pdf.numPages);
+        return;
+      }
+      $('filePage').max = pdf.numPages;
+      $('filePrev').disabled = page === 1;
+      $('fileNext').disabled = page === pdf.numPages;
+      host.dataset.pdfPages = pdf.numPages;
+      const original = await pdf.getPage(page);
+      if (revision !== renderRevision || !host.isConnected) return;
+      const base = original.getViewport({ scale: 1 });
+      const width = Math.max(240, Math.min(1100, host.clientWidth - 24));
+      const viewport = original.getViewport({ scale: (width / base.width) * pdfZoom });
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.floor(viewport.width * ratio);
+      canvas.height = Math.floor(viewport.height * ratio);
+      canvas.style.width = viewport.width + 'px';
+      canvas.style.height = viewport.height + 'px';
+      canvas.setAttribute('aria-label', 'Original PDF page ' + page + ' of ' + pdf.numPages);
+      host.replaceChildren(canvas);
+      pdfRender = original.render({
+        canvasContext: canvas.getContext('2d'),
+        viewport,
+        transform: ratio === 1 ? null : [ratio, 0, 0, ratio, 0, 0],
+      });
+      await pdfRender.promise;
+      if (revision !== renderRevision || !host.isConnected) return;
+      host.dataset.pdfRendered = String(page);
+      const content = await original.getTextContent();
+      if (revision !== renderRevision || !host.isConnected) return;
+      const text = content.items.map((item) => item.str + (item.hasEOL ? '\n' : ' ')).join('');
+      if (text.trim()) {
+        const details = document.createElement('details');
+        details.className = 'file-pdf-text';
+        details.innerHTML = '<summary>Selectable page text</summary>';
+        const pre = document.createElement('pre');
+        pre.textContent = text;
+        details.appendChild(pre);
+        host.appendChild(details);
+      }
+    } catch (error) {
+      if (revision !== renderRevision || error.name === 'RenderingCancelledException') return;
+      host.innerHTML = `<div class="file-notice"><strong>This PDF could not be displayed.</strong> <a href="${encodeURI(path)}#page=${page}" target="_blank" rel="noopener">Open the original PDF at page ${page} ↗</a><p>${E(error.message || 'Please retry the source.')}</p></div>`;
+    }
+  }
   function textHTML(t) {
     return String(t || '')
       .split(/\n{2,}|\r\n{2,}/)
@@ -65,21 +147,33 @@
       entry = TEXTS[cur.path];
     const src = encodeURI(cur.path) + (kind === 'pdf' ? `#page=${cur.page}&zoom=page-width` : '');
     const heading = book?.index.filter((e) => e.page <= cur.page).slice(-1)[0];
-    const fallback = `<div class="file-fallback"><div class="file-notice"><strong>The file itself is not beside the atlas on this computer.</strong> Keep <code>DKLA-r8.html</code> in the same folder as <code>added-sources/</code> (download the repository as a ZIP) to read the original here. ${ghLinks()}</div>${entry ? (entry.kind === 'pages' ? pageTextHTML(entry, cur.page) : `<div class="file-text">${textHTML(entry.text)}</div>`) : ''}</div>`;
+    const fallback = `<div class="file-fallback"><div class="file-notice">Open or download this source using the links above. ${ghLinks()}</div>${entry ? (entry.kind === 'pages' ? pageTextHTML(entry, cur.page) : `<div class="file-text">${textHTML(entry.text)}</div>`) : ''}</div>`;
     let body;
     if (entry && entry.kind === 'text' && kind === 'text')
       body = `<div class="file-text file-scroll">${textHTML(entry.text)}</div>`;
+    else if (kind === 'pdf')
+      body = '<main class="file-pdf-page" aria-live="polite"><p>Loading original PDF page…</p></main>';
     else if (kind === 'docx')
       body = `<div class="file-fallback"><div class="file-notice">Word files cannot be shown inside the atlas. ${ghLinks()}${TEXTS[cur.path.replace(/\.docx$/, '.html')] || INDEX.files.includes(cur.path.replace(/\.docx$/, '.html')) ? ` <button data-dkla-file="${E(cur.path.replace(/\.docx$/, '.html'))}">Read the converted copy</button>` : ''}</div>${entry ? `<div class="file-text">${textHTML(entry.text)}</div>` : ''}</div>`;
     else
       body = `<object class="file-object" data="${src}" type="${kind === 'pdf' ? 'application/pdf' : kind === 'html' ? 'text/html' : 'text/plain'}" aria-label="${E(cur.title || name)}">${fallback}</object>`;
     dlg.innerHTML = `<header class="file-header"><div class="file-title"><strong>${E(cur.title || name)}</strong><span>${E(name)}${total ? ` · PDF page ${cur.page} of ${total}` : ''}${heading && heading.page === cur.page ? ` · ${E(heading.label.slice(0, 80))}` : ''}</span></div>
-  <div class="file-tools">${kind === 'pdf' ? `<button id="filePrev" aria-label="Previous page">‹</button><label class="file-page">Page <input id="filePage" type="number" min="1" ${total ? `max="${total}"` : ''} value="${cur.page}"></label><button id="fileNext" aria-label="Next page">›</button>` : ''}${book ? `<input id="fileFind" type="search" placeholder="Find a rule, section or article" aria-label="Find in this book">` : ''}<a href="${encodeURI(cur.path)}${kind === 'pdf' ? `#page=${cur.page}` : ''}" target="_blank" rel="noopener">Open in a new tab ↗</a><a href="${GH_BLOB + encodeURI(cur.path).replace(/#/g, '%23')}" target="_blank" rel="noopener">GitHub ↗</a><button id="fileClose">← Back</button></div></header>
+  <div class="file-tools">${kind === 'pdf' ? `<button id="filePrev" aria-label="Previous page">‹</button><label class="file-page">Page <input id="filePage" type="number" min="1" ${total ? `max="${total}"` : ''} value="${cur.page}"></label><button id="fileNext" aria-label="Next page">›</button><button id="fileZoomOut" aria-label="Zoom out source">−</button><button id="fileZoomIn" aria-label="Zoom in source">+ ${Math.round(pdfZoom * 100)}%</button>` : ''}${book ? `<input id="fileFind" type="search" placeholder="Find a rule, section or article" aria-label="Find in this book">` : ''}<a href="${encodeURI(cur.path)}${kind === 'pdf' ? `#page=${cur.page}` : ''}" target="_blank" rel="noopener">Open in a new tab ↗</a><a href="${GH_BLOB + encodeURI(cur.path).replace(/#/g, '%23')}" target="_blank" rel="noopener">GitHub ↗</a><button id="fileClose">← Back</button></div></header>
   <div id="fileFindResults" hidden></div>${body}`;
     $('fileClose').onclick = close;
     if ($('filePrev')) $('filePrev').onclick = () => go(cur.page - 1);
     if ($('fileNext')) $('fileNext').onclick = () => go(cur.page + 1);
     if ($('filePage')) $('filePage').onchange = (e) => go(+e.target.value || 1);
+    if ($('fileZoomIn'))
+      $('fileZoomIn').onclick = () => {
+        pdfZoom = Math.min(4, pdfZoom + 0.5);
+        render();
+      };
+    if ($('fileZoomOut'))
+      $('fileZoomOut').onclick = () => {
+        pdfZoom = Math.max(1, pdfZoom - 0.5);
+        render();
+      };
     if ($('fileFind'))
       $('fileFind').oninput = (e) => {
         const q = e.target.value.trim().toLowerCase().replace(/§/g, '§ ').replace(/\s+/g, ' ');
@@ -100,6 +194,7 @@
           : '<p class="search-empty">No heading matches.</p>';
       };
     dlg.querySelectorAll('[data-file-page]').forEach((b) => (b.onclick = () => go(+b.dataset.filePage)));
+    if (kind === 'pdf') renderPDF(dlg.querySelector('.file-pdf-page'), cur.path, cur.page);
   }
   function go(page) {
     const book = bookFor(cur.path);
@@ -118,6 +213,7 @@
       path = mm[1];
       page = +mm[2];
     }
+    if (path !== cur.path) pdfZoom = 1;
     cur = { path, page: +page || 1, title };
     if (!dlg.open) {
       ret = { active: document.activeElement, scroll: $('inspector')?.scrollTop || 0 };
@@ -133,6 +229,8 @@
     } catch {}
   }
   function close() {
+    ++renderRevision;
+    pdfRender?.cancel();
     if (dlg.open) dlg.close();
     if (ret?.active?.focus)
       try {

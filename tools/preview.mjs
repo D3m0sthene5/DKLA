@@ -12,6 +12,8 @@ const routes = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'
 const types = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
+  '.wasm': 'application/wasm',
   '.json': 'application/json',
   '.css': 'text/css; charset=utf-8',
   '.pdf': 'application/pdf',

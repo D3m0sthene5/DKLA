@@ -118,6 +118,15 @@
     }
     if (caption && caption.parentElement !== header) header.insertBefore(caption, actions);
     move(body.querySelector('[data-cold-call]'), actions);
+    const original = body.querySelector('.r28-original-sources [data-dkla-file]');
+    if (original && !actions.querySelector('[data-v28-source]')) {
+      const button = element('button', 'v28-source', 'Original source');
+      button.type = 'button';
+      button.dataset.v28Source = '';
+      button.dataset.dklaFile = original.dataset.dklaFile;
+      button.title = original.title;
+      actions.appendChild(button);
+    }
     if (
       body.querySelector('.r19-brief .r19-full:not(.r19-auditbox)') &&
       !actions.querySelector('[data-v25-full-brief]')

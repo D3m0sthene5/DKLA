@@ -187,4 +187,13 @@
     pdfRoute: (raw) => (route(raw) ? { ...route(raw) } : null),
     pdfRouteStats: () => ({ ...catalog.counts }),
   });
+  // Old shared page hashes must reach the same original as a source click.
+  // Otherwise they reopen a retired image path whose scans were never shipped.
+  function fromHash() {
+    const target = route(location.hash);
+    if (target && legacy.test(location.hash))
+      window.LegalAtlas?.openFile?.(target.path, target.page, label(target));
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
 })();

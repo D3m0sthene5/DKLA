@@ -221,7 +221,9 @@ async function check(source) {
   await shell.lifecycle('install');
   const keys = shell.calls.addAll[0];
   assert.equal(keys[0], shell.atlas);
-  assert.equal(keys.length, 6);
+  assert.equal(keys.length, 8);
+  assert.ok(keys.includes('assets/pdfjs/pdf.min.mjs'));
+  assert.ok(keys.includes('assets/pdfjs/pdf.worker.min.mjs'));
   assert.ok(keys.includes('manifest.webmanifest'));
   assert.ok(keys.includes('icons/icon.svg'));
   assert.ok(!keys.some((key) => key.includes('admin') || key.startsWith('api/')));

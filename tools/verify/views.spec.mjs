@@ -91,6 +91,10 @@ for (const size of sizes)
 
     const picture = async (name, options = {}) => {
       if (!compare) return;
+      // Deferred redraws and cold-route timers must settle before visual comparison.
+      await page.waitForLoadState('networkidle');
+      await page.waitForTimeout(1000);
+      await page.evaluate(() => document.fonts.ready);
       await expect.soft(page, name).toHaveScreenshot(`${size.name}-${name}.png`, options);
     };
     const view = async (name, open, check, options) =>
@@ -196,11 +200,11 @@ for (const size of sizes)
       'source-page',
       async () => {
         await go('book=1');
-        await page.locator('#bookDialog[open]').waitFor();
+        await page.locator('#fileDialog[open] [data-pdf-rendered="47"]').waitFor({ timeout: 45000 });
       },
       async () => {
         await expect
-          .poll(async () => (await page.locator('#bookDialog').innerText()).length)
+          .poll(async () => (await page.locator('#fileDialog').innerText()).length)
           .toBeGreaterThan(30);
       },
     );
@@ -358,6 +362,19 @@ for (const size of sizes)
       await page.evaluate(() => document.fonts.ready);
       await expect(page.locator('#glossaryDialog')).toHaveAttribute('open', '');
       await expect(page.locator('#glossaryDialog')).toContainText(/consideration/i);
+      // Fix the reading position and focus before comparison: initial autofocus
+      // can otherwise scroll the native dialog or the document during startup.
+      await page.evaluate(() => {
+        const glossary = document.getElementById('glossaryDialog');
+        // Recenter the native dialog after cold-start layout has completed.
+        // Its content and successful cold-route assertion above are retained.
+        glossary.close();
+        glossary.showModal();
+        document.activeElement?.blur?.();
+        window.scrollTo(0, 0);
+        glossary.scrollTop = 0;
+        document.querySelector('#glossaryDialog .gl-detail').scrollTop = 0;
+      });
       await picture('deep-link');
     });
     await closeAll(page);

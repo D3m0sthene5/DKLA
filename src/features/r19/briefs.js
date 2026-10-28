@@ -33,6 +33,18 @@
   function fullText(id) {
     return window.DKLABriefLoader.text(id);
   }
+  function sourceLinks(id) {
+    const sources = D.sourceLinks?.[id] || [];
+    return sources.length
+      ? `<div class="r28-original-sources" aria-label="Original sources">${sources
+          .map((s) =>
+            s.path
+              ? `<button type="button" data-dkla-file="${esc(s.path + '#page=' + s.page)}" title="${esc(s.label)}">Original reading · ${esc(s.label)} ↗</button>`
+              : `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a>`,
+          )
+          .join('')}</div>`
+      : '';
+  }
 
   // The reader lists case sections in this fixed order everywhere (reading panel, edit form, exports).
   if (typeof CASE_HEADINGS !== 'undefined' && Array.isArray(CASE_HEADINGS))
@@ -234,7 +246,7 @@
     box.className = 'r19-brief';
     box.dataset.state = state;
     const others = D.related[n.id] || [];
-    box.innerHTML = `<div class="r19-line">${chip(e)}${skipped.has(n.id) ? '<span>You have edited this entry, so your text is kept.</span>' : ''}${skipped.has(n.id) ? `<button type="button" data-r19-apply="${esc(n.id)}">Use the audited brief</button>` : ''}</div>
+    box.innerHTML = `${sourceLinks(codexId)}<div class="r19-line">${chip(e)}${skipped.has(n.id) ? '<span>You have edited this entry, so your text is kept.</span>' : ''}${skipped.has(n.id) ? `<button type="button" data-r19-apply="${esc(n.id)}">Use the audited brief</button>` : ''}</div>
       <details class="r19-full"><summary>Full brief</summary><div class="r19-text" data-r19-fill="${esc(codexId)}"></div></details>
       ${auditHTML(codexId)}
       ${
@@ -308,7 +320,7 @@
     el('r19Title').innerHTML =
       `<span class="r18-kicker">${esc(COURSES[e.course])} · ${e.main ? 'ON THE MAP' : 'SUPPORTING CASE'}</span><h2>${esc(e.title)}</h2>`;
     return `<div class="r19-line">${window.DKLAColdCall?.has(e.main || 'brief-' + e.id) ? `<button type="button" data-cold-call="${esc(e.main || 'brief-' + e.id)}" aria-haspopup="dialog">Cold call</button>` : ''}${e.main ? '' : '<button type="button" data-r19-back>← Supporting cases</button>'}${chip(e)}${main ? `<button type="button" data-r19-node="${esc(main.id)}">Open on the map</button>` : ''}${D.pdf && D.pages[e.id] ? `<button type="button" data-dkla-file="${esc(D.pdf + '#page=' + D.pages[e.id][0])}" title="Archived compilation; use Full brief or Cold call for current corrections">Archived briefs PDF, p. ${D.pages[e.id][0]} ↗</button>` : ''}</div>
-      ${
+      ${sourceLinks(e.id)}${window.DKLATimelines?.linksFor(e.main || e.id) || ''}${
         conv
           ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(
               (k) =>
