@@ -13,7 +13,9 @@ def check():
     graph = json.loads(script_blocks(read_source().decode())['seedData'])
     sources = json.loads((ROOT / 'tools/v28/source-links.json').read_text())
     audit = json.loads((ROOT / 'tools/v28/source-audit.json').read_text())
-    timelines = json.loads((ROOT / 'tools/r19/data/timelines.json').read_text())['timelines']
+    timeline_data = json.loads((ROOT / 'tools/r19/data/timelines.json').read_text())
+    assert not any(timeline_data['left_out'].values()), 'Obsolete omitted-case records remain'
+    timelines = timeline_data['timelines']
     chronologies = json.loads((ROOT / 'tools/v28/case-chronologies.json').read_text())
     entries = {e[0] for e in data['entries']}
     assert set(sources) == entries | {'swiss-2024'}, 'An original source is missing or orphaned'

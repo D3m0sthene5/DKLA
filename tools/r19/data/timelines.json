@@ -1,5 +1,5 @@
 {
-  "about": "Doctrine timelines, v2.5. Each line has an authored guide explaining branches and relationship to earlier law. Summary means synthesis of the selected sources, not certification of all current law. Model UCC texts and Restatements are distinguished from enacted statutes. Turn labels may be replaced by a precise effect label. Audit basis and source locators are in tools/v25/timeline-audit.json and TIMELINE_AUDIT.md.",
+  "about": "Doctrine timelines, v2.8. All map cases have at least one doctrinal membership; three course chronologies separately index every source case. Each line has an authored guide explaining branches and relationship to earlier law. Summary means synthesis of the selected sources, not certification of all current law. Model UCC texts and Restatements are distinguished from enacted statutes. Turn labels may be replaced by a precise effect label. Audit basis and source locators are in tools/v25/timeline-audit.json and TIMELINE_AUDIT.md.",
   "timelines": [
     {
       "id": "consideration",
@@ -6816,79 +6816,8 @@
     }
   ],
   "left_out": {
-    "contracts": [
-      {
-        "id": "bayliner",
-        "why": "The only express-warranty case on the map; it applies UCC § 2-313 to sales talk and brochure figures, with no line of cases in the course."
-      },
-      {
-        "id": "balfour",
-        "why": "States the settled presumption against legal intent in domestic arrangements; no other case on the map develops it."
-      },
-      {
-        "id": "doe-great-expectations",
-        "why": "A small-claims application of New York's dating-service statute (GBL § 394-c); statutory consumer protection, not a developing contract doctrine."
-      },
-      {
-        "id": "hassler",
-        "why": "The only noncompete case on the map; its own turn (Wyoming abandoning the blue pencil it adopted in 1993) is internal to one state."
-      },
-      {
-        "id": "blossom-farm",
-        "why": "Illegality defense applied to a seller who furthered the buyer's improper use; with X.L.O. it forms no line, as the two decide different points."
-      },
-      {
-        "id": "xlo",
-        "why": "Contract tainted by an antitrust conspiracy, enforced unless the judgment would enforce the unlawful conduct itself; a one-off public-policy point."
-      }
-    ],
-    "civpro": [
-      {
-        "id": "cp-ziervogel",
-        "why": "Applies a Missouri rule that special damages be specifically pleaded; the course has no line of cases on special damages."
-      },
-      {
-        "id": "cp-garcia",
-        "why": "Applies notice pleading and the rule that a conditional privilege is an affirmative defense; it adds no step to the pleading line."
-      },
-      {
-        "id": "cp-ingraham",
-        "why": "One-off point that a statutory damages cap is an affirmative defense under Rule 8(c), waived if not raised; no line among the course's cases."
-      },
-      {
-        "id": "cp-kegerise",
-        "why": "Applies Rule 8(b)'s requirements for answers; no development through a line of cases."
-      },
-      {
-        "id": "cp-jeub",
-        "why": "Applies Rule 14 to a contingent claim over; impleader has no line of development among the course's cases."
-      },
-      {
-        "id": "cp-smuck",
-        "why": "A plurality reading of the 1966 intervention rule; the rest of the intervention line runs only through supporting cases."
-      },
-      {
-        "id": "cp-ellis-canning",
-        "why": "Applies a Kansas real-party-in-interest statute to a subrogated insurer; no line of cases on Rule 17 in the course."
-      },
-      {
-        "id": "cp-hall",
-        "why": "Settles one point about appeals from consolidated cases; the finality and collateral-order line runs through supporting cases, not map cases."
-      }
-    ],
-    "lrs": [
-      {
-        "id": "lrs-k-rucho",
-        "why": "Political-question ruling on partisan gerrymandering; its line (Baker v. Carr, Vieth) is not among the course's cases, and it is not an administrative-law doctrine."
-      },
-      {
-        "id": "lrs-o-noel-canning",
-        "why": "The course's only Recess Appointments Clause decision; its sole companion is the Third Circuit's New Vista ruling, too thin for a line, and it does not concern who is an officer."
-      },
-      {
-        "id": "lrs-o-ashbacker",
-        "why": "Statutory comparative-hearing right for mutually exclusive license applicants; no line of development among the course's cases (Church of Christ is placed with statutory standing)."
-      }
-    ]
+    "contracts": [],
+    "civpro": [],
+    "lrs": []
   }
 }
