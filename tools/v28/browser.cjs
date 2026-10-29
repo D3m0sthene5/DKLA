@@ -12,6 +12,22 @@ const darkFraction = async (page) =>
       if (pixels[i] < 120 && pixels[i + 1] < 120 && pixels[i + 2] < 120) dark++;
     return dark / (pixels.length / 16);
   });
+const timelinesFirst = async (page) => {
+  const placement = await page.locator('#inspector .reader-body').evaluate((body) => {
+    const summary = body.querySelector(':scope > .takeaway');
+    const timelines = body.querySelector(':scope > .v28-case-timelines');
+    const account = body.querySelector(':scope > .case-box');
+    return {
+      immediatelyAfterSummary: !!summary && summary.nextElementSibling === timelines,
+      beforeDetailedBrief:
+        !!timelines && !!(timelines.compareDocumentPosition(account) & Node.DOCUMENT_POSITION_FOLLOWING),
+      count: timelines?.querySelectorAll('.dkla-timeline').length || 0,
+    };
+  });
+  assert.ok(placement.immediatelyAfterSummary, 'Timelines must immediately follow the short summary');
+  assert.ok(placement.beforeDetailedBrief, 'Timelines must precede the detailed brief');
+  assert.ok(placement.count > 0, 'The case timelines must remain visible');
+};
 (async () => {
   const browser = await chromium.launch({
     headless: true,
@@ -42,6 +58,7 @@ const darkFraction = async (page) =>
       await page.goto(url + '#node=cp-walker', { waitUntil: 'domcontentloaded', timeout: 90000 });
       console.log('LOADED ' + viewport.width);
       await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90000 });
+      await timelinesFirst(page);
       for (const title of [
         'Erie: which law a federal court applies',
         'Federal Rules and statutes against state law',
@@ -77,6 +94,8 @@ const darkFraction = async (page) =>
         await page.evaluate((id) => {
           location.hash = 'node=' + id;
         }, id);
+        await page.waitForFunction((id) => selected?.id === id, id);
+        await timelinesFirst(page);
         console.log('OPEN source ' + viewport.width);
         await page.getByRole('button', { name: 'Original source', exact: true }).click();
         await page.locator('#fileDialog [data-pdf-rendered]').waitFor({ timeout: 60000 });
@@ -117,6 +136,7 @@ const darkFraction = async (page) =>
         location.hash = 'node=peacock';
       });
       await page.getByRole('heading', { name: /Peacock Construction/, level: 2 }).waitFor();
+      await timelinesFirst(page);
       const contents = await page.evaluate(() => {
         const data = DKLABriefs.data;
         const sections = data.sections[data.map.peacock].sections;

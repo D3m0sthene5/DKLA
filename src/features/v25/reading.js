@@ -142,18 +142,20 @@
       actions.appendChild(button);
     }
     polishIntro(body);
-    // Read the case's facts, procedure and reasoning before its cross-case map.
-    // Keep every timeline and its controls, in their original order, below that account.
+    // Timelines are the main reading feature, directly after the short summary.
+    // Keep every timeline and its controls in their original order.
     const timelines = [...body.querySelectorAll(':scope > .dkla-timeline')];
+    let group = body.querySelector(':scope > .v28-case-timelines');
     if (timelines.length) {
-      let group = body.querySelector(':scope > .v28-case-timelines');
       if (!group) {
         group = element('section', 'v28-case-timelines');
-        const connections = body.querySelector(':scope > .r6-connections');
-        if (connections) connections.before(group);
-        else body.appendChild(group);
+        body.appendChild(group);
       }
       timelines.forEach((timeline) => move(timeline, group));
+    }
+    if (group) {
+      const summary = body.querySelector(':scope > .takeaway') || header;
+      if (summary.nextElementSibling !== group) summary.after(group);
     }
     const sourceRows = [
       ...body.querySelectorAll(

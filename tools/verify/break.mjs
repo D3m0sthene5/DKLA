@@ -54,6 +54,11 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'case timelines: pushed below the detailed account',
+    'src/features/v25/reading.js',
+    () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),
+  ],
+  [
     'brief navigation: queued close erases a newly opened case',
     'src/features/r19/briefs.js',
     () =>
