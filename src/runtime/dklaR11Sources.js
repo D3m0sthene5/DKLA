@@ -35,11 +35,20 @@
   dlg.id = 'fileDialog';
   dlg.setAttribute('aria-label', 'Source file');
   document.body.appendChild(dlg);
+  // Search results are created after typing, so their page buttons need delegation.
+  dlg.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-file-page]');
+    if (button) go(Number(button.dataset.filePage));
+  });
   let cur = { path: '', page: 1, title: '' },
     ret = null;
   const GH_BLOB = 'https://github.com/D3m0sthene5/DKLA/blob/claude/atlas-design-content-audit-m1cw9x/',
     GH_RAW = 'https://raw.githubusercontent.com/D3m0sthene5/DKLA/claude/atlas-design-content-audit-m1cw9x/';
   const TEXTS = JSON.parse($('sourceTexts')?.textContent || '{}');
+  // Worker-side image and font loaders resolve their own URLs. Relative paths
+  // would be resolved beside the worker, duplicating assets/pdfjs/ and silently
+  // dropping scanned JPEG 2000 pages while leaving annotations visible.
+  const PDF_ASSETS = new URL('./assets/pdfjs/', document.baseURI).href;
   // Render the actual PDF here: mobile browsers and embedded browsers often
   // cannot display <object type="application/pdf"> even when the file exists.
   let pdfLibrary,
@@ -52,10 +61,13 @@
     const revision = ++renderRevision;
     pdfRender?.cancel();
     try {
-      pdfLibrary ||= import('./assets/pdfjs/pdf.min.mjs');
+      pdfLibrary ||= import(PDF_ASSETS + 'pdf.min.mjs').catch((error) => {
+        pdfLibrary = null;
+        throw error;
+      });
       const pdfjs = await pdfLibrary;
       if (revision !== renderRevision || !host.isConnected) return;
-      pdfjs.GlobalWorkerOptions.workerSrc = './assets/pdfjs/pdf.worker.min.mjs';
+      pdfjs.GlobalWorkerOptions.workerSrc = PDF_ASSETS + 'pdf.worker.min.mjs';
       // PDF.js shares page-mapping state between documents. Keep one active
       // document, disposing it before switching books; a cached older proxy can
       // otherwise reject a valid page after a shorter opinion was opened.
@@ -67,10 +79,13 @@
         if (revision !== renderRevision || !host.isConnected) return;
         pdfTask = pdfjs.getDocument({
           url: encodeURI(path),
-          cMapUrl: './assets/pdfjs/cmaps/',
+          cMapUrl: PDF_ASSETS + 'cmaps/',
           cMapPacked: true,
-          standardFontDataUrl: './assets/pdfjs/standard_fonts/',
-          wasmUrl: './assets/pdfjs/wasm/',
+          standardFontDataUrl: PDF_ASSETS + 'standard_fonts/',
+          wasmUrl: PDF_ASSETS + 'wasm/',
+          iccUrl: PDF_ASSETS + 'iccs/',
+          // A partly decoded page must not masquerade as a successful source.
+          stopAtErrors: true,
         });
         activePDFPath = path;
       }
@@ -104,6 +119,31 @@
       });
       await pdfRender.promise;
       if (revision !== renderRevision || !host.isConnected) return;
+      // PDF.js can resolve a render even after an image decoder returned null.
+      // Verify the image objects used by this page before calling it displayed.
+      const operators = await original.getOperatorList();
+      if (revision !== renderRevision || !host.isConnected) return;
+      for (let i = 0; i < operators.fnArray.length; i++) {
+        if (![pdfjs.OPS.paintImageXObject, pdfjs.OPS.paintImageXObjectRepeat].includes(operators.fnArray[i]))
+          continue;
+        const id = operators.argsArray[i][0];
+        const objects = id.startsWith('g_') ? original.commonObjs : original.objs;
+        // Operator lists can arrive before their image objects. Wait for the
+        // decoder result; an unresolved object is not a failed image.
+        const decoded = await new Promise((resolve, reject) => {
+          const timeout = setTimeout(
+            () => reject(new Error('The page image took too long to decode.')),
+            30000,
+          );
+          objects.get(id, (value) => {
+            clearTimeout(timeout);
+            resolve(value);
+          });
+        });
+        if (revision !== renderRevision || !host.isConnected) return;
+        if (!decoded)
+          throw new Error('A page image could not be decoded. Open the original PDF or retry the source.');
+      }
       host.dataset.pdfRendered = String(page);
       const content = await original.getTextContent();
       if (revision !== renderRevision || !host.isConnected) return;
@@ -193,7 +233,6 @@
               .join('')
           : '<p class="search-empty">No heading matches.</p>';
       };
-    dlg.querySelectorAll('[data-file-page]').forEach((b) => (b.onclick = () => go(+b.dataset.filePage)));
     if (kind === 'pdf') renderPDF(dlg.querySelector('.file-pdf-page'), cur.path, cur.page);
   }
   function go(page) {
@@ -216,7 +255,11 @@
     if (path !== cur.path) pdfZoom = 1;
     cur = { path, page: +page || 1, title };
     if (!dlg.open) {
-      ret = { active: document.activeElement, scroll: $('inspector')?.scrollTop || 0 };
+      ret = {
+        active: document.activeElement,
+        scroll: $('inspector')?.scrollTop || 0,
+        hash: location.hash.startsWith('#file=') ? '' : location.hash,
+      };
       for (const id of ['modal', 'bookDialog', 'civilSourceDialog', 'lrsSourceDialog']) {
         const d = $(id);
         if (d?.open) d.close();
@@ -237,8 +280,9 @@
         ret.active.focus();
       } catch {}
     if (ret && $('inspector')) $('inspector').scrollTop = ret.scroll;
+    if (location.hash.startsWith('#file='))
+      history.replaceState(null, '', location.pathname + location.search + (ret?.hash || ''));
     ret = null;
-    if (location.hash.startsWith('#file=')) history.replaceState(null, '', location.pathname);
   }
   dlg.addEventListener('cancel', (e) => {
     e.preventDefault();

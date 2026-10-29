@@ -119,12 +119,17 @@
     if (caption && caption.parentElement !== header) header.insertBefore(caption, actions);
     move(body.querySelector('[data-cold-call]'), actions);
     const original = body.querySelector('.r28-original-sources [data-dkla-file]');
-    if (original && !actions.querySelector('[data-v28-source]')) {
+    const selectedId = typeof selected !== 'undefined' && selected?.type === 'node' ? selected.id : null;
+    const registry = window.DKLABriefs?.data;
+    const registered = registry?.sourceLinks?.[registry?.map?.[selectedId] || selectedId]?.find(
+      (s) => s.path,
+    );
+    if ((original || registered) && !actions.querySelector('[data-v28-source]')) {
       const button = element('button', 'v28-source', 'Original source');
       button.type = 'button';
       button.dataset.v28Source = '';
-      button.dataset.dklaFile = original.dataset.dklaFile;
-      button.title = original.title;
+      button.dataset.dklaFile = original?.dataset.dklaFile || registered.path + '#page=' + registered.page;
+      button.title = original?.title || registered.label;
       actions.appendChild(button);
     }
     if (
@@ -137,6 +142,19 @@
       actions.appendChild(button);
     }
     polishIntro(body);
+    // Read the case's facts, procedure and reasoning before its cross-case map.
+    // Keep every timeline and its controls, in their original order, below that account.
+    const timelines = [...body.querySelectorAll(':scope > .dkla-timeline')];
+    if (timelines.length) {
+      let group = body.querySelector(':scope > .v28-case-timelines');
+      if (!group) {
+        group = element('section', 'v28-case-timelines');
+        const connections = body.querySelector(':scope > .r6-connections');
+        if (connections) connections.before(group);
+        else body.appendChild(group);
+      }
+      timelines.forEach((timeline) => move(timeline, group));
+    }
     const sourceRows = [
       ...body.querySelectorAll(
         ':scope > .dkla-file-chips,:scope > .source-strip,:scope > .r19-chiprow,:scope > .civil-source-scope:not(.source-caution)',

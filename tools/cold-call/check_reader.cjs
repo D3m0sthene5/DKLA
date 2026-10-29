@@ -82,6 +82,8 @@ window.DKLABriefLoader = {
 const context = {
   window,
   document,
+  // Paragraph segmentation is exercised against the full corpus separately.
+  r6ReadingChunks: (text) => [text],
   localStorage: {
     getItem() {
       return null;

@@ -54,6 +54,32 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'brief navigation: queued close erases a newly opened case',
+    'src/features/r19/briefs.js',
+    () =>
+      edit('src/features/r19/briefs.js', "if (!dialog.open) body.innerHTML = '';", "body.innerHTML = '';"),
+  ],
+  [
+    'source images: JPEG 2000 decoder URL is broken',
+    'src/runtime/dklaR11Sources.js',
+    () =>
+      edit(
+        'src/runtime/dklaR11Sources.js',
+        "wasmUrl: PDF_ASSETS + 'wasm/',",
+        "wasmUrl: PDF_ASSETS + 'missing-wasm/',",
+      ),
+  ],
+  [
+    'readability: paragraph layout drops legal detail',
+    'src/runtime/semesterCode.js',
+    () =>
+      edit(
+        'src/runtime/semesterCode.js',
+        'function r6ReadingChunks(text) {',
+        'function r6ReadingChunks(text) { return [];',
+      ),
+  ],
+  [
     'source reader: original PDF pages never render',
     'src/runtime/dklaR11Sources.js',
     () =>

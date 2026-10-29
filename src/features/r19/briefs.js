@@ -127,7 +127,7 @@
       list = [];
     const flush = () => {
       if (para.length) {
-        out.push('<p>' + inline(para.join(' ')) + '</p>');
+        out.push(...r6ReadingChunks(para.join(' ')).map((text) => '<p>' + inline(text) + '</p>'));
         para = [];
       }
       if (list.length) {
@@ -325,8 +325,7 @@
           ? `<div class="r19-rule"><span>Rule in one line</span><p>${esc(conv.rule)}</p></div>${KEYS.map(
               (k) =>
                 conv.sections[k]
-                  ? `<section class="r19-sec"><h3>${k}</h3>${String(conv.sections[k])
-                      .split(/\n{2,}/)
+                  ? `<section class="r19-sec"><h3>${k}</h3>${r6ReadingChunks(conv.sections[k])
                       .map((p) => '<p>' + esc(p) + '</p>')
                       .join('')}</section>`
                   : '',
@@ -357,7 +356,8 @@
     if (ev.target === dialog) dialog.close();
   });
   dialog.addEventListener('close', () => {
-    body.innerHTML = '';
+    // A queued close event must not erase a brief opened in the meantime.
+    if (!dialog.open) body.innerHTML = '';
   });
   dialog.addEventListener('input', (ev) => {
     if (ev.target.id !== 'r19Search') return;

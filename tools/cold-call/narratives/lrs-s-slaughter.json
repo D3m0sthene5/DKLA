@@ -31,7 +31,7 @@
     "The Supreme Court stayed the order, granted certiorari before judgment, then reversed the District Court and remanded."
   ],
   "limits": "The account follows the canonical reviewed brief of the June 29, 2026 decision. It does not claim a new independent opinion audit. The decision did not dissolve the FTC, adjudicate a particular enforcement action, or resolve the expressly reserved institutional arrangements and alternative remedial questions.",
-  "briefSha256": "06c812dc1c47297b740430e54074128042c2f2711402b7e9f03c6455c5635353",
+  "briefSha256": "fa3bb7901bfc05aec3b671b775f1e1e7becc0bc0ff7646c6fd6ce117e2891b91",
   "sources": [
     {
       "id": "brief",
@@ -173,6 +173,16 @@
           "pinpoint": "Issue, holding, exact disposition; Course significance and source boundaries; 609 U.S. at 428,450,454–456,464"
         }
       ]
+    }
+  ],
+  "readabilityHistory": [
+    {
+      "date": "2026-10-29",
+      "ledger": "tools/v28/plain-language.json",
+      "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+      "previous": {
+        "briefSha256": "06c812dc1c47297b740430e54074128042c2f2711402b7e9f03c6455c5635353"
+      }
     }
   ]
 }

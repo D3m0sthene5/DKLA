@@ -4,6 +4,14 @@ const fs = require('node:fs');
 const { chromium } = require('@playwright/test');
 const url = process.argv[2];
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(url).hostname));
+const darkFraction = async (page) =>
+  page.locator('#fileDialog canvas').evaluate((canvas) => {
+    const pixels = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
+    let dark = 0;
+    for (let i = 0; i < pixels.length; i += 16)
+      if (pixels[i] < 120 && pixels[i + 1] < 120 && pixels[i + 2] < 120) dark++;
+    return dark / (pixels.length / 16);
+  });
 (async () => {
   const browser = await chromium.launch({
     headless: true,
@@ -104,6 +112,66 @@ assert.ok(['127.0.0.1', 'localhost'].includes(new URL(url).hostname));
           'Every chronology case must have an original PDF source',
         );
       }
+      await page.locator('#r21Timelines [data-r21-close]').click();
+      await page.evaluate(() => {
+        location.hash = 'node=peacock';
+      });
+      await page.getByRole('heading', { name: /Peacock Construction/, level: 2 }).waitFor();
+      const contents = await page.evaluate(() => {
+        const data = DKLABriefs.data;
+        const sections = data.sections[data.map.peacock].sections;
+        return Object.entries(sections).map(([name, expected], i) => ({
+          name,
+          expected,
+          actual: [...document.querySelectorAll(`#brief-${i} p`)].map((p) => p.textContent).join(' '),
+        }));
+      });
+      for (const section of contents)
+        assert.equal(
+          section.actual.replace(/\s+/g, ' ').trim(),
+          section.expected.replace(/\s+/g, ' ').trim(),
+          'Plain-English presentation must retain the complete ' + section.name,
+        );
+      await page.getByRole('button', { name: 'Original source', exact: true }).click();
+      await page.locator('#fileDialog [data-pdf-rendered="158"]').waitFor({ timeout: 60000 });
+      assert.ok((await darkFraction(page)) > 0.003, 'Peacock source must contain its scanned text');
+      await page.getByRole('spinbutton', { name: 'Page', exact: true }).fill('148');
+      await page.getByRole('spinbutton', { name: 'Page', exact: true }).press('Tab');
+      await page.locator('#fileDialog [data-pdf-rendered="148"]').waitFor({ timeout: 60000 });
+      assert.ok(
+        (await darkFraction(page)) > 0.003,
+        'JPEG 2000 page must contain black text, not just the red annotations',
+      );
+      await page.screenshot({
+        animations: 'disabled',
+        path: `work/v28/source-page148-${viewport.width}.png`,
+      });
+      await page.getByRole('button', { name: '← Back', exact: true }).click();
+      assert.equal(new URL(page.url()).hash, '#node=peacock', 'Closing a source must retain the case URL');
+      await page.evaluate(() => LegalAtlas.openFile(DKLA.sourceIndex().civ.file, 1));
+      await page.locator('#fileFind').fill('Rule 56');
+      const result = page.locator('#fileFindResults [data-file-page]').first();
+      await result.waitFor();
+      const target = await result.getAttribute('data-file-page');
+      await result.click();
+      await page.locator(`#fileDialog [data-pdf-rendered="${target}"]`).waitFor({ timeout: 60000 });
+      await page.getByRole('button', { name: '← Back', exact: true }).click();
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.getByRole('heading', { name: /Peacock Construction/, level: 2 }).waitFor();
+      await page.screenshot({
+        animations: 'disabled',
+        path: `work/v28/peacock-reader-${viewport.width}.png`,
+      });
+      // Reopening before the queued close event fires must not erase the new account.
+      await page.evaluate(() => {
+        DKLABriefs.open(0, 'CP-004');
+        document.querySelector('#r19Dialog').close();
+        DKLABriefs.open(0, 'CP-005');
+      });
+      await page.locator('#r19Body .r19-sec').first().waitFor();
+      await page.waitForTimeout(100);
+      assert.ok(await page.locator('#r19Body .r19-sec').count());
+      assert.ok(await page.locator('#r19Body .r28-original-sources [data-dkla-file]').count());
       assert.deepEqual(errors, []);
       console.log(
         'PASS original PDF rendering, source navigation, Walker/Ragan, and all three complete chronologies at ' +
@@ -112,6 +180,16 @@ assert.ok(['127.0.0.1', 'localhost'].includes(new URL(url).hostname));
       );
       await context.close();
     }
+    // A missing decoder must produce an honest error, not a white success canvas.
+    const failed = await browser.newContext({ serviceWorkers: 'block' });
+    await failed.route('**/assets/pdfjs/wasm/openjpeg*', (route) => route.fulfill({ status: 404, body: '' }));
+    await failed.route('**/api/**', (route) => route.fulfill({ status: 204, body: '' }));
+    const failurePage = await failed.newPage();
+    await failurePage.goto(url + '#file=added-sources%2FC%26M%20Textbook%20701-1050.pdf:148');
+    await failurePage.locator('#fileDialog .file-notice').waitFor({ timeout: 60000 });
+    assert.match(await failurePage.locator('#fileDialog').innerText(), /could not be displayed/);
+    assert.equal(await failurePage.locator('#fileDialog [data-pdf-rendered]').count(), 0);
+    await failed.close();
   } finally {
     await browser.close();
   }

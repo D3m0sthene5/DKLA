@@ -30,7 +30,7 @@
     "After narrowing and a hearing, the court compelled specified communications subject to scope and confidentiality limits, denied other portions, and treated a withdrawn demand as moot."
   ],
   "limits": "This transforms the canonical January 2016 discovery brief without a fresh audit or later-merits review. Jackie was a nonparty, correcting the assigned text’s suggestion that she was sued. The court decided neither the assault account nor defamation liability or final admissibility. The earlier FERPA ruling is noted only as procedural background.",
-  "briefSha256": "bb35f52471e3b389420475a2d656035b2d5aa26f8a96ba46acd71f24bc0f7e93",
+  "briefSha256": "704f8872ab7438f1b809276e8b2b28f6be3e92f16cc2806cdb17f4696a460cce",
   "sources": [
     {
       "id": "brief",
@@ -139,6 +139,16 @@
           "pinpoint": "Memorandum pp.12–14; accompanying order ¶¶1–5"
         }
       ]
+    }
+  ],
+  "readabilityHistory": [
+    {
+      "date": "2026-10-29",
+      "ledger": "tools/v28/plain-language.json",
+      "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+      "previous": {
+        "briefSha256": "bb35f52471e3b389420475a2d656035b2d5aa26f8a96ba46acd71f24bc0f7e93"
+      }
     }
   ]
 }

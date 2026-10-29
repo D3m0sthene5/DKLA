@@ -1472,8 +1472,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "Between merchants, UCC § 2-207 has three exceptions to including extra terms: the offer limits acceptance, the term materially alters the deal, or timely objection occurs. Bayway concerns material alteration: the opponent bears that burden, and personal surprise did not suffice against unrebutted industry practice.",
-      "takeawaySha256": "7048e130332cdf88f9afa9516df84bffe8d6afca44e13bd465ff101ffbf5688f",
+      "takeaway": "Between merchants, extra terms enter under UCC § 2-207 unless the offer limits acceptance, the terms materially change the deal, or someone objects in time. Bayway concerned material alteration. The party opposing the term had to prove it. Personal surprise was not enough against industry-practice evidence that went unrebutted.",
+      "takeawaySha256": "fa633c026fe86bdd799401b4b3d2ebf6052a08c7ae6ac30ce2e8e56005a80265",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding addresses §2-207(2)(b), not elimination of its other two exceptions.",
@@ -1510,7 +1510,18 @@
           "https://law.justia.com/cases/federal/appellate-courts/F3/215/219/608111/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Between merchants, UCC § 2-207 has three exceptions to including extra terms: the offer limits acceptance, the term materially alters the deal, or timely objection occurs. Bayway concerns material alteration: the opponent bears that burden, and personal surprise did not suffice against unrebutted industry practice.",
+            "takeawaySha256": "7048e130332cdf88f9afa9516df84bffe8d6afca44e13bd465ff101ffbf5688f"
+          }
+        }
+      ]
     },
     {
       "id": "northrop",
@@ -1518,8 +1529,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The Seventh Circuit predicted that Illinois would use the knockout rule: conflicting terms in an offer and a nonconditional acceptance cancel out, and Code defaults fill the gap. It applied that approach to the competing warranty terms; this was a prediction of state law.",
-      "takeawaySha256": "fb4f50b8d416bbda02e74fa7262de0ad3b99b55f4c1dcd2ef142783202f1e231",
+      "takeaway": "The Seventh Circuit predicted how Illinois would handle conflicting terms in an offer and a nonconditional acceptance. It chose the knockout rule: the conflicts cancel out and the Code's default terms fill the gaps. It used that approach for these competing warranty terms. This was a federal court's prediction of state law.",
+      "takeawaySha256": "1636e0723c965c00a94d487a06e7a311fc7e5f0e824fa757bf3e4cf6cd10a4db",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding expressly predicts Illinois adoption and distinguishes expressly conditional acceptance.",
@@ -1555,7 +1566,18 @@
           "https://openjurist.org/29/f3d/1173"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Seventh Circuit predicted that Illinois would use the knockout rule: conflicting terms in an offer and a nonconditional acceptance cancel out, and Code defaults fill the gap. It applied that approach to the competing warranty terms; this was a prediction of state law.",
+            "takeawaySha256": "fb4f50b8d416bbda02e74fa7262de0ad3b99b55f4c1dcd2ef142783202f1e231"
+          }
+        }
+      ]
     },
     {
       "id": "hill-gateway",
@@ -1606,8 +1628,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The opposite answer to Hill v. Gateway. This court treated the buyer as the one making the offer, so terms arriving in the box were proposals to add terms, and a consumer who merely keeps the computer has not expressly agreed to them.",
-      "takeawaySha256": "98e503621d10bc66931a0d70f2d75447d8d86dc8aa475eb50c1e309285103c73",
+      "takeaway": "This court treated the buyer as making the offer. Terms arriving later inside the computer box were proposals for extra terms. A consumer did not expressly accept those proposals merely by keeping the computer. That formation analysis differs from Hill v. Gateway.",
+      "takeawaySha256": "c1b9af37bb3174e1fcfb087d79b65bdd57ba9bd00d2d51484a548e9085bee38a",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1637,7 +1659,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The opposite answer to Hill v. Gateway. This court treated the buyer as the one making the offer, so terms arriving in the box were proposals to add terms, and a consumer who merely keeps the computer has not expressly agreed to them.",
+            "takeawaySha256": "98e503621d10bc66931a0d70f2d75447d8d86dc8aa475eb50c1e309285103c73"
+          }
+        }
+      ]
     },
     {
       "id": "dixon",
@@ -1723,8 +1756,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The Third Circuit predicted that Pennsylvania would enforce a sufficiently definite, supported promise to negotiate in good faith, separate from the unfinished lease. It sent the case to trial to determine actual intent to be bound and the alleged time limit; it did not enforce a completed lease.",
-      "takeawaySha256": "907272c6d490449a68f2c33d5d703d97048766f816f8b00f6fa74958a3258470",
+      "takeaway": "The lease was unfinished, but a separate promise to negotiate in good faith might still be enforceable. The Third Circuit predicted that Pennsylvania would enforce such a promise if it was definite enough and supported by consideration. The case went to trial on actual intent and the alleged time limit. The court did not enforce a completed lease.",
+      "takeawaySha256": "d89d508f62b25334a8f88bfa39a418062e7aaf8aecfe4f662a38782f17b72531",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies a state-law prediction and unresolved factual issues on remand.",
@@ -1754,7 +1787,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Third Circuit predicted that Pennsylvania would enforce a sufficiently definite, supported promise to negotiate in good faith, separate from the unfinished lease. It sent the case to trial to determine actual intent to be bound and the alleged time limit; it did not enforce a completed lease.",
+            "takeawaySha256": "907272c6d490449a68f2c33d5d703d97048766f816f8b00f6fa74958a3258470"
+          }
+        }
+      ]
     },
     {
       "id": "sun-printing",
@@ -1918,8 +1962,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "A modification extracted by threatening to cut off deliveries the supplier already owed is voidable for economic duress, but only if the victim could not get the goods elsewhere in time and a lawsuit for breach would not have been good enough.",
-      "takeawaySha256": "7eb738cf640174b2f42d190e7b5d16918ba640764ddef36e45b9f2cdf8418b92",
+      "takeaway": "The supplier threatened to stop deliveries it already owed unless the buyer accepted a higher price. A modification obtained that way can be undone for economic duress. But the buyer must also show it could not obtain replacements in time and that suing for breach would not have provided adequate protection.",
+      "takeawaySha256": "ad3aa84934af146c8b26cf0ad340244d0785b97db902efb9583ea07e141fcb7f",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -1937,7 +1981,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "293f010d98d9455ac512f5b05b006a20088bdd88ff1dd006d98de20a7a0e25aa",
+        "effectiveFullBriefSha256": "0b27e95c9ac09ea17e817e2bf6f1ffb06bdd32b85e029fea3e46a4650fe27238",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Austin Instrument, Inc. v. Loral Corp., 29 N.Y.2d 124, 272 N.E.2d 533, 324 N.Y.S.2d 22 (1971), argued May 12 and decided July 6, 1971. Court of Appeals of New York. Chief Judge Fuld wrote for a four-judge majority; Judge Bergan dissented with two judges. Assigned excerpt: C&M pp. 487–492. The official full opinion supplies the precise disposition and complete separate opinion. The case concerns recovery of coerced price increases.",
         "inheritedBriefPdfLocator": {
@@ -1949,7 +1993,19 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "A modification extracted by threatening to cut off deliveries the supplier already owed is voidable for economic duress, but only if the victim could not get the goods elsewhere in time and a lawsuit for breach would not have been good enough.",
+            "takeawaySha256": "7eb738cf640174b2f42d190e7b5d16918ba640764ddef36e45b9f2cdf8418b92",
+            "effectiveFullBriefSha256": "293f010d98d9455ac512f5b05b006a20088bdd88ff1dd006d98de20a7a0e25aa"
+          }
+        }
+      ]
     },
     {
       "id": "swinton",
@@ -1957,8 +2013,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "Under the Massachusetts rule applied in 1942, the seller’s bare silence about termites did not support the pleaded tort claim without a misleading statement, concealment or duty to speak. Other jurisdictions and later disclosure statutes may impose duties; this is not a universal current rule for home sales.",
-      "takeawaySha256": "f74ccaccd631ea2ece08cad2342e32a1aa2983dc80155129e4d4fd2e833d9d28",
+      "takeaway": "Under the Massachusetts rule applied in 1942, merely staying silent about termites did not support this tort claim. There had to be a misleading statement, concealment, or duty to disclose. Other jurisdictions and later statutes may require disclosure. This decision is not a universal current rule allowing sellers to hide home defects.",
+      "takeawaySha256": "16806e790154ae942d1a1aff7e766089869afd4c0547e308a5604aeb81ddcd06",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies Massachusetts and the pleaded tort action; current broad statement omitted both.",
@@ -1988,7 +2044,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Under the Massachusetts rule applied in 1942, the seller’s bare silence about termites did not support the pleaded tort claim without a misleading statement, concealment or duty to speak. Other jurisdictions and later disclosure statutes may impose duties; this is not a universal current rule for home sales.",
+            "takeawaySha256": "f74ccaccd631ea2ece08cad2342e32a1aa2983dc80155129e4d4fd2e833d9d28"
+          }
+        }
+      ]
     },
     {
       "id": "kannavos",
@@ -2620,7 +2687,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "0c42dc1111be467a757025d3e48ed5fb06c0356e9230ef6fd5c7da0f0573f544",
+        "effectiveFullBriefSha256": "b2e7e2e3ed1856fd38721e2bd7216dd1c7618ed7c78dd4f9f50fc9bcee8a2b31",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "941 F.2d 588 (7th Cir. 1991) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -2632,7 +2699,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "0c42dc1111be467a757025d3e48ed5fb06c0356e9230ef6fd5c7da0f0573f544"
+          }
+        }
+      ]
     },
     {
       "id": "bloor",
@@ -2702,7 +2779,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "838c7d975d55534b8f823f33ec9032c2c57f4c6713db7e258b87765c263ceb27",
+        "effectiveFullBriefSha256": "d57fc6ab13ad8903a3ae0bba21f5779689d511bdbaace27f072e59625c6110a5",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "28 Cal. 3d 807, 171 Cal. Rptr. 604, 623 P.2d 165 (1981) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -2714,7 +2791,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "838c7d975d55534b8f823f33ec9032c2c57f4c6713db7e258b87765c263ceb27"
+          }
+        }
+      ]
     },
     {
       "id": "klar",
@@ -2919,8 +3006,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "For this New York antitrust defense, a facially lawful contract was not automatically unenforceable because of an alleged bid-rigging conspiracy. The issue was whether judgment would enforce the prohibited conduct itself. Factual questions remained, so the court refused dismissal rather than awarding the unpaid price.",
-      "takeawaySha256": "e916e5bd965e71d5be238980449a05e069c57a661199435b0bebcb68fdf4740c",
+      "takeaway": "An alleged bid-rigging conspiracy did not automatically make this otherwise lawful New York contract unenforceable. The question was whether a judgment enforcing payment would itself enforce the forbidden conduct. Facts still needed to be resolved. The court refused to dismiss the claim; it did not award the unpaid price.",
+      "takeawaySha256": "0e6636c2bd9f9590aca399268bf584cae15d9f359149011505e4821ff13f6868",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding concerns an antitrust defense and unresolved factual questions, not every form of illegality.",
@@ -2950,7 +3037,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "For this New York antitrust defense, a facially lawful contract was not automatically unenforceable because of an alleged bid-rigging conspiracy. The issue was whether judgment would enforce the prohibited conduct itself. Factual questions remained, so the court refused dismissal rather than awarding the unpaid price.",
+            "takeawaySha256": "e916e5bd965e71d5be238980449a05e069c57a661199435b0bebcb68fdf4740c"
+          }
+        }
+      ]
     },
     {
       "id": "hassler",
@@ -2958,8 +3056,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "In 2022, the Wyoming Supreme Court refused to rewrite an unreasonably broad noncompete to save it. That decision is historical guidance on judicial redrafting. Wyoming’s 2025 statute separately governs noncompetes entered on or after July 1, 2025, with a ban and specified exceptions.",
-      "takeawaySha256": "89e96b1e7ce5077c0533fbdcfbf3f71ac34573dedd05146fdcad2b481e7f7446",
+      "takeaway": "In 2022, Wyoming's Supreme Court refused to rewrite an unreasonably broad noncompete to make it enforceable. That case explains the court's historical approach to redrafting. A separate 2025 Wyoming statute governs noncompetes entered on or after July 1, 2025. It bans them subject to specified exceptions, so the earlier case does not supply the whole current rule.",
+      "takeawaySha256": "80f722664bdf9d9ef471cc51b2d6b8dbca105d0d546a5a27e6b9cbcbf54b33c3",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding; independently checked current W.S. § 1-23-108 and complete 2025 enrolled SF0107, §§ 1–3.",
@@ -2996,7 +3094,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "In 2022, the Wyoming Supreme Court refused to rewrite an unreasonably broad noncompete to save it. That decision is historical guidance on judicial redrafting. Wyoming’s 2025 statute separately governs noncompetes entered on or after July 1, 2025, with a ban and specified exceptions.",
+            "takeawaySha256": "89e96b1e7ce5077c0533fbdcfbf3f71ac34573dedd05146fdcad2b481e7f7446"
+          }
+        }
+      ]
     },
     {
       "id": "luttinger",
@@ -3043,8 +3152,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The Florida court read these ambiguous owner-payment clauses as setting a reasonable payment time, rather than shifting the owner’s nonpayment risk to the subcontractor. Transferring that risk required unambiguous language. The result depends on the clause and governing law; not every “pay after payment” clause has the same effect.",
-      "takeawaySha256": "9341bd3fd96c416a66474438a5d0080cce64efda44883b9efd0091b19bb50f2d",
+      "takeaway": "Peacock's subcontractors finished their work, but the project owner went bankrupt without paying Peacock in full. Peacock still owed them payment within a reasonable time. The Florida court read these unclear clauses as setting when payment was due, not making the owner's payment a condition. A clause could instead put the owner's nonpayment risk on the subcontractor, but it had to say so clearly.",
+      "takeawaySha256": "74100b7566272bbb7aa8c9a0068fb8332c6b72a9dfbc64ece17ef35253152b56",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding concerns ambiguous clauses under Florida law.",
@@ -3055,14 +3164,14 @@
         "kind": "Actual comparison with effective canonical rule and complete canonical Holding; inherited source text, not an independent opinion review.",
         "briefId": "CT-NEXT-CM-0120",
         "sourceLocator": "tools/r19/data/sections.json :: CT-NEXT-CM-0120.rule and sections.Holding (effective assembler overlays)",
-        "ruleSha256": "8ba04c0c8fc43861d0cad10c7f0cb6adc348d580932d9dfc1973952ef3049ea1",
+        "ruleSha256": "771923213bcad266120c15bf58895f2c55646ae06b5802861bc958a32a7aa237",
         "comparedSections": {
-          "Holding": "b6b98298787fc7fc42bff4f5796125672f8f13f2859e45563c5e63dc8e8decb4"
+          "Holding": "f879d2e82c746d1fe41767d359a20eda254d8f33de2a3505cdd05d6f938e5ab0"
         },
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "530e72e205630014d194fa11e966d6f82be510456535126957e554976f58647a",
+        "effectiveFullBriefSha256": "f694993213a90b7971d269cdd4ea594e6edf7f5c313d4994b2f0967c8ba1af65",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Peacock Construction Co. v. Modern Air Conditioning, Inc.",
         "inheritedBriefPdfLocator": {
@@ -3074,7 +3183,23 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Florida court read these ambiguous owner-payment clauses as setting a reasonable payment time, rather than shifting the owner’s nonpayment risk to the subcontractor. Transferring that risk required unambiguous language. The result depends on the clause and governing law; not every “pay after payment” clause has the same effect.",
+            "takeawaySha256": "9341bd3fd96c416a66474438a5d0080cce64efda44883b9efd0091b19bb50f2d",
+            "ruleSha256": "8ba04c0c8fc43861d0cad10c7f0cb6adc348d580932d9dfc1973952ef3049ea1",
+            "effectiveFullBriefSha256": "530e72e205630014d194fa11e966d6f82be510456535126957e554976f58647a",
+            "comparedSections": {
+              "Holding": "b6b98298787fc7fc42bff4f5796125672f8f13f2859e45563c5e63dc8e8decb4"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "gibson",
@@ -3602,8 +3727,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The Minnesota court selected completion cost for the contractor’s deliberate failure to level the land, despite the smaller increase in land value. It remanded to determine the promised work and award. This contrasts with Peevyhouse’s Oklahoma approach; deliberate breach does not establish one national damages rule.",
-      "takeawaySha256": "395c4b902b20bc19c2a2c226a4077670b4bb58005252bd9acc4f09a2c0bf0708",
+      "takeaway": "The contractor deliberately failed to level the land. Minnesota's court chose the cost of finishing the promised work, even though that cost exceeded the increase in land value. It sent the case back to determine the work required and the award. Peevyhouse took a different approach in Oklahoma; deliberate breach does not establish one national damages rule.",
+      "takeawaySha256": "ac2b58cf23b6bbe2ecbda46adef455ebefbd23101f5f00b9fb0097df79fb26a6",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding selects a measure and remands; no final payment award and no national willful-breach rule.",
@@ -3621,7 +3746,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "62fefaca5ed71700887b37c9c56ede3213c585868f5ae7133c23dbaa25bec8b0",
+        "effectiveFullBriefSha256": "7508e9e591e84872c90e964279507acf6ae2f56c83463f7fb846e2ca98818f77",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "205 Minn. 163, 286 N.W. 235 (1939) | Contracts",
         "inheritedBriefPdfLocator": {
@@ -3635,7 +3760,19 @@
           "https://static.case.law/minn/205/html/0163-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Minnesota court selected completion cost for the contractor’s deliberate failure to level the land, despite the smaller increase in land value. It remanded to determine the promised work and award. This contrasts with Peevyhouse’s Oklahoma approach; deliberate breach does not establish one national damages rule.",
+            "takeawaySha256": "395c4b902b20bc19c2a2c226a4077670b4bb58005252bd9acc4f09a2c0bf0708",
+            "effectiveFullBriefSha256": "62fefaca5ed71700887b37c9c56ede3213c585868f5ae7133c23dbaa25bec8b0"
+          }
+        }
+      ]
     },
     {
       "id": "peevyhouse",
@@ -3643,8 +3780,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The opposite outcome to Groves: a coal company that skipped the promised restoration of a farm paid only the small drop in the land's value, not the large cost of the work, because restoration was incidental to the lease's main purpose.",
-      "takeawaySha256": "b950f060550d87a8b39c522ae47c6572084d1927a199089e4d82bc821c408893",
+      "takeaway": "The coal company failed to restore the farm as promised. Oklahoma's court awarded the small drop in the land's value rather than the much larger restoration cost, because restoration was incidental to the lease's main purpose. That differs from the Minnesota approach in Groves.",
+      "takeawaySha256": "e2ebe6d5f8df40d062045290f475cfd5e187f5848a3b69ca9dad0b8407bbba2c",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -3676,7 +3813,18 @@
           "https://static.case.law/p2d/382/html/0109-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The opposite outcome to Groves: a coal company that skipped the promised restoration of a farm paid only the small drop in the land's value, not the large cost of the work, because restoration was incidental to the lease's main purpose.",
+            "takeawaySha256": "b950f060550d87a8b39c522ae47c6572084d1927a199089e4d82bc821c408893"
+          }
+        }
+      ]
     },
     {
       "id": "algernon-blair",
@@ -4090,8 +4238,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "This landmark New York decision allowed the intended creditor beneficiary to enforce a promise supported by consideration from the debtor, although the beneficiary paid nothing. Six judges affirmed, but they did not share one rationale. It illustrates an early beneficiary-enforcement route, rather than the origin of all third-party-beneficiary law.",
-      "takeawaySha256": "21b0448b19005d4ff9dd2d532dd2a377ea909725e498c68edaf4ecf83a9b19ad",
+      "takeaway": "This New York decision let a creditor enforce a promise made for the creditor's benefit. The debtor supplied consideration; the creditor did not have to pay for the promise. Six judges affirmed without agreeing on one reason. It shows an early route for intended beneficiaries to enforce contracts, not the beginning of all third-party-beneficiary law.",
+      "takeawaySha256": "a17b91f9a77dc3171013effd00d940da8ffc578512bbd39ad4af45297fa7d891",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding describes divided affirming rationales; historical starting-point claim was universal.",
@@ -4121,7 +4269,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "This landmark New York decision allowed the intended creditor beneficiary to enforce a promise supported by consideration from the debtor, although the beneficiary paid nothing. Six judges affirmed, but they did not share one rationale. It illustrates an early beneficiary-enforcement route, rather than the origin of all third-party-beneficiary law.",
+            "takeawaySha256": "21b0448b19005d4ff9dd2d532dd2a377ea909725e498c68edaf4ecf83a9b19ad"
+          }
+        }
+      ]
     },
     {
       "id": "seaver",
@@ -4207,8 +4366,8 @@
       "courses": [
         "Contracts"
       ],
-      "takeaway": "The South Dakota court allowed Sisney’s contract claim to survive dismissal: the State’s agreement could waive immunity for its contractual obligations, and he plausibly alleged an intended benefit for inmates. That did not prove breach or establish that every government contract waives immunity.",
-      "takeawaySha256": "1e564bea7a537bf16858fc7ea41a35eacd128401134f2e875b6d14aa2c05ff11",
+      "takeaway": "The South Dakota court let Sisney's contract claim continue past dismissal. He plausibly alleged that the State's agreement was meant to benefit inmates, and the agreement could waive immunity for the State's contractual duties. He still had to prove breach. The ruling did not say that every government contract waives immunity.",
+      "takeawaySha256": "070abafd468c92e92ddc61a0370a4291c4260aeea4ef5ebca5f926c3d06ce349",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding distinguishes South Dakota contract doctrine and pleading sufficiency from a universal sovereign-immunity rule.",
@@ -4238,7 +4397,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The South Dakota court allowed Sisney’s contract claim to survive dismissal: the State’s agreement could waive immunity for its contractual obligations, and he plausibly alleged an intended benefit for inmates. That did not prove breach or establish that every government contract waives immunity.",
+            "takeawaySha256": "1e564bea7a537bf16858fc7ea41a35eacd128401134f2e875b6d14aa2c05ff11"
+          }
+        }
+      ]
     },
     {
       "id": "psenicska",
@@ -5383,8 +5553,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "BNSF’s substantial Montana operations did not make it at home there, and these workers’ injuries had no Montana connection. FELA’s provision addressed venue and subject-matter jurisdiction, not personal jurisdiction. The Court rejected these asserted grounds while leaving the workers’ separate consent argument undecided.",
-      "takeawaySha256": "f3345305e4e205dca21f2de310305e824ec1fbd7ccf27ab3fd0875a67470945d",
+      "takeaway": "BNSF did substantial business in Montana, but that did not make Montana its legal home. These workers' injuries also had no connection to Montana. FELA's provision covered venue and subject-matter jurisdiction; it did not give the court power over BNSF personally. The Court rejected those grounds while leaving the separate consent argument undecided.",
+      "takeawaySha256": "d72972c9035dffb83e60ef8a0e5fd101ca102822513f35d120c32dbf85cd103b",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding includes both FELA statutory subjects and the expressly reserved consent argument.",
@@ -5414,7 +5584,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "BNSF’s substantial Montana operations did not make it at home there, and these workers’ injuries had no Montana connection. FELA’s provision addressed venue and subject-matter jurisdiction, not personal jurisdiction. The Court rejected these asserted grounds while leaving the workers’ separate consent argument undecided.",
+            "takeawaySha256": "f3345305e4e205dca21f2de310305e824ec1fbd7ccf27ab3fd0875a67470945d"
+          }
+        }
+      ]
     },
     {
       "id": "cp-bristol-myers",
@@ -5597,7 +5778,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "71bcd0a1fc53f6a7f4a307ee49a80a155a4cb12379552b0236c0db46e52101ef",
+        "effectiveFullBriefSha256": "84a123821ae7ef6c88203c8827c8026c23f8e3fe9775ee7fc9f0cfa3b706bf65",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Shaffer v. Heitner, 433 U.S. 186 (1977). United States Supreme Court, decided June 24, 1977. Justice Marshall delivered the Court's opinion. Chief Justice Burger and Justices Stewart, White, Blackmun, and Powell joined it; Justice Brennan joined Parts I-III but dissented from the application and result. Justice Powell also concurred separately, and Justice Stevens concurred in the judgment. Justice Rehnquist did not participate. The case reached the Court by appeal from the Delaware Supreme Court under the jurisdictional statute then in effect.",
         "inheritedBriefPdfLocator": {
@@ -5609,7 +5790,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "71bcd0a1fc53f6a7f4a307ee49a80a155a4cb12379552b0236c0db46e52101ef"
+          }
+        }
+      ]
     },
     {
       "id": "cp-burnham",
@@ -5656,8 +5847,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "Pennsylvania’s express registration-and-consent statute survived this due-process challenge: Pennsylvania Fire remained controlling. The Court did not decide the separate Commerce Clause challenge or treat every state’s registration law as consent. This is a consent route, distinct from the at-home test for jurisdiction based on business contacts.",
-      "takeawaySha256": "b26129cef9d506ff5351504457cfdb52214f98ad0b9b17650c8210b3ce161455",
+      "takeaway": "Pennsylvania expressly made business registration count as consent to suit. That arrangement survived this due-process challenge under Pennsylvania Fire. The Court left the separate Commerce Clause challenge undecided. It did not say that registration means consent in every state. Consent is a separate route from the 'at home' test for jurisdiction based on business contacts.",
+      "takeawaySha256": "25147597b1a669d9289e3dc86beacc6f5005a6f30084b117f9dfd14c6ce656a8",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding and earlier fresh Mallory majority/Alito comparison distinguish the question decided from the reserved constitutional objection.",
@@ -5692,7 +5883,18 @@
           "https://supreme.justia.com/cases/federal/us/600/21-1168/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Pennsylvania’s express registration-and-consent statute survived this due-process challenge: Pennsylvania Fire remained controlling. The Court did not decide the separate Commerce Clause challenge or treat every state’s registration law as consent. This is a consent route, distinct from the at-home test for jurisdiction based on business contacts.",
+            "takeawaySha256": "b26129cef9d506ff5351504457cfdb52214f98ad0b9b17650c8210b3ce161455"
+          }
+        }
+      ]
     },
     {
       "id": "cp-mullane",
@@ -5985,8 +6187,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "Under the 1789 diversity statute, each person sharing a joint interest had to be able to sue or be sued in federal court, so one shared state on each side defeated jurisdiction. Today's complete diversity rule grew from this reading.",
-      "takeawaySha256": "7a32e26e16219d3ac0747ae445578fcc3b6512281624474d1995682bb6327b94",
+      "takeaway": "The Court read the 1789 diversity statute to require every person sharing a joint interest to qualify for federal court. If a person on one side shared state citizenship with a person on the other, the suit failed that requirement. Today's complete-diversity rule grew from this reading.",
+      "takeawaySha256": "da49c218c64f993dfd7de1e48e9177c0ffe59065d9f795abce366a1e5f5803c0",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -6019,7 +6221,18 @@
           "https://supreme.justia.com/cases/federal/us/7/267/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Under the 1789 diversity statute, each person sharing a joint interest had to be able to sue or be sued in federal court, so one shared state on each side defeated jurisdiction. Today's complete diversity rule grew from this reading.",
+            "takeawaySha256": "7a32e26e16219d3ac0747ae445578fcc3b6512281624474d1995682bb6327b94"
+          }
+        }
+      ]
     },
     {
       "id": "cp-mas-perry",
@@ -7010,7 +7223,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "47a57e643c8a349dfd2769b9b1f0013fbdfef5459ce6472414f50ad3d18300c9",
+        "effectiveFullBriefSha256": "f3092a90f13e609d3852f99ba0ff08dedd961e53153462432de8220a1fc0d46a",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Erie Railroad Co. v. Tompkins, 304 U.S. 64 (1938). Supreme Court of the United States. Argued January 31, 1938; decided April 25, 1938. Justice Brandeis delivered the opinion. Justice Reed concurred in the result and much of the reasoning but rejected the constitutional rationale. Justice Butler dissented, joined by Justice McReynolds. Justice Cardozo did not participate. Assigned excerpt: casebook pp. 445–452. Full opinion: Full judicial opinion.",
         "inheritedBriefPdfLocator": {
@@ -7022,7 +7235,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "47a57e643c8a349dfd2769b9b1f0013fbdfef5459ce6472414f50ad3d18300c9"
+          }
+        }
+      ]
     },
     {
       "id": "cp-swift",
@@ -7456,7 +7679,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "884119c47036c3170ead3f39aedd8996a9919ff6cccf6db90ae0b6b22d52efed",
+        "effectiveFullBriefSha256": "8fd55d59ecab686120480f3943d4732838466a2eb35c37126a2889432c2e61b4",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Stewart Organization, Inc. v. Ricoh Corp., 487 U.S. 22 (1988). Supreme Court of the United States; argued February 29, 1988; decided June 20, 1988. Justice Marshall wrote the eight-Justice majority opinion. Justice Kennedy, joined by Justice O’Connor, concurred; Justice Scalia dissented. Assigned casebook pp. 486–491. Full opinion: Complete official report, 487 U.S. 22–41, including all eleven Court notes, Kennedy’s concurrence, and Scalia’s complete dissent with its sole starred note. The brief follows the assigned excerpt; the distinction between a statute and a promulgated Rule, the reservation concerning the antitrust jurisdictional ground, and portions of Scalia’s contract-validity discussion are confirmed or supplemented from the full opinion and footnotes.",
         "inheritedBriefPdfLocator": {
@@ -7468,7 +7691,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "884119c47036c3170ead3f39aedd8996a9919ff6cccf6db90ae0b6b22d52efed"
+          }
+        }
+      ]
     },
     {
       "id": "cp-gasperini",
@@ -7495,7 +7728,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "ff3466374d6d96d6feb4c23e16a740cf352a0a428bff8c140f53427baee6bb35",
+        "effectiveFullBriefSha256": "6afc18ca4dee4cd55a71434d4dd4118e766d8ae427f98e314fbc36c91b932c8e",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Gasperini v. Center for Humanities, Inc., 518 U.S. 415 (1996). Supreme Court of the United States; argued April 16, 1996; decided June 24, 1996. Justice Ginsburg wrote the Court's opinion, joined by Justices O'Connor, Kennedy, Souter, and Breyer. Justice Stevens dissented. Justice Scalia dissented, joined by Chief Justice Rehnquist and Justice Thomas. Assigned excerpt: Civil Procedure casebook pp. 492–501. Full judicial opinion: Full judicial opinion. The fuller evidentiary account and historical arguments below supplement the edited excerpt; they come from the reported opinions, not from the website's editorial summary.",
         "inheritedBriefPdfLocator": {
@@ -7512,7 +7745,17 @@
         "date": "2026-10-28",
         "scope": "Owner-requested spelling/grammar hotfix. Wording only; original doctrinal comparison and its limits retained.",
         "reason": "Replace the nested “how big … can be applies” construction with a direct subject and verb."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "ff3466374d6d96d6feb4c23e16a740cf352a0a428bff8c140f53427baee6bb35"
+          }
+        }
+      ]
     },
     {
       "id": "cp-shady-grove",
@@ -7621,7 +7864,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "c0ed2bd241f3f495a42454299929838109eed374778ad388d41d91193e53b2a9",
+        "effectiveFullBriefSha256": "b2af1efacc701ebc5b29a6e5db5a93a45fb998031674bcc189f4bd046919025c",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Clearfield Trust Co. v. United States, 318 U.S. 363 (1943). Supreme Court of the United States; argued February 5, 1943; decided March 1, 1943. Justice Douglas wrote the opinion; Justices Murphy and Rutledge did not participate. Assigned casebook pp. 528–530. Full opinion: Full judicial opinion . The assigned excerpt supplies the federal-common-law analysis and loss-allocation reasoning. Exact transaction dates, the $24.20 amount, the intervenor’s role, and the distinction between notice and demand supplement its compressed factual introduction from the full opinion.",
         "inheritedBriefPdfLocator": {
@@ -7633,7 +7876,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "c0ed2bd241f3f495a42454299929838109eed374778ad388d41d91193e53b2a9"
+          }
+        }
+      ]
     },
     {
       "id": "cp-boyle",
@@ -7758,8 +8011,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "A complaint is fine if it gives fair notice of the claim and what it rests on, and it should not be thrown out unless the plaintiff could prove nothing that would entitle them to relief. Detailed facts were not required. Twombly later retired the no-set-of-facts wording.",
-      "takeawaySha256": "43deac0d62d4d7403fde3f4947ba67dfec888375bea9c487f1e3a92982c5ff9c",
+      "takeaway": "Conley required fair notice of the claim and its basis, not detailed facts. A complaint was not to be dismissed unless the plaintiff could prove no facts entitling them to relief. Twombly later retired that 'no set of facts' wording, so it is historical pleading language rather than today's full test.",
+      "takeawaySha256": "cee02d07b45733591353f22d239bb892d3b7bb22543af807534793443d5d6b05",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -7789,7 +8042,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "A complaint is fine if it gives fair notice of the claim and what it rests on, and it should not be thrown out unless the plaintiff could prove nothing that would entitle them to relief. Detailed facts were not required. Twombly later retired the no-set-of-facts wording.",
+            "takeawaySha256": "43deac0d62d4d7403fde3f4947ba67dfec888375bea9c487f1e3a92982c5ff9c"
+          }
+        }
+      ]
     },
     {
       "id": "cp-swierkiewicz",
@@ -7855,7 +8119,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "dcf7e28e82f1ccf9dc1f4a47f00d6f244e61b903f049be7c40204f79f6150b8e",
+        "effectiveFullBriefSha256": "bd0ef419f075efb4940647212de3b4543bc1d554749dee617f6d301e528befd4",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "550 U.S. 544, 127 S. Ct. 1955, 167 L. Ed. 2d 929 (2007). Supreme Court of the United States. Argued November 27, 2006; decided May 21, 2007. Justice Souter wrote for seven Justices. Justice Stevens dissented; Justice Ginsburg joined his dissent except Part IV.",
         "inheritedBriefPdfLocator": {
@@ -7867,7 +8131,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "dcf7e28e82f1ccf9dc1f4a47f00d6f244e61b903f049be7c40204f79f6150b8e"
+          }
+        }
+      ]
     },
     {
       "id": "cp-iqbal",
@@ -8109,8 +8383,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "The Fifth Circuit treated this Texas damages cap as an affirmative defense. Because the government first raised it after judgment, it lost the cap’s benefit in these cases. The decision explains that particular statute’s treatment under Rule 8(c), rather than classifying every damages limit automatically.",
-      "takeawaySha256": "4b89de2ca356ca4cfc8089c232d0b2786d7ceebad57b2787f692eac76c470d4e",
+      "takeaway": "The Fifth Circuit treated this Texas damages cap as an affirmative defense: a limit the government had to raise in its answer. The government waited until after judgment, so it lost the cap's protection here. This was a ruling about that statute under Rule 8(c), not a classification of every damages cap.",
+      "takeawaySha256": "51165c4add12fd1581727ca44d2b197e0369f7e2c70efae7ee0fab7c78f0dc35",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies Fifth Circuit, Texas provision and these postjudgment assertions.",
@@ -8142,7 +8416,18 @@
           "https://static.case.law/f2d/808/html/1075-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Fifth Circuit treated this Texas damages cap as an affirmative defense. Because the government first raised it after judgment, it lost the cap’s benefit in these cases. The decision explains that particular statute’s treatment under Rule 8(c), rather than classifying every damages limit automatically.",
+            "takeawaySha256": "4b89de2ca356ca4cfc8089c232d0b2786d7ceebad57b2787f692eac76c470d4e"
+          }
+        }
+      ]
     },
     {
       "id": "cp-kegerise",
@@ -8395,8 +8680,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "Under Kansas’s real-party-in-interest statute, an insurer that paid the entire loss owned the whole subrogated claim. The insured could not sue in its own name for the insurer’s benefit, so the defense survived. The court did not decide partial-payment cases or make this Kansas rule a universal procedural requirement.",
-      "takeawaySha256": "733c475bfec9328a57b868acd96a7c0ff32fd0c193853e0d6cde1293e841f6dc",
+      "takeaway": "The insurer had paid the entire loss, so Kansas law made it the owner of the whole claim through subrogation. The insured could not sue in its own name for the insurer's benefit. The defense therefore survived. The court did not decide partial-payment cases or announce a rule governing every jurisdiction.",
+      "takeawaySha256": "549e27135abb4ff140eaaddfce35e95faacff3d490ad09fada27ac25b626666c",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies Kansas statute and reserved partial-loss situation.",
@@ -8426,7 +8711,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Under Kansas’s real-party-in-interest statute, an insurer that paid the entire loss owned the whole subrogated claim. The insured could not sue in its own name for the insurer’s benefit, so the defense survived. The court did not decide partial-payment cases or make this Kansas rule a universal procedural requirement.",
+            "takeawaySha256": "733c475bfec9328a57b868acd96a7c0ff32fd0c193853e0d6cde1293e841f6dc"
+          }
+        }
+      ]
     },
     {
       "id": "cp-harris-avery",
@@ -8875,8 +9171,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "The D.C. Circuit allowed the parents to intervene for an appeal, limited to decree provisions affecting their educational interests; the individual defendants lacked an appealable interest. The practical-interest intervention analysis was a three-judge plurality, rather than a majority explanation of every Rule 24 requirement.",
-      "takeawaySha256": "1dddbe3baacd82a9df8b0b5dbf66d6dade5e27f9a6414874ee3db086d49373ec",
+      "takeaway": "The D.C. Circuit let the parents join the case for the appeal, but only on parts of the decree affecting their educational interests. The individual defendants had no interest supporting an appeal. Three judges gave the practical-interest explanation for intervention. That explanation was a plurality, not a majority statement of every Rule 24 requirement.",
+      "takeawaySha256": "35d062888f9304044ace951a4790abb88ee30d681f4934b4b74ec08daa13df97",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding expressly identifies the three-judge plurality and limited appellate standing.",
@@ -8908,7 +9204,18 @@
           "https://static.case.law/f2d/408/html/0175-01.html"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The D.C. Circuit allowed the parents to intervene for an appeal, limited to decree provisions affecting their educational interests; the individual defendants lacked an appealable interest. The practical-interest intervention analysis was a three-judge plurality, rather than a majority explanation of every Rule 24 requirement.",
+            "takeawaySha256": "1dddbe3baacd82a9df8b0b5dbf66d6dade5e27f9a6414874ee3db086d49373ec"
+          }
+        }
+      ]
     },
     {
       "id": "cp-hansberry",
@@ -8994,8 +9301,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "The Ninth Circuit rejected a separate requirement to prove an administratively easy way to identify every class member. Actual Rule 23 requirements still had to be met. The opinion discussed a different approach in the Third Circuit, so its rejection of this extra hurdle should not be presented as an unqualified nationwide rule.",
-      "takeawaySha256": "413b8398a0e34e3393124f7c3c65f74ccc43a409a1e711d1c7fad122bdca2943",
+      "takeaway": "The Ninth Circuit said class plaintiffs did not face an extra requirement to prove an easy administrative way to identify every member. They still had to meet Rule 23 itself. The opinion contrasted the Third Circuit's approach, so this rejection of an extra hurdle is not an unqualified nationwide rule.",
+      "takeawaySha256": "48d90ef682f238915eaf3a1617ec58b151e57ce946a277d16fe9c4381075a88a",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies circuit and its account of the contemporaneous split.",
@@ -9027,7 +9334,18 @@
           "https://cdn.ca9.uscourts.gov/datastore/opinions/2017/01/03/15-55727.pdf"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Ninth Circuit rejected a separate requirement to prove an administratively easy way to identify every class member. Actual Rule 23 requirements still had to be met. The opinion discussed a different approach in the Third Circuit, so its rejection of this extra hurdle should not be presented as an unqualified nationwide rule.",
+            "takeawaySha256": "413b8398a0e34e3393124f7c3c65f74ccc43a409a1e711d1c7fad122bdca2943"
+          }
+        }
+      ]
     },
     {
       "id": "cp-eisen",
@@ -9199,8 +9517,8 @@
         "Civil Procedure",
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Every class member seeking individual damages needs a concrete injury. Disseminated false terrorist-related credit alerts supported standing through harm analogous to defamation; undisclosed internal alerts did not on this record. A statutory violation or unmaterialized risk alone was insufficient for damages. The Court reserved the standing showing required at certification.",
-      "takeawaySha256": "9f506003084861762ec9a7ce4de2e5182429a4ae60f08374c54ce9c963e3f87a",
+      "takeaway": "Each class member seeking damages must show an actual, concrete injury. False terrorist-related credit alerts sent to others caused harm like defamation. Alerts kept in internal files did not establish that harm here. Breaking a statute or creating a risk that never materialized was not enough. The Court left open what standing must be shown when a class is certified.",
+      "takeawaySha256": "4f4fd218ca5f34516488aa9ee35160346a0fcaea550e7317908deb33c827a189",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding plus earlier fresh TransUnion majority comparison distinguish particular claims, relief and reserved certification issue.",
@@ -9232,7 +9550,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Every class member seeking individual damages needs a concrete injury. Disseminated false terrorist-related credit alerts supported standing through harm analogous to defamation; undisclosed internal alerts did not on this record. A statutory violation or unmaterialized risk alone was insufficient for damages. The Court reserved the standing showing required at certification.",
+            "takeawaySha256": "9f506003084861762ec9a7ce4de2e5182429a4ae60f08374c54ce9c963e3f87a"
+          }
+        }
+      ]
     },
     {
       "id": "cp-shutts",
@@ -9279,8 +9608,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "The Seventh Circuit held that a nationwide Rule 23 action under a federal statute needs personal jurisdiction over the defendant for the named representative, without a separate specific-jurisdiction showing for each absent member’s claim. It reversed the order striking the nationwide class allegations; it did not certify the class.",
-      "takeawaySha256": "727a50397f8994d6420ef450617c1e01c21dfefd884bab4d32e9f9b16e3b7422",
+      "takeaway": "The Seventh Circuit let the nationwide class allegations proceed under Rule 23 and a federal statute. The court needed power over the defendant for the named representative's claim. It did not require a separate connection to the forum for every absent member's claim. This ruling reversed the order removing those allegations; it did not approve the class itself.",
+      "takeawaySha256": "dc324d361aa91c6e1144e6cd4dd840ab0acff436d2660478f4789c9235923000",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies Seventh Circuit and the limited procedural disposition.",
@@ -9312,7 +9641,18 @@
           "https://cases.justia.com/federal/appellate-courts/ca7/19-1204/19-1204-2020-03-11.pdf?ts=1583944246"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Seventh Circuit held that a nationwide Rule 23 action under a federal statute needs personal jurisdiction over the defendant for the named representative, without a separate specific-jurisdiction showing for each absent member’s claim. It reversed the order striking the nationwide class allegations; it did not certify the class.",
+            "takeawaySha256": "727a50397f8994d6420ef450617c1e01c21dfefd884bab4d32e9f9b16e3b7422"
+          }
+        }
+      ]
     },
     {
       "id": "cp-cooper",
@@ -9419,7 +9759,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "d7d24e485e74330dbd0088d22684e91c4b140517299320e7ee58a2da0b3a5121",
+        "effectiveFullBriefSha256": "60babf7cc4c2cb378cbf6413516312673efc7a9def917402a19f4ec710635362",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "398 U.S. 144 (1970) | Civil Procedure",
         "inheritedBriefPdfLocator": {
@@ -9433,7 +9773,17 @@
           "https://www.supremecourt.gov/about/members_text.aspx?stream=top"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "d7d24e485e74330dbd0088d22684e91c4b140517299320e7ee58a2da0b3a5121"
+          }
+        }
+      ]
     },
     {
       "id": "cp-celotex",
@@ -9679,8 +10029,8 @@
       "courses": [
         "Civil Procedure"
       ],
-      "takeaway": "In the Second Circuit in 1946, summary judgment was off the table when there was even the slightest doubt about the facts, especially if the outcome depended on believing a witness the jury had not seen. Here Porter's denial of copying had to be tested before a jury.",
-      "takeawaySha256": "df20d2f99642a3779181b1d19c4e7236eab7af55f49206b938c0274fb8a1568b",
+      "takeaway": "In 1946, the Second Circuit would not allow summary judgment if even a slight factual doubt remained, especially when the outcome turned on a witness's credibility. The jury had to test Porter's denial of copying. This describes that court's approach at that time.",
+      "takeawaySha256": "9b26fb8c92a37bf8d132929cff8a5966b4bb4ade18cc6fa37f94fdfdf5513f26",
       "changed": false,
       "outcome": "No inconsistency identified against the compared canonical sections",
       "changeReason": null,
@@ -9710,7 +10060,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "In the Second Circuit in 1946, summary judgment was off the table when there was even the slightest doubt about the facts, especially if the outcome depended on believing a witness the jury had not seen. Here Porter's denial of copying had to be tested before a jury.",
+            "takeawaySha256": "df20d2f99642a3779181b1d19c4e7236eab7af55f49206b938c0274fb8a1568b"
+          }
+        }
+      ]
     },
     {
       "id": "cp-poller",
@@ -10258,7 +10619,7 @@
           "Holding",
           "Reasoning"
         ],
-        "effectiveFullBriefSha256": "0697478e27191672b5bb560a6eecc3897439a21e61300bf515f32d382d02cc0e",
+        "effectiveFullBriefSha256": "7c5d73f4740097611669525414c5211d71baf4725ac89403dfcfe972033151f3",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "Gundy v. United States, 588 U.S. 128 (2019). Supreme Court of the United States, argued October 2, 2018, decided June 20, 2019. Justice Kagan announced the judgment and wrote a plurality opinion joined by Justices Ginsburg, Breyer, and Sotomayor. Justice Alito concurred in the judgment only. Justice Gorsuch dissented, joined by Chief Justice Roberts and Justice Thomas. Justice Kavanaugh took no part. The judgment was 5-3, but Kagan's statutory interpretation and constitutional reasoning commanded four votes. Full Supreme Court opinion, including the concurrence and dissent.",
         "inheritedBriefPdfLocator": {
@@ -10270,7 +10631,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "0697478e27191672b5bb560a6eecc3897439a21e61300bf515f32d382d02cc0e"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-s-buckley",
@@ -10317,8 +10688,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Patent judges appointed as inferior officers could not issue these unreviewable final executive decisions. The remedy enabled the Senate-confirmed Director to review them. Arthrex was entitled to a decision from the Acting Director about whether to rehear its petition, rather than automatically receiving a new hearing or a new merits ruling.",
-      "takeawaySha256": "9acc09e42a2430fedf7127e8c36a24e82f45f684c56b73d13dc4bd4e839df81c",
+      "takeaway": "These patent judges were appointed as inferior officers, but their final executive decisions escaped review by a superior. The remedy let the Senate-confirmed Director review them. Arthrex could ask the Acting Director to decide whether to rehear its petition. It did not automatically receive a new hearing or a new decision on the merits.",
+      "takeawaySha256": "c68c7488e3db866a70c125685bc8b1023f0f66bd7fee80c82b83fca742027bdc",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding distinguishes entitlement to a review decision from a guaranteed rehearing.",
@@ -10348,7 +10719,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Patent judges appointed as inferior officers could not issue these unreviewable final executive decisions. The remedy enabled the Senate-confirmed Director to review them. Arthrex was entitled to a decision from the Acting Director about whether to rehear its petition, rather than automatically receiving a new hearing or a new merits ruling.",
+            "takeawaySha256": "9acc09e42a2430fedf7127e8c36a24e82f45f684c56b73d13dc4bd4e839df81c"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-s-freytag",
@@ -10414,7 +10796,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "5e826f616c108020afaa7da22661a994f597f2fcbba7849eed1763d563bb2832",
+        "effectiveFullBriefSha256": "ddc2fd6ea54053d24c13522406d38809ef7519fd43842d68554c8a040e72ecab",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "585 U.S. 237 (2018), No. 17–130 (June 21, 2018) | Legislation and the Regulatory State | SEC adjudicators as constitutional officers",
         "inheritedBriefPdfLocator": {
@@ -10426,7 +10808,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "5e826f616c108020afaa7da22661a994f597f2fcbba7849eed1763d563bb2832"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-s-shoemaker",
@@ -10590,8 +10982,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "In 1935, the Court upheld for-cause protection for FTC commissioners, characterizing the commission as quasi-legislative and quasi-judicial and distinguishing Myers’s postmaster. This is the historical exception. Trump v. Slaughter later overruled Humphrey’s Executor to the extent it permitted the FTC’s removal restriction, while reserving other institutions.",
-      "takeawaySha256": "d8d51cdd18b03b310e3a4b7d87612959ae8dd44a8e0b2bf6381f849a47701783",
+      "takeaway": "In 1935, the Court allowed Congress to protect FTC commissioners from removal without cause. It described their work as quasi-legislative and quasi-judicial and distinguished Myers's postmaster. That is the historical exception. Trump v. Slaughter later overruled Humphrey's Executor as to the FTC's removal restriction, while leaving questions about other institutions open.",
+      "takeawaySha256": "a044fba8bf2f28a2be40b5761540dfa69aba4a7a6d3a75d2d63f7714c6dc5aef",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Humphrey and Slaughter Holdings and earlier fresh Slaughter majority pp. 21–28 distinguish the historical rule from its later fate.",
@@ -10626,7 +11018,18 @@
           "https://supreme.justia.com/cases/federal/us/295/602/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "In 1935, the Court upheld for-cause protection for FTC commissioners, characterizing the commission as quasi-legislative and quasi-judicial and distinguishing Myers’s postmaster. This is the historical exception. Trump v. Slaughter later overruled Humphrey’s Executor to the extent it permitted the FTC’s removal restriction, while reserving other institutions.",
+            "takeawaySha256": "d8d51cdd18b03b310e3a4b7d87612959ae8dd44a8e0b2bf6381f849a47701783"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-s-slaughter",
@@ -10655,7 +11058,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "06c812dc1c47297b740430e54074128042c2f2711402b7e9f03c6455c5635353",
+        "effectiveFullBriefSha256": "fa3bb7901bfc05aec3b671b775f1e1e7becc0bc0ff7646c6fd6ce117e2891b91",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "609 U.S. 422 (2026), No. 25-332, decided June 29, 2026 | Legislation and Regulation; Class 11 supplement",
         "inheritedBriefPdfLocator": {
@@ -10670,7 +11073,17 @@
           "https://supreme.justia.com/cases/federal/us/609/25-332/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "06c812dc1c47297b740430e54074128042c2f2711402b7e9f03c6455c5635353"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-s-wiener",
@@ -10836,8 +11249,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The House could not reverse Chadha’s deportation suspension through a one-House veto. That change to legal rights outside Congress was legislative and required passage by both chambers and presentment to the President, subject to the Constitution’s express exceptions. Presentment does not always require the President’s signature: a veto can be overridden.",
-      "takeawaySha256": "4a4a27c16daf4ab19d149078f247ee9c63d1b25fea9437aeddae3f634b3ea99b",
+      "takeaway": "The House alone could not undo Chadha's deportation suspension. Its action changed legal rights outside Congress, so it had to follow bicameralism and presentment: passage by both chambers and submission to the President, subject to the Constitution's express exceptions. Presentment does not always require a presidential signature; Congress can override a veto.",
+      "takeawaySha256": "6f66fd3ea7608dbc374141c0662e33ea3bc49c289d52fe3a6274b64ee8c6231b",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding distinguishes bicameralism/presentment from a mandatory presidential signature; Constitution Article I § 7 supplies the override route.",
@@ -10869,7 +11282,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The House could not reverse Chadha’s deportation suspension through a one-House veto. That change to legal rights outside Congress was legislative and required passage by both chambers and presentment to the President, subject to the Constitution’s express exceptions. Presentment does not always require the President’s signature: a veto can be overridden.",
+            "takeawaySha256": "4a4a27c16daf4ab19d149078f247ee9c63d1b25fea9437aeddae3f634b3ea99b"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-k-holy-trinity",
@@ -11395,8 +11819,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The Ninth Circuit treated these fact-dependent permit adjudications as requiring formal APA procedures under the public-hearing language, despite the absence of the words “on the record.” It also required disclosure of data used against the applicants. The decision concerns adjudication, rather than imposing formal hearings on ordinary rulemaking.",
-      "takeawaySha256": "b40273751b59ea8f928c8b9c8bf16b2dc6d13f42f883d4b0373f31cb335372cb",
+      "takeaway": "The Ninth Circuit required formal APA hearing procedures for these permit decisions because the statute required a public hearing, even without saying 'on the record.' Applicants also had to see the data used against them. The ruling concerned decisions about particular permits, called adjudication. It did not require trial-style hearings whenever an agency makes a general rule.",
+      "takeawaySha256": "1c9773feab2d53ef302a96061ba6bc959cdd4328fb242958f8a7009e740fa1a9",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding and rule identify circuit, initial-license adjudication and undisclosed record material.",
@@ -11428,7 +11852,18 @@
           "https://openjurist.org/564/f2d/1253/marathon-oil-company-v-environmental-protection-agency"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Ninth Circuit treated these fact-dependent permit adjudications as requiring formal APA procedures under the public-hearing language, despite the absence of the words “on the record.” It also required disclosure of data used against the applicants. The decision concerns adjudication, rather than imposing formal hearings on ordinary rulemaking.",
+            "takeawaySha256": "b40273751b59ea8f928c8b9c8bf16b2dc6d13f42f883d4b0373f31cb335372cb"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-o-perales",
@@ -11648,7 +12083,7 @@
         "sourceLocator": "tools/r19/data/sections.json :: LRS-CB-0478.rule and sections.Holding (effective assembler overlays)",
         "ruleSha256": "72b5371f129608fab87ee05c2ff5e9da3db97238311ab9a055399e0df1592006",
         "comparedSections": {
-          "Holding": "3dfa8543d30247045168a4b14901666be6639618746efeb3b4e2a6558ad28467"
+          "Holding": "6ef1617f7dce4546b88657a27bb81bc31a78dfa97118cd322dccc1ef381d1139"
         },
         "sectionsReadCompletely": [
           "Holding"
@@ -11665,7 +12100,19 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "comparedSections": {
+              "Holding": "3dfa8543d30247045168a4b14901666be6639618746efeb3b4e2a6558ad28467"
+            }
+          }
+        }
+      ]
     },
     {
       "id": "lrs-o-arnett",
@@ -11673,8 +12120,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Five Justices sustained these federal-employee discharge procedures: notice and a chance to respond before removal, with a fuller hearing afterward. Only three accepted the theory that statutory job protection came inseparably with its procedural limits. Loudermill later rejected that theory; “no prior trial-type hearing” did not mean no prior opportunity to respond.",
-      "takeawaySha256": "7d4f2381965f3cef08ffbeaa61856c7c785e083fa2c6a443030cf7ee9b3a1f76",
+      "takeaway": "Five Justices upheld these discharge procedures: notice and a chance to respond before removal, followed by a fuller hearing. Only three thought the statute's job protection necessarily carried its procedural limits. Loudermill later rejected that theory. Arnett did not allow firing without any prior chance to respond; it allowed proceeding without a prior trial-style hearing.",
+      "takeawaySha256": "ffdb003bffd2a9d4ceb3cce7f1309c75a8076891db0111eabafe0ab7be29b1ed",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Arnett and Loudermill Holdings identify divided rationale and actual pre-removal safeguards.",
@@ -11706,7 +12153,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Five Justices sustained these federal-employee discharge procedures: notice and a chance to respond before removal, with a fuller hearing afterward. Only three accepted the theory that statutory job protection came inseparably with its procedural limits. Loudermill later rejected that theory; “no prior trial-type hearing” did not mean no prior opportunity to respond.",
+            "takeawaySha256": "7d4f2381965f3cef08ffbeaa61856c7c785e083fa2c6a443030cf7ee9b3a1f76"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-o-loudermill",
@@ -12099,7 +12557,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "87b55a16d5105bb5a78ad6257181eed3d24e777c0e714b45c21857c02a638d5d",
+        "effectiveFullBriefSha256": "70da671bec01f9c8e3ef86a6f743f043b94243b769a05caade5535e2379346c0",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "135 U.S. 1 (1890) | Legislation and the Regulatory State",
         "inheritedBriefPdfLocator": {
@@ -12111,7 +12569,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "87b55a16d5105bb5a78ad6257181eed3d24e777c0e714b45c21857c02a638d5d"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-o-debs",
@@ -13384,8 +13852,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The ACA authorized the religious and moral exemptions, and the 2018 final rules satisfied APA notice-and-comment procedure. Courts could not add an “open-mindedness” test. The Court left arbitrary-and-capricious objections and whether RFRA independently required the exemptions unresolved, so procedural success did not decide every challenge.",
-      "takeawaySha256": "eb62f5cd797b464c5be88822a35da10c45d22a4deaa6f67b2f20d9749f0606b5",
+      "takeaway": "The ACA allowed the religious and moral exemptions, and the 2018 final rules satisfied APA notice-and-comment requirements. Courts could not add their own 'open-mindedness' test. The Court left two questions open: whether the rules were arbitrary and capricious, and whether RFRA independently required exemptions. Winning on authority and procedure did not resolve every challenge.",
+      "takeawaySha256": "f8db44075e12099dae0d243806d253e13ebdda3d97dbd46abfcd7832562d991d",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding preserves the expressly unresolved substantive and RFRA issues.",
@@ -13417,7 +13885,18 @@
           "https://www.supremecourt.gov/opinions/19pdf/19-431_5i36.pdf"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The ACA authorized the religious and moral exemptions, and the 2018 final rules satisfied APA notice-and-comment procedure. Courts could not add an “open-mindedness” test. The Court left arbitrary-and-capricious objections and whether RFRA independently required the exemptions unresolved, so procedural success did not decide every challenge.",
+            "takeawaySha256": "eb62f5cd797b464c5be88822a35da10c45d22a4deaa6f67b2f20d9749f0606b5"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-overton-park",
@@ -13645,7 +14124,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "0b95051a16dd2edc1eb7bbcc3f50d10e390db7ecdb9db350cbd91d9e5ec92c07",
+        "effectiveFullBriefSha256": "4fd370168296b8caa82ba42f5014e31eadff33856260b57808161d645edc0bb7",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "**Citation:** 745 F.2d 677 (D.C. Cir. 1984)",
         "inheritedBriefPdfLocator": {
@@ -13659,7 +14138,17 @@
           "https://law.justia.com/cases/federal/appellate-courts/F2/745/677/129234/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "0b95051a16dd2edc1eb7bbcc3f50d10e390db7ecdb9db350cbd91d9e5ec92c07"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-allentown-mack",
@@ -13845,7 +14334,7 @@
         "sectionsReadCompletely": [
           "Holding"
         ],
-        "effectiveFullBriefSha256": "c2f88965eb1119e42bc44ba5cf6841c52ef487a41077ebb5fc84a95168ae0cae",
+        "effectiveFullBriefSha256": "a87bc24bbe00f4b237850afe1549f873cc057d399be0d3d9db3e01f0dbea706a",
         "fullBriefReadCompletely": false,
         "inheritedCitation": "421 U.S. 560 (1975) | Legislation and the Regulatory State",
         "inheritedBriefPdfLocator": {
@@ -13857,7 +14346,17 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "effectiveFullBriefSha256": "c2f88965eb1119e42bc44ba5cf6841c52ef487a41077ebb5fc84a95168ae0cae"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-massachusetts-epa",
@@ -14395,8 +14894,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Under the historical Chevron framework, Customs’s ruling letter lacked the delegated force-of-law basis for Chevron deference, but remained eligible for persuasive Skidmore consideration. The Court remanded without deciding the tariff classification. Loper Bright later ended Chevron deference while preserving persuasion and actual statutory delegations.",
-      "takeawaySha256": "480d51a2dfe743b987f27a74dc45e74428de9bbd0787fbdaf9c4bd8524623ecd",
+      "takeaway": "Under the former Chevron framework, this Customs letter did not qualify for binding Chevron deference because it lacked the required delegated force of law. It could still persuade the court under Skidmore. The Court sent the case back without deciding the tariff classification. Loper Bright later ended Chevron deference, while preserving persuasion and actual delegations of discretion.",
+      "takeawaySha256": "47515213071048ab5f9e2294a6e49766e33069525e0273f70b9cefc754d47b24",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Mead and Loper Bright Holdings distinguish eligibility from an actual award of respect and historical framework from later treatment.",
@@ -14431,7 +14930,18 @@
           "https://supreme.justia.com/cases/federal/us/533/218/"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Under the historical Chevron framework, Customs’s ruling letter lacked the delegated force-of-law basis for Chevron deference, but remained eligible for persuasive Skidmore consideration. The Court remanded without deciding the tariff classification. Loper Bright later ended Chevron deference while preserving persuasion and actual statutory delegations.",
+            "takeawaySha256": "480d51a2dfe743b987f27a74dc45e74428de9bbd0787fbdaf9c4bd8524623ecd"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-brand-x",
@@ -14439,8 +14949,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Under the former Chevron framework, this earlier judicial reading did not block the FCC’s permissible alternative because the precedent had not found only one possible statutory meaning. That rule belongs to Chevron’s historical regime. Loper Bright later overruled Chevron while preserving the stare decisis effect of earlier specific holdings.",
-      "takeawaySha256": "027db76f9835dc96ca9857538ed1579d412905263e76230a506c9404154cea34",
+      "takeaway": "Under the former Chevron framework, an agency could adopt a permissible statutory reading different from an earlier court's reading if that court had not found only one possible meaning. That let the FCC's alternative stand here. Loper Bright later overruled Chevron, while preserving the ordinary precedent effect of earlier specific holdings.",
+      "takeawaySha256": "74002e0270f2f9d1590d570938b26dcb30dbb5c83547ee6c89101c8e5981299e",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Brand X and Loper Bright Holdings plus earlier fresh Loper majority pp. 34–35.",
@@ -14475,7 +14985,18 @@
           "https://www.supremecourt.gov/opinions/23pdf/22-451_7m58.pdf"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Under the former Chevron framework, this earlier judicial reading did not block the FCC’s permissible alternative because the precedent had not found only one possible statutory meaning. That rule belongs to Chevron’s historical regime. Loper Bright later overruled Chevron while preserving the stare decisis effect of earlier specific holdings.",
+            "takeawaySha256": "027db76f9835dc96ca9857538ed1579d412905263e76230a506c9404154cea34"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-king-burwell",
@@ -14524,8 +15045,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Four Justices read the statute to require a significant-risk finding before OSHA adopted this permanent standard; OSHA had not made one. A fifth voted against the standard on nondelegation grounds. The result did not establish that ten parts per million was safe, and the statutory explanation was a plurality’s reasoning.",
-      "takeawaySha256": "f1486385e5ab84961263ec1af1239f727a492343a10344daccc61564ff2ff557",
+      "takeaway": "Four Justices said OSHA needed a finding of significant risk before adopting this permanent standard. OSHA had not made that finding. A fifth Justice opposed the standard on nondelegation grounds. The standard therefore failed, but the Court did not declare ten parts per million safe. The statutory explanation belonged to a plurality, not a majority.",
+      "takeawaySha256": "db655b1d683348faeb6be672e396e8bea59100a1b2efb255dd139c198044c110",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding and previously read complete Reasoning preserve the four-plus-one basis.",
@@ -14557,7 +15078,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Four Justices read the statute to require a significant-risk finding before OSHA adopted this permanent standard; OSHA had not made one. A fifth voted against the standard on nondelegation grounds. The result did not establish that ten parts per million was safe, and the statutory explanation was a plurality’s reasoning.",
+            "takeawaySha256": "f1486385e5ab84961263ec1af1239f727a492343a10344daccc61564ff2ff557"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-biden-nebraska",
@@ -14604,8 +15136,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "On emergency applications, the Court found challengers likely to show that OSHA’s broad vaccine-or-test standard exceeded its workplace authority, and stayed it. The Court distinguished occupation-specific COVID risks that OSHA could address. This was interim relief concerning that standard, rather than a final decision invalidating every workplace vaccination measure.",
-      "takeawaySha256": "e336d5ec020632b7d956fa4c533dce82ce553396ef8043c1e1c42934c32e3d2b",
+      "takeaway": "On emergency applications, the Court paused OSHA's broad vaccine-or-test standard. The challengers were likely to show that it exceeded OSHA's workplace authority. The Court distinguished COVID risks specific to particular occupations, which OSHA could address. This was temporary relief about this standard, not a final ruling against every workplace vaccination requirement.",
+      "takeawaySha256": "ca44817217c4a13377d5e3ec432168099b85296f703b093971a3635cbef06abe",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies stay posture and expressly retained occupational branch.",
@@ -14635,7 +15167,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "On emergency applications, the Court found challengers likely to show that OSHA’s broad vaccine-or-test standard exceeded its workplace authority, and stayed it. The Court distinguished occupation-specific COVID risks that OSHA could address. This was interim relief concerning that standard, rather than a final decision invalidating every workplace vaccination measure.",
+            "takeawaySha256": "e336d5ec020632b7d956fa4c533dce82ce553396ef8043c1e1c42934c32e3d2b"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-biden-missouri",
@@ -14643,8 +15186,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "For interim relief, the Court treated staff vaccination as within the Secretary’s authority to protect patients at Medicare and Medicaid facilities, like other infection controls. It stayed the lower-court injunctions and rejected their stated objections. That emergency ruling did not finally decide every possible challenge to the rule.",
-      "takeawaySha256": "b4ca0bd5c32171107110df37da6e9567dc8bda3c725edd358b6cf4d63d82f20a",
+      "takeaway": "At this preliminary stage, the Court treated staff vaccination as an infection control within the Secretary's authority to protect patients at Medicare and Medicaid facilities. It paused the lower courts' injunctions and rejected their stated objections. The emergency ruling did not finally resolve every possible challenge to the rule.",
+      "takeawaySha256": "e49d391f2444acb10bad102698e030d46e915815191d077b7e6868962e1d5e5e",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies temporary relief rather than final comprehensive adjudication.",
@@ -14674,7 +15217,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "For interim relief, the Court treated staff vaccination as within the Secretary’s authority to protect patients at Medicare and Medicaid facilities, like other infection controls. It stayed the lower-court injunctions and rejected their stated objections. That emergency ruling did not finally decide every possible challenge to the rule.",
+            "takeawaySha256": "b4ca0bd5c32171107110df37da6e9567dc8bda3c725edd358b6cf4d63d82f20a"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-alabama-realtors",
@@ -14682,8 +15236,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The Court lifted a stay because landlords were virtually certain to show that CDC’s disease-control statute did not authorize this nationwide eviction moratorium. Its breadth and intrusion into landlord-tenant law required specific congressional authorization. The order made the district-court judgment enforceable during appeal, rather than itself finally affirming after ordinary review.",
-      "takeawaySha256": "85c9501664a41a611b7d852ea09c3edec9926ef180559379ff7f8883c1849a94",
+      "takeaway": "The Court lifted a stay, allowing the district court's judgment to take effect during the appeal. Landlords were virtually certain to show that CDC's disease-control statute did not authorize this nationwide eviction moratorium. That broad intrusion into landlord-tenant law needed specific congressional authorization. This was a stay ruling, not a final affirmance after ordinary appellate review.",
+      "takeawaySha256": "cac50e83735c1c1340a2ff98f231baf6e46aa68fc21d6f9e73e6f7abb79afb3a",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding preserves emergency posture and action on the stay.",
@@ -14713,7 +15267,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Court lifted a stay because landlords were virtually certain to show that CDC’s disease-control statute did not authorize this nationwide eviction moratorium. Its breadth and intrusion into landlord-tenant law required specific congressional authorization. The order made the district-court judgment enforceable during appeal, rather than itself finally affirming after ordinary review.",
+            "takeawaySha256": "85c9501664a41a611b7d852ea09c3edec9926ef180559379ff7f8883c1849a94"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-i-gray-powell",
@@ -15102,8 +15667,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The Court recognized alleged injury from racially false housing information and from impairment of HOME’s counseling and referral services. Coleman’s individual misinformation claims were nevertheless untimely. Later, FDA v. Alliance explained that an organization cannot manufacture standing merely by choosing to spend resources opposing a policy.",
-      "takeawaySha256": "457806eaa3532c0511cc35b6aa50958fc91a0e3f1893de0a7bc048bca322d4e8",
+      "takeaway": "The Court recognized alleged harm from racially false housing information and from interference with HOME's counseling and referral work. Coleman nevertheless filed her individual misinformation claims too late. FDA v. Alliance later explained an important limit: an organization cannot create standing simply by choosing to spend money opposing a policy.",
+      "takeawaySha256": "29558949230f877e03126ff0750e90486f778426ffdae923b604366b3f8640e8",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding preserves claims/outcome; earlier fresh FDA majority pp. 21–24 supplies the organizational-standing limit.",
@@ -15135,7 +15700,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The Court recognized alleged injury from racially false housing information and from impairment of HOME’s counseling and referral services. Coleman’s individual misinformation claims were nevertheless untimely. Later, FDA v. Alliance explained that an organization cannot manufacture standing merely by choosing to spend resources opposing a policy.",
+            "takeawaySha256": "457806eaa3532c0511cc35b6aa50958fc91a0e3f1893de0a7bc048bca322d4e8"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-standing-raines",
@@ -15340,8 +15916,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The ranchers adequately alleged Article III standing and fell within the relevant provision’s zone of interests. The biological opinion was final agency action because it completed decisionmaking and carried legal consequences, despite its advisory form. The Court allowed review without deciding the opinion’s scientific merits or ordering reservoir levels.",
-      "takeawaySha256": "c3cd43b686b31f9fc613906c74cc2986475c7b064a55e912305ff3d07b3d3e6b",
+      "takeaway": "The ranchers adequately alleged an injury the court could address. Their interests also fit the relevant statute's 'zone of interests.' The biological opinion was reviewable final agency action: it finished the agency's decision process and had legal consequences, despite looking advisory. The Court allowed review without deciding the science or ordering reservoir levels.",
+      "takeawaySha256": "52f1119e5e4db3e0ba737b515182db3e64d05fdbb7715fc8893a70f18b6a17ba",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding distinguishes finality’s legal consequences from an assertion that the action agency literally had to follow all advice.",
@@ -15371,7 +15947,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The ranchers adequately alleged Article III standing and fell within the relevant provision’s zone of interests. The biological opinion was final agency action because it completed decisionmaking and carried legal consequences, despite its advisory form. The Court allowed review without deciding the opinion’s scientific merits or ordering reservoir levels.",
+            "takeawaySha256": "c3cd43b686b31f9fc613906c74cc2986475c7b064a55e912305ff3d07b3d3e6b"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-standing-spokeo",
@@ -15379,8 +15966,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "Spokeo required both particularized and concrete injury and remanded because the court had checked only particularization. Intangible harms can be concrete; a statutory violation alone is insufficient. TransUnion later clarified that an unmaterialized risk by itself does not support retrospective damages, so Spokeo’s risk discussion must be read with that qualification.",
-      "takeawaySha256": "bc491865f2ae406b8087afaa80fa3c08d0ab76470b235ce7a5ced321f0f6d46a",
+      "takeaway": "Spokeo required an injury that was both personal to the plaintiff and concrete. The lower court had checked only the first requirement, so the case went back. Intangible harm can count; a statutory violation alone does not. TransUnion later clarified that a risk that never materialized does not, by itself, support damages for past harm.",
+      "takeawaySha256": "f459c9d017284994dd85e4f2e91b053f30825f8dd8cca463f55d4b027b5dda19",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Spokeo and TransUnion Holdings plus earlier fresh TransUnion pp. 20–23 qualify risk by requested relief.",
@@ -15412,7 +15999,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "Spokeo required both particularized and concrete injury and remanded because the court had checked only particularization. Intangible harms can be concrete; a statutory violation alone is insufficient. TransUnion later clarified that an unmaterialized risk by itself does not support retrospective damages, so Spokeo’s risk discussion must be read with that qualification.",
+            "takeawaySha256": "bc491865f2ae406b8087afaa80fa3c08d0ab76470b235ce7a5ced321f0f6d46a"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-standing-california-texas",
@@ -15420,8 +16018,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "These plaintiffs could not trace their asserted injuries to federal enforcement of the zero-penalty insurance provision, which carried no actual or threatened federal enforcement. The Court therefore did not decide constitutionality or severability. This is a causation-and-redressability holding on that provision, rather than a bar on every pre-enforcement challenge.",
-      "takeawaySha256": "04500f28890607f73898c0c7a3ae924696126dc9113c7de9e88b70f87dc7a2e4",
+      "takeaway": "The insurance provision had a zero penalty, and the federal government was neither enforcing it nor threatening to do so. The plaintiffs could not link their claimed injuries to federal enforcement. The Court therefore did not decide constitutionality or severability. Its ruling addressed causation and whether relief could remedy these injuries; it did not bar every challenge brought before enforcement.",
+      "takeawaySha256": "072ded396cf9bab177787997f747dcda125ee3f939e42b85b35c779a26e007d6",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding identifies absent enforcement link and reserved merits; old first sentence categorically misstated pre-enforcement standing.",
@@ -15451,7 +16049,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "These plaintiffs could not trace their asserted injuries to federal enforcement of the zero-penalty insurance provision, which carried no actual or threatened federal enforcement. The Court therefore did not decide constitutionality or severability. This is a causation-and-redressability holding on that provision, rather than a bar on every pre-enforcement challenge.",
+            "takeawaySha256": "04500f28890607f73898c0c7a3ae924696126dc9113c7de9e88b70f87dc7a2e4"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-standing-us-texas",
@@ -15498,8 +16107,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "The postal workers’ employment interests fell outside the postal-monopoly provisions’ zone of interests, which concerned postal revenue. Their asserted injury alone did not authorize this APA challenge. The test asks whether interests arguably fit the particular statute’s protection or regulation, without demanding proof that Congress specifically intended to benefit the plaintiff.",
-      "takeawaySha256": "9eb49c7d5e677fb6a6e6bb00d78415fd5e0a405e8b7ffec2da78d0620dcfba08",
+      "takeaway": "The postal workers claimed employment harm, but the postal-monopoly provisions protected postal revenue. Their interests fell outside those provisions' 'zone of interests,' so they could not bring this APA challenge. Injury alone was not enough. The test asks whether the plaintiff's interests arguably fit the statute; it does not require proof that Congress specifically meant to benefit that plaintiff.",
+      "takeawaySha256": "356e9be6bb8eb921c478ec25b036b812b8d2c2806e58930d5a362634b831ec01",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding and complete NCUA Holding distinguish zone test from an intended-beneficiary-only test.",
@@ -15529,7 +16138,18 @@
         },
         "inheritedURLs": [],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "The postal workers’ employment interests fell outside the postal-monopoly provisions’ zone of interests, which concerned postal revenue. Their asserted injury alone did not authorize this APA challenge. The test asks whether interests arguably fit the particular statute’s protection or regulation, without demanding proof that Congress specifically intended to benefit the plaintiff.",
+            "takeawaySha256": "9eb49c7d5e677fb6a6e6bb00d78415fd5e0a405e8b7ffec2da78d0620dcfba08"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-n-standing-thompson",
@@ -15617,8 +16237,8 @@
       "courses": [
         "Legislation and the Regulatory State"
       ],
-      "takeaway": "For this direct agency-review petition, standing not apparent from the record needed evidentiary support in the opening brief. Consumer Action’s late submissions failed that requirement. The paper suppliers also fell outside the securities statutes’ zone of interests because their commercial benefit did not align systematically with investor protection.",
-      "takeawaySha256": "8e3d297901eb377f50ee1632558ed6a3fe11e0877660a7c644ad0265390a106f",
+      "takeaway": "For this direct challenge to an agency decision, a petitioner whose standing was not clear from the record had to supply evidence in its opening brief. Consumer Action supplied it too late. The paper suppliers also fell outside the securities laws' 'zone of interests': their commercial benefit did not consistently align with protecting investors.",
+      "takeawaySha256": "e3cda62e4055c0aad2667106fbc4c4213a26cbf8337eafa86348bad81d4b9c66",
       "changed": true,
       "outcome": "Individually rewritten after comparison",
       "changeReason": "Complete Holding conditions opening-brief evidence on standing not otherwise apparent and identifies direct review posture.",
@@ -15650,7 +16270,18 @@
           "https://www.govinfo.gov/content/pkg/USCOURTS-caDC-18-01213/pdf/USCOURTS-caDC-18-01213-0.pdf"
         ],
         "scope": "Source fingerprints prove provenance and detect drift; they do not prove that an unread source passage was reviewed or that every later authority was checked."
-      }
+      },
+      "readabilityHistory": [
+        {
+          "date": "2026-10-29",
+          "ledger": "tools/v28/plain-language.json",
+          "scope": "Readability comparison only. Prior legal-review limits remain. Original source text is retained in the exact-value edit ledger.",
+          "previous": {
+            "takeaway": "For this direct agency-review petition, standing not apparent from the record needed evidentiary support in the opening brief. Consumer Action’s late submissions failed that requirement. The paper suppliers also fell outside the securities statutes’ zone of interests because their commercial benefit did not align systematically with investor protection.",
+            "takeawaySha256": "8e3d297901eb377f50ee1632558ed6a3fe11e0877660a7c644ad0265390a106f"
+          }
+        }
+      ]
     },
     {
       "id": "lrs-k-rucho",

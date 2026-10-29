@@ -397,6 +397,28 @@ def build_data() -> tuple[dict, dict]:
         if entry[3] == "pending" and review.get("v") in ("clean", "corrected"):
             entry[3] = "repaired" if review["v"] == "corrected" else "pass"
             entry[4] = "SOURCE_REVIEW_COMPLETED"
+    # Exact-value readability edits retain the original briefs and their source
+    # records. A per-case revision refreshes older unedited browser copies while
+    # the runtime's existing owner-edit guard continues to protect saved prose.
+    plain28 = json.loads((ROOT / "tools/v28/plain-language.json").read_text(encoding="utf-8"))
+    revised = {}
+    for edit in plain28["briefEdits"]:
+        cid, field = edit["id"], edit["field"]
+        current = full[cid] if field == "full" else sections[cid]["rule"] if field == "rule" else sections[cid]["sections"][field]
+        old, new = edit["from"], edit["to"]
+        if not old or old == new or current.count(old) != edit.get("occurrences", 1):
+            raise ValueError(f"{cid}/{field}: readability edit no longer matches its reviewed source")
+        current = current.replace(old, new)
+        if field == "full":
+            full[cid] = current
+        elif field == "rule":
+            sections[cid]["rule"] = current
+        else:
+            sections[cid]["sections"][field] = current
+        revised.setdefault(cid, []).append(edit)
+    for cid, edits in revised.items():
+        if cid in sections:
+            sections[cid]["rev"] = sections[cid].get("rev", "") + ".plain28-" + digest(json.dumps(edits, sort_keys=True).encode())[:10]
     return dict(chronologies=json.loads((ROOT / "tools/v28/case-chronologies.json").read_text(encoding="utf-8")), sourceLinks=json.loads((ROOT / "tools/v28/source-links.json").read_text(encoding="utf-8")), pdf=pdf["file"], pages=pdf["pages"], version=LABEL, taken=meta["taken"], map=mapping, related=related_auto, entries=entries, sections=sections, skips=skips, audit=audit, changelog=vform_log([CHANGELOG_V28, CHANGELOG_V27, CHANGELOG_V26, CHANGELOG_V25_AUTHORITY_DESIGN, CHANGELOG_V25_READING, CHANGELOG_V24_NARRATIVE, CHANGELOG_V24_AUDIT, CHANGELOG_V25, CHANGELOG_V24, CHANGELOG_V23, CHANGELOG_V221, CHANGELOG_R22, CHANGELOG_R21, CHANGELOG_R2012, CHANGELOG_R2011, CHANGELOG_R2010, CHANGELOG_R209, CHANGELOG_R208, CHANGELOG_R207, CHANGELOG_R206, CHANGELOG_R205, CHANGELOG_R204, CHANGELOG_R203, CHANGELOG_R202, CHANGELOG_R201, CHANGELOG_R20, CHANGELOG_R1919, CHANGELOG_R1918, CHANGELOG_R1917, CHANGELOG_R1916, CHANGELOG_R1915, CHANGELOG_R1914, CHANGELOG_R1913, CHANGELOG_R1912, CHANGELOG_R1911, CHANGELOG_R1910, CHANGELOG_R199, CHANGELOG_R198, CHANGELOG_R197, CHANGELOG_R196, CHANGELOG_R195, CHANGELOG_R194, CHANGELOG_R193, CHANGELOG_R192, CHANGELOG_R191, CHANGELOG])), full
 
 

@@ -86,9 +86,34 @@ function r6StudySentence(t) {
     '',
   );
 }
+// Break long explanations at sentence boundaries, without summarizing, deleting
+// or reordering their text. Names, citations and quoted language remain intact.
+function r6ReadingChunks(text) {
+  const paragraphs = String(text || '').split(/\n\s*\n/);
+  if (typeof Intl.Segmenter !== 'function') return paragraphs;
+  const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
+  return paragraphs.flatMap((paragraph) => {
+    if (paragraph.trim().split(/\s+/).length <= 95) return [paragraph];
+    const chunks = [];
+    let chunk = '';
+    for (const { segment } of segmenter.segment(paragraph)) {
+      if (
+        chunk &&
+        /\s$/.test(chunk) &&
+        !/\b(?:U\.S\.|S\.Ct\.|Inc\.|Corp\.|Co\.|v\.|No\.|Nos\.|n\.|nn\.|Id\.)$/.test(chunk.trim()) &&
+        (chunk + segment).trim().split(/\s+/).length > 70
+      ) {
+        chunks.push(chunk.trim());
+        chunk = '';
+      }
+      chunk += segment;
+    }
+    if (chunk) chunks.push(chunk.trim());
+    return chunks;
+  });
+}
 function r6Paragraphs(t) {
-  return String(t || '')
-    .split(/\n\s*\n/)
+  return r6ReadingChunks(t)
     .filter(Boolean)
     .map((p) => `<p>${E(p)}</p>`)
     .join('');

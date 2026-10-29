@@ -41,6 +41,12 @@ export const tasks = [
   step('source', 'source parts', py('tools/source/test_parts.py')),
   step('source', 'html checker self-test', test('tools/source/check_html.test.cjs')),
   step('features', 'brief loader', test('tools/performance/brief-loader.test.mjs')),
+  step(
+    'features',
+    'readable paragraphs preserve every word',
+    node('tools/v28/readability-check.cjs'),
+    ASSEMBLED,
+  ),
   step('features', 'saved work', node('tools/v25/saved-work_check.cjs')),
   step('features', 'boot', node('tools/v25/boot_check.cjs')),
   step('features', 'reading panel', node('tools/v25/reading_check.cjs')),

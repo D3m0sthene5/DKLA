@@ -45,7 +45,11 @@
       '</div>'
     );
   }
-  const paragraphs = (section) => section.paragraphs.map((p) => `<p>${esc(p)}</p>`).join('');
+  const paragraphs = (section) =>
+    section.paragraphs
+      .flatMap(r6ReadingChunks)
+      .map((p) => `<p>${esc(p)}</p>`)
+      .join('');
   function open(id, trigger) {
     const c = cases.get(id);
     if (!c || dialog.open) return;
