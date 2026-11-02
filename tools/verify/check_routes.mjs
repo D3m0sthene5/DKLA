@@ -39,4 +39,19 @@ for (const version of earlier) {
 for (const redirect of routes.redirects.filter(plain))
   if (/^\/DKLA-[rv][0-9.]+\.html$/.test(redirect.source))
     assert.equal(redirect.destination, current, `${redirect.source} points at an out-of-date atlas`);
+const eoDoor = routes.redirects.find((route) => route.source === '/eo' && plain(route));
+assert.equal(
+  eoDoor?.destination,
+  'https://executive-orders-production-atlas.edgyglove8.chatgpt.site',
+  'The unlisted EO entrance must lead to the existing sign-in-protected control center',
+);
+assert.equal(eoDoor.permanent, false, 'The EO entrance must not permanently cache a destination');
+assert.ok(
+  routes.headers.some(
+    (route) =>
+      route.source === '/eo' &&
+      route.headers.some((header) => header.key === 'X-Robots-Tag' && header.value.includes('noindex')),
+  ),
+  'The unlisted EO entrance must discourage indexing',
+);
 console.log(JSON.stringify({ pass: true, current, oldAddresses: earlier.length }));
