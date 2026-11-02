@@ -21,6 +21,11 @@
   },
   "redirects": [
     {
+      "source": "/eo",
+      "destination": "https://executive-orders-production-atlas.edgyglove8.chatgpt.site",
+      "permanent": false
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -202,6 +207,19 @@
     },
     {
       "source": "/assets/admin/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "private, no-store"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/eo",
       "headers": [
         {
           "key": "Cache-Control",

@@ -207,6 +207,16 @@ const breakages = [
     'vercel.json',
     () => edit('vercel.json', '"source": "/DKLA-r17.html"', '"source": "/DKLA-r17x.html"'),
   ],
+  [
+    'the unlisted EO entrance points at the wrong destination',
+    'vercel.json',
+    () =>
+      edit(
+        'vercel.json',
+        'https://executive-orders-production-atlas.edgyglove8.chatgpt.site',
+        'https://example.invalid',
+      ),
+  ],
 ];
 
 const pass = () => {
