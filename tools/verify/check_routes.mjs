@@ -54,4 +54,16 @@ assert.ok(
   ),
   'The unlisted EO entrance must discourage indexing',
 );
+// The EO project's order cards: relayed from the project's committed page, never indexed.
+const cards = routes.rewrites.find((route) => route.source === '/eo/gesner' && plain(route));
+assert.equal(cards?.destination, '/api/eo-gesner', '/eo/gesner must be served by the relay function');
+assert.ok(fs.existsSync(path.join(root, 'api/eo-gesner.js')), 'The /eo/gesner relay function is missing');
+assert.ok(
+  routes.headers.some(
+    (route) =>
+      route.source === '/eo/gesner' &&
+      route.headers.some((header) => header.key === 'X-Robots-Tag' && header.value.includes('noindex')),
+  ),
+  'The EO order cards must discourage indexing',
+);
 console.log(JSON.stringify({ pass: true, current, oldAddresses: earlier.length }));

@@ -17,12 +17,20 @@
     "api/sync.js": {
       "includeFiles": "lib/analytics/schema.sql",
       "maxDuration": 30
+    },
+    "api/eo-gesner.js": {
+      "maxDuration": 30
     }
   },
   "redirects": [
     {
       "source": "/eo",
       "destination": "https://executive-orders-production-atlas.edgyglove8.chatgpt.site",
+      "permanent": false
+    },
+    {
+      "source": "/eo/gessner",
+      "destination": "/eo/gesner",
       "permanent": false
     },
     {
@@ -130,6 +138,10 @@
   ],
   "rewrites": [
     {
+      "source": "/eo/gesner",
+      "destination": "/api/eo-gesner"
+    },
+    {
       "source": "/admin",
       "destination": "/api/admin?action=page"
     },
@@ -228,6 +240,15 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
+      "source": "/eo/gesner",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }

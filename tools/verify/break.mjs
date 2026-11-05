@@ -217,6 +217,11 @@ const breakages = [
         'https://example.invalid',
       ),
   ],
+  [
+    'the EO order cards are no longer served at /eo/gesner',
+    'vercel.json',
+    () => edit('vercel.json', '"destination": "/api/eo-gesner"', '"destination": "/api/eo-gesner-missing"'),
+  ],
 ];
 
 const pass = () => {
