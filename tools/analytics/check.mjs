@@ -23,9 +23,12 @@ assert.ok(release.includes('First-party semantic analytics'));
 assert.ok(!release.includes('/assets/admin/app.js'));
 const manifest = JSON.parse(await readFile('src/features/manifest.json', 'utf8'));
 assert.equal(manifest.javascript.filter((s) => s === 'src/features/analytics/tracker.js').length, 1);
+// Every server function is listed here on purpose. eo-gesner.js only relays a public page from GitHub and
+// stores or collects nothing.
 assert.deepEqual((await readdir('api')).filter((s) => s.endsWith('.js')).sort(), [
   'admin.js',
   'analytics.js',
+  'eo-gesner.js',
   'sync.js',
 ]);
 const worker = await readFile('work/build/sw.js', 'utf8');
