@@ -20,6 +20,9 @@
     },
     "api/eo-gesner.js": {
       "maxDuration": 30
+    },
+    "api/eo-dashboard.js": {
+      "maxDuration": 30
     }
   },
   "redirects": [
@@ -142,6 +145,14 @@
       "destination": "/api/eo-gesner"
     },
     {
+      "source": "/eo/dashboard",
+      "destination": "/api/eo-dashboard?f=index.html"
+    },
+    {
+      "source": "/eo/dashboard/:f",
+      "destination": "/api/eo-dashboard?f=:f"
+    },
+    {
       "source": "/admin",
       "destination": "/api/admin?action=page"
     },
@@ -245,6 +256,15 @@
     },
     {
       "source": "/eo/gesner",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/eo/dashboard(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
