@@ -180,7 +180,7 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
       calls.push(search);
       return {
         paragraphs: [{ text: 'Study answer.', citations: [1] }],
-        needsWeb: question.includes('Corner Post') && search === 'not-needed',
+        needsWeb: question.includes('outside the Atlas') && search === 'not-needed',
       };
     },
     async ({ question, sources }) => {
@@ -217,7 +217,13 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
 
     const outside = await run('How does Corner Post compare with Loper Bright?');
     assert.equal(outside.search, 'searched');
-    assert.deepEqual(calls.splice(0), ['not-needed', 'research']);
+    assert.deepEqual(calls.splice(0), ['research']);
+
+    const unknownCitation = await run(
+      'What did the majority hold in Anderson v. OpenAI, 999 U.S. 999 (2025)?',
+    );
+    assert.equal(unknownCitation.search, 'searched');
+    assert.deepEqual(calls.splice(0), ['research']);
 
     const webOnly = await run('Zygomorph v. Quadrastelian');
     assert.equal(webOnly.search, 'searched');
@@ -235,7 +241,7 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
       ['cp-iqbal'],
     );
     assert.deepEqual(calls.splice(0), ['research', 'unavailable']);
-    const partial = await run('How does Corner Post compare with Loper Bright?');
+    const partial = await run('How does this case compare with cases outside the Atlas?', 'shoe');
     assert.equal(partial.search, 'unavailable');
     assert.ok(partial.paragraphs.length);
     assert.deepEqual(calls, ['not-needed', 'research']);
@@ -273,7 +279,7 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
       return Response.json({ error: { code: errorCode, message: 'Sensitive details' } }, { status: 429 });
     if (request.tools) {
       assert.deepEqual(request.tools, [{ type: 'web_search' }]);
-      assert.equal(request.max_tool_calls, 2);
+      assert.equal(request.max_tool_calls, 3);
       return Response.json({
         status: 'completed',
         output: [
@@ -284,7 +290,7 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
               url,
               title: 'Opinion',
               start_index: start,
-              end_index: start + link.length,
+              end_index: start,
             },
           ]),
         ],

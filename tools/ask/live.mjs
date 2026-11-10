@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 
-// Opt-in smoke test against an explicitly chosen deployment. Each case can use AI Gateway credits.
+// Opt-in smoke test against an explicitly chosen deployment. Each case can use OpenAI API credits.
 // Run with: node tools/ask/live.mjs https://dannykind.wiki
 const deployment = URL.parse(process.argv[2] ?? '');
 if (
