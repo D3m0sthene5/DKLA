@@ -59,17 +59,21 @@ run the same build and publish it to both domains. Nothing else deploys.
 ## Ask DKLA
 
 Open the Atlas search box and choose **Ask DKLA** to ask directly, or
-type a question into search and choose **Ask DKLA** above the results. Answers cite the published Atlas material they
-use. A numbered citation opens the case, rule, timeline, dictionary entry,
-or Supreme Court record inside DKLA. The AI needs an internet connection.
-Atlas search and offline reading work as before.
+type a question into search and choose **Ask DKLA** above the results. An
+Atlas citation opens its entry inside DKLA. When a question needs outside
+evidence, Ask DKLA searches the public web and labels those citations separately.
+Rankings and current-law claims depend on what the cited sources establish.
+The AI needs an internet connection. Atlas search and offline reading work as before.
 
 In production, set `DKLA_ASK_GATEWAY_OIDC=true` after setting a project
 budget for DKLA in Vercel AI Gateway. The SDK uses Vercel’s project identity
 for budget attribution. For local use or a protected preview, set
 `DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
 The API uses free-credit-eligible Gemini 2.5 Flash with Gateway zero data
-retention and prompt-training restrictions.
+retention and prompt-training restrictions for model calls. A question can also
+trigger one Parallel web search through the same Gateway identity and budget.
+Parallel handles search queries under its own data policy. Web search has a separate
+per-request charge against the available Gateway balance.
 The build prepares a server-only corpus from the published Atlas edition.
 There is no database or history for Ask DKLA. Questions typed into the main
 search bar still fall under its existing analytics policy.

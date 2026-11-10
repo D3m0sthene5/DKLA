@@ -3,6 +3,7 @@ import { gunzipSync } from 'node:zlib';
 import { body, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer } from '../lib/ask/answer.js';
 import { indexCorpus } from '../lib/ask/retrieve.js';
+import { searchWeb, shouldSearch } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
 let index;
@@ -17,7 +18,7 @@ async function retrieve(question, node) {
   return (await index)(question, node);
 }
 
-export function makeAskHandler(generate = generateAnswer) {
+export function makeAskHandler(generate = generateAnswer, research = searchWeb) {
   return async function ask(req, res) {
     if (req.method !== 'POST') {
       res.setHeader('allow', 'POST');
@@ -43,12 +44,37 @@ export function makeAskHandler(generate = generateAnswer) {
         !process.env.AI_GATEWAY_API_KEY;
       if (!apiKey && !projectAuth) return send(res, 503, { error: 'not-configured' });
 
-      const sources = await retrieve(question.trim(), node);
-      if (!sources.length) return send(res, 200, { paragraphs: [], sources: [] });
+      const query = question.trim();
+      const atlas = await retrieve(query, node);
+      const signal = AbortSignal.timeout(25_000);
+      let search = 'not-needed';
+      if (!shouldSearch(query, atlas)) {
+        if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
+        const output = await generate({ apiKey, question: query, sources: atlas, search, signal });
+        if (!output.needsWeb) return send(res, 200, { ...citeAnswer(output, atlas), search });
+      }
 
-      const signal = AbortSignal.timeout(20_000);
-      const output = await generate({ apiKey, question: question.trim(), sources, signal });
-      return send(res, 200, citeAnswer(output, sources));
+      let web = [];
+      try {
+        const context = atlas.find((source) => source.type === 'node' && source.id === node)?.title;
+        web = await research({
+          apiKey,
+          question: query,
+          context,
+          signal: AbortSignal.any([signal, AbortSignal.timeout(10_000)]),
+        });
+        search = 'searched';
+      } catch (error) {
+        if (error.statusCode === 402) throw error;
+        search = 'unavailable';
+      }
+      const sources = [...atlas.slice(0, web.length ? 6 : 9), ...web];
+      if (!sources.length) return send(res, 200, { paragraphs: [], sources: [], search });
+      const answer = citeAnswer(
+        await generate({ apiKey, question: query, sources, search, signal }),
+        sources,
+      );
+      return send(res, 200, { ...answer, search });
     } catch (error) {
       if (error.statusCode === 402) return send(res, 429, { error: 'usage-limit' });
       if (error.statusCode === 429) return send(res, 429, { error: 'rate-limit' });

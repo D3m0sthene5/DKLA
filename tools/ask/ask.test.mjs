@@ -5,6 +5,7 @@ import { test } from 'node:test';
 import { makeAskHandler } from '../../api/ask.js';
 import { citeAnswer } from '../../lib/ask/answer.js';
 import { indexCorpus } from '../../lib/ask/retrieve.js';
+import { shouldSearch, webSources } from '../../lib/ask/web.js';
 
 const corpus = new URL('../../work/build/ask-corpus.json.gz', import.meta.url);
 const records = JSON.parse(gunzipSync(await readFile(corpus)));
@@ -19,6 +20,7 @@ test('the published corpus retrieves both sides of a comparison and specialized 
   assert.ok(ids('What is promissory estoppel?').includes('term:promissory_estoppel'));
   assert.ok(ids('Which justices joined the majority in Loper Bright?').includes('scotus:lrs-i-loper-bright'));
   assert.equal(ids('Why did the court rule that way in this case?', 'shoe')[0], 'node:shoe');
+  assert.ok(ids('Is Iqbal one of the 5 most cited cases ever?').includes('node:cp-iqbal'));
   assert.deepEqual(ids('quantum zucchini neutrino'), []);
 });
 
@@ -79,7 +81,7 @@ test('the API validates requests, stays disabled without a key and abstains on m
     assert.equal(credentials.length, 0);
     process.env.DKLA_ASK_GATEWAY_API_KEY = 'fake-key-for-mock';
     const noAnswer = await request({ body: { question: 'quantum zucchini neutrino' } });
-    assert.deepEqual(noAnswer.json, { paragraphs: [], sources: [] });
+    assert.deepEqual(noAnswer.json, { paragraphs: [], sources: [], search: 'not-needed' });
     assert.equal(credentials.length, 0);
     const answer = await request();
     assert.equal(answer.statusCode, 200);
@@ -105,5 +107,114 @@ test('the API validates requests, stays disabled without a key and abstains on m
       if (value === undefined) delete process.env[key];
       else process.env[key] = value;
     }
+  }
+});
+
+test('web citations come from bounded provider results and preserve mixed source numbering', () => {
+  const url = 'https://example.edu/study';
+  const sources = webSources([
+    { url: 'javascript:alert(1)', excerpts: ['Unsafe'] },
+    { url: 'https://reader:secret@example.edu', excerpts: ['Unsafe'] },
+    { url: 'https://127.0.0.1/page', excerpts: ['Unsafe'] },
+    { url: 'https://host.test/page', excerpts: ['Unsafe'] },
+    { url, excerpts: [' ', null] },
+    { url, title: ' Citation study ', publish_date: '2015-09-09', excerpts: ['Iqbal ranked fourth.'] },
+    { url, title: 'Duplicate', excerpts: ['Duplicate'] },
+  ]);
+  assert.equal(sources.length, 1);
+  assert.equal(sources[0].text, 'Page publication date: 2015-09-09\nIqbal ranked fourth.');
+  const atlas = retrieve('What did Iqbal hold?')[0];
+  const answer = citeAnswer(
+    {
+      paragraphs: [
+        { text: 'Ranking.', citations: [2] },
+        { text: 'Atlas context.', citations: [1] },
+      ],
+    },
+    [atlas, ...sources],
+  );
+  assert.deepEqual(answer.sources[0], {
+    type: 'web',
+    id: 'web-1',
+    title: 'Citation study',
+    category: 'example.edu',
+    url,
+  });
+  assert.equal(answer.sources[1].id, atlas.id);
+  assert.deepEqual(
+    answer.paragraphs.map((p) => p.citations),
+    [[1], [2]],
+  );
+  assert.equal(shouldSearch('Is Iqbal one of the 5 most cited cases ever?', [atlas]), true);
+  assert.equal(shouldSearch('How did Iqbal change pleading?', [atlas]), false);
+});
+
+test('hybrid research covers a ranking, an Atlas gap, and search failure', async () => {
+  const key = process.env.DKLA_ASK_GATEWAY_API_KEY;
+  process.env.DKLA_ASK_GATEWAY_API_KEY = 'fake-key-for-mock';
+  const calls = [];
+  let unavailable = false;
+  const ask = makeAskHandler(
+    async ({ question, sources, search }) => {
+      calls.push(search);
+      if (question.includes('Corner Post') && search === 'not-needed')
+        return { paragraphs: [], needsWeb: true };
+      const web = sources.findIndex(({ type }) => type === 'web');
+      return {
+        paragraphs: [{ text: 'Study answer.', citations: web < 0 ? [1] : [web + 1, 1] }],
+        needsWeb: false,
+      };
+    },
+    async ({ question }) => {
+      calls.push('research');
+      if (unavailable) throw Error('Provider failure');
+      return webSources([
+        { url: 'https://example.edu/study', title: 'Source for ' + question, excerpts: ['Evidence'] },
+      ]);
+    },
+  );
+  const run = async (question, node) => {
+    const req = {
+      method: 'POST',
+      headers: { host: 'dkla.test', origin: 'https://dkla.test', 'content-type': 'application/json' },
+      body: { question, node },
+    };
+    const res = { setHeader() {}, end: (json) => (res.json = JSON.parse(json)) };
+    await ask(req, res);
+    assert.equal(res.statusCode, 200);
+    return res.json;
+  };
+  try {
+    const ranking = await run('Is Iqbal one of the 5 most cited cases ever?', 'cp-iqbal');
+    assert.equal(ranking.search, 'searched');
+    assert.deepEqual(
+      ranking.sources.map(({ id }) => id),
+      ['web-1', 'cp-iqbal'],
+    );
+    assert.deepEqual(calls.splice(0), ['research', 'searched']);
+
+    const outside = await run('How does Corner Post compare with Loper Bright?');
+    assert.equal(outside.search, 'searched');
+    assert.deepEqual(calls.splice(0), ['not-needed', 'research', 'searched']);
+
+    const webOnly = await run('Zygomorph v. Quadrastelian');
+    assert.equal(webOnly.search, 'searched');
+    assert.deepEqual(
+      webOnly.sources.map(({ type }) => type),
+      ['web'],
+    );
+    assert.deepEqual(calls.splice(0), ['research', 'searched']);
+
+    unavailable = true;
+    const fallback = await run('Is Iqbal still good law?', 'cp-iqbal');
+    assert.equal(fallback.search, 'unavailable');
+    assert.deepEqual(
+      fallback.sources.map(({ id }) => id),
+      ['cp-iqbal'],
+    );
+    assert.deepEqual(calls, ['research', 'unavailable']);
+  } finally {
+    if (key === undefined) delete process.env.DKLA_ASK_GATEWAY_API_KEY;
+    else process.env.DKLA_ASK_GATEWAY_API_KEY = key;
   }
 });

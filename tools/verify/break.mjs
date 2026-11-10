@@ -54,6 +54,11 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'Ask DKLA web citations lose their external-link safeguards',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', "link.rel = 'noopener noreferrer';", "link.rel = '';"),
+  ],
+  [
     'Ask DKLA citations close the dialog without opening the source',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),

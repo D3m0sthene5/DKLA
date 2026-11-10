@@ -15,48 +15,66 @@
 }
 #dklaAskDialog {
   box-sizing: border-box;
-  width: min(640px, calc(100vw - 28px));
-  max-height: min(760px, calc(100dvh - 28px));
-  padding: clamp(17px, 4vw, 30px);
+  width: min(720px, calc(100vw - 24px));
+  max-height: min(820px, calc(100dvh - 24px));
+  padding: clamp(16px, 4vw, 30px);
   border: 1px solid #44645f;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: auto;
-  background: #152625;
+  overscroll-behavior: contain;
+  background: linear-gradient(150deg, #1a2d2b, #152423 45%);
   color: #e6eeeb;
+  color-scheme: dark;
   font-family: inherit;
+}
+#dklaAskDialog [hidden] {
+  display: none !important;
 }
 #dklaAskDialog::backdrop {
   background: rgb(7 14 17 / 76%);
 }
 #dklaAskDialog .ask-heading,
-#dklaAskDialog .ask-form > div {
+#dklaAskDialog .ask-form > div,
+#dklaAskDialog .ask-progress {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-#dklaAskDialog .ask-heading {
+#dklaAskDialog .ask-heading,
+#dklaAskDialog .ask-progress {
   justify-content: space-between;
 }
 #dklaAskDialog .ask-eyebrow {
-  color: #9cd8c3;
+  color: #a5dfcb;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
 }
 #dklaAskDialog h2 {
   margin: 4px 0 0;
-  font-size: 27px;
+  font-size: clamp(27px, 5vw, 34px);
+  line-height: 1.12;
 }
 #dklaAskDialog .ask-close {
-  font-size: 21px;
+  display: grid;
+  min-width: 38px;
+  min-height: 38px;
+  place-items: center;
+  font-size: 22px;
   line-height: 1;
+}
+#dklaAskDialog .ask-intro {
+  margin: 8px 0 0;
+  color: #bed2ca;
+  line-height: 1.45;
 }
 #dklaAskDialog .ask-form {
   margin-top: 20px;
 }
-#dklaAskDialog label {
+#dklaAskDialog label,
+#dklaAskDialog .ask-examples p {
   display: block;
-  margin-bottom: 5px;
+  margin: 0 0 5px;
   color: #c6d9d1;
   font-size: 13px;
 }
@@ -67,7 +85,7 @@
   flex: 1;
   width: 100%;
   min-width: 0;
-  min-height: 40px;
+  min-height: 44px;
   max-height: 120px;
   field-sizing: content;
   resize: vertical;
@@ -80,6 +98,8 @@
   font-size: 16px;
 }
 #dklaAskDialog button[type='submit'] {
+  min-width: 54px;
+  min-height: 44px;
   background: #a6e0c8;
   color: #112522;
   font-weight: 700;
@@ -87,33 +107,82 @@
 #dklaAskDialog button[type='submit']:disabled {
   opacity: 0.65;
 }
+#dklaAskDialog .ask-examples {
+  margin-top: 14px;
+}
+#dklaAskDialog .ask-examples button {
+  margin: 4px 4px 0 0;
+  padding: 7px 10px;
+  border: 1px solid #46655b;
+  border-radius: 999px;
+  background: #1a302e;
+  color: #d3eee4;
+  text-align: left;
+  white-space: normal;
+}
+#dklaAskDialog .ask-examples button:hover {
+  background: #26453d;
+}
 #dklaAskDialog .ask-scope,
 #dklaAskDialog .ask-status,
 #dklaAskDialog footer,
 #dklaAskDialog li small {
-  color: #b5c9c1;
+  color: #b9cec5;
   font-size: 13px;
+  line-height: 1.45;
+}
+#dklaAskDialog .ask-scope {
+  margin: 9px 0 0;
+}
+#dklaAskDialog .ask-status {
+  margin: 10px 0 0;
+}
+#dklaAskDialog .ask-status:empty {
+  margin: 0;
+}
+#dklaAskDialog .ask-cancel {
+  margin: 8px 0 0;
+  min-height: 34px;
 }
 #dklaAskDialog .ask-answer {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.58;
   overflow-wrap: anywhere;
 }
+#dklaAskDialog .ask-answer p {
+  margin: 12px 0 0;
+}
 #dklaAskDialog .ask-answer h3 {
-  margin: 18px 0 4px;
+  margin: 17px 0 8px;
+  padding-top: 12px;
+  border-top: 1px solid #38524b;
   font-size: 14px;
 }
-#dklaAskDialog .ask-answer ol {
+#dklaAskDialog .ask-sources {
+  display: grid;
+  gap: 8px;
   margin: 0;
-  padding-left: 22px;
+  padding: 0 0 0 25px;
 }
-#dklaAskDialog .ask-answer li {
-  margin-bottom: 8px;
+#dklaAskDialog .ask-sources li {
+  padding: 7px 11px;
+  border: 1px solid #38524b;
+  border-radius: 9px;
+  background: #172b29;
 }
-#dklaAskDialog .ask-answer li small {
-  display: block;
+#dklaAskDialog .ask-sources li::marker {
+  color: #b0c9bf;
+  font-size: 12px;
 }
-#dklaAskDialog .ask-answer button {
+#dklaAskDialog .ask-sources li small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+#dklaAskDialog .ask-answer button,
+#dklaAskDialog .ask-answer a,
+#dklaAskDialog footer a {
   display: inline;
   padding: 0;
   border: 0;
@@ -124,20 +193,32 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-#dklaAskDialog .ask-answer .ask-citation {
+#dklaAskDialog .ask-answer a {
+  color: #bedafa;
+}
+#dklaAskDialog .ask-answer .ask-citation,
+#dklaAskDialog .ask-origin {
   padding: 1px 6px;
   border-radius: 9px;
   background: #29483f;
+  color: #dbf6eb;
   font-size: 12px;
   text-decoration: none;
+}
+#dklaAskDialog .ask-answer .ask-citation {
   vertical-align: 1px;
+}
+#dklaAskDialog .ask-answer .ask-citation-web,
+#dklaAskDialog .ask-origin-web {
+  background: #243e56;
+  color: #e4f0ff;
 }
 #dklaAskDialog :focus-visible {
   outline: 2px solid #bcf5df;
   outline-offset: 3px;
 }
 #dklaAskDialog footer {
-  margin-top: 18px;
+  margin-top: 16px;
   padding-top: 10px;
   border-top: 1px solid #38524b;
 }
