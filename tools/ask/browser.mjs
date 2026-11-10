@@ -99,6 +99,13 @@ try {
     await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
     const search = page.locator('#search');
+    // Dottie Docket appears once at a time, in the pose that matches the state.
+    const mascot = (pose) => page.locator(`#dklaAskDialog .ask-dottie[data-pose="${pose}"]`);
+    async function expectOnlyDottie(pose) {
+      await expect(page.locator('#dklaAskDialog .ask-dottie')).toHaveCount(1);
+      await expect(mascot(pose)).toHaveCount(1);
+      await expect(mascot(pose)).toHaveAttribute('aria-hidden', 'true');
+    }
     async function enterSearch(value) {
       await search.focus();
       await page.keyboard.press('ControlOrMeta+A');
@@ -112,10 +119,18 @@ try {
     assert.equal(asked, 0, 'Normal search must not send a paid request');
 
     await enterSearch(question);
+    await expect(page.locator('#searchResults .ask-search .ask-launch-face svg')).toHaveCount(2);
     await page.getByRole('button', { name: /Ask DKLA.*AI answer/ }).click();
     const dialog = page.getByRole('dialog', { name: 'Ask DKLA' });
     await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
     assert.equal(asked, 1);
+    // The signature moment: one joey per cited source, rising once the sources are in view.
+    const carrier = dialog.locator('.ask-sources-heading .ask-dottie[data-pose="carrying"]');
+    await expectOnlyDottie('carrying');
+    await expect(carrier.locator('.dottie-joey')).toHaveCount(2);
+    await expect(dialog.locator('.ask-sources-heading')).toHaveText('Sources');
+    await carrier.scrollIntoViewIfNeeded();
+    await expect(carrier).toHaveClass(/is-peeking/);
     await expect(dialog).toContainText('minimum contacts');
     await expect(dialog.locator('.ask-citation')).toHaveCount(2);
     await dialog.locator('.ask-citation').first().click();
@@ -126,6 +141,7 @@ try {
     await page.getByRole('button', { name: /Ask DKLA.*AI answer/ }).click();
     const input = dialog.getByLabel('Your question');
     await expect(input).toBeFocused();
+    await expectOnlyDottie('curious');
     await dialog.getByRole('button', { name: rankingQuestion }).click();
     await expect(input).toHaveValue(rankingQuestion);
     await expect(input).toBeFocused();
@@ -135,6 +151,7 @@ try {
     await expect(dialog.locator('.ask-citation')).toHaveText(['2', '1', '3']);
     await expect(dialog.locator('.ask-origin')).toHaveText(['Atlas', 'Web', 'Web']);
     await expect(dialog.locator('.ask-sources li')).toHaveCount(3);
+    await expect(carrier.locator('.dottie-joey')).toHaveCount(3);
     const rankingLink = dialog.locator('a.ask-citation').first();
     await expect(rankingLink).toHaveAttribute('href', rankingUrl);
     await expect(rankingLink).toHaveAttribute('target', '_blank');
@@ -156,6 +173,7 @@ try {
     await input.fill('A question outside the Atlas');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('did not establish an answer');
+    await expectOnlyDottie('quiet');
     await input.fill('Can the Atlas answer on its own?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('Web search was unavailable');
@@ -165,19 +183,35 @@ try {
     await input.press('Enter');
     await expect.poll(() => asked).toBe(6);
     await expect(dialog.getByRole('status')).toHaveText('Looking for relevant sources…');
+    await expectOnlyDottie('reading');
     await dialog.getByRole('button', { name: 'Cancel' }).click();
     finishCanceledRequest();
     await expect(dialog.getByRole('status')).toHaveText('Search canceled.');
+    await expect(dialog.locator('.ask-dottie')).toHaveCount(0);
     await expect(input).toBeFocused();
 
     await input.fill('Why is the model unavailable?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('unavailable here');
+    await expectOnlyDottie('possum');
     await context.setOffline(true);
     await input.fill('Can I ask while offline?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('needs an internet connection');
+    await expectOnlyDottie('possum');
     assert.equal(asked, 7);
+    // With reduced motion she appears in place, without the rise.
+    await context.setOffline(false);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await input.fill(question);
+    await input.press('Enter');
+    await expect(carrier).toHaveCount(1);
+    assert.equal(await carrier.locator('svg').evaluate((svg) => getComputedStyle(svg).translate), '0px');
+    assert.equal(
+      await carrier.locator('svg').evaluate((svg) => getComputedStyle(svg).transitionDuration),
+      '0s',
+    );
+    assert.equal(asked, 8);
     await input.press('Escape');
     await expect(dialog).toBeHidden();
     await context.close();

@@ -54,6 +54,11 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'Ask DKLA mascot: Dottie stops carrying one joey per cited source',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', "setDottie('carrying', cited.size)", "setDottie('carrying', 1)"),
+  ],
+  [
     'Ask DKLA web citations lose their external-link safeguards',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', "link.rel = 'noopener noreferrer';", "link.rel = '';"),

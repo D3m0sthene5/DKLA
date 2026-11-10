@@ -13,6 +13,30 @@
 #searchResults .ask-search small {
   color: #b5cec6;
 }
+#searchResults .ask-search strong {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+/* Dottie's face replaces the old sparkle; she winks when the launcher is hovered or focused. */
+#searchResults .ask-launch-face {
+  display: inline-grid;
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+#searchResults .ask-launch-face svg {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+}
+#searchResults .ask-launch-face .dottie-wink,
+#searchResults .ask-search:is(:hover, :focus-visible) .dottie-face {
+  visibility: hidden;
+}
+#searchResults .ask-search:is(:hover, :focus-visible) .dottie-wink {
+  visibility: visible;
+}
 #dklaAskDialog {
   box-sizing: border-box;
   width: min(720px, calc(100vw - 24px));
@@ -221,4 +245,167 @@
   margin-top: 16px;
   padding-top: 10px;
   border-top: 1px solid #38524b;
+}
+
+/* Dottie Docket (dottie.js): one pose at a time, beside the line that is talking. */
+#dklaAskDialog .ask-dottie {
+  display: block;
+  flex: none;
+  animation: dottie-in 0.25s ease-out;
+}
+#dklaAskDialog .ask-dottie svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+#dklaAskDialog .ask-examples {
+  position: relative;
+}
+/* Desktop: she sits in the free space beside the example questions. */
+#dklaAskDialog .ask-examples-label .ask-dottie {
+  position: absolute;
+  right: 6px;
+  bottom: 0;
+  width: 112px;
+}
+/* At the right edge she turns to face the content. */
+#dklaAskDialog .ask-examples-label .ask-dottie svg,
+#dklaAskDialog .ask-dottie-peek svg {
+  scale: -1 1;
+}
+#dklaAskDialog .ask-progress .ask-status {
+  flex: 1;
+}
+#dklaAskDialog .ask-progress .ask-dottie {
+  width: 70px;
+  margin: 8px 0 0;
+}
+#dklaAskDialog .ask-progress .ask-dottie[data-pose='possum'] {
+  width: 76px;
+}
+#dklaAskDialog .ask-dottie .dottie-glass {
+  transform-box: fill-box;
+  animation: dottie-scan 2.2s ease-in-out infinite alternate;
+}
+#dklaAskDialog .ask-dottie .dottie-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dottie-twinkle 0.7s 0.15s ease-out both;
+}
+
+/* The signature moment: she rises from behind the source list with her docket. */
+#dklaAskDialog .ask-answer .ask-sources-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+#dklaAskDialog .ask-sources li {
+  position: relative;
+}
+/* The window crops her feet, so she reads as standing behind the first source. */
+#dklaAskDialog .ask-dottie-peek {
+  width: 118px;
+  height: 57px;
+  margin: -8px 8px -4px 0;
+  overflow: hidden;
+  animation: none;
+}
+#dklaAskDialog .ask-dottie-peek svg {
+  translate: 0 104%;
+  transition: translate 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+#dklaAskDialog .ask-dottie-peek .dottie-joey-body {
+  transform-box: fill-box;
+  translate: 0 10px;
+  opacity: 0;
+  transition:
+    translate 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.4),
+    opacity 0.2s;
+}
+#dklaAskDialog .ask-dottie-peek.is-peeking svg {
+  translate: 0 0;
+}
+#dklaAskDialog .ask-dottie-peek.is-peeking .dottie-joey-body {
+  translate: 0 0;
+  opacity: 1;
+}
+#dklaAskDialog .ask-dottie-peek.is-peeking [data-joey='1'] .dottie-joey-body {
+  transition-delay: 0.42s;
+}
+#dklaAskDialog .ask-dottie-peek.is-peeking [data-joey='2'] .dottie-joey-body {
+  transition-delay: 0.52s;
+}
+#dklaAskDialog .ask-dottie-peek.is-peeking [data-joey='3'] .dottie-joey-body {
+  transition-delay: 0.62s;
+}
+/* Each joey stands for one listed source: pointing at a source wakes its joey. */
+#dklaAskDialog
+  .ask-answer:has(.ask-sources li:nth-child(1):is(:hover, :focus-within))
+  [data-joey='1']
+  .dottie-joey-body,
+#dklaAskDialog
+  .ask-answer:has(.ask-sources li:nth-child(2):is(:hover, :focus-within))
+  [data-joey='2']
+  .dottie-joey-body,
+#dklaAskDialog
+  .ask-answer:has(.ask-sources li:nth-child(3):is(:hover, :focus-within))
+  [data-joey='3']
+  .dottie-joey-body {
+  translate: 0 -4px;
+  transition-delay: 0s;
+}
+
+@keyframes dottie-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes dottie-scan {
+  from {
+    translate: -9px 1px;
+  }
+}
+@keyframes dottie-twinkle {
+  from {
+    scale: 0;
+    rotate: -45deg;
+  }
+}
+@media (max-width: 520px) {
+  /* Phone: the questions fill the width, so she sits on the label line instead. */
+  #dklaAskDialog .ask-examples {
+    margin-top: 22px;
+  }
+  #dklaAskDialog .ask-examples p.ask-examples-label {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  #dklaAskDialog .ask-examples-label .ask-dottie {
+    position: static;
+    width: 66px;
+    margin: -24px 4px -7px 0;
+  }
+  #dklaAskDialog .ask-progress .ask-dottie {
+    width: 58px;
+  }
+  #dklaAskDialog .ask-dottie-peek {
+    width: 100px;
+    height: 48px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #dklaAskDialog .ask-dottie,
+  #dklaAskDialog .ask-dottie * {
+    animation: none !important;
+    transition: none !important;
+  }
+  #dklaAskDialog .ask-dottie-peek svg,
+  #dklaAskDialog .ask-dottie-peek .dottie-joey-body {
+    translate: 0 0;
+    opacity: 1;
+  }
 }

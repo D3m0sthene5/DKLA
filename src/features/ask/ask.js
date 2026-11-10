@@ -20,7 +20,7 @@
     </form>
     <p class="ask-scope" hidden></p>
     <div class="ask-examples">
-      <p>Try a question</p>
+      <p class="ask-examples-label">Try a question</p>
       <button type="button">How did International Shoe change Pennoyer?</button>
       <button type="button">Is Iqbal one of the five most cited cases ever?</button>
     </div>
@@ -43,6 +43,38 @@
   let request;
   let scopedEntry;
   let openingSource = false;
+
+  // Dottie Docket (dottie.js) appears in one place at a time, beside the line
+  // that describes the current state. She is decorative: every state is still
+  // announced by the status line, and she is absent if her artwork is missing.
+  const dottie = window.DKLADottie;
+  const mascot = document.createElement('span');
+  mascot.className = 'ask-dottie';
+  mascot.setAttribute('aria-hidden', 'true');
+  const examplesLabel = examples.querySelector('.ask-examples-label');
+  const progress = dialog.querySelector('.ask-progress');
+  const peek = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries)
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-peeking');
+          peek.unobserve(entry.target);
+        }
+    },
+    { root: dialog, threshold: 0.9 },
+  );
+
+  // pose: curious | reading | carrying | quiet | possum | null (hidden).
+  function setDottie(pose, option) {
+    peek.disconnect();
+    mascot.className = 'ask-dottie';
+    if (!dottie || !pose) return mascot.remove();
+    mascot.dataset.pose = pose;
+    mascot.innerHTML = dottie.svg(pose, option);
+    if (pose === 'curious') examplesLabel.append(mascot);
+    else if (pose !== 'carrying') progress.prepend(mascot);
+    return mascot;
+  }
 
   const openers = {
     node: (id) => goNode(id, true),
@@ -91,6 +123,7 @@
   function render({ paragraphs, sources, search: searchStatus }) {
     if (!Array.isArray(paragraphs) || !Array.isArray(sources)) throw Error('Invalid answer');
     if (!paragraphs.length) {
+      setDottie(searchStatus === 'unavailable' ? 'possum' : 'quiet');
       status.textContent =
         searchStatus === 'unavailable'
           ? 'The Atlas did not have enough evidence, and web search was unavailable. Try again or add a case name or citation.'
@@ -126,7 +159,16 @@
 
     if (cited.size) {
       const heading = document.createElement('h3');
+      heading.className = 'ask-sources-heading';
       heading.textContent = 'Sources';
+      // The signature moment: Dottie peeks up from behind the sources carrying
+      // her docket, one joey per cited source (up to three). On a phone the
+      // sources are often below the fold, so she waits until they scroll in.
+      const carrier = setDottie('carrying', cited.size);
+      if (carrier) {
+        carrier.classList.add('ask-dottie-peek');
+        heading.append(carrier);
+      }
       const list = document.createElement('ol');
       list.className = 'ask-sources';
       for (const number of [...cited].sort((a, b) => a - b)) {
@@ -144,7 +186,9 @@
       }
       content.append(heading, list);
     }
+    if (!cited.size) setDottie(null);
     answer.append(content);
+    if (cited.size && mascot.isConnected) peek.observe(mascot);
     status.textContent =
       searchStatus === 'unavailable'
         ? 'Answer from the Atlas. Web search was unavailable.'
@@ -171,12 +215,14 @@
     examples.hidden = true;
     answer.replaceChildren();
     if (!navigator.onLine) {
+      setDottie('possum');
       status.textContent = 'Ask DKLA needs an internet connection. Atlas search still works offline.';
       return;
     }
     const controller = new AbortController();
     request = controller;
     setResearching(true);
+    setDottie('reading');
     status.textContent = 'Looking for relevant sources…';
     try {
       const response = await fetch('/api/ask', {
@@ -190,11 +236,13 @@
       if (response.status === 429) {
         const problem = await response.json().catch(() => null);
         if (request !== controller) return;
+        setDottie('possum');
         status.textContent =
           problem?.error === 'usage-limit'
             ? 'Ask DKLA has reached its current AI allowance. Atlas search is still available.'
             : 'Ask DKLA is busy. Try again in a minute.';
       } else if (response.status === 503 || response.status === 404) {
+        setDottie('possum');
         status.textContent = 'AI answers are unavailable here. You can still search the Atlas.';
       } else if (response.ok) {
         const result = await response.json();
@@ -203,7 +251,10 @@
         throw Error('Answer unavailable');
       }
     } catch {
-      if (request === controller) status.textContent = 'Ask DKLA couldn’t finish that answer. Try again.';
+      if (request === controller) {
+        setDottie('possum');
+        status.textContent = 'Ask DKLA couldn’t finish that answer. Try again.';
+      }
     } finally {
       if (request === controller) {
         request = null;
@@ -231,6 +282,7 @@
     request?.abort();
     request = null;
     setResearching(false);
+    setDottie(null);
     status.textContent = 'Search canceled.';
     input.focus();
   });
@@ -255,6 +307,7 @@
     scopeLabel.hidden = true;
     examples.hidden = Boolean(question);
     answer.replaceChildren();
+    setDottie(question ? null : 'curious');
     dialog.showModal();
     input.focus();
     if (question) ask();
@@ -264,7 +317,15 @@
   button.type = 'button';
   button.className = 'ask-search';
   button.setAttribute('aria-haspopup', 'dialog');
-  button.innerHTML = '<strong>✦ Ask DKLA</strong><small>Get an AI answer with Atlas and web sources</small>';
+  button.innerHTML =
+    '<strong>' +
+    (dottie
+      ? '<span class="ask-launch-face" aria-hidden="true">' +
+        dottie.svg('face') +
+        dottie.svg('wink') +
+        '</span>'
+      : '✦ ') +
+    'Ask DKLA</strong><small>Get an AI answer with Atlas and web sources</small>';
   button.addEventListener('click', () => {
     const question = search.value.trim();
     if (question.length <= 600) launch(question);
