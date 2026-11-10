@@ -71,8 +71,9 @@ for budget attribution. For local use or a protected preview, set
 `DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
 The API routes across free-credit-eligible OpenAI GPT-5 and Gemini 2.5 models
 with Gateway zero data retention and prompt-training restrictions for model calls. A question can also
-trigger one Parallel web search through the same Gateway identity and budget.
-Parallel handles search queries under its own data policy. Web search has a separate
+trigger a Parallel web search through the same Gateway identity and budget, with
+Exa as a fallback. Search providers handle queries under their own data policies.
+Web search has a separate
 per-request charge against the available Gateway balance.
 The build prepares a server-only corpus from the published Atlas edition.
 There is no database or history for Ask DKLA. Questions typed into the main

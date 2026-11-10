@@ -1,7 +1,8 @@
+import { NoObjectGeneratedError } from 'ai';
 import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
 import { body, sameOrigin, send } from '../lib/analytics/security.js';
-import { citeAnswer, generateAnswer } from '../lib/ask/answer.js';
+import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { indexCorpus } from '../lib/ask/retrieve.js';
 import { searchWeb, shouldSearch } from '../lib/ask/web.js';
 
@@ -24,6 +25,7 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
       res.setHeader('allow', 'POST');
       return send(res, 405, { error: 'method-not-allowed' });
     }
+    let search = 'not-needed';
     try {
       sameOrigin(req);
       if (req.headers['content-type']?.split(';')[0].trim().toLowerCase() !== 'application/json')
@@ -46,8 +48,7 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
 
       const query = question.trim();
       const atlas = await retrieve(query, node);
-      const signal = AbortSignal.timeout(25_000);
-      let search = 'not-needed';
+      const signal = AbortSignal.timeout(41_000);
       if (!shouldSearch(query, atlas)) {
         if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
         const output = await generate({ apiKey, question: query, sources: atlas, search, signal });
@@ -61,12 +62,16 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
           apiKey,
           question: query,
           context,
-          signal: AbortSignal.any([signal, AbortSignal.timeout(10_000)]),
+          signal,
         });
         search = 'searched';
       } catch (error) {
         if (error.statusCode === 402) throw error;
-        const status = Number.isInteger(error.statusCode) ? error.statusCode : 'no result';
+        const status = Number.isInteger(error.statusCode)
+          ? error.statusCode
+          : error.name === 'TimeoutError' || error.name === 'AbortError'
+            ? 'timeout'
+            : 'no result';
         console.warn('Ask DKLA web search unavailable:', status);
         search = 'unavailable';
       }
@@ -78,6 +83,8 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
       );
       return send(res, 200, { ...answer, search });
     } catch (error) {
+      if (error instanceof InvalidCitations || NoObjectGeneratedError.isInstance(error))
+        return send(res, 200, { paragraphs: [], sources: [], search });
       if (error.statusCode === 402) return send(res, 429, { error: 'usage-limit' });
       if (error.statusCode === 429) {
         console.warn('Ask DKLA Gateway rate limit');

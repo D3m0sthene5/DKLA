@@ -32,7 +32,11 @@ test('the published corpus retrieves both sides of a comparison and specialized 
 
 test('answers use only server-owned citations and reject unknown or missing references', () => {
   const sources = retrieve('How did International Shoe change Pennoyer?');
-  const answer = citeAnswer({ paragraphs: [{ text: 'Two decisions.', citations: [3, 1, 3] }] }, sources);
+  const answer = citeAnswer(
+    { paragraphs: [{ text: 'Two decisions. (See excerpts 3 and 1.)', citations: [3, 1, 3] }] },
+    sources,
+  );
+  assert.equal(answer.paragraphs[0].text, 'Two decisions.');
   assert.deepEqual(answer.paragraphs[0].citations, [1, 2]);
   assert.deepEqual(
     answer.sources.map((source) => source.id),
@@ -128,6 +132,10 @@ test('web citations come from bounded provider results and preserve mixed source
     { url, title: 'Duplicate', excerpts: ['Duplicate'] },
   ]);
   assert.equal(sources.length, 1);
+  assert.equal(
+    webSources([{ url, publishedDate: '2015-09-09T00:00:00Z', highlights: ['An excerpt.'] }])[0].text,
+    'Page publication date: 2015-09-09\nAn excerpt.',
+  );
   assert.equal(sources[0].text, 'Page publication date: 2015-09-09\nIqbal ranked fourth.');
   const atlas = retrieve('What did Iqbal hold?')[0];
   const answer = citeAnswer(
