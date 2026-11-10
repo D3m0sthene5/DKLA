@@ -29,7 +29,7 @@
       <button type="button" class="ask-cancel" hidden>Cancel</button>
     </div>
     <div class="ask-answer"></div>
-    <footer>Questions may go to Gemini and web search providers. Avoid entering private details. <a href="/privacy.html">Privacy</a></footer>`;
+    <footer>Questions may go to AI and web search providers. Avoid entering private details. <a href="/privacy.html">Privacy</a></footer>`;
   document.body.appendChild(dialog);
 
   const form = dialog.querySelector('form');

@@ -69,8 +69,8 @@ In production, set `DKLA_ASK_GATEWAY_OIDC=true` after setting a project
 budget for DKLA in Vercel AI Gateway. The SDK uses Vercel’s project identity
 for budget attribution. For local use or a protected preview, set
 `DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
-The API uses free-credit-eligible Gemini 2.5 Flash with Gateway zero data
-retention and prompt-training restrictions for model calls. A question can also
+The API routes across free-credit-eligible OpenAI GPT-5 and Gemini 2.5 models
+with Gateway zero data retention and prompt-training restrictions for model calls. A question can also
 trigger one Parallel web search through the same Gateway identity and budget.
 Parallel handles search queries under its own data policy. Web search has a separate
 per-request charge against the available Gateway balance.

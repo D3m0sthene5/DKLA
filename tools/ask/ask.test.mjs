@@ -21,6 +21,12 @@ test('the published corpus retrieves both sides of a comparison and specialized 
   assert.ok(ids('Which justices joined the majority in Loper Bright?').includes('scotus:lrs-i-loper-bright'));
   assert.equal(ids('Why did the court rule that way in this case?', 'shoe')[0], 'node:shoe');
   assert.ok(ids('Is Iqbal one of the 5 most cited cases ever?').includes('node:cp-iqbal'));
+  const statute = retrieve('what are the three parts of the rules enabling act').find(
+    ({ id }) => id === 'cp-usc-2072',
+  );
+  assert.match(statute?.text, /\(a\) The Supreme Court/);
+  assert.match(statute?.text, /\(b\) Such rules shall not abridge/);
+  assert.match(statute?.text, /\(c\) Such rules may define/);
   assert.deepEqual(ids('quantum zucchini neutrino'), []);
 });
 

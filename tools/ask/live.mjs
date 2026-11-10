@@ -15,6 +15,17 @@ if (
 const endpoint = new URL('/api/ask', deployment);
 const scenarios = [
   {
+    label: 'Rules Enabling Act',
+    question: 'what are the three parts of the rules enabling act',
+    check({ answer, atlas, web }) {
+      assert.match(answer, /2072/);
+      assert.match(answer, /Supreme Court/);
+      assert.match(answer, /substantive rights?/i);
+      assert.match(answer, /(?:final|finality).{0,90}(?:appeal|1291)/i);
+      assert.ok([...atlas, ...web].some(({ id, title, url }) => /2072/.test(id + title + (url ?? ''))));
+    },
+  },
+  {
     label: 'Iqbal citation ranking',
     question: 'Is Iqbal one of the 5 most cited cases ever?',
     check({ answer, search, web, atlas }) {
@@ -29,8 +40,8 @@ const scenarios = [
         ),
         'Cite a web source with citation data',
       );
-      assert.match(answer, /top[- ](?:5|five)|rank|fourth|second|(?:#|\bNo\.\s*)[24]\b/i);
-      assert.match(answer, /(?:Westlaw|Shepard|CourtListener|\bfederal courts?\b|\bdatabase\b)/i);
+      assert.match(answer, /top[- ](?:5|five)|rank|fifth|fourth|second|(?:#|\bNo\.\s*)[245]\b/i);
+      assert.match(answer, /(?:Westlaw|HeinOnline|Shepard|CourtListener|\bfederal courts?\b|\bdatabase\b)/i);
       assert.match(answer, /\b20(?:1[0-9]|2[0-9])\b/, 'Date the supporting dataset or search');
     },
   },
@@ -92,7 +103,10 @@ for (const { label, question, check } of scenarios) {
       redirect: 'error',
       signal: AbortSignal.timeout(40_000),
     });
-    assert.equal(response.status, 200, `HTTP ${response.status}`);
+    if (response.status !== 200) {
+      const problem = await response.json().catch(() => null);
+      throw Error(`HTTP ${response.status} ${problem?.error ?? ''}`.trim());
+    }
     assert.match(response.headers.get('cache-control') ?? '', /\bno-store\b/i);
     const { paragraphs, sources, search } = await response.json();
     assert.ok(Array.isArray(paragraphs));

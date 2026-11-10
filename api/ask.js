@@ -66,6 +66,8 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
         search = 'searched';
       } catch (error) {
         if (error.statusCode === 402) throw error;
+        const status = Number.isInteger(error.statusCode) ? error.statusCode : 'no result';
+        console.warn('Ask DKLA web search unavailable:', status);
         search = 'unavailable';
       }
       const sources = [...atlas.slice(0, web.length ? 6 : 9), ...web];
@@ -77,7 +79,10 @@ export function makeAskHandler(generate = generateAnswer, research = searchWeb) 
       return send(res, 200, { ...answer, search });
     } catch (error) {
       if (error.statusCode === 402) return send(res, 429, { error: 'usage-limit' });
-      if (error.statusCode === 429) return send(res, 429, { error: 'rate-limit' });
+      if (error.statusCode === 429) {
+        console.warn('Ask DKLA Gateway rate limit');
+        return send(res, 429, { error: 'rate-limit' });
+      }
       if (error.statusCode === 403) {
         // Keep the provider error out of the browser and the question out of the logs.
         const text = String(error.message || '');
