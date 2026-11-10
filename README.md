@@ -72,7 +72,9 @@ for budget attribution. For local use or a protected preview, set
 The API routes across free-credit-eligible OpenAI GPT-5 and Gemini 2.5 models
 with Gateway zero data retention and prompt-training restrictions for model calls. A question can also
 trigger a Parallel web search through the same Gateway identity and budget, with
-Exa as a fallback. Search providers handle queries under their own data policies.
+Exa as a fallback. Citation-ranking questions can also read HeinOnline’s published
+2018 ranking directly as dated evidence. Search providers handle queries under
+their own data policies.
 Web search has a separate
 per-request charge against the available Gateway balance.
 The build prepares a server-only corpus from the published Atlas edition.

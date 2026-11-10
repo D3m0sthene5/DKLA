@@ -58,12 +58,12 @@ const scenarios = [
         web.some(({ title, url }) => {
           const { hostname, pathname } = new URL(url);
           return (
-            /(^|\.)(?:supremecourt\.gov|govinfo\.gov|loc\.gov)$/.test(hostname) &&
+            /(?:^|\.)(?:supremecourt\.gov|govinfo\.gov|loc\.gov|supreme\.justia\.com)$/.test(hostname) &&
             !/^\/(?:docket|docketpdf)(?:\/|$)/i.test(pathname) &&
             /corner\s+post|22-1008|603[-/]799/i.test(title + ' ' + url)
           );
         }),
-        'Cite the official Corner Post opinion',
+        'Cite the Corner Post opinion text from the court or an opinion library',
       );
       assert.match(answer, /(?:injur|harmed)/i);
       assert.match(answer, /final agency action/i);

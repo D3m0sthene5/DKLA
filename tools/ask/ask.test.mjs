@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import { makeAskHandler } from '../../api/ask.js';
 import { citeAnswer } from '../../lib/ask/answer.js';
 import { indexCorpus } from '../../lib/ask/retrieve.js';
-import { shouldSearch, webSources } from '../../lib/ask/web.js';
+import { citationTable, shouldSearch, webSources } from '../../lib/ask/web.js';
 
 const corpus = new URL('../../work/build/ask-corpus.json.gz', import.meta.url);
 const records = JSON.parse(gunzipSync(await readFile(corpus)));
@@ -118,6 +118,20 @@ test('the API validates requests, stays disabled without a key and abstains on m
       else process.env[key] = value;
     }
   }
+});
+
+test('the case-citation ranking parser selects the cases table instead of the articles table', () => {
+  const rows = Array.from({ length: 25 }, (_, i) => `<li>Case ${i + 1}: <b>Cited by 1,234 cases</b>!</li>`);
+  const html =
+    '<p>Top 25 most-cited (by articles)</p><ol><li>Article</li></ol>' +
+    '<p>Top 25 most-cited (by cases) U.S. Supreme Court cases:</p><ol>' +
+    rows.join('') +
+    '</ol>';
+  const evidence = citationTable(html);
+  assert.match(evidence, /2018/);
+  assert.match(evidence, /5\. Case 5: Cited by 1,234 cases/);
+  assert.doesNotMatch(evidence, /Article/);
+  assert.equal(citationTable(html.replace(rows[0], '')), null);
 });
 
 test('web citations come from bounded provider results and preserve mixed source numbering', () => {
