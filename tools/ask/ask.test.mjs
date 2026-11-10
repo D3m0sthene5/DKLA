@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
-import { test } from 'node:test';
+import { mock, test } from 'node:test';
 import { makeAskHandler } from '../../api/ask.js';
-import { citeAnswer } from '../../lib/ask/answer.js';
+import { citeAnswer, generateAnswer } from '../../lib/ask/answer.js';
 import { indexCorpus } from '../../lib/ask/retrieve.js';
-import { citationTable, shouldSearch, webSources } from '../../lib/ask/web.js';
+import { answerWithSearch, citationTable, shouldSearch, webSources } from '../../lib/ask/web.js';
 
 const corpus = new URL('../../work/build/ask-corpus.json.gz', import.meta.url);
 const records = JSON.parse(gunzipSync(await readFile(corpus)));
@@ -48,7 +48,7 @@ test('answers use only server-owned citations and reject unknown or missing refe
 });
 
 test('the API validates requests, stays disabled without a key and abstains on missing sources', async () => {
-  const keys = ['DKLA_ASK_GATEWAY_API_KEY', 'DKLA_ASK_GATEWAY_OIDC', 'VERCEL_ENV', 'AI_GATEWAY_API_KEY'];
+  const keys = ['DKLA_OPENAI_API_KEY', 'DKLA_ASK_GATEWAY_API_KEY', 'DKLA_ASK_GATEWAY_OIDC', 'VERCEL_ENV'];
   const original = new Map(keys.map((key) => [key, process.env[key]]));
   for (const key of keys) delete process.env[key];
   const credentials = [];
@@ -89,7 +89,7 @@ test('the API validates requests, stays disabled without a key and abstains on m
     );
     assert.equal((await request()).statusCode, 503);
     assert.equal(credentials.length, 0);
-    process.env.DKLA_ASK_GATEWAY_API_KEY = 'fake-key-for-mock';
+    process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
     const noAnswer = await request({ body: { question: 'quantum zucchini neutrino' } });
     assert.deepEqual(noAnswer.json, { paragraphs: [], sources: [], search: 'not-needed' });
     assert.equal(credentials.length, 0);
@@ -98,16 +98,13 @@ test('the API validates requests, stays disabled without a key and abstains on m
     assert.equal(answer.json.sources[0].id, 'shoe');
     assert.deepEqual(credentials, ['fake-key-for-mock']);
 
-    delete process.env.DKLA_ASK_GATEWAY_API_KEY;
+    delete process.env.DKLA_OPENAI_API_KEY;
+    process.env.DKLA_ASK_GATEWAY_API_KEY = 'legacy-gateway-key';
     process.env.DKLA_ASK_GATEWAY_OIDC = 'true';
-    process.env.VERCEL_ENV = 'preview';
-    assert.equal((await request()).statusCode, 503);
     process.env.VERCEL_ENV = 'production';
-    process.env.AI_GATEWAY_API_KEY = 'unbudgeted-default';
     assert.equal((await request()).statusCode, 503);
-    delete process.env.AI_GATEWAY_API_KEY;
-    assert.equal((await request()).statusCode, 200);
-    assert.deepEqual(credentials, ['fake-key-for-mock', undefined]);
+    assert.deepEqual(credentials, ['fake-key-for-mock']);
+    process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
     limited = true;
     const exhausted = await request();
     assert.equal(exhausted.statusCode, 429);
@@ -142,15 +139,11 @@ test('web citations come from bounded provider results and preserve mixed source
     { url: 'https://127.0.0.1/page', excerpts: ['Unsafe'] },
     { url: 'https://host.test/page', excerpts: ['Unsafe'] },
     { url, excerpts: [' ', null] },
-    { url, title: ' Citation study ', publish_date: '2015-09-09', excerpts: ['Iqbal ranked fourth.'] },
+    { url, title: ' Citation study ', excerpts: ['Iqbal ranked fourth in 2015.'] },
     { url, title: 'Duplicate', excerpts: ['Duplicate'] },
   ]);
   assert.equal(sources.length, 1);
-  assert.equal(
-    webSources([{ url, publishedDate: '2015-09-09T00:00:00Z', highlights: ['An excerpt.'] }])[0].text,
-    'Page publication date: 2015-09-09\nAn excerpt.',
-  );
-  assert.equal(sources[0].text, 'Page publication date: 2015-09-09\nIqbal ranked fourth.');
+  assert.equal(sources[0].text, 'Iqbal ranked fourth in 2015.');
   const atlas = retrieve('What did Iqbal hold?')[0];
   const answer = citeAnswer(
     {
@@ -178,27 +171,28 @@ test('web citations come from bounded provider results and preserve mixed source
 });
 
 test('hybrid research covers a ranking, an Atlas gap, and search failure', async () => {
-  const key = process.env.DKLA_ASK_GATEWAY_API_KEY;
-  process.env.DKLA_ASK_GATEWAY_API_KEY = 'fake-key-for-mock';
+  const key = process.env.DKLA_OPENAI_API_KEY;
+  process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
   const calls = [];
   let unavailable = false;
   const ask = makeAskHandler(
     async ({ question, sources, search }) => {
       calls.push(search);
-      if (question.includes('Corner Post') && search === 'not-needed')
-        return { paragraphs: [], needsWeb: true };
-      const web = sources.findIndex(({ type }) => type === 'web');
       return {
-        paragraphs: [{ text: 'Study answer.', citations: web < 0 ? [1] : [web + 1, 1] }],
-        needsWeb: false,
+        paragraphs: [{ text: 'Study answer.', citations: [1] }],
+        needsWeb: question.includes('Corner Post') && search === 'not-needed',
       };
     },
-    async ({ question }) => {
+    async ({ question, sources }) => {
       calls.push('research');
       if (unavailable) throw Error('Provider failure');
-      return webSources([
+      const web = webSources([
         { url: 'https://example.edu/study', title: 'Source for ' + question, excerpts: ['Evidence'] },
       ]);
+      return citeAnswer(
+        { paragraphs: [{ text: 'Study answer.', citations: sources.length ? [1, 2] : [1] }] },
+        [...web, ...sources],
+      );
     },
   );
   const run = async (question, node) => {
@@ -219,11 +213,11 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
       ranking.sources.map(({ id }) => id),
       ['web-1', 'cp-iqbal'],
     );
-    assert.deepEqual(calls.splice(0), ['research', 'searched']);
+    assert.deepEqual(calls.splice(0), ['research']);
 
     const outside = await run('How does Corner Post compare with Loper Bright?');
     assert.equal(outside.search, 'searched');
-    assert.deepEqual(calls.splice(0), ['not-needed', 'research', 'searched']);
+    assert.deepEqual(calls.splice(0), ['not-needed', 'research']);
 
     const webOnly = await run('Zygomorph v. Quadrastelian');
     assert.equal(webOnly.search, 'searched');
@@ -231,7 +225,7 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
       webOnly.sources.map(({ type }) => type),
       ['web'],
     );
-    assert.deepEqual(calls.splice(0), ['research', 'searched']);
+    assert.deepEqual(calls.splice(0), ['research']);
 
     unavailable = true;
     const fallback = await run('Is Iqbal still good law?', 'cp-iqbal');
@@ -240,9 +234,92 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
       fallback.sources.map(({ id }) => id),
       ['cp-iqbal'],
     );
-    assert.deepEqual(calls, ['research', 'unavailable']);
+    assert.deepEqual(calls.splice(0), ['research', 'unavailable']);
+    const partial = await run('How does Corner Post compare with Loper Bright?');
+    assert.equal(partial.search, 'unavailable');
+    assert.ok(partial.paragraphs.length);
+    assert.deepEqual(calls, ['not-needed', 'research']);
   } finally {
-    if (key === undefined) delete process.env.DKLA_ASK_GATEWAY_API_KEY;
-    else process.env.DKLA_ASK_GATEWAY_API_KEY = key;
+    if (key === undefined) delete process.env.DKLA_OPENAI_API_KEY;
+    else process.env.DKLA_OPENAI_API_KEY = key;
+  }
+});
+
+test('direct OpenAI transport keeps provider annotations and distinguishes credit exhaustion', async () => {
+  const url = 'https://example.edu/opinion';
+  const link = '[opinion](' + url + ')';
+  const text =
+    'The deadline runs from injury. ' +
+    link +
+    '\nThe Atlas covers deference. [A1]\nUncited claim.\nInvalid reference. [A9]';
+  const start = text.indexOf(link);
+  const output = {
+    needsWeb: false,
+    paragraphs: [{ text: 'The deadline runs from injury.', citations: [1] }],
+  };
+  const reply = (text, annotations = []) => ({
+    type: 'message',
+    role: 'assistant',
+    content: [{ type: 'output_text', text, annotations }],
+  });
+  let errorCode;
+  const transport = mock.method(globalThis, 'fetch', async (endpoint, options) => {
+    assert.equal(endpoint, 'https://api.openai.com/v1/responses');
+    assert.equal(options.headers.authorization, 'Bearer mock-openai-key');
+    assert.equal(options.redirect, 'error');
+    const request = JSON.parse(options.body);
+    assert.equal(request.store, false);
+    if (errorCode)
+      return Response.json({ error: { code: errorCode, message: 'Sensitive details' } }, { status: 429 });
+    if (request.tools) {
+      assert.deepEqual(request.tools, [{ type: 'web_search' }]);
+      assert.equal(request.max_tool_calls, 2);
+      return Response.json({
+        status: 'completed',
+        output: [
+          { type: 'web_search_call', status: 'completed' },
+          reply(text, [
+            {
+              type: 'url_citation',
+              url,
+              title: 'Opinion',
+              start_index: start,
+              end_index: start + link.length,
+            },
+          ]),
+        ],
+      });
+    }
+    assert.equal(request.text.format.strict, true);
+    assert.equal(request.reasoning.effort, 'none');
+    assert.equal(JSON.parse(request.input).excerpts[0].origin, 'Atlas excerpt');
+    return Response.json({ status: 'completed', output: [reply(JSON.stringify(output))] });
+  });
+  try {
+    const input = {
+      apiKey: 'mock-openai-key',
+      question: 'What did Corner Post hold?',
+      signal: AbortSignal.timeout(1000),
+    };
+    const sources = [{ type: 'node', id: 'lrs-i-loper-bright', title: 'Loper Bright', text: 'Atlas text.' }];
+    const answer = { ...input, sources, search: 'searched' };
+    const researched = await answerWithSearch(answer);
+    assert.equal(transport.mock.callCount(), 1);
+    assert.deepEqual(
+      researched.sources.map((source) => source.url ?? source.id),
+      [url, 'lrs-i-loper-bright'],
+    );
+    assert.deepEqual(researched.paragraphs, [
+      { text: 'The deadline runs from injury.', citations: [1] },
+      { text: 'The Atlas covers deference.', citations: [2] },
+    ]);
+    assert.deepEqual(await generateAnswer(answer), output);
+    assert.equal(transport.mock.callCount(), 2);
+    errorCode = 'credit_balance_exhausted';
+    await assert.rejects(generateAnswer(answer), { statusCode: 402, message: 'OpenAI request failed' });
+    errorCode = 'rate_limit_exceeded';
+    await assert.rejects(generateAnswer(answer), { statusCode: 429 });
+  } finally {
+    transport.mock.restore();
   }
 });

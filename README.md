@@ -65,18 +65,12 @@ evidence, Ask DKLA searches the public web and labels those citations separately
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
-In production, set `DKLA_ASK_GATEWAY_OIDC=true` after setting a project
-budget for DKLA in Vercel AI Gateway. The SDK uses Vercel’s project identity
-for budget attribution. For local use or a protected preview, set
-`DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
-The API routes across free-credit-eligible OpenAI GPT-5 and Gemini 2.5 models
-with Gateway zero data retention and prompt-training restrictions for model calls. A question can also
-trigger a Parallel web search through the same Gateway identity and budget, with
-Exa as a fallback. Citation-ranking questions can also read HeinOnline’s published
-2018 ranking directly as dated evidence. Search providers handle queries under
-their own data policies.
-Web search has a separate
-per-request charge against the available Gateway balance.
+Set `DKLA_OPENAI_API_KEY` in the server's secret environment. Use a dedicated
+OpenAI project key from the API organization with your active ChatGPT Pro credit grant.
+Ask DKLA calls the OpenAI Responses API directly with response storage disabled. Atlas
+questions use a short structured response. For questions that need outside evidence,
+the same OpenAI request searches and writes the answer. Citation-ranking questions
+can also use the published 2018 HeinOnline ranking, cached for one hour per server instance.
 The build prepares a server-only corpus from the published Atlas edition.
 There is no database or history for Ask DKLA. Questions typed into the main
 search bar still fall under its existing analytics policy.
