@@ -37,7 +37,11 @@ export function makeAskHandler(generate = generateAnswer) {
         return send(res, 400, { error: 'invalid-question' });
 
       const apiKey = process.env.DKLA_ASK_GATEWAY_API_KEY;
-      if (!apiKey) return send(res, 503, { error: 'not-configured' });
+      const projectAuth =
+        process.env.DKLA_ASK_GATEWAY_OIDC === 'true' &&
+        process.env.VERCEL_ENV === 'production' &&
+        !process.env.AI_GATEWAY_API_KEY;
+      if (!apiKey && !projectAuth) return send(res, 503, { error: 'not-configured' });
 
       const sources = await retrieve(question.trim(), node);
       if (!sources.length) return send(res, 200, { paragraphs: [], sources: [] });
@@ -46,6 +50,20 @@ export function makeAskHandler(generate = generateAnswer) {
       const output = await generate({ apiKey, question: question.trim(), sources, signal });
       return send(res, 200, citeAnswer(output, sources));
     } catch (error) {
+      if (error.statusCode === 402) return send(res, 429, { error: 'usage-limit' });
+      if (error.statusCode === 429) return send(res, 429, { error: 'rate-limit' });
+      if (error.statusCode === 403) {
+        // Keep the provider error out of the browser and the question out of the logs.
+        const text = String(error.message || '');
+        const reason = /zero data retention|\bZDR\b/i.test(text)
+          ? 'privacy'
+          : /free.tier|requires purchased credits/i.test(text)
+            ? 'free-tier'
+            : /customer_verification_required|payment method/i.test(text)
+              ? 'verification'
+              : 'access';
+        console.warn('Ask DKLA Gateway denied:', reason);
+      }
       if (error.status >= 400 && error.status < 500) return send(res, error.status, { error: error.message });
       return send(res, 502, { error: 'answer-unavailable' });
     }

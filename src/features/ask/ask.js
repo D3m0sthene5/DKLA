@@ -114,7 +114,12 @@
       });
       if (request !== controller) return;
       if (response.status === 429) {
-        status.textContent = 'Ask DKLA is busy. Try again in a minute.';
+        const problem = await response.json().catch(() => null);
+        if (request !== controller) return;
+        status.textContent =
+          problem?.error === 'usage-limit'
+            ? 'Ask DKLA has reached its current AI allowance. Atlas search is still available.'
+            : 'Ask DKLA is busy. Try again in a minute.';
       } else if (response.status === 503 || response.status === 404) {
         status.textContent = 'AI answers are unavailable here. You can still search the Atlas.';
       } else if (response.ok) {

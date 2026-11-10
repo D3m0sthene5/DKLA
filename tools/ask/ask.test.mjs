@@ -36,11 +36,14 @@ test('answers use only server-owned citations and reject unknown or missing refe
 });
 
 test('the API validates requests, stays disabled without a key and abstains on missing sources', async () => {
-  const original = process.env.DKLA_ASK_GATEWAY_API_KEY;
-  delete process.env.DKLA_ASK_GATEWAY_API_KEY;
-  let calls = 0;
-  const ask = makeAskHandler(async ({ sources, question }) => {
-    calls++;
+  const keys = ['DKLA_ASK_GATEWAY_API_KEY', 'DKLA_ASK_GATEWAY_OIDC', 'VERCEL_ENV', 'AI_GATEWAY_API_KEY'];
+  const original = new Map(keys.map((key) => [key, process.env[key]]));
+  for (const key of keys) delete process.env[key];
+  const credentials = [];
+  let limited = false;
+  const ask = makeAskHandler(async ({ apiKey, sources, question }) => {
+    credentials.push(apiKey);
+    if (limited) throw Object.assign(new Error('budget exceeded'), { statusCode: 402 });
     assert.equal(question, 'How did International Shoe change Pennoyer?');
     assert.ok(sources.some((source) => source.id === 'cp-pennoyer'));
     return { paragraphs: [{ text: 'Example answer.', citations: [1] }] };
@@ -73,17 +76,34 @@ test('the API validates requests, stays disabled without a key and abstains on m
       400,
     );
     assert.equal((await request()).statusCode, 503);
-    assert.equal(calls, 0);
+    assert.equal(credentials.length, 0);
     process.env.DKLA_ASK_GATEWAY_API_KEY = 'fake-key-for-mock';
     const noAnswer = await request({ body: { question: 'quantum zucchini neutrino' } });
     assert.deepEqual(noAnswer.json, { paragraphs: [], sources: [] });
-    assert.equal(calls, 0);
+    assert.equal(credentials.length, 0);
     const answer = await request();
     assert.equal(answer.statusCode, 200);
     assert.equal(answer.json.sources[0].id, 'shoe');
-    assert.equal(calls, 1);
+    assert.deepEqual(credentials, ['fake-key-for-mock']);
+
+    delete process.env.DKLA_ASK_GATEWAY_API_KEY;
+    process.env.DKLA_ASK_GATEWAY_OIDC = 'true';
+    process.env.VERCEL_ENV = 'preview';
+    assert.equal((await request()).statusCode, 503);
+    process.env.VERCEL_ENV = 'production';
+    process.env.AI_GATEWAY_API_KEY = 'unbudgeted-default';
+    assert.equal((await request()).statusCode, 503);
+    delete process.env.AI_GATEWAY_API_KEY;
+    assert.equal((await request()).statusCode, 200);
+    assert.deepEqual(credentials, ['fake-key-for-mock', undefined]);
+    limited = true;
+    const exhausted = await request();
+    assert.equal(exhausted.statusCode, 429);
+    assert.deepEqual(exhausted.json, { error: 'usage-limit' });
   } finally {
-    if (original === undefined) delete process.env.DKLA_ASK_GATEWAY_API_KEY;
-    else process.env.DKLA_ASK_GATEWAY_API_KEY = original;
+    for (const [key, value] of original) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
   }
 });

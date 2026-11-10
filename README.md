@@ -64,12 +64,12 @@ use. A numbered citation opens the case, rule, timeline, dictionary entry,
 or Supreme Court record inside DKLA. The AI needs an internet connection.
 Atlas search and offline reading work as before.
 
-To enable AI answers in a protected Vercel preview, set
-`DKLA_ASK_GATEWAY_API_KEY` to a dedicated Vercel AI Gateway API key with its
-own spend limit. The API uses Gemini with Gateway zero data retention and
-prompt-training restrictions. Before enabling the key for public traffic,
-add a [Vercel Firewall rate limit](https://vercel.com/docs/vercel-firewall/vercel-waf/rate-limiting)
-to `POST /api/ask` (for example, 5 requests per IP per minute).
+In production, set `DKLA_ASK_GATEWAY_OIDC=true` after setting a project
+budget for DKLA in Vercel AI Gateway. The SDK uses Vercel’s project identity
+for budget attribution. For local use or a protected preview, set
+`DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
+The API uses Gemini with Gateway zero data retention and prompt-training
+restrictions.
 The build prepares a server-only corpus from the published Atlas edition.
 There is no database or history for Ask DKLA. Questions typed into the main
 search bar still fall under its existing analytics policy.
