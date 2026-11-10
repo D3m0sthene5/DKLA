@@ -22,7 +22,7 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | `tools/r12/` | Three course layout designs still read by the geography check. |
 | `tools/verify/` | **Checks.** See "How to know it still works". |
 | `tools/*.mjs`, `tools/source/` | The build, the local preview server, and tools for reading single records out of `src/data`. |
-| `api/`, `lib/` | **Server.** Three Vercel functions (analytics, the admin dashboard, ratings sync) and their library. |
+| `api/`, `lib/` | **Server.** Vercel functions for analytics, the admin dashboard, ratings sync, and Ask DKLA. |
 | `assets/admin/` | The private dashboard's page, script and styles. |
 | `added-sources/` | **Content.** The assigned readings, opinions, briefs and dictionary source (660 MB of PDFs and text). Published as-is. |
 | `DKLA-sources/` | Manifest of the scanned casebook pages (the images themselves are not in the repository). |
@@ -49,12 +49,30 @@ pnpm build       # writes work/build/ and the public dist/
 pnpm preview     # builds, then serves dist/ at http://127.0.0.1:8766/
 ```
 
-`work/build/DKLA-v2.8.html` is a complete single-file copy of the atlas.
+`work/build/DKLA-v2.9.html` is a complete single-file copy of the atlas.
 `dist/` is exactly what the website serves: the same page with the full
 briefs split out so they load when opened.
 
 Pushing to the branch `claude/atlas-design-content-audit-m1cw9x` makes Vercel
 run the same build and publish it to both domains. Nothing else deploys.
+
+## Ask DKLA
+
+Open the Atlas search box and choose **Ask DKLA** to ask directly, or
+type a question into search and choose **Ask DKLA** above the results. Answers cite the published Atlas material they
+use. A numbered citation opens the case, rule, timeline, dictionary entry,
+or Supreme Court record inside DKLA. The AI needs an internet connection.
+Atlas search and offline reading work as before.
+
+To enable AI answers in a protected Vercel preview, set
+`DKLA_ASK_GATEWAY_API_KEY` to a dedicated Vercel AI Gateway API key with its
+own spend limit. The API uses Gemini with Gateway zero data retention and
+prompt-training restrictions. Before enabling the key for public traffic,
+add a [Vercel Firewall rate limit](https://vercel.com/docs/vercel-firewall/vercel-waf/rate-limiting)
+to `POST /api/ask` (for example, 5 requests per IP per minute).
+The build prepares a server-only corpus from the published Atlas edition.
+There is no database or history for Ask DKLA. Questions typed into the main
+search bar still fall under its existing analytics policy.
 
 ## How to know it still works
 

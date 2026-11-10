@@ -54,6 +54,11 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'Ask DKLA citations close the dialog without opening the source',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
+  ],
+  [
     'case timelines: pushed below the detailed account',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),

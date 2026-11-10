@@ -6,6 +6,11 @@
   "buildCommand": "node tools/build.mjs",
   "installCommand": "pnpm install --frozen-lockfile",
   "functions": {
+    "api/ask.js": {
+      "installCommand": "pnpm install --frozen-lockfile && node tools/ask/build.mjs --function",
+      "includeFiles": "work/build/ask-corpus.json.gz",
+      "maxDuration": 30
+    },
     "api/analytics.js": {
       "includeFiles": "lib/analytics/**",
       "maxDuration": 30
@@ -60,82 +65,87 @@
     },
     {
       "source": "/DKLA-r8.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r16.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r17.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r18.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r19.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r20.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r21.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-r22.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v22.1.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v23.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v24.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v25.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v2.4.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v2.5.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v2.6.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     },
     {
       "source": "/DKLA-v2.7.html",
-      "destination": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
+      "permanent": false
+    },
+    {
+      "source": "/DKLA-v2.8.html",
+      "destination": "/DKLA-v2.9.html",
       "permanent": false
     }
   ],
@@ -158,7 +168,7 @@
     },
     {
       "source": "/",
-      "destination": "/DKLA-v2.8.html"
+      "destination": "/DKLA-v2.9.html"
     }
   ],
   "headers": [

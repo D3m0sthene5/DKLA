@@ -8,6 +8,7 @@ const py = (...args) => [python, ['-X', 'utf8', ...args]],
 const production = process.env.VERCEL_ENV === 'production';
 export const buildSteps = [
   { name: 'assemble the atlas', command: py('tools/r19/assemble.py'), needs: [] },
+  { name: 'Ask DKLA corpus', command: node('tools/ask/build.mjs'), needs: ['assemble the atlas'] },
   { name: 'check the assembled atlas', command: py('tools/r19/check.py'), needs: ['assemble the atlas'] },
   {
     name: 'analytics catalogue',

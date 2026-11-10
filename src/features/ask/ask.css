@@ -1,0 +1,143 @@
+#searchResults .ask-search {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 1px solid #526b65;
+  background: #1a302f;
+  color: #dbf6eb;
+}
+#searchResults .ask-search:hover,
+#searchResults .ask-search:focus-visible {
+  background: #26433e;
+}
+#searchResults .ask-search small {
+  color: #b5cec6;
+}
+#dklaAskDialog {
+  box-sizing: border-box;
+  width: min(640px, calc(100vw - 28px));
+  max-height: min(760px, calc(100dvh - 28px));
+  padding: clamp(17px, 4vw, 30px);
+  border: 1px solid #44645f;
+  border-radius: 18px;
+  overflow: auto;
+  background: #152625;
+  color: #e6eeeb;
+  font-family: inherit;
+}
+#dklaAskDialog::backdrop {
+  background: rgb(7 14 17 / 76%);
+}
+#dklaAskDialog .ask-heading,
+#dklaAskDialog .ask-form > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#dklaAskDialog .ask-heading {
+  justify-content: space-between;
+}
+#dklaAskDialog .ask-eyebrow {
+  color: #9cd8c3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+#dklaAskDialog h2 {
+  margin: 4px 0 0;
+  font-size: 27px;
+}
+#dklaAskDialog .ask-close {
+  font-size: 21px;
+  line-height: 1;
+}
+#dklaAskDialog .ask-form {
+  margin-top: 20px;
+}
+#dklaAskDialog label {
+  display: block;
+  margin-bottom: 5px;
+  color: #c6d9d1;
+  font-size: 13px;
+}
+#dklaAskDialog .ask-form > div {
+  align-items: flex-start;
+}
+#dklaAskDialog textarea {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  max-height: 120px;
+  field-sizing: content;
+  resize: vertical;
+  padding: 9px 11px;
+  border: 1px solid #57736c;
+  border-radius: 8px;
+  background: #101d1d;
+  color: #f3f8f6;
+  font: inherit;
+  font-size: 16px;
+}
+#dklaAskDialog button[type='submit'] {
+  background: #a6e0c8;
+  color: #112522;
+  font-weight: 700;
+}
+#dklaAskDialog button[type='submit']:disabled {
+  opacity: 0.65;
+}
+#dklaAskDialog .ask-scope,
+#dklaAskDialog .ask-status,
+#dklaAskDialog footer,
+#dklaAskDialog li small {
+  color: #b5c9c1;
+  font-size: 13px;
+}
+#dklaAskDialog .ask-answer {
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+#dklaAskDialog .ask-answer h3 {
+  margin: 18px 0 4px;
+  font-size: 14px;
+}
+#dklaAskDialog .ask-answer ol {
+  margin: 0;
+  padding-left: 22px;
+}
+#dklaAskDialog .ask-answer li {
+  margin-bottom: 8px;
+}
+#dklaAskDialog .ask-answer li small {
+  display: block;
+}
+#dklaAskDialog .ask-answer button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #b3e8d4;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#dklaAskDialog .ask-answer .ask-citation {
+  padding: 1px 6px;
+  border-radius: 9px;
+  background: #29483f;
+  font-size: 12px;
+  text-decoration: none;
+  vertical-align: 1px;
+}
+#dklaAskDialog :focus-visible {
+  outline: 2px solid #bcf5df;
+  outline-offset: 3px;
+}
+#dklaAskDialog footer {
+  margin-top: 18px;
+  padding-top: 10px;
+  border-top: 1px solid #38524b;
+}

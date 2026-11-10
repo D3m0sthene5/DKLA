@@ -27,6 +27,7 @@ const earlier = [
   'v2.5',
   'v2.6',
   'v2.7',
+  'v2.8',
 ];
 for (const version of earlier) {
   const source = `/DKLA-${version}.html`;

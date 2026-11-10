@@ -23,11 +23,13 @@ assert.ok(release.includes('First-party semantic analytics'));
 assert.ok(!release.includes('/assets/admin/app.js'));
 const manifest = JSON.parse(await readFile('src/features/manifest.json', 'utf8'));
 assert.equal(manifest.javascript.filter((s) => s === 'src/features/analytics/tracker.js').length, 1);
-// Every server function is listed here on purpose. eo-gesner.js only relays a public page from GitHub and
-// stores or collects nothing.
-assert.deepEqual((await readdir('api')).filter((s) => s.endsWith('.js')).sort(), [
+// Every server function is listed here on purpose.
+const apiFiles = (await readdir('api')).filter((s) => s.endsWith('.js')).sort();
+assert.deepEqual(apiFiles, [
   'admin.js',
   'analytics.js',
+  'ask.js',
+  'eo-dashboard.js',
   'eo-gesner.js',
   'sync.js',
 ]);
@@ -56,5 +58,5 @@ for (const path of ['/', '/index.html']) {
 }
 assert.equal(routing.rewrites.find((r) => r.source === '/admin')?.destination, '/api/admin?action=page');
 console.log(
-  `${original.size} source script blocks carried into the build; 3 API functions; own-origin collector; admin excluded from offline shell.`,
+  `${original.size} source script blocks carried into the build; ${apiFiles.length} API functions; own-origin collector; admin excluded from offline shell.`,
 );

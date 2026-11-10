@@ -40,6 +40,7 @@ export const tasks = [
   // Source and unit checks: no build output involved.
   step('source', 'source parts', py('tools/source/test_parts.py')),
   step('source', 'html checker self-test', test('tools/source/check_html.test.cjs')),
+  step('features', 'Ask DKLA retrieval and citations', test('tools/ask/ask.test.mjs'), ['Ask DKLA corpus']),
   step('features', 'brief loader', test('tools/performance/brief-loader.test.mjs')),
   step(
     'features',
@@ -112,10 +113,11 @@ export const tasks = [
   step('features', 'Cold Call reader', node('tools/cold-call/check_reader.cjs'), ASSEMBLED),
 
   // These read the public output in dist/.
-  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.8.html'), PACKAGED),
+  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v2.9.html'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
   // These use the preview server. {url} and {page} are filled in by the runner.
+  step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',

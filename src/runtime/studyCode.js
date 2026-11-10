@@ -2664,10 +2664,12 @@ function searchEntries() {
 }
 $('search').oninput = () => {
   clearTimeout(searchTimer);
-  searchTimer = setTimeout(searchEntries, 75);
+  if (!$('search').value.trim() && window.DKLAAsk) window.DKLAAsk.showInSearch();
+  else searchTimer = setTimeout(searchEntries, 75);
 };
 $('search').onfocus = () => {
-  if ($('search').value) searchEntries();
+  if ($('search').value.trim()) searchEntries();
+  else window.DKLAAsk?.showInSearch();
 };
 $('search').onkeydown = (e) => {
   if (e.key === 'ArrowDown') {
@@ -2676,7 +2678,7 @@ $('search').onkeydown = (e) => {
   }
   if (e.key === 'Enter') {
     e.preventDefault();
-    $('searchResults').querySelector('button')?.click();
+    $('searchResults').querySelector('button:not(.ask-search)')?.click();
   }
   if (e.key === 'Escape') closeSearch();
 };
