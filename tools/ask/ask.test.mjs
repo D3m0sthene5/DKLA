@@ -254,10 +254,15 @@ test('hybrid research covers a ranking, an Atlas gap, and search failure', async
 test('direct OpenAI transport keeps provider annotations and distinguishes credit exhaustion', async () => {
   const url = 'https://example.edu/opinion';
   const link = '[opinion](' + url + ')';
+  const otherUrl = 'https://example.edu/statute';
   const text =
     'The deadline runs from injury. ' +
     link +
-    '\nThe Atlas covers deference. [A1]\nUncited claim.\nInvalid reference. [A9]';
+    '\nThe Atlas covers deference. [A1]\nUncited claim.\nInvalid reference. [A9]' +
+    '\nThe statute sets a six-year limit. [Statute](' +
+    otherUrl +
+    ')' +
+    '\nInvented source. [Fake](https://example.edu/fake) [A1]';
   const start = text.indexOf(link);
   const output = {
     needsWeb: false,
@@ -283,7 +288,7 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
       return Response.json({
         status: 'completed',
         output: [
-          { type: 'web_search_call', status: 'completed' },
+          { type: 'web_search_call', status: 'completed', action: { sources: [{ url: otherUrl }] } },
           reply(text, [
             {
               type: 'url_citation',
@@ -313,11 +318,12 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
     assert.equal(transport.mock.callCount(), 1);
     assert.deepEqual(
       researched.sources.map((source) => source.url ?? source.id),
-      [url, 'lrs-i-loper-bright'],
+      [url, 'lrs-i-loper-bright', otherUrl],
     );
     assert.deepEqual(researched.paragraphs, [
       { text: 'The deadline runs from injury.', citations: [1] },
       { text: 'The Atlas covers deference.', citations: [2] },
+      { text: 'The statute sets a six-year limit.', citations: [3] },
     ]);
     assert.deepEqual(await generateAnswer(answer), output);
     assert.equal(transport.mock.callCount(), 2);
