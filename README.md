@@ -68,8 +68,8 @@ In production, set `DKLA_ASK_GATEWAY_OIDC=true` after setting a project
 budget for DKLA in Vercel AI Gateway. The SDK uses Vercel’s project identity
 for budget attribution. For local use or a protected preview, set
 `DKLA_ASK_GATEWAY_API_KEY` to a dedicated key with its own budget.
-The API uses Gemini with Gateway zero data retention and prompt-training
-restrictions.
+The API uses free-credit-eligible Gemini 2.5 Flash with Gateway zero data
+retention and prompt-training restrictions.
 The build prepares a server-only corpus from the published Atlas edition.
 There is no database or history for Ask DKLA. Questions typed into the main
 search bar still fall under its existing analytics policy.
