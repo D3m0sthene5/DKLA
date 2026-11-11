@@ -1,0 +1,64 @@
+/* Minecraft-style splash text on the Home map (splash.js places it). Warm
+   yellow with a hard drop shadow down and to the right, tilted, pulsing
+   gently. Only the text itself takes clicks. */
+.dkla-splash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: max-content;
+  white-space: nowrap;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
+}
+.dkla-splash[data-shown='true'] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.dkla-splash-pop,
+.dkla-splash-text {
+  display: inline-block;
+}
+.dkla-splash-text {
+  font-family: var(--dkla-display, 'Segoe UI', Arial, sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: #ffe066;
+  text-shadow: 0.1em 0.1em 0 #4a3800;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  animation: dkla-splash-pulse 1.2s ease-in-out infinite;
+}
+.dkla-splash[data-shown='true'] .dkla-splash-text {
+  pointer-events: auto;
+}
+.dkla-splash[data-shown='false'] .dkla-splash-text {
+  animation: none;
+}
+@keyframes dkla-splash-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dkla-splash,
+  .dkla-splash[data-shown='true'] {
+    transition: none;
+  }
+  .dkla-splash-text {
+    animation: none;
+  }
+}

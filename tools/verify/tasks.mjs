@@ -118,6 +118,7 @@ export const tasks = [
 
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
+  step('browser', 'Home splash text', node('tools/splash/browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',
