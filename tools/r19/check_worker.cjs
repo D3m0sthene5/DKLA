@@ -18,20 +18,22 @@ function harness(
 ) {
   const listeners = {},
     stores = new Map(),
-    calls = { fetch: [], put: [], addAll: [], deleted: [], claim: 0, skip: 0 };
+    calls = { fetch: [], conditional: [], put: [], deleted: [], claim: 0, skip: 0 };
   function store(name) {
     if (!stores.has(name)) stores.set(name, new Map());
     const data = stores.get(name);
     return {
-      match: async (key) => data.get(key)?.clone(),
+      // Keys are stored as given (the worker uses shell paths); a full URL or a request from keys()
+      // is matched by its path.
+      match: async (key) => {
+        const name = typeof key === 'string' ? key : key.url;
+        return data.get(name.startsWith(origin) ? new URL(name).pathname.slice(scope.length) : name)?.clone();
+      },
       put: async (key, response) => {
         calls.put.push(key);
         data.set(key, response);
       },
-      addAll: async (keys) => {
-        calls.addAll.push([...keys]);
-        for (const key of keys) data.set(key, new Response('shell ' + key));
-      },
+      keys: async () => [...data.keys()].map((key) => ({ url: new URL(key, origin + scope).href })),
     };
   }
   const self = {
@@ -63,8 +65,14 @@ function harness(
       self,
       caches,
       URL,
-      fetch: async (request) => {
+      fetch: async (input, init = {}) => {
+        const request =
+          typeof input === 'string'
+            ? { url: input, method: 'GET', headers: new Headers(init.headers), init }
+            : input;
         calls.fetch.push(request.url);
+        const condition = request.headers?.get?.('if-none-match');
+        if (condition) calls.conditional.push(condition);
         const response = await online(request);
         if (!response.url)
           Object.defineProperty(response, 'url', {
@@ -83,21 +91,26 @@ function harness(
     atlas,
     cache,
     listeners,
-    seed: (key, body = 'cached atlas', name = cache) => {
+    seed: (key, body = 'cached atlas', name = cache, headers = {}) => {
       store(name);
-      stores.get(name).set(key, new Response(body));
+      stores.get(name).set(key, new Response(body, { headers }));
     },
     cached: async (key) => stores.get(cache)?.get(key)?.clone().text(),
-    fetch: (pathname) => {
+    // Resolves once the response is ready and the work the worker kept running after it is done.
+    fetch: async (pathname) => {
       let response;
+      const later = [];
       const request = { url: new URL(pathname, origin).href, method: 'GET' };
       listeners.fetch({
         request,
         respondWith: (value) => {
           response = Promise.resolve(value);
         },
+        waitUntil: (value) => later.push(value),
       });
-      return response;
+      const result = await response;
+      await Promise.all(later);
+      return result;
     },
     bypass: (request) => {
       let responded = false;
@@ -106,6 +119,7 @@ function harness(
         respondWith: () => {
           responded = true;
         },
+        waitUntil: () => {},
       });
       assert.equal(responded, false);
     },
@@ -217,33 +231,117 @@ async function check(source) {
   nested.bypass({ url: 'https://atlas.test/', method: 'GET' });
   assert.equal(await (await nested.fetch('/course/index.html')).text(), 'fresh atlas');
 
-  const shell = harness(source);
+  // The site root answers with a small page that forwards to the atlas file (the address does not
+  // change), and an old address answers with a redirect the browser follows. Neither may replace the
+  // offline atlas: a forwarding page stored as the atlas loops when the device is offline.
+  const forward = harness(source, {
+    online: (request) => {
+      const response = new Response('<script>location.replace(atlas)</script>');
+      Object.defineProperty(response, 'url', { value: request.url });
+      return response;
+    },
+  });
+  forward.seed(forward.atlas, 'offline atlas');
+  assert.equal(await (await forward.fetch('/')).text(), '<script>location.replace(atlas)</script>');
+  assert.equal(await forward.cached(forward.atlas), 'offline atlas');
+  const redirect = harness(source, { online: () => ({ type: 'opaqueredirect', ok: false, status: 0 }) });
+  redirect.seed(redirect.atlas, 'offline atlas');
+  assert.equal((await redirect.fetch('/DKLA-r18.html')).type, 'opaqueredirect');
+  assert.equal(await redirect.cached(redirect.atlas), 'offline atlas');
+
+  // Install copies the whole shell into this release's cache and takes over without waiting.
+  const named = (request) => new URL(request.url).pathname.slice(1);
+  const shell = harness(source, { online: (request) => new Response('shell ' + named(request)) });
   await shell.lifecycle('install');
-  const keys = shell.calls.addAll[0];
-  assert.equal(keys[0], shell.atlas);
+  const keys = shell.calls.put;
   assert.equal(keys.length, 8);
+  assert.ok(keys.includes(shell.atlas));
   assert.ok(keys.includes('assets/pdfjs/pdf.min.mjs'));
   assert.ok(keys.includes('assets/pdfjs/pdf.worker.min.mjs'));
   assert.ok(keys.includes('manifest.webmanifest'));
   assert.ok(keys.includes('icons/icon.svg'));
   assert.ok(!keys.some((key) => key.includes('admin') || key.startsWith('api/')));
+  assert.equal(await shell.cached(shell.atlas), 'shell ' + shell.atlas);
+  assert.equal(shell.calls.skip, 1, 'a complete copy takes over at once');
+  assert.deepEqual(shell.calls.conditional, [], 'nothing earlier to reuse on a first install');
+  const fetched = shell.calls.fetch.length;
   assert.equal(await (await shell.fetch('/icons/icon.svg')).text(), 'shell icons/icon.svg');
-  assert.equal(shell.calls.fetch.length, 0);
+  assert.equal(shell.calls.fetch.length, fetched);
   shell.stores.get(shell.cache).delete('icons/icon.svg');
-  assert.equal(await (await shell.fetch('/icons/icon.svg')).text(), 'fresh atlas');
-  assert.equal(shell.calls.fetch.length, 1);
-  shell.seed('old', 'older build', 'dkla-older-build');
+  assert.equal(await (await shell.fetch('/icons/icon.svg')).text(), 'shell icons/icon.svg');
+  assert.equal(shell.calls.fetch.length, fetched + 1);
+
+  // Activation keeps the page's own caches, deletes every earlier release's copy and claims the tabs.
+  shell.seed('DKLA-v2.8.html', 'older build', 'dkla-v2.8-0123456789');
+  shell.seed('DKLA-r19.html', 'much older build', 'dkla-r19-abcdef0123');
   shell.seed('proof', 'own-origin proof', 'atlas-analytics-identity-v1');
+  shell.seed('assets/briefs/x.json', 'a brief', 'dkla-briefs-v1');
   await shell.lifecycle('activate');
-  assert.deepEqual(shell.calls.deleted, []);
-  assert.ok(shell.stores.has('dkla-older-build'));
+  assert.deepEqual(shell.calls.deleted.sort(), ['dkla-r19-abcdef0123', 'dkla-v2.8-0123456789']);
   assert.ok(shell.stores.has(shell.cache));
   assert.ok(shell.stores.has('atlas-analytics-identity-v1'));
+  assert.ok(shell.stores.has('dkla-briefs-v1'));
+  assert.equal(await shell.cached(shell.atlas), 'shell ' + shell.atlas);
   assert.equal(shell.calls.claim, 1);
+
+  // Without its own atlas a release never deletes the last offline copy on the device.
+  const unready = harness(source);
+  unready.seed('DKLA-v2.8.html', 'the only offline copy', 'dkla-v2.8-0123456789');
+  await unready.lifecycle('activate');
+  assert.deepEqual(unready.calls.deleted, []);
+  assert.ok(unready.stores.has('dkla-v2.8-0123456789'));
+
+  // A failed download leaves the older worker in charge: install fails and nothing takes over.
+  const failing = harness(source, { online: () => new Response('gone', { status: 503 }) });
+  await assert.rejects(failing.lifecycle('install'));
+  assert.equal(failing.calls.skip, 0);
+
+  // The page that was just opened is already on the device (the previous worker stored it). When the
+  // server says it is the same file (same ETag), install copies it instead of downloading it again.
+  const atlasName = shell.atlas;
+  const reuse = harness(source, {
+    online: (request) => {
+      const asked = request.headers?.get?.('if-none-match') || '';
+      if (named(request) !== atlasName) return new Response('shell ' + named(request));
+      if (asked.includes('"new-atlas"'))
+        return new Response(null, { status: 304, headers: { etag: '"new-atlas"' } });
+      return new Response('downloaded atlas', { headers: { etag: '"new-atlas"' } });
+    },
+  });
+  reuse.seed('DKLA-v2.8.html', 'the page just opened', 'dkla-v2.8-0123456789', {
+    etag: '"new-atlas"',
+    date: 'Wed, 11 Nov 2026 18:00:00 GMT',
+  });
+  reuse.seed('DKLA-v2.8.html', 'an older page', 'dkla-v2.7-0123456789', {
+    etag: '"old-atlas"',
+    date: 'Wed, 11 Nov 2026 10:00:00 GMT',
+  });
+  await reuse.lifecycle('install');
+  assert.equal(await reuse.cached(reuse.atlas), 'the page just opened');
+  assert.equal(reuse.calls.conditional.length, 1);
+  assert.ok(reuse.calls.conditional[0].includes('"new-atlas"'));
+  assert.equal(reuse.calls.fetch.filter((url) => url.endsWith('/' + atlasName)).length, 1);
+  // A different file on the server is downloaded, never replaced by the copy on the device.
+  const changed = harness(source, {
+    online: (request) =>
+      named(request) === atlasName
+        ? new Response('downloaded atlas', { headers: { etag: '"newer"' } })
+        : new Response('shell ' + named(request)),
+  });
+  changed.seed('DKLA-v2.8.html', 'stale page', 'dkla-v2.8-0123456789', { etag: '"new-atlas"' });
+  await changed.lifecycle('install');
+  assert.equal(await changed.cached(changed.atlas), 'downloaded atlas');
+  assert.equal(
+    changed.calls.fetch.filter((url) => url.endsWith('/' + atlasName)).length,
+    1,
+    'the answer to the conditional request is the download',
+  );
+
+  // Pages from v2.9 and earlier still ask a waiting worker to take over.
   shell.listeners.message({ data: 'unrelated' });
-  assert.equal(shell.calls.skip, 0);
-  shell.listeners.message({ data: 'skip-waiting' });
   assert.equal(shell.calls.skip, 1);
+  shell.listeners.message({ data: 'skip-waiting' });
+  assert.equal(shell.calls.skip, 2);
 }
 
 (async () => {

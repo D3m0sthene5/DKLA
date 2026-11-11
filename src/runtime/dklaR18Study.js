@@ -600,8 +600,9 @@
     <h3>Your ratings</h3>
     <div class="r18-actions"><button data-r18-do="export">Export</button><button data-r18-do="import">Import</button><button data-r18-do="clear"${t.total - t[0] ? '' : ' disabled'}>Clear all</button><input type="file" id="r18Import" accept="application/json,.json" hidden></div>
     <h3>This app</h3>
-    <p class="r18-lead">${hosted ? 'Install it and it opens in its own window and loads without a connection; the atlas file is kept on the device. It checks for a new version when opened and offers a reload rather than swapping mid-session. Source PDFs still load from the network when you open them.' : 'Opened as a file. Offline install is available from the hosted atlas.'}</p>
+    <p class="r18-lead">${hosted ? 'Install it and it opens in its own window and loads without a connection; the atlas file is kept on the device. While it is open it checks now and then for a new version and shows a small notice when one is ready; nothing reloads until you press Refresh. Source PDFs still load from the network when you open them.' : 'Opened as a file. Offline install is available from the hosted atlas.'}</p>
     <div class="r18-actions"><button data-r18-do="install" id="r18Install"${installEvent ? '' : ' disabled'}>Install app</button><button data-r18-do="update"${hosted ? '' : ' disabled'}>Check for updates</button></div>
+    ${hosted ? `<p class="r18-muted" id="r18UpdateStatus" role="status">${updateStatusHTML()}</p>` : ''}
     ${hosted && !installEvent ? `<p class="r18-muted" id="r18InstallHint">${matchMedia('(display-mode: standalone)').matches ? 'Installed.' : 'If Install is unavailable: on iPhone or iPad use Share, then Add to Home Screen; in other browsers use the browser menu’s Install or Add to Dock / Home Screen.'}</p>` : ''}
     <dl class="r18-diag" id="r18Diag"></dl>
     <h3>What’s changed</h3>
@@ -638,7 +639,7 @@
             ? 'downloading'
             : 'not installed',
       ]);
-      rows.push(['Update waiting', reg?.waiting ? 'yes' : 'no']);
+      rows.push(['Newest on the server', latestText()]);
     } else rows.push(['Offline copy', hosted ? 'not supported by this browser' : 'hosted atlas only']);
     rows.push([
       'Running as',
@@ -806,8 +807,42 @@
   }
 
   /* ---------- offline install and updates ---------- */
+  // How a reader moves to a new release. Until v2.9 the page said "A new version of the atlas is ready"
+  // whenever a new offline worker finished installing, even on a page that already was the new release,
+  // so Reload repeated the slow start for nothing. Now:
+  // - the page knows its own build (R18.build) and version.json names the newest; only a difference
+  //   shows the notice, so a page that is already current is never prompted;
+  // - it checks once the atlas is ready, when the tab comes back into view and every half hour while it
+  //   is visible; offline or a failed check stays quiet;
+  // - Refresh first writes the graph's pending save, remembers the open entry and reloads only this tab;
+  //   nothing else ever reloads a tab, including the offline worker taking over (sw.template.js);
+  // - the first time a new build opens, a short toast says so.
+  const LAST_BUILD = 'dkla.lastBuild.v1', // {build, version} of the last build this browser opened
+    DISMISSED = 'dkla.updateDismissed.v1', // the newest build whose notice the reader closed
+    PLACE = 'dkla.updatePlace.v1'; // sessionStorage: where Refresh was pressed, for the reloaded page
+  const CHECK_EVERY = 30 * 60 * 1000,
+    CHECK_GAP = 60 * 1000;
+  // Controlled at start-up means an offline copy was installed on an earlier visit.
+  const hadWorker = hosted && 'serviceWorker' in navigator && !!navigator.serviceWorker.controller;
+  function stored(area, key, value) {
+    try {
+      const s = area === 'session' ? sessionStorage : localStorage;
+      if (value === undefined) return JSON.parse(s.getItem(key) || 'null');
+      if (value === null) s.removeItem(key);
+      else s.setItem(key, JSON.stringify(value));
+    } catch {
+      /* storage unavailable: updates still work, without memory */
+    }
+    return null;
+  }
   let installEvent = null,
-    swReg = null;
+    latest = null, // version.json as last read
+    status = '', // '', 'checking', 'current', 'newer' or 'offline'
+    checks = 0,
+    lastCheck = 0,
+    checking = null,
+    ready = false,
+    refreshing = false;
   addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     installEvent = e;
@@ -818,63 +853,209 @@
   addEventListener('appinstalled', () => {
     installEvent = null;
   });
-  function offerReload(reg) {
-    if (el('r18Update')) return;
-    const bar = document.createElement('div');
-    bar.id = 'r18Update';
-    bar.setAttribute('role', 'status');
-    bar.innerHTML =
-      '<span>A new version of the atlas is ready.</span><button class="r18-primary" data-r18-do="reload">Reload</button><button data-r18-do="later" aria-label="Not now">Later</button>';
-    document.body.appendChild(bar);
-    swReg = reg;
-  }
   if (hosted && 'serviceWorker' in navigator) {
     addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('sw.js')
-        .then((reg) => {
-          swReg = reg;
-          const watch = (w) =>
-            w &&
-            w.addEventListener('statechange', () => {
-              if (w.state === 'installed' && navigator.serviceWorker.controller) offerReload(reg);
-            });
-          if (reg.waiting && navigator.serviceWorker.controller) offerReload(reg);
-          watch(reg.installing);
-          reg.addEventListener('updatefound', () => watch(reg.installing));
-        })
-        .catch(() => {
-          /* offline copy unavailable; the atlas still works */
-        });
-      let reloading = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (reloading || !window.__r18Reload) return;
-        reloading = true;
-        location.reload();
+      navigator.serviceWorker.register('sw.js').catch(() => {
+        /* offline copy unavailable; the atlas still works */
       });
     });
   }
-  async function checkUpdates() {
-    if (!hosted) return;
-    try {
-      const v = await (await fetch('version.json', { cache: 'no-store' })).json();
-      if (v.build === R18.build) {
-        toast('This is the current version (' + R18.build + ').');
-        return;
-      }
-      if (swReg) {
-        await swReg.update();
-        if (swReg.installing)
-          toast('A newer version exists. It is downloading; a reload prompt will appear when it is ready.');
-        else {
-          close();
-          offerReload(swReg);
-        }
-      } else if (confirm('A newer version exists. Reload now?')) location.reload();
-    } catch {
-      toast('Could not check for updates while offline.');
+  const noticeText = (v) =>
+    v.version && v.version !== R18.version
+      ? `DKLA ${v.version} is ready`
+      : `An update to DKLA ${R18.version} is ready`;
+  function showNotice(v) {
+    let bar = el('r18Update');
+    if (bar?.dataset.build === v.build) return;
+    if (stored('local', DISMISSED) === v.build) return;
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'r18Update';
+      bar.setAttribute('role', 'status');
+      document.body.appendChild(bar);
     }
+    bar.dataset.build = v.build;
+    bar.innerHTML = `<span class="r18-update-text">${esc(noticeText(v))}</span><button class="r18-update-go" data-r18-do="refresh">Refresh</button><button class="r18-update-x" data-r18-do="later" aria-label="Not now" title="Not now">×</button>`;
+    placeNotice();
   }
+  // Keep the notice in the visible corner. On a phone the page is a little wider than the screen, so
+  // the area fixed elements are placed in reaches past the screen's right and bottom edges.
+  function placeNotice() {
+    const bar = el('r18Update'),
+      vv = window.visualViewport;
+    if (!bar || !vv) return;
+    bar.style.setProperty('--r18-vv-right', Math.max(0, innerWidth - vv.offsetLeft - vv.width) + 'px');
+    bar.style.setProperty('--r18-vv-bottom', Math.max(0, innerHeight - vv.offsetTop - vv.height) + 'px');
+  }
+  window.visualViewport?.addEventListener('resize', placeNotice);
+  window.visualViewport?.addEventListener('scroll', placeNotice);
+  function dismissNotice() {
+    const bar = el('r18Update');
+    if (bar?.dataset.build) stored('local', DISMISSED, bar.dataset.build);
+    bar?.remove();
+  }
+  function updateStatusHTML() {
+    if (status === 'checking') return 'Checking…';
+    if (status === 'current')
+      return esc(`This is the newest version: DKLA ${R18.version} (build ${R18.build}).`);
+    if (status === 'newer')
+      return `${esc(`${noticeText(latest)} (build ${latest.build}; this page is ${R18.build}).`)} <button class="r18-primary" data-r18-do="refresh">Refresh now</button>`;
+    if (status === 'offline')
+      return 'Could not reach the server to check. This copy keeps working, and DKLA checks again when the connection is back.';
+    return '';
+  }
+  function latestText() {
+    if (status === 'current') return R18.version + ' (this page)';
+    if (status === 'newer') return [latest.version, latest.build].filter(Boolean).join(' · ');
+    if (status === 'offline') return 'could not check';
+    return 'not checked yet';
+  }
+  function showStatus() {
+    const p = el('r18UpdateStatus');
+    if (p) p.innerHTML = updateStatusHTML();
+    if (dialog.open && tab === 'progress') refreshDiagnostics();
+  }
+  async function readLatest() {
+    const response = await fetch('version.json', { cache: 'no-store', credentials: 'same-origin' });
+    if (!response.ok) throw Error('version.json ' + response.status);
+    const v = await response.json();
+    if (!v || typeof v.build !== 'string' || !v.build) throw Error('version.json has no build');
+    return v;
+  }
+  // Resolves to 'current', 'newer' or 'offline'. manual: the reader pressed Check for updates, which
+  // always asks the server and shows a closed notice again. force: ask now even if a check just ran.
+  function checkForUpdate(manual = false, force = manual) {
+    if (!hosted) return Promise.resolve('offline');
+    if (checking) return manual ? checking.then(() => checkForUpdate(true)) : checking;
+    if (!force && Date.now() - lastCheck < CHECK_GAP) return Promise.resolve(status);
+    lastCheck = Date.now();
+    checks++;
+    if (manual) {
+      status = 'checking';
+      showStatus();
+    }
+    checking = (async () => {
+      try {
+        latest = await readLatest();
+        status = latest.build === R18.build ? 'current' : 'newer';
+      } catch {
+        status = 'offline';
+      }
+      if (status === 'current') el('r18Update')?.remove();
+      if (status === 'newer') {
+        if (manual) stored('local', DISMISSED, null);
+        showNotice(latest);
+      }
+      if (manual)
+        toast(
+          status === 'current'
+            ? `DKLA ${R18.version} is up to date.`
+            : status === 'newer'
+              ? noticeText(latest) + '. Press Refresh to open it.'
+              : 'Could not check for updates while offline.',
+        );
+      showStatus();
+      return status;
+    })().finally(() => {
+      checking = null;
+    });
+    return checking;
+  }
+  function currentPlace() {
+    try {
+      if (selected && ['node', 'district', 'region'].includes(selected.type))
+        return { type: selected.type, id: selected.id };
+      if (S.scope && S.scope !== 'Atlas') return { type: 'scope', id: S.scope };
+    } catch {
+      /* no place to remember */
+    }
+    return null;
+  }
+  async function refreshToLatest() {
+    if (refreshing) return;
+    refreshing = true;
+    const buttons = [...document.querySelectorAll('[data-r18-do="refresh"]')];
+    const labels = buttons.map((b) => b.textContent);
+    buttons.forEach((b) => {
+      b.disabled = true;
+      b.textContent = 'Saving…';
+    });
+    try {
+      // saveCache defers its snapshot by a quarter second; write it before the page goes.
+      await Promise.race([window.LegalAtlas?.flush?.(), new Promise((r) => setTimeout(r, 5000))]);
+    } catch {
+      /* the unload guard still warns when this browser cannot save */
+    }
+    stored('session', PLACE, { from: R18.build, at: Date.now(), place: currentPlace() });
+    location.reload();
+    // Still here after a moment: the reader stayed on the page when the browser asked.
+    setTimeout(() => {
+      refreshing = false;
+      buttons.forEach((b, i) => {
+        b.disabled = false;
+        b.textContent = labels[i];
+      });
+    }, 4000);
+  }
+  // The page that Refresh opened: go back to the entry that was open and say what changed.
+  function arrived() {
+    const saved = stored('session', PLACE);
+    stored('session', PLACE, null);
+    const recent = saved && Date.now() - saved.at < 10 * 60 * 1000;
+    if (recent && saved.place && !location.hash.startsWith('#node='))
+      try {
+        window.LegalAtlas?.navigate?.(saved.place.type, saved.place.id);
+      } catch {
+        /* the atlas opens at Home instead */
+      }
+    let previous = null;
+    try {
+      previous = JSON.parse(localStorage.getItem(LAST_BUILD) || 'null');
+      localStorage.setItem(LAST_BUILD, JSON.stringify({ build: R18.build, version: R18.version }));
+    } catch {
+      return; // without storage there is no "last time" to compare with
+    }
+    const before =
+      (recent && saved.from !== R18.build && saved.from) ||
+      (typeof previous === 'string' ? previous : previous?.build) ||
+      (hadWorker ? 'an earlier build' : null);
+    if (!before || before === R18.build) return;
+    toast(
+      previous?.version === R18.version
+        ? `Updated to the latest DKLA ${R18.version}`
+        : `Updated to DKLA ${R18.version}`,
+    );
+  }
+  function whenReady(fn) {
+    const root = document.documentElement;
+    if (root.classList.contains('dkla-boot-ready')) return void fn();
+    const watch = new MutationObserver(() => {
+      if (!root.classList.contains('dkla-boot-ready')) return;
+      watch.disconnect();
+      fn();
+    });
+    watch.observe(root, { attributes: true, attributeFilter: ['class'] });
+  }
+  if (hosted) {
+    whenReady(() => {
+      ready = true;
+      arrived();
+      setTimeout(() => checkForUpdate(), 3000);
+    });
+    const later = () => {
+      if (ready && document.visibilityState === 'visible') checkForUpdate();
+    };
+    document.addEventListener('visibilitychange', later);
+    addEventListener('online', later);
+    addEventListener('pageshow', (e) => e.persisted && later());
+    setInterval(later, CHECK_EVERY);
+  }
+  window.DKLAUpdates = {
+    // For checks and diagnostics: ask the server now, as the automatic check does.
+    check: (manual = false) => checkForUpdate(manual, true),
+    refresh: refreshToLatest,
+    state: () => ({ status, latest, build: R18.build, version: R18.version, checks, ready }),
+  };
 
   /* ---------- events ---------- */
   function setPref(group, value) {
@@ -1008,12 +1189,9 @@
         installEvent.prompt();
         installEvent = null;
       }
-    } else if (name === 'update') checkUpdates();
-    else if (name === 'reload') {
-      window.__r18Reload = true;
-      if (swReg?.waiting) swReg.waiting.postMessage('skip-waiting');
-      else location.reload();
-    } else if (name === 'later') el('r18Update')?.remove();
+    } else if (name === 'update') checkForUpdate(true);
+    else if (name === 'refresh') refreshToLatest();
+    else if (name === 'later') dismissNotice();
   }
   document.addEventListener('click', (e) => {
     const t = e.target.closest(

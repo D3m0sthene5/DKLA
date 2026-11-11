@@ -119,6 +119,13 @@ export const tasks = [
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
+  // The offline worker and the update notice in a real browser: quiet when current, Refresh, old copies.
+  step(
+    'browser',
+    'updates: notice only for a new build, Refresh, old copies removed, offline',
+    node('tools/r19/check_updates.mjs', '{url}'),
+    SERVER,
+  ),
   step(
     'browser',
     'source pages and complete course chronologies',

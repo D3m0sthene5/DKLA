@@ -434,6 +434,15 @@ function r7SaveNow() {
     );
   r7SavePending.catch(() => {});
 }
+// Write a snapshot that is still waiting on its timer now, then wait for every write to finish. Refresh
+// (the update notice) and LegalAtlas.flush use it, so a reload never drops the last quarter second of edits.
+function r7FlushSave() {
+  if (r7SaveTimer) {
+    clearTimeout(r7SaveTimer);
+    r7SaveNow();
+  }
+  return r7SavePending;
+}
 exportMarkdown = function () {
   storeView();
   const files = geoMarkdownFiles();
@@ -487,7 +496,7 @@ window.LegalAtlas = {
   flush: async () => {
     storeView();
     saveCache();
-    await r7SavePending;
+    await r7FlushSave();
   },
   ready: false,
   addEntry: (title, did, kind = 'Concept') => {

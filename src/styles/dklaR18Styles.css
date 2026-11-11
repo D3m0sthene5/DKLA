@@ -173,8 +173,7 @@
   outline: 2px solid #d6b78e;
   outline-offset: 2px;
 }
-.r18-body .r18-primary,
-#r18Update .r18-primary {
+.r18-body .r18-primary {
   background: #d6b78e;
   border-color: #d6b78e;
   color: #161b20;
@@ -196,8 +195,7 @@
   color: #fff;
   text-decoration: underline;
 }
-.r18-body kbd,
-#r18Update kbd {
+.r18-body kbd {
   font:
     11px ui-monospace,
     SFMono-Regular,
@@ -893,34 +891,84 @@
   border-color: #ef8f8f;
   color: #f5b3b3;
 }
+/* The update notice: a small pill in the corner that never covers the map controls or blocks anything. */
 #r18Update {
   position: fixed;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
+  right: calc(16px + var(--r18-vv-right, 0px));
+  bottom: calc(16px + var(--r18-vv-bottom, 0px));
   z-index: 60;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  display: inline-flex;
   align-items: center;
+  gap: 2px;
+  max-width: calc(100vw - 32px);
+  padding: 4px 4px 4px 14px;
+  border: 1px solid #3d4c5a;
+  border-radius: 999px;
   background: #19232d;
-  border: 1px solid #556575;
-  border-radius: 10px;
-  padding: 10px 12px 10px 16px;
-  color: #e1e5e9;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
-  font-size: 14px;
-  max-width: calc(100vw - 24px);
+  color: #dfe6ec;
+  font-size: 13px;
+  line-height: 1.25;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+#r18Update .r18-update-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 8px;
+}
+#r18Update .r18-update-text::before {
+  content: '';
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d6b78e;
 }
 #r18Update button {
   font: inherit;
-  font-size: 14px;
-  border-radius: 7px;
-  padding: 7px 12px;
-  border: 1px solid #3a4856;
+  font-size: 13px;
+  border: 0;
+  border-radius: 999px;
+  padding: 5px 12px;
   background: transparent;
-  color: #e1e5e9;
+  color: inherit;
   cursor: pointer;
+}
+#r18Update .r18-update-go {
+  background: #d6b78e;
+  color: #161b20;
+  font-weight: 650;
+}
+#r18Update .r18-update-go:hover:not(:disabled) {
+  background: #e3c8a3;
+}
+#r18Update .r18-update-x {
+  padding: 4px 9px;
+  color: #9fb0bf;
+  font-size: 17px;
+  line-height: 1;
+}
+#r18Update .r18-update-x:hover {
+  color: #fff;
+}
+#r18Update button:focus-visible {
+  outline: 2px solid #d6b78e;
+  outline-offset: 2px;
+}
+#r18Update button:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+/* On a phone the zoom controls fill the bottom row, so the notice sits just above them. */
+@media (max-width: 640px) {
+  #r18Update {
+    bottom: calc(80px + var(--r18-vv-bottom, 0px));
+  }
+}
+@media print {
+  #r18Update {
+    display: none;
+  }
 }
 #r18PrintRoot {
   display: none;

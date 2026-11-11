@@ -158,6 +158,31 @@ const breakages = [
     () => edit('src/features/cold-call/reader.js', STRICT, STRICT + 'return;'),
   ],
   [
+    'updates: the "new version is ready" notice comes back on a page that is already current',
+    'src/runtime/dklaR18Study.js',
+    () => edit('src/runtime/dklaR18Study.js', "if (status === 'newer') {", "if (status !== 'offline') {"),
+  ],
+  [
+    'updates: Refresh reloads without writing the edit that is still waiting to be saved',
+    'src/runtime/dklaR18Study.js',
+    () =>
+      edit(
+        'src/runtime/dklaR18Study.js',
+        'Promise.race([window.LegalAtlas?.flush?.(),',
+        'Promise.race([Promise.resolve(),',
+      ),
+  ],
+  [
+    'updates: the offline worker keeps every earlier release (another 65 MB each time)',
+    'src/features/r19/sw.template.js',
+    () =>
+      edit(
+        'src/features/r19/sw.template.js',
+        'if (name !== CACHE && RELEASE_CACHE.test(name)) await caches.delete(name);',
+        'if (name !== CACHE && RELEASE_CACHE.test(name)) void name;',
+      ),
+  ],
+  [
     'code: the reading layout never installs',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),

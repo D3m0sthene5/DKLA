@@ -831,7 +831,7 @@
     flush: async () => {
       storeView();
       saveCache();
-      await r7SavePending;
+      await r7FlushSave();
     },
   };
 })();
