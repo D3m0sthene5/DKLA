@@ -52,38 +52,64 @@ async function earlierCopies(path) {
 
 // Room for this release's copy. Until v2.9 every release's copy was kept (up to four of 65 MB each), and
 // an install that runs out of room would fail the same way every time. So before downloading anything,
-// delete every earlier release's copy except the newest complete one: that is the copy the worker now in
-// charge serves offline (it rewrites its atlas entry on every visit, so its atlas has the newest date). A
-// copy counts as complete when it holds an atlas: v2.9 and earlier stored the shell all at once, and this
-// worker stores the atlas last.
+// delete every earlier release's copy except the two newest complete ones (by the Date header of their
+// atlas). The worker in charge serves one of them offline, but not always the newest: under v2.9 a new
+// build's worker often sat waiting for the reader's Reload, and its copy can be dated later than the copy
+// the worker in charge actually serves. Keeping two means a failed install (the signal lost mid-download)
+// never leaves the worker in charge without its offline atlas. A copy counts as complete when it holds an
+// atlas: v2.9 and earlier stored the shell all at once, and this worker stores the atlas last. Activation
+// removes the kept copies once this release's atlas is stored.
+const KEEP = 2;
 async function makeRoom() {
   const earlier = (await caches.keys()).filter((name) => name !== CACHE && RELEASE_CACHE.test(name));
-  let keep = null,
-    newest = -Infinity;
-  for (const name of earlier) {
+  const complete = [];
+  for (const [order, name] of earlier.entries()) {
     const atlas = await atlasIn(await caches.open(name));
-    if (!atlas) continue;
-    const date = Date.parse(atlas.headers.get('date')) || 0;
-    // Equal dates (no Date header): the cache created later belongs to the later release.
-    if (date >= newest) [keep, newest] = [name, date];
+    if (atlas) complete.push({ name, order, date: Date.parse(atlas.headers.get('date')) || 0 });
   }
-  for (const name of earlier) if (name !== keep) await caches.delete(name);
+  // Newest first. Equal dates (no Date header): the cache created later belongs to the later release.
+  complete.sort((a, b) => b.date - a.date || b.order - a.order);
+  const keep = new Set(complete.slice(0, KEEP).map((copy) => copy.name));
+  for (const name of earlier) if (!keep.has(name)) await caches.delete(name);
+}
+
+// True when an earlier release's copy holds the atlas under this release's file name: the worker in charge
+// then serves this very file, and stores it when the reader opens it.
+async function storedUnderThisName() {
+  for (const name of await caches.keys()) {
+    if (name === CACHE || !RELEASE_CACHE.test(name)) continue;
+    if (await (await caches.open(name)).match(at(ATLAS))) return true;
+  }
+  return false;
 }
 
 // One shell file for this release, downloaded at most once.
 // - A copy already on the device is used when the server's file has the same ETag (asked with a HEAD,
 //   which carries no body).
+// - The atlas under an unchanged file name: the page registers this worker once the whole page has
+//   arrived (DOMContentLoaded), but the worker in charge stores the page it fetched only after its last
+//   byte, and writing 65 MB takes a moment. So when no copy matches yet, the install looks again every
+//   half second for up to 15 s before downloading the atlas a second time.
 // - Otherwise the file is requested with 'no-cache': the browser revalidates its own HTTP-cache copy.
 //   The atlas page the reader just opened is normally there, so the server answers 304 and that copy is
 //   used, even when the release renamed the file. Nothing is taken from the HTTP cache without asking the
 //   server first, so a stale build can never be stored under the current file name.
+const PAGE_WAIT = 15000,
+  PAGE_POLL = 500;
+const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function shellFile(path) {
   const copies = await earlierCopies(path);
   if (copies.length) {
     try {
       const head = await fetch(at(path), { method: 'HEAD', cache: 'no-store', credentials: 'same-origin' });
       const current = head.ok && tag(head);
-      const same = current && copies.find((copy) => tag(copy) === current);
+      const matching = (found) => current && found.find((copy) => tag(copy) === current);
+      let same = matching(copies);
+      if (!same && current && path === ATLAS && (await storedUnderThisName()))
+        for (let waited = 0; !same && waited < PAGE_WAIT; waited += PAGE_POLL) {
+          await pause(PAGE_POLL);
+          same = matching(await earlierCopies(path));
+        }
       if (same) return same;
     } catch {
       /* ask with the request below */

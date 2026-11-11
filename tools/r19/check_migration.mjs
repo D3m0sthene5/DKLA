@@ -23,7 +23,12 @@
       as its offline atlas (it cannot know the new name). Until the new worker is in, an offline launch
       shows a calm "still being updated" page instead of reloading forever. Once online again, the new
       worker installs without downloading the atlas a second time, the old copy is deleted, there is no
-      "new version" prompt on the new page, and offline launches open the atlas. */
+      "new version" prompt on the new page, and offline launches open the atlas. Online, an old address
+      (a bookmark, a restored tab) reaches the new atlas, not the "still being updated" page.
+   C. The atlas arrives slowly (streamed over 5 s, as on a phone), in a profile on disk: the new worker
+      is registered only once the whole page is in, and the atlas is downloaded once in all, both when
+      the worker in charge serves the same file name (it stores the page only after the last byte, and
+      the install waits for that) and after the rename (the install revalidates the browser's copy). */
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -50,6 +55,7 @@ const NEW = {
   file: sameName || built.file !== OLD.file ? built.file : 'DKLA-v3.0.html',
 };
 assert.notEqual(NEW.build, OLD.build);
+const PREVIOUS = { ...NEW, build: NEW.build.replace(/-[0-9a-f]+$/, '-feedface00') };
 const routes = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8'));
 const read = (file) => fs.readFileSync(file);
 const text = (file) => fs.readFileSync(file, 'utf8');
@@ -74,6 +80,29 @@ const releases = {
     ['/' + NEW.file]: () => read(path.join(dist, built.file)),
     redirects: redirectsTo(NEW.file, OLD.file),
   },
+  // An earlier build of this release under the same file name, with this release's worker (part C).
+  // Chromium queues every Cache Storage call behind a put that is still writing, so there the install
+  // could never see the copy before it is stored. Other browsers may not, and a phone takes a while to
+  // write 65 MB: this worker stores the page it fetched 8 s after the last byte, which only the install's
+  // wait for that copy covers.
+  previous: {
+    '/index.html': () => text(path.join(dist, 'index.html')).replaceAll(built.file, NEW.file),
+    '/sw.js': () => {
+      const store = 'event.waitUntil(cache.put(ATLAS, response.clone()).catch(() => {}));';
+      const worker = text(path.join(dist, 'sw.js'));
+      assert.ok(worker.includes(store), 'the worker stores the atlas it fetched: ' + store);
+      return worker
+        .replace(
+          store,
+          '{ const copy = response.clone(); copy.arrayBuffer().then((bytes) => pause(8000).then(() => cache.put(ATLAS, new Response(bytes, copy)))).catch(() => {}); }',
+        )
+        .replaceAll(built.file, NEW.file)
+        .replaceAll(NEW.build, PREVIOUS.build);
+    },
+    '/version.json': () => JSON.stringify(PREVIOUS) + '\n',
+    ['/' + NEW.file]: () => text(path.join(dist, built.file)).replaceAll(NEW.build, PREVIOUS.build),
+    redirects: redirectsTo(NEW.file, OLD.file),
+  },
 };
 // The site's redirects (vercel.json, those for every host), pointing at one release's file. A rename
 // adds a redirect from the previous name, as tools/r19/assemble.py does.
@@ -87,7 +116,8 @@ function redirectsTo(file, previous) {
   return map;
 }
 
-const state = { release: 'old', down: false, blockWorker: false };
+// throttle: milliseconds over which the atlas body is streamed (0: all at once).
+const state = { release: 'old', down: false, blockWorker: false, throttle: 0 };
 const log = [];
 const memo = new Map();
 const gzip = promisify(zlib.gzip);
@@ -145,6 +175,19 @@ const server = http.createServer(async (req, res) => {
     entry.status = status;
     entry.bytes = payload && req.method !== 'HEAD' ? payload.length : 0;
     res.writeHead(status, headers);
+    if (state.throttle && entry.bytes && pathname === '/' + NEW.file) {
+      // A slow connection: the body arrives in 50 pieces spread over state.throttle milliseconds.
+      const size = Math.ceil(payload.length / 50),
+        gap = state.throttle / 50;
+      let at = 0;
+      const next = () => {
+        if (res.destroyed) return;
+        if (at >= payload.length) return void res.end();
+        res.write(payload.subarray(at, (at += size)));
+        setTimeout(next, gap);
+      };
+      return next();
+    }
     res.end(req.method === 'HEAD' ? undefined : payload);
   };
   if (pathname.startsWith('/api/')) return end(503, {}, 'no API in this check');
@@ -178,10 +221,10 @@ await body('new', '/' + NEW.file);
 
 const profiles = [];
 let browser = null;
-async function profile() {
+async function profile(disk = onDisk) {
   const options = { viewport: { width: 1280, height: 800 } };
   let ctx;
-  if (onDisk) {
+  if (disk) {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'dkla-migration-'));
     ctx = await chromium.launchPersistentContext(dir, options);
     profiles.push([ctx, dir]);
@@ -354,6 +397,19 @@ try {
   await q.close();
   ok('the v2.9 worker served the new page from the network and kept the forwarding page as its atlas');
 
+  // Online at an old address: the v2.9 worker cannot follow the redirect and serves its stored copy (the
+  // forwarding page) there. It forwards to the current file, which the network answers with the atlas.
+  const sinceOldAddress = log.length;
+  const o = await B.newPage();
+  const seenO = navigations(o);
+  await o.goto(base + OLD.file, { waitUntil: 'domcontentloaded', timeout: T });
+  await o.waitForURL('**/' + NEW.file, { timeout: Math.min(T, 60000) });
+  await isNewAtlas(o);
+  assert.ok(seenO.length <= 2, 'one forward: ' + seenO.join(' → '));
+  await o.close();
+  const oldAddressDownloads = downloads(sinceOldAddress, NEW.file);
+  ok('online, the old address ' + OLD.file + ' reaches the new atlas, not the "still being updated" page');
+
   await offline(B, true);
   for (const address of ['', NEW.file]) {
     const r = await B.newPage();
@@ -390,14 +446,16 @@ try {
   await s.waitForTimeout(1500);
   assert.deepEqual(await s.evaluate(() => window.__notices), [], 'no "new version" prompt on the new page');
   // The v2.9 worker leaves the page it fetched only in the browser's HTTP cache, which the next visit
-  // and the install revalidate. A profile on disk keeps it there: one download in all. A fresh in-memory
-  // context cannot (its HTTP cache refuses entries over a few MB), so there each of the two visits
-  // through the v2.9 worker and the install download it: three.
-  const expected = onDisk ? 1 : 3;
-  assert.equal(downloads(sinceB, NEW.file), expected, 'atlas downloads in part B');
+  // and the install revalidate. A profile on disk keeps it there: one download in all, the old address
+  // included. A fresh in-memory context cannot (its HTTP cache refuses entries over a few MB), so there
+  // the two visits through the v2.9 worker and the install may each download it: at most three, not
+  // counting the old address's visit.
+  const partB = downloads(sinceB, NEW.file) - oldAddressDownloads;
+  if (onDisk) assert.deepEqual([partB, oldAddressDownloads], [1, 0], 'atlas downloads in part B');
+  else assert.ok(partB <= 3, 'atlas downloads in part B: ' + partB);
   ok(
     `the new worker installed ${((installedAt - started) / 1000).toFixed(1)} s after opening ` +
-      `(the atlas was ready at ${((bootedAt - started) / 1000).toFixed(1)} s) with ${expected} download(s) of the atlas; no prompt`,
+      `(the atlas was ready at ${((bootedAt - started) / 1000).toFixed(1)} s) with ${partB} download(s) of the atlas; no prompt`,
   );
   await s.close();
   await offline(B, true);
@@ -405,6 +463,69 @@ try {
   await opensOffline(B, NEW.file);
   await offline(B, false);
   ok('offline, the site root and ' + NEW.file + ' open the new atlas');
+  await B.close();
+
+  // C. A slow connection, in a profile on disk (the renamed case relies on the browser's HTTP cache, as
+  // on a device; an in-memory context cannot keep the atlas there).
+  console.log('C. the atlas arrives over 5 s');
+  const PREVIOUS_CACHE = 'dkla-' + PREVIOUS.build;
+  for (const [label, before, earlierCache, address] of [
+    [
+      'same file name, the worker in charge stores the page 8 s after it arrives',
+      'previous',
+      PREVIOUS_CACHE,
+      NEW.file,
+    ],
+    [
+      NEW.file === OLD.file ? 'v2.9 worker in charge' : `renamed from ${OLD.file}, v2.9 worker in charge`,
+      'old',
+      OLD_CACHE,
+      '',
+    ],
+  ]) {
+    state.release = before;
+    state.throttle = 0;
+    const C = await profile(true);
+    const first = await C.newPage();
+    await first.goto(base + address, { waitUntil: 'domcontentloaded', timeout: T });
+    await until(first, 'the earlier worker is installed', async () => {
+      const keys = await cacheKeys(first);
+      return (
+        keys.includes(earlierCache) &&
+        (await holds(first, earlierCache, before === 'old' ? OLD.file : NEW.file))
+      );
+    });
+    await first.waitForFunction(() => navigator.serviceWorker.controller, null, { timeout: T });
+    await first.close();
+
+    state.release = 'new';
+    state.throttle = 5000;
+    const since = log.length;
+    const slow = await C.newPage();
+    const started = Date.now();
+    await slow.goto(base + address, { waitUntil: 'domcontentloaded', timeout: T });
+    const loadedIn = Date.now() - started;
+    await until(slow, 'the new copy replaces the earlier copy', async () => {
+      const keys = await cacheKeys(slow);
+      return keys.includes(NEW_CACHE) && !keys.includes(earlierCache);
+    });
+    const stored = await slow.evaluate(
+      async ([cache, file]) => (await (await caches.open(cache)).match(file))?.headers.get('etag'),
+      [NEW_CACHE, NEW.file],
+    );
+    assert.equal(
+      (stored || '').replace(/^W\//, ''),
+      (await body('new', '/' + NEW.file)).tag,
+      'the new copy holds the new atlas',
+    );
+    const got = downloads(since, NEW.file);
+    state.throttle = 0;
+    assert.equal(got, 1, label + ': the atlas was downloaded once, not ' + got + ' times');
+    assert.ok(loadedIn >= 4000, 'the atlas really arrived slowly (' + loadedIn + ' ms)');
+    await slow.close();
+    await C.close();
+    ok(`${label}: the page took ${(loadedIn / 1000).toFixed(1)} s to arrive; one download of the atlas`);
+  }
   console.log(
     `Migration to ${NEW.file}: no reload loop, the old Reload lands on the new page, no needless atlas download, offline intact.`,
   );

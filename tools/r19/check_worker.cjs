@@ -14,11 +14,18 @@ if (fs.existsSync(path.join(root, 'work/build/sw.js')))
 
 function harness(
   source,
-  { origin = 'https://atlas.test', scope = '/', online = () => new Response('fresh atlas') } = {},
+  {
+    origin = 'https://atlas.test',
+    scope = '/',
+    online = () => new Response('fresh atlas'),
+    // Called on each pause the worker takes (time passes at once here), with the pause number.
+    paused = () => {},
+  } = {},
 ) {
   const listeners = {},
     stores = new Map(),
-    calls = { fetch: [], requests: [], log: [], put: [], deleted: [], claim: 0, skip: 0 };
+    calls = { fetch: [], requests: [], log: [], put: [], deleted: [], claim: 0, skip: 0, waited: 0 };
+  let pauses = 0;
   function store(name) {
     if (!stores.has(name)) stores.set(name, new Map());
     const data = stores.get(name);
@@ -66,6 +73,11 @@ function harness(
       self,
       caches,
       URL,
+      setTimeout: (fn, ms = 0) => {
+        calls.waited += ms;
+        paused(++pauses);
+        setImmediate(fn);
+      },
       fetch: async (input, init = {}) => {
         const request =
           typeof input === 'string'
@@ -375,7 +387,12 @@ async function check(source) {
   assert.equal(reuse.calls.skip, 1);
   // A different file on the server (a new release, or the file was renamed) is fetched with
   // 'no-cache', never with 'no-store', and never replaced by the copy on the device.
-  for (const earlierName of [atlasName, 'DKLA-v2.8.html']) {
+  // Under the same name the install first gives the worker in charge 15 s to store the page it is
+  // fetching; after a rename that worker never stores the new name, so there is nothing to wait for.
+  for (const [earlierName, waits] of [
+    [atlasName, 15000],
+    ['DKLA-v2.8.html', 0],
+  ]) {
     const changed = harness(source, { online: server('"newer"') });
     changed.seed(earlierName, 'stale page', 'dkla-v2.8-0123456789', { etag: '"new-atlas"' });
     await changed.lifecycle('install');
@@ -386,7 +403,32 @@ async function check(source) {
       ['no-cache'],
       'one request, answered from the HTTP cache when it holds the page',
     );
+    assert.equal(changed.calls.waited, waits, earlierName + ': waited ' + changed.calls.waited + ' ms');
   }
+  // The worker in charge is still storing the page the reader is opening (same name; it writes after
+  // the last byte): the install waits for that copy instead of downloading the atlas a second time.
+  let storing = null;
+  storing = harness(source, {
+    online: server('"newer"'),
+    paused: (n) =>
+      n === 3 &&
+      storing.seed(atlasName, 'the page just stored', 'dkla-v2.8-0123456789', { etag: 'W/"newer"' }),
+  });
+  storing.seed(atlasName, 'the previous build', 'dkla-v2.8-0123456789', { etag: '"new-atlas"' });
+  await storing.lifecycle('install');
+  assert.equal(await storing.cached(storing.atlas), 'the page just stored');
+  assert.equal(gets(storing, atlasName).length, 0, 'the page being stored is not downloaded again');
+  assert.equal(storing.calls.waited, 1500, 'it looked every half second until the copy was there');
+  assert.equal(storing.calls.skip, 1);
+  // Offline (the HEAD fails), the install does not wait.
+  const unreachable = harness(source, {
+    online: () => {
+      throw Error('offline');
+    },
+  });
+  unreachable.seed(atlasName, 'the previous build', 'dkla-v2.8-0123456789', { etag: '"new-atlas"' });
+  await assert.rejects(unreachable.lifecycle('install'));
+  assert.equal(unreachable.calls.waited, 0);
   // A server that cannot answer the HEAD still gets one revalidating GET.
   const headless = harness(source, {
     online: (request) => {
@@ -401,9 +443,10 @@ async function check(source) {
     ['no-cache'],
   );
 
-  // Room before the download: install deletes every earlier release's copy except the newest complete
-  // one (the copy the worker in charge serves offline), and does so before it fetches anything. That
-  // copy goes only once this release's atlas is stored (activate). The page's own caches stay.
+  // Room before the download: install deletes every earlier release's copy except the two newest
+  // complete ones (the worker in charge serves one of them offline; under v2.9 a newer build's worker
+  // could be waiting beside it), and does so before it fetches anything. Those copies go only once this
+  // release's atlas is stored (activate). The page's own caches stay.
   const room = harness(source, { online: (request) => new Response('shell ' + named(request)) });
   const dated = (day) => ({ date: `Wed, ${day} Nov 2026 12:00:00 GMT` });
   room.seed('DKLA-v2.6.html', 'v2.6', 'dkla-v2.6-0123456789', dated(2));
@@ -412,10 +455,11 @@ async function check(source) {
   room.seed('icons/icon.svg', 'no atlas: never complete', 'dkla-v2.9-feedface00', dated(10));
   room.seed('proof', 'own-origin proof', 'atlas-analytics-identity-v1');
   room.seed('assets/briefs/x.json', 'a brief', 'dkla-briefs-v1');
+  room.seed('DKLA-v2.5.html', 'v2.5', 'dkla-v2.5-0123456789', dated(1));
   await room.lifecycle('install');
   assert.deepEqual(room.calls.deleted.sort(), [
+    'dkla-v2.5-0123456789',
     'dkla-v2.6-0123456789',
-    'dkla-v2.7-0123456789',
     'dkla-v2.9-feedface00',
   ]);
   const firstFetch = room.calls.log.findIndex((entry) => !entry.startsWith('delete '));
@@ -424,17 +468,24 @@ async function check(source) {
     room.calls.log.slice(firstFetch).every((entry) => !entry.startsWith('delete ')),
     'the old copies go before anything is downloaded',
   );
-  for (const kept of ['dkla-v2.8-0123456789', 'atlas-analytics-identity-v1', 'dkla-briefs-v1'])
+  for (const kept of [
+    'dkla-v2.8-0123456789',
+    'dkla-v2.7-0123456789',
+    'atlas-analytics-identity-v1',
+    'dkla-briefs-v1',
+  ])
     assert.ok(room.stores.has(kept), kept + ' kept during install');
   await room.lifecycle('activate');
-  assert.ok(!room.stores.has('dkla-v2.8-0123456789'), 'the previous copy goes once this one is complete');
+  for (const gone of ['dkla-v2.8-0123456789', 'dkla-v2.7-0123456789'])
+    assert.ok(!room.stores.has(gone), gone + ' goes once this copy is complete');
   assert.ok(room.stores.has('dkla-briefs-v1') && room.stores.has('atlas-analytics-identity-v1'));
   // Without Date headers the cache created last is the newest release.
   const undated = harness(source, { online: (request) => new Response('shell ' + named(request)) });
+  undated.seed('DKLA-v2.6.html', 'v2.6', 'dkla-v2.6-0123456789');
   undated.seed('DKLA-v2.7.html', 'v2.7', 'dkla-v2.7-0123456789');
   undated.seed('DKLA-v2.8.html', 'v2.8', 'dkla-v2.8-0123456789');
   await undated.lifecycle('install');
-  assert.deepEqual(undated.calls.deleted, ['dkla-v2.7-0123456789']);
+  assert.deepEqual(undated.calls.deleted, ['dkla-v2.6-0123456789']);
 
   // The page asks for PDF.js with its build in the query; the worker matches the file without it.
   const before = shell.calls.fetch.length;

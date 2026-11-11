@@ -855,15 +855,22 @@
   addEventListener('appinstalled', () => {
     installEvent = null;
   });
-  // Register (or update) the offline worker as soon as the page runs, not after 'load'. A worker from
-  // v2.9 or earlier may hold nothing better than the site root's forwarding page as its offline copy
-  // (see src/features/r19/index.template.html), so the sooner this release's copy is complete, the
-  // shorter that window. The install costs little here: the atlas it stores is the page that was just
-  // downloaded, revalidated from the browser's HTTP cache (sw.template.js, shellFile).
-  if (hosted && 'serviceWorker' in navigator)
+  // Register (or update) the offline worker once the whole page has arrived (DOMContentLoaded), not
+  // after 'load'. A worker from v2.9 or earlier may hold nothing better than the site root's forwarding
+  // page as its offline copy (see src/features/r19/index.template.html), so the sooner this release's
+  // copy is complete, the shorter that window. Not earlier: this code runs while a third of the page is
+  // still arriving, and an install started then could download the atlas a second time beside it. Once
+  // the page is in, the install reuses it: the worker in charge's copy of it, or the browser's HTTP-cache
+  // copy, revalidated (sw.template.js, shellFile).
+  const registerWorker = () =>
     navigator.serviceWorker.register('sw.js').catch(() => {
       /* offline copy unavailable; the atlas still works */
     });
+  if (hosted && 'serviceWorker' in navigator) {
+    if (document.readyState === 'loading')
+      document.addEventListener('DOMContentLoaded', registerWorker, { once: true });
+    else registerWorker();
+  }
   const noticeText = (v) =>
     v.version && v.version !== R18.version
       ? `DKLA ${v.version} is ready`
@@ -993,24 +1000,29 @@
       b.disabled = true;
       b.textContent = 'Saving…';
     });
+    const restore = () => {
+      refreshing = false;
+      buttons.forEach((b, i) => {
+        b.disabled = false;
+        b.textContent = labels[i];
+      });
+    };
     try {
       // saveCache defers its snapshot by a quarter second; write it before the page goes. There is no
       // time limit: on a slow phone a large graph can take a while, and reloading in the middle of the
       // write would drop the latest edits. The button reads "Saving…" until it is done.
       await window.LegalAtlas?.flush?.();
     } catch {
-      /* the write failed: the unload guard asks before leaving a page whose edits are not saved */
+      // The write failed (the browser refused or aborted it). Never reload then: the unload guard's
+      // question is not shown everywhere (iOS Safari never asks), so the edits would be lost silently.
+      restore();
+      toast('Could not save your latest edits. Export before refreshing.');
+      return;
     }
     stored('session', PLACE, { from: R18.build, at: Date.now(), place: currentPlace() });
     location.reload();
     // Still here after a moment: the reader stayed on the page when the browser asked.
-    setTimeout(() => {
-      refreshing = false;
-      buttons.forEach((b, i) => {
-        b.disabled = false;
-        b.textContent = labels[i];
-      });
-    }, 4000);
+    setTimeout(restore, 4000);
   }
   // The page that Refresh opened: go back to the entry that was open and say what changed.
   function arrived() {

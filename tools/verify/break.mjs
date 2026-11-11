@@ -184,8 +184,38 @@ const breakages = [
     () =>
       edit(
         'src/features/r19/index.template.html',
-        '.test(location.pathname)) location.replace(',
-        '.test(location.pathname) || true) location.replace(',
+        'if (!location.pathname.endsWith(',
+        'if (true || !location.pathname.endsWith(',
+      ),
+  ],
+  [
+    'updates: the site root page forwards only from the root, so an old address shows "still being updated" while online',
+    'src/features/r19/index.template.html',
+    () =>
+      edit(
+        'src/features/r19/index.template.html',
+        "if (!location.pathname.endsWith('/DKLA-v2.5.html'))",
+        'if (/\\/(index\\.html)?$/.test(location.pathname))',
+      ),
+  ],
+  [
+    'updates: the install downloads the atlas while the worker in charge is still storing the same page',
+    'src/features/r19/sw.template.js',
+    () => edit('src/features/r19/sw.template.js', 'waited < PAGE_WAIT;', 'waited < 0;'),
+  ],
+  [
+    'updates: a save the browser aborts never finishes, so Refresh hangs on "Saving…"',
+    'src/runtime/civilCode.js',
+    () => edit('src/runtime/civilCode.js', 'tx.onabort = failed;', 'void failed;'),
+  ],
+  [
+    'updates: Refresh reloads although the save failed, dropping the latest edits',
+    'src/runtime/dklaR18Study.js',
+    () =>
+      edit(
+        'src/runtime/dklaR18Study.js',
+        "toast('Could not save your latest edits. Export before refreshing.');\n      return;",
+        "toast('Could not save your latest edits. Export before refreshing.');",
       ),
   ],
   [

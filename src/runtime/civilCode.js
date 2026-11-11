@@ -425,11 +425,17 @@ function r7SaveNow() {
             if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
             resolve();
           };
-          tx.onerror = () => {
+          const failed = () => {
             cacheAvailable = false;
+            if (serial === r7SaveSerial)
+              $('saveStatus').textContent = 'Session only · export to keep your work';
             warning('Local browser saving failed. Export master JSON or portable HTML before closing.');
-            reject(tx.error);
+            reject(tx.error || Error('Local browser saving was aborted.'));
           };
+          tx.onerror = failed;
+          // A write the browser refuses when it commits (no room left, for one) fires only 'abort'.
+          // Without this the save would never finish, and every later save waits on it forever.
+          tx.onabort = failed;
         }),
     );
   r7SavePending.catch(() => {});

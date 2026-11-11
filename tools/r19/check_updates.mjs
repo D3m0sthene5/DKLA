@@ -191,6 +191,68 @@ try {
     await notice(older).innerText(),
     new RegExp('An update to DKLA ' + real.version.replace('.', '\\.')),
   );
+  // A save the browser aborts as it commits (no room left, for one) fires only 'abort'. Refresh must not
+  // hang on "Saving…" and must not reload: it says the edits are not saved, saving is marked unavailable,
+  // and later saves still run once the browser accepts them again.
+  await older.evaluate(() => {
+    window.__stillHere = true;
+    const real = r7DB.transaction;
+    r7DB.transaction = function (...args) {
+      const tx = real.apply(this, args);
+      const objectStore = tx.objectStore.bind(tx);
+      tx.objectStore = (name) => {
+        const store = objectStore(name);
+        const put = store.put.bind(store);
+        store.put = (...values) => {
+          const request = put(...values);
+          request.addEventListener('success', () => tx.abort());
+          return request;
+        };
+        return store;
+      };
+      return tx;
+    };
+  });
+  let refused;
+  try {
+    refused = await older.evaluate(async () => {
+      const note = data.nodes.find((n) => n.kind === 'Note');
+      note.notes = (note.notes || '') + ' aborted save';
+      saveCache();
+      document.querySelector('#r18Update .r18-update-go').click();
+      for (let waited = 0; waited < 15000; waited += 100) {
+        const button = document.querySelector('#r18Update .r18-update-go');
+        if (!button.disabled && /Could not save/.test(document.getElementById('toast')?.textContent)) break;
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+      const button = document.querySelector('#r18Update .r18-update-go');
+      return {
+        button: [button.textContent, button.disabled],
+        toast: document.getElementById('toast').textContent,
+        cacheAvailable,
+        warned: !document.getElementById('storageWarning').hidden,
+        stillHere: window.__stillHere,
+      };
+    });
+  } catch (error) {
+    assert.fail('Refresh reloaded although the save failed: ' + error.message);
+  }
+  assert.deepEqual(refused, {
+    button: ['Refresh', false],
+    toast: 'Could not save your latest edits. Export before refreshing.',
+    cacheAvailable: false,
+    warned: true,
+    stillHere: true,
+  });
+  const recovered = await older.evaluate(async () => {
+    delete r7DB.transaction;
+    document.getElementById('storageWarning').hidden = true;
+    saveCache();
+    await r7FlushSave();
+    return cacheAvailable;
+  });
+  assert.equal(recovered, true, 'a later save runs and succeeds');
+  ok('an aborted save: Refresh stays on the page, says the edits are not saved, and later saves still run');
   const marker = 'update check marker ' + Date.now();
   await older.evaluate(() => LegalAtlas.navigate('node', 'cp-pennoyer'));
   await older.waitForTimeout(500);
