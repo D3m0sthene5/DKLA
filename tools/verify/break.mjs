@@ -336,8 +336,8 @@ const breakages = [
     () =>
       edit(
         'lib/ask/answer.js',
-        'asksStatute(question) || (statuteAskedLoosely.test(question) && !asksCase(question));',
-        'asksStatute(question);',
+        "const asking = String.raw`(?:w+h?[ae]+h?t+|wht|whta|waht|wath|whi?ch|wich|whcih|wihch|whihc)(?:['’]?s)?`;\nconst naming = String.raw`(?:name|identify|tell me|give me)",
+        "const asking = String.raw`(?:wh?at|whi?ch|wich)(?:['’]?s)?`;\nconst naming = String.raw`(?:name (?:the|a|that))",
       ),
   ],
   [

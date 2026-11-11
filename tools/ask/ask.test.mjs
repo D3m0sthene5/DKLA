@@ -22,6 +22,7 @@ import {
   answerWithSearch,
   citationTable,
   citeResearch,
+  NoResearchAnswer,
   route,
   shouldSearch,
   webSources,
@@ -2588,18 +2589,19 @@ test('a cancel during a cold start stops OpenAI too; cancels are logged as such;
     warn.mock.restore();
   }
 
-  // A programming mistake in research is an error (502), not the honest empty answer.
+  // A programming mistake in the Atlas answer is an error (502), not a failed call that goes on
+  // to research as a timeout or a network failure would.
   const quiet = mock.method(console, 'warn', () => {});
   try {
     const ask = makeAskHandler(
-      async () => assert.fail('no Atlas call'),
       async () => {
         const reply = undefined;
         return reply.body;
       },
+      async ({ sources }) => citeAnswer({ paragraphs: [{ text: 'Researched.', citations: [1] }] }, sources),
     );
     const plain = { setHeader() {}, end: (json) => (plain.json = JSON.parse(json)) };
-    await ask(request('when can a defendant remove a case to federal court'), plain);
+    await ask(request('what is res judicata'), plain);
     assert.equal(plain.statusCode, 502);
     assert.deepEqual(plain.json, { error: 'answer-unavailable' });
   } finally {
@@ -2632,6 +2634,7 @@ test('the answer library serves first questions through the stream, and keeps on
       paragraphs: [{ text: 'From the Atlas.', citations: [1] }],
     }),
     async ({ sources }) => {
+      if (researchFails === 'empty') throw new NoResearchAnswer('no usable research answer');
       if (researchFails) throw Error('Provider failure');
       return citeAnswer({ paragraphs: [{ text: 'Researched.', citations: [1] }] }, sources);
     },
@@ -2708,6 +2711,12 @@ test('the answer library serves first questions through the stream, and keeps on
     const fallback = await run({ question: 'when can a defendant remove a case to federal court' });
     assert.equal(fallback.json.search, 'unavailable');
     assert.equal(fallback.json.paragraphs[0].text, 'From the Atlas.');
+    assert.deepEqual(stored, []);
+    // So is the Atlas fallback after research that found nothing usable (labelled searched).
+    researchFails = 'empty';
+    const empty = await run({ question: 'when can a defendant remove a case to federal court' });
+    assert.equal(empty.json.search, 'searched');
+    assert.equal(empty.json.paragraphs[0].text, 'From the Atlas.');
     assert.deepEqual(stored, []);
   } finally {
     warn.mock.restore();
