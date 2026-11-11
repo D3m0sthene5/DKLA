@@ -29,7 +29,43 @@ Practice aloud and episode ratings have been removed at the owner's request.
 The reader no longer reads or writes the old `dkla.coldCall.v1` storage key.
 Existing rule recall, saved edits, the graph and map camera are preserved.
 
-## Content and sources
+## Definitions (hover links)
+
+Legal jargon in the episode paragraphs and follow-up answers carries a quiet dotted
+underline. Hovering (after a quarter second), focusing with the keyboard, or tapping on
+a phone opens a small card with a plain-English definition, a link to the Cornell LII Wex
+entry when there is one, and "In the DKLA dictionary" when the legal dictionary has that
+entry. Escape, a tap elsewhere, or moving away closes it. Headings, citations, the scope
+note and the full source brief are never linked.
+
+`glossary-terms.json` says which words link and what they mean. It is embedded in the page
+as the `dklaColdCallGlossary` data block, and `src/features/cold-call/glossary.js` matches it
+when an account is drawn: the narrative text itself is never changed, so revising a
+narrative cannot break a link. Each term has a `key`, a `label` (the card's headword), a
+`wex` slug or `null`, its `match` forms (lowercase, matched as whole words, the longest
+first), an optional `context` pattern that must also occur in the same sentence, optional
+`except` phrases that never link, optional `caps: true` to allow a capitalised match in
+mid-sentence (otherwise "Federal Rules" and names stay plain), and the `gloss`. `density`
+limits links to the first use of each term in an episode and `maxPerParagraph` per
+paragraph, never two side by side.
+
+The committed table is a **pilot** (29 terms chosen for Garcia and a few other accounts).
+To replace it with the final table in the same format:
+
+```sh
+cp <final table> tools/cold-call/glossary-terms.json
+node --test tools/cold-call/glossary.test.mjs     # compiles it; every wex slug must be in the dictionary
+pnpm build
+node tools/cold-call/check_reader.cjs             # every account: text unchanged, limits hold, Garcia's terms
+python tools/verify/data_guard.py --update        # records the new dklaColdCallGlossary block
+python tools/verify/content.py --update           # records the new tools/cold-call/*.json
+node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v2.9.html   # with pnpm preview running
+```
+
+`check_reader.cjs` requires that Garcia's "compromised", "moved to dismiss", "removed" and
+"struck" are linked; if the final table words those terms differently, change those lines
+with it.
+
 
 `cases.json` contains the three original narratives: Hamer, Pennoyer and Chadha.
 Their reported opinions and separate writings were compared on 2026-10-11:

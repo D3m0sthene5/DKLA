@@ -49,6 +49,8 @@ export const tasks = [
     ASSEMBLED,
   ),
   step('features', 'saved work', node('tools/v25/saved-work_check.cjs')),
+  // The Cold Call definition matcher and the committed term table (reads source files only).
+  step('features', 'Cold Call definition matcher', test('tools/cold-call/glossary.test.mjs')),
   step('features', 'boot', node('tools/v25/boot_check.cjs')),
   step('features', 'reading panel', node('tools/v25/reading_check.cjs')),
   step('features', 'geography module', node('tools/v25/geography_check.cjs')),
@@ -119,6 +121,8 @@ export const tasks = [
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
+  // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
+  step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
   step(
     'browser',
     'source pages and complete course chronologies',

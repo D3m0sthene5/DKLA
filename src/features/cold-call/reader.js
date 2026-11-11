@@ -45,11 +45,19 @@
       '</div>'
     );
   }
-  const paragraphs = (section) =>
+  // Definitions (glossary.js): jargon in episode paragraphs and follow-up answers is wrapped at
+  // render time; headings, citations and the source brief stay plain.
+  const gloss = window.DKLAColdCallGloss || null;
+  let glossing = null;
+  const paragraphs = (section, term) =>
     section.paragraphs
       .flatMap(r6ReadingChunks)
-      .map((p) => `<p>${esc(p)}</p>`)
+      .map((p) => `<p>${term ? term(p) : esc(p)}</p>`)
       .join('');
+  function sectionHTML(s, i) {
+    const term = glossing?.section();
+    return `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${current.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term(s.followUp.answer) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`;
+  }
   function open(id, trigger) {
     const c = cases.get(id);
     if (!c || dialog.open) return;
@@ -61,6 +69,7 @@
       supporting: document.getElementById('r19Body')?.scrollTop || 0,
     };
     dialog.dataset.course = c.course;
+    glossing = gloss?.begin() || null;
     const brief =
       c.sources.find((s) => s.briefId === c.briefId && s.briefId) || c.sources.find((s) => s.briefId);
     dialog.innerHTML = `<header class="cc-header">
@@ -74,7 +83,7 @@
         </div></details>
       <div id="ccScroll" tabindex="0" role="region" aria-label="Cold call reading area">
         <article id="ccNarrative">${c.notice ? `<p class="cc-notice">${esc(c.notice)}</p>` : ''}
-          ${c.sections.map((s, i) => `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${c.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`).join('')}
+          ${c.sections.map(sectionHTML).join('')}
           <footer class="cc-end">${
             c.limits
               ? `<details class="cc-scope"><summary>Scope of this decision</summary>${lines(c.limits)
@@ -82,7 +91,7 @@
                   .join('')}</details>`
               : ''
           }<div class="cc-source-list">${c.sources.map((s) => sourceLink(s, s.briefId ? 'Full source brief' : s.label)).join('')}</div></footer>
-        </article>
+        ${glossing ? glossing.descriptions() : ''}</article>
       </div></div>`;
     $('ccClose').onclick = close;
     $('ccScroll').addEventListener(
@@ -102,6 +111,7 @@
   }
   function close() {
     if (!dialog.open) return;
+    gloss?.close();
     memory.set(current.id, { top: $('ccScroll').scrollTop });
     dialog.close();
     dialog.replaceChildren();
@@ -148,8 +158,22 @@
   });
   dialog.addEventListener('cancel', (event) => {
     event.preventDefault();
+    // Escape first closes an open definition card, then the reader.
+    if (gloss?.tookEscape()) {
+      gloss.close();
+      return;
+    }
     close();
   });
+  gloss?.attach?.(dialog);
+  // A dictionary entry opened from a definition card can lead to an atlas entry: leave the reader too.
+  document.addEventListener(
+    'click',
+    (event) => {
+      if (dialog.open && event.target.closest?.('#glossaryDialog [data-study-node]')) close();
+    },
+    true,
+  );
   // Typing, arrows and Escape must not reach global map shortcuts while a reader is open.
   dialog.addEventListener('keydown', (event) => event.stopPropagation());
   wide.addEventListener('change', () => {

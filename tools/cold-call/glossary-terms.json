@@ -1,0 +1,393 @@
+{
+  "version": 1,
+  "pilot": "Pilot table for the hover-definition machinery (November 2026). The final term list and definitions are being prepared separately and will replace this file in the same format.",
+  "source": "Short definitions written for DKLA; where a Cornell LII Wex entry exists it is the source and is linked (CC BY-SA 4.0).",
+  "density": {
+    "perSection": 1,
+    "maxPerParagraph": 3
+  },
+  "terms": [
+    {
+      "key": "compromise",
+      "label": "compromise",
+      "wex": "compromise",
+      "match": [
+        "compromise",
+        "compromised",
+        "compromises",
+        "compromising"
+      ],
+      "context": "\\b(?:claims?|settle\\w*|disputed?|disputes|liabilit(?:y|ies)|damages|paid|pay(?:s|ment)?|decree|fairness|litigation)\\b",
+      "except": [
+        "political compromise",
+        "legislative compromise",
+        "jury compromise",
+        "compromise free choice"
+      ],
+      "gloss": "To compromise a claim is to settle it: the two sides agree on terms, each usually giving something up, instead of having a court or agency decide it. The agreement itself is also called a compromise."
+    },
+    {
+      "key": "removal",
+      "label": "removal to federal court",
+      "wex": "removal",
+      "match": [
+        "removal",
+        "removed",
+        "remove",
+        "removes",
+        "removing"
+      ],
+      "context": "^(?![\\s\\S]*\\b(?:president\\w*|office|offices|officers?|commissioners?|board\\s+members?|at\\s+will|good-cause|appointments?)\\b)[\\s\\S]*(?:\\b(?:federal|state)[-\\s](?:court|forum)s?\\b|\\bdistrict\\s+of\\b|\\bdiversity\\s+(?:grounds|jurisdiction)\\b|\\bfederal-question\\s+grounds\\b|\\bremand\\w*\\b|§\\s*14(?:41|45|46|47)\\b|\\bremov\\w*\\s+(?:the\\s+|that\\s+|this\\s+|its\\s+)?(?:(?:state|federal|whole)\\s+)?(?:actions?|suits?|lawsuits?|cases?)\\b|\\bremoved\\s+(?:on\\s+(?:diversity|federal|the\\s+federal|\\w+\\s+\\d)|to\\s+(?:the\\s+)?(?:\\w+\\s+){0,2}district)\\b|\\b(?:after|forgo|proper|on)\\s+removal\\b)",
+      "except": [
+        "removal from office",
+        "removal power",
+        "removal powers",
+        "removal restriction",
+        "removal restrictions",
+        "removal protection",
+        "removal protections",
+        "removal case",
+        "removal cases",
+        "removal decision",
+        "hearing after removal",
+        "period after removal",
+        "removed the remand requirement",
+        "demand its removal",
+        "remove a constitutional protection",
+        "removed the former cause requirement"
+      ],
+      "gloss": "Removal moves a lawsuit that was filed in a state court into the federal court for the same area. A defendant may do this when the case could have been brought in federal court in the first place, for example because the parties are from different states."
+    },
+    {
+      "key": "cause-of-action",
+      "label": "cause of action",
+      "wex": "cause_of_action",
+      "match": [
+        "cause of action",
+        "causes of action"
+      ],
+      "gloss": "A cause of action is a legal claim: a set of facts that, if proved, entitles the plaintiff to a remedy from the court. One complaint can state several causes of action, each a separate claim."
+    },
+    {
+      "key": "motion-to-dismiss",
+      "label": "motion to dismiss",
+      "wex": "motion_to_dismiss",
+      "match": [
+        "motion to dismiss",
+        "motions to dismiss",
+        "moved to dismiss",
+        "moves to dismiss",
+        "move to dismiss",
+        "moving to dismiss"
+      ],
+      "gloss": "A motion to dismiss asks the court to end a lawsuit, or part of it, without a trial, usually at the very start. The classic version (Rule 12(b)(6) in federal court) argues that even if everything in the complaint is true, it states no claim the law recognizes."
+    },
+    {
+      "key": "motion",
+      "label": "motion",
+      "wex": "motion",
+      "match": [
+        "motion",
+        "motions"
+      ],
+      "except": [
+        "in motion",
+        "set in motion",
+        "motion picture",
+        "motion pictures",
+        "slow motion",
+        "own motion",
+        "fresh motion"
+      ],
+      "gloss": "A motion is a formal request asking the court for a particular ruling or order, such as dismissing a claim, striking part of a pleading, or granting a new trial. The party making it is the movant."
+    },
+    {
+      "key": "strike",
+      "label": "strike (from a pleading)",
+      "wex": "motion_to_strike",
+      "match": [
+        "strike",
+        "strikes",
+        "struck",
+        "striking",
+        "stricken",
+        "motion to strike",
+        "motions to strike",
+        "moved to strike"
+      ],
+      "context": "\\b(?:pleadings?|answers?|defen[cs]es?|paragraphs?|allegations?|motions?|moved|demands?|counts?|portions?|briefs?|rule\\s+12\\(f\\))\\b",
+      "except": [
+        "struck down",
+        "strike down",
+        "strikes down",
+        "striking down",
+        "striking similarity",
+        "peremptory strike",
+        "peremptory strikes",
+        "strike suit",
+        "strike suits",
+        "hunger strike",
+        "hunger strikes"
+      ],
+      "gloss": "To strike material is to order it removed from a pleading or the record, so that it no longer counts in the case. A party asks for this with a motion to strike; in federal court, Rule 12(f) lets a judge strike an insufficient defense or any redundant, immaterial, impertinent or scandalous matter."
+    },
+    {
+      "key": "absolute-privilege",
+      "label": "absolute privilege",
+      "wex": "absolute_privilege",
+      "match": [
+        "absolute privilege",
+        "absolutely privileged"
+      ],
+      "gloss": "An absolute privilege is a protection that holds whatever the speaker's motive. In defamation law, statements made in certain settings, such as court proceedings, legislative debate and some official hearings, cannot be the basis of a lawsuit even if they were false and malicious."
+    },
+    {
+      "key": "conditional-privilege",
+      "label": "conditional privilege",
+      "wex": null,
+      "match": [
+        "conditional privilege",
+        "conditionally privileged",
+        "conditional-privilege",
+        "qualified privilege",
+        "qualifiedly privileged"
+      ],
+      "gloss": "A conditional (or qualified) privilege protects a statement made for a legitimate purpose, such as an employer explaining why a worker was fired. Unlike an absolute privilege, it is lost if the speaker abuses it, for example by acting out of malice or spreading the statement further than needed."
+    },
+    {
+      "key": "defamation",
+      "label": "defamation",
+      "wex": "defamation",
+      "match": [
+        "defamation",
+        "defamatory"
+      ],
+      "gloss": "Defamation is a false statement of fact, communicated to someone else, that harms another person's reputation. Spoken defamation is called slander; written or recorded defamation is libel."
+    },
+    {
+      "key": "slander",
+      "label": "slander",
+      "wex": "slander",
+      "match": [
+        "slander",
+        "slanderous",
+        "slandered"
+      ],
+      "gloss": "Slander is defamation in spoken form: a false, damaging statement about someone said aloud to another person. Written defamation is called libel."
+    },
+    {
+      "key": "libel",
+      "label": "libel",
+      "wex": "libel",
+      "match": [
+        "libel",
+        "libelous",
+        "libellous",
+        "libeled",
+        "libelled"
+      ],
+      "gloss": "Libel is defamation in written or other lasting form, such as a newspaper article, letter or broadcast. Spoken defamation is called slander."
+    },
+    {
+      "key": "publication",
+      "label": "publication (in defamation)",
+      "wex": null,
+      "match": [
+        "publication"
+      ],
+      "context": "\\b(?:defam\\w*|slander\\w*|libel\\w*|accus\\w*|spoken)\\b",
+      "gloss": "In defamation law, publication means communicating the statement to at least one person other than the one it is about. Nothing needs to be printed: telling a single listener is enough."
+    },
+    {
+      "key": "more-definite-statement",
+      "label": "more definite statement",
+      "wex": null,
+      "match": [
+        "more definite statement",
+        "more definite statements"
+      ],
+      "gloss": "A motion for a more definite statement (Rule 12(e) in federal court) asks the court to order the other side to rewrite a pleading that is so vague or ambiguous that a fair response cannot be prepared."
+    },
+    {
+      "key": "affirmative-defense",
+      "label": "affirmative defense",
+      "wex": "affirmative_defense",
+      "match": [
+        "affirmative defense",
+        "affirmative defenses"
+      ],
+      "gloss": "An affirmative defense is a reason the defendant should not be liable even if the plaintiff's allegations are true, such as privilege, consent or the statute of limitations. The defendant must raise it, usually in the answer, and generally has to prove it."
+    },
+    {
+      "key": "actual-malice",
+      "label": "actual malice",
+      "wex": null,
+      "match": [
+        "actual malice"
+      ],
+      "gloss": "In defamation law, actual malice traditionally meant a real wrongful motive, such as spite or knowing the statement was false, as opposed to malice the law simply presumed. Since New York Times v. Sullivan (1964) the phrase also names the constitutional standard for public officials: knowledge that the statement was false, or reckless disregard of whether it was."
+    },
+    {
+      "key": "quasi-judicial",
+      "label": "quasi-judicial",
+      "wex": "quasi-judicial",
+      "match": [
+        "quasi-judicial"
+      ],
+      "gloss": "Quasi-judicial means court-like. It describes an agency, official or hearing that is not a court but decides disputes in a similar way, by taking evidence and applying rules to the facts."
+    },
+    {
+      "key": "pleading",
+      "label": "pleading",
+      "wex": "pleading",
+      "match": [
+        "pleading",
+        "pleadings"
+      ],
+      "except": [
+        "pleading guilty",
+        "pleading not guilty",
+        "pleading no contest",
+        "special pleading"
+      ],
+      "gloss": "Pleadings are the formal papers that open a lawsuit and state each side's position: mainly the plaintiff's complaint and the defendant's answer. Pleading also names the rules for what those papers must contain."
+    },
+    {
+      "key": "short-and-plain-statement",
+      "label": "short and plain statement",
+      "wex": null,
+      "match": [
+        "short and plain statement"
+      ],
+      "gloss": "The phrase comes from Federal Rule 8(a)(2): a complaint must contain a short and plain statement of the claim showing that the pleader is entitled to relief. It replaced older rules that demanded detailed facts in technical form."
+    },
+    {
+      "key": "relief",
+      "label": "relief",
+      "wex": "relief",
+      "match": [
+        "relief"
+      ],
+      "context": "\\b(?:entitle\\w*|grant\\w*|seek\\w*|sought|request\\w*|award\\w*|injunctive|equitable|declaratory|monetary|remed\\w*|court|judgment)\\b",
+      "gloss": "Relief is what a party asks the court to give it, such as money damages, an order to do or stop doing something, or a declaration of the parties' rights."
+    },
+    {
+      "key": "damages",
+      "label": "damages",
+      "wex": "damages",
+      "match": [
+        "damages"
+      ],
+      "gloss": "Damages are money a court orders one party to pay another to make up for a legal wrong, such as an injury or a broken contract."
+    },
+    {
+      "key": "remand",
+      "label": "remand",
+      "wex": "remand",
+      "match": [
+        "remand",
+        "remanded",
+        "remands",
+        "remanding"
+      ],
+      "gloss": "To remand is to send a case back. An appeals court remands a case to the lower court for further proceedings, and a federal court remands a removed case to the state court it came from."
+    },
+    {
+      "key": "certiorari",
+      "label": "certiorari",
+      "wex": "certiorari",
+      "match": [
+        "certiorari",
+        "writ of certiorari"
+      ],
+      "gloss": "Certiorari is the order by which the U.S. Supreme Court agrees to review a lower court's decision. A party asks for it by filing a petition; the Court grants only a small share of them."
+    },
+    {
+      "key": "personal-jurisdiction",
+      "label": "personal jurisdiction",
+      "wex": "personal_jurisdiction",
+      "match": [
+        "personal jurisdiction"
+      ],
+      "gloss": "Personal jurisdiction is a court's power over a particular defendant. Without it, the court cannot enter a binding judgment against that person, however strong the claim."
+    },
+    {
+      "key": "in-personam",
+      "label": "in personam",
+      "wex": "in_personam",
+      "match": [
+        "in personam"
+      ],
+      "gloss": "Latin for “against the person.” An in personam judgment binds a particular person, for example by ordering them to pay money, and requires the court to have power over that person."
+    },
+    {
+      "key": "in-rem",
+      "label": "in rem",
+      "wex": "in_rem",
+      "match": [
+        "in rem"
+      ],
+      "except": [
+        "quasi in rem"
+      ],
+      "gloss": "Latin for “against the thing.” An in rem proceeding decides rights in a specific piece of property, such as land, and rests on the court's power over that property rather than over a person."
+    },
+    {
+      "key": "consideration",
+      "label": "consideration (in contracts)",
+      "wex": "consideration",
+      "match": [
+        "consideration"
+      ],
+      "context": "\\b(?:promis\\w*|contract\\w*|bargain\\w*|exchange\\w*|forb[eo]a?r\\w*|detriment\\w*|enforceab\\w*|binding|gift|gratuitous)\\b",
+      "except": [
+        "under consideration",
+        "into consideration",
+        "further consideration",
+        "careful consideration",
+        "serious consideration",
+        "consideration of",
+        "systematic consideration",
+        "promised later consideration",
+        "promising consideration",
+        "promised consideration",
+        "federal consideration",
+        "genuine consideration",
+        "preliminary consideration"
+      ],
+      "gloss": "In contract law, consideration is what each side gives or promises in exchange for the other's promise: money, goods, an act, or a promise to act or not to act. Without consideration, a promise is generally a gift and cannot be enforced as a contract."
+    },
+    {
+      "key": "forbearance",
+      "label": "forbearance",
+      "wex": "forbearance",
+      "match": [
+        "forbearance",
+        "forbear",
+        "forbore",
+        "forborne"
+      ],
+      "gloss": "Forbearance is holding back from doing something one has a legal right to do, such as not filing a lawsuit or giving up a lawful habit. Giving up a legal right in exchange for a promise can be consideration for that promise."
+    },
+    {
+      "key": "promissory-estoppel",
+      "label": "promissory estoppel",
+      "wex": "promissory_estoppel",
+      "match": [
+        "promissory estoppel"
+      ],
+      "gloss": "Promissory estoppel lets a court enforce a promise that lacks consideration when the promisor should have expected the other person to rely on it, that person did rely on it to their harm, and only enforcement avoids injustice."
+    },
+    {
+      "key": "legislative-veto",
+      "label": "legislative veto",
+      "wex": "legislative_veto",
+      "match": [
+        "legislative veto",
+        "legislative vetoes",
+        "one-house veto"
+      ],
+      "gloss": "A legislative veto lets Congress, one house of Congress or a committee cancel an executive action by resolution, without passing a new law and presenting it to the President. The Supreme Court held the one-house version unconstitutional in INS v. Chadha (1983)."
+    }
+  ]
+}
