@@ -54,6 +54,11 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'search results stop saying where they matched',
+    'src/runtime/dklaR13Search.js',
+    () => edit('src/runtime/dklaR13Search.js', '    fillVisible();\n', '\n'),
+  ],
+  [
     'Ask Dottie follow-ups: earlier turns are no longer sent',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', 'history: turns.length', 'history: false'),
