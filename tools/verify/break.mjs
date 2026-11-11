@@ -79,6 +79,26 @@ const breakages = [
       ),
   ],
   [
+    'New York clock date flaps show the month before the weekday',
+    'src/features/clock/clock.js',
+    () =>
+      edit(
+        'src/features/clock/clock.js',
+        'part.weekday.slice(0, 3) + part.month.slice(0, 3)',
+        'part.month.slice(0, 3) + part.weekday.slice(0, 3)',
+      ),
+  ],
+  [
+    'New York clock hourly riffle spins on instead of landing',
+    'src/features/clock/clock.js',
+    () => edit('src/features/clock/clock.js', 'step < STEPS; step++', 'step < STEPS * 40; step++'),
+  ],
+  [
+    'New York clock font: the embedded JetBrains Mono is altered',
+    'src/features/clock/clock-font.css',
+    () => flip('src/features/clock/clock-font.css'),
+  ],
+  [
     'Ask DKLA mascot: Dottie stops carrying one joey per cited source',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', "setDottie('answer', cited.size)", "setDottie('answer', 1)"),

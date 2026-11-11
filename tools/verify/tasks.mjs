@@ -42,6 +42,7 @@ export const tasks = [
   step('source', 'html checker self-test', test('tools/source/check_html.test.cjs')),
   step('features', 'Ask DKLA retrieval and citations', test('tools/ask/ask.test.mjs'), ['Ask DKLA corpus']),
   step('features', 'brief loader', test('tools/performance/brief-loader.test.mjs')),
+  step('features', 'clock font and licence', node('tools/clock/font.mjs', '--check')),
   step(
     'features',
     'readable paragraphs preserve every word',
