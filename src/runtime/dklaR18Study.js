@@ -1012,6 +1012,9 @@
       // time limit: on a slow phone a large graph can take a while, and reloading in the middle of the
       // write would drop the latest edits. The button reads "Saving…" until it is done.
       await window.LegalAtlas?.flush?.();
+      // Nothing can be written on this device (no local saving from the start, or a write that failed
+      // earlier): the edits live only in this tab, so a reload would lose them. Same answer as a failure.
+      if (typeof cacheAvailable !== 'undefined' && cacheAvailable === false) throw Error('no local saving');
     } catch {
       // The write failed (the browser refused or aborted it). Never reload then: the unload guard's
       // question is not shown everywhere (iOS Safari never asks), so the edits would be lost silently.

@@ -418,24 +418,39 @@ function r7SaveNow() {
     .then(
       () =>
         new Promise((resolve, reject) => {
-          const tx = r7DB.transaction('graphs', 'readwrite');
-          tx.objectStore('graphs').put(snapshot, storageKey());
-          tx.oncomplete = () => {
-            cacheAvailable = true;
-            if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
-            resolve();
-          };
-          const failed = () => {
+          let done = false,
+            tx = null;
+          const failed = (error) => {
+            if (done) return;
+            done = true;
             cacheAvailable = false;
             if (serial === r7SaveSerial)
               $('saveStatus').textContent = 'Session only · export to keep your work';
             warning('Local browser saving failed. Export master JSON or portable HTML before closing.');
-            reject(tx.error || Error('Local browser saving was aborted.'));
+            reject(
+              (error instanceof Error && error) || tx?.error || Error('Local browser saving was aborted.'),
+            );
           };
-          tx.onerror = failed;
+          try {
+            tx = r7DB.transaction('graphs', 'readwrite');
+            tx.objectStore('graphs').put(snapshot, storageKey());
+          } catch (error) {
+            // The browser can refuse at once (a connection iOS dropped in the background, a value it
+            // cannot store): mark saving unavailable so the unload guard and Refresh know.
+            failed(error);
+            return;
+          }
+          tx.oncomplete = () => {
+            if (done) return;
+            done = true;
+            cacheAvailable = true;
+            if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
+            resolve();
+          };
+          tx.onerror = () => failed();
           // A write the browser refuses when it commits (no room left, for one) fires only 'abort'.
           // Without this the save would never finish, and every later save waits on it forever.
-          tx.onabort = failed;
+          tx.onabort = () => failed();
         }),
     );
   r7SavePending.catch(() => {});
