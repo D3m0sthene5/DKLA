@@ -1,5 +1,5 @@
 /* dannykind.wiki/eo/dashboard: the Executive Orders project's production control center (Production flow,
-   Mission, Overview, Workflow map, Job tiers, Blockers, Next best action, Handoffs & PRs).
+   Project journal, Mission, Overview, Workflow map, Job tiers, Blockers, Next best action, Handoffs & PRs).
 
    The dashboard lives in the Executive-Orders repository at research/progress/control-center/. This function
    relays the latest committed copy of its files from main, so the page follows the project without a redeploy
@@ -11,6 +11,9 @@ const SOURCE =
   'https://raw.githubusercontent.com/D3m0sthene5/Executive-Orders/main/research/progress/control-center/';
 const BASE = '/eo/dashboard/';
 
+// Every file the page loads must be listed here, or the page asks for it at /eo/<name> and gets a 404. A missing
+// journal.js once left the whole page on its bundled November 2 data, because the refresh stops at the first error.
+
 const FILES = {
   'index.html': 'text/html; charset=utf-8',
   'app.js': 'text/javascript; charset=utf-8',
@@ -18,14 +21,17 @@ const FILES = {
   'flow-view.js': 'text/javascript; charset=utf-8',
   'mission.js': 'text/javascript; charset=utf-8',
   'observability-core.js': 'text/javascript; charset=utf-8',
+  'journal.js': 'text/javascript; charset=utf-8',
   'style.css': 'text/css; charset=utf-8',
   'mission.css': 'text/css; charset=utf-8',
+  'journal.css': 'text/css; charset=utf-8',
   'mark.svg': 'image/svg+xml',
   'portico.svg': 'image/svg+xml',
   'snapshot.json': 'application/json; charset=utf-8',
   'atlas.json': 'application/json; charset=utf-8',
   'evidence.json': 'application/json; charset=utf-8',
   'observability.json': 'application/json; charset=utf-8',
+  'journal.json': 'application/json; charset=utf-8',
   'orders.csv': 'text/csv; charset=utf-8',
 };
 
