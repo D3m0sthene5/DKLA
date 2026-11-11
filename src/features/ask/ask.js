@@ -25,6 +25,7 @@
       <button type="button">Is Iqbal one of the five most cited cases ever?</button>
     </div>
     <div class="ask-progress">
+      <p class="ask-working" aria-hidden="true"></p>
       <p class="ask-status" role="status"></p>
       <button type="button" class="ask-cancel" hidden>Cancel</button>
     </div>
@@ -40,6 +41,7 @@
   const input = form.querySelector('textarea');
   const submit = form.querySelector('button');
   const status = dialog.querySelector('.ask-status');
+  const working = dialog.querySelector('.ask-working');
   const answer = dialog.querySelector('.ask-answer');
   const scopeLabel = dialog.querySelector('.ask-scope');
   const examples = dialog.querySelector('.ask-examples');
@@ -84,15 +86,13 @@
   // Each state has a pool of poses. She picks one at random, never the same
   // pose twice running, so visitors see her whole range. Anything that went
   // wrong (offline, busy, unavailable, failed, or no answer) is always possum.
+  // While she works, the thinking spinner shows instead (dottie.spinner()).
   const pools = {
     idle: ['curious', 'bookmark', 'hanging', 'carrying'],
-    research: ['reading', 'rummaging', 'fetching'],
     answer: ['carrying', 'bookmark'],
     trouble: ['possum'],
   };
-  const calm = matchMedia('(prefers-reduced-motion: reduce)');
   let lastPose;
-  let shuffle;
   function choose(pool) {
     const options = pool.length > 1 ? pool.filter((pose) => pose !== lastPose) : pool;
     return options[Math.floor(Math.random() * options.length)];
@@ -101,28 +101,144 @@
   // state: idle | research | answer | trouble | null (hidden).
   // joeys: on an answer, the number of cited sources she carries.
   function setDottie(state, joeys) {
-    clearInterval(shuffle);
     peek.disconnect();
     mascot.className = 'ask-dottie';
     if (!dottie || !state) return mascot.remove();
-    const show = () => {
-      const pose = choose(pools[state]);
+    mascot.dataset.state = state;
+    if (state === 'research' && dottie.spinner) {
+      mascot.dataset.pose = 'spinner';
+      mascot.innerHTML = dottie.spinner();
+    } else {
+      const pose = choose(pools[state] ?? pools.idle);
       lastPose = pose;
-      mascot.dataset.state = state;
       mascot.dataset.pose = pose;
       // On the empty dialog any joeys are just along for the ride.
       mascot.innerHTML = dottie.svg(pose, state === 'answer' ? joeys : Math.floor(Math.random() * 4));
-    };
-    show();
+    }
     if (state === 'idle') examplesLabel.append(mascot);
     else if (state !== 'answer') progress.prepend(mascot);
-    // While a search runs she keeps busy, changing pose every few seconds.
-    if (state === 'research' && !calm.matches)
-      shuffle = setInterval(() => {
-        show();
-        mascot.animate?.([{ opacity: 0 }, { opacity: 1 }], { duration: 260 });
-      }, 4500);
     return mascot;
+  }
+
+  // While she works, the line beside the spinner changes every two seconds, like a thinking
+  // indicator. When the server reports a real step (searching the web, the site it is reading,
+  // checking citations), that step shows instead. Screen readers hear only the real states, in
+  // the status line; the playful words are hidden from them.
+  const quips = [
+    'Shepardizing…',
+    'Rummaging through the docket…',
+    'Briefing…',
+    'Distinguishing…',
+    'Consulting the joeys…',
+    'Playing devil’s advocate…',
+    'Checking the pocket parts…',
+    'Reading the fine print…',
+    'Hanging around…',
+    'Pulling the record…',
+    'Weighing the dicta…',
+    'Thumbing through the reporters…',
+    'Hunting for the holding…',
+    'Noting the dissent…',
+    'Following the footnotes…',
+    'Counting the votes…',
+    'Marshalling authorities…',
+    'Sniffing out precedent…',
+    'Curling up with a casebook…',
+    'Taking judicial notice…',
+    'Minding the standard of review…',
+  ];
+  const steps = {
+    atlas: ({ entries }) =>
+      entries ? 'Reading ' + entries + ' Atlas ' + (entries === 1 ? 'entry…' : 'entries…') : '',
+    searching: () => 'Searching the web…',
+    reading: ({ domains }) =>
+      Array.isArray(domains) && domains.length
+        ? 'Reading ' + domains.slice(0, 2).map(String).join(' and ') + '…'
+        : 'Searching the web…',
+    writing: () => 'Writing the answer…',
+    checking: () => 'Checking citations…',
+  };
+  // The states a screen reader hears, once each.
+  const announced = { searching: 'Searching the web…', checking: 'Checking citations…' };
+  let quipTimer;
+  let quip;
+  let holdUntil = 0;
+  function showQuip() {
+    if (Date.now() < holdUntil) return;
+    const options = quips.filter((word) => word !== quip);
+    quip = options[Math.floor(Math.random() * options.length)];
+    working.textContent = quip;
+    working.dataset.kind = 'quip';
+  }
+  function startWorking() {
+    clearInterval(quipTimer);
+    holdUntil = 0;
+    progress.classList.add('is-working');
+    showQuip();
+    quipTimer = setInterval(showQuip, 2000);
+  }
+  // A step from the server. The Atlas count shows briefly; a web step stays until the next.
+  function showStep(step) {
+    const text = steps[step?.step]?.(step);
+    if (!text || !progress.classList.contains('is-working')) return;
+    working.textContent = text;
+    working.dataset.kind = 'step';
+    holdUntil = step.step === 'atlas' ? Date.now() + 2500 : Infinity;
+    const heard = announced[step.step];
+    if (heard && status.textContent !== heard) status.textContent = heard;
+  }
+  function stopWorking() {
+    clearInterval(quipTimer);
+    progress.classList.remove('is-working');
+    working.textContent = '';
+    delete working.dataset.kind;
+  }
+
+  // A warm-up: when the dialog opens or someone starts typing a question, the server loads the
+  // Atlas corpus so the question that follows does not wait for it. It sends no question, calls
+  // no AI and is not recorded; at most once every four minutes.
+  let warmed = 0;
+  function warmUp() {
+    if (Date.now() - warmed < 240_000 || !navigator.onLine) return;
+    warmed = Date.now();
+    fetch('/api/ask', {
+      method: 'POST',
+      credentials: 'omit',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ warm: true }),
+    }).catch(() => {});
+  }
+
+  // The reply, as { status, json }. A server that reports progress sends one JSON object per
+  // line; the last is the checked answer (or an error with its status).
+  async function readReply(response) {
+    const type = response.headers.get('content-type') || '';
+    if (!response.body || !/^application\/x-ndjson/i.test(type))
+      return { status: response.status, json: await response.json().catch(() => null) };
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let last = null;
+    const take = (line) => {
+      if (!line.trim()) return;
+      const message = JSON.parse(line);
+      if (message?.progress) showStep(message.progress);
+      else last = message;
+    };
+    for (;;) {
+      const { value, done } = await reader.read();
+      buffer += decoder.decode(value, { stream: !done });
+      let end;
+      while ((end = buffer.indexOf('\n')) >= 0) {
+        take(buffer.slice(0, end));
+        buffer = buffer.slice(end + 1);
+      }
+      if (done) break;
+    }
+    take(buffer);
+    if (last?.answer) return { status: 200, json: last.answer };
+    if (Number.isInteger(last?.status)) return { status: last.status, json: { error: last.error } };
+    throw Error('Answer unavailable');
   }
 
   const openers = {
@@ -308,6 +424,7 @@
   }
 
   function setResearching(active) {
+    if (!active) stopWorking();
     submit.disabled = active;
     input.readOnly = active;
     cancel.hidden = !active;
@@ -349,11 +466,13 @@
     setResearching(true);
     setDottie('research');
     status.textContent = 'Looking for relevant sources…';
+    startWorking();
     try {
       const response = await fetch('/api/ask', {
         method: 'POST',
         credentials: 'omit',
-        headers: { 'content-type': 'application/json' },
+        // Progress lines as the work goes on; a server without them still sends plain JSON.
+        headers: { 'content-type': 'application/json', accept: 'application/x-ndjson, application/json' },
         body: JSON.stringify({
           question,
           node: node?.id,
@@ -365,25 +484,27 @@
         signal: controller.signal,
       });
       if (request !== controller) return;
-      if (response.status === 429) {
-        const problem = await response.json().catch(() => null);
-        if (request !== controller) return;
+      const reply = await readReply(response);
+      if (request !== controller) return;
+      stopWorking();
+      if (reply.status === 429) {
+        const problem = reply.json;
         setDottie('trouble');
         status.textContent =
           problem?.error === 'usage-limit'
             ? 'Ask Dottie has reached its current AI allowance. Atlas search is still available.'
             : 'Ask Dottie is busy. Try again in a minute.';
-      } else if (response.status === 503 || response.status === 404) {
+      } else if (reply.status === 503 || reply.status === 404) {
         setDottie('trouble');
         status.textContent = 'AI answers are unavailable here. You can still search the Atlas.';
-      } else if (response.ok) {
-        const result = await response.json();
-        if (request === controller) render(result, question);
+      } else if (reply.status === 200 && reply.json) {
+        render(reply.json, question);
       } else {
         throw Error('Answer unavailable');
       }
     } catch {
       if (request === controller) {
+        stopWorking();
         setDottie('trouble');
         status.textContent = 'Ask Dottie couldn’t finish that answer. Try again.';
       }
@@ -395,6 +516,7 @@
     }
   }
 
+  input.addEventListener('input', warmUp);
   input.addEventListener('keydown', (event) => {
     if (event.key !== 'Enter' || event.shiftKey || event.isComposing) return;
     event.preventDefault();
@@ -441,6 +563,8 @@
         ? nodesById.get(active.id)
         : null;
     closeSearch();
+    // A question asked straight away loads the corpus itself.
+    if (!question) warmUp();
     // Reopening without a new question returns to the conversation in progress.
     if (!question && (current || turns.length)) {
       dialog.showModal();
@@ -509,7 +633,9 @@
       /^(?:compare|describe|explain|summarize|what|why|who|when|where|how|which|can|could|did|does|do|is|are|was|were|would)\b/i.test(
         question,
       );
-    if (!results.hidden && questionLike && question.length <= 600 && !button.isConnected)
+    if (!results.hidden && questionLike && question.length <= 600 && !button.isConnected) {
       results.prepend(button);
+      warmUp();
+    }
   }).observe(results, { childList: true });
 })();

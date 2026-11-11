@@ -62,8 +62,32 @@ Ask Dottie (named Ask DKLA in the code and server) is the AI research assistant,
 Dottie Docket, an opossum mascot (see `docs/ask-mascot/`).
 Open the Atlas search box and choose **Ask Dottie** to ask directly, or
 type a question into search and choose **Ask Dottie** above the results. An
-Atlas citation opens its entry inside DKLA. When a question needs outside
-evidence, Ask Dottie searches the public web and labels those citations separately.
+Atlas citation opens its entry inside DKLA. Ask Dottie searches the public web
+unless the question is about the open entry itself, names an Atlas entry by a case name
+("X v. Y", or one party's name no other case has), a rule or section number in any common
+spelling ("12(b)(6)", "FRCP 56", "§ 1983", "28 usc 1332") or a statute's own title with
+"Act" or "Code", or is nothing but a dictionary headword ("what is a filibuster"); and even
+then when it asks for something an entry cannot hold: later history, overturned or current
+law, people, dates, legislation and politics as events, counts, one state's law, or "which
+statute" or "which case" that does not itself name it (`lib/ask/web.js` `route`,
+`lib/ask/retrieve.js` `explain`). A question the Atlas has nothing for also researches.
+Research still gets the top Atlas excerpts, so Atlas citations appear beside web ones; for
+questions about legislation, events, dates, people or the present it must cite the web,
+otherwise an answer from the Atlas excerpts alone is kept. Every answer, Atlas-only or
+researched, passes a server check: a paragraph that answers a substitute question ("you
+are probably asking about", "you might mean") is dropped, and so is one whose sources, Atlas
+or web, are all the wrong kind of authority (a case for "what statute") (`lib/ask/answer.js`
+`checkAnswer`, `lib/ask/web.js` `citeResearch`). Cancelling a question, or closing the tab,
+stops the OpenAI calls; a timeout or network failure gives an honest empty answer.
+While she works, the dialog shows a spinner of three opossums round her question-mark tail,
+with playful words, or the real step the server reports (the browser asks for progress with
+`Accept: application/x-ndjson`; without it the reply is the plain JSON it always was).
+Opening the dialog or typing sends a warm-up (`{ "warm": true }`) that loads the corpus
+without a question, an AI call or any record. The build stores the retrieval index beside
+the corpus (`work/build/ask-index.bin.gz`), so a cold start takes about 0.3 s, not 1.8 s.
+Cost: more questions now use web search (210 of the 290 in the routing test, which leans
+toward hard questions), and research costs more than an Atlas-only answer. Research is never started alongside an Atlas answer: that would pay for research on
+every Atlas question to save seconds only on the few whose draft falls short.
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
