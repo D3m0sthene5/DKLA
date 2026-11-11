@@ -27,7 +27,8 @@
       Contracts: [-7370, 700],
       'Civil Procedure': [-23310, 700],
       [LRS]: [8370, 700],
-      'workbench-region': [0, 9650],
+      // v3.0: Notes at the right end of the Contracts row (matches r20's arrangement).
+      'workbench-region': [4970, 9650],
       'dictionary-region': [15500, 9650],
     },
   };
