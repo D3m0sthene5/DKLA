@@ -578,6 +578,11 @@ async function savedAnswersFlow(viewport) {
       return route.fulfill({ status: 204 });
     if (target.pathname !== '/api/ask') return route.continue();
     const payload = route.request().postDataJSON();
+    // The warm-up sent when the dialog opens (dottie-fix2): nothing but the flag.
+    if (payload.warm) {
+      assert.deepEqual(payload, { warm: true });
+      return route.fulfill({ json: { warm: true } });
+    }
     assert.ok(Object.keys(payload).every((key) => ['question', 'node', 'history', 'fresh'].includes(key)));
     payloads.push(payload);
     if (payload.fresh) {
