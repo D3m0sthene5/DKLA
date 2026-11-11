@@ -21,8 +21,26 @@
     parent.appendChild(node);
     return node;
   }
+  // The embedded faces (release-font.css). Labels are fitted by measuring
+  // with a canvas, which uses a fallback until a face has loaded, so ask for
+  // every face now; install() redraws once they are in (or after 4 s).
+  const FACES = [
+    '400 16px "DKLA Inter"',
+    '500 16px "DKLA Inter"',
+    '600 16px "DKLA Inter"',
+    '700 16px "DKLA Inter"',
+    '400 16px "DKLA Exo 2"',
+    '600 16px "DKLA Exo 2"',
+  ];
+  state.fontsReady = false;
+  state.fonts = Promise.race([
+    Promise.all(FACES.map((face) => document.fonts?.load(face).catch(() => []))),
+    new Promise((resolve) => setTimeout(resolve, 4000)),
+  ]).then(() => {
+    state.fontsReady = true;
+  });
   function fitted(label, desired, width, display = true) {
-    measure.font = `600 ${desired}px ${display ? '"DKLA Orbitron"' : '"Segoe UI"'}, Arial`;
+    measure.font = `600 ${desired}px ${display ? '"DKLA Exo 2"' : '"DKLA Inter"'}, Arial`;
     return Math.min(desired, (desired * width) / Math.max(1, measure.measureText(label).width));
   }
   function el(parent, name, attrs) {
@@ -507,9 +525,14 @@
     };
     state.ready = true;
     refresh();
-    document.fonts.ready.then(() => {
+    // Widths measured before the embedded faces loaded are stale: forget the
+    // map's cached widths and draw again with the real fonts.
+    const redraw = () => {
+      if (typeof R11 === 'object' && R11?.measure) R11.measure.clear();
       if (state.ready) draw();
-    });
+    };
+    state.fonts.then(redraw);
+    document.fonts?.ready.then(redraw);
   }
   install();
 })();

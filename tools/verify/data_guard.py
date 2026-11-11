@@ -79,10 +79,15 @@ def main():
         if [b['id'] for b in current] != [b['id'] for b in approved]:
             print('The order or set of data blocks changed.')
         sys.exit(1)
-    # The embedded font must still carry its licence.
+    # The embedded fonts (tools/v26/embed-fonts.mjs) are the unmodified upstream
+    # files and still carry their licences.
     body = (ROOT / 'src/features/v26/release-font.css').read_bytes()
-    assert base64.b64encode((ROOT / 'tools/v26/assets/Orbitron-wght.ttf').read_bytes()) in body
-    assert (ROOT / 'tools/v26/assets/OFL.txt').read_text(encoding='utf-8').strip() in body.decode().replace('\r\n', '\n'), 'Font license missing'
+    text = body.decode().replace('\r\n', '\n')
+    for slug, licence, weights in (('exo-2', 'Exo2-OFL.txt', (400, 600)), ('inter', 'Inter-OFL.txt', (400, 500, 600, 700))):
+        for weight in weights:
+            font = ROOT / f'tools/v26/assets/{slug}-latin-{weight}-normal.woff2'
+            assert base64.b64encode(font.read_bytes()) in body, f'{font.name} is not embedded unmodified'
+        assert (ROOT / 'tools/v26/assets' / licence).read_text(encoding='utf-8').replace('\r\n', '\n').strip() in text, f'{licence} missing'
     print(json.dumps({'pass': True, 'dataBlocks': len(current)}))
 
 

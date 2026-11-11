@@ -16,7 +16,7 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | `tools/r19/` | **Content and build.** Briefs and their data (`data/`), and the assembler that builds the app (`assemble.py`). |
 | `tools/cold-call/` | **Content.** Cold Call narratives (`narratives/`), their index and checks. |
 | `tools/v25/` | **Datasets and checks** for rules and authorities, the map geography, the reading panel and the Home layout, and the scripts that build those datasets. |
-| `tools/v26/` | The owner's typography and SCOTUS building decisions (`TYPOGRAPHY.md`) and the font file the embedded font was made from. |
+| `tools/v26/` | The owner's typography and SCOTUS building decisions (`TYPOGRAPHY.md`) and the font files the embedded fonts are made from (`assets/`, written into the page by `embed-fonts.mjs`). |
 | `tools/performance/`, `tools/sync/`, `tools/analytics/` | Tests and build steps for loading briefs on demand, ratings sync and visitor analytics. |
 | `tools/sessions/` | **Content and a check.** The October 1, 2026 Civil Procedure syllabus as a list of edits over the September weeks (`civil-syllabus.json`), and the check that the weeks follow it. |
 | `tools/r12/` | Three course layout designs still read by the geography check. |
