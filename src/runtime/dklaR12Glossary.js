@@ -54,6 +54,7 @@
   const LII = (s) => 'https://www.law.cornell.edu/wex/' + encodeURIComponent(s);
   window.DKLA = Object.assign(window.DKLA || {}, {
     glossaryCount: () => G.terms.length,
+    hasTerm: (slug) => bySlug.has(slug),
     openTerm: (slug) => openGlossary(slug),
   });
   // ---- the dialog

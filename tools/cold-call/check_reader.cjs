@@ -15,6 +15,9 @@ const html = fs.readFileSync(
 const match = html.match(/<script\b[^>]*\bid="dklaColdCallData"[^>]*>([\s\S]*?)<\/script>/);
 assert.ok(match, 'Built narrative data is missing');
 const data = JSON.parse(match[1]);
+const glossaryBlock = html.match(/<script\b[^>]*\bid="dklaColdCallGlossary"[^>]*>([\s\S]*?)<\/script>/);
+assert.ok(glossaryBlock, 'Built Cold Call definitions are missing');
+const glossary = JSON.parse(glossaryBlock[1]);
 class Element {
   constructor() {
     this.dataset = {};
@@ -26,7 +29,10 @@ class Element {
   }
   setAttribute() {}
   addEventListener(type, listener) {
-    this.events[type] = listener;
+    // Several features listen on the reader; calling the event runs them all in order.
+    const listeners = (this.listeners ||= {});
+    (listeners[type] ||= []).push(listener);
+    this.events[type] = (event) => listeners[type].forEach((l) => l(event));
   }
   querySelector(key) {
     if (!this.children.has(key)) this.children.set(key, new Element());
@@ -61,7 +67,9 @@ const document = {
     return new Element();
   },
   getElementById(id) {
-    return id === 'dklaColdCallData' ? { textContent: match[1] } : elements.find((e) => e.id === id) || null;
+    if (id === 'dklaColdCallData') return { textContent: match[1] };
+    if (id === 'dklaColdCallGlossary') return { textContent: glossaryBlock[1] };
+    return elements.find((e) => e.id === id) || null;
   },
   addEventListener() {},
 };
@@ -93,10 +101,22 @@ const context = {
     return { matches: true, addEventListener() {} };
   },
 };
-vm.runInNewContext(
-  fs.readFileSync(path.join(__dirname, '../../src/features/cold-call/reader.js'), 'utf8'),
-  context,
-);
+vm.createContext(context);
+// The definitions layer loads first, exactly as in src/features/manifest.json.
+for (const file of ['glossary.js', 'reader.js'])
+  vm.runInContext(
+    fs.readFileSync(path.join(__dirname, '../../src/features/cold-call', file), 'utf8'),
+    context,
+  );
+const gloss = window.DKLAColdCallGloss;
+assert.ok(gloss, 'Cold Call definitions did not install');
+const compiled = gloss.compile(glossary);
+const maxPerParagraph = compiled.density.maxPerParagraph;
+const TERM =
+  /<span class="cc-term" role="button" tabindex="0" data-cc-term="([a-z0-9-]+)" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccGlossDesc-\1">([^<]*)<\/span>/g;
+// The reader's text with every definition link unwrapped: it must be the narrative, unchanged.
+const plain = (markup) => markup.replace(TERM, '$2');
+const stats = { links: 0, paragraphsWithLinks: 0, accountsWithLinks: 0, terms: new Set() };
 const escape = (value) =>
   String(value ?? '').replace(
     /[&<>"']/g,
@@ -111,20 +131,56 @@ for (const account of data.cases) {
     account.sections.length,
     `${account.id}: missing episode`,
   );
+  const text = plain(dialog.innerHTML);
   for (const section of account.sections)
     for (const paragraph of section.paragraphs) {
       assert.ok(
-        dialog.innerHTML.includes(`<p>${escape(paragraph)}</p>`),
+        text.includes(`<p>${escape(paragraph)}</p>`),
         `${account.id}: missing or unescaped narrative paragraph`,
       );
     }
   for (const section of account.sections)
     if (section.followUp) {
       assert.ok(
-        dialog.innerHTML.includes(`<p>${escape(section.followUp.answer)}</p>`),
+        text.includes(`<p>${escape(section.followUp.answer)}</p>`),
         `${account.id}: missing follow-up explanation after practice removal`,
       );
     }
+  // Definition links: only known terms, each at most once per episode, at most maxPerParagraph
+  // per paragraph, never in headings, citations or the source list, and never two back to back.
+  const used = new Set();
+  const sections = dialog.innerHTML.split('<section class="cc-section"').slice(1);
+  assert.equal(sections.length, account.sections.length, `${account.id}: episode markup`);
+  for (const markup of sections) {
+    const seen = new Set();
+    for (const [, key] of markup.matchAll(TERM)) {
+      assert.ok(compiled.terms.has(key), `${account.id}: unknown definition ${key}`);
+      assert.ok(!seen.has(key), `${account.id}: ${key} linked twice in one episode`);
+      seen.add(key);
+      used.add(key);
+      stats.terms.add(key);
+      stats.links++;
+    }
+    for (const [, body] of markup.matchAll(/<p>([\s\S]*?)<\/p>/g)) {
+      const n = (body.match(TERM) || []).length;
+      assert.ok(n <= maxPerParagraph, `${account.id}: ${n} definitions in one paragraph`);
+      if (n) stats.paragraphsWithLinks++;
+      assert.ok(
+        !/<\/span>[\s\p{P}\p{S}]*<span class="cc-term"/u.test(body),
+        `${account.id}: two links back to back`,
+      );
+    }
+    for (const plainPart of markup.split(/<p>[\s\S]*?<\/p>/))
+      assert.ok(!plainPart.includes('cc-term'), `${account.id}: a definition outside a paragraph`);
+  }
+  if (used.size) stats.accountsWithLinks++;
+  for (const key of used)
+    assert.ok(
+      dialog.innerHTML.includes(
+        `<span id="ccGlossDesc-${key}">${escape(compiled.terms.get(key).gloss)}</span>`,
+      ),
+      `${account.id}: ${key} has no screen-reader description`,
+    );
   assert.ok(
     !/ccPractice|ccRehearsal|ccRating|cc-lead|cc-orientation/.test(dialog.innerHTML),
     `${account.id}: retired practice controls or redundant introduction rendered`,
@@ -139,6 +195,23 @@ for (const account of data.cases) {
     );
   window.DKLAColdCall.close();
   assert.equal(dialog.innerHTML, '', `${account.id}: closed reader retained searchable prose`);
+}
+// The Garcia account, as the owner described it: "compromised" and "moved to dismiss" are defined; names and plain words are not.
+{
+  window.DKLAColdCallGloss.close();
+  window.DKLAColdCall.open('cp-garcia');
+  const links = [...dialog.innerHTML.matchAll(TERM)].map(([, key, word]) => [key, word]);
+  const has = (key, word) => links.some(([k, w]) => k === key && w === word);
+  assert.ok(has('compromise', 'compromised'), 'Garcia: "compromised" is not defined');
+  assert.ok(has('motion-to-dismiss', 'moved to dismiss'), 'Garcia: "moved to dismiss" is not defined');
+  assert.ok(has('removal', 'removed'), 'Garcia: "removed" (to federal court) is not defined');
+  assert.ok(has('strike', 'struck'), 'Garcia: "struck" is not defined');
+  assert.ok(
+    !links.some(([, w]) => /hilton|prostitution|puerto|roberts/i.test(w)),
+    'Garcia: a name or plain word is linked',
+  );
+  assert.ok(compiled.terms.get('compromise').wex === 'compromise', 'compromise has no Wex entry');
+  window.DKLAColdCall.close();
 }
 // Exercise the nested source view and return, keyboard isolation, and reopening position.
 const account = data.cases.find((c) => c.sources.some((s) => s.briefId));
@@ -183,5 +256,12 @@ console.log(
     keyboardIsolation: true,
     readingPosition: true,
     retiredPractice: true,
+    definitions: {
+      terms: compiled.terms.size,
+      linked: stats.terms.size,
+      links: stats.links,
+      paragraphsWithLinks: stats.paragraphsWithLinks,
+      accountsWithLinks: stats.accountsWithLinks,
+    },
   }),
 );

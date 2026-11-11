@@ -193,6 +193,12 @@ const breakages = [
     () => edit('src/features/cold-call/reader.js', STRICT, STRICT + 'return;'),
   ],
   [
+    'code: Cold Call definition links stop rendering',
+    'src/features/cold-call/glossary.js',
+    () =>
+      edit('src/features/cold-call/glossary.js', 'return markup(text, links);', 'return markup(text, []);'),
+  ],
+  [
     'code: the reading layout never installs',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),

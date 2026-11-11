@@ -673,6 +673,36 @@ def load_audit(graph: dict, nodes: dict, edge_ids: set) -> dict:
     return a
 
 
+def load_cold_call_glossary(path: Path) -> dict:
+    """The Cold Call definition table, checked for shape; tools/cold-call/glossary.test.mjs compiles it with the browser's matcher."""
+    table = json.loads(path.read_text(encoding="utf-8"))
+    if table.get("version") != 1 or not isinstance(table.get("terms"), list):
+        raise ValueError(f"{path.name}: expected version 1 and a list of terms")
+    density = table.get("density", {})
+    if density.get("perSection", 1) != 1 or not isinstance(density.get("maxPerParagraph", 3), int):
+        raise ValueError(f"{path.name}: density must be perSection 1 and an integer maxPerParagraph")
+    keys, forms = set(), {}
+    for term in table["terms"]:
+        key = term.get("key")
+        if not isinstance(key, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", key) or key in keys:
+            raise ValueError(f"{path.name}: missing, malformed or repeated key {key!r}")
+        keys.add(key)
+        if not all(isinstance(term.get(f), str) and term[f].strip() for f in ("label", "gloss")):
+            raise ValueError(f"{path.name}: {key} needs a label and a gloss")
+        if term.get("wex") is not None and not isinstance(term["wex"], str):
+            raise ValueError(f"{path.name}: {key}: wex is a Cornell LII Wex slug or null")
+        match = term.get("match")
+        if not isinstance(match, list) or not match:
+            raise ValueError(f"{path.name}: {key} has no match forms")
+        for form in match:
+            if not isinstance(form, str) or form != form.strip().lower() or not form:
+                raise ValueError(f"{path.name}: {key}: match forms are lowercase and trimmed: {form!r}")
+            if form in forms:
+                raise ValueError(f"{path.name}: {form!r} belongs to both {forms[form]} and {key}")
+            forms[form] = key
+    return table
+
+
 def main() -> None:
     BUILD.mkdir(parents=True, exist_ok=True)
     source_bytes = read_source()
@@ -684,6 +714,8 @@ def main() -> None:
     cold = json.loads((cold_dir / "cases.json").read_text(encoding="utf-8"))
     cold = runpy.run_path(str(cold_dir / "compile.py"))["compile_cases"](cold, graph, data, full)
     runpy.run_path(str(cold_dir / "validate.py"))["validate"](cold, graph, full, data)
+    # Definitions linked from Cold Call jargon (src/features/cold-call/glossary.js matches them at render time).
+    cold_glossary = load_cold_call_glossary(cold_dir / "glossary-terms.json")
     nodes = {n["id"]: n for n in graph["nodes"]}
     missing = [a for a in data["map"] if a not in nodes]
     if missing:
@@ -755,12 +787,13 @@ def main() -> None:
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (ROOT / "src/features/r19/sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), json.dumps(civil_syllabus, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(cold_glossary, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), json.dumps(civil_syllabus, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
     addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
     addition += embed_json("dklaColdCallData", cold)
+    addition += embed_json("dklaColdCallGlossary", cold_glossary)
     addition += embed_json("dklaAuthoritiesData", authorities)
     addition += embed_json("dklaWeThePeopleAsset", masthead)
     addition += embed_json("dklaPracticeFilter", practice_filter)
