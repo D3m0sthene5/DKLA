@@ -22,7 +22,7 @@ Live at dannykind.wiki. The private analytics dashboard is at dkla.dev.
 | `tools/r12/` | Three course layout designs still read by the geography check. |
 | `tools/verify/` | **Checks.** See "How to know it still works". |
 | `tools/*.mjs`, `tools/source/` | The build, the local preview server, and tools for reading single records out of `src/data`. |
-| `api/`, `lib/` | **Server.** Vercel functions for analytics, the admin dashboard, ratings sync, and Ask DKLA. |
+| `api/`, `lib/` | **Server.** Vercel functions for analytics, the admin dashboard, ratings sync, and Ask Dottie (the AI research assistant). |
 | `assets/admin/` | The private dashboard's page, script and styles. |
 | `added-sources/` | **Content.** The assigned readings, opinions, briefs and dictionary source (660 MB of PDFs and text). Published as-is. |
 | `DKLA-sources/` | Manifest of the scanned casebook pages (the images themselves are not in the repository). |
@@ -56,12 +56,14 @@ briefs split out so they load when opened.
 Pushing to the branch `claude/atlas-design-content-audit-m1cw9x` makes Vercel
 run the same build and publish it to both domains. Nothing else deploys.
 
-## Ask DKLA
+## Ask Dottie
 
-Open the Atlas search box and choose **Ask DKLA** to ask directly, or
-type a question into search and choose **Ask DKLA** above the results. An
+Ask Dottie (named Ask DKLA in the code and server) is the AI research assistant, fronted by
+Dottie Docket, an opossum mascot (see `docs/ask-mascot/`).
+Open the Atlas search box and choose **Ask Dottie** to ask directly, or
+type a question into search and choose **Ask Dottie** above the results. An
 Atlas citation opens its entry inside DKLA. When a question needs outside
-evidence, Ask DKLA searches the public web and labels those citations separately.
+evidence, Ask Dottie searches the public web and labels those citations separately.
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
@@ -72,7 +74,7 @@ questions use a short structured response. For questions that need outside evide
 the same OpenAI request searches and writes the answer. Citation-ranking questions
 can also use the published 2018 HeinOnline ranking, cached for one hour per server instance.
 The build prepares a server-only corpus from the published Atlas edition.
-There is no database or history for Ask DKLA. Questions typed into the main
+There is no database or history for Ask Dottie. Questions typed into the main
 search bar still fall under its existing analytics policy.
 
 ## How to know it still works

@@ -17,10 +17,9 @@ await mkdir(new URL('poses/', out), { recursive: true });
 
 // Pose, option, label, where it appears, whether the app turns her to face left.
 const cells = [
-  ['face', undefined, 'Face', 'Launcher in Atlas search', false],
-  ['wink', undefined, 'Wink', 'Launcher on hover or focus', false],
+  ['face', undefined, 'Face', '“Ask Dottie” launcher in Atlas search', false],
   ['curious', undefined, 'Curious', 'Empty dialog, beside “Try a question”', true],
-  ['reading', undefined, 'Concentrating', 'While Ask DKLA researches', false],
+  ['reading', undefined, 'Concentrating', 'While Ask Dottie researches', false],
   ['carrying', 1, 'Carrying the docket · 1', 'Answer citing one source', true],
   ['carrying', 2, 'Carrying the docket · 2', 'Answer citing two sources', true],
   ['carrying', 3, 'Carrying the docket · 3', 'Answer citing three or more', true],
@@ -47,7 +46,7 @@ for (const [pose, option] of cells) {
 
 const W = 1200;
 const cw = 366;
-const ch = 250;
+const ch = 280;
 const gap = 20;
 const top = 150;
 const ink = '#e6eeeb';
@@ -58,18 +57,19 @@ cells.forEach(([pose, option, label, where, flip], i) => {
   const y = top + Math.floor(i / 3) * (ch + gap);
   const markup = dottie.svg(pose, option);
   const [bx, by, bw, bh] = boxOf(markup);
-  const small = pose === 'face' || pose === 'wink';
-  const fw = small ? 120 : 280;
-  const fh = Math.min(160, (fw * bh) / bw);
+  const small = pose === 'face';
+  // Drawn 15% larger than the first sheet, matching the app.
+  const fw = small ? 138 : 322;
+  const fh = Math.min(184, (fw * bh) / bw);
   const fx = x + (cw - fw) / 2;
-  const fy = y + 20 + (160 - fh) / 2;
+  const fy = y + 18 + (184 - fh) / 2;
   const art = inner(markup);
   const flipped = flip ? `<g transform="translate(${bx * 2 + bw} 0) scale(-1 1)">${art}</g>` : art;
   body += `
   <g>
     <rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="16" fill="#172b29" stroke="#38524b"/>
     <svg x="${fx}" y="${fy}" width="${fw}" height="${fh}" viewBox="${bx} ${by} ${bw} ${bh}" overflow="visible">${flipped}</svg>
-    ${small ? `<svg x="${x + cw - 54}" y="${y + 18}" width="24" height="24" viewBox="0 0 32 32">${art}</svg><text x="${x + cw - 42}" y="${y + 56}" text-anchor="middle" fill="${soft}" font-size="10">24 px</text>` : ''}
+    ${small ? `<svg x="${x + cw - 56}" y="${y + 18}" width="28" height="28" viewBox="0 0 32 32">${art}</svg><text x="${x + cw - 42}" y="${y + 60}" text-anchor="middle" fill="${soft}" font-size="10">28 px</text>` : ''}
     <text x="${x + 18}" y="${y + ch - 42}" fill="${ink}" font-size="16" font-weight="700">${esc(label)}</text>
     <text x="${x + 18}" y="${y + ch - 20}" fill="${soft}" font-size="13">${esc(where)}</text>
   </g>`;
@@ -94,15 +94,22 @@ const swatches = palette
   .join('');
 const curious = dottie.svg('curious');
 const [sx, sy, sw, sh] = boxOf(curious);
-const silhouette = `<svg x="${W - 250}" y="${py}" width="190" height="${(190 * sh) / sw}" viewBox="${sx} ${sy} ${sw} ${sh}"><g filter="url(#silhouette)" transform="translate(${sx * 2 + sw} 0) scale(-1 1)">${inner(curious)}</g></svg>
-  <text x="${W - 265}" y="${py + 40}" text-anchor="end" fill="${soft}" font-size="13">Silhouette test: the tail is the “?”</text>`;
+// The silhouette test fills the ninth slot of the grid.
+const lx = 30 + 2 * (cw + gap);
+const ly = top + 2 * (ch + gap);
+const lw = 322;
+const lh = Math.min(184, (lw * sh) / sw);
+const silhouette = `<rect x="${lx}" y="${ly}" width="${cw}" height="${ch}" rx="16" fill="#172b29" stroke="#38524b"/>
+  <svg x="${lx + (cw - lw) / 2}" y="${ly + 18 + (184 - lh) / 2}" width="${lw}" height="${lh}" viewBox="${sx} ${sy} ${sw} ${sh}"><g filter="url(#silhouette)" transform="translate(${sx * 2 + sw} 0) scale(-1 1)">${inner(curious)}</g></svg>
+  <text x="${lx + 18}" y="${ly + ch - 42}" fill="${ink}" font-size="16" font-weight="700">Silhouette test</text>
+  <text x="${lx + 18}" y="${ly + ch - 20}" fill="${soft}" font-size="13">Even in one flat colour, the tail reads as a “?”</text>`;
 
-const H = py + 190;
+const H = py + 100;
 const sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Inter, system-ui, sans-serif">
   <defs><filter id="silhouette"><feFlood flood-color="#e6eeeb"/><feComposite operator="in" in2="SourceAlpha"/></filter></defs>
   <rect width="${W}" height="${H}" fill="#12201f"/>
   <text x="30" y="62" fill="${ink}" font-size="34" font-weight="800">Dottie Docket</text>
-  <text x="30" y="92" fill="#a5dfcb" font-size="13" font-weight="700" letter-spacing="2">THE ASK DKLA OPOSSUM · SPRITE SHEET</text>
+  <text x="30" y="92" fill="#a5dfcb" font-size="13" font-weight="700" letter-spacing="2">THE OPOSSUM BEHIND ASK DOTTIE · SPRITE SHEET</text>
   <text x="30" y="122" fill="${soft}" font-size="14">A docket is the list of cases a court carries. Dottie carries hers on her back: one joey for each source an answer cites.</text>
   ${body}
   ${swatches}

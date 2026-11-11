@@ -119,9 +119,9 @@ try {
     assert.equal(asked, 0, 'Normal search must not send a paid request');
 
     await enterSearch(question);
-    await expect(page.locator('#searchResults .ask-search .ask-launch-face svg')).toHaveCount(2);
-    await page.getByRole('button', { name: /Ask DKLA.*AI answer/ }).click();
-    const dialog = page.getByRole('dialog', { name: 'Ask DKLA' });
+    await expect(page.locator('#searchResults .ask-search .ask-launch-face svg')).toHaveCount(1);
+    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    const dialog = page.getByRole('dialog', { name: 'Ask Dottie' });
     await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
     assert.equal(asked, 1);
     // The signature moment: one joey per cited source, rising once the sources are in view.
@@ -138,7 +138,7 @@ try {
     await expect(page.locator('#inspector')).toContainText('Pennoyer v. Neff');
 
     await enterSearch('');
-    await page.getByRole('button', { name: /Ask DKLA.*AI answer/ }).click();
+    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
     const input = dialog.getByLabel('Your question');
     await expect(input).toBeFocused();
     await expectOnlyDottie('curious');

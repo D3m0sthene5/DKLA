@@ -9,8 +9,8 @@
   dialog.setAttribute('aria-labelledby', 'dklaAskTitle');
   dialog.innerHTML = `
     <header class="ask-heading">
-      <div><div class="ask-eyebrow">DANNY KIND LEGAL ATLAS</div><h2 id="dklaAskTitle">Ask DKLA</h2></div>
-      <button type="button" class="ask-close" aria-label="Close Ask DKLA">×</button>
+      <div><div class="ask-eyebrow">DANNY KIND LEGAL ATLAS</div><h2 id="dklaAskTitle">Ask Dottie</h2></div>
+      <button type="button" class="ask-close" aria-label="Close Ask Dottie">×</button>
     </header>
     <p class="ask-intro">Research a legal question across the Atlas and, when needed, the web.</p>
     <form class="ask-form">
@@ -216,7 +216,7 @@
     answer.replaceChildren();
     if (!navigator.onLine) {
       setDottie('possum');
-      status.textContent = 'Ask DKLA needs an internet connection. Atlas search still works offline.';
+      status.textContent = 'Ask Dottie needs an internet connection. Atlas search still works offline.';
       return;
     }
     const controller = new AbortController();
@@ -239,8 +239,8 @@
         setDottie('possum');
         status.textContent =
           problem?.error === 'usage-limit'
-            ? 'Ask DKLA has reached its current AI allowance. Atlas search is still available.'
-            : 'Ask DKLA is busy. Try again in a minute.';
+            ? 'Ask Dottie has reached its current AI allowance. Atlas search is still available.'
+            : 'Ask Dottie is busy. Try again in a minute.';
       } else if (response.status === 503 || response.status === 404) {
         setDottie('possum');
         status.textContent = 'AI answers are unavailable here. You can still search the Atlas.';
@@ -253,7 +253,7 @@
     } catch {
       if (request === controller) {
         setDottie('possum');
-        status.textContent = 'Ask DKLA couldn’t finish that answer. Try again.';
+        status.textContent = 'Ask Dottie couldn’t finish that answer. Try again.';
       }
     } finally {
       if (request === controller) {
@@ -319,13 +319,8 @@
   button.setAttribute('aria-haspopup', 'dialog');
   button.innerHTML =
     '<strong>' +
-    (dottie
-      ? '<span class="ask-launch-face" aria-hidden="true">' +
-        dottie.svg('face') +
-        dottie.svg('wink') +
-        '</span>'
-      : '✦ ') +
-    'Ask DKLA</strong><small>Get an AI answer with Atlas and web sources</small>';
+    (dottie ? '<span class="ask-launch-face" aria-hidden="true">' + dottie.svg('face') + '</span>' : '✦ ') +
+    'Ask Dottie</strong><small>Get an AI answer with Atlas and web sources</small>';
   button.addEventListener('click', () => {
     const question = search.value.trim();
     if (question.length <= 600) launch(question);

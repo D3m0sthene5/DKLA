@@ -1,14 +1,13 @@
-/* Dottie Docket, the Ask DKLA opossum.
+/* Dottie Docket, the opossum behind Ask Dottie.
  *
  * Every pose is drawn here as a small inline SVG, so the artwork costs no
  * request, works offline and scales on any screen. The sprite sheet in
  * docs/ask-mascot/ is generated from this file (tools/ask/dottie-sheet.mjs).
  *
  * Poses and the interface state that shows each one (see ask.js):
- *   face       the Ask DKLA launcher in Atlas search
- *   wink       the launcher on hover or keyboard focus
+ *   face       the Ask Dottie launcher in Atlas search
  *   curious    the empty dialog, beside "Try a question"
- *   reading    while Ask DKLA is researching
+ *   reading    while Ask Dottie is researching
  *   carrying   an answer with sources: one joey per cited source (1 to 3)
  *   quiet      the sources did not establish an answer
  *   possum     offline, busy or unavailable: she plays possum
@@ -35,18 +34,14 @@
     `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.eye}"/><circle cx="${x + r * 0.35}" cy="${y - r * 0.35}" r="${r * 0.34}" fill="#fff"/>`;
 
   // Front-facing head for the launcher (32 x 32).
-  function face(wink) {
+  function face() {
     return `
       <circle cx="8" cy="8.8" r="5.2" fill="${C.ear}"/><path d="M3.6 6.6a5.2 5.2 0 0 1 7.6-2" fill="none" stroke="${C.face}" stroke-width="1.1" stroke-linecap="round" opacity=".8"/>
       <circle cx="24" cy="8.8" r="5.2" fill="${C.ear}"/><path d="M28.4 6.6a5.2 5.2 0 0 0-7.6-2" fill="none" stroke="${C.face}" stroke-width="1.1" stroke-linecap="round" opacity=".8"/>
       <path d="M16 30.8c-2.6 0-10.4-9.4-10.4-15.2C5.6 10.2 10.2 7 16 7s10.4 3.2 10.4 8.6c0 5.8-7.8 15.2-10.4 15.2Z" fill="${C.face}"/>
       <path d="M9.6 9.4C12 7.2 20 7.2 22.4 9.4 20 10.4 17.8 12.4 16 16 14.2 12.4 12 10.4 9.6 9.4Z" fill="${C.cap}"/>
       ${eye(11.9, 16.4, 1.9)}
-      ${
-        wink
-          ? `<path d="M18.3 16.8q1.8-1.8 3.6 0" fill="none" stroke="${C.eye}" stroke-width="1.5" stroke-linecap="round"/>`
-          : eye(20.1, 16.4, 1.9)
-      }
+      ${eye(20.1, 16.4, 1.9)}
       <ellipse cx="16" cy="28.2" rx="2.3" ry="1.7" fill="${C.nose}"/>
       <path d="M13.4 25 8 23.6M13.6 26.2 8.4 27M18.6 25l5.4-1.4M18.4 26.2l5.2.8" stroke="${C.shade}" stroke-width=".6" stroke-linecap="round"/>`;
   }
@@ -116,8 +111,7 @@
     `<path class="dottie-spark" d="M${x} ${y - r}q.9 ${r - 0.9} ${r} ${r}q${-(r - 0.9)} .9 ${-r} ${r}q-.9 ${-(r - 0.9)} ${-r} ${-r}q${r - 0.9} -.9 ${r} ${-r}Z" fill="${C.mint}"/>`;
 
   const poses = {
-    face: { box: '0 0 32 32', draw: () => face(false) },
-    wink: { box: '0 0 32 32', draw: () => face(true) },
+    face: { box: '0 0 32 32', draw: face },
     curious: {
       box: '0 4 120 86',
       draw: () => `${tail('?')}${legs()}${body}${head({ tilt: -12, dy: -1 })}${sparkle(111, 16, 7)}`,

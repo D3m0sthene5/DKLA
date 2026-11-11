@@ -1,4 +1,4 @@
-# Dottie Docket, the Ask DKLA opossum
+# Dottie Docket, the opossum behind Ask Dottie
 
 A docket is the list of cases a court carries. Dottie carries hers on her back.
 
@@ -12,7 +12,7 @@ A docket is the list of cases a court carries. Dottie carries hers on her back.
 
 | Interface state | Pose | Where |
 |---|---|---|
-| Ask DKLA in Atlas search | face (wink on hover or focus) | the launcher row |
+| "Ask Dottie" in Atlas search | face | the launcher row |
 | Empty dialog | curious, tail curled into a "?" | beside "Try a question" |
 | Researching | concentrating, magnifier over a book | the status line |
 | Answer with sources | carrying the docket: one joey per cited source, up to three | rises from behind the Sources list once it is in view |
@@ -24,5 +24,5 @@ Pointing at a source (hover or keyboard focus) lifts the joey that stands for
 it. She is decorative (`aria-hidden`); every state is still announced by the
 status line. With reduced motion she appears in place without moving.
 
-Checked by `tools/ask/browser.mjs` (step "Ask DKLA questions and source links")
+Checked by `tools/ask/browser.mjs` (step "Ask DKLA questions and source links"; the feature is still called Ask DKLA in code and file names)
 and breakage 1 in `tools/verify/break.mjs`.
