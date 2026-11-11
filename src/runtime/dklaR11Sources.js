@@ -52,22 +52,36 @@
   // Render the actual PDF here: mobile browsers and embedded browsers often
   // cannot display <object type="application/pdf"> even when the file exists.
   let pdfLibrary,
+    pdfQuery,
+    pdfReloads = 0,
     pdfTask,
     pdfRender,
     activePDFPath,
     pdfZoom = 1,
     renderRevision = 0;
+  // PDF.js refuses a worker of another version ("The API version ... does not match the Worker
+  // version"). The offline worker of a newer release can take over this tab at any moment
+  // (src/features/r19/sw.template.js), and every document starts its PDF.js worker afresh, so after a
+  // release that changed PDF.js the worker could come from the newer copy while the library in this tab
+  // is the older one. Both addresses carry this page's build (the offline worker ignores the query), and
+  // when the versions differ, the library and its worker are loaded again, together, from the copy now
+  // in charge.
+  const PDF_MISMATCH = /API version .* does not match the Worker version/;
   async function renderPDF(host, path, page) {
     const revision = ++renderRevision;
     pdfRender?.cancel();
     try {
-      pdfLibrary ||= import(PDF_ASSETS + 'pdf.min.mjs').catch((error) => {
-        pdfLibrary = null;
-        throw error;
-      });
+      if (!pdfLibrary) {
+        pdfQuery =
+          '?v=' + encodeURIComponent((window.R18?.build || 'dkla') + (pdfReloads ? '.' + pdfReloads : ''));
+        pdfLibrary = import(PDF_ASSETS + 'pdf.min.mjs' + pdfQuery).catch((error) => {
+          pdfLibrary = null;
+          throw error;
+        });
+      }
       const pdfjs = await pdfLibrary;
       if (revision !== renderRevision || !host.isConnected) return;
-      pdfjs.GlobalWorkerOptions.workerSrc = PDF_ASSETS + 'pdf.worker.min.mjs';
+      pdfjs.GlobalWorkerOptions.workerSrc = PDF_ASSETS + 'pdf.worker.min.mjs' + pdfQuery;
       // PDF.js shares page-mapping state between documents. Keep one active
       // document, disposing it before switching books; a cached older proxy can
       // otherwise reject a valid page after a shorter opinion was opened.
@@ -159,6 +173,14 @@
       }
     } catch (error) {
       if (revision !== renderRevision || error.name === 'RenderingCancelledException') return;
+      if (PDF_MISMATCH.test(error?.message || '') && pdfReloads < 2) {
+        pdfReloads++;
+        const stale = pdfTask;
+        pdfLibrary = pdfTask = activePDFPath = null;
+        await stale?.destroy().catch(() => {});
+        if (revision === renderRevision && host.isConnected) return renderPDF(host, path, page);
+        return;
+      }
       host.innerHTML = `<div class="file-notice"><strong>This PDF could not be displayed.</strong> <a href="${encodeURI(path)}#page=${page}" target="_blank" rel="noopener">Open the original PDF at page ${page} ↗</a><p>${E(error.message || 'Please retry the source.')}</p></div>`;
     }
   }

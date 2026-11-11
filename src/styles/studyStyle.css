@@ -712,8 +712,9 @@ button.text-button {
 }
 #toast {
   position: fixed;
-  bottom: 28px;
-  left: 50%;
+  /* The visible part of the screen (set by dklaR18Study.js): on a phone the page is wider than it. */
+  bottom: calc(28px + var(--r18-vv-bottom, 0px));
+  left: var(--r18-vv-centre, 50%);
   transform: translateX(-50%);
   z-index: 100;
   background: #e6e0d4;

@@ -425,15 +425,38 @@ function r7SaveNow() {
             if (serial === r7SaveSerial) $('saveStatus').textContent = 'Saved locally · export for backup';
             resolve();
           };
-          tx.onerror = () => {
+          const failed = () => {
             cacheAvailable = false;
+            if (serial === r7SaveSerial)
+              $('saveStatus').textContent = 'Session only · export to keep your work';
             warning('Local browser saving failed. Export master JSON or portable HTML before closing.');
-            reject(tx.error);
+            reject(tx.error || Error('Local browser saving was aborted.'));
           };
+          tx.onerror = failed;
+          // A write the browser refuses when it commits (no room left, for one) fires only 'abort'.
+          // Without this the save would never finish, and every later save waits on it forever.
+          tx.onabort = failed;
         }),
     );
   r7SavePending.catch(() => {});
 }
+// Write a snapshot that is still waiting on its timer now, then wait for every write to finish. Refresh
+// (the update notice) and LegalAtlas.flush use it, so a reload never drops the last quarter second of edits.
+function r7FlushSave() {
+  if (r7SaveTimer) {
+    clearTimeout(r7SaveTimer);
+    r7SaveNow();
+  }
+  return r7SavePending;
+}
+// A snapshot still waiting on its timer when the tab closes or goes to the background would never be
+// written (the timer does not run after the page is gone), so it is written at once. Phones often close
+// a background tab without any unload event, hence 'visibilitychange' as well as 'pagehide'; the
+// unload guard in appCode.js does the same on desktop. Nothing is written when no edit is waiting.
+addEventListener('pagehide', () => r7SaveTimer && r7FlushSave());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden' && r7SaveTimer) r7FlushSave();
+});
 exportMarkdown = function () {
   storeView();
   const files = geoMarkdownFiles();
@@ -487,7 +510,7 @@ window.LegalAtlas = {
   flush: async () => {
     storeView();
     saveCache();
-    await r7SavePending;
+    await r7FlushSave();
   },
   ready: false,
   addEntry: (title, did, kind = 'Concept') => {

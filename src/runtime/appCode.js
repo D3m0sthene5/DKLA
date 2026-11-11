@@ -1531,7 +1531,10 @@ document.addEventListener('keydown', (e) => {
 });
 window.addEventListener('beforeunload', (e) => {
   capturePositions();
-  if (cacheAvailable) saveCache();
+  // civilCode.js defers each save by a quarter second; a save still waiting is written now, because its
+  // timer never fires once the page is gone.
+  if (cacheAvailable && typeof r7FlushSave === 'function') r7FlushSave();
+  else if (cacheAvailable) saveCache();
   if (!cacheAvailable && !exported) {
     e.preventDefault();
     e.returnValue = '';

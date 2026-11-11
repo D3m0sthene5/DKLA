@@ -229,6 +229,97 @@ const breakages = [
       edit('src/features/cold-call/glossary.js', 'return markup(text, links);', 'return markup(text, []);'),
   ],
   [
+    'updates: the "new version is ready" notice comes back on a page that is already current',
+    'src/runtime/dklaR18Study.js',
+    () => edit('src/runtime/dklaR18Study.js', "if (status === 'newer') {", "if (status !== 'offline') {"),
+  ],
+  [
+    'updates: Refresh reloads without writing the edit that is still waiting to be saved',
+    'src/runtime/dklaR18Study.js',
+    () =>
+      edit('src/runtime/dklaR18Study.js', 'await window.LegalAtlas?.flush?.();', 'await Promise.resolve();'),
+  ],
+  [
+    'updates: the v2.9 bug returns: "a new version is ready" whenever a new offline worker has installed',
+    'src/runtime/dklaR18Study.js',
+    () =>
+      edit(
+        'src/runtime/dklaR18Study.js',
+        "navigator.serviceWorker.register('sw.js').catch(",
+        "navigator.serviceWorker.register('sw.js').then((reg) => { const watch = (w) => w && w.addEventListener('statechange', () => { if (w.state === 'installed' && navigator.serviceWorker.controller) showNotice({ build: 'installed', version: R18.version }); }); watch(reg.installing); reg.addEventListener('updatefound', () => watch(reg.installing)); }).catch(",
+      ),
+  ],
+  [
+    'updates: the site root page forwards from any address, so a v2.9 offline copy reloads forever',
+    'src/features/r19/index.template.html',
+    () =>
+      edit(
+        'src/features/r19/index.template.html',
+        'if (!location.pathname.endsWith(',
+        'if (true || !location.pathname.endsWith(',
+      ),
+  ],
+  [
+    'updates: the site root page forwards only from the root, so an old address shows "still being updated" while online',
+    'src/features/r19/index.template.html',
+    () =>
+      edit(
+        'src/features/r19/index.template.html',
+        "if (!location.pathname.endsWith('/DKLA-v2.5.html'))",
+        'if (/\\/(index\\.html)?$/.test(location.pathname))',
+      ),
+  ],
+  [
+    'updates: the install downloads the atlas while the worker in charge is still storing the same page',
+    'src/features/r19/sw.template.js',
+    () => edit('src/features/r19/sw.template.js', 'waited < PAGE_WAIT;', 'waited < 0;'),
+  ],
+  [
+    'updates: a save the browser aborts never finishes, so Refresh hangs on "Saving…"',
+    'src/runtime/civilCode.js',
+    () => edit('src/runtime/civilCode.js', 'tx.onabort = failed;', 'void failed;'),
+  ],
+  [
+    'updates: Refresh reloads although the save failed, dropping the latest edits',
+    'src/runtime/dklaR18Study.js',
+    () =>
+      edit(
+        'src/runtime/dklaR18Study.js',
+        "toast('Could not save your latest edits. Export before refreshing.');\n      return;",
+        "toast('Could not save your latest edits. Export before refreshing.');",
+      ),
+  ],
+  [
+    'updates: the install downloads the atlas again instead of reusing the copy the browser just fetched',
+    'src/features/r19/sw.template.js',
+    () =>
+      edit(
+        'src/features/r19/sw.template.js',
+        "fetch(at(path), { cache: 'no-cache', credentials: 'same-origin' })",
+        "fetch(at(path), { cache: 'no-store', credentials: 'same-origin' })",
+      ),
+  ],
+  [
+    'updates: the install keeps every earlier copy until it has room for its own',
+    'src/features/r19/sw.template.js',
+    () => edit('src/features/r19/sw.template.js', '      await makeRoom();', '      void makeRoom;'),
+  ],
+  [
+    'updates: a PDF.js worker from another release breaks the source viewer of an open tab',
+    'src/runtime/dklaR11Sources.js',
+    () => edit('src/runtime/dklaR11Sources.js', 'pdfReloads < 2) {', 'pdfReloads < 0) {'),
+  ],
+  [
+    'updates: the offline worker keeps every earlier release (another 65 MB each time)',
+    'src/features/r19/sw.template.js',
+    () =>
+      edit(
+        'src/features/r19/sw.template.js',
+        'if (name !== CACHE && RELEASE_CACHE.test(name)) await caches.delete(name);',
+        'if (name !== CACHE && RELEASE_CACHE.test(name)) void name;',
+      ),
+  ],
+  [
     'code: the reading layout never installs',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'if (window.DKLAReading) return;', 'return;'),

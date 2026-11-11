@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- A reduced copy of the v2.9 atlas page (commit 598d58fd), for tools/r19/check_migration.mjs. It keeps
+     only what decides how a v2.9 tab moves to a new release: the update code of
+     src/runtime/dklaR18Study.js ("offline install and updates" and the reload/later clicks), verbatim
+     apart from the click dispatch being reduced to those two buttons. sw.template.js and
+     index.template.html beside it are the v2.9 offline worker and site-root page, unchanged. The test
+     fills in __DKLA_BUILD__. -->
+<html lang="en"><head><meta charset="utf-8"><title>DKLA · v2.9 · Danny Kind Legal Atlas</title></head>
+<body><h1>DKLA v2.9 (old page)</h1>
+<script>
+  window.OLD_BUILD = '__DKLA_BUILD__';
+  const el = (id) => document.getElementById(id);
+  const hosted = /^https?:$/.test(location.protocol);
+  /* ---------- offline install and updates (598d58fd, verbatim) ---------- */
+  let installEvent = null,
+    swReg = null;
+  function offerReload(reg) {
+    if (el('r18Update')) return;
+    const bar = document.createElement('div');
+    bar.id = 'r18Update';
+    bar.setAttribute('role', 'status');
+    bar.innerHTML =
+      '<span>A new version of the atlas is ready.</span><button class="r18-primary" data-r18-do="reload">Reload</button><button data-r18-do="later" aria-label="Not now">Later</button>';
+    document.body.appendChild(bar);
+    swReg = reg;
+  }
+  if (hosted && 'serviceWorker' in navigator) {
+    addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('sw.js')
+        .then((reg) => {
+          swReg = reg;
+          const watch = (w) =>
+            w &&
+            w.addEventListener('statechange', () => {
+              if (w.state === 'installed' && navigator.serviceWorker.controller) offerReload(reg);
+            });
+          if (reg.waiting && navigator.serviceWorker.controller) offerReload(reg);
+          watch(reg.installing);
+          reg.addEventListener('updatefound', () => watch(reg.installing));
+        })
+        .catch(() => {
+          /* offline copy unavailable; the atlas still works */
+        });
+      let reloading = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (reloading || !window.__r18Reload) return;
+        reloading = true;
+        location.reload();
+      });
+    });
+  }
+  /* ---------- the two clicks of act() (598d58fd, verbatim) ---------- */
+  function act(name) {
+    if (name === 'reload') {
+      window.__r18Reload = true;
+      if (swReg?.waiting) swReg.waiting.postMessage('skip-waiting');
+      else location.reload();
+    } else if (name === 'later') el('r18Update')?.remove();
+  }
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-r18-do]');
+    if (t) act(t.dataset.r18Do);
+  });
+</script></body></html>

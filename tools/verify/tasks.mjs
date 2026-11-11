@@ -127,6 +127,21 @@ export const tasks = [
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
   // Two pages (desktop and phone): each result says where it matched, and the opened entry can show it.
   step('browser', 'search shows where it matched', node('tools/verify/search_why.mjs', '{page}'), SERVER),
+  // The offline worker and the update notice in a real browser: quiet when current, Refresh, old copies.
+  step(
+    'browser',
+    'updates: notice only for a new build, Refresh, old copies removed, offline',
+    node('tools/r19/check_updates.mjs', '{url}'),
+    SERVER,
+  ),
+  // The real v2.9 worker and page update code, then this release under a renamed atlas file, served as
+  // Vercel serves the site (its own server, on a free port).
+  step(
+    'browser',
+    'updates: a v2.9 device moves to a renamed atlas file',
+    node('tools/r19/check_migration.mjs'),
+    PACKAGED,
+  ),
   step(
     'browser',
     'source pages and complete course chronologies',
