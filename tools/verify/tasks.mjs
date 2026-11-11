@@ -125,6 +125,8 @@ export const tasks = [
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
+  // Two pages (desktop and phone): each result says where it matched, and the opened entry can show it.
+  step('browser', 'search shows where it matched', node('tools/verify/search_why.mjs', '{page}'), SERVER),
   step(
     'browser',
     'source pages and complete course chronologies',

@@ -7,6 +7,99 @@
   background-color: #dabd9440;
   color: inherit;
 }
+/* Where a result matched: one passage and its place in the entry, under the subtitle. */
+#searchResults .search-why {
+  display: block;
+  margin-top: 5px;
+}
+#searchResults .search-snippet {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #c3cfda;
+}
+#searchResults .search-snippet mark {
+  font-weight: 650;
+}
+#searchResults .search-where {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: #8fa1b2;
+}
+/* The note at the top of an entry opened from search, when the match is not on screen. */
+#inspector .search-why-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 18px;
+  border-bottom: 1px solid #2f3c49;
+  background: #1c2732;
+  color: #c3cfda;
+  font-size: 13px;
+  line-height: 1.35;
+}
+#inspector .search-why-strip b {
+  color: #f2dcb4;
+  font-weight: 600;
+}
+#inspector .search-why-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+#inspector .search-why-show {
+  flex: none;
+  min-height: 30px;
+  padding: 3px 12px;
+  border: 1px solid #6e5d46;
+  border-radius: 6px;
+  background: transparent;
+  color: #f2dcb4;
+  font: inherit;
+  cursor: pointer;
+}
+#inspector .search-why-close {
+  flex: none;
+  min-width: 30px;
+  min-height: 30px;
+  border: 0;
+  background: transparent;
+  color: #9fb0bf;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+#inspector .search-why-show:hover,
+#inspector .search-why-close:hover {
+  background: #263442;
+}
+#inspector .search-why-show:focus-visible,
+#inspector .search-why-close:focus-visible {
+  outline: 2px solid #d6b78e;
+  outline-offset: 1px;
+}
+#inspector .search-why-target {
+  outline: 1px solid #d6b78e80;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+::highlight(dkla-hit-focus) {
+  background-color: #e3c48f;
+  color: #141c24;
+}
+.search-why-announce {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 #inspector a.cite-link {
   color: #c9b8e6;
   text-decoration: underline dotted;
@@ -58,6 +151,7 @@
     box-shadow: none !important;
     border-color: #bbb !important;
   }
+  #inspector .search-why-strip,
   #inspector .dkla-terms,
   #inspector .dkla-file-chips,
   #inspector .source-strip,
