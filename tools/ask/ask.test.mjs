@@ -3,9 +3,9 @@ import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
 import { mock, test } from 'node:test';
 import { makeAskHandler } from '../../api/ask.js';
-import { citeAnswer, generateAnswer } from '../../lib/ask/answer.js';
+import { checkAnswer, citeAnswer, generateAnswer } from '../../lib/ask/answer.js';
 import { indexCorpus } from '../../lib/ask/retrieve.js';
-import { answerWithSearch, citationTable, shouldSearch, webSources } from '../../lib/ask/web.js';
+import { answerWithSearch, citationTable, route, shouldSearch, webSources } from '../../lib/ask/web.js';
 
 const corpus = new URL('../../work/build/ask-corpus.json.gz', import.meta.url);
 const records = JSON.parse(gunzipSync(await readFile(corpus)));
@@ -265,6 +265,8 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
     '\nInvented source. [Fake](https://example.edu/fake) [A1]';
   const start = text.indexOf(link);
   const output = {
+    asks: 'What Corner Post held about the deadline',
+    answers: 'exact',
     needsWeb: false,
     paragraphs: [{ text: 'The deadline runs from injury.', citations: [1] }],
   };
@@ -284,7 +286,7 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
       return Response.json({ error: { code: errorCode, message: 'Sensitive details' } }, { status: 429 });
     if (request.tools) {
       assert.deepEqual(request.tools, [{ type: 'web_search' }]);
-      assert.equal(request.max_tool_calls, 3);
+      assert.equal(request.max_tool_calls, 4);
       return Response.json({
         status: 'completed',
         output: [
@@ -302,7 +304,8 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
       });
     }
     assert.equal(request.text.format.strict, true);
-    assert.equal(request.reasoning.effort, 'none');
+    assert.equal(request.reasoning.effort, 'low');
+    assert.deepEqual(request.text.format.schema.required, ['asks', 'answers', 'needsWeb', 'paragraphs']);
     assert.equal(JSON.parse(request.input).excerpts[0].origin, 'Atlas excerpt');
     return Response.json({ status: 'completed', output: [reply(JSON.stringify(output))] });
   });
@@ -402,7 +405,12 @@ test('the model request includes earlier turns only when there are some', async 
           {
             type: 'message',
             role: 'assistant',
-            content: [{ type: 'output_text', text: '{"needsWeb":false,"paragraphs":[]}' }],
+            content: [
+              {
+                type: 'output_text',
+                text: '{"asks":"why","answers":"none","needsWeb":false,"paragraphs":[]}',
+              },
+            ],
           },
         ],
       }),
@@ -423,5 +431,347 @@ test('the model request includes earlier turns only when there are some', async 
     assert.match(bodies[1].instructions, /not evidence/);
   } finally {
     fetchMock.mock.restore();
+  }
+});
+
+// The owner's question (November 2026). The answer is the Private Securities Litigation Reform
+// Act of 1995, enacted over President Clinton's veto; the Atlas only has Gustafson v. Alloyd (1995).
+const pslra = 'what statute in 1995 was a vicotry for corporate itnerest that overrode a clinton veto';
+
+// Realistic questions and the route each should take: 'atlas' (the Atlas alone, then the model's
+// own check) or 'research' (web search, with the top Atlas excerpts attached). Retrieval is real.
+const routes = [
+  ['atlas', 'what is the rule for diversity jurisdiction amount in controversy'],
+  ['atlas', 'explain International Shoe'],
+  ['atlas', 'how does Rule 12(b)(6) work'],
+  ['atlas', 'What is promissory estoppel?'],
+  ['atlas', 'How did International Shoe change Pennoyer?'],
+  ['atlas', 'Compare Hamer v Sidway and Kirksey v Kirksey'],
+  ['atlas', 'What does UCC 2-207 say about additional terms?'],
+  ['atlas', 'Which justices joined the majority in Loper Bright?'],
+  ['atlas', 'Why did the court rule that way in this case?', 'shoe'],
+  ['atlas', 'what was the holding in this case', 'lrs-k-gustafson'],
+  ['atlas', 'What did Iqbal hold?'],
+  // The Erie entry says Justice Butler dissented, joined by Justice McReynolds.
+  ['atlas', 'who wrote the dissent in Erie'],
+  ['atlas', 'which justice wrote International Shoe'],
+  ['atlas', 'what year was Pennoyer decided'],
+  ['atlas', 'what did the Supreme Court decide in 1938 in Erie'],
+  ['atlas', 'what is the mailbox rule'],
+  ['atlas', 'what is consideration'],
+  ['atlas', 'what are the three parts of the rules enabling act'],
+  ['atlas', 'What is the difference between general and specific jurisdiction?'],
+  ['atlas', 'explain the plausibility standard from Twombly'],
+  ['atlas', 'what is the battle of the forms'],
+  ['atlas', 'when can a defendant remove a case to federal court'],
+  ['atlas', 'What is supplemental jurisdiction under 1367?'],
+  ['atlas', 'What did the Court hold in Gustafson v. Alloyd?'],
+  ['atlas', 'what is the Erie doctrine'],
+  ['atlas', 'What is the holding of Hadley v. Baxendale?'],
+  ['atlas', 'explain Chevron deference'],
+  ['atlas', 'how does claim preclusion work'],
+  ['atlas', 'What does Rule 56 require for summary judgment?'],
+  ['atlas', 'what is the strong inference standard under the PSLRA'],
+  ['atlas', 'What is the pre-existing duty rule?'],
+  ['atlas', 'what is unconscionability'],
+  ['atlas', 'How does Daimler change general jurisdiction?'],
+  ['atlas', 'what is the CAFA amount in controversy'],
+  // Veto doctrine is in the Atlas; a particular veto, as an event, goes to research.
+  ['atlas', 'what is a veto'],
+  ['atlas', 'how does the line-item veto work'],
+  ['atlas', 'what did the court hold in Clinton v. City of New York'],
+  ['atlas', 'what does 28 U.S.C. 2072 say'],
+  ['atlas', 'what does the APA say about notice and comment rulemaking'],
+  ['atlas', 'what is the Rules Enabling Act'],
+  ['atlas', 'how has pleading changed since Conley'],
+  ['atlas', 'tell me about the Securities Act of 1933'],
+  ['atlas', "what's the deadline to answer a complaint"],
+  ['atlas', 'what is the parol evidence rule'],
+  ['atlas', 'how does the statute of frauds work'],
+  ['atlas', 'explain the major questions doctrine'],
+  ['atlas', 'what are the requirements for a class action under Rule 23'],
+  ['research', pslra],
+  ['research', 'which act did Congress pass in 1996 to limit habeas'],
+  ['research', 'what happened in the Dobbs leak'],
+  ['research', 'Is Iqbal still good law?'],
+  ['research', 'Is Iqbal one of the 5 most cited cases ever?'],
+  ['research', 'How does Corner Post compare with Loper Bright?'],
+  ['research', 'What did the majority hold in Anderson v. OpenAI, 999 U.S. 999 (2025)?'],
+  ['research', 'Who is the current Chief Justice?'],
+  ['research', 'when did Congress pass the Class Action Fairness Act'],
+  ['research', 'what did president clinton veto in 1995'],
+  ['research', 'did clinton veto the PSLRA'],
+  ['research', 'what statute did Congress pass in response to this case', 'lrs-k-gustafson'],
+  ['research', 'which president signed the Administrative Procedure Act'],
+  ['research', 'what statute did congress pass after Gustafson'],
+  ['research', 'did congress respond to Gustafson'],
+  ['research', 'who was Louis Brandeis before he joined the court'],
+  ['research', 'who is Ruth Bader Ginsburg'],
+  ['research', 'what happened to Justice Fortas'],
+  ['research', 'how did the Senate vote on the Kavanaugh nomination'],
+  ['research', 'what was the vote on the Senate override of the PSLRA veto'],
+  ['research', 'what securities law did Congress enact over a presidential veto'],
+  ['research', 'what case in 1995 narrowed securities fraud liability for corporations'],
+  ['research', 'what is the latest Supreme Court decision on personal jurisdiction'],
+  ['research', 'what did the court hold in Mallory v. Norfolk Southern last year'],
+  ['research', 'who won the 2024 presidential election'],
+  ['research', 'what is the statute of limitations for securities fraud in New York'],
+  // Palsgraf is a torts case, outside the three courses.
+  ['research', 'what did palsgraf hold'],
+  ['research', 'what are the best bar prep courses'],
+  ['research', 'how many law schools use this casebook'],
+  // Statutory interpretation is Atlas doctrine, but no Atlas title matches this wording, so the
+  // safe default (research, with the Atlas excerpts attached) applies.
+  ['research', 'How do courts decide what Congress meant in a statute?'],
+];
+
+test('routing researches the web unless the Atlas clearly covers the question', (t) => {
+  const { sources, signals } = retrieve.explain(pslra);
+  assert.ok(
+    sources.some(({ id }) => id === 'lrs-k-gustafson'),
+    'the trap is real: the Atlas retrieves Gustafson for the owner’s question',
+  );
+  assert.deepEqual(route(pslra, sources, { signals }), { research: true, reason: 'legislation or events' });
+  // explain() returns exactly what retrieve() returns, plus the signals.
+  assert.deepEqual(sources, retrieve(pslra));
+
+  const wrong = routes.flatMap(([want, question, node]) => {
+    const { sources, signals } = retrieve.explain(question, node);
+    const got = route(question, sources, { node, signals });
+    return (got.research ? 'research' : 'atlas') === want ? [] : [[want, question, got.reason]];
+  });
+  assert.deepEqual(wrong, []);
+  assert.ok(routes.length >= 40);
+  const researched = routes.filter(([want]) => want === 'research').length;
+  t.diagnostic(`${researched} of ${routes.length} questions research the web`);
+
+  // Without retrieval signals (older callers), the Gustafson excerpt alone still does not count.
+  assert.equal(
+    shouldSearch(
+      pslra,
+      sources.filter(({ id }) => id === 'lrs-k-gustafson'),
+    ),
+    true,
+  );
+});
+
+test('the server rejects an Atlas answer that substitutes another question or kind of authority', () => {
+  const sources = retrieve(pslra);
+  const gustafson = sources.findIndex(({ id }) => id === 'lrs-k-gustafson') + 1;
+  const veto = sources.findIndex(({ id }) => id === 'veto') + 1;
+  assert.ok(gustafson > 0 && veto > 0);
+  const draft = (answers, text, citations = [gustafson]) => ({
+    asks: 'a 1995 statute enacted over a Clinton veto',
+    answers,
+    needsWeb: false,
+    paragraphs: [{ text, citations }],
+  });
+  const atlasOnly = { question: pslra, sources, search: 'not-needed' };
+  // The answer the owner saw: hedged, a case for a statute question, and called exact.
+  const seen = checkAnswer(
+    draft('exact', 'You are probably asking about Gustafson v. Alloyd Co., Inc. (1995).'),
+    atlasOnly,
+  );
+  assert.deepEqual([seen.needsWeb, seen.paragraphs], [true, []]);
+  // Without the hedge, a case still does not answer "what statute".
+  const unhedged = checkAnswer(
+    draft('exact', 'Gustafson v. Alloyd narrowed the statute in 1995.'),
+    atlasOnly,
+  );
+  assert.deepEqual([unhedged.needsWeb, unhedged.paragraphs], [true, []]);
+  // Nor does a dictionary entry on vetoes, even as part of an answer after search failed.
+  const unavailable = { ...atlasOnly, search: 'unavailable' };
+  const part = checkAnswer(draft('part', 'A veto is a refusal to sign a bill.', [veto]), unavailable);
+  assert.deepEqual([part.needsWeb, part.paragraphs], [false, []]);
+  assert.deepEqual(checkAnswer(draft('none', 'Related background.'), unavailable).paragraphs, []);
+
+  // A real Atlas answer passes, and a model that is unsure still triggers research.
+  const shoe = { question: 'explain International Shoe', sources: retrieve('explain International Shoe') };
+  const answer = {
+    asks: 'an explanation of International Shoe',
+    answers: 'exact',
+    needsWeb: false,
+    paragraphs: [{ text: 'Minimum contacts.', citations: [1] }],
+  };
+  assert.deepEqual(checkAnswer(answer, { ...shoe, search: 'not-needed' }), answer);
+  assert.equal(checkAnswer({ ...answer, answers: 'part' }, { ...shoe, search: 'not-needed' }).needsWeb, true);
+});
+
+// The real handler and OpenAI request code, with fetch answered by reply(request, input).
+async function askWithFetch(reply, body) {
+  const original = process.env.DKLA_OPENAI_API_KEY;
+  process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
+  const requests = [];
+  const transport = mock.method(globalThis, 'fetch', async (endpoint, options) => {
+    assert.equal(endpoint, 'https://api.openai.com/v1/responses');
+    const request = JSON.parse(options.body);
+    requests.push(request);
+    return reply(request, JSON.parse(request.input));
+  });
+  try {
+    const res = { setHeader() {}, end: (json) => (res.json = JSON.parse(json)) };
+    await makeAskHandler()(
+      {
+        method: 'POST',
+        headers: { host: 'dkla.test', origin: 'https://dkla.test', 'content-type': 'application/json' },
+        body,
+      },
+      res,
+    );
+    assert.equal(res.statusCode, 200);
+    return { json: res.json, requests };
+  } finally {
+    transport.mock.restore();
+    if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
+    else process.env.DKLA_OPENAI_API_KEY = original;
+  }
+}
+const congress = 'https://www.congress.gov/bill/104th-congress/house-bill/1058';
+const message = (text) => ({
+  type: 'message',
+  role: 'assistant',
+  content: [{ type: 'output_text', text, annotations: [] }],
+});
+const researched = (text) =>
+  Response.json({
+    status: 'completed',
+    output: [
+      {
+        type: 'web_search_call',
+        status: 'completed',
+        action: {
+          sources: [{ url: congress, title: 'H.R.1058 - Private Securities Litigation Reform Act of 1995' }],
+        },
+      },
+      message(text),
+    ],
+  });
+const pslraAnswer =
+  "The Private Securities Litigation Reform Act of 1995 (H.R. 1058) became law on December 22, 1995, when Congress overrode President Clinton's veto. [H.R.1058](" +
+  congress +
+  ')';
+const atlasReply = (output) =>
+  Response.json({ status: 'completed', output: [message(JSON.stringify(output))] });
+const excerptNumber = (input, pattern) => input.excerpts.find(({ title }) => pattern.test(title))?.number;
+
+test('the owner’s 1995 statute question researches the web although the Atlas retrieves Gustafson', async () => {
+  const { json, requests } = await askWithFetch(
+    (request) => {
+      if (!request.tools) assert.fail('This question must not get an Atlas-only answer.');
+      return researched(pslraAnswer);
+    },
+    { question: pslra },
+  );
+  assert.equal(requests.length, 1);
+  assert.equal(json.search, 'searched');
+  assert.deepEqual(
+    json.sources.map(({ type, url }) => [type, url]),
+    [['web', congress]],
+  );
+  assert.match(json.paragraphs[0].text, /Private Securities Litigation Reform Act of 1995/);
+  // The research request still carries the Atlas excerpts, and the prompt covers legislation.
+  const [request] = requests;
+  assert.ok(excerptNumber(JSON.parse(request.input), /Gustafson/));
+  assert.match(request.instructions, /^You are Dottie, the Ask Dottie research assistant/);
+  assert.match(request.instructions, /congress\.gov/);
+  assert.match(request.instructions, /Public Papers\s+of the Presidents/);
+  assert.equal(request.max_tool_calls, 4);
+});
+
+test('an Atlas-only answer to a substitute question goes on to research', async () => {
+  // The model calls a hedged substitute answer exact; the server's check sends it to research.
+  const hedged = await askWithFetch(
+    (request) => {
+      if (request.tools) return researched('Chevron set out deference. [Chevron](' + congress + ')');
+      return atlasReply({
+        asks: 'an explanation of Chevron deference',
+        answers: 'exact',
+        needsWeb: false,
+        paragraphs: [{ text: 'You are probably asking about Gustafson v. Alloyd Co.', citations: [1] }],
+      });
+    },
+    { question: 'explain Chevron deference' },
+  );
+  assert.deepEqual(
+    hedged.requests.map((request) => Boolean(request.tools)),
+    [false, true],
+  );
+  assert.equal(hedged.json.search, 'searched');
+  assert.doesNotMatch(JSON.stringify(hedged.json), /probably asking/);
+
+  // "What statute" answered with a concept entry, not a statute: research.
+  const statute = await askWithFetch(
+    (request, input) => {
+      if (request.tools) return researched('28 U.S.C. § 1332 governs diversity. [1332](' + congress + ')');
+      const concept = excerptNumber(input, /^Diversity jurisdiction$/);
+      assert.ok(concept);
+      return atlasReply({
+        asks: 'the statute that governs diversity jurisdiction',
+        answers: 'exact',
+        needsWeb: false,
+        paragraphs: [{ text: 'Diversity jurisdiction needs complete diversity.', citations: [concept] }],
+      });
+    },
+    { question: 'what statute governs diversity jurisdiction' },
+  );
+  assert.deepEqual(
+    statute.requests.map((request) => Boolean(request.tools)),
+    [false, true],
+  );
+
+  // A slow Atlas answer also goes on to research instead of failing the question.
+  const slow = await askWithFetch(
+    (request) => {
+      if (request.tools) return researched('Chevron set out deference. [Chevron](' + congress + ')');
+      throw new DOMException('The operation timed out.', 'TimeoutError');
+    },
+    { question: 'explain Chevron deference' },
+  );
+  assert.equal(slow.json.search, 'searched');
+
+  // A real Atlas answer is used without searching.
+  const direct = await askWithFetch(
+    (request) => {
+      if (request.tools) assert.fail('An exact Atlas answer needs no search.');
+      return atlasReply({
+        asks: 'an explanation of Chevron deference',
+        answers: 'exact',
+        needsWeb: false,
+        paragraphs: [{ text: 'Courts deferred to reasonable agency readings.', citations: [1] }],
+      });
+    },
+    { question: 'explain Chevron deference' },
+  );
+  assert.equal(direct.requests.length, 1);
+  assert.equal(direct.json.search, 'not-needed');
+  assert.equal(direct.json.paragraphs.length, 1);
+});
+
+test('when research fails, the owner’s question gets an honest no-answer, not Gustafson', async () => {
+  for (const [answers, text] of [
+    [
+      'part',
+      'Gustafson v. Alloyd Co. (1995) narrowed the securities statute, a win for corporate interests.',
+    ],
+    ['exact', 'You are probably asking about Gustafson v. Alloyd Co., Inc., 513 U.S. 561 (1995).'],
+  ]) {
+    const { json, requests } = await askWithFetch(
+      (request, input) => {
+        if (request.tools) return Response.json({ error: { code: 'server_error' } }, { status: 500 });
+        assert.equal(input.search, 'unavailable');
+        return atlasReply({
+          asks: 'a 1995 statute enacted over a Clinton veto',
+          answers,
+          needsWeb: false,
+          paragraphs: [{ text, citations: [excerptNumber(input, /Gustafson/)] }],
+        });
+      },
+      { question: pslra },
+    );
+    assert.deepEqual(
+      requests.map((request) => Boolean(request.tools)),
+      [true, false],
+    );
+    assert.deepEqual(json, { paragraphs: [], sources: [], search: 'unavailable' });
   }
 });

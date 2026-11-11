@@ -84,6 +84,26 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
+    'Ask Dottie routing goes back to the Atlas first whenever it finds any excerpt',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'export function route(question, sources, { node, signals } = {}) {',
+        'export function route(question, sources, { node, signals } = {}) {\n  if (sources.length && !outsideAtlas.test(question)) return { research: false, reason: "Atlas first" };',
+      ),
+  ],
+  [
+    'Ask Dottie trusts the model when it calls a substitute Atlas answer exact',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "needsWeb: search === 'not-needed' && (output.needsWeb || !exact)",
+        "needsWeb: search === 'not-needed' && output.needsWeb",
+      ),
+  ],
+  [
     'case timelines: pushed below the detailed account',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),

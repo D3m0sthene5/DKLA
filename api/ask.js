@@ -3,7 +3,7 @@ import { gunzipSync } from 'node:zlib';
 import { body, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { indexCorpus } from '../lib/ask/retrieve.js';
-import { answerWithSearch, shouldSearch } from '../lib/ask/web.js';
+import { answerWithSearch, route } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
 let index;
@@ -15,7 +15,8 @@ async function retrieve(question, node) {
       index = undefined;
       throw error;
     });
-  return (await index)(question, node);
+  // { sources, signals }: the Atlas excerpts, and what routing needs to know about the match.
+  return (await index).explain(question, node);
 }
 
 function validHistory(history) {
@@ -70,14 +71,24 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
       const query = question.trim();
       // A follow-up is looked up together with the question before it.
       const lookup = earlier?.length ? earlier.at(-1).question + ' ' + query : query;
-      const atlas = await retrieve(lookup, node);
-      const signal = AbortSignal.timeout(29_000);
+      const { sources: atlas, signals } = await retrieve(lookup, node);
+      // Time budget, kept under the 30 s function limit. Loading the corpus on a cold start takes
+      // about 2 s. Then either an Atlas answer (8 s) and research (18 s), reusing the Atlas answer
+      // if research fails, or research (18 s) and an Atlas answer after a failure (8 s): 26 s at
+      // most, and every call also stops at this shared 26 s deadline. Worst case about 28 s.
+      const signal = AbortSignal.timeout(26_000);
       let draft;
-      if (!shouldSearch(lookup, atlas)) {
+      // Dottie researches unless the Atlas clearly covers the question (lib/ask/web.js route).
+      if (!route(lookup, atlas, { node, signals }).research) {
         if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
-        const output = await generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
-        if (!output.needsWeb) return send(res, 200, { ...citeAnswer(output, atlas), search });
-        draft = output;
+        try {
+          const output = await generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
+          if (!output.needsWeb) return send(res, 200, { ...citeAnswer(output, atlas), search });
+          draft = output;
+        } catch (error) {
+          // A slow or malformed Atlas answer goes on to research instead of failing the question.
+          if (!(error instanceof InvalidCitations) && error.name !== 'TimeoutError') throw error;
+        }
       }
 
       try {

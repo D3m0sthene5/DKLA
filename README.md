@@ -62,8 +62,13 @@ Ask Dottie (named Ask DKLA in the code and server) is the AI research assistant,
 Dottie Docket, an opossum mascot (see `docs/ask-mascot/`).
 Open the Atlas search box and choose **Ask Dottie** to ask directly, or
 type a question into search and choose **Ask Dottie** above the results. An
-Atlas citation opens its entry inside DKLA. When a question needs outside
-evidence, Ask Dottie searches the public web and labels those citations separately.
+Atlas citation opens its entry inside DKLA. Ask Dottie searches the public web
+unless the Atlas clearly covers the question (it names an Atlas entry or rule, is about
+the open entry, or closely matches Atlas titles); questions about legislation, presidents,
+events, dates and people always search. Web citations are labelled separately, and the
+Atlas excerpts still appear beside them. An Atlas-only answer must answer exactly what was
+asked, or the question goes on to research (`lib/ask/web.js` `route`, `lib/ask/answer.js`
+`checkAnswer`).
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
