@@ -59,6 +59,16 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'history: turns.length', 'history: false'),
   ],
   [
+    'Ask Dottie saved answers: "Save answer" stops keeping anything',
+    'src/features/ask/saved.js',
+    () =>
+      edit(
+        'src/features/ask/saved.js',
+        'if (list.length) localStorage.setItem(KEY, JSON.stringify({ version: 1, answers: list }));',
+        'if (list.length) void list;',
+      ),
+  ],
+  [
     'New York clock shows the wrong time zone',
     'src/features/clock/clock.js',
     () =>

@@ -69,3 +69,8 @@ CREATE OR REPLACE VIEW dkla_all_events AS
  FROM dkla_sessions s CROSS JOIN LATERAL jsonb_to_recordset(s.summary->'events')
  AS e(id uuid,at timestamptz,kind text,entity text,course text,region_id text,active_seconds integer,details jsonb)
  WHERE s.compacted;
+CREATE TABLE IF NOT EXISTS dkla_ask_answers (
+ node text NOT NULL DEFAULT '', question_key text NOT NULL, signature text NOT NULL, content jsonb NOT NULL,
+ answer jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(node, question_key)
+);
+CREATE INDEX IF NOT EXISTS dkla_ask_answers_near ON dkla_ask_answers(node, signature, created_at DESC);

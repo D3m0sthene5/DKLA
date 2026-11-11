@@ -51,12 +51,15 @@
   const placeholder = input.placeholder;
   // The conversation so far: answered turns as { question, answer } (answer is
   // plain text). The browser sends the last three with a follow-up so Dottie
-  // knows what "that case" means. Nothing is stored on the server.
+  // knows what "that case" means. Follow-ups are never stored on the server.
   let turns = [];
   let current = null;
   let request;
   let scopedEntry;
   let openingSource = false;
+  // Filled in by saved.js (saved answers): answered(...) after each answer,
+  // recall(question, node) for one the person saved in this browser.
+  const hooks = {};
 
   // Dottie Docket (dottie.js) appears in one place at a time, beside the line
   // that describes the current state. She is decorative: every state is still
@@ -166,7 +169,14 @@
     return button;
   }
 
-  function render({ paragraphs, sources, search: searchStatus }, question) {
+  // origin: { kind: 'local' | 'library', savedAt } for an answer saved earlier
+  // in this browser or kept in the shared answer library; absent for a new one.
+  function render(
+    result,
+    question,
+    origin = result.cached ? { kind: 'library', savedAt: result.savedAt } : null,
+  ) {
+    const { paragraphs, sources, search: searchStatus } = result;
     if (!Array.isArray(paragraphs) || !Array.isArray(sources)) throw Error('Invalid answer');
     if (!paragraphs.length) {
       setDottie('trouble');
@@ -238,6 +248,7 @@
     }
     if (!cited.size) setDottie(null);
     answer.append(content);
+    hooks.answered?.({ question, node: lastNode, after: turns.at(-1)?.question, result, origin, answer });
     current = {
       question,
       answer: paragraphs
@@ -248,8 +259,11 @@
     followUpMode(true);
     input.value = '';
     if (cited.size && mascot.isConnected) peek.observe(mascot);
-    status.textContent =
-      searchStatus === 'unavailable'
+    status.textContent = origin
+      ? origin.kind === 'local'
+        ? 'Answer from your saved answers.'
+        : 'Saved answer ready.'
+      : searchStatus === 'unavailable'
         ? 'Answer from the Atlas. Web search was unavailable.'
         : searchStatus === 'searched'
           ? 'Answer ready. Web search completed.'
@@ -298,17 +312,26 @@
     answer.setAttribute('aria-busy', String(active));
   }
 
-  async function ask() {
-    const question = input.value.trim();
+  // options.question: ask this instead of the box; options.fresh: ask the
+  // server for a new answer (no saved or library answer); options.replace:
+  // the new answer takes the place of the one on screen instead of following it.
+  let lastNode;
+  async function ask(options = {}) {
+    const question = (options.question ?? input.value).trim();
     if (!question || request) return;
     const node = /\b(?:this|that|the open|the current) (?:case|entry|rule|decision)\b/i.test(question)
       ? scopedEntry
       : null;
+    lastNode = node;
     scopeLabel.hidden = !node;
     scopeLabel.textContent = node ? 'Using the open entry · ' + node.title : '';
     examples.hidden = true;
-    archiveCurrent();
+    if (options.replace) current = null;
+    else archiveCurrent();
     answer.replaceChildren();
+    // A first question the person saved before opens at once from this browser.
+    const kept = !turns.length && !options.fresh && hooks.recall?.(question, node?.id);
+    if (kept) return render(kept.answer, question, { kind: 'local', savedAt: kept.savedAt });
     if (!navigator.onLine) {
       setDottie('trouble');
       status.textContent = 'Ask Dottie needs an internet connection. Atlas search still works offline.';
@@ -327,6 +350,7 @@
         body: JSON.stringify({
           question,
           node: node?.id,
+          fresh: options.fresh || undefined,
           history: turns.length
             ? turns.slice(-3).map((turn) => ({ question: turn.question, answer: turn.answer }))
             : undefined,
@@ -451,6 +475,19 @@
   search.closest('.study-search')?.before(bar);
 
   window.DKLAAsk = {
+    hooks,
+    dialog,
+    status,
+    ask,
+    // Show an answer saved in this browser as the start of a new conversation.
+    show(entry) {
+      startOver();
+      examples.hidden = true;
+      lastNode = entry.node ? { id: entry.node, title: entry.nodeTitle } : null;
+      scopeLabel.hidden = !lastNode;
+      scopeLabel.textContent = lastNode ? 'Using the open entry · ' + (lastNode.title || lastNode.id) : '';
+      render(entry.answer, entry.question, { kind: 'local', savedAt: entry.savedAt });
+    },
     showInSearch() {
       results.replaceChildren(button);
       S.searchOpen = true;
