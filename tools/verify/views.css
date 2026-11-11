@@ -1,6 +1,9 @@
 /* Applied only while a picture of a view is taken (see views.config.mjs).
-   The save status changes with the clock, so it is left out of every picture. */
-#saveStatus {
+   The save status changes with the clock, so it is left out of every picture.
+   The Home splash text shows a random line and pulses, so it is left out too
+   (tools/splash/browser.mjs checks it). */
+#saveStatus,
+.dkla-splash {
   visibility: hidden !important;
 }
 /* The New York clock's cards change every second; its frame, the card shapes,

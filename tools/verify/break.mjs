@@ -99,6 +99,11 @@ const breakages = [
     () => flip('src/features/clock/clock-font.css'),
   ],
   [
+    'Home splash text: no longer tilted on the logo corner',
+    'src/features/splash/splash.js',
+    () => edit('src/features/splash/splash.js', 'const TILT = -18;', 'const TILT = 0;'),
+  ],
+  [
     'Ask DKLA mascot: Dottie stops carrying one joey per cited source',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', "setDottie('answer', cited.size)", "setDottie('answer', 1)"),
