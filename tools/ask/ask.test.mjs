@@ -6,7 +6,16 @@ import { PGlite } from '@electric-sql/pglite';
 import { makeAskHandler } from '../../api/ask.js';
 import { query, ready, setTestDatabase } from '../../lib/analytics/db.js';
 import { citeAnswer, generateAnswer } from '../../lib/ask/answer.js';
-import { normalise, sameQuestion, storable } from '../../lib/ask/library.js';
+import { ASK_MAX_AGE_DAYS, housekeeping } from '../../lib/analytics/reports.js';
+import {
+  answerVersion,
+  findAnswer,
+  MAX_AGE_DAYS,
+  normalise,
+  storable,
+  storeAnswer,
+  SWEEP_MINUTES,
+} from '../../lib/ask/library.js';
 import { indexCorpus } from '../../lib/ask/retrieve.js';
 import { answerWithSearch, citationTable, shouldSearch, webSources } from '../../lib/ask/web.js';
 
@@ -439,61 +448,108 @@ test('the model request includes earlier turns only when there are some', async 
   }
 });
 
-test('the answer library normalises questions and matches only near-identical ones', () => {
+test('the answer library matches only the exact normalised question', () => {
   const key = (question) => normalise(question).key;
-  const same = (a, b) => sameQuestion(normalise(a), normalise(b));
+  const same = (a, b) => key(a) === key(b);
   const base = 'How did International Shoe change Pennoyer?';
+  // Only case, accents, spacing, punctuation and opening or closing politeness are ignored.
   for (const variant of [
     'how did international shoe change pennoyer',
     '  How did   International Shoe change Pennoyer??  ',
-    'Please, can you explain how did International Shoe change Pennoyer?',
-    'Hey Dottie, how did International Shoe change Pennoyer? Thanks',
+    'Please, how did International Shoe change Pennoyer?',
+    'How did International Shoe change Pennoyer? Thanks!',
+    'how did international shoe change pennoyer, please',
+    'How did Internátional Shoe change “Pennoyer”?',
   ])
     assert.equal(key(variant), key(base), variant);
-  assert.equal(key('What is the Erie doctrine?'), key('Explain the Erie doctrine.'));
-  assert.equal(key('Define promissory estoppel'), key('What’s promissory estoppel?'));
   assert.equal(key('Hamer v. Sidway'), key('Hamer vs Sidway'));
-  assert.equal(key('Diversity under 28 U.S.C. § 1332?'), key('Diversity under 28 USC section 1332'));
+  assert.equal(key('Diversity under 28 USC § 1332?'), key('Diversity under 28 USC section 1332'));
   assert.equal(key('Rule 12 (b)(6)'), key('Rule 12(b)(6)'));
-  // "Can you" is a real legal question, not filler, unless it asks Dottie to explain.
-  assert.notEqual(
-    key('Can you appeal a denial of summary judgment?'),
-    key('Appeal a denial of summary judgment'),
-  );
-  assert.notEqual(key("Can't a state be sued?"), key('Can a state be sued?'));
+  assert.equal(key("Can't a state be sued?"), key('Cannot a state be sued?'));
 
-  // Near matches: the same content words in the same order.
-  assert.ok(same('What is the Erie doctrine?', 'What is Erie doctrine'));
-  assert.ok(
-    same(
-      'Explain how International Shoe changed the personal jurisdiction test of Pennoyer',
-      'Explain how International Shoe changed the personal jurisdiction test in Pennoyer',
-    ),
-  );
-  // Numbers, rule citations and case names must match exactly.
-  assert.ok(!same('What does Rule 12(b)(6) require?', 'What does Rule 12(b)(7) require?'));
-  assert.ok(!same('What did the 1938 Erie decision overrule?', 'What did the 1937 Erie decision overrule?'));
-  assert.ok(!same('Is diversity under § 1332 complete?', 'Is diversity under § 1331 complete?'));
-  const long =
-    'How did the Supreme Court in International Shoe change the test from Pennoyer for personal jurisdiction';
-  assert.ok(!same(long, long.replace('International Shoe', 'Burnham Superior')));
-  assert.ok(!same(long, long + ' over a defendant'));
-  assert.ok(!same(long.replace('How', 'Why'), long));
-  assert.ok(
-    !same('What did the majority in Loper Bright hold?', 'What did the dissent in Loper Bright hold?'),
-  );
-  assert.ok(
-    !same('Is a promise enforceable with consideration?', 'Is a promise not enforceable with consideration?'),
-  );
-  // Order matters: the same words reordered are a different question.
-  assert.ok(!same('Does Iqbal overrule Twombly?', 'Does Twombly overrule Iqbal?'));
-  assert.ok(
-    !same('Is Hamer cited by Kirksey in the court opinion', 'Is Kirksey cited by Hamer in the court opinion'),
-  );
-  // Questions about the present are never kept.
-  assert.equal(storable('Is Iqbal still good law?'), false);
-  assert.equal(storable('What is the latest Supreme Court case on standing?'), false);
-  assert.equal(storable(base), true);
+  // The pairs from the review: one word apart, so different questions with
+  // different answers. None of them may share an answer.
+  const different = [
+    [
+      'Is a contract for the sale of goods over $500 enforceable?',
+      'Is an oral contract for the sale of goods over $500 enforceable?',
+    ],
+    [
+      'What are the elements of a claim for infliction of emotional distress?',
+      'What are the elements of a claim for negligent infliction of emotional distress?',
+    ],
+    [
+      'Does the mailbox rule apply to acceptance of an offer?',
+      'Does the mailbox rule apply to acceptance of an option offer?',
+    ],
+    ['Can a minor void a contract for necessaries?', 'Can a minor void a contract for non-necessaries?'],
+    ['Can a minor void a contract for necessaries?', 'Can a minor void a contract for non necessaries?'],
+    [
+      'What are the elements of a valid contract under common law?',
+      'What are the elements of a valid contract under common law incorrectly?',
+    ],
+    [
+      'What are the elements of a valid contract under common law?',
+      'What are the elements of a valid contract under common law jokingly?',
+    ],
+    [
+      'my landlord evicted me without notice in ohio is that legal',
+      'my landlord john evicted me without notice in ohio is that legal',
+    ],
+    // Filler that is not politeness is a real part of the question.
+    ['Can you appeal a denial of summary judgment?', 'Appeal a denial of summary judgment'],
+    ['What is the Erie doctrine?', 'Explain the Erie doctrine.'],
+    ['What is the Erie doctrine?', 'What is Erie doctrine'],
+    ["Can't a state be sued?", 'Can a state be sued?'],
+    ['Does a contract need the word please', 'Does a contract need the word'],
+    // Numbers, rule citations, symbols, names, roles, negation and order.
+    ['What does Rule 12(b)(6) require?', 'What does Rule 12(b)(7) require?'],
+    ['Is diversity under § 1332 complete?', 'Is diversity under § 1331 complete?'],
+    ['What does Rule 1.5 say?', 'What does Rule 15 say?'],
+    ['Is a sale of goods > $500 covered?', 'Is a sale of goods < $500 covered?'],
+    ['Is a 1,000 dollar promise binding?', 'Is a 1 000 dollar promise binding?'],
+    ['What did the majority in Loper Bright hold?', 'What did the dissent in Loper Bright hold?'],
+    ['Is a promise enforceable with consideration?', 'Is a promise not enforceable with consideration?'],
+    ['Does Iqbal overrule Twombly?', 'Does Twombly overrule Iqbal?'],
+    ["Were we're liable?", 'Were were liable?'],
+    ['Is U.S. law clear?', 'Is us law clear?'],
+  ];
+  for (const [a, b] of different) assert.ok(!same(a, b), `${a} | ${b}`);
+
+  // Questions about the present or about later changes to the law are never kept.
+  for (const question of [
+    'Is Iqbal still good law?',
+    'Has Roe been overruled?',
+    'Was Roe overturned?',
+    'Is Roe still the law?',
+    'Is Chevron deference still followed?',
+    'Is Lochner still valid?',
+    'Is the Erie doctrine still binding?',
+    'Does Erie still apply?',
+    'Which cases has Loper Bright abrogated?',
+    'Was the rule superseded by statute?',
+    'What is the rule as of 2026?',
+    'What did the Court decide in 2024?',
+    'What is the current test for standing?',
+    'What is the latest Supreme Court case on standing?',
+    'What is the rule now?',
+    'What is the standard today?',
+    'What are recent cases on standing?',
+    'Is Pennoyer good law?',
+    'Is Iqbal still-good-law?',
+    'Is Roe  still   the law?',
+    'Is Roe still the law in 2026?',
+  ])
+    assert.equal(storable(question), false, question);
+  for (const question of [
+    base,
+    'What does § 1983 require?',
+    'What does 42 USC section 1983 require?',
+    'What does UCC 2-207 say?',
+    'Can a plaintiff recover for negligent infliction of emotional distress?',
+  ])
+    assert.equal(storable(question), true, question);
+  assert.equal(MAX_AGE_DAYS, ASK_MAX_AGE_DAYS, 'the dashboard deletes answers at the same age');
 });
 
 const libraryRequest = (ask) => async (body) => {
@@ -550,11 +606,18 @@ test('first questions are answered from the shared library without calling OpenA
     );
     assert.deepEqual(
       columns.map((c) => c.column_name),
-      ['node', 'question_key', 'signature', 'content', 'answer', 'created_at'],
+      ['node', 'question_key', 'version', 'answer', 'created_at'],
     );
+    // Expired rows are found by age through an index, not a scan of the table.
+    const indexes = await query("SELECT indexdef FROM pg_indexes WHERE tablename='dkla_ask_answers'");
+    assert.ok(indexes.some((row) => /\(created_at\)/.test(row.indexdef)));
+    // Each answer is tied to this corpus and answer version.
+    const [{ version }] = await query('SELECT version FROM dkla_ask_answers');
+    assert.equal(version, await answerVersion());
+    assert.match(version, /^[0-9a-f]{32}$/);
 
     // A hit: the same answer, flagged, without any request to OpenAI.
-    for (const again of [question, 'please explain how did international shoe change pennoyer']) {
+    for (const again of [question, 'Please, how did International Shoe change Pennoyer?? Thanks']) {
       const hit = await run({ question: again });
       assert.equal(hit.cached, true);
       assert.match(hit.savedAt, /^\d{4}-\d\d-\d\dT/);
@@ -562,10 +625,10 @@ test('first questions are answered from the shared library without calling OpenA
       assert.deepEqual(hit.sources, first.sources);
     }
     assert.equal(calls(), 1);
-    // Another open entry, a different number, or a follow-up: no hit.
+    // Another open entry, one more word, or a follow-up: no hit.
     reply = 'A different answer.';
     assert.equal((await run({ question, node: 'shoe' })).cached, undefined);
-    assert.equal((await run({ question: question.replace('?', ' in 1945?') })).cached, undefined);
+    assert.equal((await run({ question: question.replace('?', ' jurisdiction?') })).cached, undefined);
     const followUp = await run({
       question,
       history: [{ question: 'What is personal jurisdiction?', answer: 'Power over a party.' }],
@@ -578,7 +641,7 @@ test('first questions are answered from the shared library without calling OpenA
       kept.map((row) => row.node + '|' + row.question_key),
       [
         '|how did international shoe change pennoyer',
-        '|how did international shoe change pennoyer in 1945',
+        '|how did international shoe change pennoyer jurisdiction',
         'shoe|how did international shoe change pennoyer',
       ],
       'follow-ups are never stored',
@@ -596,14 +659,63 @@ test('first questions are answered from the shared library without calling OpenA
     assert.equal(calls(), 5);
     assert.equal((await request({ question, fresh: 'yes' })).statusCode, 400);
 
-    // Entries expire after 90 days.
+    // An answer from an older corpus or answer version (an earlier deploy) is never served.
+    await query("UPDATE dkla_ask_answers SET version='an-earlier-deploy'");
+    reply = 'Answered from the current corpus.';
+    const redeployed = await run({ question });
+    assert.equal(redeployed.cached, undefined);
+    assert.equal(redeployed.paragraphs[0].text, 'Answered from the current corpus.');
+    assert.equal(calls(), 6);
+    assert.equal((await run({ question })).cached, true);
+    assert.equal(calls(), 6);
+
+    // Time-sensitive questions are neither served nor stored.
+    const overruled = 'Has International Shoe been overruled?';
+    for (let turn = 0; turn < 2; turn++) {
+      const before = calls();
+      assert.equal((await run({ question: overruled })).cached, undefined);
+      assert.ok(calls() > before, 'asked OpenAI each time');
+    }
+    // From here on, count requests to OpenAI from this point.
+    const base = calls();
+    const spent = () => calls() - base;
+    assert.equal(
+      (
+        await query('SELECT count(*)::int AS n FROM dkla_ask_answers WHERE question_key LIKE $1', [
+          '%overruled%',
+        ])
+      )[0].n,
+      0,
+    );
+
+    // Entries expire after 90 days, and lookups delete expired entries too
+    // (at most every SWEEP_MINUTES per server instance), even when nothing new is stored.
+    const count = async () => (await query('SELECT count(*)::int AS n FROM dkla_ask_answers'))[0].n;
     await query("UPDATE dkla_ask_answers SET created_at = now() - interval '91 days'");
+    const later = Date.now() + (SWEEP_MINUTES + 1) * 60_000;
+    const clock = mock.method(Date, 'now', () => later);
+    cite = []; // an answer that abstains, so nothing new is stored
+    try {
+      const unanswered = await run({ question: 'What did Pennoyer say about service by mail?' });
+      assert.deepEqual(unanswered.paragraphs, []);
+    } finally {
+      clock.mock.restore();
+      cite = [1];
+    }
+    assert.equal(await count(), 0, 'a lookup deleted every expired entry');
+    assert.equal(spent(), 1);
     reply = 'After expiry.';
     const expired = await run({ question });
     assert.equal(expired.cached, undefined);
     assert.equal(expired.paragraphs[0].text, 'After expiry.');
-    assert.equal(calls(), 6);
-    assert.equal((await query('SELECT count(*)::int AS n FROM dkla_ask_answers'))[0].n, 1);
+    assert.equal(spent(), 2);
+    assert.equal(await count(), 1);
+    // The dashboard's storage housekeeping deletes them as well.
+    await query("UPDATE dkla_ask_answers SET created_at = now() - interval '91 days'");
+    await housekeeping();
+    assert.equal(await count(), 0);
+    await run({ question });
+    assert.equal(spent(), 3);
 
     // An answer that abstains is not kept.
     cite = [];
@@ -612,7 +724,7 @@ test('first questions are answered from the shared library without calling OpenA
     cite = [1];
     reply = 'Notice by publication.';
     assert.equal((await run({ question: notice })).cached, undefined);
-    assert.equal(calls(), 8);
+    assert.equal(spent(), 5);
 
     // A database that fails: Ask answers normally.
     const down = async () => {
@@ -626,7 +738,7 @@ test('first questions are answered from the shared library without calling OpenA
     warn.mock.restore();
     assert.equal(fallback.cached, undefined);
     assert.equal(fallback.paragraphs[0].text, 'Answered without the library.');
-    assert.equal(calls(), 9);
+    assert.equal(spent(), 6);
   } finally {
     transport.mock.restore();
     setTestDatabase(noDatabase);
@@ -662,5 +774,39 @@ test('answers written after web search failed are not kept in the library', asyn
     await db.close();
     if (key === undefined) delete process.env.DKLA_OPENAI_API_KEY;
     else process.env.DKLA_OPENAI_API_KEY = key;
+  }
+});
+
+test('a library table from before answer versions is upgraded and its old answers are never served', async () => {
+  const db = new PGlite();
+  setTestDatabase(db);
+  try {
+    // The shape the table had while near matching existed (never released).
+    await db.query(`CREATE TABLE dkla_ask_answers (
+      node text NOT NULL DEFAULT '', question_key text NOT NULL, signature text NOT NULL, content jsonb NOT NULL,
+      answer jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(node, question_key))`);
+    await db.query(
+      'CREATE INDEX dkla_ask_answers_near ON dkla_ask_answers(node, signature, created_at DESC)',
+    );
+    const old = { paragraphs: [{ text: 'An old answer.', citations: [1] }], sources: [{ id: 'shoe' }] };
+    await db.query(
+      `INSERT INTO dkla_ask_answers(node, question_key, signature, content, answer) VALUES('', $1, '[]', '[]', $2)`,
+      [normalise('What is minimum contacts?').key, JSON.stringify(old)],
+    );
+    await ready();
+    const columns = await query(
+      "SELECT column_name FROM information_schema.columns WHERE table_name='dkla_ask_answers' ORDER BY ordinal_position",
+    );
+    assert.deepEqual(
+      columns.map((c) => c.column_name),
+      ['node', 'question_key', 'answer', 'created_at', 'version'],
+    );
+    assert.equal(await findAnswer('What is minimum contacts?'), null);
+    const fresh = { paragraphs: [{ text: 'A new answer.', citations: [1] }], sources: [{ id: 'shoe' }] };
+    assert.equal(await storeAnswer('What is minimum contacts?', '', fresh), true);
+    assert.deepEqual((await findAnswer('what is minimum contacts')).paragraphs, fresh.paragraphs);
+  } finally {
+    setTestDatabase(noDatabase);
+    await db.close();
   }
 });

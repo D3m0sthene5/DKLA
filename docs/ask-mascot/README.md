@@ -36,14 +36,21 @@ Saved answers (`src/features/ask/saved.js`, `saved.css`):
 - **Saved answers (N)** beside the close button (hidden while there are none)
   lists them newest first, with a filter. Opening one shows it again with
   working citations and Dottie as for any answer; follow-ups continue from it.
+  There is no limit on how many are kept; if the browser's storage is full,
+  saving says so and nothing is dropped.
 - A first question that matches a saved one (same normalised question, same
   open entry) is shown at once without asking the server: "From your saved
-  answers · Ask again". Ask again requests a new answer (`fresh: true`).
+  answers · Ask again". Ask again requests a new answer (`fresh: true`) about
+  the saved answer's own entry, not whatever entry is open now. A saved
+  follow-up shows "follow-up to “...”" instead: asked again on its own it
+  would lose its conversation, so it has no Ask again.
 - **Shared answer library** (`lib/ask/library.js`): a first question asked
   before comes back from the server with `cached: true` and shows "Saved
   answer from <date> · Ask fresh"; Ask fresh sends `fresh: true`, which skips
-  the library and replaces its entry. Matching is strict (see the comment at
-  the top of `lib/ask/library.js`); entries expire after 90 days; a library
+  the library and replaces its entry. Only an exact match is served (same
+  normalised question, same entry, same corpus and `ANSWER_VERSION`; see the
+  comment at the top of `lib/ask/library.js`); time-sensitive questions are
+  never kept; entries are used for 90 days and then deleted; a library
   answer never calls OpenAI, so it never spends AI credit.
 
 Dottie behaves the same for saved and library answers as for a new one.

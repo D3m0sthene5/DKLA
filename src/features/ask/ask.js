@@ -248,7 +248,9 @@
     }
     if (!cited.size) setDottie(null);
     answer.append(content);
-    hooks.answered?.({ question, node: lastNode, after: turns.at(-1)?.question, result, origin, answer });
+    // origin.after: a saved follow-up shown again keeps the question it followed.
+    const after = origin?.after ?? turns.at(-1)?.question;
+    hooks.answered?.({ question, node: lastNode, after, result, origin, answer });
     current = {
       question,
       answer: paragraphs
@@ -312,19 +314,24 @@
     answer.setAttribute('aria-busy', String(active));
   }
 
-  // options.question: ask this instead of the box; options.fresh: ask the
-  // server for a new answer (no saved or library answer); options.replace:
-  // the new answer takes the place of the one on screen instead of following it.
+  // options.question: ask this instead of the box; options.node: ask about
+  // this entry ({ id, title }, or null for none) instead of the open one;
+  // options.fresh: ask the server for a new answer (no saved or library
+  // answer); options.replace: the new answer takes the place of the one on
+  // screen instead of following it.
   let lastNode;
   async function ask(options = {}) {
     const question = (options.question ?? input.value).trim();
     if (!question || request) return;
-    const node = /\b(?:this|that|the open|the current) (?:case|entry|rule|decision)\b/i.test(question)
-      ? scopedEntry
-      : null;
+    const node =
+      options.node !== undefined
+        ? options.node
+        : /\b(?:this|that|the open|the current) (?:case|entry|rule|decision)\b/i.test(question)
+          ? scopedEntry
+          : null;
     lastNode = node;
     scopeLabel.hidden = !node;
-    scopeLabel.textContent = node ? 'Using the open entry · ' + node.title : '';
+    scopeLabel.textContent = node ? 'Using the open entry · ' + (node.title || node.id) : '';
     examples.hidden = true;
     if (options.replace) current = null;
     else archiveCurrent();
@@ -486,7 +493,7 @@
       lastNode = entry.node ? { id: entry.node, title: entry.nodeTitle } : null;
       scopeLabel.hidden = !lastNode;
       scopeLabel.textContent = lastNode ? 'Using the open entry · ' + (lastNode.title || lastNode.id) : '';
-      render(entry.answer, entry.question, { kind: 'local', savedAt: entry.savedAt });
+      render(entry.answer, entry.question, { kind: 'local', savedAt: entry.savedAt, after: entry.after });
     },
     showInSearch() {
       results.replaceChildren(button);

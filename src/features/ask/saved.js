@@ -18,26 +18,14 @@
   const api = window.DKLAAsk;
   if (!api?.hooks) return;
   const KEY = 'dkla.askSaved.v1';
-  const LIMIT = 500;
   const { dialog, status } = api;
 
   // The same normalisation as the server's answer library (lib/ask/library.js,
-  // words()); tools/ask/browser.mjs checks that the two agree.
-  const leading = [
-    /^(?:hey|hi|hello)\s+dottie\b/,
-    /^dottie\b/,
-    /^(?:please|kindly)\b/,
-    /^(?:can|could|would|will)\s+you\s+(?:please\s+)?(?=(?:explain|define|tell\s+me)\b)/,
-    /^(?:i\s+(?:want|would\s+like)|id\s+like)\s+to\s+know\b/,
-    /^explain\s+to\s+me\b/,
-    /^explain\b/,
-    /^define\b/,
-    /^tell\s+me\s+about\b/,
-    /^what\s+is\s+meant\s+by\b/,
-    /^what\s+is\b/,
-    /^whats\b/,
-  ];
-  const trailing = [/\b(?:please|thanks|thank\s+you|for\s+me)$/];
+  // normalise()); tools/ask/browser.mjs checks that the two agree. Only case,
+  // accents, spacing, punctuation and a "please"/"thanks" at the very start
+  // or end are ignored; every other word counts.
+  const leading = /^please\b[\s,]*/;
+  const trailing = /[,.?!;:]\s*(?:please|thanks|thank\s+you)[\s.!?]*$/;
   function normalise(question) {
     let value = String(question)
       .normalize('NFKD')
@@ -46,24 +34,10 @@
       .replace(/[“”]/g, '"')
       .replace(/[‐-―]/g, '-')
       .toLowerCase()
-      .replace(/\bcan't\b|\bcannot\b/g, 'can not')
-      .replace(/\bwon't\b/g, 'will not')
-      .replace(/n't\b/g, ' not')
-      .replace(/'s\b/g, 's')
-      .replace(/'/g, '')
-      .replace(/§§/g, ' sections ')
-      .replace(/§/g, ' section ')
-      .replace(/\bsec\.\s*(?=\d)/g, 'section ')
-      .replace(/\b(?:vs?\.?|versus)(?=\s)/g, ' v ')
-      .replace(/\b([a-z])\.(?=[a-z]\.)/g, '$1')
-      .replace(/\b([a-z])\.(?=\s|$)/g, '$1')
-      .replace(/(\d)\s+\(/g, '$1(');
-    value = (
-      value.match(/\d+[a-z]?(?:\([a-z0-9]+\))+|\d+(?:[-.:/]\d+)*[a-z]*|[\p{L}]+(?:\d+[a-z]*)?/gu) || []
-    ).join(' ');
+      .trim();
     for (let changed = true; changed; ) {
       changed = false;
-      for (const pattern of [...leading, ...trailing]) {
+      for (const pattern of [leading, trailing]) {
         const next = value.replace(pattern, '').trim();
         if (next !== value && next) {
           value = next;
@@ -71,10 +45,18 @@
         }
       }
     }
-    return value
-      .split(' ')
-      .filter((word) => word && word !== 'please')
-      .join(' ');
+    value = value
+      .replace(/\bcan't\b|\bcannot\b/g, 'can not')
+      .replace(/\bwon't\b/g, 'will not')
+      .replace(/n't\b/g, ' not')
+      .replace(/§/g, ' section ')
+      .replace(/\bsec\.\s*(?=\d)/g, 'section ')
+      .replace(/\b(?:vs?\.?|versus)(?=\s)/g, ' v ')
+      .replace(/(\d)\s+\(/g, '$1(');
+    const tokens = value.match(
+      /\d+[a-z]?(?:\([a-z0-9]+\))+|\d+(?:[-.:/,]\d+)*[a-z]*|\p{L}+(?:\d+[a-z]*)?|[$%&+<>=≤≥#]/gu,
+    );
+    return (tokens || []).join(' ');
   }
 
   // Only what is needed to show the answer again.
@@ -169,6 +151,8 @@
       } else {
         const replaced = list.some(match);
         // One saved answer per question: a newer one replaces the older.
+        // There is no other limit: nothing is ever dropped without the person
+        // deleting it. A full browser store gives the message in problem().
         list = list.filter((entry) => !match(entry));
         list.unshift({
           id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
@@ -178,7 +162,7 @@
           savedAt: new Date().toISOString(),
           answer: record.answer,
         });
-        persist(list.slice(0, LIMIT));
+        persist(list);
         status.textContent = replaced
           ? 'Saved in this browser, replacing your earlier saved answer to this question.'
           : 'Saved in this browser. Only you can see it here.';
@@ -197,7 +181,13 @@
       line.className = 'ask-from';
       const again = document.createElement('button');
       again.type = 'button';
-      if (origin.kind === 'local') {
+      if (origin.kind === 'local' && after) {
+        // A saved follow-up: asked again on its own it would lose the
+        // conversation it followed, so there is no Ask again.
+        line.append(
+          'From your saved answers (saved ' + day(origin.savedAt) + ') · follow-up to “' + after + '”',
+        );
+      } else if (origin.kind === 'local') {
         line.append('From your saved answers (saved ' + day(origin.savedAt) + ') · ');
         again.textContent = 'Ask again';
         again.setAttribute('aria-label', 'Ask again for a new answer');
@@ -206,11 +196,12 @@
         again.textContent = 'Ask fresh';
         again.setAttribute('aria-label', 'Ask fresh: research this question again');
       }
+      // Asked about the same entry as the answer shown, not whatever is open now.
       again.addEventListener('click', () => {
         if (!again.closest('.ask-answer')) return;
-        api.ask({ question, fresh: true, replace: true });
+        api.ask({ question, node: node ?? null, fresh: true, replace: true });
       });
-      line.append(again);
+      if (again.textContent) line.append(again);
       const asked = answer.querySelector('.ask-asked');
       if (asked) asked.after(line);
       else answer.prepend(line);
