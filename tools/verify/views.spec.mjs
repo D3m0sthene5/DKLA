@@ -218,6 +218,18 @@ for (const size of sizes)
       async () => {
         await expect(page.locator('#searchResults')).toBeVisible();
         await expect(page.locator('#searchResults button').first()).toBeVisible();
+        // Rows past the first eight get their "where it matched" line as they scroll into view: wait until
+        // every row in sight has it, so the picture never catches a row half filled.
+        await expect
+          .poll(() =>
+            page.evaluate(() => {
+              const panel = document.getElementById('searchResults').getBoundingClientRect();
+              return [...document.querySelectorAll('#searchResults .search-why:not([data-filled])')].filter(
+                (slot) => slot.getBoundingClientRect().top < Math.min(panel.bottom, innerHeight),
+              ).length;
+            }),
+          )
+          .toBe(0);
       },
       // While the search box has the keyboard, the map behind it keeps redrawing
       // and about one run in four never held still for a picture. This view is

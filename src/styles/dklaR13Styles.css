@@ -92,8 +92,12 @@
   background-color: #e3c48f;
   color: #141c24;
 }
+/* Fixed at the corner: placed in the flow at the end of the page, it made the page 1px taller than
+   the window, so the page itself could scroll (and did, in the session-cards view check). */
 .search-why-announce {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 1px;
   height: 1px;
   overflow: hidden;

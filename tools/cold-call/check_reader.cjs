@@ -87,11 +87,15 @@ window.DKLABriefLoader = {
     target.innerHTML = render(window.DKLABriefs.text(id));
   },
 };
+// The page's own paragraph splitting (src/runtime/semesterCode.js): a paragraph over 95 words is drawn as
+// several <p> chunks, each annotated with its own link budget, so the checks below see what the page draws.
+const chunker = fs
+  .readFileSync(path.join(root, 'src/runtime/semesterCode.js'), 'utf8')
+  .match(/^function r6ReadingChunks\(text\) \{[\s\S]*?^\}$/m);
+assert.ok(chunker, 'r6ReadingChunks is no longer in src/runtime/semesterCode.js');
 const context = {
   window,
   document,
-  // Paragraph segmentation is exercised against the full corpus separately.
-  r6ReadingChunks: (text) => [text],
   localStorage: {
     getItem() {
       return null;
@@ -102,6 +106,13 @@ const context = {
   },
 };
 vm.createContext(context);
+vm.runInContext(chunker[0], context);
+const chunks = (text) => context.r6ReadingChunks(text);
+assert.equal(
+  typeof Intl.Segmenter,
+  'function',
+  'this Node has no Intl.Segmenter: long paragraphs would not be split',
+);
 // The definitions layer loads first, exactly as in src/features/manifest.json.
 for (const file of ['glossary.js', 'reader.js'])
   vm.runInContext(
@@ -116,7 +127,8 @@ const TERM =
   /<span class="cc-term" role="button" tabindex="0" data-cc-term="([a-z0-9-]+)" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccGlossDesc-\1">([^<]*)<\/span>/g;
 // The reader's text with every definition link unwrapped: it must be the narrative, unchanged.
 const plain = (markup) => markup.replace(TERM, '$2');
-const stats = { links: 0, paragraphsWithLinks: 0, accountsWithLinks: 0, terms: new Set() };
+const stats = { links: 0, paragraphsWithLinks: 0, accountsWithLinks: 0, terms: new Set(), split: 0 };
+const words = (text) => String(text).trim().split(/\s+/).join(' ');
 const escape = (value) =>
   String(value ?? '').replace(
     /[&<>"']/g,
@@ -134,8 +146,12 @@ for (const account of data.cases) {
   const text = plain(dialog.innerHTML);
   for (const section of account.sections)
     for (const paragraph of section.paragraphs) {
+      const parts = chunks(paragraph);
+      // Splitting keeps every word, in order.
+      assert.equal(words(parts.join(' ')), words(paragraph), `${account.id}: a split paragraph lost words`);
+      if (parts.length > 1) stats.split++;
       assert.ok(
-        text.includes(`<p>${escape(paragraph)}</p>`),
+        text.includes(parts.map((part) => `<p>${escape(part)}</p>`).join('')),
         `${account.id}: missing or unescaped narrative paragraph`,
       );
     }
@@ -262,6 +278,7 @@ console.log(
       links: stats.links,
       paragraphsWithLinks: stats.paragraphsWithLinks,
       accountsWithLinks: stats.accountsWithLinks,
+      paragraphsSplitIntoChunks: stats.split,
     },
   }),
 );

@@ -2,6 +2,10 @@
    Hover after a short delay, the card staying while the pointer moves into it, keyboard focus and
    Escape, the dictionary hand-off, tap on a touch screen, the card inside the visible screen and
    off the word, the per-episode and per-paragraph limits, and no animation with reduced motion.
+   Also: a click or tap on the card's own text keeps it open; Escape returns focus to the word only
+   when focus was on the word or in the card; a phrase wrapped onto two lines is never covered, on
+   either side; a very short visible screen still holds the whole card; and an atlas entry chosen in
+   the dictionary is the entry that opens.
 
      node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8781/DKLA-v2.9.html [screenshot folder]
 
@@ -79,7 +83,7 @@ async function geometry(page, key) {
     [term(key), card],
   );
 }
-function insideAndClear(g, label) {
+function inside(g, label) {
   assert.ok(g.card, label + ': no card');
   const { card: c, view: v } = g;
   assert.ok(
@@ -90,7 +94,10 @@ function insideAndClear(g, label) {
     c.y >= v.y - 0.5 && c.y + c.height <= v.y + v.height + 0.5,
     `${label}: card off the visible screen`,
   );
-  for (const w of g.words) assert.ok(!overlap(c, w), `${label}: the card covers its word`);
+}
+function insideAndClear(g, label) {
+  inside(g, label);
+  for (const w of g.words) assert.ok(!overlap(g.card, w), `${label}: the card covers its word`);
 }
 
 async function limits(page) {
@@ -204,6 +211,20 @@ async function limits(page) {
       await page.locator(card).waitFor({ state: 'detached', timeout: 2000 });
       assert.equal(await compromised.getAttribute('aria-expanded'), 'false');
 
+      // Escape on a card opened by hovering closes it but leaves focus where it was (not on the word).
+      await page.locator('#ccScroll').focus();
+      {
+        const at = await pointOn(compromised);
+        await page.mouse.move(at.x, at.y, { steps: 2 });
+        await page.locator(card).waitFor({ state: 'visible', timeout: 2000 });
+        await page.keyboard.press('Escape');
+        await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+        assert.equal(await page.evaluate(() => document.activeElement?.id), 'ccScroll', 'Escape moved focus');
+        assert.ok(await page.locator('#coldCallDialog').evaluate((d) => d.open), 'Escape closed the reader');
+        await page.mouse.move(5, 5);
+        await page.waitForTimeout(400);
+      }
+
       // One card at a time: hovering another word replaces it.
       const other = page.locator(term('motion-to-dismiss')).first();
       let at = await pointOn(compromised);
@@ -258,6 +279,21 @@ async function limits(page) {
       await page.keyboard.press('Escape');
       await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
 
+      // A click on the card's own text (to select or copy it) keeps the card open.
+      await compromised.click();
+      await page.locator(card).waitFor({ state: 'visible' });
+      await page.locator(card + ' .cc-gloss-text').click();
+      await page.waitForTimeout(400);
+      assert.equal(await page.locator(card).count(), 1, 'a click inside the card closed it');
+      assert.ok(
+        await page.evaluate(() => !!document.activeElement?.closest('#ccGlossCard')),
+        'focus left the card',
+      );
+      // Escape from there closes it and gives the keyboard back to the word.
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      assert.equal(await page.evaluate(() => document.activeElement?.dataset.ccTerm), 'compromise');
+
       // The dictionary hand-off: the full entry opens over the reader, and Back returns to the word.
       await compromised.click();
       await page.locator(card).waitFor({ state: 'visible' });
@@ -281,26 +317,121 @@ async function limits(page) {
       assert.ok(after.card && Math.abs(before - after.card.y - 40) < 6, 'the card did not follow its word');
       await page.locator('#ccScroll').evaluate((s) => (s.scrollTop += 2000));
       await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+
+      // A phrase that wraps onto two lines: its card clears both lines. Opened from the keyboard (placed
+      // from the first line) it goes below the last line; opened by the pointer on the second line low in
+      // the reader, it goes above the first.
+      const phrase = page.locator(term('motion-to-dismiss')).first();
+      const wrapped = await phrase.evaluate((t) => {
+        const p = t.closest('p');
+        t.scrollIntoView({ block: 'center' });
+        for (let w = Math.floor(p.getBoundingClientRect().width); w > 120; w -= 2) {
+          p.style.maxWidth = w + 'px';
+          if (t.getClientRects().length === 2) return w;
+        }
+        return 0;
+      });
+      assert.ok(wrapped, 'the phrase could not be made to wrap');
+      const sides = {};
+      await phrase.evaluate((t) => t.scrollIntoView({ block: 'center' }));
+      await page.keyboard.press('Shift');
+      await phrase.focus();
+      await page.locator(card + '[data-cc-gloss-for="motion-to-dismiss"]').waitFor({ state: 'visible' });
+      insideAndClear(await geometry(page, 'motion-to-dismiss'), 'wrapped phrase from the keyboard');
+      sides.keyboard = await page.locator(card).getAttribute('data-side');
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      // Focus off the word, so the hovered card below closes when the pointer leaves.
+      await page.locator('#ccScroll').focus();
+      await page.mouse.move(5, 5);
+      await phrase.evaluate((t) => {
+        const s = document.getElementById('ccScroll'),
+          r = t.getClientRects()[1],
+          box = s.getBoundingClientRect();
+        s.scrollTop += r.bottom - (box.bottom - 12);
+      });
+      const second = await phrase.evaluate((t) => {
+        const r = t.getClientRects()[1];
+        return { x: r.left + Math.min(r.width / 2, 12), y: r.top + r.height / 2 };
+      });
+      await page.mouse.move(second.x, second.y, { steps: 2 });
+      await page.locator(card + '[data-cc-gloss-for="motion-to-dismiss"]').waitFor({ state: 'visible' });
+      insideAndClear(await geometry(page, 'motion-to-dismiss'), 'wrapped phrase from its second line');
+      sides.pointer = await page.locator(card).getAttribute('data-side');
+      assert.deepEqual(
+        sides,
+        { keyboard: 'below', pointer: 'above' },
+        'the wrapped-phrase cards were not tested on both sides',
+      );
+      await page.mouse.move(5, 5, { steps: 2 });
+      await page.locator(card).waitFor({ state: 'detached', timeout: 2000 });
+      await phrase.evaluate((t) => (t.closest('p').style.maxWidth = ''));
+
+      // A very short visible screen (a phone on its side with the keyboard up, a pinch-zoomed page): the
+      // card stays inside it. The visual viewport is replaced by a 120 px one whose top is just above the
+      // word, so there is less than a card's height of room on either side.
+      await compromised.evaluate((t) => t.scrollIntoView({ block: 'center' }));
+      await compromised.click();
+      await page.locator(card).waitFor({ state: 'visible' });
+      await page.evaluate(() => {
+        const r = document
+          .querySelector('#coldCallDialog .cc-term[data-cc-term="compromise"]')
+          .getClientRects()[0];
+        const fake = { offsetLeft: 0, offsetTop: r.top - 30, width: innerWidth, height: 120, scale: 1 };
+        Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => fake });
+        dispatchEvent(new Event('resize'));
+      });
+      await page.waitForTimeout(200);
+      const short = await geometry(page, 'compromise');
+      await page.evaluate(() => {
+        delete window.visualViewport;
+        dispatchEvent(new Event('resize'));
+      });
+      inside(short, 'short screen');
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
       // An atlas entry chosen in the dictionary opened from a card leaves the reader as well.
       const defamation = page.locator(term('defamation')).first();
       await defamation.evaluate((t) => t.scrollIntoView({ block: 'center' }));
       await defamation.click();
       await page.locator(card + ' [data-cc-gloss-dictionary="defamation"]').click();
       await page.locator('#glossaryDialog[open]').waitFor();
-      const entry = page.locator('#glossaryDialog [data-study-node]').first();
-      assert.ok(await entry.count(), 'the defamation dictionary entry lists no atlas entries');
+      // Another entry than Garcia, whose reader is open under the Cold Call: the jump must really move.
+      const entry = page
+        .locator(`#glossaryDialog [data-study-node]:not([data-study-node="${CASE}"])`)
+        .first();
+      assert.ok(await entry.count(), 'the defamation dictionary entry lists no other atlas entry');
+      const chosen = await entry.getAttribute('data-study-node');
       await entry.click();
       await page.waitForFunction(
         () => !document.querySelector('#glossaryDialog[open], #coldCallDialog[open]'),
       );
-      const navigated = true;
+      // ... and lands on the entry that was chosen, open in the reading panel.
+      await page.waitForFunction(
+        (id) =>
+          selected?.type === 'node' &&
+          selected.id === id &&
+          !document.getElementById('inspector').hidden &&
+          document.querySelector('#inspector .reader-body h2'),
+        chosen,
+        { timeout: 5000 },
+      );
+      const navigated = await page.evaluate(() => ({
+        entry: selected.id,
+        title: document.querySelector('#inspector .reader-body h2').textContent,
+      }));
+      assert.equal(
+        navigated.title,
+        await page.evaluate((id) => nodesById.get(id)?.title, chosen),
+        'the reader shows another entry',
+      );
       assert.deepEqual(errors, [], 'page errors');
       results.desktop = {
         links: lim.links,
         sections: lim.sections,
         maxPerParagraph: lim.max,
         hoverDelayMs: delay,
-        dictionaryEntryLeavesReader: navigated,
+        dictionaryEntryOpens: navigated,
       };
       await context.close();
     }
@@ -328,6 +459,10 @@ async function limits(page) {
         if (shots && key === 'compromise')
           await page.screenshot({ path: path.join(shots, 'phone-390-tap-card.png') });
       }
+      // A tap on the card's own text keeps it open.
+      await page.locator(card + ' .cc-gloss-text').tap();
+      await page.waitForTimeout(400);
+      assert.equal(await page.locator(card).count(), 1, 'a tap inside the card closed it');
       // A tap on plain text closes it.
       const plain = page.locator('#ccNarrative .cc-section h3').first();
       await plain.tap();

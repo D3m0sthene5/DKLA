@@ -59,6 +59,31 @@ const breakages = [
     () => edit('src/runtime/dklaR13Search.js', '    fillVisible();\n', '\n'),
   ],
   [
+    'search: a case found only by its one-line rule is no longer found',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "if (plain && n.summary) add('rule', 'the one-line rule', n.summary, 'elsewhere');",
+        'void plain;',
+      ),
+  ],
+  [
+    'Cold Call definitions: a click on the card closes it',
+    'src/features/cold-call/glossary.js',
+    () => edit('src/features/cold-call/glossary.js', '    card.tabIndex = -1;\n', '\n'),
+  ],
+  [
+    'SCOTUS History: the Erie voting correction no longer finds its case',
+    'src/runtime/dklaR16HistoryCode.js',
+    () =>
+      edit(
+        'src/runtime/dklaR16HistoryCode.js',
+        "[\n      'cp-erie-decision',\n      'pierce-butler',",
+        "[\n      'cp-erie',\n      'pierce-butler',",
+      ),
+  ],
+  [
     'Ask Dottie follow-ups: earlier turns are no longer sent',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', 'history: turns.length', 'history: false'),

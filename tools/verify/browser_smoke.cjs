@@ -15,6 +15,7 @@ const target = new URL(url);
 if (!['127.0.0.1', 'localhost', '[::1]'].includes(target.hostname))
   throw Error('Only a loopback preview is allowed.');
 const output = path.resolve(option('--output', 'work/browser-smoke'));
+const only = option('--only', null);
 fs.mkdirSync(output, { recursive: true });
 const report = {
   url,
@@ -119,6 +120,8 @@ async function route(page, hash) {
       // The saved-work round trip gets a desktop context of its own, so it does not queue behind the desktop interactions.
       { name: 'desktop', width: 1440, height: 900, storage: true },
     ].map(async (viewport) => {
+      // --only desktop (or phone-landscape, phone-portrait, saved-work) runs a subset, for a focused re-run.
+      if (only && !only.split(',').includes(viewport.storage ? 'saved-work' : viewport.name)) return;
       const context = await browser.newContext({
         viewport: { width: viewport.width, height: viewport.height },
         isMobile: viewport.name !== 'desktop',
@@ -262,7 +265,44 @@ async function route(page, hash) {
           await page.waitForTimeout(600);
           assert.equal(await page.evaluate(() => SCOTUSHistory.state().open), true);
           await shot(page, viewport.name + '-scotus');
+          // Erie's voting record carries the run-time correction in dklaR16HistoryCode.js: Butler and
+          // McReynolds concurred in the judgment (Butler's opinion is captioned a dissent), still 8-0.
+          await page.evaluate(() => SCOTUSHistory.case('cp-erie-decision'));
+          const erie = page.locator('.sh-case-detail [data-sh-panel="cp-erie-decision"]');
+          await erie.waitFor();
+          await erie.locator('details.sh-vote-details > summary').click();
+          const record = await erie.evaluate((panel) => ({
+            headline: panel.querySelector('h3').firstChild.textContent.trim(),
+            votes: Object.fromEntries(
+              [...panel.querySelectorAll('.sh-vote')].map((b) => [
+                b.dataset.shJustice,
+                b.dataset.align + ' · ' + b.querySelector('small').textContent,
+              ]),
+            ),
+            writings: [...panel.querySelectorAll('details.sh-vote-details[open] p')].map(
+              (p) => p.textContent,
+            ),
+          }));
+          assert.equal(record.headline, '8–0', 'Erie is still decided 8-0');
+          for (const justice of ['pierce-butler', 'james-clark-mcreynolds'])
+            assert.equal(record.votes[justice], 'majority · Concurred in judgment', justice + ' in Erie');
+          assert.equal(record.votes['louis-dembitz-brandeis'], 'majority · Opinion author');
+          assert.equal(
+            Object.values(record.votes).filter((v) => v.startsWith('dissent')).length,
+            0,
+            'no Erie dissent',
+          );
+          const writing = (name) => record.writings.find((p) => p.startsWith(name + ' — ')) || '';
+          assert.match(
+            writing('Pierce Butler'),
+            /^Pierce Butler — Concurred in judgment\. His opinion is captioned a dissent: .*contributory negligence\.$/,
+          );
+          assert.match(
+            writing('James Clark McReynolds'),
+            /^James Clark McReynolds — Concurred in judgment\. Joined Justice Butler’s opinion, which is captioned a dissent but would also have reversed\.$/,
+          );
           await page.evaluate(() => SCOTUSHistory.close());
+          return { erie: record.votes };
         });
         await check(viewport.name + ': study interaction', async () => {
           await closeDialogs(page);

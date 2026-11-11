@@ -66,6 +66,7 @@ node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v2.9.html  
 "struck" are linked; if the final table words those terms differently, change those lines
 with it.
 
+## Content and sources
 
 `cases.json` contains the three original narratives: Hamer, Pennoyer and Chadha.
 Their reported opinions and separate writings were compared on 2026-10-11:

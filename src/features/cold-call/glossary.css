@@ -45,6 +45,10 @@
     opacity 0.14s ease-out,
     transform 0.14s ease-out;
 }
+/* The card takes focus only from a click on its text (so it stays open); no ring for that. */
+#coldCallDialog .cc-gloss-card:focus {
+  outline: none;
+}
 #coldCallDialog .cc-gloss-card[data-side='above'] {
   transform: translateY(-3px);
 }

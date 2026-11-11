@@ -274,6 +274,9 @@
     card.id = 'ccGlossCard';
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-labelledby', 'ccGlossHead');
+    // Focusable by a click or tap only: a click on the card's text keeps focus inside the card, so the card
+    // stays open (focus would otherwise fall to the reader and close it). Tab still goes word, then links.
+    card.tabIndex = -1;
     card.dataset.ccGlossFor = term.key;
     card.innerHTML = cardHTML(term);
     // Directly after its word, so Tab moves from the word into the card's links.
@@ -313,10 +316,11 @@
     old.remove();
     return true;
   }
-  /** Fixed position below the word (above when there is no room), inside the visible screen. */
+  /** Fixed position below the word (above when there is no room), inside the visible screen. A phrase
+      that wraps onto two lines is cleared as a whole: below its last line or above its first. */
   function place() {
     if (!card || !trigger) return;
-    const rects = [...trigger.getClientRects()];
+    const rects = [...trigger.getClientRects()].filter((r) => r.width || r.height);
     const rect = rects[Math.min(+card.dataset.line || 0, rects.length - 1)];
     const scroller = trigger.closest('#ccScroll');
     const box = scroller?.getBoundingClientRect();
@@ -324,6 +328,8 @@
       close(false);
       return;
     }
+    const first = Math.min(...rects.map((r) => r.top)),
+      last = Math.max(...rects.map((r) => r.bottom));
     const vv = root.visualViewport;
     const left0 = vv ? vv.offsetLeft : 0,
       top0 = vv ? vv.offsetTop : 0,
@@ -335,21 +341,25 @@
     card.style.width = w + 'px';
     card.style.maxHeight = '';
     const h = card.offsetHeight;
-    const below = top0 + height - margin - (rect.bottom + gap),
-      above = rect.top - gap - (top0 + margin);
+    const below = top0 + height - margin - (last + gap),
+      above = first - gap - (top0 + margin),
+      room = Math.max(0, height - 2 * margin);
     let top;
     if (h <= below || below >= above) {
-      top = rect.bottom + gap;
-      if (h > below) card.style.maxHeight = Math.max(80, below) + 'px';
+      top = last + gap;
+      if (h > below) card.style.maxHeight = Math.max(Math.min(80, room), below) + 'px';
     } else {
       const fit = Math.min(h, above);
-      if (h > above) card.style.maxHeight = Math.max(80, above) + 'px';
-      top = rect.top - gap - fit;
+      if (h > above) card.style.maxHeight = Math.max(Math.min(80, room), above) + 'px';
+      top = first - gap - fit;
     }
+    // However short the visible screen (a phone on its side with the keyboard up, a pinch-zoomed page),
+    // the card stays inside it, even if it then has to cover part of its word.
+    top = Math.max(top0 + margin, Math.min(top, top0 + height - margin - card.offsetHeight));
     const left = Math.min(Math.max(rect.left, left0 + margin), left0 + width - margin - w);
     card.style.left = Math.round(left) + 'px';
     card.style.top = Math.round(top) + 'px';
-    card.dataset.side = top >= rect.bottom ? 'below' : 'above';
+    card.dataset.side = top >= last ? 'below' : 'above';
   }
   const follow = () => {
     if (frame || !card) return;
@@ -408,7 +418,9 @@
       const term = termOf(event.target);
       if (event.key === 'Escape' && card) {
         event.preventDefault();
-        close(true);
+        // Focus goes back to the word only if it was on the word or in its card (a card opened by hovering
+        // must not pull focus from wherever the reader had it).
+        close(inCard(document.activeElement) || document.activeElement === trigger);
         swallowCancel = true;
         setTimeout(() => (swallowCancel = false), 0);
         return;

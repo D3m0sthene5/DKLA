@@ -31,7 +31,7 @@ r18 = script_blocks(r18_bytes.decode("utf-8"))
 html = TARGET.read_text(encoding="utf-8")
 r19 = script_blocks(html)
 require(all(r19.get(k) == v for k, v in r18.items()), "an r18 block differs in r19")
-for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs", "dklaColdCallData", "dklaAuthoritiesData", "dklaWeThePeopleAsset", "dklaPracticeFilter", "dklaGeographyData"):
+for ident in ("dklaR19Data", "dklaR19Full", "dklaR19Briefs", "dklaColdCallData", "dklaAuthoritiesData", "dklaWeThePeopleAsset", "dklaPracticeFilter", "dklaGeographyData", "dklaColdCallGlossary"):
     require(ident in r19, f"missing block {ident}")
 require('<style id="dklaR19Styles">' in html, "missing dklaR19Styles")
 
@@ -45,8 +45,8 @@ require(authorities == json.loads((ROOT / 'tools/v25/authorities.json').read_tex
 masthead = json.loads(r19['dklaWeThePeopleAsset'])
 masthead_bytes = (ROOT / 'tools/v25/assets/we-the-people.png').read_bytes()
 require(masthead['uri'] == 'data:image/png;base64,' + base64.b64encode(masthead_bytes).decode('ascii'), 'Constitution title asset differs from source')
-for block, source_file in [('dklaPracticeFilter', 'practice-filter.json'), ('dklaGeographyData', 'geography.json')]:
-    require(json.loads(r19[block]) == json.loads((ROOT / 'tools/v25' / source_file).read_text(encoding='utf-8')), block + ' differs from source')
+for block, source_file in [('dklaPracticeFilter', 'tools/v25/practice-filter.json'), ('dklaGeographyData', 'tools/v25/geography.json'), ('dklaColdCallGlossary', 'tools/cold-call/glossary-terms.json')]:
+    require(block in r19 and json.loads(r19[block]) == json.loads((ROOT / source_file).read_text(encoding='utf-8')), block + ' differs from ' + source_file)
 expected_js, expected_css, modules = load_runtime_modules()
 require(r19['dklaR19Briefs'] == expected_js, 'generated runtime differs from the ordered source manifest')
 require('<style id="dklaR19Styles">' + expected_css + '</style>' in html, 'generated styles differ from source manifest')

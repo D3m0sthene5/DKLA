@@ -10,34 +10,44 @@
       /[&<>"']/g,
       (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
     );
-  const SPLIT = /[\s–—,;:()\[\]"“”'’.?!/]+/;
+  const SPLIT = /[\s\u2013\u2014,;:()\[\]"\u201c\u201d'\u2019.?!/]+/;
   // A character that ends a word for the tokenizer (its split characters, plus the § that processTerm trims).
-  const BOUNDARY = /[\s–—,;:()\[\]"“”'’.?!/§]/;
+  const BOUNDARY = /[\s\u2013\u2014,;:()\[\]"\u201c\u201d'\u2019.?!/\u00a7]/;
   const tokenize = (s) =>
     String(s)
       .toLowerCase()
       .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
+      .replace(/[\u0300-\u036f]/g, '')
       .split(SPLIT)
       .filter((t) => t.length > 0);
-  const processTerm = (t) => t.replace(/^[§'’]+|[§'’]+$/g, '') || null;
+  const processTerm = (t) => t.replace(/^[\u00a7'\u2019]+|[\u00a7'\u2019]+$/g, '') || null;
   const OPTS = {
-    fields: ['title', 'shortTitle', 'summary', 'notes', 'body', 'tags'],
+    fields: ['title', 'shortTitle', 'summary', 'rule', 'notes', 'body', 'tags'],
     storeFields: ['title'],
     tokenize,
     processTerm,
     searchOptions: {
-      boost: { title: 6, shortTitle: 6, summary: 2 },
+      boost: { title: 6, shortTitle: 6, summary: 2, rule: 2 },
       prefix: true,
-      fuzzy: (t) => (t.length > 4 ? 0.2 : 0),
+      fuzzy: (t) => (t.length > 4 && !/\d/.test(t) ? 0.2 : 0),
       combineWith: 'AND',
     },
+  };
+  // A word of one or two characters ("b", "6", "de") is matched as typed, not as the start of longer words
+  // ("brand", "63", "denied"), unless it is the word still being typed at the end of the box.
+  const searchOptions = (q, extra) => {
+    const typing = !/[\s\u2013\u2014,;:()\[\]"\u201c\u201d'\u2019.?!/\u00a7]$/.test(q);
+    return {
+      prefix: (t, i, terms) => t.length > 2 || (typing && i === terms.length - 1),
+      ...extra,
+    };
   };
 
   /* ---------- what a reader can see of an entry ---------- */
   // Tags such as "class-07", "lrs-r8" or "r14-brief" are build flags, shown nowhere but the raw record
-  // details; a tag a reader typed in (a word, or words with spaces) stays searchable.
-  const INTERNAL_TAG = /^(?:[a-z0-9]+(?:-[a-z0-9]+)+|r\d+|rlcc)$/i;
+  // details. Only those known flags are left out: a tag a reader typed in ("must-know") stays searchable.
+  const INTERNAL_TAG =
+    /^(?:class-(?:\d+|hub)|lrs-[a-z0-9-]+|r\d+(?:-[a-z]+)*|rlcc|course-hub|editorial-companion|partial-assigned-excerpt|shorter-authority|source-gap|source-on-file|unanswered-textbook-problem)$/i;
   // Text that is an address, an identifier or a fingerprint rather than prose.
   const NOT_PROSE = /^(?:https?:\/\/\S+|#\S*|[a-f0-9]{12,}|[a-z0-9]+(?:[-_][a-z0-9]+)+)$/i;
   const URL = /\b(?:https?:\/\/|www\.)[^\s)\]>"']+/gi;
@@ -64,22 +74,26 @@
     };
     add('title', 'Title', n.title);
     add('shortTitle', 'Title', n.shortTitle);
-    // A case reader shows its plain-English introduction where the summary would be (takeaways.js).
+    // A case reader shows its plain-English introduction where the summary would be (takeaways.js). The
+    // stored one-line rule is still shown elsewhere (Drill's "Rule in one line", the subject lists), so it
+    // stays searchable too, last, as a place the reader cannot be scrolled to.
     const plain = typeof window.DKLATakeaways?.for === 'function' ? window.DKLATakeaways.for(n.id) : null;
-    add('summary', 'Summary', plain || n.summary);
+    add('summary', 'the introduction', plain || n.summary);
     for (const [label, value] of Object.entries(n.sections || {}))
       add('body', label, leaves(value).join('\n\n'));
-    add('notes', 'Notes', n.notes);
+    // The reader's own heading for the notes (semesterCode.js, renamed for cases by r19/plain.js).
+    add('notes', n.kind === 'Case' ? 'Notes' : 'Explanation', n.notes);
     add(
       'tags',
-      'Tags',
+      'Sources & record details',
       (n.tags || []).filter((t) => typeof t === 'string' && !INTERNAL_TAG.test(t)).join(', '),
       'details',
     );
+    if (plain && n.summary) add('rule', 'the one-line rule', n.summary, 'elsewhere');
     return out;
   }
   function searchDocument(n) {
-    const doc = { id: n.id, title: '', shortTitle: '', summary: '', notes: '', body: '', tags: '' };
+    const doc = { id: n.id, title: '', shortTitle: '', summary: '', rule: '', notes: '', body: '', tags: '' };
     for (const p of parts(n)) doc[p.field] += (doc[p.field] ? '\n\n' : '') + p.text;
     return doc;
   }
@@ -139,8 +153,8 @@
     String(s || '')
       .toLowerCase()
       .normalize('NFD')
-      .replace(/[̀-ͯ]/g, '')
-      .replace(/[§.,’']/g, '')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[\u00a7.,\u2019']/g, '')
       .replace(/\s+/g, ' ')
       .trim();
   function mark(text, terms) {
@@ -158,12 +172,18 @@
   /* ---------- where a result matched ---------- */
   // Lower-cased, accent-free copy of a text, with a map back to the original positions when they differ.
   function fold(text) {
-    const s = text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const s = text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
     if (s.length === text.length) return { s, at: null };
     let out = '';
     const at = [];
     for (let i = 0; i < text.length; i++) {
-      const f = text[i].toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      const f = text[i]
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
       for (let k = 0; k < f.length; k++) {
         out += f[k];
         at.push(i);
@@ -231,17 +251,28 @@
       related = new Map(),
       found = new Set(),
       inTitle = new Set(),
-      similar = [];
+      fuzzy = [];
     for (const t of docTerms) {
       const r = relate(t, qTerms);
       if (!r) continue;
       related.set(t, r);
       found.add(r.index);
       if (hit.match[t].some((f) => f === 'title' || f === 'shortTitle')) inTitle.add(r.index);
-      if (r.kind === 2) similar.push(t);
+      if (r.kind === 2) fuzzy.push(t);
     }
     const missing = qTerms.filter((_, i) => !found.has(i));
-    const why = { id: hit.id, label: '', place: '', html: '', terms: [], missing, similar, excerpt: '' };
+    // "similar" names only near spellings in the passage shown; any others matched elsewhere in the entry.
+    const why = {
+      id: hit.id,
+      label: '',
+      place: '',
+      html: '',
+      terms: [],
+      missing,
+      similar: [],
+      also: fuzzy,
+      excerpt: '',
+    };
     if (found.size && [...found].every((i) => inTitle.has(i))) return missing.length ? why : null;
     let best = null;
     readable(hit.id).forEach((part, order) => {
@@ -287,21 +318,26 @@
       cursor = e;
     }
     html += E(text.slice(cursor, b).replace(/\s+/g, ' ')) + (b < text.length ? '…' : '');
+    const terms = [...new Set(near.map((o) => o.t))],
+      similar = terms.filter((t) => related.get(t).kind === 2);
     return Object.assign(why, {
       label: part.label,
       place: part.place,
       field: part.field,
       html,
-      terms: [...new Set(near.map((o) => o.t))],
+      terms,
+      similar,
+      also: fuzzy.filter((t) => !similar.includes(t)),
       excerpt: text.slice(from, to),
     });
   }
+  const quoted = (list) => list.map((t) => '“' + E(t) + '”').join(', ');
   function whereLine(why) {
     const bits = [];
     if (why.label) bits.push('in ' + E(why.label));
-    if (why.similar.length) bits.push('similar word: ' + why.similar.map((t) => '“' + E(t) + '”').join(', '));
-    if (why.missing.length)
-      bits.push(why.missing.map((t) => '“' + E(t) + '”').join(', ') + ' not in this entry');
+    if (why.similar.length) bits.push('similar word: ' + quoted(why.similar));
+    if (why.also.length) bits.push('also matched ' + quoted(why.also));
+    if (why.missing.length) bits.push(quoted(why.missing) + ' not in this entry');
     return bits.join(' · ');
   }
   let shown = new Map(); // id -> {hit, q, why}
@@ -373,10 +409,10 @@
           terms: tokens,
         });
     }
-    let hits = ms.search(q),
+    let hits = ms.search(q, searchOptions(q)),
       some = false;
     if (!hits.length && tokens.length > 1) {
-      hits = ms.search(q, { combineWith: 'OR' });
+      hits = ms.search(q, searchOptions(q, { combineWith: 'OR' }));
       some = hits.length > 0;
     }
     const total = rows.length + hits.length;
@@ -521,18 +557,21 @@
     }
     return null;
   }
+  // On screen means inside the reader's scrolling area, below its sticky top bar and the strip, and inside
+  // the window.
   function onScreen(range) {
     const r = range.getBoundingClientRect();
     if (!r.width && !r.height) return false;
     const holder = scroller(range.startContainer.parentElement),
-      view = holder ? holder.getBoundingClientRect() : { top: 0, bottom: innerHeight };
-    const top = Math.max(view.top, 0, stripBottom()),
+      view = holder ? holder.getBoundingClientRect() : { top: 0, bottom: innerHeight },
+      bar = $('inspector')?.querySelector('.reader-top');
+    const top = Math.max(view.top, 0, bar ? bar.getBoundingClientRect().bottom : 0, stripBottom()),
       bottom = Math.min(view.bottom, innerHeight);
     return r.top >= top - 2 && r.bottom <= bottom + 2;
   }
   const stripBottom = () => (strip?.isConnected ? strip.getBoundingClientRect().bottom : 0);
 
-  let target = null, // {id, why}: set only by choosing a search result
+  let target = null, // {id, why, decided}: set only by choosing a search result
     strip = null;
   const announcer = document.createElement('div');
   announcer.className = 'search-why-announce';
@@ -543,10 +582,21 @@
     announcer.textContent = '';
     setTimeout(() => (announcer.textContent = text), 60);
   };
+  // Undo what Show me did to the passage: its outline and the tabindex it was given.
+  function unmark() {
+    for (const el of document.querySelectorAll('#inspector .search-why-target')) {
+      el.classList.remove('search-why-target');
+      if (el.dataset.searchWhyFocus) {
+        el.removeAttribute('tabindex');
+        delete el.dataset.searchWhyFocus;
+      }
+    }
+  }
   function dropStrip() {
     target = null;
     strip?.remove();
     strip = null;
+    unmark();
     if ('highlights' in CSS) CSS.highlights.delete('dkla-hit-focus');
   }
   function placeStrip() {
@@ -561,24 +611,34 @@
       .slice(0, 3)
       .map((t) => '“' + (html ? E(t) : t) + '”')
       .join(', ');
+  // A match in the one-line rule: the reader does not show that text, so there is nothing to show there.
+  const ELSEWHERE = ', which this case’s Study card shows';
   function showStrip(why) {
+    const away = why.place === 'elsewhere';
     strip = document.createElement('div');
     strip.className = 'search-why-strip';
     strip.setAttribute('role', 'region');
     strip.setAttribute('aria-label', 'Where your search matched');
     strip.innerHTML =
-      `<span class="search-why-text">Your search matched ${words(why)} in <b>${E(why.label)}</b></span>` +
-      '<button type="button" class="search-why-show">Show me</button>' +
+      `<span class="search-why-text">Your search matched ${words(why)} in <b>${E(why.label)}</b>${away ? E(ELSEWHERE) : ''}</span>` +
+      (away ? '' : '<button type="button" class="search-why-show">Show me</button>') +
       '<button type="button" class="search-why-close" aria-label="Dismiss where your search matched">×</button>';
-    strip.querySelector('.search-why-show').addEventListener('click', showMe);
+    strip.querySelector('.search-why-show')?.addEventListener('click', showMe);
     strip.querySelector('.search-why-close').addEventListener('click', () => {
       dropStrip();
-      ($('inspector')?.querySelector('.reader-body h2') || $('closeInspector'))?.focus?.({
-        preventScroll: true,
-      });
+      // The entry's title takes the keyboard (it is not focusable by itself); the close button if none.
+      const title = $('inspector')?.querySelector('.reader-body h2');
+      if (title && !title.hasAttribute('tabindex')) title.setAttribute('tabindex', '-1');
+      (title || $('closeInspector'))?.focus?.({ preventScroll: true });
     });
     placeStrip();
-    say(`Your search matched ${words(why, false)} in ${why.label}. Show me is at the top of the entry.`);
+  }
+  function announce(why) {
+    say(
+      why.place === 'elsewhere'
+        ? `Your search matched ${words(why, false)} in ${why.label}${ELSEWHERE}.`
+        : `Your search matched ${words(why, false)} in ${why.label}. Show me is at the top of the entry.`,
+    );
   }
   function showMe() {
     if (!target) return;
@@ -589,9 +649,13 @@
       say('That passage is not shown in this entry right now.');
       return;
     }
+    unmark();
     const block = found.passage.startContainer.parentElement?.closest('p,li,dd,section,div') || found.box;
     block.classList.add('search-why-target');
-    block.setAttribute('tabindex', '-1');
+    if (!block.hasAttribute('tabindex')) {
+      block.setAttribute('tabindex', '-1');
+      block.dataset.searchWhyFocus = '1';
+    }
     // Scroll only the reader, so the page and its top bar stay where they are.
     const holder = scroller(block),
       spot = found.passage.getBoundingClientRect(),
@@ -608,25 +672,40 @@
       CSS.highlights.set('dkla-hit-focus', new Highlight(...found.words));
     say(`Showing the match in ${target.why.label}.`);
   }
-  // Wait until the chosen entry is in the reader, then decide: a match already on screen keeps the plain
-  // highlight; a match further down or in a closed part gets the strip.
-  function settle(id, why, tries = 0) {
-    if (!target || target.id !== id) return;
+  // Decide as soon as the chosen entry is in the reader, before it is first drawn, so the strip never pushes
+  // the entry down while it is being read. The strip goes in first and the passage is measured below it and
+  // the sticky top bar: a match already on screen keeps the plain highlight (the strip comes out again,
+  // still undrawn); a match further down, in a closed part or outside the reader keeps the strip.
+  function decide() {
+    if (!target || target.decided) return;
     const body = readerBody();
-    const ready = body && selectedId() === id && body.querySelector('h2');
-    if (!ready && tries < 20) return setTimeout(() => settle(id, why, tries + 1), 150);
-    if (!ready) return dropStrip();
+    if (!body || selectedId() !== target.id || $('inspector').hidden || !body.querySelector('h2')) return;
+    target.decided = true;
+    const why = target.why;
+    let found = null;
     if (why.place === 'main') {
-      const found = locate(why);
-      // On screen already, or not found in what the reader shows: today's highlight is all there is to do.
-      if (!found || onScreen(found.passage)) {
-        target = null;
-        return;
-      }
+      found = locate(why);
+      // Not found in what the reader shows: today's highlight is all there is to do.
+      if (!found) return dropStrip();
     }
     if (!strip) showStrip(why);
+    if (found && onScreen(found.passage)) return dropStrip();
+    announce(why);
   }
-  new MutationObserver(placeStrip).observe($('inspector'), {
+  // Fallback for a reader drawn before the choice was recorded, or not drawn by a direct re-render.
+  function settle(tries = 0) {
+    if (!target || target.decided) return;
+    decide();
+    if (target && !target.decided) {
+      if (tries < 20) setTimeout(() => settle(tries + 1), 150);
+      else dropStrip();
+    }
+  }
+  new MutationObserver(() => {
+    placeStrip();
+    // After the other observers of this change have run (takeaways.js swaps in the introduction).
+    if (target && !target.decided) queueMicrotask(decide);
+  }).observe($('inspector'), {
     childList: true,
     attributes: true,
     attributeFilter: ['hidden'],
@@ -642,8 +721,8 @@
       if (row) {
         if (row.why === undefined) row.why = explain(row.hit, row.q);
         if (row.why?.html) {
-          target = { id: row.hit.id, why: row.why };
-          setTimeout(() => settle(row.hit.id, row.why), 450);
+          target = { id: row.hit.id, why: row.why, decided: false };
+          setTimeout(settle, 150);
         }
       }
       setTimeout(() => highlight(terms), 450);
@@ -663,10 +742,12 @@
     searchIndex: () => ms,
     searchIndexStats: stats,
     searchDocument,
+    // Where each indexed part of an entry is shown: {field, label, place}.
+    searchParts: (id) => readable(id).map(({ field, label, place }) => ({ field, label, place })),
     searchExplain: (id, q) => {
       const hit =
-        ms?.search(q).find((h) => h.id === id) ||
-        ms?.search(q, { combineWith: 'OR' }).find((h) => h.id === id);
+        ms?.search(q, searchOptions(q)).find((h) => h.id === id) ||
+        ms?.search(q, searchOptions(q, { combineWith: 'OR' })).find((h) => h.id === id);
       return hit ? explain(hit, q) : null;
     },
     rebuildSearchIndex: () => {
