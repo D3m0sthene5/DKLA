@@ -3,3 +3,9 @@
 #saveStatus {
   visibility: hidden !important;
 }
+/* The New York clock's cards change every second; its frame, the card shapes,
+   NYC and the green light stay in the picture. */
+.ny-clock .half > span,
+.ny-clock .ny-meridiem {
+  visibility: hidden !important;
+}

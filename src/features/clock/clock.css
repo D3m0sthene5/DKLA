@@ -1,19 +1,31 @@
-/* New York split-flap clock in the top bar (clock.js). */
+/* New York split-flap clock in the top bar (clock.js). The time sits on the
+   top row in big cards; the weekday, month and day sit below in small cards,
+   then a static NYC with a green indicator light. The typeface is JetBrains
+   Mono Bold (clock-font.css): open shapes, a zero unlike the letter O and
+   equal-width digits, so it reads at a glance. */
 .study-header .ny-clock {
+  --card-ink: #fbf6ea;
+  --card-top: linear-gradient(180deg, #2c363f, #232c34);
+  --card-bottom: linear-gradient(180deg, #1d252c, #171e24);
+  --brass: #e8cba0;
   display: none;
   flex: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 3px;
-  height: 42px;
+  height: 52px;
   box-sizing: border-box;
-  padding: 0 11px;
+  padding: 0 9px;
   border: 1px solid #2f3c49;
   border-radius: 8px;
-  background: linear-gradient(180deg, #141f28, #0f171e);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
-  font-family: 'DKLA Orbitron', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(180deg, #121c24, #0c141a);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 4%),
+    inset 0 -1px 0 rgb(0 0 0 / 35%);
+  font-family: 'DKLA JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
   user-select: none;
 }
 /* Only where the bar has room beside the search box. */
@@ -22,29 +34,48 @@
     display: flex;
   }
 }
-.ny-clock .ny-row {
+.ny-clock .ny-time,
+.ny-clock .ny-date,
+.ny-clock .ny-word,
+.ny-clock .ny-seconds {
   display: flex;
   align-items: center;
+}
+.ny-clock .ny-time {
   gap: 2px;
 }
+.ny-clock .ny-date {
+  gap: 5px;
+}
+.ny-clock .ny-word,
+.ny-clock .ny-seconds {
+  gap: 1px;
+}
+
+/* One split-flap card. */
 .ny-clock .flip {
-  --h: 24px;
+  --h: 26px;
+  --flip: 460ms;
   position: relative;
   display: block;
-  width: 16px;
+  width: 18px;
   height: var(--h);
-  perspective: 90px;
-  color: #f3ead8;
-  font-size: 16px;
-  font-weight: 600;
+  perspective: 80px;
+  color: var(--card-ink);
+  font-size: 20px;
   line-height: var(--h);
   text-align: center;
-  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 55%);
+}
+.ny-clock .flip.small,
+.ny-clock .flip.tiny {
+  --h: 15px;
+  width: 11px;
+  font-size: 11px;
+  perspective: 50px;
 }
 .ny-clock .flip.small {
-  --h: 15px;
-  width: 10px;
-  font-size: 10px;
+  --h: 14px;
 }
 .ny-clock .half {
   position: absolute;
@@ -60,13 +91,21 @@
 .ny-clock .half.top {
   top: 0;
   border-radius: 3px 3px 0 0;
-  background: linear-gradient(180deg, #27353f, #1f2b34);
+  background: var(--card-top);
 }
 .ny-clock .half.bottom {
   bottom: 0;
   border-radius: 0 0 3px 3px;
-  background: linear-gradient(180deg, #1b262e, #172028);
-  box-shadow: 0 1px 1px rgb(0 0 0 / 45%);
+  background: var(--card-bottom);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 50%);
+}
+.ny-clock .flip.tiny .half.top,
+.ny-clock .flip.small .half.top {
+  border-radius: 2px 2px 0 0;
+}
+.ny-clock .flip.tiny .half.bottom,
+.ny-clock .flip.small .half.bottom {
+  border-radius: 0 0 2px 2px;
 }
 .ny-clock .half.bottom > span {
   margin-top: calc(var(--h) / -2);
@@ -79,9 +118,10 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: rgb(5 10 14 / 85%);
+  background: rgb(4 8 11 / 90%);
   z-index: 3;
 }
+/* The falling leaf: the old top half on its front, the new bottom on its back. */
 .ny-clock .leaf {
   position: absolute;
   inset: 0 0 50%;
@@ -101,11 +141,43 @@
 .ny-clock .leaf .back > span {
   margin-top: calc(var(--h) / -2);
 }
+/* Shading: the leaf darkens as it tips away, the newly bared top half starts
+   in its shadow, and a soft shadow sweeps down the lower half before the leaf
+   lands on it. */
+.ny-clock .half::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
 .ny-clock .flipping .leaf {
   display: block;
-  animation: ny-flip 0.5s cubic-bezier(0.45, 0.05, 0.3, 1) forwards;
+  animation: ny-fall var(--flip) cubic-bezier(0.55, 0, 0.9, 0.45) forwards;
 }
-@keyframes ny-flip {
+.ny-clock .flipping.landing .leaf {
+  animation-name: ny-land;
+  animation-timing-function: linear;
+}
+.ny-clock .flipping .leaf .front::before {
+  background: rgb(0 0 0 / 70%);
+  animation: ny-tip var(--flip) ease-in forwards;
+}
+.ny-clock .flipping .leaf .back::before {
+  background: rgb(0 0 0 / 70%);
+  animation: ny-rise var(--flip) ease-out forwards;
+}
+.ny-clock .flipping > .half.top::before {
+  background: rgb(0 0 0 / 55%);
+  animation: ny-bare var(--flip) ease-out forwards;
+}
+.ny-clock .flipping > .half.bottom::before {
+  background: linear-gradient(180deg, rgb(0 0 0 / 70%), rgb(0 0 0 / 15%));
+  transform-origin: 50% 0;
+  animation: ny-sweep var(--flip) ease-in forwards;
+}
+/* A riffle step: one straight fall. */
+@keyframes ny-fall {
   from {
     transform: rotateX(0deg);
   }
@@ -113,61 +185,169 @@
     transform: rotateX(-180deg);
   }
 }
+/* A landing: gathers speed, strikes, kicks back up a touch and settles. */
+@keyframes ny-land {
+  0% {
+    transform: rotateX(0deg);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.92, 0.5);
+  }
+  64% {
+    transform: rotateX(-180deg);
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.4, 1);
+  }
+  80% {
+    transform: rotateX(-166deg);
+    animation-timing-function: cubic-bezier(0.6, 0, 0.9, 0.5);
+  }
+  92% {
+    transform: rotateX(-180deg);
+    animation-timing-function: ease-out;
+  }
+  96% {
+    transform: rotateX(-176deg);
+  }
+  100% {
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes ny-tip {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ny-rise {
+  0%,
+  35% {
+    opacity: 1;
+  }
+  64% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.18;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ny-bare {
+  0% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ny-sweep {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  30% {
+    opacity: 0.35;
+  }
+  62% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  66%,
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
 .ny-clock .ny-colon {
   position: relative;
-  width: 6px;
-  height: 24px;
+  width: 7px;
+  height: 26px;
 }
 .ny-clock .ny-colon::before,
 .ny-clock .ny-colon::after {
   content: '';
   position: absolute;
-  left: 1.5px;
+  left: 2px;
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #e8cba0;
+  background: var(--brass);
 }
 .ny-clock .ny-colon::before {
-  top: 7px;
+  top: 8px;
 }
 .ny-clock .ny-colon::after {
-  bottom: 7px;
+  bottom: 8px;
 }
-.ny-clock .ny-small {
+.ny-clock .ny-side {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1px;
-  margin-left: 4px;
+  margin-left: 3px;
 }
 .ny-clock .ny-meridiem {
-  color: #e8cba0;
-  font-size: 7.5px;
-  letter-spacing: 0.08em;
-  line-height: 8px;
-}
-.ny-clock .ny-seconds {
-  display: flex;
-  gap: 1px;
-}
-.ny-clock .ny-date {
-  color: #93a8b5;
-  font-family:
-    'Segoe UI',
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  color: var(--brass);
+  font-size: 9px;
+  letter-spacing: 0.06em;
   line-height: 10px;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
+
+/* NYC, static, with a tiny green indicator light: a white-hot core in a soft
+   green halo that breathes very slowly. */
+.ny-clock .ny-place {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 1px;
+  color: #c9d6de;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  line-height: 15px;
+}
+.ny-clock .ny-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #f4fff6 0 22%, #6dff9a 46%, #12c552 78%, #0a7a34 100%);
+  box-shadow:
+    0 0 2px 0.5px rgb(120 255 160 / 95%),
+    0 0 6px 1.5px rgb(40 230 100 / 55%),
+    0 0 12px 3px rgb(30 210 90 / 22%);
+  animation: ny-glow 4.2s ease-in-out infinite alternate;
+}
+@keyframes ny-glow {
+  from {
+    filter: brightness(1);
+    box-shadow:
+      0 0 2px 0.5px rgb(120 255 160 / 95%),
+      0 0 6px 1.5px rgb(40 230 100 / 55%),
+      0 0 12px 3px rgb(30 210 90 / 22%);
+  }
+  to {
+    filter: brightness(1.18);
+    box-shadow:
+      0 0 2px 1px rgb(150 255 180 / 100%),
+      0 0 7px 2px rgb(40 235 105 / 70%),
+      0 0 15px 4px rgb(30 215 95 / 30%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .ny-clock .flipping .leaf {
+  .ny-clock .flipping .leaf,
+  .ny-clock .flipping .half::before {
     display: none;
+    animation: none;
+  }
+  .ny-clock .ny-dot {
     animation: none;
   }
 }

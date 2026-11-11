@@ -180,7 +180,67 @@ try {
       });
       const expected = [-60_000, 0].map((shift) => hm.format(Date.now() + shift).replace(/\D/g, ''));
       assert.ok(expected.includes(shown.slice(0, 4)), `clock shows ${shown}, expected ${expected}`);
-      await expect(clock.locator('.ny-date')).toContainText('NYC');
+      // Weekday, month and day: one flap per character, New York's date
+      // (WED NOV 11), worked out here with Intl, independently of the page.
+      const nyDate = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        weekday: 'short',
+        month: 'short',
+        day: '2-digit',
+      });
+      const dateFlaps = (shift) => {
+        const part = Object.fromEntries(
+          nyDate.formatToParts(Date.now() + shift).map((p) => [p.type, p.value]),
+        );
+        return (part.weekday.slice(0, 3) + part.month.slice(0, 3)).toUpperCase() + part.day;
+      };
+      const flapValues = (selector) =>
+        clock.locator(selector).evaluateAll((cards) => cards.map((card) => card.dataset.value).join(''));
+      const datesNear = () => [-60_000, 0, 60_000].map(dateFlaps);
+      const shownDate =
+        (await flapValues('.ny-weekday .flip')) +
+        (await flapValues('.ny-month .flip')) +
+        (await flapValues('.ny-day .flip'));
+      assert.ok(datesNear().includes(shownDate), `date flaps show ${shownDate}, expected ${datesNear()}`);
+      await expect(clock.locator('.ny-date .flip')).toHaveCount(8);
+      await expect(clock.locator('.ny-time')).toHaveAttribute('aria-hidden', 'true');
+      await expect(clock.locator('.ny-date')).toHaveAttribute('aria-hidden', 'true');
+      // NYC is static text beside a small glowing green light.
+      await expect(clock.locator('.ny-place')).toHaveText('NYC');
+      const dot = clock.locator('.ny-place .ny-dot');
+      await expect(dot).toBeVisible();
+      const glow = await dot.evaluate((el) => getComputedStyle(el).boxShadow);
+      assert.match(glow, /rgba?\(\s*\d+,\s*2\d\d,\s*\d+/, `the dot glows green: ${glow}`);
+      // The readable face: JetBrains Mono, embedded and loaded.
+      const face = await clock
+        .locator('.flip')
+        .first()
+        .evaluate((el) => getComputedStyle(el).fontFamily);
+      assert.match(face, /^["']DKLA JetBrains Mono["']/, `clock face is ${face}`);
+      assert.ok(await page.evaluate(() => document.fonts.check("700 20px 'DKLA JetBrains Mono'")));
+      // The hourly Solari riffle: cards flip through other characters, then
+      // every card lands on the right value within a couple of seconds.
+      const riffle = page.evaluate(() =>
+        Promise.race([
+          window.DKLAClock.cascade().then(() => 'landed'),
+          new Promise((resolve) => setTimeout(() => resolve('still riffling'), 4000)),
+        ]),
+      );
+      await page.waitForFunction(() => document.querySelectorAll('.ny-clock .flip.flipping').length >= 6);
+      assert.equal(await riffle, 'landed');
+      const landed = await flapValues('.flip');
+      assert.ok(
+        [-60_000, 0].some((shift) => landed.startsWith(hm.format(Date.now() + shift).replace(/\D/g, ''))),
+        `after the riffle the clock shows ${landed}`,
+      );
+      assert.ok(datesNear().includes(landed.slice(6)), `after the riffle the date shows ${landed.slice(6)}`);
+      // Reduced motion: no flips, no riffle, a steady light.
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      assert.equal(await page.evaluate(() => window.DKLAClock.cascade().then(() => 'still')), 'still');
+      await expect(clock.locator('.flip.flipping')).toHaveCount(0);
+      assert.equal(await dot.evaluate((el) => getComputedStyle(el).animationName), 'none');
+      assert.ok(datesNear().includes((await flapValues('.flip')).slice(6)));
+      await page.emulateMedia({ reducedMotion: 'no-preference' });
     }
 
     await enterSearch('International Shoe');
