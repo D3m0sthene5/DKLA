@@ -129,8 +129,8 @@ const breakages = [
     () =>
       edit(
         'lib/ask/web.js',
-        'export function route(question, sources, { node, signals } = {}) {',
-        'export function route(question, sources, { node, signals } = {}) {\n  if (sources.length && !outsideAtlas.test(question)) return { research: false, reason: "Atlas first" };',
+        'const fit = template(question, { sources, named, node, scoped, followUp });',
+        "const fit = sources.length ? { reason: 'Atlas first' } : null;",
       ),
   ],
   [
@@ -160,8 +160,8 @@ const breakages = [
       edit('api/ask.js', '(path.web || signal.aborted)', 'path.web');
       edit(
         'api/ask.js',
-        'if (failed(error) || error instanceof InvalidCitations) return unavailable();',
-        'if (error instanceof InvalidCitations) return unavailable();',
+        'if (failed(error) || error instanceof InvalidCitations) return nothing();',
+        'if (error instanceof InvalidCitations) return nothing();',
       );
     },
   ],
@@ -186,13 +186,13 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'const text = steps[step?.step]?.(step);', "const text = '';"),
   ],
   [
-    'Ask Dottie routing: a question that names no Atlas entry is answered from the Atlas alone',
+    'Ask Dottie routing: a question that fits no Atlas template is answered from the Atlas alone',
     'lib/ask/web.js',
     () =>
       edit(
         'lib/ask/web.js',
-        "if (!named.length && !self) return research('names no Atlas entry', false);",
-        'void self;',
+        "return research('not an Atlas template', false);",
+        "return { research: false, reason: 'no template', web: false };",
       ),
   ],
   [
@@ -213,7 +213,7 @@ const breakages = [
   [
     'Ask Dottie routing: "§ 1983" and "12(b)(6)" no longer name their rule or statute',
     'lib/ask/retrieve.js',
-    () => edit('lib/ask/retrieve.js', "return entry('cite');", 'void entry;'),
+    () => edit('lib/ask/retrieve.js', "if (keys.length) return entry('cite', [], keys);", 'void keys;'),
   ],
   [
     'Ask Dottie routing: "filibuster" and "campaign" count as events again',
@@ -238,7 +238,7 @@ const breakages = [
   [
     'Ask Dottie misses the hedge "you might mean"',
     'lib/ask/answer.js',
-    () => edit('lib/ask/answer.js', 'you (?:may|might|probably|could) (?:mean|want|be after)|', ''),
+    () => edit('lib/ask/answer.js', 'you (?:may|might|probably|could|likely) (?:mean|want|be after)|', ''),
   ],
   [
     'Ask Dottie research demands a web citation for a doctrine question too',
@@ -289,6 +289,128 @@ const breakages = [
     'Ask Dottie research route makes an Atlas-only draft first',
     'api/ask.js',
     () => edit('api/ask.js', 'if (!path.research) {', 'if (true) {'),
+  ],
+  [
+    'Ask Dottie routing: a question with one more word than an Atlas title stays on the Atlas',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'headwordOf(bare(title)) === key', 'key.includes(headwordOf(bare(title)))'),
+  ],
+  [
+    'Ask Dottie routing: in a follow-up, "it" names the open entry instead of the conversation',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'if (followUp || !node || !scoped || others.length) return [];',
+        'if (!node || !scoped || others.length) return [];',
+      ),
+  ],
+  [
+    'Ask Dottie routing: "Erie" is ambiguous again because of Kenford Co. v. County of Erie',
+    'lib/ask/retrieve.js',
+    () =>
+      edit(
+        'lib/ask/retrieve.js',
+        'if (!namingWords(record.title).includes(phrase)) continue;',
+        "if (!(' ' + terms(record.title).join(' ') + ' ').includes(phrase)) continue;",
+      ),
+  ],
+  [
+    'Ask Dottie citations: a bare "10(b)" names Rule 10 again',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', '(?=\\s*(?:motions?|dismiss\\w*|defen[cs]es?)\\b)/g', '/g'),
+  ],
+  [
+    'Ask Dottie kind check: statute entries filed as "Rule" count as court rules again',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "const rule = ({ id = '', title = '' }) =>",
+        "const rule = ({ id = '', title = '', category }) =>\n  category === 'Rule' ||",
+      ),
+  ],
+  [
+    'Ask Dottie kind check: typo and "name the statute" questions no longer count as asking for a statute',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        'asksStatute(question) || (statuteAskedLoosely.test(question) && !asksCase(question));',
+        'asksStatute(question);',
+      ),
+  ],
+  [
+    'Ask Dottie misses the hedge "assuming you mean"',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        '(?:assuming|if|i think|likely|probably|presumably|perhaps|maybe)\\s+you\\s+mean\\w*|',
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie kind check: a supremecourt.gov opinion PDF is a page of no known kind again',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', '|| caseUrl.test(url);', ';'),
+  ],
+  [
+    'Ask Dottie kind check: one wrong-kind paragraph no longer drops alone (the whole answer is judged)',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        'wrongKind(question, cited(paragraph))',
+        'wrongKind(question, output.paragraphs.flatMap(cited))',
+      ),
+  ],
+  [
+    'Ask Dottie research that finds nothing gives an empty answer even when the Atlas could answer',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "if (!answer.paragraphs.length) throw new NoResearchAnswer('no usable research answer');",
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie cancel during a cold start: the close listener is attached too late again',
+    'api/ask.js',
+    () => {
+      edit(
+        'api/ask.js',
+        "    res.on?.('close', () => {\n      if (!res.writableEnded) gone.abort();\n    });\n    if (res.destroyed || req.destroyed) gone.abort();\n",
+        '',
+      );
+      edit(
+        'api/ask.js',
+        '      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);',
+        "      res.on?.('close', () => {\n        if (!res.writableEnded) gone.abort();\n      });\n      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);",
+      );
+    },
+  ],
+  [
+    'Ask Dottie: a programming error in research becomes the honest empty answer instead of an error',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        '/^(?:fetch failed|terminated)$|Body is unusable/',
+        '/fetch failed|terminated|network|socket|body/i',
+      ),
+  ],
+  [
+    'Ask Dottie answer library: follow-ups are looked up and stored too',
+    'api/ask.js',
+    () =>
+      edit('api/ask.js', "const shelf = earlier?.length ? null : (node ?? '');", "const shelf = node ?? '';"),
+  ],
+  [
+    'Ask Dottie answer library: an Atlas fallback after a failed search is stored',
+    'api/ask.js',
+    () => edit('api/ask.js', '          !fallback &&\n', ''),
   ],
   [
     'case timelines: pushed below the detailed account',

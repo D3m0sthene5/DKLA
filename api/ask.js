@@ -4,7 +4,7 @@ import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { findAnswer, storeAnswer } from '../lib/ask/library.js';
 import { corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
-import { answerWithSearch, route } from '../lib/ask/web.js';
+import { answerWithSearch, NoResearchAnswer, route } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
 // The retrieval index the build computed from that corpus (tools/ask/build.mjs). Without it, or
@@ -216,7 +216,8 @@ export function makeAskHandler(
         return reply.send(200, answer);
       };
 
-      const path = route(lookup, atlas, { node, signals });
+      // The templates read the question itself; the web flags read it with the question before.
+      const path = route(query, atlas, { node, signals, lookup, followUp: Boolean(earlier?.length) });
       reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
       // Time budget, kept under the 30 s target (vercel.json allows 45 s). Loading the corpus on a
       // cold start takes about 0.3 s with the prebuilt index. Then one shared 26 s deadline:
@@ -232,6 +233,8 @@ export function makeAskHandler(
       const atlasAnswer = (search) =>
         generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
       let draft;
+      // The search ran and found nothing usable (as opposed to failing).
+      let empty = false;
       if (!path.research) {
         if (!atlas.length) return reply.send(200, { paragraphs: [], sources: [], search });
         try {
@@ -277,17 +280,24 @@ export function makeAskHandler(
           console.warn('Ask DKLA web search unavailable:', 'cancelled');
           return stop();
         }
-        console.warn('Ask DKLA web search unavailable:', status);
-        search = 'unavailable';
+        empty = error instanceof NoResearchAnswer;
+        console.warn('Ask DKLA web search unavailable:', empty ? 'nothing usable' : status);
+        search = empty ? 'searched' : 'unavailable';
       }
-      // After a failed search: the Atlas draft if there is one; otherwise an Atlas answer only for
-      // a question the Atlas could answer, and only while the deadline allows.
-      if (!atlas.length || (!draft && (path.web || signal.aborted))) return unavailable();
+      // After a failed or empty search: the Atlas draft if there is one; otherwise an Atlas answer
+      // only for a question the Atlas could answer, and only while the deadline allows. A search
+      // that ran but found nothing usable says so ('searched'); one that failed says it failed.
+      const nothing = () =>
+        empty && !gone.signal.aborted
+          ? reply.send(200, { paragraphs: [], sources: [], search })
+          : unavailable();
+      if (!atlas.length || (!draft && (path.web || signal.aborted))) return nothing();
       try {
         const answer = citeAnswer(draft ?? (await atlasAnswer(search)), atlas);
+        if (!answer.paragraphs.length) return nothing();
         return answered({ ...answer, search }, true);
       } catch (error) {
-        if (failed(error) || error instanceof InvalidCitations) return unavailable();
+        if (failed(error) || error instanceof InvalidCitations) return nothing();
         throw error;
       }
     } catch (error) {
