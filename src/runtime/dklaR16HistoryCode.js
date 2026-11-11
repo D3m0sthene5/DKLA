@@ -7,6 +7,38 @@
     PE = D.people,
     CA = D.cases,
     SE = D.seats;
+  // Corrections to the voting records, applied at run time so the data block stays the original page's data
+  // (tools/source/tree.py origin_identity). Each edit applies only while the vote still holds the old value.
+  // Erie, 304 U.S. 64: Butler's opinion (joined by McReynolds) is captioned a dissent but concludes that "the
+  // judgment below should be reversed" on contributory negligence, so both voted with the 8-0 judgment and did
+  // not join the Court's opinion. Owner-approved 11 November 2026.
+  for (const [caseId, justice, from, to] of [
+    [
+      'cp-erie-decision',
+      'pierce-butler',
+      { label: 'Concurrence', opinion: 'concurrence' },
+      {
+        label: 'Concurrence in the judgment',
+        opinion: 'special concurrence',
+        note: 'His opinion is captioned a dissent: it objected to overruling Swift v. Tyson, but concluded that the judgment below should be reversed because the evidence showed the plaintiff’s contributory negligence',
+      },
+    ],
+    [
+      'cp-erie-decision',
+      'james-clark-mcreynolds',
+      { label: 'Concurrence', opinion: 'concurrence' },
+      {
+        label: 'Concurrence in the judgment',
+        opinion: 'special concurrence',
+        note: 'Joined Justice Butler’s opinion, which is captioned a dissent but would also have reversed',
+      },
+    ],
+  ]) {
+    const c = Array.isArray(CA) ? CA.find((x) => x.node === caseId) : CA?.[caseId];
+    for (const d of c?.decisions || [])
+      for (const v of d.votes || [])
+        if (v.justice === justice && Object.entries(from).every(([k, x]) => v[k] === x)) Object.assign(v, to);
+  }
   const $h = (id) => document.getElementById(id),
     esc = (s) =>
       String(s ?? '').replace(
