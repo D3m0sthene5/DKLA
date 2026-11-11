@@ -23,11 +23,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 APPROVED = Path(__file__).with_name('data-blocks.json')
-BUILT = ROOT / 'work/build/DKLA-v2.9.html'
+BUILT = ROOT / 'work/build/DKLA-v3.0.html'
 # The first changelog entry of the current release; any other change to the release record is a data change.
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import CHANGELOG_V29
-RELEASE_ENTRY = CHANGELOG_V29
+from assemble import CHANGELOG_V30
+RELEASE_ENTRY = CHANGELOG_V30
 
 
 def executable(attributes: str) -> bool:
@@ -45,7 +45,7 @@ def data_blocks(raw: bytes) -> list[dict]:
         ident = ident[1] if ident else None
         if ident == 'dklaR19Data':
             parsed = json.loads(body)
-            assert parsed['version'] == 'v2.9' and re.fullmatch(r'v2\.9-[0-9a-f]{10}', parsed['build'])
+            assert parsed['version'] == 'v3.0' and re.fullmatch(r'v3\.0-[0-9a-f]{10}', parsed['build'])
             assert parsed['changelog'][0] == RELEASE_ENTRY, 'Unreviewed release-history entry'
             token = b'"changelog":[' + json.dumps(RELEASE_ENTRY, ensure_ascii=False, separators=(',', ':')).encode() + b','
             assert body.count(token) == 1

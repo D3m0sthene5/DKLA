@@ -3,7 +3,7 @@
    following the logo, hidden whenever something covers the map, never over a
    tile or a control, and still under reduced motion.
 
-     node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v2.9.html */
+     node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.0.html */
 import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 

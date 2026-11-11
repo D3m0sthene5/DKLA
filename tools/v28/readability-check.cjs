@@ -9,7 +9,7 @@ const fn = ast.body.find((n) => n.type === 'FunctionDeclaration' && n.id.name ==
 assert.ok(fn, 'Reading paragraph formatter missing');
 const context = { Intl };
 vm.runInNewContext(source.slice(fn.start, fn.end), context);
-const html = fs.readFileSync('work/build/DKLA-v2.9.html', 'utf8');
+const html = fs.readFileSync('work/build/DKLA-v3.0.html', 'utf8');
 const blocks = Object.fromEntries(
   [...html.matchAll(/<script[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/script>/g)].map((m) => [m[1], m[2]]),
 );

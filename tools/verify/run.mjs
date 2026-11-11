@@ -93,7 +93,7 @@ async function startServer() {
     await new Promise((r) => setTimeout(r, 100));
   }
 }
-const fill = (text) => text.replaceAll('{url}', base).replaceAll('{page}', base + '/DKLA-v2.9.html');
+const fill = (text) => text.replaceAll('{url}', base).replaceAll('{page}', base + '/DKLA-v3.0.html');
 function execute(task) {
   if (task.server)
     return startServer().then(

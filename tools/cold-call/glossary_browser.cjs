@@ -7,7 +7,7 @@
    either side; a very short visible screen still holds the whole card; and an atlas entry chosen in
    the dictionary is the entry that opens.
 
-     node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8781/DKLA-v2.9.html [screenshot folder]
+     node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8781/DKLA-v3.0.html [screenshot folder]
 
    Loopback only; /api/ and other origins answer 204, so nothing leaves the machine. */
 'use strict';
