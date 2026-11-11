@@ -351,6 +351,21 @@
   transition-delay: 0s;
 }
 
+/* Poses differ in shape (hanging is tall, fetching is long), so each gets a
+   width that keeps her about the same height in each place. */
+#dklaAskDialog .ask-examples-label .ask-dottie[data-pose='bookmark'] {
+  width: 100px;
+}
+#dklaAskDialog .ask-examples-label .ask-dottie[data-pose='hanging'] {
+  width: 78px;
+}
+#dklaAskDialog .ask-progress .ask-dottie[data-pose='fetching'] {
+  width: 88px;
+}
+#dklaAskDialog .ask-dottie-peek[data-pose='bookmark'] {
+  width: 92px;
+}
+
 @keyframes dottie-in {
   from {
     opacity: 0;
@@ -389,6 +404,20 @@
     width: 115px;
     height: 55px;
   }
+  #dklaAskDialog .ask-examples-label .ask-dottie[data-pose='bookmark'] {
+    width: 66px;
+    margin-top: -36px;
+  }
+  #dklaAskDialog .ask-examples-label .ask-dottie[data-pose='hanging'] {
+    width: 56px;
+    margin-top: -42px;
+  }
+  #dklaAskDialog .ask-progress .ask-dottie[data-pose='fetching'] {
+    width: 72px;
+  }
+  #dklaAskDialog .ask-dottie-peek[data-pose='bookmark'] {
+    width: 78px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   #dklaAskDialog .ask-dottie,
@@ -401,4 +430,226 @@
     translate: 0 0;
     opacity: 1;
   }
+}
+
+/* The permanent Ask Dottie button in the top bar. Dottie is not inside it:
+   she hangs by her tail from the bar's bottom edge, dangling over the page.
+   The button is position: static, so her top is measured from the bar
+   (the containing block) while her left stays under the button. */
+.study-header .ask-bar {
+  position: static;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  height: 42px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid #526b65;
+  border-radius: 8px;
+  background: #1a302f;
+  color: #dbf6eb;
+  font: inherit;
+  font-size: 15px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.study-header .ask-bar:hover,
+.study-header .ask-bar:focus-visible {
+  border-color: #a6e0c8;
+  background: #26433e;
+}
+.study-header .ask-bar:focus-visible {
+  outline: 2px solid #bcf5df;
+  outline-offset: 2px;
+}
+.study-header .ask-bar-dottie {
+  position: absolute;
+  top: calc(100% - 6px);
+  width: 29px;
+  margin-left: -4px;
+  transform-origin: 50% 3px;
+  z-index: 4;
+}
+.study-header .ask-bar-dottie svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.study-header .ask-bar:is(:hover, :focus-visible) .ask-bar-dottie {
+  animation: dottie-swing 1.4s ease-in-out infinite;
+}
+@keyframes dottie-swing {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: 7deg;
+  }
+  75% {
+    rotate: -7deg;
+  }
+}
+/* She steps aside for full-page views and reading panels, so she never
+   hangs over their text. */
+body.has-reader .study-header .ask-bar-dottie,
+body:has(#shShell:not([hidden])) .study-header .ask-bar-dottie {
+  display: none;
+}
+
+/* Narrower windows and phones: the bar is full, so the button is Dottie
+   alone, hanging from the bar's bottom edge near the right. The button is a
+   clear touch target around her; the words are kept for screen readers. */
+@media (max-width: 1100px) {
+  .study-header .ask-bar {
+    position: absolute;
+    top: calc(100% - 6px);
+    right: 18px;
+    width: 46px;
+    height: 66px;
+    padding: 0;
+    border: 0;
+    border-radius: 0 0 12px 12px;
+    background: transparent;
+  }
+  .study-header .ask-bar:hover,
+  .study-header .ask-bar:focus-visible {
+    background: transparent;
+  }
+  .study-header .ask-bar-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .study-header .ask-bar-dottie {
+    top: 0;
+    left: 8px;
+    margin: 0;
+  }
+  body.has-reader .study-header .ask-bar,
+  body:has(#shShell:not([hidden])) .study-header .ask-bar {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .study-header .ask-bar-dottie {
+    animation: none !important;
+  }
+}
+
+/* Follow-ups: the question box becomes "Ask a follow-up", the newest answer
+   opens with the question it answers, and earlier turns fold away below. */
+#dklaAskDialog .ask-form-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+#dklaAskDialog .ask-new {
+  min-height: 30px;
+  margin: 0 0 4px;
+  padding: 3px 11px;
+  border: 1px solid #46655b;
+  border-radius: 999px;
+  background: transparent;
+  color: #b3e8d4;
+  font-size: 13px;
+}
+#dklaAskDialog .ask-new:hover {
+  background: #26453d;
+}
+#dklaAskDialog .ask-answer .ask-asked {
+  margin: 14px 0 0;
+  padding: 2px 0 2px 11px;
+  border-left: 3px solid #a6e0c8;
+  color: #c6d9d1;
+  font-size: 14px;
+  font-weight: 600;
+}
+#dklaAskDialog .ask-earlier {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #38524b;
+}
+#dklaAskDialog .ask-earlier h3 {
+  margin: 0 0 8px;
+  color: #b9cec5;
+  font-size: 13px;
+  font-weight: 600;
+}
+#dklaAskDialog .ask-turn {
+  margin-top: 6px;
+  border: 1px solid #38524b;
+  border-radius: 10px;
+  background: #172b29;
+}
+#dklaAskDialog .ask-turn summary {
+  padding: 9px 12px;
+  color: #dbe9e3;
+  font-size: 14px;
+  cursor: pointer;
+}
+#dklaAskDialog .ask-turn[open] summary {
+  border-bottom: 1px solid #38524b;
+}
+#dklaAskDialog .ask-turn > :not(summary) {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+#dklaAskDialog .ask-turn > :last-child {
+  margin-bottom: 12px;
+}
+#dklaAskDialog .ask-turn p {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+#dklaAskDialog .ask-turn h3 {
+  margin: 12px 0 6px;
+  font-size: 13px;
+}
+#dklaAskDialog .ask-turn .ask-sources {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 0 22px;
+}
+#dklaAskDialog .ask-turn .ask-sources li {
+  padding: 5px 9px;
+  border: 1px solid #38524b;
+  border-radius: 8px;
+}
+#dklaAskDialog .ask-turn button,
+#dklaAskDialog .ask-turn a {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #b3e8d4;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#dklaAskDialog .ask-turn .ask-citation,
+#dklaAskDialog .ask-turn .ask-origin {
+  padding: 1px 6px;
+  border-radius: 9px;
+  background: #29483f;
+  color: #dbf6eb;
+  font-size: 12px;
+  text-decoration: none;
+}
+#dklaAskDialog .ask-turn .ask-citation-web,
+#dklaAskDialog .ask-turn .ask-origin-web {
+  background: #243e56;
+}
+#dklaAskDialog .ask-turn li small {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
 }

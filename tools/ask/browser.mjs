@@ -54,6 +54,7 @@ try {
       serviceWorkers: 'block',
     });
     let asked = 0;
+    const payloads = [];
     let finishCanceledRequest;
     const canceledRequest = new Promise((resolve) => {
       finishCanceledRequest = resolve;
@@ -70,7 +71,16 @@ try {
       const request = route.request();
       assert.equal(request.method(), 'POST');
       const payload = request.postDataJSON();
-      assert.deepEqual(Object.keys(payload), ['question']);
+      // Only the question and, for a follow-up, up to three earlier turns.
+      assert.ok(Object.keys(payload).every((key) => ['question', 'history'].includes(key)));
+      if (payload.history) {
+        assert.ok(payload.history.length >= 1 && payload.history.length <= 3);
+        for (const turn of payload.history) {
+          assert.deepEqual(Object.keys(turn), ['question', 'answer']);
+          assert.ok(turn.question && turn.answer.length <= 2000);
+        }
+      }
+      payloads.push(payload);
       if (payload.question === question) return route.fulfill({ json: response });
       if (payload.question === rankingQuestion) return route.fulfill({ json: rankingResponse });
       if (payload.question === 'Can unsafe citations appear?')
@@ -99,12 +109,22 @@ try {
     await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
     const search = page.locator('#search');
-    // Dottie Docket appears once at a time, in the pose that matches the state.
-    const mascot = (pose) => page.locator(`#dklaAskDialog .ask-dottie[data-pose="${pose}"]`);
-    async function expectOnlyDottie(pose) {
-      await expect(page.locator('#dklaAskDialog .ask-dottie')).toHaveCount(1);
-      await expect(mascot(pose)).toHaveCount(1);
-      await expect(mascot(pose)).toHaveAttribute('aria-hidden', 'true');
+    // Dottie Docket appears once at a time, in a pose drawn at random from the
+    // pool for the current state. Anything that went wrong is always possum.
+    const pools = {
+      idle: ['curious', 'bookmark', 'hanging', 'carrying'],
+      research: ['reading', 'rummaging', 'fetching'],
+      answer: ['carrying', 'bookmark'],
+      trouble: ['possum'],
+    };
+    const anyDottie = page.locator('#dklaAskDialog .ask-dottie');
+    async function expectOnlyDottie(state) {
+      await expect(anyDottie).toHaveCount(1);
+      await expect(anyDottie).toHaveAttribute('data-state', state);
+      await expect(anyDottie).toHaveAttribute('aria-hidden', 'true');
+      const pose = await anyDottie.getAttribute('data-pose');
+      assert.ok(pools[state].includes(pose), `${pose} is not a ${state} pose`);
+      return pose;
     }
     async function enterSearch(value) {
       await search.focus();
@@ -112,6 +132,57 @@ try {
       if (value) await page.keyboard.insertText(value);
       else await page.keyboard.press('Backspace');
     }
+    // The permanent Ask Dottie button: a pill in the top bar on wide screens,
+    // a tab hanging below the bar on phones. It opens the dialog directly.
+    const bar = page.locator('.study-header .ask-bar');
+    await expect(bar).toBeVisible();
+    await expect(bar).toHaveAccessibleName('Ask Dottie');
+    await expect(bar.locator('.ask-bar-dottie svg')).toHaveCount(1);
+    const barBox = await bar.boundingBox();
+    const headerBox = await page.locator('.study-header').boundingBox();
+    assert.ok(barBox.x >= 0 && barBox.x + barBox.width <= viewport.width, 'Ask Dottie button on screen');
+    if (phone) assert.ok(barBox.y >= headerBox.y + headerBox.height - 8, 'phone: Dottie hangs from the bar');
+    else assert.ok(barBox.y >= headerBox.y && barBox.y + barBox.height <= headerBox.y + headerBox.height);
+    // Dottie hangs by her tail from the bar's bottom edge, below the button, not inside it.
+    const hangBox = await bar.locator('.ask-bar-dottie').boundingBox();
+    const edge = headerBox.y + headerBox.height;
+    assert.ok(hangBox.y < edge && hangBox.y > edge - 12, 'her tail wraps the bottom edge of the bar');
+    assert.ok(hangBox.y + hangBox.height > edge + 30, 'she dangles over the page');
+    await bar.click();
+    await expect(page.getByRole('dialog', { name: 'Ask Dottie' })).toBeVisible();
+    await expectOnlyDottie('idle');
+    await page.keyboard.press('Escape');
+
+    // The New York flip clock: on wide screens only, showing New York's time.
+    const clock = page.locator('.study-header .ny-clock');
+    if (phone) await expect(clock).toBeHidden();
+    else {
+      await expect(clock).toBeVisible();
+      const nyNow = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour: 'numeric',
+        minute: '2-digit',
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric',
+      });
+      const label = await clock.getAttribute('aria-label');
+      const near = [-60_000, 0, 60_000].map((shift) => 'New York time: ' + nyNow.format(Date.now() + shift));
+      assert.ok(near.includes(label), `${label} should be one of ${near.join(' / ')}`);
+      const shown = await clock
+        .locator('.flip')
+        .evaluateAll((cards) => cards.map((card) => card.dataset.value).join(''));
+      const hm = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
+      const expected = [-60_000, 0].map((shift) => hm.format(Date.now() + shift).replace(/\D/g, ''));
+      assert.ok(expected.includes(shown.slice(0, 4)), `clock shows ${shown}, expected ${expected}`);
+      await expect(clock.locator('.ny-date')).toContainText('NYC');
+    }
+
     await enterSearch('International Shoe');
     await page.locator('#searchResults [data-search-id="shoe"]').waitFor();
     await search.press('Enter');
@@ -122,37 +193,52 @@ try {
     await expect(page.locator('#searchResults .ask-search .ask-launch-face svg')).toHaveCount(1);
     await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
     const dialog = page.getByRole('dialog', { name: 'Ask Dottie' });
+    const answerArea = dialog.locator('.ask-answer');
+    const input = dialog.locator('textarea');
     await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
     assert.equal(asked, 1);
+    assert.equal(payloads[0].history, undefined);
+    // Follow-up mode: the box clears for the next question, the answer shows what it answers.
+    await expect(answerArea.locator('.ask-asked')).toHaveText(question);
+    await expect(input).toHaveValue('');
+    await expect(dialog.getByLabel('Ask a follow-up')).toBeVisible();
+    await expect(dialog.getByRole('button', { name: 'New question' })).toBeVisible();
     // The signature moment: one joey per cited source, rising once the sources are in view.
-    const carrier = dialog.locator('.ask-sources-heading .ask-dottie[data-pose="carrying"]');
-    await expectOnlyDottie('carrying');
+    const carrier = dialog.locator('.ask-sources-heading .ask-dottie[data-state="answer"]');
+    await expectOnlyDottie('answer');
     await expect(carrier.locator('.dottie-joey')).toHaveCount(2);
     await expect(dialog.locator('.ask-sources-heading')).toHaveText('Sources');
     await carrier.scrollIntoViewIfNeeded();
     await expect(carrier).toHaveClass(/is-peeking/);
-    await expect(dialog).toContainText('minimum contacts');
-    await expect(dialog.locator('.ask-citation')).toHaveCount(2);
-    await dialog.locator('.ask-citation').first().click();
+    await expect(answerArea).toContainText('minimum contacts');
+    await expect(answerArea.locator('.ask-citation')).toHaveCount(2);
+    await answerArea.locator('.ask-citation').first().click();
     await expect(dialog).toBeHidden();
     await expect(page.locator('#inspector')).toContainText('Pennoyer v. Neff');
+    if (phone) await expect(bar).toBeHidden();
 
+    // Reopening returns to the conversation; New question starts afresh.
     await enterSearch('');
     await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
-    const input = dialog.getByLabel('Your question');
+    await expect(answerArea).toContainText('minimum contacts');
     await expect(input).toBeFocused();
-    await expectOnlyDottie('curious');
+    await dialog.getByRole('button', { name: 'New question' }).click();
+    await expect(answerArea).toBeEmpty();
+    await expect(dialog.locator('.ask-earlier')).toBeHidden();
+    await expect(dialog.getByLabel('Your question')).toBeFocused();
+    await expectOnlyDottie('idle');
     await dialog.getByRole('button', { name: rankingQuestion }).click();
     await expect(input).toHaveValue(rankingQuestion);
     await expect(input).toBeFocused();
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toHaveText('Answer ready. Web search completed.');
-    await expect(dialog).toContainText('HeinOnline placed Iqbal fifth');
-    await expect(dialog.locator('.ask-citation')).toHaveText(['2', '1', '3']);
-    await expect(dialog.locator('.ask-origin')).toHaveText(['Atlas', 'Web', 'Web']);
-    await expect(dialog.locator('.ask-sources li')).toHaveCount(3);
+    assert.equal(payloads.at(-1).history, undefined);
+    await expect(answerArea).toContainText('HeinOnline placed Iqbal fifth');
+    await expect(answerArea.locator('.ask-citation')).toHaveText(['2', '1', '3']);
+    await expect(answerArea.locator('.ask-origin')).toHaveText(['Atlas', 'Web', 'Web']);
+    await expect(answerArea.locator('.ask-sources li')).toHaveCount(3);
     await expect(carrier.locator('.dottie-joey')).toHaveCount(3);
-    const rankingLink = dialog.locator('a.ask-citation').first();
+    const rankingLink = answerArea.locator('a.ask-citation').first();
     await expect(rankingLink).toHaveAttribute('href', rankingUrl);
     await expect(rankingLink).toHaveAttribute('target', '_blank');
     await expect(rankingLink).toHaveAttribute('rel', 'noopener noreferrer');
@@ -166,24 +252,37 @@ try {
     await input.fill('Can unsafe citations appear?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toHaveText('Answer ready. Web search completed.');
-    await expect(dialog.locator('.ask-citation')).toHaveText(['1', '3']);
-    await expect(dialog.locator('.ask-sources li').last()).toHaveAttribute('value', '3');
+    // A follow-up: the browser sent the earlier turn, which now sits folded below.
+    assert.equal(payloads.at(-1).history.length, 1);
+    assert.equal(payloads.at(-1).history[0].question, rankingQuestion);
+    assert.match(payloads.at(-1).history[0].answer, /HeinOnline placed Iqbal fifth/);
+    await expect(dialog.locator('.ask-earlier summary')).toHaveText([rankingQuestion]);
+    await expect(answerArea.locator('.ask-citation')).toHaveText(['1', '3']);
+    await expect(answerArea.locator('.ask-sources li').last()).toHaveAttribute('value', '3');
     await expect(dialog.getByRole('link', { name: /unsafe source/i })).toHaveCount(0);
 
     await input.fill('A question outside the Atlas');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('did not establish an answer');
-    await expectOnlyDottie('quiet');
+    await expectOnlyDottie('trouble');
     await input.fill('Can the Atlas answer on its own?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('Web search was unavailable');
-    await expect(dialog).toContainText('minimum contacts');
+    await expect(answerArea).toContainText('minimum contacts');
+    // An unanswered question is not part of the conversation history.
+    assert.deepEqual(
+      payloads.at(-1).history.map((turn) => turn.question),
+      [rankingQuestion, 'Can unsafe citations appear?'],
+    );
 
     await input.fill('Can I cancel research?');
     await input.press('Enter');
     await expect.poll(() => asked).toBe(6);
     await expect(dialog.getByRole('status')).toHaveText('Looking for relevant sources…');
-    await expectOnlyDottie('reading');
+    // A long search: she changes pose every few seconds, never repeating.
+    const first = await expectOnlyDottie('research');
+    await expect.poll(() => anyDottie.getAttribute('data-pose'), { timeout: 8000 }).not.toBe(first);
+    await expectOnlyDottie('research');
     await dialog.getByRole('button', { name: 'Cancel' }).click();
     finishCanceledRequest();
     await expect(dialog.getByRole('status')).toHaveText('Search canceled.');
@@ -193,12 +292,12 @@ try {
     await input.fill('Why is the model unavailable?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('unavailable here');
-    await expectOnlyDottie('possum');
+    await expectOnlyDottie('trouble');
     await context.setOffline(true);
     await input.fill('Can I ask while offline?');
     await input.press('Enter');
     await expect(dialog.getByRole('status')).toContainText('needs an internet connection');
-    await expectOnlyDottie('possum');
+    await expectOnlyDottie('trouble');
     assert.equal(asked, 7);
     // With reduced motion she appears in place, without the rise.
     await context.setOffline(false);
@@ -212,6 +311,16 @@ try {
       '0s',
     );
     assert.equal(asked, 8);
+    assert.equal(payloads.at(-1).history.length, 3);
+    // A source in an earlier turn still opens its entry.
+    const rankingTurn = dialog.locator('.ask-turn', { hasText: rankingQuestion });
+    await rankingTurn.locator('summary').click();
+    await rankingTurn.locator('button.ask-citation').first().click();
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('#inspector')).toContainText('Iqbal');
+    await enterSearch('');
+    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await expect(answerArea).toContainText('minimum contacts');
     await input.press('Escape');
     await expect(dialog).toBeHidden();
     await context.close();

@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1160" viewBox="0 0 1200 1160" font-family="Inter, system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1760" viewBox="0 0 1200 1760" font-family="Inter, system-ui, sans-serif">
   <defs><filter id="silhouette"><feFlood flood-color="#e6eeeb"/><feComposite operator="in" in2="SourceAlpha"/></filter></defs>
-  <rect width="1200" height="1160" fill="#12201f"/>
+  <rect width="1200" height="1760" fill="#12201f"/>
   <text x="30" y="62" fill="#e6eeeb" font-size="34" font-weight="800">Dottie Docket</text>
   <text x="30" y="92" fill="#a5dfcb" font-size="13" font-weight="700" letter-spacing="2">THE OPOSSUM BEHIND ASK DOTTIE · SPRITE SHEET</text>
   <text x="30" y="122" fill="#a9c1b8" font-size="14">A docket is the list of cases a court carries. Dottie carries hers on her back: one joey for each source an answer cites.</text>
@@ -26,11 +26,34 @@
       <ellipse cx="16" cy="28.2" rx="2.3" ry="1.7" fill="#f08f9e"/>
       <path d="M13.4 25 8 23.6M13.6 26.2 8.4 27M18.6 25l5.4-1.4M18.4 26.2l5.2.8" stroke="#9ba5a1" stroke-width=".6" stroke-linecap="round"/></svg><text x="354" y="210" text-anchor="middle" fill="#a9c1b8" font-size="10">28 px</text>
     <text x="48" y="388" fill="#e6eeeb" font-size="16" font-weight="700">Face</text>
-    <text x="48" y="410" fill="#a9c1b8" font-size="13">“Ask Dottie” launcher in Atlas search</text>
+    <text x="48" y="410" fill="#a9c1b8" font-size="13">“Ask Dottie” in Atlas search results</text>
   </g>
   <g>
     <rect x="416" y="150" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="438" y="168" width="322" height="184" viewBox="0 4 120 86" overflow="visible"><g transform="translate(120 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+    <svg x="438" y="168" width="322" height="184" viewBox="19 3 54 108" overflow="visible">
+        <path d="M46 34C46 24 44 16 46 11c1.6-4 7.4-4 7.4 0s-4.4 5.4-7.4 3" fill="none" stroke="#ecc9c3" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M46 34C46 24 44 16 46 11" fill="none" stroke="#727f7c" stroke-width="4.6" stroke-linecap="round" stroke-dasharray="8 999"/>
+        <path d="M35 38l-9 7M57 38l9 7M37 70l-7 9M55 70l7 9" stroke="#727f7c" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="24.6" cy="46" rx="3" ry="2" fill="#eba3ab"/><ellipse cx="67.4" cy="46" rx="3" ry="2" fill="#eba3ab"/>
+        <ellipse cx="29" cy="80.4" rx="2.8" ry="2" fill="#eba3ab"/><ellipse cx="63" cy="80.4" rx="2.8" ry="2" fill="#eba3ab"/>
+        <path d="M46 30c11 0 17 9 17 22s-6 24-17 24-17-10-17-24 6-22 17-22Z" fill="#c9cfcc"/>
+        <path d="M38 44c3-2 6-2.6 9-2.4M40 56c3-1.4 6-1.6 9-1M52 46c2 0 4 .8 5.6 2" fill="none" stroke="#9ba5a1" stroke-width="1.5" stroke-linecap="round"/>
+        <g transform="translate(46 72) rotate(90) translate(-80 -46)"><g transform="translate(0 0) rotate(0 82 50)">
+      <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
+      <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
+      <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
+      <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
+      <circle cx="97" cy="41.4" r="2.5" fill="#121a19"/><circle cx="97.875" cy="40.525" r="0.8500000000000001" fill="#fff"/>
+      <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
+      <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
+    </g></g></svg>
+    
+    <text x="434" y="388" fill="#e6eeeb" font-size="16" font-weight="700">Hanging from the top bar</text>
+    <text x="434" y="410" fill="#a9c1b8" font-size="13">The Ask Dottie button, always on screen</text>
+  </g>
+  <g>
+    <rect x="802" y="150" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="824" y="168" width="322" height="184" viewBox="0 4 120 86" overflow="visible"><g transform="translate(120 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -49,12 +72,64 @@
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g><path class="dottie-spark" d="M111 9q.9 6.1 7 7q-6.1 .9 -7 7q-.9 -6.1 -7 -7q6.1 -.9 7 -7Z" fill="#a6e0c8"/></g></svg>
     
-    <text x="434" y="388" fill="#e6eeeb" font-size="16" font-weight="700">Curious</text>
-    <text x="434" y="410" fill="#a9c1b8" font-size="13">Empty dialog, beside “Try a question”</text>
+    <text x="820" y="388" fill="#e6eeeb" font-size="16" font-weight="700">Curious</text>
+    <text x="820" y="410" fill="#a9c1b8" font-size="13">Empty dialog (one of four, at random)</text>
   </g>
   <g>
-    <rect x="802" y="150" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="824" y="168" width="322" height="184" viewBox="0 4 128 86" overflow="visible"><path d="M31 66C20 64 15 54 17 44 19.4 32 31 25.6 41 28c8.2 2 8.6 12.4 1.6 14" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+    <rect x="30" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="52" y="468" width="322" height="184" viewBox="0 6 100 90" overflow="visible"><g transform="translate(100 0) scale(-1 1)">
+        <path d="M34 86C22 89 10 86 8 76c-1.6-8 5-13 11.4-10.4 4.6 1.8 4.4 8-.2 8.8" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M42 80l-2 7M56 82l1 6" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
+        <path d="M30 86C24 70 27 50 40 41 52 33 66 39 69 54c2.6 13-1 27-10 33Z" fill="#c9cfcc"/>
+        <path d="M54 47c8 3 12 13 11 24-1 7-3.6 12-7 14-3-12-5-25-4-38Z" fill="#dfe3e0"/>
+        <path d="M34 60c2-4 5-6 9-7M33 72c2-3 4-4 7-5M39 49c3-2 6-3 9-3" fill="none" stroke="#9ba5a1" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="40" cy="88.4" rx="5.2" ry="2.2" fill="#eba3ab"/><ellipse cx="58" cy="89" rx="4.6" ry="2" fill="#eba3ab"/>
+        
+        <g transform="translate(-30 -14) rotate(-6 82 50)">
+      <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
+      <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
+      <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
+      <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
+      <circle cx="97" cy="41.6" r="2.1" fill="#121a19"/><circle cx="97.735" cy="40.865" r="0.7140000000000001" fill="#fff"/>
+      <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
+      <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
+    </g>
+        <path d="M82 40h9v32l-4.5-4L82 72Z" fill="#a6e0c8"/><path d="M84.4 44h4.2" stroke="#7fbfa6" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M64 52q9 1 18-1M63 59q9 2 18 0" fill="none" stroke="#727f7c" stroke-width="4.6" stroke-linecap="round"/>
+        <circle cx="82.6" cy="50.6" r="2.6" fill="#eba3ab"/><circle cx="82" cy="58.8" r="2.6" fill="#eba3ab"/></g></svg>
+    
+    <text x="48" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Bookmark</text>
+    <text x="48" y="710" fill="#a9c1b8" font-size="13">Empty dialog, sometimes with joeys</text>
+  </g>
+  <g>
+    <rect x="416" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="438" y="468" width="322" height="184" viewBox="0 0 92 112" overflow="visible"><g transform="translate(92 0) scale(-1 1)">
+        <path d="M6 8h80" stroke="#b8975c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70 8q6-8 15-6-4 8-15 6Z" fill="#a6e0c8" opacity=".85"/>
+        
+        <path d="M46 34C46 24 44 16 46 11c1.6-4 7.4-4 7.4 0s-4.4 5.4-7.4 3" fill="none" stroke="#ecc9c3" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M46 34C46 24 44 16 46 11" fill="none" stroke="#727f7c" stroke-width="4.6" stroke-linecap="round" stroke-dasharray="8 999"/>
+        <path d="M35 38l-9 7M57 38l9 7M37 70l-7 9M55 70l7 9" stroke="#727f7c" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="24.6" cy="46" rx="3" ry="2" fill="#eba3ab"/><ellipse cx="67.4" cy="46" rx="3" ry="2" fill="#eba3ab"/>
+        <ellipse cx="29" cy="80.4" rx="2.8" ry="2" fill="#eba3ab"/><ellipse cx="63" cy="80.4" rx="2.8" ry="2" fill="#eba3ab"/>
+        <path d="M46 30c11 0 17 9 17 22s-6 24-17 24-17-10-17-24 6-22 17-22Z" fill="#c9cfcc"/>
+        <path d="M38 44c3-2 6-2.6 9-2.4M40 56c3-1.4 6-1.6 9-1M52 46c2 0 4 .8 5.6 2" fill="none" stroke="#9ba5a1" stroke-width="1.5" stroke-linecap="round"/>
+        <g transform="translate(46 72) rotate(90) translate(-80 -46)"><g transform="translate(0 0) rotate(0 82 50)">
+      <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
+      <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
+      <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
+      <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
+      <circle cx="97" cy="41.4" r="2.5" fill="#121a19"/><circle cx="97.875" cy="40.525" r="0.8500000000000001" fill="#fff"/>
+      <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
+      <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
+    </g></g></g></svg>
+    
+    <text x="434" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Hanging around</text>
+    <text x="434" y="710" fill="#a9c1b8" font-size="13">Empty dialog</text>
+  </g>
+  <g>
+    <rect x="802" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="824" y="468" width="322" height="184" viewBox="0 4 128 86" overflow="visible"><path d="M31 66C20 64 15 54 17 44 19.4 32 31 25.6 41 28c8.2 2 8.6 12.4 1.6 14" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C20 64 15 54 17 44 19.4 32 31 25.6 41 28c8.2 2 8.6 12.4 1.6 14" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -78,12 +153,64 @@
         <g class="dottie-glass"><circle cx="110" cy="66" r="7.4" fill="#a6e0c8" fill-opacity=".22" stroke="#a6e0c8" stroke-width="2.6"/>
         <path d="M115.4 71.4l6 6" stroke="#727f7c" stroke-width="3.6" stroke-linecap="round"/></g></svg>
     
-    <text x="820" y="388" fill="#e6eeeb" font-size="16" font-weight="700">Concentrating</text>
-    <text x="820" y="410" fill="#a9c1b8" font-size="13">While Ask Dottie researches</text>
+    <text x="820" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Reading</text>
+    <text x="820" y="710" fill="#a9c1b8" font-size="13">Researching (changes every few seconds)</text>
   </g>
   <g>
-    <rect x="30" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="52" y="468" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+    <rect x="30" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="52" y="768" width="322" height="184" viewBox="0 4 128 86" overflow="visible"><path d="M31 68C22 69 13 70 6 74c-3 1.8-4 4.4-1.6 5.4" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M31 68C22 69 13 70 6 74c-3 1.8-4 4.4-1.6 5.4" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
+    <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
+    <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
+    <path d="M77 69l1 11" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M69 71l-1 10" stroke="#727f7c" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+    <ellipse cx="37.6" cy="81.6" rx="3.6" ry="1.8" fill="#eba3ab"/>
+    <ellipse cx="78.6" cy="81.6" rx="3.4" ry="1.7" fill="#eba3ab"/>
+    <path d="M29 68C23 55 33 40 53 37.6 69 35.7 82 41 86.4 53.4c3.2 9.8-1.8 18-12.4 19.6l-34 1.4c-5 0-8.6-2.4-11-6.4Z" fill="#c9cfcc"/>
+    <path d="M38 47c4-3 8-4.4 13-5M44 55c3-2 6-3 10-3.4M60 45c4-.8 8 0 11 1.6M33 60c2-2 4.4-3 7-3.4" fill="none" stroke="#9ba5a1" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(-4 6) rotate(24 82 50)">
+      <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
+      <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
+      <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
+      <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
+      <circle cx="96.8" cy="43" r="1.7" fill="#121a19"/><path d="M94.2 41.2q2.6-1 5.2 0" fill="none" stroke="#9ba5a1" stroke-width="1.3" stroke-linecap="round"/>
+      <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
+      <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
+    </g>
+        <path d="M88 84h30l-3-12H91Z" fill="#d9b877"/>
+        <path d="M88 84l5-15h27l-5 15Z" fill="#e7cb92"/>
+        <path d="M95 76.4h16" stroke="#c39c55" stroke-width="1" stroke-dasharray="2 2" stroke-linecap="round"/></svg>
+    
+    <text x="48" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Rummaging</text>
+    <text x="48" y="1010" fill="#a9c1b8" font-size="13">Researching</text>
+  </g>
+  <g>
+    <rect x="416" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="438" y="773.4925373134329" width="322" height="173.01492537313433" viewBox="0 14 134 72" overflow="visible">
+        <path d="M10 30h12M3 40h11M12 68h10" stroke="#a6e0c8" stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+        <path d="M31 56C21 50 13 50 5 44c-2-2-2-5 1-6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M31 56C27 53.6 24 52.4 21 51.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round"/>
+        <path d="M74 63l9 9M46 64l-8 9" stroke="#727f7c" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+        <path d="M80 62l14 7M38 62l-14 6" stroke="#727f7c" stroke-width="5.6" stroke-linecap="round"/>
+        <ellipse cx="95.6" cy="69.8" rx="3.4" ry="1.8" fill="#eba3ab"/><ellipse cx="22.4" cy="68.6" rx="3.4" ry="1.8" fill="#eba3ab"/>
+        <path d="M28 58C26 47 38 39 56 38c18-1 30 5 32 15 1.6 8-6 13-18 13l-30 .6C33 67 29 64 28 58Z" fill="#c9cfcc"/>
+        <path d="M40 47c4-2.4 8-3.4 13-3.6M47 55c3-1.6 6-2.2 10-2.4M64 45c4 0 7 1 10 2.6" fill="none" stroke="#9ba5a1" stroke-width="1.6" stroke-linecap="round"/>
+        <g transform="translate(0 -2) rotate(4 82 50)">
+      <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
+      <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
+      <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
+      <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
+      <circle cx="97" cy="41.4" r="2.5" fill="#121a19"/><circle cx="97.875" cy="40.525" r="0.8500000000000001" fill="#fff"/>
+      <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
+      <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
+    </g>
+        <g transform="rotate(-12 116 52)"><rect x="106" y="47" width="20" height="13" rx="1.6" fill="#d9b877"/><path d="M108 49.4h16v8.4h-16Z" fill="#f0e7d0"/><path d="M116 49.4v8.4" stroke="#c39c55" stroke-width="1"/></g></svg>
+    
+    <text x="434" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Fetching</text>
+    <text x="434" y="1010" fill="#a9c1b8" font-size="13">Researching</text>
+  </g>
+  <g>
+    <rect x="802" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="824" y="768" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -110,12 +237,12 @@
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g></g></svg>
     
-    <text x="48" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 1</text>
-    <text x="48" y="710" fill="#a9c1b8" font-size="13">Answer citing one source</text>
+    <text x="820" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 1</text>
+    <text x="820" y="1010" fill="#a9c1b8" font-size="13">Answer citing one source</text>
   </g>
   <g>
-    <rect x="416" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="438" y="468" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+    <rect x="30" y="1050" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="52" y="1068" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -150,12 +277,12 @@
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g></g></svg>
     
-    <text x="434" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 2</text>
-    <text x="434" y="710" fill="#a9c1b8" font-size="13">Answer citing two sources</text>
+    <text x="48" y="1288" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 2</text>
+    <text x="48" y="1310" fill="#a9c1b8" font-size="13">Answer citing two sources</text>
   </g>
   <g>
-    <rect x="802" y="450" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="824" y="468" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+    <rect x="416" y="1050" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="438" y="1068" width="322" height="184" viewBox="0 16 124 74" overflow="visible"><g transform="translate(124 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -198,39 +325,62 @@
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g></g></svg>
     
-    <text x="820" y="688" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 3</text>
-    <text x="820" y="710" fill="#a9c1b8" font-size="13">Answer citing three or more</text>
+    <text x="434" y="1288" fill="#e6eeeb" font-size="16" font-weight="700">Carrying the docket · 3</text>
+    <text x="434" y="1310" fill="#a9c1b8" font-size="13">Answer citing three or more</text>
   </g>
   <g>
-    <rect x="30" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="52" y="768" width="322" height="184" viewBox="0 4 128 86" overflow="visible"><path d="M31 68C22 69 13 70 6 74c-3 1.8-4 4.4-1.6 5.4" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
-      <path d="M31 68C22 69 13 70 6 74c-3 1.8-4 4.4-1.6 5.4" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
-    <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
-    <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
-    <path d="M77 69l1 11" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round"/>
-    <path d="M69 71l-1 10" stroke="#727f7c" stroke-width="5" stroke-linecap="round" opacity=".8"/>
-    <ellipse cx="37.6" cy="81.6" rx="3.6" ry="1.8" fill="#eba3ab"/>
-    <ellipse cx="78.6" cy="81.6" rx="3.4" ry="1.7" fill="#eba3ab"/>
-    <path d="M29 68C23 55 33 40 53 37.6 69 35.7 82 41 86.4 53.4c3.2 9.8-1.8 18-12.4 19.6l-34 1.4c-5 0-8.6-2.4-11-6.4Z" fill="#c9cfcc"/>
-    <path d="M38 47c4-3 8-4.4 13-5M44 55c3-2 6-3 10-3.4M60 45c4-.8 8 0 11 1.6M33 60c2-2 4.4-3 7-3.4" fill="none" stroke="#9ba5a1" stroke-width="1.6" stroke-linecap="round"/><g transform="translate(-4 6) rotate(24 82 50)">
+    <rect x="802" y="1050" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="824" y="1068" width="322" height="184" viewBox="0 6 100 90" overflow="visible"><g transform="translate(100 0) scale(-1 1)">
+        <path d="M34 86C22 89 10 86 8 76c-1.6-8 5-13 11.4-10.4 4.6 1.8 4.4 8-.2 8.8" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M42 80l-2 7M56 82l1 6" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
+        <path d="M30 86C24 70 27 50 40 41 52 33 66 39 69 54c2.6 13-1 27-10 33Z" fill="#c9cfcc"/>
+        <path d="M54 47c8 3 12 13 11 24-1 7-3.6 12-7 14-3-12-5-25-4-38Z" fill="#dfe3e0"/>
+        <path d="M34 60c2-4 5-6 9-7M33 72c2-3 4-4 7-5M39 49c3-2 6-3 9-3" fill="none" stroke="#9ba5a1" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="40" cy="88.4" rx="5.2" ry="2.2" fill="#eba3ab"/><ellipse cx="58" cy="89" rx="4.6" ry="2" fill="#eba3ab"/>
+        <g class="dottie-joey" data-joey="1" transform="translate(40 43) scale(0.74)"><g class="dottie-joey-body">
+      <path d="M-11 4C-12-3-6-8 1-8c6 0 10 3 10.6 7.6L9 6.6-7 7.4C-9.4 7.4-10.6 6-11 4Z" fill="#9ba5a1"/>
+      <path d="M-11 4c-4 0-6.6-2-6.6-5" fill="none" stroke="#ecc9c3" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="5.6" cy="-9.6" r="3" fill="#4b5856"/><circle cx="5.8" cy="-9.4" r="1.6" fill="#eba3ab"/>
+      <path d="M3-3.6C3.4-8.6 8.4-10.8 12.4-9c2.6 1.2 4.4 3.8 6.8 6 .9.9.5 2.3-.9 2.4-3.4.3-7 1.1-10.6.8C4.6-.1 2.8-1.4 3-3.6Z" fill="#f6f2e9"/>
+      <circle cx="11.6" cy="-5.2" r="1.2" fill="#121a19"/>
+      <circle cx="19.2" cy="-1.6" r="1.4" fill="#f08f9e"/>
+      <path d="M-2 6.4l-1.6 2.4M6 6l1.6 2.6" stroke="#727f7c" stroke-width="2.2" stroke-linecap="round"/>
+    </g></g><g class="dottie-joey" data-joey="2" transform="translate(32 56) scale(0.74)"><g class="dottie-joey-body">
+      <path d="M-11 4C-12-3-6-8 1-8c6 0 10 3 10.6 7.6L9 6.6-7 7.4C-9.4 7.4-10.6 6-11 4Z" fill="#9ba5a1"/>
+      <path d="M-11 4c-4 0-6.6-2-6.6-5" fill="none" stroke="#ecc9c3" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="5.6" cy="-9.6" r="3" fill="#4b5856"/><circle cx="5.8" cy="-9.4" r="1.6" fill="#eba3ab"/>
+      <path d="M3-3.6C3.4-8.6 8.4-10.8 12.4-9c2.6 1.2 4.4 3.8 6.8 6 .9.9.5 2.3-.9 2.4-3.4.3-7 1.1-10.6.8C4.6-.1 2.8-1.4 3-3.6Z" fill="#f6f2e9"/>
+      <circle cx="11.6" cy="-5.2" r="1.2" fill="#121a19"/>
+      <circle cx="19.2" cy="-1.6" r="1.4" fill="#f08f9e"/>
+      <path d="M-2 6.4l-1.6 2.4M6 6l1.6 2.6" stroke="#727f7c" stroke-width="2.2" stroke-linecap="round"/>
+    </g></g><g class="dottie-joey" data-joey="3" transform="translate(27 70) scale(0.7)"><g class="dottie-joey-body">
+      <path d="M-11 4C-12-3-6-8 1-8c6 0 10 3 10.6 7.6L9 6.6-7 7.4C-9.4 7.4-10.6 6-11 4Z" fill="#9ba5a1"/>
+      <path d="M-11 4c-4 0-6.6-2-6.6-5" fill="none" stroke="#ecc9c3" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="5.6" cy="-9.6" r="3" fill="#4b5856"/><circle cx="5.8" cy="-9.4" r="1.6" fill="#eba3ab"/>
+      <path d="M3-3.6C3.4-8.6 8.4-10.8 12.4-9c2.6 1.2 4.4 3.8 6.8 6 .9.9.5 2.3-.9 2.4-3.4.3-7 1.1-10.6.8C4.6-.1 2.8-1.4 3-3.6Z" fill="#f6f2e9"/>
+      <circle cx="11.6" cy="-5.2" r="1.2" fill="#121a19"/>
+      <circle cx="19.2" cy="-1.6" r="1.4" fill="#f08f9e"/>
+      <path d="M-2 6.4l-1.6 2.4M6 6l1.6 2.6" stroke="#727f7c" stroke-width="2.2" stroke-linecap="round"/>
+    </g></g>
+        <g transform="translate(-30 -14) rotate(-6 82 50)">
       <circle cx="84.4" cy="34" r="6" fill="#4b5856"/>
       <circle cx="92" cy="31.2" r="6.2" fill="#4b5856"/><path d="M86.6 28.6a6.2 6.2 0 0 1 9.8-1.8" fill="none" stroke="#f6f2e9" stroke-width="1.2" stroke-linecap="round" opacity=".75"/><circle cx="92.6" cy="32" r="3" fill="#eba3ab" opacity=".55"/>
       <path d="M77.4 45.4C78.6 34.4 89.6 29.6 98.4 33.4c5.8 2.6 10 8.4 15 13.2 2 2 1.2 5-1.8 5.2-7.6.6-15.4 2.6-23.4 1.8-6.6-.6-11.2-3.4-10.8-8.2Z" fill="#f6f2e9"/>
       <path d="M79.6 40.4C82.4 33.2 91.6 30.8 98.4 33.4c-4 2.2-7.6 5.6-9.6 10.4-3.4-1.6-6.4-2.8-9.2-3.4Z" fill="#adb6b2"/>
-      <circle cx="96.8" cy="43" r="1.7" fill="#121a19"/><path d="M94.2 41.2q2.6-1 5.2 0" fill="none" stroke="#9ba5a1" stroke-width="1.3" stroke-linecap="round"/>
+      <circle cx="97" cy="41.6" r="2.1" fill="#121a19"/><circle cx="97.735" cy="40.865" r="0.7140000000000001" fill="#fff"/>
       <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g>
-        <path d="M88 84h30l-3-12H91Z" fill="#d9b877"/>
-        <path d="M88 84l5-15h27l-5 15Z" fill="#e7cb92"/>
-        <path d="M95 76.4h16" stroke="#c39c55" stroke-width="1" stroke-dasharray="2 2" stroke-linecap="round"/></svg>
+        <path d="M82 40h9v32l-4.5-4L82 72Z" fill="#a6e0c8"/><path d="M84.4 44h4.2" stroke="#7fbfa6" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M64 52q9 1 18-1M63 59q9 2 18 0" fill="none" stroke="#727f7c" stroke-width="4.6" stroke-linecap="round"/>
+        <circle cx="82.6" cy="50.6" r="2.6" fill="#eba3ab"/><circle cx="82" cy="58.8" r="2.6" fill="#eba3ab"/></g></svg>
     
-    <text x="48" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Evidence runs out</text>
-    <text x="48" y="1010" fill="#a9c1b8" font-size="13">Sources did not establish an answer</text>
+    <text x="820" y="1288" fill="#e6eeeb" font-size="16" font-weight="700">Bookmark with the docket</text>
+    <text x="820" y="1310" fill="#a9c1b8" font-size="13">Answer: the other pose, same joey count</text>
   </g>
   <g>
-    <rect x="416" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-    <svg x="438" y="768" width="322" height="184" viewBox="0 18 124 72" overflow="visible">
+    <rect x="30" y="1350" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+    <svg x="52" y="1368" width="322" height="184" viewBox="0 18 124 72" overflow="visible">
         <path d="M30 70C20 73 11 74 5 79" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
         <path d="M44 60l-4-14M54 61l2-15M70 60l-2-15M80 59l4-13" stroke="#727f7c" stroke-width="5.2" stroke-linecap="round"/>
         <ellipse cx="39.6" cy="44.4" rx="3.2" ry="1.8" fill="#eba3ab"/><ellipse cx="84.4" cy="44.4" rx="3.2" ry="1.8" fill="#eba3ab"/>
@@ -246,12 +396,12 @@
         <text x="106" y="40" fill="#a6e0c8" font-size="11" font-family="inherit" font-weight="700">z</text>
         <text x="114" y="31" fill="#a6e0c8" font-size="8" font-family="inherit" font-weight="700" opacity=".7">z</text></svg>
     
-    <text x="434" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Playing possum</text>
-    <text x="434" y="1010" fill="#a9c1b8" font-size="13">Offline, busy or unavailable</text>
+    <text x="48" y="1588" fill="#e6eeeb" font-size="16" font-weight="700">Playing possum</text>
+    <text x="48" y="1610" fill="#a9c1b8" font-size="13">No answer, offline, busy or broken</text>
   </g>
-  <circle cx="48" cy="1100" r="16" fill="#c9cfcc" stroke="#0d1716"/><text x="48" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Fur</text><circle cx="122" cy="1100" r="16" fill="#f6f2e9" stroke="#0d1716"/><text x="122" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Face</text><circle cx="196" cy="1100" r="16" fill="#4b5856" stroke="#0d1716"/><text x="196" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Ears</text><circle cx="270" cy="1100" r="16" fill="#727f7c" stroke="#0d1716"/><text x="270" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Legs</text><circle cx="344" cy="1100" r="16" fill="#ecc9c3" stroke="#0d1716"/><text x="344" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Tail</text><circle cx="418" cy="1100" r="16" fill="#f08f9e" stroke="#0d1716"/><text x="418" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Nose</text><circle cx="492" cy="1100" r="16" fill="#a6e0c8" stroke="#0d1716"/><text x="492" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Ask mint</text><circle cx="566" cy="1100" r="16" fill="#d9b877" stroke="#0d1716"/><text x="566" y="1136" text-anchor="middle" fill="#a9c1b8" font-size="11">Folder</text>
-  <rect x="802" y="750" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
-  <svg x="824" y="768" width="322" height="184" viewBox="0 4 120 86"><g filter="url(#silhouette)" transform="translate(120 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
+  <circle cx="48" cy="1700" r="16" fill="#c9cfcc" stroke="#0d1716"/><text x="48" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Fur</text><circle cx="122" cy="1700" r="16" fill="#f6f2e9" stroke="#0d1716"/><text x="122" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Face</text><circle cx="196" cy="1700" r="16" fill="#4b5856" stroke="#0d1716"/><text x="196" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Ears</text><circle cx="270" cy="1700" r="16" fill="#727f7c" stroke="#0d1716"/><text x="270" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Legs</text><circle cx="344" cy="1700" r="16" fill="#ecc9c3" stroke="#0d1716"/><text x="344" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Tail</text><circle cx="418" cy="1700" r="16" fill="#f08f9e" stroke="#0d1716"/><text x="418" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Nose</text><circle cx="492" cy="1700" r="16" fill="#a6e0c8" stroke="#0d1716"/><text x="492" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Ask mint</text><circle cx="566" cy="1700" r="16" fill="#d9b877" stroke="#0d1716"/><text x="566" y="1736" text-anchor="middle" fill="#a9c1b8" font-size="11">Folder</text>
+  <rect x="416" y="1350" width="366" height="280" rx="16" fill="#172b29" stroke="#38524b"/>
+  <svg x="438" y="1368" width="322" height="184" viewBox="0 4 120 86"><g filter="url(#silhouette)" transform="translate(120 0) scale(-1 1)"><path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#ecc9c3" stroke-width="4.6" stroke-linecap="round"/>
       <path d="M31 66C21 63 16.8 52 19.4 42 22.6 29 37 21 49 25.4c10.4 3.8 10 17.6.2 19.6" fill="none" stroke="#727f7c" stroke-width="5" stroke-linecap="round" stroke-dasharray="9 999"/>
     <path d="M40 70l-2 10" stroke="#727f7c" stroke-width="6" stroke-linecap="round"/>
     <path d="M50 72l1 9" stroke="#727f7c" stroke-width="5.5" stroke-linecap="round" opacity=".8"/>
@@ -269,6 +419,6 @@
       <ellipse cx="113.2" cy="49.4" rx="2.8" ry="2.3" fill="#f08f9e"/>
       <path d="M106 50.6l-6 3.2M106.4 52l-5 4.6" stroke="#9ba5a1" stroke-width=".8" stroke-linecap="round"/>
     </g><path class="dottie-spark" d="M111 9q.9 6.1 7 7q-6.1 .9 -7 7q-.9 -6.1 -7 -7q6.1 -.9 7 -7Z" fill="#a6e0c8"/></g></svg>
-  <text x="820" y="988" fill="#e6eeeb" font-size="16" font-weight="700">Silhouette test</text>
-  <text x="820" y="1010" fill="#a9c1b8" font-size="13">Even in one flat colour, the tail reads as a “?”</text>
+  <text x="434" y="1588" fill="#e6eeeb" font-size="16" font-weight="700">Silhouette test</text>
+  <text x="434" y="1610" fill="#a9c1b8" font-size="13">Even in one flat colour, the tail reads as a “?”</text>
 </svg>

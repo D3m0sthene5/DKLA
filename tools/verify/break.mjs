@@ -54,9 +54,24 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'Ask Dottie follow-ups: earlier turns are no longer sent',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', 'history: turns.length', 'history: false'),
+  ],
+  [
+    'New York clock shows the wrong time zone',
+    'src/features/clock/clock.js',
+    () =>
+      edit(
+        'src/features/clock/clock.js',
+        "timeZone: 'America/New_York',\n    hour: '2-digit'",
+        "timeZone: 'UTC',\n    hour: '2-digit'",
+      ),
+  ],
+  [
     'Ask DKLA mascot: Dottie stops carrying one joey per cited source',
     'src/features/ask/ask.js',
-    () => edit('src/features/ask/ask.js', "setDottie('carrying', cited.size)", "setDottie('carrying', 1)"),
+    () => edit('src/features/ask/ask.js', "setDottie('answer', cited.size)", "setDottie('answer', 1)"),
   ],
   [
     'Ask DKLA web citations lose their external-link safeguards',

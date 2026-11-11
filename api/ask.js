@@ -18,6 +18,25 @@ async function retrieve(question, node) {
   return (await index)(question, node);
 }
 
+function validHistory(history) {
+  return (
+    Array.isArray(history) &&
+    history.length <= 3 &&
+    history.every(
+      (turn) =>
+        turn &&
+        typeof turn === 'object' &&
+        Object.keys(turn).every((key) => key === 'question' || key === 'answer') &&
+        typeof turn.question === 'string' &&
+        typeof turn.answer === 'string' &&
+        turn.question.trim() &&
+        turn.answer.trim() &&
+        turn.question.length <= 600 &&
+        turn.answer.length <= 2000,
+    )
+  );
+}
+
 export function makeAskHandler(generate = generateAnswer, research = answerWithSearch) {
   return async function ask(req, res) {
     if (req.method !== 'POST') {
@@ -29,25 +48,34 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
       sameOrigin(req);
       if (req.headers['content-type']?.split(';')[0].trim().toLowerCase() !== 'application/json')
         return send(res, 415, { error: 'unsupported-content-type' });
-      const { question, node } = await body(req, 4608);
+      // history: up to three earlier turns of this conversation, sent by the
+      // browser so a follow-up can say "that case". Nothing is stored.
+      const { question, node, history } = await body(req, 12288);
       if (
         typeof question !== 'string' ||
         !question.trim() ||
         question.length > 600 ||
-        (node !== undefined && (typeof node !== 'string' || !/^[\w.-]{1,120}$/.test(node)))
+        (node !== undefined && (typeof node !== 'string' || !/^[\w.-]{1,120}$/.test(node))) ||
+        (history !== undefined && !validHistory(history))
       )
         return send(res, 400, { error: 'invalid-question' });
+      const earlier = history?.map((turn) => ({
+        question: turn.question.trim(),
+        answer: turn.answer.trim(),
+      }));
 
       const apiKey = process.env.DKLA_OPENAI_API_KEY?.trim();
       if (!apiKey) return send(res, 503, { error: 'not-configured' });
 
       const query = question.trim();
-      const atlas = await retrieve(query, node);
+      // A follow-up is looked up together with the question before it.
+      const lookup = earlier?.length ? earlier.at(-1).question + ' ' + query : query;
+      const atlas = await retrieve(lookup, node);
       const signal = AbortSignal.timeout(29_000);
       let draft;
-      if (!shouldSearch(query, atlas)) {
+      if (!shouldSearch(lookup, atlas)) {
         if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
-        const output = await generate({ apiKey, question: query, sources: atlas, search, signal });
+        const output = await generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
         if (!output.needsWeb) return send(res, 200, { ...citeAnswer(output, atlas), search });
         draft = output;
       }
@@ -57,6 +85,7 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
         const answer = await research({
           apiKey,
           question: query,
+          earlier,
           context,
           sources: atlas.slice(0, 6),
           signal,
@@ -74,7 +103,7 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
       }
       if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
       const answer = citeAnswer(
-        draft ?? (await generate({ apiKey, question: query, sources: atlas, search, signal })),
+        draft ?? (await generate({ apiKey, question: query, earlier, sources: atlas, search, signal })),
         atlas,
       );
       return send(res, 200, { ...answer, search });

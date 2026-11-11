@@ -335,3 +335,93 @@ test('direct OpenAI transport keeps provider annotations and distinguishes credi
     transport.mock.restore();
   }
 });
+
+test('follow-ups carry earlier turns to the model, use them for lookup, and reject bad history', async () => {
+  const original = process.env.DKLA_OPENAI_API_KEY;
+  process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
+  const calls = [];
+  const ask = makeAskHandler(async (args) => {
+    calls.push(args);
+    return { paragraphs: [{ text: 'Follow-up answer.', citations: [1] }], needsWeb: false };
+  });
+  const request = async (body) => {
+    const res = { setHeader() {}, end: (json) => (res.json = JSON.parse(json)) };
+    await ask(
+      {
+        method: 'POST',
+        headers: { host: 'dkla.test', origin: 'https://dkla.test', 'content-type': 'application/json' },
+        body,
+      },
+      res,
+    );
+    return res;
+  };
+  const earlier = [
+    {
+      question: 'How did International Shoe change Pennoyer?',
+      answer: 'It replaced territorial power with minimum contacts.',
+    },
+  ];
+  try {
+    // Alone, "that test" finds unrelated tests; with the earlier question it finds both cases.
+    const followUp = await request({ question: 'Who first applied that test?', history: earlier });
+    assert.equal(followUp.statusCode, 200);
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].question, 'Who first applied that test?');
+    assert.deepEqual(calls[0].earlier, earlier);
+    assert.ok(calls[0].sources.some(({ id }) => id === 'shoe'));
+
+    const bad = [
+      'not a list',
+      [{ question: 'q' }],
+      [{ question: 'q', answer: 'a', note: 'extra' }],
+      [{ question: 'q', answer: 'a'.repeat(2001) }],
+      Array.from({ length: 4 }, () => earlier[0]),
+    ];
+    for (const history of bad)
+      assert.equal(
+        (await request({ question: 'And then?', history })).statusCode,
+        400,
+        JSON.stringify(history),
+      );
+    assert.equal(calls.length, 1);
+  } finally {
+    if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
+    else process.env.DKLA_OPENAI_API_KEY = original;
+  }
+});
+
+test('the model request includes earlier turns only when there are some', async () => {
+  const bodies = [];
+  const fetchMock = mock.method(globalThis, 'fetch', async (_url, init) => {
+    bodies.push(JSON.parse(init.body));
+    return new Response(
+      JSON.stringify({
+        status: 'completed',
+        output: [
+          {
+            type: 'message',
+            role: 'assistant',
+            content: [{ type: 'output_text', text: '{"needsWeb":false,"paragraphs":[]}' }],
+          },
+        ],
+      }),
+    );
+  });
+  try {
+    const base = {
+      apiKey: 'k',
+      question: 'Why?',
+      sources: [],
+      search: 'not-needed',
+      signal: AbortSignal.timeout(5000),
+    };
+    await generateAnswer(base);
+    await generateAnswer({ ...base, earlier: [{ question: 'Q1', answer: 'A1' }] });
+    assert.equal('earlier' in JSON.parse(bodies[0].input), false);
+    assert.deepEqual(JSON.parse(bodies[1].input).earlier, [{ question: 'Q1', answer: 'A1' }]);
+    assert.match(bodies[1].instructions, /not evidence/);
+  } finally {
+    fetchMock.mock.restore();
+  }
+});

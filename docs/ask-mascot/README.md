@@ -8,17 +8,23 @@ A docket is the list of cases a court carries. Dottie carries hers on her back.
   `poses/`, all generated from the artwork above:
   `node tools/ask/dottie-sheet.mjs --png`. Regenerate after changing a pose.
 - **Where she appears** (`src/features/ask/ask.js`, `setDottie`): one place at a
-  time, beside the line that describes the current state.
+  time, beside the line that describes the current state. Each state has a
+  pool of poses and she picks one at random, never the same pose twice running.
 
-| Interface state | Pose | Where |
+| Interface state | Poses (random) | Where |
 |---|---|---|
-| "Ask Dottie" in Atlas search | face | the launcher row |
-| Empty dialog | curious, tail curled into a "?" | beside "Try a question" |
-| Researching | concentrating, magnifier over a book | the status line |
-| Answer with sources | carrying the docket: one joey per cited source, up to three | rises from behind the Sources list once it is in view |
-| Sources did not establish an answer | quiet, tail fallen flat, empty folder | the status line |
-| Offline, busy, allowance reached, unavailable, failed | playing possum | the status line |
+| Always | dangle: hanging by her tail from the top bar's bottom edge | under the "Ask Dottie" button (wide windows); alone near the right (narrow windows and phones), hidden while a reading panel or SCOTUS History is open |
+| "Ask Dottie" in search results | face | the launcher row |
+| Empty dialog | curious, bookmark (0 to 3 joeys), hanging, carrying | beside "Try a question" |
+| Researching | reading, rummaging, fetching; a new one every 4.5 s (not with reduced motion) | the status line |
+| Answer with sources | carrying or bookmark: one joey per cited source, up to three | rises from behind the Sources list once it is in view |
+| No answer, offline, busy, allowance reached, unavailable, failed | possum (always) | the status line |
 | Canceled, or an answer with no cited sources | absent | |
+
+Follow-ups: after an answer the box becomes "Ask a follow-up"; the browser
+sends up to three earlier turns with the next question (`history` in
+`api/ask.js`), and earlier turns fold into "Earlier in this conversation".
+Nothing is stored on the server. "New question" starts over.
 
 Pointing at a source (hover or keyboard focus) lifts the joey that stands for
 it. She is decorative (`aria-hidden`); every state is still announced by the

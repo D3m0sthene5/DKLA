@@ -17,14 +17,19 @@ await mkdir(new URL('poses/', out), { recursive: true });
 
 // Pose, option, label, where it appears, whether the app turns her to face left.
 const cells = [
-  ['face', undefined, 'Face', '“Ask Dottie” launcher in Atlas search', false],
-  ['curious', undefined, 'Curious', 'Empty dialog, beside “Try a question”', true],
-  ['reading', undefined, 'Concentrating', 'While Ask Dottie researches', false],
+  ['face', undefined, 'Face', '“Ask Dottie” in Atlas search results', false],
+  ['dangle', undefined, 'Hanging from the top bar', 'The Ask Dottie button, always on screen', false],
+  ['curious', undefined, 'Curious', 'Empty dialog (one of four, at random)', true],
+  ['bookmark', 0, 'Bookmark', 'Empty dialog, sometimes with joeys', true],
+  ['hanging', undefined, 'Hanging around', 'Empty dialog', true],
+  ['reading', undefined, 'Reading', 'Researching (changes every few seconds)', false],
+  ['rummaging', undefined, 'Rummaging', 'Researching', false],
+  ['fetching', undefined, 'Fetching', 'Researching', false],
   ['carrying', 1, 'Carrying the docket · 1', 'Answer citing one source', true],
   ['carrying', 2, 'Carrying the docket · 2', 'Answer citing two sources', true],
   ['carrying', 3, 'Carrying the docket · 3', 'Answer citing three or more', true],
-  ['quiet', undefined, 'Evidence runs out', 'Sources did not establish an answer', false],
-  ['possum', undefined, 'Playing possum', 'Offline, busy or unavailable', false],
+  ['bookmark', 3, 'Bookmark with the docket', 'Answer: the other pose, same joey count', true],
+  ['possum', undefined, 'Playing possum', 'No answer, offline, busy or broken', false],
 ];
 
 const inner = (markup) => markup.replace(/^<svg[^>]*>/, '').replace(/<\/svg>$/, '');
@@ -85,7 +90,7 @@ const palette = [
   ['#a6e0c8', 'Ask mint'],
   ['#d9b877', 'Folder'],
 ];
-const py = top + 3 * (ch + gap) + 10;
+const py = top + Math.ceil((cells.length + 1) / 3) * (ch + gap) + 10;
 const swatches = palette
   .map(
     ([color, name], i) =>
@@ -95,8 +100,8 @@ const swatches = palette
 const curious = dottie.svg('curious');
 const [sx, sy, sw, sh] = boxOf(curious);
 // The silhouette test fills the ninth slot of the grid.
-const lx = 30 + 2 * (cw + gap);
-const ly = top + 2 * (ch + gap);
+const lx = 30 + (cells.length % 3) * (cw + gap);
+const ly = top + Math.floor(cells.length / 3) * (ch + gap);
 const lw = 322;
 const lh = Math.min(184, (lw * sh) / sw);
 const silhouette = `<rect x="${lx}" y="${ly}" width="${cw}" height="${ch}" rx="16" fill="#172b29" stroke="#38524b"/>

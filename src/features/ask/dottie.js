@@ -4,13 +4,13 @@
  * request, works offline and scales on any screen. The sprite sheet in
  * docs/ask-mascot/ is generated from this file (tools/ask/dottie-sheet.mjs).
  *
- * Poses and the interface state that shows each one (see ask.js):
- *   face       the Ask Dottie launcher in Atlas search
- *   curious    the empty dialog, beside "Try a question"
- *   reading    while Ask Dottie is researching
- *   carrying   an answer with sources: one joey per cited source (1 to 3)
- *   quiet      the sources did not establish an answer
- *   possum     offline, busy or unavailable: she plays possum
+ * ask.js picks a pose at random from the pool for each state, never the same
+ * one twice running (the pools are in ask.js):
+ *   face        the Ask Dottie launcher in Atlas search
+ *   empty dialog   curious, bookmark (0 to 3 joeys), hanging, carrying
+ *   researching    reading, rummaging, fetching (she changes every few seconds)
+ *   answer         carrying or bookmark, one joey per cited source (1 to 3)
+ *   no answer, offline, busy, unavailable, failed   possum: she plays dead
  */
 (() => {
   'use strict';
@@ -107,6 +107,21 @@
     </g></g>`;
   }
 
+  // One, two or three joeys at the given spots, each [x, y, scale].
+  const brood = (n, sets) =>
+    (sets[Math.max(0, Math.min(3, n)) - 1] || []).map(([x, y, s], i) => joey(i + 1, x, y, s)).join('');
+
+  // Opossum hanging by her tail; the tail loop sits at the top centre (46, 11).
+  const dangling = () => `
+        <path d="M46 34C46 24 44 16 46 11c1.6-4 7.4-4 7.4 0s-4.4 5.4-7.4 3" fill="none" stroke="${C.tail}" stroke-width="4.2" stroke-linecap="round"/>
+        <path d="M46 34C46 24 44 16 46 11" fill="none" stroke="${C.leg}" stroke-width="4.6" stroke-linecap="round" stroke-dasharray="8 999"/>
+        <path d="M35 38l-9 7M57 38l9 7M37 70l-7 9M55 70l7 9" stroke="${C.leg}" stroke-width="5" stroke-linecap="round"/>
+        <ellipse cx="24.6" cy="46" rx="3" ry="2" fill="${C.pink}"/><ellipse cx="67.4" cy="46" rx="3" ry="2" fill="${C.pink}"/>
+        <ellipse cx="29" cy="80.4" rx="2.8" ry="2" fill="${C.pink}"/><ellipse cx="63" cy="80.4" rx="2.8" ry="2" fill="${C.pink}"/>
+        <path d="M46 30c11 0 17 9 17 22s-6 24-17 24-17-10-17-24 6-22 17-22Z" fill="${C.fur}"/>
+        <path d="M38 44c3-2 6-2.6 9-2.4M40 56c3-1.4 6-1.6 9-1M52 46c2 0 4 .8 5.6 2" fill="none" stroke="${C.shade}" stroke-width="1.5" stroke-linecap="round"/>
+        <g transform="translate(46 72) rotate(90) translate(-80 -46)">${head({ eyes: 'bright' })}</g>`;
+
   const sparkle = (x, y, r) =>
     `<path class="dottie-spark" d="M${x} ${y - r}q.9 ${r - 0.9} ${r} ${r}q${-(r - 0.9)} .9 ${-r} ${r}q-.9 ${-(r - 0.9)} ${-r} ${-r}q${r - 0.9} -.9 ${r} ${-r}Z" fill="${C.mint}"/>`;
 
@@ -128,7 +143,6 @@
     carrying: {
       box: '0 16 124 74',
       draw: (joeys = 3) => {
-        const n = Math.max(1, Math.min(3, joeys));
         const spots = [
           [[56, 35, 0.95]],
           [
@@ -140,13 +154,63 @@
             [52, 36, 0.88],
             [67, 37, 0.84],
           ],
-        ][n - 1];
-        return `${tail('?')}${legs(1)}${body}${spots
-          .map(([x, y, s], i) => joey(i + 1, x, y, s))
-          .join('')}${head({ tilt: -4, eyes: 'bright' })}`;
+        ];
+        return `${tail('?')}${legs(1)}${body}${brood(Math.max(1, joeys), spots)}${head({ tilt: -4, eyes: 'bright' })}`;
       },
     },
-    quiet: {
+    // Sitting up, holding a mint bookmark; joeys ride down her back.
+    bookmark: {
+      box: '0 6 100 90',
+      draw: (joeys = 0) => `
+        <path d="M34 86C22 89 10 86 8 76c-1.6-8 5-13 11.4-10.4 4.6 1.8 4.4 8-.2 8.8" fill="none" stroke="${C.tail}" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M42 80l-2 7M56 82l1 6" stroke="${C.leg}" stroke-width="6" stroke-linecap="round"/>
+        <path d="M30 86C24 70 27 50 40 41 52 33 66 39 69 54c2.6 13-1 27-10 33Z" fill="${C.fur}"/>
+        <path d="M54 47c8 3 12 13 11 24-1 7-3.6 12-7 14-3-12-5-25-4-38Z" fill="#dfe3e0"/>
+        <path d="M34 60c2-4 5-6 9-7M33 72c2-3 4-4 7-5M39 49c3-2 6-3 9-3" fill="none" stroke="${C.shade}" stroke-width="1.6" stroke-linecap="round"/>
+        <ellipse cx="40" cy="88.4" rx="5.2" ry="2.2" fill="${C.pink}"/><ellipse cx="58" cy="89" rx="4.6" ry="2" fill="${C.pink}"/>
+        ${brood(joeys, [
+          [[37, 47, 0.8]],
+          [
+            [37, 46, 0.8],
+            [30, 61, 0.76],
+          ],
+          [
+            [40, 43, 0.74],
+            [32, 56, 0.74],
+            [27, 70, 0.7],
+          ],
+        ])}
+        ${head({ tilt: -6, dx: -30, dy: -14 })}
+        <path d="M82 40h9v32l-4.5-4L82 72Z" fill="${C.mint}"/><path d="M84.4 44h4.2" stroke="#7fbfa6" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M64 52q9 1 18-1M63 59q9 2 18 0" fill="none" stroke="${C.leg}" stroke-width="4.6" stroke-linecap="round"/>
+        <circle cx="82.6" cy="50.6" r="2.6" fill="${C.pink}"/><circle cx="82" cy="58.8" r="2.6" fill="${C.pink}"/>`,
+    },
+    // Hanging upside down by her tail from a twig, as opossums are said to.
+    hanging: {
+      box: '0 0 92 112',
+      draw: () => `
+        <path d="M6 8h80" stroke="#b8975c" stroke-width="4" stroke-linecap="round"/>
+        <path d="M70 8q6-8 15-6-4 8-15 6Z" fill="${C.mint}" opacity=".85"/>
+        ${dangling()}`,
+    },
+    // The same, without the twig: the Ask Dottie button's top edge is her branch.
+    dangle: { box: '19 3 54 108', draw: () => dangling() },
+    // Dashing back with a book in her mouth: fetching a source.
+    fetching: {
+      box: '0 14 134 72',
+      draw: () => `
+        <path d="M10 30h12M3 40h11M12 68h10" stroke="${C.mint}" stroke-width="2.2" stroke-linecap="round" opacity=".7"/>
+        <path d="M31 56C21 50 13 50 5 44c-2-2-2-5 1-6" fill="none" stroke="${C.tail}" stroke-width="4.6" stroke-linecap="round"/>
+        <path d="M31 56C27 53.6 24 52.4 21 51.6" fill="none" stroke="${C.leg}" stroke-width="5" stroke-linecap="round"/>
+        <path d="M74 63l9 9M46 64l-8 9" stroke="${C.leg}" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+        <path d="M80 62l14 7M38 62l-14 6" stroke="${C.leg}" stroke-width="5.6" stroke-linecap="round"/>
+        <ellipse cx="95.6" cy="69.8" rx="3.4" ry="1.8" fill="${C.pink}"/><ellipse cx="22.4" cy="68.6" rx="3.4" ry="1.8" fill="${C.pink}"/>
+        <path d="M28 58C26 47 38 39 56 38c18-1 30 5 32 15 1.6 8-6 13-18 13l-30 .6C33 67 29 64 28 58Z" fill="${C.fur}"/>
+        <path d="M40 47c4-2.4 8-3.4 13-3.6M47 55c3-1.6 6-2.2 10-2.4M64 45c4 0 7 1 10 2.6" fill="none" stroke="${C.shade}" stroke-width="1.6" stroke-linecap="round"/>
+        ${head({ tilt: 4, eyes: 'bright', dy: -2 })}
+        <g transform="rotate(-12 116 52)"><rect x="106" y="47" width="20" height="13" rx="1.6" fill="${C.folder}"/><path d="M108 49.4h16v8.4h-16Z" fill="${C.paper}"/><path d="M116 49.4v8.4" stroke="#c39c55" stroke-width="1"/></g>`,
+    },
+    rummaging: {
       box: '0 4 128 86',
       draw: () => `${tail('flat')}${legs()}${body}${head({ tilt: 24, eyes: 'down', dx: -4, dy: 6 })}
         <path d="M88 84h30l-3-12H91Z" fill="${C.folder}"/>
