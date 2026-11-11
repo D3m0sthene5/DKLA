@@ -16,7 +16,9 @@ concurrency:
   cancel-in-progress: true
 jobs:
   check:
-    runs-on: ubuntu-latest
+    # Pinned: the newer ubuntu-latest image could not reach its package mirrors
+    # in November 2026, so installing the browser failed before any check ran.
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
