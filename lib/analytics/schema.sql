@@ -70,7 +70,11 @@ CREATE OR REPLACE VIEW dkla_all_events AS
  AS e(id uuid,at timestamptz,kind text,entity text,course text,region_id text,active_seconds integer,details jsonb)
  WHERE s.compacted;
 CREATE TABLE IF NOT EXISTS dkla_ask_answers (
- node text NOT NULL DEFAULT '', question_key text NOT NULL, signature text NOT NULL, content jsonb NOT NULL,
+ node text NOT NULL DEFAULT '', question_key text NOT NULL, version text NOT NULL DEFAULT '',
  answer jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(node, question_key)
 );
-CREATE INDEX IF NOT EXISTS dkla_ask_answers_near ON dkla_ask_answers(node, signature, created_at DESC);
+ALTER TABLE dkla_ask_answers ADD COLUMN IF NOT EXISTS version text NOT NULL DEFAULT '';
+ALTER TABLE dkla_ask_answers DROP COLUMN IF EXISTS signature;
+ALTER TABLE dkla_ask_answers DROP COLUMN IF EXISTS content;
+DROP INDEX IF EXISTS dkla_ask_answers_near;
+CREATE INDEX IF NOT EXISTS dkla_ask_answers_created ON dkla_ask_answers(created_at);

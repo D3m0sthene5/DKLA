@@ -423,6 +423,8 @@ async function savedAnswersFlow(viewport) {
   });
   const payloads = [];
   const libraryQuestion = 'What is the Erie doctrine?';
+  const scopedQuestion = 'What did this case hold?';
+  const followQuestion = 'And what about notice?';
   const fresh = {
     ...response,
     paragraphs: [{ text: 'A fresh answer: minimum contacts replaced presence.', citations: [2] }],
@@ -436,7 +438,7 @@ async function savedAnswersFlow(viewport) {
       return route.fulfill({ status: 204 });
     if (target.pathname !== '/api/ask') return route.continue();
     const payload = route.request().postDataJSON();
-    assert.ok(Object.keys(payload).every((key) => ['question', 'history', 'fresh'].includes(key)));
+    assert.ok(Object.keys(payload).every((key) => ['question', 'node', 'history', 'fresh'].includes(key)));
     payloads.push(payload);
     if (payload.fresh) {
       assert.equal(payload.fresh, true);
@@ -444,6 +446,11 @@ async function savedAnswersFlow(viewport) {
     }
     if (payload.question === question) return route.fulfill({ json: response });
     if (payload.question === rankingQuestion) return route.fulfill({ json: rankingResponse });
+    if (payload.question === scopedQuestion) return route.fulfill({ json: response });
+    if (payload.question === followQuestion)
+      return route.fulfill({
+        json: { ...response, paragraphs: [{ text: 'Shoe asks about minimum contacts.', citations: [2] }] },
+      });
     if (payload.question === libraryQuestion)
       return route.fulfill({
         json: { ...response, search: 'not-needed', cached: true, savedAt: '2026-11-03T15:00:00.000Z' },
@@ -465,7 +472,10 @@ async function savedAnswersFlow(viewport) {
     'What’s the Erie doctrine?',
     'Diversity under 28 U.S.C. § 1332(a)(1) and Rule 12 (b)(6)',
     "Can't a state be sued in federal court? Thanks",
-    'Hamer vs. Sidway',
+    'Hamer vs. Sidway, please.',
+    'Can a minor void a contract for non-necessaries over $1,000 (UCC 2-207)?',
+    'Does a contract need the word please',
+    'Is the Internátional Shoe test “fair”? Thank you',
   ];
   const browserKeys = await page.evaluate(
     (list) => list.map((q) => window.DKLAAskSaved.normalise(q)),
@@ -634,5 +644,57 @@ async function savedAnswersFlow(viewport) {
   await panel.getByRole('button', { name: 'Back to Ask Dottie' }).click();
   await expect(opener).toBeHidden();
   assert.equal(await page.evaluate(() => localStorage.getItem('dkla.askSaved.v1')), null);
+
+  // "Ask again" asks about the saved answer's own entry, not the one open
+  // now; a saved follow-up has no "Ask again" (it would lose its conversation).
+  // Reopened from the search box, as above: on a phone the open entry covers the top bar.
+  const reopen = async () => {
+    await search.focus();
+    await page.keyboard.press('ControlOrMeta+A');
+    await page.keyboard.press('Backspace');
+    await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+    await expect(dialog).toBeVisible();
+  };
+  await page.reload({ waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await boot();
+  await bar.click();
+  await askNew(question);
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  await answerArea.locator('.ask-citation').first().click(); // opens Pennoyer
+  await expect(dialog).toBeHidden();
+  await expect(page.locator('#inspector')).toContainText('Pennoyer v. Neff');
+  await reopen();
+  await askNew(scopedQuestion);
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  assert.equal(payloads.at(-1).node, 'cp-pennoyer');
+  await save.click();
+  await expect(save).toHaveText('✓ Saved');
+  await input.fill(followQuestion);
+  await input.press('Enter');
+  await expect(answerArea).toContainText('Shoe asks about minimum contacts.');
+  assert.equal(payloads.at(-1).history.length, 1);
+  await save.click();
+  await expect(save).toHaveText('✓ Saved');
+  const savedFollowUp = (await stored()).find((entry) => entry.question === followQuestion);
+  assert.equal(savedFollowUp.after, scopedQuestion);
+  await answerArea.locator('.ask-citation').first().click(); // now International Shoe is open
+  await expect(dialog).toBeHidden();
+  await expect(page.locator('#inspector')).toContainText('International Shoe');
+  await reopen();
+  await opener.click();
+  await items.filter({ has: page.getByText(scopedQuestion, { exact: true }) }).click();
+  await expect(answerArea.locator('.ask-from')).toContainText(/From your saved answers .*· Ask again/);
+  const before = payloads.length;
+  await answerArea.getByRole('button', { name: 'Ask again for a new answer' }).click();
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  assert.equal(payloads.length, before + 1);
+  assert.deepEqual(payloads.at(-1), { question: scopedQuestion, node: 'cp-pennoyer', fresh: true });
+  await opener.click();
+  await items.filter({ has: page.getByText(followQuestion, { exact: true }) }).click();
+  await expect(answerArea.locator('.ask-from')).toContainText('· follow-up to “' + scopedQuestion + '”');
+  await expect(answerArea.getByRole('button', { name: /Ask again/ })).toHaveCount(0);
+  await expect(save).toHaveText('✓ Saved'); // still recognised as the saved follow-up
+  assert.equal(payloads.length, before + 1);
+  await shot('follow-up');
   await context.close();
 }

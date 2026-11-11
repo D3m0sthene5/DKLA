@@ -76,10 +76,17 @@ can also use the published 2018 HeinOnline ranking, cached for one hour per serv
 The build prepares a server-only corpus from the published Atlas edition.
 Ask Dottie keeps no conversation history. It does keep a shared answer library
 (`lib/ask/library.js`, table `dkla_ask_answers` in the analytics database): a
-first question (not a follow-up) that was asked before, worded the same or
-almost the same and about the same open entry, gets the stored answer at once
-("Saved answer from ..."), without calling OpenAI; "Ask fresh" asks again.
-Entries keep no visitor identity, expire after 90 days, and are skipped
+first question (not a follow-up) asked before in exactly the same words
+(ignoring only case, punctuation and an opening or closing "please"/"thanks"),
+about the same open entry, gets the stored answer at once ("Saved answer
+from ..."), without calling OpenAI; "Ask fresh" asks again. Each answer is
+tied to the Atlas corpus and `ANSWER_VERSION` in `lib/ask/library.js`, so a
+deploy that changes the corpus (or a change of that constant, for new
+prompts or a new model) stops older answers being served. Time-sensitive
+questions ("still good law", "overruled", "current", a year, ...) are never
+kept. Entries keep no visitor identity, are used for 90 days, are deleted
+after that (on lookups at most every 10 minutes per server instance, on each
+store, and by the dashboard's storage housekeeping), and are skipped
 silently if the database is missing or failing. "Save answer" under an answer
 keeps it only in that browser (`localStorage` key `dkla.askSaved.v1`,
 `src/features/ask/saved.js`), listed under "Saved answers". Questions typed into
