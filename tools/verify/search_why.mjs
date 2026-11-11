@@ -43,7 +43,16 @@ async function search(page, text) {
   });
   await page.locator('#search').focus();
   await page.keyboard.type(text);
+  // On a busy machine the list can still be the one for a half-typed query ("Pennoy"): wait until the
+  // results were drawn for exactly what was typed, then for the frame that draws them.
+  await page.waitForFunction(
+    (text) =>
+      typeof query !== 'undefined' && query === text && document.getElementById('search').value === text,
+    text,
+    { timeout: 10_000 },
+  );
   await page.locator('#searchResults button[data-search-type="node"]').first().waitFor({ timeout: 10_000 });
+  await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => resolve())));
 }
 async function readerShows(page, id) {
   await page.waitForFunction(
