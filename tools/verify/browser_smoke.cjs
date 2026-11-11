@@ -287,6 +287,16 @@ async function route(page, hash) {
           for (const justice of ['pierce-butler', 'james-clark-mcreynolds'])
             assert.equal(record.votes[justice], 'majority · Concurred in judgment', justice + ' in Erie');
           assert.equal(record.votes['louis-dembitz-brandeis'], 'majority · Opinion author');
+          // The correction touches only those two votes: everyone else keeps the original record.
+          for (const justice of [
+            'charles-evans-hughes',
+            'harlan-fiske-stone',
+            'owen-josephus-roberts',
+            'hugo-lafayette-black',
+          ])
+            assert.equal(record.votes[justice], 'majority · Joined judgment', justice + ' in Erie');
+          assert.equal(record.votes['stanley-forman-reed'], 'majority · Concurred in judgment');
+          assert.equal(record.votes['benjamin-nathan-cardozo'], 'nonparticipation · Did not participate');
           assert.equal(
             Object.values(record.votes).filter((v) => v.startsWith('dissent')).length,
             0,
