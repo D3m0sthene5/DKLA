@@ -1,0 +1,173 @@
+/* New York split-flap clock in the top bar (clock.js). */
+.study-header .ny-clock {
+  display: none;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 42px;
+  box-sizing: border-box;
+  padding: 0 11px;
+  border: 1px solid #2f3c49;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #141f28, #0f171e);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+  font-family: 'DKLA Orbitron', 'Segoe UI', Arial, sans-serif;
+  user-select: none;
+}
+/* Only where the bar has room beside the search box. */
+@media (min-width: 1300px) {
+  .study-header .ny-clock {
+    display: flex;
+  }
+}
+.ny-clock .ny-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.ny-clock .flip {
+  --h: 24px;
+  position: relative;
+  display: block;
+  width: 16px;
+  height: var(--h);
+  perspective: 90px;
+  color: #f3ead8;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: var(--h);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.ny-clock .flip.small {
+  --h: 15px;
+  width: 10px;
+  font-size: 10px;
+}
+.ny-clock .half {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+}
+.ny-clock .half > span {
+  display: block;
+  height: var(--h);
+}
+.ny-clock .half.top {
+  top: 0;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #27353f, #1f2b34);
+}
+.ny-clock .half.bottom {
+  bottom: 0;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(180deg, #1b262e, #172028);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 45%);
+}
+.ny-clock .half.bottom > span {
+  margin-top: calc(var(--h) / -2);
+}
+/* The hairline seam across every card. */
+.ny-clock .flip::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 0.5px);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgb(5 10 14 / 85%);
+  z-index: 3;
+}
+.ny-clock .leaf {
+  position: absolute;
+  inset: 0 0 50%;
+  display: none;
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+.ny-clock .leaf .half {
+  inset: 0;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.ny-clock .leaf .back {
+  transform: rotateX(180deg);
+}
+.ny-clock .leaf .back > span {
+  margin-top: calc(var(--h) / -2);
+}
+.ny-clock .flipping .leaf {
+  display: block;
+  animation: ny-flip 0.5s cubic-bezier(0.45, 0.05, 0.3, 1) forwards;
+}
+@keyframes ny-flip {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-180deg);
+  }
+}
+.ny-clock .ny-colon {
+  position: relative;
+  width: 6px;
+  height: 24px;
+}
+.ny-clock .ny-colon::before,
+.ny-clock .ny-colon::after {
+  content: '';
+  position: absolute;
+  left: 1.5px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #e8cba0;
+}
+.ny-clock .ny-colon::before {
+  top: 7px;
+}
+.ny-clock .ny-colon::after {
+  bottom: 7px;
+}
+.ny-clock .ny-small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  margin-left: 4px;
+}
+.ny-clock .ny-meridiem {
+  color: #e8cba0;
+  font-size: 7.5px;
+  letter-spacing: 0.08em;
+  line-height: 8px;
+}
+.ny-clock .ny-seconds {
+  display: flex;
+  gap: 1px;
+}
+.ny-clock .ny-date {
+  color: #93a8b5;
+  font-family:
+    'Segoe UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ny-clock .flipping .leaf {
+    display: none;
+    animation: none;
+  }
+}
