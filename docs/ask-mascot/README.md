@@ -24,11 +24,33 @@ A docket is the list of cases a court carries. Dottie carries hers on her back.
 Follow-ups: after an answer the box becomes "Ask a follow-up"; the browser
 sends up to three earlier turns with the next question (`history` in
 `api/ask.js`), and earlier turns fold into "Earlier in this conversation".
-Nothing is stored on the server. "New question" starts over.
+Follow-ups are never stored on the server. "New question" starts over.
+
+Saved answers (`src/features/ask/saved.js`, `saved.css`):
+
+- **Save answer** under each answer (toggles to "✓ Saved") keeps the question
+  and the answer as shown, with its numbered sources, in this browser only
+  (`localStorage` key `dkla.askSaved.v1`). Not a cookie: cookies go to the
+  server with every request and hold about 4 KB. One saved answer per
+  question; saving a newer answer replaces the older one.
+- **Saved answers (N)** beside the close button (hidden while there are none)
+  lists them newest first, with a filter. Opening one shows it again with
+  working citations and Dottie as for any answer; follow-ups continue from it.
+- A first question that matches a saved one (same normalised question, same
+  open entry) is shown at once without asking the server: "From your saved
+  answers · Ask again". Ask again requests a new answer (`fresh: true`).
+- **Shared answer library** (`lib/ask/library.js`): a first question asked
+  before comes back from the server with `cached: true` and shows "Saved
+  answer from <date> · Ask fresh"; Ask fresh sends `fresh: true`, which skips
+  the library and replaces its entry. Matching is strict (see the comment at
+  the top of `lib/ask/library.js`); entries expire after 90 days; a library
+  answer never calls OpenAI, so it never spends AI credit.
+
+Dottie behaves the same for saved and library answers as for a new one.
 
 Pointing at a source (hover or keyboard focus) lifts the joey that stands for
 it. She is decorative (`aria-hidden`); every state is still announced by the
 status line. With reduced motion she appears in place without moving.
 
 Checked by `tools/ask/browser.mjs` (step "Ask DKLA questions and source links"; the feature is still called Ask DKLA in code and file names)
-and breakage 1 in `tools/verify/break.mjs`.
+and breakages 1 and 2 in `tools/verify/break.mjs` (2: saving stops persisting).

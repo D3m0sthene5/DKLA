@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
+import { normalise } from '../../lib/ask/library.js';
 
 const url = new URL(process.argv[2]);
 assert.ok(['127.0.0.1', 'localhost'].includes(url.hostname));
@@ -325,7 +326,240 @@ try {
     await expect(dialog).toBeHidden();
     await context.close();
   }
-  console.log('Ask DKLA desktop and phone flow passed with a mocked model response.');
+  for (const viewport of [
+    { width: 1440, height: 900 },
+    { width: 390, height: 844 },
+  ])
+    await savedAnswersFlow(viewport);
+  console.log(
+    'Ask DKLA desktop and phone flow passed with a mocked model response, including saved answers.',
+  );
 } finally {
   await browser.close();
+}
+
+// Saved answers: a private library in this browser (saved.js), and answers
+// served from the shared library on the server ("Saved answer from ...").
+async function savedAnswersFlow(viewport) {
+  const phone = viewport.width === 390;
+  const context = await browser.newContext({
+    viewport,
+    isMobile: phone,
+    hasTouch: phone,
+    serviceWorkers: 'block',
+  });
+  const payloads = [];
+  const libraryQuestion = 'What is the Erie doctrine?';
+  const fresh = {
+    ...response,
+    paragraphs: [{ text: 'A fresh answer: minimum contacts replaced presence.', citations: [2] }],
+  };
+  await context.route('**/*', async (route) => {
+    const target = new URL(route.request().url());
+    if (
+      target.origin !== url.origin ||
+      (target.pathname.startsWith('/api/') && target.pathname !== '/api/ask')
+    )
+      return route.fulfill({ status: 204 });
+    if (target.pathname !== '/api/ask') return route.continue();
+    const payload = route.request().postDataJSON();
+    assert.ok(Object.keys(payload).every((key) => ['question', 'history', 'fresh'].includes(key)));
+    payloads.push(payload);
+    if (payload.fresh) {
+      assert.equal(payload.fresh, true);
+      return route.fulfill({ json: fresh });
+    }
+    if (payload.question === question) return route.fulfill({ json: response });
+    if (payload.question === rankingQuestion) return route.fulfill({ json: rankingResponse });
+    if (payload.question === libraryQuestion)
+      return route.fulfill({
+        json: { ...response, search: 'not-needed', cached: true, savedAt: '2026-11-03T15:00:00.000Z' },
+      });
+    return route.fulfill({ status: 503, json: { error: 'not-configured' } });
+  });
+  await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+  const page = await context.newPage();
+  const boot = async () => {
+    await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+  };
+  await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await boot();
+
+  // The browser's normalisation agrees with the server library's.
+  const samples = [
+    question,
+    'Please, can you explain how did International Shoe change Pennoyer??',
+    'What’s the Erie doctrine?',
+    'Diversity under 28 U.S.C. § 1332(a)(1) and Rule 12 (b)(6)',
+    "Can't a state be sued in federal court? Thanks",
+    'Hamer vs. Sidway',
+  ];
+  const browserKeys = await page.evaluate(
+    (list) => list.map((q) => window.DKLAAskSaved.normalise(q)),
+    samples,
+  );
+  assert.deepEqual(
+    browserKeys,
+    samples.map((q) => normalise(q).key),
+  );
+
+  const bar = page.locator('.study-header .ask-bar');
+  const dialog = page.getByRole('dialog', { name: 'Ask Dottie' });
+  const answerArea = dialog.locator('.ask-answer');
+  const input = dialog.locator('textarea');
+  const opener = dialog.locator('.ask-saved-open');
+  const save = answerArea.locator('.ask-save');
+  const panel = dialog.locator('.ask-saved');
+  const items = panel.locator('.ask-saved-item');
+  const stored = () =>
+    page.evaluate(() => JSON.parse(localStorage.getItem('dkla.askSaved.v1') || 'null')?.answers ?? []);
+  const shot = async (name) => {
+    if (!process.env.DKLA_ASK_SCREENSHOTS) return;
+    await mkdir(process.env.DKLA_ASK_SCREENSHOTS, { recursive: true });
+    await page.screenshot({
+      path: `${process.env.DKLA_ASK_SCREENSHOTS}/saved-${name}-${viewport.width}.png`,
+    });
+  };
+  const askNew = async (text) => {
+    const again = dialog.getByRole('button', { name: 'New question' });
+    if (await again.isVisible()) await again.click();
+    await input.fill(text);
+    await input.press('Enter');
+  };
+
+  await bar.click();
+  await expect(dialog).toBeVisible();
+  await expect(opener).toBeHidden(); // nothing saved yet
+  await askNew(question);
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  await expect(save).toHaveText('Save answer');
+  await expect(save).toHaveAttribute('aria-pressed', 'false');
+  await save.click();
+  await expect(save).toHaveText('✓ Saved');
+  await expect(save).toHaveAttribute('aria-pressed', 'true');
+  await expect(dialog.getByRole('status')).toContainText('Saved in this browser');
+  const [kept] = await stored();
+  assert.equal(kept.question, question);
+  assert.deepEqual(kept.answer.paragraphs, response.paragraphs);
+  assert.deepEqual(kept.answer.sources, response.sources);
+  assert.match(kept.savedAt, /^\d{4}-\d\d-\d\dT/);
+  await expect(opener).toHaveText('Saved answers (1)');
+  await shot('answer');
+  // Select again to un-save, then save once more.
+  await save.click();
+  await expect(save).toHaveText('Save answer');
+  assert.equal((await stored()).length, 0);
+  await save.click();
+  await expect(save).toHaveText('✓ Saved');
+
+  await page.waitForTimeout(5); // distinct savedAt times
+  await askNew(rankingQuestion);
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready. Web search completed.');
+  await save.click();
+  await expect(opener).toHaveText('Saved answers (2)');
+  assert.equal(payloads.length, 2);
+
+  // The list: newest first, filtered by words in the question or answer.
+  await opener.click();
+  await expect(panel).toBeVisible();
+  await expect(input).toBeHidden();
+  await expect(items.locator('span')).toHaveText([rankingQuestion, question]);
+  await expect(items.first().locator('small')).toContainText('3 sources');
+  await shot('list');
+  await panel.getByLabel('Filter saved answers').fill('minimum contacts');
+  await expect(items.locator('span')).toHaveText([question]);
+  await panel.getByLabel('Filter saved answers').fill('zzzz');
+  await expect(items).toHaveCount(0);
+  await expect(panel.locator('.ask-saved-empty')).toHaveText('No saved answer matches that filter.');
+  await panel.getByRole('button', { name: 'Back to Ask Dottie' }).click();
+  await expect(panel).toBeHidden();
+  await expect(input).toBeVisible();
+
+  // Still there after a reload.
+  await page.reload({ waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await boot();
+  await bar.click();
+  await expect(opener).toHaveText('Saved answers (2)');
+  await opener.click();
+  await expect(items).toHaveCount(2);
+  // Opening one shows it again with working citations, and Dottie as for any answer.
+  await items.filter({ hasText: question }).click();
+  await expect(panel).toBeHidden();
+  await expect(answerArea.locator('.ask-asked')).toHaveText(question);
+  await expect(answerArea.locator('.ask-from')).toContainText('From your saved answers');
+  await expect(dialog.getByRole('status')).toHaveText('Answer from your saved answers.');
+  await expect(answerArea).toContainText('minimum contacts');
+  await expect(save).toHaveText('✓ Saved');
+  const carrier = dialog.locator('.ask-sources-heading .ask-dottie[data-state="answer"]');
+  await expect(carrier.locator('.dottie-joey')).toHaveCount(2);
+  await expect(answerArea.locator('.ask-citation')).toHaveCount(2);
+  await answerArea.locator('.ask-citation').first().click();
+  await expect(dialog).toBeHidden();
+  await expect(page.locator('#inspector')).toContainText('Pennoyer v. Neff');
+  assert.equal(payloads.length, 2, 'a saved answer is shown without asking the server');
+
+  // Asking a saved question again shows the saved answer at once; Ask again asks afresh.
+  const search = page.locator('#search');
+  await search.focus();
+  await page.keyboard.press('ControlOrMeta+A');
+  await page.keyboard.press('Backspace');
+  await page.getByRole('button', { name: /Ask Dottie.*AI answer/ }).click();
+  await askNew('how did international shoe change pennoyer');
+  await expect(dialog.getByRole('status')).toHaveText('Answer from your saved answers.');
+  await expect(answerArea.locator('.ask-from')).toContainText(/From your saved answers .*· Ask again/);
+  assert.equal(payloads.length, 2);
+  await shot('recall');
+  await answerArea.getByRole('button', { name: 'Ask again for a new answer' }).click();
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  assert.equal(payloads.length, 3);
+  assert.deepEqual(payloads.at(-1), { question: 'how did international shoe change pennoyer', fresh: true });
+  await expect(answerArea).toContainText('A fresh answer');
+  await expect(answerArea.locator('.ask-from')).toHaveCount(0);
+  await expect(dialog.locator('.ask-earlier')).toBeHidden(); // replaced, not a follow-up
+  await expect(save).toHaveText('Save answer');
+
+  // An answer from the shared library on the server.
+  await askNew(libraryQuestion);
+  await expect(dialog.getByRole('status')).toHaveText('Saved answer ready.');
+  await expect(answerArea.locator('.ask-from')).toHaveText('Saved answer from Nov 3, 2026 · Ask fresh');
+  assert.equal(payloads.at(-1).fresh, undefined);
+  await expect(carrier.locator('.dottie-joey')).toHaveCount(2);
+  await shot('library');
+  await answerArea.getByRole('button', { name: /Ask fresh/ }).click();
+  await expect(dialog.getByRole('status')).toHaveText('Answer ready.');
+  assert.deepEqual(payloads.at(-1), { question: libraryQuestion, fresh: true });
+  await expect(answerArea).toContainText('A fresh answer');
+  await expect(answerArea.locator('.ask-from')).toHaveCount(0);
+
+  // A full browser store: a polite message, nothing lost.
+  await page.evaluate(() => {
+    const original = (window.originalSetItem = Storage.prototype.setItem);
+    Storage.prototype.setItem = function (key, value) {
+      if (key === 'dkla.askSaved.v1') throw new DOMException('full', 'QuotaExceededError');
+      return original.call(this, key, value);
+    };
+  });
+  await save.click();
+  await expect(dialog.getByRole('status')).toContainText('storage for DKLA is full');
+  await expect(save).toHaveText('Save answer');
+  assert.equal((await stored()).length, 2);
+  await page.evaluate(() => (Storage.prototype.setItem = window.originalSetItem));
+
+  // Deleting, which also lasts across a reload.
+  await opener.click();
+  await panel.getByRole('button', { name: 'Delete saved answer: ' + question }).click();
+  await expect(items.locator('span')).toHaveText([rankingQuestion]);
+  await expect(opener).toHaveText('Saved answers (1)');
+  await page.reload({ waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await boot();
+  await bar.click();
+  await expect(opener).toHaveText('Saved answers (1)');
+  await opener.click();
+  await panel.getByRole('button', { name: 'Delete saved answer: ' + rankingQuestion }).click();
+  await expect(items).toHaveCount(0);
+  await expect(panel.locator('.ask-saved-empty')).toContainText('No saved answers yet');
+  await panel.getByRole('button', { name: 'Back to Ask Dottie' }).click();
+  await expect(opener).toBeHidden();
+  assert.equal(await page.evaluate(() => localStorage.getItem('dkla.askSaved.v1')), null);
+  await context.close();
 }

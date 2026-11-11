@@ -1,0 +1,170 @@
+/* Saved Dottie answers (saved.js): the Save button under an answer, the line
+   naming where a saved answer came from, and the list of saved answers. */
+#dklaAskDialog .ask-heading-tools {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+#dklaAskDialog .ask-saved-open,
+#dklaAskDialog .ask-saved-back,
+#dklaAskDialog .ask-save,
+#dklaAskDialog .ask-saved-delete {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid #46655b;
+  border-radius: 999px;
+  background: transparent;
+  color: #b3e8d4;
+  font: inherit;
+  font-size: 13px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#dklaAskDialog .ask-saved-open:hover,
+#dklaAskDialog .ask-saved-back:hover,
+#dklaAskDialog .ask-save:hover,
+#dklaAskDialog .ask-saved-delete:hover {
+  background: #26453d;
+}
+#dklaAskDialog .ask-saved-open[aria-expanded='true'],
+#dklaAskDialog .ask-save[aria-pressed='true'] {
+  border-color: #a6e0c8;
+  background: #24423b;
+  color: #e3f7ef;
+}
+
+/* Under an answer. */
+#dklaAskDialog .ask-save-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+#dklaAskDialog .ask-answer .ask-save {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid #46655b;
+  border-radius: 999px;
+  color: #b3e8d4;
+  text-decoration: none;
+}
+#dklaAskDialog .ask-answer .ask-save[aria-pressed='true'] {
+  border-color: #a6e0c8;
+  background: #24423b;
+  color: #e3f7ef;
+}
+
+/* "From your saved answers · Ask again" / "Saved answer from ... · Ask fresh". */
+#dklaAskDialog .ask-answer .ask-from {
+  margin: 8px 0 0;
+  color: #b9cec5;
+  font-size: 13px;
+  line-height: 1.45;
+}
+#dklaAskDialog .ask-turn .ask-from button {
+  display: none;
+}
+
+/* The list of saved answers replaces the conversation while it is open. */
+#dklaAskDialog.ask-browsing
+  :is(.ask-intro, .ask-form, .ask-scope, .ask-examples, .ask-progress, .ask-answer, .ask-earlier) {
+  display: none;
+}
+#dklaAskDialog .ask-saved {
+  margin-top: 16px;
+}
+#dklaAskDialog .ask-saved-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+#dklaAskDialog .ask-saved h3 {
+  margin: 0;
+  font-size: 18px;
+}
+#dklaAskDialog .ask-saved-note,
+#dklaAskDialog .ask-saved-empty {
+  margin: 8px 0 12px;
+  color: #b9cec5;
+  font-size: 13px;
+  line-height: 1.45;
+}
+#dklaAskDialog .ask-saved-empty:empty {
+  display: none;
+}
+#dklaAskDialog .ask-saved input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 11px;
+  border: 1px solid #57736c;
+  border-radius: 8px;
+  background: #101d1d;
+  color: #f3f8f6;
+  font: inherit;
+  font-size: 16px;
+}
+#dklaAskDialog .ask-saved-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+#dklaAskDialog .ask-saved-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 4px;
+  border: 1px solid #38524b;
+  border-radius: 10px;
+  background: #172b29;
+}
+#dklaAskDialog .ask-saved-item {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  gap: 2px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #e6eeeb;
+  font: inherit;
+  text-align: left;
+}
+#dklaAskDialog .ask-saved-item:hover {
+  background: #1f3936;
+}
+#dklaAskDialog .ask-saved-item span {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+#dklaAskDialog .ask-saved-item small {
+  color: #b9cec5;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+#dklaAskDialog .ask-saved-delete {
+  flex: none;
+}
+@media (max-width: 520px) {
+  #dklaAskDialog .ask-heading {
+    align-items: flex-start;
+  }
+  #dklaAskDialog .ask-saved-long {
+    display: none;
+  }
+  #dklaAskDialog .ask-saved-list li {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  #dklaAskDialog .ask-saved-delete {
+    align-self: flex-end;
+  }
+}

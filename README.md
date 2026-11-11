@@ -74,8 +74,16 @@ questions use a short structured response. For questions that need outside evide
 the same OpenAI request searches and writes the answer. Citation-ranking questions
 can also use the published 2018 HeinOnline ranking, cached for one hour per server instance.
 The build prepares a server-only corpus from the published Atlas edition.
-There is no database or history for Ask Dottie. Questions typed into the main
-search bar still fall under its existing analytics policy.
+Ask Dottie keeps no conversation history. It does keep a shared answer library
+(`lib/ask/library.js`, table `dkla_ask_answers` in the analytics database): a
+first question (not a follow-up) that was asked before, worded the same or
+almost the same and about the same open entry, gets the stored answer at once
+("Saved answer from ..."), without calling OpenAI; "Ask fresh" asks again.
+Entries keep no visitor identity, expire after 90 days, and are skipped
+silently if the database is missing or failing. "Save answer" under an answer
+keeps it only in that browser (`localStorage` key `dkla.askSaved.v1`,
+`src/features/ask/saved.js`), listed under "Saved answers". Questions typed into
+the main search bar still fall under its existing analytics policy.
 
 ## How to know it still works
 
