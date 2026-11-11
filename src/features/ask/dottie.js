@@ -8,7 +8,8 @@
  * one twice running (the pools are in ask.js):
  *   face        the Ask Dottie launcher in Atlas search
  *   empty dialog   curious, bookmark (0 to 3 joeys), hanging, carrying
- *   researching    reading, rummaging, fetching (she changes every few seconds)
+ *   researching    the spinner: three tiny opossums chasing each other nose to tail
+ *                  round her question-mark tail (spinner(), not a pose)
  *   answer         carrying or bookmark, one joey per cited source (1 to 3)
  *   no answer, offline, busy, unavailable, failed   possum: she plays dead
  */
@@ -243,5 +244,32 @@
     return `<svg class="dottie dottie-${pose}" viewBox="${p.box}" focusable="false" aria-hidden="true">${p.draw(option)}</svg>`;
   }
 
-  window.DKLADottie = { name: 'Dottie Docket', poses: Object.keys(poses), svg };
+  // The thinking spinner (48 x 48): three tiny opossums chase each other nose to tail round a
+  // ring, clockwise, with Dottie's question-mark tail curled at the centre. ask.css turns the
+  // ring; with reduced motion it stands still. Decorative, like svg().
+  function spinner() {
+    // A point on the ring (radius r about the centre), deg degrees clockwise from the top.
+    const at = (deg, r = 15.6) => {
+      const a = (deg * Math.PI) / 180;
+      return `${+(24 + r * Math.sin(a)).toFixed(1)} ${+(24 - r * Math.cos(a)).toFixed(1)}`;
+    };
+    // Each opossum's body bends along the ring, her nose just behind the next one's tail; her
+    // feet are on the inside of the wheel.
+    const possum = (turn) => `<g transform="rotate(${turn} 24 24)">
+      <path d="M${at(-31)}c-3 .4-5 2.2-4.6 4.6" fill="none" stroke="${C.tail}" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M${at(-16, 13)}L${at(-17, 9.6)}M${at(6, 13)}L${at(7, 9.6)}" stroke="${C.leg}" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M${at(-30)}A15.6 15.6 0 0 1 ${at(12)}" fill="none" stroke="${C.fur}" stroke-width="6.4" stroke-linecap="round"/>
+      <g transform="translate(${at(17)}) rotate(17)">
+        <circle cx="-.8" cy="-3.2" r="2" fill="${C.ear}"/>
+        <path d="M-3 .8C-3.3-2.4-.5-4 2.4-3.4c2 .4 3.8 2 5.7 3.4.6.5.4 1.3-.4 1.4-2.4.4-5 1-7.5.7C-1.6 2-2.9 1.7-3 .8Z" fill="${C.face}"/>
+        <circle cx="2.5" cy="-1.3" r=".8" fill="${C.eye}"/><circle cx="8.2" cy=".3" r="1.05" fill="${C.nose}"/>
+      </g></g>`;
+    const curl = 'M24 29.6v-1.4c0-2 3.4-2.6 3.4-5.4 0-2.1-1.6-3.5-3.6-3.5-1.8 0-3.2 1-3.6 2.8';
+    return `<svg class="dottie dottie-spinner" viewBox="0 0 48 48" focusable="false" aria-hidden="true">
+      <g class="dottie-ring">${[0, 120, 240].map(possum).join('')}</g>
+      <path d="${curl}" fill="none" stroke="${C.tail}" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="24" cy="33.2" r="1.5" fill="${C.mint}"/></svg>`.replace(/>\s+</g, '><');
+  }
+
+  window.DKLADottie = { name: 'Dottie Docket', poses: Object.keys(poses), svg, spinner };
 })();

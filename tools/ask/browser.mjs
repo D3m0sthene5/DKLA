@@ -55,22 +55,31 @@ try {
     });
     let asked = 0;
     const payloads = [];
-    let finishCanceledRequest;
-    const canceledRequest = new Promise((resolve) => {
-      finishCanceledRequest = resolve;
-    });
+    // Warm-ups: sent when the dialog opens or someone types, never counted as a question.
+    let warmed = 0;
+    const analytics = [];
+    // A question that waits until the test cancels it.
+    let finishCanceledRequest = () => {};
     await context.route('**/*', async (route) => {
       const target = new URL(route.request().url());
+      if (target.pathname === '/api/analytics') analytics.push(route.request().postData() ?? '');
       if (
         target.origin !== url.origin ||
         (target.pathname.startsWith('/api/') && target.pathname !== '/api/ask')
       )
         return route.fulfill({ status: 204 });
       if (target.pathname !== '/api/ask') return route.continue();
-      asked++;
       const request = route.request();
       assert.equal(request.method(), 'POST');
       const payload = request.postDataJSON();
+      if (payload.warm) {
+        // Nothing but the warm-up flag: no question, no history.
+        assert.deepEqual(payload, { warm: true });
+        warmed++;
+        return route.fulfill({ json: { warm: true } });
+      }
+      asked++;
+      assert.match(request.headers().accept, /application\/x-ndjson/);
       // Only the question and, for a follow-up, up to three earlier turns.
       assert.ok(Object.keys(payload).every((key) => ['question', 'history'].includes(key)));
       if (payload.history) {
@@ -99,21 +108,48 @@ try {
       if (payload.question === 'Can the Atlas answer on its own?')
         return route.fulfill({ json: { ...response, search: 'unavailable' } });
       if (payload.question === 'Can I cancel research?') {
-        await canceledRequest;
+        await new Promise((resolve) => (finishCanceledRequest = resolve));
         return route.abort();
       }
       return route.fulfill({ status: 503, json: { error: 'not-configured' } });
     });
     await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+    // Playwright cannot stream a mocked reply, so one question is answered in the page by a
+    // stream the test writes line by line, as the server does with progress (NDJSON).
+    await context.addInitScript(() => {
+      const send = window.fetch.bind(window);
+      window.fetch = (resource, options) => {
+        let question;
+        try {
+          question = JSON.parse(options.body).question;
+        } catch {}
+        if (question !== 'Show me the progress') return send(resource, options);
+        const encoder = new TextEncoder();
+        return Promise.resolve(
+          new Response(
+            new ReadableStream({
+              start(controller) {
+                window.dklaTestStream = {
+                  line: (data) => controller.enqueue(encoder.encode(JSON.stringify(data) + '\n')),
+                  end: () => controller.close(),
+                };
+              },
+            }),
+            { headers: { 'content-type': 'application/x-ndjson; charset=utf-8' } },
+          ),
+        );
+      };
+    });
     const page = await context.newPage();
     await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
     const search = page.locator('#search');
     // Dottie Docket appears once at a time, in a pose drawn at random from the
     // pool for the current state. Anything that went wrong is always possum.
+    // While she works, the spinner shows instead of a pose.
     const pools = {
       idle: ['curious', 'bookmark', 'hanging', 'carrying'],
-      research: ['reading', 'rummaging', 'fetching'],
+      research: ['spinner'],
       answer: ['carrying', 'bookmark'],
       trouble: ['possum'],
     };
@@ -151,7 +187,13 @@ try {
     await bar.click();
     await expect(page.getByRole('dialog', { name: 'Ask Dottie' })).toBeVisible();
     await expectOnlyDottie('idle');
+    // Opening the dialog warms the server up once; typing within minutes sends no more.
+    await expect.poll(() => warmed).toBe(1);
+    await page.keyboard.type('Wh');
     await page.keyboard.press('Escape');
+    assert.equal(warmed, 1);
+    assert.equal(asked, 0, 'A warm-up is not a question');
+    assert.ok(!analytics.some((body) => /warm/i.test(body)), 'A warm-up is not recorded');
 
     // The New York flip clock: on wide screens only, showing New York's time.
     const clock = page.locator('.study-header .ny-clock');
@@ -279,15 +321,88 @@ try {
     await input.press('Enter');
     await expect.poll(() => asked).toBe(6);
     await expect(dialog.getByRole('status')).toHaveText('Looking for relevant sources…');
-    // A long search: she changes pose every few seconds, never repeating.
-    const first = await expectOnlyDottie('research');
-    await expect.poll(() => anyDottie.getAttribute('data-pose'), { timeout: 8000 }).not.toBe(first);
+    // A long search: the thinking spinner (three opossums round her question-mark tail) turns,
+    // and the words beside it change every two seconds. Screen readers hear only the status.
     await expectOnlyDottie('research');
+    const spinner = dialog.locator('.ask-progress .ask-dottie svg.dottie-spinner');
+    const words = dialog.locator('.ask-progress .ask-working');
+    await expect(spinner).toBeVisible();
+    await expect(spinner.locator('.dottie-ring > g')).toHaveCount(3);
+    assert.notEqual(
+      await spinner.locator('.dottie-ring').evaluate((g) => getComputedStyle(g).animationName),
+      'none',
+    );
+    await expect(words).toBeVisible();
+    await expect(words).toHaveAttribute('aria-hidden', 'true');
+    await expect(words).toHaveAttribute('data-kind', 'quip');
+    const quip = await words.textContent();
+    assert.match(quip, /…$/);
+    assert.doesNotMatch(quip, /!/);
+    await expect.poll(() => words.textContent(), { timeout: 5000 }).not.toBe(quip);
+    await expect(dialog.getByRole('status')).toHaveText('Looking for relevant sources…');
+    assert.ok(
+      (await dialog.getByRole('status').boundingBox()).width <= 1,
+      'the status is for screen readers',
+    );
+    const progressBox = await dialog.locator('.ask-progress').boundingBox();
+    assert.ok(progressBox.x + progressBox.width <= viewport.width, 'the progress line fits');
+    if (process.env.DKLA_ASK_SCREENSHOTS) {
+      await dialog.locator('.ask-progress').screenshot({
+        path: `${process.env.DKLA_ASK_SCREENSHOTS}/spinner-${viewport.width}.png`,
+      });
+      await page.screenshot({
+        path: `${process.env.DKLA_ASK_SCREENSHOTS}/spinner-dialog-${viewport.width}.png`,
+      });
+      if (!phone)
+        for (let frame = 0; frame < 6; frame++) {
+          await spinner.screenshot({
+            path: `${process.env.DKLA_ASK_SCREENSHOTS}/spinner-frame-${frame}.png`,
+          });
+          await page.waitForTimeout(150);
+        }
+    }
     await dialog.getByRole('button', { name: 'Cancel' }).click();
     finishCanceledRequest();
     await expect(dialog.getByRole('status')).toHaveText('Search canceled.');
     await expect(dialog.locator('.ask-dottie')).toHaveCount(0);
+    await expect(words).toBeHidden();
     await expect(input).toBeFocused();
+
+    // Real progress from the server replaces the playful words; the status line announces only
+    // the search starting and the citation check, not each site.
+    await input.fill('Show me the progress');
+    await input.press('Enter');
+    await expect(spinner).toBeVisible();
+    await expect(words).toHaveAttribute('data-kind', 'quip');
+    const stream = (data) => page.evaluate((line) => window.dklaTestStream.line(line), data);
+    await expect.poll(() => page.evaluate(() => Boolean(window.dklaTestStream))).toBe(true);
+    await stream({ progress: { step: 'atlas', entries: 6, research: true } });
+    await expect(words).toHaveText('Reading 6 Atlas entries…');
+    await stream({ progress: { step: 'searching' } });
+    await expect(words).toHaveText('Searching the web…');
+    await expect(words).toHaveAttribute('data-kind', 'step');
+    await expect(dialog.getByRole('status')).toHaveText('Searching the web…');
+    await stream({ progress: { step: 'reading', domains: ['congress.gov'] } });
+    await expect(words).toHaveText('Reading congress.gov…');
+    // A real step stays; the playful words do not come back over it.
+    await page.waitForTimeout(2300);
+    await expect(words).toHaveText('Reading congress.gov…');
+    await expect(dialog.getByRole('status')).toHaveText('Searching the web…');
+    await stream({ progress: { step: 'checking' } });
+    await expect(words).toHaveText('Checking citations…');
+    await expect(dialog.getByRole('status')).toHaveText('Checking citations…');
+    if (process.env.DKLA_ASK_SCREENSHOTS)
+      await dialog.locator('.ask-progress').screenshot({
+        path: `${process.env.DKLA_ASK_SCREENSHOTS}/spinner-step-${viewport.width}.png`,
+      });
+    await expect(answerArea).toBeEmpty();
+    await stream({ answer: { ...rankingResponse } });
+    await page.evaluate(() => window.dklaTestStream.end());
+    // The spinner and the words are gone when the answer arrives.
+    await expect(dialog.getByRole('status')).toHaveText('Answer ready. Web search completed.');
+    await expect(spinner).toHaveCount(0);
+    await expect(words).toBeHidden();
+    await expect(answerArea).toContainText('HeinOnline placed Iqbal fifth');
 
     await input.fill('Why is the model unavailable?');
     await input.press('Enter');
@@ -299,9 +414,23 @@ try {
     await expect(dialog.getByRole('status')).toContainText('needs an internet connection');
     await expectOnlyDottie('trouble');
     assert.equal(asked, 7);
-    // With reduced motion she appears in place, without the rise.
+    // With reduced motion the opossums stand still in their ring; only the words change.
     await context.setOffline(false);
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    await input.fill('Can I cancel research?');
+    await input.press('Enter');
+    await expect(spinner).toBeVisible();
+    assert.equal(
+      await spinner.locator('.dottie-ring').evaluate((g) => getComputedStyle(g).animationName),
+      'none',
+    );
+    const still = await words.textContent();
+    await expect.poll(() => words.textContent(), { timeout: 5000 }).not.toBe(still);
+    await dialog.getByRole('button', { name: 'Cancel' }).click();
+    finishCanceledRequest();
+    await expect(spinner).toHaveCount(0);
+    assert.equal(asked, 8);
+    // With reduced motion she appears in place, without the rise.
     await input.fill(question);
     await input.press('Enter');
     await expect(carrier).toHaveCount(1);
@@ -310,7 +439,7 @@ try {
       await carrier.locator('svg').evaluate((svg) => getComputedStyle(svg).transitionDuration),
       '0s',
     );
-    assert.equal(asked, 8);
+    assert.equal(asked, 9);
     assert.equal(payloads.at(-1).history.length, 3);
     // A source in an earlier turn still opens its entry.
     const rankingTurn = dialog.locator('.ask-turn', { hasText: rankingQuestion });

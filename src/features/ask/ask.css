@@ -277,6 +277,54 @@
 #dklaAskDialog .ask-progress .ask-dottie[data-pose='possum'] {
   width: 87px;
 }
+/* While she works: the spinner (dottie.js spinner()), then a line of words that changes every
+   two seconds, or the real step the server reports. The status line is for screen readers only
+   until the work is done, so they hear real states, not every playful word. One line, cut short
+   with an ellipsis, so the layout does not jump on a phone. */
+#dklaAskDialog .ask-progress {
+  position: relative;
+}
+#dklaAskDialog .ask-working {
+  display: none;
+}
+#dklaAskDialog .ask-progress.is-working .ask-working {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  margin: 8px 0 0;
+  overflow: hidden;
+  color: #cfe7dd;
+  font-size: 14px;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#dklaAskDialog .ask-working[data-kind='step'] {
+  color: #a6e0c8;
+}
+#dklaAskDialog .ask-progress.is-working .ask-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+#dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
+  width: 44px;
+  margin: 6px 0 0;
+}
+#dklaAskDialog .dottie-spinner .dottie-ring {
+  transform-box: view-box;
+  transform-origin: 24px 24px;
+  animation: dottie-spin 1.8s linear infinite;
+}
+@keyframes dottie-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 #dklaAskDialog .ask-dottie .dottie-glass {
   transform-box: fill-box;
   animation: dottie-scan 2.2s ease-in-out infinite alternate;
@@ -399,6 +447,9 @@
   }
   #dklaAskDialog .ask-progress .ask-dottie {
     width: 67px;
+  }
+  #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
+    width: 40px;
   }
   #dklaAskDialog .ask-dottie-peek {
     width: 115px;
