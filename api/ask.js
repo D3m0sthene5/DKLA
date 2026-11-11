@@ -49,7 +49,15 @@ function validHistory(history) {
   );
 }
 
-const timedOut = (error) => error?.name === 'TimeoutError' || error?.name === 'AbortError';
+// A call that could not finish: a timeout, a cancelled question, or a network failure ("fetch
+// failed", a connection cut, a reply cut off in the middle of its JSON). Such a call is
+// unavailable, which gets the honest empty answer, not an error.
+const failed = (error) =>
+  error?.name === 'TimeoutError' ||
+  error?.name === 'AbortError' ||
+  error instanceof SyntaxError ||
+  (error instanceof TypeError &&
+    (error.cause !== undefined || /fetch failed|terminated|network|socket|body/i.test(error.message)));
 
 // The browser can ask for progress (Accept: application/x-ndjson). The reply is then one JSON
 // object per line: { progress: { step, ... } } as the work goes on, and last either
@@ -134,7 +142,13 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
       //   Research route: research (18 s); after a failure, an Atlas answer (8 s) only when the
       //                   Atlas could answer the question (route web: false) and time remains.
       // Research is never started alongside an Atlas answer: see the README's cost note.
-      const signal = AbortSignal.timeout(26_000);
+      // A cancelled question (Cancel, or the tab closed) stops the OpenAI calls: the connection
+      // closes before the reply has ended, so nothing more is paid for.
+      const gone = new AbortController();
+      res.on?.('close', () => {
+        if (!res.writableEnded) gone.abort();
+      });
+      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);
       const unavailable = () => reply.send(200, { paragraphs: [], sources: [], search: 'unavailable' });
       const atlasAnswer = (search) =>
         generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
@@ -149,10 +163,11 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
           }
           draft = output;
         } catch (error) {
-          // A slow or malformed Atlas answer goes on to research instead of failing the question.
-          if (!(error instanceof InvalidCitations) && !timedOut(error)) throw error;
+          // A slow, cut off or malformed Atlas answer goes on to research instead of failing.
+          if (!(error instanceof InvalidCitations) && !failed(error)) throw error;
         }
       }
+      if (gone.signal.aborted) return;
 
       try {
         const context = atlas.find((source) => source.type === 'node' && source.id === node)?.title;
@@ -166,14 +181,18 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
           signal,
           // Only a browser that shows progress gets OpenAI's stream relayed.
           progress: reply.stream ? reply.progress : undefined,
+          // Legislation, events, dates, people, the present: only a web-cited answer will do.
+          web: path.web,
         });
         return reply.send(200, { ...answer, search: 'searched' });
       } catch (error) {
         if ([401, 402, 403].includes(error.statusCode)) throw error;
         const status = Number.isInteger(error.statusCode)
           ? error.statusCode
-          : timedOut(error)
-            ? 'timeout'
+          : failed(error)
+            ? error.name === 'TimeoutError'
+              ? 'timeout'
+              : 'network'
             : 'no result';
         console.warn('Ask DKLA web search unavailable:', status);
         search = 'unavailable';
@@ -185,7 +204,7 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
         const answer = citeAnswer(draft ?? (await atlasAnswer(search)), atlas);
         return reply.send(200, { ...answer, search });
       } catch (error) {
-        if (timedOut(error) || error instanceof InvalidCitations) return unavailable();
+        if (failed(error) || error instanceof InvalidCitations) return unavailable();
         throw error;
       }
     } catch (error) {

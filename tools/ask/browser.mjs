@@ -346,6 +346,17 @@ try {
     );
     const progressBox = await dialog.locator('.ask-progress').boundingBox();
     assert.ok(progressBox.x + progressBox.width <= viewport.width, 'the progress line fits');
+    // Large enough to make out (56 px, 48 px on a phone), with the words on one line centred on it.
+    const spinnerBox = await spinner.boundingBox();
+    const size = phone ? 48 : 56;
+    assert.ok(Math.abs(spinnerBox.width - size) <= 1, `spinner is ${spinnerBox.width} px, not ${size}`);
+    assert.ok(Math.abs(spinnerBox.height - size) <= 1, `spinner is ${spinnerBox.height} px tall`);
+    const wordsBox = await words.boundingBox();
+    assert.ok(wordsBox.height <= 24, 'the words stay on one line');
+    assert.ok(
+      Math.abs(wordsBox.y + wordsBox.height / 2 - (spinnerBox.y + spinnerBox.height / 2)) <= 2,
+      'the words are centred on the spinner',
+    );
     if (process.env.DKLA_ASK_SCREENSHOTS) {
       await dialog.locator('.ask-progress').screenshot({
         path: `${process.env.DKLA_ASK_SCREENSHOTS}/spinner-${viewport.width}.png`,

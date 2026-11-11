@@ -291,10 +291,10 @@
   display: block;
   flex: 1;
   min-width: 0;
-  margin: 8px 0 0;
+  margin: 0;
   overflow: hidden;
   color: #cfe7dd;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.45;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -311,9 +311,12 @@
   clip-path: inset(50%);
   white-space: nowrap;
 }
+/* Large enough to read the three opossums (56 px; 48 px on a phone). The words beside it are
+   centred on it and stay on one line. */
 #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
-  width: 44px;
-  margin: 6px 0 0;
+  width: 56px;
+  height: 56px;
+  margin: 0;
 }
 #dklaAskDialog .dottie-spinner .dottie-ring {
   transform-box: view-box;
@@ -449,7 +452,11 @@
     width: 67px;
   }
   #dklaAskDialog .ask-progress .ask-dottie[data-pose='spinner'] {
-    width: 40px;
+    width: 48px;
+    height: 48px;
+  }
+  #dklaAskDialog .ask-progress.is-working .ask-working {
+    font-size: 14px;
   }
   #dklaAskDialog .ask-dottie-peek {
     width: 115px;

@@ -111,7 +111,7 @@ const breakages = [
   [
     'Ask Dottie routing: one party word that names two cases ("Gustafson") counts as naming one',
     'lib/ask/retrieve.js',
-    () => edit('lib/ask/retrieve.js', ': unambiguous(words[0])),', ': unambiguous(words[0]) || true),'),
+    () => edit('lib/ask/retrieve.js', '(party && unambiguous(words))', 'party'),
   ],
   [
     'Ask Dottie timeouts: after the deadline it asks the Atlas again and fails with an error',
@@ -120,7 +120,7 @@ const breakages = [
       edit('api/ask.js', '(path.web || signal.aborted)', 'path.web');
       edit(
         'api/ask.js',
-        'if (timedOut(error) || error instanceof InvalidCitations) return unavailable();',
+        'if (failed(error) || error instanceof InvalidCitations) return unavailable();',
         'if (error instanceof InvalidCitations) return unavailable();',
       );
     },
@@ -144,6 +144,111 @@ const breakages = [
     'Ask Dottie spinner: real progress from the server no longer replaces the playful words',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', 'const text = steps[step?.step]?.(step);', "const text = '';"),
+  ],
+  [
+    'Ask Dottie routing: a question that names no Atlas entry is answered from the Atlas alone',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "if (!named.length && !self) return research('names no Atlas entry', false);",
+        'void self;',
+      ),
+  ],
+  [
+    'Ask Dottie routing: nothing found in the Atlas gets an empty answer instead of research',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "if (!sources.length) return research('nothing in the Atlas');",
+        "if (!sources.length) return atlas('no match');",
+      ),
+  ],
+  [
+    'Ask Dottie routing: a misspelled "overuled" no longer counts as asking about later history',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', '|over+[eu]l+\\w*|', '|overrul\\w*|'),
+  ],
+  [
+    'Ask Dottie routing: "§ 1983" and "12(b)(6)" no longer name their rule or statute',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', "return entry('cite');", 'void entry;'),
+  ],
+  [
+    'Ask Dottie routing: "filibuster" and "campaign" count as events again',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        '|resign\\\\w*|',
+        '|resign\\\\w*|filibuster\\\\w*|campaign\\\\w*|impeach\\\\w*|',
+      ),
+  ],
+  [
+    'Ask Dottie research answers keep a web-cited paragraph of the wrong kind (a case page for "what statute")',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        'const unknown = (source) => web(source) && !webCase(source) && !webStatute(source);',
+        'const unknown = web;',
+      ),
+  ],
+  [
+    'Ask Dottie misses the hedge "you might mean"',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', 'you (?:may|might|probably|could) (?:mean|want|be after)|', ''),
+  ],
+  [
+    'Ask Dottie research demands a web citation for a doctrine question too',
+    'api/ask.js',
+    () => edit('api/ask.js', 'web: path.web,', 'web: true,'),
+  ],
+  [
+    'Ask Dottie keeps paying OpenAI after the person cancels or closes the tab',
+    'api/ask.js',
+    () => edit('api/ask.js', 'if (!res.writableEnded) gone.abort();', 'void gone;'),
+  ],
+  [
+    'Ask Dottie network errors fail the question with an error instead of the honest no-answer',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        '  error instanceof SyntaxError ||\n  (error instanceof TypeError &&',
+        '  (false &&',
+      ),
+  ],
+  [
+    'Ask Dottie streaming: an answer line goes out before the citation check',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        'if (stream) line({ progress: step });',
+        "if (stream) line(step.step === 'checking' ? { answer: step } : { progress: step });",
+      ),
+  ],
+  [
+    'Ask Dottie warm-up needs the OpenAI key',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        'payload?.warm === true && Object.keys(payload).length === 1',
+        'payload?.warm === true && Object.keys(payload).length === 1 && process.env.DKLA_OPENAI_API_KEY',
+      ),
+  ],
+  [
+    'Ask Dottie spinner: back to the small 44 px spinner',
+    'src/features/ask/ask.css',
+    () => edit('src/features/ask/ask.css', 'width: 56px;\n  height: 56px;', 'width: 44px;\n  height: 44px;'),
+  ],
+  [
+    'Ask Dottie research route makes an Atlas-only draft first',
+    'api/ask.js',
+    () => edit('api/ask.js', 'if (!path.research) {', 'if (true) {'),
   ],
   [
     'case timelines: pushed below the detailed account',
