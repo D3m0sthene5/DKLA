@@ -1060,6 +1060,20 @@ test('research answers get the same check: no substitute, no Atlas-only answer o
   );
   assert.equal(mixed.json.paragraphs.length, 2);
 
+  // A hedged substitute is dropped even when it cites the web.
+  const hedgedWeb = await askWithFetch(
+    () =>
+      researched(
+        'You are probably asking about the Securities Act of 1933. [H.R.1058](' +
+          congress +
+          ')\n' +
+          pslraAnswer,
+      ),
+    { question: pslra },
+  );
+  assert.equal(hedgedWeb.json.paragraphs.length, 1);
+  assert.doesNotMatch(JSON.stringify(hedgedWeb.json), /probably asking/);
+
   // With the substitute removed and nothing from the web left, there is no answer.
   const none = await askWithFetch(
     (request, input) =>
@@ -1259,8 +1273,8 @@ test('the build’s prebuilt index matches the corpus and gives the same retriev
   const parsed = parseIndex(saved, corpusDigest(gz));
   assert.ok(parsed, 'work/build/ask-index.bin.gz was built from this corpus');
   // An index built from another corpus is ignored.
-  assert.equal(parseIndex(saved, corpusDigest(Buffer.from('another corpus'))), null);
-  assert.equal(parseIndex(Buffer.from('not an index'), corpusDigest(gz)), null);
+  assert.ok(parseIndex(saved, corpusDigest(Buffer.from('another corpus'))) === null, 'a foreign index');
+  assert.ok(parseIndex(Buffer.from('not an index'), corpusDigest(gz)) === null, 'not an index');
   const fromFile = indexCorpus(records, parsed);
   for (const [question, node] of [...atlasRoutes, ...researchRoutes.slice(0, 60)])
     assert.deepEqual(fromFile.explain(question, node), retrieve.explain(question, node), question);

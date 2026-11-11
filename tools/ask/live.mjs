@@ -72,6 +72,20 @@ const scenarios = [
     },
   },
   {
+    // The owner's question (November 2026), typos and all. Asked with progress, as the browser
+    // asks, so this also checks the relayed OpenAI stream.
+    label: 'Owner’s 1995 statute question, with progress',
+    question: 'what statute in 1995 was a vicotry for corporate itnerest that overrode a clinton veto',
+    progress: true,
+    check({ answer, search, web, steps }) {
+      assert.equal(search, 'searched');
+      assert.match(answer, /Private Securities Litigation Reform Act|PSLRA|H\.?\s?R\.?\s?1058|104-67/i);
+      assert.doesNotMatch(answer, /probably asking|did you mean/i);
+      assert.ok(web.length, 'Cite web evidence for the statute');
+      assert.ok(steps.includes('searching') && steps.includes('checking'), 'Report real progress');
+    },
+  },
+  {
     label: 'Fabricated case and reporter citation',
     question: 'What did the majority hold in Anderson v. OpenAI, 999 U.S. 999 (2025)?',
     check({ answer, search, web, atlas }) {
@@ -92,12 +106,30 @@ const scenarios = [
   },
 ];
 
-for (const { label, question, check } of scenarios) {
+// A reply with progress: one JSON object per line, the last the answer (or an error).
+async function readLines(response) {
+  const lines = (await response.text())
+    .split('\n')
+    .filter((line) => line.trim())
+    .map((line) => JSON.parse(line));
+  const last = lines.at(-1);
+  if (!last?.answer) throw Error(`Stream ended with ${JSON.stringify(last)}`);
+  return {
+    reply: last.answer,
+    steps: lines.filter((line) => line.progress).map(({ progress }) => progress.step),
+  };
+}
+
+for (const { label, question, check, progress } of scenarios) {
   try {
     const start = Date.now();
     const response = await fetch(endpoint, {
       method: 'POST',
-      headers: { origin: deployment.origin, 'content-type': 'application/json' },
+      headers: {
+        origin: deployment.origin,
+        'content-type': 'application/json',
+        ...(progress && { accept: 'application/x-ndjson' }),
+      },
       body: JSON.stringify({ question }),
       redirect: 'error',
       signal: AbortSignal.timeout(50_000),
@@ -107,7 +139,8 @@ for (const { label, question, check } of scenarios) {
       throw Error(`HTTP ${response.status} ${problem?.error ?? ''}`.trim());
     }
     assert.match(response.headers.get('cache-control') ?? '', /\bno-store\b/i);
-    const { paragraphs, sources, search } = await response.json();
+    const { reply, steps = [] } = progress ? await readLines(response) : { reply: await response.json() };
+    const { paragraphs, sources, search } = reply;
     assert.ok(Array.isArray(paragraphs));
     assert.ok(Array.isArray(sources));
     for (const { text, citations } of paragraphs) {
@@ -122,7 +155,8 @@ for (const { label, question, check } of scenarios) {
     console.log(`\n${label} (${((Date.now() - start) / 1000).toFixed(1)} s)`);
     console.log(answer || '[No supported answer]');
     for (const { title, id, url } of sources) console.log('  - ' + title + ' · ' + (url ?? id));
-    check({ answer, search, web, atlas });
+    if (progress) console.log('  progress: ' + steps.join(', '));
+    check({ answer, search, web, atlas, steps });
     console.log('PASS');
   } catch (error) {
     process.exitCode = 1;

@@ -104,6 +104,48 @@ const breakages = [
       ),
   ],
   [
+    'Ask Dottie research answers keep a substitute ("you are probably asking about") paragraph',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'if (substitute(prose)) continue;', 'void substitute;'),
+  ],
+  [
+    'Ask Dottie routing: one party word that names two cases ("Gustafson") counts as naming one',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', ': unambiguous(words[0])),', ': unambiguous(words[0]) || true),'),
+  ],
+  [
+    'Ask Dottie timeouts: after the deadline it asks the Atlas again and fails with an error',
+    'api/ask.js',
+    () => {
+      edit('api/ask.js', '(path.web || signal.aborted)', 'path.web');
+      edit(
+        'api/ask.js',
+        'if (timedOut(error) || error instanceof InvalidCitations) return unavailable();',
+        'if (error instanceof InvalidCitations) return unavailable();',
+      );
+    },
+  ],
+  [
+    'Ask Dottie warm-up is treated as a question',
+    'api/ask.js',
+    () => edit('api/ask.js', 'payload?.warm === true &&', 'payload?.warm === 1 &&'),
+  ],
+  [
+    'Ask Dottie uses a retrieval index built from another corpus',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', 'if (header.corpus !== corpus) return null;', 'void corpus;'),
+  ],
+  [
+    'Ask Dottie spinner: the old research poses come back instead of the spinner',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', "if (state === 'research' && dottie.spinner) {", 'if (false) {'),
+  ],
+  [
+    'Ask Dottie spinner: real progress from the server no longer replaces the playful words',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', 'const text = steps[step?.step]?.(step);', "const text = '';"),
+  ],
+  [
     'case timelines: pushed below the detailed account',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),
