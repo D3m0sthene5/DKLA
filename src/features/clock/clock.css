@@ -28,8 +28,9 @@
   font-variant-numeric: tabular-nums;
   user-select: none;
 }
-/* Only where the bar has room beside the search box. */
-@media (min-width: 1300px) {
+/* Only where the bar has room beside the search box: from 1360 px the search
+   box keeps about 245 px (at 1300 it was squeezed to 186 px, input 108 px). */
+@media (min-width: 1360px) {
   .study-header .ny-clock {
     display: flex;
   }

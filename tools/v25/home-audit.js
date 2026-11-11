@@ -53,7 +53,10 @@ export default function auditNativeHome({
       e,
     ]),
   );
-  const textNodes = [...canvas.querySelectorAll('text')].filter(visible);
+  // The splash text (src/features/splash) is laid over the map at the mark's
+  // corner on purpose; it is not map text, wherever it is drawn.
+  const SPLASH = '.dkla-splash, [data-dkla-splash]';
+  const textNodes = [...canvas.querySelectorAll('text')].filter((e) => !e.closest(SPLASH) && visible(e));
   for (const e of textNodes) {
     const b = box(e),
       ctm = typeof e.getScreenCTM === 'function' ? e.getScreenCTM() : null,
@@ -155,13 +158,18 @@ export default function auditNativeHome({
         right = Math.max(...upper.map((c) => c.box.right)),
         offset = mark.x + mark.w / 2 - (left + right) / 2;
       if (Math.abs(offset) > (right - left) * 0.03) issues.push({ type: 'mark-off-centre', offset });
-      // Room is kept at the mark's upper-right corner for text attached there.
+      // Room is kept at the mark's upper-right corner for the splash text
+      // (src/features/splash), a tilted line that starts on the corner and
+      // rises to the right: about twice the drawn mark's width out to the
+      // right and 0.6 of its height above it. The splash itself is the one
+      // thing allowed there.
       const corner = {
         x: mark.right - mark.w * 0.25,
-        y: mark.y - mark.h * 0.4,
-        right: mark.right + mark.w * 0.75,
+        y: mark.y - mark.h * 0.6,
+        right: mark.right + mark.w * 2,
         bottom: mark.y + mark.h * 0.25,
       };
+      // (Its text never enters `labels`: see SPLASH above.)
       for (const c of components)
         if (c.id !== '.dkla-map-monogram' && intersects(c.box, corner))
           issues.push({ type: 'mark-corner-crowded', id: c.id });

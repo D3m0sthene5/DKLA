@@ -217,7 +217,17 @@ const breakages = [
   [
     'Home layout: the DKLA mark back above the courses instead of between them and the lower blocks',
     'src/features/r19/r20.js',
-    () => edit('src/features/r19/r20.js', 'wide: { x: -3100, y: 10460,', 'wide: { x: -3100, y: -5300,'),
+    () => edit('src/features/r19/r20.js', 'wide: { x: -3100, y: 10730,', 'wide: { x: -3100, y: -5300,'),
+  ],
+  [
+    "Home layout: the Notes tile back beside the DKLA mark's upper-right corner, where the splash text goes",
+    'src/features/v25/geography.js',
+    () =>
+      edit(
+        'src/features/v25/geography.js',
+        "'workbench-region': [20660, 9321]",
+        "'workbench-region': [4970, 9650]",
+      ),
   ],
   [
     'Home layout: the Civil Procedure heading reads "Civil Procedure" again instead of "Civ Pro"',

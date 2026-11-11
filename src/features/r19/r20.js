@@ -576,8 +576,11 @@
       'Contracts': [-7370, 700],
       'Civil Procedure': [-23310, 700],
       [LRS]: [8370, 700],
-      // v3.0: Notes stands at the right end of the Contracts row, clear of the centre mark's upper-right corner.
-      'workbench-region': [4970, 9650],
+      // v3.0: Notes stands at the bottom-right of the LRS row, 300 under the right column (20660..23060, bottom 9021),
+      // across the row from LRS's "Supporting cases" tile and far from the centre mark's upper-right corner, where
+      // the splash text sits. (Right of that tile would collide with it: the tile is drawn wider on smaller windows,
+      // out to x 14520 at 1000 x 700.)
+      'workbench-region': [20660, 9321],
       'dictionary-region': [15500, 9650],
     },
   };
@@ -586,11 +589,15 @@
      drawn (fixMark below) and LOWER is where SCOTUS History, and with it Rules & authorities, starts. The Home
      fit (here and in v25/home-fit.js, which also keeps the course names in frame) reads the mark through
      window.DKLAMapMark. Nothing here is saved in the graph, so saved copies get it too. */
+  // The drawn letters fill only y+471 .. y+3597 of the mark's 4300-unit box. On a wide window they are centred
+  // between the bottom of Contracts' "Supporting cases" tile (10332) and LOWER.wide, about 870 units clear on each
+  // side, and the whole box (y + h = 15030) stays above the lower band. LOWER.wide cannot go much lower: 1366 x 768
+  // fits Home by its height, and from about 15400 its tile text drops below the recorded sizes.
   const MARK = {
-      wide: { x: -3100, y: 10460, w: 6200, h: 4300 },
+      wide: { x: -3100, y: 10730, w: 6200, h: 4300 },
       tall: { x: -3100, y: 10300, w: 6200, h: 4300 },
     },
-    LOWER = { wide: 14700, tall: 15400 };
+    LOWER = { wide: 15200, tall: 15400 };
   window.DKLAMapMark = {
     box: (mode = arranged || (wideScreen() ? 'wide' : 'tall')) => ({ ...MARK[mode] }),
   };
