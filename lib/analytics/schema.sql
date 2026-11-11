@@ -74,7 +74,8 @@ CREATE TABLE IF NOT EXISTS dkla_ask_answers (
  answer jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(node, question_key)
 );
 ALTER TABLE dkla_ask_answers ADD COLUMN IF NOT EXISTS version text NOT NULL DEFAULT '';
-ALTER TABLE dkla_ask_answers DROP COLUMN IF EXISTS signature;
-ALTER TABLE dkla_ask_answers DROP COLUMN IF EXISTS content;
-DROP INDEX IF EXISTS dkla_ask_answers_near;
+ALTER TABLE dkla_ask_answers ADD COLUMN IF NOT EXISTS signature text;
+ALTER TABLE dkla_ask_answers ADD COLUMN IF NOT EXISTS content jsonb;
+ALTER TABLE dkla_ask_answers ALTER COLUMN signature DROP NOT NULL;
+ALTER TABLE dkla_ask_answers ALTER COLUMN content DROP NOT NULL;
 CREATE INDEX IF NOT EXISTS dkla_ask_answers_created ON dkla_ask_answers(created_at);

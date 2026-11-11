@@ -539,6 +539,26 @@ test('the answer library matches only the exact normalised question', () => {
     'Is Iqbal still-good-law?',
     'Is Roe  still   the law?',
     'Is Roe still the law in 2026?',
+    // Phrasings the second review found (still, yet, reversed, struck down, decades...).
+    'Was Roe reversed?',
+    'Was Roe v. Wade struck down?',
+    'Do courts still follow Chevron?',
+    'Is Chevron deference no longer followed?',
+    'Has the Court decided Loper Bright yet?',
+    'Was Chevron abandoned?',
+    'Did the Supreme Court abolish Chevron?',
+    'Does Chevron remain good precedent?',
+    'Is Chevron dead?',
+    'What happened to Chevron deference after Loper Bright?',
+    'What is the modern rule on mailbox acceptance?',
+    'What did the Court do in the 1980s?',
+    'What changed in FY2024?',
+    'What did Magna Carta say in 1215?',
+    // Invisible characters: the key would ignore them but the model would read them.
+    'What are the elements of a valid contract?\u{E0053}\u{E0061}\u{E0079}',
+    'What are the elements of a valid contract?️',
+    'What are the ele­ments of a valid contract?',
+    'What are the elements of a valid contract?​',
   ])
     assert.equal(storable(question), false, question);
   for (const question of [
@@ -600,13 +620,14 @@ test('first questions are answered from the shared library without calling OpenA
     assert.equal(first.cached, undefined);
     assert.equal(first.paragraphs[0].text, reply);
     assert.equal(calls(), 1);
-    // The library keeps no visitor identity, only the question and answer.
+    // The library keeps no visitor identity, only the question and answer. signature and content are
+    // empty legacy columns kept (nullable, unused) so an older deploy sharing the database still starts.
     const columns = await query(
       "SELECT column_name FROM information_schema.columns WHERE table_name='dkla_ask_answers' ORDER BY ordinal_position",
     );
     assert.deepEqual(
       columns.map((c) => c.column_name),
-      ['node', 'question_key', 'version', 'answer', 'created_at'],
+      ['node', 'question_key', 'version', 'answer', 'created_at', 'signature', 'content'],
     );
     // Expired rows are found by age through an index, not a scan of the table.
     const indexes = await query("SELECT indexdef FROM pg_indexes WHERE tablename='dkla_ask_answers'");
@@ -799,7 +820,7 @@ test('a library table from before answer versions is upgraded and its old answer
     );
     assert.deepEqual(
       columns.map((c) => c.column_name),
-      ['node', 'question_key', 'answer', 'created_at', 'version'],
+      ['node', 'question_key', 'signature', 'content', 'answer', 'created_at', 'version'],
     );
     assert.equal(await findAnswer('What is minimum contacts?'), null);
     const fresh = { paragraphs: [{ text: 'A new answer.', citations: [1] }], sources: [{ id: 'shoe' }] };
