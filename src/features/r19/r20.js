@@ -576,9 +576,23 @@
       'Contracts': [-7370, 700],
       'Civil Procedure': [-23310, 700],
       [LRS]: [8370, 700],
-      'workbench-region': [0, 9650],
+      // v3.0: Notes stands at the right end of the Contracts row, clear of the centre mark's upper-right corner.
+      'workbench-region': [4970, 9650],
       'dictionary-region': [15500, 9650],
     },
+  };
+  /* v3.0 "heliocentric" Home: the three courses form the top band, the DKLA centre mark sits alone in the
+     middle, and Rules & authorities and SCOTUS History form the bottom band. MARK is where the centre mark is
+     drawn (fixMark below) and LOWER is where SCOTUS History, and with it Rules & authorities, starts. The Home
+     fit (here and in v25/home-fit.js, which also keeps the course names in frame) reads the mark through
+     window.DKLAMapMark. Nothing here is saved in the graph, so saved copies get it too. */
+  const MARK = {
+      wide: { x: -3100, y: 10460, w: 6200, h: 4300 },
+      tall: { x: -3100, y: 10300, w: 6200, h: 4300 },
+    },
+    LOWER = { wide: 14700, tall: 15400 };
+  window.DKLAMapMark = {
+    box: (mode = arranged || (wideScreen() ? 'wide' : 'tall')) => ({ ...MARK[mode] }),
   };
   let arranged = null;
   function arrange(mode) {
@@ -630,7 +644,7 @@
     }
     // SCOTUS History stands clear below the courses and their supporting-cases tiles
     if (window.DKLAScotusBox) {
-      const p = mode === 'wide' ? { x: 200, y: 11200 } : { x: -11400, y: 11200, h: 4200 };
+      const p = mode === 'wide' ? { x: 200, y: LOWER.wide } : { x: -11400, y: LOWER.tall, h: 4200 };
       for (const [key, value] of Object.entries(p))
         if (window.DKLAScotusBox[key] !== value) {
           window.DKLAScotusBox[key] = value;
@@ -697,9 +711,9 @@
     scopeBox = function () {
       const b = box0.apply(this, arguments);
       try {
-        // r20.10: the three-course view also holds the whole centre mark (drawn by fixMark below, 4,300 units
-        // square from y -5,300), which sits above the course names and had been cut off by the header.
-        if (S.scope === 'Atlas') return bounds([b, { x: -2150, y: -5450, w: 4300, h: 4450 }]);
+        // r20.10: the three-course view also holds the whole centre mark (drawn by fixMark below). v3.0: the
+        // mark sits between the courses and the lower band.
+        if (S.scope === 'Atlas') return bounds([b, window.DKLAMapMark.box()]);
         if (arranged !== 'wide') return b;
         const M = mapData(),
           block = (M.courseBlocks || {})[S.scope];
@@ -1091,10 +1105,15 @@
   function fixMark() {
     const mark = document.querySelector('#geoCanvas .dkla-map-monogram');
     if (!mark) return;
-    mark.setAttribute('x', '-3100');
-    mark.setAttribute('y', '-5300');
-    mark.setAttribute('width', '6200');
-    mark.setAttribute('height', '4300');
+    // v3.0: the mark is the calm centre of Home, between the courses and the lower band (see DKLAMapMark).
+    const m = window.DKLAMapMark?.box() || { x: -3100, y: -5300, w: 6200, h: 4300 };
+    for (const [name, value] of [
+      ['x', m.x],
+      ['y', m.y],
+      ['width', m.w],
+      ['height', m.h],
+    ])
+      if (mark.getAttribute(name) !== String(value)) mark.setAttribute(name, String(value));
     shapeMark(mark, 'dklaDclipMap');
     mark.dataset.r20 = '1';
   }

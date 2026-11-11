@@ -45,7 +45,13 @@ for (const [width, height] of sizes)
       .toBe(expectedRegions.length);
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(700); // Native 280ms entrances and 300ms label fades.
-    const contract = { expectedRegions, equalLowerHeights: true, allowZoomLabels: height < 500 };
+    // v3.0: courses on top, the DKLA mark alone in the middle, the two lower blocks below.
+    const contract = {
+      expectedRegions,
+      equalLowerHeights: true,
+      heliocentric: true,
+      allowZoomLabels: height < 500,
+    };
     let first = await page.evaluate(auditNativeHome, {
       ...contract,
       baselineFonts: baseline.viewports[`${width}x${height}`] || {},

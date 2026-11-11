@@ -6,6 +6,7 @@ export default function auditNativeHome({
   tolerance = 1.5,
   allowZoomLabels = false,
   equalLowerHeights = false,
+  heliocentric = false,
 } = {}) {
   const canvas = document.getElementById('geoCanvas'),
     issues = [],
@@ -137,6 +138,58 @@ export default function auditNativeHome({
         Math.abs(history.box.y - authority.box.y) > tolerance)
     )
       issues.push({ type: 'unequal-lower-blocks', history: history.box, authority: authority.box });
+  }
+  if (heliocentric) {
+    // v3.0 "heliocentric" Home: the three courses on top, the DKLA mark alone
+    // in the middle, Rules & authorities and SCOTUS History below it.
+    const mark = components.find((c) => c.id === '.dkla-map-monogram')?.box,
+      lower = components.filter((c) => ['.sh-block-bg', '.authority-map-entrance > rect'].includes(c.id));
+    // The dictionary is a spine inside the authorities frame, so it belongs to the lower band.
+    const upper = components.filter((c) => !c.id.startsWith('.') && c.id !== 'dictionary-region');
+    if (mark && upper.length && lower.length) {
+      for (const c of upper)
+        if (c.box.bottom > mark.y + tolerance) issues.push({ type: 'course-tile-not-above-mark', id: c.id });
+      for (const c of lower)
+        if (c.box.y < mark.bottom - tolerance) issues.push({ type: 'lower-block-not-below-mark', id: c.id });
+      const left = Math.min(...upper.map((c) => c.box.x)),
+        right = Math.max(...upper.map((c) => c.box.right)),
+        offset = mark.x + mark.w / 2 - (left + right) / 2;
+      if (Math.abs(offset) > (right - left) * 0.03) issues.push({ type: 'mark-off-centre', offset });
+      // Room is kept at the mark's upper-right corner for text attached there.
+      const corner = {
+        x: mark.right - mark.w * 0.25,
+        y: mark.y - mark.h * 0.4,
+        right: mark.right + mark.w * 0.75,
+        bottom: mark.y + mark.h * 0.25,
+      };
+      for (const c of components)
+        if (c.id !== '.dkla-map-monogram' && intersects(c.box, corner))
+          issues.push({ type: 'mark-corner-crowded', id: c.id });
+      for (const l of labels)
+        if (intersects(l.box, corner)) issues.push({ type: 'mark-corner-crowded', text: l.text });
+    } else issues.push({ type: 'heliocentric-sections-missing' });
+    // Home names Civil Procedure "Civ Pro"; the three names stand on one line.
+    const names = labels.filter((l) => l.class.split(/\s+/).includes('course-label'));
+    for (const l of names)
+      if (/Civil Procedure/.test(l.text)) issues.push({ type: 'long-course-name', text: l.text });
+    // Dottie hangs from the Ask Dottie button over the top of the map; she
+    // must not hang over a course name.
+    const dottie = document.querySelector('.study-header .ask-bar-dottie');
+    if (dottie && dottie.getClientRects().length && getComputedStyle(dottie).display !== 'none')
+      for (const l of names)
+        if (intersects(l.box, box(dottie))) issues.push({ type: 'course-name-under-dottie', text: l.text });
+    // With the courses on top, no subject tile may sit under the Atlas breadcrumb.
+    const nav = document.querySelector('.map-nav');
+    if (nav && nav.getClientRects().length)
+      for (const c of upper)
+        if (intersects(c.box, box(nav))) issues.push({ type: 'tile-under-breadcrumb', id: c.id });
+    if (!allowZoomLabels) {
+      const want = ['Civ Pro', 'Contracts', 'LRS'],
+        have = names.map((l) => l.text.trim()).sort();
+      if (JSON.stringify(have) !== JSON.stringify(want)) issues.push({ type: 'course-names', have });
+      else if (Math.max(...names.map((l) => l.box.bottom)) - Math.min(...names.map((l) => l.box.bottom)) > 2)
+        issues.push({ type: 'course-names-not-aligned' });
+    }
   }
   const featureBoxes = components.filter((c) => c.id.startsWith('.'));
   for (let i = 0; i < featureBoxes.length; i++)

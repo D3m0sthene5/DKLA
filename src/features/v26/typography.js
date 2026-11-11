@@ -486,19 +486,19 @@
     if (!neutral) return;
     // Only the requested home presentation strings change; IDs and course data
     // retain their full original names, including in links and saved graphs.
-    for (const heading of canvas.querySelectorAll(
-      'text[data-study-scope="Legislation and the Regulatory State"]',
-    )) {
-      if (!heading.classList.contains('course-label')) continue;
-      const y = Number(heading.getAttribute('y')),
-        rows = heading.querySelectorAll('tspan');
-      if (rows.length > 1)
-        heading.setAttribute(
-          'y',
-          y + ((rows.length - 1) * Number(heading.getAttribute('font-size')) * 1.23) / 2,
-        );
-      heading.textContent = 'LRS';
-    }
+    // v3.0: the Civil Procedure heading reads "Civ Pro", and LRS stands on the
+    // same line as the other two course names.
+    for (const [course, short] of Object.entries(SHORT))
+      for (const heading of canvas.querySelectorAll(`text[data-study-scope="${course}"]`)) {
+        if (!heading.classList.contains('course-label')) continue;
+        const y = Number(heading.getAttribute('y')),
+          rows = heading.querySelectorAll('tspan');
+        if (rows.length > 1)
+          heading.setAttribute('y', y + (rows.length - 1) * Number(heading.getAttribute('font-size')) * 1.23);
+        heading.textContent = short;
+        // Screen readers still hear the course's full name.
+        heading.setAttribute('aria-label', course);
+      }
     for (const group of canvas.querySelectorAll('.r19-tile')) {
       const r = group.querySelector('rect'),
         label = group.querySelector('text');
@@ -512,6 +512,9 @@
       label.style.opacity = '1';
     }
   }
+  // v3.0: the short Home names (set in v25/home-fit.js, which also has the
+  // label engine draw them); this keeps the text right if a row slips through.
+  const SHORT = window.DKLAHomeFit?.shortNames || {};
   function install() {
     if (!window.DKLAHomeFit?.ready || !window.SCOTUSHistory?.data || typeof draw !== 'function') {
       setTimeout(install, 80);
