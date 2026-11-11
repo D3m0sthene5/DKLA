@@ -25,6 +25,8 @@
       window.DKLAHomeFit?.ready &&
       window.DKLANativeHome?.ready &&
       release?.textContent === window.DKLABriefs?.data.version &&
+      // Map labels are fitted to the embedded fonts; reveal once they are in.
+      window.DKLATypography?.fontsReady !== false &&
       typeof draw === 'function'
     );
   }

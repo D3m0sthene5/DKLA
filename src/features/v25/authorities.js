@@ -960,7 +960,7 @@
   function widthOf(value, fs, weight = 450, cls = '') {
     if (fontContext) {
       const serif = cls === 'authority-preamble-excerpt';
-      fontContext.font = `${serif ? 'italic ' : ''}${weight} ${fs}px ${serif ? 'Georgia, Cambria, serif' : cls === 'authority-preview-code' ? 'Consolas, monospace' : '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'}`;
+      fontContext.font = `${serif ? 'italic ' : ''}${weight} ${fs}px ${serif ? 'Georgia, Cambria, serif' : cls === 'authority-preview-code' ? 'Consolas, monospace' : '"DKLA Inter", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",Roboto, Helvetica, Arial, sans-serif'}`;
       return fontContext.measureText(value).width;
     }
     return typeof measure === 'function' ? measure(value, fs, weight, cls) : String(value).length * fs * 0.54;

@@ -1,6 +1,6 @@
-/* v2.6 version label only; embedded font lives in release-font.css. */
+/* v2.6 version label only; embedded fonts live in release-font.css. */
 #atlasHome .dkla-release {
-  font-family: 'DKLA Orbitron', 'Segoe UI', sans-serif;
+  font-family: var(--dkla-display);
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.035em;

@@ -1,9 +1,10 @@
 /* v2.6 typography: a restrained technical interface and comfortable reading.
-   Orbitron is embedded by release-font.css from the licensed asset;
-   the interface and reading text use system fonts. */
+   The owner's option F "Readable tech" (11 November 2026): Exo 2 for titles and
+   display, Inter for labels, interface and reading text. Both are embedded by
+   release-font.css from the licensed assets in tools/v26/assets. */
 :root {
-  --dkla-interface: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-  --dkla-display: 'DKLA Orbitron', 'Segoe UI', Arial, sans-serif;
+  --dkla-interface: 'DKLA Inter', Inter, 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  --dkla-display: 'DKLA Exo 2', 'Exo 2', 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
   --dkla-reading: var(--dkla-interface);
   --r16-sans: var(--dkla-interface);
 }

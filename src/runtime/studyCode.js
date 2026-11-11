@@ -753,8 +753,9 @@ function lighten(hex, k) {
 // [6] the text tint (L .92). A subject tile is its course hue at the shade its step picks (1→B, 2→A, 3→C, repeating; no step → B), so
 // neighbours differ in lightness and never in hue. The study workbench is a grey-blue, the dictionary a muted violet. r.color from the
 // data is overwritten with these values on load (applyPalette), so the code outside this file that reads r.color agrees with the map.
+// November 2026: map text renders in the embedded Inter (--dkla-interface in v26/typography.css), so measure with it too.
 const R11_FONT =
-  '-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif';
+  '"DKLA Inter",Inter,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif';
 const R11_FAMILY = { sans: R11_FONT, serif: R11_FONT };
 const COURSE_SCALE = {
   'Contracts': ['#402712', '#61370d', '#834600', '#9b5400', '#af6100', '#ee9138', '#fedec4'],

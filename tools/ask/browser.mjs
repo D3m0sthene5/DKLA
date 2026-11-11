@@ -147,8 +147,21 @@ try {
     // Dottie hangs by her tail from the bar's bottom edge, below the button, not inside it.
     const hangBox = await bar.locator('.ask-bar-dottie').boundingBox();
     const edge = headerBox.y + headerBox.height;
-    assert.ok(hangBox.y < edge && hangBox.y > edge - 12, 'her tail wraps the bottom edge of the bar');
+    // Her tail loop is drawn 5 to 11px below her top, so her top is at most 14px above the edge.
+    assert.ok(hangBox.y < edge - 4 && hangBox.y > edge - 14, 'her tail wraps the bottom edge of the bar');
     assert.ok(hangBox.y + hangBox.height > edge + 30, 'she dangles over the page');
+    // November 2026: she is drawn 50px wide (was 29px), and still covers nothing else in the bar.
+    assert.ok(Math.abs(hangBox.width - 50) < 1.5, `Dottie is 50px wide (${hangBox.width})`);
+    for (const other of ['.study-search', '#search', '#saveBtn', '#moreBtn']) {
+      const box = await page.locator(other).first().boundingBox();
+      if (!box) continue;
+      const overlap =
+        hangBox.x < box.x + box.width &&
+        box.x < hangBox.x + hangBox.width &&
+        hangBox.y < box.y + box.height &&
+        box.y < hangBox.y + hangBox.height;
+      assert.ok(!overlap, `Dottie does not cover ${other}`);
+    }
     await bar.click();
     await expect(page.getByRole('dialog', { name: 'Ask Dottie' })).toBeVisible();
     await expectOnlyDottie('idle');
