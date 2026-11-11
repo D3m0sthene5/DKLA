@@ -10,7 +10,8 @@
  *
  * It shows only on the Home map with the logo on screen, large enough and
  * not covered (a reading panel, Study, SCOTUS History or a dialog hides it),
- * and only where it touches no tile, course name or control. Decorative:
+ * and only where it touches no tile, course name or control (drawn a little
+ * smaller, down to 12 px, 11 on a phone, where that clears one). Decorative:
  * hidden from screen readers. Reduced motion: no pulse, no pop. */
 (() => {
   'use strict';
@@ -24,6 +25,9 @@
   const FOOTPRINT = 13; // longest line, in ems of the base size; longer lines are drawn smaller
   const ANCHOR = 0.08; // the share of the line that lies over the logo's corner
   const SHADOW = 0.12; // the hard shadow's reach, in ems (splash.css)
+  const along = 0.5 - ANCHOR; // from the anchor to the line's centre, in line lengths
+  const LEAST = 12, // px: the smallest size it is drawn at on a desktop, to clear a tile; below that it hides
+    LEAST_PHONE = 11;
   const MIN_LOGO = 24; // px: a smaller logo is too far away to carry a splash
   const CHROME =
     '.study-header, .map-nav, .study-zoom, #saveStatus, #mapHint, #mapWelcome, #inspector, .ask-bar-dottie';
@@ -78,6 +82,7 @@
     placed = '', // where the splash was last put; nothing is written while it holds
     clear = 'unchecked', // what the last placement touches ('' for nothing)
     checked = false, // `clear` belongs to the current placement
+    cleared = { largest: 0, size: 0 }, // the size the last check found clear, for that largest size
     lastCheck = 0,
     frame = 0,
     later = 0;
@@ -209,29 +214,35 @@
     const sx = logo.right - logo.width * 0.04,
       sy = logo.top + logo.height * 0.2;
     // Every line fits the same footprint, and the room above and to the right of the logo.
-    const along = 0.5 - ANCHOR,
-      sin = Math.abs(SIN),
+    const sin = Math.abs(SIN),
       up = along * perEm * sin + (PULSE * (perEm * sin + perH * COS)) / 2 + SHADOW,
       out = along * perEm * COS + (PULSE * (perEm * COS + perH * sin)) / 2 + SHADOW,
       room = Math.min((sy - area.top - 6) / up, (area.right - 6 - sx) / out);
     const fitted = Math.min(base, (base * FOOTPRINT) / perEm, room);
-    const size = Math.max(base * 0.6, Math.floor(fitted * 4) / 4);
-    const w = perEm * size,
-      h = perH * size;
-    const cx = sx + along * w * COS,
-      cy = sy + along * w * SIN;
-    const where = `${cx.toFixed(1)},${cy.toFixed(1)},${size.toFixed(2)},${area.left},${area.top},${area.width},${area.height}`;
-    if (where !== placed) {
+    const largest = Math.max(base * 0.6, Math.floor(fitted * 4) / 4);
+    // Where a tile or control is in the way at the largest size, a smaller size that clears it
+    // is used, down to `least`; below that the splash hides.
+    const least = Math.min(largest, phone ? LEAST_PHONE : LEAST);
+    const at = (size) => {
+      const w = perEm * size,
+        h = perH * size;
+      return { size, w, h, cx: sx + along * w * COS, cy: sy + along * w * SIN };
+    };
+    const put = (g) => {
+      const where = `${g.cx.toFixed(1)},${g.cy.toFixed(1)},${g.size.toFixed(2)},${area.left},${area.top},${area.width},${area.height}`;
+      if (where === placed) return;
       placed = where;
-      if (size !== font) {
-        font = size;
-        text.style.fontSize = size.toFixed(2) + 'px';
+      if (g.size !== font) {
+        font = g.size;
+        text.style.fontSize = g.size.toFixed(2) + 'px';
       }
-      const x = cx - area.left - w / 2,
-        y = cy - area.top - h / 2;
+      const x = g.cx - area.left - g.w / 2,
+        y = g.cy - area.top - g.h / 2;
       root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${TILT}deg)`;
       checked = false;
-    }
+    };
+    const step = (size) => Math.max(least, Math.floor(size * 0.9 * 4) / 4);
+    put(at(cleared.largest === largest ? cleared.size : largest));
     const now = performance.now();
     // Checking every tile is the costly part: at most every 120 ms while the map moves and
     // once more after it stops, and every half second in case something else moved (the
@@ -241,9 +252,19 @@
         if (!later) later = setTimeout(() => ((later = 0), schedule()), 130);
       } else {
         lastCheck = now;
+        let size = largest,
+          why;
+        for (;;) {
+          const g = at(size),
+            pad = SHADOW * size;
+          why = blocker(g.cx, g.cy, (g.w * PULSE) / 2 + pad, (g.h * PULSE) / 2 + pad, area);
+          if (!why || size <= least) break;
+          size = step(size);
+        }
+        cleared = { largest, size: why ? largest : size };
+        put(at(cleared.size));
         checked = true;
-        const pad = SHADOW * size;
-        clear = blocker(cx, cy, (w * PULSE) / 2 + pad, (h * PULSE) / 2 + pad, area);
+        clear = why;
       }
     }
     return clear;
