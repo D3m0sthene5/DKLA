@@ -1,22 +1,33 @@
 import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
-import { body, sameOrigin, send } from '../lib/analytics/security.js';
+import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
-import { indexCorpus } from '../lib/ask/retrieve.js';
+import { corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
 import { answerWithSearch, route } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
+// The retrieval index the build computed from that corpus (tools/ask/build.mjs). Without it, or
+// if it was built from another corpus, the index is built here, which takes about 1.5 s.
+const prebuilt = new URL('../work/build/ask-index.bin.gz', import.meta.url);
 let index;
-async function retrieve(question, node) {
-  index ??= readFile(corpus)
-    .then((bytes) => JSON.parse(gunzipSync(bytes)))
-    .then(indexCorpus)
+function load() {
+  index ??= Promise.all([readFile(corpus), readFile(prebuilt).catch(() => null)])
+    .then(([bytes, saved]) => {
+      let ready = null;
+      try {
+        ready = saved && parseIndex(gunzipSync(saved), corpusDigest(bytes));
+      } catch {}
+      return indexCorpus(JSON.parse(gunzipSync(bytes)), ready ?? undefined);
+    })
     .catch((error) => {
       index = undefined;
       throw error;
     });
+  return index;
+}
+async function retrieve(question, node) {
   // { sources, signals }: the Atlas excerpts, and what routing needs to know about the match.
-  return (await index).explain(question, node);
+  return (await load()).explain(question, node);
 }
 
 function validHistory(history) {
@@ -38,20 +49,63 @@ function validHistory(history) {
   );
 }
 
+const timedOut = (error) => error?.name === 'TimeoutError' || error?.name === 'AbortError';
+
+// The browser can ask for progress (Accept: application/x-ndjson). The reply is then one JSON
+// object per line: { progress: { step, ... } } as the work goes on, and last either
+// { answer: <the JSON reply> } or { status, error }. The answer line is only written after the
+// citations have been checked, exactly as in the JSON reply. Without that header the reply is
+// the single JSON object it always was. Problems found before any work starts (a bad request,
+// no key) keep their HTTP status in both forms.
+function replies(req, res) {
+  const stream = /\bapplication\/x-ndjson\b/i.test(String(req.headers.accept ?? ''));
+  let open = false;
+  const line = (data) => {
+    if (!open) {
+      open = true;
+      noStore(res);
+      res.statusCode = 200;
+      res.setHeader('content-type', 'application/x-ndjson; charset=utf-8');
+      res.setHeader('x-accel-buffering', 'no');
+    }
+    res.write(JSON.stringify(data) + '\n');
+  };
+  return {
+    stream,
+    progress(step) {
+      if (stream) line({ progress: step });
+    },
+    send(status, data) {
+      if (!stream || !open) return send(res, status, data);
+      line(status === 200 ? { answer: data } : { status, error: data.error });
+      res.end();
+    },
+  };
+}
+
 export function makeAskHandler(generate = generateAnswer, research = answerWithSearch) {
   return async function ask(req, res) {
     if (req.method !== 'POST') {
       res.setHeader('allow', 'POST');
       return send(res, 405, { error: 'method-not-allowed' });
     }
+    const reply = replies(req, res);
     let search = 'not-needed';
     try {
       sameOrigin(req);
       if (req.headers['content-type']?.split(';')[0].trim().toLowerCase() !== 'application/json')
         return send(res, 415, { error: 'unsupported-content-type' });
+      const payload = await body(req, 12288);
+      // A warm-up, sent when the Ask dialog opens or the person starts typing: it loads the
+      // corpus into this server instance so the question that follows does not wait for it.
+      // It is not a question: nothing is sent to OpenAI and nothing is recorded.
+      if (payload?.warm === true && Object.keys(payload).length === 1) {
+        await load().catch(() => {});
+        return send(res, 200, { warm: true });
+      }
       // history: up to three earlier turns of this conversation, sent by the
       // browser so a follow-up can say "that case". Nothing is stored.
-      const { question, node, history } = await body(req, 12288);
+      const { question, node, history } = payload;
       if (
         typeof question !== 'string' ||
         !question.trim() ||
@@ -72,27 +126,37 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
       // A follow-up is looked up together with the question before it.
       const lookup = earlier?.length ? earlier.at(-1).question + ' ' + query : query;
       const { sources: atlas, signals } = await retrieve(lookup, node);
-      // Time budget, kept under the 30 s function limit. Loading the corpus on a cold start takes
-      // about 2 s. Then either an Atlas answer (8 s) and research (18 s), reusing the Atlas answer
-      // if research fails, or research (18 s) and an Atlas answer after a failure (8 s): 26 s at
-      // most, and every call also stops at this shared 26 s deadline. Worst case about 28 s.
+      const path = route(lookup, atlas, { node, signals });
+      reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
+      // Time budget, kept under the 30 s target (vercel.json allows 45 s). Loading the corpus on a
+      // cold start takes about 0.3 s with the prebuilt index. Then one shared 26 s deadline:
+      //   Atlas route:    an Atlas answer (8 s), then research only if it is not exact (18 s).
+      //   Research route: research (18 s); after a failure, an Atlas answer (8 s) only when the
+      //                   Atlas could answer the question (route web: false) and time remains.
+      // Research is never started alongside an Atlas answer: see the README's cost note.
       const signal = AbortSignal.timeout(26_000);
+      const unavailable = () => reply.send(200, { paragraphs: [], sources: [], search: 'unavailable' });
+      const atlasAnswer = (search) =>
+        generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
       let draft;
-      // Dottie researches unless the Atlas clearly covers the question (lib/ask/web.js route).
-      if (!route(lookup, atlas, { node, signals }).research) {
-        if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
+      if (!path.research) {
+        if (!atlas.length) return reply.send(200, { paragraphs: [], sources: [], search });
         try {
-          const output = await generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
-          if (!output.needsWeb) return send(res, 200, { ...citeAnswer(output, atlas), search });
+          const output = await atlasAnswer(search);
+          if (!output.needsWeb) {
+            reply.progress({ step: 'checking' });
+            return reply.send(200, { ...citeAnswer(output, atlas), search });
+          }
           draft = output;
         } catch (error) {
           // A slow or malformed Atlas answer goes on to research instead of failing the question.
-          if (!(error instanceof InvalidCitations) && error.name !== 'TimeoutError') throw error;
+          if (!(error instanceof InvalidCitations) && !timedOut(error)) throw error;
         }
       }
 
       try {
         const context = atlas.find((source) => source.type === 'node' && source.id === node)?.title;
+        reply.progress({ step: 'searching' });
         const answer = await research({
           apiKey,
           question: query,
@@ -100,37 +164,44 @@ export function makeAskHandler(generate = generateAnswer, research = answerWithS
           context,
           sources: atlas.slice(0, 6),
           signal,
+          // Only a browser that shows progress gets OpenAI's stream relayed.
+          progress: reply.stream ? reply.progress : undefined,
         });
-        return send(res, 200, { ...answer, search: 'searched' });
+        return reply.send(200, { ...answer, search: 'searched' });
       } catch (error) {
         if ([401, 402, 403].includes(error.statusCode)) throw error;
         const status = Number.isInteger(error.statusCode)
           ? error.statusCode
-          : error.name === 'TimeoutError' || error.name === 'AbortError'
+          : timedOut(error)
             ? 'timeout'
             : 'no result';
         console.warn('Ask DKLA web search unavailable:', status);
         search = 'unavailable';
       }
-      if (!atlas.length) return send(res, 200, { paragraphs: [], sources: [], search });
-      const answer = citeAnswer(
-        draft ?? (await generate({ apiKey, question: query, earlier, sources: atlas, search, signal })),
-        atlas,
-      );
-      return send(res, 200, { ...answer, search });
+      // After a failed search: the Atlas draft if there is one; otherwise an Atlas answer only for
+      // a question the Atlas could answer, and only while the deadline allows.
+      if (!atlas.length || (!draft && (path.web || signal.aborted))) return unavailable();
+      try {
+        const answer = citeAnswer(draft ?? (await atlasAnswer(search)), atlas);
+        return reply.send(200, { ...answer, search });
+      } catch (error) {
+        if (timedOut(error) || error instanceof InvalidCitations) return unavailable();
+        throw error;
+      }
     } catch (error) {
-      if (error instanceof InvalidCitations) return send(res, 200, { paragraphs: [], sources: [], search });
-      if (error.statusCode === 402) return send(res, 429, { error: 'usage-limit' });
+      if (error instanceof InvalidCitations) return reply.send(200, { paragraphs: [], sources: [], search });
+      if (error.statusCode === 402) return reply.send(429, { error: 'usage-limit' });
       if (error.statusCode === 429) {
         console.warn('Ask DKLA OpenAI rate limit');
-        return send(res, 429, { error: 'rate-limit' });
+        return reply.send(429, { error: 'rate-limit' });
       }
       if (error.statusCode === 401 || error.statusCode === 403) {
         console.warn('Ask DKLA OpenAI authorization rejected');
-        return send(res, 503, { error: 'not-configured' });
+        return reply.send(503, { error: 'not-configured' });
       }
-      if (error.status >= 400 && error.status < 500) return send(res, error.status, { error: error.message });
-      return send(res, 502, { error: 'answer-unavailable' });
+      if (error.status >= 400 && error.status < 500)
+        return reply.send(error.status, { error: error.message });
+      return reply.send(502, { error: 'answer-unavailable' });
     }
   };
 }

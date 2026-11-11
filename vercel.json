@@ -8,7 +8,7 @@
   "functions": {
     "api/ask.js": {
       "installCommand": "pnpm install --frozen-lockfile && node tools/ask/build.mjs --function",
-      "includeFiles": "work/build/ask-corpus.json.gz",
+      "includeFiles": "work/build/{ask-corpus.json.gz,ask-index.bin.gz}",
       "maxDuration": 45
     },
     "api/analytics.js": {
