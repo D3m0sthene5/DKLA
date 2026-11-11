@@ -126,6 +126,14 @@ export const tasks = [
     node('tools/r19/check_updates.mjs', '{url}'),
     SERVER,
   ),
+  // The real v2.9 worker and page update code, then this release under a renamed atlas file, served as
+  // Vercel serves the site (its own server, on a free port).
+  step(
+    'browser',
+    'updates: a v2.9 device moves to a renamed atlas file',
+    node('tools/r19/check_migration.mjs'),
+    PACKAGED,
+  ),
   step(
     'browser',
     'source pages and complete course chronologies',

@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><title>DKLA · Danny Kind Legal Atlas</title>
-<script>location.replace('DKLA-v2.5.html' + location.search + location.hash)</script><noscript><meta http-equiv="refresh" content="0; url=DKLA-v2.5.html"></noscript>
-<style>body{margin:0;background:#101820;color:#e4ebf1;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;min-height:100vh}a{color:#ee9138}</style></head>
-<body><p>Opening the atlas… if nothing happens, <a href="DKLA-v2.5.html">open DKLA-v2.5.html</a>.</p></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DKLA · Danny Kind Legal Atlas</title>
+<script>/* The site root forwards to the atlas file. An offline worker from v2.9 or earlier may also have stored this page as its offline atlas and serve it at the atlas's own address; forwarding from there would only open this page again, forever. */
+if (/\/(index\.html)?$/.test(location.pathname)) location.replace('DKLA-v2.5.html' + location.search + location.hash);
+else document.documentElement.className = 'dkla-offline-pending', addEventListener('online', () => location.reload(), { once: true });</script><noscript><meta http-equiv="refresh" content="0; url=DKLA-v2.5.html"></noscript>
+<style>body{margin:0;background:#101820;color:#e4ebf1;font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;display:grid;place-items:center;min-height:100vh;padding:0 16px;box-sizing:border-box;text-align:center}a{color:#ee9138}.pending{display:none;max-width:30em}.dkla-offline-pending .pending{display:block}.dkla-offline-pending .opening{display:none}button{font:inherit;margin-top:8px;padding:6px 16px;border-radius:999px;border:1px solid #d6b78e;background:#d6b78e;color:#161b20;cursor:pointer}</style></head>
+<body><p class="opening">Opening the atlas… if nothing happens, <a href="DKLA-v2.5.html">open DKLA-v2.5.html</a>.</p>
+<div class="pending" role="status"><p>The offline copy on this device is still being updated. Connect to the internet once to finish.</p><button type="button" onclick="location.reload()">Try again</button></div></body></html>

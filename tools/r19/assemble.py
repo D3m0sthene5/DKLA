@@ -778,9 +778,11 @@ def main() -> None:
     # The baseline starts rendering before the appended release has finished
     # parsing. Only the final boot module may uncover the current interface;
     # r20-ready and its timeout are deliberately insufficient. Ancestor opacity
-    # also contains descendants that explicitly set visibility:visible.
+    # also contains descendants that explicitly set visibility:visible. The update notice (#r18Update)
+    # stays visible: it appears during start-up only when the atlas has not finished starting a minute
+    # after loading, and then it is how a faulty release hears about its fix.
     boot = ('<style id="dklaR20Boot">html{background:#101820}'
-            'html:not(.dkla-boot-ready) body>*:not(#dklaBootNotice),html:not(.dkla-boot-ready) dialog,html:not(.dkla-boot-ready) [popover]'
+            'html:not(.dkla-boot-ready) body>*:not(#dklaBootNotice):not(#r18Update),html:not(.dkla-boot-ready) dialog,html:not(.dkla-boot-ready) [popover]'
             '{opacity:0!important;visibility:hidden!important;pointer-events:none!important}'
             'html:not(.dkla-boot-ready) body::before{content:"DKLA";position:fixed;inset:0;display:grid;place-items:center;'
             'font:600 20px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;letter-spacing:.35em;color:#6f8294}'

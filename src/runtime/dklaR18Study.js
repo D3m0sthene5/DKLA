@@ -812,8 +812,8 @@
   // so Reload repeated the slow start for nothing. Now:
   // - the page knows its own build (R18.build) and version.json names the newest; only a difference
   //   shows the notice, so a page that is already current is never prompted;
-  // - it checks once the atlas is ready, when the tab comes back into view and every half hour while it
-  //   is visible; offline or a failed check stays quiet;
+  // - it checks once the atlas is ready (or a minute after 'load' if it never is), when the tab comes
+  //   back into view and every half hour while it is visible; offline or a failed check stays quiet;
   // - Refresh first writes the graph's pending save, remembers the open entry and reloads only this tab;
   //   nothing else ever reloads a tab, including the offline worker taking over (sw.template.js);
   // - the first time a new build opens, a short toast says so.
@@ -821,7 +821,8 @@
     DISMISSED = 'dkla.updateDismissed.v1', // the newest build whose notice the reader closed
     PLACE = 'dkla.updatePlace.v1'; // sessionStorage: where Refresh was pressed, for the reloaded page
   const CHECK_EVERY = 30 * 60 * 1000,
-    CHECK_GAP = 60 * 1000;
+    CHECK_GAP = 60 * 1000,
+    STALLED_CHECK = 60 * 1000; // after 'load', when the atlas never finishes starting
   // Controlled at start-up means an offline copy was installed on an earlier visit.
   const hadWorker = hosted && 'serviceWorker' in navigator && !!navigator.serviceWorker.controller;
   function stored(area, key, value) {
@@ -842,6 +843,7 @@
     lastCheck = 0,
     checking = null,
     ready = false,
+    armed = false, // the automatic checks have started
     refreshing = false;
   addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
@@ -853,13 +855,15 @@
   addEventListener('appinstalled', () => {
     installEvent = null;
   });
-  if (hosted && 'serviceWorker' in navigator) {
-    addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => {
-        /* offline copy unavailable; the atlas still works */
-      });
+  // Register (or update) the offline worker as soon as the page runs, not after 'load'. A worker from
+  // v2.9 or earlier may hold nothing better than the site root's forwarding page as its offline copy
+  // (see src/features/r19/index.template.html), so the sooner this release's copy is complete, the
+  // shorter that window. The install costs little here: the atlas it stores is the page that was just
+  // downloaded, revalidated from the browser's HTTP cache (sw.template.js, shellFile).
+  if (hosted && 'serviceWorker' in navigator)
+    navigator.serviceWorker.register('sw.js').catch(() => {
+      /* offline copy unavailable; the atlas still works */
     });
-  }
   const noticeText = (v) =>
     v.version && v.version !== R18.version
       ? `DKLA ${v.version} is ready`
@@ -878,15 +882,24 @@
     bar.innerHTML = `<span class="r18-update-text">${esc(noticeText(v))}</span><button class="r18-update-go" data-r18-do="refresh">Refresh</button><button class="r18-update-x" data-r18-do="later" aria-label="Not now" title="Not now">×</button>`;
     placeNotice();
   }
-  // Keep the notice in the visible corner. On a phone the page is a little wider than the screen, so
-  // the area fixed elements are placed in reaches past the screen's right and bottom edges.
+  // Keep the notice in the visible corner and the toast (#toast, appCode.js) centred above the visible
+  // bottom edge. On a phone the page is a little wider than the screen, so the area fixed elements are
+  // placed in reaches past the screen's right and bottom edges. The offsets are set on the two elements,
+  // not on the page, so a pinch-zoom does not restyle the whole map.
   function placeNotice() {
-    const bar = el('r18Update'),
-      vv = window.visualViewport;
-    if (!bar || !vv) return;
-    bar.style.setProperty('--r18-vv-right', Math.max(0, innerWidth - vv.offsetLeft - vv.width) + 'px');
-    bar.style.setProperty('--r18-vv-bottom', Math.max(0, innerHeight - vv.offsetTop - vv.height) + 'px');
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const right = Math.max(0, innerWidth - vv.offsetLeft - vv.width) + 'px',
+      bottom = Math.max(0, innerHeight - vv.offsetTop - vv.height) + 'px';
+    for (const fixed of [el('r18Update'), el('toast')]) {
+      if (!fixed) continue;
+      fixed.style.setProperty('--r18-vv-right', right);
+      fixed.style.setProperty('--r18-vv-bottom', bottom);
+      fixed.style.setProperty('--r18-vv-centre', vv.offsetLeft + vv.width / 2 + 'px');
+    }
   }
+  placeNotice();
+  addEventListener('load', placeNotice);
   window.visualViewport?.addEventListener('resize', placeNotice);
   window.visualViewport?.addEventListener('scroll', placeNotice);
   function dismissNotice() {
@@ -981,10 +994,12 @@
       b.textContent = 'Saving…';
     });
     try {
-      // saveCache defers its snapshot by a quarter second; write it before the page goes.
-      await Promise.race([window.LegalAtlas?.flush?.(), new Promise((r) => setTimeout(r, 5000))]);
+      // saveCache defers its snapshot by a quarter second; write it before the page goes. There is no
+      // time limit: on a slow phone a large graph can take a while, and reloading in the middle of the
+      // write would drop the latest edits. The button reads "Saving…" until it is done.
+      await window.LegalAtlas?.flush?.();
     } catch {
-      /* the unload guard still warns when this browser cannot save */
+      /* the write failed: the unload guard asks before leaving a page whose edits are not saved */
     }
     stored('session', PLACE, { from: R18.build, at: Date.now(), place: currentPlace() });
     location.reload();
@@ -1037,13 +1052,23 @@
     watch.observe(root, { attributes: true, attributeFilter: ['class'] });
   }
   if (hosted) {
+    // The checks start once the atlas is ready, or a minute after 'load' if it never gets there: a
+    // release with a start-up fault can still tell its open and installed copies about the fix.
+    const arm = () => {
+      if (armed) return;
+      armed = true;
+      checkForUpdate();
+    };
     whenReady(() => {
       ready = true;
       arrived();
-      setTimeout(() => checkForUpdate(), 3000);
+      setTimeout(arm, 3000);
     });
+    const fallback = () => setTimeout(arm, STALLED_CHECK);
+    if (document.readyState === 'complete') fallback();
+    else addEventListener('load', fallback, { once: true });
     const later = () => {
-      if (ready && document.visibilityState === 'visible') checkForUpdate();
+      if (armed && document.visibilityState === 'visible') checkForUpdate();
     };
     document.addEventListener('visibilitychange', later);
     addEventListener('online', later);
@@ -1054,7 +1079,7 @@
     // For checks and diagnostics: ask the server now, as the automatic check does.
     check: (manual = false) => checkForUpdate(manual, true),
     refresh: refreshToLatest,
-    state: () => ({ status, latest, build: R18.build, version: R18.version, checks, ready }),
+    state: () => ({ status, latest, build: R18.build, version: R18.version, checks, ready, armed }),
   };
 
   /* ---------- events ---------- */

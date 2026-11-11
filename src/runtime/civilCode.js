@@ -443,6 +443,14 @@ function r7FlushSave() {
   }
   return r7SavePending;
 }
+// A snapshot still waiting on its timer when the tab closes or goes to the background would never be
+// written (the timer does not run after the page is gone), so it is written at once. Phones often close
+// a background tab without any unload event, hence 'visibilitychange' as well as 'pagehide'; the
+// unload guard in appCode.js does the same on desktop. Nothing is written when no edit is waiting.
+addEventListener('pagehide', () => r7SaveTimer && r7FlushSave());
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden' && r7SaveTimer) r7FlushSave();
+});
 exportMarkdown = function () {
   storeView();
   const files = geoMarkdownFiles();

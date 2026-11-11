@@ -166,11 +166,47 @@ const breakages = [
     'updates: Refresh reloads without writing the edit that is still waiting to be saved',
     'src/runtime/dklaR18Study.js',
     () =>
+      edit('src/runtime/dklaR18Study.js', 'await window.LegalAtlas?.flush?.();', 'await Promise.resolve();'),
+  ],
+  [
+    'updates: the v2.9 bug returns: "a new version is ready" whenever a new offline worker has installed',
+    'src/runtime/dklaR18Study.js',
+    () =>
       edit(
         'src/runtime/dklaR18Study.js',
-        'Promise.race([window.LegalAtlas?.flush?.(),',
-        'Promise.race([Promise.resolve(),',
+        "navigator.serviceWorker.register('sw.js').catch(",
+        "navigator.serviceWorker.register('sw.js').then((reg) => { const watch = (w) => w && w.addEventListener('statechange', () => { if (w.state === 'installed' && navigator.serviceWorker.controller) showNotice({ build: 'installed', version: R18.version }); }); watch(reg.installing); reg.addEventListener('updatefound', () => watch(reg.installing)); }).catch(",
       ),
+  ],
+  [
+    'updates: the site root page forwards from any address, so a v2.9 offline copy reloads forever',
+    'src/features/r19/index.template.html',
+    () =>
+      edit(
+        'src/features/r19/index.template.html',
+        '.test(location.pathname)) location.replace(',
+        '.test(location.pathname) || true) location.replace(',
+      ),
+  ],
+  [
+    'updates: the install downloads the atlas again instead of reusing the copy the browser just fetched',
+    'src/features/r19/sw.template.js',
+    () =>
+      edit(
+        'src/features/r19/sw.template.js',
+        "fetch(at(path), { cache: 'no-cache', credentials: 'same-origin' })",
+        "fetch(at(path), { cache: 'no-store', credentials: 'same-origin' })",
+      ),
+  ],
+  [
+    'updates: the install keeps every earlier copy until it has room for its own',
+    'src/features/r19/sw.template.js',
+    () => edit('src/features/r19/sw.template.js', '      await makeRoom();', '      void makeRoom;'),
+  ],
+  [
+    'updates: a PDF.js worker from another release breaks the source viewer of an open tab',
+    'src/runtime/dklaR11Sources.js',
+    () => edit('src/runtime/dklaR11Sources.js', 'pdfReloads < 2) {', 'pdfReloads < 0) {'),
   ],
   [
     'updates: the offline worker keeps every earlier release (another 65 MB each time)',

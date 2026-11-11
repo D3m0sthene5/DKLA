@@ -2,9 +2,9 @@
    stamps it), which installs a new worker beside the old one.
 
    Updates are quiet. The atlas page always comes from the network when there is one, so a visit after a
-   release already runs the new page. The new worker copies the shell into its own cache, takes over at
-   once (it never waits for a click) and only then deletes the older releases' copies, so the device
-   always keeps one complete offline atlas. Taking over never reloads an open tab: the page decides, and
+   release already runs the new page. The new worker copies the shell into its own cache (without
+   downloading the atlas a second time), takes over at once (it never waits for a click) and only then
+   deletes the copy the previous worker used, so the device always keeps one complete offline atlas. Taking over never reloads an open tab: the page decides, and
    it only reloads when the reader presses Refresh (see "offline install and updates" in
    src/runtime/dklaR18Study.js, which compares its own build with version.json). */
 const BUILD = '__DKLA_BUILD__';
@@ -27,48 +27,67 @@ const ATLAS_FILE = /\/(?:DKLA-[rv][0-9.]+\.html)$/;
 const at = (path) => new URL(path, self.registration.scope).href;
 const tag = (response) => (response?.headers?.get('etag') || '').replace(/^W\//, '');
 
-// Earlier releases' copies of one shell file, newest first. For the atlas, any atlas file counts: the
-// page that was just opened was stored by the previous worker, possibly under the previous file name.
+// The atlas entry of one release cache, or null. Any atlas file name counts: the page that was just
+// opened was stored by the previous worker, possibly under the previous release's file name.
+async function atlasIn(cache) {
+  for (const request of await cache.keys()) {
+    if (!ATLAS_FILE.test(new URL(request.url).pathname)) continue;
+    const response = await cache.match(request);
+    if (response?.status === 200) return response;
+  }
+  return null;
+}
+
+// Earlier releases' copies of one shell file that carry an ETag.
 async function earlierCopies(path) {
   const found = [];
   for (const name of await caches.keys()) {
     if (name === CACHE || !RELEASE_CACHE.test(name)) continue;
     const cache = await caches.open(name);
-    const keys =
-      path === ATLAS
-        ? (await cache.keys()).filter((request) => ATLAS_FILE.test(new URL(request.url).pathname))
-        : [at(path)];
-    for (const key of keys) {
-      const response = await cache.match(key);
-      if (response?.status === 200 && tag(response)) found.push(response);
-    }
+    const response = path === ATLAS ? await atlasIn(cache) : await cache.match(at(path));
+    if (response?.status === 200 && tag(response)) found.push(response);
   }
-  return found.sort(
-    (a, b) => (Date.parse(b.headers.get('date')) || 0) - (Date.parse(a.headers.get('date')) || 0),
-  );
+  return found;
 }
 
-// One shell file for this release. When an earlier copy has the same ETag as the server's file, the
-// server answers 304 and the copy already on the device is used: the 19 MB atlas is not downloaded a
-// second time after the page itself was just downloaded. Otherwise the server's answer is the file.
-// Nothing is taken from the HTTP cache without asking the server first ('no-cache'), so a stale build can
-// never be stored under the current file name.
+// Room for this release's copy. Until v2.9 every release's copy was kept (up to four of 65 MB each), and
+// an install that runs out of room would fail the same way every time. So before downloading anything,
+// delete every earlier release's copy except the newest complete one: that is the copy the worker now in
+// charge serves offline (it rewrites its atlas entry on every visit, so its atlas has the newest date). A
+// copy counts as complete when it holds an atlas: v2.9 and earlier stored the shell all at once, and this
+// worker stores the atlas last.
+async function makeRoom() {
+  const earlier = (await caches.keys()).filter((name) => name !== CACHE && RELEASE_CACHE.test(name));
+  let keep = null,
+    newest = -Infinity;
+  for (const name of earlier) {
+    const atlas = await atlasIn(await caches.open(name));
+    if (!atlas) continue;
+    const date = Date.parse(atlas.headers.get('date')) || 0;
+    // Equal dates (no Date header): the cache created later belongs to the later release.
+    if (date >= newest) [keep, newest] = [name, date];
+  }
+  for (const name of earlier) if (name !== keep) await caches.delete(name);
+}
+
+// One shell file for this release, downloaded at most once.
+// - A copy already on the device is used when the server's file has the same ETag (asked with a HEAD,
+//   which carries no body).
+// - Otherwise the file is requested with 'no-cache': the browser revalidates its own HTTP-cache copy.
+//   The atlas page the reader just opened is normally there, so the server answers 304 and that copy is
+//   used, even when the release renamed the file. Nothing is taken from the HTTP cache without asking the
+//   server first, so a stale build can never be stored under the current file name.
 async function shellFile(path) {
   const copies = await earlierCopies(path);
   if (copies.length) {
-    const sent = [...new Set(copies.map((copy) => copy.headers.get('etag')))].slice(0, 4);
-    const response = await fetch(at(path), {
-      cache: 'no-store',
-      credentials: 'same-origin',
-      headers: { 'If-None-Match': sent.join(', ') },
-    });
-    if (response.ok) return response;
-    if (response.status === 304) {
-      const matched =
-        copies.find((copy) => tag(copy) === tag(response)) || (sent.length === 1 ? copies[0] : null);
-      if (matched) return matched;
+    try {
+      const head = await fetch(at(path), { method: 'HEAD', cache: 'no-store', credentials: 'same-origin' });
+      const current = head.ok && tag(head);
+      const same = current && copies.find((copy) => tag(copy) === current);
+      if (same) return same;
+    } catch {
+      /* ask with the request below */
     }
-    response.body?.cancel().catch(() => {});
   }
   const response = await fetch(at(path), { cache: 'no-cache', credentials: 'same-origin' });
   if (!response.ok) throw Error('Offline copy incomplete: ' + path + ' ' + response.status);
@@ -78,8 +97,12 @@ async function shellFile(path) {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     (async () => {
+      await makeRoom();
       const cache = await caches.open(CACHE);
-      await Promise.all(SHELL.map(async (path) => cache.put(path, await shellFile(path))));
+      const files = await Promise.all(SHELL.map(async (path) => [path, await shellFile(path)]));
+      // The atlas goes in last, so a release cache that holds an atlas holds the whole shell.
+      for (const [path, response] of files) if (path !== ATLAS) await cache.put(path, response);
+      await cache.put(ATLAS, files[SHELL.indexOf(ATLAS)][1]);
       // The copy is complete: take over without waiting for every tab to close.
       self.skipWaiting();
     })(),
@@ -136,7 +159,20 @@ self.addEventListener('fetch', (event) => {
       const cache = await caches.open(CACHE);
       if (isAtlas) {
         try {
-          const response = await fetch(request);
+          // The atlas file itself is asked for against the copy on the device: when the server still has
+          // that file (same ETag) it answers 304 and the copy is shown, so an unchanged atlas is not
+          // downloaded again even when the browser's HTTP cache no longer holds it (phones keep little).
+          const own = path === ATLAS ? await cache.match(ATLAS) : null;
+          const response =
+            own && tag(own)
+              ? await fetch(request.url, {
+                  cache: 'no-store',
+                  credentials: 'same-origin',
+                  redirect: 'manual',
+                  headers: { 'If-None-Match': own.headers.get('etag') },
+                })
+              : await fetch(request);
+          if (response.status === 304 && own) return own;
           // An old address answers with a redirect: the browser follows it to the current file.
           if (response.type === 'opaqueredirect') return response;
           if (response.ok) {
