@@ -1,5 +1,5 @@
-/* The splash text (src/features/splash): one of DKLASplashLines, gently tilted
-   and pulsing in its own slot in the top bar beside the clock (the calm top bar,
+/* The splash text (src/features/splash): one of DKLASplashLines, level and
+   gently pulsing in its own slot in the top bar beside the clock (the calm top bar,
    src/features/topbar/), shown wherever the map is (zoomed in, a case open), hidden only
    when something covers the top bar (Study, a dialog), never over a
    tile or a control, and still under reduced motion.
@@ -86,7 +86,8 @@ const look = (page) =>
     };
   });
 
-// The line sits in its slot in the top bar (state.logo is the slot's box), inside the bar, gently tilted.
+// The line sits level in its slot in the top bar (state.logo is the slot's box), inside the slot and the bar
+// (owner, 12 November 2026: the tilted line looked askew and leaned out of its space).
 function onCorner(state, at) {
   const { logo: slot, bar, box } = state;
   const round = (q) => ['left', 'top', 'right', 'bottom'].map((k) => Math.round(q[k])).join(',');
@@ -94,7 +95,9 @@ function onCorner(state, at) {
   assert.ok(slot.width > 0, `${where}: the top bar has a splash slot`);
   assert.ok(box.left >= slot.left - 2 && box.right <= slot.right + 2, `${where}: inside its slot`);
   assert.ok(box.top >= bar.top - 2 && box.bottom <= bar.bottom + 2, `${where}: inside the top bar`);
-  assert.ok(state.angle > -9 && state.angle < -3, `${where}: tilted (${state.angle.toFixed(1)} degrees)`);
+  assert.ok(Math.abs(state.angle) < 0.5, `${where}: level (${state.angle.toFixed(1)} degrees)`);
+  const middle = (box.top + box.bottom) / 2 - (bar.top + bar.bottom) / 2;
+  assert.ok(Math.abs(middle) <= 3, `${where}: centred in the bar (${middle.toFixed(1)} px off)`);
 }
 
 const splash = (page) => page.locator('.dkla-splash');

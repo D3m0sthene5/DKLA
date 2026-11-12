@@ -4,7 +4,7 @@ import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { findAnswer, storeAnswer } from '../lib/ask/library.js';
 import { corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
-import { answerWithSearch, NoResearchAnswer, route } from '../lib/ask/web.js';
+import { answerWithSearch, AtlasOnlyResearch, NoResearchAnswer, route, standsAlone } from '../lib/ask/web.js';
 
 const corpus = new URL('../work/build/ask-corpus.json.gz', import.meta.url);
 // The retrieval index the build computed from that corpus (tools/ask/build.mjs). Without it, or
@@ -176,8 +176,13 @@ export function makeAskHandler(
       if (!apiKey) return send(res, 503, { error: 'not-configured' });
 
       const query = question.trim();
-      // A follow-up is looked up together with the question before it.
-      const lookup = earlier?.length ? earlier.at(-1).question + ' ' + query : query;
+      // A follow-up that points back ("when was it decided?") is looked up together with the question
+      // before it, after a full stop, so its first word is not read as a name in mid-sentence ("… efficient
+      // breach How do you …" made "How" a name outside the Atlas). One that stands alone is looked up alone.
+      const lookup =
+        earlier?.length && !standsAlone(query)
+          ? earlier.at(-1).question.replace(/[\s.?!;:]+$/, '') + '. ' + query
+          : query;
       const { sources: atlas, signals } = await retrieve(lookup, node);
       if (gone.signal.aborted) return stop();
 
@@ -225,15 +230,18 @@ export function makeAskHandler(
       };
 
       reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
-      // Time budget, kept under the 30 s target (vercel.json allows 45 s). Loading the corpus on a
-      // cold start takes about 0.3 s with the prebuilt index. Then one shared 26 s deadline:
-      //   Atlas route:    an Atlas answer (8 s), then research only if it is not exact (18 s).
-      //   Research route: research (18 s); after a failure, an Atlas answer (8 s) only when the
+      // Time budget (vercel.json allows 45 s). Loading the corpus on a cold start takes about 0.3 s with
+      // the prebuilt index. Then one shared 32 s deadline (26 s until 12 November 2026, when research
+      // timed out on live questions):
+      //   Atlas route:    an Atlas answer (8 s), then research only if it is not exact (24 s).
+      //   Research route: research (24 s); after a failure, an Atlas answer (8 s) only when the
       //                   Atlas could answer the question (route web: false) and time remains.
+      //                   Research that cites only the Atlas, for a question that wanted the web, is
+      //                   given rather than discarded when its answer cannot change with time.
       // Research is never started alongside an Atlas answer: see the README's cost note.
       // A question with three or more parts (several numbered questions) gets 40 s, still under the
       // 45 s the server allows: its Atlas answer gets 16 s and research 30 s (answer.js, web.js).
-      const signal = AbortSignal.any([AbortSignal.timeout(path.parts >= 3 ? 40_000 : 26_000), gone.signal]);
+      const signal = AbortSignal.any([AbortSignal.timeout(path.parts >= 3 ? 40_000 : 32_000), gone.signal]);
       const unavailable = () =>
         gone.signal.aborted
           ? stop()
@@ -290,13 +298,25 @@ export function makeAskHandler(
         return answered({ ...answer, search: 'searched' });
       } catch (error) {
         if ([401, 402, 403].includes(error.statusCode)) throw error;
+        // An answer from the Atlas excerpts alone, to a question that wanted web evidence: given when the
+        // answer cannot change with time (route stable), never kept in the library. A question about the
+        // present, later events or people still needs the web.
+        if (
+          error instanceof AtlasOnlyResearch &&
+          path.stable &&
+          error.answer.paragraphs?.length &&
+          !gone.signal.aborted
+        ) {
+          console.warn('Ask DKLA web search unavailable:', 'answered from the Atlas only');
+          return answered({ ...error.answer, search: 'searched' }, true);
+        }
         const status = Number.isInteger(error.statusCode)
           ? error.statusCode
           : failed(error)
             ? error.name === 'TimeoutError'
               ? 'timeout'
               : 'network'
-            : 'no result';
+            : 'no result: ' + String(error.message).slice(0, 80);
         if (gone.signal.aborted) {
           console.warn('Ask DKLA web search unavailable:', 'cancelled');
           return stop();

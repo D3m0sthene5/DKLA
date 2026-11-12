@@ -3,6 +3,7 @@
  * 11 November 2026 from two rounds of writing and editing (88 lines). Keep each
  * line short (long lines are drawn smaller to fit). */
 window.DKLASplashLines = [
+  'What Would A Reasonable Person Do?', // owner, 12 November 2026
   'Hosted out of the Village!',
   'Possum ipsa loquitur.',
   'Ceci n’est pas legal advice.',

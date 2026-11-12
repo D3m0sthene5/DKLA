@@ -2057,7 +2057,7 @@ test('a timeout at every step returns the honest no-answer, not an error', async
   const timeout = AbortSignal.timeout;
   const shared = new AbortController();
   const clock = mock.method(AbortSignal, 'timeout', (ms) =>
-    ms === 26_000 ? shared.signal : timeout.call(AbortSignal, ms),
+    ms === 32_000 ? shared.signal : timeout.call(AbortSignal, ms),
   );
   try {
     let calls = 0;
@@ -3220,4 +3220,46 @@ test('several questions about one Atlas case: the brief answers first, one parag
     paragraphs: Array.from({ length: 9 }, (_, i) => ({ text: `Part ${i + 1}.`, citations: [1] })),
   };
   assert.throws(() => citeAnswer(nine, sources));
+});
+
+// Owner, 12 November 2026: after three turns about efficient breach, "How do you calculate expectation
+// damages?" came back "web search was unavailable". The follow-up was looked up glued to the question
+// before it ("… efficient breach How do you calculate …"), so "How" read as a name the Atlas never
+// mentions: web-only, and the Atlas-cited research answer was discarded. A follow-up that names its own
+// subject is now looked up alone; one that points back is joined after a full stop.
+test('a follow-up that stands alone is looked up alone and keeps an Atlas-cited answer', async () => {
+  const history = [
+    {
+      question:
+        'why does it matter if the right can be priced and traded for the injunction to not block efficient breach',
+      answer: 'Because the parties can bargain around the injunction.',
+    },
+  ];
+  const { json, requests } = await askWithFetch(
+    (request, input) => {
+      const n = excerptNumber(input, /^expectation damages$/i);
+      assert.ok(n, 'the Atlas entry on expectation damages is among the excerpts');
+      return request.tools
+        ? researched(`Expectation damages put the injured party where performance would have. [A${n}]`)
+        : atlasReply({
+            asks: 'how expectation damages are measured',
+            answers: 'exact',
+            needsWeb: false,
+            paragraphs: [
+              {
+                text: 'Expectation damages put the injured party where performance would have.',
+                citations: [n],
+              },
+            ],
+          });
+    },
+    { question: 'How do you calculate expectation damages?', history },
+  );
+  assert.equal(json.paragraphs.length, 1, JSON.stringify(json));
+  assert.ok(requests.length >= 1);
+  // A follow-up that points back is still read with the question before it.
+  const { standsAlone } = await import('../../lib/ask/web.js');
+  assert.equal(standsAlone('How do you calculate expectation damages?'), true);
+  assert.equal(standsAlone('When was it decided?'), false);
+  assert.equal(standsAlone('What did the court say about damages?'), false);
 });

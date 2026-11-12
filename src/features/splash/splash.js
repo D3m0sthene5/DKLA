@@ -301,8 +301,9 @@
     }
     const bar = header.getBoundingClientRect(),
       q = slotEl.getBoundingClientRect(),
-      // A gentler tilt than on the map, so a whole line fits in the bar's height.
-      tilt = -6,
+      // Level in the bar, sized to fit its slot (owner, 12 November 2026: the tilted line looked askew
+      // and leaned out of its space). The map's own splash keeps its Minecraft tilt.
+      tilt = 0,
       c = Math.cos((tilt * Math.PI) / 180),
       sn = Math.abs(Math.sin((tilt * Math.PI) / 180));
     // The tilted, pulsing line must stay inside the slot's width and the bar's height.
@@ -330,7 +331,15 @@
     }
     if (where !== placed) {
       placed = where;
-      root.style.transform = `translate(${(cx - bar.left - w / 2).toFixed(1)}px, ${(cy - bar.top - h / 2).toFixed(1)}px) rotate(${tilt}deg)`;
+      const x = cx - bar.left - w / 2;
+      let y = cy - bar.top - h / 2;
+      root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${tilt}deg)`;
+      // Centre the letters themselves: the line box is taller than the glyphs and sits them low.
+      const g = text.getBoundingClientRect();
+      if (g.height) {
+        y += cy - (g.top + g.height / 2);
+        root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${tilt}deg)`;
+      }
     }
     return '';
   }
