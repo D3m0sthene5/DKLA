@@ -41,3 +41,41 @@
 .dkla-calm-bar #saveStatus {
   display: none !important;
 }
+
+/* The ☰ menu as a panel of four short columns (menu-layout.js): everything visible without scrolling on a
+   landscape screen (an iPad held sideways too). Two columns below 900px wide. */
+.study-header .more-menu.dkla-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 2px 8px;
+  min-width: 0;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  padding: 10px;
+}
+.study-header .more-menu.dkla-menu-grid .dkla-menu-col {
+  min-width: 0;
+  padding: 2px 4px 4px;
+}
+.study-header .more-menu.dkla-menu-grid .dkla-menu-col + .dkla-menu-col {
+  border-left: 1px solid #2f3c49;
+  padding-left: 10px;
+}
+.study-header .more-menu.dkla-menu-grid small {
+  padding: 4px 12px 6px;
+}
+.study-header .more-menu.dkla-menu-grid button {
+  border-radius: 7px;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .study-header .more-menu.dkla-menu-grid {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  .study-header .more-menu.dkla-menu-grid .dkla-menu-col:nth-child(odd) {
+    border-left: 0;
+    padding-left: 4px;
+  }
+}

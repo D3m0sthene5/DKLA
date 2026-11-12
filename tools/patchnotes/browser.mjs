@@ -29,10 +29,25 @@ try {
   const item = page.locator('#moreMenu [data-dkla-patch]');
   await item.waitFor();
   assert.equal(
-    await page.evaluate(() => document.getElementById('moreMenu').lastElementChild?.textContent.trim()),
+    await page.evaluate(() => [...document.querySelectorAll('#moreMenu button')].pop()?.textContent.trim()),
     'Patch notes',
     'Patch notes is the last item of the menu',
   );
+  // The menu is a panel of four short columns that fits the window (owner: the long list was unusable).
+  const panel = await page.evaluate(() => {
+    const m = document.getElementById('moreMenu'),
+      r = m.getBoundingClientRect();
+    return {
+      columns: [...m.querySelectorAll('.dkla-menu-col')].map((c) => c.getAttribute('aria-label')),
+      fits: r.bottom <= innerHeight && r.left >= 0 && m.scrollHeight <= m.clientHeight + 1,
+      saves: [...m.querySelectorAll('button')].filter((b) => /save/i.test(b.textContent)).length,
+      drills: m.querySelectorAll('[data-r18-open="drill"]').length,
+    };
+  });
+  assert.deepEqual(panel.columns, ['Study', 'Explore', 'Your notes', 'DKLA']);
+  assert.ok(panel.fits, 'the menu fits the window without scrolling');
+  assert.equal(panel.saves, 1, 'one save entry');
+  assert.equal(panel.drills, 1, 'one drill entry');
   await item.click();
   const dialog = page.locator('#patchNotesDialog[open]');
   await dialog.waitFor();
@@ -50,7 +65,9 @@ try {
   await page.keyboard.press('Escape');
   await page.locator('#patchNotesDialog[open]').waitFor({ state: 'detached' });
   assert.deepEqual(errors, []);
-  console.log(`Patch notes: ${names.length} versions, v3.0 to v9, in the menu, closes with Escape.`);
+  console.log(
+    `Menu: four columns that fit the window. Patch notes: ${names.length} versions, v3.0 to v9, closes with Escape.`,
+  );
 } finally {
   await browser.close();
 }
