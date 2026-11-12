@@ -231,7 +231,9 @@ export function makeAskHandler(
       //   Research route: research (18 s); after a failure, an Atlas answer (8 s) only when the
       //                   Atlas could answer the question (route web: false) and time remains.
       // Research is never started alongside an Atlas answer: see the README's cost note.
-      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);
+      // A question with three or more parts (several numbered questions) gets 40 s, still under the
+      // 45 s the server allows: its Atlas answer gets 16 s and research 30 s (answer.js, web.js).
+      const signal = AbortSignal.any([AbortSignal.timeout(path.parts >= 3 ? 40_000 : 26_000), gone.signal]);
       const unavailable = () =>
         gone.signal.aborted
           ? stop()
@@ -247,6 +249,7 @@ export function makeAskHandler(
           search,
           signal,
           subjects: path.subjects,
+          parts: path.parts,
         });
       let draft;
       // The search ran and found nothing usable (as opposed to failing).
@@ -282,6 +285,7 @@ export function makeAskHandler(
           // Legislation, events, dates, people, the present: only a web-cited answer will do.
           web: path.web,
           subjects: path.subjects,
+          parts: path.parts,
         });
         return answered({ ...answer, search: 'searched' });
       } catch (error) {

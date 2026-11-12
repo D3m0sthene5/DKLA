@@ -32,6 +32,7 @@ import {
   citationTable,
   citeResearch,
   NoResearchAnswer,
+  questionParts,
   route,
   shouldSearch,
   webSources,
@@ -3183,4 +3184,40 @@ test('Ask’s Supreme Court records carry the Erie voting correction SCOTUS Hist
   assert.match(text, /Pierce Butler: Concurrence in the judgment \(his opinion is captioned a dissent/);
   assert.match(text, /James Clark McReynolds: Concurrence in the judgment \(joined Justice Butler/);
   assert.doesNotMatch(text, /Pierce Butler: Concurrence\./);
+});
+
+// Owner, 12 November 2026: a six-part question about Klein v. PepsiCo came back "web search was
+// unavailable". A date in its hypothetical ("6.0 million at date of trial") made it web-only, the
+// research could not answer six parts in its time, and an answer of more than four paragraphs was
+// refused. Several questions about one Atlas case now start from the Atlas brief.
+test('several questions about one Atlas case: the brief answers first, one paragraph per part', () => {
+  const klein =
+    'In Klein v Pepsico 1. did the court find a contract 2. what factors suggested pepsico assented 3. why wasnt the claim barred by statute of frauds 3. was the contract breached? 4. what would be the measure of damages? suppose cost of replacemeent was 5.5 million on april 15 1986 and 6.0 million at date of trial? 5. why might klein have sought specific performance 6. what rule di the appellate court apply to determine whether specific performance was warranted';
+  assert.equal(questionParts(klein), 6);
+  assert.equal(questionParts('What did Klein v. PepsiCo hold?'), 1);
+  assert.equal(questionParts('Was there an offer? Was it accepted? Was there consideration?'), 3);
+  assert.equal(questionParts('Under 28 U.S.C. § 1332, what is the amount in controversy?'), 1);
+  const { sources, signals } = retrieve.explain(klein);
+  const path = route(klein, sources, { signals });
+  assert.equal(sources[0].id, 'klein-pepsico');
+  assert.deepEqual((({ research, web, parts }) => ({ research, web, parts }))(path), {
+    research: false,
+    web: false,
+    parts: 6,
+  });
+  // A real question about a date still researches on the web.
+  const enacted = retrieve.explain('What is the date of enactment of § 1983?');
+  assert.equal(
+    route('What is the date of enactment of § 1983?', enacted.sources, { signals: enacted.signals }).web,
+    true,
+  );
+  // Six cited paragraphs are a valid answer; more than eight are not.
+  const six = {
+    paragraphs: Array.from({ length: 6 }, (_, i) => ({ text: `Part ${i + 1}.`, citations: [1] })),
+  };
+  assert.equal(citeAnswer(six, sources).paragraphs.length, 6);
+  const nine = {
+    paragraphs: Array.from({ length: 9 }, (_, i) => ({ text: `Part ${i + 1}.`, citations: [1] })),
+  };
+  assert.throws(() => citeAnswer(nine, sources));
 });
