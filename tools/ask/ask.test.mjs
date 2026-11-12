@@ -2,11 +2,20 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
 import { EventEmitter } from 'node:events';
+import http from 'node:http';
 import { mock, test } from 'node:test';
 import { PGlite } from '@electric-sql/pglite';
 import { makeAskHandler } from '../../api/ask.js';
 import { query, ready, setTestDatabase } from '../../lib/analytics/db.js';
-import { checkAnswer, citeAnswer, generateAnswer, substitute, wrongKind } from '../../lib/ask/answer.js';
+import {
+  asksCase,
+  asksStatute,
+  checkAnswer,
+  citeAnswer,
+  generateAnswer,
+  substitute,
+  wrongKind,
+} from '../../lib/ask/answer.js';
 import { ASK_MAX_AGE_DAYS, housekeeping } from '../../lib/analytics/reports.js';
 import {
   answerVersion,
@@ -986,7 +995,8 @@ const routes = [
   ['tell me about the Securities Act of 1933', undefined, 'atlas'],
   ['what is the parol evidence rule', undefined, 'atlas'],
   ['what are the requirements for a class action under Rule 23', undefined, 'research'],
-  ['explain 12(b)(6)', undefined, 'research'],
+  // Review 5, finding 9: a bare 12(b)(6) is the motion to dismiss.
+  ['explain 12(b)(6)', undefined, 'atlas'],
   ['what is a 12(b)(6) motion', undefined, 'atlas'],
   ['what is rule 12(b)(6)', undefined, 'atlas'],
   ['what is FRCP 56', undefined, 'atlas'],
@@ -1431,7 +1441,10 @@ const routes = [
   ['what is promissory estoppel?', undefined, 'atlas'],
   ['What is promissory estoppel', undefined, 'atlas'],
   ['what is the plausibility standard', undefined, 'research'],
-  ['what is the holding of this case', 'cp-erie', 'atlas'],
+  // Review 5, finding 6: cp-erie is a concept entry, so "the holding" needs research; the
+  // decision's own entry answers it.
+  ['what is the holding of this case', 'cp-erie', 'research'],
+  ['what is the holding of this case', 'cp-erie-decision', 'atlas'],
   ['summarize it', 'cp-erie', 'atlas'],
   ['res judicata', undefined, 'atlas'],
   ['whats res judicata', undefined, 'atlas'],
@@ -1501,6 +1514,92 @@ const routes = [
   ['what happend to chevron deference', undefined, 'web'],
   ['wat hapend to chevron', undefined, 'web'],
   ['did loper bright kill chevron', undefined, 'web'],
+
+  // Review 5 (November 2026).
+  // Finding 2: a kind word inside a dictionary headword. These stay on the Atlas, and the
+  // answer citing the headword's own entry is kept (the kind check test below).
+  ['what is a statute of limitations', undefined, 'atlas'],
+  ['what is the statute of limitations', undefined, 'atlas'],
+  ['what is common law', undefined, 'atlas'],
+  ['what is natural law', undefined, 'atlas'],
+  ['what is a bill of attainder', undefined, 'atlas'],
+  ['what is the bill of rights', undefined, 'atlas'],
+  ['what is substantive law', undefined, 'atlas'],
+  ['what is procedural law', undefined, 'atlas'],
+  ['what is a statute', undefined, 'atlas'],
+  ['what is legislation', undefined, 'atlas'],
+  ['what is precedent', undefined, 'atlas'],
+  ['what is a ruling', undefined, 'atlas'],
+  ['what is statutory interpretation', undefined, 'atlas'],
+  ['what is the whole act rule', undefined, 'atlas'],
+  ['what is a long arm statute', undefined, 'atlas'],
+  // Finding 3: the templates come first, and the web-only words are read without the headword.
+  ['what is binding precedent', undefined, 'atlas'],
+  ['what is a reversal', undefined, 'atlas'],
+  ['what is a citation', undefined, 'atlas'],
+  ['what is a supersedeas', undefined, 'atlas'],
+  ['what is a superseding cause', undefined, 'atlas'],
+  ['what is reversible error', undefined, 'atlas'],
+  ['what is lis pendens', undefined, 'atlas'],
+  // No exact entry, so research; "as of right" and "dead man" are no longer about the present.
+  ['what is intervention as of right', undefined, 'research'],
+  ['what is an appeal as of right', undefined, 'research'],
+  ['what is the dead man statute', undefined, 'research'],
+  // The present is still the present, beside a headword or not.
+  ['what is binding precedent today', undefined, 'web'],
+  ['what is current law', undefined, 'web'],
+  ['is binding precedent still good law', undefined, 'web'],
+  // Finding 4: a bare section number never names a Restatement or APA section.
+  ['what is section 230', undefined, 'research'],
+  ['what is § 230', undefined, 'research'],
+  ['explain section 230', undefined, 'research'],
+  ['what does section 230 say', undefined, 'research'],
+  ['what is section 90', undefined, 'research'],
+  ['what is section 241', undefined, 'research'],
+  ['what is section 702', undefined, 'research'],
+  ['what is § 706', undefined, 'research'],
+  ['what does section 553 require', undefined, 'research'],
+  ['what does 5 usc 553 require', undefined, 'atlas'],
+  ['what is restatement section 90', undefined, 'atlas'],
+  ['what is restatement § 90', undefined, 'atlas'],
+  ['what does section 1983 say', undefined, 'atlas'],
+  ['what is section 2-207', undefined, 'atlas'],
+  // Finding 6: the open entry's kind. A statute or concept entry has no author, holding or facts.
+  ['who wrote it', 'cp-rules-enabling', 'web'],
+  ['who wrote this', 'cp-usc-2072', 'web'],
+  ['who dissented', 'cp-rules-enabling', 'web'],
+  ['what did it hold', 'cp-usc-2072', 'research'],
+  ['what are the facts', 'cp-usc-2072', 'research'],
+  ['what is the holding', 'cp-rules-enabling', 'research'],
+  ['what does it say', 'cp-usc-2072', 'atlas'],
+  ['what does it require', 'cp-usc-1332', 'atlas'],
+  ['what does this rule require', 'cp-frcp-12', 'atlas'],
+  ['summarize it', 'cp-rules-enabling', 'atlas'],
+  ['who wrote it', 'lrs-s-chadha', 'atlas'],
+  ['what is the holding', 'lrs-s-chadha', 'atlas'],
+  ['what does it say', 'lrs-s-chadha', 'atlas'],
+  // Finding 8: "United States" alone names no case; organisations are not their cases.
+  ['what is the united states', undefined, 'research'],
+  ['what did the court hold in united states', undefined, 'research'],
+  ['who wrote united states', undefined, 'web'],
+  ['what is the sierra club', undefined, 'research'],
+  ['what is planned parenthood', undefined, 'research'],
+  ['what is the chamber of commerce', undefined, 'research'],
+  ['what is the national federation of independent business', undefined, 'research'],
+  ['what is the sierra club case', undefined, 'atlas'],
+  ['what is sierra club v morton', undefined, 'atlas'],
+  ['what did sierra club hold', undefined, 'atlas'],
+  ['what is international shoe', undefined, 'atlas'],
+  // Finding 9: "the meaning of X", a bare 12(b)(6), and "this case" compared with a named case.
+  ['what is the meaning of res judicata', undefined, 'atlas'],
+  ["what's the meaning of consideration", undefined, 'atlas'],
+  ['what is the definition of res judicata', undefined, 'atlas'],
+  ['what is 12(b)(6)', undefined, 'atlas'],
+  ['what is the 12(b)(6) standard', undefined, 'atlas'],
+  ['what is the difference between this case and iqbal', 'lrs-s-chadha', 'atlas'],
+  ['compare this case and clinton v city of new york', 'lrs-s-chadha', 'atlas'],
+  ['what is the difference between it and twombly', 'cp-iqbal', 'atlas'],
+  ['compare this case and iqbal', 'cp-iqbal', 'research'],
 ];
 
 test('routing: the Atlas answers alone only for the strict templates; everything else researches', (t) => {
@@ -1543,7 +1642,7 @@ test('routing: the Atlas answers alone only for the strict templates; everything
   assert.equal(reason('what did iqbal hold'), 'asks what a named case held');
   assert.equal(reason('what are the facts of hadley v baxendale'), 'asks for part of a named case');
   assert.equal(reason('who wrote the dissent in erie'), 'asks who wrote or joined a named case');
-  assert.equal(reason('what is the holding of this case', 'cp-erie'), 'about the open entry');
+  assert.equal(reason('what is the holding of this case', 'cp-erie-decision'), 'about the open entry');
   assert.equal(reason('compare twombly and iqbal'), 'compares two Atlas entries');
   // One more word, a second question, or a description instead of a name: research.
   for (const question of [
@@ -1551,7 +1650,6 @@ test('routing: the Atlas answers alone only for the strict templates; everything
     'what did iqbal hold and is it still good law',
     'what did iqbal hold about discrimination',
     'what is the twombly standard',
-    'explain 12(b)(6)',
     'what is a 10(b) claim',
     'which case struck down the line item veto',
     'what statute is the Rules of Decision Act',
@@ -1559,10 +1657,12 @@ test('routing: the Atlas answers alone only for the strict templates; everything
     assert.equal(routeOf(question).research, true, question);
   // "this case" and "the holding" need an open entry, and never name a dictionary headword.
   assert.equal(routeOf('what is the holding').research, true);
-  assert.equal(routeOf('what is the holding', 'cp-erie').research, false);
+  assert.equal(routeOf('what is the holding', 'cp-erie-decision').research, false);
+  // Review 5, finding 6: and only a case entry has a holding.
+  assert.equal(routeOf('what is the holding', 'cp-erie').research, true);
   // In a follow-up, "it" belongs to the conversation, not the open entry; a named case still
   // counts, and the earlier question's web words carry over ("is it still good law").
-  assert.equal(routeOf('what did it hold', 'cp-erie', { followUp: true }).research, true);
+  assert.equal(routeOf('what did it hold', 'cp-erie-decision', { followUp: true }).research, true);
   assert.equal(routeOf('what did iqbal hold', undefined, { followUp: true }).research, false);
   assert.equal(
     kind(
@@ -2720,6 +2820,331 @@ test('the answer library serves first questions through the stream, and keeps on
     assert.deepEqual(stored, []);
   } finally {
     warn.mock.restore();
+    if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
+    else process.env.DKLA_OPENAI_API_KEY = original;
+  }
+});
+
+// Review 5, finding 1. Vercel's Node runtime reads the request body before the handler runs (so
+// it can offer req.body), and in Node 22 a request whose body has been read is destroyed although
+// its connection is still open. A real server, with the body read first, reproduces that.
+test('a request whose body was read before the handler is answered; a real client abort cancels', async () => {
+  const original = process.env.DKLA_OPENAI_API_KEY;
+  process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
+  const calls = [];
+  let hang = false;
+  const transport = mock.method(globalThis, 'fetch', async (endpoint, options) => {
+    assert.equal(endpoint, 'https://api.openai.com/v1/responses');
+    calls.push(options.signal);
+    if (hang)
+      return new Promise((_, reject) =>
+        options.signal.addEventListener('abort', () => reject(options.signal.reason)),
+      );
+    return atlasReply({
+      asks: 'a definition of res judicata',
+      answers: 'exact',
+      needsWeb: false,
+      paragraphs: [{ text: 'Res judicata bars relitigating a claim already decided.', citations: [1] }],
+    });
+  });
+  const handler = makeAskHandler(undefined, undefined, { find: async () => null, store: async () => true });
+  const destroyed = [];
+  const handled = [];
+  const server = http.createServer(async (req, res) => {
+    const chunks = [];
+    for await (const chunk of req) chunks.push(chunk);
+    req.body = Buffer.concat(chunks).toString();
+    destroyed.push(req.destroyed);
+    const done = handler(req, res);
+    handled.push(done);
+    await done;
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const { port } = server.address();
+  const post = (question, started) =>
+    new Promise((resolve) => {
+      const body = JSON.stringify({ question });
+      const request = http.request(
+        {
+          host: '127.0.0.1',
+          port,
+          method: 'POST',
+          path: '/api/ask',
+          headers: {
+            host: `127.0.0.1:${port}`,
+            origin: `http://127.0.0.1:${port}`,
+            'content-type': 'application/json',
+            'content-length': Buffer.byteLength(body),
+          },
+        },
+        (response) => {
+          let text = '';
+          response.setEncoding('utf8');
+          response.on('data', (chunk) => (text += chunk));
+          response.on('end', () => resolve({ status: response.statusCode, text }));
+          response.on('error', () => resolve({ aborted: true }));
+        },
+      );
+      request.on('error', () => resolve({ aborted: true }));
+      request.end(body);
+      started?.(request);
+    });
+  try {
+    // The question is answered, with one call to OpenAI, although req.destroyed is true.
+    const answered = await post('what is res judicata');
+    assert.deepEqual(destroyed, [true], 'the request is destroyed when the handler starts, as on Vercel');
+    assert.equal(answered.status, 200);
+    const json = JSON.parse(answered.text);
+    assert.equal(json.paragraphs.length, 1);
+    assert.match(json.paragraphs[0].text, /^Res judicata/);
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].aborted, false);
+
+    // A person who leaves (Cancel, or the tab closed) still stops the call in progress.
+    hang = true;
+    calls.length = 0;
+    const cancelled = post('what is res judicata', async (request) => {
+      while (!calls.length) await new Promise((resolve) => setImmediate(resolve));
+      request.destroy();
+    });
+    assert.deepEqual(await cancelled, { aborted: true });
+    await handled.at(-1);
+    assert.equal(calls.length, 1, 'no further call after the person left');
+    assert.equal(calls[0].aborted, true, 'the call in progress is aborted');
+  } finally {
+    transport.mock.restore();
+    server.close();
+    if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
+    else process.env.DKLA_OPENAI_API_KEY = original;
+  }
+});
+
+// Review 5, findings 2, 3 and 7.
+test('a headword with a kind word in it is not a request for that kind, and its entry answers it', async () => {
+  // Finding 2: the kind word counts only as the object of the question.
+  for (const question of [
+    'what is the statute of frauds',
+    'what is a statute of limitations',
+    'what is common law',
+    'what is natural law',
+    'what is the Bill of Rights',
+    'what is a bill of attainder',
+    'what is substantive law',
+    'what is a statute',
+    'what is legislation',
+    'what is precedent',
+    'what is a ruling',
+    'what is statutory interpretation',
+    'what is the whole act rule',
+    'tell me about the statute of frauds',
+    // Right after the question word, a headword still asks for no statute.
+    'what statute of limitations applies to securities fraud',
+    'which common law rule governs',
+    'what bill of rights protections apply',
+  ])
+    assert.deepEqual([asksStatute(question), asksCase(question)], [false, false], question);
+  assert.equal(asksCase('which binding precedent controls'), true);
+  for (const question of [
+    "what's the statute that overrode the veto",
+    'what is the statute that overrode the veto',
+    'which federal law governs class actions',
+  ])
+    assert.equal(asksStatute(question), true, question);
+  for (const question of [
+    'what precedent did roe overrule',
+    'tell me the case that created minimum contacts',
+  ])
+    assert.equal(asksCase(question), true, question);
+
+  // The entry a template resolved the subject to is the right kind, whatever the question says.
+  const gustafson = {
+    type: 'node',
+    id: 'lrs-k-gustafson',
+    title: 'Gustafson v. Alloyd Co. (1995)',
+    category: 'Case',
+  };
+  const frauds = {
+    type: 'term',
+    id: 'statute_of_frauds',
+    title: 'statute of frauds',
+    category: 'Legal dictionary',
+  };
+  assert.equal(wrongKind('which statute is that', [frauds]), true, 'a term is no statute');
+  assert.equal(wrongKind('which statute is that', [frauds], ['statute_of_frauds']), false);
+  assert.equal(wrongKind('which statute is that', [gustafson], ['statute_of_frauds']), true);
+
+  // End to end: the Atlas answer citing the headword's entry is kept, with one call and no research.
+  const cites = (pattern) => (request, input) =>
+    atlasReply({
+      asks: 'a definition',
+      answers: 'exact',
+      needsWeb: false,
+      paragraphs: [{ text: 'The definition from the Atlas.', citations: [excerptNumber(input, pattern)] }],
+    });
+  for (const [question, pattern] of [
+    ['what is the statute of frauds', /^statute of frauds$/i],
+    ['what is common law', /^common law$/i],
+    ['what is precedent', /^precedent$/i],
+    ['what is the Bill of Rights', /^Bill of Rights$/],
+    // Finding 3: a headword that holds a "web" word is still a template.
+    ['what is binding precedent', /^binding precedent$/i],
+    ['what is a reversal', /^reversal$/i],
+    ['what is a supersedeas', /^supersedeas$/i],
+  ]) {
+    const { json, requests } = await askWithFetch(cites(pattern), { question });
+    assert.equal(requests.length, 1, question);
+    assert.ok(!requests[0].tools, question);
+    assert.equal(json.paragraphs.length, 1, question);
+    assert.equal(json.search, 'not-needed', question);
+    assert.match(json.sources[0].title, pattern, question);
+  }
+  // The web words still count outside the headword.
+  const { sources, signals } = retrieve.explain('what is binding precedent today');
+  assert.deepEqual(
+    (({ research, web }) => ({ research, web }))(
+      route('what is binding precedent today', sources, { signals }),
+    ),
+    { research: true, web: true },
+  );
+
+  // Finding 7: wider substitutes, and a first-sentence disclaimer before named content.
+  for (const text of [
+    'The Atlas does not identify that statute. The Line Item Veto Act was enacted in 1996.',
+    'I could not verify which statute that was. The Atlas discusses Gustafson.',
+    'The nearest Atlas entry is Gustafson.',
+    'The best match in the Atlas is Gustafson.',
+    'The closest is Gustafson.',
+    'This may refer to the PSLRA.',
+    'This may be referring to the PSLRA.',
+    'Instead, the Atlas covers Gustafson.',
+    'Although the Atlas has no entry for that statute, it covers Gustafson.',
+    'An analogous statute is the Securities Act.',
+    'A comparable case is Gustafson.',
+    'One possibility is the PSLRA.',
+    'The question may concern the PSLRA.',
+    'The statute most likely meant is the PSLRA.',
+    'It is unclear which statute you mean; the Atlas covers the Securities Act.',
+    'Related: Gustafson v. Alloyd.',
+    'While not the same, Gustafson narrowed liability.',
+  ])
+    assert.equal(substitute(text), true, text);
+  for (const text of [
+    'The excerpts do not state a deadline. Rule 56(b) allows a motion until 30 days after discovery closes.',
+    'The court read the statute narrowly. Instead of applying Section 12, it applied Section 11.',
+    'The best reading of the statute is that it bars suits.',
+    'The PSLRA became law over the veto.',
+  ])
+    assert.equal(substitute(text), false, text);
+});
+
+// Review 5, findings 4, 8 and 9.
+test('bare section numbers, generic party names and organisations name no entry by themselves', () => {
+  const by = (question) => retrieve.explain(question).signals.named.map(({ by, title }) => by + ': ' + title);
+  // Finding 4: a bare number is never a Restatement or APA section, and they keep it ambiguous.
+  for (const question of [
+    'what is section 230',
+    'what is § 230',
+    'what is section 90',
+    'what is section 702',
+    'what does section 553 require',
+  ])
+    assert.ok(!by(question).some((name) => name.startsWith('cite: ')), question + ': ' + by(question));
+  assert.ok(by('what is restatement section 90').some((name) => /^cite: Restatement § 90/.test(name)));
+  assert.ok(by('what does apa 553 require').some((name) => /^cite: APA § 553/.test(name)));
+  assert.ok(by('what does 5 usc 553 require').some((name) => /^cite: 5 U\.S\.C\. § 553/.test(name)));
+  assert.ok(by('what does section 1983 say').some((name) => /^cite: 42 U\.S\.C\. § 1983/.test(name)));
+  // Finding 9: a bare 12(b)(6) is Rule 12; a bare 10(b) is still nothing.
+  assert.ok(by('what is 12(b)(6)').some((name) => /^cite: .*Rule 12/.test(name)));
+  assert.ok(!by('what is a 10(b) claim').some((name) => name.startsWith('cite: ')));
+  // Finding 8: "Will v. United States" is only generic words once "will" (a stopword) is gone.
+  for (const question of ['what is the united states', 'what did the court hold in united states'])
+    assert.ok(!by(question).some((name) => name.startsWith('case: ')), question + ': ' + by(question));
+  // An organisation named as a party still names its case, but "what is X" asks about the
+  // organisation unless it says "v." or "case".
+  assert.ok(by('what is the sierra club').includes('case: Sierra Club v. Morton'));
+  const kind = (question) => {
+    const { sources, signals } = retrieve.explain(question);
+    return route(question, sources, { signals }).research ? 'research' : 'atlas';
+  };
+  assert.equal(kind('what is the sierra club'), 'research');
+  assert.equal(kind('what is the sierra club case'), 'atlas');
+  assert.equal(kind('what did sierra club hold'), 'atlas');
+});
+
+// Review 5, finding 5.
+test('the answer library never keeps or serves an answer that changes with time', async () => {
+  const changing = [
+    'was iqbal overturend',
+    'was iqbal over ruled',
+    'is iqbal valid law',
+    'is twombly bad law',
+    'is chevron deference binding precedent',
+    'did loper bright kill chevron',
+    'has chadha been limited',
+    'how have courts applied iqbal since',
+    'what came next after loper bright',
+    'what followed iqbal',
+    'who is the chief justice',
+  ];
+  const lasting = [
+    pslra,
+    'what is res judicata',
+    'who wrote the dissent in erie',
+    'what is binding precedent',
+  ];
+  const stable = (question) => {
+    const { sources, signals } = retrieve.explain(question);
+    return route(question, sources, { signals }).stable;
+  };
+  for (const question of changing) assert.equal(stable(question), false, question);
+  for (const question of lasting) assert.equal(stable(question), true, question);
+  // The library's own guard misses some of them, which is why the route decides.
+  assert.ok(changing.some((question) => storable(question)));
+
+  const original = process.env.DKLA_OPENAI_API_KEY;
+  process.env.DKLA_OPENAI_API_KEY = 'fake-key-for-mock';
+  const found = [];
+  const stored = [];
+  const ask = makeAskHandler(
+    async () => ({
+      asks: 'x',
+      answers: 'exact',
+      needsWeb: false,
+      paragraphs: [{ text: 'Atlas.', citations: [1] }],
+    }),
+    async ({ sources }) => citeAnswer({ paragraphs: [{ text: 'Researched.', citations: [1] }] }, sources),
+    {
+      find: async (question) => {
+        found.push(question);
+        return null;
+      },
+      store: async (question) => stored.push(question),
+    },
+  );
+  const run = async (question) => {
+    const res = { setHeader() {}, end: (json) => (res.json = JSON.parse(json)) };
+    await ask(
+      {
+        method: 'POST',
+        headers: { host: 'dkla.test', origin: 'https://dkla.test', 'content-type': 'application/json' },
+        body: { question },
+      },
+      res,
+    );
+    return res;
+  };
+  try {
+    for (const question of changing) {
+      const res = await run(question);
+      assert.equal(res.statusCode, 200, question);
+      assert.equal(res.json.paragraphs[0].text, 'Researched.', question);
+    }
+    assert.deepEqual([found, stored], [[], []]);
+    for (const question of ['what is res judicata', 'when can a defendant remove a case to federal court'])
+      await run(question);
+    assert.deepEqual(found, ['what is res judicata', 'when can a defendant remove a case to federal court']);
+    assert.deepEqual(stored, found);
+  } finally {
     if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
     else process.env.DKLA_OPENAI_API_KEY = original;
   }

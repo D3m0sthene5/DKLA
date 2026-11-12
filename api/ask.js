@@ -122,11 +122,15 @@ export function makeAskHandler(
     // A cancelled question (Cancel, or the tab closed) stops the OpenAI calls: the connection
     // closes before the reply has ended, so nothing more is paid for. The listener is attached
     // first, so a close during a cold start (reading the body, loading the corpus) counts too.
+    // Only the response side tells: a request whose body has been read is destroyed in Node 22
+    // although its connection is open, and Vercel reads the body (req.body) before the handler
+    // runs, so req.destroyed is true for every question there and is never a cancel.
     const gone = new AbortController();
+    const closed = () => !res.writableEnded && Boolean(res.destroyed || res.socket?.destroyed);
     res.on?.('close', () => {
       if (!res.writableEnded) gone.abort();
     });
-    if (res.destroyed || req.destroyed) gone.abort();
+    if (closed()) gone.abort();
     // After a cancel nothing is written; the response is only ended.
     const stop = () => {
       if (!res.writableEnded) res.end?.();
@@ -177,10 +181,14 @@ export function makeAskHandler(
       const { sources: atlas, signals } = await retrieve(lookup, node);
       if (gone.signal.aborted) return stop();
 
+      // The templates read the question itself; the web flags read it with the question before.
+      const path = route(query, atlas, { node, signals, lookup, followUp: Boolean(earlier?.length) });
+
       // Only a first question can be answered from, or added to, the library:
-      // a follow-up depends on the conversation before it. The lookup comes before any call
-      // to OpenAI, so a question asked before costs nothing.
-      const shelf = earlier?.length ? null : (node ?? '');
+      // a follow-up depends on the conversation before it. Nor can a question whose answer
+      // changes with time (route stable: false): the present, later history, people. The
+      // lookup comes before any call to OpenAI, so a question asked before costs nothing.
+      const shelf = earlier?.length || !path.stable ? null : (node ?? '');
       if (shelf !== null && !fresh) {
         const kept = await quietly(() => library.find(query, shelf));
         if (gone.signal.aborted) return stop();
@@ -216,8 +224,6 @@ export function makeAskHandler(
         return reply.send(200, answer);
       };
 
-      // The templates read the question itself; the web flags read it with the question before.
-      const path = route(query, atlas, { node, signals, lookup, followUp: Boolean(earlier?.length) });
       reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
       // Time budget, kept under the 30 s target (vercel.json allows 45 s). Loading the corpus on a
       // cold start takes about 0.3 s with the prebuilt index. Then one shared 26 s deadline:
@@ -230,8 +236,18 @@ export function makeAskHandler(
         gone.signal.aborted
           ? stop()
           : reply.send(200, { paragraphs: [], sources: [], search: 'unavailable' });
+      // subjects: the entries a template resolved the question to; citing one is the right kind
+      // of answer ("what is the statute of frauds" and its dictionary entry).
       const atlasAnswer = (search) =>
-        generate({ apiKey, question: query, earlier, sources: atlas, search, signal });
+        generate({
+          apiKey,
+          question: query,
+          earlier,
+          sources: atlas,
+          search,
+          signal,
+          subjects: path.subjects,
+        });
       let draft;
       // The search ran and found nothing usable (as opposed to failing).
       let empty = false;
@@ -265,6 +281,7 @@ export function makeAskHandler(
           progress: reply.stream ? reply.progress : undefined,
           // Legislation, events, dates, people, the present: only a web-cited answer will do.
           web: path.web,
+          subjects: path.subjects,
         });
         return answered({ ...answer, search: 'searched' });
       } catch (error) {
