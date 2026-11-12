@@ -87,8 +87,11 @@
         except: (raw.except || []).map((phrase) => {
           if (typeof phrase !== 'string' || phrase !== phrase.toLowerCase() || !phrase.trim())
             throw Error(raw.key + ': except phrases are lowercase text');
+          // The pattern is built the first time it is needed: with thousands of terms, building every
+          // Unicode pattern up front took over a second on the first account opened.
           return {
-            re: new RegExp(`(?<![${WORD}])${formPattern(phrase.trim())}(?![${WORD}])`, 'giu'),
+            re: null,
+            pattern: `(?<![${WORD}])${formPattern(phrase.trim())}(?![${WORD}])`,
             reach: phrase.trim().length + 8,
             head: phrase.trim().split(/[ '’]/)[0],
           };
@@ -107,7 +110,8 @@
           // the whole form, when it has no apostrophe: compared directly where the paragraph has plain spacing
           whole: /['’]/.test(form) ? null : form,
           run: firstRun(form),
-          re: new RegExp(`${formPattern(form)}(?![${WORD}])`, 'iuy'),
+          re: null, // built on first use, as for except phrases
+          pattern: `${formPattern(form)}(?![${WORD}])`,
         });
       }
       terms.set(term.key, term);
@@ -142,11 +146,13 @@
     // An except phrase that covers the match: only the few words around it are searched (with 6,000 terms,
     // searching the whole paragraph for each phrase made drawing several times slower).
     const excluded = (term, s, e) => {
-      for (const { re, reach, head } of term.except) {
+      for (const x of term.except) {
+        const { reach, head } = x;
         const from = Math.max(0, s - reach),
           to = Math.min(text.length, e + reach);
         if (lower && !lower.slice(from, to).includes(head)) continue;
-        const window = text.slice(from, to);
+        const window = text.slice(from, to),
+          re = (x.re ||= new RegExp(x.pattern, 'giu'));
         re.lastIndex = 0;
         for (const m of window.matchAll(re)) {
           const a = from + m.index;
@@ -177,6 +183,7 @@
       let chosen = null;
       for (const f of candidates) {
         if (lower && !lower.startsWith(plainSpacing && f.whole ? f.whole : f.head, s)) continue;
+        f.re ||= new RegExp(f.pattern, 'iuy');
         f.re.lastIndex = s;
         const hit = f.re.exec(text);
         if (hit && fits(f.term, s, s + hit[0].length)) {

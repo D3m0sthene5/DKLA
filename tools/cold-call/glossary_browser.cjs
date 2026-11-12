@@ -43,6 +43,8 @@ async function openCase(context, id, ready) {
       await page.locator('#coldCallDialog[open]').waitFor({ timeout: 4000 });
       break;
     } catch (error) {
+      // a slow machine can open the reader after the wait above: then it is open, and pressing again fails
+      if (await page.locator('#coldCallDialog[open]').count()) break;
       if (i >= 4) throw error;
     }
   }
