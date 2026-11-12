@@ -1,0 +1,35 @@
+/* A calmer top bar: Save, Study, SCOTUS and Privacy live in the menu (src/features/topbar/topbar.js). */
+.dkla-calm-bar .study-header #saveBtn,
+.dkla-calm-bar .study-header .r18-launcher,
+.dkla-calm-bar .study-header .sh-launcher,
+.dkla-calm-bar .study-header .dkla-privacy-link {
+  display: none !important;
+}
+.study-header .dkla-splash-slot {
+  flex: 1 1 220px;
+  min-width: 140px;
+  height: 42px;
+  align-self: center;
+}
+.study-header #moreBtn.dkla-menu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  padding: 0;
+  margin-left: 6px;
+}
+.dkla-menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dkla-menu-icon i {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}

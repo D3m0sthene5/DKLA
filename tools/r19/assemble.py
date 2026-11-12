@@ -48,7 +48,7 @@ def vform_log(entries: list[dict]) -> list[dict]:
 
 CHANGELOG_V30 = {
     "v": "v3.0", "date": "2026-11-11",
-    "text": "A calmer Home map: the three courses on top, the DKLA mark in the middle with a Minecraft-style splash line, and Rules & authorities and SCOTUS History below; Civil Procedure is labelled Civ Pro. New Exo 2 and Inter typefaces. Ask Dottie, the opossum research assistant, hangs from the top bar, searches the web for questions the Atlas does not clearly answer, shows live progress, saves answers in your browser and reuses identical first questions. Cold Call accounts define legal terms on hover or tap. Atlas search shows where each result matched. A split-flap New York clock and date sit in the top bar. New versions now arrive quietly: a small Refresh notice appears only when a newer build exists, and old offline copies are removed.",
+    "text": "A calmer Home map: the three courses on top and Rules & authorities and SCOTUS History below; Civil Procedure is labelled Civ Pro. A calmer top bar: a Minecraft-style splash line beside the clock, and Save, Study, SCOTUS and Privacy in one menu. New Exo 2 and Inter typefaces. Ask Dottie, the opossum research assistant, hangs from the top bar, searches the web for questions the Atlas does not clearly answer, shows live progress, saves answers in your browser and reuses identical first questions. Cold Call accounts define legal terms on hover or tap. Atlas search shows where each result matched. A split-flap New York clock and date sit in the top bar. New versions now arrive quietly: a small Refresh notice appears only when a newer build exists, and old offline copies are removed.",
 }
 
 CHANGELOG_V29 = {

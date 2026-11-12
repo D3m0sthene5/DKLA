@@ -1,6 +1,6 @@
-/* The splash text on the Home map (src/features/splash): one of
-   DKLASplashLines, tilted on the upper-right corner of the DKLA logo, pulsing,
-   following the logo, hidden whenever something covers the map, never over a
+/* The splash text (src/features/splash): one of DKLASplashLines, gently tilted
+   and pulsing in its own slot in the top bar beside the clock (the calm top bar,
+   src/features/topbar/), hidden whenever something covers the map, never over a
    tile or a control, and still under reduced motion.
 
      node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.0.html */
@@ -56,7 +56,11 @@ const look = (page) =>
       const x = cx + (along * i * Math.cos(a)) / 4,
         y = cy + (along * i * Math.sin(a)) / 4;
       for (const el of document.elementsFromPoint(x, y)) {
-        if (el.closest('.study-header')) under.push('top bar');
+        // Its slot is in the top bar: only the bar's controls count as being under it.
+        if (
+          el.closest('.study-header button, .study-header a, .study-header input, .ny-clock, .ask-bar-dottie')
+        )
+          under.push('top bar control');
         else if (el.closest('.study-zoom, .map-nav')) under.push('map controls');
         else if (el.closest('path[data-map-region], .r19-tile')) under.push('tile');
       }
@@ -70,7 +74,8 @@ const look = (page) =>
       index: splash.dataset.line,
       angle: (a * 180) / Math.PI,
       font: parseFloat(getComputedStyle(text).fontSize),
-      logo: plain(mark?.getBoundingClientRect()),
+      logo: plain(document.querySelector('.study-header .dkla-splash-slot')?.getBoundingClientRect()),
+      bar: plain(document.querySelector('.study-header')?.getBoundingClientRect()),
       box: plain(box),
       under: [...new Set(under)],
       rootEvents: getComputedStyle(splash).pointerEvents,
@@ -80,22 +85,15 @@ const look = (page) =>
     };
   });
 
-// The line rises to the right from the logo's upper-right corner, overlapping it slightly.
+// The line sits in its slot in the top bar (state.logo is the slot's box), inside the bar, gently tilted.
 function onCorner(state, at) {
-  const { logo, box } = state;
+  const { logo: slot, bar, box } = state;
   const round = (q) => ['left', 'top', 'right', 'bottom'].map((k) => Math.round(q[k])).join(',');
-  const where = `${at} (logo ${round(logo)}, line ${round(box)})`;
-  assert.ok(
-    box.left < logo.right && box.left > logo.right - logo.width * 0.5,
-    `${where}: starts on the corner`,
-  );
-  assert.ok(box.right > logo.right + 20, `${where}: runs out to the right of the logo`);
-  assert.ok(box.top < logo.top, `${where}: rises above the logo`);
-  assert.ok(
-    box.bottom > logo.top && box.bottom < logo.top + logo.height * 0.6,
-    `${where}: reaches down onto the corner`,
-  );
-  assert.ok(state.angle > -22 && state.angle < -13, `${where}: tilted (${state.angle.toFixed(1)} degrees)`);
+  const where = `${at} (slot ${round(slot)}, line ${round(box)})`;
+  assert.ok(slot.width > 0, `${where}: the top bar has a splash slot`);
+  assert.ok(box.left >= slot.left - 2 && box.right <= slot.right + 2, `${where}: inside its slot`);
+  assert.ok(box.top >= bar.top - 2 && box.bottom <= bar.bottom + 2, `${where}: inside the top bar`);
+  assert.ok(state.angle > -9 && state.angle < -3, `${where}: tilted (${state.angle.toFixed(1)} degrees)`);
 }
 
 const splash = (page) => page.locator('.dkla-splash');
@@ -189,7 +187,7 @@ try {
     await hidden(page, 'a dialog hides it');
     await home(page);
     await shown(page);
-    // Zoomed in until the logo fades: gone.
+    // Zoomed into the map is no longer Home: gone, and back on Home.
     for (let i = 0; i < 3; i++) await page.locator('#studyZoomIn').click();
     await hidden(page, 'zooming in hides it');
     await home(page);
@@ -220,18 +218,15 @@ try {
     await context.close();
   }
 
-  // Phones: smaller, and never over a tile, the top bar or the controls.
-  for (const viewport of [
-    { width: 390, height: 844 },
-    { width: 844, height: 390 },
-  ]) {
+  // A small landscape screen: never over a tile or a control (portrait screens are not designed for).
+  for (const viewport of [{ width: 844, height: 390 }]) {
     const { context, page, errors } = await open(viewport);
     await expect(splash(page)).toHaveCount(1);
     await page.waitForTimeout(1500);
     const state = await look(page);
     if (state.shown === 'true') {
       assert.deepEqual(state.under, [], `${viewport.width} x ${viewport.height}: nothing under the line`);
-      assert.ok(state.font <= 14, `${viewport.width} x ${viewport.height}: smaller on a phone`);
+      assert.ok(state.font <= 16, `${viewport.width} x ${viewport.height}: small`);
       onCorner(state, `${viewport.width} x ${viewport.height}`);
     } else assert.ok(state.hiddenBy, 'hidden for a reason');
     console.log(
@@ -241,7 +236,7 @@ try {
     await context.close();
   }
   console.log(
-    'Splash text: shown on Home, on the logo corner, hidden when covered, calm under reduced motion.',
+    'Splash text: shown on Home in its top-bar slot, hidden when covered, calm under reduced motion.',
   );
 } finally {
   await browser.close();

@@ -12,7 +12,8 @@ const url = process.env.DKLA_HOME_TEST_URL;
 // runs the same checks on that arrangement. A prototype has no mark on the map
 // (so the mark's checks are skipped); only 1 and 5 keep the two lower blocks
 // side by side at equal heights.
-const variant = /^[1-5]$/.test(process.env.DKLA_HOME_VARIANT || '') ? process.env.DKLA_HOME_VARIANT : '';
+// The Home for everyone is variant 1 (owner's choice, 12 November 2026); DKLA_HOME_VARIANT=0 checks the old arrangement.
+const variant = /^[0-5]$/.test(process.env.DKLA_HOME_VARIANT || '') ? process.env.DKLA_HOME_VARIANT : '1';
 if (!url)
   throw new Error(
     'Set DKLA_HOME_TEST_URL to the explicit preview; missing targets must not produce a green skipped run.',
@@ -56,9 +57,9 @@ for (const [width, height] of sizes)
     // v3.0: courses on top, the DKLA mark alone in the middle, the two lower blocks below.
     const contract = {
       expectedRegions,
-      equalLowerHeights: !variant || variant === '1' || variant === '5',
-      heliocentric: !variant,
-      noMark: !!variant,
+      equalLowerHeights: ['0', '1', '5'].includes(variant),
+      heliocentric: variant === '0',
+      noMark: variant !== '0',
       allowZoomLabels: height < 500,
     };
     let first = await page.evaluate(auditNativeHome, {

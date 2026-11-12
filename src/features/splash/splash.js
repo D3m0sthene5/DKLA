@@ -190,6 +190,15 @@
   function placeInBar() {
     if (index < 0 && !show(pick(lastShown()))) return off('no lines');
     if (!onHome()) return off('not home');
+    // The calm top bar (src/features/topbar/) gives the line its own slot beside the clock.
+    const slotEl = header.querySelector('.dkla-splash-slot');
+    if (slotEl && slotEl.getClientRects().length) {
+      // A panel, Study, SCOTUS History or a dialog drawn over the map hides it, as on the map.
+      const map = document.getElementById('geoCanvas')?.getBoundingClientRect();
+      const hit = map && document.elementFromPoint(map.left + map.width / 2, map.top + map.height / 2);
+      if (!hit || !hit.closest('#geoCanvas')) return off('covered');
+      return placeInSlot(slotEl);
+    }
     const word = header.querySelector('.study-brand .dkla-wordmark');
     if (!word || !word.getClientRects().length) return off('no logo');
     // The big DKLA letters, not the small line under them.
@@ -224,7 +233,12 @@
       if (g.cx - a * COS < 2) return 'edge';
       for (const el of document.querySelectorAll(BAR_CLEAR)) {
         const r = el.getBoundingClientRect();
-        if (r.width && r.height && getComputedStyle(el).visibility !== 'hidden' && touches(g.cx, g.cy, a, b, r))
+        if (
+          r.width &&
+          r.height &&
+          getComputedStyle(el).visibility !== 'hidden' &&
+          touches(g.cx, g.cy, a, b, r)
+        )
           return 'control';
       }
       return '';
@@ -249,6 +263,50 @@
       root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${TILT}deg)`;
     }
     return why;
+  }
+  // Centred in the top bar's slot, as large as fits (11-16px), tilted and pulsing as on the map.
+  function placeInSlot(slotEl) {
+    if (!perEm) {
+      text.style.fontSize = '20px';
+      perEm = text.offsetWidth / 20;
+      perH = text.offsetHeight / 20;
+      font = 0;
+      if (!perEm) return off('unmeasured');
+    }
+    const bar = header.getBoundingClientRect(),
+      q = slotEl.getBoundingClientRect(),
+      // A gentler tilt than on the map, so a whole line fits in the bar's height.
+      tilt = -6,
+      c = Math.cos((tilt * Math.PI) / 180),
+      sn = Math.abs(Math.sin((tilt * Math.PI) / 180));
+    // The tilted, pulsing line must stay inside the slot's width and the bar's height.
+    const fits = (size) => {
+      const w = perEm * size,
+        h = perH * size,
+        across = PULSE * (w * c + h * sn) + 2 * SHADOW * size,
+        up = PULSE * (w * sn + h * c) + 2 * SHADOW * size;
+      return across <= q.width - 8 && up <= bar.height - 6;
+    };
+    let size = 16;
+    while (size > 11 && !fits(size)) size -= 0.5;
+    if (!fits(size)) return off('edge');
+    const w = perEm * size,
+      h = perH * size,
+      cx = q.left + q.width / 2,
+      cy = bar.top + bar.height / 2,
+      where = `${cx.toFixed(1)},${cy.toFixed(1)},${size}`;
+    // Compare with the size actually set, not a cache: measuring sets 20px for a moment.
+    const px = size.toFixed(2) + 'px';
+    if (text.style.fontSize !== px) {
+      text.style.fontSize = px;
+      font = size;
+      placed = '';
+    }
+    if (where !== placed) {
+      placed = where;
+      root.style.transform = `translate(${(cx - bar.left - w / 2).toFixed(1)}px, ${(cy - bar.top - h / 2).toFixed(1)}px) rotate(${tilt}deg)`;
+    }
+    return '';
   }
   function place() {
     if (header) return placeInBar();

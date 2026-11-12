@@ -323,8 +323,7 @@
           item.y += a[1];
         }
         const zones =
-          V &&
-          V.zones(mode, course, design.zones || [], (rid) => M.regions.find((r) => r.id === rid));
+          V && V.zones(mode, course, design.zones || [], (rid) => M.regions.find((r) => r.id === rid));
         if (zones) {
           design.zones = zones;
           design.labels = [];

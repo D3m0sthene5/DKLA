@@ -7,6 +7,20 @@ Update or replace this file when the state changes.
 
 Read this first; the sections below it are older.
 
+- **Owner's standing design rules**: DKLA is a landscape desktop atlas (iPad
+  landscape at most). Never spend effort on phone or portrait layouts. Keep
+  the Home design language (course trees with connection lines, the SCOTUS
+  building, the Rules & authorities books); improve proportions within it.
+- **Home after owner review**: "Today without the D" (`src/features/v25/
+  home-variants.js`, variant 1 is the default; localStorage `dkla.homeVariant`
+  = 0 restores the old arrangement, 2-5 are prototypes); the books stay near
+  natural proportions (at most 25% taller). The calm top bar
+  (`src/features/topbar/`) moves Save, Study, SCOTUS and Privacy into the ☰
+  menu; the splash line sits in its slot beside the clock. The version label
+  is a HUD-style Orbitron readout (`src/features/v26/hud-font.css`). The big
+  monogram (and its hidden analytics link) is gone from the map; the admin
+  dashboard is at dkla.dev/admin.
+
 - **v3.0** (served file `DKLA-v3.0.html`; every older address, v2.9 included,
   redirects). Built by agent swarms in one session and merged on
   `claude/ask-dkla-mascot`. What changed:

@@ -620,7 +620,13 @@
       ].join(':');
     if (geometryCache?.key === key) return geometryCache;
     const cover = n === root,
-      width = spec ? (spec.split ? 480 : spec.cols * (spec.colW || 480)) : overview ? 1440 : Math.min(1440, Math.max(320, a.w - 32)),
+      width = spec
+        ? spec.split
+          ? 480
+          : spec.cols * (spec.colW || 480)
+        : overview
+          ? 1440
+          : Math.min(1440, Math.max(320, a.w - 32)),
       short = !overview && a.h < 400,
       compact = cover && (narrow || short),
       pad = narrow || short ? 16 : 26,
@@ -628,12 +634,12 @@
     let cols = spec
       ? spec.cols
       : cover
-      ? narrow
-        ? 2
-        : short || width >= 860
-          ? 3
-          : 2
-      : Math.min(n.children.length, width >= 1100 ? 4 : width >= 700 ? 3 : width >= 480 ? 2 : 1);
+        ? narrow
+          ? 2
+          : short || width >= 860
+            ? 3
+            : 2
+        : Math.min(n.children.length, width >= 1100 ? 4 : width >= 700 ? 3 : width >= 480 ? 2 : 1);
     const constitution = n === collectionGroups.get('constitution'),
       headingFs = cover ? (short ? 20 : narrow ? 26 : 32) : narrow ? 24 : 30,
       heading = rows(display(n), width - pad * 2, headingFs, 550, 3, 'authority-map-heading');

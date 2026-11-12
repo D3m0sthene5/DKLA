@@ -26,10 +26,13 @@
   'use strict';
   if (window.DKLAHomeVariant) return;
   const KEY = 'dkla.homeVariant';
-  let id = 0;
+  // The owner chose 1, "Today without the D" (12 November 2026): it is the Home for everyone.
+  // 'dkla.homeVariant' = '0' brings back the old arrangement and '2'..'5' the other prototypes.
+  let id = 1;
   try {
-    const v = Number(localStorage.getItem(KEY));
-    if ([1, 2, 3, 4, 5].includes(v)) id = v;
+    const raw = localStorage.getItem(KEY);
+    const v = raw == null ? 1 : Number(raw);
+    if ([0, 1, 2, 3, 4, 5].includes(v)) id = v;
   } catch {
     /* storage blocked: today's Home */
   }
@@ -220,7 +223,13 @@
       const W = U.w,
         w = (W - BLOCK_GAP) / 2,
         hn = natural(3, w),
-        h = Math.max(hn, Math.min(room(W, lowerTop), w / 2.3, hn * 1.9));
+        // Variant 1 keeps the books and the building near their natural proportions (the owner did not
+        // want the Rules & authorities covers stretched tall): at most a quarter taller, to use the room
+        // the window leaves. Variant 5 may still grow further.
+        h =
+          id === 1
+            ? Math.max(hn, Math.min(room(W, lowerTop), hn * 1.25))
+            : Math.max(hn, Math.min(room(W, lowerTop), w / 2.3, hn * 1.9));
       return {
         auth: { x: U.x0, y: lowerTop, w, h, cols: 3 },
         scotus: { x: U.x0 + w + BLOCK_GAP, y: lowerTop, w, h },
@@ -321,7 +330,8 @@
     if (state?.key === key) return state;
     const s = solve(a, top);
     if (!s) return state;
-    const r = (o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, typeof v === 'number' ? Math.round(v) : v]));
+    const r = (o) =>
+      Object.fromEntries(Object.entries(o).map(([k, v]) => [k, typeof v === 'number' ? Math.round(v) : v]));
     s.scotus = r(s.scotus);
     s.auth = r(s.auth);
     if (s.auth.split) s.auth.split = { left: r(s.auth.split.left), right: r(s.auth.split.right) };
