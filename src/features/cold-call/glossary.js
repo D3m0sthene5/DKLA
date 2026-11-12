@@ -10,7 +10,7 @@
      such as "Federal Rules" stay plain; a capital at the start of a sentence is fine;
    - a term's context pattern must occur in the same sentence, and its except phrases never link;
    - only the first occurrence of each term per section links, at most maxPerParagraph links per
-     paragraph, and never two links back to back. */
+     paragraph, and at least two plain words between two links. */
 (() => {
   'use strict';
   const root = typeof window === 'object' ? window : globalThis;
@@ -19,7 +19,8 @@
   const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // A surface form as a pattern: any run of spaces matches any whitespace, and ' matches ’.
   const formPattern = (form) => escapeRe(form).replace(/ +/g, '\\s+').replace(/['’]/g, "['’]");
-  const firstWord = (s) => s.split(/\s+/)[0].toLowerCase().replace(/’/g, "'");
+  const RUN = new RegExp(`^[${WORD}]+`, 'u');
+  const firstRun = (s) => (s.match(RUN)?.[0] || '').toLowerCase();
   const ABBREVIATIONS = new Set(
     (
       'v vs Inc Co Corp Ltd No Nos Mr Mrs Ms Dr St Jr Sr Id Cir App Supp Ct Stat Fed Civ Proc Art Sec Ch Cl ' +
@@ -90,27 +91,28 @@
         forms.push({
           form,
           term,
-          first: firstWord(form),
+          run: firstRun(form),
           re: new RegExp(`${formPattern(form)}(?![${WORD}])`, 'iuy'),
         });
       }
       terms.set(term.key, term);
     }
     forms.sort((a, b) => b.form.length - a.form.length || (a.form < b.form ? -1 : 1));
-    const byFirst = new Map();
+    // Forms grouped by their first run of word characters. The text is scanned word by word and only
+    // the forms that start with that word are tried, so the cost grows with the text, not the table
+    // (one alternation of every form took a quarter of a second per long account with 700 terms).
+    const byRun = new Map();
     for (const f of forms) {
-      if (!byFirst.has(f.first)) byFirst.set(f.first, []);
-      byFirst.get(f.first).push(f);
+      if (!byRun.has(f.run)) byRun.set(f.run, []);
+      byRun.get(f.run).push(f);
     }
-    const any = forms.length
-      ? new RegExp(`(?<![${WORD}])(?:${forms.map((f) => formPattern(f.form)).join('|')})(?![${WORD}])`, 'giu')
-      : null;
-    return { terms, forms, byFirst, any, density, source: table.source || '' };
+    const words = forms.length ? new RegExp(`(?<![${WORD}])[${WORD}]+`, 'gu') : null;
+    return { terms, forms, byRun, words, density, source: table.source || '' };
   }
   /** The links in one paragraph: [{ start, end, key }]. `seen` holds the keys already linked in this section. */
   function annotate(compiled, text, seen = new Set()) {
     const links = [];
-    if (!compiled.any || !text) return links;
+    if (!compiled.words || !text) return links;
     const max = compiled.density.maxPerParagraph;
     let spans = null,
       excepts = null;
@@ -141,13 +143,15 @@
       if (term.context && !term.context.test(text.slice(a, b))) return false;
       return !excluded(term, s, e);
     };
-    const any = compiled.any;
-    any.lastIndex = 0;
+    const words = compiled.words;
+    words.lastIndex = 0;
     let m;
-    while (links.length < max && (m = any.exec(text))) {
+    while (links.length < max && (m = words.exec(text))) {
       const s = m.index;
+      const candidates = compiled.byRun.get(m[0].toLowerCase());
+      if (!candidates) continue;
       let chosen = null;
-      for (const f of compiled.byFirst.get(firstWord(m[0])) || []) {
+      for (const f of candidates) {
         f.re.lastIndex = s;
         const hit = f.re.exec(text);
         if (hit && fits(f.term, s, s + hit[0].length)) {
@@ -155,14 +159,13 @@
           break;
         }
       }
-      if (!chosen) {
-        any.lastIndex = s + 1;
-        continue;
-      }
-      any.lastIndex = chosen.end;
+      if (!chosen) continue;
+      words.lastIndex = chosen.end;
       const previous = links[links.length - 1];
       if (seen.has(chosen.term.key)) continue;
-      if (previous && /^[\s\p{P}\p{S}]*$/u.test(text.slice(previous.end, s))) continue;
+      // Links never crowd each other: at least two plain words between two links ("removed the action"
+      // links only "removed"; the next term gets the link instead).
+      if (previous && (text.slice(previous.end, s).match(/[\p{L}\p{N}]+/gu) || []).length < 2) continue;
       links.push({ start: s, end: chosen.end, key: chosen.term.key });
       seen.add(chosen.term.key);
     }

@@ -105,7 +105,7 @@ test('a context pattern must occur in the same sentence', () => {
   );
 });
 
-test('first occurrence per section, at most maxPerParagraph, never back to back', () => {
+test('first occurrence per section, at most maxPerParagraph, two plain words between links', () => {
   const g = compile(
     table(
       [
@@ -130,10 +130,13 @@ test('first occurrence per section, at most maxPerParagraph, never back to back'
     'already linked in this section',
   );
   assert.deepEqual(
-    words(g, 'Libel and damages and defamation.', new Set()),
+    words(g, 'Libel came first, then damages, and finally defamation.', new Set()),
     ['Libel', 'damages'],
     'per-paragraph cap',
   );
+  // At least two plain words between links: "removed the action" links only the first term.
+  assert.deepEqual(words(g, 'It sought damages and libel.', new Set()), ['damages']);
+  assert.deepEqual(words(g, 'It sought damages and also libel.', new Set()), ['damages', 'libel']);
   assert.deepEqual(
     words(g, 'It alleged defamation, slander and libel.', new Set()),
     ['defamation', 'libel'],
@@ -196,8 +199,13 @@ test('the committed term table compiles, links to real dictionary entries and st
     fs
       .readdirSync(path.join(root, 'src/data/dklaGlossary'))
       .filter((d) => d.startsWith('terms-'))
-      .flatMap((d) => fs.readdirSync(path.join(root, 'src/data/dklaGlossary', d)))
-      .map((f) => f.replace(/^\d+-(.*)-[0-9a-f]{10}\.json$/, '$1')),
+      .flatMap((d) =>
+        fs
+          .readdirSync(path.join(root, 'src/data/dklaGlossary', d))
+          .map((f) => path.join(root, 'src/data/dklaGlossary', d, f)),
+      )
+      // The slug inside the record: file names drop characters such as the brackets in "(alj)".
+      .map((file) => JSON.parse(fs.readFileSync(file, 'utf8')).slug),
   );
   for (const t of g.terms.values()) {
     if (t.wex) assert.ok(slugs.has(t.wex), `${t.key}: Wex slug ${t.wex} is not in the DKLA dictionary`);

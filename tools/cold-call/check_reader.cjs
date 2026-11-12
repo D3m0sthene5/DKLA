@@ -163,7 +163,7 @@ for (const account of data.cases) {
       );
     }
   // Definition links: only known terms, each at most once per episode, at most maxPerParagraph
-  // per paragraph, never in headings, citations or the source list, and never two back to back.
+  // per paragraph, never in headings, citations or the source list, and at least two plain words between two links.
   const used = new Set();
   const sections = dialog.innerHTML.split('<section class="cc-section"').slice(1);
   assert.equal(sections.length, account.sections.length, `${account.id}: episode markup`);
@@ -181,10 +181,14 @@ for (const account of data.cases) {
       const n = (body.match(TERM) || []).length;
       assert.ok(n <= maxPerParagraph, `${account.id}: ${n} definitions in one paragraph`);
       if (n) stats.paragraphsWithLinks++;
-      assert.ok(
-        !/<\/span>[\s\p{P}\p{S}]*<span class="cc-term"/u.test(body),
-        `${account.id}: two links back to back`,
-      );
+      // At least two plain words between two links.
+      for (const [, between] of body.matchAll(
+        /<\/span>((?:(?!<span class="cc-term")[\s\S])*?)<span class="cc-term"/g,
+      ))
+        assert.ok(
+          (between.replace(/<[^>]*>/g, ' ').match(/[\p{L}\p{N}]+/gu) || []).length >= 2,
+          `${account.id}: two links with fewer than two words between them`,
+        );
     }
     for (const plainPart of markup.split(/<p>[\s\S]*?<\/p>/))
       assert.ok(!plainPart.includes('cc-term'), `${account.id}: a definition outside a paragraph`);
@@ -221,7 +225,7 @@ for (const account of data.cases) {
   assert.ok(has('compromise', 'compromised'), 'Garcia: "compromised" is not defined');
   assert.ok(has('motion-to-dismiss', 'moved to dismiss'), 'Garcia: "moved to dismiss" is not defined');
   assert.ok(has('removal', 'removed'), 'Garcia: "removed" (to federal court) is not defined');
-  assert.ok(has('strike', 'struck'), 'Garcia: "struck" is not defined');
+  assert.ok(has('motion-to-strike', 'struck'), 'Garcia: "struck" is not defined');
   assert.ok(
     !links.some(([, w]) => /hilton|prostitution|puerto|roberts/i.test(w)),
     'Garcia: a name or plain word is linked',
