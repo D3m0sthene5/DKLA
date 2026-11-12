@@ -11,6 +11,7 @@ import {
   asksCase,
   asksStatute,
   checkAnswer,
+  partAsked,
   citeAnswer,
   generateAnswer,
   substitute,
@@ -34,6 +35,7 @@ import {
   NoResearchAnswer,
   questionParts,
   route,
+  standsAlone as aloneQuestion,
   shouldSearch,
   webSources,
 } from '../../lib/ask/web.js';
@@ -3262,4 +3264,48 @@ test('a follow-up that stands alone is looked up alone and keeps an Atlas-cited 
   assert.equal(standsAlone('How do you calculate expectation damages?'), true);
   assert.equal(standsAlone('When was it decided?'), false);
   assert.equal(standsAlone('What did the court say about damages?'), false);
+});
+
+// Owner, 12 November 2026: an adversarial swarm asked 42 hard hypotheticals; 22 about Atlas cases were
+// routed web-only by words in the changed facts ("now are the lost profits recoverable", "had killed
+// his grandfather", "voted to overturn"), and research that answered from the brief was discarded.
+test('hypotheticals about an Atlas case are fixed questions; questions about today still need the web', () => {
+  const routeOf = (question) => {
+    const { sources, signals } = retrieve.explain(question);
+    return route(question, sources, { signals });
+  };
+  const fixed = [
+    'hadley v baxendale hypo: the servant tells the clerk the mill is stopped and they have no spare shaft. now are the lost profits recoverable?',
+    'In Riggs v. Palmer, what if Elmer had killed his grandfather by accident in a car crash? Could he still inherit?',
+    'Lucy v. Zehmer: what if Zehmer had said out loud before signing that he was joking and Lucy laughed? Still a contract?',
+  ];
+  for (const q of fixed) {
+    const r = routeOf(q);
+    assert.equal(r.web, false, q + ' ' + r.reason);
+    assert.equal(r.stable, true, q);
+  }
+  // The skeptic's attacks: a hypothetical that asks about the present stays web-only and unstable.
+  for (const q of [
+    'Suppose someone is served while visiting California. Is Burnham still followed?',
+    'Suppose in Lucy v. Zehmer the buyer knew it was a joke. Has Lucy been limited by later cases?',
+    'What if Chevron had come out the other way, and is it good law today?',
+  ]) {
+    const r = routeOf(q);
+    assert.equal(r.web, true, q + ' ' + r.reason);
+  }
+  // "since it was decided" is still later history; "since it was due" is not.
+  assert.equal(routeOf('How has pleading changed since it was decided in Iqbal?').web, true);
+  // A "what if" follow-up builds on the case before it.
+  assert.equal(aloneQuestion('ok so what if the cops had found the gun first?'), false);
+});
+
+test('numbered parts: a part is checked with the question’s opening, and numbers do not hide a disclaimer', () => {
+  const q =
+    'Which statute did Congress pass in response to Gustafson? 1. when was it enacted 2. what does it require';
+  assert.match(partAsked(q, '2. It requires …', 2), /Which statute/);
+  assert.match(partAsked(q, '2. It requires …', 2), /what does it require/);
+  assert.doesNotMatch(partAsked(q, '2. It requires …', 2), /when was it enacted/);
+  assert.equal(partAsked(q, 'No number here.', 2), q);
+  assert.equal(substitute('1. The excerpts do not state the deadline.'), true);
+  assert.equal(substitute('2. The Atlas does not identify that statute. The PSLRA limits suits.'), true);
 });
