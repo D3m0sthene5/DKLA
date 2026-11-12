@@ -123,6 +123,26 @@ for (const t of briefs.timelines.list) {
     t.steps.map((step) => [step.year, indexedNodes.get(step.id), step.note].filter(Boolean).join(' · ')),
   );
 }
+// The same run-time corrections SCOTUS History applies (src/runtime/dklaR16HistoryCode.js), so Dottie
+// and the voting panel agree. Erie: Butler's opinion (joined by McReynolds) is captioned a dissent but
+// would also reverse, so both concurred in the 8-0 judgment. Owner-approved 11 November 2026.
+const VOTE_CORRECTIONS = [
+  [
+    'cp-erie-decision',
+    'pierce-butler',
+    'Concurrence',
+    'Concurrence in the judgment (his opinion is captioned a dissent: it objected to overruling Swift v. Tyson, but concluded that the judgment below should be reversed because of the plaintiff’s contributory negligence)',
+  ],
+  [
+    'cp-erie-decision',
+    'james-clark-mcreynolds',
+    'Concurrence',
+    'Concurrence in the judgment (joined Justice Butler’s opinion, which is captioned a dissent but would also have reversed)',
+  ],
+];
+for (const [caseId, justice, from, to] of VOTE_CORRECTIONS)
+  for (const d of scotus.cases[caseId]?.decisions || [])
+    for (const v of d.votes || []) if (v.justice === justice && v.label === from) v.label = to;
 for (const [id, c] of Object.entries(scotus.cases)) {
   add(
     'scotus',

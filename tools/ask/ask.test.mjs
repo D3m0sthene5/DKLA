@@ -3169,3 +3169,18 @@ test('the answer library never keeps or serves an answer that changes with time'
     else process.env.DKLA_OPENAI_API_KEY = original;
   }
 });
+
+test('Ask’s Supreme Court records carry the Erie voting correction SCOTUS History shows', async () => {
+  const corpus = JSON.parse(
+    gunzipSync(await readFile(new URL('../../work/build/ask-corpus.json.gz', import.meta.url))),
+  );
+  const records = Array.isArray(corpus) ? corpus : corpus.records || Object.values(corpus);
+  const text = JSON.stringify(
+    records.filter(
+      (r) => JSON.stringify(r).includes('Pierce Butler:') && JSON.stringify(r).includes('Erie Railroad'),
+    ),
+  );
+  assert.match(text, /Pierce Butler: Concurrence in the judgment \(his opinion is captioned a dissent/);
+  assert.match(text, /James Clark McReynolds: Concurrence in the judgment \(joined Justice Butler/);
+  assert.doesNotMatch(text, /Pierce Butler: Concurrence\./);
+});

@@ -41,8 +41,8 @@ Read this first; the sections below it are older.
     `check_migration.mjs` (the real v2.9 worker and page, then a renamed file).
   - **Erie voting record**: Butler and McReynolds corrected at run time to
     "Concurred in judgment" with notes (`src/runtime/dklaR16HistoryCode.js`),
-    owner-approved; Ask's own SCOTUS records (`tools/ask/build.mjs`) do not yet
-    apply it.
+    owner-approved; Ask's SCOTUS records apply the same list
+    (`VOTE_CORRECTIONS` in `tools/ask/build.mjs`): change both together.
 - **Still to do on the owner's PC**: `pnpm views:update` (fonts, Home, clock,
   search and Cold Call pictures all changed; Linux has no recorded pictures).
 - **Not verified here**: real OpenAI answers (all tests mock it), Vercel's
