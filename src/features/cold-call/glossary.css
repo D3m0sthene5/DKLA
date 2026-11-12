@@ -114,3 +114,61 @@
     opacity: 1;
   }
 }
+/* Plain English (glossary.js): a small, quiet marker after a jargon-heavy sentence. The glyph is drawn by
+   CSS, so the paragraph's text (and anything copied from it) stays the narrative. */
+#coldCallDialog .cc-plain {
+  position: relative;
+  margin-left: 0.14em;
+  padding: 0 0.2em;
+  border-radius: 4px;
+  color: var(--cc-accent);
+  opacity: 0.9;
+  cursor: pointer;
+  font-family: var(--dkla-interface);
+  font-size: 0.85em;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: 0.28em;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#coldCallDialog .cc-plain::before {
+  content: '≈';
+  content: '≈' / '';
+}
+/* A larger target than the glyph, for the pointer and a finger. */
+#coldCallDialog .cc-plain::after {
+  content: '';
+  position: absolute;
+  inset: -8px -6px;
+}
+#coldCallDialog .cc-plain:hover,
+#coldCallDialog .cc-plain[aria-expanded='true'] {
+  opacity: 1;
+  background: color-mix(in srgb, var(--cc-accent) 18%, transparent);
+}
+#coldCallDialog .cc-plain:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--cc-accent);
+  outline-offset: 1px;
+}
+@media (pointer: coarse) {
+  #coldCallDialog .cc-plain::after {
+    inset: -14px -12px;
+  }
+}
+/* The sentence a plain-English card explains, while the card is open. */
+#coldCallDialog ::highlight(cc-plain) {
+  background-color: color-mix(in srgb, var(--cc-accent, #edac72) 22%, transparent);
+}
+#coldCallDialog .cc-gloss-note {
+  display: block;
+  margin-top: 10px;
+  padding-top: 7px;
+  border-top: 1px solid #364857;
+  color: #9fb2c2;
+  font-size: 12.5px;
+  line-height: 1.4;
+}

@@ -18,6 +18,9 @@ const data = JSON.parse(match[1]);
 const glossaryBlock = html.match(/<script\b[^>]*\bid="dklaColdCallGlossary"[^>]*>([\s\S]*?)<\/script>/);
 assert.ok(glossaryBlock, 'Built Cold Call definitions are missing');
 const glossary = JSON.parse(glossaryBlock[1]);
+const plainBlock = html.match(/<script\b[^>]*\bid="dklaColdCallPlain"[^>]*>([\s\S]*?)<\/script>/);
+assert.ok(plainBlock, 'Built plain-English sentences are missing');
+const plainTable = JSON.parse(plainBlock[1]);
 class Element {
   constructor() {
     this.dataset = {};
@@ -69,6 +72,7 @@ const document = {
   getElementById(id) {
     if (id === 'dklaColdCallData') return { textContent: match[1] };
     if (id === 'dklaColdCallGlossary') return { textContent: glossaryBlock[1] };
+    if (id === 'dklaColdCallPlain') return { textContent: plainBlock[1] };
     return elements.find((e) => e.id === id) || null;
   },
   addEventListener() {},
@@ -125,8 +129,18 @@ const compiled = gloss.compile(glossary);
 const maxPerParagraph = compiled.density.maxPerParagraph;
 const TERM =
   /<span class="cc-term" role="button" tabindex="0" data-cc-term="([a-z0-9-]+)" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccGlossDesc-\1">([^<]*)<\/span>/g;
-// The reader's text with every definition link unwrapped: it must be the narrative, unchanged.
-const plain = (markup) => markup.replace(TERM, '$2');
+// A plain-English marker: an empty button (its glyph is drawn by CSS) after the sentence it explains.
+const MARK =
+  /<span class="cc-plain" role="button" tabindex="0" data-cc-plain="(p\d+)" data-cc-plain-from="(\d+)" aria-label="In plain English" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccPlainDesc-\1"><\/span>/g;
+// The reader's text with every definition link unwrapped and every plain-English marker removed: it must
+// be the narrative, unchanged.
+const plain = (markup) => markup.replace(TERM, '$2').replace(MARK, '');
+const unescape = (s) =>
+  s.replace(/&(amp|lt|gt|quot|#39);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[e]);
+// Sentences compared as the page matches them: any whitespace, straight or curly quotes.
+const norm = (s) => s.replace(/\s+/g, ' ').replace(/[‘’]/g, "'").replace(/[“”]/g, '"').trim();
+const plainCompiled = gloss.compilePlain(plainTable);
+const plainStats = { entries: 0, placed: 0, accounts: 0, unplaced: [] };
 const stats = { links: 0, paragraphsWithLinks: 0, accountsWithLinks: 0, terms: new Set(), split: 0 };
 const words = (text) => String(text).trim().split(/\s+/).join(' ');
 const escape = (value) =>
@@ -181,19 +195,61 @@ for (const account of data.cases) {
       const n = (body.match(TERM) || []).length;
       assert.ok(n <= maxPerParagraph, `${account.id}: ${n} definitions in one paragraph`);
       if (n) stats.paragraphsWithLinks++;
-      // At least two plain words between two links.
-      for (const [, between] of body.matchAll(
-        /<\/span>((?:(?!<span class="cc-term")[\s\S])*?)<span class="cc-term"/g,
-      ))
+      // At least two plain words between two links (a plain-English marker is not a link).
+      for (const [, between] of body
+        .replace(MARK, '')
+        .matchAll(/<\/span>((?:(?!<span class="cc-term")[\s\S])*?)<span class="cc-term"/g))
         assert.ok(
           (between.replace(/<[^>]*>/g, ' ').match(/[\p{L}\p{N}]+/gu) || []).length >= 2,
           `${account.id}: two links with fewer than two words between them`,
         );
     }
-    for (const plainPart of markup.split(/<p>[\s\S]*?<\/p>/))
+    for (const plainPart of markup.split(/<p>[\s\S]*?<\/p>/)) {
       assert.ok(!plainPart.includes('cc-term'), `${account.id}: a definition outside a paragraph`);
+      assert.ok(
+        !plainPart.includes('class="cc-plain"'),
+        `${account.id}: a plain-English marker outside a paragraph`,
+      );
+    }
   }
   if (used.size) stats.accountsWithLinks++;
+  // Plain-English markers: each sits right after the sentence it explains (the text from data-cc-plain-from
+  // up to the marker is that sentence, plus its closing punctuation), never inside a definition link, and
+  // has its screen-reader description. Every listed entry must be placed; the unplaced are listed at the end.
+  {
+    const shown = new Map(gloss.plainShown().map((e) => [e.id, e]));
+    const markerIds = [];
+    for (const [, body] of dialog.innerHTML.matchAll(/<p>([\s\S]*?)<\/p>/g)) {
+      for (const link of body.matchAll(/<span class="cc-term"[^>]*>([\s\S]*?)<\/span>/g))
+        assert.ok(!link[1].includes('cc-plain'), `${account.id}: a plain-English marker inside a link`);
+      const words = body.replace(TERM, '$2');
+      for (const m of words.matchAll(MARK)) {
+        const entry = shown.get(m[1]);
+        assert.ok(entry, `${account.id}: marker ${m[1]} explains nothing`);
+        markerIds.push(m[1]);
+        const before = unescape(words.slice(0, m.index).replace(MARK, ''));
+        const explained = norm(before.slice(+m[2]));
+        const sentence = norm(entry.sentence);
+        assert.ok(
+          explained.startsWith(sentence) && /^[.!?…]*["'”’)\]]*$/.test(explained.slice(sentence.length)),
+          `${account.id} ${entry.at}: the marker is not right after "${entry.sentence}" (found "${explained}")`,
+        );
+      }
+    }
+    assert.deepEqual(markerIds.sort(), [...shown.keys()].sort(), `${account.id}: markers and entries differ`);
+    for (const [id, entry] of shown)
+      assert.ok(
+        dialog.innerHTML.includes(`<span id="ccPlainDesc-${id}">${escape(entry.plain)}</span>`),
+        `${account.id}: plain-English entry ${id} has no screen-reader description`,
+      );
+    const listed = [...(plainCompiled.cases.get(account.id)?.values() || [])].flat();
+    const placed = new Set([...shown.values()].map((e) => e.n));
+    plainStats.entries += listed.length;
+    plainStats.placed += placed.size;
+    if (placed.size) plainStats.accounts++;
+    for (const entry of listed)
+      if (!placed.has(entry.n)) plainStats.unplaced.push(`${account.id} ${entry.at}: "${entry.sentence}"`);
+  }
   for (const key of used)
     assert.ok(
       dialog.innerHTML.includes(
@@ -231,6 +287,28 @@ for (const account of data.cases) {
     'Garcia: a name or plain word is linked',
   );
   assert.ok(compiled.terms.get('compromise').wex === 'compromise', 'compromise has no Wex entry');
+  window.DKLAColdCall.close();
+}
+// Every listed plain-English sentence was found in its paragraph. The page skips the others silently, so
+// this is where a sentence that was misquoted or given the wrong "at" shows up: all of them, listed.
+assert.deepEqual(
+  plainStats.unplaced,
+  [],
+  `${plainStats.unplaced.length} plain-English sentences are not in their paragraph (or end where another listed sentence ends):\n  ` +
+    plainStats.unplaced.join('\n  '),
+);
+// Erie, as the owner asked: the licensee sentence has its plain-English marker right after it.
+{
+  window.DKLAColdCall.open('cp-erie-decision');
+  const licensee = 'Tompkins claimed longstanding open use made him a licensee entitled to ordinary care.';
+  const entry = gloss.plainShown().find((e) => e.sentence === licensee);
+  assert.ok(entry, 'Erie: the licensee sentence has no plain-English version');
+  assert.ok(
+    plain(dialog.innerHTML.split(`data-cc-plain="${entry.id}"`)[0]).endsWith(
+      'made him a licensee entitled to ordinary care.<span class="cc-plain" role="button" tabindex="0" ',
+    ),
+    'Erie: the marker is not right after the licensee sentence',
+  );
   window.DKLAColdCall.close();
 }
 // Exercise the nested source view and return, keyboard isolation, and reopening position.
@@ -284,5 +362,6 @@ console.log(
       accountsWithLinks: stats.accountsWithLinks,
       paragraphsSplitIntoChunks: stats.split,
     },
+    plainEnglish: { entries: plainStats.entries, placed: plainStats.placed, accounts: plainStats.accounts },
   }),
 );

@@ -1,4 +1,5 @@
-/* Cold Call definitions in a real browser: the Garcia Cold Call at desktop and phone sizes.
+/* Cold Call definitions in a real browser: the Garcia Cold Call at desktop and phone sizes, and the
+   plain-English marker after the Erie licensee sentence (hover, keyboard, click, tap, tint, Escape).
    Hover after a short delay, the card staying while the pointer moves into it, keyboard focus and
    Escape, the dictionary hand-off, tap on a touch screen, the card inside the visible screen and
    off the word, the per-episode and per-paragraph limits, and no animation with reduced motion.
@@ -24,18 +25,18 @@ const results = {};
 const card = '#coldCallDialog #ccGlossCard';
 const term = (key) => `#coldCallDialog .cc-term[data-cc-term="${key}"]`;
 
-async function openGarcia(context) {
+async function openCase(context, id, ready) {
   const page = await context.newPage();
   page.setDefaultTimeout(20000);
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(url + '#node=' + CASE, { waitUntil: 'domcontentloaded', timeout: 90000 });
+  await page.goto(url + '#node=' + id, { waitUntil: 'domcontentloaded', timeout: 90000 });
   await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90000 });
   await page.waitForFunction(
     () => window.LegalAtlas?.ready && window.DKLAColdCall && window.DKLAColdCallGloss,
   );
   // The launch button sits on the case's reading panel; the panel can be redrawn, so retry the press.
-  const launch = page.locator(`#inspector [data-cold-call="${CASE}"]`);
+  const launch = page.locator(`#inspector [data-cold-call="${id}"]`);
   for (let i = 0; ; i++) {
     try {
       await launch.first().click({ timeout: 4000 });
@@ -45,8 +46,65 @@ async function openGarcia(context) {
       if (i >= 4) throw error;
     }
   }
-  await page.locator(term('compromise')).first().waitFor();
+  await page.locator(ready).first().waitFor();
   return { page, errors };
+}
+const openGarcia = (context) => openCase(context, CASE, term('compromise'));
+// ---- plain English: Erie, the sentence the owner asked about
+const ERIE = 'cp-erie-decision';
+const LICENSEE = 'Tompkins claimed longstanding open use made him a licensee entitled to ordinary care.';
+const marker = (id) => `#coldCallDialog .cc-plain[data-cc-plain="${id}"]`;
+const openErie = (context) => openCase(context, ERIE, '#coldCallDialog .cc-plain');
+/** The licensee marker: its id, the text just before it in its paragraph, the tinted text (if a card is
+    open), and the plain version the table holds. */
+async function licensee(page) {
+  return page.evaluate((sentence) => {
+    const entry = window.DKLAColdCallGloss.plainShown().find((e) => e.sentence === sentence);
+    const m = entry && document.querySelector(`#coldCallDialog .cc-plain[data-cc-plain="${entry.id}"]`);
+    if (!m) return null;
+    let before = '';
+    for (let n = m.previousSibling; n && before.length < 200; n = n.previousSibling)
+      before = n.textContent + before;
+    const tint = CSS.highlights?.get('cc-plain');
+    return {
+      id: entry.id,
+      plain: entry.plain,
+      before,
+      inLink: !!m.closest('.cc-term'),
+      inParagraph: !!m.closest('#ccNarrative p'),
+      label: m.getAttribute('aria-label'),
+      described: document.getElementById(m.getAttribute('aria-describedby'))?.textContent,
+      glyph: getComputedStyle(m, '::before').content,
+      tinted: tint ? [...tint].map((r) => r.toString()).join('') : null,
+    };
+  }, LICENSEE);
+}
+async function plainCard(page, id, label) {
+  const c = page.locator(card + `[data-cc-gloss-for="plain-${id}"]`);
+  await c.waitFor({ state: 'visible', timeout: 2000 });
+  assert.equal(await c.getAttribute('role'), 'dialog', label + ': card role');
+  assert.equal(await c.locator('.cc-gloss-head').innerText(), 'In plain English', label + ': heading');
+  assert.equal(
+    await c.locator('.cc-gloss-note').innerText(),
+    'Explains the narrative; not the court’s words.',
+  );
+  return c;
+}
+async function markerGeometry(page, id) {
+  return page.evaluate(
+    ([sel, cardSel]) => {
+      const r = (b) => ({ x: b.left, y: b.top, width: b.width, height: b.height });
+      const c = document.querySelector(cardSel),
+        vv = visualViewport;
+      return {
+        words: [...document.querySelector(sel).getClientRects()].map(r),
+        card: c && r(c.getBoundingClientRect()),
+        view: { x: vv.offsetLeft, y: vv.offsetTop, width: vv.width, height: vv.height },
+        pageWidth: document.documentElement.scrollWidth,
+      };
+    },
+    [marker(id), card],
+  );
 }
 // The middle of the first line of a word (a wrapped phrase's bounding box can centre on other words).
 async function pointOn(locator) {
@@ -509,6 +567,166 @@ async function limits(page) {
       assert.equal(style.opacity, '1');
       assert.equal(style.transform, 'none');
       results.reducedMotion = style;
+      // The plain-English card is the same card: no fade either.
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      const first = page.locator('#coldCallDialog .cc-plain').first();
+      await first.scrollIntoViewIfNeeded();
+      await first.click();
+      await page.locator(card + '.cc-plain-card').waitFor({ state: 'visible' });
+      const plainStyle = await page
+        .locator(card)
+        .evaluate((c) => [getComputedStyle(c).transitionDuration, getComputedStyle(c).opacity]);
+      assert.ok(
+        plainStyle[0].split(',').every((d) => d.trim() === '0s') && plainStyle[1] === '1',
+        'reduced motion: the plain-English card still fades',
+      );
+      await context.close();
+    }
+
+    // ---- plain English on Erie, desktop: the marker after the licensee sentence; hover, keyboard, click
+    const erieText = JSON.parse(fs.readFileSync(path.join(__dirname, 'narratives', ERIE + '.json'), 'utf8'))
+      .sections[0].paragraphs[1];
+    assert.ok(erieText.startsWith(LICENSEE), 'the Erie narrative no longer has the licensee sentence');
+    {
+      const context = await contextFor({ viewport: { width: 1440, height: 900 } });
+      const { page, errors } = await openErie(context);
+      const info = await licensee(page);
+      assert.ok(info, 'Erie: no marker after the licensee sentence');
+      assert.ok(
+        info.before.endsWith('made him a licensee entitled to ordinary care.'),
+        'Erie: marker placement',
+      );
+      assert.equal(info.inLink, false, 'Erie: the marker is inside a link');
+      assert.equal(info.inParagraph, true);
+      assert.equal(info.label, 'In plain English');
+      assert.equal(info.described, info.plain, 'the marker is described by its plain version');
+      assert.match(info.glyph, /≈/, 'the marker shows its glyph');
+      // The narrative text is unchanged: the marker adds no text of its own.
+      assert.ok(
+        await page.evaluate(
+          (t) => [...document.querySelectorAll('#ccNarrative p')].some((p) => p.textContent === t),
+          erieText,
+        ),
+        'Erie: the paragraph text changed',
+      );
+      const m = page.locator(marker(info.id));
+      assert.equal(await m.getAttribute('role'), 'button');
+      assert.equal(await m.getAttribute('tabindex'), '0');
+      await m.evaluate((e) => e.scrollIntoView({ block: 'center' }));
+      if (shots) await page.screenshot({ path: path.join(shots, 'desktop-1440-erie-marker.png') });
+
+      // Hover: nothing at once, the card after the same short delay as a definition, the sentence tinted.
+      await page.locator('#ccScroll').focus();
+      await page.mouse.move(5, 5);
+      const box = await m.boundingBox();
+      const began = Date.now();
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 2 });
+      await page.waitForTimeout(80);
+      assert.equal(await page.locator(card).count(), 0, 'the plain card opened without a delay');
+      const c = await plainCard(page, info.id, 'Erie hover');
+      const delay = Date.now() - began;
+      assert.ok(delay >= 200, `plain card opened after only ${delay} ms`);
+      assert.equal(await c.locator('.cc-gloss-text').innerText(), info.plain, 'Erie: wrong plain text');
+      assert.equal(await m.getAttribute('aria-expanded'), 'true');
+      const hovered = await licensee(page);
+      assert.equal(hovered.tinted, LICENSEE, 'the explained sentence is not tinted');
+      insideAndClear(await markerGeometry(page, info.id), 'Erie hover');
+      if (shots) await page.screenshot({ path: path.join(shots, 'desktop-1440-erie-plain-card.png') });
+      // Escape closes it, leaves focus where it was and clears the tint.
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      assert.equal(await page.evaluate(() => document.activeElement?.id), 'ccScroll', 'Escape moved focus');
+      assert.ok(await page.locator('#coldCallDialog').evaluate((d) => d.open), 'Escape closed the reader');
+      assert.equal((await licensee(page)).tinted, null, 'the tint stayed after the card closed');
+      await page.mouse.move(5, 5);
+      await page.waitForTimeout(400);
+
+      // One card at a time: a definition hovered next (one the plain card does not cover) replaces it.
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 2 });
+      await plainCard(page, info.id, 'Erie again');
+      const at = await page.evaluate(() => {
+        const c = document.getElementById('ccGlossCard').getBoundingClientRect(),
+          s = document.getElementById('ccScroll').getBoundingClientRect();
+        for (const t of document.querySelectorAll('#ccNarrative .cc-term')) {
+          const r = t.getClientRects()[0];
+          if (!r || r.top < s.top + 10 || r.bottom > s.bottom - 10) continue;
+          if (r.left < c.right && c.left < r.right && r.top < c.bottom && c.top < r.bottom) continue;
+          return { x: r.left + Math.min(r.width / 2, 12), y: r.top + r.height / 2 };
+        }
+        return null;
+      });
+      assert.ok(at, 'no visible definition beside the plain card');
+      await page.mouse.move(at.x, at.y, { steps: 6 });
+      await page.locator(card + ':not(.cc-plain-card)').waitFor({ state: 'visible', timeout: 2000 });
+      assert.equal(await page.locator('#coldCallDialog .cc-gloss-card').count(), 1, 'two cards open');
+      assert.equal((await licensee(page)).tinted, null, 'the tint stayed under a definition card');
+      await page.mouse.move(5, 5, { steps: 2 });
+      await page.locator(card).waitFor({ state: 'detached', timeout: 2000 });
+
+      // Keyboard: focus opens it at once, Escape closes it and keeps focus on the marker, Enter toggles.
+      await page.keyboard.press('Shift');
+      await m.focus();
+      await plainCard(page, info.id, 'Erie focus');
+      assert.equal(await m.getAttribute('aria-controls'), 'ccGlossCard');
+      await page.keyboard.press('Escape');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      assert.equal(
+        await page.evaluate(() => document.activeElement?.dataset.ccPlain),
+        info.id,
+        'Escape did not return focus to the marker',
+      );
+      await page.keyboard.press('Enter');
+      await plainCard(page, info.id, 'Erie Enter');
+      await page.keyboard.press('Enter');
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });
+      // A click pins it; a click on plain text elsewhere closes it.
+      await m.click();
+      await plainCard(page, info.id, 'Erie click');
+      await page.waitForTimeout(700);
+      assert.equal(await page.locator(card).count(), 1, 'the clicked plain card closed by itself');
+      await page.locator('#ccNarrative .cc-section h3').first().click();
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1500 });
+      assert.deepEqual(errors, [], 'page errors');
+      results.plainDesktop = { marker: info.id, hoverDelayMs: delay, tinted: true };
+      await context.close();
+    }
+    // ---- plain English on Erie, phone: tap opens, the card stays on screen, a tap elsewhere closes
+    {
+      const context = await contextFor({
+        viewport: { width: 390, height: 844 },
+        isMobile: true,
+        hasTouch: true,
+      });
+      const { page, errors } = await openErie(context);
+      const info = await licensee(page);
+      assert.ok(info, 'Erie (phone): no marker after the licensee sentence');
+      const m = page.locator(marker(info.id));
+      await m.evaluate((e) => e.scrollIntoView({ block: 'center' }));
+      if (shots) await page.screenshot({ path: path.join(shots, 'phone-390-erie-marker.png') });
+      const box = await m.boundingBox();
+      await page.touchscreen.tap(box.x + box.width / 2, box.y + box.height / 2);
+      const c = await plainCard(page, info.id, 'Erie tap');
+      assert.equal(await c.locator('.cc-gloss-text').innerText(), info.plain);
+      await page.waitForTimeout(500);
+      assert.equal(await page.locator(card).count(), 1, 'the tapped plain card closed by itself');
+      const g = await markerGeometry(page, info.id);
+      insideAndClear(g, 'Erie phone');
+      assert.ok(g.pageWidth <= 390, 'the page scrolls sideways');
+      if (shots) await page.screenshot({ path: path.join(shots, 'phone-390-erie-plain-card.png') });
+      // A tap on the card's text keeps it; a tap on plain text closes it; the marker toggles.
+      await c.locator('.cc-gloss-text').tap();
+      await page.waitForTimeout(400);
+      assert.equal(await page.locator(card).count(), 1, 'a tap inside the plain card closed it');
+      await page.locator('#ccNarrative .cc-section h3').first().tap();
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1500 });
+      const again = await m.boundingBox();
+      await page.touchscreen.tap(again.x + again.width / 2, again.y + again.height / 2);
+      await plainCard(page, info.id, 'Erie second tap');
+      await page.touchscreen.tap(again.x + again.width / 2, again.y + again.height / 2);
+      await page.locator(card).waitFor({ state: 'detached', timeout: 1500 });
+      assert.deepEqual(errors, [], 'page errors');
+      results.plainPhone = { marker: info.id, card: g.card, view: g.view };
       await context.close();
     }
     console.log(JSON.stringify({ pass: true, ...results }));

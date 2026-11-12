@@ -66,6 +66,34 @@ node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v2.9.html  
 "struck" are linked; if the final table words those terms differently, change those lines
 with it.
 
+## Plain English (whole sentences)
+
+A jargon-heavy sentence can carry a small "≈" marker right after its final punctuation.
+Hovering (after the same quarter second), focusing or tapping it opens the same card:
+"In plain English", a short plain version, and the note "Explains the narrative; not the
+court's words." While that card is open the sentence is tinted. The marker is never inside
+a definition link, adds no text to the paragraph (its glyph is drawn by CSS), and has the
+label "In plain English" for screen readers.
+
+`plain-sentences.json` lists the sentences, embedded as the `dklaColdCallPlain` data block:
+`{ "version": 1, "source": "...", "sentences": { "<caseId>": [ { "at", "sentence", "plain" } ] } }`.
+`at` is `"<section>.<paragraph>"` counted from 0 in the narrative file (`"0.1"` is the second
+paragraph of the first episode), or `"<section>.followUp-answer"`. `sentence` is the exact
+text; whitespace and straight or curly quotes may differ. `plain` is one to three short
+sentences. The build refuses a malformed entry or an unknown `caseId`; an entry whose sentence
+is not in its paragraph is skipped by the page, and `check_reader.cjs` fails listing every
+such entry. The committed file is a **pilot** (Erie and Garcia). To drop in the full file:
+
+```sh
+cp <full file> tools/cold-call/plain-sentences.json
+node --test tools/cold-call/glossary.test.mjs     # compiles it; each plain version at most 3 sentences, 600 characters
+pnpm build                                        # refuses bad shape or an unknown caseId
+node tools/cold-call/check_reader.cjs             # lists every sentence not found in its paragraph
+python tools/verify/data_guard.py --update        # records the new dklaColdCallPlain block
+python tools/verify/content.py --update           # records the new tools/cold-call/*.json
+node tools/cold-call/glossary_browser.cjs http://127.0.0.1:8766/DKLA-v3.0.html   # needs the Erie licensee entry
+```
+
 ## Content and sources
 
 `cases.json` contains the three original narratives: Hamer, Pennoyer and Chadha.

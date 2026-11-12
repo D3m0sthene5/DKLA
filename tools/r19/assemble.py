@@ -708,6 +708,32 @@ def load_cold_call_glossary(path: Path) -> dict:
     return table
 
 
+PLAIN_AT = re.compile(r"(?:0|[1-9]\d*)\.(?:0|[1-9]\d*|followUp-answer)")
+
+
+def load_cold_call_plain(path: Path, cold: dict) -> dict:
+    """Plain-English versions of Cold Call sentences, checked for shape and for known accounts.
+    Whether each sentence is really in its paragraph is checked by tools/cold-call/check_reader.cjs,
+    which lists every entry that is not found (the page skips those)."""
+    table = json.loads(path.read_text(encoding="utf-8"))
+    if table.get("version") != 1 or not isinstance(table.get("source"), str) or not isinstance(table.get("sentences"), dict):
+        raise ValueError(f"{path.name}: expected version 1, a source and a sentences object")
+    accounts = {c["id"] for c in cold["cases"] if c.get("origin") == "narrative"}
+    for case_id, entries in table["sentences"].items():
+        if case_id not in accounts:
+            raise ValueError(f"{path.name}: {case_id!r} is not a Cold Call narrative")
+        if not isinstance(entries, list):
+            raise ValueError(f"{path.name}: {case_id}: expected a list of sentences")
+        for n, entry in enumerate(entries, 1):
+            if not isinstance(entry, dict) or set(entry) != {"at", "sentence", "plain"}:
+                raise ValueError(f"{path.name}: {case_id} #{n}: expected exactly at, sentence and plain")
+            if not isinstance(entry["at"], str) or not PLAIN_AT.fullmatch(entry["at"]):
+                raise ValueError(f"{path.name}: {case_id} #{n}: at is \"<section>.<paragraph>\" or \"<section>.followUp-answer\"")
+            if not all(isinstance(entry[f], str) and entry[f].strip() for f in ("sentence", "plain")):
+                raise ValueError(f"{path.name}: {case_id} #{n}: empty sentence or plain text")
+    return table
+
+
 def main() -> None:
     BUILD.mkdir(parents=True, exist_ok=True)
     source_bytes = read_source()
@@ -721,6 +747,8 @@ def main() -> None:
     runpy.run_path(str(cold_dir / "validate.py"))["validate"](cold, graph, full, data)
     # Definitions linked from Cold Call jargon (src/features/cold-call/glossary.js matches them at render time).
     cold_glossary = load_cold_call_glossary(cold_dir / "glossary-terms.json")
+    # Plain-English versions of jargon-heavy sentences (the same file places their markers at render time).
+    cold_plain = load_cold_call_plain(cold_dir / "plain-sentences.json", cold)
     nodes = {n["id"]: n for n in graph["nodes"]}
     missing = [a for a in data["map"] if a not in nodes]
     if missing:
@@ -792,13 +820,14 @@ def main() -> None:
     if "</script" in js.lower():
         raise ValueError("briefs.js would close its script tag")
     sw_template = (ROOT / "src/features/r19/sw.template.js").read_text(encoding="utf-8")
-    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(cold_glossary, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), json.dumps(civil_syllabus, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
+    build = VERSION + "-" + digest("\n".join([source_hash(source_bytes), json.dumps(data, sort_keys=True), json.dumps(plain, sort_keys=True), json.dumps(audit21, sort_keys=True), json.dumps(full, sort_keys=True), json.dumps(cold, sort_keys=True), json.dumps(cold_glossary, sort_keys=True), json.dumps(cold_plain, sort_keys=True), json.dumps(authorities, sort_keys=True), json.dumps(masthead, sort_keys=True), json.dumps(practice_filter, sort_keys=True), json.dumps(geography, sort_keys=True), json.dumps(civil_syllabus, sort_keys=True), js, css, saved_work, sw_template]).encode("utf-8"))[:10]
     data["build"] = build
 
     addition = "\n<!-- DKLA r19: audited briefs, full briefs, supporting cases. -->\n"
     addition += embed_json("dklaR19Data", data) + embed_json("dklaR19Plain", plain) + embed_json("dklaR21Audit", audit21) + embed_json("dklaR19Full", full)
     addition += embed_json("dklaColdCallData", cold)
     addition += embed_json("dklaColdCallGlossary", cold_glossary)
+    addition += embed_json("dklaColdCallPlain", cold_plain)
     addition += embed_json("dklaAuthoritiesData", authorities)
     addition += embed_json("dklaWeThePeopleAsset", masthead)
     addition += embed_json("dklaPracticeFilter", practice_filter)

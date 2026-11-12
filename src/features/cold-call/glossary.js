@@ -10,7 +10,12 @@
      such as "Federal Rules" stay plain; a capital at the start of a sentence is fine;
    - a term's context pattern must occur in the same sentence, and its except phrases never link;
    - only the first occurrence of each term per section links, at most maxPerParagraph links per
-     paragraph, and at least two plain words between two links. */
+     paragraph, and at least two plain words between two links.
+
+   The same card also explains whole sentences in plain English (tools/cold-call/plain-sentences.json,
+   embedded as the dklaColdCallPlain block): a listed sentence found in its paragraph gets a small
+   marker right after its final punctuation, never inside a link. An entry whose sentence is not found
+   is skipped here; tools/cold-call/check_reader.cjs reports it. */
 (() => {
   'use strict';
   const root = typeof window === 'object' ? window : globalThis;
@@ -176,51 +181,148 @@
       /[&<>"']/g,
       (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
     );
-  /** Escaped HTML of one paragraph with its links wrapped. */
-  function markup(text, links) {
+  /** Escaped HTML of one paragraph with its links wrapped and its plain-English markers inserted
+      (marks: [{ start, end, id }] by position, from placeSentences()). A marker is never put inside a link. */
+  function markup(text, links, marks = []) {
     let out = '',
-      at = 0;
+      at = 0,
+      k = 0;
+    const upTo = (to) => {
+      for (; k < marks.length && marks[k].end <= to; k++) {
+        const { start, end, id } = marks[k];
+        if (end > at) {
+          out += esc(text.slice(at, end));
+          at = end;
+        }
+        out += `<span class="cc-plain" role="button" tabindex="0" data-cc-plain="${esc(id)}" data-cc-plain-from="${start}" aria-label="In plain English" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccPlainDesc-${esc(id)}"></span>`;
+      }
+      if (to > at) out += esc(text.slice(at, to));
+      at = Math.max(at, to);
+    };
     for (const { start, end, key } of links) {
-      out +=
-        esc(text.slice(at, start)) +
-        `<span class="cc-term" role="button" tabindex="0" data-cc-term="${esc(key)}" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccGlossDesc-${esc(key)}">${esc(text.slice(start, end))}</span>`;
+      upTo(start);
+      out += `<span class="cc-term" role="button" tabindex="0" data-cc-term="${esc(key)}" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccGlossDesc-${esc(key)}">${esc(text.slice(start, end))}</span>`;
       at = end;
     }
-    return out + esc(text.slice(at));
+    upTo(text.length);
+    return out;
+  }
+
+  // ---- plain-English versions of whole sentences
+  const AT = /^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*|followUp-answer)$/;
+  // A listed sentence as a pattern: any run of whitespace matches any whitespace, and straight and curly
+  // quotes match each other.
+  const sentencePattern = (sentence) =>
+    new RegExp(
+      escapeRe(sentence).replace(/\s+/g, '\\s+').replace(/['‘’]/g, "['‘’]").replace(/["“”]/g, '["“”]'),
+      'u',
+    );
+  function compilePlain(table) {
+    if (!table || table.version !== 1 || !table.sentences || typeof table.sentences !== 'object')
+      throw Error('Unknown plain-English table');
+    const cases = new Map();
+    for (const [caseId, list] of Object.entries(table.sentences)) {
+      if (!Array.isArray(list)) throw Error(caseId + ': sentences are a list');
+      const byAt = new Map();
+      list.forEach((raw, n) => {
+        const where = `${caseId} #${n + 1}`;
+        if (!raw || typeof raw.at !== 'string' || !AT.test(raw.at)) throw Error(where + ': bad "at"');
+        for (const field of ['sentence', 'plain'])
+          if (typeof raw[field] !== 'string' || !raw[field].trim()) throw Error(`${where}: no ${field}`);
+        const entry = { caseId, n, at: raw.at, sentence: raw.sentence.trim(), plain: raw.plain.trim() };
+        if (!byAt.has(raw.at)) byAt.set(raw.at, []);
+        byAt.get(raw.at).push(entry);
+      });
+      cases.set(caseId, byAt);
+    }
+    return { cases, source: table.source || '' };
+  }
+  /** Where the listed sentences sit in one paragraph: [{ start, end, entry }] by position, `end` just after
+      the sentence's final punctuation (and any closing quote or bracket). Entries whose sentence is not in
+      the paragraph are left out; a marker that would fall inside one of `links` moves to that link's end. */
+  function placeSentences(text, entries, links = []) {
+    const marks = [];
+    for (const entry of entries || []) {
+      entry.re ||= sentencePattern(entry.sentence);
+      const m = entry.re.exec(text);
+      if (!m) continue;
+      let end = m.index + m[0].length;
+      end += text.slice(end).match(/^[.!?…]*["'”’)\]]*/)[0].length;
+      for (const l of links) if (l.start < end && end < l.end) end = l.end;
+      marks.push({ start: m.index, end, entry });
+    }
+    marks.sort((a, b) => a.end - b.end || a.start - b.start);
+    return marks.filter((m, i) => !i || m.end !== marks[i - 1].end);
   }
   const LII = (slug) => 'https://www.law.cornell.edu/wex/' + encodeURIComponent(slug);
 
-  // ---- the table embedded in the page, compiled once on first use
-  let table = null;
-  function compiled() {
-    if (table !== null) return table;
-    table = false;
-    try {
-      const block = typeof document === 'object' && document.getElementById('dklaColdCallGlossary');
-      if (block) table = compile(JSON.parse(block.textContent));
-    } catch (error) {
-      console.warn('Cold Call definitions are unavailable:', error);
-    }
-    return table;
-  }
-  /** One rendering of one account: section() per episode, then descriptions() once. */
-  function begin() {
-    const g = compiled();
-    if (!g) return null;
-    const used = new Set();
+  // ---- the tables embedded in the page, each compiled once on first use
+  const embedded = (id, read, what) => {
+    let value = null;
+    return () => {
+      if (value !== null) return value;
+      value = false;
+      try {
+        const block = typeof document === 'object' && document.getElementById(id);
+        if (block) value = read(JSON.parse(block.textContent));
+      } catch (error) {
+        console.warn(what + ' are unavailable:', error);
+      }
+      return value;
+    };
+  };
+  const compiled = embedded('dklaColdCallGlossary', compile, 'Cold Call definitions');
+  const plainTable = embedded('dklaColdCallPlain', compilePlain, 'Plain-English sentences');
+  // The plain-English entries drawn in the open account, by marker id.
+  let shown = new Map();
+  /** One rendering of one account: section() per episode, then descriptions() once. A section draws a
+      paragraph with text(paragraph, at), or the parts the reader splits a long paragraph into with
+      chunks(paragraph, at, parts) (each part has its own link budget). `at` names the paragraph as the
+      plain-English table does: "<section>.<paragraph>" or "<section>.followUp-answer". */
+  function begin(caseId) {
+    const g = compiled(),
+      plain = plainTable();
+    if (!g && !plain) return null;
+    const used = new Set(),
+      listed = (plain && plain.cases.get(caseId)) || null;
+    shown = new Map();
     return {
       section() {
         const seen = new Set();
-        return (text) => {
-          const links = annotate(g, text, seen);
+        const draw = (text, marks) => {
+          const links = g ? annotate(g, text, seen) : [];
           for (const l of links) used.add(l.key);
-          return markup(text, links);
+          for (const m of marks) for (const l of links) if (l.start < m.end && m.end < l.end) m.end = l.end;
+          return markup(text, links, marks);
         };
+        const chunks = (text, at, parts = [text]) => {
+          const found = listed ? placeSentences(text, listed.get(at)) : [];
+          let cursor = 0;
+          return parts.map((part) => {
+            const from = found.length ? text.indexOf(part, cursor) : -1,
+              marks = [];
+            if (from >= 0) {
+              cursor = from + part.length;
+              // A sentence's marker goes in the part where the sentence ends.
+              for (const m of found)
+                if (m.end > from && m.end <= cursor) {
+                  const id = 'p' + shown.size;
+                  shown.set(id, m.entry);
+                  marks.push({ start: Math.max(m.start, from) - from, end: m.end - from, id });
+                }
+            }
+            return draw(part, marks);
+          });
+        };
+        return { text: (text, at) => chunks(text, at)[0], chunks };
       },
       descriptions: () =>
-        used.size
+        (used.size
           ? `<div class="cc-gloss-descs" hidden>${[...used].map((key) => `<span id="ccGlossDesc-${esc(key)}">${esc(g.terms.get(key).gloss)}</span>`).join('')}</div>`
-          : '',
+          : '') +
+        (shown.size
+          ? `<div class="cc-plain-descs" hidden>${[...shown].map(([id, e]) => `<span id="ccPlainDesc-${esc(id)}">${esc(e.plain)}</span>`).join('')}</div>`
+          : ''),
     };
   }
 
@@ -238,9 +340,10 @@
     restoring = false;
   const SHOW_DELAY = 250,
     HIDE_DELAY = 300;
+  // What opens a card: a defined word (.cc-term) or a plain-English marker (.cc-plain).
   const termOf = (node) => {
-    const term = typeof node?.closest === 'function' ? node.closest('.cc-term') : null;
-    return term?.dataset?.ccTerm ? term : null;
+    const term = typeof node?.closest === 'function' ? node.closest('.cc-term, .cc-plain') : null;
+    return term?.dataset?.ccTerm || term?.dataset?.ccPlain ? term : null;
   };
   const inCard = (node) => !!(card && node && card.contains(node));
   const clearTimers = () => {
@@ -260,10 +363,49 @@
     ].join('');
     return `<span class="cc-gloss-head" id="ccGlossHead">${esc(term.label)}</span><span class="cc-gloss-text">${esc(term.gloss)}</span>${links ? `<span class="cc-gloss-links">${links}</span>` : ''}`;
   }
-  function open(target, how) {
+  const plainHTML = (entry) =>
+    `<span class="cc-gloss-head" id="ccGlossHead">In plain English</span><span class="cc-gloss-text">${esc(entry.plain)}</span><span class="cc-gloss-note">Explains the narrative; not the court’s words.</span>`;
+  /** The card for a trigger: { key, html } or null. */
+  function contentOf(target) {
+    if (target.dataset.ccPlain) {
+      const entry = shown.get(target.dataset.ccPlain);
+      return entry ? { key: 'plain-' + target.dataset.ccPlain, html: plainHTML(entry), plain: true } : null;
+    }
     const g = compiled(),
       term = g && g.terms.get(target.dataset.ccTerm);
-    if (!term) return;
+    return term ? { key: term.key, html: cardHTML(term) } : null;
+  }
+  // While a plain-English card is open, the sentence it explains is tinted (CSS Custom Highlight API; the
+  // text and its links are not touched). Browsers without the API simply show no tint.
+  const HIGHLIGHT = 'cc-plain';
+  function tint(marker) {
+    const highlights = root.CSS?.highlights;
+    if (!highlights || typeof root.Highlight !== 'function') return;
+    const paragraph = marker.closest('p'),
+      from = +marker.dataset.ccPlainFrom;
+    if (!paragraph || !(from >= 0)) return;
+    const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) =>
+        n.parentElement?.closest('.cc-gloss-card') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+    });
+    const range = document.createRange();
+    let seen = 0,
+      node;
+    while ((node = walker.nextNode())) {
+      if (marker.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING) break;
+      if (seen + node.data.length > from) {
+        range.setStart(node, from - seen);
+        range.setEndBefore(marker);
+        highlights.set(HIGHLIGHT, new root.Highlight(range));
+        return;
+      }
+      seen += node.data.length;
+    }
+  }
+  const untint = () => root.CSS?.highlights?.delete?.(HIGHLIGHT);
+  function open(target, how) {
+    const content = contentOf(target);
+    if (!content) return;
     clearTimers();
     if (trigger === target && card?.isConnected) {
       if (how === 'pin') pinned = true;
@@ -280,8 +422,9 @@
     // Focusable by a click or tap only: a click on the card's text keeps focus inside the card, so the card
     // stays open (focus would otherwise fall to the reader and close it). Tab still goes word, then links.
     card.tabIndex = -1;
-    card.dataset.ccGlossFor = term.key;
-    card.innerHTML = cardHTML(term);
+    card.dataset.ccGlossFor = content.key;
+    if (content.plain) card.classList.add('cc-plain-card');
+    card.innerHTML = content.html;
     // Directly after its word, so Tab moves from the word into the card's links.
     target.after(card);
     target.setAttribute('aria-expanded', 'true');
@@ -295,11 +438,13 @@
       );
     card.dataset.line = String(line);
     place();
+    if (content.plain && card) tint(target);
     requestAnimationFrame(() => card?.classList.add('is-in'));
   }
   function close(restoreFocus) {
     clearTimers();
     if (!card) return false;
+    untint();
     const was = trigger,
       old = card,
       hadFocus = inCard(document.activeElement);
@@ -464,6 +609,12 @@
     /** True right after Escape closed a card, so the reader does not also close. */
     tookEscape: () => swallowCancel || !!card,
     table: () => compiled() || null,
+    compilePlain,
+    placeSentences,
+    plainTable: () => plainTable() || null,
+    /** The plain-English entries drawn in the open account: [{ id, caseId, n (its place in the table), at, sentence, plain }]. */
+    plainShown: () =>
+      [...shown].map(([id, { caseId, n, at, sentence, plain }]) => ({ id, caseId, n, at, sentence, plain })),
   };
   if (typeof module === 'object' && module.exports) module.exports = root.DKLAColdCallGloss;
 })();

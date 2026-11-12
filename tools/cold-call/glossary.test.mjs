@@ -237,3 +237,237 @@ test('a 2,400-word narrative annotates in a few milliseconds', () => {
   console.log(`annotate: ${count} words in ${ms.toFixed(2)} ms`);
   assert.ok(ms < 20, `annotating ${count} words took ${ms.toFixed(1)} ms`);
 });
+
+// ---- plain-English versions of whole sentences (the same file; tools/cold-call/plain-sentences.json)
+const { compilePlain, placeSentences } = context.DKLAColdCallGloss;
+const plainTable = (sentences) => ({ version: 1, source: 'test', sentences });
+const entriesOf = (list, caseId = 'c', at = '0.0') =>
+  compilePlain(plainTable({ [caseId]: list }))
+    .cases.get(caseId)
+    .get(at);
+const MARKER = /<span class="cc-plain"[^>]*data-cc-plain-from="(\d+)"[^>]*><\/span>/g;
+// What the reader would show, with links unwrapped and markers removed: it must be the text, unchanged.
+const unwrap = (html) =>
+  html
+    .replace(MARKER, '')
+    .replace(/<span class="cc-term"[^>]*>([^<]*)<\/span>/g, '$1')
+    .replace(/&(amp|lt|gt|quot|#39);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[e]);
+// Markup for one paragraph, as begin() draws it: links first, then markers placed around them.
+function draw(g, text, list) {
+  const links = g ? annotate(g, text) : [];
+  const marks = placeSentences(text, entriesOf(list), links).map((m, i) => ({ ...m, id: 'p' + i }));
+  return markup(text, links, marks);
+}
+
+test('plain English: a sentence at the end of its paragraph gets its marker after the full stop', () => {
+  const text =
+    'Erie lost below. Tompkins claimed longstanding open use made him a licensee entitled to ordinary care.';
+  const html = draw(null, text, [
+    { at: '0.0', sentence: text.slice(17), plain: 'He said he was allowed there.' },
+  ]);
+  assert.ok(
+    html.endsWith(
+      'ordinary care.<span class="cc-plain" role="button" tabindex="0" data-cc-plain="p0" data-cc-plain-from="17" aria-label="In plain English" aria-haspopup="dialog" aria-expanded="false" aria-describedby="ccPlainDesc-p0"></span>',
+    ),
+  );
+  assert.equal(unwrap(html), text);
+  // In the middle: right after the full stop, before the space.
+  const mid = draw(null, text, [{ at: '0.0', sentence: 'Erie lost below.', plain: 'x' }]);
+  assert.match(mid, /^Erie lost below\.<span class="cc-plain"[^>]*><\/span> Tompkins/);
+  // Listed without its full stop: the marker still goes after the punctuation.
+  const bare = draw(null, text, [{ at: '0.0', sentence: 'Erie lost below', plain: 'x' }]);
+  assert.match(bare, /^Erie lost below\.<span class="cc-plain"/);
+});
+
+test('plain English: a sentence containing definition links keeps them whole, marker outside', () => {
+  const g = compile(
+    table([
+      term('motion-to-dismiss', ['moved to dismiss']),
+      term('privilege', ['privileged', 'conditionally privileged']),
+    ]),
+  );
+  const text =
+    'Hilton moved to dismiss because the accusation was conditionally privileged. Roberts disagreed.';
+  const html = draw(g, text, [{ at: '0.0', sentence: text.slice(0, 77), plain: 'x' }]);
+  assert.match(
+    html,
+    /<span class="cc-term"[^>]*data-cc-term="motion-to-dismiss"[^>]*>moved to dismiss<\/span>/,
+  );
+  assert.match(
+    html,
+    /data-cc-term="privilege"[^>]*>conditionally privileged<\/span>\.<span class="cc-plain"[^>]*data-cc-plain-from="0"[^>]*><\/span> Roberts/,
+  );
+  assert.equal(unwrap(html), text);
+  // A marker that would fall inside a link (a sentence listed as ending inside "U.S.") moves to its end.
+  const g2 = compile(table([term('us', ['u.s.'], { caps: true })]));
+  const t2 = 'Garcia sued in the U.S. court system today.';
+  const links = annotate(g2, t2);
+  assert.equal(t2.slice(links[0].start, links[0].end), 'U.S.');
+  const marks = placeSentences(
+    t2,
+    entriesOf([{ at: '0.0', sentence: 'Garcia sued in the U', plain: 'x' }]),
+    links,
+  );
+  assert.equal(marks[0].end, links[0].end);
+  const h2 = markup(
+    t2,
+    links,
+    marks.map((m) => ({ ...m, id: 'p0' })),
+  );
+  assert.match(h2, /U\.S\.<\/span><span class="cc-plain"/);
+  assert.equal(unwrap(h2), t2);
+});
+
+test('plain English: curly and straight quotes, spacing, closing quotes and brackets', () => {
+  const text = 'The court said “the State’s law governs.” Then\nit   reversed (on Erie’s view.) Done.';
+  // Straight quotes and single spaces in the table still find the curly, oddly spaced text.
+  const html = draw(null, text, [
+    { at: '0.0', sentence: 'The court said "the State\'s law governs."', plain: 'a' },
+    { at: '0.0', sentence: "Then it reversed (on Erie's view.", plain: 'b' },
+  ]);
+  assert.match(html, /governs\.”<span class="cc-plain"[^>]*data-cc-plain-from="0"[^>]*><\/span> Then/);
+  assert.match(html, /view\.\)<span class="cc-plain"[^>]*><\/span> Done\./);
+  assert.equal(unwrap(html), text);
+});
+
+test('plain English: a sentence not in its paragraph is skipped; two ending at one place keep the first', () => {
+  const text = 'One. Two three.';
+  assert.equal(placeSentences(text, entriesOf([{ at: '0.0', sentence: 'Four.', plain: 'x' }])).length, 0);
+  const both = placeSentences(
+    text,
+    entriesOf([
+      { at: '0.0', sentence: 'Two three.', plain: 'x' },
+      { at: '0.0', sentence: 'three.', plain: 'y' },
+    ]),
+  );
+  assert.equal(both.length, 1);
+  assert.equal(both[0].entry.plain, 'x');
+  assert.equal(draw(null, text, [{ at: '0.0', sentence: 'Absent.', plain: 'x' }]), 'One. Two three.');
+});
+
+test('plain English: a malformed table is refused', () => {
+  assert.throws(() => compilePlain({ version: 2, sentences: {} }), /Unknown/);
+  assert.throws(() => compilePlain(plainTable({ c: {} })), /list/);
+  assert.throws(() => compilePlain(plainTable({ c: [{ at: '1', sentence: 's', plain: 'p' }] })), /bad "at"/);
+  assert.throws(
+    () => compilePlain(plainTable({ c: [{ at: '01.2', sentence: 's', plain: 'p' }] })),
+    /bad "at"/,
+  );
+  assert.throws(
+    () => compilePlain(plainTable({ c: [{ at: '1.2', sentence: ' ', plain: 'p' }] })),
+    /sentence/,
+  );
+  assert.throws(() => compilePlain(plainTable({ c: [{ at: '1.2', sentence: 's' }] })), /plain/);
+  assert.ok(compilePlain(plainTable({ c: [{ at: '2.followUp-answer', sentence: 's', plain: 'p' }] })));
+});
+
+// begin() in a page with both tables: the reader's chunks, follow-up answers and screen-reader descriptions.
+function page(glossaryTable, plain) {
+  const blocks = { dklaColdCallGlossary: glossaryTable, dklaColdCallPlain: plain };
+  const ctx = vm.createContext({
+    console,
+    document: {
+      getElementById: (id) => (blocks[id] ? { textContent: JSON.stringify(blocks[id]) } : null),
+    },
+  });
+  vm.runInContext(fs.readFileSync(path.join(root, 'src/features/cold-call/glossary.js'), 'utf8'), ctx);
+  return ctx.DKLAColdCallGloss;
+}
+
+test('plain English: begin() puts each marker in the chunk where its sentence ends', () => {
+  const gl = page(
+    table([term('licensee', ['licensee'])]),
+    plainTable({
+      erie: [
+        { at: '0.1', sentence: 'Second part starts here.', plain: 'The second.' },
+        { at: '0.1', sentence: 'Missing sentence.', plain: 'Never drawn.' },
+        { at: '2.followUp-answer', sentence: 'He was a licensee.', plain: 'Allowed <there> & "safe".' },
+      ],
+      other: [{ at: '0.1', sentence: 'First part.', plain: 'Not this account.' }],
+    }),
+  );
+  const run = gl.begin('erie');
+  const section = run.section();
+  const text = 'First part.  Second part starts here.';
+  const [a, b] = section.chunks(text, '0.1', ['First part.', 'Second part starts here.']);
+  assert.equal(a, 'First part.');
+  assert.match(
+    b,
+    /^Second part starts here\.<span class="cc-plain"[^>]*data-cc-plain="p0" data-cc-plain-from="0"/,
+  );
+  // The same paragraph under another name gets no marker.
+  assert.equal(section.text('Second part starts here.', '0.0'), 'Second part starts here.');
+  const follow = run.section().text('He was a licensee.', '2.followUp-answer');
+  assert.match(
+    follow,
+    /data-cc-term="licensee"[^>]*>licensee<\/span>\.<span class="cc-plain"[^>]*data-cc-plain="p1"/,
+  );
+  assert.deepEqual(
+    Array.from(gl.plainShown(), (e) => [e.id, e.at, e.n]),
+    [
+      ['p0', '0.1', 0],
+      ['p1', '2.followUp-answer', 2],
+    ],
+  );
+  const descriptions = run.descriptions();
+  assert.ok(descriptions.includes('<span id="ccPlainDesc-p0">The second.</span>'));
+  assert.ok(
+    descriptions.includes('<span id="ccPlainDesc-p1">Allowed &lt;there&gt; &amp; &quot;safe&quot;.</span>'),
+  );
+  assert.ok(!descriptions.includes('Never drawn'));
+  // A new rendering starts afresh, and an account with no entries draws no markers.
+  const none = gl.begin('nobody');
+  assert.equal(none.section().text('First part.', '0.1'), 'First part.');
+  assert.equal(gl.plainShown().length, 0);
+});
+
+test('the committed plain-English table compiles and every version is short', () => {
+  const raw = JSON.parse(fs.readFileSync(path.join(root, 'tools/cold-call/plain-sentences.json'), 'utf8'));
+  const p = compilePlain(raw);
+  assert.ok(p.source);
+  for (const [caseId, byAt] of p.cases) {
+    assert.ok(
+      fs.existsSync(path.join(root, 'tools/cold-call/narratives', caseId + '.json')),
+      `${caseId}: no such narrative`,
+    );
+    for (const entry of [...byAt.values()].flat()) {
+      assert.ok(entry.plain.length <= 600, `${caseId} ${entry.at}: the plain version is too long for a card`);
+      assert.ok(
+        sentences(entry.plain).length <= 3,
+        `${caseId} ${entry.at}: the plain version is more than three sentences`,
+      );
+    }
+  }
+});
+
+test('a 2,400-word narrative with ten plain-English sentences draws in a few milliseconds', () => {
+  const raw = JSON.parse(fs.readFileSync(path.join(root, 'tools/cold-call/glossary-terms.json'), 'utf8'));
+  const erie = JSON.parse(
+    fs.readFileSync(path.join(root, 'tools/cold-call/narratives/cp-erie-decision.json'), 'utf8'),
+  );
+  const paragraphs = erie.sections.flatMap((s) => s.paragraphs);
+  // Ten entries: the first sentence of ten paragraphs, all listed under one paragraph name.
+  const list = paragraphs
+    .slice(0, 10)
+    .map((p) => ({ at: '0.0', sentence: p.split('. ')[0] + '.', plain: 'x' }));
+  const gl = page(raw, plainTable({ erie: list }));
+  const text = [];
+  let count = 0;
+  while (count < 2400) for (const p of paragraphs) (text.push(p), (count += p.split(/\s+/).length));
+  const run = () => {
+    const r = gl.begin('erie');
+    let section = r.section();
+    text.forEach((p, i) => {
+      if (i % 3 === 0) section = r.section();
+      section.chunks(p, '0.0', [p]);
+    });
+    return gl.plainShown().length;
+  };
+  for (let i = 0; i < 20; i++) run();
+  assert.ok(run() >= 10, 'the ten sentences were not all found');
+  const began = performance.now();
+  for (let i = 0; i < 20; i++) run();
+  const ms = (performance.now() - began) / 20;
+  console.log(`definitions and plain English: ${count} words in ${ms.toFixed(2)} ms`);
+  assert.ok(ms < 20, `drawing ${count} words took ${ms.toFixed(1)} ms`);
+});

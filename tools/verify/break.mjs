@@ -643,7 +643,21 @@ const breakages = [
     'code: Cold Call definition links stop rendering',
     'src/features/cold-call/glossary.js',
     () =>
-      edit('src/features/cold-call/glossary.js', 'return markup(text, links);', 'return markup(text, []);'),
+      edit(
+        'src/features/cold-call/glossary.js',
+        'return markup(text, links, marks);',
+        'return markup(text, [], marks);',
+      ),
+  ],
+  [
+    'code: Cold Call plain-English markers stop rendering (Erie licensee sentence)',
+    'src/features/cold-call/glossary.js',
+    () =>
+      edit(
+        'src/features/cold-call/glossary.js',
+        'const found = listed ? placeSentences(text, listed.get(at)) : [];',
+        'const found = [];',
+      ),
   ],
   [
     'updates: the "new version is ready" notice comes back on a page that is already current',

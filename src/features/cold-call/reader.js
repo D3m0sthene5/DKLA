@@ -45,18 +45,22 @@
       '</div>'
     );
   }
-  // Definitions (glossary.js): jargon in episode paragraphs and follow-up answers is wrapped at
-  // render time; headings, citations and the source brief stay plain.
+  // Definitions and plain-English sentences (glossary.js): jargon in episode paragraphs and follow-up
+  // answers is wrapped, and listed sentences get their marker, at render time; headings, citations and
+  // the source brief stay plain. Paragraphs are named "<section>.<paragraph>" as in the plain table.
   const gloss = window.DKLAColdCallGloss || null;
   let glossing = null;
-  const paragraphs = (section, term) =>
+  const paragraphs = (section, i, term) =>
     section.paragraphs
-      .flatMap(r6ReadingChunks)
-      .map((p) => `<p>${term ? term(p) : esc(p)}</p>`)
+      .flatMap((p, j) => {
+        const parts = r6ReadingChunks(p);
+        return term ? term.chunks(p, `${i}.${j}`, parts) : parts.map(esc);
+      })
+      .map((html) => `<p>${html}</p>`)
       .join('');
   function sectionHTML(s, i) {
     const term = glossing?.section();
-    return `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${current.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term(s.followUp.answer) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`;
+    return `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${current.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`;
   }
   function open(id, trigger) {
     const c = cases.get(id);
@@ -69,7 +73,7 @@
       supporting: document.getElementById('r19Body')?.scrollTop || 0,
     };
     dialog.dataset.course = c.course;
-    glossing = gloss?.begin() || null;
+    glossing = gloss?.begin(c.id) || null;
     const brief =
       c.sources.find((s) => s.briefId === c.briefId && s.briefId) || c.sources.find((s) => s.briefId);
     dialog.innerHTML = `<header class="cc-header">
