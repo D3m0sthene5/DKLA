@@ -1,6 +1,7 @@
 /* The splash text (src/features/splash): one of DKLASplashLines, gently tilted
    and pulsing in its own slot in the top bar beside the clock (the calm top bar,
-   src/features/topbar/), hidden whenever something covers the map, never over a
+   src/features/topbar/), shown wherever the map is (zoomed in, a case open), hidden only
+   when something covers the top bar (Study, a dialog), never over a
    tile or a control, and still under reduced motion.
 
      node tools/splash/browser.mjs http://127.0.0.1:8766/DKLA-v3.0.html */
@@ -168,14 +169,15 @@ try {
     await page.setViewportSize({ width: 1440, height: 900 });
     await shown(page);
 
-    // Hidden whenever something covers the map, back on Home.
+    // It stays in its slot wherever the map is (owner, 12 November 2026: the empty slot looked odd), and
+    // hides only when something covers the top bar itself.
     await page.evaluate(() => (location.hash = 'node=cp-pennoyer'));
     await page.locator('#inspector').waitFor();
-    await hidden(page, 'an open entry hides it');
+    await shown(page);
     await home(page);
     await shown(page);
     await page.evaluate(() => SCOTUSHistory.open());
-    await hidden(page, 'SCOTUS History hides it');
+    await shown(page);
     await page.evaluate(() => SCOTUSHistory.close());
     await shown(page);
     await page.evaluate(() => DKLAStudy.open('drill'));
@@ -187,9 +189,9 @@ try {
     await hidden(page, 'a dialog hides it');
     await home(page);
     await shown(page);
-    // Zoomed into the map is no longer Home: gone, and back on Home.
+    // Zoomed into the map: still there.
     for (let i = 0; i < 3; i++) await page.locator('#studyZoomIn').click();
-    await hidden(page, 'zooming in hides it');
+    await shown(page);
     await home(page);
     await page.locator('#studyFit').click();
     await shown(page);
@@ -236,7 +238,7 @@ try {
     await context.close();
   }
   console.log(
-    'Splash text: shown on Home in its top-bar slot, hidden when covered, calm under reduced motion.',
+    'Splash text: shown in its top-bar slot wherever the map is, hidden when the bar is covered, calm under reduced motion.',
   );
 } finally {
   await browser.close();

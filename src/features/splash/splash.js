@@ -8,7 +8,8 @@
  * #studyMain) and placed from the logo's on-screen box after each map draw,
  * on resize and on a slow timer. It writes only when the logo has moved.
  *
- * It shows only on the Home map with the logo on screen, large enough and
+ * In the top bar it shows in its own slot wherever the map is, hidden only when something covers the bar.
+ * Without that slot: it shows only on the Home map with the logo on screen, large enough and
  * not covered (a reading panel, Study, SCOTUS History or a dialog hides it),
  * and only where it touches no tile, course name or control (drawn a little
  * smaller, down to 12 px, 11 on a phone, where that clears one). Decorative:
@@ -211,16 +212,19 @@
     '.study-header button:not(.study-brand), .study-header a, .study-header input, .ask-bar-dottie, .map-nav, #mapWelcome';
   function placeInBar() {
     if (index < 0 && !show(pick(lastShown()))) return off('no lines');
-    if (!onHome()) return off('not home');
-    // The calm top bar (src/features/topbar/) gives the line its own slot beside the clock.
+    // The calm top bar (src/features/topbar/) gives the line its own slot beside the clock. There it stays
+    // wherever the map is, zoomed into a course or a case too (owner, 12 November 2026: the empty slot looked
+    // odd); only something drawn over the slot itself hides it.
     const slotEl = header.querySelector('.dkla-splash-slot');
     if (slotEl && slotEl.getClientRects().length) {
-      // A panel, Study, SCOTUS History or a dialog drawn over the map hides it, as on the map.
-      const map = document.getElementById('geoCanvas')?.getBoundingClientRect();
-      const hit = map && document.elementFromPoint(map.left + map.width / 2, map.top + map.height / 2);
-      if (!hit || !hit.closest('#geoCanvas')) return off('covered');
+      if (!document.documentElement.classList.contains('dkla-boot-ready') || document.hidden)
+        return off('not ready');
+      const r = slotEl.getBoundingClientRect();
+      const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+      if (!hit || !(header.contains(hit) || root.contains(hit))) return off('covered');
       return placeInSlot(slotEl);
     }
+    if (!onHome()) return off('not home');
     const word = header.querySelector('.study-brand .dkla-wordmark');
     if (!word || !word.getClientRects().length) return off('no logo');
     // The big DKLA letters, not the small line under them.
