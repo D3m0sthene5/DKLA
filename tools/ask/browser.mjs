@@ -186,8 +186,9 @@ try {
     // Her tail loop is drawn 5 to 11px below her top, so her top is at most 14px above the edge.
     assert.ok(hangBox.y < edge - 4 && hangBox.y > edge - 14, 'her tail wraps the bottom edge of the bar');
     assert.ok(hangBox.y + hangBox.height > edge + 30, 'she dangles over the page');
-    // November 2026: she is drawn 50px wide (was 29px), and still covers nothing else in the bar.
-    assert.ok(Math.abs(hangBox.width - 50) < 1.5, `Dottie is 50px wide (${hangBox.width})`);
+    // November 2026: she is drawn 40px wide (50px until the owner asked for her 20% smaller on Home), and
+    // still covers nothing else in the bar.
+    assert.ok(Math.abs(hangBox.width - 40) < 1.5, `Dottie is 40px wide (${hangBox.width})`);
     for (const other of ['.study-search', '#search', '#saveBtn', '#moreBtn']) {
       const box = await page.locator(other).first().boundingBox();
       if (!box) continue;
