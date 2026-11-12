@@ -122,6 +122,7 @@ export const tasks = [
   // These use the preview server. {url} and {page} are filled in by the runner.
   step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
   step('browser', 'Home splash text', node('tools/splash/browser.mjs', '{page}'), SERVER),
+  step('browser', 'patch notes', node('tools/patchnotes/browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
