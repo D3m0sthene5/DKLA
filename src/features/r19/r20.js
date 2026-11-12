@@ -275,12 +275,17 @@
         }
         if (!rows || rows.length * size * 1.2 > t.dh - 6) continue;
         const d = t.d,
-          fs = size / z,
+          // A row too wide for its tile makes the whole label smaller; letters are never stretched or
+          // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
+          fit = squeeze
+            ? Math.min(1, ...rows.map((row) => (d.w - 16 / z) / Math.max(1e-6, measure(row, size / z, 600))))
+            : 1,
+          fs = (size / z) * fit,
           lh = fs * 1.2,
           x = d.x + 8 / z,
           y0 = d.y + 7 / z + fs * 0.82;
         parts.push(
-          `<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}"${squeeze && measure(row, fs, 600) > d.w - 16 / z ? ` textLength="${d.w - 16 / z}" lengthAdjust="spacingAndGlyphs"` : ''}>${esc(row)}</tspan>`).join('')}</text>`,
+          `<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
         );
         const ns = R18.districtRows(d.id, d) || [],
           cases = ns.filter((n) => n.kind === 'Case').length,
@@ -375,7 +380,7 @@
       for (const sp of t.querySelectorAll('tspan')) sp.setAttribute('x', tx);
       t.setAttribute('fill', '#dce5ec');
       t.dataset.r20 = '1';
-      // a long name is set slightly smaller, then condensed, so the whole name stays on its card
+      // a long name is set slightly smaller, then smaller still if needed, so the whole name stays on its card
       for (const sp of [t, ...t.querySelectorAll('tspan')]) {
         sp.removeAttribute('textLength');
         sp.removeAttribute('lengthAdjust');
@@ -392,11 +397,8 @@
         // one smaller step only, so a view never mixes a dozen type sizes
         const k = 0.88;
         t.setAttribute('font-size', fs * k);
-        if (len * k > room)
-          for (const sp of t.querySelectorAll('tspan').length ? t.querySelectorAll('tspan') : [t]) {
-            sp.setAttribute('textLength', room);
-            sp.setAttribute('lengthAdjust', 'spacingAndGlyphs');
-          }
+        // still too long: smaller again, to fit (never stretched or squeezed letters)
+        if (len * k > room) t.setAttribute('font-size', (fs * room) / len);
       }
       // a name too small to read is not drawn; the card and its icon stay
       const shown = parseFloat(t.getAttribute('font-size')) * z;
@@ -465,23 +467,29 @@
       t.setAttribute('x', tx);
       t.removeAttribute('textLength');
       t.textContent = '';
-      rows.forEach((row, i) => {
+      const spans = rows.map((row, i) => {
         const sp = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
         sp.setAttribute('x', tx);
         sp.setAttribute('y', y0 + i * fs * 1.16);
         sp.textContent = row;
         t.appendChild(sp);
-        let len = 0;
+        return sp;
+      });
+      // A row still too wide makes the whole name smaller to fit; letters are never stretched or
+      // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
+      let longestDrawn = 0;
+      for (const sp of spans)
         try {
-          len = sp.getComputedTextLength();
+          longestDrawn = Math.max(longestDrawn, sp.getComputedTextLength());
         } catch {
           /* not laid out */
         }
-        if (len > room && room > 0) {
-          sp.setAttribute('textLength', room);
-          sp.setAttribute('lengthAdjust', 'spacingAndGlyphs');
-        }
-      });
+      if (longestDrawn > room && room > 0) {
+        const fit = (fs * room) / longestDrawn,
+          top = rows.length === 1 ? cy + fit * 0.35 : cy - fit * 0.22;
+        t.setAttribute('font-size', fit);
+        spans.forEach((sp, i) => sp.setAttribute('y', top + i * fit * 1.16));
+      }
       t.style.opacity = px < 7.4 ? 0 : px < 8.2 ? ((px - 7.4) / 0.8).toFixed(2) : '';
     }
   }

@@ -1,6 +1,6 @@
 /* New York split-flap clock in the top bar (clock.js). The time sits on the
    top row in big cards; the weekday, month and day sit below in small cards,
-   then a static NYC with a green indicator light. The typeface is JetBrains
+   then a static NYC. The typeface is JetBrains
    Mono Bold (clock-font.css): open shapes, a zero unlike the letter O and
    equal-width digits, so it reads at a glance. */
 .study-header .ny-clock {
@@ -302,8 +302,7 @@
   line-height: 10px;
 }
 
-/* NYC, static, with a tiny green indicator light: a white-hot core in a soft
-   green halo that breathes very slowly. */
+/* NYC, static (the owner removed the indicator light on 12 November 2026). */
 .ny-clock .ny-place {
   display: flex;
   align-items: center;
@@ -314,41 +313,11 @@
   letter-spacing: 0.1em;
   line-height: 15px;
 }
-.ny-clock .ny-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 45%, #f4fff6 0 22%, #6dff9a 46%, #12c552 78%, #0a7a34 100%);
-  box-shadow:
-    0 0 2px 0.5px rgb(120 255 160 / 95%),
-    0 0 6px 1.5px rgb(40 230 100 / 55%),
-    0 0 12px 3px rgb(30 210 90 / 22%);
-  animation: ny-glow 4.2s ease-in-out infinite alternate;
-}
-@keyframes ny-glow {
-  from {
-    filter: brightness(1);
-    box-shadow:
-      0 0 2px 0.5px rgb(120 255 160 / 95%),
-      0 0 6px 1.5px rgb(40 230 100 / 55%),
-      0 0 12px 3px rgb(30 210 90 / 22%);
-  }
-  to {
-    filter: brightness(1.18);
-    box-shadow:
-      0 0 2px 1px rgb(150 255 180 / 100%),
-      0 0 7px 2px rgb(40 235 105 / 70%),
-      0 0 15px 4px rgb(30 215 95 / 30%);
-  }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ny-clock .flipping .leaf,
   .ny-clock .flipping .half::before {
     display: none;
-    animation: none;
-  }
-  .ny-clock .ny-dot {
     animation: none;
   }
 }

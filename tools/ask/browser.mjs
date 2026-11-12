@@ -261,12 +261,9 @@ try {
       await expect(clock.locator('.ny-date .flip')).toHaveCount(8);
       await expect(clock.locator('.ny-time')).toHaveAttribute('aria-hidden', 'true');
       await expect(clock.locator('.ny-date')).toHaveAttribute('aria-hidden', 'true');
-      // NYC is static text beside a small glowing green light.
+      // NYC is static text, with no indicator light (removed at the owner's request).
       await expect(clock.locator('.ny-place')).toHaveText('NYC');
-      const dot = clock.locator('.ny-place .ny-dot');
-      await expect(dot).toBeVisible();
-      const glow = await dot.evaluate((el) => getComputedStyle(el).boxShadow);
-      assert.match(glow, /rgba?\(\s*\d+,\s*2\d\d,\s*\d+/, `the dot glows green: ${glow}`);
+      await expect(clock.locator('.ny-dot')).toHaveCount(0);
       // The readable face: JetBrains Mono, embedded and loaded.
       const face = await clock
         .locator('.flip')
@@ -290,11 +287,10 @@ try {
         `after the riffle the clock shows ${landed}`,
       );
       assert.ok(datesNear().includes(landed.slice(6)), `after the riffle the date shows ${landed.slice(6)}`);
-      // Reduced motion: no flips, no riffle, a steady light.
+      // Reduced motion: no flips, no riffle.
       await page.emulateMedia({ reducedMotion: 'reduce' });
       assert.equal(await page.evaluate(() => window.DKLAClock.cascade().then(() => 'still')), 'still');
       await expect(clock.locator('.flip.flipping')).toHaveCount(0);
-      assert.equal(await dot.evaluate((el) => getComputedStyle(el).animationName), 'none');
       assert.ok(datesNear().includes((await flapValues('.flip')).slice(6)));
       await page.emulateMedia({ reducedMotion: 'no-preference' });
     }

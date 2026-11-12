@@ -36,6 +36,10 @@ export default function auditNativeHome({
   if (!canvas) return { ok: false, issues: [{ type: 'missing-map' }] };
   if (document.querySelector('#r20Guide,dialog[open],#r18Update'))
     issues.push({ type: 'home-obscured-by-dialog' });
+  // Labels are never forced to a fixed width: textLength with spacingAndGlyphs stretched or squashed the
+  // letters at other zoom levels (owner report, 12 November 2026). A long name is set smaller instead.
+  for (const e of canvas.querySelectorAll('[textLength],[lengthAdjust]'))
+    issues.push({ type: 'stretched-text', text: (e.textContent || '').trim().slice(0, 40) });
   const cb = box(canvas),
     frame = {
       x: Math.max(0, cb.x),

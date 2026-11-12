@@ -64,7 +64,7 @@
     `<span class="ny-word ny-weekday">${cards(3, 'tiny', LETTERS)}</span>` +
     `<span class="ny-word ny-month">${cards(3, 'tiny', LETTERS)}</span>` +
     `<span class="ny-word ny-day">${cards(2, 'tiny', DIGITS)}</span>` +
-    '<span class="ny-place"><span class="ny-dot"></span>NYC</span></span>';
+    '<span class="ny-place">NYC</span></span>';
   searchBox.after(clock);
 
   const meridiem = clock.querySelector('.ny-meridiem');

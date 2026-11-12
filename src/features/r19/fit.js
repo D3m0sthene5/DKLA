@@ -84,9 +84,9 @@
       let i = 0;
       html = html.replace(/<tspan /g, (m) => {
         const row = rows[i++];
-        return row != null && measure(row, size, rest[1] || 400, rest[2] || '') > rows.squeeze
-          ? `<tspan textLength="${rows.squeeze}" lengthAdjust="spacingAndGlyphs" `
-          : m;
+        const wide = row != null ? measure(row, size, rest[1] || 400, rest[2] || '') : 0;
+        // too wide: this row is set smaller to fit, never stretched or squeezed
+        return wide > rows.squeeze ? `<tspan font-size="${(size * rows.squeeze) / wide}" ` : m;
       });
     }
     return html;
