@@ -606,8 +606,11 @@
       tall: { x: -3100, y: 10300, w: 6200, h: 4300 },
     },
     LOWER = { wide: 15200, tall: 15400 };
+  // Home prototypes (v25/home-variants.js): no mark on the map, and their own targets and lower blocks.
+  const V = window.DKLAHomeVariant?.active ? window.DKLAHomeVariant : null;
+  if (V) for (const mode of ['wide', 'tall']) ARR[mode] = V.targets(mode);
   window.DKLAMapMark = {
-    box: (mode = arranged || (wideScreen() ? 'wide' : 'tall')) => ({ ...MARK[mode] }),
+    box: (mode = arranged || (wideScreen() ? 'wide' : 'tall')) => (V ? null : { ...MARK[mode] }),
   };
   let arranged = null;
   function arrange(mode) {
@@ -659,7 +662,13 @@
     }
     // SCOTUS History stands clear below the courses and their supporting-cases tiles
     if (window.DKLAScotusBox) {
-      const p = mode === 'wide' ? { x: 200, y: LOWER.wide } : { x: -11400, y: LOWER.tall, h: 4200 };
+      const p = V
+        ? mode === 'wide'
+          ? V.scotus() || {}
+          : { x: -11400, y: V.tallLower, h: 4200 }
+        : mode === 'wide'
+          ? { x: 200, y: LOWER.wide }
+          : { x: -11400, y: LOWER.tall, h: 4200 };
       for (const [key, value] of Object.entries(p))
         if (window.DKLAScotusBox[key] !== value) {
           window.DKLAScotusBox[key] = value;
@@ -682,6 +691,11 @@
       for (const [course, block] of Object.entries(M.courseBlocks || {})) {
         const t = D.tiles[course];
         if (!t) continue;
+        const pill = V && V.pill(mode, course);
+        if (pill) {
+          Object.assign(t, pill);
+          continue;
+        }
         const zones = ((M.courseDesign || {})[course] || {}).zones || [];
         const bottom = Math.max(block.y + block.h, ...zones.map((zn) => zn.y + zn.h)),
           left = Math.min(block.x, ...zones.map((zn) => zn.x));
@@ -728,7 +742,7 @@
       try {
         // r20.10: the three-course view also holds the whole centre mark (drawn by fixMark below). v3.0: the
         // mark sits between the courses and the lower band.
-        if (S.scope === 'Atlas') return bounds([b, window.DKLAMapMark.box()]);
+        if (S.scope === 'Atlas') return V ? b : bounds([b, window.DKLAMapMark.box()]);
         if (arranged !== 'wide') return b;
         const M = mapData(),
           block = (M.courseBlocks || {})[S.scope];
@@ -1121,6 +1135,13 @@
     const mark = document.querySelector('#geoCanvas .dkla-map-monogram');
     if (!mark) return;
     // v3.0: the mark is the calm centre of Home, between the courses and the lower band (see DKLAMapMark).
+    // Home prototypes have no mark on the map: it is hidden, with the analytics link round it.
+    if (window.DKLAHomeVariant?.active) {
+      const hide = mark.closest('a[data-dkla-analytics]') || mark;
+      if (hide.getAttribute('display') !== 'none') hide.setAttribute('display', 'none');
+      mark.dataset.r20 = '1';
+      return;
+    }
     const m = window.DKLAMapMark?.box() || { x: -3100, y: -5300, w: 6200, h: 4300 };
     for (const [name, value] of [
       ['x', m.x],

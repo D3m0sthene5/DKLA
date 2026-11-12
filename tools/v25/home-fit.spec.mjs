@@ -8,6 +8,11 @@ const geometry = JSON.parse(readFileSync(new URL('./geography.json', import.meta
 const baseline = JSON.parse(readFileSync(new URL('./home-baseline-fonts.json', import.meta.url), 'utf8'));
 const expectedRegions = geometry.regions.map((r) => r.id);
 const url = process.env.DKLA_HOME_TEST_URL;
+// Home prototypes (src/features/v25/home-variants.js): DKLA_HOME_VARIANT=1..5
+// runs the same checks on that arrangement. A prototype has no mark on the map
+// (so the mark's checks are skipped); only 1 and 5 keep the two lower blocks
+// side by side at equal heights.
+const variant = /^[1-5]$/.test(process.env.DKLA_HOME_VARIANT || '') ? process.env.DKLA_HOME_VARIANT : '';
 if (!url)
   throw new Error(
     'Set DKLA_HOME_TEST_URL to the explicit preview; missing targets must not produce a green skipped run.',
@@ -27,7 +32,10 @@ for (const [width, height] of sizes)
   test(`native Home fits ${width} x ${height}`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height });
     // The first-visit guide is a separate onboarding flow, not the Home layout.
-    await page.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+    await page.addInitScript((v) => {
+      localStorage.setItem('dkla.guide.v1', 'seen');
+      if (v) localStorage.setItem('dkla.homeVariant', v);
+    }, variant);
     await coverage.start(page);
     await page.goto(url);
     await page.locator('html.dkla-boot-ready').waitFor();
@@ -48,8 +56,9 @@ for (const [width, height] of sizes)
     // v3.0: courses on top, the DKLA mark alone in the middle, the two lower blocks below.
     const contract = {
       expectedRegions,
-      equalLowerHeights: true,
-      heliocentric: true,
+      equalLowerHeights: !variant || variant === '1' || variant === '5',
+      heliocentric: !variant,
+      noMark: !!variant,
       allowZoomLabels: height < 500,
     };
     let first = await page.evaluate(auditNativeHome, {

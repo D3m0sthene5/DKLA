@@ -7,6 +7,7 @@ export default function auditNativeHome({
   allowZoomLabels = false,
   equalLowerHeights = false,
   heliocentric = false,
+  noMark = false, // a Home prototype draws no mark on the map
 } = {}) {
   const canvas = document.getElementById('geoCanvas'),
     issues = [],
@@ -118,7 +119,7 @@ export default function auditNativeHome({
     components.push({ id: 'support-' + e.parentElement.getAttribute('data-r19-list'), box: b });
     if (!inside(b, frame)) issues.push({ type: 'clipped-supporting-tile', box: b });
   }
-  for (const selector of ['.dkla-map-monogram', '.sh-block-bg', '.authority-map-entrance > rect']) {
+  for (const selector of [...(noMark ? [] : ['.dkla-map-monogram']), '.sh-block-bg', '.authority-map-entrance > rect']) {
     const e = canvas.querySelector(selector);
     if (!e || !visible(e)) {
       issues.push({ type: 'missing-section', selector });

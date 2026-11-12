@@ -62,3 +62,7 @@
     animation: none;
   }
 }
+/* Home prototypes: the splash sits in the top bar, over the map's top edge. */
+.dkla-splash.dkla-splash-brand {
+  z-index: 3;
+}

@@ -583,7 +583,13 @@
     const scotus = window.DKLAScotusBox || { x: -11400, y: 10400, w: 22800, h: 4200 },
       b = window.DKLAGeography?.bounds?.(),
       narrow = rect().w < 700;
-    const v = rect();
+    const v = rect(),
+      variant = window.DKLAHomeVariant?.authority?.();
+    if (variant) {
+      // A Home prototype (v25/home-variants.js) places and sizes the block itself.
+      Object.assign(BOX, { x: variant.x, y: variant.y, w: variant.w });
+      return BOX;
+    }
     if (v.w >= 600 && v.w / Math.max(1, v.h) >= 1.25) {
       Object.assign(BOX, { x: scotus.x - scotus.w - 900, y: scotus.y, w: scotus.w });
       return BOX;
@@ -595,6 +601,9 @@
   }
   function geometry(n = current(), overview = false) {
     anchor();
+    // A Home prototype's own layout of the overview: its columns, its height
+    // (rows grow to it), or two panels either side of the SCOTUS building.
+    const spec = overview && n === root ? window.DKLAHomeVariant?.authority?.() || null : null;
     const a = usable(),
       narrow = !overview && a.w < 650,
       key = [
@@ -607,15 +616,18 @@
         BOX.w,
         pageOffsets.get(n.key) || 0,
         selectedEntry()?.id || '',
+        spec ? JSON.stringify(spec) : '',
       ].join(':');
     if (geometryCache?.key === key) return geometryCache;
     const cover = n === root,
-      width = overview ? 1440 : Math.min(1440, Math.max(320, a.w - 32)),
+      width = spec ? (spec.split ? 480 : spec.cols * (spec.colW || 480)) : overview ? 1440 : Math.min(1440, Math.max(320, a.w - 32)),
       short = !overview && a.h < 400,
       compact = cover && (narrow || short),
       pad = narrow || short ? 16 : 26,
       gap = narrow || short ? 12 : 22;
-    let cols = cover
+    let cols = spec
+      ? spec.cols
+      : cover
       ? narrow
         ? 2
         : short || width >= 860
@@ -632,7 +644,7 @@
       ? markH + 52
       : 28 + heading.length * headingFs * 1.25 + (n.range ? 28 : 0) + 24;
     let hideQuote = narrow || short;
-    function arrange(previews, children = n.children) {
+    function arrange(previews, children = n.children, grow = 0) {
       const cards = new Map(),
         rowEnds = [];
       let y = header;
@@ -668,7 +680,7 @@
         const w = (width - pad * 2 - gap * (cols - 1)) / cols,
           models = children.map((c) => tileModel(c, w, cover, compact, previews));
         for (let i = 0; i < models.length; i += cols) {
-          const h = Math.max(...models.slice(i, i + cols).map((m) => m.h));
+          const h = Math.max(...models.slice(i, i + cols).map((m) => m.h)) + grow;
           for (let j = 0; j < cols && i + j < models.length; j++) {
             const c = children[i + j];
             cards.set(c.key, { x: pad + j * (w + gap), y, w, h, node: c, cover, model: models[i + j] });
@@ -695,6 +707,33 @@
                 ? 1
                 : 0,
       layout = arrange(density);
+    let panels = null,
+      spineBox = null;
+    if (spec) {
+      // Rows grow so the block is as tall as the prototype asks; letters keep their size.
+      const unit0 = spec.split ? spec.split.left.w / width : spec.w / width,
+        target = spec.h / unit0;
+      if (spec.split) {
+        const halves = [n.children.slice(0, 3), n.children.slice(3)].map((c) => arrange(0, c));
+        const rowsN = Math.max(...halves.map((l) => l.rowEnds.length)),
+          natural = Math.max(...halves.map((l) => l.h)),
+          grow = Math.max(0, (target - natural) / rowsN),
+          [left, right] = [n.children.slice(0, 3), n.children.slice(3)].map((c) => arrange(0, c, grow)),
+          dx = (spec.split.right.x - spec.split.left.x) / unit0;
+        const cards = new Map(left.cards);
+        for (const [key, c] of right.cards) cards.set(key, { ...c, x: c.x + dx });
+        const h = Math.max(left.h, right.h);
+        layout = { cards, rowEnds: left.rowEnds, h };
+        panels = [
+          { x: 0, w: width },
+          { x: dx, w: width },
+        ];
+      } else {
+        const rowsN = layout.rowEnds.length,
+          grow = Math.max(0, (target - layout.h) / rowsN);
+        if (grow) layout = arrange(density, n.children, grow);
+      }
+    }
     const height = Math.max(100, a.h - 40);
     if (!overview && !constitution)
       while (density > 0 && layout.h > height) {
@@ -735,19 +774,30 @@
       layout = arrange(0, n.children.slice(pages[page].start, pages[page].end));
       layout.h += 62;
     }
-    const unit = overview ? BOX.w / width : 1,
+    const unit = spec ? (spec.split ? spec.split.left.w : spec.w) / width : overview ? BOX.w / width : 1,
       cards = new Map(
         [...layout.cards].map(([key, c]) => [
           key,
           { ...c, x: BOX.x + c.x * unit, y: BOX.y + c.y * unit, w: c.w * unit, h: c.h * unit, unit },
         ]),
       );
-    const box = { x: BOX.x, y: BOX.y, w: width * unit, h: layout.h * unit },
+    const box = { x: BOX.x, y: BOX.y, w: spec ? spec.w : width * unit, h: layout.h * unit },
       fit = { ...box };
+    if (panels) {
+      panels = panels.map((p) => ({ x: BOX.x + p.x * unit, y: BOX.y, w: p.w * unit, h: box.h }));
+      // The dictionary spine heads the right-hand panel.
+      const p = panels[1];
+      spineBox = { x: p.x + 26 * unit, w: p.w - 52 * unit };
+    } else if (spec && width > 1440) {
+      // On a long shelf of narrow books the spine is a little larger, at the right-hand end.
+      const scale = 1.25,
+        w = 723 * unit * scale;
+      spineBox = { x: box.x + box.w - 26 * unit - w, w, scale };
+    }
     if (overview) {
       BOX.h = box.h;
       const v = rect();
-      if (window.DKLAScotusBox && v.w >= 600 && v.w / Math.max(1, v.h) >= 1.25)
+      if (window.DKLAScotusBox && !spec && v.w >= 600 && v.w / Math.max(1, v.h) >= 1.25)
         window.DKLAScotusBox.h = box.h;
     }
     geometryCache = {
@@ -759,6 +809,8 @@
       cols,
       density,
       header: header * unit,
+      panels,
+      spineBox,
       heading,
       headingFs,
       masthead,
@@ -1206,7 +1258,12 @@
       w = g.box.w,
       h = g.box.h,
       pad = usable().w < 650 && !overview ? 16 : 26;
-    let out = `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${24 * u}" fill="${n === root ? '#12282b' : s.base}" fill-opacity=".92" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${1.2 / z}"/>`;
+    let out = (g.panels || [{ x, y, w, h }])
+      .map(
+        (p) =>
+          `<rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" rx="${24 * u}" fill="${n === root ? '#12282b' : s.base}" fill-opacity=".92" stroke="${s.edge}" stroke-opacity=".65" stroke-width="${1.2 / z}"/>`,
+      )
+      .join('');
     if (n === collectionGroups.get('constitution')) {
       const markW = g.masthead.w * u;
       out += people(
@@ -1282,10 +1339,10 @@
   function dictionarySpine(g) {
     // The dictionary keeps its legacy region/id and routes. Only its painted
     // entrance moves: retain the existing map bounds, camera and course layout.
-    const u = g.unit,
-      x = g.box.x + g.box.w * 0.48,
+    const u = g.unit * (g.spineBox?.scale || 1),
+      x = g.spineBox ? g.spineBox.x : g.box.x + g.box.w * 0.48,
       y = g.box.y + 17 * u,
-      w = g.box.w * 0.52 - 26 * u,
+      w = g.spineBox ? g.spineBox.w : g.box.w * 0.52 - 26 * u,
       h = 53 * u,
       r = 5 * u;
     return `<g class="map-region dictionary-spine" role="button" tabindex="0" data-dictionary-spine aria-label="Open legal dictionary"><title>Open legal dictionary</title><defs><linearGradient id="dictionary-leather" x2="0" y2="1"><stop stop-color="#514b61"/><stop offset=".28" stop-color="#393546"/><stop offset=".78" stop-color="#302d3b"/><stop offset="1" stop-color="#252630"/></linearGradient></defs><path class="dictionary-spine-cover" data-map-region="dictionary-region" d="M${x + r} ${y}H${x + w - r}Q${x + w} ${y} ${x + w} ${y + r}V${y + h - r}Q${x + w} ${y + h} ${x + w - r} ${y + h}H${x + r}Q${x} ${y + h} ${x} ${y + h - r}V${y + r}Q${x} ${y} ${x + r} ${y}Z" fill="url(#dictionary-leather)" stroke="#a89ab8" stroke-opacity=".65" stroke-width="${0.8 / S.z}"/><path d="M${x + 10 * u} ${y + 5 * u}H${x + w - 10 * u}M${x + 10 * u} ${y + h - 5 * u}H${x + w - 10 * u}" stroke="#c9bca5" stroke-opacity=".35" stroke-width="${0.5 / S.z}" fill="none" pointer-events="none"/><path d="M${x + 27 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + 34 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + w - 34 * u} ${y + 7 * u}V${y + h - 7 * u}M${x + w - 27 * u} ${y + 7 * u}V${y + h - 7 * u}" stroke="#c3af87" stroke-opacity=".5" stroke-width="${0.7 / S.z}" pointer-events="none"/><text class="region-title dictionary-spine-title" data-map-region="dictionary-region" x="${x + w / 2}" y="${y + h * 0.65}" text-anchor="middle" font-size="${25 * u}" font-weight="500" fill="#ebe0c8" pointer-events="none">Legal dictionary</text></g>`;
@@ -1301,7 +1358,7 @@
     const g = geometry(root, true),
       B = visibleBox();
     if (!intersects(g.box, B, 80)) return;
-    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${g.box.x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${g.box.w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
+    let out = `<g class="authority-map-entrance" data-map-region="${ROOT}" role="group" aria-label="Rules and authorities"><title>Constitution, federal rules, codes and Restatements</title>${frame(root, g, true)}<g class="authority-title-control" data-map-region="${ROOT}" role="button" tabindex="0" aria-label="Explore rules and authorities"><rect x="${(g.panels?.[0] || g.box).x + 26 * g.unit}" y="${g.box.y + 14 * g.unit}" width="${(g.panels?.[0] || g.box).w - 52 * g.unit}" height="${g.header - 24 * g.unit}" fill="transparent" pointer-events="all"/></g>`;
     for (const card of g.cards.values()) out += tile(card, true);
     out += dictionarySpine(g) + '</g>';
     svg.insertAdjacentHTML('beforeend', out);
@@ -1518,6 +1575,24 @@
     group: openGroup,
     data: D,
     version: 5,
+    // The overview's natural height, in its own pixels, with `cols` columns of
+    // books 480 px wide each (for the Home prototypes in v25/home-variants.js).
+    natural(cols, colW = 480) {
+      const width = cols * colW,
+        w = (width - 52 - 22 * (cols - 1)) / cols,
+        heading = rows(display(root), width - 52, 32, 550, 3, 'authority-map-heading'),
+        header = 28 + heading.length * 32 * 1.25 + 24,
+        sets = cols === 1 ? [root.children.slice(0, 3), root.children.slice(3)] : [root.children];
+      let most = 0;
+      for (const set of sets) {
+        const models = set.map((c) => tileModel(c, w, true, false, 0));
+        let y = header;
+        for (let i = 0; i < models.length; i += cols)
+          y += Math.max(...models.slice(i, i + cols).map((m) => m.h)) + 22;
+        most = Math.max(most, y - 22 + 26);
+      }
+      return most;
+    },
     geography: () => ({
       entrance: { ...geometry(root, true).box, id: ROOT },
       layout: (() => {

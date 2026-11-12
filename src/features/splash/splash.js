@@ -73,7 +73,14 @@
   root.innerHTML = '<span class="dkla-splash-pop"><span class="dkla-splash-text"></span></span>';
   const pop = root.firstChild,
     text = pop.firstChild;
-  canvas.after(root);
+  // Home prototypes (v25/home-variants.js) have no mark on the map: the splash
+  // sits in the top bar instead, on the upper-right corner of the DKLA wordmark,
+  // smaller (13 px, down to 10 for a long line), clear of every button.
+  const header = window.DKLAHomeVariant?.active ? document.querySelector('.study-header') : null;
+  if (header) {
+    root.classList.add('dkla-splash-brand');
+    header.appendChild(root);
+  } else canvas.after(root);
 
   let index = -1,
     perEm = 0, // the line's natural width and height per px of font size
@@ -178,7 +185,73 @@
     placed = '';
     return why;
   }
+  const BAR_CLEAR =
+    '.study-header button:not(.study-brand), .study-header a, .study-header input, .ask-bar-dottie, .map-nav, #mapWelcome';
+  function placeInBar() {
+    if (index < 0 && !show(pick(lastShown()))) return off('no lines');
+    if (!onHome()) return off('not home');
+    const word = header.querySelector('.study-brand .dkla-wordmark');
+    if (!word || !word.getClientRects().length) return off('no logo');
+    // The big DKLA letters, not the small line under them.
+    const letters = [...word.childNodes].find((n) => n.nodeType === 3 && n.textContent.trim());
+    let q = word.getBoundingClientRect();
+    if (letters) {
+      const range = document.createRange();
+      range.selectNodeContents(letters);
+      const r = range.getBoundingClientRect();
+      if (r.width) q = r;
+    }
+    if (!perEm) {
+      text.style.fontSize = '20px';
+      perEm = text.offsetWidth / 20;
+      perH = text.offsetHeight / 20;
+      font = 0;
+      if (!perEm) return off('unmeasured');
+    }
+    const bar = header.getBoundingClientRect();
+    const at = (size) => {
+      const w = perEm * size,
+        h = perH * size,
+        ey = (PULSE * (w * Math.abs(SIN) + h * COS)) / 2 + SHADOW * size;
+      // A quarter of the line lies over the wordmark; the rest rises to the right of it.
+      const cx = q.right + w * 0.25 * COS,
+        cy = Math.max(q.top + q.height * 0.3, bar.top + 3 + ey);
+      return { size, w, h, cx, cy };
+    };
+    const blocked = (g) => {
+      const a = (g.w * PULSE) / 2 + SHADOW * g.size,
+        b = (g.h * PULSE) / 2 + SHADOW * g.size;
+      if (g.cx - a * COS < 2) return 'edge';
+      for (const el of document.querySelectorAll(BAR_CLEAR)) {
+        const r = el.getBoundingClientRect();
+        if (r.width && r.height && getComputedStyle(el).visibility !== 'hidden' && touches(g.cx, g.cy, a, b, r))
+          return 'control';
+      }
+      return '';
+    };
+    let size = Math.min(13, Math.max(10, 170 / perEm)),
+      why = '';
+    for (;;) {
+      why = blocked(at(size));
+      if (!why || size <= 9) break;
+      size = Math.max(9, size - 0.5);
+    }
+    const g = at(size),
+      where = `${g.cx.toFixed(1)},${g.cy.toFixed(1)},${size}`;
+    if (where !== placed) {
+      placed = where;
+      if (size !== font) {
+        font = size;
+        text.style.fontSize = size.toFixed(2) + 'px';
+      }
+      const x = g.cx - bar.left - g.w / 2,
+        y = g.cy - bar.top - g.h / 2;
+      root.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${TILT}deg)`;
+    }
+    return why;
+  }
   function place() {
+    if (header) return placeInBar();
     if (index < 0 && !show(pick(lastShown()))) return off('no lines');
     if (!onHome()) return off('not home');
     const mark = canvas.querySelector('.dkla-map-monogram');

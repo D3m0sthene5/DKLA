@@ -32,6 +32,17 @@
       'dictionary-region': [15500, 9650],
     },
   };
+  // Home prototypes (v25/home-variants.js) bring their own targets, and may move
+  // subject tiles inside a course (each tile's subtopics and cards move with it).
+  const V = window.DKLAHomeVariant?.active ? window.DKLAHomeVariant : null;
+  if (V) for (const mode of ['wide', 'tall']) targets[mode] = V.targets(mode);
+  const sourceRegion = new Map(G.regions.map((r) => [r.id, r]));
+  let mode0 = 'wide';
+  function shiftOf(regionId) {
+    const to = V && V.regionPos(mode0, regionId),
+      from = sourceRegion.get(regionId);
+    return to && from ? [to[0] - from.x, to[1] - from.y] : null;
+  }
   const retiredRegions = {
     'civil-region': 'cp-personal-region',
     'extension-iekfaa-1': 'cp-governing-region',
@@ -160,10 +171,11 @@
   }
   function absolute(o, T) {
     const out = copy(o),
-      a = T[o.anchor];
-    out.x += a[0];
-    out.y += a[1];
-    if (typeof out.supportStart === 'number') out.supportStart += a[1];
+      a = T[o.anchor],
+      d = shiftOf(o.region || o.id) || [0, 0];
+    out.x += a[0] + d[0];
+    out.y += a[1] + d[1];
+    if (typeof out.supportStart === 'number') out.supportStart += a[1] + d[1];
     delete out.anchor;
     delete out.custom;
     return out;
@@ -196,6 +208,7 @@
     if (applying || !graph?.studyMap || !graph?.nodes) return false;
     const mode = arrangement();
     if (stable(graph, mode)) return false;
+    mode0 = mode;
     applying = true;
     let changed = false;
     try {
@@ -220,8 +233,9 @@
       }
       for (const [course, a] of Object.entries(G.anchors)) {
         if (!['Contracts', 'Civil Procedure', LRS].includes(course)) continue;
-        const c = (M.courseBlocks[course] ||= {});
-        changed = assign(c, { x: T[course][0], y: T[course][1], w: a.w, h: a.h }) || changed;
+        const c = (M.courseBlocks[course] ||= {}),
+          size = (V && V.blockSize(mode, course)) || a;
+        changed = assign(c, { x: T[course][0], y: T[course][1], w: size.w, h: size.h }) || changed;
       }
       for (const did of Object.keys(M.districts))
         if (!G.districts[did]) {
@@ -308,6 +322,13 @@
           item.x += a[0];
           item.y += a[1];
         }
+        const zones =
+          V &&
+          V.zones(mode, course, design.zones || [], (rid) => M.regions.find((r) => r.id === rid));
+        if (zones) {
+          design.zones = zones;
+          design.labels = [];
+        }
         if (JSON.stringify(M.courseDesign[course]) !== JSON.stringify(design)) {
           M.courseDesign[course] = design;
           changed = true;
@@ -337,6 +358,11 @@
         for (const [course, b] of Object.entries(M.courseBlocks)) {
           const tile = D.tiles[course];
           if (!tile) continue;
+          const pill = V && V.pill(mode, course);
+          if (pill) {
+            Object.assign(tile, pill);
+            continue;
+          }
           const zones = M.courseDesign[course]?.zones || [];
           tile.x = Math.min(b.x, ...zones.map((z) => z.x));
           tile.y = Math.max(b.y + b.h, ...zones.map((z) => z.y + z.h)) + 120;

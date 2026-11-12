@@ -190,6 +190,21 @@
     galaxy = function (...args) {
       const g = previousGalaxy.apply(this, args);
       if (!neutral() || !wide()) return g;
+      // A Home prototype (v25/home-variants.js) sizes its lower blocks to this
+      // window first, and has no mark on the map. It is sized twice: the second
+      // time it knows where the frame's top landed (the room kept clear of
+      // Dottie and the breadcrumb), so it can fill that room too.
+      const variant = window.DKLAHomeVariant?.active ? window.DKLAHomeVariant : null;
+      if (!variant) return { ...g, box: frameBox(null) };
+      let state = variant.fit(safeArea());
+      for (let i = 0; i < 5; i++) {
+        const next = variant.fit(safeArea(), frameBox(variant).y);
+        if (next === state) break;
+        state = next;
+      }
+      return { ...g, box: frameBox(variant) };
+    };
+    function frameBox(variant) {
       const m = mapData(),
         authority = window.DKLAAuthorities.geography().entrance,
         c = window.DKLAScotusBox,
@@ -201,19 +216,20 @@
       // and SCOTUS History below. The course names are the top of Home; their
       // size depends on the zoom, so the band they need is found in a few
       // passes, with room added above them until nothing covers a name.
-      const core = bounds([
-          ...m.regions,
-          ...Object.values(m.courseBlocks || {}),
-          ...tiles,
-          authority,
-          c,
-          mark,
-        ]),
-        courseTop = Math.min(
+      const courseTop = Math.min(
           ...Object.entries(m.courseBlocks || {}).map(([course, block]) =>
             Math.min(block.y, ...(m.courseDesign?.[course]?.zones || []).map((zn) => zn.y)),
           ),
         ),
+        core = bounds([
+          ...(variant ? m.regions.filter((r) => r.id !== 'dictionary-region') : m.regions),
+          ...Object.values(m.courseBlocks || {}),
+          ...tiles,
+          authority,
+          // A side rail that reaches above the names sits in the room kept above them; it does not set the frame's top.
+          variant && c.y < courseTop ? { ...c, y: courseTop, h: c.y + c.h - courseTop } : c,
+          ...(variant ? [] : [mark]),
+        ]),
         a = safeArea();
       const covered = (coverState ||= readCovers()),
         key = [core.x, core.y, core.w, core.h, courseTop, a.x, a.y, a.w, a.h, covered.key].join();
@@ -224,7 +240,9 @@
           box = core;
           for (let pass = 0; pass < 3; pass++) {
             const z = Math.min(a.w / box.w, a.h / box.h),
-              top = Math.min(core.y, courseTop - (R18.courseTitlePx(z) / z) * 1.9) - room / z;
+              names = courseTop - (R18.courseTitlePx(z) / z) * 1.9,
+              // A prototype may reach above the names (a side rail); the room is kept above the names.
+              top = variant ? Math.min(core.y, names - room / z) : Math.min(core.y, names) - room / z;
             box = { x: core.x, y: top, w: core.w, h: core.y + core.h - top };
           }
           const need = namesCovered(box, a, m, covered);
@@ -233,8 +251,8 @@
         }
         roomCache = { key, box };
       }
-      return { ...g, box: { ...roomCache.box } };
-    };
+      return { ...roomCache.box };
+    }
     morphBand = function (...args) {
       const b = previousBand.apply(this, args);
       if (!neutral() || !wide()) return b;
