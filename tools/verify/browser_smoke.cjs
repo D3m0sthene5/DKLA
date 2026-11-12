@@ -146,6 +146,12 @@ async function route(page, hash) {
       page.setDefaultTimeout(12000);
       await coverage.start(page);
       page.on('pageerror', (e) => report.pageErrors.push({ viewport: viewport.name, error: e.message }));
+      // The map's own layers catch their errors and log them as "DKLA …"; a caught error still leaves the map
+      // half drawn (12 November 2026: a name clash stopped the tile clean-up on every zoomed view).
+      page.on('console', (m) => {
+        if (m.type() === 'error' && /^DKLA /.test(m.text()))
+          report.pageErrors.push({ viewport: viewport.name, error: m.text().slice(0, 300) });
+      });
       if (!viewport.storage) {
         await check(viewport.name + ': boot and home', async () => {
           await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 90000 });
@@ -206,6 +212,49 @@ async function route(page, hash) {
           await page.waitForTimeout(800);
           assert.match(await page.locator('#geoBreadcrumb').innerText(), /Consideration/i);
           await shot(page, viewport.name + '-region');
+        });
+        await check(viewport.name + ': zoomed subject rows stay on their cards', async () => {
+          // From the course view to the card view: every entry row sits inside its card, and no visible line
+          // is drawn too small to read (owner, 12 November 2026: text ran "through and through" the tiles).
+          const bad = [];
+          for (const z of [0.12, 0.18, 0.25, 0.32, 0.4, 0.6]) {
+            await page.evaluate((zoom) => {
+              const r = mapData().regions.find((x) => x.id === 'offer-region');
+              setCamera(r.x + r.w / 2, r.y + r.h / 2, zoom, false);
+            }, z);
+            await page.waitForTimeout(500);
+            bad.push(
+              ...(await page.evaluate((zoom) => {
+                const out = [];
+                for (const t of document.querySelectorAll('#geoCanvas text[data-map-jump]')) {
+                  const card = t.previousElementSibling,
+                    rect = card && card.classList.contains('r20-mini') && card.querySelector('rect');
+                  if (!rect || getComputedStyle(t).visibility === 'hidden' || +t.style.opacity === 0)
+                    continue;
+                  const tb = t.getBoundingClientRect(),
+                    cb = rect.getBoundingClientRect();
+                  if (tb.right > cb.right + 1 || tb.left < cb.left - 1)
+                    out.push(zoom + ' ' + t.textContent.trim().slice(0, 40) + ' runs off its card');
+                }
+                for (const e of document.querySelectorAll('#geoCanvas text, #geoCanvas tspan')) {
+                  if (e.tagName === 'text' && e.children.length) continue;
+                  const cs = getComputedStyle(e),
+                    r = e.getBoundingClientRect();
+                  if (cs.visibility === 'hidden' || !e.textContent.trim() || r.width < 5) continue;
+                  if (r.bottom < 80 || r.top > innerHeight || r.right < 0 || r.left > innerWidth) continue;
+                  let o = 1;
+                  for (let n = e; n && n.id !== 'geoCanvas'; n = n.parentElement)
+                    o *= +getComputedStyle(n).opacity;
+                  if (o >= 0.3 && parseFloat(cs.fontSize) * S.z < 7)
+                    out.push(zoom + ' ' + e.textContent.trim().slice(0, 40) + ' is too small to read');
+                }
+                return out;
+              }, z)),
+            );
+          }
+          assert.deepEqual(bad.slice(0, 8), []);
+          await page.evaluate(() => home('Atlas', false, false));
+          await page.waitForTimeout(500);
         });
         await check(viewport.name + ': legacy case route and narrative', async () => {
           await route(page, 'node=cp-pennoyer');

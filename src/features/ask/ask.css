@@ -525,9 +525,10 @@
    her top, so that much of her is above the bar's bottom edge. */
 .study-header .ask-bar-dottie {
   position: absolute;
-  top: calc(100% - 10px);
-  width: 50px;
-  margin-left: -8px;
+  top: calc(100% - 8px);
+  /* 20% smaller than v3.0's first 50px (owner, 12 November 2026) */
+  width: 40px;
+  margin-left: -6px;
   transform-origin: 50% 7px;
   z-index: 4;
 }
@@ -715,4 +716,35 @@ body:has(#shShell:not([hidden])) .study-header .ask-bar-dottie {
   align-items: center;
   gap: 6px;
   margin-top: 3px;
+}
+
+/* Dottie blinks now and then (owner, 12 November 2026); each eye closes for a moment. */
+.dottie .dottie-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dottie-blink 5.2s ease-in-out infinite;
+}
+@keyframes dottie-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+/* Off the main view (zoomed in, a course, a reader or a panel), the hanging Dottie steps away so she
+   never covers the map (src/features/topbar/topbar.js sets the class). */
+.study-header .ask-bar-dottie {
+  transition: opacity 0.2s ease;
+}
+.dkla-off-home .study-header .ask-bar-dottie {
+  opacity: 0;
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dottie .dottie-eye {
+    animation: none;
+  }
 }

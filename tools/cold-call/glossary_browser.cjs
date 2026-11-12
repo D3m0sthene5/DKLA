@@ -375,8 +375,14 @@ async function limits(page) {
       await page.locator(card).waitFor({ state: 'visible' });
       const before = (await geometry(page, 'compromise')).card.y;
       await page.locator('#ccScroll').evaluate((s) => (s.scrollTop += 40));
-      await page.waitForTimeout(150);
-      const after = await geometry(page, 'compromise');
+      // The card moves on the next frame; a slow machine (the GitHub runner) can take longer than a
+      // fixed wait, so poll for up to three seconds.
+      let after = null;
+      for (let i = 0; i < 30; i++) {
+        await page.waitForTimeout(100);
+        after = await geometry(page, 'compromise');
+        if (after.card && Math.abs(before - after.card.y - 40) < 6) break;
+      }
       assert.ok(after.card && Math.abs(before - after.card.y - 40) < 6, 'the card did not follow its word');
       await page.locator('#ccScroll').evaluate((s) => (s.scrollTop += 2000));
       await page.locator(card).waitFor({ state: 'detached', timeout: 1000 });

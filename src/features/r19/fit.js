@@ -85,8 +85,11 @@
       html = html.replace(/<tspan /g, (m) => {
         const row = rows[i++];
         const wide = row != null ? measure(row, size, rest[1] || 400, rest[2] || '') : 0;
-        // too wide: this row is set smaller to fit, never stretched or squeezed
-        return wide > rows.squeeze ? `<tspan font-size="${(size * rows.squeeze) / wide}" ` : m;
+        // too wide: this row is set smaller to fit, never stretched or squeezed. The estimate can be
+        // short of the drawn width, so data-fit lets r20.js's fitDrawn() check the real text after drawing.
+        return wide > rows.squeeze
+          ? `<tspan data-fit="${rows.squeeze}" font-size="${(size * rows.squeeze) / wide}" `
+          : `<tspan data-fit="${rows.squeeze}" `;
       });
     }
     return html;

@@ -41,6 +41,21 @@
       return out;
     };
   }
+  // Off the main view (zoomed in from it, a course or subject, a reader or a panel): the hanging Dottie
+  // steps away so she never covers the map (ask.css, .dkla-off-home).
+  const root = document.documentElement;
+  setInterval(() => {
+    if (typeof S === 'undefined' || !S) return;
+    const home =
+      S.scope === 'Atlas' &&
+      !S.region &&
+      !S.district &&
+      !S.panelOpen &&
+      !(typeof selected !== 'undefined' && selected);
+    const z = window.DKLAHomeFit?.homeZoom?.() || 0;
+    const off = !home || (z > 0 && S.z > z * 1.04);
+    if (root.classList.contains('dkla-off-home') !== off) root.classList.toggle('dkla-off-home', off);
+  }, 200);
   document.addEventListener('click', (e) => {
     const item = e.target.closest('#moreMenu [data-dkla-top]');
     if (!item) return;

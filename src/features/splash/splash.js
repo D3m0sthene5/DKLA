@@ -50,20 +50,42 @@
       return -1;
     }
   }
+  // How many times each line has been shown in this browser, by its text (so editing the list keeps
+  // the counts of lines that stay).
+  function seenCounts() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY));
+      return saved && typeof saved.seen === 'object' && saved.seen ? saved.seen : {};
+    } catch {
+      return {};
+    }
+  }
   function remember(index) {
     try {
-      localStorage.setItem(KEY, JSON.stringify({ last: index }));
+      const seen = seenCounts(),
+        line = lines()[index];
+      if (typeof line === 'string') seen[line] = (seen[line] || 0) + 1;
+      localStorage.setItem(KEY, JSON.stringify({ last: index, seen }));
     } catch {
       /* private window or storage blocked: the next visit may repeat a line */
     }
   }
-  // A random line other than `avoid`.
+  // A random line other than `avoid`, weighted towards lines seen less often (owner, 12 November 2026:
+  // each time a line comes up, the odds of seeing it again go down, so people keep seeing new ones).
+  // A line seen k times weighs 1 / (1 + k)^2.
   function pick(avoid) {
-    const n = lines().length;
+    const list = lines(),
+      n = list.length;
     if (n < 2) return 0;
-    if (avoid < 0 || avoid >= n) return Math.floor(Math.random() * n);
-    const i = Math.floor(Math.random() * (n - 1));
-    return i >= avoid ? i + 1 : i;
+    const seen = seenCounts(),
+      weights = list.map((line, i) => (i === avoid ? 0 : 1 / (1 + (seen[line] || 0)) ** 2)),
+      total = weights.reduce((a, b) => a + b, 0);
+    let r = Math.random() * total;
+    for (let i = 0; i < n; i++) {
+      r -= weights[i];
+      if (r < 0 && weights[i] > 0) return i;
+    }
+    return avoid === 0 ? 1 : 0;
   }
 
   const root = document.createElement('div');

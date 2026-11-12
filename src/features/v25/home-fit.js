@@ -12,7 +12,16 @@
   // v3.0: on Home, Civil Procedure is named "Civ Pro" and LRS by its initials.
   // Display only: course keys, data, links and saved graphs keep the full names.
   const shortNames = { 'Legislation and the Regulatory State': 'LRS', 'Civil Procedure': 'Civ Pro' };
-  const state = (window.DKLAHomeFit = { ready: false, refresh, wide, compact, fullLabels, shortNames });
+  const state = (window.DKLAHomeFit = {
+    ready: false,
+    refresh,
+    wide,
+    compact,
+    fullLabels,
+    shortNames,
+    // The zoom the main view was last fitted at (0 until the first fit).
+    homeZoom: () => homeZ,
+  });
   let gestureUntil = 0,
     resizeTimer;
   function refresh() {
@@ -92,6 +101,7 @@
     coverRead = 0,
     roomCache = null,
     fitted = null,
+    homeZ = 0,
     refits = { size: '', count: 0 };
   function readCovers() {
     const list = covers(),
@@ -185,6 +195,9 @@
       if (!neutral() || !wide()) return previousFit.call(this, b, animate, pad, maxZoom);
       const result = previousFit.call(this, b, animate, 0, maxZoom);
       fitted = animate ? null : { key: (coverState ||= readCovers()).key, x: S.x, y: S.y, z: S.z };
+      // The main view's zoom, so the page can tell when the reader has zoomed in from it (Dottie hides).
+      if (animate) setTimeout(() => neutral() && (homeZ = S.z), 900);
+      else homeZ = S.z;
       return result;
     };
     galaxy = function (...args) {

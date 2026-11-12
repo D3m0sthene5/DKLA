@@ -277,15 +277,15 @@
         const d = t.d,
           // A row too wide for its tile makes the whole label smaller; letters are never stretched or
           // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
-          fit = squeeze
+          shrink = squeeze
             ? Math.min(1, ...rows.map((row) => (d.w - 16 / z) / Math.max(1e-6, measure(row, size / z, 600))))
             : 1,
-          fs = (size / z) * fit,
+          fs = (size / z) * shrink,
           lh = fs * 1.2,
           x = d.x + 8 / z,
           y0 = d.y + 7 / z + fs * 0.82;
         parts.push(
-          `<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}">${esc(row)}</tspan>`).join('')}</text>`,
+          `<text class="map-label r20-tile" x="${x}" y="${y0}" font-size="${fs}" font-weight="600" fill="${acc}" opacity="${t.op}" data-map-district="${esc(d.id)}" role="button" tabindex="0" style="cursor:pointer">${rows.map((row, i) => `<tspan x="${x}" dy="${i ? lh : 0}" data-fit="${d.w - 16 / z}">${esc(row)}</tspan>`).join('')}</text>`,
         );
         const ns = R18.districtRows(d.id, d) || [],
           cases = ns.filter((n) => n.kind === 'Case').length,
@@ -385,6 +385,12 @@
         sp.removeAttribute('textLength');
         sp.removeAttribute('lengthAdjust');
       }
+      // The renderer's rows can carry their own size and width limit (fit.js), which would override the
+      // card's: the name is fitted to this card as a whole, so only the text element keeps a size.
+      for (const sp of t.querySelectorAll('tspan')) {
+        sp.removeAttribute('font-size');
+        sp.removeAttribute('data-fit');
+      }
       t.setAttribute('font-size', fs);
       let len = 0;
       try {
@@ -393,6 +399,7 @@
         /* not laid out */
       }
       const room = x0 + w - fs * 0.5 - tx;
+      if (room > 0) t.setAttribute('data-fit', room);
       if (len > room && room > 0) {
         // one smaller step only, so a view never mixes a dozen type sizes
         const k = 0.88;
@@ -478,6 +485,7 @@
       // A row still too wide makes the whole name smaller to fit; letters are never stretched or
       // squeezed (a fixed textLength distorts the glyphs at other zoom levels).
       let longestDrawn = 0;
+      if (room > 0) for (const sp of spans) sp.setAttribute('data-fit', room);
       for (const sp of spans)
         try {
           longestDrawn = Math.max(longestDrawn, sp.getComputedTextLength());
@@ -495,6 +503,36 @@
   }
 
   // run after every other layer has painted (the r18 hook runs last; the tiles are painted in it)
+  // Every label with a width limit (data-fit, in map units) is measured as actually drawn, in the font
+  // actually loaded, and set smaller if it runs past its card. Width estimates made before drawing can
+  // fall short, and letters are never stretched to fit (owner, 12 November 2026). Reads first, then
+  // writes, so the browser lays the page out once.
+  function fitDrawn() {
+    const canvas = document.getElementById('geoCanvas');
+    if (!canvas) return;
+    const fix = [];
+    for (const el of canvas.querySelectorAll('[data-fit]')) {
+      const room = parseFloat(el.getAttribute('data-fit'));
+      if (!(room > 0)) continue;
+      let len = 0;
+      try {
+        len = el.getComputedTextLength();
+      } catch {
+        continue;
+      }
+      if (len > room * 1.005) {
+        const size = parseFloat(el.getAttribute('font-size') || getComputedStyle(el).fontSize);
+        if (size > 0) fix.push([el, (size * room) / len]);
+      }
+    }
+    for (const [el, size] of fix) el.setAttribute('font-size', size);
+    // A line made too small to read by fitting is not drawn (the same 8 px rule as hideTinyText); it
+    // returns as you zoom in.
+    for (const el of canvas.querySelectorAll('[data-fit]')) {
+      const size = parseFloat(el.getAttribute('font-size') || getComputedStyle(el).fontSize);
+      el.style.visibility = size > 0 && size * S.z < 7.4 ? 'hidden' : '';
+    }
+  }
   const tidy = () => {
     try {
       tileLabels();
@@ -503,6 +541,7 @@
       smallCards();
       fadeOthers();
       hideTinyText();
+      fitDrawn();
     } catch (e) {
       console.error('DKLA r20 map', e);
     }

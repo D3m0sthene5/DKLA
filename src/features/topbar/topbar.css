@@ -33,3 +33,11 @@
   border-radius: 1px;
   background: currentColor;
 }
+/* The owner removed two redundant lines (12 November 2026): the "Atlas" course label beside the
+   logo (the map's own breadcrumb already says where you are) and the routine "Saved locally ·
+   export for backup" status. Real saving problems still show in #storageWarning. */
+.dkla-calm-bar .study-header .header-divider,
+.dkla-calm-bar .study-header .course-home,
+.dkla-calm-bar #saveStatus {
+  display: none !important;
+}

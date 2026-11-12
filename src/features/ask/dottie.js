@@ -31,8 +31,9 @@
     folder: '#d9b877',
   };
 
+  // An open eye, in a group so CSS can make Dottie blink (ask.css, .dottie-eye).
   const eye = (x, y, r = 2.1) =>
-    `<circle cx="${x}" cy="${y}" r="${r}" fill="${C.eye}"/><circle cx="${x + r * 0.35}" cy="${y - r * 0.35}" r="${r * 0.34}" fill="#fff"/>`;
+    `<g class="dottie-eye"><circle cx="${x}" cy="${y}" r="${r}" fill="${C.eye}"/><circle cx="${x + r * 0.35}" cy="${y - r * 0.35}" r="${r * 0.34}" fill="#fff"/></g>`;
 
   // Front-facing head for the launcher (32 x 32).
   function face() {
