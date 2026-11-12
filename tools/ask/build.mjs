@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
+import { buildIndex, corpusDigest, serializeIndex } from '../../lib/ask/retrieve.js';
 
 const build = new URL('../../work/build/', import.meta.url);
 const functionBuild = process.argv.includes('--function');
@@ -150,7 +151,17 @@ for (const p of Object.values(scotus.people)) {
   );
 }
 
-const temporary = new URL('ask-corpus-' + randomUUID() + '.tmp', build);
-await writeFile(temporary, gzipSync(JSON.stringify(records)));
-await rename(temporary, new URL('ask-corpus.json.gz', build));
-console.log(`Ask DKLA corpus: ${records.length} citable records.`);
+async function save(name, bytes) {
+  const temporary = new URL('ask-' + randomUUID() + '.tmp', build);
+  await writeFile(temporary, bytes);
+  await rename(temporary, new URL(name, build));
+}
+const corpus = gzipSync(JSON.stringify(records));
+// The retrieval index, so a server cold start loads it instead of reading every excerpt
+// (lib/ask/retrieve.js). It names the corpus it was built from; api/ask.js ignores a mismatch.
+const index = serializeIndex(buildIndex(records), corpusDigest(corpus));
+await save('ask-index.bin.gz', gzipSync(index));
+await save('ask-corpus.json.gz', corpus);
+console.log(
+  `Ask DKLA corpus: ${records.length} citable records, index ${(index.length / 1e6).toFixed(1)} MB.`,
+);

@@ -62,8 +62,53 @@ Ask Dottie (named Ask DKLA in the code and server) is the AI research assistant,
 Dottie Docket, an opossum mascot (see `docs/ask-mascot/`).
 Open the Atlas search box and choose **Ask Dottie** to ask directly, or
 type a question into search and choose **Ask Dottie** above the results. An
-Atlas citation opens its entry inside DKLA. When a question needs outside
-evidence, Ask Dottie searches the public web and labels those citations separately.
+Atlas citation opens its entry inside DKLA. Ask Dottie answers from the Atlas alone only
+when the whole question is one of a few strict templates about exactly one Atlas entry
+(`lib/ask/web.js` `route` and `templates`): "what is", "what is the meaning of", "define",
+"explain" or "what does ... mean" with an entry title or dictionary headword ("what is res
+judicata", "explain the mailbox rule"), a named case or Act (an organisation that is also a
+party, "the Sierra Club", only with "v." or "case"; "the United States" names no case);
+"what does ... say/require" or "what is" with one rule or section citation ("12(b)(6)",
+"Rule 56", "§ 1983", "28 USC 1332", "APA § 553"; a bare "section 230" or "§ 553" never names a
+Restatement or APA section); "what did
+<case> hold/say/decide", "the facts/holding/reasoning of <case>", "explain/summarize/brief
+<case>", "who wrote/dissented/concurred/joined in <case>"; the same with "this case", "it" or
+"the holding" when an entry is open (only a case entry for the case shapes, only a rule or
+statute for "what does it say"; never in a follow-up, where "it" belongs to the conversation);
+and "the difference between A and B" or "compare A and B" with both named ("this case" may be
+one of them). The templates are read first: words such as "binding", "reversal" or "pending"
+inside a headword the template resolved ("binding precedent") do not make it a question about
+the present.
+Politeness, case, punctuation and common typos in the template words are allowed; one more
+word anywhere is not. Everything else researches the web, with the top Atlas excerpts
+supplied, so Atlas citations appear beside web ones. A research question about legislation,
+events, dates, people, later history or the present must cite the web, and gets an honest
+empty answer if the search fails; any other research question falls back to the Atlas when
+the search fails or finds nothing usable. Every answer, Atlas-only or researched, passes a
+server check paragraph by paragraph: one that answers a substitute question ("you are probably
+asking about", "assuming you mean", "the closest Atlas match") is dropped, and so is one whose
+sources, Atlas or web, are all the wrong kind of authority (a case for "what statute", even
+typed "whatt statue"; statute entries filed as rules count as statutes; a kind word inside a
+headword, "the statute of frauds", "common law", asks for no kind, and the entry a template
+named always counts) (`lib/ask/answer.js` `checkAnswer`, `lib/ask/web.js` `citeResearch`).
+Cancelling a question, or closing the tab, stops the OpenAI calls, even during a cold start
+(only the response closing counts: on Vercel the request body is read before the handler, so
+the request itself always looks finished); a timeout or network failure gives an honest empty
+answer.
+While she works, the dialog shows a spinner of three opossums round her question-mark tail,
+with playful words, or the real step the server reports (the browser asks for progress with
+`Accept: application/x-ndjson`; without it the reply is the plain JSON it always was).
+Opening the dialog or typing sends a warm-up (`{ "warm": true }`) that loads the corpus
+without a question, an AI call or any record. The build stores the retrieval index beside
+the corpus (`work/build/ask-index.bin.gz`), so a cold start takes about 0.3 s, not 1.8 s.
+Cost: most questions now use web search: 478 of the 642 in the routing test (74%), which
+holds every question four reviews probed and leans toward hard questions; ordinary study
+questions ("what is X", "what did X hold") are the templates that stay on the Atlas. A
+research answer costs more than an Atlas-only one (web search calls and more tokens, one
+request either way), and research that finds nothing makes a second, Atlas request when the
+question allows it. Research is never started alongside an Atlas answer: that would pay for
+research on every Atlas question to save seconds only on the few whose draft falls short. The
+shared answer library (below) answers a repeated first question without any OpenAI call.
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
@@ -80,11 +125,14 @@ first question (not a follow-up) asked before in exactly the same words
 (ignoring only case, punctuation and an opening or closing "please"/"thanks"),
 about the same open entry, gets the stored answer at once ("Saved answer
 from ..."), without calling OpenAI; "Ask fresh" asks again. Each answer is
-tied to the Atlas corpus and `ANSWER_VERSION` in `lib/ask/library.js`, so a
-deploy that changes the corpus (or a change of that constant, for new
-prompts or a new model) stops older answers being served. Time-sensitive
+tied to the Atlas corpus, the answering code (`api/ask.js`, `lib/ask/*.js`)
+and `ANSWER_VERSION` in `lib/ask/library.js`, so a deploy that changes the
+corpus or the routing (or a change of that constant, for a new model) stops
+older answers being served. Time-sensitive
 questions ("still good law", "overruled", "current", a year, ...) are never
-kept. Entries keep no visitor identity, are used for 90 days, are deleted
+kept, and neither is a question the router reads as about the present, later
+history or people (`route` `stable`: "is iqbal valid law", "what followed
+iqbal", "who is the chief justice"). Entries keep no visitor identity, are used for 90 days, are deleted
 after that (on lookups at most every 10 minutes per server instance, on each
 store, and by the dashboard's storage housekeeping), and are skipped
 silently if the database is missing or failing. "Save answer" under an answer

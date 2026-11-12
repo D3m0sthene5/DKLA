@@ -149,6 +149,423 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
+    'Ask Dottie routing goes back to the Atlas first whenever it finds any excerpt',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'const fit = sources.length ? template(question, { sources, named, node, scoped, followUp }) : null;',
+        "const fit = sources.length ? { reason: 'Atlas first', texts: [], subjects: [] } : null;",
+      ),
+  ],
+  [
+    'Ask Dottie trusts the model when it calls a substitute Atlas answer exact',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "needsWeb: search === 'not-needed' && (output.needsWeb || !exact)",
+        "needsWeb: search === 'not-needed' && output.needsWeb",
+      ),
+  ],
+  [
+    'Ask Dottie research answers keep a substitute ("you are probably asking about") paragraph',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'if (substitute(prose)) continue;', 'void substitute;'),
+  ],
+  [
+    'Ask Dottie routing: one party word that names two cases ("Gustafson") counts as naming one',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', '(party && unambiguous(words))', 'party'),
+  ],
+  [
+    'Ask Dottie timeouts: after the deadline it asks the Atlas again and fails with an error',
+    'api/ask.js',
+    () => {
+      edit('api/ask.js', '(path.web || signal.aborted)', 'path.web');
+      edit(
+        'api/ask.js',
+        'if (failed(error) || error instanceof InvalidCitations) return nothing();',
+        'if (error instanceof InvalidCitations) return nothing();',
+      );
+    },
+  ],
+  [
+    'Ask Dottie warm-up is treated as a question',
+    'api/ask.js',
+    () => edit('api/ask.js', 'payload?.warm === true &&', 'payload?.warm === 1 &&'),
+  ],
+  [
+    'Ask Dottie uses a retrieval index built from another corpus',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', 'if (header.corpus !== corpus) return null;', 'void corpus;'),
+  ],
+  [
+    'Ask Dottie spinner: the old research poses come back instead of the spinner',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', "if (state === 'research' && dottie.spinner) {", 'if (false) {'),
+  ],
+  [
+    'Ask Dottie spinner: real progress from the server no longer replaces the playful words',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', 'const text = steps[step?.step]?.(step);', "const text = '';"),
+  ],
+  [
+    'Ask Dottie routing: a question that fits no Atlas template is answered from the Atlas alone',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "return research('not an Atlas template', false);",
+        "return { research: false, reason: 'no template', web: false };",
+      ),
+  ],
+  [
+    'Ask Dottie routing: nothing found in the Atlas gets an empty answer instead of research',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "if (!sources.length) return research('nothing in the Atlas');",
+        "if (!sources.length) return atlas('no match');",
+      ),
+  ],
+  [
+    'Ask Dottie routing: a misspelled "overuled" no longer counts as asking about later history',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', '|over+[eu]l+\\w*|', '|overrul\\w*|'),
+  ],
+  [
+    'Ask Dottie routing: "§ 1983" and "12(b)(6)" no longer name their rule or statute',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', "if (keys.length) return entry('cite', [], keys);", 'void keys;'),
+  ],
+  [
+    'Ask Dottie routing: "filibuster" and "campaign" count as events again',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        '|resign\\\\w*|',
+        '|resign\\\\w*|filibuster\\\\w*|campaign\\\\w*|impeach\\\\w*|',
+      ),
+  ],
+  [
+    'Ask Dottie research answers keep a web-cited paragraph of the wrong kind (a case page for "what statute")',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        'const unknown = (source) => web(source) && !webCase(source) && !webStatute(source);',
+        'const unknown = web;',
+      ),
+  ],
+  [
+    'Ask Dottie misses the hedge "you might mean"',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', 'you (?:may|might|probably|could|likely) (?:mean|want|be after)|', ''),
+  ],
+  [
+    'Ask Dottie research demands a web citation for a doctrine question too',
+    'api/ask.js',
+    () => edit('api/ask.js', 'web: path.web,', 'web: true,'),
+  ],
+  [
+    'Ask Dottie keeps paying OpenAI after the person cancels or closes the tab',
+    'api/ask.js',
+    () => edit('api/ask.js', 'if (!res.writableEnded) gone.abort();', 'void gone;'),
+  ],
+  [
+    'Ask Dottie network errors fail the question with an error instead of the honest no-answer',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        '  error instanceof SyntaxError ||\n  (error instanceof TypeError &&',
+        '  (false &&',
+      ),
+  ],
+  [
+    'Ask Dottie streaming: an answer line goes out before the citation check',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        'if (stream) line({ progress: step });',
+        "if (stream) line(step.step === 'checking' ? { answer: step } : { progress: step });",
+      ),
+  ],
+  [
+    'Ask Dottie warm-up needs the OpenAI key',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        'payload?.warm === true && Object.keys(payload).length === 1',
+        'payload?.warm === true && Object.keys(payload).length === 1 && process.env.DKLA_OPENAI_API_KEY',
+      ),
+  ],
+  [
+    'Ask Dottie spinner: back to the small 44 px spinner',
+    'src/features/ask/ask.css',
+    () => edit('src/features/ask/ask.css', 'width: 56px;\n  height: 56px;', 'width: 44px;\n  height: 44px;'),
+  ],
+  [
+    'Ask Dottie research route makes an Atlas-only draft first',
+    'api/ask.js',
+    () => edit('api/ask.js', 'if (!path.research) {', 'if (true) {'),
+  ],
+  [
+    'Ask Dottie routing: a question with one more word than an Atlas title stays on the Atlas',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'headwordOf(bare(title)) === key', 'key.includes(headwordOf(bare(title)))'),
+  ],
+  [
+    'Ask Dottie routing: in a follow-up, "it" names the open entry instead of the conversation',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'if (followUp || !node || !scoped || others.length) return [];',
+        'if (!node || !scoped || others.length) return [];',
+      ),
+  ],
+  [
+    'Ask Dottie routing: "Erie" is ambiguous again because of Kenford Co. v. County of Erie',
+    'lib/ask/retrieve.js',
+    () =>
+      edit(
+        'lib/ask/retrieve.js',
+        'if (!namingWords(record.title).includes(phrase)) continue;',
+        "if (!(' ' + terms(record.title).join(' ') + ' ').includes(phrase)) continue;",
+      ),
+  ],
+  [
+    'Ask Dottie citations: a bare "10(b)" names Rule 10 again',
+    'lib/ask/retrieve.js',
+    () => edit('lib/ask/retrieve.js', '(?=\\s*(?:motions?|dismiss\\w*|defen[cs]es?)\\b)/g', '/g'),
+  ],
+  [
+    'Ask Dottie kind check: statute entries filed as "Rule" count as court rules again',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "const rule = ({ id = '', title = '' }) =>",
+        "const rule = ({ id = '', title = '', category }) =>\n  category === 'Rule' ||",
+      ),
+  ],
+  [
+    'Ask Dottie kind check: typo and "name the statute" questions no longer count as asking for a statute',
+    'lib/ask/answer.js',
+    () => {
+      edit(
+        'lib/ask/answer.js',
+        "const asking = String.raw`(?:w+h?[ae]+h?t+|wht|whta|waht|wath|whi?ch|wich|whcih|wihch|whihc)(?:['’]?s)?`;",
+        "const asking = String.raw`(?:wh?at|whi?ch|wich)(?:['’]?s)?`;",
+      );
+      edit(
+        'lib/ask/answer.js',
+        '|(?:name|identify)\\s+(?:of\\s+)?',
+        '|(?:name\\s+(?:the|a|that))\\s+(?:of\\s+)?',
+      );
+    },
+  ],
+  [
+    'Ask Dottie misses the hedge "assuming you mean"',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        '|(?:assuming|if|i think|likely|probably|presumably|perhaps|maybe)\\s+you\\s+mean\\w*',
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie kind check: a supremecourt.gov opinion PDF is a page of no known kind again',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', '|| caseUrl.test(url);', ';'),
+  ],
+  [
+    'Ask Dottie kind check: one wrong-kind paragraph no longer drops alone (the whole answer is judged)',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        'wrongKind(question, cited(paragraph), subjects)',
+        'wrongKind(question, output.paragraphs.flatMap(cited), subjects)',
+      ),
+  ],
+  [
+    'Ask Dottie research that finds nothing gives an empty answer even when the Atlas could answer',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "if (!answer.paragraphs.length) throw new NoResearchAnswer('no usable research answer');",
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie cancel during a cold start: the close listener is attached too late again',
+    'api/ask.js',
+    () => {
+      edit(
+        'api/ask.js',
+        "    res.on?.('close', () => {\n      if (!res.writableEnded) gone.abort();\n    });\n    if (closed()) gone.abort();\n",
+        '',
+      );
+      edit(
+        'api/ask.js',
+        '      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);',
+        "      res.on?.('close', () => {\n        if (!res.writableEnded) gone.abort();\n      });\n      const signal = AbortSignal.any([AbortSignal.timeout(26_000), gone.signal]);",
+      );
+    },
+  ],
+  [
+    'Ask Dottie: a programming error in research becomes the honest empty answer instead of an error',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        '/^(?:fetch failed|terminated)$|Body is unusable/',
+        '/fetch failed|terminated|network|socket|body/i',
+      ),
+  ],
+  [
+    'Ask Dottie answer library: follow-ups are looked up and stored too',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        "const shelf = earlier?.length || !path.stable ? null : (node ?? '');",
+        "const shelf = !path.stable ? null : (node ?? '');",
+      ),
+  ],
+  [
+    'Ask Dottie answer library: an Atlas fallback after a failed search is stored',
+    'api/ask.js',
+    () => edit('api/ask.js', '          !fallback &&\n', ''),
+  ],
+  [
+    'Ask Dottie on Vercel: a request whose body was read counts as a cancel again',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        '    if (closed()) gone.abort();',
+        '    if (closed() || req.destroyed) gone.abort();',
+      ),
+  ],
+  [
+    'Ask Dottie kind check: the entry a template named is judged by its kind again ("statute of frauds")',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "  if (subjects.length && cited.some(({ type, id }) => type !== 'web' && subjects.includes(id))) return false;",
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie kind check: a kind word inside a headword ("common law") counts as asking for it again',
+    'lib/ask/answer.js',
+    () =>
+      edit(
+        'lib/ask/answer.js',
+        "const object = (question) => String(question).replace(headwords, ' ');",
+        'const object = (question) => String(question);',
+      ),
+  ],
+  [
+    'Ask Dottie routing: web-only words are read inside a headword again ("binding precedent")',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'const text = fit ? without(lookup, fit.texts) : lookup;',
+        'const text = lookup;',
+      ),
+  ],
+  [
+    'Ask Dottie citations: a bare "section 230" names Restatement § 230 again',
+    'lib/ask/retrieve.js',
+    () =>
+      edit(
+        'lib/ask/retrieve.js',
+        'const bareSection = (key) => !/^(?:rest|usc 5) /.test(key);',
+        'const bareSection = () => true;',
+      ),
+  ],
+  [
+    'Ask Dottie answer library: answers about the present, later history or people are kept again',
+    'api/ask.js',
+    () =>
+      edit(
+        'api/ask.js',
+        "const shelf = earlier?.length || !path.stable ? null : (node ?? '');",
+        "const shelf = earlier?.length ? null : (node ?? '');",
+      ),
+  ],
+  [
+    'Ask Dottie routing: "who wrote it" with a statute entry open stays on the Atlas again',
+    'lib/ask/web.js',
+    () =>
+      edit('lib/ask/web.js', "    if ((kind === 'case' || casePart.test(text)) && !isCase) return [];\n", ''),
+  ],
+  [
+    'Ask Dottie misses a first-sentence disclaimer followed by a substitute',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', '  return unnamed.test(first);', '  return false;'),
+  ],
+  [
+    'Ask Dottie misses the hedge "the nearest Atlas entry is"',
+    'lib/ask/answer.js',
+    () => edit('lib/ask/answer.js', '(?:closest|nearest)\\s+', 'closest\\s+'),
+  ],
+  [
+    'Ask Dottie routing: "the United States" names Will v. United States again',
+    'lib/ask/retrieve.js',
+    () =>
+      edit(
+        'lib/ask/retrieve.js',
+        '    if (isCase && words.every((word) => generic.has(word))) return;\n',
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie routing: "what is the Sierra Club" is answered from Sierra Club v. Morton again',
+    'lib/ask/web.js',
+    () =>
+      edit('lib/ask/web.js', ' || !organisation.test(subject))) return cases;', ' || true)) return cases;'),
+  ],
+  [
+    'Ask Dottie routing: "what is the meaning of X" researches again',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        'const DEFINE = String.raw`(?:${WHATS}\\s+(?:the\\s+)?(?:meaning|definition|defintion|defenition)\\s+of|',
+        'const DEFINE = String.raw`(?:',
+      ),
+  ],
+  [
+    'Ask Dottie citations: a bare "12(b)(6)" names nothing again',
+    'lib/ask/retrieve.js',
+    () =>
+      edit(
+        'lib/ask/retrieve.js',
+        "  take(/(?<![\\w§.-])(12)\\(b\\)(?:\\(\\d\\))?(?![\\w(-])/g, (rule) => keys.add('frcp ' + rule));\n",
+        '',
+      ),
+  ],
+  [
+    'Ask Dottie routing: "compare this case and Iqbal" researches again',
+    'lib/ask/web.js',
+    () =>
+      edit('lib/ask/web.js', " && by !== 'headword' && !except.includes(id));", " && by !== 'headword');"),
+  ],
+  [
     'case timelines: pushed below the detailed account',
     'src/features/v25/reading.js',
     () => edit('src/features/v25/reading.js', 'summary.after(group);', 'void group;'),
