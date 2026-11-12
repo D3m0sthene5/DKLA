@@ -3309,3 +3309,49 @@ test('numbered parts: a part is checked with the question’s opening, and numbe
   assert.equal(substitute('1. The excerpts do not state the deadline.'), true);
   assert.equal(substitute('2. The Atlas does not identify that statute. The PSLRA limits suits.'), true);
 });
+
+// Round 2 of the adversarial test: a hypothetical restates the facts, so the passages chosen by word
+// overlap were the case's facts and parties; its holding and limits never reached the model.
+test('the case at hand sends its holding and limits; a statute question sends no extra case text', () => {
+  const hamer = retrieve.explain(
+    'hamer v sidway, what if the uncle only hoped willie would quit, as a gift, not as the price? still enforceable?',
+  ).sources;
+  const entry = hamer.find(({ id }) => id === 'hamer');
+  assert.ok(entry, 'Hamer is retrieved');
+  assert.match(entry.text, /#{1,3} [^\n]{0,40}?\b(?:holdings?|rule|does not establish)/i);
+  const pslra = retrieve.explain(
+    'what statute in 1995 was a victory for corporate interest that overrode a clinton veto in light of gustafson v alloyd',
+  ).sources;
+  const g = pslra.find(({ title }) => /gustafson/i.test(title));
+  assert.ok(!g || g.text.length <= 4100, 'no lead case for a statute question');
+});
+
+test('research receives the Atlas draft to build on, and no draft when none is given', async () => {
+  const sources = retrieve('hamer v sidway consideration forbearance');
+  const inputs = [];
+  const transport = mock.method(globalThis, 'fetch', async (endpoint, options) => {
+    inputs.push(JSON.parse(JSON.parse(options.body).input));
+    return researched('Forbearance at the promisor’s request was consideration. [A1]');
+  });
+  try {
+    await answerWithSearch({
+      apiKey: 'k',
+      question: 'what if',
+      sources,
+      signal: AbortSignal.timeout(5000),
+      web: false,
+      draft: [{ text: 'A draft.', citations: [1] }],
+    });
+    await answerWithSearch({
+      apiKey: 'k',
+      question: 'what if',
+      sources,
+      signal: AbortSignal.timeout(5000),
+      web: false,
+    });
+  } finally {
+    transport.mock.restore();
+  }
+  assert.deepEqual(inputs[0].atlasDraft, [{ text: 'A draft.', cites: [1] }]);
+  assert.equal(inputs[1].atlasDraft, undefined);
+});

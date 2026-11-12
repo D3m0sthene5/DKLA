@@ -294,6 +294,14 @@ export function makeAskHandler(
           web: path.web,
           subjects: path.subjects,
           parts: path.parts,
+          // The Atlas draft, when there is one, so research fills its gaps instead of starting over.
+          // Only for a question whose answer cannot change with time, and only paragraphs whose
+          // citations are all among the six excerpts research receives.
+          draft: path.stable
+            ? draft?.paragraphs?.filter(
+                ({ citations }) => citations?.length && citations.every((n) => n >= 1 && n <= 6),
+              )
+            : undefined,
         });
         return answered({ ...answer, search: 'searched' });
       } catch (error) {
