@@ -49,8 +49,12 @@ mid-sentence (otherwise "Federal Rules" and names stay plain), and the `gloss`. 
 limits links to the first use of each term in an episode and `maxPerParagraph` per
 paragraph, never two side by side.
 
-The committed table is a **pilot** (29 terms chosen for Garcia and a few other accounts).
-To replace it with the final table in the same format:
+The committed table has 6,022 terms (November 2026): basic vocabulary, plus every term of art, named
+statute, rule and case a reader met in the 742 accounts, each checked by a second legal reader. A term
+met in more than a tenth of the accounts carries `common: true`: when a paragraph has more terms than
+links, the less common terms get the links first. A one-word capitalised term (a case name such as
+"Garcia") never links in an account whose own title contains that word, where it names a party. To
+replace the table with another in the same format:
 
 ```sh
 cp <final table> tools/cold-call/glossary-terms.json

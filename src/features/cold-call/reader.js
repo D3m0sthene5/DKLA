@@ -73,7 +73,7 @@
       supporting: document.getElementById('r19Body')?.scrollTop || 0,
     };
     dialog.dataset.course = c.course;
-    glossing = gloss?.begin(c.id) || null;
+    glossing = gloss?.begin(c.id, c.title) || null;
     const brief =
       c.sources.find((s) => s.briefId === c.briefId && s.briefId) || c.sources.find((s) => s.briefId);
     dialog.innerHTML = `<header class="cc-header">

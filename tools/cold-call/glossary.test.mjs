@@ -425,9 +425,13 @@ test('the committed plain-English table compiles and every version is short', ()
   const raw = JSON.parse(fs.readFileSync(path.join(root, 'tools/cold-call/plain-sentences.json'), 'utf8'));
   const p = compilePlain(raw);
   assert.ok(p.source);
+  // The three original accounts (Hamer, Pennoyer, Chadha) are in cases.json; every other one has its own file.
+  const originals = new Set(
+    JSON.parse(fs.readFileSync(path.join(root, 'tools/cold-call/cases.json'), 'utf8')).cases.map((c) => c.id),
+  );
   for (const [caseId, byAt] of p.cases) {
     assert.ok(
-      fs.existsSync(path.join(root, 'tools/cold-call/narratives', caseId + '.json')),
+      originals.has(caseId) || fs.existsSync(path.join(root, 'tools/cold-call/narratives', caseId + '.json')),
       `${caseId}: no such narrative`,
     );
     for (const entry of [...byAt.values()].flat()) {
@@ -470,4 +474,34 @@ test('a 2,400-word narrative with ten plain-English sentences draws in a few mil
   const ms = (performance.now() - began) / 20;
   console.log(`definitions and plain English: ${count} words in ${ms.toFixed(2)} ms`);
   assert.ok(ms < 20, `drawing ${count} words took ${ms.toFixed(1)} ms`);
+});
+
+test('more terms than links: the less common terms get the links, in reading order', () => {
+  const g = compile(
+    table(
+      [
+        term('claim', ['claim'], { common: true }),
+        term('appeal', ['appeal'], { common: true }),
+        term('compromise', ['compromised']),
+        term('severance-pay', ['severance pay']),
+      ],
+      { perSection: 1, maxPerParagraph: 3 },
+    ),
+  );
+  const text = 'His claim went on appeal, he sought severance pay, and the claim was later compromised.';
+  assert.deepEqual(words(g, text), ['claim', 'severance pay', 'compromised']);
+  // With room for all of them, every term links.
+  assert.deepEqual(words(g, 'The claim went on to appeal.'), ['claim', 'appeal']);
+});
+
+test("a one-word name in the account's own title never links there", () => {
+  const gl = page(
+    table([term('garcia', ['garcia'], { caps: true }), term('remand', ['remand'])]),
+    plainTable({}),
+  );
+  const own = gl.begin('cp-garcia', 'Garcia v. Hilton Hotels International');
+  const html = own.section().text('Garcia sued, and the court ordered a remand.', '0.0');
+  assert.ok(!/data-cc-term="garcia"/.test(html) && /data-cc-term="remand"/.test(html), html);
+  const other = gl.begin('cp-other', 'National League of Cities v. Usery');
+  assert.match(other.section().text('Garcia later overruled it.', '0.0'), /data-cc-term="garcia"/);
 });

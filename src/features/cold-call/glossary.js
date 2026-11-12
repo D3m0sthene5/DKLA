@@ -81,11 +81,17 @@
         gloss: raw.gloss,
         wex: raw.wex || null,
         caps: raw.caps === true,
+        // a term met in many accounts ("claim", "appeal"): it gives way when a paragraph has more terms than links
+        common: raw.common === true,
         context: raw.context ? new RegExp(raw.context, 'i') : null,
         except: (raw.except || []).map((phrase) => {
           if (typeof phrase !== 'string' || phrase !== phrase.toLowerCase() || !phrase.trim())
             throw Error(raw.key + ': except phrases are lowercase text');
-          return new RegExp(`(?<![${WORD}])${formPattern(phrase.trim())}(?![${WORD}])`, 'giu');
+          return {
+            re: new RegExp(`(?<![${WORD}])${formPattern(phrase.trim())}(?![${WORD}])`, 'giu'),
+            reach: phrase.trim().length + 8,
+            head: phrase.trim().split(/[ '’]/)[0],
+          };
         }),
       };
       for (const form of raw.match) {
@@ -96,6 +102,10 @@
         forms.push({
           form,
           term,
+          // the text up to the first space or apostrophe: a quick string test before the pattern
+          head: form.split(/[ '’]/)[0],
+          // the whole form, when it has no apostrophe: compared directly where the paragraph has plain spacing
+          whole: /['’]/.test(form) ? null : form,
           run: firstRun(form),
           re: new RegExp(`${formPattern(form)}(?![${WORD}])`, 'iuy'),
         });
@@ -119,24 +129,31 @@
     const links = [];
     if (!compiled.words || !text) return links;
     const max = compiled.density.maxPerParagraph;
-    let spans = null,
-      excepts = null;
+    let spans = null;
+    // A lowercase copy for the quick string tests; not used if lowercasing changed the length.
+    const lowered = text.toLowerCase(),
+      lower = lowered.length === text.length ? lowered : null,
+      // single plain spaces only: a form with spaces can then be compared as a string
+      plainSpacing = lower !== null && !/\s\s|[^\S ]/.test(text);
     const sentenceAt = (i) => {
       spans ||= sentences(text);
       return spans.find(([a, b]) => i >= a && i < b) || [0, text.length];
     };
+    // An except phrase that covers the match: only the few words around it are searched (with 6,000 terms,
+    // searching the whole paragraph for each phrase made drawing several times slower).
     const excluded = (term, s, e) => {
-      if (!term.except.length) return false;
-      excepts ||= new Map();
-      if (!excepts.has(term.key)) {
-        const found = [];
-        for (const re of term.except) {
-          re.lastIndex = 0;
-          for (const m of text.matchAll(re)) found.push([m.index, m.index + m[0].length]);
+      for (const { re, reach, head } of term.except) {
+        const from = Math.max(0, s - reach),
+          to = Math.min(text.length, e + reach);
+        if (lower && !lower.slice(from, to).includes(head)) continue;
+        const window = text.slice(from, to);
+        re.lastIndex = 0;
+        for (const m of window.matchAll(re)) {
+          const a = from + m.index;
+          if (a <= s && e <= a + m[0].length) return true;
         }
-        excepts.set(term.key, found);
       }
-      return excepts.get(term.key).some(([a, b]) => a <= s && e <= b);
+      return false;
     };
     const fits = (term, s, e) => {
       const [a, b] = sentenceAt(s);
@@ -151,12 +168,15 @@
     const words = compiled.words;
     words.lastIndex = 0;
     let m;
-    while (links.length < max && (m = words.exec(text))) {
+    const found = [],
+      here = new Set();
+    while ((m = words.exec(text))) {
       const s = m.index;
       const candidates = compiled.byRun.get(m[0].toLowerCase());
       if (!candidates) continue;
       let chosen = null;
       for (const f of candidates) {
+        if (lower && !lower.startsWith(plainSpacing && f.whole ? f.whole : f.head, s)) continue;
         f.re.lastIndex = s;
         const hit = f.re.exec(text);
         if (hit && fits(f.term, s, s + hit[0].length)) {
@@ -166,13 +186,24 @@
       }
       if (!chosen) continue;
       words.lastIndex = chosen.end;
-      const previous = links[links.length - 1];
-      if (seen.has(chosen.term.key)) continue;
+      const previous = found[found.length - 1];
+      if (seen.has(chosen.term.key) || here.has(chosen.term.key)) continue;
       // Links never crowd each other: at least two plain words between two links ("removed the action"
       // links only "removed"; the next term gets the link instead).
       if (previous && (text.slice(previous.end, s).match(/[\p{L}\p{N}]+/gu) || []).length < 2) continue;
-      links.push({ start: s, end: chosen.end, key: chosen.term.key });
-      seen.add(chosen.term.key);
+      found.push({ start: s, end: chosen.end, key: chosen.term.key, common: chosen.term.common });
+      here.add(chosen.term.key);
+    }
+    // More terms than links: the less common terms first, then the common ones, each in reading order.
+    const keep =
+      found.length <= max
+        ? found
+        : [...found.filter((l) => !l.common), ...found.filter((l) => l.common)]
+            .slice(0, max)
+            .sort((a, b) => a.start - b.start);
+    for (const l of keep) {
+      links.push({ start: l.start, end: l.end, key: l.key });
+      seen.add(l.key);
     }
     return links;
   }
@@ -279,16 +310,27 @@
       paragraph with text(paragraph, at), or the parts the reader splits a long paragraph into with
       chunks(paragraph, at, parts) (each part has its own link budget). `at` names the paragraph as the
       plain-English table does: "<section>.<paragraph>" or "<section>.followUp-answer". */
-  function begin(caseId) {
+  function begin(caseId, title = '') {
     const g = compiled(),
       plain = plainTable();
     if (!g && !plain) return null;
+    // A name in the account's own title is a party here ("Garcia" in Garcia v. Hilton), not the other case
+    // a one-word term of that name defines, so such terms never link in this account.
+    const own = new Set();
+    if (g && title)
+      for (const f of g.forms)
+        if (
+          f.term.caps &&
+          !/\s/.test(f.form) &&
+          new RegExp(`(?<![${WORD}])${formPattern(f.form)}(?![${WORD}])`, 'iu').test(title)
+        )
+          own.add(f.term.key);
     const used = new Set(),
       listed = (plain && plain.cases.get(caseId)) || null;
     shown = new Map();
     return {
       section() {
-        const seen = new Set();
+        const seen = new Set(own);
         const draw = (text, marks) => {
           const links = g ? annotate(g, text, seen) : [];
           for (const l of links) used.add(l.key);
