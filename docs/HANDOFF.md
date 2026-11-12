@@ -1,7 +1,53 @@
-# Where the work stands (15 October 2026)
+# Where the work stands (12 November 2026)
 
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
+
+## Latest (12 November 2026, v3.0)
+
+Read this first; the sections below it are older.
+
+- **v3.0** (served file `DKLA-v3.0.html`; every older address, v2.9 included,
+  redirects). Built by agent swarms in one session and merged on
+  `claude/ask-dkla-mascot`. What changed:
+  - **Home**: courses on top, the DKLA mark centred, Rules & authorities and
+    SCOTUS History below (`src/features/r19/r20.js` MARK/LOWER/ARR,
+    `src/features/v25/geography.js`); "Civ Pro" as the display title
+    (`src/features/v26/typography.js`, data keys unchanged); Notes moved to the
+    LRS row. Minecraft-style splash text on the mark's corner
+    (`src/features/splash/`, 88 owner-approved lines in `lines.js`).
+  - **Fonts**: owner's option F — Exo 2 (display) and Inter (interface and
+    reading), embedded (`tools/v26/embed-fonts.mjs`, `TYPOGRAPHY.md`); the
+    clock uses JetBrains Mono (`src/features/clock/clock-font.css`).
+  - **Clock**: two-row split-flap NY time and date (weekday, month, day flaps),
+    an hourly Solari cascade, a static NYC label with a green light; shown from
+    1360 px.
+  - **Ask Dottie**: 50 px Dottie hanging from the bar; routing is an allowlist
+    of question shapes the Atlas answers alone (`route()` in `lib/ask/web.js`),
+    everything else researches the web; server checks drop substitute and
+    wrong-kind paragraphs (`lib/ask/answer.js`); streaming progress, warm-up,
+    prebuilt retrieval index (`work/build/ask-index.bin.gz`), cancel; the
+    spinning-possum thinking line. "Save answer" keeps answers in the browser
+    (`src/features/ask/saved.js`, key `dkla.askSaved.v1`); a shared library
+    reuses identical first questions for 90 days (`lib/ask/library.js`, table
+    `dkla_ask_answers`; versioned by corpus and code; privacy.html says so).
+  - **Cold Call definitions**: hover/tap cards from the swarm's 708-term table
+    (`tools/cold-call/glossary-terms.json`, `src/features/cold-call/glossary.js`).
+  - **Search**: each result says where it matched; a "Show me" strip in the
+    opened entry (`src/runtime/dklaR13Search.js`).
+  - **Updates**: quiet update system (`src/features/r19/sw.template.js`,
+    "offline install and updates" in `src/runtime/dklaR18Study.js`,
+    `index.template.html`); checks `tools/r19/check_updates.mjs` and
+    `check_migration.mjs` (the real v2.9 worker and page, then a renamed file).
+  - **Erie voting record**: Butler and McReynolds corrected at run time to
+    "Concurred in judgment" with notes (`src/runtime/dklaR16HistoryCode.js`),
+    owner-approved; Ask's own SCOTUS records (`tools/ask/build.mjs`) do not yet
+    apply it.
+- **Still to do on the owner's PC**: `pnpm views:update` (fonts, Home, clock,
+  search and Cold Call pictures all changed; Linux has no recorded pictures).
+- **Not verified here**: real OpenAI answers (all tests mock it), Vercel's
+  request handling for Ask (a test reproduces Node's behaviour), Safari/iOS
+  and Firefox, a real database for the answer library.
 
 ## Latest (15 October 2026, v2.7)
 
