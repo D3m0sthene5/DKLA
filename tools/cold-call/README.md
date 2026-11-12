@@ -86,7 +86,9 @@ paragraph of the first episode), or `"<section>.followUp-answer"`. `sentence` is
 text; whitespace and straight or curly quotes may differ. `plain` is one to three short
 sentences. The build refuses a malformed entry or an unknown `caseId`; an entry whose sentence
 is not in its paragraph is skipped by the page, and `check_reader.cjs` fails listing every
-such entry. The committed file is a **pilot** (Erie and Garcia). To drop in the full file:
+such entry. The committed file has 8,773 entries across all 742 accounts (November 2026). Each plain version
+keeps the sentence's terms of art (quoted and explained), names, numbers and dates: the owner asked that
+necessary jargon and accurate detail never be dropped, only explained. To replace the file:
 
 ```sh
 cp <full file> tools/cold-call/plain-sentences.json
