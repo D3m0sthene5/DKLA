@@ -452,8 +452,17 @@ async function limits(page) {
         Object.defineProperty(window, 'visualViewport', { configurable: true, get: () => fake });
         dispatchEvent(new Event('resize'));
       });
-      await page.waitForTimeout(200);
-      const short = await geometry(page, 'compromise');
+      // The card moves on the next frame; a slow machine needs longer than a fixed wait, so poll.
+      let short = await geometry(page, 'compromise');
+      for (let i = 0; i < 30; i++) {
+        try {
+          inside(short, 'short screen');
+          break;
+        } catch {
+          await page.waitForTimeout(100);
+          short = await geometry(page, 'compromise');
+        }
+      }
       await page.evaluate(() => {
         delete window.visualViewport;
         dispatchEvent(new Event('resize'));
