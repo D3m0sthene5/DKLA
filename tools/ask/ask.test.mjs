@@ -3033,8 +3033,28 @@ test('a headword with a kind word in it is not a request for that kind, and its 
     'The court read the statute narrowly. Instead of applying Section 12, it applied Section 11.',
     'The best reading of the statute is that it bars suits.',
     'The PSLRA became law over the veto.',
+    // Review 6, findings 1 and 2: ordinary sentences about the law are answers, not substitutes.
+    'Res judicata is not the same as collateral estoppel: claim preclusion bars the whole claim.',
+    'The Court retired the no-set-of-facts test. Instead, a complaint must plead facts that make the claim plausible.',
+    "Discovery may relate to any party's claim or defense.",
+    'The term may refer to either a promise or a performance.',
+    'A motion under Rule 12(b) may concern lack of jurisdiction.',
+    'Many states have enacted a comparable statute.',
+    'The Court did not decide the question. Instead it remanded.',
+    'The excerpts do not identify the deadline. Rule 56(b) allows a motion until 30 days after discovery closes.',
+    'It is unclear what standard applies after Loper Bright. Some circuits apply de novo review.',
+    'Where there is no entry of default, Rule 55(b) does not apply. The court must first enter default.',
+    'The Atlas can identify the statute. It is the PSLRA.',
   ])
     assert.equal(substitute(text), false, text);
+  // ...while the substitutes those patterns were written for are still caught.
+  for (const text of [
+    'This may refer to the Line Item Veto Act.',
+    'Instead, the Atlas covers Clinton v. City of New York.',
+    'The closest Atlas match is the Line Item Veto Act of 1996.',
+    'I could not verify which statute that was. The Atlas discusses the Line Item Veto Act.',
+  ])
+    assert.equal(substitute(text), true, text);
 });
 
 // Review 5, findings 4, 8 and 9.
