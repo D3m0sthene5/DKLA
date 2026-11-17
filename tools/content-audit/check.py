@@ -92,6 +92,22 @@ def run(ledger_path):
     edits = register.get("edits")
     if not isinstance(edits, list) or not edits:
         raise ValueError("correction register needs a nonempty edits array")
+    # Follow explicitly recorded later reviews without rewriting earlier evidence.
+    registers = [(str(ledger_path), register)]
+    seen = {str(ledger_path)}
+    pending = list(register.get("supersedingRegisters", []))
+    edits = list(edits)
+    while pending:
+        successor = pending.pop(0)
+        if successor in seen or not successor.startswith("tools/content-audit/") or ".." in Path(successor).parts:
+            raise ValueError("invalid or cyclic superseding register")
+        seen.add(successor)
+        document = read(successor)
+        if not isinstance(document.get("edits"), list) or not document["edits"]:
+            raise ValueError("superseding register needs corrections")
+        edits.extend(document["edits"])
+        registers.append((successor, document))
+        pending.extend(document.get("supersedingRegisters", []))
     spec = importlib.util.spec_from_file_location("audit_assemble", ROOT / "tools/r19/assemble.py")
     assemble = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(assemble)
@@ -105,8 +121,8 @@ def run(ledger_path):
     graph = json.loads(assemble.script_blocks(source)["seedData"])
     takeaways = assemble.load_takeaways({node["id"]: node for node in graph["nodes"]})
     errors = []
-    for name, document in ((str(ledger_path), register), ("timelines", timelines),
-                           ("chronologies", chronologies), ("plain-language", overlay)):
+    for name, document in registers + [("timelines", timelines),
+                           ("chronologies", chronologies), ("plain-language", overlay)]:
         metadata_checks(document, name, errors)
 
     def resolve(edit, target):

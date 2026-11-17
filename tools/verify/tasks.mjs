@@ -155,6 +155,12 @@ export const tasks = [
     node('tools/v28/browser.cjs', '{page}'),
     SERVER,
   ),
+  step(
+    'browser',
+    'every timeline is readable and searchable',
+    node('tools/timelines/browser.mjs', '{page}'),
+    SERVER,
+  ),
   // Four pages at once: three screen sizes and the saved-work test.
   {
     ...step(

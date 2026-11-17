@@ -54,6 +54,27 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'Dottie stops making room for sourced litigation analysis',
+    'lib/ask/web.js',
+    () =>
+      edit('lib/ask/web.js', 'const analysis = legalAnalysisQuestion(question);', 'const analysis = false;'),
+  ],
+  [
+    'Timeline introductions disappear',
+    'src/features/r19/timelines.js',
+    () => edit('src/features/r19/timelines.js', 'esc(t.guide)', "''"),
+  ],
+  [
+    'Timeline reader drops the first authority',
+    'src/features/r19/timelines.js',
+    () =>
+      edit(
+        'src/features/r19/timelines.js',
+        'const steps = t.steps.filter(live);',
+        'const steps = t.steps.filter(live).slice(1);',
+      ),
+  ],
+  [
     'search results stop saying where they matched',
     'src/runtime/dklaR13Search.js',
     () => edit('src/runtime/dklaR13Search.js', '    fillVisible();\n', '\n'),

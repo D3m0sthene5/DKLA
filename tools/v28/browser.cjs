@@ -57,11 +57,9 @@ const timelinesFirst = async (page) => {
       console.log('LOADED ' + viewport.width);
       await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90000 });
       await timelinesFirst(page);
-      for (const title of [
-        'Erie: which law a federal court applies',
-        'Federal Rules and statutes against state law',
-      ]) {
-        const region = page.getByRole('region', { name: title, exact: true });
+      for (const id of ['erie', 'erie-rules']) {
+        const region = page.locator(`#inspector .dkla-timeline[data-r21="${id}"]`);
+        await region.locator('.r31-sequence > summary').click();
         assert.match(await region.innerText(), /Ragan/);
         assert.match(await region.innerText(), /Walker/);
       }
@@ -103,7 +101,8 @@ const timelinesFirst = async (page) => {
       }
       await page.evaluate(() => DKLATimelines.open('erie-rules'));
       const correctionSource = page.locator('#r21Body a[href*="usrep487022.pdf"]');
-      await correctionSource.waitFor();
+      await correctionSource.waitFor({ state: 'attached' });
+      await correctionSource.locator('xpath=ancestor::details').locator('summary').click();
       assert.equal(await page.locator('#r21Body time[datetime="2001-02-27"]').count(), 1);
       assert.equal(await correctionSource.getAttribute('target'), '_blank');
       assert.equal(await correctionSource.getAttribute('rel'), 'noopener noreferrer');
@@ -116,11 +115,11 @@ const timelinesFirst = async (page) => {
         animations: 'disabled',
         path: `work/v28/reviewed-timeline-${viewport.width}.png`,
       });
-      const source = page
-        .locator('#r21Body li')
-        .filter({ hasText: 'Walker' })
-        .last()
-        .getByRole('button', { name: 'Read original source ↗', exact: true });
+      const walker = page.locator('#r21Body li').filter({
+        has: page.getByRole('button', { name: /^Walker v\./ }),
+      });
+      await walker.locator('.r31-evidence > summary').click();
+      const source = walker.getByRole('button', { name: 'Read original source ↗', exact: true });
       await source.click();
       try {
         await page.locator('#fileDialog [data-pdf-rendered]').waitFor({ timeout: 12000 });

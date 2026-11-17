@@ -13,6 +13,7 @@ import {
   checkAnswer,
   citeAnswer,
   generateAnswer,
+  legalAnalysisQuestion,
   substitute,
   wrongKind,
 } from '../../lib/ask/answer.js';
@@ -1839,6 +1840,100 @@ const researchedResponse = (text) => ({
   ],
 });
 const researched = (text) => Response.json(researchedResponse(text));
+
+test('the FAA ground-stop question receives sourced conditional analysis rather than blanket abstention', async () => {
+  const question = 'What litigation could be brought against the FAA after the recent ground stop debacle?';
+  const tort = 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title28-section2680';
+  const review = 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title49-section46110';
+  const text = [
+    'I cannot verify which ground stop you mean. A damages claim would depend on an applicable immunity waiver and its exceptions, including the discretionary-function exception; the disruption alone does not establish liability. [Exceptions](' +
+      tort +
+      ')',
+    'One possibility is judicial review of a reviewable FAA order; the particular review statute determines the forum and deadline. Which ground stop do you mean? [Review](' +
+      review +
+      ')',
+  ].join('\n');
+  const { json, requests } = await askWithFetch(
+    (request, input) => {
+      assert.ok(request.tools, 'recent events always research rather than use a historical Atlas fallback');
+      assert.equal(input.analysis, true);
+      assert.match(input.asOf, /^\d{4}-\d{2}-\d{2}$/);
+      assert.match(request.instructions, /research two separate questions/);
+      assert.match(request.instructions, /ask one focused\s+clarifying question/);
+      assert.doesNotMatch(
+        request.instructions,
+        /question asks for advice about a real legal matter, abstain/,
+      );
+      assert.equal(request.max_tool_calls, 4, 'the fix does not add an unbounded research loop');
+      return Response.json({
+        status: 'completed',
+        output: [
+          {
+            type: 'web_search_call',
+            status: 'completed',
+            action: {
+              sources: [
+                { url: tort, title: '28 U.S.C. §2680 — Exceptions' },
+                { url: review, title: '49 U.S.C. §46110 — Judicial review' },
+              ],
+            },
+          },
+          message(text),
+        ],
+      });
+    },
+    { question },
+  );
+  assert.equal(requests.length, 1);
+  assert.equal(json.search, 'searched');
+  assert.equal(json.paragraphs.length, 2);
+  assert.match(json.paragraphs[0].text, /cannot verify which ground stop/);
+  assert.match(json.paragraphs[1].text, /judicial review/);
+  assert.deepEqual(
+    json.sources.map((s) => s.url),
+    [tort, review],
+  );
+  assert.equal(json.cached, undefined, 'current legal events are not served from the shared library');
+});
+
+test('conditional legal routes do not relax named-authority or source checks', () => {
+  const analysis = 'What claims could passengers bring after an airport outage?';
+  assert.equal(legalAnalysisQuestion(analysis), true);
+  assert.equal(legalAnalysisQuestion('What legal action can I take against the FAA?'), true);
+  assert.equal(legalAnalysisQuestion('How do passengers sue after an airport outage?'), true);
+  assert.equal(legalAnalysisQuestion('What lawsuits were filed against the FAA last year?'), false);
+  assert.equal(legalAnalysisQuestion('What claims did the FAA face?'), false);
+  assert.equal(legalAnalysisQuestion('Which statute created the available claims?'), false);
+  assert.equal(legalAnalysisQuestion('What case decided whether passengers could sue?'), false);
+  assert.equal(substitute('One possibility is a claim under the applicable statute.', analysis), false);
+  assert.equal(
+    substitute('One possibility is the PSLRA.', 'Which statute created the available claims?'),
+    true,
+  );
+  assert.equal(
+    substitute('I cannot verify which case that was. The Atlas discusses Gustafson.', analysis),
+    true,
+  );
+  assert.equal(substitute('The closest Atlas entry is Gustafson.', analysis), true);
+  assert.equal(
+    substitute('A claim depends on the applicable statute. Which incident do you mean?', analysis),
+    false,
+  );
+  assert.equal(
+    substitute('A claim depends on the applicable statute. Which case do you mean?', analysis),
+    true,
+  );
+  const url = 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title28-section2680';
+  const answer = citeResearch(
+    {
+      status: 'completed',
+      output: [message('One possibility is a damages claim. [Invented source](' + url + ')')],
+    },
+    [],
+    { question: analysis },
+  );
+  assert.deepEqual(answer.paragraphs, [], 'analysis still requires an actual searched or annotated citation');
+});
 const pslraAnswer =
   "The Private Securities Litigation Reform Act of 1995 (H.R. 1058) became law on December 22, 1995, when Congress overrode President Clinton's veto. [H.R.1058](" +
   congress +

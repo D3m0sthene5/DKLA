@@ -1,120 +1,18 @@
-/* r20.9: doctrine timelines (timelines.js). Builds on the r9b timeline and the r19.13 panel tune-up; existing
-   colours only. */
-#inspector .dkla-timeline[data-r21] .dkla-timeline-track li {
-  flex-basis: 212px;
-}
-.dkla-timeline-track .r21-step {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  border-radius: 8px;
-  font: inherit;
-  color: inherit;
-}
-.dkla-timeline-track .r21-static {
-  cursor: default;
-}
-.dkla-timeline-track .r21-turn,
-#r21Timelines .r21-turn {
-  display: inline-block;
-  margin: 0 0 5px;
-  font:
-    600 10px/1.3 -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    sans-serif;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #93a7b7;
-}
-.r21-turn.r21-overrules,
-.r21-turn.r21-displaces,
-.r21-turn.r21-limits {
-  color: #f0c36a;
-}
-.r21-turn.r21-origin,
-.r21-turn.r21-widens,
-.r21-turn.r21-extends {
-  color: #7fd6a2;
-}
-.r21-turn.r21-codifies {
-  color: #8fc0e8;
-}
-.r21-turn.r21-divided,
-.r21-turn.r21-counterpoint {
-  color: #d9a6c8;
-}
-.r21-turn.r21-sharpens,
-.r21-turn.r21-reaffirms,
-.r21-turn.r21-applies {
-  color: #a9bccb;
-}
-.dkla-timeline-track .r21-fate,
-#r21Timelines .r21-fate {
-  display: block;
-  margin-top: 5px;
-  padding-left: 8px;
-  border-left: 2px solid #f0c36a;
-  font-size: 11px;
-  line-height: 1.4;
-  color: #d8c39a;
-}
-/* a supporting case (opens its brief) and a statute or rule change (no entry) read as different from map cases */
-.dkla-timeline-track li.r21-sup .dkla-tl-year {
-  background: transparent;
-  color: #c9d5de;
-  box-shadow: inset 0 0 0 1.5px #8fa3b3;
-}
-.dkla-timeline-track li.r21-event .dkla-tl-year {
-  background: transparent;
-  color: #8fc0e8;
-  box-shadow: inset 0 0 0 1.5px #5d87a8;
-}
-.dkla-timeline-track li.r21-event strong {
-  color: #bcd3e6;
-  font-weight: 600;
-}
-.dkla-timeline .r21-all {
-  margin: 8px 0 2px;
-  padding: 4px 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  font-size: 12px;
-  color: #93a7b7;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-color: #3a4856;
-}
-.dkla-timeline .r21-all:hover {
-  color: #e3e8ec;
-}
-/* the list of every timeline */
+/* Timeline reader: one question, a short orientation, then a readable sequence. */
 #r21Timelines {
-  width: min(860px, calc(100vw - 24px));
+  width: min(980px, calc(100vw - 32px));
   max-width: none;
-  height: min(880px, calc(100dvh - 24px));
+  height: min(940px, calc(100dvh - 32px));
   max-height: none;
   padding: 0;
-  border: 1px solid #3a4856;
-  border-radius: 14px;
-  background: #19232d;
-  color: #d7e0e8;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  border: 1px solid #435665;
+  border-radius: 18px;
+  background: #17232c;
+  color: #e1e8ed;
+  box-shadow: 0 24px 80px #0009;
   font:
-    15px/1.55 -apple-system,
-    BlinkMacSystemFont,
-    'SF Pro Text',
-    'Segoe UI',
-    Inter,
-    Roboto,
-    Helvetica,
-    Arial,
+    16px/1.65 Inter,
+    system-ui,
     sans-serif;
   overflow: hidden;
 }
@@ -123,83 +21,242 @@
   flex-direction: column;
 }
 #r21Timelines::backdrop {
-  background: rgba(5, 9, 13, 0.66);
+  background: #050b11b8;
+  backdrop-filter: blur(5px);
 }
-#r21Timelines .r18-kicker {
-  text-transform: uppercase;
+#r21Timelines .r19-head {
+  flex: 0 0 auto;
+  padding: 22px 28px;
+  border-bottom: 1px solid #344651;
+  gap: 20px;
+}
+#r21Title {
+  min-width: 0;
+}
+#r21Title h2 {
+  margin: 0;
+  font:
+    600 clamp(19px, 2.3vw, 25px) / 1.3 Inter,
+    system-ui,
+    sans-serif;
+  color: #f0f4f5;
+  text-wrap: balance;
+}
+#r21Timelines .r19-close {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
 }
 #r21Timelines .r19-body {
+  padding: 24px 36px 36px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: #3a4856 transparent;
+  scrollbar-color: #526774 transparent;
 }
-#r21Timelines .r19-body:focus-visible,
-#r21Timelines:focus-visible {
+#r21Timelines .r19-body:focus {
   outline: none;
+}
+#r21Timelines button,
+#r21Timelines input,
+#r21Timelines summary {
+  touch-action: manipulation;
+}
+#r21Timelines button:focus-visible,
+#r21Timelines input:focus-visible,
+#r21Timelines summary:focus-visible,
+#inspector .r31-sequence summary:focus-visible,
+#inspector .r21-all:focus-visible,
+#inspector .r21-step:focus-visible {
+  outline: 2px solid #a4dec9;
+  outline-offset: 4px;
+}
+#r21Timelines [hidden] {
+  display: none !important;
+}
+#r21Timelines .r19-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#r21Timelines .r19-tabs button {
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 8px 16px;
+}
+#r21Timelines .r19-tabs [aria-pressed='true'] {
+  background: #28473f;
+  border-color: #86bba6;
+  color: #e4f7ee;
+}
+.r28-timeline-scope {
+  max-width: 68ch;
+  color: #b5c5cf;
+  margin: 18px 0;
+}
+.r31-search {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #c1d0d9;
+  margin: 20px 0;
+}
+#r21Timelines .r31-search input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  border: 1px solid #506673;
+  border-radius: 10px;
+  background: #101c24;
+  color: #eef4f6;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 16px;
+}
+.r31-search input::placeholder {
+  color: #93a7b4;
+  opacity: 1;
+}
+.r31-chronology-link {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  text-align: left;
+  font: inherit;
+  color: #cfe6dd;
+  background: #20382f;
+  border: 1px solid #46685a;
+  border-radius: 12px;
+}
+.r31-chronology-link small {
+  font-size: 13px;
+  color: #a9c9bb;
+}
+.r31-result-count {
+  margin: 26px 0 12px;
+  font-size: 13px;
+  color: #9db1be;
 }
 .r21-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 10px;
-  margin-top: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
 }
 .r21-card {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: start;
+  gap: 10px;
   text-align: left;
   font: inherit;
-  color: #e7ecf0;
-  background: #1c2731;
-  border: 1px solid #2f3c49;
-  border-radius: 10px;
-  padding: 12px 14px;
+  color: #edf1f4;
+  background: #1d2d38;
+  border: 1px solid #3a505e;
+  border-radius: 12px;
+  padding: 20px;
   cursor: pointer;
-  transition:
-    border-color 0.14s ease,
-    background-color 0.14s ease;
 }
 .r21-card:hover {
-  border-color: #8ea3b6;
-  background: #202d39;
+  background: #263b47;
+  border-color: #88afa1;
 }
 .r21-card strong {
-  font-size: 15px;
-  line-height: 1.3;
+  font-size: 17px;
+  line-height: 1.4;
   font-weight: 600;
 }
 .r21-card span {
-  font-size: 13px;
-  line-height: 1.45;
-  color: #b4c1cd;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #bacbd5;
 }
 .r21-card small {
   margin-top: auto;
   padding-top: 4px;
-  font:
-    12px ui-monospace,
-    SFMono-Regular,
-    Consolas,
-    monospace;
-  color: #93a7b7;
-  letter-spacing: 0.04em;
+  font-size: 12px;
+  color: #9db3c1;
 }
-.r21-line {
-  margin: 0 0 8px;
+.r31-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
 }
-.r21-line button {
+.r31-toolbar button,
+.r31-end button {
   font: inherit;
   font-size: 13px;
-  border-radius: 999px;
-  border: 1px solid #3a4856;
-  background: transparent;
-  color: #c9d4de;
-  padding: 5px 12px;
+  color: #c7e4d8;
+  min-height: 44px;
+  background: none;
+  border: 1px solid #456052;
+  border-radius: 8px;
+  padding: 8px 12px;
   cursor: pointer;
 }
-.r21-q {
-  margin: 0 0 14px;
-  color: #b4c1cd;
+.r31-toolbar > span {
+  font-size: 12px;
+  color: #a0b5c2;
+}
+.r31-orientation {
+  margin-bottom: 24px;
+}
+.r31-kicker {
+  color: #92c4ae;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+#r21Timelines .r21-q {
+  margin: 0 0 12px;
+  color: #eef3f5;
+  font-size: 21px;
+  line-height: 1.5;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+.r31-guide {
+  margin: 0;
+  color: #b7c9d3;
+  max-width: 75ch;
   font-size: 15px;
+  line-height: 1.75;
+}
+.r31-takeaway {
+  padding: 18px 22px;
+  margin: 0 0 30px;
+  border-left: 3px solid #90cbb1;
+  background: #20332f;
+  border-radius: 0 10px 10px 0;
+}
+.r31-takeaway h3 {
+  margin: 0 0 7px;
+  color: #a4d4be;
+  font-size: 13px;
+  font-weight: 600;
+}
+#r21Timelines .r25-timeline-synthesis {
+  margin: 0;
+  color: #d3e2dc;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.r31-sequence-head h3 {
+  margin: 0 0 5px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.r31-sequence-head > p {
+  margin: 0 0 24px;
+  font-size: 13px;
+  color: #a6bac7;
 }
 .r21-v {
   list-style: none;
@@ -210,218 +267,412 @@
 .r21-v::before {
   content: '';
   position: absolute;
-  left: 31px;
-  top: 8px;
-  bottom: 8px;
-  width: 2px;
-  background: #33424e;
+  left: 35px;
+  top: 15px;
+  bottom: 35px;
+  width: 1px;
+  background: #425967;
 }
-.r21-v li {
+.r21-v > li {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 12px;
-  padding: 0 0 16px;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 20px;
+  padding-bottom: 22px;
   position: relative;
 }
 .r21-y {
   justify-self: center;
   align-self: start;
-  position: relative;
   z-index: 1;
-  font: 600 11px/1 system-ui;
-  letter-spacing: 0.5px;
-  color: #0f171e;
-  background: #8fa3b3;
-  padding: 5px 8px;
-  border-radius: 12px;
-}
-.r21-v li.r21-sup .r21-y {
-  background: #19232d;
-  color: #c9d5de;
-  box-shadow: inset 0 0 0 1.5px #8fa3b3;
-}
-.r21-v li.r21-event .r21-y {
-  background: #19232d;
-  color: #8fc0e8;
-  box-shadow: inset 0 0 0 1.5px #5d87a8;
-}
-.r21-v .r21-name {
-  display: inline;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  color: #eef1f4;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0 8px 2px 0;
-  text-align: left;
-  cursor: pointer;
-}
-.r21-v button.r21-name:hover {
-  text-decoration: underline;
-}
-.r21-v li.r21-event .r21-name {
-  color: #bcd3e6;
-  cursor: default;
-}
-.r21-v .r21-tag {
-  font-style: normal;
-  font-size: 11px;
-  color: #93a7b7;
-  margin-right: 8px;
-}
-.r21-v .r21-turn {
-  margin: 0;
-}
-.r21-v p {
-  margin: 3px 0 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #c9d4de;
-}
-#r21Timelines button:focus-visible,
-.dkla-timeline .r21-all:focus-visible,
-.dkla-timeline-track .r21-step:focus-visible {
-  outline: 2px solid #d6b78e;
-  outline-offset: 2px;
-}
-@media (max-width: 640px) {
-  #r21Timelines .r19-body {
-    padding: 14px 14px 24px;
-  }
-  .r21-cards {
-    grid-template-columns: 1fr;
-  }
-  .r21-v li {
-    grid-template-columns: 52px 1fr;
-    gap: 8px;
-  }
-  .r21-v::before {
-    left: 25px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .r21-card {
-    transition: none;
-  }
-}
-/* a concept that runs through more than two timelines names the rest in one line */
-#inspector .r21-also {
-  margin: 10px 0 4px;
-  font-size: 12.5px;
-  line-height: 1.6;
-  color: #93a7b7;
-}
-#inspector .r21-also span {
-  display: block;
+  color: #dfebf1;
+  background: #263c49;
+  border: 1px solid #557383;
+  border-radius: 9px;
+  padding: 8px;
   font:
-    600 10px/1.3 -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
+    600 13px/1.3 Inter,
+    system-ui,
     sans-serif;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #93a7b7;
-  margin-bottom: 4px;
-}
-#inspector .r21-also button {
-  font: inherit;
-  color: #d7e0e8;
-  background: #1c2731;
-  border: 1px solid #2f3c49;
-  border-radius: 999px;
-  padding: 3px 10px;
-  margin: 0 6px 6px 0;
-  cursor: pointer;
-}
-#inspector .r21-also button:hover {
-  border-color: #8ea3b6;
-  color: #fff;
-}
-/* r21 hotfix: the r20 edge fade (r20.css) masked the first 22px and last 22px of the track, so the first year pill and the
-   first letters of the first card, and the end of the last card, were cut off on every timeline. The track now starts
-   22px in and ends with a 22px spacer (a flex item, because trailing padding is not counted as scrollable overflow
-   everywhere), so the fade only ever covers cards that have been scrolled under it. */
-#inspector .reader-body .dkla-timeline-track {
-  padding-left: 22px;
-  padding-right: 0;
-  scroll-padding-inline: 22px;
-}
-#inspector .reader-body .dkla-timeline-track::after {
-  content: '';
-  flex: 0 0 22px;
-}
-
-/* v2.5 correction: visible chronology, one title and one unboxed synthesis. */
-#inspector .dkla-timeline[data-r21] {
-  margin: 24px 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  overflow: hidden;
-}
-.r25-timeline-title {
-  margin: 0 0 18px !important;
-  font-size: 15px !important;
-  line-height: 1.5 !important;
-  font-weight: 600 !important;
-  color: #dce6ec !important;
-  text-transform: none !important;
-  letter-spacing: 0 !important;
-}
-.r25-timeline-synthesis {
-  font-size: 14px !important;
-  line-height: 1.7 !important;
-  color: #bccbd5 !important;
-  margin: 18px 0 8px !important;
-  padding: 0 !important;
-  background: none !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  max-width: 72ch;
-}
-.r25-authority-kind {
-  display: block;
-  margin: 5px 0;
-  color: #9db7cb;
-  font: 500 10px/1.4 system-ui;
-}
-.dkla-timeline-track .r21-turn,
-#r21Timelines .r21-turn {
-  font-size: 11px;
-  line-height: 1.45;
-  text-transform: none;
-  letter-spacing: 0;
-}
-.r21-v li.r21-event button.r21-name {
-  cursor: pointer;
-}
-@media (max-width: 640px) {
-  .r25-timeline-synthesis {
-    font-size: 13px !important;
-    line-height: 1.65 !important;
-  }
+  font-variant-numeric: tabular-nums;
 }
 .r21-y time,
 .dkla-tl-year time {
   display: inline-flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   text-align: center;
 }
 .r21-y time small,
 .dkla-tl-year time small {
-  font: inherit;
-  font-size: 10px;
+  font:
+    400 10px/1.3 Inter,
+    system-ui,
+    sans-serif;
   white-space: nowrap;
+  color: inherit;
 }
-a.r28-step-source {
+.r31-entry {
+  min-width: 0;
+  border-bottom: 1px solid #314550;
+  padding: 0 0 23px;
+}
+.r31-entry-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}
+#r21Timelines .r21-name {
+  display: block;
+  font:
+    600 17px/1.5 Inter,
+    system-ui,
+    sans-serif;
+  color: #edf3f7;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0 0 5px;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+#r21Timelines button.r21-name:hover {
+  color: #b6e2cf;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+#r21Timelines b.r21-name {
+  cursor: default;
+}
+.r25-authority-kind {
+  display: block;
+  color: #9fb6c5;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.r21-turn {
+  display: block;
+  color: #9bb8cc;
+  font:
+    500 12px/1.5 Inter,
+    system-ui,
+    sans-serif;
+  font-style: normal;
+  margin: 0 0 10px;
+}
+.r21-turn.r21-overrules,
+.r21-turn.r21-displaces {
+  color: #efc48a;
+}
+.r21-turn.r21-divided,
+.r21-turn.r21-counterpoint {
+  color: #d3b5db;
+}
+#r21Timelines .r31-core {
+  margin: 6px 0 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #d3dfe7;
+  max-width: 75ch;
+  text-wrap: pretty;
+}
+.r31-later {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-left: 2px solid #d7b176;
+  background: #342f25;
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+  color: #e5d2b2;
+}
+.r31-later > strong {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 3px;
+  color: #e3bc80;
+}
+.r21-fate {
+  display: block;
+}
+.r31-evidence {
+  margin-top: 15px;
+}
+#r21Timelines .r31-evidence > summary {
+  width: fit-content;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  color: #a8c9b8;
+  cursor: pointer;
+  font-size: 13px;
+}
+.r31-evidence > p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #b9ccd6;
+  margin: 4px 0 12px;
+}
+.r31-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 8px;
+  padding: 4px 0 8px;
+}
+#r21Timelines .r28-step-source {
   display: block;
   width: fit-content;
   max-width: 100%;
-  margin-top: 8px;
-  line-height: 1.45;
+  box-sizing: border-box;
+  min-height: 44px;
+  margin: 0;
+  color: #bacfdc;
+  background: #1b2c37;
+  border: 1px solid #435d6e;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font:
+    400 12px/1.5 Inter,
+    system-ui,
+    sans-serif;
   overflow-wrap: anywhere;
+  text-underline-offset: 3px;
+}
+.r31-end {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #9cb3c0;
+  font-size: 12px;
+  margin: 18px 0 0;
+}
+/* In a case brief, sequences expand vertically instead of becoming sideways walls. */
+#inspector .dkla-timeline[data-r21] {
+  margin: 14px 0;
+  padding: 18px;
+  border: 1px solid #344d5b;
+  border-radius: 12px;
+  background: #162630;
+  overflow: visible;
+}
+#inspector .r25-timeline-title {
+  margin: 0 0 8px !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  text-transform: none !important;
+  color: #e0edf2 !important;
+  letter-spacing: 0 !important;
+}
+#inspector .r31-preview-question {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #b7ccd7;
+  margin: 0 0 10px;
+}
+#inspector .r31-sequence {
+  margin: 0;
+  border: 0;
+  background: none;
+  padding: 0;
+}
+#inspector .r31-sequence > summary {
+  min-height: 44px;
+  padding: 10px 0;
+  box-sizing: border-box;
+  color: #b8d7c7;
+  font-size: 13px;
+  cursor: pointer;
+}
+#inspector .r31-sequence > summary > span {
+  margin-left: 6px;
+  color: #90a9b8;
+  font-size: 11px;
+}
+#inspector .reader-body .dkla-timeline-track {
+  display: block;
+  overflow: visible;
+  padding: 4px 0 0;
+  margin: 0;
+  mask-image: none;
+  -webkit-mask-image: none;
+  border: 0;
+}
+#inspector .reader-body .dkla-timeline-track::before,
+#inspector .reader-body .dkla-timeline-track::after {
+  display: none;
+}
+#inspector .dkla-timeline[data-r21] .dkla-timeline-track li {
+  display: block;
+  width: auto;
+  min-width: 0;
+  padding: 14px 0;
+  margin: 0;
+  border-top: 1px solid #304652;
+}
+#inspector .dkla-timeline-track .r21-step {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+#inspector .dkla-timeline-track .dkla-tl-year {
+  position: static;
+  justify-self: start;
+  align-self: start;
+  width: auto;
+  height: auto;
+  padding: 6px;
+  margin: 0;
+  border: 1px solid #547081;
+  border-radius: 7px;
+  box-shadow: none;
+  background: #263b49;
+  color: #cbdfe9;
+  font:
+    600 12px/1.3 Inter,
+    system-ui,
+    sans-serif;
+}
+#inspector .dkla-timeline-track strong {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dfebf2;
+}
+#inspector .dkla-timeline-track small {
+  display: block;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #b4cad6;
+}
+#inspector .dkla-timeline-track .r21-turn {
+  font-size: 11px;
+  margin: 4px 0;
+}
+#inspector .dkla-timeline-track li.is-current .r31-preview-copy {
+  padding-left: 10px;
+  border-left: 2px solid #9bd5b9;
+}
+#inspector .dkla-timeline .r21-all {
+  display: inline-block;
+  font:
+    500 13px/1.5 Inter,
+    system-ui,
+    sans-serif;
+  min-height: 44px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  color: #b8deca;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+#inspector .r21-also {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #9bb5c5;
+}
+#inspector .r21-also > span {
+  display: block;
+  margin-bottom: 8px;
+}
+#inspector .r21-also button {
+  font: inherit;
+  color: #c5dbd1;
+  background: #1c332b;
+  border: 1px solid #456554;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 0 6px 6px 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+@media (max-width: 640px) {
+  #r21Timelines {
+    width: calc(100vw - 16px);
+    height: calc(100dvh - 16px);
+    border-radius: 14px;
+  }
+  #r21Timelines .r19-head {
+    padding: 17px 16px;
+    gap: 10px;
+  }
+  #r21Title h2 {
+    font-size: 19px;
+  }
+  #r21Timelines .r19-body {
+    padding: 18px 16px 28px;
+  }
+  .r21-cards {
+    grid-template-columns: 1fr;
+  }
+  .r21-card {
+    padding: 17px;
+  }
+  #r21Timelines .r21-q {
+    font-size: 19px;
+  }
+  .r31-guide {
+    font-size: 14px;
+  }
+  .r31-takeaway {
+    padding: 15px;
+  }
+  .r21-v::before {
+    left: 24px;
+  }
+  .r21-v > li {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 12px;
+  }
+  .r21-y {
+    font-size: 12px;
+    padding: 6px;
+  }
+  #r21Timelines .r21-name {
+    font-size: 16px;
+  }
+  #r21Timelines .r31-core {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .r31-later {
+    padding: 10px;
+  }
+  .r31-toolbar {
+    gap: 6px;
+  }
+  #inspector .dkla-timeline[data-r21] {
+    padding: 14px;
+  }
+}
+.r31-guide {
+  margin-top: 10px;
+}
+.r31-guide > summary {
+  width: fit-content;
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 0;
+  color: #a9cbbb;
+  font-size: 13px;
+  cursor: pointer;
+}
+.r31-guide > p {
+  margin: 6px 0 14px;
 }

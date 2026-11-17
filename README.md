@@ -117,6 +117,12 @@ shared answer library (below) answers a repeated first question without any Open
 Rankings and current-law claims depend on what the cited sources establish.
 The AI needs an internet connection. Atlas search and offline reading work as before.
 
+Questions about potential litigation can receive sourced, conditional analysis of
+legal routes, prerequisites, remedies, and barriers. Dottie separates uncertain
+incident facts from the legal framework and can ask a focused clarification.
+Research receives the current date; unknown case/statute guesses and fabricated
+citations remain blocked.
+
 Set `DKLA_OPENAI_API_KEY` in the server's secret environment. Use a dedicated
 OpenAI project key from the API organization with your active ChatGPT Pro credit grant.
 Ask DKLA calls the OpenAI Responses API directly with response storage disabled. Atlas
@@ -146,6 +152,13 @@ keeps it only in that browser (`localStorage` key `dkla.askSaved.v1`,
 the main search bar still fall under its existing analytics policy.
 
 ## How to know it still works
+
+Doctrine timelines have a searchable course browser, a separate complete case
+index, a guiding question and main takeaway, expandable introductions and sources,
+and vertical sequences in case briefs. `tools/timelines/browser.mjs` checks every
+timeline and chronology on desktop and phone, including complete step counts,
+search, keyboard disclosures, and navigation. The dated content correction
+register records editorial changes separately from targeted source checks.
 
 ```sh
 pnpm verify      # builds and runs everything below; about half a minute

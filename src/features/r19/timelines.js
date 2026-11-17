@@ -78,7 +78,8 @@
         return TURN[s.turn] || '';
     }
   };
-  const SUP = new Map(D.entries.filter((e) => !e[6]).map((e) => [e[0], e[1]]));
+  const SUP = new Map(D.entries.map((e) => [e[0], e[1]]));
+  const TITLES = new Map(D.entries.filter((e) => e[6]).map((e) => [e[6], e[1]]));
   const allLines = [...(D.chronologies || []), ...TL.list];
   const byTitle = new Map(TL.list.map((t) => [t.title, t])),
     byId = new Map(allLines.map((t) => [t.id, t]));
@@ -110,7 +111,7 @@
     if (s.sup) return SUP.get(s.sup) || s.sup;
     const n = nodesById.get(s.id);
     if (!n) return s.id;
-    const label = typeof displayName === 'function' ? displayName(n) : n.shortTitle || n.title;
+    const label = TITLES.get(s.id) || n.title;
     return String(label)
       .replace(/\s*\(\d{4}\)\s*/, ' ')
       .replace(/\s+[—–]\s+.*$/, '')
@@ -149,7 +150,7 @@
     const name = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][
       month - 1
     ];
-    return `<time datetime="${esc(s.date)}">${year}<small>${name} ${day}</small></time>`;
+    return `<time datetime="${esc(s.date)}" aria-label="${name} ${day}, ${year}">${year}<small>${name} ${day}</small></time>`;
   };
   const source = (s) => {
     const bid = s.sup || D.map[s.id] || s.id;
@@ -183,10 +184,10 @@
       .map((s, i) => {
         const cur = s.id && s.id === current;
         const kind = s.event ? ' r21-event' : s.sup ? ' r21-sup' : '';
-        return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${dateLabel(s)}</span>${authority(s)}<strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}${reviewSources(s)}</li>`;
+        return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${dateLabel(s)}</span><span class="r31-preview-copy"><strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small></span>`, 'r21-step')}</li>`;
       })
       .join('');
-    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><ol class="dkla-timeline-track">${steps}</ol>${synthesis(t)}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Open full timeline</button></section>`;
+    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><p class="r31-preview-question">${esc(t.question)}</p><details class="r31-sequence"><summary>Follow the sequence <span>${t.steps.filter(live).length} entries</span></summary><ol class="dkla-timeline-track">${steps}</ol></details><button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Read timeline & sources →</button></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {
@@ -267,25 +268,45 @@
   const inCourse = (i) => allLines.filter((t) => t.course === COURSES[i]);
   function listHTML() {
     title.innerHTML = '<h2>Doctrine timelines</h2>';
-    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]}</button>`).join('')}</div><p class="r28-timeline-scope">Cases can appear in several timelines. Each line follows its stated question; read the linked casebook passage for context.</p>
-      <div class="r21-cards">${inCourse(V.course)
+    const lines = inCourse(V.course);
+    const chronology = lines.find((t) => t.kind === 'course-chronology');
+    return `<div class="r19-tabs">${COURSES.map((c, i) => `<button data-r21-course="${i}" aria-pressed="${V.course === i}">${SHORT[i]}</button>`).join('')}</div><p class="r28-timeline-scope">Choose a question to follow the cases and rules that help answer it. Different courts may take different approaches.</p>
+      <label class="r31-search">Find a timeline<input type="search" data-r31-find placeholder="Topic, case, or legal question" autocomplete="off"></label>
+      ${chronology ? `<button type="button" class="r31-chronology-link" data-r21-tl="${esc(chronology.id)}"><span>Browse every case in ${esc(SHORT[V.course])}</span><small>${chronology.steps.length} case accounts · chronological index →</small></button>` : ''}
+      <p class="r31-result-count" role="status">${lines.filter((t) => t.kind !== 'course-chronology').length} doctrine timelines</p>
+      <div class="r21-cards">${lines
+        .filter((t) => t.kind !== 'course-chronology')
         .map(
           (t) =>
-            `<button type="button" class="r21-card" data-r21-tl="${esc(t.id)}"><strong>${esc(t.title)}</strong></button>`,
+            `<button type="button" class="r21-card" data-r21-tl="${esc(t.id)}"><strong>${esc(t.title)}</strong><span>${esc(t.question)}</span><small>${t.steps.filter(live).length} entries · ${yearRange(t)}</small></button>`,
         )
         .join('')}</div>`;
   }
+  function yearRange(t) {
+    const years = t.steps.map((s) => s.year).filter((y) => Number.isFinite(y));
+    return years.length ? `${Math.min(...years)}–${Math.max(...years)}` : 'Dates not established';
+  }
+  function stepHTML(s, t, i) {
+    const flags = `${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}`;
+    const action = s.event
+      ? s.link
+        ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))} ↗</button>`
+        : `<b class="r21-name">${esc(name(s))}</b>`
+      : s.sup
+        ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))} ↗</button>`
+        : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))} ↗</button>`;
+    const reading = source(s);
+    return `<li class="${flags}" data-r31-step="${i}"><span class="r21-y">${dateLabel(s)}</span><article class="r31-entry"><div class="r31-entry-heading">${authority(s)}${action}</div>${turnTag(s, t)}<p class="r31-core">${esc(s.note)}</p>${s.fate ? `<aside class="r31-later"><strong>Later development</strong>${fate(s)}</aside>` : ''}${s.context || reading ? `<details class="r31-evidence"><summary>${s.context ? 'Context & sources' : 'Read the sources'}</summary>${s.context ? `<p>${esc(s.context)}</p>` : ''}<div class="r31-source-links">${reading}</div></details>` : ''}</article></li>`;
+  }
   function detailHTML(t) {
     title.innerHTML = `<h2>${esc(t.title)}</h2>`;
-    return `<div class="r21-line"><button type="button" data-r21-back>← All timelines</button></div>
-      <ol class="r21-v">${t.steps
-        .filter(live)
-        .map(
-          (s) =>
-            `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${dateLabel(s)}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}${source(s)}</div></li>`,
-        )
-        .join('')}</ol>
-      ${synthesis(t)}`;
+    const steps = t.steps.filter(live);
+    return `<div class="r31-toolbar"><button type="button" data-r21-back>← All timelines</button><button type="button" data-r31-sequence>Go to entries ↓</button><span>${esc(SHORT[V.course])} · ${steps.length} entries · ${yearRange(t)}</span></div>
+      <section class="r31-orientation" aria-label="Start here"><p class="r31-kicker">${t.kind === 'course-chronology' ? 'Course case index' : 'The question'}</p><p class="r21-q">${esc(t.question)}</p>${t.guide ? `<details class="r31-guide"><summary>How these entries connect</summary><p>${esc(t.guide)}</p></details>` : ''}</section>
+      ${t.now ? `<section class="r31-takeaway" aria-label="Main takeaway"><h3>${t.kind === 'course-chronology' ? 'About this index' : 'Main takeaway'}</h3>${synthesis(t)}</section>` : ''}
+      <div class="r31-sequence-head"><h3>${t.kind === 'course-chronology' ? 'Cases in date order' : 'Follow the sequence'}</h3><p>Open a name to read the case or rule. Expand sources for the assigned reading and supporting passages.</p></div>
+      ${steps.length > 50 ? '<label class="r31-search">Find a case in this index<input type="search" data-r31-cases placeholder="Case name, year, or rule" autocomplete="off"></label><p class="r31-case-count" role="status"></p>' : ''}
+      <ol class="r21-v">${steps.map((s, i) => stepHTML(s, t, i)).join('')}</ol><p class="r31-end">End of ${esc(t.title)} <button type="button" data-r31-top>Back to top ↑</button></p>`;
   }
   function render() {
     const t = V.open && byId.get(V.open);
@@ -310,11 +331,32 @@
   dialog.addEventListener('close', () => {
     if (!dialog.open) body.innerHTML = '';
   });
+  body.addEventListener('input', (event) => {
+    const query = event.target.value?.trim().toLocaleLowerCase();
+    if (event.target.matches('[data-r31-find]')) {
+      const words = query.split(/\s+/).filter(Boolean);
+      let count = 0;
+      for (const card of body.querySelectorAll('.r21-card')) {
+        card.hidden = !words.every((word) => haystack(byId.get(card.dataset.r21Tl)).includes(word));
+        if (!card.hidden) count++;
+      }
+      body.querySelector('.r31-result-count').textContent = count
+        ? `${count} doctrine timeline${count === 1 ? '' : 's'}`
+        : 'No timelines match. Try a case name or another topic.';
+    } else if (event.target.matches('[data-r31-cases]')) {
+      let count = 0;
+      for (const row of body.querySelectorAll('.r21-v > li')) {
+        row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+        if (!row.hidden) count++;
+      }
+      body.querySelector('.r31-case-count').textContent = `${count} matching case${count === 1 ? '' : 's'}`;
+    }
+  });
   document.addEventListener(
     'click',
     (ev) => {
       const b = ev.target.closest(
-        '[data-r21-open],[data-r21-close],[data-r21-course],[data-r21-tl],[data-r21-back],[data-r21-node],[data-r21-menu]',
+        '[data-r21-open],[data-r21-close],[data-r21-course],[data-r21-tl],[data-r21-back],[data-r21-node],[data-r21-menu],[data-r31-top],[data-r31-sequence]',
       );
       if (!b) return;
       const d = b.dataset;
@@ -326,7 +368,11 @@
       } else if ('r21Menu' in d) {
         ev.preventDefault();
         open(null);
-      } else if ('r21Close' in d) dialog.close();
+      } else if ('r31Sequence' in d) {
+        const heading = body.querySelector('.r31-sequence-head');
+        body.scrollTop += heading.getBoundingClientRect().top - body.getBoundingClientRect().top - 12;
+      } else if ('r31Top' in d) body.scrollTo({ top: 0, behavior: 'instant' });
+      else if ('r21Close' in d) dialog.close();
       else if (d.r21Course) {
         V.course = Number(d.r21Course);
         render();
@@ -369,7 +415,12 @@
   const hay = new Map();
   const haystack = (t) => {
     if (!hay.has(t.id))
-      hay.set(t.id, [t.title, t.question, t.now, ...t.steps.map(name)].join(' ').toLowerCase());
+      hay.set(
+        t.id,
+        [t.title, t.question, t.guide, t.now, ...t.steps.flatMap((s) => [name(s), s.note])]
+          .join(' ')
+          .toLowerCase(),
+      );
     return hay.get(t.id);
   };
   if (results && input)
