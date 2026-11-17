@@ -56,6 +56,12 @@ try {
       assert.equal(state.invalidButtons, false, t.id + ' no nested controls');
     }
     await page.evaluate(() => DKLATimelines.open('consideration'));
+    await expect(page.locator('.r21-v > li').first().locator('.r21-y')).toBeInViewport();
+    const rail = await page
+      .locator('.r21-v > li')
+      .first()
+      .evaluate((el) => getComputedStyle(el, '::before').width);
+    assert.equal(rail, '2px', 'milestones have a continuous rail');
     await page.screenshot({ path: `work/timelines/reader-${viewport.width}.png` });
     await page.locator('.r31-guide > summary').press('Enter');
     await expect(page.locator('.r31-guide > p')).toBeVisible();
@@ -94,16 +100,11 @@ try {
     });
     const preview = page.locator('#inspector .dkla-timeline[data-r21="consideration"]');
     await preview.waitFor();
-    const sequence = preview.locator('.r31-sequence');
-    await expect(sequence).not.toHaveAttribute('open', '');
-    await sequence.locator('summary').click();
+    const sequence = preview.locator('.r31-preview-track');
     await expect(sequence.locator('.r21-step').first()).toBeVisible();
-    assert.equal(await sequence.locator('li').count(), inventory.find((t) => t.id === 'consideration').count);
-    assert.equal(
-      await sequence.locator('ol').evaluate((e) => e.scrollWidth > e.clientWidth + 1),
-      false,
-      'vertical case sequence needs no sideways scrolling',
-    );
+    await expect(sequence.locator('li')).toHaveCount(3);
+    await expect(sequence.locator('[aria-current="step"]')).toContainText('Hamer');
+    assert.equal(await sequence.evaluate((e) => e.scrollWidth > e.clientWidth + 1), false);
     await preview.locator('[data-r21-open]').click();
     await expect(page.locator('#r21Timelines')).toHaveAttribute('open', '');
     assert.deepEqual(errors, []);

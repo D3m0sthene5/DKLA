@@ -60,6 +60,11 @@ const breakages = [
       edit('lib/ask/web.js', 'const analysis = legalAnalysisQuestion(question);', 'const analysis = false;'),
   ],
   [
+    'Timeline loses its connecting rail',
+    'src/features/r19/timelines.css',
+    () => append('src/features/r19/timelines.css', '\n.r21-v > li::before { width: 0; }\n'),
+  ],
+  [
     'Timeline introductions disappear',
     'src/features/r19/timelines.js',
     () => edit('src/features/r19/timelines.js', 'esc(t.guide)', "''"),

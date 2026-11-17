@@ -59,9 +59,8 @@ const timelinesFirst = async (page) => {
       await timelinesFirst(page);
       for (const id of ['erie', 'erie-rules']) {
         const region = page.locator(`#inspector .dkla-timeline[data-r21="${id}"]`);
-        await region.locator('.r31-sequence > summary').click();
-        assert.match(await region.innerText(), /Ragan/);
-        assert.match(await region.innerText(), /Walker/);
+        assert.match(await region.locator('[aria-current="step"]').innerText(), /Walker/);
+        assert.ok((await region.locator('.r31-preview-track > li').count()) >= 2);
       }
       console.log('OPEN source ' + viewport.width);
       await page.getByRole('button', { name: 'Original source', exact: true }).click();

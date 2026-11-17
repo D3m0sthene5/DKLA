@@ -179,15 +179,18 @@
   }
 
   function panelHTML(t, current) {
-    const steps = t.steps
-      .filter(live)
-      .map((s, i) => {
-        const cur = s.id && s.id === current;
-        const kind = s.event ? ' r21-event' : s.sup ? ' r21-sup' : '';
-        return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${dateLabel(s)}</span><span class="r31-preview-copy"><strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small></span>`, 'r21-step')}</li>`;
+    const sequence = t.steps.filter(live);
+    const index = sequence.findIndex((s) => s.id === current);
+    const start = Math.max(0, Math.min(index - 1, sequence.length - 3));
+    const steps = sequence
+      .slice(start, start + 3)
+      .map((s) => {
+        const selected = s.id && s.id === current;
+        const milestone = `<span class="r31-preview-date">${dateLabel(s)}${selected ? ' · This case' : ''}</span><strong>${esc(name(s))}</strong>${turnTag(s, t)}`;
+        return `<li${selected ? ' aria-current="step"' : ''}>${opener(s, milestone, 'r21-step')}</li>`;
       })
       .join('');
-    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><p class="r31-preview-question">${esc(t.question)}</p><details class="r31-sequence"><summary>Follow the sequence <span>${t.steps.filter(live).length} entries</span></summary><ol class="dkla-timeline-track">${steps}</ol></details><button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Read timeline & sources →</button></section>`;
+    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><p class="r31-preview-question">${esc(t.question)}</p><ol class="r31-preview-track" start="${start + 1}">${steps}</ol><button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Full timeline · ${sequence.length} entries →</button></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {
@@ -207,7 +210,6 @@
     const inspector = document.getElementById('inspector');
     if (!inspector) return;
     const current = typeof selected !== 'undefined' && selected?.type === 'node' ? selected.id : null;
-    let painted = false;
     const fresh = [...inspector.querySelectorAll('.dkla-timeline:not([data-r21])')]
       .map((sec) => [sec, byTitle.get(sec.getAttribute('aria-label'))])
       .filter((x) => x[1]);
@@ -227,15 +229,6 @@
     }
     fresh.forEach(([sec, t]) => {
       sec.outerHTML = panelHTML(t, current);
-      painted = true;
-    });
-    // bring the open case's step into view, as the panel did before
-    if (painted) inspector.querySelectorAll('.dkla-timeline[data-r21]').forEach(positionCurrent);
-  }
-  function positionCurrent(disclosure) {
-    disclosure.querySelectorAll('li.is-current').forEach((li) => {
-      const track = li.parentElement;
-      track.scrollLeft = Math.max(0, li.offsetLeft - track.clientWidth / 2 + li.offsetWidth / 2);
     });
   }
   if (typeof renderInspector === 'function') {
@@ -290,23 +283,25 @@
     const flags = `${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}`;
     const action = s.event
       ? s.link
-        ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))} ↗</button>`
+        ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`
         : `<b class="r21-name">${esc(name(s))}</b>`
       : s.sup
-        ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))} ↗</button>`
-        : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))} ↗</button>`;
+        ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`
+        : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`;
     const reading = source(s);
-    return `<li class="${flags}" data-r31-step="${i}"><span class="r21-y">${dateLabel(s)}</span><article class="r31-entry"><div class="r31-entry-heading">${authority(s)}${action}</div>${turnTag(s, t)}<p class="r31-core">${esc(s.note)}</p>${s.fate ? `<aside class="r31-later"><strong>Later development</strong>${fate(s)}</aside>` : ''}${s.context || reading ? `<details class="r31-evidence"><summary>${s.context ? 'Context & sources' : 'Read the sources'}</summary>${s.context ? `<p>${esc(s.context)}</p>` : ''}<div class="r31-source-links">${reading}</div></details>` : ''}</article></li>`;
+    return `<li class="${flags}" data-r31-step="${i}"><span class="r21-y">${dateLabel(s)}</span><article class="r31-entry"><div class="r31-entry-heading">${turnTag(s, t)}${authority(s)}${action}</div><p class="r31-core">${esc(s.note)}</p>${s.fate ? `<aside class="r31-later"><strong>Later development</strong>${fate(s)}</aside>` : ''}${s.context || reading ? `<details class="r31-evidence"><summary>${s.context ? 'Context & sources' : 'Read the sources'}</summary>${s.context ? `<p>${esc(s.context)}</p>` : ''}<div class="r31-source-links">${reading}</div></details>` : ''}</article></li>`;
   }
   function detailHTML(t) {
     title.innerHTML = `<h2>${esc(t.title)}</h2>`;
     const steps = t.steps.filter(live);
     return `<div class="r31-toolbar"><button type="button" data-r21-back>← All timelines</button><button type="button" data-r31-sequence>Go to entries ↓</button><span>${esc(SHORT[V.course])} · ${steps.length} entries · ${yearRange(t)}</span></div>
       <section class="r31-orientation" aria-label="Start here"><p class="r31-kicker">${t.kind === 'course-chronology' ? 'Course case index' : 'The question'}</p><p class="r21-q">${esc(t.question)}</p>${t.guide ? `<details class="r31-guide"><summary>How these entries connect</summary><p>${esc(t.guide)}</p></details>` : ''}</section>
-      ${t.now ? `<section class="r31-takeaway" aria-label="Main takeaway"><h3>${t.kind === 'course-chronology' ? 'About this index' : 'Main takeaway'}</h3>${synthesis(t)}</section>` : ''}
-      <div class="r31-sequence-head"><h3>${t.kind === 'course-chronology' ? 'Cases in date order' : 'Follow the sequence'}</h3><p>Open a name to read the case or rule. Expand sources for the assigned reading and supporting passages.</p></div>
+
+      <div class="r31-sequence-head"><h3>${t.kind === 'course-chronology' ? 'Cases in date order' : 'How the doctrine developed'}</h3></div>
       ${steps.length > 50 ? '<label class="r31-search">Find a case in this index<input type="search" data-r31-cases placeholder="Case name, year, or rule" autocomplete="off"></label><p class="r31-case-count" role="status"></p>' : ''}
-      <ol class="r21-v">${steps.map((s, i) => stepHTML(s, t, i)).join('')}</ol><p class="r31-end">End of ${esc(t.title)} <button type="button" data-r31-top>Back to top ↑</button></p>`;
+      <ol class="r21-v">${steps.map((s, i) => stepHTML(s, t, i)).join('')}</ol>
+      ${t.now ? `<section class="r31-takeaway" aria-label="Main takeaway"><h3>${t.kind === 'course-chronology' ? 'About this index' : 'Main takeaway'}</h3>${synthesis(t)}</section>` : ''}
+      <p class="r31-end">End of ${esc(t.title)} <button type="button" data-r31-top>Back to top ↑</button></p>`;
   }
   function render() {
     const t = V.open && byId.get(V.open);
