@@ -23,7 +23,7 @@
     "The New Hampshire Supreme Court overruled Carrig’s exceptions."
   ],
   "limits": "The court assumed the original contract covered the rock and treated the owner’s release as voluntary. Later Restatement § 89 provides a different explanation; the opinion does not automatically excuse rock excavation or validate coerced modifications.",
-  "briefSha256": "256a43125e49135a0790ef8867ba113f54fdbc0cc98a9d9d8c0271f82d93bac1",
+  "briefSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
   "sources": [
     {
       "id": "brief",
@@ -135,6 +135,24 @@
           "pinpoint": "Judgment; Separate Opinions; Notes; 91 N.H. at 465; C&M pp.475–80; Restatement §89 cmt.b and illustration 1"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "priorSourceSha256": "256a43125e49135a0790ef8867ba113f54fdbc0cc98a9d9d8c0271f82d93bac1",
+      "sourceSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

@@ -107,7 +107,9 @@
   }
 
   const sameQuestion = (entry, key, node, after) =>
-    normalise(entry.question) === key && (entry.node || '') === (node || '') && !entry.after === !after;
+    normalise(entry.question) === key &&
+    (entry.node || '') === (node || '') &&
+    normalise(entry.after || '') === normalise(after || '');
   const sameText = (a, b) =>
     a.paragraphs.map((p) => p.text).join('\n') === b.paragraphs.map((p) => p.text).join('\n');
   const day = (iso) => {
@@ -285,7 +287,7 @@
         open.type = 'button';
         open.className = 'ask-saved-item';
         const question = document.createElement('span');
-        question.textContent = entry.question;
+        question.textContent = api.displayQuestion(entry.question);
         const details = document.createElement('small');
         const cited = new Set(entry.answer.paragraphs.flatMap((p) => p.citations)).size;
         details.textContent =
@@ -294,7 +296,7 @@
           ' · ' +
           cited +
           (cited === 1 ? ' source' : ' sources') +
-          (entry.after ? ' · follow-up to “' + entry.after + '”' : '');
+          (entry.after ? ' · follow-up to “' + api.displayQuestion(entry.after) + '”' : '');
         open.append(question, details);
         open.addEventListener('click', () => {
           hide();

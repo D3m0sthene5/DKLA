@@ -125,15 +125,41 @@
     s.authorityKind && s.authorityKind !== 'Court decision'
       ? `<span class="r25-authority-kind">${esc(s.authorityKind)}</span>`
       : '';
-  const synthesis = (t) => (t.now ? `<p class="r25-timeline-synthesis">${esc(t.now)}</p>` : '');
+  const reviewSources = (item) =>
+    (item.reviewSources || [])
+      .filter(({ url }) => {
+        try {
+          const u = new URL(url);
+          return u.protocol === 'https:' && !u.username && !u.password;
+        } catch {
+          return false;
+        }
+      })
+      .map(
+        ({ url, label }) =>
+          `<a class="r28-step-source" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Primary source: ${esc(label)} ↗</a>`,
+      )
+      .join(' ');
+  const synthesis = (t) =>
+    t.now ? `<p class="r25-timeline-synthesis">${esc(t.now)} ${reviewSources(t)}</p>` : '';
   const fate = (s) => (s.fate ? `<span class="r21-fate">${esc(s.fate)}</span>` : '');
+  const dateLabel = (s) => {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(s.date || '')) return esc(s.year ?? 'Undated');
+    const [year, month, day] = s.date.split('-').map(Number);
+    const name = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][
+      month - 1
+    ];
+    return `<time datetime="${esc(s.date)}">${year}<small>${name} ${day}</small></time>`;
+  };
   const source = (s) => {
     const bid = s.sup || D.map[s.id] || s.id;
     const links = D.sourceLinks?.[bid] || [];
     const reading = links.find((r) => r.path);
-    return reading
-      ? `<button type="button" class="r28-step-source" data-dkla-file="${esc(reading.path + '#page=' + reading.page)}" title="${esc(reading.label)}">Read original source ↗</button>`
-      : '';
+    return (
+      (reading
+        ? `<button type="button" class="r28-step-source" data-dkla-file="${esc(reading.path + '#page=' + reading.page)}" title="${esc(reading.label)}">Read original source ↗</button>`
+        : '') + reviewSources(s)
+    );
   };
   function linksFor(id) {
     const lines = TL.list.filter((t) => t.steps.some((s) => s.id === id || s.sup === id));
@@ -157,7 +183,7 @@
       .map((s, i) => {
         const cur = s.id && s.id === current;
         const kind = s.event ? ' r21-event' : s.sup ? ' r21-sup' : '';
-        return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${esc(s.year)}</span>${authority(s)}<strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}</li>`;
+        return `<li class="${cur ? 'is-current' : ''}${kind}" style="--i:${i}">${opener(s, `<span class="dkla-tl-year">${dateLabel(s)}</span>${authority(s)}<strong>${esc(name(s))}</strong>${turnTag(s, t)}<small>${esc(s.note)}</small>${fate(s)}`, 'r21-step')}${reviewSources(s)}</li>`;
       })
       .join('');
     return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><ol class="dkla-timeline-track">${steps}</ol>${synthesis(t)}<button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Open full timeline</button></section>`;
@@ -256,7 +282,7 @@
         .filter(live)
         .map(
           (s) =>
-            `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${esc(s.year ?? 'Undated')}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}${source(s)}</div></li>`,
+            `<li class="${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}"><span class="r21-y">${dateLabel(s)}</span><div>${authority(s)}${s.event ? (s.link ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))}</button>` : `<b class="r21-name">${esc(name(s))}</b>`) : s.sup ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))}</button>` : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))}</button>`}${turnTag(s, t)}<p>${esc(s.note)}</p>${fate(s)}${source(s)}</div></li>`,
         )
         .join('')}</ol>
       ${synthesis(t)}`;

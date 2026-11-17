@@ -31,7 +31,7 @@
     "The United States Supreme Court reversed on June 24, 1977, before trial of the derivative claims."
   ],
   "limits": "This narrative follows the source brief’s historical 1977 account, without a new independent opinion audit. Liability, indemnification and the independent seizure-safeguards challenge were undecided. Actual notice was not disputed. The account of Delaware consent law describes the law then before the Court. The Court distinguished enforcement of an already established obligation from first adjudicating liability and reserved whether property could furnish jurisdiction when no other forum was available.",
-  "briefSha256": "84a123821ae7ef6c88203c8827c8026c23f8e3fe9775ee7fc9f0cfa3b706bf65",
+  "briefSha256": "6386bbdf6327063f07e0699252942fba1758fb1aacf74d508562bdd1315bde0d",
   "sources": [
     {
       "id": "brief",
@@ -154,6 +154,21 @@
       "previous": {
         "briefSha256": "71bcd0a1fc53f6a7f4a307ee49a80a155a4cb12379552b0236c0db46e52101ef"
       }
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        86
+      ],
+      "priorSourceSha256": "84a123821ae7ef6c88203c8827c8026c23f8e3fe9775ee7fc9f0cfa3b706bf65",
+      "sourceSha256": "6386bbdf6327063f07e0699252942fba1758fb1aacf74d508562bdd1315bde0d",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

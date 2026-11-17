@@ -27,7 +27,7 @@
     "The Supreme Court reversed and remanded on January 6, 1964, finding valid service under the Federal Rule."
   ],
   "limits": "The holding depends on actual prompt notice and addresses an appointed agent under the Federal Rule, not subject-matter jurisdiction, venue, the unpaid-rent merits, or a case where no notice reached defendants. The majority did not decide a due-process question.",
-  "briefSha256": "47d3afcd056c2e7705656ac2f9c3ca128d52e366f29b3117e17d530a8c5a5133",
+  "briefSha256": "9080c76241f3c09d3d5943c0c01e6f5d27b359086ffe580ad84564150763e480",
   "sources": [
     {
       "id": "brief",
@@ -135,6 +135,21 @@
           "pinpoint": "375 U.S. at 333–334; Brennan dissent; Notes"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        89
+      ],
+      "priorSourceSha256": "47d3afcd056c2e7705656ac2f9c3ca128d52e366f29b3117e17d530a8c5a5133",
+      "sourceSha256": "9080c76241f3c09d3d5943c0c01e6f5d27b359086ffe580ad84564150763e480",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

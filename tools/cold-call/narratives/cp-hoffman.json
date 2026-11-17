@@ -36,7 +36,7 @@
     "The Supreme Court affirmed both Seventh Circuit judgments on June 13, 1960."
   ],
   "limits": "This source-brief account states the historical wording of § 1404(a), without a new audit. Later text permits an all-party-consent destination, distinct from the defendants’ unilateral consent here. Convenience and mandamus availability were unchallenged in Supreme Court review. Neither patent liability nor the shareholder merits were decided, and subject-matter jurisdiction was not made waivable.",
-  "briefSha256": "cb81bd147734c3a172104b93116c27273291b5143b52947dfc51d488919b5d81",
+  "briefSha256": "3cb19767f49ab7ca0548ca30d1ea33b1292b5a85a98114513e835fd6b0aa3deb",
   "sources": [
     {
       "id": "brief",
@@ -133,6 +133,21 @@
           "pinpoint": "Frankfurter dissents; Notes; 363 U.S. 345–369; Atlantic Marine comparison in source brief"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        95
+      ],
+      "priorSourceSha256": "cb81bd147734c3a172104b93116c27273291b5143b52947dfc51d488919b5d81",
+      "sourceSha256": "3cb19767f49ab7ca0548ca30d1ea33b1292b5a85a98114513e835fd6b0aa3deb",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

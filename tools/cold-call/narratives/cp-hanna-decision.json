@@ -27,7 +27,7 @@
     "The Supreme Court reversed because the applicable Federal Rule validly governed service."
   ],
   "limits": "The case concerns a timely complaint and service method, not tolling an expired limitations period. Rule 4(d)(1) is the historical numbering; negligence and damages were not decided.",
-  "briefSha256": "a68950dcb9e9d863f7d3139ece98e594e687fa7b73216702c4ff0ad16b9913fb",
+  "briefSha256": "e52383d42afb060cc4c8c92d822bdbc71002f6286a9cb1621d70aa651e9f752a",
   "sources": [
     {
       "id": "brief",
@@ -137,6 +137,21 @@
           "pinpoint": "Judgment; Notes; 380 U.S. at 464, 469–78; cited Walker comparison"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        127
+      ],
+      "priorSourceSha256": "a68950dcb9e9d863f7d3139ece98e594e687fa7b73216702c4ff0ad16b9913fb",
+      "sourceSha256": "e52383d42afb060cc4c8c92d822bdbc71002f6286a9cb1621d70aa651e9f752a",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

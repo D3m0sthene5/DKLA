@@ -31,11 +31,9 @@ const timelinesFirst = async (page) => {
 (async () => {
   const browser = await chromium.launch({
     headless: true,
-    executablePath:
-      process.env.DKLA_CHROME ||
-      (process.platform === 'darwin'
-        ? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-        : undefined),
+    // Use the same installed Playwright browser as the other checks. A system
+    // Chrome installation may require native-app approval and never launch.
+    executablePath: process.env.DKLA_CHROME || undefined,
   });
   try {
     for (const viewport of [
@@ -104,6 +102,20 @@ const timelinesFirst = async (page) => {
         await page.getByRole('button', { name: '← Back', exact: true }).click();
       }
       await page.evaluate(() => DKLATimelines.open('erie-rules'));
+      const correctionSource = page.locator('#r21Body a[href*="usrep487022.pdf"]');
+      await correctionSource.waitFor();
+      assert.equal(await page.locator('#r21Body time[datetime="2001-02-27"]').count(), 1);
+      assert.equal(await correctionSource.getAttribute('target'), '_blank');
+      assert.equal(await correctionSource.getAttribute('rel'), 'noopener noreferrer');
+      assert.match(
+        await page.locator('#r21Body').innerText(),
+        /statutes do not undergo the separate Rules Enabling Act test/,
+      );
+      await correctionSource.scrollIntoViewIfNeeded();
+      await page.screenshot({
+        animations: 'disabled',
+        path: `work/v28/reviewed-timeline-${viewport.width}.png`,
+      });
       const source = page
         .locator('#r21Body li')
         .filter({ hasText: 'Walker' })
@@ -121,12 +133,20 @@ const timelinesFirst = async (page) => {
         throw error;
       }
       await page.getByRole('button', { name: '← Back', exact: true }).click();
+      await page.evaluate(() => DKLATimelines.open('public-rights'));
+      assert.match(await page.locator('#r21Body').innerText(), /FCC v. AT&T \(2026\)/);
+      assert.equal(
+        await page
+          .locator('#r21Body a[href="https://www.supremecourt.gov/opinions/25pdf/25-406_nmip.pdf"]')
+          .count(),
+        1,
+      );
       for (let c = 0; c < 3; c++) {
         await page.evaluate((c) => DKLATimelines.open('course-chronology-' + c), c);
         const count = await page.locator('#r21Body .r21-v > li').count();
         assert.ok(count > 100, 'Every course chronology must include the complete case inventory');
         assert.equal(
-          await page.locator('#r21Body .r28-step-source').count(),
+          await page.locator('#r21Body button.r28-step-source').count(),
           count,
           'Every chronology case must have an original PDF source',
         );
@@ -176,7 +196,7 @@ const timelinesFirst = async (page) => {
       await result.click();
       await page.locator(`#fileDialog [data-pdf-rendered="${target}"]`).waitFor({ timeout: 60000 });
       await page.getByRole('button', { name: '← Back', exact: true }).click();
-      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 90000 });
       await page.getByRole('heading', { name: /Peacock Construction/, level: 2 }).waitFor();
       await page.screenshot({
         animations: 'disabled',

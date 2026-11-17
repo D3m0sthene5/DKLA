@@ -32,7 +32,7 @@
   "cases": [
     {
       "id": "cp-afa",
-      "sourceSha256": "017026602591b6ffa1e1ba48975a05ffd4adf9a29e6ff3e601689c74f9b0a6eb",
+      "sourceSha256": "1be8656d51a3944787498e24d28331806440ec78d6ec97009477da924d7458ab",
       "narrativeSha256": "f3e9369119ad09a760f31264005742f260a508bc451a60f08ca93dc0bf9b4ec7",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -54,12 +54,27 @@
       "title": "A.F.A. Tours, Inc. v. Whitchurch",
       "course": "Civil Procedure",
       "briefId": "CPR-016",
-      "accountSha256": "994933ecee0090e246cd315123d7e92d0c7267a02ec03f7237f689279c1f8ba6",
+      "accountSha256": "edc36a0b58b379a4793b1a2365cf5f5899968494e3dd4de4a302c022b26421a7",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 909,
-      "wordsAfter": 912
+      "wordsAfter": 912,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            137
+          ],
+          "priorSourceSha256": "017026602591b6ffa1e1ba48975a05ffd4adf9a29e6ff3e601689c74f9b0a6eb",
+          "sourceSha256": "1be8656d51a3944787498e24d28331806440ec78d6ec97009477da924d7458ab",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-concepcion",
@@ -320,7 +335,7 @@
     },
     {
       "id": "cp-iqbal",
-      "sourceSha256": "540f88c0c88cb01cd9804001ea64f5cbf8f2ffa35abf9a1352882c0df697f14b",
+      "sourceSha256": "32ab3812718e11ea52e85e75b1b9fbb85343ed0208cc1ce0d3cb49a573f2df74",
       "narrativeSha256": "75a970af0ad86d0c2deb4405660dafb458eb6f659af3576dc0c95bf3c809434c",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -342,16 +357,31 @@
       "title": "Ashcroft v. Iqbal",
       "course": "Civil Procedure",
       "briefId": "CP-066",
-      "accountSha256": "5aaa11cc7b64630e0ed5aa9ba4c5b2fad04e933c9e60b3776f0b1f0b5de6ac80",
+      "accountSha256": "7a1c969c5b5964d56e22f3a9a8eed5b6975d947f5cb5e3f4e6a34f0f9d8cc297",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 659,
-      "wordsAfter": 659
+      "wordsAfter": 659,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            102
+          ],
+          "priorSourceSha256": "540f88c0c88cb01cd9804001ea64f5cbf8f2ffa35abf9a1352882c0df697f14b",
+          "sourceSha256": "32ab3812718e11ea52e85e75b1b9fbb85343ed0208cc1ce0d3cb49a573f2df74",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-atlantic-marine",
-      "sourceSha256": "2ea148ad099245f4af4f1dfe5b1f8641ad0b7c5015cf0c6c64f9028fc5729fa6",
+      "sourceSha256": "8b445ad4a7d02447f266bc48c6fcf5060f6a92b3b13f4351f0ecc7b37249d063",
       "narrativeSha256": "12a1e712ada42cc4aab185c949d3e3a0e927abb349d26f2b881f259b6d0ad99f",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -373,12 +403,27 @@
       "title": "Atlantic Marine Construction Co. v. U.S. District Court for the Western District of Texas",
       "course": "Civil Procedure",
       "briefId": "CP-044",
-      "accountSha256": "f0e417fd51f4d5dde9041ab29a7651b8b8bbd001d25bcf86a3423f8866fd963e",
+      "accountSha256": "e7bbc7649e1cb51f0f024fdce4430029e045e5e6a70abae4b91f03639ec616aa",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 675,
-      "wordsAfter": 692
+      "wordsAfter": 692,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            126
+          ],
+          "priorSourceSha256": "2ea148ad099245f4af4f1dfe5b1f8641ad0b7c5015cf0c6c64f9028fc5729fa6",
+          "sourceSha256": "8b445ad4a7d02447f266bc48c6fcf5060f6a92b3b13f4351f0ecc7b37249d063",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-bnsf",
@@ -502,7 +547,7 @@
     },
     {
       "id": "cp-twombly",
-      "sourceSha256": "bd0ef419f075efb4940647212de3b4543bc1d554749dee617f6d301e528befd4",
+      "sourceSha256": "b351e8d73fa696bbdeea40863e462fbd32d0bf249fd141c8061278e63b76cc1f",
       "narrativeSha256": "30ed4d230573410fce651bd287f9e3218af19d627ecce1fcb7d2b4fbb4056be7",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -524,7 +569,7 @@
       "title": "Bell Atlantic Corp. v. Twombly",
       "course": "Civil Procedure",
       "briefId": "CP-065",
-      "accountSha256": "7cabe5c5d054175d8111c64741755521fb751bf16de4acbcfeb69eee3330ec4c",
+      "accountSha256": "3eda2f8378065184ab866f665427f797ba3ad28231e182928bf0db7e8ccabfb0",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
@@ -539,6 +584,21 @@
             "accountSha256": "453191c87cb88dceaeaf72f5adab4130f6246fc7a5fc7430f28284be806baf34",
             "sourceSha256": "dcf7e28e82f1ccf9dc1f4a47f00d6f244e61b903f049be7c40204f79f6150b8e"
           }
+        }
+      ],
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            101
+          ],
+          "priorSourceSha256": "bd0ef419f075efb4940647212de3b4543bc1d554749dee617f6d301e528befd4",
+          "sourceSha256": "b351e8d73fa696bbdeea40863e462fbd32d0bf249fd141c8061278e63b76cc1f",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
         }
       ]
     },
@@ -604,7 +664,7 @@
     },
     {
       "id": "cp-boyle",
-      "sourceSha256": "6480ae5ed04a4c93f7ae9959f663b03da8d06be39f68549141d7214e55bb7ce1",
+      "sourceSha256": "3f9330262bb7f4c8d58c08df31a1f140552dec844f9e88d9298f053aa342d773",
       "narrativeSha256": "181e92addc2e6f388657ed030563c0ffe2bca0c18d0aab14bc6b4a0a9265a4ab",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -626,12 +686,27 @@
       "title": "Boyle v. United Technologies Corp.",
       "course": "Civil Procedure",
       "briefId": "CP-055",
-      "accountSha256": "368e1b9224f405ae336304d277096c8d0166ef4b5250738dbd62299a7d2863ce",
+      "accountSha256": "7efae37b637945ef4c93a88e7a8bd363a1e965bff4de6a7624fe4ab3b97630e8",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 1190,
-      "wordsAfter": 1190
+      "wordsAfter": 1190,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            130
+          ],
+          "priorSourceSha256": "6480ae5ed04a4c93f7ae9959f663b03da8d06be39f68549141d7214e55bb7ce1",
+          "sourceSha256": "3f9330262bb7f4c8d58c08df31a1f140552dec844f9e88d9298f053aa342d773",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-bechtel",
@@ -757,7 +832,7 @@
     },
     {
       "id": "cp-burnham",
-      "sourceSha256": "436d6733cc4edc9c47559734b9b81cae5f53b908de2a44c8fe5483d97fedbf06",
+      "sourceSha256": "b3fedd4ef9fea146ab1239e6e1876f301fcb3b9e424488544490b4ce2bd7d8d8",
       "narrativeSha256": "6f1687b976375a75441c9c9a54fd40ba10a219855dfa07169804f9968c6830d3",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -779,12 +854,27 @@
       "title": "Burnham v. Superior Court",
       "course": "Civil Procedure",
       "briefId": "CPR-009",
-      "accountSha256": "9945395b3325d3d5bf3b8dd6c604e925756653ce38e6ba97b9b2119a269ad2ad",
+      "accountSha256": "dd3e1aac4c0d8673265a3c00285abeb224965ccdd72df91a433a0c8c5f7f26cd",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 757,
-      "wordsAfter": 757
+      "wordsAfter": 757,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            87
+          ],
+          "priorSourceSha256": "436d6733cc4edc9c47559734b9b81cae5f53b908de2a44c8fe5483d97fedbf06",
+          "sourceSha256": "b3fedd4ef9fea146ab1239e6e1876f301fcb3b9e424488544490b4ce2bd7d8d8",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-byrd",
@@ -848,7 +938,7 @@
     },
     {
       "id": "cp-capron",
-      "sourceSha256": "b48d2c75fcce1527eb10025fda97030e7432fc60c1ce75919c8912549046aa33",
+      "sourceSha256": "52c252067b35858a5e73cdcad7ae1e76a432c8d03fdf5b156d62561268adc16e",
       "narrativeSha256": "b7492822d0d242ea7b5b81bf8aad1396e00dff384e0feb364ae0bce84b5c43b3",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -870,16 +960,31 @@
       "title": "Capron v. Van Noorden",
       "course": "Civil Procedure",
       "briefId": "CP-001",
-      "accountSha256": "931101550e27233872affae7aa77d10873d5614e067fdd19a628c00a3bd35345",
+      "accountSha256": "2174dff7ab71120e598401379a4aa55852ea3df8e306b1816bd131ac001b9037",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 334,
-      "wordsAfter": 334
+      "wordsAfter": 334,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            80
+          ],
+          "priorSourceSha256": "b48d2c75fcce1527eb10025fda97030e7432fc60c1ce75919c8912549046aa33",
+          "sourceSha256": "52c252067b35858a5e73cdcad7ae1e76a432c8d03fdf5b156d62561268adc16e",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-celotex",
-      "sourceSha256": "dfcd2968aa31f581c2f568195ddaf4be1bef026ae588a6b6c0855cbbd8e527c1",
+      "sourceSha256": "729b5377b88bbd74006c8338b38856170463802a4968b2518257326eef5280cf",
       "narrativeSha256": "f789b9de909ea26dcc466a1d9bcebc1707f48f0001a43bfcd917ec7b4be393b3",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -901,16 +1006,31 @@
       "title": "Celotex Corp. v. Catrett",
       "course": "Civil Procedure",
       "briefId": "CP-107",
-      "accountSha256": "2442173f0c8633075dd7dc437312de87b716ed93e21b12e1b1a3f0fd8c001626",
+      "accountSha256": "fb58195587bda02814a51109d12fdb594b6ab00d9387bb965283d5c6426cab1b",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 1079,
-      "wordsAfter": 1079
+      "wordsAfter": 1079,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            113
+          ],
+          "priorSourceSha256": "dfcd2968aa31f581c2f568195ddaf4be1bef026ae588a6b6c0855cbbd8e527c1",
+          "sourceSha256": "729b5377b88bbd74006c8338b38856170463802a4968b2518257326eef5280cf",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-clearfield",
-      "sourceSha256": "b2af1efacc701ebc5b29a6e5db5a93a45fb998031674bcc189f4bd046919025c",
+      "sourceSha256": "6190becd9b0bc3b925dff02f285317a76ed21e3ba8051f0705e41303346b6a4c",
       "narrativeSha256": "60ecccadcf56f6f41244ad75bcd535e258557ddf42eca9a0e7fe1c7efda5ddc7",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -932,7 +1052,7 @@
       "title": "Clearfield Trust Co. v. United States",
       "course": "Civil Procedure",
       "briefId": "CP-054",
-      "accountSha256": "605d4c493fb09577273966b7f1f18175d2b27609eb1f06c417a61107beb69e5e",
+      "accountSha256": "62223cb558aebb73507f5b004732328b3061eb3896a7e39887ac8ea66edf90aa",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
@@ -947,6 +1067,21 @@
             "accountSha256": "bdd58a02e6e6da42e0094b7e7083b3166f4cd43a9e626388805e1214213adeaf",
             "sourceSha256": "c0ed2bd241f3f495a42454299929838109eed374778ad388d41d91193e53b2a9"
           }
+        }
+      ],
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            129
+          ],
+          "priorSourceSha256": "b2af1efacc701ebc5b29a6e5db5a93a45fb998031674bcc189f4bd046919025c",
+          "sourceSha256": "6190becd9b0bc3b925dff02f285317a76ed21e3ba8051f0705e41303346b6a4c",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
         }
       ]
     },
@@ -1043,7 +1178,7 @@
     },
     {
       "id": "cp-cooper",
-      "sourceSha256": "16cda852a2b41fabeb22d72f3db1d3952be5d420f6dbffd18854657e5fbc649d",
+      "sourceSha256": "8b68e9bc6545f4314dae367762b00bd8a6c205d2a3b872442df76d971fbe24e8",
       "narrativeSha256": "051927065ffc11d4cd2598bd9a0ec27612c0d88bd4bed487c4556f38e9b99438",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1065,12 +1200,27 @@
       "title": "Cooper v. Federal Reserve Bank of Richmond",
       "course": "Civil Procedure",
       "briefId": "CP-093",
-      "accountSha256": "0468c8d0a7957a831b5d9571dc95bd9464cec329718c6d2ab5037909a1716784",
+      "accountSha256": "f369b1d588fefde6bd2c6e0cc2ba03e45e6ff943e43d2a8d7a0f3a27a794e636",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 816,
-      "wordsAfter": 831
+      "wordsAfter": 831,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            110
+          ],
+          "priorSourceSha256": "16cda852a2b41fabeb22d72f3db1d3952be5d420f6dbffd18854657e5fbc649d",
+          "sourceSha256": "8b68e9bc6545f4314dae367762b00bd8a6c205d2a3b872442df76d971fbe24e8",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-cross",
@@ -1168,7 +1318,7 @@
     },
     {
       "id": "cp-dice",
-      "sourceSha256": "a61992327e8e1c5bc7ff965096e609427e20b27e043687036ef0080ad4ba2f0d",
+      "sourceSha256": "4eaa99352d7f1e8166cac784882dc1a0b428947a62d4dd67363993f17c2f22aa",
       "narrativeSha256": "82993aff4b94bb144dd0144a170282546c925319993ad0e5fa7c639938fe3b09",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1188,12 +1338,27 @@
       "title": "Dice v. Akron, Canton & Youngstown Railroad Co.",
       "course": "Civil Procedure",
       "briefId": "CP-056",
-      "accountSha256": "29d629cf769a4700e366ec59e6b8634a18c57735a077a1dfde37f19f270c41ee",
+      "accountSha256": "52493ccfae03a641e037b24327185dc46fe791b1a06e8a19c99b5e3ba143828c",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 790,
-      "wordsAfter": 790
+      "wordsAfter": 790,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            131
+          ],
+          "priorSourceSha256": "a61992327e8e1c5bc7ff965096e609427e20b27e043687036ef0080ad4ba2f0d",
+          "sourceSha256": "4eaa99352d7f1e8166cac784882dc1a0b428947a62d4dd67363993f17c2f22aa",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-dioguardi",
@@ -1321,7 +1486,7 @@
     },
     {
       "id": "cp-erie-decision",
-      "sourceSha256": "f3092a90f13e609d3852f99ba0ff08dedd961e53153462432de8220a1fc0d46a",
+      "sourceSha256": "aeee0bfa92727b17d288cd93b5396eb855e9982f3cd1469fffdec360a18cb43b",
       "narrativeSha256": "255351baffe744b268205f6f934021206ddd319ad86b522ad9e75f57a569a731",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1343,7 +1508,7 @@
       "title": "Erie Railroad Co. v. Tompkins",
       "course": "Civil Procedure",
       "briefId": "CP-045",
-      "accountSha256": "0ed1c1dc0364c3c36cb7a34f3d224c13f47fbc409b519d8f65eee33211563e95",
+      "accountSha256": "331e2ff367365cda2dffaf4e857869300342e51b32387418a0ae94caa1318b3e",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
@@ -1359,11 +1524,26 @@
             "sourceSha256": "47a57e643c8a349dfd2769b9b1f0013fbdfef5459ce6472414f50ad3d18300c9"
           }
         }
+      ],
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            97
+          ],
+          "priorSourceSha256": "f3092a90f13e609d3852f99ba0ff08dedd961e53153462432de8220a1fc0d46a",
+          "sourceSha256": "aeee0bfa92727b17d288cd93b5396eb855e9982f3cd1469fffdec360a18cb43b",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
       ]
     },
     {
       "id": "cp-exxon",
-      "sourceSha256": "e09fe013a762c2c78be25d02b16b7793e43c16565679537c2c529a5dfd60cfdb",
+      "sourceSha256": "0028e1c5d82103a70c1e94ba2936436dea5a50649d1d09fdbc6d75c6ec416f58",
       "narrativeSha256": "3ba489c78506e050ba80febb4ff0cc04d565e0557b4e72df731f47c9ca720a11",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1385,12 +1565,27 @@
       "title": "Exxon Mobil Corp. v. Allapattah Services, Inc.",
       "course": "Civil Procedure",
       "briefId": "CP-038",
-      "accountSha256": "94d0edcc05ec7a7e2c77eed3403072e6804b6f3b9a18b034fc0ca0df0f741912",
+      "accountSha256": "0bdb851dd56520ce7dc9b87b74424fdd669e72dc068e258b60a1c76211a62b66",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 977,
-      "wordsAfter": 984
+      "wordsAfter": 984,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            94
+          ],
+          "priorSourceSha256": "e09fe013a762c2c78be25d02b16b7793e43c16565679537c2c529a5dfd60cfdb",
+          "sourceSha256": "0028e1c5d82103a70c1e94ba2936436dea5a50649d1d09fdbc6d75c6ec416f58",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-finley",
@@ -1425,7 +1620,7 @@
     },
     {
       "id": "ford",
-      "sourceSha256": "423627e3fad9e324ddab068f1b2deab10dd2f93bf902499a39328e4b96eac882",
+      "sourceSha256": "415c5b0e953160bb17b3565019ca8aa3c4cac46f5016d28192ccbb0157098f30",
       "narrativeSha256": "0759e7aa9f2ad2801a902dcf1c4f73d098c5c2bdb73a5b0a3e178573a17d37d6",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1447,12 +1642,27 @@
       "title": "Ford Motor Co. v. Montana Eighth Judicial District Court",
       "course": "Civil Procedure",
       "briefId": "CPR-007",
-      "accountSha256": "076289b27708da50740728d710454f36ad5fba86f08f838a801d7d8803734cec",
+      "accountSha256": "ca96f4101c23e847ad75af4a97f7595e9b74f61320baa5d071d579555727cee2",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 2381,
-      "wordsAfter": 2381
+      "wordsAfter": 2381,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            136
+          ],
+          "priorSourceSha256": "423627e3fad9e324ddab068f1b2deab10dd2f93bf902499a39328e4b96eac882",
+          "sourceSha256": "415c5b0e953160bb17b3565019ca8aa3c4cac46f5016d28192ccbb0157098f30",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-fuentes",
@@ -1524,7 +1734,7 @@
     },
     {
       "id": "cp-gasperini",
-      "sourceSha256": "6afc18ca4dee4cd55a71434d4dd4118e766d8ae427f98e314fbc36c91b932c8e",
+      "sourceSha256": "db6003091c03d532c26b86fc0ee7e0e27387f9ce201e6e34431acd381a32fb2c",
       "narrativeSha256": "658bf80645c32fab6c61bbb7fcf0a43d90b86f48799338536037a21dacbd59aa",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1546,7 +1756,7 @@
       "title": "Gasperini v. Center for Humanities, Inc.",
       "course": "Civil Procedure",
       "briefId": "CP-051",
-      "accountSha256": "d7c4a9419eb1af67530beb3d0ebd286956d73016b2cba539f8820d52e742164d",
+      "accountSha256": "08a32e7779f21c3a4a1e5ccd450cacb82a9b07bef8dd577a437b9e73eb1b66ca",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
@@ -1561,6 +1771,21 @@
             "accountSha256": "01c170932861dce0b8649a6285c0ce82d22affdf45ca830970feab4f75d024ce",
             "sourceSha256": "ff3466374d6d96d6feb4c23e16a740cf352a0a428bff8c140f53427baee6bb35"
           }
+        }
+      ],
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            99
+          ],
+          "priorSourceSha256": "6afc18ca4dee4cd55a71434d4dd4118e766d8ae427f98e314fbc36c91b932c8e",
+          "sourceSha256": "db6003091c03d532c26b86fc0ee7e0e27387f9ce201e6e34431acd381a32fb2c",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
         }
       ]
     },
@@ -1597,7 +1822,7 @@
     },
     {
       "id": "cp-goodyear",
-      "sourceSha256": "502c806fb293d7ad162feab6d99a99b7302616ce36ba48aed2b45bb3261577cd",
+      "sourceSha256": "f1fa9bb40d0620e3a854ea5f4cea41ff1a44b6237df299e1221b6024e53a95a7",
       "narrativeSha256": "48bda7080a4788be395dad9649479c093229ea6554ea8b70015e2d283680fbc0",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1617,16 +1842,31 @@
       "title": "Goodyear Dunlop Tires Operations, S.A. v. Brown",
       "course": "Civil Procedure",
       "briefId": "CPR-006",
-      "accountSha256": "af99a339a05437d2bf2ae65ec977a6b22e6ba051be6a2f26218a7433607d9451",
+      "accountSha256": "b34508734536aa8fbe60e3ba670295a72cb455cc5260c3bad11e2c6a558fdccb",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 547,
-      "wordsAfter": 547
+      "wordsAfter": 547,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            85
+          ],
+          "priorSourceSha256": "502c806fb293d7ad162feab6d99a99b7302616ce36ba48aed2b45bb3261577cd",
+          "sourceSha256": "f1fa9bb40d0620e3a854ea5f4cea41ff1a44b6237df299e1221b6024e53a95a7",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-grable",
-      "sourceSha256": "e40c5705ab7558f5b70fd61f8f853eb2db21b58a56f2966babacb94802e0ebc4",
+      "sourceSha256": "51a12fd299a7fcc1a6c64ee1e677a1a84bad57236ab0d8dd32befb672d4e2cfe",
       "narrativeSha256": "a32ca758564cef3eb1efec03073b17a8f0198e52d9461efa746c8099d42e7d5a",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1648,12 +1888,27 @@
       "title": "Grable & Sons Metal Products, Inc. v. Darue Engineering & Manufacturing",
       "course": "Civil Procedure",
       "briefId": "CP-035",
-      "accountSha256": "f1e51f8555eed00434f0268f62614a07fd1646977333a87fc04b9f440fafa6c3",
+      "accountSha256": "124e9fac60fe53b7c53a9a6bb1ce1203bb412492c45a0dc2107b94664858ef83",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 508,
-      "wordsAfter": 508
+      "wordsAfter": 508,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            91
+          ],
+          "priorSourceSha256": "e40c5705ab7558f5b70fd61f8f853eb2db21b58a56f2966babacb94802e0ebc4",
+          "sourceSha256": "51a12fd299a7fcc1a6c64ee1e677a1a84bad57236ab0d8dd32befb672d4e2cfe",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-gray",
@@ -1688,7 +1943,7 @@
     },
     {
       "id": "cp-york",
-      "sourceSha256": "19440710d90d67e2046f4c0cd9abb4d09c13f3613b3116ae683b76a7b99835d5",
+      "sourceSha256": "6aed88fb41b8492bd9cad9e9a72cf3e3a46ad0d1875a7e75173724a71af523cb",
       "narrativeSha256": "ae40d5c73d9654130f5972a5e237fda0e268bbbbc1f14d5e221f4ad7b6cb16b4",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1708,16 +1963,31 @@
       "title": "Guaranty Trust Co. v. York",
       "course": "Civil Procedure",
       "briefId": "CP-046",
-      "accountSha256": "9847cf0944055e6923f53740074a74b6175ccee55940fb2e103fdfa189defc36",
+      "accountSha256": "2fc3e42150c02258f9eed2b62e56a07aea998d7dbfc4049cf657502816ef56f4",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 916,
-      "wordsAfter": 916
+      "wordsAfter": 916,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            98
+          ],
+          "priorSourceSha256": "19440710d90d67e2046f4c0cd9abb4d09c13f3613b3116ae683b76a7b99835d5",
+          "sourceSha256": "6aed88fb41b8492bd9cad9e9a72cf3e3a46ad0d1875a7e75173724a71af523cb",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-gunn",
-      "sourceSha256": "6a88f08d2c819ccb68abd68231e018f2c381a521d71681bdaad48d0d10d2d1d4",
+      "sourceSha256": "edee37b871875af215842c23745eebd46ed1aa288c737d5533ac0b708641431b",
       "narrativeSha256": "bd2957fbe4ee865cc5974a399ea466b902ffa7cc7adfaf2ba70cc859955ba341",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1737,12 +2007,27 @@
       "title": "Gunn v. Minton",
       "course": "Civil Procedure",
       "briefId": "CP-036",
-      "accountSha256": "50cb60a12fd02a864d50d067a41bca61fcfc5ccb554350e12b5cabed5dba697a",
+      "accountSha256": "4bd43de2d8c4a2a9b96e6688f8e3f56922da19c2dc4b98e9886870e469ac3844",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 579,
-      "wordsAfter": 579
+      "wordsAfter": 579,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            92
+          ],
+          "priorSourceSha256": "6a88f08d2c819ccb68abd68231e018f2c381a521d71681bdaad48d0d10d2d1d4",
+          "sourceSha256": "edee37b871875af215842c23745eebd46ed1aa288c737d5533ac0b708641431b",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-hadges",
@@ -1837,7 +2122,7 @@
     },
     {
       "id": "cp-hanna-decision",
-      "sourceSha256": "a68950dcb9e9d863f7d3139ece98e594e687fa7b73216702c4ff0ad16b9913fb",
+      "sourceSha256": "e52383d42afb060cc4c8c92d822bdbc71002f6286a9cb1621d70aa651e9f752a",
       "narrativeSha256": "d00767be3272f01ed1d8293951d565b5fa48b9a7ec671bc5d44cdd43ae598295",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1859,16 +2144,31 @@
       "title": "Hanna v. Plumer",
       "course": "Civil Procedure",
       "briefId": "CP-048",
-      "accountSha256": "c8eb2f99b5d6f5a78a56153938c186e3187f0b4c45f6b16e215b54fe76380881",
+      "accountSha256": "a8f3b505682e3801fb684a3bbacc88d9cd8c94acf561ede73d0582d2e9f557b9",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 958,
-      "wordsAfter": 958
+      "wordsAfter": 958,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            127
+          ],
+          "priorSourceSha256": "a68950dcb9e9d863f7d3139ece98e594e687fa7b73216702c4ff0ad16b9913fb",
+          "sourceSha256": "e52383d42afb060cc4c8c92d822bdbc71002f6286a9cb1621d70aa651e9f752a",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-hansberry",
-      "sourceSha256": "38a61c4d73eb64d4fbf0c1ba7f6c981e5ee88417a55386841d7a937ec953b9c9",
+      "sourceSha256": "2bbc7353aa1c488ea489e2f35dbcd6ee994df075338ac85c6e78f178c8139684",
       "narrativeSha256": "8c7d4b68c7193e477b81d82dd992205e504e2cf0bc8a17bd84de1f3d44e7e247",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -1890,12 +2190,27 @@
       "title": "Hansberry v. Lee",
       "course": "Civil Procedure",
       "briefId": "CP-089",
-      "accountSha256": "36ee43cb845095a00e9350e2a79ed0cdabe9a064bc3d71ff656d24d572e4b602",
+      "accountSha256": "98ac4ed089714db3f9df707d891c75c72b93e0ce9eb285a91d2e5ec87e3760d1",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 679,
-      "wordsAfter": 679
+      "wordsAfter": 679,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            107
+          ],
+          "priorSourceSha256": "38a61c4d73eb64d4fbf0c1ba7f6c981e5ee88417a55386841d7a937ec953b9c9",
+          "sourceSha256": "2bbc7353aa1c488ea489e2f35dbcd6ee994df075338ac85c6e78f178c8139684",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-hanson",
@@ -1992,7 +2307,7 @@
     },
     {
       "id": "cp-hess",
-      "sourceSha256": "dc0689127587a47b5f2db2f7a5de64fec46279801d4539eadfac37c49e4a2a7a",
+      "sourceSha256": "149e5bba0edee4dd25a412392f4076e6acecb0fc372acedd655f4107a7f15543",
       "narrativeSha256": "f9d6bc48b14403f5983b3e60bee06bc21dbb0a3b5aca402f974c04e1be3b430c",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2014,16 +2329,31 @@
       "title": "Hess v. Pawloski",
       "course": "Civil Procedure",
       "briefId": "CP-014",
-      "accountSha256": "9b2763f64d444ab8eadd4d42d42daf17651ce5986e643230e1e757b8eeed83be",
+      "accountSha256": "d25f133e79baccb9e02c7309031d44d9d3088c65ed1601d4d8b039ac63965827",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 451,
-      "wordsAfter": 469
+      "wordsAfter": 469,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            83
+          ],
+          "priorSourceSha256": "dc0689127587a47b5f2db2f7a5de64fec46279801d4539eadfac37c49e4a2a7a",
+          "sourceSha256": "149e5bba0edee4dd25a412392f4076e6acecb0fc372acedd655f4107a7f15543",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-hoffman",
-      "sourceSha256": "cb81bd147734c3a172104b93116c27273291b5143b52947dfc51d488919b5d81",
+      "sourceSha256": "3cb19767f49ab7ca0548ca30d1ea33b1292b5a85a98114513e835fd6b0aa3deb",
       "narrativeSha256": "c4e9cebc3e222406eb18719721d0fea9cae91f3970d9602a4ffcabf9f221d323",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2045,12 +2375,27 @@
       "title": "Hoffman v. Blaski",
       "course": "Civil Procedure",
       "briefId": "CP-042",
-      "accountSha256": "c883651d1961b9388a0775ffb16d2c068e1bc0acf0f7de9dbd889c977b03425a",
+      "accountSha256": "e797a3928bc5c1b2b43bd9d230ca30bef696da8f31a85f06ef9721da21fdd709",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 846,
-      "wordsAfter": 861
+      "wordsAfter": 861,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            95
+          ],
+          "priorSourceSha256": "cb81bd147734c3a172104b93116c27273291b5143b52947dfc51d488919b5d81",
+          "sourceSha256": "3cb19767f49ab7ca0548ca30d1ea33b1292b5a85a98114513e835fd6b0aa3deb",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-home-depot",
@@ -2148,7 +2493,7 @@
     },
     {
       "id": "shoe",
-      "sourceSha256": "ad2534ec112e77ea38a2c9fd8e46609771b526938dd1d7b03ea86e9572c4c947",
+      "sourceSha256": "b1c05d28a490ea4c6008b9fb403dce1d91101cbfa13efc7295a67eafb76e9e09",
       "narrativeSha256": "456394e2d5158aecbc760a4e65f8b3db58d45d33c3b2a70cc80a1d70e7a41e67",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2170,12 +2515,27 @@
       "title": "International Shoe Co. v. Washington",
       "course": "Civil Procedure",
       "briefId": "CP-015",
-      "accountSha256": "b4ef47e3cc1ac4b30f0be484da1b36c25183e2d0001a3c92c3767d4cf06993b6",
+      "accountSha256": "6bb754f1db062b2c270fab599dd89f7809d1b8e075142ec5e0ad6129792ceadc",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 608,
-      "wordsAfter": 614
+      "wordsAfter": 614,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            84
+          ],
+          "priorSourceSha256": "ad2534ec112e77ea38a2c9fd8e46609771b526938dd1d7b03ea86e9572c4c947",
+          "sourceSha256": "b1c05d28a490ea4c6008b9fb403dce1d91101cbfa13efc7295a67eafb76e9e09",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-nicastro",
@@ -2556,7 +2916,7 @@
     },
     {
       "id": "cp-mottley",
-      "sourceSha256": "d862f59e450dc2aeed5f48bd8991a57e912324b9d6e5bef96b52a4e3434ca9c7",
+      "sourceSha256": "3ce58dad693297bbee5d6131f9799f93e9f2504e1c86735b46f313343b6903bf",
       "narrativeSha256": "1206d6915fc63e458f30e7857a44e90e32a6b9f4207dd237bda0eefa66308a28",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2578,12 +2938,27 @@
       "title": "Louisville & Nashville Railroad Co. v. Mottley",
       "course": "Civil Procedure",
       "briefId": "CP-033",
-      "accountSha256": "acd9a62d797437f8d793329fed1c45f3168918823a08dedd97d6acca087005f5",
+      "accountSha256": "1ef924b5f107d46191e98215094e2ce5d2882bff5bfaabba5ab9e5e5af00654f",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 526,
-      "wordsAfter": 533
+      "wordsAfter": 533,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            90
+          ],
+          "priorSourceSha256": "d862f59e450dc2aeed5f48bd8991a57e912324b9d6e5bef96b52a4e3434ca9c7",
+          "sourceSha256": "3ce58dad693297bbee5d6131f9799f93e9f2504e1c86735b46f313343b6903bf",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-mallory",
@@ -2773,7 +3148,7 @@
     },
     {
       "id": "cp-mullane",
-      "sourceSha256": "a5b957b08845d8dd2b7f7677309b5f0b25ed3e804e9d6a81f1aec7d99c4040bb",
+      "sourceSha256": "80b08c8c745658bcef781c6088640010c7c938e94a8928ea70e8d7b40f168ea6",
       "narrativeSha256": "6205099b5bbbe4ffc01ca638f1603fb34d813a6b88dcdba31f44ce117c31dcef",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2795,12 +3170,27 @@
       "title": "Mullane v. Central Hanover Bank & Trust Co.",
       "course": "Civil Procedure",
       "briefId": "CPR-010",
-      "accountSha256": "dad0d9a41b9d7ada9b594764b65b343f83d258c7b86268a32f0d508495ec9c13",
+      "accountSha256": "53576363789dbd235717b2e47e9ee19fff3e3f120ff567712a4e2feac1f24b77",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 1476,
-      "wordsAfter": 1477
+      "wordsAfter": 1477,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            88
+          ],
+          "priorSourceSha256": "a5b957b08845d8dd2b7f7677309b5f0b25ed3e804e9d6a81f1aec7d99c4040bb",
+          "sourceSha256": "80b08c8c745658bcef781c6088640010c7c938e94a8928ea70e8d7b40f168ea6",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-mussat",
@@ -2835,7 +3225,7 @@
     },
     {
       "id": "cp-szukhent",
-      "sourceSha256": "47d3afcd056c2e7705656ac2f9c3ca128d52e366f29b3117e17d530a8c5a5133",
+      "sourceSha256": "9080c76241f3c09d3d5943c0c01e6f5d27b359086ffe580ad84564150763e480",
       "narrativeSha256": "faec766db6cf3cc59a2c0baca8ad9809adb6c51cc556e90bad42e95b1826d4bc",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2857,12 +3247,27 @@
       "title": "National Equipment Rental, Ltd. v. Szukhent",
       "course": "Civil Procedure",
       "briefId": "CPR-011",
-      "accountSha256": "d3780c10ca4498a0026b8547a108d68fccb22936a6c7e9f59afe08c70d40f0b5",
+      "accountSha256": "1a9d19096b05953fb919c732b7edb2ef6c8ecebee2fc3dd9c9de1556366043f3",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 790,
-      "wordsAfter": 800
+      "wordsAfter": 800,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            89
+          ],
+          "priorSourceSha256": "47d3afcd056c2e7705656ac2f9c3ca128d52e366f29b3117e17d530a8c5a5133",
+          "sourceSha256": "9080c76241f3c09d3d5943c0c01e6f5d27b359086ffe580ad84564150763e480",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-ortiz",
@@ -2960,7 +3365,7 @@
     },
     {
       "id": "cp-pennoyer",
-      "sourceSha256": "85e3f7b862e5594246bd98b5f2ae0d964070bfa18ec1155e0f4a61e337b3f8a5",
+      "sourceSha256": "795cca7a94b2283c2169b8808ca33e8f786b2e94a2c9c244bcd8232719beb994",
       "narrativeSha256": "31e5389cf6e11fc031ddec3be7f9cee9905528d7a595206164201f2199ffc767",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -2990,12 +3395,27 @@
       "title": "Pennoyer v. Neff",
       "course": "Civil Procedure",
       "briefId": "CP-013",
-      "accountSha256": "953dc4908bacf418f346b10ed4735a9ea52065bf34c2026c269e010cce90cd4c",
+      "accountSha256": "a095111a215284cca9002cccbcb0a65b86269020411e6a885a6dcf482d966ee2",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 1329,
-      "wordsAfter": 1526
+      "wordsAfter": 1526,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            82
+          ],
+          "priorSourceSha256": "85e3f7b862e5594246bd98b5f2ae0d964070bfa18ec1155e0f4a61e337b3f8a5",
+          "sourceSha256": "795cca7a94b2283c2169b8808ca33e8f786b2e94a2c9c244bcd8232719beb994",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-perkins",
@@ -3028,7 +3448,7 @@
     },
     {
       "id": "cp-shutts",
-      "sourceSha256": "abc6a178c113003a9655f77806321c4cf21c4d0fee356594b20f6cba6c17d9a2",
+      "sourceSha256": "2f5678f45918a5384be08fb2b9a630d3f81921923a2f15229e36769560692296",
       "narrativeSha256": "17e3729b9d4a08ffa257d9487be54ea3ed87c17b2f65340c13b3b8e6b906ad69",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3050,16 +3470,31 @@
       "title": "Phillips Petroleum Co. v. Shutts",
       "course": "Civil Procedure",
       "briefId": "CP-092",
-      "accountSha256": "e8770175a7a1eee747211e936d6c60dc17bca98c5a50467c77cff8418350fadf",
+      "accountSha256": "4aa8ad0c3fd5a4859f91cb6bb48782b0b71da33e6c417d2ca2362f79b2428406",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 764,
-      "wordsAfter": 764
+      "wordsAfter": 764,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            109
+          ],
+          "priorSourceSha256": "abc6a178c113003a9655f77806321c4cf21c4d0fee356594b20f6cba6c17d9a2",
+          "sourceSha256": "2f5678f45918a5384be08fb2b9a630d3f81921923a2f15229e36769560692296",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-piper",
-      "sourceSha256": "ef76c628d5a78702a4b4db112cc436d2ce6992efb98b3febec823ec1bb92b7c6",
+      "sourceSha256": "a71cb06a183b165a04a3b750e26f71e4298b765d7fbb47dba068a0e9291e5528",
       "narrativeSha256": "6a483e263b84a702c1cf712b14e9bcfb8b35759fd23146751db58111a63617a4",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3081,12 +3516,27 @@
       "title": "Piper Aircraft Co. v. Reyno",
       "course": "Civil Procedure",
       "briefId": "CP-043",
-      "accountSha256": "6106ce5e8d02dada1a0f363c20a1c82cc32e3f88ab25199199a5b3baa1b434a9",
+      "accountSha256": "a8977c5e5f2d0a87af7e199ee28fe6a86f451bc71ae255d6ed2304c37287f91f",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 1061,
-      "wordsAfter": 1061
+      "wordsAfter": 1061,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            96
+          ],
+          "priorSourceSha256": "ef76c628d5a78702a4b4db112cc436d2ce6992efb98b3febec823ec1bb92b7c6",
+          "sourceSha256": "a71cb06a183b165a04a3b750e26f71e4298b765d7fbb47dba068a0e9291e5528",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-poller",
@@ -3121,7 +3571,7 @@
     },
     {
       "id": "cp-provident",
-      "sourceSha256": "19fd96a472f9a8f27d8c236b92adb6b01a057e5eef1558770514e854d375d9c8",
+      "sourceSha256": "32c06a19c9579670359abe8dde7555df8d4b7c34c4b0049f836b1d83b00ee2f4",
       "narrativeSha256": "a844179a8d9b2a88fdd75595f7c21834cad72b8403f8a36a6a43f722107d7274",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3143,12 +3593,27 @@
       "title": "Provident Tradesmens Bank & Trust Co. v. Patterson",
       "course": "Civil Procedure",
       "briefId": "CP-083",
-      "accountSha256": "7c45c6e72d05b7528108d6a5a71ae98797d6d3863611d272168fdf8bde1b1170",
+      "accountSha256": "61b4809184424119c331ecbd5eef651c402485f6391f02fa1ef3720f466dcc5d",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 683,
-      "wordsAfter": 689
+      "wordsAfter": 689,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            105
+          ],
+          "priorSourceSha256": "19fd96a472f9a8f27d8c236b92adb6b01a057e5eef1558770514e854d375d9c8",
+          "sourceSha256": "32c06a19c9579670359abe8dde7555df8d4b7c34c4b0049f836b1d83b00ee2f4",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-ragan",
@@ -3276,7 +3741,7 @@
     },
     {
       "id": "cp-shady-grove",
-      "sourceSha256": "03ac61211197ccf5ff8947f15d069fea20352ccf5a0f91477ec4778f2a0c1998",
+      "sourceSha256": "40c9f893ab0380a5129b035c5ca384c2d862cb7e40198e25ed645567b60a3089",
       "narrativeSha256": "53732fa3b894deacdecb9f6593933c71d66192dc2f55f1e9668f9d637cc4e3e8",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3298,16 +3763,31 @@
       "title": "Shady Grove Orthopedic Associates, P.A. v. Allstate Insurance Co.",
       "course": "Civil Procedure",
       "briefId": "CP-052",
-      "accountSha256": "f6f89b4dee55dc696c1e71a548e702ab3dfcaab0ef3f9e92e543ba037f379173",
+      "accountSha256": "ea96fe5996b0a969552b3ae3f11d773c3db9bd4e2f8ca94d2de115e3f3d15f04",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 1102,
-      "wordsAfter": 1119
+      "wordsAfter": 1119,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            100
+          ],
+          "priorSourceSha256": "03ac61211197ccf5ff8947f15d069fea20352ccf5a0f91477ec4778f2a0c1998",
+          "sourceSha256": "40c9f893ab0380a5129b035c5ca384c2d862cb7e40198e25ed645567b60a3089",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-shaffer",
-      "sourceSha256": "84a123821ae7ef6c88203c8827c8026c23f8e3fe9775ee7fc9f0cfa3b706bf65",
+      "sourceSha256": "6386bbdf6327063f07e0699252942fba1758fb1aacf74d508562bdd1315bde0d",
       "narrativeSha256": "5d6f3cd33b070c88e4c2c5c568df459394767701002b912c55d1b145dd09c503",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3329,7 +3809,7 @@
       "title": "Shaffer v. Heitner",
       "course": "Civil Procedure",
       "briefId": "CPR-008",
-      "accountSha256": "74ff537d8acd1780cf1636497062d3bf9afa8a192924b751388f180699faaed2",
+      "accountSha256": "934fc376dde1e86bc440110e8ecbdab5a525bd314fcd9cd227c30ec461414310",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
@@ -3344,6 +3824,21 @@
             "accountSha256": "456b67d5f741b6e2e7204ca7f248e858b7b3192b6ff4cc7d18374e0a74e9366f",
             "sourceSha256": "71bcd0a1fc53f6a7f4a307ee49a80a155a4cb12379552b0236c0db46e52101ef"
           }
+        }
+      ],
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            86
+          ],
+          "priorSourceSha256": "84a123821ae7ef6c88203c8827c8026c23f8e3fe9775ee7fc9f0cfa3b706bf65",
+          "sourceSha256": "6386bbdf6327063f07e0699252942fba1758fb1aacf74d508562bdd1315bde0d",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
         }
       ]
     },
@@ -3566,7 +4061,7 @@
     },
     {
       "id": "cp-tashire",
-      "sourceSha256": "59ccb33991a3d4f24a710c7515aed30bbc7169ad155c57ae3274033cf5bf859c",
+      "sourceSha256": "5bd61efcce8b5b1507bbcb6c03914f1f352f5554ac99b7f48ee0b1b20689802b",
       "narrativeSha256": "a96b8275c8925eca4f25eecaa12de4e5a9cfb40705c3032f33ad65ebc5529564",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3588,12 +4083,27 @@
       "title": "State Farm Fire & Casualty Co. v. Tashire",
       "course": "Civil Procedure",
       "briefId": "CP-087",
-      "accountSha256": "606aba264a92b24b452b4771ecf17148b5d4e3d054c6fcb38f86dfc6540ddda6",
+      "accountSha256": "d9036bc4eb3c879ff96a652cd27c40911c5250b312ad4278a1d577e1b8926c2d",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 699,
-      "wordsAfter": 706
+      "wordsAfter": 706,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            106
+          ],
+          "priorSourceSha256": "59ccb33991a3d4f24a710c7515aed30bbc7169ad155c57ae3274033cf5bf859c",
+          "sourceSha256": "5bd61efcce8b5b1507bbcb6c03914f1f352f5554ac99b7f48ee0b1b20689802b",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-stewart",
@@ -3668,7 +4178,7 @@
     },
     {
       "id": "cp-surowitz",
-      "sourceSha256": "dc00f87c21decacfe42c9552cb086f3145e69c3edb4fb1c1d64c17b3334bdac2",
+      "sourceSha256": "91a652490e73360fbb482de37383e4cec1da30f3df36be530940423105e2a9fc",
       "narrativeSha256": "4a4ea34c31c97660591398f930e61a4bbe217c197d61b5f89c1b0c27a3692675",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3691,12 +4201,27 @@
       "title": "Surowitz v. Hilton Hotels Corp.",
       "course": "Civil Procedure",
       "briefId": "CP-074",
-      "accountSha256": "3438cdf8ca7d90d80457cf1fb821f17e4ddc9b12c9f662da343a69e1df645b9c",
+      "accountSha256": "b23b9e42bcdc6316e892dfdfb009413614e0a96a7f58be55508c0f9654f6d1a0",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 3,
       "wordsBefore": 590,
-      "wordsAfter": 593
+      "wordsAfter": 593,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            104
+          ],
+          "priorSourceSha256": "dc00f87c21decacfe42c9552cb086f3145e69c3edb4fb1c1d64c17b3334bdac2",
+          "sourceSha256": "91a652490e73360fbb482de37383e4cec1da30f3df36be530940423105e2a9fc",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-swanson",
@@ -3789,7 +4314,7 @@
     },
     {
       "id": "cp-tellabs",
-      "sourceSha256": "4d0d759802b690a46609b43e1bfa344aa836fc0a8d7b032e089c2abe67013c6e",
+      "sourceSha256": "8e8ce030d81e61941c82e70ab999eddfe1de03529d9d1c307c64567116b1e1e5",
       "narrativeSha256": "18e2c5fe02273ec08eef9ddd2a2953017955e912b056b637f7e49b6e6e8917c4",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3811,12 +4336,27 @@
       "title": "Tellabs, Inc. v. Makor Issues & Rights, Ltd.",
       "course": "Civil Procedure",
       "briefId": "CP-068",
-      "accountSha256": "2d840b206bacdc98e4e3781907a560452fa34916896a2a0ba433191fa954b962",
+      "accountSha256": "b35aeea4032593239187cab67a8eacf11f42a1fa58cd934951639145b4bab70c",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 730,
-      "wordsAfter": 742
+      "wordsAfter": 742,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            103
+          ],
+          "priorSourceSha256": "4d0d759802b690a46609b43e1bfa344aa836fc0a8d7b032e089c2abe67013c6e",
+          "sourceSha256": "8e8ce030d81e61941c82e70ab999eddfe1de03529d9d1c307c64567116b1e1e5",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-bremen",
@@ -3944,7 +4484,7 @@
     },
     {
       "id": "cp-gibbs",
-      "sourceSha256": "e1344fd1827c51e6123441312dc60c3e54d8f0874cf77f9771b32c697a72c676",
+      "sourceSha256": "c86ec2c7bb08645e97e875640b0f9e2248c57339752f899550ca7628cffd3872",
       "narrativeSha256": "b98bd23ffca36c44f8b7bea2f5a46069e3f85e16e92944427e015f32e7230f26",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -3966,12 +4506,27 @@
       "title": "United Mine Workers of America v. Gibbs",
       "course": "Civil Procedure",
       "briefId": "CP-037",
-      "accountSha256": "ff5ce56903fa75672395ae3b4acef2ed7e27c0786cc3abb6d6c33ce50abe3937",
+      "accountSha256": "c8479e1797f7d0ce1fe4bfac1ee809dedf808bf7430d22d62dd9ef05633ce75f",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 998,
-      "wordsAfter": 998
+      "wordsAfter": 998,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            93
+          ],
+          "priorSourceSha256": "e1344fd1827c51e6123441312dc60c3e54d8f0874cf77f9771b32c697a72c676",
+          "sourceSha256": "c86ec2c7bb08645e97e875640b0f9e2248c57339752f899550ca7628cffd3872",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-heyward",
@@ -4006,7 +4561,7 @@
     },
     {
       "id": "cp-walmart",
-      "sourceSha256": "bb0ea23552096eb33fe77028907e377ea53a4cb12630e3b7f0773f2e020eee22",
+      "sourceSha256": "54145edab27f3ab863cd7937147df0534d5fd45dc4ce0abc6207d3eda1ce4d31",
       "narrativeSha256": "0f8930a6fbb802b0a583a3e966330d3dfe95f9c97fb4d5282190daf26e0948b3",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -4028,12 +4583,27 @@
       "title": "Wal-Mart Stores, Inc. v. Dukes",
       "course": "Civil Procedure",
       "briefId": "CP-090",
-      "accountSha256": "09373813870941f4d3c86842bbf907f044d6ca6305dc51cb8cd010ff7ff68126",
+      "accountSha256": "e93eed6538b3c628c1603e95d0dcad1699f729f860eb1bfccc658e53510e5e28",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 669,
-      "wordsAfter": 704
+      "wordsAfter": 704,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            108
+          ],
+          "priorSourceSha256": "bb0ea23552096eb33fe77028907e377ea53a4cb12630e3b7f0773f2e020eee22",
+          "sourceSha256": "54145edab27f3ab863cd7937147df0534d5fd45dc4ce0abc6207d3eda1ce4d31",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-walden",
@@ -4068,7 +4638,7 @@
     },
     {
       "id": "cp-walker",
-      "sourceSha256": "ca4c67d70ccef60278ccae2575376b06d897522a83fdd155ec60579c96445b04",
+      "sourceSha256": "6bd1ecd3207d4349170ed261197d7b39b52243e8edaf197dc76cdc520a207f2d",
       "narrativeSha256": "9a6f39fe3fa94362231d7219b464b2b70c16a9fe80ce5df8b836bc216bf448f2",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -4090,12 +4660,27 @@
       "title": "Walker v. Armco Steel Corp.",
       "course": "Civil Procedure",
       "briefId": "CP-049",
-      "accountSha256": "20a2ad7087df0adc3ca9e722def17b35d1ddf881988a43d43be6130b3822608a",
+      "accountSha256": "b02fe42835b9c3e3dcd098dcb1e68efbc6bb6ea9e942e3cbc1f45eb9d7d53518",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 584,
-      "wordsAfter": 588
+      "wordsAfter": 588,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            128
+          ],
+          "priorSourceSha256": "ca4c67d70ccef60278ccae2575376b06d897522a83fdd155ec60579c96445b04",
+          "sourceSha256": "6bd1ecd3207d4349170ed261197d7b39b52243e8edaf197dc76cdc520a207f2d",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "cp-woods",
@@ -4252,7 +4837,7 @@
     },
     {
       "id": "alaska-packers",
-      "sourceSha256": "732885cae5ac96fa26c548127f878f7a1e26e91935ce41260f43b2a2de260fc8",
+      "sourceSha256": "ebceb952feb4fff682fa7cd20f00130204a6a29af3ed1c618e45507736ed3402",
       "narrativeSha256": "39c25c3623c04de68c636a5853b0a26e1d91fda7d9337f43bb4fab383d8a36db",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -4274,12 +4859,30 @@
       "title": "Alaska Packers' Ass'n v. Domenico",
       "course": "Contracts",
       "briefId": "CTR-034",
-      "accountSha256": "f2f6b07a22f4467931c913de50d5a834855c69d54fa6a17730d5282ac85112b8",
+      "accountSha256": "925866113d8da0f9da0d8bce2ccb075b7843e9c08be4f84ea64b4d4d72bc0eab",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 905,
-      "wordsAfter": 905
+      "wordsAfter": 905,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            67,
+            68,
+            69,
+            70
+          ],
+          "priorSourceSha256": "732885cae5ac96fa26c548127f878f7a1e26e91935ce41260f43b2a2de260fc8",
+          "sourceSha256": "ebceb952feb4fff682fa7cd20f00130204a6a29af3ed1c618e45507736ed3402",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "anderson-binance",
@@ -4934,7 +5537,7 @@
     },
     {
       "id": "dorton",
-      "sourceSha256": "ca2ab1df0905fa66457f00aeca106eafdf0a6bb3288839cbb948574c729d65e5",
+      "sourceSha256": "27c7f15686a514a96d344c5de23187dcd9a8848053b34f9d6843fc9e052e0430",
       "narrativeSha256": "d5528e99c1130bd0e290042ca1bacf3b203a365dd32fb9903025d6547b8f31f2",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -4956,16 +5559,33 @@
       "title": "Dorton v. Collins & Aikman Corp.",
       "course": "Contracts",
       "briefId": "CTR-032",
-      "accountSha256": "37cf94a7959cdcb3cc000ac86b41e719f117e2651ff865ed684c91a6585f4fd8",
+      "accountSha256": "4db63db98403217437d3f3101b1275aa41d3f3b31224ab5cc4f7e62285c12e51",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 664,
-      "wordsAfter": 664
+      "wordsAfter": 664,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            62,
+            64,
+            77
+          ],
+          "priorSourceSha256": "ca2ab1df0905fa66457f00aeca106eafdf0a6bb3288839cbb948574c729d65e5",
+          "sourceSha256": "27c7f15686a514a96d344c5de23187dcd9a8848053b34f9d6843fc9e052e0430",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "drennan",
-      "sourceSha256": "a2aa116b9275b90c654d858ebb8e7cdbe88251f71d7937ab8ab763e8f4caa172",
+      "sourceSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
       "narrativeSha256": "9d59f1b6fb5375589c64fd290888bc0926e3f553b56cc7a666b935a19ca38e81",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -4987,12 +5607,30 @@
       "title": "Drennan v. Star Paving Co.",
       "course": "Contracts",
       "briefId": "CTR-031",
-      "accountSha256": "a3f307a04c13538c8dbe1d7757b416cb4999f6d86059a0c049c635a152d3a806",
+      "accountSha256": "dedf3456769fb3bb6476c358f5f295f123dbbcead3f5db81fb985a0de1d74924",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 787,
-      "wordsAfter": 787
+      "wordsAfter": 787,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            61,
+            63,
+            75,
+            76
+          ],
+          "priorSourceSha256": "a2aa116b9275b90c654d858ebb8e7cdbe88251f71d7937ab8ab763e8f4caa172",
+          "sourceSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "dyer",
@@ -5602,7 +6240,7 @@
     },
     {
       "id": "kannavos",
-      "sourceSha256": "aad11f9c5bd6b01e0036022baed84084207a9515d31720deadfe94d67b569396",
+      "sourceSha256": "fdf241dc81dfc240af54e05e70670419bb8267dcaf54398c1ac5f64c8a0ecd8f",
       "narrativeSha256": "16977ae47d2a051116255b50922ec461fe90c8e5e4924077b81635b652245f4f",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -5622,12 +6260,28 @@
       "title": "Kannavos v. Annino",
       "course": "Contracts",
       "briefId": "CTR-038",
-      "accountSha256": "ba4ed53b4b13e1fc63221b7c1b71b41339a8633d50be6d29c72eaad420b6a648",
+      "accountSha256": "c110b8d2abc69408884cf301da9351dd77070425a72222cc7d62bdc91650634f",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 541,
-      "wordsAfter": 541
+      "wordsAfter": 541,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            66,
+            79
+          ],
+          "priorSourceSha256": "aad11f9c5bd6b01e0036022baed84084207a9515d31720deadfe94d67b569396",
+          "sourceSha256": "fdf241dc81dfc240af54e05e70670419bb8267dcaf54398c1ac5f64c8a0ecd8f",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "kenford",
@@ -5880,7 +6534,7 @@
     },
     {
       "id": "lefkowitz",
-      "sourceSha256": "b1f0f60fa3e0dfe463f9565accac599dce35d476cc85cce167f998344596eafe",
+      "sourceSha256": "ff8a53178b3cc55794f165eef3327d6e6db7544f1b009814b5e47a682d92e750",
       "narrativeSha256": "dd21f30df1ef1b191079bfc443275abf1f5450ff20d40609a1ad77d89e7ca795",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -5902,12 +6556,27 @@
       "title": "Lefkowitz v. Great Minneapolis Surplus Store, Inc.",
       "course": "Contracts",
       "briefId": "CTR-027",
-      "accountSha256": "2d258208aa46fa17a254cbdbe4f464cb6826abf4abb2b6ad57bab0cfe4f6aee9",
+      "accountSha256": "bb65e99aaa325552c35dca7c0598787d9135ef1a7c876921536895e89b7cf7ab",
       "changed": true,
       "revisionBefore": 1,
       "revisionAfter": 2,
       "wordsBefore": 551,
-      "wordsAfter": 578
+      "wordsAfter": 578,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            59
+          ],
+          "priorSourceSha256": "b1f0f60fa3e0dfe463f9565accac599dce35d476cc85cce167f998344596eafe",
+          "sourceSha256": "ff8a53178b3cc55794f165eef3327d6e6db7544f1b009814b5e47a682d92e750",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "lucy",
@@ -6916,7 +7585,7 @@
     },
     {
       "id": "swinton",
-      "sourceSha256": "71e04ff5cb4fb8405373c44ec3025139b0fdde9c8c767934d4d20f4c6c2e14d7",
+      "sourceSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
       "narrativeSha256": "47f8a0c3df431241144c804bad0138dd80cca76e470eb2aaf68b7aee3b0628a8",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -6938,12 +7607,28 @@
       "title": "Swinton v. Whitinsville Savings Bank",
       "course": "Contracts",
       "briefId": "CTR-037",
-      "accountSha256": "5da38926fd3ea160b63244a78b77079127571ee120c43b4153261d1fddc91f34",
+      "accountSha256": "dd671714d995617538941393303f3edbefc3fb03a17654a2c0238ac2c17c0655",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 470,
-      "wordsAfter": 470
+      "wordsAfter": 470,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            65,
+            78
+          ],
+          "priorSourceSha256": "71e04ff5cb4fb8405373c44ec3025139b0fdde9c8c767934d4d20f4c6c2e14d7",
+          "sourceSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "swiss-2024",
@@ -7321,7 +8006,7 @@
     },
     {
       "id": "watkins",
-      "sourceSha256": "256a43125e49135a0790ef8867ba113f54fdbc0cc98a9d9d8c0271f82d93bac1",
+      "sourceSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
       "narrativeSha256": "7cab5f60c609305559be63e2f8519472475393ab346255378b1ec143ea571392",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -7341,12 +8026,30 @@
       "title": "Watkins & Son v. Carrig",
       "course": "Contracts",
       "briefId": "CTR-035",
-      "accountSha256": "bf0b5ffeeb17b2f3b40588607ffff75dcd7c194690385a6d13073bc81fd1b241",
+      "accountSha256": "85d50a546734be18ce9787bb9a24639492bc1cc3ca6b414e946cfda854165bb7",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 1060,
-      "wordsAfter": 1060
+      "wordsAfter": 1060,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            71,
+            72,
+            73,
+            74
+          ],
+          "priorSourceSha256": "256a43125e49135a0790ef8867ba113f54fdbc0cc98a9d9d8c0271f82d93bac1",
+          "sourceSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "white-benkowski",
@@ -7472,7 +8175,7 @@
     },
     {
       "id": "wucherpfennig",
-      "sourceSha256": "4f5f6212842e2a0f35fdd3d6bb3ab41383224340fc7427f7855fc97c6b4ccede",
+      "sourceSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
       "narrativeSha256": "5193f96700166487dcf72ed1fd17f621ecf831caaab646c319bc9fd6011836d6",
       "checkedOn": "2026-10-11",
       "basis": "Fresh comparison with complete effective canonical brief",
@@ -7494,12 +8197,27 @@
       "title": "Wucherpfennig v. Dooley",
       "course": "Contracts",
       "briefId": "CTR-028",
-      "accountSha256": "1c3f69d32ac5f1a04bbec329b3a516571295ebace203a934b1d6bafa3a9d9cb0",
+      "accountSha256": "be8b1bf26bbae08fdac5c26a9fcc6471579ad04703a3659448c355ebacc9a58b",
       "changed": false,
       "revisionBefore": 1,
       "revisionAfter": 1,
       "wordsBefore": 580,
-      "wordsAfter": 580
+      "wordsAfter": 580,
+      "deltaReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "pdf-header-and-heading-cleanup",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            60
+          ],
+          "priorSourceSha256": "4f5f6212842e2a0f35fdd3d6bb3ab41383224340fc7427f7855fc97c6b4ccede",
+          "sourceSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "xlo",

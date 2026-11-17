@@ -86,7 +86,32 @@ const breakages = [
   [
     'Ask Dottie follow-ups: earlier turns are no longer sent',
     'src/features/ask/ask.js',
-    () => edit('src/features/ask/ask.js', 'history: turns.length', 'history: false'),
+    () => edit('src/features/ask/ask.js', 'history: history.length', 'history: false'),
+  ],
+  [
+    'Ask Dottie background button explains the newest answer instead of its own answer',
+    'src/features/ask/ask.js',
+    () => edit('src/features/ask/ask.js', 'history: contextHistory', 'history: undefined'),
+  ],
+  [
+    'Ask Dottie saved explanations overwrite an explanation of another question',
+    'src/features/ask/saved.js',
+    () =>
+      edit(
+        'src/features/ask/saved.js',
+        "normalise(entry.after || '') === normalise(after || '')",
+        '!entry.after === !after',
+      ),
+  ],
+  [
+    'Timeline verified exact dates disappear from the reader',
+    'src/features/r19/timelines.js',
+    () =>
+      edit(
+        'src/features/r19/timelines.js',
+        'const dateLabel = (s) => {',
+        "const dateLabel = (s) => { return esc(s.year ?? 'Undated');",
+      ),
   ],
   [
     'Ask Dottie saved answers: "Save answer" stops keeping anything',

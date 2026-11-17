@@ -75,6 +75,12 @@ export const tasks = [
   },
   step('datasets', 'U.S. Code', py('tools/v25/uscode_build.py', '--check')),
   step('datasets', 'timeline audit', py('tools/v25/check_timeline_audit.py', '--json'), SOURCE),
+  step(
+    'datasets',
+    'recorded content corrections reach the reader',
+    py('tools/content-audit/check.py'),
+    SOURCE,
+  ),
   step('datasets', 'every case has an original source and chronology', py('tools/v28/check.py'), SOURCE),
   step('datasets', 'explanation inventory', py('tools/v25/explanation_inventory.py', '--check'), SOURCE),
   step('datasets', 'generated rule connections', py('tools/v25/generated_rule_connections_check.py'), SOURCE),

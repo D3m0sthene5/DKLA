@@ -30,7 +30,7 @@
     "The North Dakota Supreme Court affirmed on absence of acceptance, leaving the other grounds and alternative partition claim unresolved."
   ],
   "limits": "This account transforms the canonical historical brief without a new source audit or present-law review. The decision concerns specific performance, not disposition of partition. Restatement §§ 59 and 61 supply comparative doctrine, not an additional holding that every request for information defeats acceptance.",
-  "briefSha256": "4f5f6212842e2a0f35fdd3d6bb3ab41383224340fc7427f7855fc97c6b4ccede",
+  "briefSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
   "sources": [
     {
       "id": "brief",
@@ -122,6 +122,21 @@
           "pinpoint": "351 N.W.2d 444–445; canonical brief’s comparative Restatement discussion"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        60
+      ],
+      "priorSourceSha256": "4f5f6212842e2a0f35fdd3d6bb3ab41383224340fc7427f7855fc97c6b4ccede",
+      "sourceSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

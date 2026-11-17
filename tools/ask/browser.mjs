@@ -2,8 +2,10 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { chromium, expect } from '@playwright/test';
 import { normalise } from '../../lib/ask/library.js';
+import { questionParts } from '../../lib/ask/web.js';
 
 const url = new URL(process.argv[2]);
+const contextOnly = process.argv.includes('--context-only');
 assert.ok(['127.0.0.1', 'localhost'].includes(url.hostname));
 const browser = await chromium.launch();
 const question = 'How did International Shoe change Pennoyer?';
@@ -43,10 +45,12 @@ const rankingResponse = {
 };
 
 try {
-  for (const viewport of [
-    { width: 1440, height: 900 },
-    { width: 390, height: 844 },
-  ]) {
+  for (const viewport of contextOnly
+    ? []
+    : [
+        { width: 1440, height: 900 },
+        { width: 390, height: 844 },
+      ]) {
     const phone = viewport.width === 390;
     const context = await browser.newContext({
       viewport,
@@ -87,7 +91,7 @@ try {
         assert.ok(payload.history.length >= 1 && payload.history.length <= 3);
         for (const turn of payload.history) {
           assert.deepEqual(Object.keys(turn), ['question', 'answer']);
-          assert.ok(turn.question && turn.answer.length <= 2000);
+          assert.ok(turn.question && turn.answer.length <= 13000);
         }
       }
       payloads.push(payload);
@@ -539,13 +543,128 @@ try {
   for (const viewport of [
     { width: 1440, height: 900 },
     { width: 390, height: 844 },
-  ])
-    await savedAnswersFlow(viewport);
+  ]) {
+    if (!contextOnly) await savedAnswersFlow(viewport);
+    await contextAnswersFlow(viewport);
+  }
   console.log(
     'Ask DKLA desktop and phone flow passed with a mocked model response, including saved answers.',
   );
 } finally {
   await browser.close();
+}
+
+async function contextAnswersFlow(viewport) {
+  const context = await browser.newContext({ viewport, serviceWorkers: 'block' });
+  const payloads = [];
+  let release;
+  await context.route('**/api/**', async (route) => {
+    if (!route.request().url().endsWith('/api/ask')) return route.fulfill({ status: 204 });
+    const payload = route.request().postDataJSON();
+    if (payload.warm) return route.fulfill({ json: { warm: true } });
+    payloads.push(payload);
+    if (payload.question.startsWith('Explain that answer from the beginning.')) {
+      assert.ok(payload.question.length <= 600);
+      assert.equal(questionParts(payload.question), 6, 'background gets the six-part answer budget');
+      assert.match(payload.question, /one week of Contracts/);
+      assert.match(payload.question, /Cite sources, flag gaps/);
+      await new Promise((resolve) => {
+        release = resolve;
+      });
+      return route.fulfill({
+        json: {
+          ...response,
+          paragraphs: [{ text: 'Background connected to the selected answer.', citations: [1] }],
+        },
+      });
+    }
+    return route.fulfill({ json: payload.question === rankingQuestion ? rankingResponse : response });
+  });
+  await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+  const page = await context.newPage();
+  await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+  await page.locator('.ask-bar').click();
+  const dialog = page.locator('#dklaAskDialog');
+  const input = dialog.locator('textarea');
+  const answer = dialog.locator('.ask-answer');
+  await input.fill(question);
+  await input.press('Enter');
+  await expect(answer.locator('.ask-context')).toBeVisible();
+  await answer.getByRole('button', { name: 'Explain from the beginning', exact: true }).click();
+  await expect.poll(() => payloads.length).toBe(2);
+  assert.deepEqual(payloads.at(-1).history, [{ question, answer: response.paragraphs[0].text }]);
+  await expect(dialog.locator('.ask-context')).toBeDisabled();
+  await expect(dialog.locator('button[type="submit"]')).toBeDisabled();
+  release();
+  await expect(answer).toContainText('Background connected');
+  await expect(answer.locator('.ask-asked')).toHaveText('Explain from the beginning');
+  await expect(answer.locator('.ask-context')).toBeEnabled();
+  await answer.getByRole('button', { name: 'Save answer', exact: true }).click();
+  await input.fill(rankingQuestion);
+  await input.press('Enter');
+  await expect(answer).toContainText('HeinOnline');
+  // Select the original answer after the conversation has moved to another case.
+  const original = dialog
+    .locator('.ask-turn')
+    .filter({ has: page.locator('summary', { hasText: question }) });
+  await original.locator('summary').click();
+  const button = original.getByRole('button', { name: 'Explain from the beginning', exact: true });
+  await button.scrollIntoViewIfNeeded();
+  const box = await button.boundingBox();
+  assert.ok(box.width > 0 && box.x >= 0 && box.x + box.width <= viewport.width);
+  assert.ok(box.height >= 44, 'background action keeps a touch-sized target');
+  assert.equal(
+    await button.evaluate((element) => getComputedStyle(element).textDecorationLine),
+    'none',
+    'background action is styled as a button, not an answer citation',
+  );
+  if (process.env.DKLA_ASK_SCREENSHOTS) {
+    await mkdir(process.env.DKLA_ASK_SCREENSHOTS, { recursive: true });
+    await page.screenshot({ path: `${process.env.DKLA_ASK_SCREENSHOTS}/context-${viewport.width}.png` });
+  }
+  await button.click();
+  await expect.poll(() => payloads.length).toBe(4);
+  assert.deepEqual(
+    payloads.at(-1).history,
+    [{ question, answer: response.paragraphs[0].text }],
+    'older answer uses its own context, not Iqbal',
+  );
+  await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
+  release();
+  await expect(dialog.locator('.ask-status')).toHaveText('Search canceled.');
+  await expect(button).toBeEnabled();
+  await button.click();
+  await expect.poll(() => payloads.length).toBe(5);
+  release();
+  await expect(answer).toContainText('Background connected');
+  await expect(answer.locator('.ask-save')).toHaveAttribute('aria-pressed', 'true');
+  // A typed follow-up after branching continues the selected context.
+  await input.fill('Why does that matter?');
+  await input.press('Enter');
+  await expect(answer).toContainText('minimum contacts');
+  assert.equal(payloads.at(-1).history[0].question, question);
+  assert.ok(!payloads.at(-1).history.some((turn) => turn.question === rankingQuestion));
+  // The same background prompt for a different parent must not overwrite the
+  // first saved explanation, even when both use the same mocked answer text.
+  const ranking = dialog
+    .locator('.ask-turn')
+    .filter({ has: page.locator('summary', { hasText: rankingQuestion }) });
+  await ranking.locator('summary').click();
+  await ranking.locator('.ask-context').click();
+  await expect.poll(() => payloads.length).toBe(7);
+  release();
+  await expect(answer).toContainText('Background connected');
+  await expect(answer.locator('.ask-save')).toHaveAttribute('aria-pressed', 'false');
+  await answer.getByRole('button', { name: 'Save answer', exact: true }).click();
+  const saved = await page.evaluate(() => JSON.parse(localStorage.getItem('dkla.askSaved.v1')).answers);
+  assert.equal(saved.length, 2);
+  assert.deepEqual(saved.map((entry) => entry.after).sort(), [question, rankingQuestion].sort());
+  // Saved answers use the same action after being reopened.
+  await dialog.getByRole('button', { name: /Saved answers \(/ }).click();
+  await dialog.locator('.ask-saved-item').first().click();
+  await expect(answer.locator('.ask-context')).toBeVisible();
+  await context.close();
 }
 
 // Saved answers: a private library in this browser (saved.js), and answers

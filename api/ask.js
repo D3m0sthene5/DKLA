@@ -45,7 +45,7 @@ function validHistory(history) {
         turn.question.trim() &&
         turn.answer.trim() &&
         turn.question.length <= 600 &&
-        turn.answer.length <= 2000,
+        turn.answer.length <= 13000,
     )
   );
 }
@@ -145,7 +145,9 @@ export function makeAskHandler(
       sameOrigin(req);
       if (req.headers['content-type']?.split(';')[0].trim().toLowerCase() !== 'application/json')
         return send(res, 415, { error: 'unsupported-content-type' });
-      const payload = await body(req, 12288);
+      // Three bounded answers, including an eight-paragraph answer being
+      // explained from the beginning. Allow UTF-8 and JSON escaping overhead.
+      const payload = await body(req, 262144);
       // A warm-up, sent when the Ask dialog opens or the person starts typing: it loads the
       // corpus into this server instance so the question that follows does not wait for it.
       // It is not a question: nothing is sent to OpenAI, nothing is looked up or stored in the

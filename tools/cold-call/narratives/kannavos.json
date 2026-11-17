@@ -26,7 +26,7 @@
     "The Supreme Judicial Court sustained entitlement to rescission and affirmed the interlocutory decrees, but reversed final decrees and remanded for adjustment after intervening events."
   ],
   "limits": "This account transforms the canonical historical brief without a fresh audit or current-law review. The full case involves two related suits and multiple nearby properties; the assigned excerpt centers on 11 Ingersoll Grove. The remand concerns adjustment of relief, not rejection of the buyers’ substantive entitlement. No additional contractual warranty is inferred.",
-  "briefSha256": "aad11f9c5bd6b01e0036022baed84084207a9515d31720deadfe94d67b569396",
+  "briefSha256": "fdf241dc81dfc240af54e05e70670419bb8267dcaf54398c1ac5f64c8a0ecd8f",
   "sources": [
     {
       "id": "brief",
@@ -119,6 +119,22 @@
           "pinpoint": "356 Mass. 50–51"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        66,
+        79
+      ],
+      "priorSourceSha256": "aad11f9c5bd6b01e0036022baed84084207a9515d31720deadfe94d67b569396",
+      "sourceSha256": "fdf241dc81dfc240af54e05e70670419bb8267dcaf54398c1ac5f64c8a0ecd8f",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

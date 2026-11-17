@@ -31,7 +31,7 @@
     "The Supreme Court vacated and remanded on June 27, 1988, requiring clarification or proper sufficiency review under the recognized defense."
   ],
   "limits": "The canonical brief supplies this historical narrative without a new opinion audit. The Supreme Court recognized a qualified defense but did not finally decide approval, conformity, warnings or recovery. It neither reinstated the verdict nor conclusively denied compensation. Official immunity’s extension to contractors and a Death on the High Seas Act claim were reserved.",
-  "briefSha256": "6480ae5ed04a4c93f7ae9959f663b03da8d06be39f68549141d7214e55bb7ce1",
+  "briefSha256": "3f9330262bb7f4c8d58c08df31a1f140552dec844f9e88d9298f053aa342d773",
   "sources": [
     {
       "id": "brief",
@@ -145,6 +145,21 @@
           "pinpoint": "Separate Opinions; 487 U.S. 515–532"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        130
+      ],
+      "priorSourceSha256": "6480ae5ed04a4c93f7ae9959f663b03da8d06be39f68549141d7214e55bb7ce1",
+      "sourceSha256": "3f9330262bb7f4c8d58c08df31a1f140552dec844f9e88d9298f053aa342d773",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

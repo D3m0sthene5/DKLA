@@ -24,7 +24,7 @@
   "limits": [
     "The 1908 decision left the statutory and constitutional merits unanswered. The later Kentucky suit and 1911 Supreme Court proceeding were separate."
   ],
-  "briefSha256": "d862f59e450dc2aeed5f48bd8991a57e912324b9d6e5bef96b52a4e3434ca9c7",
+  "briefSha256": "3ce58dad693297bbee5d6131f9799f93e9f2504e1c86735b46f313343b6903bf",
   "sources": [
     {
       "id": "brief",
@@ -101,6 +101,21 @@
           "pinpoint": "211 U.S. at 151–154; casebook pp. 331, 333–334"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        90
+      ],
+      "priorSourceSha256": "d862f59e450dc2aeed5f48bd8991a57e912324b9d6e5bef96b52a4e3434ca9c7",
+      "sourceSha256": "3ce58dad693297bbee5d6131f9799f93e9f2504e1c86735b46f313343b6903bf",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

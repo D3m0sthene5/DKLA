@@ -31,7 +31,7 @@
     "The Supreme Court affirmed the Third Circuit on March 1, 1943."
   ],
   "limits": "No separate damages calculation was made by the Supreme Court. The governing rule permits a proved harmful-delay defense but not presumed damage; the Court reserved whether the express guarantee added to the presentment warranty.",
-  "briefSha256": "b2af1efacc701ebc5b29a6e5db5a93a45fb998031674bcc189f4bd046919025c",
+  "briefSha256": "6190becd9b0bc3b925dff02f285317a76ed21e3ba8051f0705e41303346b6a4c",
   "sources": [
     {
       "id": "brief",
@@ -134,6 +134,21 @@
       "previous": {
         "briefSha256": "c0ed2bd241f3f495a42454299929838109eed374778ad388d41d91193e53b2a9"
       }
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        129
+      ],
+      "priorSourceSha256": "b2af1efacc701ebc5b29a6e5db5a93a45fb998031674bcc189f4bd046919025c",
+      "sourceSha256": "6190becd9b0bc3b925dff02f285317a76ed21e3ba8051f0705e41303346b6a4c",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

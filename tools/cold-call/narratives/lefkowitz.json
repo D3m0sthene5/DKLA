@@ -23,7 +23,7 @@
     "The Minnesota Supreme Court affirmed that denial, leaving the award intact."
   ],
   "limits": "This account transforms the canonical historical brief without a new opinion audit or current-law certification. The case resolves contract formation and damages, not statutory sex discrimination. The stole’s advertised value was accepted on this record, not declared conclusive for every advertisement. No separate writing appeared.",
-  "briefSha256": "b1f0f60fa3e0dfe463f9565accac599dce35d476cc85cce167f998344596eafe",
+  "briefSha256": "ff8a53178b3cc55794f165eef3327d6e6db7544f1b009814b5e47a682d92e750",
   "sources": [
     {
       "id": "brief",
@@ -116,6 +116,21 @@
           "pinpoint": "251 Minn. 189–192; 86 N.W.2d 690–691"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        59
+      ],
+      "priorSourceSha256": "b1f0f60fa3e0dfe463f9565accac599dce35d476cc85cce167f998344596eafe",
+      "sourceSha256": "ff8a53178b3cc55794f165eef3327d6e6db7544f1b009814b5e47a682d92e750",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

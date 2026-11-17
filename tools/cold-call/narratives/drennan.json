@@ -27,7 +27,7 @@
     "The California Supreme Court affirmed $3,817 plus costs."
   ],
   "limits": "Use of the bid did not itself form a bilateral subcontract or purchase an option. The judgment awards damages rather than compelled paving, and does not decide an independent negligence theory.",
-  "briefSha256": "a2aa116b9275b90c654d858ebb8e7cdbe88251f71d7937ab8ab763e8f4caa172",
+  "briefSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
   "sources": [
     {
       "id": "brief",
@@ -136,6 +136,24 @@
           "pinpoint": "Judgment; Mitigation and pleading; Separate Opinions; Notes"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        61,
+        63,
+        75,
+        76
+      ],
+      "priorSourceSha256": "a2aa116b9275b90c654d858ebb8e7cdbe88251f71d7937ab8ab763e8f4caa172",
+      "sourceSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

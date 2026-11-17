@@ -24,7 +24,7 @@
     "The U.S. Supreme Court reversed and remanded on February 4, 1952, stating that the intermediate judgment had been correct."
   ],
   "limits": "This source-brief narrative states the historical FELA decision without a new audit or current-law certification. The majority did not directly impose every Seventh Amendment rule on states or decide the challenged fraud burden; Frankfurter’s preponderance formulation belongs to his separate opinion. Reversal did not create a new damages amount.",
-  "briefSha256": "a61992327e8e1c5bc7ff965096e609427e20b27e043687036ef0080ad4ba2f0d",
+  "briefSha256": "4eaa99352d7f1e8166cac784882dc1a0b428947a62d4dd67363993f17c2f22aa",
   "sources": [
     {
       "id": "brief",
@@ -120,6 +120,21 @@
           "pinpoint": "Separate Opinions; Notes; 342 U.S. 364–370, 360 starred note"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        131
+      ],
+      "priorSourceSha256": "a61992327e8e1c5bc7ff965096e609427e20b27e043687036ef0080ad4ba2f0d",
+      "sourceSha256": "4eaa99352d7f1e8166cac784882dc1a0b428947a62d4dd67363993f17c2f22aa",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

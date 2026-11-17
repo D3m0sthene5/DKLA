@@ -31,7 +31,7 @@
     "The Supreme Court reversed and remanded because publication was inadequate for known present beneficiaries at known addresses."
   ],
   "limits": "The ruling accepts publication for unknown or conjectural interests and does not require personal service or guarantee actual receipt by every beneficiary. No later accounting outcome is supplied.",
-  "briefSha256": "a5b957b08845d8dd2b7f7677309b5f0b25ed3e804e9d6a81f1aec7d99c4040bb",
+  "briefSha256": "80b08c8c745658bcef781c6088640010c7c938e94a8928ea70e8d7b40f168ea6",
   "sources": [
     {
       "id": "brief",
@@ -159,6 +159,21 @@
           "pinpoint": "Judgment; Separate Opinions; Notes; 339 U.S. at 320"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        88
+      ],
+      "priorSourceSha256": "a5b957b08845d8dd2b7f7677309b5f0b25ed3e804e9d6a81f1aec7d99c4040bb",
+      "sourceSha256": "80b08c8c745658bcef781c6088640010c7c938e94a8928ea70e8d7b40f168ea6",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

@@ -1,0 +1,3341 @@
+{
+  "reviewedAt": "2026-11-17",
+  "baseline": "f8f5c2d5dd0ece5906e5b09c437a926ab2cb1c71",
+  "edits": [
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "good-faith",
+      "stepKey": null,
+      "field": "now",
+      "old": "In these authorities, good faith controls performance, enforcement and contractual discretion, with scope set by the applicable jurisdiction and express terms. UCC § 1-304 states a goods-contract obligation; Restatement § 205 states a common-law formulation. Ng Giap is a Singapore comparison, and Ginsberg concerns airline-law preemption.",
+      "new": "In these authorities, good faith controls performance, enforcement and contractual discretion, with scope set by the applicable jurisdiction and express terms. UCC § 1-304 applies to every contract or duty within the Code, including goods contracts; Restatement § 205 states a common-law formulation. Ng Giap is a Singapore comparison, and Ginsberg concerns airline-law preemption.",
+      "reason": "The model Code obligation is broader than goods contracts.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/1/1-304",
+          "pinpoint": "Model UCC § 1-304"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "capacity",
+      "stepKey": "CT-CB-0450",
+      "field": "note",
+      "old": "An enforceable arbitration agreement requires a writing, an unambiguous intent to submit to arbitration, and bilateral consideration; a handbook arbitration clause acknowledged only as non-contractual information, and changeable by the employer at any time without notice, lacks assent and consideration.",
+      "new": "Hawaii’s majority held that its child-labor statutes displaced the ordinary infancy defense for this seventeen-year-old’s employment agreement. It nevertheless vacated the arbitration order because the handbook lacked binding assent and consideration.",
+      "reason": "The capacity timeline omitted the case’s central infancy holding.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/hawaii/supreme-court/2006/26363.html",
+          "pinpoint": "110 Haw. 525–534; original opinion May 25, 2006 (later corrected May 30)"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "capacity",
+      "stepKey": "CT-CB-0450",
+      "field": "date",
+      "old": null,
+      "new": "2006-05-25",
+      "reason": "Add the original decision date; May 30 is the correction date, not the original decision.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/hawaii/supreme-court/2006/26363.html",
+          "pinpoint": "110 Haw. 525–534; original opinion May 25, 2006 (later corrected May 30)"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "reliance",
+      "stepKey": "drennan",
+      "field": "note",
+      "old": "Traynor carries § 90 into commerce: a subcontractor's bid becomes irrevocable once the general contractor relies on it in bidding (California).",
+      "new": "California protects a reasonable opportunity to accept a subcontractor’s bid after foreseeable, reasonable reliance in the general bid. Using the figure alone does not form a bilateral subcontract; notice of a bid mistake and subsequent bid shopping can defeat protection.",
+      "reason": "Preserve reasonable reliance, temporary irrevocability and the distinction between reliance and acceptance.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/409.html",
+          "pinpoint": "51 Cal.2d 413–416"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "firm-offers",
+      "stepKey": "drennan",
+      "field": "note",
+      "old": "Reliance makes an offer irrevocable: a subcontractor's bid binds for a reasonable time once the general contractor used it in a winning bid.",
+      "new": "Reasonable, foreseeable reliance on an unqualified subcontractor’s bid protects a reasonable opportunity to accept after the general award. The contractor cannot rely on a bid it knows or should know is mistaken or keep the offer open while shopping for a better deal.",
+      "reason": "The existing formulation makes protection sound automatic whenever a bid is used.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/409.html",
+          "pinpoint": "51 Cal.2d 413–416"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "damages-limits",
+      "stepKey": "parker",
+      "field": "note",
+      "old": "Mitigation: an employee's damages are reduced only by earnings from comparable work; a different or inferior job may be refused (California).",
+      "new": "California distinguishes actual replacement earnings from hypothetical earnings: before rejected work can reduce damages, the employer must show it was comparable or substantially similar. Parker could reject the different and inferior substitute role; the court affirmed her judgment.",
+      "reason": "The prior “only” formulation conflated actual earnings with projected earnings from rejected opportunities.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/3d/3/176.html",
+          "pinpoint": "3 Cal.3d 181–184; decision September 30, 1970"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "damages-limits",
+      "stepKey": "parker",
+      "field": "date",
+      "old": null,
+      "new": "1970-09-30",
+      "reason": "Add decision date from the opinion heading.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/3d/3/176.html",
+          "pinpoint": "3 Cal.3d 181–184; decision September 30, 1970"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "conditions",
+      "stepKey": "luttinger",
+      "field": "note",
+      "old": "An express condition must occur as stated: a mortgage commitment above the agreed rate fails it, whatever substitute the seller offers (Connecticut).",
+      "new": "The Connecticut buyers exercised due diligence but could not obtain the specified bank financing. The mortgage condition failed, and they could recover their deposit without accepting the sellers’ proposed interest subsidy.",
+      "reason": "Replace “whatever substitute the seller offers” with the actual holding and restore the buyers’ due-diligence obligation.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/connecticut/supreme-court/1972/164-conn-45-316-a-2d-757-1972.html",
+          "pinpoint": "164 Conn. 46–49; November 1, 1972"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "conditions",
+      "stepKey": "luttinger",
+      "field": "date",
+      "old": null,
+      "new": "1972-11-01",
+      "reason": "Add verified decision date.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/connecticut/supreme-court/1972/164-conn-45-316-a-2d-757-1972.html",
+          "pinpoint": "164 Conn. 46–49; November 1, 1972"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "warranties",
+      "stepKey": null,
+      "field": "now",
+      "old": "Express warranties, ordinary merchantability and fitness for a particular purpose require distinct inquiries. Configuration, the basis of the bargain, reliance and effective disclaimers matter.",
+      "new": "For goods, UCC § 2-313 addresses factual promises, descriptions, samples and models that become part of the bargain. Section 2-314 ordinarily supplies merchantability when the seller is a merchant in goods of that kind; § 2-315 addresses a particular purpose and reliance on the seller’s selection. Ordinary purpose and particular purpose are distinct. Disclaimers and the relevant state’s enactment also matter.",
+      "reason": "Supply the foundational rules and merchant limitation missing from a summary that only listed issues.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-313",
+          "pinpoint": "Model UCC § 2-313"
+        },
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-314",
+          "pinpoint": "Model UCC § 2-314"
+        },
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-315",
+          "pinpoint": "Model UCC § 2-315"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "statute-frauds",
+      "stepKey": null,
+      "field": "now",
+      "old": "Start with the statutory category, then examine the required writing, connected records and any recognized exception. These cases apply the statutes and exceptions of their identified jurisdictions.",
+      "new": "Start with the governing jurisdiction’s statutory category, required writing and exceptions. For goods, model UCC § 2-201 generally requires a signed writing for sales of $500 or more and limits enforcement to the stated quantity. It separately addresses merchant confirmations, specially manufactured goods, admissions, and accepted payment or goods. The land, suretyship and one-year cases below concern different statutes; their exceptions are not interchangeable.",
+      "reason": "Add a goods-law anchor while avoiding the implication that every state-law exception applies to every transaction.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-201",
+          "pinpoint": "Model UCC § 2-201"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "assignment-delegation",
+      "stepKey": null,
+      "field": "now",
+      "old": "Assignment transfers rights; delegation concerns performance duties. Material increases in burden, consent clauses and the account debtor’s defenses can limit what the transfer accomplishes.",
+      "new": "Assignment transfers rights; delegation concerns performance duties. For goods, UCC § 2-210 ordinarily permits delegation unless the agreement or the other party’s substantial interest prevents it. Delegation does not release the original promisor from liability. Assignment may be limited by materially increased burden or risk, consent terms and the account debtor’s defenses. The cases below apply particular jurisdictions’ rules.",
+      "reason": "Add the important continuing liability of the delegating party.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-210",
+          "pinpoint": "Model UCC § 2-210"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "repudiation",
+      "stepKey": null,
+      "field": "now",
+      "old": "An unequivocal anticipatory refusal differs from a report of difficulty. Adequate assurance, cooperation and the claimant’s readiness to perform address related but separate obstacles to recovery.",
+      "new": "An unequivocal anticipatory refusal differs from a report of difficulty. For goods, UCC § 2-609 permits a written demand for adequate assurance on reasonable grounds for insecurity, and failure to give adequate assurance within a reasonable time, no more than thirty days, can be repudiation. Section 2-610 addresses a repudiation substantially impairing the contract’s value and permits remedies, suspension, or a commercially reasonable wait. The claimant’s own readiness and cooperation remain separate questions.",
+      "reason": "Explain the assurance-to-repudiation sequence and its time/threshold limitations.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-609",
+          "pinpoint": "Model UCC § 2-609"
+        },
+        {
+          "url": "https://www.law.cornell.edu/ucc/2/2-610",
+          "pinpoint": "Model UCC § 2-610"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "issue-preclusion",
+      "stepKey": "CP-140",
+      "field": "year",
+      "old": 1876,
+      "new": 1877,
+      "reason": "The timeline used the October 1876 term as the decision year; official publication metadata identifies a decision in 1877.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-351",
+          "pinpoint": "Decision Date and Court Term fields"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "issue-preclusion",
+      "stepKey": "CP-141",
+      "field": "year",
+      "old": 1876,
+      "new": 1877,
+      "reason": "The timeline used the October 1876 term as the decision year; official publication metadata identifies a decision in 1877.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-606",
+          "pinpoint": "Decision Date and Court Term fields"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "erie-rules",
+      "stepKey": "cp-stewart",
+      "field": "note",
+      "old": "The same test for federal statutes: § 1404(a) covers a forum clause's effect on transfer, so state hostility to the clause yields.",
+      "new": "A federal statute that covers the disputed issue controls if constitutionally valid. Section 1404(a) governs the forum clause’s effect on transfer despite contrary state policy; statutes do not undergo the separate Rules Enabling Act test for Federal Rules.",
+      "reason": "The old “same test” wording blurs the distinction the timeline guide correctly makes.",
+      "sources": [
+        {
+          "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep487/usrep487022/usrep487022.pdf",
+          "pinpoint": "487 U.S. 26–27, 31–32"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "nonparty-preclusion",
+      "stepKey": "CP-148",
+      "field": "fate",
+      "old": null,
+      "new": "Qualified for specified employment-discrimination judgments by the Civil Rights Act of 1991, 42 U.S.C. § 2000e-2(n); the broader no-duty-to-intervene principle remains.",
+      "reason": "The full Martin brief already explains this qualification, but both timeline appearances omit it.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+          "pinpoint": "§ 2000e-2(n)(1)–(3); 1991 amendment note"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "party-status",
+      "stepKey": "CP-148",
+      "field": "fate",
+      "old": null,
+      "new": "Qualified for specified employment-discrimination judgments by the Civil Rights Act of 1991, 42 U.S.C. § 2000e-2(n); the broader no-duty-to-intervene principle remains.",
+      "reason": "The full Martin brief already explains this qualification, but both timeline appearances omit it.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+          "pinpoint": "§ 2000e-2(n)(1)–(3); 1991 amendment note"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "nonparty-preclusion",
+      "stepKey": null,
+      "field": "now",
+      "old": "Ordinarily a person cannot be bound without being a party or satisfying a recognized exception. Adequate representation is essential; a chance to intervene is not a general duty to intervene.",
+      "new": "Ordinarily a person cannot be bound without being a party or satisfying a recognized exception. Adequate representation matters; a chance to intervene creates no general duty to intervene. For specified employment-discrimination judgments, § 2000e-2(n) separately limits later challenges after actual notice and a reasonable opportunity to object, or adequate representation in an earlier challenge, subject to statutory safeguards.",
+      "reason": "Makes the later statutory branch visible in the timeline summary rather than only in a separate full brief.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/42/2000e-2",
+          "pinpoint": "§ 2000e-2(n)(1)–(3)"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "mdl",
+      "stepKey": "Gelboim v. Bank of America",
+      "field": "note",
+      "old": "The Court restates the design: § 1407 centralizes pretrial work to eliminate duplicate discovery, avoid conflicting rulings and save the parties' and courts' time, and each action must be remanded at or before the end of pretrial proceedings unless it has already ended.",
+      "new": "An order dismissing an individual action in an MDL in its entirety is immediately appealable under § 1291 even while other consolidated actions remain pending. Section 1407 pretrial consolidation ordinarily preserves each action’s separate identity; no Rule 54(b) certification was needed for the fully dismissed Gelboim action.",
+      "reason": "The old step gave background about centralization but omitted the actual finality holding.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/574/405/",
+          "pinpoint": "574 U.S. 408–410, 413–415"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "amendment",
+      "stepKey": null,
+      "field": "now",
+      "old": "Leave to amend is freely given unless the opponent shows real prejudice, bad faith or futility; an unpleaded issue is tried by consent only if the opponent knew it was being tried. An amendment changing the defendant relates back if it arises from the same conduct, transaction or occurrence and, within the Rule 4(m) period, the new party had notice and knew or should have known it would have been sued but for a mistake (Krupski).",
+      "new": "Rule 15 favors leave to amend, but a court may deny it for reasons such as undue delay, bad faith, repeated failure to cure deficiencies, undue prejudice or futility (Foman). Trial by consent requires awareness that an unpleaded issue is being tried. A defendant-changing amendment ordinarily needs the same transaction, timely notice without prejudice, and knowledge that a mistake prevented the original naming; Rule 15(c)(1)(C) uses the Rule 4(m) period, and Krupski focuses on the new defendant’s understanding.",
+      "reason": "The old summary used an apparently exhaustive three-item denial standard and omitted undue delay and repeated failed amendments.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/371/178/",
+          "pinpoint": "371 U.S. 182; Federal Rule 15(c)(1)(C)"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-scope",
+      "stepKey": null,
+      "field": "now",
+      "old": "The discovery rule and procedural stage govern the showing required. Pre-suit perpetuation, expedited identification, proportional requests, physical examination and use of a deposition are distinct questions.",
+      "new": "Rule 26(b)(1) permits nonprivileged discovery relevant to a party’s claim or defense and proportional to the case; discoverable information need not itself be admissible. The 2015 amendment restored proportionality factors to the scope provision, rather than inventing proportionality. Pre-suit testimony preservation, early identification, physical examinations and use of depositions have their own additional requirements.",
+      "reason": "The prior summary did not actually state the governing discovery scope or explain the central 2015 development.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/rules/frcp/rule_26",
+          "pinpoint": "Rule 26(b)(1); Advisory Committee Note to 2015 amendment"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-protection",
+      "stepKey": null,
+      "field": "now",
+      "old": "Attorney-client privilege and work product protect different material. Corporate communications can be privileged beyond management, while an adverse disclosure ruling does not automatically permit an immediate appeal.",
+      "new": "Attorney-client privilege protects qualifying confidential legal communications; work product protects litigation preparation. Rule 26(b)(3) ordinarily protects documents and tangible things prepared for litigation, but allows fact work product on substantial need and inability to obtain an equivalent without undue hardship; the court must protect mental impressions and legal theories. Upjohn rejects a management-only corporate privilege, and Mohawk rejects routine collateral-order appeals from adverse privilege rulings.",
+      "reason": "The old summary only said the protections differ, without telling a beginner what the difference is or the work-product exception.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/rules/frcp/rule_26",
+          "pinpoint": "Rule 26(b)(3)(A)–(B); Upjohn, 449 U.S. 383; Mohawk, 558 U.S. 100"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "judgment-law",
+      "stepKey": null,
+      "field": "now",
+      "old": "Distinguish insufficient evidence from a credibility contest. The historical limits on appellate judgment must be read with Redman and the later Rule 50 procedure.",
+      "new": "Rule 50 permits judgment as a matter of law after a party has been fully heard when a reasonable jury lacks a legally sufficient basis to find for that party. Courts may not weigh credibility. A Rule 50(a) motion made before submission preserves the legal question for a renewed Rule 50(b) motion, ordinarily due within 28 days after judgment. Read Slocum’s historical limit alongside Redman and this later procedure; Dupree separately addresses purely legal issues decided at summary judgment.",
+      "reason": "The previous summary told readers to consult Rule 50 without explaining the governing standard or preservation sequence.",
+      "sources": [
+        {
+          "url": "https://www.law.cornell.edu/rules/frcp/rule_50",
+          "pinpoint": "Rule 50(a)–(b), (e); 1937 Advisory Committee Notes; Dupree, 598 U.S. 729"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "new-trial",
+      "stepKey": null,
+      "field": "now",
+      "old": "A new-trial motion permits inquiries beyond legal sufficiency, subject to the governing jurisdiction’s limits. State additur and federal Seventh Amendment restrictions are different rules.",
+      "new": "A new-trial motion can address the weight of the evidence and trial error as well as legal sufficiency, subject to governing rules. Keep state and federal law separate: Dimick bars a federal court from avoiding a new trial by increasing a jury’s inadequate damages award with only the defendant’s consent, while Fisch permits conditional additur under New Jersey law. Gasperini applies the state excessiveness standard through the federal trial judge, with appellate review for abuse of discretion.",
+      "reason": "The existing summary mentioned federal restrictions without identifying or explaining the essential federal additur rule.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/293/474/",
+          "pinpoint": "293 U.S. 476–487; Gasperini, 518 U.S. 415; Fisch v. Manger, 24 N.J. 66"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "class",
+      "stepKey": "cp-cooper",
+      "field": "note",
+      "old": "A class judgment precludes only what it decided: losing a pattern-or-practice claim does not bar members' individual claims.",
+      "new": "The class judgment binds members on the rejected pattern-or-practice claim and issue, but does not extinguish their distinct, unadjudicated individual discrimination claims. Claim preclusion and issue preclusion remain different doctrines.",
+      "reason": "Avoid the overbroad statement that a class judgment precludes only what it actually decided.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/467/867/",
+          "pinpoint": "467 U.S. 874, 880–881"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "guidance",
+      "stepKey": "lrs-n-american-mining-congress",
+      "field": "note",
+      "old": "The D.C. Circuit lists indicia of legislative rules: an independent enforcement basis, CFR publication, express legislative authority or amendment of a legislative rule. Later cases focus on legal effect; publication alone is not a universal conclusive test.",
+      "new": "The D.C. Circuit asks whether a rule supplies an enforcement basis missing from existing law, appears in the CFR, invokes legislative authority, or amends a legislative rule. These are indicators of legislative effect; later cases do not treat publication alone as universally conclusive.",
+      "reason": "The abbreviated first indicator drops the essential absence-of-existing-law condition and can reverse the test.",
+      "sources": [
+        {
+          "url": "https://openjurist.org/995/f2d/1106/american-mining-congress-v-mine-safety-and-health-administration-us-american-mining-congress",
+          "pinpoint": "995 F.2d 1106, 1109–1112, especially concluding four questions at 1112.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appointments",
+      "stepKey": "lrs-o-noel-canning",
+      "field": "note",
+      "old": "The recess route is bounded: the Senate is in session when it says it is, and a break of under ten days is presumptively too short.",
+      "new": "Both intersession and intrasession recesses can qualify, including for existing vacancies. Three days is too short; four to nine days is presumptively too short. The Senate is in session when it says so only if its rules leave it able to conduct business.",
+      "reason": "Adds the omitted capacity condition and distinguishes the categorical three-day result from the rebuttable presumption.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/573/513/",
+          "pinpoint": "Majority Parts III and V; 573 U.S. 538–539, 550–556.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "deference",
+      "stepKey": "lrs-i-kisor",
+      "field": "note",
+      "old": "Auer (Seminole Rock) deference to an agency's reading of its own rule survives, but only for genuine ambiguity and an authoritative, expert reading.",
+      "new": "Auer deference survives only after ordinary interpretive tools leave genuine ambiguity. The agency’s reading must be reasonable, authoritative, expertise-based, and its fair and considered judgment; a litigation convenience or unfair surprise does not qualify.",
+      "reason": "The short note omitted reasonableness and fair-considered-judgment safeguards that independently defeat deference.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/588/18-15/",
+          "pinpoint": "Majority Part II-B, slip pp. 11–19; Chief Justice Roberts concurrence.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "deference",
+      "stepKey": null,
+      "field": "now",
+      "old": "Courts decide what a statute means for themselves (Loper Bright), giving an agency's view the weight its reasoning earns and policing any discretion Congress expressly delegated; earlier Chevron-based holdings keep their stare decisis effect, and Kisor's narrowed Auer deference still governs an agency's reading of its own regulations.",
+      "new": "Courts independently interpret statutes under Loper Bright, considering agency expertise for its persuasive value and respecting discretion the statute actually delegates. A delegation may authorize definitions, details or flexible policy choices; ambiguity alone does not establish one. Prior Chevron-based holdings retain statutory stare decisis protection. Kisor separately limits deference to an agency’s own regulations.",
+      "reason": "The prior synthesis restricted genuine delegation to express delegation, omitting statutory flexibility and filling-details examples.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/603/22-451/",
+          "pinpoint": "Majority Part II, slip pp. 16–18; Part III-C, slip pp. 34–35.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "protected-interests",
+      "stepKey": "lrs-o-roth",
+      "field": "note",
+      "old": "Property means a legitimate claim of entitlement from an independent source such as state law; a one-year appointment gives none.",
+      "new": "Property requires a legitimate entitlement grounded in independent law or understandings. Roth’s appointment protected his existing term, but neither its terms nor state law or university policy entitled him to renewal. Nonrenewal therefore triggered no property-based hearing right on this record.",
+      "reason": "A one-year appointment can protect employment during its term; the holding concerns no entitlement to renewal on this record.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/408/564/",
+          "pinpoint": "408 U.S. 576–579, especially 578.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "mqd",
+      "stepKey": "lrs-i-nfib-osha",
+      "field": "note",
+      "old": "A vaccine-or-test mandate for large employers is a general public-health measure, not an occupational standard Congress clearly authorized.",
+      "new": "On a stay application, the Court finds the broad employer vaccine-or-test rule likely unauthorized as a general public-health measure. It preserves OSHA’s authority over occupation-specific COVID risks and pauses this rule pending review.",
+      "reason": "Clarifies interim disposition and avoids teaching a categorical bar on regulating occupational COVID risk.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/595/21a244/",
+          "pinpoint": "Per curiam Parts II-A and III; 595 U.S. 117–121.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "mqd",
+      "stepKey": "lrs-i-biden-missouri",
+      "field": "note",
+      "old": "The same day, a vaccination rule for health-care staff stands: it falls within express power to protect patients' health and safety.",
+      "new": "On the same day, the Court stays injunctions against the Medicare/Medicaid staff-vaccination rule, allowing enforcement while review continues. Patient health-and-safety authority supports this rule; it is a different statutory setting from OSHA’s broad employer mandate.",
+      "reason": "Clarifies what was stayed and avoids confusing preliminary relief with final merits judgment.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/595/21a240/",
+          "pinpoint": "Per curiam Parts II-A and III; 595 U.S. 92–96.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "standing",
+      "stepKey": "lrs-n-standing-akins",
+      "field": "note",
+      "old": "Denial of information a statute requires to be disclosed is a concrete injury, even though many voters share it.",
+      "new": "Voters denied campaign-finance information subject to statutory public disclosure suffered concrete injury because it would help them evaluate candidates. Sharing that harm with many voters does not make it an abstract grievance.",
+      "reason": "Retains the missing use-related facts rather than implying every statutory information defect suffices.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/524/11/",
+          "pinpoint": "524 U.S. 21–25; compare TransUnion, 594 U.S. 413, 441–442.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "public-rights",
+      "stepKey": null,
+      "field": "now",
+      "old": "Jarkesy requires an Article III jury for the SEC fraud penalties before it, a legal claim analogous to common-law fraud. It distinguishes Atlas Roofing rather than abolishing agency adjudication. Article III authority, public-rights exceptions and the particular claim and remedy require separate examination.",
+      "new": "Jarkesy requires a jury in an Article III court for the SEC fraud penalties at issue and distinguishes Atlas Roofing. FCC v. AT&T (2026) permits nonconclusive FCC forfeiture findings because collection requires a fresh jury trial in court. The precise enforcement process, claim and remedy matter; neither case abolishes agency adjudication.",
+      "reason": "Adds a major 2026 Supreme Court clarification that prevents overgeneralizing Jarkesy.",
+      "sources": [
+        {
+          "url": "https://www.supremecourt.gov/opinions/25pdf/25-406_nmip.pdf",
+          "pinpoint": "Majority slip pp. 6–11, especially pp. 7–10; Jarkesy distinction.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "mqd",
+      "stepKey": null,
+      "field": "now",
+      "old": "When an agency claims power of vast economic and political significance, it must point to clear congressional authorization, not merely a plausible reading of general words. Justices still differ on whether the doctrine is a substantive clear-statement rule or, as Justice Barrett puts it, ordinary reading of text in context.",
+      "new": "Extraordinary claims of agency power require clear congressional authorization. Justices disagree about the doctrine’s rationale. Learning Resources v. Trump (2026) holds that IEEPA does not authorize tariffs, but only three Justices join the major-questions rationale; the other three Justices in the judgment rely on ordinary statutory interpretation.",
+      "reason": "Adds 2026 development while separating the six-Justice result from the three-Justice major-questions rationale.",
+      "sources": [
+        {
+          "url": "https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf",
+          "pinpoint": "Roberts opinion Parts II-A-2 and II-B; Kagan concurrence pp. 1–2; opinion joining line.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "presidential-power",
+      "stepKey": null,
+      "field": "now",
+      "old": "Courts sort presidential action by Justice Jackson's Youngstown framework: power is greatest with Congress's authorization, uncertain where Congress is silent (where long acquiescence can count), and weakest against its will. Statutes granting emergency powers are read for their stated predicates.",
+      "new": "Courts sort presidential action by Justice Jackson's Youngstown framework: power is greatest with Congress's authorization, uncertain where Congress is silent (where long acquiescence can count), and weakest against its will. Statutes granting emergency powers are read for their stated predicates. Learning Resources v. Trump (2026) illustrates that limit: IEEPA does not authorize tariffs. The Court’s result has six votes, while its major-questions rationale has only three.",
+      "reason": "Connects emergency-power synthesis to the latest directly relevant statutory limit without presenting plurality reasoning as majority law.",
+      "sources": [
+        {
+          "url": "https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf",
+          "pinpoint": "Roberts opinion Parts II-A-2 and II-B; Kagan concurrence pp. 1–2; opinion joining line.",
+          "reviewScope": "Fresh targeted reading of primary opinion passages; not complete-opinion certification."
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-NEXT-CM-0154",
+      "field": "rule",
+      "old": "A wrongfully discharged employee recovers the agreed compensation less what the employer proves was or could reasonably have been earned in other employment, but only comparable or substantially similar work counts; different or inferior work need not be accepted.",
+      "new": "A wrongfully discharged employee recovers agreed compensation less replacement earnings the employer proves were received or reasonably could have been received. Hypothetical earnings from a rejected opportunity reduce damages only if the work was comparable or substantially similar; different or inferior work need not be accepted.",
+      "reason": "Distinguish actual earnings from hypothetical earnings from rejected work.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/3d/3/176.html",
+          "pinpoint": "3 Cal.3d 181–184"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/207/note",
+      "old": "A wrongfully discharged employee recovers the agreed compensation less what the employer proves was or could reasonably have been earned in other employment, but only comparable or substantially similar work counts; different or inferior work need not be accepted.",
+      "new": "A wrongfully discharged employee recovers agreed compensation less replacement earnings the employer proves were received or reasonably could have been received. Hypothetical earnings from a rejected opportunity reduce damages only if the work was comparable or substantially similar; different or inferior work need not be accepted.",
+      "reason": "Distinguish actual earnings from hypothetical earnings from rejected work.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/3d/3/176.html",
+          "pinpoint": "3 Cal.3d 181–184"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-019",
+      "field": "rule",
+      "old": "A promise conditioned on the promisor's own satisfaction is not illusory, because the promisor must judge satisfaction honestly and in good faith, and that enforceable duty supplies consideration.",
+      "new": "A satisfaction clause does not make a promise illusory when the law constrains that judgment. Mattei distinguishes objective reasonableness for commercial quality or utility from honest good faith for matters of taste or judgment; the varied lease factors in this transaction called for the latter test.",
+      "reason": "Restore the two satisfaction tests instead of presenting subjective good faith as the sole test for every satisfaction clause.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/119.html",
+          "pinpoint": "51 Cal.2d 123–124"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/144/note",
+      "old": "A promise conditioned on the promisor's own satisfaction is not illusory, because the promisor must judge satisfaction honestly and in good faith, and that enforceable duty supplies consideration.",
+      "new": "A satisfaction clause does not make a promise illusory when the law constrains that judgment. Mattei distinguishes objective reasonableness for commercial quality or utility from honest good faith for matters of taste or judgment; the varied lease factors in this transaction called for the latter test.",
+      "reason": "Restore the two satisfaction tests instead of presenting subjective good faith as the sole test for every satisfaction clause.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/119.html",
+          "pinpoint": "51 Cal.2d 123–124"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CT-CB-0560",
+      "field": "rule",
+      "old": "Under California law as stated in Pacific Gas & Electric, a party must be allowed to offer extrinsic evidence that an integrated contract means something other than what it appears to say, even where the writing seems clear on its face.",
+      "new": "Applying California law, the Ninth Circuit required an opportunity to present extrinsic evidence despite apparently clear text. Trident still had to produce evidence making the writing reasonably susceptible to its proposed meaning to survive later summary judgment; the court did not grant the requested prepayment right.",
+      "reason": "Distinguish an opportunity to offer interpretive evidence from proof of the interpretation or victory on the contract merits.",
+      "sources": [
+        {
+          "url": "https://openjurist.org/847/f2d/564/trident-center-v-connecticut-general-life-insurance-company",
+          "pinpoint": "847 F.2d 568–570 & n.6"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/0/steps/355/note",
+      "old": "Under California law as stated in Pacific Gas & Electric, a party must be allowed to offer extrinsic evidence that an integrated contract means something other than what it appears to say, even where the writing seems clear on its face.",
+      "new": "Applying California law, the Ninth Circuit required an opportunity to present extrinsic evidence despite apparently clear text. Trident still had to produce evidence making the writing reasonably susceptible to its proposed meaning to survive later summary judgment; the court did not grant the requested prepayment right.",
+      "reason": "Distinguish an opportunity to offer interpretive evidence from proof of the interpretation or victory on the contract merits.",
+      "sources": [
+        {
+          "url": "https://openjurist.org/847/f2d/564/trident-center-v-connecticut-general-life-insurance-company",
+          "pinpoint": "847 F.2d 568–570 & n.6"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "consideration",
+      "stepKey": "mattei",
+      "field": "note",
+      "old": "A purchase conditioned on the buyer's satisfaction is not illusory, because he must judge satisfaction honestly and in good faith (California).",
+      "new": "For the varied lease-satisfaction judgments in this California transaction, honest good faith supplies an enforceable constraint and prevents an illusory promise. The opinion separately recognizes an objective reasonable-person test for commercial quality or utility.",
+      "reason": "Restore an important limitation omitted by the short summary.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/119.html",
+          "pinpoint": "51 Cal.2d 123–124"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "interpretation",
+      "stepKey": "trident",
+      "field": "note",
+      "old": "Under Pacific Gas even an unambiguous clause must be opened to extrinsic evidence; the Ninth Circuit applies the rule while criticizing it.",
+      "new": "The Ninth Circuit permits extrinsic evidence despite apparently clear text under California law, while criticizing the rule. Footnote 6 preserves later summary judgment unless the evidence makes the writing reasonably susceptible to the proposed interpretation.",
+      "reason": "Restore an important limitation omitted by the short summary.",
+      "sources": [
+        {
+          "url": "https://openjurist.org/847/f2d/564/trident-center-v-connecticut-general-life-insurance-company",
+          "pinpoint": "847 F.2d 568–570 & n.6"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages reviewed"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "public-policy",
+      "stepKey": "hassler",
+      "field": "fate",
+      "old": null,
+      "new": "Later developments: the 2023 appeal preserved a severable attorney-fee clause; invalidating the noncompete did not void the whole contract. Wyoming’s 2025 legislation separately restricts noncompetes in contracts entered on or after July 1, 2025, with specified exceptions; it expressly leaves earlier contracts unaltered.",
+      "reason": "Add verified subsequent history without changing what the 2022 court decided or implying one rule for agreements of all dates.",
+      "sources": [
+        {
+          "url": "https://caselaw.findlaw.com/court/wy-supreme-court/2202667.html",
+          "pinpoint": "Circle C Resources v. Hassler, 2023 WY 54, ¶¶11–20, 37"
+        },
+        {
+          "url": "https://wyoleg.gov/2025/SessionLaws.pdf",
+          "pinpoint": "2025 Wyoming Session Laws ch.170, §§1–3, printed pp.392–394 (PDF pp.406–408)"
+        }
+      ],
+      "reviewDepth": "2023 severability and disposition passages; complete 2025 chapter 170 reviewed"
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/1/steps/23/year",
+      "old": 1876,
+      "new": 1877,
+      "reason": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-351",
+          "pinpoint": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added."
+        },
+        {
+          "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep094/usrep094351/usrep094351.pdf",
+          "pinpoint": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-140",
+      "field": "full",
+      "old": "(reported 1876)",
+      "new": "(1877; October Term 1876)",
+      "reason": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-351",
+          "pinpoint": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged."
+        },
+        {
+          "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep094/usrep094351/usrep094351.pdf",
+          "pinpoint": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "file": "tools/v28/case-chronologies.json",
+      "pointer": "/1/steps/24/year",
+      "old": 1876,
+      "new": 1877,
+      "reason": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-606",
+          "pinpoint": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added."
+        },
+        {
+          "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep094/usrep094606/usrep094606.pdf",
+          "pinpoint": "GPO official record identifies decision in 1877 and separates October Term 1876; LOC archival opinion title independently identifies 1877. Do not infer calendar decision year from term header. No day/date added."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-141",
+      "field": "full",
+      "old": "(reported 1876)",
+      "new": "(1877; October Term 1876)",
+      "reason": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-606",
+          "pinpoint": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged."
+        },
+        {
+          "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep094/usrep094606/usrep094606.pdf",
+          "pinpoint": "Make citation distinguish decision year from reporter term. Full supplied opinion does not print an exact decision date; leave that limitation intact. Original assigned source PDFs remain unchanged."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-093",
+      "field": "rule",
+      "old": "A class judgment binds class members under ordinary claim and issue preclusion, but only as to what was actually adjudicated: a finding of no classwide pattern or practice of discrimination does not bar class members' unadjudicated individual discrimination claims.",
+      "new": "A judgment in a properly entertained class action binds members under ordinary claim and issue preclusion. Rejecting the classwide pattern-or-practice claim bars relitigation of that claim and issue, but does not extinguish distinct individual discrimination claims that were not adjudicated.",
+      "reason": "The old rule incorrectly suggests that all claim preclusion is limited to matters actually adjudicated; claim and issue preclusion have different scopes. The full brief is more careful.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/467/867/",
+          "pinpoint": "467 U.S. 874, 880–881"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "chronology",
+      "key": "cp-cooper",
+      "field": "note",
+      "old": "A class judgment binds class members under ordinary claim and issue preclusion, but only as to what was actually adjudicated: a finding of no classwide pattern or practice of discrimination does not bar class members' unadjudicated individual discrimination claims.",
+      "new": "A judgment in a properly entertained class action binds members under ordinary claim and issue preclusion. Rejecting the classwide pattern-or-practice claim bars relitigation of that claim and issue, but does not extinguish distinct individual discrimination claims that were not adjudicated.",
+      "reason": "The old rule incorrectly suggests that all claim preclusion is limited to matters actually adjudicated; claim and issue preclusion have different scopes. The full brief is more careful.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/467/867/",
+          "pinpoint": "467 U.S. 874, 880–881"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-ATLAS-CONLEY",
+      "field": "rule",
+      "old": "Under Rule 8(a)(2) a complaint needs only a short and plain statement giving fair notice of the claim and its grounds, and should not be dismissed unless it appears beyond doubt that no set of supporting facts could entitle the claimant to relief.",
+      "new": "Conley’s historical Rule 8 formulation required fair notice and used the “no set of facts” dismissal test. Twombly retired that formula in 2007; contemporary federal Rule 8 analysis requires plausible factual allegations under Twombly and Iqbal.",
+      "reason": "The standalone rule card states the superseded test in present tense; the timeline identifies its retirement, but the extracted card does not.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/550/544/",
+          "pinpoint": "550 U.S. 562–563; Iqbal, 556 U.S. 662"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "chronology",
+      "key": "cp-conley",
+      "field": "note",
+      "old": "Under Rule 8(a)(2) a complaint needs only a short and plain statement giving fair notice of the claim and its grounds, and should not be dismissed unless it appears beyond doubt that no set of supporting facts could entitle the claimant to relief.",
+      "new": "Conley’s historical Rule 8 formulation required fair notice and used the “no set of facts” dismissal test. Twombly retired that formula in 2007; contemporary federal Rule 8 analysis requires plausible factual allegations under Twombly and Iqbal.",
+      "reason": "The standalone rule card states the superseded test in present tense; the timeline identifies its retirement, but the extracted card does not.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/550/544/",
+          "pinpoint": "550 U.S. 562–563; Iqbal, 556 U.S. 662"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-091",
+      "field": "rule",
+      "old": "Rule 23 does not require class representatives to demonstrate an administratively feasible way to identify absent class members as a separate prerequisite to class certification.",
+      "new": "The Ninth Circuit held that Rule 23 does not impose a separate prerequisite of an administratively feasible way to identify absent class members. Plaintiffs must still satisfy Rule 23’s actual requirements; the opinion discusses differing approaches in other circuits.",
+      "reason": "The standalone compact rule drops the jurisdiction qualifier that both the full brief and timeline supply.",
+      "sources": [
+        {
+          "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2017/01/03/15-55727.pdf",
+          "pinpoint": "Slip opinion 7–12, 23–24"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "chronology",
+      "key": "cp-briseno",
+      "field": "note",
+      "old": "Rule 23 does not require class representatives to demonstrate an administratively feasible way to identify absent class members as a separate prerequisite to class certification.",
+      "new": "The Ninth Circuit held that Rule 23 does not impose a separate prerequisite of an administratively feasible way to identify absent class members. Plaintiffs must still satisfy Rule 23’s actual requirements; the opinion discusses differing approaches in other circuits.",
+      "reason": "The standalone compact rule drops the jurisdiction qualifier that both the full brief and timeline supply.",
+      "sources": [
+        {
+          "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2017/01/03/15-55727.pdf",
+          "pinpoint": "Slip opinion 7–12, 23–24"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-ATLAS-MUSSAT",
+      "field": "rule",
+      "old": "In a nationwide Rule 23 class action under a federal statute, the named representative must establish personal jurisdiction over the defendant, but no separate showing of specific jurisdiction is required for each absent class member's claim.",
+      "new": "The Seventh Circuit held that, in a nationwide Rule 23 action under a federal statute, the named representative must establish personal jurisdiction over the defendant, but each absent member need not independently establish specific jurisdiction. This is a circuit holding about representative litigation.",
+      "reason": "The standalone rule drops the circuit and representative-litigation scope that the full brief and timeline preserve.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/federal/appellate-courts/ca7/19-1204/19-1204-2020-03-11.html",
+          "pinpoint": "Slip opinion 8–12; 953 F.3d 441"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "chronology",
+      "key": "cp-mussat",
+      "field": "note",
+      "old": "In a nationwide Rule 23 class action under a federal statute, the named representative must establish personal jurisdiction over the defendant, but no separate showing of specific jurisdiction is required for each absent class member's claim.",
+      "new": "The Seventh Circuit held that, in a nationwide Rule 23 action under a federal statute, the named representative must establish personal jurisdiction over the defendant, but each absent member need not independently establish specific jurisdiction. This is a circuit holding about representative litigation.",
+      "reason": "The standalone rule drops the circuit and representative-litigation scope that the full brief and timeline preserve.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/federal/appellate-courts/ca7/19-1204/19-1204-2020-03-11.html",
+          "pinpoint": "Slip opinion 8–12; 953 F.3d 441"
+        }
+      ],
+      "reviewDepth": "relevant primary passage, not complete opinion review"
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-027",
+      "field": "full",
+      "old": "Lefkowitz v. Great Minneapolis Surplus Store, Inc. (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-028",
+      "field": "full",
+      "old": "Wucherpfennig v. Dooley (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-031",
+      "field": "full",
+      "old": "Drennan v. Star Paving (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-032",
+      "field": "full",
+      "old": "Dorton v. Collins & Aikman (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-031",
+      "field": "full",
+      "old": "## Drennan v. Star Paving\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-032",
+      "field": "full",
+      "old": "## Dorton v. Collins & Aikman\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-037",
+      "field": "full",
+      "old": " the rule and the tension, rather than turning the decision into approval of the seller's conduct.\n\n## Swinton v. Whitinsville Savings Bank\n\n",
+      "new": " the rule and the tension, rather than turning the decision into approval of the seller's conduct.\n\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-038",
+      "field": "full",
+      "old": "ubject, rather than a universal duty to disclose everything known. 356 Mass. at 48-50; CB 514-516.\n\n## Kannavos v. Annino\n\n",
+      "new": "ubject, rather than a universal duty to disclose everything known. 356 Mass. at 48-50; CB 514-516.\n\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-034",
+      "field": "full",
+      "old": " Alaska Packers v. Domenico 2 / 35 Alaska Packers v. Domenico (continued)\n\n",
+      "new": " ",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-034",
+      "field": "full",
+      "old": " Alaska Packers v. Domenico 3 / 35 Alaska Packers v. Domenico (continued)\n\n",
+      "new": " ",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-034",
+      "field": "full",
+      "old": "Alaska Packers v. Domenico 4 / 35 Alaska Packers v. Domenico (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-034",
+      "field": "full",
+      "old": " Alaska Packers v. Domenico 5 / 35",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-035",
+      "field": "full",
+      "old": "Watkins & Son v. Carrig 6 / 35 Watkins & Son v. Carrig (continued)\n\n",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-035",
+      "field": "full",
+      "old": " Watkins & Son v. Carrig 7 / 35 Watkins & Son v. Carrig (continued)\n\n",
+      "new": " ",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-035",
+      "field": "full",
+      "old": " Watkins & Son v. Carrig 8 / 35 Watkins & Son v. Carrig (continued)\n\n",
+      "new": " ",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-035",
+      "field": "full",
+      "old": "Watkins & Son v. Carrig 9 / 35",
+      "new": "",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-031",
+      "field": "full",
+      "old": "resulting damages? Rule and Holding Reasonable, foreseeable reliance",
+      "new": "resulting damages?\n\n## Rule and Holding\n\nReasonable, foreseeable reliance",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-031",
+      "field": "full",
+      "old": "ce requires; § 87(2) more directly addresses protection of offers inducing preacceptance reliance.\n\n## Drennan v. Star Paving",
+      "new": "ce requires; § 87(2) more directly addresses protection of offers inducing preacceptance reliance.\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-032",
+      "field": "full",
+      "old": "C. Itoh presents the contrasting situation in which the seller's language did satisfy the proviso.\n\n## Dorton v. Collins & Aikman",
+      "new": "C. Itoh presents the contrasting situation in which the seller's language did satisfy the proviso.\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-037",
+      "field": "full",
+      "old": "e zoning problem was discoverable from public records, yet the buyers received relief. CB 513-516.\n\n## Swinton v. Whitinsville Savings Bank",
+      "new": "e zoning problem was discoverable from public records, yet the buyers received relief. CB 513-516.\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CTR-038",
+      "field": "full",
+      "old": "aim depends on the actual agreement and should not be invented from the misrepresentation holding.\n\n## Kannavos v. Annino",
+      "new": "aim depends on the actual agreement and should not be invented from the misrepresentation holding.\n",
+      "reason": "Editorial only: remove PDF running heads/footers or repair a swallowed section heading; all substantive authored prose and source citations preserved.",
+      "sources": [],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-001",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-6/pdf/USREPORTS-6-126.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-6/pdf/USREPORTS-6-126.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-004",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-498/pdf/USREPORTS-498-5.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-498/pdf/USREPORTS-498-5.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-013",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-95/pdf/USREPORTS-95-714.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-95/pdf/USREPORTS-95-714.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-014",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-274/pdf/USREPORTS-274-352.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-274/pdf/USREPORTS-274-352.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-015",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-326/pdf/USREPORTS-326-310.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-326/pdf/USREPORTS-326-310.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-006",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-915.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-915.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-008",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-433/pdf/USREPORTS-433-186.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-433/pdf/USREPORTS-433-186.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-009",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-495/pdf/USREPORTS-495-604.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-495/pdf/USREPORTS-495-604.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-010",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-339/pdf/USREPORTS-339-306.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-339/pdf/USREPORTS-339-306.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-011",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-375/pdf/USREPORTS-375-311.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-375/pdf/USREPORTS-375-311.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-033",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-211/pdf/USREPORTS-211-149.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-211/pdf/USREPORTS-211-149.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-035",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-545/pdf/USREPORTS-545-308.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-545/pdf/USREPORTS-545-308.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-036",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-568/pdf/USREPORTS-568-251.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-568/pdf/USREPORTS-568-251.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-037",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-383/pdf/USREPORTS-383-715.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-383/pdf/USREPORTS-383-715.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-038",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-545/pdf/USREPORTS-545-546.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-545/pdf/USREPORTS-545-546.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-042",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-363/pdf/USREPORTS-363-335.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-363/pdf/USREPORTS-363-335.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-043",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-454/pdf/USREPORTS-454-235.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-454/pdf/USREPORTS-454-235.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-045",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-304/pdf/USREPORTS-304-64.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-304/pdf/USREPORTS-304-64.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-046",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-326/pdf/USREPORTS-326-99.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-326/pdf/USREPORTS-326-99.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-051",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-518/pdf/USREPORTS-518-415.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-518/pdf/USREPORTS-518-415.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-052",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-559/pdf/USREPORTS-559-393.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-559/pdf/USREPORTS-559-393.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-065",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-550/pdf/USREPORTS-550-544.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-550/pdf/USREPORTS-550-544.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-066",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-556/pdf/USREPORTS-556-662.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-556/pdf/USREPORTS-556-662.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-068",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-551/pdf/USREPORTS-551-308.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-551/pdf/USREPORTS-551-308.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-074",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-383/pdf/USREPORTS-383-363.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-383/pdf/USREPORTS-383-363.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-083",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-390/pdf/USREPORTS-390-102.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-390/pdf/USREPORTS-390-102.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-087",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-386/pdf/USREPORTS-386-523.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-386/pdf/USREPORTS-386-523.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-089",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-311/pdf/USREPORTS-311-32.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-311/pdf/USREPORTS-311-32.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-090",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-338.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-564/pdf/USREPORTS-564-338.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-092",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-472/pdf/USREPORTS-472-797.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-472/pdf/USREPORTS-472-797.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-093",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-467/pdf/USREPORTS-467-867.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-467/pdf/USREPORTS-467-867.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-101",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-383.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-383.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-106",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-253/pdf/USREPORTS-253-300.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-253/pdf/USREPORTS-253-300.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-107",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-477/pdf/USREPORTS-477-317.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-477/pdf/USREPORTS-477-317.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-111",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-494/pdf/USREPORTS-494-558.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-494/pdf/USREPORTS-494-558.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-112",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-517/pdf/USREPORTS-517-370.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-517/pdf/USREPORTS-517-370.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-128",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-424/pdf/USREPORTS-424-737.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-424/pdf/USREPORTS-424-737.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-129",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-546/pdf/USREPORTS-546-345.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-546/pdf/USREPORTS-546-345.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-132",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-307/pdf/USREPORTS-307-241.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-307/pdf/USREPORTS-307-241.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-135",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-273.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-273.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-140",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-94/pdf/USREPORTS-94-351.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-94/pdf/USREPORTS-94-351.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-141",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-94/pdf/USREPORTS-94-606.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-94/pdf/USREPORTS-94-606.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-147",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-439/pdf/USREPORTS-439-322.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-439/pdf/USREPORTS-439-322.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-153",
+      "field": "full",
+      "old": "Full judicial opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf).",
+      "reason": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Replace an inert or duplicated source label with the complete official opinion link supplied by its verified title-matched GPO record. This repairs source access; it does not certify all brief claims."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "takeaway",
+      "id": "lrs-o-roth",
+      "field": "text",
+      "old": "You can claim due process only if you lose a protected liberty or property interest. A professor on a one-year contract had no promise of renewal, so he had no property interest and was owed no reasons or hearing.",
+      "new": "Due process requires a protected liberty or property interest. Roth’s one-year appointment protected his existing term, but its terms, state law and university policies gave him no entitlement to renewal. The nonrenewal also did not deprive him of a protected liberty interest on this record, so it required no statement of reasons or hearing.",
+      "reason": "Distinguishes property during the appointment from entitlement to renewal, and makes the no-hearing result depend on the liberty analysis as well.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/408/564/",
+          "pinpoint": "408 U.S. 572–579, especially 578.",
+          "reviewScope": "Targeted primary opinion passages, not full opinion review."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "takeaway",
+      "id": "lrs-o-jarkesy",
+      "field": "text",
+      "old": "If the government wants civil money penalties for something like securities fraud, which looks like old common-law fraud, the defendant can demand a jury in a regular federal court. The SEC cannot keep it in-house.",
+      "new": "The SEC sought civil penalties for securities fraud, a claim resembling common-law fraud. Jarkesy therefore had a right to a jury in an Article III court; the SEC could not impose these penalties through its own binding administrative proceeding. The holding concerns this claim and enforcement process, rather than every civil penalty an agency considers.",
+      "reason": "Preserves remedy, claim and binding-administrative-enforcement conditions; the existing government-wide shorthand risks overgeneralization after FCC v. AT&T (2026).",
+      "sources": [
+        {
+          "url": "https://www.supremecourt.gov/opinions/23pdf/22-859_1924.pdf",
+          "pinpoint": "Majority slip pp. 6–13, 27; compare FCC v. AT&T, 2026, slip pp. 6–11.",
+          "reviewScope": "Targeted primary opinion passages, not full opinion review."
+        }
+      ],
+      "reviewDepth": "Editorial or source-access repair; no new substantive certification."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-044",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-571/pdf/USREPORTS-571-49.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-571/pdf/USREPORTS-571-49.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-048",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-380/pdf/USREPORTS-380-460.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-380/pdf/USREPORTS-380-460.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-049",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-446/pdf/USREPORTS-446-740.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-446/pdf/USREPORTS-446-740.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-054",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-318/pdf/USREPORTS-318-363.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-318/pdf/USREPORTS-318-363.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-055",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-487/pdf/USREPORTS-487-500.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-487/pdf/USREPORTS-487-500.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-056",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-342/pdf/USREPORTS-342-359.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-342/pdf/USREPORTS-342-359.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-099",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion .",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-379/pdf/USREPORTS-379-104.pdf).",
+      "reason": "Replace duplicated inert source label with official GPO PDF link from title-matched metadata; source-access repair only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-379/pdf/USREPORTS-379-104.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-010",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-327/pdf/USREPORTS-327-645.pdf).",
+      "reason": "Replace inert source label with title-matched full opinion. Official court or GPO document, except A.F.A. Tours reproduced primary opinion on Justia. Source-access verification only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-327/pdf/USREPORTS-327-645.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-012",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-123/pdf/USREPORTS-123-552.pdf).",
+      "reason": "Replace inert source label with title-matched full opinion. Official court or GPO document, except A.F.A. Tours reproduced primary opinion on Justia. Source-access verification only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-123/pdf/USREPORTS-123-552.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CP-114",
+      "field": "full",
+      "old": "Full opinion: Full judicial opinion.",
+      "new": "[Full judicial opinion](https://www.govinfo.gov/content/pkg/USREPORTS-500/pdf/USREPORTS-500-614.pdf).",
+      "reason": "Replace inert source label with title-matched full opinion. Official court or GPO document, except A.F.A. Tours reproduced primary opinion on Justia. Source-access verification only.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-500/pdf/USREPORTS-500-614.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-007",
+      "field": "full",
+      "old": "Full judicial opinions.",
+      "new": "[Full judicial opinion](https://www.supremecourt.gov/opinions/20pdf/19-368_febh.pdf).",
+      "reason": "Replace inert source label with title-matched full opinion. Official court or GPO document, except A.F.A. Tours reproduced primary opinion on Justia. Source-access verification only.",
+      "sources": [
+        {
+          "url": "https://www.supremecourt.gov/opinions/20pdf/19-368_febh.pdf",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "effectiveBrief",
+      "id": "CPR-016",
+      "field": "full",
+      "old": "Full judicial opinion.",
+      "new": "[Full judicial opinion](https://law.justia.com/cases/federal/appellate-courts/F2/937/82/192935/).",
+      "reason": "Replace inert source label with title-matched full opinion. Official court or GPO document, except A.F.A. Tours reproduced primary opinion on Justia. Source-access verification only.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/federal/appellate-courts/F2/937/82/192935/",
+          "pinpoint": "Official opinion link / source identity"
+        }
+      ],
+      "reviewDepth": "Source access repair; not a substantive review."
+    },
+    {
+      "target": "takeaway",
+      "id": "mattei",
+      "field": "text",
+      "old": "A promise that depends on the promisor being satisfied is not an empty promise, because the law requires satisfaction to be judged honestly and in good faith. That duty is enough to make the deal binding on both sides.",
+      "new": "A satisfaction condition can bind the promisor because the law limits the power to reject performance. Commercial quality or utility ordinarily uses a reasonable-person standard; matters of taste or judgment use honest good faith. The many factors involved in Mattei’s proposed leases called for the latter standard, so his promise was not illusory.",
+      "reason": "Align beginner takeaway with the qualified holding already stated in the full brief and proposed timeline/compact edits.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/119.html",
+          "pinpoint": "51 Cal. 2d 123–124"
+        }
+      ],
+      "reviewDepth": "Relevant primary opinion passages reviewed; not a complete citator audit."
+    },
+    {
+      "target": "takeaway",
+      "id": "trident",
+      "field": "text",
+      "old": "Even when the documents seem to leave no room for a borrower's reading, California law requires the court to at least hear the borrower's outside evidence of what the parties meant before ruling it out.",
+      "new": "California law required an opportunity to present outside evidence of the parties’ intended meaning even though the loan documents appeared clear. Trident did not win a right to prepay: after discovery the lender could still obtain summary judgment unless the evidence made the proposed meaning one the contract could reasonably bear.",
+      "reason": "Align beginner takeaway with the qualified holding already stated in the full brief and proposed timeline/compact edits.",
+      "sources": [
+        {
+          "url": "https://openjurist.org/847/f2d/564/trident-center-v-connecticut-general-life-insurance-company",
+          "pinpoint": "847 F.2d 568–570 and original footnote 6"
+        }
+      ],
+      "reviewDepth": "Relevant primary opinion passages reviewed; not a complete citator audit."
+    },
+    {
+      "target": "takeaway",
+      "id": "luttinger",
+      "field": "text",
+      "old": "When a purchase depends on getting a mortgage on stated terms and the only available loan has a higher rate, the condition has failed and the buyers get their deposit back. The seller offering to make up the difference does not change that.",
+      "new": "The buyers diligently sought the bank mortgage required by their contract, but the only available loan exceeded the agreed interest ceiling. They could recover their deposit and did not have to accept the sellers’ undefined subsidy arrangement in place of the specified financing. The result depended on this condition and the buyers’ diligence.",
+      "reason": "Align beginner takeaway with the qualified holding already stated in the full brief and proposed timeline/compact edits.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/connecticut/supreme-court/1972/164-conn-45-316-a-2d-757-1972.html",
+          "pinpoint": "164 Conn. 46–49"
+        }
+      ],
+      "reviewDepth": "Relevant primary opinion passages reviewed; not a complete citator audit."
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1964-11-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-379/pdf/USREPORTS-379-104.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "erie-rules",
+      "stepKey": "CP-099"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2001-02-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "erie-rules",
+      "stepKey": "CP-153"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2001-02-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "fed-common-law",
+      "stepKey": "CP-153"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1933-04-17",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-289/pdf/USREPORTS-289-238.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "supp",
+      "stepKey": "CP-DKLA-HURN"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1982-05-17",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-444.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "notice",
+      "stepKey": "CP-COMP-CB-CAP-075"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1983-06-22",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-462/pdf/USREPORTS-462-791.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "notice",
+      "stepKey": "CP-COMP-CB-CAP-073"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-04-19",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-485/pdf/USREPORTS-485-478.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "notice",
+      "stepKey": "CP-COMP-CB-CAP-074"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2002-01-08",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-534/pdf/USREPORTS-534-161.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "notice",
+      "stepKey": "CP-COMP-CB-CAP-076"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2006-04-26",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "notice",
+      "stepKey": "CP-COMP-CB-CAP-077"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-06-15",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-486/pdf/USREPORTS-486-694.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "service",
+      "stepKey": "CP-COMP-CB-CAP-087"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1964-11-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-379/pdf/USREPORTS-379-104.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-scope",
+      "stepKey": "CP-099"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1947-01-13",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-329/pdf/USREPORTS-329-495.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-protection",
+      "stepKey": "CP-100"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1981-01-13",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-383.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-protection",
+      "stepKey": "CP-101"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2009-12-08",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-558/pdf/USREPORTS-558-100.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "discovery-protection",
+      "stepKey": "CP-COMP-CB-CAP-493"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1920-06-01",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-253/pdf/USREPORTS-253-300.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "case-management",
+      "stepKey": "CP-106"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2017-04-18",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-581/pdf/USREPORTS-581-101.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "case-management",
+      "stepKey": "CP-COMP-CB-CAP-385"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1920-06-01",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-253/pdf/USREPORTS-253-300.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-106"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1959-05-25",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-359/pdf/USREPORTS-359-500.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-109"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1962-04-30",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-369/pdf/USREPORTS-369-469.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-COMP-CB-CAP-412"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1970-02-02",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-396/pdf/USREPORTS-396-531.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-COMP-CB-CAP-413"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1974-02-20",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-415/pdf/USREPORTS-415-189.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-110"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1990-03-20",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-494/pdf/USREPORTS-494-558.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-111"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1996-04-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-517/pdf/USREPORTS-517-370.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "jury",
+      "stepKey": "CP-112"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1913-04-21",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-228/pdf/USREPORTS-228-364.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "judgment-law",
+      "stepKey": "CP-COMP-CB-CAP-436"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1935-06-03",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-295/pdf/USREPORTS-295-654.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "judgment-law",
+      "stepKey": "CP-COMP-CB-CAP-435"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1943-05-24",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-319/pdf/USREPORTS-319-372.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "judgment-law",
+      "stepKey": "CP-COMP-CB-CAP-430"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2000-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-530/pdf/USREPORTS-530-133.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "judgment-law",
+      "stepKey": "CP-116"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1957-01-14",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-352/pdf/USREPORTS-352-249.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appeals",
+      "stepKey": "CP-130"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1976-03-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-424/pdf/USREPORTS-424-737.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appeals",
+      "stepKey": "CP-128"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2006-01-18",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-546/pdf/USREPORTS-546-345.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appeals",
+      "stepKey": "CP-129"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2009-12-08",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-558/pdf/USREPORTS-558-100.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appeals",
+      "stepKey": "CP-COMP-CB-CAP-493"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1939-05-22",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-307/pdf/USREPORTS-307-241.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appellate-review",
+      "stepKey": "CP-132"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1982-04-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-273.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "appellate-review",
+      "stepKey": "CP-135"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2001-02-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "claim-preclusion",
+      "stepKey": "CP-153"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1948-04-05",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-333/pdf/USREPORTS-333-591.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "issue-preclusion",
+      "stepKey": "CP-143"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1971-05-03",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-402/pdf/USREPORTS-402-313.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "issue-preclusion",
+      "stepKey": "CP-COMP-CB-CAP-566"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1979-01-09",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-439/pdf/USREPORTS-439-322.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "issue-preclusion",
+      "stepKey": "CP-147"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1989-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-490/pdf/USREPORTS-490-755.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "nonparty-preclusion",
+      "stepKey": "CP-148"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2008-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-553/pdf/USREPORTS-553-880.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "nonparty-preclusion",
+      "stepKey": "CP-149"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1980-12-09",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-90.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "interjurisdiction-preclusion",
+      "stepKey": "CP-152"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-01-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-484/pdf/USREPORTS-484-174.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "interjurisdiction-preclusion",
+      "stepKey": "CP-151"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2001-02-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "interjurisdiction-preclusion",
+      "stepKey": "CP-153"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1989-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-490/pdf/USREPORTS-490-755.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "party-status",
+      "stepKey": "CP-148"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1913-04-21",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-228/pdf/USREPORTS-228-364.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-436"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1920-06-01",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-253/pdf/USREPORTS-253-300.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-106"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1933-04-17",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-289/pdf/USREPORTS-289-238.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-DKLA-HURN"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1935-06-03",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-295/pdf/USREPORTS-295-654.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-435"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1939-05-22",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-307/pdf/USREPORTS-307-241.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-132"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1943-05-24",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-319/pdf/USREPORTS-319-372.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-430"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1947-01-13",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-329/pdf/USREPORTS-329-495.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-100"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1948-04-05",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-333/pdf/USREPORTS-333-591.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-143"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1957-01-14",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-352/pdf/USREPORTS-352-249.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-130"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1959-05-25",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-359/pdf/USREPORTS-359-500.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-109"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1962-04-30",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-369/pdf/USREPORTS-369-469.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-412"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1964-11-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-379/pdf/USREPORTS-379-104.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-099"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1970-02-02",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-396/pdf/USREPORTS-396-531.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-413"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1971-05-03",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-402/pdf/USREPORTS-402-313.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-566"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1974-02-20",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-415/pdf/USREPORTS-415-189.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-110"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1976-03-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-424/pdf/USREPORTS-424-737.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-128"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1979-01-09",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-439/pdf/USREPORTS-439-322.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-147"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1980-12-09",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-90.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-152"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1981-01-13",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-449/pdf/USREPORTS-449-383.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-101"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1982-04-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-273.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-135"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1982-05-17",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-456/pdf/USREPORTS-456-444.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-075"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1983-06-22",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-462/pdf/USREPORTS-462-791.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-073"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-01-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-484/pdf/USREPORTS-484-174.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-151"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-04-19",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-485/pdf/USREPORTS-485-478.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-074"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1988-06-15",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-486/pdf/USREPORTS-486-694.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-087"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1989-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-490/pdf/USREPORTS-490-755.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-148"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1990-03-20",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-494/pdf/USREPORTS-494-558.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-111"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "1996-04-23",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-517/pdf/USREPORTS-517-370.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-112"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2000-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-530/pdf/USREPORTS-530-133.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-116"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2001-02-27",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-531/pdf/USREPORTS-531-497.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-153"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2002-01-08",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-534/pdf/USREPORTS-534-161.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-076"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2006-01-18",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-546/pdf/USREPORTS-546-345.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-129"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2006-04-26",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-547/pdf/USREPORTS-547-220.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-077"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2008-06-12",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-553/pdf/USREPORTS-553-880.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-149"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2009-12-08",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-558/pdf/USREPORTS-558-100.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-493"
+    },
+    {
+      "field": "date",
+      "old": null,
+      "new": "2017-04-18",
+      "reason": "Add exact decision date verified in the printed opinion header.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/USREPORTS-581/pdf/USREPORTS-581-101.pdf",
+          "pinpoint": "Official U.S. Reports PDF, first page, decision-date header"
+        }
+      ],
+      "reviewDepth": "Printed decision-date header; no full-opinion substantive review",
+      "target": "chronology",
+      "key": "CP-COMP-CB-CAP-385"
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "reliance",
+      "stepKey": "drennan",
+      "field": "note",
+      "old": "California protects a reasonable opportunity to accept a subcontractor’s bid after foreseeable, reasonable reliance in the general bid. Using the figure alone does not form a bilateral subcontract; notice of a bid mistake and subsequent bid shopping can defeat protection.",
+      "new": "California protects a reasonable opportunity to accept a subcontractor’s bid after foreseeable, reasonable reliance in the general bid. Using the figure alone does not form a bilateral subcontract; knowledge or reason to know of a mistake when relying, and subsequent bid shopping, can defeat protection.",
+      "reason": "Independent review: knowledge of a mistake must be tied to the time of reliance, not later attempted revocation.",
+      "sources": [
+        {
+          "url": "https://law.justia.com/cases/california/supreme-court/2d/51/409.html",
+          "pinpoint": "51 Cal.2d 413–416"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    },
+    {
+      "file": "tools/r19/data/timelines.json",
+      "timelineId": "amendment",
+      "stepKey": null,
+      "field": "now",
+      "old": "Rule 15 favors leave to amend, but a court may deny it for reasons such as undue delay, bad faith, repeated failure to cure deficiencies, undue prejudice or futility (Foman). Trial by consent requires awareness that an unpleaded issue is being tried. A defendant-changing amendment ordinarily needs the same transaction, timely notice without prejudice, and knowledge that a mistake prevented the original naming; Rule 15(c)(1)(C) uses the Rule 4(m) period, and Krupski focuses on the new defendant’s understanding.",
+      "new": "Rule 15 favors leave to amend, but a court may deny it for reasons such as undue delay, bad faith, repeated failure to cure deficiencies, undue prejudice or futility (Foman). Trial by consent requires awareness that an unpleaded issue is being tried. A defendant-changing amendment ordinarily needs the same transaction, timely notice without prejudice, and knowledge or reason to know that a mistake prevented the original naming; Rule 15(c)(1)(C) uses the Rule 4(m) period, and Krupski focuses on the new defendant’s understanding.",
+      "reason": "Independent review: Rule15 permits constructive as well as actual knowledge.",
+      "sources": [
+        {
+          "url": "https://supreme.justia.com/cases/federal/us/371/178/",
+          "pinpoint": "371 U.S. 182; Federal Rule 15(c)(1)(C)"
+        }
+      ],
+      "reviewDepth": "Relevant primary passages checked; not a full-opinion or complete subsequent-treatment certification."
+    }
+  ]
+}

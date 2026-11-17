@@ -23,7 +23,7 @@
   ],
   "proceedings": "The federal Circuit Court entered judgment on a defense verdict. Capron obtained a writ of error, and the Supreme Court reversed during its February Term 1804.",
   "limits": "The report does not describe the underlying injury, identify an opinion author, give a precise decision date, or recount further proceedings. Harper’s printed argument is counsel’s reasoning, not a separately authored opinion of the Court.",
-  "briefSha256": "b48d2c75fcce1527eb10025fda97030e7432fc60c1ce75919c8912549046aa33",
+  "briefSha256": "52c252067b35858a5e73cdcad7ae1e76a432c8d03fdf5b156d62561268adc16e",
   "sources": [
     {
       "id": "brief",
@@ -84,6 +84,21 @@
           "pinpoint": "127"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        80
+      ],
+      "priorSourceSha256": "b48d2c75fcce1527eb10025fda97030e7432fc60c1ce75919c8912549046aa33",
+      "sourceSha256": "52c252067b35858a5e73cdcad7ae1e76a432c8d03fdf5b156d62561268adc16e",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

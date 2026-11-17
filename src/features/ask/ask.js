@@ -39,7 +39,7 @@
 
   const form = dialog.querySelector('form');
   const input = form.querySelector('textarea');
-  const submit = form.querySelector('button');
+  const submit = form.querySelector('button[type="submit"]');
   const status = dialog.querySelector('.ask-status');
   const working = dialog.querySelector('.ask-working');
   const answer = dialog.querySelector('.ask-answer');
@@ -62,6 +62,10 @@
   // Filled in by saved.js (saved answers): answered(...) after each answer,
   // recall(question, node) for one the person saved in this browser.
   const hooks = {};
+  const contextQuestion =
+    'Explain that answer from the beginning. Assume I have never heard of the case or topic and have only one week of Contracts. 1. Who and what is this about? 2. What happened, in chronological order? 3. How did the dispute reach the court? 4. What legal terms and basic rules do I need? 5. What did the court decide, why, and with what result? 6. How does this explain my original question and your answer? For non-case topics, adapt these steps. Cite sources, flag gaps, and correct any earlier error; do not invent details.';
+  const displayQuestion = (question) =>
+    question === contextQuestion ? 'Explain from the beginning' : question;
 
   // Dottie Docket (dottie.js) appears in one place at a time, beside the line
   // that describes the current state. She is decorative: every state is still
@@ -291,6 +295,7 @@
     result,
     question,
     origin = result.cached ? { kind: 'library', savedAt: result.savedAt } : null,
+    history = turns.slice(-3),
   ) {
     const { paragraphs, sources, search: searchStatus } = result;
     if (!Array.isArray(paragraphs) || !Array.isArray(sources)) throw Error('Invalid answer');
@@ -317,7 +322,7 @@
     const content = document.createDocumentFragment();
     const asked = document.createElement('p');
     asked.className = 'ask-asked';
-    asked.textContent = question;
+    asked.textContent = displayQuestion(question);
     content.append(asked);
     for (const paragraph of paragraphs) {
       const p = document.createElement('p');
@@ -365,15 +370,31 @@
     if (!cited.size) setDottie(null);
     answer.append(content);
     // origin.after: a saved follow-up shown again keeps the question it followed.
-    const after = origin?.after ?? turns.at(-1)?.question;
+    const after = origin?.after ?? history.at(-1)?.question;
     hooks.answered?.({ question, node: lastNode, after, result, origin, answer });
     current = {
       question,
+      history,
       answer: paragraphs
         .map((paragraph) => paragraph.text)
         .join('\n\n')
-        .slice(0, 2000),
+        .slice(0, 13000),
     };
+    // Capture this answer's conversation, not whatever happens to be newest
+    // when its button is pressed later in the collapsed history.
+    const contextHistory = [...history.slice(-2), { question, answer: current.answer }];
+    const contextNode = lastNode;
+    const contextualize = document.createElement('button');
+    contextualize.type = 'button';
+    contextualize.className = 'ask-context';
+    contextualize.textContent = 'Explain from the beginning';
+    contextualize.title = 'Get the background, timeline, and legal basics needed to understand this answer';
+    contextualize.addEventListener('click', () => {
+      if (request) return;
+      ask({ question: contextQuestion, node: contextNode, history: contextHistory });
+      input.focus();
+    });
+    answer.append(contextualize);
     followUpMode(true);
     input.value = '';
     if (cited.size && mascot.isConnected) peek.observe(mascot);
@@ -400,7 +421,7 @@
     const turn = document.createElement('details');
     turn.className = 'ask-turn';
     const summary = document.createElement('summary');
-    summary.textContent = current.question;
+    summary.textContent = displayQuestion(current.question);
     turn.append(summary, ...answer.childNodes);
     turn.querySelector('.ask-asked')?.remove();
     earlierList.prepend(turn);
@@ -428,6 +449,7 @@
     submit.disabled = active;
     input.readOnly = active;
     cancel.hidden = !active;
+    for (const button of dialog.querySelectorAll('.ask-context')) button.disabled = active;
     answer.setAttribute('aria-busy', String(active));
   }
 
@@ -440,6 +462,9 @@
   async function ask(options = {}) {
     const question = (options.question ?? input.value).trim();
     if (!question || request) return;
+    const history =
+      options.history ??
+      (current && !options.replace ? [...current.history, current].slice(-3) : turns.slice(-3));
     const node =
       options.node !== undefined
         ? options.node
@@ -477,8 +502,8 @@
           question,
           node: node?.id,
           fresh: options.fresh || undefined,
-          history: turns.length
-            ? turns.slice(-3).map((turn) => ({ question: turn.question, answer: turn.answer }))
+          history: history.length
+            ? history.map((turn) => ({ question: turn.question, answer: turn.answer }))
             : undefined,
         }),
         signal: controller.signal,
@@ -498,7 +523,7 @@
         setDottie('trouble');
         status.textContent = 'AI answers are unavailable here. You can still search the Atlas.';
       } else if (reply.status === 200 && reply.json) {
-        render(reply.json, question);
+        render(reply.json, question, undefined, history);
       } else {
         throw Error('Answer unavailable');
       }
@@ -607,6 +632,7 @@
 
   window.DKLAAsk = {
     hooks,
+    displayQuestion,
     dialog,
     status,
     ask,

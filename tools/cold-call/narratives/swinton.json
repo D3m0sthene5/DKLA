@@ -24,7 +24,7 @@
   "limits": [
     "The decision rejects this historical tort pleading; it does not resolve separate warranty, rescission, or specific-performance theories or state a universal contemporary home-sale rule."
   ],
-  "briefSha256": "71e04ff5cb4fb8405373c44ec3025139b0fdde9c8c767934d4d20f4c6c2e14d7",
+  "briefSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
   "sources": [
     {
       "id": "brief",
@@ -102,6 +102,22 @@
           "pinpoint": "311 Mass. at 679; CB 511–516 and editorial comparisons"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        65,
+        78
+      ],
+      "priorSourceSha256": "71e04ff5cb4fb8405373c44ec3025139b0fdde9c8c767934d4d20f4c6c2e14d7",
+      "sourceSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

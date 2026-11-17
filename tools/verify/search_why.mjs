@@ -110,6 +110,11 @@ try {
     await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
     await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
     await page.waitForFunction(() => window.DKLA?.searchIndex?.(), null, { timeout: 30_000 });
+    // Runtime course patches can remove nodes after the first deferred index
+    // build. Inspect the rebuilt index, not that transient startup snapshot.
+    await page.waitForFunction(() => DKLA.searchIndexStats.documents === data.nodes.length, null, {
+      timeout: 30_000,
+    });
 
     if (!phone)
       await check('the index holds only text a reader can see', async () => {

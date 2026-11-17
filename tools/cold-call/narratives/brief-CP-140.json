@@ -3,8 +3,8 @@
   "briefId": "CP-140",
   "title": "Cromwell v. County of Sac",
   "course": "Civil Procedure",
-  "citation": "94 U.S. (4 Otto) 351 (reported 1876)",
-  "revision": 1,
+  "citation": "94 U.S. (4 Otto) 351 (1877; October Term 1876)",
+  "revision": 2,
   "origin": "narrative",
   "lead": "A failed suit on county interest coupons established defects in the bonds’ issuance. When the same beneficial owner later sued on different instruments, the Supreme Court had to decide whether that loss also barred proof that he bought these particular obligations for value before maturity.",
   "actors": [
@@ -34,13 +34,18 @@
     }
   ],
   "proceedings": "The prior Smith judgment for the county was affirmed and remained final. In Cromwell’s later action, the trial court excluded proof of value based on that judgment. The Supreme Court reversed and remanded for a new trial without awarding payment.",
-  "limits": "The report gives the decision as reported in 1876 without precise argument or decision dates. The original issuance defect and first judgment remained binding. The treatment of these negotiable instruments as distinct demands does not supply a universal later-law definition of separate claims.",
-  "briefSha256": "0e265f2e7e06e330fe4b78aad11304c6bcbe29c584772359bb31c9cc6e06fecf",
+  "limits": "The decision is from 1877, during October Term 1876. The supplied opinion text does not identify precise argument or decision dates. The original issuance defect and first judgment remained binding. The treatment of these negotiable instruments as distinct demands does not supply a universal later-law definition of separate claims.",
+  "briefSha256": "6cded057f4b82ad996164ca496949000f045fbd802e184246b4fb27d2767a9ac",
   "sources": [
     {
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CP-140"
+    },
+    {
+      "id": "decision-year",
+      "label": "Official decision year and court term",
+      "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-351"
     }
   ],
   "review": {
@@ -174,6 +179,28 @@
         {
           "id": "brief",
           "pinpoint": "359–360"
+        }
+      ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "decision-year-and-source-link",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        48,
+        120
+      ],
+      "priorSourceSha256": "0e265f2e7e06e330fe4b78aad11304c6bcbe29c584772359bb31c9cc6e06fecf",
+      "sourceSha256": "6cded057f4b82ad996164ca496949000f045fbd802e184246b4fb27d2767a9ac",
+      "freshCompleteOpinionReview": false,
+      "finding": "Decision year corrected to 1877; October Term 1876 retained and no exact day newly asserted.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-351",
+          "scope": "Official title and decision-year versus term metadata, not opinion merits."
         }
       ]
     }

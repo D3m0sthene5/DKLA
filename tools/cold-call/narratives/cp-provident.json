@@ -31,7 +31,7 @@
     "The Supreme Court vacated and remanded for unresolved appellate issues and preservation of any surviving judgment with appropriate protection."
   ],
   "limits": "This account follows the canonical brief without a new audit or current-law certification. The Supreme Court assumed feasible joinder was required and did not finally resolve all coverage or evidence issues. It reserved whether Dutcher’s failure to intervene affected later litigation and did not establish that he faced no tort liability.",
-  "briefSha256": "19fd96a472f9a8f27d8c236b92adb6b01a057e5eef1558770514e854d375d9c8",
+  "briefSha256": "32c06a19c9579670359abe8dde7555df8d4b7c34c4b0049f836b1d83b00ee2f4",
   "sources": [
     {
       "id": "brief",
@@ -126,6 +126,21 @@
           "pinpoint": "390 U.S. 125–128"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        105
+      ],
+      "priorSourceSha256": "19fd96a472f9a8f27d8c236b92adb6b01a057e5eef1558770514e854d375d9c8",
+      "sourceSha256": "32c06a19c9579670359abe8dde7555df8d4b7c34c4b0049f836b1d83b00ee2f4",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

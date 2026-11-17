@@ -31,7 +31,7 @@
     "The Supreme Court reversed and remanded for merits proceedings, with a separate concurrence by Justice Harlan."
   ],
   "limits": "This is a historical source-brief transformation without a fresh audit or current procedural-law certification. Former Rule 23(b) supplied derivative verification, not today’s class-certification categories; the opinion also addressed the earlier Rule 11. Alleged fraud remained unproved, and the decision did not eliminate verification or decide universal representative adequacy.",
-  "briefSha256": "dc00f87c21decacfe42c9552cb086f3145e69c3edb4fb1c1d64c17b3334bdac2",
+  "briefSha256": "91a652490e73360fbb482de37383e4cec1da30f3df36be530940423105e2a9fc",
   "sources": [
     {
       "id": "brief",
@@ -112,6 +112,21 @@
           "pinpoint": "383 U.S. 365 n.4, 373–374 & Harlan concurrence"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        104
+      ],
+      "priorSourceSha256": "dc00f87c21decacfe42c9552cb086f3145e69c3edb4fb1c1d64c17b3334bdac2",
+      "sourceSha256": "91a652490e73360fbb482de37383e4cec1da30f3df36be530940423105e2a9fc",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

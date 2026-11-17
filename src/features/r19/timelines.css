@@ -404,3 +404,24 @@
     line-height: 1.65 !important;
   }
 }
+.r21-y time,
+.dkla-tl-year time {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.r21-y time small,
+.dkla-tl-year time small {
+  font: inherit;
+  font-size: 10px;
+  white-space: nowrap;
+}
+a.r28-step-source {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 8px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}

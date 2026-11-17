@@ -31,7 +31,7 @@
     "The U.S. Supreme Court reversed and remanded, finding independent evidentiary support without deciding hearsay admissibility."
   ],
   "limits": "This transforms the canonical historical brief without a fresh audit or current evidence-law certification. Circumstantial possibilities are not converted into findings of how Haney died. The sufficiency holding concerns this Federal Employers’ Liability Act verdict. Separate votes without printed reasoning remain unexplained.",
-  "briefSha256": "1adbee39278dd7dc7417bdad783863b859a562f39e397ede6738b3ee8d19cbab",
+  "briefSha256": "8c0adfd00e991be064c04d43d6f074e7826c2c18332a6a47d3bc967f95ef7c86",
   "sources": [
     {
       "id": "brief",
@@ -125,6 +125,21 @@
           "pinpoint": "327 U.S. 654"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        133
+      ],
+      "priorSourceSha256": "1adbee39278dd7dc7417bdad783863b859a562f39e397ede6738b3ee8d19cbab",
+      "sourceSha256": "8c0adfd00e991be064c04d43d6f074e7826c2c18332a6a47d3bc967f95ef7c86",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

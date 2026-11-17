@@ -27,7 +27,7 @@
     "The United States Supreme Court unanimously reversed the jurisdictional decision and remanded."
   ],
   "limits": "The Court did not decide whether the lawyers committed malpractice or revive Minton’s patent. The earlier patent facts come from the full opinion’s Part I, omitted in the assigned excerpt.",
-  "briefSha256": "6a88f08d2c819ccb68abd68231e018f2c381a521d71681bdaad48d0d10d2d1d4",
+  "briefSha256": "edee37b871875af215842c23745eebd46ed1aa288c737d5533ac0b708641431b",
   "sources": [
     {
       "id": "brief",
@@ -106,6 +106,21 @@
           "pinpoint": "Balance; Judgment; Separate Opinions; Notes; casebook 350–351"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        92
+      ],
+      "priorSourceSha256": "6a88f08d2c819ccb68abd68231e018f2c381a521d71681bdaad48d0d10d2d1d4",
+      "sourceSha256": "edee37b871875af215842c23745eebd46ed1aa288c737d5533ac0b708641431b",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

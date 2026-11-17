@@ -31,7 +31,7 @@
     "The Supreme Court affirmed in Exxon and reversed and remanded in Ortega on June 23, 2005."
   ],
   "limits": "The consolidated review did not merge the underlying lawsuits or retry their merits. The holding requires an independently qualifying claim, complete diversity, a same-case relationship, and attention to § 1367’s exceptions; it does not aggregate small separate claims to manufacture the first qualifying amount.",
-  "briefSha256": "e09fe013a762c2c78be25d02b16b7793e43c16565679537c2c529a5dfd60cfdb",
+  "briefSha256": "0028e1c5d82103a70c1e94ba2936436dea5a50649d1d09fdbc6d75c6ec416f58",
   "sources": [
     {
       "id": "brief",
@@ -141,6 +141,21 @@
           "pinpoint": "Ginsburg dissent Parts I–II and conclusion; Stevens dissent; Majority disposition; Citation; Notes"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        94
+      ],
+      "priorSourceSha256": "e09fe013a762c2c78be25d02b16b7793e43c16565679537c2c529a5dfd60cfdb",
+      "sourceSha256": "0028e1c5d82103a70c1e94ba2936436dea5a50649d1d09fdbc6d75c6ec416f58",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

@@ -60,6 +60,11 @@ run the same build and publish it to both domains. Nothing else deploys.
 
 Ask Dottie (named Ask DKLA in the code and server) is the AI research assistant, fronted by
 Dottie Docket, an opossum mascot (see `docs/ask-mascot/`).
+Every answer has an **Explain from the beginning** button. It asks for the people and facts,
+chronology, procedural history, basic vocabulary and rules, decision and result, and how that
+background explains the original answer, assuming only one week of Contracts. Earlier and saved
+answers have the same button. Each action uses that answer's own conversation context and
+requests fresh cited evidence; the previous answer is context, never a source of authority.
 Open the Atlas search box and choose **Ask Dottie** to ask directly, or
 type a question into search and choose **Ask Dottie** above the results. An
 Atlas citation opens its entry inside DKLA. Ask Dottie answers from the Atlas alone only

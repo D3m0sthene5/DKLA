@@ -748,3 +748,31 @@ body:has(#shShell:not([hidden])) .study-header .ask-bar-dottie {
     animation: none;
   }
 }
+/* Each answer keeps its own background action, including older answers. */
+#dklaAskDialog button.ask-context {
+  display: inline-block;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 9px 16px;
+  border: 1px solid #83bba5;
+  border-radius: 12px;
+  background: #24423b;
+  color: #e3f7ef;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  text-decoration: none;
+  white-space: normal;
+  cursor: pointer;
+}
+#dklaAskDialog button.ask-context:hover {
+  background: #31564a;
+}
+#dklaAskDialog button.ask-context:focus-visible {
+  outline: 2px solid #b3e8d4;
+  outline-offset: 3px;
+}
+#dklaAskDialog button.ask-context:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}

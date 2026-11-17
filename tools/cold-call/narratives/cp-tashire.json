@@ -37,7 +37,7 @@
   "limits": [
     "Fault, coverage, and entitlement to proceeds were not decided. Rule 22, Canadian service, indispensability, and aspects of statutory service remained open."
   ],
-  "briefSha256": "59ccb33991a3d4f24a710c7515aed30bbc7169ad155c57ae3274033cf5bf859c",
+  "briefSha256": "5bd61efcce8b5b1507bbcb6c03914f1f352f5554ac99b7f48ee0b1b20689802b",
   "sources": [
     {
       "id": "brief",
@@ -131,6 +131,21 @@
           "pinpoint": "386 U.S. at 528 n.3, 537 n.18, 538–541"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        106
+      ],
+      "priorSourceSha256": "59ccb33991a3d4f24a710c7515aed30bbc7169ad155c57ae3274033cf5bf859c",
+      "sourceSha256": "5bd61efcce8b5b1507bbcb6c03914f1f352f5554ac99b7f48ee0b1b20689802b",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

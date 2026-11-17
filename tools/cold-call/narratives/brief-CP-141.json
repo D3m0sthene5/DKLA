@@ -3,8 +3,8 @@
   "briefId": "CP-141",
   "title": "Russell v. Place",
   "course": "Civil Procedure",
-  "citation": "94 U.S. (4 Otto) 606 (reported 1876)",
-  "revision": 1,
+  "citation": "94 U.S. (4 Otto) 606 (1877; October Term 1876)",
+  "revision": 2,
   "origin": "narrative",
   "lead": "A general patent-infringement verdict failed to identify which of two patent claims supported it, preventing the patentee from carrying an uncertain issue determination into a later suit.",
   "actors": [
@@ -23,12 +23,17 @@
     "Supreme Court affirmed; Clifford dissented without reported reasons."
   ],
   "limits": "The earlier damages judgment remained intact. The opinion did not identify precise decision dates, supply Clifford’s rationale, or restate the incorporated merits analysis from Russell v. Dodge.",
-  "briefSha256": "8188bb5ecac7db126158bf86ad90827c9ca97b62326d6adfc11db7d598f1dc40",
+  "briefSha256": "8c97ac958d244448744f905359a0deed307557bf2fac1e3d8c1f980b6c4676cf",
   "sources": [
     {
       "id": "brief",
       "label": "Reviewed full source brief",
       "briefId": "CP-141"
+    },
+    {
+      "id": "decision-year",
+      "label": "Official decision year and court term",
+      "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-606"
     }
   ],
   "review": {
@@ -98,6 +103,28 @@
         {
           "id": "brief",
           "pinpoint": "94 U.S. at 609–610"
+        }
+      ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "decision-year-and-source-link",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        50,
+        121
+      ],
+      "priorSourceSha256": "8188bb5ecac7db126158bf86ad90827c9ca97b62326d6adfc11db7d598f1dc40",
+      "sourceSha256": "8c97ac958d244448744f905359a0deed307557bf2fac1e3d8c1f980b6c4676cf",
+      "freshCompleteOpinionReview": false,
+      "finding": "Decision year corrected to 1877; October Term 1876 retained and no exact day newly asserted.",
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/app/details/USREPORTS-94/USREPORTS-94-606",
+          "scope": "Official title and decision-year versus term metadata, not opinion merits."
         }
       ]
     }

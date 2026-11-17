@@ -56,6 +56,814 @@
       "narrativeSha256": "b7492822d0d242ea7b5b81bf8aad1396e00dff384e0feb364ae0bce84b5c43b3",
       "scope": "Second comparison with the canonical full brief, not a fresh opinion-source audit.",
       "findings": "Compared the complete canonical brief with all three narrative episodes. Retains the limited citizenship record, writ-of-error posture, Harper’s argument versus the unexplained judicial disposition, proper service and nonappearance, and absence of a merits judgment or known further proceedings. Added February Term 1804 to visible disposition prose. Three natural stages are sufficient; no artificial fourth episode required."
+    },
+    {
+      "id": "cp-pennoyer",
+      "date": "2026-11-17",
+      "sourceSha256": "795cca7a94b2283c2169b8808ca33e8f786b2e94a2c9c244bcd8232719beb994",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        82
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-capron",
+      "date": "2026-11-17",
+      "sourceSha256": "52c252067b35858a5e73cdcad7ae1e76a432c8d03fdf5b156d62561268adc16e",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        80
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "lefkowitz",
+      "date": "2026-11-17",
+      "sourceSha256": "ff8a53178b3cc55794f165eef3327d6e6db7544f1b009814b5e47a682d92e750",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        59
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-099",
+      "date": "2026-11-17",
+      "sourceSha256": "f58c20b2d1c57af991af41e84300e5dcbab149fa70fa022372daedb49a2bb4f2",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        132
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-tellabs",
+      "date": "2026-11-17",
+      "sourceSha256": "8e8ce030d81e61941c82e70ab999eddfe1de03529d9d1c307c64567116b1e1e5",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        103
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-129",
+      "date": "2026-11-17",
+      "sourceSha256": "bcfa16983a1599535fdc4929c21021b3218780312f2ab26641b2ec61e258434f",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        117
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-exxon",
+      "date": "2026-11-17",
+      "sourceSha256": "0028e1c5d82103a70c1e94ba2936436dea5a50649d1d09fdbc6d75c6ec416f58",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        94
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-128",
+      "date": "2026-11-17",
+      "sourceSha256": "88b20930d3260e64189fb886699db8c073aaa7603a211199409cedcdefdaf371",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        116
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-dice",
+      "date": "2026-11-17",
+      "sourceSha256": "4eaa99352d7f1e8166cac784882dc1a0b428947a62d4dd67363993f17c2f22aa",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        131
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-112",
+      "date": "2026-11-17",
+      "sourceSha256": "dc154211faee96a13052c531e9b8f2059100a392f17ae0ebda41b4ea4d2577ae",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        115
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-153",
+      "date": "2026-11-17",
+      "sourceSha256": "1ecc0f0c58c81556fb11f7c909faac8a4cdb05788fc8e1f2432fc523df137add",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        123
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-mottley",
+      "date": "2026-11-17",
+      "sourceSha256": "3ce58dad693297bbee5d6131f9799f93e9f2504e1c86735b46f313343b6903bf",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        90
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-burnham",
+      "date": "2026-11-17",
+      "sourceSha256": "b3fedd4ef9fea146ab1239e6e1876f301fcb3b9e424488544490b4ce2bd7d8d8",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        87
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "ford",
+      "date": "2026-11-17",
+      "sourceSha256": "415c5b0e953160bb17b3565019ca8aa3c4cac46f5016d28192ccbb0157098f30",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        136
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-hansberry",
+      "date": "2026-11-17",
+      "sourceSha256": "2bbc7353aa1c488ea489e2f35dbcd6ee994df075338ac85c6e78f178c8139684",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        107
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-celotex",
+      "date": "2026-11-17",
+      "sourceSha256": "729b5377b88bbd74006c8338b38856170463802a4968b2518257326eef5280cf",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        113
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-york",
+      "date": "2026-11-17",
+      "sourceSha256": "6aed88fb41b8492bd9cad9e9a72cf3e3a46ad0d1875a7e75173724a71af523cb",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        98
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-135",
+      "date": "2026-11-17",
+      "sourceSha256": "d9c615497b69ec829314f7156d0c1b2eeb89b2a6e27bd31cc45c506345bae199",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        119
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-tashire",
+      "date": "2026-11-17",
+      "sourceSha256": "5bd61efcce8b5b1507bbcb6c03914f1f352f5554ac99b7f48ee0b1b20689802b",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        106
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-shutts",
+      "date": "2026-11-17",
+      "sourceSha256": "2f5678f45918a5384be08fb2b9a630d3f81921923a2f15229e36769560692296",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        109
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-iqbal",
+      "date": "2026-11-17",
+      "sourceSha256": "32ab3812718e11ea52e85e75b1b9fbb85343ed0208cc1ce0d3cb49a573f2df74",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        102
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-grable",
+      "date": "2026-11-17",
+      "sourceSha256": "51a12fd299a7fcc1a6c64ee1e677a1a84bad57236ab0d8dd32befb672d4e2cfe",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        91
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "swinton",
+      "date": "2026-11-17",
+      "sourceSha256": "5ad7969141f73937ec8a92f3dac36a561e0fb171687df7d721ef3caacdb794f1",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        65,
+        78
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-gibbs",
+      "date": "2026-11-17",
+      "sourceSha256": "c86ec2c7bb08645e97e875640b0f9e2248c57339752f899550ca7628cffd3872",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        93
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-114",
+      "date": "2026-11-17",
+      "sourceSha256": "a883f9b7ded65711067a7448ff0b96ad01d213e565f220a2c5b9ba923278a3c8",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        135
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "watkins",
+      "date": "2026-11-17",
+      "sourceSha256": "0815f2421fa9e2d87648779a7ed9b32f8a827df082ee275f67ba1a575360a28f",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        71,
+        72,
+        73,
+        74
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-010",
+      "date": "2026-11-17",
+      "sourceSha256": "8c0adfd00e991be064c04d43d6f074e7826c2c18332a6a47d3bc967f95ef7c86",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        133
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-mullane",
+      "date": "2026-11-17",
+      "sourceSha256": "80b08c8c745658bcef781c6088640010c7c938e94a8928ea70e8d7b40f168ea6",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        88
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-walmart",
+      "date": "2026-11-17",
+      "sourceSha256": "54145edab27f3ab863cd7937147df0534d5fd45dc4ce0abc6207d3eda1ce4d31",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        108
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-140",
+      "date": "2026-11-17",
+      "sourceSha256": "6cded057f4b82ad996164ca496949000f045fbd802e184246b4fb27d2767a9ac",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Decision year corrected to 1877; October Term 1876 retained and no exact day newly asserted.",
+      "changeKind": "decision-year-and-source-link",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        48,
+        120
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-101",
+      "date": "2026-11-17",
+      "sourceSha256": "99baafb782fb26f534318c249da9b160766e0c6fdb4c70266f021a3a051812cb",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        111
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "shoe",
+      "date": "2026-11-17",
+      "sourceSha256": "b1c05d28a490ea4c6008b9fb403dce1d91101cbfa13efc7295a67eafb76e9e09",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        84
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-gasperini",
+      "date": "2026-11-17",
+      "sourceSha256": "db6003091c03d532c26b86fc0ee7e0e27387f9ce201e6e34431acd381a32fb2c",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        99
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-erie-decision",
+      "date": "2026-11-17",
+      "sourceSha256": "aeee0bfa92727b17d288cd93b5396eb855e9982f3cd1469fffdec360a18cb43b",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        97
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-walker",
+      "date": "2026-11-17",
+      "sourceSha256": "6bd1ecd3207d4349170ed261197d7b39b52243e8edaf197dc76cdc520a207f2d",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        128
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-goodyear",
+      "date": "2026-11-17",
+      "sourceSha256": "f1fa9bb40d0620e3a854ea5f4cea41ff1a44b6237df299e1221b6024e53a95a7",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        85
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "drennan",
+      "date": "2026-11-17",
+      "sourceSha256": "bacdaa50d3e488791a28d0547e8184253c4d2e9083162966bea79661036226c3",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        61,
+        63,
+        75,
+        76
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-boyle",
+      "date": "2026-11-17",
+      "sourceSha256": "3f9330262bb7f4c8d58c08df31a1f140552dec844f9e88d9298f053aa342d773",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        130
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-hoffman",
+      "date": "2026-11-17",
+      "sourceSha256": "3cb19767f49ab7ca0548ca30d1ea33b1292b5a85a98114513e835fd6b0aa3deb",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        95
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-141",
+      "date": "2026-11-17",
+      "sourceSha256": "8c97ac958d244448744f905359a0deed307557bf2fac1e3d8c1f980b6c4676cf",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Decision year corrected to 1877; October Term 1876 retained and no exact day newly asserted.",
+      "changeKind": "decision-year-and-source-link",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        50,
+        121
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-hanna-decision",
+      "date": "2026-11-17",
+      "sourceSha256": "e52383d42afb060cc4c8c92d822bdbc71002f6286a9cb1621d70aa651e9f752a",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        127
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-hess",
+      "date": "2026-11-17",
+      "sourceSha256": "149e5bba0edee4dd25a412392f4076e6acecb0fc372acedd655f4107a7f15543",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        83
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-shaffer",
+      "date": "2026-11-17",
+      "sourceSha256": "6386bbdf6327063f07e0699252942fba1758fb1aacf74d508562bdd1315bde0d",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        86
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-gunn",
+      "date": "2026-11-17",
+      "sourceSha256": "edee37b871875af215842c23745eebd46ed1aa288c737d5533ac0b708641431b",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        92
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-szukhent",
+      "date": "2026-11-17",
+      "sourceSha256": "9080c76241f3c09d3d5943c0c01e6f5d27b359086ffe580ad84564150763e480",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        89
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-shady-grove",
+      "date": "2026-11-17",
+      "sourceSha256": "40c9f893ab0380a5129b035c5ca384c2d862cb7e40198e25ed645567b60a3089",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        100
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-cooper",
+      "date": "2026-11-17",
+      "sourceSha256": "8b68e9bc6545f4314dae367762b00bd8a6c205d2a3b872442df76d971fbe24e8",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        110
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "kannavos",
+      "date": "2026-11-17",
+      "sourceSha256": "fdf241dc81dfc240af54e05e70670419bb8267dcaf54398c1ac5f64c8a0ecd8f",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        66,
+        79
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-111",
+      "date": "2026-11-17",
+      "sourceSha256": "d447e422764196b175c1757e373b5224290fa990bce88ddead78bce2d31d0d12",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        114
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "wucherpfennig",
+      "date": "2026-11-17",
+      "sourceSha256": "09155dfab591062ff3619bb9b2c6499567a7e820b84b4d809dd3be2fae15f4e7",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        60
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "alaska-packers",
+      "date": "2026-11-17",
+      "sourceSha256": "ebceb952feb4fff682fa7cd20f00130204a6a29af3ed1c618e45507736ed3402",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        67,
+        68,
+        69,
+        70
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-106",
+      "date": "2026-11-17",
+      "sourceSha256": "93ba4902931bfb7dd07b2d54cfa211c240f18520cd73024292200eab19c00892",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        112
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "brief-CP-147",
+      "date": "2026-11-17",
+      "sourceSha256": "d4ab8499763251a4ac717b840ae823de842a15fbcac82d9b58014ee8231c11b9",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        122
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-surowitz",
+      "date": "2026-11-17",
+      "sourceSha256": "91a652490e73360fbb482de37383e4cec1da30f3df36be530940423105e2a9fc",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        104
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-clearfield",
+      "date": "2026-11-17",
+      "sourceSha256": "6190becd9b0bc3b925dff02f285317a76ed21e3ba8051f0705e41303346b6a4c",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        129
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "dorton",
+      "date": "2026-11-17",
+      "sourceSha256": "27c7f15686a514a96d344c5de23187dcd9a8848053b34f9d6843fc9e052e0430",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "pdf-header-and-heading-cleanup",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        62,
+        64,
+        77
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-provident",
+      "date": "2026-11-17",
+      "sourceSha256": "32c06a19c9579670359abe8dde7555df8d4b7c34c4b0049f836b1d83b00ee2f4",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        105
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-afa",
+      "date": "2026-11-17",
+      "sourceSha256": "1be8656d51a3944787498e24d28331806440ec78d6ec97009477da924d7458ab",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        137
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-piper",
+      "date": "2026-11-17",
+      "sourceSha256": "a71cb06a183b165a04a3b750e26f71e4298b765d7fbb47dba068a0e9291e5528",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        96
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-atlantic-marine",
+      "date": "2026-11-17",
+      "sourceSha256": "8b445ad4a7d02447f266bc48c6fcf5060f6a92b3b13f4351f0ecc7b37249d063",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        126
+      ],
+      "freshCompleteOpinionReview": false
+    },
+    {
+      "id": "cp-twombly",
+      "date": "2026-11-17",
+      "sourceSha256": "b351e8d73fa696bbdeea40863e462fbd32d0bf249fd141c8061278e63b76cc1f",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "findings": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        101
+      ],
+      "freshCompleteOpinionReview": false
     }
   ]
 }

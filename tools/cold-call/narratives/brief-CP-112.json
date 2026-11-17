@@ -29,7 +29,7 @@
   "limits": [
     "The 1996 holding allocates construction at trial. It does not resolve later appellate-review standards, prescribe a universal evidence hierarchy, or remove every infringement fact question from juries."
   ],
-  "briefSha256": "ecc51b26ae31c0946d2631fa1f984f141fbdf8264c3753595427009334ccd183",
+  "briefSha256": "dc154211faee96a13052c531e9b8f2059100a392f17ae0ebda41b4ea4d2577ae",
   "sources": [
     {
       "id": "brief",
@@ -122,6 +122,21 @@
           "pinpoint": "517 U.S. at 376–391"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        115
+      ],
+      "priorSourceSha256": "ecc51b26ae31c0946d2631fa1f984f141fbdf8264c3753595427009334ccd183",
+      "sourceSha256": "dc154211faee96a13052c531e9b8f2059100a392f17ae0ebda41b4ea4d2577ae",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

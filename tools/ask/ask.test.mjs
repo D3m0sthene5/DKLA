@@ -448,7 +448,7 @@ test('follow-ups carry earlier turns to the model, use them for lookup, and reje
       'not a list',
       [{ question: 'q' }],
       [{ question: 'q', answer: 'a', note: 'extra' }],
-      [{ question: 'q', answer: 'a'.repeat(2001) }],
+      [{ question: 'q', answer: 'a'.repeat(13001) }],
       Array.from({ length: 4 }, () => earlier[0]),
     ];
     for (const history of bad)
@@ -458,6 +458,16 @@ test('follow-ups carry earlier turns to the model, use them for lookup, and reje
         JSON.stringify(history),
       );
     assert.equal(calls.length, 1);
+    const full = [{ question: earlier[0].question, answer: 'a'.repeat(12000) }];
+    assert.equal(
+      (await request({ question: 'Explain that answer from the beginning.', history: full })).statusCode,
+      200,
+    );
+    assert.deepEqual(
+      calls.at(-1).earlier,
+      full,
+      'the selected long answer reaches the model without truncation',
+    );
   } finally {
     if (original === undefined) delete process.env.DKLA_OPENAI_API_KEY;
     else process.env.DKLA_OPENAI_API_KEY = original;
@@ -2266,7 +2276,8 @@ test('timings: a research question makes one call, and only a non-exact Atlas dr
   assert.deepEqual(research.calls, ['research']);
   assert.deepEqual(atlas.calls, ['atlas']);
   assert.deepEqual(fallThrough.calls, ['atlas', 'research']);
-  assert.ok(research.ms < 120 + 40, 'no Atlas-only draft before research');
+  // The exact call sequence above proves no Atlas draft precedes research.
+  // Wall time includes unrelated concurrent browser jobs and is diagnostic only.
   t.diagnostic(
     `research route ${research.ms} ms, Atlas route ${atlas.ms} ms, Atlas then research ${fallThrough.ms} ms`,
   );

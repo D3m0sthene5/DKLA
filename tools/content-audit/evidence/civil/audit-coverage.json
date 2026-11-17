@@ -1,0 +1,432 @@
+{
+  "course": "Civil Procedure",
+  "auditedAt": "2026-11-17",
+  "baselineCommit": "f8f5c2d5dd0ece5906e5b09c437a926ab2cb1c71",
+  "status": "bounded editorial and targeted source audit complete; comprehensive all-claims opinion audit remains incomplete",
+  "counts": {
+    "civilProcedureTimelinesEditoriallyScreened": 40,
+    "timelineStepsEditoriallyScreened": 282,
+    "distinctLinkedCaseIds": 227,
+    "mainMapCompactRuleStatementsEditoriallyScreened": 134,
+    "officialMetadataRecordsRetrieved": 145,
+    "timelineAppearancesCoveredByMetadataRecords": 174,
+    "officialOpinionFirstPagesInspected": 41,
+    "distinctPrintedDecisionDatesConfirmed": 36,
+    "fullOpinionFreshAllClaimsReviews": 0,
+    "civilProcedureFullBriefCorpus": 592
+  },
+  "proposals": {
+    "correction-proposals.json": 13,
+    "brief-rule-proposals.json": 4,
+    "date-cross-surface-proposals.json": 4,
+    "exact-date-additions.json": 79,
+    "opinion-link-proposals.json": 44,
+    "opinion-link-proposals-addendum.json": 7,
+    "opinion-link-proposals-final.json": 5
+  },
+  "reviewMethod": [
+    "Read effective runtime content rather than treating raw briefs as authoritative: audited override, accuracy24, plain-language layers.",
+    "Editorially screened all Civil Procedure timeline steps and all 134 main-map compact rule statements.",
+    "Compared case title-matched official GPO metadata; independently read actual opinion headers before proposing exact dates.",
+    "Consulted relevant holdings/rule passages in official opinions or reproduced primary judicial texts; proposals identify exact sources and pinpoints.",
+    "Repaired source-access labels only after matching their target case title/citation."
+  ],
+  "notCertified": [
+    "All 592 full briefs have not received a fresh claim-by-claim comparison against complete opinions.",
+    "No brief has been labeled complete-opinion-reviewed in this pass.",
+    "Metadata agreement is not substantive verification, and GPO metadata itself has errors.",
+    "No exhaustive later-treatment or jurisdiction-by-jurisdiction survey was completed.",
+    "Original casebook PDFs and existing audit-layer metadata are not independently recertified."
+  ],
+  "systemicFindings": [
+    "Reporter term was incorrectly substituted for decision year in Cromwell and Russell.",
+    "Matsushita illustrates official metadata risk: GPO date March 25, 1986 conflicts with printed opinion March 26, 1986; retained the printed-opinion date.",
+    "Accurate full briefs can coexist with misleading standalone rule cards and timeline summaries; synchronize legally material qualifiers across surfaces.",
+    "Historical superseded rules require explicit labels at the point of use (Conley).",
+    "Circuit-specific rules require circuit identification (Briseno, Mussat).",
+    "Claim preclusion must not be collapsed into issue preclusion (Cooper).",
+    "Timeline descriptions need later statutory limitations and actual procedural holdings (Martin, Gelboim).",
+    "57 full briefs had inert or duplicated full-opinion labels; 56 now have source-backed link proposals.",
+    "Exact dates omitted in many chronology and doctrinal timeline entries; 36 printed opinion headers support 79 additions."
+  ],
+  "outstanding": [
+    {
+      "scope": "All 592 full briefs",
+      "nextAction": "Compare facts, posture, dates, each issue/rule/holding/rationale, separate opinions, outcome, and current-law qualifiers to complete source opinions. Preserve per-claim evidence and label partial review."
+    },
+    {
+      "scope": "Lower court cases and 12 failed/mismatched GPO citation requests",
+      "nextAction": "Resolve authoritative opinion targets manually; do not treat certiorari-denial metadata as the case decision."
+    },
+    {
+      "scope": "CPR-014 Lacks v. Lacks",
+      "nextAction": "Locate and confirm stable full-opinion URL. Assigned casebook excerpt remains available; no guessed link proposed."
+    },
+    {
+      "scope": "Historical cases without printed exact date",
+      "nextAction": "Keep year-only unless independently documented exact dates are obtained."
+    }
+  ],
+  "timelines": [
+    {
+      "timelineId": "pj",
+      "title": "Specific personal jurisdiction: from territorial power to minimum contacts",
+      "steps": 16,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "pj-effects",
+      "title": "Personal jurisdiction for conduct aimed at the forum: libel, torts and the Internet",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "pj-general",
+      "title": "General personal jurisdiction: from continuous business to 'at home'",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "pj-traditional",
+      "title": "Personal jurisdiction without contacts: presence, domicile, property and consent",
+      "steps": 11,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "prejudgment",
+      "title": "Notice and hearing before property is taken",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "erie",
+      "title": "Erie: which law a federal court applies",
+      "steps": 11,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "erie-rules",
+      "title": "Federal Rules and statutes against state law",
+      "steps": 11,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "fed-common-law",
+      "title": "Federal common law after Erie",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "pleading",
+      "title": "What a complaint must say: from code facts to plausibility",
+      "steps": 14,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "amendment",
+      "title": "Amending the pleadings: from the theory of the pleadings to relation back",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "filings",
+      "title": "Responsibility for filings: verification and Rule 11",
+      "steps": 6,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "fedq",
+      "title": "Federal-question jurisdiction: arising under",
+      "steps": 10,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "supp",
+      "title": "Supplemental jurisdiction: from pendent and ancillary claims to \u00a7 1367",
+      "steps": 9,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "diversity",
+      "title": "Diversity jurisdiction: complete diversity and the amount in controversy",
+      "steps": 8,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "cp-removal",
+      "title": "Removal: who may move a case to federal court",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "jurisdictional",
+      "title": "Jurisdictional or not: why the label matters",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "venue",
+      "title": "Venue: from local actions to where the events happened",
+      "steps": 4,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "transfer",
+      "title": "Transfer and forum non conveniens",
+      "steps": 6,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "forum-clauses",
+      "title": "Forum-selection clauses",
+      "steps": 4,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "class",
+      "title": "Class actions: binding the absent members",
+      "steps": 12,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "sj",
+      "title": "Summary judgment: from 'slightest doubt' to the 1986 trilogy",
+      "steps": 10,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "joinder",
+      "title": "Joinder: the same transaction or occurrence",
+      "steps": 6,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "required-parties",
+      "title": "Required parties: from indispensability to equity and good conscience",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "interpleader",
+      "title": "Interpleader: from the strict bill to minimal diversity",
+      "steps": 4,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "mdl",
+      "title": "Multidistrict litigation: pretrial coordination under \u00a7 1407",
+      "steps": 10,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "notice",
+      "title": "Constitutional notice: reasonable means of reaching the person",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "service",
+      "title": "Service of process: authority, delivery and actual notice",
+      "steps": 7,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "discovery-scope",
+      "title": "Discovery: relevance, proportionality and permitted methods",
+      "steps": 6,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "discovery-protection",
+      "title": "Discovery protections: work product and attorney-client privilege",
+      "steps": 3,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "case-management",
+      "title": "Case management and sanctions",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "jury",
+      "title": "The civil jury: legal claims, historical analogies and judicial functions",
+      "steps": 11,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "judgment-law",
+      "title": "Judgment as a matter of law: the court and the jury's evidence",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "new-trial",
+      "title": "New trials and control of verdicts",
+      "steps": 4,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "appeals",
+      "title": "Appealability: final judgments, collateral orders and mandamus",
+      "steps": 6,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "appellate-review",
+      "title": "Appellate review: preservation, error and factfinding",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "claim-preclusion",
+      "title": "Claim preclusion: the same claim and a second lawsuit",
+      "steps": 5,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "issue-preclusion",
+      "title": "Issue preclusion: actual decision, necessity and mutuality",
+      "steps": 8,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 2,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "nonparty-preclusion",
+      "title": "Preclusion and nonparties: representation and a day in court",
+      "steps": 4,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 2,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "interjurisdiction-preclusion",
+      "title": "Preclusion across court systems",
+      "steps": 3,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 0,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    },
+    {
+      "timelineId": "party-status",
+      "title": "Party status: real party in interest and intervention",
+      "steps": 3,
+      "editorialScreen": "every step and timeline summary inspected for date/order, holdings, scope, later treatment, and teaching completeness",
+      "freshCompleteOpinionReview": false,
+      "proposalCount": 1,
+      "verificationStatus": "Targeted primary-source checks and metadata/header comparisons only; no all-claims certification"
+    }
+  ]
+}

@@ -23,7 +23,7 @@
     "The Supreme Court vacated and required district-court application of New York’s standard, followed by abuse-of-discretion review."
   ],
   "limits": "Neither $100,000 nor $450,000 received final approval. Liability was conceded; the Court decided the measure and allocation of excessiveness review, not the photographs’ final value.",
-  "briefSha256": "6afc18ca4dee4cd55a71434d4dd4118e766d8ae427f98e314fbc36c91b932c8e",
+  "briefSha256": "db6003091c03d532c26b86fc0ee7e0e27387f9ce201e6e34431acd381a32fb2c",
   "sources": [
     {
       "id": "brief",
@@ -143,6 +143,21 @@
       "previous": {
         "briefSha256": "ff3466374d6d96d6feb4c23e16a740cf352a0a428bff8c140f53427baee6bb35"
       }
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        99
+      ],
+      "priorSourceSha256": "6afc18ca4dee4cd55a71434d4dd4118e766d8ae427f98e314fbc36c91b932c8e",
+      "sourceSha256": "db6003091c03d532c26b86fc0ee7e0e27387f9ce201e6e34431acd381a32fb2c",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }

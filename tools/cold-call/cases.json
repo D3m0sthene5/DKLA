@@ -283,7 +283,7 @@
         "Neff v. Pennoyer, U.S. Circuit Court for Oregon: judgment for Neff in a separate land suit.",
         "U.S. Supreme Court: Pennoyer’s writ of error; judgment for Neff affirmed on a different ground."
       ],
-      "briefSha256": "85e3f7b862e5594246bd98b5f2ae0d964070bfa18ec1155e0f4a61e337b3f8a5",
+      "briefSha256": "795cca7a94b2283c2169b8808ca33e8f786b2e94a2c9c244bcd8232719beb994",
       "sources": [
         {
           "id": "opinion",
@@ -553,7 +553,22 @@
         "antecedents": true,
         "proceduralStages": true,
         "sourceQualifications": true
-      }
+      },
+      "sourceRevisionReviews": [
+        {
+          "date": "2026-11-17",
+          "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+          "changeKind": "source-link-only",
+          "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+          "correctionNumbers": [
+            82
+          ],
+          "priorSourceSha256": "85e3f7b862e5594246bd98b5f2ae0d964070bfa18ec1155e0f4a61e337b3f8a5",
+          "sourceSha256": "795cca7a94b2283c2169b8808ca33e8f786b2e94a2c9c244bcd8232719beb994",
+          "freshCompleteOpinionReview": false,
+          "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
+        }
+      ]
     },
     {
       "id": "lrs-s-chadha",

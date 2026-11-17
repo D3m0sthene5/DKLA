@@ -25,7 +25,7 @@
   "limits": [
     "The employees’ underlying action was not dismissed and the Supreme Court did not decide Title VII liability. Blackmun did not participate; all participating Justices joined."
   ],
-  "briefSha256": "31517cea04bd185a9ec8e3d634af055a36e339c242fba9ea9e27f668dc673a3d",
+  "briefSha256": "88b20930d3260e64189fb886699db8c073aaa7603a211199409cedcdefdaf371",
   "sources": [
     {
       "id": "brief",
@@ -119,6 +119,21 @@
           "pinpoint": "424 U.S. at 739–740, 746"
         }
       ]
+    }
+  ],
+  "sourceRevisionReviews": [
+    {
+      "date": "2026-11-17",
+      "scope": "Targeted comparison of the registered effective-brief changes against the narrative; preserves inherited full-source review and does not claim a fresh complete-opinion read.",
+      "changeKind": "source-link-only",
+      "correctionRegister": "tools/content-audit/2026-11-17-corrections.json",
+      "correctionNumbers": [
+        116
+      ],
+      "priorSourceSha256": "31517cea04bd185a9ec8e3d634af055a36e339c242fba9ea9e27f668dc673a3d",
+      "sourceSha256": "88b20930d3260e64189fb886699db8c073aaa7603a211199409cedcdefdaf371",
+      "freshCompleteOpinionReview": false,
+      "finding": "Legal propositions and chronology unchanged by this source delta. Registered changes only repair source access or remove duplicate PDF furniture; narrative prose retained."
     }
   ]
 }
