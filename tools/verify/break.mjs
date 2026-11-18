@@ -210,12 +210,22 @@ const breakages = [
       ),
   ],
   [
+    'Ask Dottie mistakes presentation preferences for a request about current law',
+    'lib/ask/web.js',
+    () =>
+      edit(
+        'lib/ask/web.js',
+        "const core = question.replace(presentationTail, '');",
+        'const core = question;',
+      ),
+  ],
+  [
     'Ask Dottie routing goes back to the Atlas first whenever it finds any excerpt',
     'lib/ask/web.js',
     () =>
       edit(
         'lib/ask/web.js',
-        'const fit = sources.length ? template(question, { sources, named, node, scoped, followUp }) : null;',
+        'const fit = sources.length ? template(core, { sources, named, node, scoped, followUp }) : null;',
         "const fit = sources.length ? { reason: 'Atlas first', texts: [], subjects: [] } : null;",
       ),
   ],

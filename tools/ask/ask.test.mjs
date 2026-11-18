@@ -3353,6 +3353,53 @@ test('several questions about one Atlas case: the brief answers first, one parag
   assert.throws(() => citeAnswer(nine, sources));
 });
 
+test('an audience and a dinner-table framing keep the case explanation on the Atlas route', async () => {
+  const question =
+    'explain king v burwell to my parents who are HEDIS auditors who know nothing about the law, as if you were telling them at the dinner table what i learned in class today';
+  const { json, lines, requests } = await askWithFetch(
+    (request, input) => {
+      assert.equal(request.tools, undefined, 'use the Atlas holding without requiring web search');
+      assert.equal(input.question, question, 'keep the requested audience and tone for the answer');
+      const n = excerptNumber(input, /^King v\. Burwell/i);
+      assert.ok(n, 'the actual case is available as evidence');
+      return atlasReply({
+        asks: 'a plain-English explanation of King v. Burwell',
+        answers: 'exact',
+        needsWeb: false,
+        paragraphs: [
+          { text: 'The Court held that tax credits were available on the federal exchange.', citations: [n] },
+        ],
+      });
+    },
+    { question, fresh: true },
+    { accept: 'application/x-ndjson' },
+  );
+  assert.equal(requests.length, 1);
+  const answer = lines?.at(-1)?.answer ?? json;
+  assert.equal(answer.search, 'not-needed');
+  assert.ok(answer.paragraphs.length);
+  assert.ok(answer.sources.some(({ id }) => id === 'lrs-i-king-burwell'));
+});
+
+test('presentation preferences leave substantive time and scope questions in place', () => {
+  for (const [question, research, web] of [
+    ['What did King v. Burwell hold, in plain English?', false, false],
+    ['Explain King v. Burwell to my friends who have no legal background', false, false],
+    ['Explain King v. Burwell in plain English and tell me whether it is still good law', true, true],
+    ['Explain whether King v. Burwell is still good law today in simple terms', true, true],
+    [
+      'Explain King v. Burwell to my parents who are auditors, and tell them what happened after it',
+      true,
+      true,
+    ],
+    ['Explain McTest v. Madeup in plain English', true, false],
+  ]) {
+    const { sources, signals } = retrieve.explain(question);
+    const decision = route(question, sources, { signals });
+    assert.deepEqual([decision.research, decision.web], [research, web], question);
+  }
+});
+
 // Owner, 12 November 2026: after three turns about efficient breach, "How do you calculate expectation
 // damages?" came back "web search was unavailable". The follow-up was looked up glued to the question
 // before it ("… efficient breach How do you calculate …"), so "How" read as a name the Atlas never

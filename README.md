@@ -84,8 +84,8 @@ and "the difference between A and B" or "compare A and B" with both named ("this
 one of them). The templates are read first: words such as "binding", "reversal" or "pending"
 inside a headword the template resolved ("binding precedent") do not make it a question about
 the present.
-Politeness, case, punctuation and common typos in the template words are allowed; one more
-word anywhere is not. Everything else researches the web, with the top Atlas excerpts
+The templates allow politeness, case and punctuation variations, common typos, and recognized
+audience and tone requests. Other questions research the web, with the top Atlas excerpts
 supplied, so Atlas citations appear beside web ones. A research question about legislation,
 events, dates, people, later history or the present must cite the web, and gets an honest
 empty answer if the search fails; any other research question falls back to the Atlas when
