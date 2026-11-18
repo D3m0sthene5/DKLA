@@ -256,6 +256,31 @@ const breakages = [
       ),
   ],
   [
+    'Ask Dottie sends a study question about the case it names to the web first again',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'strongMatch(sources, signals, text) &&', 'false &&'),
+  ],
+  [
+    'Ask Dottie reads "over dinner tonight" as a question about the present',
+    'lib/ask/web.js',
+    () => edit('lib/ask/web.js', 'const text = withoutFraming(', 'const text = ('),
+  ],
+  [
+    'Ask Dottie shows one message for every kind of empty answer',
+    'src/features/ask/ask.js',
+    () =>
+      edit(
+        'src/features/ask/ask.js',
+        'status.textContent = emptyMessage(result);',
+        'status.textContent = emptyMessage({});',
+      ),
+  ],
+  [
+    'Ask Dottie keeps personal and class-session questions in the shared answer library',
+    'lib/ask/library.js',
+    () => edit('lib/ask/library.js', '[timeSensitive, personal, session, present]', '[timeSensitive]'),
+  ],
+  [
     'Ask Dottie routing goes back to the Atlas first whenever it finds any excerpt',
     'lib/ask/web.js',
     () =>

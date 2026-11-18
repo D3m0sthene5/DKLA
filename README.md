@@ -85,7 +85,16 @@ one of them). The templates are read first: words such as "binding", "reversal" 
 inside a headword the template resolved ("binding precedent") do not make it a question about
 the present.
 The templates allow politeness, case and punctuation variations, common typos, and recognized
-audience and tone requests. Other questions research the web, with the top Atlas excerpts
+audience and tone requests. Since v3.1 the Atlas also answers first an ordinary study question
+about a case the question names (or, in a follow-up that points back, the question before it
+names), a canon whose title it uses, or a class whose slide notes are indexed, when that entry ranks
+at the top of retrieval ("Why did the Court read the whole statute?" after a King v. Burwell
+question); research follows only if that answer falls short. Questions about the present, later
+history, events, people, dates, votes and counts, another kind of authority, comparisons and legal
+advice still research. Conversational framing ("like we are talking over dinner tonight", "like
+I'm five", "in plain English", "quickly") is not a question about the present and is ignored by
+retrieval and by the web-only words (`framingSource` in `lib/ask/retrieve.js`). Other questions
+research the web, with the top Atlas excerpts
 supplied, so Atlas citations appear beside web ones. A research question about legislation,
 events, dates, people, later history or the present must cite the web, and gets an honest
 empty answer if the search fails; any other research question falls back to the Atlas when
@@ -99,16 +108,20 @@ named always counts) (`lib/ask/answer.js` `checkAnswer`, `lib/ask/web.js` `citeR
 Cancelling a question, or closing the tab, stops the OpenAI calls, even during a cold start
 (only the response closing counts: on Vercel the request body is read before the handler, so
 the request itself always looks finished); a timeout or network failure gives an honest empty
-answer.
+answer. Every empty answer says why in `reason` (`api/ask.js` `emptyAnswer`), and the dialog shows
+a different message with a next step for each: `search-failed` (with `failure`: `timeout`,
+`network` or `error`), `no-evidence` (the search ran and found nothing usable),
+`lecture-not-indexed` (a class whose slide notes are not indexed; `lessons` lists those that are)
+and `not-enough-evidence` (no search was needed and the Atlas held too little).
 While she works, the dialog shows a spinner of three opossums round her question-mark tail,
 with playful words, or the real step the server reports (the browser asks for progress with
 `Accept: application/x-ndjson`; without it the reply is the plain JSON it always was).
 Opening the dialog or typing sends a warm-up (`{ "warm": true }`) that loads the corpus
 without a question, an AI call or any record. The build stores the retrieval index beside
 the corpus (`work/build/ask-index.bin.gz`), so a cold start takes about 0.3 s, not 1.8 s.
-Cost: most questions now use web search: 478 of the 642 in the routing test (74%), which
+Cost: most questions now use web search: 471 of the 642 in the routing test (73%), which
 holds every question four reviews probed and leans toward hard questions; ordinary study
-questions ("what is X", "what did X hold") are the templates that stay on the Atlas. A
+questions ("what is X", "what did X hold", a question about a named case) stay on the Atlas. A
 research answer costs more than an Atlas-only one (web search calls and more tokens, one
 request either way), and research that finds nothing makes a second, Atlas request when the
 question allows it. Research is never started alongside an Atlas answer: that would pay for
@@ -143,7 +156,10 @@ older answers being served. Time-sensitive
 questions ("still good law", "overruled", "current", a year, ...) are never
 kept, and neither is a question the router reads as about the present, later
 history or people (`route` `stable`: "is iqbal valid law", "what followed
-iqbal", "who is the chief justice"). Entries keep no visitor identity, are used for 90 days, are deleted
+iqbal", "who is the chief justice"). Only clearly reusable study questions are kept
+(`library.js` `storable`): never one about the asker's own circumstances ("I", "my client", "my
+professor said", "my exam"), a particular class session or its slides, or the present moment
+("tonight", "tomorrow"). Entries keep no visitor identity, are used for 90 days, are deleted
 after that (on lookups at most every 10 minutes per server instance, on each
 store, and by the dashboard's storage housekeeping), and are skipped
 silently if the database is missing or failing. "Save answer" under an answer
