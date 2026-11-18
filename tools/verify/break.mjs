@@ -921,6 +921,26 @@ const breakages = [
     'vercel.json',
     () => edit('vercel.json', '"destination": "/api/eo-gesner"', '"destination": "/api/eo-gesner-missing"'),
   ],
+
+  [
+    'flowchart graph: one branch leads to a missing node',
+    'tools/flowcharts/data/contracts.json',
+    () =>
+      edit(
+        'tools/flowcharts/data/contracts.json',
+        '"label": "Result promised",\n            "to": "b"',
+        '"label": "Result promised",\n            "to": "missing-node"',
+      ),
+  ],
+  [
+    'flowchart walkthrough: branch choices disappear',
+    'src/features/flowcharts/flowcharts.css',
+    () =>
+      append(
+        'src/features/flowcharts/flowcharts.css',
+        '\n#flowchartDetail [data-flowchart-branch] { display: none !important; }\n',
+      ),
+  ],
 ];
 
 const pass = () => {

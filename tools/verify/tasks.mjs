@@ -122,6 +122,12 @@ export const tasks = [
   step('features', 'Cold Call reader', node('tools/cold-call/check_reader.cjs'), ASSEMBLED),
 
   // These read the public output in dist/.
+  step(
+    'features',
+    'flowchart graphs and source references',
+    node('tools/flowcharts/check-data.mjs'),
+    PACKAGED,
+  ),
   step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.0.html'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
@@ -129,6 +135,12 @@ export const tasks = [
   step('browser', 'Ask DKLA questions and source links', node('tools/ask/browser.mjs', '{page}'), SERVER),
   step('browser', 'Home splash text', node('tools/splash/browser.mjs', '{page}'), SERVER),
   step('browser', 'patch notes', node('tools/patchnotes/browser.mjs', '{page}'), SERVER),
+  step(
+    'browser',
+    'flowchart navigation and print',
+    node('tools/flowcharts/check-browser.mjs', '{page}'),
+    SERVER,
+  ),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),

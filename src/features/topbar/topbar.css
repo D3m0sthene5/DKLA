@@ -72,7 +72,13 @@
 }
 @media (max-width: 900px) {
   .study-header .more-menu.dkla-menu-grid {
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(440px, calc(100vw - 32px));
+  }
+  .study-header .more-menu.dkla-menu-grid button {
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
   }
   .study-header .more-menu.dkla-menu-grid .dkla-menu-col:nth-child(odd) {
     border-left: 0;
