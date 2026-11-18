@@ -3,6 +3,29 @@
 window.DKLAPatchNotes = {
   'versions': [
     {
+      'v': 'v3.1',
+      'name': 'The Reading Room Update',
+      'date': '2026-11-18',
+      'blurb':
+        'Every case page rebuilt to read cleanly, with its doctrine timeline and flowchart steps in view.',
+      'notes': {
+        'New': [
+          'An “On this page” rail beside every case: the rule, timeline, flowchart steps, the six brief parts, connections, sources and study.',
+          '“Where this case sits”: each case shows the flowchart steps it decides, the path to them, and opens the chart at that step.',
+          'Doctrine timelines show every entry on one axis and say how each case moved the rule (widens, narrows, clarifies, replaces, overrules).',
+          'The flowchart walkthrough shows the path you took, the choice in front of you, and each source labelled case, rule or concept, with a way back to the case you came from.',
+        ],
+        'Changed': [
+          'Case pages are wider, with a strip of the map left in view, and read in one order with nothing repeated.',
+          'Notes, the full brief, authorities and sources each sit in one drawer under Sources.',
+          'One set of type sizes and colours across the reading views: blue for anything you can click, course colours only to name the course.',
+          'Dictionary definitions read as a lead sentence, short paragraphs and a list of examples.',
+          'The full timeline marks the case you came from.',
+        ],
+        'Removed': ['The duplicate “Full brief” and “Sources” drawers, and the Georgia and system fonts in the reader.'],
+      },
+    },
+    {
       'v': 'v3.0',
       'name': 'The Opossum Update',
       'date': '2026-11-11',

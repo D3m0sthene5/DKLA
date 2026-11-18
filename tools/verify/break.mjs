@@ -206,6 +206,26 @@ const breakages = [
     () => edit('src/features/ask/ask.js', 'openers[source.type]?.(source.id);', 'void source;'),
   ],
   [
+    'v3.1 case page: the old rule pulls the timelines back under the summary and the order never settles',
+    'src/features/v25/reading.js',
+    () =>
+      edit(
+        'src/features/v25/reading.js',
+        "    // caseOrder() places the timelines under \"Where this case sits\".\n",
+        "    if (group && body.querySelector(':scope > .takeaway')?.nextElementSibling !== group) body.querySelector(':scope > .takeaway')?.after(group);\n",
+      ),
+  ],
+  [
+    'v3.1 case page: flowchart steps open the chart at its start instead of the step',
+    'src/features/flowcharts/flowcharts.js',
+    () =>
+      edit(
+        'src/features/flowcharts/flowcharts.js',
+        'if (step && chart.nodes.some((node) => node.id === step)) active.trail = pathTo(chart, step);',
+        'void step;',
+      ),
+  ],
+  [
     'Ask Dottie "Explain from the beginning" demands a web citation because of its own wording',
     'lib/ask/web.js',
     () =>

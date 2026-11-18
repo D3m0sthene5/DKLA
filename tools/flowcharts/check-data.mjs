@@ -24,8 +24,8 @@ function block(html, id, file) {
   return JSON.parse(found[1]);
 }
 
-const portable = 'work/build/DKLA-v3.0.html';
-const hosted = 'dist/DKLA-v3.0.html';
+const portable = 'work/build/DKLA-v3.1.html';
+const hosted = 'dist/DKLA-v3.1.html';
 const atlasHtml = read(portable);
 const sourceIds = new Set(block(atlasHtml, 'seedData', portable).nodes.map(({ id }) => id));
 const chartIds = new Set(expectedIds);

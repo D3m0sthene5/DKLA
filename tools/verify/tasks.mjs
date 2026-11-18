@@ -128,7 +128,7 @@ export const tasks = [
     node('tools/flowcharts/check-data.mjs'),
     PACKAGED,
   ),
-  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.0.html'), PACKAGED),
+  step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.1.html'), PACKAGED),
   step('features', 'LRS canon index and source references', node('tools/canons/check-data.mjs'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
@@ -142,6 +142,8 @@ export const tasks = [
     node('tools/flowcharts/check-browser.mjs', '{page}'),
     SERVER,
   ),
+  // v3.1: the case page's order, rail, timeline axis, flowchart steps and dictionary examples.
+  step('browser', 'v3.1 case page', node('tools/v31/check-case.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
   step(
     'browser',
