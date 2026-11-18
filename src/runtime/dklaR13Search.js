@@ -442,6 +442,9 @@
         : total > 45
           ? '<p class="search-empty">Showing the closest 45 matches. Add a word to narrow them.</p>'
           : '');
+    // v3.1 whole U.S. Code: an exact citation ("20 USC 1001") adds one "U.S. Code" result above the
+    // list; any other query adds nothing. Whole-Code sections are in no index (src/features/v31/uscode.js).
+    window.DKLAUSCode?.addCitationResult(q, $('searchResults'));
     fillVisible();
     S.searchOpen = true;
     $('searchResults').hidden = false;
