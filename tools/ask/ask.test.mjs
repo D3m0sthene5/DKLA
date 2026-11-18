@@ -1885,9 +1885,13 @@ test('the FAA ground-stop question receives sourced conditional analysis rather 
       assert.match(input.asOf, /^\d{4}-\d{2}-\d{2}$/);
       assert.match(request.instructions, /research two separate questions/);
       assert.match(request.instructions, /ask one focused\s+clarifying question/);
+      assert.match(
+        request.instructions,
+        /When asked for a recommendation or an assessment of likely outcomes/,
+      );
       assert.doesNotMatch(
         request.instructions,
-        /question asks for advice about a real legal matter, abstain/,
+        /question asks for advice about a real legal matter, abstain|tell the person what to file/,
       );
       assert.equal(request.max_tool_calls, 4, 'the fix does not add an unbounded research loop');
       return Response.json({
