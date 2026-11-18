@@ -380,7 +380,7 @@ try {
 
     await input.fill('A question outside the Atlas');
     await input.press('Enter');
-    await expect(dialog.getByRole('status')).toContainText('did not establish an answer');
+    await expect(dialog.getByRole('status')).toContainText('search ran, but none of the sources');
     await expectOnlyDottie('trouble');
     await input.fill('Can the Atlas answer on its own?');
     await input.press('Enter');
@@ -547,11 +547,94 @@ try {
     if (!contextOnly) await savedAnswersFlow(viewport);
     await contextAnswersFlow(viewport);
   }
+  if (!contextOnly) await failureMessagesFlow({ width: 1440, height: 900 });
   console.log(
-    'Ask DKLA desktop and phone flow passed with a mocked model response, including saved answers.',
+    'Ask DKLA desktop and phone flow passed with a mocked model response, including saved answers and failure messages.',
   );
 } finally {
   await browser.close();
+}
+
+// Each way an answer can come back empty gets its own message with a next step (api/ask.js
+// emptyAnswer, src/features/ask/ask.js emptyMessage): the search timed out, the search failed,
+// the search found nothing usable, the class's slide notes are not indexed, and the Atlas alone held
+// too little. Replies are mocked exactly as the server sends them. (A function, so the flow above,
+// which runs before this line is reached, can call it.)
+function failureCases() {
+  return [
+    {
+      question: 'Search that times out',
+      reply: { search: 'unavailable', reason: 'search-failed', failure: 'timeout' },
+      says: [/took too long/, /Try again in a minute/],
+    },
+    {
+      question: 'Search that fails',
+      reply: { search: 'unavailable', reason: 'search-failed', failure: 'network' },
+      says: [/did not work this time/, /add a case name or citation/],
+    },
+    {
+      question: 'Search that finds nothing usable',
+      reply: { search: 'searched', reason: 'no-evidence' },
+      says: [/search ran, but none of the sources/, /Try rephrasing it/],
+    },
+    {
+      question: 'What did LRS class 5 cover?',
+      reply: {
+        search: 'not-needed',
+        reason: 'lecture-not-indexed',
+        lecture: 'lrs-5',
+        lessons: ['contracts-15', 'contracts-16', 'contracts-17', 'lrs-13', 'lrs-14', 'lrs-15', 'lrs-22'],
+      },
+      says: [
+        /does not have the slide notes for LRS class 5\./,
+        /She has notes for Contracts classes 15–17 and LRS classes 13–15, 22\./,
+        /name the case or rule/,
+      ],
+    },
+    {
+      question: 'Atlas with too little',
+      reply: { search: 'not-needed', reason: 'not-enough-evidence' },
+      says: [/The Atlas did not hold enough/, /Try naming a case/],
+    },
+  ];
+}
+
+async function failureMessagesFlow(viewport) {
+  const failures = failureCases();
+  const context = await browser.newContext({ viewport, serviceWorkers: 'block' });
+  await context.route('**/*', async (route) => {
+    const target = new URL(route.request().url());
+    if (
+      target.origin !== url.origin ||
+      (target.pathname.startsWith('/api/') && target.pathname !== '/api/ask')
+    )
+      return route.fulfill({ status: 204 });
+    if (target.pathname !== '/api/ask') return route.continue();
+    const payload = route.request().postDataJSON();
+    if (payload.warm) return route.fulfill({ json: { warm: true } });
+    const failure = failures.find(({ question }) => question === payload.question);
+    assert.ok(failure, 'a question this check asked: ' + payload.question);
+    return route.fulfill({ json: { paragraphs: [], sources: [], ...failure.reply } });
+  });
+  await context.addInitScript(() => localStorage.setItem('dkla.guide.v1', 'seen'));
+  const page = await context.newPage();
+  await page.goto(url.href, { waitUntil: 'domcontentloaded', timeout: 90_000 });
+  await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+  await page.locator('.ask-bar').click();
+  const dialog = page.locator('#dklaAskDialog');
+  const input = dialog.locator('textarea');
+  const status = dialog.getByRole('status');
+  const shown = [];
+  for (const { question: asked, says } of failures) {
+    await input.fill(asked);
+    await input.press('Enter');
+    for (const words of says) await expect(status).toHaveText(words);
+    await expect(dialog.locator('.ask-dottie')).toHaveAttribute('data-state', 'trouble');
+    await expect(dialog.locator('.ask-answer p')).toHaveCount(0);
+    shown.push(await status.textContent());
+  }
+  assert.equal(new Set(shown).size, failures.length, 'every failure has its own message');
+  await context.close();
 }
 
 async function contextAnswersFlow(viewport) {

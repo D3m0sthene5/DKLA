@@ -293,6 +293,50 @@
     return button;
   }
 
+  // Why an answer came back empty, in plain English with a next step. The server says why in
+  // `reason` (api/ask.js emptyAnswer); an older reply without one is read from `search`.
+  const courseNames = { lrs: 'LRS', contracts: 'Contracts', civpro: 'Civil Procedure' };
+  function classRanges(lessons) {
+    const byCourse = new Map();
+    for (const key of Array.isArray(lessons) ? lessons : []) {
+      const [course, number] = String(key).split('-');
+      if (!courseNames[course] || !/^\d+$/.test(number)) continue;
+      if (!byCourse.has(course)) byCourse.set(course, []);
+      byCourse.get(course).push(Number(number));
+    }
+    return [...byCourse].map(([course, numbers]) => {
+      numbers.sort((a, b) => a - b);
+      const runs = [];
+      for (const n of numbers) {
+        const last = runs.at(-1);
+        if (last && n === last[1] + 1) last[1] = n;
+        else runs.push([n, n]);
+      }
+      const spans = runs.map(([a, b]) => (a === b ? String(a) : a + '–' + b)).join(', ');
+      return courseNames[course] + ' ' + (numbers.length === 1 ? 'class ' : 'classes ') + spans;
+    });
+  }
+  function emptyMessage({ reason, search: searchStatus, failure, lecture, lessons }) {
+    if (reason === 'lecture-not-indexed') {
+      const [course, number] = String(lecture ?? '').split('-');
+      const named = courseNames[course] && number ? courseNames[course] + ' class ' + number : 'that class';
+      const ranges = classRanges(lessons);
+      return (
+        'Ask Dottie does not have the slide notes for ' +
+        named +
+        (ranges.length ? '. She has notes for ' + ranges.join(' and ') + '.' : '.') +
+        ' Ask about one of those classes, or name the case or rule you studied in that class.'
+      );
+    }
+    if (reason === 'search-failed' || (!reason && searchStatus === 'unavailable'))
+      return failure === 'timeout'
+        ? 'The web search took too long and was stopped before it found sources. Try again in a minute, or add a case name or citation so the Atlas can answer on its own.'
+        : 'The web search did not work this time, so there are no sources to show. Try again in a minute, or add a case name or citation so the Atlas can answer on its own.';
+    if (reason === 'no-evidence' || (!reason && searchStatus === 'searched'))
+      return 'The web search ran, but none of the sources it found clearly answered the question. Try rephrasing it, or add a case name, rule number, court or year.';
+    return 'The Atlas did not hold enough to answer that. Try naming a case, rule, or topic.';
+  }
+
   // origin: { kind: 'local' | 'library', savedAt } for an answer saved earlier
   // in this browser or kept in the shared answer library; absent for a new one.
   function render(
@@ -305,17 +349,7 @@
     if (!Array.isArray(paragraphs) || !Array.isArray(sources)) throw Error('Invalid answer');
     if (!paragraphs.length) {
       setDottie('trouble');
-      if (result.reason === 'lecture-not-indexed') {
-        status.textContent =
-          'Slide notes for that class are unavailable in Ask Dottie. You can ask about an assigned case or rule.';
-        return;
-      }
-      status.textContent =
-        searchStatus === 'unavailable'
-          ? 'The Atlas did not have enough evidence, and web search was unavailable. Try again or add a case name or citation.'
-          : searchStatus === 'searched'
-            ? 'The sources I found did not establish an answer. Try narrowing the court, date range, or meaning of the question.'
-            : 'I couldn’t find enough evidence to answer that. Try naming a case, rule, or topic.';
+      status.textContent = emptyMessage(result);
       return;
     }
 

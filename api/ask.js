@@ -2,14 +2,8 @@ import { readFile } from 'node:fs/promises';
 import { gunzipSync } from 'node:zlib';
 import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
-import { findAnswer, storeAnswer } from '../lib/ask/library.js';
-import {
-  asksAboutLecture,
-  corpusDigest,
-  indexCorpus,
-  lectureClassOf,
-  parseIndex,
-} from '../lib/ask/retrieve.js';
+import { findAnswer, storable, storeAnswer } from '../lib/ask/library.js';
+import { asksAboutLecture, corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
 import {
   answerWithSearch,
   AtlasOnlyResearch,
@@ -43,6 +37,26 @@ async function retrieve(question, node) {
   // { sources, signals }: the Atlas excerpts, and what routing needs to know about the match.
   return (await load()).explain(question, node);
 }
+
+// Why an answer is empty, so the browser can say what went wrong and what to try next
+// (src/features/ask/ask.js). Sent as `reason` beside `search`:
+//   search-failed        the web search timed out ('failure: timeout') or failed ('network', 'error')
+//   no-evidence          the web search ran but found nothing that passed the checks
+//   lecture-not-indexed  the question asks about a class whose slide notes are not indexed;
+//                        `lessons` lists the classes that are ("lrs-13", "contracts-15", ...)
+//   not-enough-evidence  no search was needed or made, and the Atlas held too little
+const emptyAnswer = (search, extra = {}) => ({
+  paragraphs: [],
+  sources: [],
+  search,
+  reason:
+    search === 'unavailable'
+      ? 'search-failed'
+      : search === 'searched'
+        ? 'no-evidence'
+        : 'not-enough-evidence',
+  ...extra,
+});
 
 function validHistory(history) {
   return (
@@ -207,12 +221,24 @@ export function makeAskHandler(
           : query;
       const { sources: atlas, signals } = await retrieve(lookup, node);
       if (gone.signal.aborted) return stop();
-      const namedLecture = lectureClassOf(query);
+      // A question about what a class covered, when that class's slide notes are not indexed: no
+      // other class's notes, and no web page, can stand in for them. A follow-up that points back
+      // ("what else did that lecture cover?") names the class through the question before it.
+      const lecture = signals.lecture;
       if (
-        asksAboutLecture(query) &&
-        !atlas.some(({ type, id }) => type === 'lecture' && id.startsWith(namedLecture + ':'))
+        lecture &&
+        asksAboutLecture(query, lecture.key) &&
+        (!lecture.indexed ||
+          !atlas.some(({ type, id }) => type === 'lecture' && id.startsWith(lecture.key + ':')))
       ) {
-        return reply.send(200, { paragraphs: [], sources: [], search, reason: 'lecture-not-indexed' });
+        return reply.send(
+          200,
+          emptyAnswer(search, {
+            reason: 'lecture-not-indexed',
+            lecture: lecture.key,
+            lessons: (await load()).lessons,
+          }),
+        );
       }
 
       // The templates read the question itself; the web flags read it with the question before.
@@ -226,9 +252,11 @@ export function makeAskHandler(
 
       // Only a first question can be answered from, or added to, the library:
       // a follow-up depends on the conversation before it. Nor can a question whose answer
-      // changes with time (route stable: false): the present, later history, people. The
-      // lookup comes before any call to OpenAI, so a question asked before costs nothing.
-      const shelf = earlier?.length || !path.stable ? null : (node ?? '');
+      // changes with time (route stable: false): the present, later history, people. Nor one that
+      // is not clearly reusable (library.js storable: the asker's own circumstances, a class
+      // session, the present). The lookup comes before any call to OpenAI, so a question asked
+      // before costs nothing.
+      const shelf = earlier?.length || !path.stable || !storable(query) ? null : (node ?? '');
       if (shelf !== null && !fresh) {
         const kept = await quietly(() => library.find(query, shelf));
         if (gone.signal.aborted) return stop();
@@ -261,7 +289,10 @@ export function makeAskHandler(
               search: answer.search,
             }),
           );
-        return reply.send(200, answer);
+        return reply.send(
+          200,
+          answer.paragraphs?.length ? answer : { ...answer, reason: emptyAnswer(answer.search).reason },
+        );
       };
 
       reply.progress({ step: 'atlas', entries: atlas.length, research: path.research });
@@ -277,10 +308,10 @@ export function makeAskHandler(
       // A question with three or more parts (several numbered questions) gets 40 s, still under the
       // 45 s the server allows: its Atlas answer gets 16 s and research 30 s (answer.js, web.js).
       const signal = AbortSignal.any([AbortSignal.timeout(path.parts >= 3 ? 40_000 : 32_000), gone.signal]);
+      // failure: why the search failed ('timeout', 'network' or 'error'), for the browser's message.
+      let failure = 'error';
       const unavailable = () =>
-        gone.signal.aborted
-          ? stop()
-          : reply.send(200, { paragraphs: [], sources: [], search: 'unavailable' });
+        gone.signal.aborted ? stop() : reply.send(200, emptyAnswer('unavailable', { failure }));
       // subjects: the entries a template resolved the question to; citing one is the right kind
       // of answer ("what is the statute of frauds" and its dictionary entry).
       const atlasAnswer = (search) =>
@@ -298,7 +329,7 @@ export function makeAskHandler(
       // The search ran and found nothing usable (as opposed to failing).
       let empty = false;
       if (!path.research) {
-        if (!atlas.length) return reply.send(200, { paragraphs: [], sources: [], search });
+        if (!atlas.length) return reply.send(200, emptyAnswer(search));
         try {
           const output = await atlasAnswer(search);
           if (!output.needsWeb) {
@@ -356,17 +387,18 @@ export function makeAskHandler(
           console.warn('Ask DKLA web search unavailable:', 'cancelled');
           return stop();
         }
-        empty = error instanceof NoResearchAnswer;
+        // The search ran and left nothing usable: no paragraph passed the checks, or (for a question
+        // whose answer changes with time) only Atlas excerpts were cited where web evidence was needed.
+        empty = error instanceof NoResearchAnswer || error instanceof AtlasOnlyResearch;
         console.warn('Ask DKLA web search unavailable:', empty ? 'nothing usable' : status);
         search = empty ? 'searched' : 'unavailable';
+        failure = status === 'timeout' || status === 'network' ? status : 'error';
       }
       // After a failed or empty search: the Atlas draft if there is one; otherwise an Atlas answer
       // only for a question the Atlas could answer, and only while the deadline allows. A search
       // that ran but found nothing usable says so ('searched'); one that failed says it failed.
       const nothing = () =>
-        empty && !gone.signal.aborted
-          ? reply.send(200, { paragraphs: [], sources: [], search })
-          : unavailable();
+        empty && !gone.signal.aborted ? reply.send(200, emptyAnswer(search)) : unavailable();
       if (!atlas.length || (!draft && (path.web || signal.aborted))) return nothing();
       try {
         const answer = citeAnswer(draft ?? (await atlasAnswer(search)), atlas);
@@ -378,7 +410,7 @@ export function makeAskHandler(
       }
     } catch (error) {
       if (gone.signal.aborted) return stop();
-      if (error instanceof InvalidCitations) return reply.send(200, { paragraphs: [], sources: [], search });
+      if (error instanceof InvalidCitations) return reply.send(200, emptyAnswer(search));
       if (error.statusCode === 402) return reply.send(429, { error: 'usage-limit' });
       if (error.statusCode === 429) {
         console.warn('Ask DKLA OpenAI rate limit');
