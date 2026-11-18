@@ -1,7 +1,7 @@
 /* Minecraft-style splash text on the Home map: a short line in warm yellow,
  * tilted on the upper-right corner of the big DKLA logo, gently pulsing.
- * One line per visit, chosen at random from window.DKLASplashLines (never the
- * line the previous visit showed); clicking or tapping it shows another.
+ * One line per visit, chosen from window.DKLASplashLines by `choose` below (never the line just
+ * shown, and very rarely one of the last 100); clicking or tapping it shows another.
  *
  * The map redraws by replacing its contents, so the splash is not drawn into
  * the map. It is one element laid over the map (after #geoCanvas in
@@ -16,6 +16,88 @@
  * hidden from screen readers. Reduced motion: no pulse, no pop. */
 (() => {
   'use strict';
+
+  /* Which line comes next (owner, 18 November 2026: "when you see a certain one you're much less likely
+   * to get that one again for 100 times that you click through them"). Pure functions, tested by
+   * tools/splash/pick.test.mjs. The history is { recent, seen }: `recent` the texts of the last 100 lines
+   * shown, oldest first; `seen` how many times each text has ever been shown. Both go by text, so editing
+   * the list keeps the history of every line that stays, and a new line starts unseen.
+   *
+   * A line's weight is its recency weight times its rarity weight:
+   * - recency, from its age (1 = the line just shown): 0 at age 1, so never twice in a row; below the
+   *   gap (the fewest picks before a line is welcome again) it climbs smoothly from 0 to RARE (one
+   *   ten-thousandth of normal); at the gap it is normal (1), and it grows by 1 for every further pick
+   *   it waits, so the least recent is preferred. The gap is 100 picks. A list too short for that keeps
+   *   a pool of a quarter of its lines (2 to 16) outside the gap, so every line still comes round: close
+   *   to a shuffled cycle, with no line twice in a row across the reshuffle either.
+   * - rarity, from how many more times it has been shown than the least-shown line: 1, 1/4, 1/9, and
+   *   1/16 from three on. New lines therefore come up first; the cap keeps old lines coming up (about a
+   *   fifth of the clicks after the list doubles, in the test) while the new ones catch up. */
+  const WINDOW = 100,
+    RARE = 1e-4,
+    SEEN_CAP = 600; // at most this many texts keep counts; counts of lines no longer listed go first
+  function gapFor(n) {
+    const pool = Math.min(16, Math.max(2, Math.round(n / 4)));
+    return Math.max(2, Math.min(WINDOW, n - pool + 1));
+  }
+  function weights(list, history) {
+    const recent = history?.recent || [],
+      seen = history?.seen || {},
+      age = new Map();
+    for (let i = recent.length - 1; i >= 0; i--)
+      if (!age.has(recent[i])) age.set(recent[i], recent.length - i);
+    const gap = gapFor(list.length),
+      // A line not in the memory was last shown longer ago than everything in it (or never).
+      unknown = Math.max(recent.length, gap - 1) + 1,
+      count = (line) => (Object.hasOwn(seen, line) ? seen[line] : 0),
+      least = Math.min(...list.map(count));
+    return list.map((line) => {
+      const a = age.get(line) ?? unknown,
+        recency = a === 1 ? 0 : a < gap ? RARE * ((a - 1) / (gap - 1)) ** 2 : a - gap + 1;
+      return recency / (1 + Math.min(3, count(line) - least)) ** 2;
+    });
+  }
+  // The index in `list` of the next line; `random` returns a number in [0, 1).
+  function choose(list, history, random = Math.random) {
+    if (list.length < 2) return 0;
+    const w = weights(list, history),
+      total = w.reduce((a, b) => a + b, 0);
+    let r = random() * total;
+    for (let i = 0; i < w.length; i++) {
+      r -= w[i];
+      if (r < 0 && w[i] > 0) return i;
+    }
+    return w.indexOf(Math.max(...w)); // rounding left nothing: the heaviest
+  }
+  const isCount = (v) => Number.isFinite(v) && v >= 0;
+  // The history after `line` is shown, as a new object.
+  function record(history, line, list = []) {
+    const recent = [...(history?.recent || []), line].slice(-WINDOW),
+      seen = { ...(history?.seen || {}) };
+    seen[line] = (Object.hasOwn(seen, line) ? seen[line] : 0) + 1;
+    let texts = Object.keys(seen);
+    if (texts.length > SEEN_CAP) {
+      const keep = new Set([...list, ...recent]);
+      texts.sort((a, b) => keep.has(b) - keep.has(a) || seen[b] - seen[a]);
+      for (const text of texts.slice(SEEN_CAP)) delete seen[text];
+    }
+    return { recent, seen };
+  }
+  // A history from whatever was stored: this format, the first one ({ last: index, seen: counts }), or
+  // nothing. The first format keeps every count, and the line it showed last becomes the memory's one entry.
+  function migrate(saved, list = []) {
+    const seen = {};
+    if (saved && typeof saved.seen === 'object' && saved.seen)
+      for (const [text, n] of Object.entries(saved.seen)) if (isCount(n)) seen[text] = Math.floor(n);
+    let recent = [];
+    if (Array.isArray(saved?.recent))
+      recent = saved.recent.filter((line) => typeof line === 'string').slice(-WINDOW);
+    else if (Number.isInteger(saved?.last) && typeof list[saved.last] === 'string')
+      recent = [list[saved.last]];
+    return { recent, seen };
+  }
+  window.DKLASplashPicker = { choose, record, migrate, weights, gapFor, WINDOW };
+
   if (window.DKLASplash) return;
   const KEY = 'dkla.splash.v1';
   const TILT = -18; // degrees, rising to the right like Minecraft's
@@ -43,51 +125,33 @@
     Array.isArray(window.DKLASplashLines)
       ? window.DKLASplashLines.filter((line) => typeof line === 'string' && line.trim())
       : [];
-  function lastShown() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(KEY));
-      return Number.isInteger(saved?.last) ? saved.last : -1;
-    } catch {
-      return -1;
-    }
-  }
-  // How many times each line has been shown in this browser, by its text (so editing the list keeps
-  // the counts of lines that stay).
-  function seenCounts() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(KEY));
-      return saved && typeof saved.seen === 'object' && saved.seen ? saved.seen : {};
-    } catch {
-      return {};
-    }
+  // The history lives in localStorage, read afresh each time (another tab may have shown lines). Where
+  // storage is blocked or a write fails, it is kept in memory for this page instead.
+  let memory = { recent: [], seen: {} },
+    stored = true;
+  function history() {
+    if (stored)
+      try {
+        return migrate(JSON.parse(localStorage.getItem(KEY)), lines());
+      } catch {
+        stored = false;
+      }
+    return memory;
   }
   function remember(index) {
-    try {
-      const seen = seenCounts(),
-        line = lines()[index];
-      if (typeof line === 'string') seen[line] = (seen[line] || 0) + 1;
-      localStorage.setItem(KEY, JSON.stringify({ last: index, seen }));
-    } catch {
-      /* private window or storage blocked: the next visit may repeat a line */
-    }
-  }
-  // A random line other than `avoid`, weighted towards lines seen less often (owner, 12 November 2026:
-  // each time a line comes up, the odds of seeing it again go down, so people keep seeing new ones).
-  // A line seen k times weighs 1 / (1 + k)^2.
-  function pick(avoid) {
     const list = lines(),
-      n = list.length;
-    if (n < 2) return 0;
-    const seen = seenCounts(),
-      weights = list.map((line, i) => (i === avoid ? 0 : 1 / (1 + (seen[line] || 0)) ** 2)),
-      total = weights.reduce((a, b) => a + b, 0);
-    let r = Math.random() * total;
-    for (let i = 0; i < n; i++) {
-      r -= weights[i];
-      if (r < 0 && weights[i] > 0) return i;
+      line = list[index];
+    if (typeof line !== 'string') return;
+    memory = record(history(), line, list);
+    try {
+      // `last` (the index shown) stays for the first format's readers.
+      localStorage.setItem(KEY, JSON.stringify({ last: index, ...memory }));
+      stored = true;
+    } catch {
+      stored = false;
     }
-    return avoid === 0 ? 1 : 0;
   }
+  const pick = () => choose(lines(), history());
 
   const root = document.createElement('div');
   root.className = 'dkla-splash';
@@ -211,7 +275,7 @@
   const BAR_CLEAR =
     '.study-header button:not(.study-brand), .study-header a, .study-header input, .ask-bar-dottie, .map-nav, #mapWelcome';
   function placeInBar() {
-    if (index < 0 && !show(pick(lastShown()))) return off('no lines');
+    if (index < 0 && !show(pick())) return off('no lines');
     // The calm top bar (src/features/topbar/) gives the line its own slot beside the clock. There it stays
     // wherever the map is, zoomed into a course or a case too (owner, 12 November 2026: the empty slot looked
     // odd); only something drawn over the slot itself hides it.
@@ -345,7 +409,7 @@
   }
   function place() {
     if (header) return placeInBar();
-    if (index < 0 && !show(pick(lastShown()))) return off('no lines');
+    if (index < 0 && !show(pick())) return off('no lines');
     if (!onHome()) return off('not home');
     const mark = canvas.querySelector('.dkla-map-monogram');
     if (!mark) return off('no logo');
@@ -460,7 +524,7 @@
   );
   text.addEventListener('click', (event) => {
     event.stopPropagation();
-    if (root.dataset.shown !== 'true' || !show(pick(index))) return;
+    if (root.dataset.shown !== 'true' || !show(pick())) return;
     if (!calm.matches && pop.animate)
       pop.animate(
         [{ transform: 'scale(0.6)' }, { transform: 'scale(1.14)', offset: 0.6 }, { transform: 'scale(1)' }],

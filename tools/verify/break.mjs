@@ -191,6 +191,16 @@ const breakages = [
     () => edit('src/features/splash/splash.js', 'const TILT = -18;', 'const TILT = 0;'),
   ],
   [
+    'Home splash text: the 100-line memory is ignored, so lines come back soon after',
+    'src/features/splash/splash.js',
+    () =>
+      edit(
+        'src/features/splash/splash.js',
+        'return Math.max(2, Math.min(WINDOW, n - pool + 1));',
+        'return 2;',
+      ),
+  ],
+  [
     'Ask DKLA mascot: Dottie stops carrying one joey per cited source',
     'src/features/ask/ask.js',
     () => edit('src/features/ask/ask.js', "setDottie('answer', cited.size)", "setDottie('answer', 1)"),
