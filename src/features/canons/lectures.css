@@ -1,0 +1,50 @@
+.lecture-session,
+.lecture-related {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid #3c5654;
+  border-radius: 8px;
+  background: #172b30;
+}
+.lecture-session summary,
+.lecture-related summary {
+  color: #a4dbc5;
+  font-weight: 650;
+  cursor: pointer;
+}
+.lecture-deck h3 {
+  margin: 14px 0 4px;
+}
+.lecture-note {
+  margin: 12px 0;
+  padding: 10px 0 6px;
+  border-top: 1px solid #355352;
+}
+.lecture-note h4,
+.lecture-note p {
+  margin: 0 0 5px;
+}
+.lecture-pinpoint {
+  display: inline-block;
+  margin: 0;
+  color: #a9bec1;
+  font-size: 13px;
+}
+.lecture-conflict {
+  padding: 10px;
+  border-left: 3px solid #e4b575;
+}
+.lecture-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 14px;
+}
+.lecture-links a,
+.lecture-related a {
+  color: #a4dbc5;
+  text-underline-offset: 3px;
+}
+.lecture-note:focus {
+  outline: 2px solid #a4dbc5;
+  outline-offset: 2px;
+}

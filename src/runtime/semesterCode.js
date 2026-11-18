@@ -696,7 +696,7 @@ function classDialog(v = '9') {
     );
   modal(
     'Assignment ' + c + ' · ' + cor.assignmentTitles[c],
-    `<label class="form-field"><span>Reading assignment</span><select id="readingClass">${Array.from({ length: 26 }, (_, i) => `<option value="${i + 1}" ${i + 1 === c ? 'selected' : ''}>${i + 1}. ${E(cor.assignmentTitles[i + 1])}</option>`).join('')}</select></label><p class="modal-copy">Reading groups from the syllabus.</p><div class="source-strip">${rs.map(([a, b]) => `<button data-book="${a}">C&amp;M ${a}–${b}</button>`).join('')}${ss.map(([a, b]) => `<button data-supp="${a}">Supplement ${a}–${b}</button>`).join('')}</div><h3>Principal case accounts (${ids.length})</h3>${ids
+    `<label class="form-field"><span>Reading assignment</span><select id="readingClass">${Array.from({ length: 26 }, (_, i) => `<option value="${i + 1}" ${i + 1 === c ? 'selected' : ''}>${i + 1}. ${E(cor.assignmentTitles[i + 1])}</option>`).join('')}</select></label>${window.DKLALectures?.sessionHTML('contracts', c) || ''}<p class="modal-copy">Reading groups from the syllabus.</p><div class="source-strip">${rs.map(([a, b]) => `<button data-book="${a}">C&amp;M ${a}–${b}</button>`).join('')}${ss.map(([a, b]) => `<button data-supp="${a}">Supplement ${a}–${b}</button>`).join('')}</div><h3>Principal case accounts (${ids.length})</h3>${ids
       .map((id) => nodesById.get(id))
       .filter(Boolean)
       .map(
@@ -712,7 +712,7 @@ function classDialog(v = '9') {
 coverageDialog = function () {
   modal(
     'Semester coverage and source limits',
-    `<div class="modal-copy"><p>${E(data.corpus.coverageStatement)}</p><p>Case lists identify direct and related accounts across the course, independently of geographic placement. Their relevance statements are explanatory classifications. The complete source archive also contains citations and notes that have not each been turned into a separate full brief.</p><p>The Martin outline supplied a model of nested organization only. The Davis syllabus, casebook, and actual Fall 2026 supplement supply the course material. No lecture notes or current-law/citator review are represented.</p><h3>Separately assigned sources</h3>${data.corpus.standaloneSourcesMissing
+    `<div class="modal-copy"><p>${E(data.corpus.coverageStatement)}</p><p>Case lists identify direct and related accounts across the course, independently of geographic placement. Their relevance statements are explanatory classifications. The complete source archive also contains citations and notes that have not each been turned into a separate full brief.</p><p>The Martin outline supplied a model of nested organization only. The Davis syllabus, casebook, and actual Fall 2026 supplement supply the course material. The attached lecture topics carry slide references in each class assignment.</p><h3>Separately assigned sources</h3>${data.corpus.standaloneSourcesMissing
       .map((id) => nodesById.get(id))
       .filter(Boolean)
       .map(

@@ -1477,7 +1477,8 @@ const routes = [
   ['what did INS v Chadha hold', undefined, 'atlas'],
   ['why did the court strike down the legislative veto in chadha', undefined, 'research'],
   ['what is the intelligible principle test', undefined, 'atlas'],
-  ['what is hard look review', undefined, 'research'],
+  // The LRS index has a sourced entry for this doctrine.
+  ['what is hard look review', undefined, 'atlas'],
   ['what is arbitrary and capricious review', undefined, 'research'],
   ['what does apa 553 require', undefined, 'atlas'],
   ['what does APA § 553 require', undefined, 'atlas'],
@@ -3402,6 +3403,15 @@ test('presentation preferences leave substantive time and scope questions in pla
     const decision = route(question, sources, { signals });
     assert.deepEqual([decision.research, decision.web], [research, web], question);
   }
+});
+
+test('a request for an unavailable lecture cannot borrow another class as its evidence', async () => {
+  const { json, requests } = await askWithFetch(
+    () => assert.fail('missing lecture should not call the model'),
+    { question: 'What did LRS Class 99 slides say about major questions?', fresh: true },
+  );
+  assert.equal(requests.length, 0);
+  assert.equal(json.reason, 'lecture-not-indexed');
 });
 
 // Owner, 12 November 2026: after three turns about efficient breach, "How do you calculate expectation

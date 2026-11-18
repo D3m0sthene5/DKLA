@@ -129,6 +129,7 @@ export const tasks = [
     PACKAGED,
   ),
   step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.0.html'), PACKAGED),
+  step('features', 'LRS canon index and source references', node('tools/canons/check-data.mjs'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
   // These use the preview server. {url} and {page} are filled in by the runner.
@@ -142,6 +143,12 @@ export const tasks = [
     SERVER,
   ),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
+  step(
+    'browser',
+    'LRS canons and related case navigation',
+    node('tools/canons/check-browser.mjs', '{page}'),
+    SERVER,
+  ),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
   // Two pages (desktop and phone): each result says where it matched, and the opened entry can show it.

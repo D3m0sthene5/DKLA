@@ -3,7 +3,13 @@ import { gunzipSync } from 'node:zlib';
 import { body, noStore, sameOrigin, send } from '../lib/analytics/security.js';
 import { citeAnswer, generateAnswer, InvalidCitations } from '../lib/ask/answer.js';
 import { findAnswer, storeAnswer } from '../lib/ask/library.js';
-import { corpusDigest, indexCorpus, parseIndex } from '../lib/ask/retrieve.js';
+import {
+  asksAboutLecture,
+  corpusDigest,
+  indexCorpus,
+  lectureClassOf,
+  parseIndex,
+} from '../lib/ask/retrieve.js';
 import {
   answerWithSearch,
   AtlasOnlyResearch,
@@ -201,6 +207,13 @@ export function makeAskHandler(
           : query;
       const { sources: atlas, signals } = await retrieve(lookup, node);
       if (gone.signal.aborted) return stop();
+      const namedLecture = lectureClassOf(query);
+      if (
+        asksAboutLecture(query) &&
+        !atlas.some(({ type, id }) => type === 'lecture' && id.startsWith(namedLecture + ':'))
+      ) {
+        return reply.send(200, { paragraphs: [], sources: [], search, reason: 'lecture-not-indexed' });
+      }
 
       // The templates read the question itself; the web flags read it with the question before.
       const path = route(query, atlas, {

@@ -101,6 +101,31 @@ for (const [id, title, , , , , node] of briefs.entries) {
 for (const t of block('dklaGlossary').terms) {
   add('term', t.slug, t.term, 'Legal dictionary', [], [t.definition]);
 }
+for (const entry of block('dklaCanonsData')) {
+  add(
+    'canon',
+    entry.id,
+    entry.name,
+    'LRS canon of construction',
+    entry.aliases,
+    [entry.definition, entry.use, entry.limits],
+    entry.sources.slice(0, 7).map((source) => source.label + ', ' + source.pinpoint),
+  );
+}
+for (const deck of block('dklaLecturesData')) {
+  const course = deck.course === 'lrs' ? 'LRS' : 'Contracts';
+  const lesson = course + ' Class ' + deck.number;
+  for (const [offset, item] of [...deck.topics, ...deck.conflicts].entries()) {
+    add(
+      'lecture',
+      deck.course + '-' + deck.number + ':' + (offset + 1),
+      lesson + ' · ' + item.heading,
+      'Course lecture slides',
+      [lesson, deck.title],
+      [deck.title, deck.date, 'Slides ' + item.slides.join(', ') + '.', item.body],
+    );
+  }
+}
 for (const a of authorities.entries) {
   add(
     'authority',

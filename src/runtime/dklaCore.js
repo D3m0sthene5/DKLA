@@ -354,7 +354,7 @@
     const ids = new Set(items.flatMap((i) => i.atlasRecordIds || []));
     modal(
       'LRS · Class ' + c.number,
-      `<label class="form-field"><span>Class</span><select id="lrsClassSelect">${cor.classes.map((x) => `<option value="${x.number}" ${x.number === c.number ? 'selected' : ''}>${x.number}. ${E(x.topic)}</option>`).join('')}</select></label><div class="modal-copy"><h3>${E(c.topic)}</h3><p>${E(c.date)}${c.calendarNote ? ' · ' + E(c.calendarNote) : ''}</p><div class="note-text">${E(c.readingVerbatim)}</div>${items
+      `<label class="form-field"><span>Class</span><select id="lrsClassSelect">${cor.classes.map((x) => `<option value="${x.number}" ${x.number === c.number ? 'selected' : ''}>${x.number}. ${E(x.topic)}</option>`).join('')}</select></label><div class="modal-copy"><h3>${E(c.topic)}</h3><p>${E(c.date)}${c.calendarNote ? ' · ' + E(c.calendarNote) : ''}</p>${window.DKLALectures?.sessionHTML('lrs', c.number) || ''}<div class="note-text">${E(c.readingVerbatim)}</div>${items
         .map(
           (i) =>
             `<section class="lrs-assignment"><h3>${E(i.title || i.label || i.reading || i.id)}</h3><p>${E(i.coverageStatus || i.status || 'See source mapping')}</p>${i.missingPages?.length ? `<p class="source-caution">Missing printed pages: ${i.missingPages.join(', ')}</p>` : ''}${(

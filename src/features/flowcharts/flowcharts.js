@@ -457,6 +457,7 @@
         </div>
         <button type="button" data-flowcharts-print>Print</button>
       </div>
+      ${['LRS-02', 'LRS-03', 'LRS-04', 'LRS-05', 'LRS-06'].includes(chart.id) ? '<p><a class="fc-canons-link" href="#canons" data-canons-nav>Browse the canons of construction</a></p>' : ''}
       <div class="fc-board">
         ${graphHTML(active)}
         <section id="flowchartDetail" aria-label="Current step"></section>
@@ -465,6 +466,7 @@
         <button type="button" data-flowcharts-back>← Previous step</button>
         <button type="button" data-flowcharts-reset>Start over</button>
       </div>
+      ${window.DKLALectures?.chartHTML(chart.id) || ''}
       ${printHTML(active)}`;
     paintStep({ center: true });
   }

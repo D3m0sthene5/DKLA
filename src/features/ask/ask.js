@@ -253,6 +253,10 @@
     timeline: (id) => window.DKLATimelines.open(id),
     scotus: (id) => window.SCOTUSHistory.case(id),
     justice: (id) => window.SCOTUSHistory.justice(id),
+    canon: (id) => {
+      location.hash = '#canon=' + id;
+    },
+    lecture: (id) => window.DKLALectures.open(id),
   };
 
   function webUrl(source) {
@@ -301,6 +305,11 @@
     if (!Array.isArray(paragraphs) || !Array.isArray(sources)) throw Error('Invalid answer');
     if (!paragraphs.length) {
       setDottie('trouble');
+      if (result.reason === 'lecture-not-indexed') {
+        status.textContent =
+          'Slide notes for that class are unavailable in Ask Dottie. You can ask about an assigned case or rule.';
+        return;
+      }
       status.textContent =
         searchStatus === 'unavailable'
           ? 'The Atlas did not have enough evidence, and web search was unavailable. Try again or add a case name or citation.'

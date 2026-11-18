@@ -16,7 +16,13 @@
   const label = (b) => b.textContent.replace(/\s+/g, ' ').trim();
   const EXPLORE = ['courses', 'outline', 'class', 'book'];
   const NOTES = ['add', 'connect', 'path', 'undo'];
-  const EXPLORE_LABELS = ['Supporting cases', 'Doctrine timelines', 'Flowcharts', 'Rules & authorities'];
+  const EXPLORE_LABELS = [
+    'Supporting cases',
+    'Doctrine timelines',
+    'Flowcharts',
+    'Canons of construction',
+    'Rules & authorities',
+  ];
   function columnOf(b) {
     if (/^(drill|pairs|sheets|progress)$/.test(b.dataset.r18Open || '')) return 'Study';
     if (EXPLORE.includes(b.dataset.action) || b.dataset.shOpen || EXPLORE_LABELS.includes(label(b)))

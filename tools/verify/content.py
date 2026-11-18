@@ -33,6 +33,7 @@ CONTENT = [
     'assets/pdfjs',              # pinned PDF renderer, worker, fonts and decoders
     'tools/sessions/*.json',     # the October 1, 2026 Civil Procedure syllabus revision
     'tools/flowcharts/data/*.json',
+    'tools/canons/data/*.json',
 ]
 # Build configuration that happens to sit beside the datasets.
 NOT_CONTENT = {'src/features/manifest.json', 'tools/v25/home-baseline-fonts.json'}

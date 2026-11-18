@@ -144,7 +144,7 @@
   panel.id = 'dklaSessions';
   panel.hidden = true;
   panel.innerHTML =
-    '<div class="dkla-sessions-head"><button type="button" class="dkla-sessions-toggle" aria-controls="dklaSessionsList"><span class="dkla-sessions-title"></span><span class="dkla-sessions-brief"></span><span class="dkla-sessions-chevron" aria-hidden="true"></span></button><span class="dkla-sessions-note"></span><button type="button" class="dkla-sessions-step" data-sessions-step="-1" aria-label="Show earlier sessions">‹</button><button type="button" class="dkla-sessions-step" data-sessions-step="1" aria-label="Show later sessions">›</button></div><ol id="dklaSessionsList" class="dkla-sessions-list"></ol>';
+    '<div class="dkla-sessions-head"><button type="button" class="dkla-sessions-toggle" aria-controls="dklaSessionsList"><span class="dkla-sessions-title"></span><span class="dkla-sessions-brief"></span><span class="dkla-sessions-chevron" aria-hidden="true"></span></button><span class="dkla-sessions-note"></span><a class="dkla-canons-link" data-canons-nav href="#canons">Canons of construction</a><button type="button" class="dkla-sessions-step" data-sessions-step="-1" aria-label="Show earlier sessions">‹</button><button type="button" class="dkla-sessions-step" data-sessions-step="1" aria-label="Show later sessions">›</button></div><ol id="dklaSessionsList" class="dkla-sessions-list"></ol>';
   main.appendChild(panel);
   const list = panel.querySelector('.dkla-sessions-list'),
     toggle = panel.querySelector('.dkla-sessions-toggle');

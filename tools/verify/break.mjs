@@ -54,6 +54,12 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'The LRS canon index loses its definition links',
+    'src/features/canons/canons.js',
+    () =>
+      edit('src/features/canons/canons.js', '<li><a data-canons-nav href=', '<li><a href="#" data-unused='),
+  ],
+  [
     'Dottie stops making room for sourced litigation analysis',
     'lib/ask/web.js',
     () =>
