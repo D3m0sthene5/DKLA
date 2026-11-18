@@ -1565,13 +1565,13 @@
         groupHits
           .map(
             (c) =>
-              `<button type="button" data-authority-group="${esc(collectionGroups.get(c.id).key)}"><strong>${esc(c.title)}</strong><small>Explore the collection on the atlas</small></button>`,
+              `<button type="button" data-authority-group="${esc(collectionGroups.get(c.id).key)}" data-result-type="Rule"><strong>${esc(c.title)}</strong><small><span class="search-type">Rule</span>Explore the collection on the atlas</small></button>`,
           )
           .join('') +
         hits
           .map(
             (e) =>
-              `<button type="button" data-authority-open="${esc(e.id)}"><strong>${esc(entryName(e))}</strong><small>${esc(collections.get(e.collection).title)}</small></button>`,
+              `<button type="button" data-authority-open="${esc(e.id)}" data-result-type="Rule"><strong>${esc(entryName(e))}</strong><small><span class="search-type">Rule</span>${esc(collections.get(e.collection).title)}</small></button>`,
           )
           .join('');
       searchResults.appendChild(box);

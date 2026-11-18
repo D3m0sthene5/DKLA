@@ -401,7 +401,7 @@
         hits
           .map(
             (h) =>
-              `<button data-search-type="file" data-file="${E(h.file)}" data-page="${h.page}"><strong>${E(h.title)}</strong><small>${E(h.sub)}</small></button>`,
+              `<button data-search-type="file" data-file="${E(h.file)}" data-page="${h.page}" data-result-type="Source"><strong>${E(h.title)}</strong><small><span class="search-type">Source</span>${E(h.sub)}</small></button>`,
           )
           .join('');
       results.appendChild(frag);

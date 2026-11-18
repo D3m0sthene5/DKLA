@@ -267,7 +267,7 @@
         hits
           .map(
             (t) =>
-              `<button data-search-type="term" data-dkla-term="${E(t.slug)}"><strong>${E(t.term)}</strong><small>${E(t.definition.slice(0, 90))}${t.definition.length > 90 ? '…' : ''}</small></button>`,
+              `<button data-search-type="term" data-dkla-term="${E(t.slug)}" data-result-type="Dictionary"><strong>${E(t.term)}</strong><small><span class="search-type">Dictionary</span>${E(t.definition.slice(0, 90))}${t.definition.length > 90 ? '…' : ''}</small></button>`,
           )
           .join('');
       const nodes = results.querySelectorAll(':scope>button');

@@ -156,6 +156,14 @@ export const tasks = [
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
   // Two pages (desktop and phone): each result says where it matched, and the opened entry can show it.
   step('browser', 'search shows where it matched', node('tools/verify/search_why.mjs', '{page}'), SERVER),
+  // v3.1: the phone Search button and panel; flowcharts, lectures and canons in the results with their type;
+  // course and class numbers ("LRS Class 22") honoured; the desktop box unchanged.
+  step(
+    'browser',
+    'search on phones and across flowcharts, lectures and canons',
+    node('tools/search/check-browser.mjs', '{page}'),
+    SERVER,
+  ),
   // The offline worker and the update notice in a real browser: quiet when current, Refresh, old copies.
   step(
     'browser',

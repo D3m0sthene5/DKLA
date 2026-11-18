@@ -120,8 +120,12 @@
     }
     button.title = label(r) + ' · physical PDF page ' + r.page;
     const sub = button.querySelector('small'),
+      chip = sub?.querySelector('.search-type'), // a search result keeps its type label
       text = 'Assigned packet excerpt · PDF page ' + r.page;
-    if (sub && r.kind === 'assigned-excerpt' && sub.textContent !== text) sub.textContent = text;
+    if (sub && r.kind === 'assigned-excerpt' && sub.textContent !== (chip?.textContent || '') + text) {
+      sub.textContent = text;
+      if (chip) sub.prepend(chip);
+    }
   }
   function upgrade(root) {
     if (!root || !root.querySelectorAll) return;

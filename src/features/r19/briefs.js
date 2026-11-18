@@ -508,7 +508,7 @@
         hits
           .map(
             (e) =>
-              `<button data-r19-open="${esc(e.id)}"><strong>${esc(e.title)}</strong><small>${esc(SHORT[e.course])} · not on the syllabus</small></button>`,
+              `<button data-r19-open="${esc(e.id)}" data-result-type="Case"><strong>${esc(e.title)}</strong><small><span class="search-type">Case</span>${esc(SHORT[e.course])} · not on the syllabus</small></button>`,
           )
           .join('');
       results.querySelector('.search-empty')?.remove();

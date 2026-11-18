@@ -260,30 +260,7 @@
     return result;
   };
 
-  const search = document.getElementById('search');
-  const results = document.getElementById('searchResults');
-  if (search && results)
-    new MutationObserver(() => {
-      if (results.hidden || results.querySelector('[data-canons-search-results]')) return;
-      const term = normalize(search.value);
-      if (term.length < 3) return;
-      const matches = entries.filter((entry) =>
-        [entry.name, ...entry.aliases].some((name) => normalize(name) === term),
-      );
-      if (!matches.length) return;
-      results.querySelector('.search-empty')?.remove();
-      results.insertAdjacentHTML(
-        'afterbegin',
-        `<div class="r19-search" data-canons-search-results>
-      <div class="search-label">Canons of construction</div>${matches
-        .slice(0, 4)
-        .map(
-          (entry) =>
-            `<button type="button" data-canons-nav="${canonHash(entry.id)}"><strong>${esc(entry.name)}</strong><small>LRS</small></button>`,
-        )
-        .join('')}</div>`,
-      );
-    }).observe(results, { childList: true });
+  // Atlas search lists the canons itself (src/runtime/dklaR13Search.js), with every name and alias indexed.
 
   window.addEventListener('hashchange', sync);
   sync();

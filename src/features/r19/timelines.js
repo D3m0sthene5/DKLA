@@ -488,7 +488,7 @@
         hits
           .map(
             (t) =>
-              `<button data-r21-open="${esc(t.id)}"><strong>${esc(t.title)}</strong><small>${esc(SHORT[COURSES.indexOf(t.course)] || t.course)}</small></button>`,
+              `<button data-r21-open="${esc(t.id)}" data-result-type="Timeline"><strong>${esc(t.title)}</strong><small><span class="search-type">Timeline</span>${esc(SHORT[COURSES.indexOf(t.course)] || t.course)}</small></button>`,
           )
           .join('');
       results.querySelector('.search-empty')?.remove();
