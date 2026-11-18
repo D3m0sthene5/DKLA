@@ -96,6 +96,21 @@ const breakages = [
       ),
   ],
   [
+    'a text source opened before the source texts arrive stays on "Loading" (lazy data)',
+    'src/runtime/dklaR11Sources.js',
+    () =>
+      edit(
+        'src/runtime/dklaR11Sources.js',
+        "if (dlg.open && kindOf(cur.path) !== 'pdf') render();",
+        'void 0;',
+      ),
+  ],
+  [
+    'search no longer draws the open list again when late data arrives',
+    'src/runtime/dklaR13Search.js',
+    () => edit('src/runtime/dklaR13Search.js', '    searchEntries();\n    return true;', '    return true;'),
+  ],
+  [
     'search results stop saying where they matched',
     'src/runtime/dklaR13Search.js',
     () => edit('src/runtime/dklaR13Search.js', '    fillVisible();\n', '\n'),

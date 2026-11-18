@@ -193,6 +193,14 @@ export const tasks = [
     node('tools/r19/check_migration.mjs'),
     PACKAGED,
   ),
+  // v3.1 lazy data: sources, archives and search when their blocks arrive three seconds after they are asked for.
+  // Reads the portable copy in work/build only if the served page has already been split.
+  step(
+    'browser',
+    'sources, archives and search with late data blocks',
+    node('tools/performance/check-lazy-b.mjs', '{page}'),
+    [...SERVER, ...ASSEMBLED],
+  ),
   step(
     'browser',
     'source pages and complete course chronologies',

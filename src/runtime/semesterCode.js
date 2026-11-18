@@ -1,9 +1,64 @@
 /* Legal Atlas r6 — semester reading layer and cross-topic index. No network calls. */
 'use strict';
-const SUPP = JSON.parse($('suppArchive').textContent),
-  SUPP_PAGES = Object.keys(SUPP)
-    .map(Number)
-    .sort((a, b) => a - b);
+// The Contracts supplement's pages (0.4 MB) may be split from the hosted page and fetched when the supplement
+// is first opened (window.DKLAData, src/features/performance/data-loader.js). A copy that holds them reads them at
+// start-up, as before; otherwise SUPP and SUPP_PAGES are filled in place on first use, like BOOK (appCode.js).
+const suppDataShim = {
+  isLazy: () => false,
+  loaded: () => true,
+  json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+  text: async (id) => document.getElementById(id)?.textContent || '',
+  whenLoaded: async () => {},
+};
+const suppData = () => window.DKLAData || suppDataShim;
+const SUPP = {},
+  SUPP_PAGES = [];
+let suppReady = false,
+  suppLoading = null,
+  suppFailed = false;
+function suppUse(raw) {
+  Object.assign(SUPP, JSON.parse(raw));
+  SUPP_PAGES.splice(
+    0,
+    SUPP_PAGES.length,
+    ...Object.keys(SUPP)
+      .map(Number)
+      .sort((a, b) => a - b),
+  );
+  suppReady = true;
+  return SUPP;
+}
+// The supplement, or null while it is on its way; then() runs once a load under way has ended.
+function suppArchive(then) {
+  if (suppReady) return SUPP;
+  if (!dklaBlockIsLazy('suppArchive')) return suppUse($('suppArchive').textContent);
+  if (!suppLoading && !suppFailed)
+    suppLoading = suppData()
+      .text('suppArchive')
+      .then(suppUse)
+      .catch(() => (suppFailed = true))
+      .finally(() => (suppLoading = null));
+  if (then && suppLoading) suppLoading.then(then);
+  return null;
+}
+if (!dklaBlockIsLazy('suppArchive')) suppArchive();
+// The book reader asked for before its pages have arrived: a quiet note, then the reader opens, unless the reader
+// has moved on meanwhile (another dialog opened or closed, another entry chosen, or another page asked for).
+let pagesRequest = null;
+const readerContext = () =>
+  [...document.querySelectorAll('dialog[open]')].map((d) => d.id).join() +
+  '|' +
+  (selected ? selected.type + ':' + selected.id : '');
+function pagesWait(archive, what, open) {
+  const request = (pagesRequest = { context: readerContext() });
+  toast('Loading the ' + what + '…');
+  archive(() => {
+    if (pagesRequest !== request) return;
+    pagesRequest = null;
+    if (!archive()) toast('The ' + what + ' could not be loaded. Check the connection and try again.');
+    else if (readerContext() === request.context) open();
+  });
+}
 let sourceMode = 'book',
   r6LensOpen = false;
 $('relationshipLens')?.remove();
@@ -319,10 +374,20 @@ restoreView = function (v) {
 const r6OpenBookOriginal = openBook,
   r6RenderSourceOriginal = renderSource;
 openBook = function (p = 284) {
+  if (!bookReady) {
+    bookFailed = false;
+    if (!bookArchive()) return pagesWait(bookArchive, 'casebook pages', () => openBook(p));
+  }
+  pagesRequest = null;
   sourceMode = 'book';
   return r6OpenBookOriginal(p);
 };
 function openSupplement(p = 1) {
+  if (!suppReady) {
+    suppFailed = false;
+    if (!suppArchive()) return pagesWait(suppArchive, 'supplement pages', () => openSupplement(p));
+  }
+  pagesRequest = null;
   if (!SUPP[p]) {
     toast('No supplemental page at that number.');
     return;

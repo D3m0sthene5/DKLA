@@ -44,7 +44,49 @@
     ret = null;
   const GH_BLOB = 'https://github.com/D3m0sthene5/DKLA/blob/claude/atlas-design-content-audit-m1cw9x/',
     GH_RAW = 'https://raw.githubusercontent.com/D3m0sthene5/DKLA/claude/atlas-design-content-audit-m1cw9x/';
-  const TEXTS = JSON.parse($('sourceTexts')?.textContent || '{}');
+  // The extracted text of the files on file (13 MB) is read on first use: the hosted page may load it after
+  // start-up (window.DKLAData, src/features/performance/data-loader.js). Only text, HTML and Word files need it;
+  // a PDF page is drawn from the PDF itself. The portable copy has it in the page and reads it at once.
+  const DATA_SHIM = {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+    text: async (id) => document.getElementById(id)?.textContent || '',
+    whenLoaded: async () => {},
+  };
+  const DKLAData = () => window.DKLAData || DATA_SHIM;
+  // Split from this page and not here yet. Before the loader runs, an emptied block (data-dkla-lazy) counts too.
+  const isLazy = (id) =>
+    window.DKLAData
+      ? window.DKLAData.isLazy(id)
+      : !!$(id)?.hasAttribute('data-dkla-lazy') && !$(id).textContent;
+  let TEXTS = null,
+    textsLoading = null,
+    textsFailed = false;
+  const parseTexts = (raw) => {
+    try {
+      return JSON.parse(raw || '{}') || {};
+    } catch {
+      return {};
+    }
+  };
+  // The texts, or null while they are still on their way (a load is then under way, or failed and awaits Retry).
+  function texts() {
+    if (TEXTS) return TEXTS;
+    if (!isLazy('sourceTexts')) return (TEXTS = parseTexts($('sourceTexts')?.textContent));
+    if (!textsLoading && !textsFailed)
+      textsLoading = DKLAData()
+        .text('sourceTexts')
+        .then(
+          (raw) => (TEXTS = parseTexts(raw)),
+          () => (textsFailed = true),
+        )
+        .finally(() => {
+          textsLoading = null;
+          if (dlg.open && kindOf(cur.path) !== 'pdf') render();
+        });
+    return null;
+  }
   // Worker-side image and font loaders resolve their own URLs. Relative paths
   // would be resolved beside the worker, duplicating assets/pdfjs/ and silently
   // dropping scanned JPEG 2000 pages while leaving annotations visible.
@@ -206,23 +248,33 @@
       kind = kindOf(cur.path),
       name = cur.path.split('/').pop(),
       total = book?.pages || null,
-      entry = TEXTS[cur.path];
+      // A PDF page never shows the extracted text, so it does not wait for it.
+      all = kind === 'pdf' ? {} : texts(),
+      entry = all?.[cur.path];
     const src = encodeURI(cur.path) + (kind === 'pdf' ? `#page=${cur.page}&zoom=page-width` : '');
     const heading = book?.index.filter((e) => e.page <= cur.page).slice(-1)[0];
     const fallback = `<div class="file-fallback"><div class="file-notice">Open or download this source using the links above. ${ghLinks()}</div>${entry ? (entry.kind === 'pages' ? pageTextHTML(entry, cur.page) : `<div class="file-text">${textHTML(entry.text)}</div>`) : ''}</div>`;
     let body;
-    if (entry && entry.kind === 'text' && kind === 'text')
+    if (!all)
+      body = textsFailed
+        ? `<div class="file-fallback"><div class="file-notice" role="status"><strong>This source's text could not be loaded.</strong> Check the connection and retry, or open the file with the links above. <button type="button" data-file-retry>Retry</button> ${ghLinks()}</div></div>`
+        : '<div class="file-text file-scroll"><p class="file-loading" role="status">Loading the source text…</p></div>';
+    else if (entry && entry.kind === 'text' && kind === 'text')
       body = `<div class="file-text file-scroll">${textHTML(entry.text)}</div>`;
     else if (kind === 'pdf')
       body = '<main class="file-pdf-page" aria-live="polite"><p>Loading original PDF page…</p></main>';
     else if (kind === 'docx')
-      body = `<div class="file-fallback"><div class="file-notice">Word files cannot be shown inside the atlas. ${ghLinks()}${TEXTS[cur.path.replace(/\.docx$/, '.html')] || INDEX.files.includes(cur.path.replace(/\.docx$/, '.html')) ? ` <button data-dkla-file="${E(cur.path.replace(/\.docx$/, '.html'))}">Read the converted copy</button>` : ''}</div>${entry ? `<div class="file-text">${textHTML(entry.text)}</div>` : ''}</div>`;
+      body = `<div class="file-fallback"><div class="file-notice">Word files cannot be shown inside the atlas. ${ghLinks()}${all[cur.path.replace(/\.docx$/, '.html')] || INDEX.files.includes(cur.path.replace(/\.docx$/, '.html')) ? ` <button data-dkla-file="${E(cur.path.replace(/\.docx$/, '.html'))}">Read the converted copy</button>` : ''}</div>${entry ? `<div class="file-text">${textHTML(entry.text)}</div>` : ''}</div>`;
     else
       body = `<object class="file-object" data="${src}" type="${kind === 'pdf' ? 'application/pdf' : kind === 'html' ? 'text/html' : 'text/plain'}" aria-label="${E(cur.title || name)}">${fallback}</object>`;
     dlg.innerHTML = `<header class="file-header"><div class="file-title"><strong>${E(cur.title || name)}</strong><span>${E(name)}${total ? ` · PDF page ${cur.page} of ${total}` : ''}${heading && heading.page === cur.page ? ` · ${E(heading.label.slice(0, 80))}` : ''}</span></div>
   <div class="file-tools">${kind === 'pdf' ? `<button id="filePrev" aria-label="Previous page">‹</button><label class="file-page">Page <input id="filePage" type="number" min="1" ${total ? `max="${total}"` : ''} value="${cur.page}"></label><button id="fileNext" aria-label="Next page">›</button><button id="fileZoomOut" aria-label="Zoom out source">−</button><button id="fileZoomIn" aria-label="Zoom in source">+ ${Math.round(pdfZoom * 100)}%</button>` : ''}${book ? `<input id="fileFind" type="search" placeholder="Find a rule, section or article" aria-label="Find in this book">` : ''}<a href="${encodeURI(cur.path)}${kind === 'pdf' ? `#page=${cur.page}` : ''}" target="_blank" rel="noopener">Open in a new tab ↗</a><a href="${GH_BLOB + encodeURI(cur.path).replace(/#/g, '%23')}" target="_blank" rel="noopener">GitHub ↗</a><button id="fileClose">← Back</button></div></header>
   <div id="fileFindResults" hidden></div>${body}`;
     $('fileClose').onclick = close;
+    dlg.querySelector('[data-file-retry]')?.addEventListener('click', () => {
+      textsFailed = false;
+      render();
+    });
     if ($('filePrev')) $('filePrev').onclick = () => go(cur.page - 1);
     if ($('fileNext')) $('fileNext').onclick = () => go(cur.page + 1);
     if ($('filePage')) $('filePage').onchange = (e) => go(+e.target.value || 1);
