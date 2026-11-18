@@ -24,6 +24,9 @@ window.DKLAPatchNotes = {
           'Ask Dottie answers study questions about a case, canon or class you name straight from the Atlas, including follow-ups; she searches the web only for current law, later history, people and events, or when the Atlas falls short.',
           'Phrases like “over dinner tonight” or “in plain English” change only how Dottie explains, never where she looks.',
           'When Dottie can’t answer, she says why (the search timed out or failed, found nothing usable, or that class has no slide notes) and what to try next.',
+          'Ask Dottie has a fuel gauge: a glowing line round the top-bar clock shows how much of her AI credit is left, running down clockwise from the top, amber below a quarter and red-orange below a tenth.',
+          '73 new splash lines, many from this semester’s cases and canons.',
+          'Clicking through the splash text no longer brings lines back: once you see one, it stays away for the next 100, and lines you haven’t seen come up first.',
           'Dottie’s three thinking opossums now really run: an eight-frame trot drawn from opossum gait studies, Muybridge-style, with feet that stay planted as they circle.',
         ],
         'Changed': [

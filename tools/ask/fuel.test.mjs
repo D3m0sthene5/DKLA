@@ -441,3 +441,27 @@ test('admin: calibration needs a signed-in owner and the CSRF token; the owner s
   assert.equal(shown.json.fraction, Math.round((60 / 79) * 1000) / 1000);
   await db.close();
 });
+
+// v3.1: a calibration point from the project's environment (set in Vercel) needs no database access.
+test('an environment calibration point counts spending since it and yields to a newer database row', async () => {
+  const { envCalibration, fuelStatus, calibrate } = fuel;
+  const db = await fresh();
+  await calibrate({ balance: 40, start: 80 });
+  assert.equal(envCalibration({}), null);
+  assert.equal(
+    envCalibration({ DKLA_FUEL_BALANCE_USD: '50', DKLA_FUEL_START_USD: '0', DKLA_FUEL_AT: '2026-11-18' }),
+    null,
+  );
+  const future = new Date(Date.now() + 3_600_000).toISOString();
+  // With a point newer than every row and no spending after it, the share is balance / start.
+  const env = { DKLA_FUEL_BALANCE_USD: '60', DKLA_FUEL_START_USD: '80', DKLA_FUEL_AT: future };
+  const status = await fuelStatus(env);
+  assert.equal(status.calibrated, true);
+  assert.equal(status.fraction, 0.75);
+  assert.equal(status.calibratedAt, future);
+  // An older environment point gives way to the latest database row.
+  const old = { DKLA_FUEL_BALANCE_USD: '1', DKLA_FUEL_START_USD: '80', DKLA_FUEL_AT: '2000-01-01T00:00:00Z' };
+  assert.deepEqual(await fuelStatus(old), await fuelStatus({}));
+  assert.equal((await fuelStatus({})).fraction, 0.5);
+  await db.close();
+});

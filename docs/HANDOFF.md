@@ -51,6 +51,16 @@ Read this first; the sections below it are older.
     1–24 and LRS 1–22 from the PowerPoints in `added-sources/`, and a "no slides on file" record
     for Contracts 25–26 and LRS 23–26 (category "No lecture slides on file", excluded from the
     indexed classes in `retrieve.js`).
+  - **Splash**: 162 lines (73 approved 18 November); `splash.js` `choose()` keeps the last 100 lines
+    shown (localStorage `dkla.splash.v1` {last, recent, seen}) so none returns within 100 clicks
+    (`tools/splash/pick.test.mjs`).
+  - **Fuel gauge** (`src/features/fuel/`, `lib/ask/fuel.js`, `api/fuel.js`): Dottie's spend is recorded
+    per OpenAI response in `dkla_ask_spend` (prices in `lib/ask/fuel.js`, from OpenAI's pricing
+    pages, 18 November 2026). The share left = (calibrated balance − spend since) / starting
+    amount. Calibrate after each refill with `tools/ask/fuel-calibrate.mjs`, the admin route, or
+    the Vercel env vars DKLA_FUEL_BALANCE_USD / DKLA_FUEL_START_USD / DKLA_FUEL_AT (the newer
+    point wins). The public `/api/fuel` shows only the share, never dollars. It misses spending
+    elsewhere on the same OpenAI credit, so recalibrate now and then.
   - **Deferred from the review:** a smaller first load (lazy data) and per-class offline
     downloads (they need the offline worker and data loading rebuilt, a release of their own);
     corrections beside the rule; a request/spending cap on /api/ask (the code has none; Vercel's
