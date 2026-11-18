@@ -291,6 +291,11 @@ const requests = (page) => page.evaluate(() => window.DKLAData.test.requests.sli
   await check(
     'search works before the dictionary arrives and redraws the same list when it does',
     async () => {
+      // Opening a case page earlier in this check legitimately asks for the dictionary ("Terms in this
+      // entry"), so start this step from a fresh visit to Home (no route, so no reader is open).
+      await page.goto(address.href.split('#')[0], { waitUntil: 'domcontentloaded', timeout: 120_000 });
+      await page.locator('html.dkla-boot-ready').waitFor({ timeout: 120_000 });
+      await page.waitForFunction(() => window.LegalAtlas?.ready, null, { timeout: 60_000 });
       assert.ok(!(await requests(page)).includes('dklaGlossary'), 'not asked for before the box is used');
       await page.evaluate(() => window.DKLAData.test.hold('dklaGlossary'));
       await page.locator('#search').focus();
