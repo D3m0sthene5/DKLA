@@ -172,6 +172,13 @@ export const tasks = [
   ),
   // Hover, keyboard, tap and reduced motion on the Garcia Cold Call's definition links.
   step('browser', 'Cold Call definitions', node('tools/cold-call/glossary_browser.cjs', '{page}'), SERVER),
+  // v3.1 lazy data: Cold Call, its definitions and the dictionary arriving after the page is drawn.
+  step(
+    'browser',
+    'Cold Call, dictionary and SCOTUS with late data',
+    node('tools/performance/check-lazy-a.mjs', '{page}'),
+    SERVER,
+  ),
   // Two pages (desktop and phone): each result says where it matched, and the opened entry can show it.
   step('browser', 'search shows where it matched', node('tools/verify/search_why.mjs', '{page}'), SERVER),
   // v3.1: the phone Search button and panel; flowcharts, lectures and canons in the results with their type;

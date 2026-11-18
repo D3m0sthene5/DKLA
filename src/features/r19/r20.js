@@ -874,18 +874,19 @@
         /* entry gone */
       }
     });
+    // Term names from the dictionary module (src/runtime/dklaR12Glossary.js), which reads the dklaGlossary
+    // block. In the hosted page that block can arrive after this runs: until it does, slugs are shown and
+    // nothing is remembered; when it arrives ('dkla:glossary') the open brief's term list is redrawn.
     let names = null;
     const termName = (slug) => {
       if (!names) {
-        names = new Map();
-        try {
-          for (const t of JSON.parse(document.getElementById('dklaGlossary').textContent).terms)
-            names.set(t.slug, t.term);
-        } catch {
-          /* slugs are shown */
-        }
+        const terms = window.DKLA?.glossaryTerms?.() || [];
+        if (terms.length) {
+          names = new Map();
+          for (const t of terms) names.set(t.slug, t.term);
+        } else if (window.DKLA?.glossaryLoaded?.() === false) window.DKLA.whenGlossary().catch(() => {});
       }
-      return names.get(slug) || slug.replace(/_/g, ' ');
+      return names?.get(slug) || slug.replace(/_/g, ' ');
     };
     const COURSES = ['Contracts', 'Civil Procedure', 'Legislation'];
     const gloss = () => document.getElementById('glossaryDialog');
@@ -901,7 +902,7 @@
         const shown = (
           h2.firstChild && h2.firstChild.nodeType === 3 ? h2.firstChild.textContent : h2.textContent
         ).trim();
-        for (const [k, v] of names)
+        for (const [k, v] of names || [])
           if (v === shown) {
             slug = k;
             break;
@@ -983,6 +984,12 @@
       line.after(box);
     }
     if (sup) new MutationObserver(paintBrief).observe(sup, { childList: true, subtree: true });
+    document.addEventListener('dkla:glossary', () => {
+      names = null;
+      sup?.querySelector('.r20-terms')?.remove();
+      paintBrief();
+      paintGlossary();
+    });
   }
   try {
     schedule();

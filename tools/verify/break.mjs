@@ -1077,6 +1077,11 @@ const breakages = [
         '\n#flowchartDetail [data-flowchart-branch] { display: none !important; }\n',
       ),
   ],
+  [
+    'Cold Call narratives arriving late no longer add the "Cold call" buttons',
+    'src/features/cold-call/reader.js',
+    () => edit('src/features/cold-call/reader.js', 'install(data);\n        arrived();', 'install(data);'),
+  ],
 ];
 
 const pass = () => {
