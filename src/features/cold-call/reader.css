@@ -495,3 +495,10 @@
     transition: none !important;
   }
 }
+/* Opened before the narratives have arrived (hosted page, first moments after loading). */
+#coldCallDialog .cc-loading {
+  margin: 0;
+  padding: 40px 30px;
+  color: #b9c7d3;
+  font-size: 16px;
+}

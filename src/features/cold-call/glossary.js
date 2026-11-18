@@ -294,11 +294,35 @@
   }
   const LII = (slug) => 'https://www.law.cornell.edu/wex/' + encodeURIComponent(slug);
 
-  // ---- the tables embedded in the page, each compiled once on first use
+  // ---- the tables in the page, each compiled once on first use
+  // The data loader (src/features/performance/data-loader.js). Until it is in the page, this stand-in reads
+  // the embedded block, exactly as before.
+  const DKLAData = root.DKLAData || {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) =>
+      JSON.parse((typeof document === 'object' && document.getElementById(id)?.textContent) || 'null'),
+    text: async (id) => (typeof document === 'object' && document.getElementById(id)?.textContent) || '',
+    whenLoaded: async () => {},
+  };
+  // get() is the compiled table, or false when it is unavailable. A block in the page is read on the first
+  // get(). A block split out of the hosted page is false until load() has brought it (the reader awaits
+  // load() before drawing an account), and a get() before then is not remembered as a failure.
   const embedded = (id, read, what) => {
-    let value = null;
-    return () => {
+    let value = null,
+      loading = null;
+    const take = (data) => {
+      value = false;
+      try {
+        if (data != null) value = read(data);
+      } catch (error) {
+        console.warn(what + ' are unavailable:', error);
+      }
+      return value;
+    };
+    const get = () => {
       if (value !== null) return value;
+      if (DKLAData.isLazy(id)) return false;
       value = false;
       try {
         const block = typeof document === 'object' && document.getElementById(id);
@@ -308,6 +332,16 @@
       }
       return value;
     };
+    get.ready = () => value !== null || !DKLAData.isLazy(id);
+    get.load = () => {
+      if (get.ready()) return Promise.resolve(get());
+      loading ||= DKLAData.json(id).then(take, (error) => {
+        loading = null;
+        throw error;
+      });
+      return loading;
+    };
+    return get;
   };
   const compiled = embedded('dklaColdCallGlossary', compile, 'Cold Call definitions');
   const plainTable = embedded('dklaColdCallPlain', compilePlain, 'Plain-English sentences');
@@ -658,6 +692,10 @@
     /** True right after Escape closed a card, so the reader does not also close. */
     tookEscape: () => swallowCancel || !!card,
     table: () => compiled() || null,
+    /** True when both tables can be read now (in the page, or already brought by load()). */
+    ready: () => compiled.ready() && plainTable.ready(),
+    /** Brings both tables if they were split out of the page; resolves when begin() can use them. */
+    load: () => Promise.all([compiled.load(), plainTable.load()]).then(() => {}),
     compilePlain,
     placeSentences,
     plainTable: () => plainTable() || null,

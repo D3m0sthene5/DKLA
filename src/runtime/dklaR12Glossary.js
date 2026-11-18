@@ -7,20 +7,72 @@
       /[&<>"']/g,
       (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
     );
-  let G = { terms: [], byNode: {} };
-  try {
-    G = JSON.parse($('dklaGlossary')?.textContent || '{"terms":[],"byNode":{}}');
-  } catch {}
-  const bySlug = new Map(G.terms.map((t) => [t.slug, t]));
-  // usedBy is the exact inverse of byNode, precomputed by tools/r12_glossary.py in reading order (cases, then concepts and rules, then notes; each group by how central the term is); older blocks carry only byNode
-  const usedBy = new Map(Object.entries(G.usedBy || {}));
-  if (!usedBy.size)
-    for (const [nid, slugs] of Object.entries(G.byNode || {}))
-      for (const s of slugs) {
-        if (!usedBy.has(s)) usedBy.set(s, []);
-        usedBy.get(s).push(nid);
-      }
-  const KIND = G.kinds || {};
+  // The data loader (src/features/performance/data-loader.js). Until it is in the page, this stand-in reads
+  // the embedded block, exactly as before.
+  const DKLAData = window.DKLAData || {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+    text: async (id) => document.getElementById(id)?.textContent || '',
+    whenLoaded: async () => {},
+  };
+  const ID = 'dklaGlossary';
+  // The dictionary. In the single-file copy it is in the page and is read now, as before. In the hosted page
+  // the block may be split out: it is then read on first use (the dictionary opened, a search typed, a case
+  // page with terms, a Cold Call definition card) or when the background download brings it. Until then G is
+  // empty and every feature below draws nothing (or "Loading the dictionary…" in the dialog); when it
+  // arrives, refresh() redraws what is on screen and 'dkla:glossary' is dispatched on document.
+  let G = { terms: [], byNode: {} },
+    bySlug = new Map(),
+    usedBy = new Map(),
+    KIND = {},
+    loaded = false,
+    loading = null,
+    failed = false;
+  function install(data) {
+    G = data && Array.isArray(data.terms) ? data : { terms: [], byNode: {} };
+    bySlug = new Map(G.terms.map((t) => [t.slug, t]));
+    // usedBy is the exact inverse of byNode, precomputed by tools/r12_glossary.py in reading order (cases, then concepts and rules, then notes; each group by how central the term is); older blocks carry only byNode
+    usedBy = new Map(Object.entries(G.usedBy || {}));
+    if (!usedBy.size)
+      for (const [nid, slugs] of Object.entries(G.byNode || {}))
+        for (const s of slugs) {
+          if (!usedBy.has(s)) usedBy.set(s, []);
+          usedBy.get(s).push(nid);
+        }
+    KIND = G.kinds || {};
+    loaded = true;
+  }
+  if (!DKLAData.isLazy(ID)) {
+    let data = null;
+    try {
+      data = JSON.parse($(ID)?.textContent || '{"terms":[],"byNode":{}}');
+    } catch {}
+    install(data);
+  }
+  /** The dictionary, fetched if it is still to come. Resolves once it is installed and redrawn. */
+  function load() {
+    if (loaded) return Promise.resolve();
+    loading ||= DKLAData.json(ID).then(
+      (data) => {
+        if (loaded) return;
+        install(data);
+        refresh();
+      },
+      (error) => {
+        loading = null;
+        failed = true;
+        if (dlg.open) render();
+        throw error;
+      },
+    );
+    return loading;
+  }
+  // First use: start the download and draw what can be drawn now.
+  const use = () => {
+    if (!loaded) load().catch(() => {});
+    return loaded;
+  };
   const GROUPS = [
     ['Cases', (k) => k === 'Case'],
     ['Concepts and rules', (k) => k === 'Concept' || k === 'Rule'],
@@ -85,15 +137,22 @@
       .trim();
   const LII = (s) => 'https://www.law.cornell.edu/wex/' + encodeURIComponent(s);
   window.DKLA = Object.assign(window.DKLA || {}, {
+    /** 0 until the dictionary is in the page (the Home label is drawn from the next frame after it arrives). */
     glossaryCount: () => G.terms.length,
-    hasTerm: (slug) => bySlug.has(slug),
+    /** False until the dictionary is in the page; asking is a first use. */
+    hasTerm: (slug) => (use(), bySlug.has(slug)),
     openTerm: (slug) => openGlossary(slug),
+    glossaryLoaded: () => loaded,
+    /** Resolves when the dictionary is in the page (fetching it if it is still to come). */
+    whenGlossary: () => load(),
+    /** Every term, [{ slug, term, definition, ... }]; [] until the dictionary is in the page. Do not mutate. */
+    glossaryTerms: () => G.terms,
   });
   // ---- the dialog
   {
     const st = document.createElement('style');
     st.id = 'dklaR14GlossaryStyles';
-    st.textContent = `#glossaryDialog .gl-group{margin:8px 0 10px}#glossaryDialog .gl-group h4{margin:0 0 6px;font:600 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#6f879e}#glossaryDialog .gl-count{background:#26333f;border-radius:10px;padding:1px 7px;margin-left:6px;color:#c9d3dc;font-size:11px}#glossaryDialog .gl-own button{color:#e4ebf1;border-color:#dabd94}#glossaryDialog .gl-showall{margin-top:6px;background:none;border:1px dashed #435466;border-radius:16px;color:#93a7b7;font:12.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:5px 11px;cursor:pointer}.dkla-term-chips .dkla-term-more{background:none;border:1px dashed #3d3f5c;color:#93a7b7}`;
+    st.textContent = `#glossaryDialog .gl-group{margin:8px 0 10px}#glossaryDialog .gl-group h4{margin:0 0 6px;font:600 11px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#6f879e}#glossaryDialog .gl-count{background:#26333f;border-radius:10px;padding:1px 7px;margin-left:6px;color:#c9d3dc;font-size:11px}#glossaryDialog .gl-own button{color:#e4ebf1;border-color:#dabd94}#glossaryDialog .gl-showall{margin-top:6px;background:none;border:1px dashed #435466;border-radius:16px;color:#93a7b7;font:12.5px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:5px 11px;cursor:pointer}.dkla-term-chips .dkla-term-more{background:none;border:1px dashed #3d3f5c;color:#93a7b7}#glossaryDialog .gl-loading{grid-column:1/-1;margin:0;padding:28px 24px;font-size:15px}`;
     document.head.appendChild(st);
   }
   const dlg = document.createElement('dialog');
@@ -103,7 +162,8 @@
   let cur = null,
     q = '',
     letter = '',
-    ret = null;
+    ret = null,
+    wanted = null;
   function matches() {
     const nq = norm(q);
     let list = G.terms;
@@ -120,7 +180,23 @@
     }
     return list;
   }
+  // Opened before the dictionary has arrived: the same header (the search box keeps what is typed) over a
+  // calm loading line.
+  function renderLoading() {
+    const status = failed
+      ? 'The dictionary could not be loaded. Check the connection, then close this and try again.'
+      : 'Loading the dictionary…';
+    dlg.innerHTML = `<header class="gl-header"><div><strong>Legal dictionary</strong><span>${status}</span></div><div class="gl-tools"><input id="glFind" type="search" placeholder="Find a term" value="${E(q)}" aria-label="Find a term"><button id="glClose">← Back</button></div></header>
+ <div class="gl-body"><p class="gl-empty gl-loading" role="status">${status}</p></div>`;
+    $('glClose').onclick = close;
+    const f = $('glFind');
+    f.oninput = () => (q = f.value);
+  }
   function render() {
+    if (!loaded) {
+      renderLoading();
+      return;
+    }
     const list = matches(),
       shown = list.slice(0, 400);
     const t = cur && bySlug.get(cur);
@@ -171,7 +247,9 @@
       };
   }
   function openGlossary(slug) {
-    if (slug && bySlug.has(slug)) {
+    failed = false;
+    if (!use()) wanted = slug || null;
+    else if (slug && bySlug.has(slug)) {
       cur = slug;
       q = '';
       letter = '';
@@ -188,6 +266,7 @@
     if (!slug) setTimeout(() => $('glFind')?.focus(), 30);
   }
   function close() {
+    wanted = null;
     if (dlg.open) dlg.close();
     try {
       ret?.active?.focus?.();
@@ -242,46 +321,46 @@
   // ---- search bar: dictionary rows
   const results = $('searchResults'),
     input = $('search');
-  if (results && input) {
-    new MutationObserver(() => {
-      if (results.hidden || results.dataset.glossed === input.value || !G.terms.length) return;
-      results.dataset.glossed = input.value;
-      const nq = norm(input.value);
-      if (nq.length < 2) return;
-      const hits = (() => {
-        const starts = [],
-          has = [];
-        for (const t of G.terms) {
-          const k = norm(t.term);
-          if (k.startsWith(nq)) starts.push(t);
-          else if (k.includes(nq)) has.push(t);
-          if (starts.length >= 6) break;
-        }
-        return [...starts, ...has].slice(0, 3);
-      })();
-      if (!hits.length) return;
-      const frag = document.createElement('div');
-      frag.className = 'search-glossary';
-      frag.innerHTML =
-        `<div class="search-label">Dictionary</div>` +
-        hits
-          .map(
-            (t) =>
-              `<button data-search-type="term" data-dkla-term="${E(t.slug)}" data-result-type="Dictionary"><strong>${E(t.term)}</strong><small><span class="search-type">Dictionary</span>${E(t.definition.slice(0, 90))}${t.definition.length > 90 ? '…' : ''}</small></button>`,
-          )
-          .join('');
-      const nodes = results.querySelectorAll(':scope>button');
-      const after = nodes[Math.min(2, nodes.length - 1)];
-      if (after) after.after(frag);
-      else results.appendChild(frag);
-    }).observe(results, { childList: true });
+  function searchRows() {
+    if (!results || !input) return;
+    if (results.hidden || results.dataset.glossed === input.value || !use() || !G.terms.length) return;
+    results.dataset.glossed = input.value;
+    const nq = norm(input.value);
+    if (nq.length < 2) return;
+    const hits = (() => {
+      const starts = [],
+        has = [];
+      for (const t of G.terms) {
+        const k = norm(t.term);
+        if (k.startsWith(nq)) starts.push(t);
+        else if (k.includes(nq)) has.push(t);
+        if (starts.length >= 6) break;
+      }
+      return [...starts, ...has].slice(0, 3);
+    })();
+    if (!hits.length) return;
+    const frag = document.createElement('div');
+    frag.className = 'search-glossary';
+    frag.innerHTML =
+      `<div class="search-label">Dictionary</div>` +
+      hits
+        .map(
+          (t) =>
+            `<button data-search-type="term" data-dkla-term="${E(t.slug)}" data-result-type="Dictionary"><strong>${E(t.term)}</strong><small><span class="search-type">Dictionary</span>${E(t.definition.slice(0, 90))}${t.definition.length > 90 ? '…' : ''}</small></button>`,
+        )
+        .join('');
+    const nodes = results.querySelectorAll(':scope>button');
+    const after = nodes[Math.min(2, nodes.length - 1)];
+    if (after) after.after(frag);
+    else results.appendChild(frag);
   }
+  if (results && input) new MutationObserver(searchRows).observe(results, { childList: true });
   // ---- reading panel: the terms an entry uses
   const insp = $('inspector');
   function termChips() {
     if (!insp || insp.hidden || insp.querySelector('.dkla-terms')) return;
     const id = currentNodeId();
-    if (!id) return;
+    if (!id || !use()) return;
     const slugs = G.byNode[id];
     if (!slugs?.length) return;
     const sec = document.createElement('section');
@@ -323,4 +402,29 @@
     new MutationObserver(() => {
       termChips();
     }).observe(insp, { childList: true, subtree: true });
+  // The dictionary arrived after the page was drawn: redraw what shows it.
+  function refresh() {
+    if (dlg.open) {
+      // Opened at a term: show it, as openGlossary would have (anything typed meanwhile is kept).
+      if (wanted && bySlug.has(wanted)) {
+        cur = wanted;
+        letter = '';
+      }
+      const typing = document.activeElement?.id === 'glFind';
+      render();
+      if (typing || !wanted) {
+        const f = $('glFind');
+        f?.focus();
+        f?.setSelectionRange(q.length, q.length);
+      }
+    }
+    wanted = null;
+    if (results) delete results.dataset.glossed;
+    searchRows();
+    termChips();
+    // The Home map's dictionary label ("N terms · click to browse").
+    if (typeof schedule === 'function') schedule();
+    document.dispatchEvent(new CustomEvent('dkla:glossary'));
+  }
+  if (!loaded) DKLAData.whenLoaded(ID).then(() => load().catch(() => {}));
 })();

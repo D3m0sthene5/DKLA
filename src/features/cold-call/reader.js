@@ -1,10 +1,45 @@
 /* Authored Cold Call narratives. Display only: graph, briefs and source prose stay untouched. */
 (() => {
   'use strict';
-  const block = document.getElementById('dklaColdCallData');
+  // The data loader (src/features/performance/data-loader.js). Until it is in the page, this stand-in reads
+  // the embedded block, exactly as before.
+  const DKLAData = window.DKLAData || {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+    text: async (id) => document.getElementById(id)?.textContent || '',
+    whenLoaded: async () => {},
+  };
+  const ID = 'dklaColdCallData';
+  const block = document.getElementById(ID);
   if (!block || window.DKLAColdCall) return;
-  const dataset = JSON.parse(block.textContent);
-  const cases = new Map(dataset.cases.filter((c) => c.origin === 'narrative').map((c) => [c.id, c]));
+  // The narratives. In the single-file copy they are in the page and are read now, as before. In the hosted
+  // page the block may be split out: it is then read on first use (a case page with a Cold Call, or the reader
+  // opened) or when the background download brings it, and the "Cold call" buttons appear when it arrives.
+  let dataset = null,
+    cases = new Map(),
+    loading = null;
+  const install = (data) => {
+    if (dataset || !data) return;
+    dataset = data;
+    cases = new Map(dataset.cases.filter((c) => c.origin === 'narrative').map((c) => [c.id, c]));
+  };
+  if (!DKLAData.isLazy(ID)) install(JSON.parse(block.textContent));
+  function load() {
+    if (dataset) return Promise.resolve(dataset);
+    loading ||= DKLAData.json(ID).then(
+      (data) => {
+        install(data);
+        arrived();
+        return dataset;
+      },
+      (error) => {
+        loading = null;
+        throw error;
+      },
+    );
+    return loading;
+  }
   const esc = (s) =>
     String(s ?? '').replace(
       /[&<>"']/g,
@@ -62,16 +97,49 @@
     const term = glossing?.section();
     return `<section class="cc-section" id="cc-section-${esc(s.id)}" data-cc-section="${i}" aria-labelledby="cc-heading-${esc(s.id)}"><p class="cc-kicker">${String(i + 1).padStart(2, '0')} / ${current.sections.length}</p><h3 id="cc-heading-${esc(s.id)}" tabindex="-1">${esc(s.title)}</h3>${paragraphs(s, i, term)}${s.followUp ? `<details class="cc-followup"><summary>${esc(s.followUp.question)}</summary><p>${term ? term.text(s.followUp.answer, `${i}.followUp-answer`) : esc(s.followUp.answer)}</p>${citations(s.followUp.sources)}</details>` : ''}${citations(s.sources)}</section>`;
   }
+  // Opened before the narratives or the definition tables have arrived: a calm loading state, then the account.
+  let waiting = 0;
+  const tablesReady = () => !gloss?.ready || gloss.ready();
   function open(id, trigger) {
+    if (dialog.open) return;
+    if (dataset && tablesReady()) {
+      show(id, trigger);
+      return;
+    }
+    const ticket = ++waiting;
+    returnTo = remember(trigger);
+    current = null;
+    delete dialog.dataset.course;
+    dialog.innerHTML = `<header class="cc-header"><div class="cc-heading"><span class="cc-kicker">Cold call</span><h2 id="ccTitle">Loading Cold Call…</h2></div><div class="cc-actions"><button type="button" id="ccClose" autofocus>← Back to case</button></div></header><p class="cc-loading" role="status">Loading Cold Call…</p>`;
+    $('ccClose').onclick = close;
+    dialog.showModal();
+    Promise.all([load(), gloss?.load?.()]).then(
+      () => {
+        if (ticket !== waiting || !dialog.open) return;
+        waiting = 0;
+        if (cases.has(id)) show(id, trigger, true);
+        else close();
+      },
+      () => {
+        if (ticket !== waiting || !dialog.open) return;
+        const status = dialog.querySelector('.cc-loading');
+        if (status)
+          status.textContent =
+            'Cold Call could not be loaded. Check the connection, then close this and try again.';
+      },
+    );
+  }
+  const remember = (trigger) => ({
+    focus: trigger || document.activeElement,
+    inspector: document.getElementById('inspector')?.scrollTop || 0,
+    supporting: document.getElementById('r19Body')?.scrollTop || 0,
+  });
+  function show(id, trigger, already) {
     const c = cases.get(id);
-    if (!c || dialog.open) return;
+    if (!c || (dialog.open && !already)) return;
     current = c;
     active = 0;
-    returnTo = {
-      focus: trigger || document.activeElement,
-      inspector: document.getElementById('inspector')?.scrollTop || 0,
-      supporting: document.getElementById('r19Body')?.scrollTop || 0,
-    };
+    if (!already) returnTo = remember(trigger);
     dialog.dataset.course = c.course;
     glossing = gloss?.begin(c.id, c.title) || null;
     const brief =
@@ -109,14 +177,16 @@
       },
       { passive: true },
     );
-    dialog.showModal();
+    if (!dialog.open) dialog.showModal();
+    else $('ccClose').focus();
     $('ccScroll').scrollTop = memory.get(id)?.top || 0;
     track();
   }
   function close() {
     if (!dialog.open) return;
     gloss?.close();
-    memory.set(current.id, { top: $('ccScroll').scrollTop });
+    if (waiting) waiting = 0;
+    else if (current) memory.set(current.id, { top: $('ccScroll').scrollTop });
     dialog.close();
     dialog.replaceChildren();
     if (returnTo?.focus?.isConnected) returnTo.focus.focus({ preventScroll: true });
@@ -187,10 +257,14 @@
     const panel = document.getElementById('inspector');
     if (!panel || panel.hidden || typeof selected === 'undefined') return;
     const id = selected?.type === 'node' ? selected.id : null;
+    // A case page is the first use: fetch the narratives if they are still to come.
+    if (!dataset && id) load().catch(() => {});
     const old = panel.querySelector('[data-cold-call]');
     if (old?.dataset.coldCall === id) return;
     old?.remove();
     if (!cases.has(id)) return;
+    // The reader will want its definitions: fetch them now if they are still to come.
+    gloss?.load?.()?.catch?.(() => {});
     const heading = panel.querySelector('.dkla-record-title') || panel.querySelector('h1,h2');
     if (!heading) return;
     const button = document.createElement('button');
@@ -211,7 +285,35 @@
     }
     const panel = document.getElementById('inspector');
     if (panel) new MutationObserver(paint).observe(panel, { childList: true, subtree: true });
+    // A supporting brief opened in its dialog is also a first use.
+    const supporting = document.getElementById('r19Body');
+    if (supporting && !dataset)
+      new MutationObserver((records, observer) => {
+        if (dataset) observer.disconnect();
+        else if (supporting.querySelector('[data-r19-fill],[data-r19-immediate]')) load().catch(() => {});
+      }).observe(supporting, { childList: true, subtree: true });
     paint();
+  }
+  // The narratives arrived after the page was drawn: add the "Cold call" button to the open case page and
+  // to the open supporting brief (src/features/r19/briefs.js entryHTML draws it there when the data is in).
+  function arrived() {
+    if (!window.LegalAtlas?.ready) return; // ready() paints when the atlas is up
+    paint();
+    const body = document.getElementById('r19Body');
+    if (!body || body.querySelector('[data-cold-call]')) return;
+    const fill = body.querySelector('[data-r19-fill],[data-r19-immediate]'),
+      briefId = fill?.dataset.r19Fill || fill?.dataset.r19Immediate,
+      entry = briefId && window.DKLABriefs?.data?.entries?.find((e) => e[0] === briefId);
+    if (!entry) return;
+    const id = entry[6] || 'brief-' + briefId;
+    if (!cases.has(id)) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset.coldCall = id;
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.textContent = 'Cold call';
+    // First in its row, where entryHTML puts it (v25/reading.js moves that row's buttons into the actions).
+    (body.querySelector('.v25-support-actions') || body.querySelector('.r19-line'))?.prepend(button);
   }
   document.addEventListener('click', (event) => {
     const launch = event.target.closest('[data-cold-call]');
@@ -246,9 +348,15 @@
   window.DKLAColdCall = {
     open,
     close,
+    /** False for every case until the narratives are in the page (see loaded and whenLoaded). */
     has: (id) => cases.has(id),
     cases: () => [...cases.keys()],
-    coverage: () => ({ ...dataset.coverage }),
+    coverage: () => ({ ...dataset?.coverage }),
+    loaded: () => !!dataset,
+    /** Resolves when the narratives are in (fetching them if they are still to come). */
+    whenLoaded: () => load().then(() => {}),
   };
+  // Brought by the background download before any first use.
+  if (!dataset) DKLAData.whenLoaded(ID).then(() => load().catch(() => {}));
   ready();
 })();
