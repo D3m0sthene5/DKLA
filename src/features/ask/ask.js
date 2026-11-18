@@ -543,6 +543,7 @@
         status.textContent = 'Ask Dottie couldn’t finish that answer. Try again.';
       }
     } finally {
+      document.dispatchEvent(new CustomEvent('dkla:ask-answered'));
       if (request === controller) {
         request = null;
         setResearching(false);

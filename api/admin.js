@@ -26,6 +26,7 @@ import {
   housekeeping,
 } from '../lib/analytics/reports.js';
 import { validId } from '../lib/analytics/validate.js';
+import { calibrate, fuelStatus } from '../lib/ask/fuel.js';
 const page = readFileSync(new URL('../assets/admin/index.html', import.meta.url), 'utf8');
 export default async function handler(req, res) {
   noStore(res);
@@ -64,6 +65,8 @@ export default async function handler(req, res) {
       if (action === 'data') return send(res, 200, await dataPage(params));
       if (action === 'locations') return send(res, 200, await locations(params));
       if (action === 'identity') return send(res, 200, { suggestions: await suggestions() });
+      // Ask Dottie's credit in dollars: the latest calibration, the ledger's spending since, what is left.
+      if (action === 'fuel') return send(res, 200, await fuelStatus());
       if (action === 'storage') {
         await housekeeping();
         const data = await storage();
@@ -104,6 +107,8 @@ export default async function handler(req, res) {
     else if (action === 'read-alert')
       await query('UPDATE dkla_alerts SET read_at=now() WHERE id=$1', [validId(input.id)]);
     else if (action === 'compact') return send(res, 200, await compactOldest(25));
+    // A calibration point for Ask Dottie's fuel gauge: { balance, start, note?, at? } in US dollars.
+    else if (action === 'fuel-calibrate') return send(res, 200, await calibrate(input));
     else throw fail(400, 'bad-action');
     return send(res, 200, { ok: true });
   } catch (error) {

@@ -79,3 +79,14 @@ ALTER TABLE dkla_ask_answers ADD COLUMN IF NOT EXISTS content jsonb;
 ALTER TABLE dkla_ask_answers ALTER COLUMN signature DROP NOT NULL;
 ALTER TABLE dkla_ask_answers ALTER COLUMN content DROP NOT NULL;
 CREATE INDEX IF NOT EXISTS dkla_ask_answers_created ON dkla_ask_answers(created_at);
+CREATE TABLE IF NOT EXISTS dkla_ask_spend (
+ id bigserial PRIMARY KEY, at timestamptz NOT NULL DEFAULT now(), model text NOT NULL,
+ input_tokens integer NOT NULL DEFAULT 0, cached_tokens integer NOT NULL DEFAULT 0,
+ output_tokens integer NOT NULL DEFAULT 0, searches integer NOT NULL DEFAULT 0, usd numeric(14,8) NOT NULL
+);
+CREATE INDEX IF NOT EXISTS dkla_ask_spend_at ON dkla_ask_spend(at);
+CREATE TABLE IF NOT EXISTS dkla_ask_fuel_calibration (
+ id bigserial PRIMARY KEY, at timestamptz NOT NULL DEFAULT now(),
+ balance_usd numeric(12,4) NOT NULL CHECK (balance_usd >= 0),
+ starting_usd numeric(12,4) NOT NULL CHECK (starting_usd > 0), note text NOT NULL DEFAULT ''
+);
