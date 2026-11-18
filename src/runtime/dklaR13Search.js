@@ -1,6 +1,11 @@
 /* DKLA r13: ranked, typo-tolerant search (MiniSearch, MIT) in place of the substring scan; matched terms highlighted in results and in the opened entry; Ctrl/Cmd+K focuses the bar.
    Only text a reader can see is indexed, so every result can say where it matched: one short passage under each
-   result, and a slim note at the top of the opened entry when that passage is not on screen ("Show me"). */
+   result, and a slim note at the top of the opened entry when that passage is not on screen ("Show me").
+   v3.1: the same index also holds the flowcharts, the lecture decks, the canons of construction and the LRS
+   syllabus classes, read from the data blocks their own modules show; every result is labelled with its type.
+   A course plus a class, week or assignment number ("LRS Class 22", "civ pro 12") lists that session's material
+   first. Exact titles, names and aliases come before other matches. On a window 850 px wide or less the box
+   becomes a Search button that opens a full-width search panel. */
 (() => {
   'use strict';
   if (typeof MiniSearch !== 'function' || typeof searchEntries !== 'function') return;
@@ -22,12 +27,12 @@
       .filter((t) => t.length > 0);
   const processTerm = (t) => t.replace(/^[\u00a7'\u2019]+|[\u00a7'\u2019]+$/g, '') || null;
   const OPTS = {
-    fields: ['title', 'shortTitle', 'summary', 'rule', 'notes', 'body', 'tags'],
+    fields: ['title', 'shortTitle', 'aliases', 'summary', 'rule', 'notes', 'body', 'tags'],
     storeFields: ['title'],
     tokenize,
     processTerm,
     searchOptions: {
-      boost: { title: 6, shortTitle: 6, summary: 2, rule: 2 },
+      boost: { title: 6, shortTitle: 6, aliases: 5, summary: 2, rule: 2 },
       prefix: true,
       fuzzy: (t) => (t.length > 4 && !/\d/.test(t) ? 0.2 : 0),
       combineWith: 'AND',
@@ -92,10 +97,177 @@
     if (plain && n.summary) add('rule', 'the one-line rule', n.summary, 'elsewhere');
     return out;
   }
-  function searchDocument(n) {
-    const doc = { id: n.id, title: '', shortTitle: '', summary: '', rule: '', notes: '', body: '', tags: '' };
-    for (const p of parts(n)) doc[p.field] += (doc[p.field] ? '\n\n' : '') + p.text;
+  function documentFrom(id, list) {
+    const doc = {
+      id,
+      title: '',
+      shortTitle: '',
+      aliases: '',
+      summary: '',
+      rule: '',
+      notes: '',
+      body: '',
+      tags: '',
+    };
+    for (const p of list) doc[p.field] += (doc[p.field] ? '\n\n' : '') + p.text;
     return doc;
+  }
+  const searchDocument = (n) => documentFrom(n.id, parts(n));
+
+  /* ---------- flowcharts, lectures, canons and LRS classes ---------- */
+  // Each is one record: {key, label, course, number, title, sub, names, parts, open, ref}. The key never looks like
+  // an entry id ("flowchart:K-16"); open and ref say how a result opens it.
+  const COURSES = {
+    contracts: { name: 'Contracts', short: 'Contracts', unit: 'Assignment' },
+    civil: { name: 'Civil Procedure', short: 'Civ Pro', unit: 'Week' },
+    lrs: { name: 'Legislation and the Regulatory State', short: 'LRS', unit: 'Class' },
+  };
+  const courseOf = (name) => Object.keys(COURSES).find((k) => COURSES[k].name === name) || null;
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  // "2026-11-16" is shown as "Nov 16". The day is read from the text, never from a clock or a time zone.
+  const day = (iso) => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    return m ? MONTHS[+m[2] - 1] + ' ' + +m[3] : '';
+  };
+  const extra = new Map();
+  function block(id) {
+    try {
+      return JSON.parse(document.getElementById(id)?.textContent || 'null');
+    } catch {
+      return null;
+    }
+  }
+  function record(x) {
+    x.parts = x.parts.map((p) => ({ place: 'elsewhere', ...p, text: prose(p.text) })).filter((p) => p.text);
+    extra.set(x.key, x);
+  }
+  function collectExtras() {
+    extra.clear();
+    const title = (id) => nodesById.get(id)?.title || '';
+    for (const chart of block('dklaFlowchartsData') || []) {
+      const course = { K: 'contracts', CP: 'civil', LRS: 'lrs' }[chart.id.split('-')[0]] || null;
+      const cited = [...new Set(chart.nodes.flatMap((step) => step.sources || []))];
+      // The subjects and topics on the map that hold the entries the chart cites ("Battle of the forms"). A place
+      // holding at least a third of them is what the chart is about; the others it only touches.
+      const places = new Map();
+      for (const id of cited) {
+        try {
+          const at = geoPlacement(id);
+          const region = at?.region && regionFor(at.region);
+          const district = at?.district && geoDistrict(at.district);
+          for (const name of [region && shortRegionTitle(region), district?.title])
+            if (name) places.set(name, (places.get(name) || 0) + 1);
+        } catch {
+          /* an entry with no place on the map */
+        }
+      }
+      const most = Math.max(0, ...places.values()),
+        main = [...places]
+          .filter(([, count]) => count === most || count * 3 >= cited.length)
+          .map(([name]) => name),
+        touched = [...places.keys()].filter((name) => !main.includes(name));
+      record({
+        key: 'flowchart:' + chart.id,
+        label: 'Flowchart',
+        course,
+        title: chart.title,
+        sub: `${course ? COURSES[course].name : 'Cross-course'} · Flowchart ${chart.id} · ${chart.nodes.length} steps`,
+        names: [chart.title, chart.id, 'flowchart ' + chart.id],
+        open: 'flowchart',
+        ref: chart.id,
+        parts: [
+          { field: 'title', label: 'Title', text: chart.title },
+          { field: 'shortTitle', label: 'Title', text: 'Flowchart ' + chart.id },
+          { field: 'summary', label: 'Subjects on the map', text: main.join('; ') },
+          ...chart.nodes.map((step, i) => ({
+            field: 'body',
+            label: 'Step ' + (i + 1),
+            text: [step.label, step.detail, (step.edges || []).map((e) => e.label).join(' · ')]
+              .filter(Boolean)
+              .join('\n'),
+          })),
+          { field: 'notes', label: 'Entries it cites', text: cited.map(title).filter(Boolean).join('; ') },
+          { field: 'tags', label: 'Other subjects it touches', text: touched.join('; ') },
+        ],
+      });
+    }
+    for (const deck of block('dklaLecturesData') || []) {
+      const course = COURSES[deck.course] ? deck.course : null;
+      if (!course) continue;
+      const short = COURSES[course].short;
+      record({
+        key: `lecture:${course}-${deck.number}`,
+        label: 'Lecture',
+        course,
+        number: deck.number,
+        title: `Class ${deck.number} lecture · ${deck.title}`,
+        sub: [short, day(deck.date), deck.topics.length + ' topics'].filter(Boolean).join(' · '),
+        names: [deck.title, `${short} class ${deck.number}`, `${short} class ${deck.number} lecture`],
+        open: 'lecture',
+        ref: `${course}-${deck.number}`,
+        parts: [
+          { field: 'title', label: 'Title', text: deck.title },
+          { field: 'shortTitle', label: 'Title', text: `${short} Class ${deck.number} lecture` },
+          ...[...deck.topics, ...deck.conflicts].map((t) => ({
+            field: 'body',
+            label: t.heading,
+            text: t.body,
+          })),
+          { field: 'tags', label: 'Course', text: COURSES[course].name },
+        ],
+      });
+    }
+    for (const c of block('dklaCanonsData') || []) {
+      record({
+        key: 'canon:' + c.id,
+        label: 'Canon',
+        course: 'lrs',
+        title: c.name,
+        sub: 'LRS · Canons of construction · ' + c.category,
+        names: [c.name, ...c.aliases],
+        open: 'canon',
+        ref: c.id,
+        parts: [
+          { field: 'title', label: 'Title', text: c.name },
+          { field: 'aliases', label: 'Also called', text: c.aliases.join('; ') },
+          { field: 'summary', label: 'the definition', text: c.definition },
+          { field: 'body', label: 'When to use it', text: c.use },
+          { field: 'body', label: 'Limits and competing readings', text: c.limits },
+          { field: 'notes', label: 'In the course', text: c.sources.map((s) => s.label).join('; ') },
+          { field: 'tags', label: 'Topic', text: c.category },
+        ],
+      });
+    }
+    // LRS classes have no entry of their own on the map (Contracts assignments and Civil Procedure weeks do).
+    const classes = (typeof data !== 'undefined' && data.lrsCorpus?.classes) || [];
+    for (const k of classes) {
+      const before = classes.find((x) => x.number === k.number - 1),
+        topic =
+          /^cont[’']d$/i.test((k.topic || '').trim()) && before ? 'Continued: ' + before.topic : k.topic,
+        assigned = (data.lrsCorpus.assignments || []).filter((a) => a.classNumber === k.number);
+      record({
+        key: 'session:lrs-' + k.number,
+        label: 'Assignment',
+        course: 'lrs',
+        number: k.number,
+        title: `Class ${k.number} · ${topic}`,
+        sub: ['LRS', day(k.date) || k.syllabusDateLabel, String(k.readingVerbatim || '').split('\n')[0]]
+          .filter(Boolean)
+          .join(' · '),
+        names: [topic, `LRS class ${k.number}`],
+        open: 'lrs-class',
+        ref: String(k.number),
+        parts: [
+          { field: 'title', label: 'Title', text: topic },
+          { field: 'shortTitle', label: 'Title', text: `LRS Class ${k.number}` },
+          {
+            field: 'body',
+            label: 'Reading',
+            text: [k.readingVerbatim, ...assigned.map((a) => a.title)].filter(Boolean).join('\n'),
+          },
+        ],
+      });
+    }
   }
 
   let ms = null,
@@ -103,7 +275,8 @@
     pending = null,
     idle = null,
     generation = 0;
-  const stats = { ms: 0, documents: 0, builds: 0 };
+  // documents counts the map's entries; extras the flowcharts, lectures, canons and LRS classes beside them.
+  const stats = { ms: 0, documents: 0, extras: 0, builds: 0 };
   function build() {
     pending = null;
     building = true;
@@ -111,11 +284,19 @@
     try {
       const m = new MiniSearch(OPTS);
       m.addAll(data.nodes.map(searchDocument));
+      try {
+        collectExtras();
+      } catch (err) {
+        console.warn('search extras', err);
+        extra.clear();
+      }
+      m.addAll([...extra.values()].map((x) => documentFrom(x.key, x.parts)));
       ms = m;
       generation++;
       partsCache.clear();
       stats.ms = Math.round(performance.now() - began);
-      stats.documents = m.documentCount;
+      stats.documents = data.nodes.length;
+      stats.extras = extra.size;
       stats.builds++;
     } catch (err) {
       console.warn('search index', err);
@@ -233,8 +414,8 @@
   function readable(id) {
     let p = partsCache.get(id);
     if (!p) {
-      const n = nodesById.get(id);
-      p = n ? parts(n).map((part) => ({ ...part, folded: fold(part.text) })) : [];
+      const n = extra.has(id) ? null : nodesById.get(id);
+      p = (extra.get(id)?.parts || (n ? parts(n) : [])).map((part) => ({ ...part, folded: fold(part.text) }));
       if (partsCache.size > 400) partsCache.clear();
       partsCache.set(id, p);
     }
@@ -340,14 +521,21 @@
     if (why.missing.length) bits.push(quoted(why.missing) + ' not in this entry');
     return bits.join(' · ');
   }
-  let shown = new Map(); // id -> {hit, q, why}
+  let shown = new Map(); // key -> {hit, q, why, reason}
   function fill(button) {
-    const row = shown.get(button.dataset.searchId);
+    const row = shown.get(button.dataset.searchKey);
     const slot = button.querySelector('.search-why');
     if (!row || !slot || slot.dataset.filled) return;
     slot.dataset.filled = '1';
-    if (row.why === undefined) row.why = explain(row.hit, row.q);
+    if (row.why === undefined) row.why = row.hit ? explain(row.hit, row.q) : null;
     const why = row.why;
+    // A session's material says why it is listed ("Assigned for LRS class 22"), with the passage if there is one.
+    if (row.reason) {
+      slot.innerHTML =
+        (why?.html ? `<span class="search-snippet">${why.html}</span>` : '') +
+        `<span class="search-where">${E(row.reason)}</span>`;
+      return;
+    }
     if (!why || (!why.html && !why.missing.length)) {
       slot.remove();
       return;
@@ -360,7 +548,7 @@
   const EAGER = 8;
   let watcher = null;
   function fillVisible() {
-    const buttons = [...$('searchResults').querySelectorAll('button[data-search-type="node"]')];
+    const buttons = [...$('searchResults').querySelectorAll('button[data-search-key]')];
     watcher?.disconnect();
     watcher =
       'IntersectionObserver' in window
@@ -378,6 +566,194 @@
     buttons.forEach((b, i) => (i < EAGER || !watcher ? fill(b) : watcher.observe(b)));
   }
 
+  /* ---------- a course plus a session number ---------- */
+  // "LRS Class 22", "Contracts class 16", "civ pro 12", "class 22 lrs": the course, the number and the words left.
+  // A number counts only right after the course (with or without "class", "week", ...) or right after one of
+  // those words, and only if the course has that session: "civ pro rule 12" and "contracts 2-207" are not one.
+  const COURSE_WORDS = [
+    ['contracts', /(?:^|\s)(contracts?)(?=\s|$)/],
+    ['civil', /(?:^|\s)(civ(?:il)?\.?\s*pro(?:cedure)?\.?|civpro|civil|cp)(?=\s|$)/],
+    [
+      'lrs',
+      /(?:^|\s)(lrs|leg\.?\s*reg\.?|legreg|legislation(?:\s+and\s+(?:the\s+)?regulatory\s+state)?|regulatory\s+state)(?=\s|$)/,
+    ],
+  ];
+  const UNIT = '(?:class(?:es)?|session|week|wk|assignment|asst|lecture|lec|reading|no\\.?|number)';
+  const NUMBER = '#?\\s*(\\d{1,2})(?![\\w\\-.(\\u00a7])';
+  function sessionExists(course, n) {
+    if (course === 'contracts') return !!data.corpus?.assignmentTitles?.[n];
+    if (course === 'civil') return (data.civilCorpus?.weeks || []).some((w) => w.number === n);
+    return (data.lrsCorpus?.classes || []).some((k) => k.number === n);
+  }
+  function courseIntent(q) {
+    const s = String(q)
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    for (const [course, pattern] of COURSE_WORDS) {
+      const c = pattern.exec(s);
+      if (!c) continue;
+      const cFrom = c.index + c[0].length - c[1].length,
+        cTo = c.index + c[0].length;
+      let n = null,
+        from = 0,
+        to = 0;
+      const right = new RegExp('^\\s*(?:' + UNIT + '\\s*)?' + NUMBER).exec(s.slice(cTo));
+      if (right) {
+        n = +right[1];
+        from = cTo;
+        to = cTo + right[0].length;
+      } else {
+        const unit = new RegExp('(?:^|\\s)(' + UNIT + '\\s*' + NUMBER + ')').exec(s);
+        if (unit) {
+          n = +unit[2];
+          from = unit.index + unit[0].length - unit[1].length;
+          to = unit.index + unit[0].length;
+          if (from < cTo && to > cFrom) n = null;
+        }
+      }
+      if (n === null || !sessionExists(course, n)) continue;
+      const cut = [
+        [cFrom, cTo],
+        [from, to],
+      ].sort((a, b) => b[0] - a[0]);
+      let rest = s;
+      for (const [a, b] of cut) rest = rest.slice(0, a) + ' ' + rest.slice(b);
+      rest = rest.replace(/\s+/g, ' ').trim();
+      const info = COURSES[course];
+      return { course, number: n, rest, label: `${info.short} ${info.unit.toLowerCase()} ${n}` };
+    }
+    return null;
+  }
+  // That session's material, in order: its lecture and the session itself, then what it assigns, what its
+  // lecture discusses, and the flowcharts and canons its lecture uses. Only entries and records that exist.
+  function sessionMaterial({ course, number: n }) {
+    const out = [],
+      seen = new Set(),
+      info = COURSES[course],
+      name = `${info.short} ${course === 'contracts' ? 'assignment' : info.unit.toLowerCase()} ${n}`;
+    const add = (key, reason, tier) => {
+      if (!key || seen.has(key) || !(extra.has(key) || nodesById.has(key))) return;
+      seen.add(key);
+      out.push({ key, reason, tier });
+    };
+    const lecture = extra.get(`lecture:${course}-${n}`);
+    add(lecture?.key, `The slides for ${info.short} class ${n}`, 0);
+    const pad = String(n).padStart(2, '0');
+    if (course === 'contracts') {
+      add('contracts-class-' + pad, `The reading assignment for ${name}`, 0);
+      for (const id of data.corpus?.principalCases?.[n] || []) add(id, `Principal case for ${name}`, 1);
+      for (const node of data.nodes)
+        if ((node.courses || []).includes(info.name) && (node.tags || []).includes('class-' + pad))
+          add(node.id, `Assigned for ${name}`, 1);
+    } else if (course === 'civil') {
+      add('cp-week-' + n, `The syllabus week for ${name}`, 0);
+      const week = (data.civilCorpus?.weeks || []).find((w) => w.number === n);
+      for (const id of week?.caseAccounts || []) add(id, `A case in ${name}`, 1);
+    } else {
+      add('session:lrs-' + n, `The syllabus class for ${name}`, 0);
+      for (const a of data.lrsCorpus?.assignments || [])
+        if (a.classNumber === n) for (const id of a.atlasRecordIds || []) add(id, `Assigned for ${name}`, 1);
+    }
+    if (lecture) {
+      const deck = (block('dklaLecturesData') || []).find((d) => d.course === course && d.number === n);
+      const topics = deck ? [...deck.topics, ...deck.conflicts] : [];
+      for (const t of topics) for (const id of t.nodes || []) add(id, `Discussed in the ${name} lecture`, 1);
+      for (const t of topics)
+        for (const id of t.charts || []) add('flowchart:' + id, `Used in the ${name} lecture`, 1);
+    }
+    if (course === 'lrs') {
+      const said = new RegExp('^Class ' + n + ' lecture\\b');
+      for (const c of block('dklaCanonsData') || [])
+        if (c.sources.some((s) => s.lecture === `lrs-${n}` || said.test(s.label || '')))
+          add('canon:' + c.id, `Taught in the ${name} lecture`, 1);
+    }
+    if (course === 'civil') {
+      const week = (data.civilCorpus?.weeks || []).find((w) => w.number === n);
+      for (const id of week?.concepts || []) add(id, `A topic in ${name}`, 1);
+    }
+    return out;
+  }
+
+  /* ---------- result rows ---------- */
+  const NODE_LABEL = { Case: 'Case', Concept: 'Concept', Rule: 'Rule', Hypothetical: 'Hypothetical' };
+  // The Contracts reading assignments and Civil Procedure weeks are entries on the map; they are labelled as
+  // assignments like the LRS classes.
+  const nodeLabel = (n) =>
+    n.kind === 'Note' && ((n.tags || []).includes('class-hub') || /^cp-week-\d+$/.test(n.id))
+      ? 'Assignment'
+      : NODE_LABEL[n.kind] || 'Note';
+  function rowFor(key, hit, q, reason) {
+    const x = extra.get(key);
+    if (x)
+      return {
+        key,
+        type: x.open,
+        ref: x.ref,
+        title: x.title,
+        sub: x.sub,
+        label: x.label,
+        course: x.course,
+        names: x.names,
+        terms: hit?.terms || [],
+        hit,
+        q,
+        reason,
+      };
+    const n = nodesById.get(key);
+    if (!n) return null;
+    let sub = '';
+    try {
+      sub = `${(n.courses || []).join(', ')} · ${geoDistrict(geoPlacement(n.id).district)?.title || roleLabel(n)}`;
+    } catch {
+      sub = (n.courses || []).join(', ');
+    }
+    let display = '';
+    try {
+      display = displayName(n);
+    } catch {
+      /* the title is enough */
+    }
+    return {
+      key,
+      type: 'node',
+      id: n.id,
+      title: n.title,
+      sub,
+      label: nodeLabel(n),
+      courses: n.courses || [],
+      names: [n.title, n.shortTitle, display],
+      terms: hit?.terms || [],
+      hit,
+      q,
+      reason,
+    };
+  }
+  const inCourse = (row, course) =>
+    row.course === course || (row.courses || []).includes(COURSES[course].name);
+  function hitsFor(q) {
+    let hits = ms.search(q, searchOptions(q)),
+      some = false;
+    if (!hits.length && tokenize(q).length > 1) {
+      hits = ms.search(q, searchOptions(q, { combineWith: 'OR' }));
+      some = hits.length > 0;
+    }
+    return { hits, some };
+  }
+  function rowHTML(r) {
+    const opens = r.type === 'node' || r.type === 'region' || r.type === 'district',
+      keyed = r.type !== 'region' && r.type !== 'district';
+    return (
+      `<button ${opens ? `data-search-type="${r.type}" data-search-id="${E(r.id)}"` : `data-search-open="${r.type}" data-search-ref="${E(r.ref)}"`}` +
+      `${keyed ? ` data-search-key="${E(r.key)}"` : ''} data-result-type="${r.label}" data-terms="${E(r.terms.join(' '))}">` +
+      `<strong>${mark(r.title, r.terms)}</strong><small><span class="search-type">${r.label}</span>${E(r.sub)}</small>` +
+      `${keyed ? '<span class="search-why"></span>' : ''}</button>`
+    );
+  }
+  const SHOW = 45;
+
   const prior = searchEntries;
   searchEntries = function () {
     const q = $('search').value.trim();
@@ -392,61 +768,123 @@
     }
     const nq = norm(q),
       tokens = nq.split(' ').filter(Boolean),
-      rows = [];
-    for (const r of mapData().regions) {
-      const t = norm(r.title + ' ' + shortRegionTitle(r));
-      if (tokens.every((w) => t.includes(w)))
-        rows.push({ type: 'region', id: r.id, title: shortRegionTitle(r), sub: 'Subject', terms: tokens });
-    }
-    for (const d of Object.values(mapData().districts)) {
-      const t = norm(d.title + ' ' + d.question);
-      if (tokens.every((w) => t.includes(w)))
-        rows.push({
-          type: 'district',
-          id: d.id,
-          title: d.title,
-          sub: shortRegionTitle(regionFor(d.region)),
-          terms: tokens,
-        });
-    }
-    let hits = ms.search(q, searchOptions(q)),
+      rows = [],
+      seen = new Set(),
+      push = (row) => {
+        if (!row || seen.has(row.key)) return;
+        seen.add(row.key);
+        rows.push(row);
+      };
+    let heading = '',
+      total = 0,
       some = false;
-    if (!hits.length && tokens.length > 1) {
-      hits = ms.search(q, searchOptions(q, { combineWith: 'OR' }));
-      some = hits.length > 0;
-    }
-    const total = rows.length + hits.length;
-    shown = new Map();
-    for (const h of hits.slice(0, 45)) {
-      const n = nodesById.get(h.id);
-      if (!n) continue;
-      let sub = '';
-      try {
-        sub = `${(n.courses || []).join(', ')} · ${geoDistrict(geoPlacement(n.id).district)?.title || roleLabel(n)}`;
-      } catch {
-        sub = (n.courses || []).join(', ');
+    const intent = courseIntent(q);
+    if (intent) {
+      // The named session's material first; nothing from another course comes before any of it.
+      const material = sessionMaterial(intent),
+        rest = intent.rest;
+      const found = rest ? hitsFor(rest).hits : [],
+        byKey = new Map(found.map((h) => [h.id, h]));
+      for (const m of material) if (m.tier === 0) push(rowFor(m.key, byKey.get(m.key), rest, m.reason));
+      const later = material.filter((m) => m.tier > 0 && (!rest || byKey.has(m.key)));
+      if (rest) later.sort((a, b) => found.indexOf(byKey.get(a.key)) - found.indexOf(byKey.get(b.key)));
+      for (const m of later) push(rowFor(m.key, byKey.get(m.key), rest, m.reason));
+      if (rest) {
+        const others = found.map((h) => rowFor(h.id, h, rest)).filter(Boolean);
+        for (const r of others) if (inCourse(r, intent.course)) push(r);
+        for (const r of others) push(r);
       }
-      shown.set(n.id, { hit: h, q });
-      rows.push({ type: 'node', id: n.id, title: n.title, sub, terms: h.terms });
+      total = rows.length;
+      heading = `${total} result${total === 1 ? '' : 's'} for ${E(intent.label)}${rest ? ' and “' + E(rest) + '”' : ''}`;
+    } else {
+      const places = [];
+      for (const r of mapData().regions) {
+        const t = norm(r.title + ' ' + shortRegionTitle(r));
+        if (tokens.every((w) => t.includes(w)))
+          places.push({
+            key: 'region:' + r.id,
+            type: 'region',
+            id: r.id,
+            title: shortRegionTitle(r),
+            sub: 'Subject',
+            label: 'Subject',
+            names: [r.title, shortRegionTitle(r)],
+            terms: tokens,
+          });
+      }
+      for (const d of Object.values(mapData().districts)) {
+        const t = norm(d.title + ' ' + d.question);
+        if (tokens.every((w) => t.includes(w)))
+          places.push({
+            key: 'district:' + d.id,
+            type: 'district',
+            id: d.id,
+            title: d.title,
+            sub: shortRegionTitle(regionFor(d.region)),
+            label: 'Topic',
+            names: [d.title],
+            terms: tokens,
+          });
+      }
+      const result = hitsFor(q);
+      some = result.some;
+      total = places.length + result.hits.length;
+      const found = [];
+      for (const h of result.hits) {
+        const r = rowFor(h.id, h, q);
+        if (r) found.push(r);
+      }
+      // An exact title, name or alias comes first, then the subjects and topics, then the ranked matches.
+      const exact = (r) => r.names.some((name) => name && norm(name) === nq);
+      for (const r of [...places, ...found]) if (exact(r)) push(r);
+      for (const r of places) push(r);
+      for (const r of found) push(r);
+      heading = `${total} result${total === 1 ? '' : 's'} ${some ? 'with some of your words' : 'across your atlas'}`;
     }
+    const visible = rows.slice(
+      0,
+      SHOW + rows.filter((r) => r.type === 'region' || r.type === 'district').length,
+    );
+    shown = new Map(visible.filter((r) => r.hit || r.reason).map((r) => [r.key, r]));
     $('searchResults').innerHTML =
-      `<div class="search-label">${total} result${total === 1 ? '' : 's'} ${some ? 'with some of your words' : 'across your atlas'}</div>` +
-      rows
-        .map(
-          (r) =>
-            `<button data-search-type="${r.type}" data-search-id="${E(r.id)}" data-terms="${E(r.terms.join(' '))}"><strong>${mark(r.title, r.terms)}</strong><small>${E(r.sub)}</small>${r.type === 'node' ? '<span class="search-why"></span>' : ''}</button>`,
-        )
-        .join('') +
+      `<div class="search-label">${heading}</div>` +
+      visible.map(rowHTML).join('') +
       (!rows.length
         ? '<p class="search-empty">No matches. Try a case name, a rule number or a shorter phrase.</p>'
-        : total > 45
-          ? '<p class="search-empty">Showing the closest 45 matches. Add a word to narrow them.</p>'
+        : rows.length > visible.length
+          ? `<p class="search-empty">Showing the closest ${SHOW} matches. Add a word to narrow them.</p>`
           : '');
     fillVisible();
     S.searchOpen = true;
     $('searchResults').hidden = false;
     $('search').setAttribute('aria-expanded', 'true');
   };
+
+  /* ---------- opening a flowchart, lecture, canon or LRS class ---------- */
+  // Through the routes their own modules answer (#flowchart=, #lecture=, #canon=) and the LRS class view.
+  function route(hash) {
+    if (location.hash === hash) window.dispatchEvent(new HashChangeEvent('hashchange'));
+    else location.hash = hash;
+  }
+  function openResult(kind, ref) {
+    if (kind === 'flowchart') route('#flowchart=' + encodeURIComponent(ref));
+    else if (kind === 'lecture') route('#lecture=' + ref);
+    else if (kind === 'canon') route('#canon=' + ref);
+    else if (kind === 'lrs-class') window.DKLA?.reading?.(+ref);
+  }
+  document.addEventListener(
+    'click',
+    (e) => {
+      const b = e.target.closest('#searchResults button[data-search-open]');
+      if (!b) return;
+      e.preventDefault();
+      e.stopPropagation();
+      closeSearch();
+      if ($('modal')?.open && b.dataset.searchOpen !== 'lrs-class') closeModal();
+      openResult(b.dataset.searchOpen, b.dataset.searchRef);
+    },
+    true,
+  );
 
   /* ---------- the opened entry ---------- */
   const calm = matchMedia('(prefers-reduced-motion: reduce)');
@@ -738,8 +1176,75 @@
       s.select();
     }
   });
+
+  /* ---------- phones: a Search button and a full-width panel ---------- */
+  // At 850 px wide or less the top bar has no room for the box (at 390 px it was 0 px wide). A labelled Search
+  // button takes its place and opens the same box as a panel over the whole window, with the keyboard in it;
+  // × and Escape close it, and so does choosing a result. Focusing the box by any other means opens it too.
+  // Wider windows never see the button or the panel (dklaR13Styles.css keeps both inside the same media query).
+  const narrow = matchMedia('(max-width: 850px)'),
+    box = document.querySelector('.study-header .study-search'),
+    input = $('search'),
+    root = document.documentElement;
+  if (box && input) {
+    const opener = document.createElement('button');
+    opener.type = 'button';
+    opener.id = 'searchOpen';
+    opener.className = 'search-open';
+    opener.setAttribute('aria-expanded', 'false');
+    opener.innerHTML = '<span aria-hidden="true">⌕</span>Search';
+    box.before(opener);
+    const closer = document.createElement('button');
+    closer.type = 'button';
+    closer.className = 'search-close';
+    closer.setAttribute('aria-label', 'Close search');
+    closer.textContent = '×';
+    input.after(closer);
+    const isOpen = () => root.classList.contains('dkla-search-panel');
+    const openPanel = () => {
+      if (!narrow.matches) return;
+      if (!isOpen()) {
+        root.classList.add('dkla-search-panel');
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.setAttribute('aria-label', 'Search the atlas');
+        opener.setAttribute('aria-expanded', 'true');
+      }
+      if (document.activeElement !== input) input.focus({ preventScroll: true });
+    };
+    const closePanel = (restore) => {
+      if (!isOpen()) return;
+      root.classList.remove('dkla-search-panel');
+      for (const name of ['role', 'aria-modal', 'aria-label']) box.removeAttribute(name);
+      opener.setAttribute('aria-expanded', 'false');
+      closeSearch();
+      if (box.contains(document.activeElement)) document.activeElement.blur();
+      if (restore) opener.focus({ preventScroll: true });
+    };
+    opener.addEventListener('click', openPanel);
+    closer.addEventListener('click', () => closePanel(true));
+    input.addEventListener('focus', openPanel);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closePanel(true);
+    });
+    // Choosing a result: its own handler runs first (some stop the click), then the panel steps aside.
+    window.addEventListener(
+      'click',
+      (e) => {
+        if (isOpen() && e.target.closest('#searchResults button, #searchResults a'))
+          setTimeout(() => closePanel(false), 0);
+      },
+      true,
+    );
+    narrow.addEventListener?.('change', () => {
+      if (!narrow.matches) closePanel(false);
+    });
+  }
+
   window.DKLA = Object.assign(window.DKLA || {}, {
     searchIndex: () => ms,
+    // The course, number and remaining words a query names, or null ("LRS Class 22").
+    searchCourseIntent: (q) => courseIntent(q),
     searchIndexStats: stats,
     searchDocument,
     // Where each indexed part of an entry is shown: {field, label, place}.
