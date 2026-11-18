@@ -634,3 +634,318 @@
 .r31-guide > p {
   margin: 6px 0 14px;
 }
+
+/* ===================== v3.1 timelines (tokens: src/features/v31/tokens.css) =====================
+   The case-page preview: every entry on one axis, the neighbours of this case with their notes,
+   and how each moved the rule. The five movement families draw with a shape, a word and a colour. */
+.v31-tl {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.v31-tl .v31-tl-q {
+  margin: -6px 0 0;
+  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+.v31-axis {
+  position: relative;
+  height: 46px;
+  margin: 4px 8px 0;
+}
+.v31-axis::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: 9px;
+  height: 2px;
+  background: var(--v31-line-strong);
+}
+.v31-dot {
+  --c: var(--v31-steady);
+  position: absolute;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+}
+.v31-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--c);
+}
+.v31-dot > span {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font: var(--v31-label);
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+.v31-dot.v31-axis-start > span {
+  left: 0;
+  transform: none;
+}
+.v31-dot.v31-axis-end > span {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+.v31-dot.v31-fam-base {
+  --c: var(--v31-base);
+}
+.v31-dot.v31-fam-base::before {
+  inset: -1px;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.v31-dot.v31-fam-wide {
+  --c: var(--v31-wide);
+}
+.v31-dot.v31-fam-narrow,
+.v31-dot.v31-fam-over {
+  --c: var(--v31-narrow);
+}
+.v31-dot.v31-fam-aside::before {
+  background: var(--v31-ground);
+  border: 2px solid var(--v31-aside);
+}
+.v31-dot.v31-here {
+  --c: var(--v31-here);
+  top: -2px;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+}
+.v31-dot.v31-here::before {
+  inset: 0;
+  border: 0;
+  border-radius: 50%;
+  clip-path: none;
+  background: var(--v31-here);
+  box-shadow:
+    0 0 0 4px var(--v31-ground),
+    0 0 0 6px var(--v31-here);
+}
+.v31-dot.v31-here > span {
+  top: 32px;
+  font-weight: 700;
+  color: var(--v31-here);
+}
+.v31-tl-rows {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.v31-tl-rows > li {
+  border-top: 1px solid #1f2d39;
+}
+.v31-tl-rows > li:last-child {
+  border-bottom: 1px solid #1f2d39;
+}
+.v31-tl-rows > li[aria-current] {
+  border-color: transparent;
+}
+.v31-tl-rows > li[aria-current] + li {
+  border-top-color: transparent;
+}
+.v31-tl-step {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 132px;
+  gap: 14px;
+  align-items: baseline;
+  width: 100%;
+  padding: 12px 0;
+  cursor: pointer;
+}
+div.v31-tl-step {
+  cursor: default;
+  margin: 0 -14px;
+  width: calc(100% + 28px);
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--v31-here-bg);
+}
+button.v31-tl-step:hover strong {
+  color: var(--v31-link-hover);
+}
+button.v31-tl-step:focus-visible {
+  outline: 2px solid var(--v31-link);
+}
+.v31-tl-year {
+  font: 600 14px/21px var(--dkla-interface, Inter), sans-serif;
+  font-variant-numeric: tabular-nums;
+  color: var(--v31-muted);
+}
+.v31-tl-year small {
+  display: block;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+div.v31-tl-step .v31-tl-year,
+div.v31-tl-step .v31-tl-year small {
+  color: var(--v31-here);
+}
+.v31-tl-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.v31-tl-main strong {
+  font: 600 15px/21px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-link);
+}
+div.v31-tl-step .v31-tl-main strong {
+  color: var(--v31-text);
+}
+.v31-tl-main strong small {
+  margin-left: 6px;
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-here);
+}
+.v31-tl-note {
+  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+div.v31-tl-step .v31-tl-note {
+  color: #d9cbb4;
+}
+/* Movement families: shape + word + colour (preview turn labels and the full view's) */
+.v31-tl-turn,
+#r21Timelines .r21-turn[class*='v31-fam-'] {
+  font: 600 12px/18px var(--dkla-interface, Inter), sans-serif;
+  font-style: normal;
+  color: var(--v31-steady);
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.v31-tl-turn::before,
+#r21Timelines .r21-turn[class*='v31-fam-']::before {
+  content: '+ ';
+}
+.v31-tl-turn.v31-fam-base,
+#r21Timelines .r21-turn.v31-fam-base {
+  color: var(--v31-base);
+}
+.v31-tl-turn.v31-fam-base::before,
+#r21Timelines .r21-turn.v31-fam-base::before {
+  content: '◆ ';
+}
+.v31-tl-turn.v31-fam-wide,
+#r21Timelines .r21-turn.v31-fam-wide {
+  color: var(--v31-wide);
+}
+.v31-tl-turn.v31-fam-wide::before,
+#r21Timelines .r21-turn.v31-fam-wide::before {
+  content: '▲ ';
+}
+.v31-tl-turn.v31-fam-narrow,
+#r21Timelines .r21-turn.v31-fam-narrow {
+  color: var(--v31-narrow);
+}
+.v31-tl-turn.v31-fam-narrow::before,
+#r21Timelines .r21-turn.v31-fam-narrow::before {
+  content: '▼ ';
+}
+.v31-tl-turn.v31-fam-over,
+#r21Timelines .r21-turn.v31-fam-over {
+  color: var(--v31-narrow);
+}
+.v31-tl-turn.v31-fam-over::before,
+#r21Timelines .r21-turn.v31-fam-over::before {
+  content: '✕ ';
+}
+.v31-tl-turn.v31-fam-aside,
+#r21Timelines .r21-turn.v31-fam-aside {
+  color: var(--v31-aside);
+}
+.v31-tl-turn.v31-fam-aside::before,
+#r21Timelines .r21-turn.v31-fam-aside::before {
+  content: '◇ ';
+}
+div.v31-tl-step .v31-tl-turn {
+  color: #e9dcc6;
+}
+
+/* The full timeline view: one rail, a fixed year column, the open entry marked. */
+#r21Timelines {
+  background: var(--v31-panel);
+}
+#r21Timelines .r21-v {
+  position: relative;
+}
+#r21Timelines .r21-v > li {
+  position: relative;
+}
+#r21Timelines .r21-y,
+#r21Timelines .r21-y time,
+#r21Timelines .r21-y small {
+  font-family: var(--dkla-interface, Inter), sans-serif !important;
+  font-variant-numeric: tabular-nums;
+}
+#r21Timelines .r21-y {
+  font-weight: 600 !important;
+  color: var(--v31-muted) !important;
+}
+#r21Timelines .r21-v > li.v31-here {
+  border-radius: 10px;
+  background: var(--v31-here-bg);
+}
+#r21Timelines .r21-v > li.v31-here .r21-y {
+  color: var(--v31-here) !important;
+}
+#r21Timelines .v31-here-label {
+  margin-left: 8px;
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-here);
+}
+#r21Timelines h2,
+#r21Timelines .r21-q {
+  font-family: var(--dkla-interface, Inter), sans-serif !important;
+}
+#r21Timelines .r21-v > li::before {
+  background: var(--v31-line-strong);
+}
+#r21Timelines .r21-v > li::after {
+  background: var(--v31-steady);
+  box-shadow: 0 0 0 4px var(--v31-panel);
+}
+#r21Timelines .r21-v > li.v31-fam-base::after {
+  background: var(--v31-base);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+#r21Timelines .r21-v > li.v31-fam-wide::after {
+  background: var(--v31-wide);
+}
+#r21Timelines .r21-v > li.v31-fam-narrow::after,
+#r21Timelines .r21-v > li.v31-fam-over::after {
+  background: var(--v31-narrow);
+}
+#r21Timelines .r21-v > li.v31-fam-aside::after {
+  background: var(--v31-panel);
+  border: 2px solid var(--v31-aside);
+  box-sizing: border-box;
+}
+#r21Timelines .r21-v > li.v31-here::after {
+  left: calc(var(--gutter) - 7px);
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: var(--v31-here);
+  border: 0;
+  transform: none;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 3px var(--v31-here-bg),
+    0 0 0 5px var(--v31-here);
+}

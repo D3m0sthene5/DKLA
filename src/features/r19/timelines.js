@@ -120,7 +120,7 @@
   const live = (s) => s.event || s.sup || nodesById.get(s.id);
   const turnTag = (s, t) =>
     s.turn && TURN[s.turn]
-      ? `<em class="r21-turn r21-${esc(s.turn)}" title="${esc(MEANS[s.turn])}${['widens', 'limits'].includes(s.turn) ? ' Reference: ' + esc(t.anchor) + '.' : ''}">${esc(label(s, t))}</em>`
+      ? `<em class="r21-turn r21-${esc(s.turn)} v31-fam-${family(s)}" title="${esc(MEANS[s.turn])}${['widens', 'limits'].includes(s.turn) ? ' Reference: ' + esc(t.anchor) + '.' : ''}">${esc(label(s, t))}</em>`
       : '';
   const authority = (s) =>
     s.authorityKind && s.authorityKind !== 'Court decision'
@@ -178,6 +178,51 @@
     return `<button type="button" class="${cls}" data-study-node="${esc(s.id)}">${inner}</button>`;
   }
 
+  /* v3.1 (owner-approved audit, 18 November 2026): the preview shows every entry on one axis, then
+     the entries just before and after this one, each with its note and how it moved the rule. The
+     twelve moves are drawn as five families (shape, word and colour together; see v31.css). */
+  const FAMILY = {
+    origin: 'base',
+    codifies: 'base',
+    displaces: 'base',
+    widens: 'wide',
+    extends: 'wide',
+    limits: 'narrow',
+    overrules: 'over',
+    sharpens: 'steady',
+    applies: 'steady',
+    reaffirms: 'steady',
+    counterpoint: 'aside',
+    divided: 'aside',
+  };
+  const family = (s) => FAMILY[s.turn] || 'steady';
+  function axisHTML(sequence, current) {
+    const n = sequence.length;
+    if (n < 2) return '';
+    const years = sequence.map((s) => (Number.isFinite(s.year) ? s.year : null));
+    const known = years.filter((y) => y !== null);
+    const lo = Math.min(...known),
+      hi = Math.max(...known);
+    // Part date, part order: clusters stay apart and long gaps still read as long.
+    const at = sequence.map((s, i) => {
+      const order = i / (n - 1);
+      const date = years[i] === null || hi === lo ? order : (years[i] - lo) / (hi - lo);
+      return 100 * (0.55 * date + 0.45 * order);
+    });
+    const labelled = [];
+    const want = (i) => i === 0 || i === n - 1 || sequence[i].id === current;
+    sequence.forEach((s, i) => want(i) && labelled.push(i));
+    sequence.forEach((s, i) => {
+      if (!want(i) && labelled.every((j) => Math.abs(at[j] - at[i]) >= 10)) labelled.push(i);
+    });
+    return `<div class="v31-axis" aria-hidden="true">${sequence
+      .map((s, i) => {
+        const here = s.id && s.id === current;
+        const side = at[i] > 88 ? ' v31-axis-end' : at[i] < 6 ? ' v31-axis-start' : '';
+        return `<span class="v31-dot v31-fam-${family(s)}${here ? ' v31-here' : ''}${side}" style="left:${at[i].toFixed(1)}%">${labelled.includes(i) ? `<span>${esc(s.year ?? '')}${here ? ' · this case' : ''}</span>` : ''}</span>`;
+      })
+      .join('')}</div>`;
+  }
   function panelHTML(t, current) {
     const sequence = t.steps.filter(live);
     const index = sequence.findIndex((s) => s.id === current);
@@ -186,11 +231,11 @@
       .slice(start, start + 3)
       .map((s) => {
         const selected = s.id && s.id === current;
-        const milestone = `<span class="r31-preview-date">${dateLabel(s)}${selected ? ' · This case' : ''}</span><strong>${esc(name(s))}</strong>${turnTag(s, t)}`;
-        return `<li${selected ? ' aria-current="step"' : ''}>${opener(s, milestone, 'r21-step')}</li>`;
+        const row = `<span class="v31-tl-year">${dateLabel(s)}</span><span class="v31-tl-main"><strong>${esc(name(s))}${selected ? ' <small>This case</small>' : ''}</strong><span class="v31-tl-note">${esc(s.note || '')}</span></span><span class="v31-tl-turn v31-fam-${family(s)}">${s.turn ? esc(label(s, t)) : ''}</span>`;
+        return `<li${selected ? ' aria-current="step"' : ''}>${selected ? `<div class="v31-tl-step">${row}</div>` : opener(s, row, 'v31-tl-step')}</li>`;
       })
       .join('');
-    return `<section class="dkla-timeline" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><h3 class="r25-timeline-title">${esc(t.title)}</h3><p class="r31-preview-question">${esc(t.question)}</p><ol class="r31-preview-track" start="${start + 1}">${steps}</ol><button type="button" class="r21-all" data-r21-open="${esc(t.id)}">Full timeline · ${sequence.length} entries →</button></section>`;
+    return `<section class="dkla-timeline v31-tl" data-r21="${esc(t.id)}" aria-label="${esc(t.title)}"><div class="v31-card-head"><div><p class="v31-meta">Doctrine timeline · ${sequence.length} entries</p><h3>${esc(t.title)}</h3></div><button type="button" class="r21-all v31-open" data-r21-open="${esc(t.id)}">Full timeline →</button></div><p class="v31-tl-q">${esc(t.question)}</p>${axisHTML(sequence, current)}<ol class="v31-tl-rows">${steps}</ol></section>`;
   }
   // how many of a timeline's steps are linked to a concept (the test the panel uses to show it on that concept)
   function uses(t, concept) {
@@ -280,7 +325,9 @@
     return years.length ? `${Math.min(...years)}–${Math.max(...years)}` : 'Dates not established';
   }
   function stepHTML(s, t, i) {
-    const flags = `${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''}`;
+    // v3.1: the entry open in the reader is marked, and every step carries its move's family.
+    const here = s.id && typeof selected !== 'undefined' && selected?.type === 'node' && selected.id === s.id;
+    const flags = `${s.event ? 'r21-event' : s.sup ? 'r21-sup' : ''} v31-fam-${family(s)}${here ? ' v31-here' : ''}`;
     const action = s.event
       ? s.link
         ? `<button type="button" class="r21-name" data-r21-node="${esc(s.link)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`
@@ -289,7 +336,7 @@
         ? `<button type="button" class="r21-name" data-r19-open="${esc(s.sup)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`
         : `<button type="button" class="r21-name" data-r21-node="${esc(s.id)}">${esc(name(s))} <span aria-hidden="true">↗︎</span></button>`;
     const reading = source(s);
-    return `<li class="${flags}" data-r31-step="${i}"><span class="r21-y">${dateLabel(s)}</span><article class="r31-entry"><div class="r31-entry-heading">${turnTag(s, t)}${authority(s)}${action}</div><p class="r31-core">${esc(s.note)}</p>${s.fate ? `<aside class="r31-later"><strong>Later development</strong>${fate(s)}</aside>` : ''}${s.context || reading ? `<details class="r31-evidence"><summary>${s.context ? 'Context & sources' : 'Read the sources'}</summary>${s.context ? `<p>${esc(s.context)}</p>` : ''}<div class="r31-source-links">${reading}</div></details>` : ''}</article></li>`;
+    return `<li class="${flags}" data-r31-step="${i}"${here ? ' aria-current="step"' : ''}><span class="r21-y">${dateLabel(s)}</span><article class="r31-entry"><div class="r31-entry-heading">${turnTag(s, t)}${authority(s)}${action}${here ? '<span class="v31-here-label">You are here</span>' : ''}</div><p class="r31-core">${esc(s.note)}</p>${s.fate ? `<aside class="r31-later"><strong>Later development</strong>${fate(s)}</aside>` : ''}${s.context || reading ? `<details class="r31-evidence"><summary>${s.context ? 'Context & sources' : 'Read the sources'}</summary>${s.context ? `<p>${esc(s.context)}</p>` : ''}<div class="r31-source-links">${reading}</div></details>` : ''}</article></li>`;
   }
   function detailHTML(t) {
     title.innerHTML = `<h2>${esc(t.title)}</h2>`;

@@ -20,6 +20,44 @@
       if (!relatedBySource.has(id)) relatedBySource.set(id, []);
       relatedBySource.get(id).push(chart);
     }
+  // v3.1: the steps of each chart that cite an entry, and the shortest path from the chart's start
+  // to the deepest of them (with the branch taken at each step), for the case page and for opening
+  // a chart at that step.
+  function pathTo(chart, target) {
+    const byId = new Map(chart.nodes.map((node) => [node.id, node]));
+    const back = new Map([[chart.entry, null]]);
+    const queue = [chart.entry];
+    while (queue.length) {
+      const id = queue.shift();
+      if (id === target) break;
+      (byId.get(id)?.edges || []).forEach((edge, index) => {
+        if (!back.has(edge.to)) {
+          back.set(edge.to, { from: id, index, label: edge.label });
+          queue.push(edge.to);
+        }
+      });
+    }
+    if (!back.has(target)) return [{ id: target }];
+    const path = [];
+    for (let id = target; id; id = back.get(id)?.from) {
+      const step = back.get(id);
+      path.unshift(step ? { id, label: step.label, edge: step.index } : { id });
+    }
+    return path;
+  }
+  function stepsCiting(id) {
+    return (relatedBySource.get(id) || [])
+      .map((chart) => {
+        const number = new Map(chart.nodes.map((node, i) => [node.id, i + 1]));
+        const cited = chart.nodes.filter((node) => node.sources.includes(id));
+        const paths = cited.map((node) => pathTo(chart, node.id));
+        const deepest = paths.reduce((a, b) => (b.length > a.length ? b : a), paths[0]);
+        return { chart, number, cited, path: deepest, share: cited.length / chart.nodes.length };
+      })
+      .sort((a, b) => b.cited.length - a.cited.length || b.share - a.share);
+  }
+  const stepURL = (chartId, stepId, from) =>
+    `#flowchart=${encodeURIComponent(chartId)}&step=${encodeURIComponent(stepId)}${from ? '&from=' + encodeURIComponent(from) : ''}`;
   const sourceNames = new Map(
     base.nodes.filter((node) => relatedBySource.has(node.id)).map((node) => [node.id, node.title]),
   );
@@ -284,10 +322,13 @@
   }
 
   function sourcesHTML(node) {
+    // v3.1: each source says what kind of entry it is (case, rule, concept).
+    const KIND = { Case: 'Case', Rule: 'Rule', Concept: 'Concept', Statute: 'Statute', Note: 'Note' };
     const links = node.sources.map((id) => {
       const title = esc(titleOf(id));
+      const kind = KIND[nodesById.get(id)?.kind] || 'Entry';
       return nodesById.has(id)
-        ? `<a href="${sourceURL(id)}" data-flowchart-source="${esc(id)}">${title}</a>`
+        ? `<a href="${sourceURL(id)}" data-flowchart-source="${esc(id)}"><small class="fc-kind">${kind}</small>${title}</a>`
         : title;
     });
     for (const link of node.links || [])
@@ -392,26 +433,43 @@
     const current = trail.at(-1);
     const node = byId.get(current.id);
     const detail = dialog.querySelector('#flowchartDetail');
+    // v3.1: the entry the chart was opened from is named on the steps that cite it.
+    const from = active.from && node.sources.includes(active.from) ? active.from : null;
     detail.innerHTML = `
-      <div class="fc-step-label">${nodeType(node) || 'Step'} ${node.number} of ${byId.size}</div>
+      <div class="fc-step-label">${nodeType(node) || 'Step'} ${node.number} of ${byId.size}${from ? ` · decided by ${esc(titleOf(from))}` : ''}</div>
       <h3 tabindex="-1">${esc(node.label)}</h3>
       ${current.label ? `<p class="fc-selected-branch">From step ${byId.get(trail.at(-2).id).number} · ${esc(current.label)}</p>` : ''}
       <p class="fc-explanation">${esc(node.detail)}</p>
       ${
         node.edges.length
-          ? `<ol class="fc-choices">${node.edges
-              .map(
-                (edge, index) =>
-                  `<li><button type="button" data-flowchart-branch="${esc(edge.to)}" data-fc-branch-index="${index}">
-          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${byId.get(edge.to).number}</span>
-        </button></li>`,
-              )
+          ? `<p class="fc-choose">Choose what happened</p><ol class="fc-choices">${node.edges
+              .map((edge, index) => {
+                const next = byId.get(edge.to);
+                const own = active.from && next.sources.includes(active.from);
+                return `<li><button type="button" data-flowchart-branch="${esc(edge.to)}" data-fc-branch-index="${index}"${own ? ' class="fc-own"' : ''}>
+          <span>${esc(edge.label)}</span><span class="fc-destination">→ ${nodeType(next) || 'Step'} ${next.number} · ${esc(next.label)}</span>
+        </button></li>`;
+              })
               .join('')}</ol>`
           : ''
       }
-      ${sourcesHTML(node)}
-      ${relatedHTML(node.related)}
-      ${relatedHTML(active.chart.related)}`;
+      <div class="fc-detail-sources">${sourcesHTML(node)}</div>`;
+    const side = dialog.querySelector('.fc-side');
+    if (side)
+      side.innerHTML = `${sourcesHTML(node)}${relatedHTML(node.related)}${relatedHTML(active.chart.related)}`;
+    const path = dialog.querySelector('.fc-trail');
+    if (path) {
+      const endings = node.edges.map((edge) => byId.get(edge.to));
+      path.innerHTML = `<p class="fc-trail-label">Your path · step ${trail.length}</p><ol>${trail
+        .map((step, i) => {
+          const at = byId.get(step.id);
+          const taken = trail[i + 1]?.label;
+          return i === trail.length - 1
+            ? `<li aria-current="step"><span class="fc-trail-n">${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
+            : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
+        })
+        .join('')}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'step' : 'one of steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
+    }
     dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
       trail.length < 2 && node.id === active.chart.entry;
@@ -440,9 +498,12 @@
     }
   }
 
-  function renderChart(chart) {
+  function renderChart(chart, { step, from } = {}) {
     if (!sessions.has(chart.id)) sessions.set(chart.id, makeSession(chart));
     active = sessions.get(chart.id);
+    // Opened at a step (from a case page): the path to it counts as walked, and the case is named.
+    if (step && chart.nodes.some((node) => node.id === step)) active.trail = pathTo(chart, step);
+    active.from = from && nodesById.has(from) ? from : null;
     const id = courseOf(chart.id);
     dialog.dataset.fcCourse = id;
     dialog.dataset.printChart = chart.id;
@@ -450,6 +511,7 @@
       <h2 id="flowchartsTitle">${esc(chart.title)}</h2>`;
     body.innerHTML = `
       <div class="fc-toolbar">
+        ${active.from ? `<a href="${sourceURL(active.from)}" class="fc-back-entry" data-flowchart-source="${esc(active.from)}">← Back to ${esc(titleOf(active.from))}</a>` : ''}
         <a href="#flowcharts" data-flowcharts-library>← All flowcharts</a>
         <div class="fc-tabs" role="group" aria-label="Chart view">
           <button type="button" data-flowcharts-view="walkthrough">Walkthrough</button>
@@ -460,7 +522,9 @@
       ${['LRS-02', 'LRS-03', 'LRS-04', 'LRS-05', 'LRS-06'].includes(chart.id) ? '<p><a class="fc-canons-link" href="#canons" data-canons-nav>Browse the canons of construction</a></p>' : ''}
       <div class="fc-board">
         ${graphHTML(active)}
+        <nav class="fc-trail" aria-label="Your path"></nav>
         <section id="flowchartDetail" aria-label="Current step"></section>
+        <aside class="fc-side" aria-label="Sources for this step"></aside>
       </div>
       <div class="fc-walk-controls">
         <button type="button" data-flowcharts-back>← Previous step</button>
@@ -492,9 +556,14 @@
     if (showing === hash && dialog.open) return;
     showing = hash;
     active = null;
-    const id = hash.slice('#flowchart='.length);
+    // #flowchart=K-16, or #flowchart=K-16&step=c&from=citoh when opened from a case page.
+    const [idPart, ...params] = hash.slice('#flowchart='.length).split('&');
+    const id = decodeURIComponent(idPart);
+    const options = Object.fromEntries(
+      params.map((pair) => pair.split('=').map((part) => decodeURIComponent(part || ''))),
+    );
     if (isLibrary) renderLibrary();
-    else if (charts.has(id)) renderChart(charts.get(id));
+    else if (charts.has(id)) renderChart(charts.get(id), options);
     else renderMissing();
     if (!dialog.open) dialog.showModal();
     body.scrollTop = 0;
@@ -574,6 +643,9 @@
     else if ('flowchartsBack' in d) {
       active.trail.pop();
       paintStep({ focus: true, center: true });
+    } else if ('fcTrail' in d) {
+      active.trail = active.trail.slice(0, Number(d.fcTrail) + 1);
+      paintStep({ focus: true, center: true });
     } else if ('flowchartsReset' in d) {
       active.trail = [{ id: active.chart.entry }];
       paintStep({ focus: true, center: true });
@@ -612,17 +684,45 @@
   const previousInspector = renderInspector;
   renderInspector = function (...args) {
     const result = previousInspector.apply(this, args);
-    const related = selected?.type === 'node' && relatedBySource.get(selected.id);
-    const reading = related && inspector?.querySelector('.reader-body');
-    if (reading && !reading.querySelector('.fc-entry-links')) {
-      const links = related.map((chart) => ({ id: chart.id, label: chart.title }));
-      reading.insertAdjacentHTML(
-        'beforeend',
-        `<nav class="fc-entry-links" aria-label="Related flowcharts">${relatedHTML(links)}</nav>`,
-      );
-    }
+    const id = selected?.type === 'node' ? selected.id : null;
+    const reading = id && relatedBySource.has(id) && inspector?.querySelector('.reader-body');
+    if (reading && !reading.querySelector('.v31-chart-steps'))
+      reading.insertAdjacentHTML('beforeend', chartStepsHTML(id));
     return result;
   };
+  // The case page's "Flowchart steps" card: for each chart, the path from its start to the steps
+  // this entry decides, then those steps in full, and a link that opens the chart at that step.
+  function chartStepsHTML(id) {
+    const all = stepsCiting(id);
+    const card = ({ chart, number, cited, path }, index) => {
+      const decided = new Set(cited.map((node) => node.id));
+      const byId = new Map(chart.nodes.map((node) => [node.id, node]));
+      const shown = path.length > 4 ? path.slice(-4) : path;
+      const route = shown
+        .map((step, i) => {
+          const node = byId.get(step.id);
+          const own = decided.has(step.id);
+          const branch =
+            i > 0 ? `<span class="v31-route-edge"><span>${esc(step.label || '')}</span></span>` : '';
+          return `${branch}<a class="v31-route-step${own ? ' v31-own' : ''}" href="${stepURL(chart.id, step.id, id)}" data-flowchart-id="${esc(chart.id)}"><b>${own ? `Step ${number.get(step.id)} · this entry` : `Step ${number.get(step.id)}`}</b>${esc(node.label)}</a>`;
+        })
+        .join('');
+      const first = cited.reduce((a, b) => (number.get(b.id) < number.get(a.id) ? b : a), cited[0]);
+      return `<article class="v31-chart${index > 1 ? ' v31-chart-more' : ''}">
+        <div class="v31-card-head"><div><p class="v31-meta">Flowchart ${esc(chart.id)} · ${cited.length === 1 ? 'step' : 'steps'} ${cited.map((n) => number.get(n.id)).join(', ')} of ${chart.nodes.length}</p><h3>${esc(chart.title)}</h3></div>
+        <a class="v31-open" href="${stepURL(chart.id, first.id, id)}" data-flowchart-id="${esc(chart.id)}">Open at step ${number.get(first.id)} →</a></div>
+        <div class="v31-route${path.length > shown.length ? ' v31-route-cut' : ''}">${route}</div>
+        <dl class="v31-steps">${cited.map((node) => `<dt>Step ${number.get(node.id)}</dt><dd><strong>${esc(node.label)}</strong> ${esc(node.detail)}</dd>`).join('')}</dl>
+      </article>`;
+    };
+    return `<section class="v31-chart-steps" aria-label="Flowchart steps">${all.map(card).join('')}${all.length > 2 ? `<button type="button" class="v31-more" data-v31-more-charts>Show ${all.length - 2} more flowchart${all.length === 3 ? '' : 's'}</button>` : ''}</section>`;
+  }
+  inspector?.addEventListener('click', (event) => {
+    const more = event.target.closest('[data-v31-more-charts]');
+    if (!more) return;
+    more.closest('.v31-chart-steps').classList.add('v31-all');
+    more.remove();
+  });
 
   window.addEventListener('hashchange', syncRoute);
   syncRoute();

@@ -1,11 +1,12 @@
 /* The chart library and detail reader follow the atlas's dark study panels. */
 #dklaFlowcharts {
-  --fc-accent: #a9d7c7;
-  --fc-bg: #17232c;
-  --fc-panel: #1e2d37;
-  --fc-line: #465a68;
-  --fc-muted: #b8cbd5;
-  width: min(1260px, calc(100vw - 36px));
+  /* v3.1: the atlas tokens (src/features/v31/tokens.css); blue marks what you can click. */
+  --fc-accent: var(--v31-link);
+  --fc-bg: var(--v31-panel);
+  --fc-panel: var(--v31-ground);
+  --fc-line: var(--v31-line-strong);
+  --fc-muted: var(--v31-muted);
+  width: min(1320px, calc(100vw - 36px));
   height: min(940px, calc(100dvh - 36px));
   max-width: none;
   max-height: none;
@@ -29,21 +30,22 @@
   background: #050b11b8;
   backdrop-filter: blur(5px);
 }
+/* v3.1: the course colour names the course (the kicker); everything clickable is blue. */
 #dklaFlowcharts[data-fc-course='K'],
 #dklaFlowcharts [data-fc-course='K'] {
-  --fc-accent: var(--contracts, #e2b985);
+  --fc-course: var(--v31-contracts);
 }
 #dklaFlowcharts[data-fc-course='CP'],
 #dklaFlowcharts [data-fc-course='CP'] {
-  --fc-accent: var(--civil, #a899ee);
+  --fc-course: var(--v31-civil);
 }
 #dklaFlowcharts[data-fc-course='LRS'],
 #dklaFlowcharts [data-fc-course='LRS'] {
-  --fc-accent: var(--lrs, #8fc5b3);
+  --fc-course: var(--v31-lrs);
 }
 #dklaFlowcharts[data-fc-course='X'],
 #dklaFlowcharts [data-fc-course='X'] {
-  --fc-accent: var(--writing, #8ebcdf);
+  --fc-course: var(--v31-link);
 }
 #dklaFlowcharts :where(button, a, input) {
   touch-action: manipulation;
@@ -55,6 +57,11 @@
 }
 #dklaFlowcharts a {
   color: var(--fc-accent);
+  text-decoration: none;
+}
+#dklaFlowcharts a:hover {
+  color: var(--v31-link-hover);
+  text-decoration: underline;
   text-underline-offset: 0.21em;
 }
 #dklaFlowcharts button {
@@ -96,7 +103,7 @@
   margin: 0 0 6px;
   font-size: 0.76rem;
   font-weight: 650;
-  color: var(--fc-accent);
+  color: var(--fc-course, var(--fc-accent));
 }
 .fc-kicker span {
   padding-inline: 3px;
@@ -220,27 +227,124 @@
   align-items: center;
   min-height: 44px;
 }
+/* v3.1 walkthrough: your path, the decision, the sources for this step. */
 .fc-board {
   min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(200px, 270px) minmax(0, 1fr) minmax(200px, 280px);
+  gap: 0;
+  align-items: stretch;
+  border: 1px solid var(--v31-line);
+  border-radius: 14px;
+  background: var(--v31-ground);
+  min-height: 520px;
+}
+.fc-board > .fc-map[hidden] {
+  display: none;
+}
+.fc-trail,
+.fc-side {
+  padding: 22px;
+  min-width: 0;
+}
+.fc-trail {
+  border-right: 1px solid var(--v31-line);
+}
+.fc-side {
+  border-left: 1px solid var(--v31-line);
+}
+.fc-trail-label,
+.fc-trail-next {
+  margin: 0 0 8px;
+  font: var(--v31-label);
+  color: var(--v31-faint);
+}
+.fc-trail-next {
+  margin: 8px 0 0;
+  padding: 0 12px;
+}
+.fc-trail ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.fc-trail li > button,
+.fc-trail li[aria-current] {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.fc-trail li[aria-current] {
+  cursor: default;
+  background: var(--v31-raised);
+}
+.fc-trail li > button:hover {
+  background: var(--v31-panel);
+}
+.fc-trail li > button:focus-visible {
+  outline: 2px solid var(--v31-link);
+}
+.fc-trail-n {
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-faint);
+}
+.fc-trail li[aria-current] .fc-trail-n {
+  color: var(--v31-here);
+}
+.fc-trail-q {
+  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-soft);
+}
+.fc-trail li[aria-current] .fc-trail-q {
+  font-weight: 600;
+  color: var(--v31-text);
+}
+.fc-trail-a {
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-link);
+}
+.fc-board:not(.fc-board-map) .fc-detail-sources {
+  display: none;
+}
+.fc-board-map .fc-trail,
+.fc-board-map .fc-side {
+  display: none;
+}
+.fc-back-entry {
+  font-weight: 600;
 }
 .fc-board-map {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 350px);
   gap: 15px;
   align-items: start;
+  border: 0;
+  background: none;
 }
 #flowchartDetail {
-  width: min(100%, 780px);
-  margin: 0 auto;
-  padding: clamp(16px, 3vw, 28px);
-  border: 1px solid var(--fc-line);
-  border-top: 3px solid var(--fc-accent);
-  border-radius: 12px;
-  background: var(--fc-panel);
+  width: 100%;
+  margin: 0;
+  padding: 30px 36px;
+  border: 0;
+  border-radius: 0;
+  background: none;
   overflow-wrap: anywhere;
+  box-sizing: border-box;
 }
 .fc-board-map #flowchartDetail {
   padding: 16px;
+  border: 1px solid var(--v31-line);
+  border-radius: 12px;
+  background: var(--v31-ground);
 }
 .fc-step-label,
 .fc-selected-branch {
@@ -248,13 +352,21 @@
   color: var(--fc-muted);
 }
 .fc-step-label {
-  font-weight: 650;
-  color: var(--fc-accent);
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-here);
 }
 #flowchartDetail h3 {
-  font-size: clamp(1.2rem, 2.1vw, 1.6rem);
-  line-height: 1.3;
-  margin: 4px 0 12px;
+  font: 600 26px/32px var(--dkla-display, 'Exo 2'), sans-serif;
+  margin: 6px 0 12px;
+}
+.fc-board-map #flowchartDetail h3 {
+  font-size: 20px;
+  line-height: 26px;
+}
+.fc-choose {
+  margin: 24px 0 0;
+  font: var(--v31-label);
+  color: var(--v31-muted);
 }
 .fc-selected-branch {
   margin: 0 0 8px;
@@ -277,11 +389,23 @@
 #dklaFlowcharts .fc-choices button {
   width: 100%;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 10px;
   align-items: center;
   text-align: left;
-  background: #16242e;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--v31-line-strong);
+  background: transparent;
+  font: 600 15px/21px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-text);
+}
+#dklaFlowcharts .fc-choices button:hover {
+  border-color: var(--v31-link);
+}
+#dklaFlowcharts .fc-choices button.fc-own {
+  border: 2px solid var(--v31-here);
+  background: var(--v31-here-bg);
 }
 .fc-choices button::before {
   content: counter(fc-choice, lower-alpha) '.';
@@ -289,10 +413,12 @@
   font-weight: 700;
 }
 .fc-destination {
-  white-space: nowrap;
-  color: var(--fc-accent);
-  font-size: 0.8em;
-  font-weight: 650;
+  grid-column: 2;
+  color: var(--v31-faint);
+  font: 500 13px/18px var(--dkla-interface, Inter), sans-serif;
+}
+.fc-own .fc-destination {
+  color: var(--v31-here);
 }
 .fc-sources,
 .fc-related {
@@ -308,19 +434,33 @@
 .fc-sources ul,
 .fc-related ul {
   margin: 0;
-  padding-left: 1.15rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.fc-sources li,
-.fc-related li {
-  padding-block: 3px;
+.fc-sources li > a,
+.fc-sources li:not(:has(a)) {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--v31-raised);
+  font: 600 14px/20px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-link);
+  text-decoration: none;
 }
-.fc-entry-links {
-  margin-top: 18px;
-  padding-top: 7px;
-  border-top: 1px solid var(--line);
+.fc-sources li > a:hover {
+  color: var(--v31-link-hover);
 }
-.fc-entry-links .fc-related h4 {
-  color: inherit;
+.fc-kind {
+  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  color: var(--v31-muted);
+}
+.fc-related li a {
+  color: var(--v31-link);
 }
 .fc-walk-controls {
   margin: 14px auto 0;

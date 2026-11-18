@@ -26,7 +26,28 @@
     ['Concepts and rules', (k) => k === 'Concept' || k === 'Rule'],
     ['Notes and study problems', () => true],
   ];
-  function usedByHTML(slug) {
+  /* v3.1: a definition reads as a lead sentence, then paragraphs, with its " - " examples as a list.
+   Every word of the source text is kept; only the layout changes. */
+function defHTML(text) {
+  const clean = String(text || '').replace(/([a-z)])\.([A-Z])/g, '$1. $2');
+  const parts = clean.split(/(?<=[:;])\s+-\s+(?=\S)/);
+  const sentences = (value) => value.match(/[^.!?]+(?:[.!?]+(?=\s+[A-Z(“"]|$)|$)/g) || [value];
+  let intro = parts.shift();
+  let after = '';
+  if (parts.length) {
+    const last = parts.pop();
+    const [first, ...rest] = sentences(last);
+    parts.push(first.trim());
+    after = rest.join('').trim();
+  }
+  const lead = sentences(intro);
+  const head = lead.shift().trim();
+  // At most two sentences to a paragraph.
+  const paragraphs = [];
+  for (let i = 0; i < lead.length; i += 2) paragraphs.push(lead.slice(i, i + 2).join('').trim());
+  return `<p class="gl-def gl-lead">${E(head)}</p>${paragraphs.filter(Boolean).map((p) => `<p class="gl-def">${E(p)}</p>`).join('')}${parts.length ? `<ul class="gl-examples">${parts.map((item) => `<li>${E(item.replace(/[;]\s*$/, ''))}</li>`).join('')}</ul>` : ''}${after ? `<p class="gl-def">${E(after)}</p>` : ''}`;
+}
+function usedByHTML(slug) {
     const ids = usedBy.get(slug) || [];
     if (!ids.length) return '';
     const own = (G.titled || {})[slug] || [];
@@ -98,7 +119,7 @@
    .map((l) => `<button data-letter="${l}" aria-pressed="${letter === l}">${l}</button>`)
    .join('')}</nav>
  <div class="gl-body"><ul class="gl-list" role="listbox">${shown.map((x) => `<li><button data-term="${E(x.slug)}" aria-pressed="${x.slug === cur}"><strong>${E(x.term)}${x.kind === 'case' ? ' <em class="gl-case">case</em>' : ''}</strong><small>${E(x.definition.slice(0, 80))}${x.definition.length > 80 ? '…' : ''}</small></button></li>`).join('')}${list.length > 400 ? `<li class="gl-more">${(list.length - 400).toLocaleString()} more · narrow the search</li>` : ''}${!list.length ? '<li class="gl-more">No term matches.</li>' : ''}</ul>
- <article class="gl-detail">${t ? `<h2>${E(t.term)}${t.kind === 'case' ? ' <em class="gl-case">landmark case</em>' : ''}</h2><p class="gl-def">${E(t.definition)}</p><p class="gl-meta">${E(t.source || '')}${t.source ? ' · ' : ''}<a href="${E(t.url || LII(t.slug))}" target="_blank" rel="noopener">Read on Cornell LII ↗</a></p>${usedByHTML(t.slug)}` : `<p class="gl-empty">Pick a term on the left, or type to search. Each term links to its Cornell Legal Information Institute page.</p>`}</article></div>`;
+ <article class="gl-detail">${t ? `<h2>${E(t.term)}${t.kind === 'case' ? ' <em class="gl-case">landmark case</em>' : ''}</h2>${defHTML(t.definition)}<p class="gl-meta">${E(t.source || '')}${t.source ? ' · ' : ''}<a href="${E(t.url || LII(t.slug))}" target="_blank" rel="noopener">Read on Cornell LII ↗</a></p>${usedByHTML(t.slug)}` : `<p class="gl-empty">Pick a term on the left, or type to search. Each term links to its Cornell Legal Information Institute page.</p>`}</article></div>`;
     $('glClose').onclick = close;
     const f = $('glFind');
     f.oninput = () => {

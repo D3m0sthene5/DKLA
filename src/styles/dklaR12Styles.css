@@ -144,8 +144,31 @@
   color: #dabd94;
   margin-left: 6px;
 }
-.gl-def {
-  font-size: 17px;
+/* v3.1: a lead sentence, short paragraphs and a list of examples (dklaR12Glossary.js defHTML). */
+#glossaryDialog .gl-detail {
+  max-width: 760px;
+}
+#glossaryDialog .gl-detail h2 {
+  font-family: var(--dkla-display, 'Exo 2'), sans-serif !important;
+  font-weight: 600 !important;
+}
+#glossaryDialog .gl-def {
+  margin: 0 0 14px;
+  font: var(--v31-body-type) !important;
+  color: var(--v31-body);
+}
+#glossaryDialog .gl-def.gl-lead {
+  font: 500 19px/30px var(--dkla-interface, Inter), sans-serif !important;
+  color: var(--v31-text);
+}
+#glossaryDialog .gl-examples {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font: var(--v31-body-type);
+  color: var(--v31-body);
 }
 #glossaryDialog .gl-meta {
   color: #93a7b7;

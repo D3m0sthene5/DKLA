@@ -1,0 +1,48 @@
+/* DKLA v3.1 design rules (owner-approved audit, 18 November 2026). Every reading view takes its
+   sizes, colours and spacing from here.
+
+   Rule 1, five text styles: title (display face, 30-34 px), heading (19 px), body (16 px),
+   interface (14 px), label (12 px). Rank comes from size and weight, never colour alone; no
+   capitals-only labels.
+   Rule 2, each colour has one job: blue for anything you can click; the course colours only to say
+   which course; the movement colours only for how a case moved the rule, always with a shape and a
+   word; ground, panel and raised for depth.
+   Rule 3, one of each component: link, chip, button, primary button, drawer, card. */
+:root {
+  --v31-ground: #0e171f;
+  --v31-panel: #15212b;
+  --v31-raised: #1d2c38;
+  --v31-line: #233240;
+  --v31-line-strong: #2e4152;
+  --v31-text: #e3e8ed;
+  --v31-body: #d5dde4;
+  --v31-soft: #c9d3db;
+  --v31-muted: #a9b8c4;
+  --v31-faint: #8597a6;
+  --v31-link: #8ebcdf;
+  --v31-link-hover: #b9d7ee;
+  --v31-on-link: #0b1822;
+  --v31-contracts: #e2b985;
+  --v31-civil: #a899ee;
+  --v31-lrs: #8fc5b3;
+  --v31-here: #e2b985;
+  --v31-here-bg: #2a2418;
+  --v31-wide: #7fd1a8;
+  --v31-narrow: #f0a46b;
+  --v31-steady: #c3ccd4;
+  --v31-base: #e3e8ed;
+  --v31-aside: #a9b8c4;
+  --v31-title: 600 34px/40px var(--dkla-display, 'Exo 2'), sans-serif;
+  --v31-heading: 600 19px/26px var(--dkla-interface, Inter), sans-serif;
+  --v31-body-type: 400 16px/27px var(--dkla-interface, Inter), sans-serif;
+  --v31-ui: 500 14px/20px var(--dkla-interface, Inter), sans-serif;
+  --v31-label: 500 12px/16px var(--dkla-interface, Inter), sans-serif;
+  --v31-radius: 12px;
+}
+/* The reader widens to leave a strip of map for context (the map already fits the selected entry
+   into whatever space the reader leaves: studyCode.js readerWidth). Landscape desktop and iPad only. */
+@media (min-width: 1024px) {
+  :root {
+    --reader: clamp(560px, calc(100vw - 360px), 1180px);
+  }
+}
