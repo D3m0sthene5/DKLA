@@ -50,6 +50,8 @@ async function closeAll(page) {
     window.DKLAStudy?.close();
     if (window.SCOTUSHistory?.state().open) window.SCOTUSHistory.close();
     for (const d of document.querySelectorAll('dialog[open]')) d.close();
+    // The phone search panel (dklaR13Search.js) covers the top bar until it is closed.
+    document.querySelector('.dkla-search-panel .search-close')?.click();
     const search = document.getElementById('search');
     if (search?.value) {
       search.value = '';

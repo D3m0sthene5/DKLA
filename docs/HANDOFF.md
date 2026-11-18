@@ -61,9 +61,29 @@ Read this first; the sections below it are older.
     the Vercel env vars DKLA_FUEL_BALANCE_USD / DKLA_FUEL_START_USD / DKLA_FUEL_AT (the newer
     point wins). The public `/api/fuel` shows only the share, never dollars. It misses spending
     elsewhere on the same OpenAI credit, so recalibrate now and then.
-  - **Deferred from the review:** a smaller first load (lazy data) and per-class offline
-    downloads (they need the offline worker and data loading rebuilt, a release of their own);
-    corrections beside the rule; a request/spending cap on /api/ask (the code has none; Vercel's
+  - **Whole U.S. Code** (`src/features/v31/uscode*.js`, `uscode/title-*.json`, built by
+    `tools/uscode/build_index.py` from OLRC release 119-118; sources in `tools/uscode/README.md`):
+    United States Code › All 54 titles browses every title, level and section heading. A title's
+    file is fetched (and SHA-256 checked) only when it is opened or an exact citation in it is
+    searched; cache `dkla-uscode-v1`. Search adds one "U.S. Code" result only for an exact citation
+    ("20 USC 1001"); nothing goes into the search index. Check: `tools/uscode/check-browser.mjs`.
+  - **Lazy data blocks (the smaller first load)**: the blocks in `tools/performance/lazy-blocks.json`
+    (Cold Call, both Cold Call tables, the dictionary, the audit, the four archives, the textbook
+    update and the source texts; about 44 MB) move out of the hosted page into
+    `assets/data/<sha256>.json` at packaging (`tools/performance/package.mjs` `hostedRelease`); the
+    portable copy keeps them embedded. `src/features/performance/data-loader.js` (`window.DKLAData`,
+    placed before the app code) fetches a block on first use, checks its fingerprint, keeps it in
+    Cache Storage `dkla-data-v1`, fires `dkla:data`, downloads the rest after boot in list order,
+    and makes Save/export wait so a saved copy is complete. Every reader works whether the block is
+    embedded or late. Measured (10 Mbps, 4× slower processor): 22.5 → 8.9 MB to the first screen,
+    about 26 → 15 s. Checks: `check-lazy.mjs`, `check-lazy-files.mjs`, `check-lazy-a.mjs`,
+    `check-lazy-b.mjs` (late arrival per feature). Kept embedded on purpose: seedData, dklaR19Data,
+    authorities and We the People (Home draws from them), SCOTUS history and sprite (the Court on
+    Home), sourceIndex and PDF routes (every entry's links). Next candidates: the supporting briefs'
+    text inside dklaR19Data (5.5 MB) and the authorities' provision text (about 4.3 MB); both need
+    `assemble.py` to write them as separate blocks.
+  - **Deferred from the review:** per-class offline downloads (the background download now fills
+    the offline copy anyway); corrections beside the rule; a request/spending cap on /api/ask (the code has none; Vercel's
     firewall settings could not be read from this session).
   - **Behaviour change to know**: with the wide reader the map zooms out to fit the selected entry
     into the strip, and keeps that zoom when the reader closes, so it may show a subject's summary

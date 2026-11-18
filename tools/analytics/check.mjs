@@ -31,6 +31,7 @@ assert.deepEqual(apiFiles, [
   'ask.js',
   'eo-dashboard.js',
   'eo-gesner.js',
+  'fuel.js',
   'sync.js',
 ]);
 const worker = await readFile('work/build/sw.js', 'utf8');

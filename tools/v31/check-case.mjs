@@ -39,6 +39,10 @@ await page.evaluate(() => {
 });
 const body = page.locator('#inspector .reader-body.v31-case');
 await body.locator('.v31-chart-steps').waitFor();
+// On the hosted page the dictionary arrives after start-up (src/features/performance/data-loader.js); its
+// "Terms in this entry" block joins the case page when it does.
+await page.evaluate(() => window.DKLA?.whenGlossary?.());
+await body.locator('.dkla-terms').waitFor();
 
 // The page settles: count child-list changes in the reader over one second.
 const changes = await page.evaluate(
