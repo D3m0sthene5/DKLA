@@ -59,10 +59,45 @@ try {
     await page.goBack();
     await expect(lecture).toBeVisible();
     await expect(point).toBeVisible();
+
+    // An earlier deck (Contracts Class 14) opens by its own address with pinpointed notes...
+    await loaded('#lecture=contracts-14:6');
+    const pge = lecture.locator('#lecture-contracts-14-6');
+    await expect(pge).toContainText(/Pacific Gas/);
+    await expect(pge.locator('.lecture-pinpoint')).toHaveText(/^Slides? \d/);
+    await expect(lecture.locator('.lecture-note')).toHaveCount(
+      await page.evaluate(() => {
+        const deck = JSON.parse(document.getElementById('dklaLecturesData').textContent).find(
+          (d) => d.course === 'contracts' && d.number === 14,
+        );
+        return deck.topics.length + deck.conflicts.length;
+      }),
+    );
+    // ...and its case page shows the class under Lecture context.
+    await pge.locator('a[href="#node=pacific-gas"]').click();
+    const related = page.locator('#inspector .lecture-related');
+    await expect(related).toContainText(/Contracts Class 14/);
+    await related.locator('summary').click();
+    await expect(related.locator('a[href="#lecture=contracts-14:6"]')).toBeVisible();
+    // LRS Class 4's second deck is labelled by its own name and slide numbers.
+    await loaded('#lecture=lrs-4');
+    await expect(lecture).toContainText('War Powers Resolution problem · 7 slides');
+    await expect(
+      lecture.locator('.lecture-pinpoint', { hasText: /^War Powers Resolution problem · Slides 1, 2, 3$/ }),
+    ).toHaveCount(1);
+    // A class with no deck says so plainly, both at its address and in the class dialog's notes.
+    await loaded('#lecture=contracts-25');
+    await expect(lecture.locator('.lecture-none')).toContainText(
+      /No slides are on file for Contracts Class 25 \(Stipulated remedies\)/,
+    );
+    await loaded('#lecture=lrs-23:0');
+    await expect(lecture.locator('.lecture-none')).toContainText(/No slides are on file for LRS Class 23/);
+    const session = await page.evaluate(() => window.DKLALectures.sessionHTML('lrs', 26));
+    assert.match(session, /no slides on file/);
     await context.close();
   }
   console.log(
-    'Canon menu, search, definitions, sourced case links, Back and direct links work at both widths.',
+    'Canon menu, search, definitions, sourced case links, Back, direct links, the earlier decks and classes without slides work at both widths.',
   );
 } finally {
   await browser.close();

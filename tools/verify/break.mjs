@@ -54,6 +54,16 @@ const TYPOGRAPHY = 'src/features/v26/typography.js',
 
 const breakages = [
   [
+    'A class without lecture slides opens nothing instead of saying so',
+    'src/features/canons/lectures.js',
+    () =>
+      edit(
+        'src/features/canons/lectures.js',
+        "modal(names[course] + ' · Class ' + Number(number), noDeckHTML(course, Number(number)));",
+        '',
+      ),
+  ],
+  [
     'The LRS canon index loses its definition links',
     'src/features/canons/canons.js',
     () =>

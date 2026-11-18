@@ -23,7 +23,28 @@
   const byChart = new Map();
   let lectureRouteOpen = false;
   const hashFor = (deck, offset) => '#lecture=' + keyOf(deck) + ':' + (offset + 1);
-  const formatSlides = (slides) => (slides.length === 1 ? 'Slide ' : 'Slides ') + slides.join(', ');
+  // A note's slides are numbered within its own file: the class deck, or the class's second
+  // deck (deck.supplement, e.g. LRS Class 4's War Powers problem) when the note says so.
+  const formatSlides = (item, deck) =>
+    (item.deck === 'supplement' && deck?.supplement ? deck.supplement.title + ' · ' : '') +
+    (item.slides.length === 1 ? 'Slide ' : 'Slides ') +
+    item.slides.join(', ');
+
+  // The syllabus title of a class, from the course records in the open graph, when there is one.
+  function syllabusTitle(course, number) {
+    const graph = typeof data === 'object' && data ? data : {};
+    if (course === 'contracts') return graph.corpus?.assignmentTitles?.[number] || '';
+    if (course === 'lrs') return graph.lrsCorpus?.classes?.find((c) => c.number === number)?.topic || '';
+    return '';
+  }
+  // Said plainly wherever a class without a slide deck is opened, instead of showing nothing.
+  function noDeckHTML(course, number) {
+    const title = syllabusTitle(course, number);
+    return `<section class="lecture-deck lecture-none" aria-label="Lecture notes">
+      <h3>No lecture slides on file</h3>
+      <p>No slides are on file for ${esc(names[course] + ' Class ' + number)}${title ? ' (' + esc(title) + ')' : ''}, so DKLA has no lecture notes for it. The class's readings and Atlas entries are unaffected.</p>
+    </section>`;
+  }
 
   function index(map, values, record) {
     for (const value of values) {
@@ -42,7 +63,7 @@
   }
 
   function topicHTML(deck, item, offset, isConflict = false) {
-    const label = formatSlides(item.slides);
+    const label = formatSlides(item, deck);
     return `<article class="lecture-note${isConflict ? ' lecture-conflict' : ''}" tabindex="-1" id="lecture-${keyOf(deck)}-${offset + 1}">
       <h4>${esc(item.heading)}</h4>
       <p>${esc(item.body)}</p>
@@ -58,6 +79,11 @@
     return `<section class="lecture-deck" aria-label="Lecture notes">
       <h3>From the lecture slides</h3>
       <p class="lecture-pinpoint" title="${esc(deck.file)}">${esc(sourceLabel)}</p>
+      ${
+        deck.supplement
+          ? `<p class="lecture-pinpoint" title="${esc(deck.supplement.file)}">${esc(deck.supplement.title + ' · ' + deck.supplement.slideCount + ' slides')}</p>`
+          : ''
+      }
       ${deck.topics.map((item, i) => topicHTML(deck, item, i)).join('')}
       ${deck.conflicts.length ? '<h3>Source differences and clarifications</h3>' : ''}
       ${deck.conflicts.map((item, i) => topicHTML(deck, item, deck.topics.length + i, true)).join('')}
@@ -76,7 +102,7 @@
     const deck = byKey.get(course + '-' + number);
     return deck
       ? `<details class="lecture-session" open><summary>Lecture notes · ${deck.topics.length} topics</summary>${classBody(deck)}</details>`
-      : '';
+      : `<details class="lecture-session" open><summary>Lecture notes · no slides on file</summary>${noDeckHTML(course, number)}</details>`;
   };
 
   function relatedHTML(records) {
@@ -88,7 +114,7 @@
             `<article class="lecture-note">
           <h4><a data-lecture-jump href="${hashFor(deck, offset)}">${esc(item.heading)}</a></h4>
           <p>${esc(item.body)}</p>
-          <span class="lecture-pinpoint">${names[deck.course]} Class ${deck.number} · ${esc(formatSlides(item.slides))}</span>
+          <span class="lecture-pinpoint">${names[deck.course]} Class ${deck.number} · ${esc(formatSlides(item, deck))}</span>
         </article>`,
         )
         .join('')}
@@ -115,8 +141,12 @@
       return;
     }
     const deck = byKey.get(match[1]);
-    if (!deck) return;
     lectureRouteOpen = true;
+    if (!deck) {
+      const [course, number] = match[1].split('-');
+      modal(names[course] + ' · Class ' + Number(number), noDeckHTML(course, Number(number)));
+      return;
+    }
     modal(names[deck.course] + ' · Class ' + deck.number, classBody(deck));
     const topic = match[2] && document.getElementById('lecture-' + match[1] + '-' + match[2]);
     if (topic) {

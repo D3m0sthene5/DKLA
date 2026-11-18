@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, readFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { caseLike, indexCorpus, statuteLike } from '../../lib/ask/retrieve.js';
 import { route } from '../../lib/ask/web.js';
@@ -46,6 +47,20 @@ const ask = JSON.parse(
   gunzipSync(readFileSync(new URL('../../work/build/ask-corpus.json.gz', import.meta.url))),
 );
 const lectureIds = new Set(ask.filter(({ type }) => type === 'lecture').map(({ id }) => id));
+// Deck files kept in the repository must still be the files the notes were written from.
+const sourceFile = (file) => new URL('../../added-sources/' + file, import.meta.url);
+let filesChecked = 0;
+const checkFile = (file, sha256) => {
+  if (!existsSync(sourceFile(file))) return;
+  assert.equal(
+    createHash('sha256')
+      .update(readFileSync(sourceFile(file)))
+      .digest('hex'),
+    sha256,
+    file,
+  );
+  filesChecked++;
+};
 const canonIds = new Set(ask.filter(({ type }) => type === 'canon').map(({ id }) => id));
 assert.deepEqual(canonIds, ids, 'Ask Dottie indexes every canon');
 const deckIds = new Set();
@@ -55,10 +70,23 @@ for (const deck of decks) {
   deckIds.add(id);
   assert.ok(deck.file.endsWith('.pptx') && deck.title && deck.slideCount > 0 && deck.topics.length);
   assert.match(deck.sha256, /^[a-f0-9]{64}$/);
+  checkFile(deck.file, deck.sha256);
+  if (deck.supplement) {
+    const { file, title, slideCount, sha256 } = deck.supplement;
+    assert.ok(file.endsWith('.pptx') && title && slideCount > 0, id + ' second deck');
+    assert.match(sha256, /^[a-f0-9]{64}$/);
+    checkFile(file, sha256);
+  }
+  assert.ok(!lectureIds.has(id + ':0'), id + ' has a deck, so no "no slides on file" record');
   for (const [offset, note] of [...deck.topics, ...deck.conflicts].entries()) {
     assert.ok(lectureIds.has(id + ':' + (offset + 1)), 'Ask Dottie indexes ' + id + ':' + (offset + 1));
-    assert.ok(note.heading && note.body && note.slides.length);
-    assert.ok(note.slides.every((n) => Number.isInteger(n) && n >= 1 && n <= deck.slideCount));
+    assert.ok(note.heading && note.body && note.slides.length, id + ':' + (offset + 1) + ' is pinpointed');
+    assert.ok(!note.deck || (note.deck === 'supplement' && deck.supplement), id + ' names a known deck');
+    const slideCount = note.deck === 'supplement' ? deck.supplement.slideCount : deck.slideCount;
+    assert.ok(
+      note.slides.every((n) => Number.isInteger(n) && n >= 1 && n <= slideCount),
+      id + ':' + (offset + 1) + ' cites slides that exist',
+    );
     if (note.authority) {
       const url = new URL(note.authority.url);
       assert.ok(url.protocol === 'https:' && !url.username && !url.password && note.authority.label);
@@ -73,13 +101,31 @@ for (const deck of decks) {
     );
   }
 }
+// Every class through LRS 22 and Contracts 24 has its deck; the rest of each 26-class syllabus has
+// none on file, and each of those classes has a record saying so.
 for (const [course, first, last] of [
-  ['lrs', 13, 22],
-  ['contracts', 15, 24],
+  ['lrs', 1, 22],
+  ['contracts', 1, 24],
 ])
-  for (let i = first; i <= last; i++) assert.ok(deckIds.has(course + '-' + i), 'lecture on file');
+  for (let i = first; i <= last; i++)
+    assert.ok(deckIds.has(course + '-' + i), course + '-' + i + ' lecture on file');
+assert.equal(decks.length, 46, '46 class decks (47 files: LRS Class 4 has two)');
+assert.equal(filesChecked, 27, 'the 27 deck files in added-sources match their notes');
+const contracts14 = decks.find((deck) => deck.course === 'contracts' && deck.number === 14);
+assert.ok(contracts14.topics.length >= 5, 'Contracts Class 14 has its notes');
+const noDeck = [...lectureIds].filter((id) => id.endsWith(':0')).sort();
+assert.deepEqual(
+  noDeck,
+  ['contracts-25:0', 'contracts-26:0', 'lrs-23:0', 'lrs-24:0', 'lrs-25:0', 'lrs-26:0'],
+  'classes without slides are named',
+);
 console.log(
-  decks.length + ' lecture decks linked to the Atlas, with ' + lectureIds.size + ' notes in Ask Dottie.',
+  decks.length +
+    ' lecture decks linked to the Atlas, with ' +
+    (lectureIds.size - noDeck.length) +
+    ' notes in Ask Dottie; ' +
+    noDeck.length +
+    ' classes say no slides are on file.',
 );
 for (const entry of entries)
   for (const source of entry.sources)
@@ -87,10 +133,28 @@ for (const entry of entries)
 const retrieve = indexCorpus(ask);
 assert.equal(statuteLike({ type: 'lecture', title: 'LRS Class 19 · § 553' }), false);
 assert.equal(caseLike({ type: 'lecture', title: 'Contracts Class 16 · Dalton v. ETS' }), false);
-for (const lesson of ['LRS Class 22', 'Contracts Class 20']) {
+for (const lesson of [
+  'LRS Class 22',
+  'Contracts Class 20',
+  'Contracts Class 14',
+  'LRS Class 4',
+  'Contracts Class 1',
+]) {
   const question = 'What did we discuss in ' + lesson + '?';
   const { sources, signals } = retrieve.explain(question);
-  assert.equal(sources[0].type, 'lecture');
-  assert.ok(sources[0].title.startsWith(lesson), 'retrieves the lecture for the right course');
+  assert.equal(sources[0].type, 'lecture', question);
+  assert.ok(
+    sources[0].title.startsWith(lesson + ' · '),
+    'retrieves the lecture for the right class: ' + question,
+  );
+  assert.ok(!sources[0].id.endsWith(':0'), lesson + ' answers from its slides');
   assert.equal(route(question, sources, { signals }).research, false, 'uses the slides without web search');
+}
+for (const lesson of ['Contracts Class 25', 'LRS Class 23']) {
+  const question = 'What did we discuss in ' + lesson + '?';
+  const { sources, signals } = retrieve.explain(question);
+  assert.equal(sources[0].type, 'lecture', question);
+  assert.ok(sources[0].id.endsWith(':0') && /No lecture slides on file/.test(sources[0].title), question);
+  assert.match(sources[0].text, /No lecture slides are on file/);
+  assert.equal(route(question, sources, { signals }).research, false, 'says no slides without web search');
 }

@@ -112,19 +112,50 @@ for (const entry of block('dklaCanonsData')) {
     entry.sources.slice(0, 7).map((source) => source.label + ', ' + source.pinpoint),
   );
 }
-for (const deck of block('dklaLecturesData')) {
-  const course = deck.course === 'lrs' ? 'LRS' : 'Contracts';
-  const lesson = course + ' Class ' + deck.number;
+const lectureDecks = block('dklaLecturesData');
+const courseName = (course) => (course === 'lrs' ? 'LRS' : 'Contracts');
+for (const deck of lectureDecks) {
+  const lesson = courseName(deck.course) + ' Class ' + deck.number;
   for (const [offset, item] of [...deck.topics, ...deck.conflicts].entries()) {
+    // Slide numbers belong to the file the note comes from: the class deck or its second deck.
+    const slides =
+      item.deck === 'supplement' && deck.supplement ? deck.supplement.title + ' deck, slides ' : 'Slides ';
     add(
       'lecture',
       deck.course + '-' + deck.number + ':' + (offset + 1),
       lesson + ' · ' + item.heading,
       'Course lecture slides',
       [lesson, deck.title],
-      [deck.title, deck.date, 'Slides ' + item.slides.join(', ') + '.', item.body],
+      [deck.title, deck.date, slides + item.slides.join(', ') + '.', item.body],
     );
   }
+}
+// A class on the syllabus with no deck on file gets one record, <course>-<n>:0, saying so. A
+// question about that class then finds this plain statement (and its lecture page opens the same
+// notice) instead of borrowing another class's notes or finding nothing.
+const decked = new Set(lectureDecks.map((deck) => deck.course + '-' + deck.number));
+const syllabusClasses = [
+  ...Object.entries(seed.corpus?.assignmentTitles || {}).map(([number, topic]) => [
+    'contracts',
+    Number(number),
+    topic,
+  ]),
+  ...(seed.lrsCorpus?.classes || []).map((c) => ['lrs', c.number, c.topic, c.date]),
+];
+for (const [course, number, topic, date] of syllabusClasses) {
+  if (decked.has(course + '-' + number)) continue;
+  const lesson = courseName(course) + ' Class ' + number;
+  add(
+    'lecture',
+    course + '-' + number + ':0',
+    lesson + ' · No lecture slides on file',
+    'No lecture slides on file',
+    [lesson, topic],
+    [
+      'No lecture slides are on file in DKLA for ' + lesson + ' (' + topic + (date ? ', ' + date : '') + ').',
+      'DKLA has the syllabus listing for this class but no record of what was shown or said in it, so it cannot say what the class discussed.',
+    ],
+  );
 }
 for (const a of authorities.entries) {
   add(
