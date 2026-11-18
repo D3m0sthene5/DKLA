@@ -1097,6 +1097,16 @@ const breakages = [
     'src/features/cold-call/reader.js',
     () => edit('src/features/cold-call/reader.js', 'install(data);\n        arrived();', 'install(data);'),
   ],
+  [
+    'Lazy data blocks are no longer verified before use',
+    'src/features/performance/data-loader.js',
+    () =>
+      edit(
+        'src/features/performance/data-loader.js',
+        "if (digest !== entry.hash) throw Error('Data block verification failed');",
+        '',
+      ),
+  ],
 ];
 
 const pass = () => {

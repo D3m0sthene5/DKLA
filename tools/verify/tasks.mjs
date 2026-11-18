@@ -138,6 +138,13 @@ export const tasks = [
     PACKAGED,
   ),
   step('public', 'hosted page parses', node('tools/source/check_html.cjs', 'dist/DKLA-v3.1.html'), PACKAGED),
+  // v3.1: each lazy data file in dist/ hashes to its manifest entry and is the portable block, byte for byte.
+  step(
+    'public',
+    'lazy data files equal the portable blocks',
+    node('tools/performance/check-lazy-files.mjs'),
+    PACKAGED,
+  ),
   step('features', 'LRS canon index and source references', node('tools/canons/check-data.mjs'), PACKAGED),
   { group: 'browser', name: 'preview server', server: true, needs: PACKAGED, weight: 0 },
 
@@ -164,6 +171,14 @@ export const tasks = [
   // v3.1: all 54 titles browsable, exact citations in search, word searches untouched, held text intact.
   step('browser', 'whole U.S. Code', node('tools/uscode/check-browser.mjs', '{page}'), SERVER),
   step('browser', 'public files and server', node('tools/verify/check_public.mjs', '{url}'), SERVER),
+  // v3.1: lazy data blocks fetched once, verified, cached, prefetched after boot, read offline, exported
+  // whole, and a tampered file refused.
+  step(
+    'browser',
+    'lazy data blocks: fetched, verified, prefetched, offline, tamper-proof',
+    node('tools/performance/check-lazy.mjs', '{page}'),
+    SERVER,
+  ),
   step(
     'browser',
     'LRS canons and related case navigation',

@@ -4,7 +4,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
-import { splitBriefs } from '../performance/package.mjs';
+import { hostedRelease } from '../performance/package.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const base = new URL(process.argv[2] || 'http://127.0.0.1:8766');
 if (!['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname)) throw Error('Loopback only');
@@ -13,7 +13,11 @@ const release = JSON.parse(await fs.readFile(path.join(root, 'work/build/version
 const config = JSON.parse(await fs.readFile(path.join(root, 'vercel.json'), 'utf8'));
 assert.equal(config.outputDirectory, 'dist', 'Vercel must publish only dist');
 const allow = JSON.parse(await fs.readFile(path.join(root, 'tools/public-files.json'), 'utf8'));
-const split = splitBriefs(await fs.readFile(path.join(root, 'work/build', release.file), 'utf8'));
+// The same transformation packaging applies: briefs and the lazy data blocks split out.
+const split = hostedRelease(await fs.readFile(path.join(root, 'work/build', release.file), 'utf8'), {
+  lazy: JSON.parse(await fs.readFile(path.join(root, 'tools/performance/lazy-blocks.json'), 'utf8')).blocks,
+  loader: await fs.readFile(path.join(root, 'src/features/performance/data-loader.js'), 'utf8'),
+});
 const generatedBriefs = new Map(split.files.map((f) => [f.path, f.bytes]));
 assert.equal(
   await fs.readFile(path.join(root, 'dist', release.file), 'utf8'),
@@ -45,7 +49,7 @@ for (const item of manifest.files) {
   );
   const bytes = await fs.readFile(path.join(root, 'dist', item.path));
   if (generatedBriefs.has(item.path))
-    assert.ok(bytes.equals(generatedBriefs.get(item.path)), 'Brief bytes drifted: ' + item.path);
+    assert.ok(bytes.equals(generatedBriefs.get(item.path)), 'Generated file bytes drifted: ' + item.path);
   assert.equal(
     createHash('sha256').update(bytes).digest('hex'),
     item.sha256,

@@ -307,7 +307,12 @@ try {
   release.next = null;
   assert.ok(release.served > 0, 'the earlier worker was installed');
   const d = await open(fourth);
-  assert.deepEqual(await cacheNames(c), ['dkla-' + PREVIOUS]);
+  // The page's own caches (full briefs, lazy data blocks: dkla-briefs-v1, dkla-data-v1) are not release copies.
+  const pageCaches = ['dkla-briefs-v1', 'dkla-data-v1'];
+  assert.deepEqual(
+    (await cacheNames(c)).filter((name) => !pageCaches.includes(name)),
+    ['dkla-' + PREVIOUS],
+  );
   for (const page of [c, d]) await page.evaluate(() => (window.__stillHere = true));
   await c.evaluate(async () => {
     await (await caches.open('dkla-v2.8-0123456789')).put('DKLA-v2.8.html', new Response('older release'));
@@ -332,6 +337,9 @@ try {
   );
   const kept = await cacheNames(c);
   assert.ok(kept.includes('dkla-briefs-v1'), 'the briefs cache is kept');
+  // A page with lazy data blocks stored them at boot (src/features/performance/data-loader.js).
+  if (await c.evaluate(() => (window.DKLAData?.ids?.() || []).length))
+    assert.ok(kept.includes('dkla-data-v1'), 'the lazy data cache is kept');
   await c.waitForTimeout(1500);
   for (const page of [c, d]) {
     assert.equal(await page.evaluate(() => window.__stillHere), true, 'no tab was reloaded');

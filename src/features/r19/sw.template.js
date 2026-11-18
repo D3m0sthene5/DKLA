@@ -21,7 +21,8 @@ const SHELL = [
   'icons/icon-512.png',
 ];
 // The offline copy of each release is named dkla-<version>-<build hash>. Only those are ever deleted: the
-// briefs cache (dkla-briefs-v1) and the analytics identity cache belong to the page and are kept.
+// briefs cache (dkla-briefs-v1), the lazy data cache (dkla-data-v1) and the analytics identity cache belong
+// to the page and are kept.
 const RELEASE_CACHE = /^dkla-[rv][0-9][0-9.]*-[0-9a-f]{6,64}$/;
 const ATLAS_FILE = /\/(?:DKLA-[rv][0-9.]+\.html)$/;
 const at = (path) => new URL(path, self.registration.scope).href;
@@ -179,6 +180,10 @@ self.addEventListener('fetch', (event) => {
     return;
   const isAtlas =
     path === '' || path === 'index.html' || path === ATLAS || /^DKLA-[rv][0-9.]+\.html$/.test(path);
+  // Everything else, the full briefs (assets/briefs/) and the lazy data blocks (assets/data/) included, is
+  // left to the network: the page verifies those files and keeps them in its own Cache Storage, which it
+  // reads first, also offline (src/features/performance/brief-loader.js and data-loader.js). Installing
+  // never downloads them, so an install stays one download of the page.
   if (!isAtlas && !SHELL.includes(path)) return;
   event.respondWith(
     (async () => {

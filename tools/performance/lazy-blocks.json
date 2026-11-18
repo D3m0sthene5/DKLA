@@ -1,14 +1,16 @@
 {
+  "purpose": "Data blocks the hosted page loads on demand (tools/performance/package.mjs splitBlocks). Add an id only after every reader of that block uses window.DKLAData (see src/features/performance/data-loader.js). The order is the background prefetch order: most likely needed first.",
   "blocks": [
     "dklaColdCallData",
     "dklaColdCallPlain",
     "dklaColdCallGlossary",
     "dklaGlossary",
-    "sourceTexts",
+    "dklaR21Audit",
     "civilArchive",
     "lrsArchive",
     "bookArchive",
     "suppArchive",
-    "textbookUpdate"
+    "textbookUpdate",
+    "sourceTexts"
   ]
 }
