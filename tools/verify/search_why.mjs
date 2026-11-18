@@ -318,7 +318,10 @@ try {
       await page.locator(STRIP).waitFor({ timeout: 2000 });
       await page.locator('#closeInspector').click();
       await page.waitForFunction(() => selected === null && document.getElementById('inspector').hidden);
-      if (phone) {
+      // v3.1: the wide reader leaves the map zoomed to fit a narrow strip, so after the reader closes the map
+      // may show the subject without its case cards. Then this is the call a card makes, as on the phone.
+      const card = page.locator('#geoCanvas [data-map-node="cp-garcia"]');
+      if (phone || !(await card.count())) {
         // The phone map is zoomed out to the course here and draws no case cards; this is the call a card makes.
         await page.evaluate(() => goNode('cp-garcia', false));
       } else {

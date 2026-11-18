@@ -294,14 +294,18 @@
   outline: 2px solid var(--v31-link);
 }
 .fc-trail-n {
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-faint);
 }
 .fc-trail li[aria-current] .fc-trail-n {
   color: var(--v31-here);
 }
 .fc-trail-q {
-  font: 400 14px/20px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-soft);
 }
 .fc-trail li[aria-current] .fc-trail-q {
@@ -309,7 +313,9 @@
   color: var(--v31-text);
 }
 .fc-trail-a {
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-link);
 }
 .fc-board:not(.fc-board-map) .fc-detail-sources {
@@ -352,11 +358,15 @@
   color: var(--fc-muted);
 }
 .fc-step-label {
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-here);
 }
 #flowchartDetail h3 {
-  font: 600 26px/32px var(--dkla-display, 'Exo 2'), sans-serif;
+  font:
+    600 26px/32px var(--dkla-display, 'Exo 2'),
+    sans-serif;
   margin: 6px 0 12px;
 }
 .fc-board-map #flowchartDetail h3 {
@@ -397,7 +407,9 @@
   border-radius: 10px;
   border: 1px solid var(--v31-line-strong);
   background: transparent;
-  font: 600 15px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 15px/21px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-text);
 }
 #dklaFlowcharts .fc-choices button:hover {
@@ -415,7 +427,9 @@
 .fc-destination {
   grid-column: 2;
   color: var(--v31-faint);
-  font: 500 13px/18px var(--dkla-interface, Inter), sans-serif;
+  font:
+    500 13px/18px var(--dkla-interface, Inter),
+    sans-serif;
 }
 .fc-own .fc-destination {
   color: var(--v31-here);
@@ -448,7 +462,9 @@
   padding: 12px 14px;
   border-radius: 10px;
   background: var(--v31-raised);
-  font: 600 14px/20px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 14px/20px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-link);
   text-decoration: none;
 }
@@ -456,7 +472,9 @@
   color: var(--v31-link-hover);
 }
 .fc-kind {
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted);
 }
 .fc-related li a {
@@ -775,5 +793,24 @@
   #dklaFlowcharts .fc-print-notes a {
     color: inherit;
     text-decoration: none;
+  }
+}
+/* v3.1 below landscape-tablet width: one column, sources and related charts inside the step. */
+@media (max-width: 1023px) {
+  .fc-board:not(.fc-board-map) {
+    display: block;
+    border: 0;
+    background: none;
+    min-height: 0;
+  }
+  .fc-board .fc-trail,
+  .fc-board .fc-side {
+    display: none;
+  }
+  .fc-board:not(.fc-board-map) .fc-detail-sources {
+    display: block;
+  }
+  #flowchartDetail {
+    padding: 16px;
   }
 }

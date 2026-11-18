@@ -158,7 +158,9 @@
   color: var(--v31-body);
 }
 #glossaryDialog .gl-def.gl-lead {
-  font: 500 19px/30px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    500 19px/30px var(--dkla-interface, Inter),
+    sans-serif !important;
   color: var(--v31-text);
 }
 #glossaryDialog .gl-examples {

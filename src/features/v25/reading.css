@@ -539,7 +539,9 @@
   border: 0;
   border-radius: var(--v31-radius);
   background: var(--v31-panel);
-  font: 400 18px/30px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    400 18px/30px var(--dkla-interface, Inter),
+    sans-serif !important;
   color: #eef2f5;
 }
 #inspector .v31-case > .takeaway::before {
@@ -554,7 +556,7 @@
   color: inherit;
 }
 /* Section headings */
-#inspector .v31-case > h2.v31-h {
+#inspector .v31-case > h3.v31-h {
   margin: 8px 0 16px;
   padding: 0;
   border: 0;
@@ -563,7 +565,7 @@
   color: var(--v31-text) !important;
   text-transform: none;
 }
-#inspector .v31-case > h2.v31-h:focus {
+#inspector .v31-case > h3.v31-h:focus {
   outline: none;
 }
 /* Cards: timelines and flowchart steps */
@@ -590,7 +592,9 @@
 }
 .v31-card-head h3 {
   margin: 2px 0 0 !important;
-  font: 600 16px/22px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    600 16px/22px var(--dkla-interface, Inter),
+    sans-serif !important;
   letter-spacing: 0 !important;
   color: var(--v31-text) !important;
 }
@@ -638,7 +642,9 @@
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid var(--v31-line-strong);
-  font: 400 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted) !important;
   text-decoration: none !important;
 }
@@ -676,7 +682,9 @@
   background: var(--v31-line-strong);
 }
 .v31-route-edge span {
-  font: 500 11px/14px var(--dkla-interface, Inter), sans-serif;
+  font:
+    500 11px/14px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-faint);
   text-align: center;
   display: -webkit-box;
@@ -697,12 +705,16 @@
   margin: 0;
 }
 .v31-steps dt {
-  font: 600 14px/22px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 14px/22px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-here);
 }
 .v31-steps dd {
   margin: 0;
-  font: 400 14px/22px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/22px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-soft);
 }
 .v31-steps dd strong {
@@ -741,7 +753,9 @@
   display: flex;
   gap: 12px;
   margin: 0 0 8px;
-  font: 600 16px/22px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    600 16px/22px var(--dkla-interface, Inter),
+    sans-serif !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
   color: var(--v31-text) !important;
@@ -801,7 +815,9 @@
 }
 #inspector .v31-case .study-connection .connection-destination {
   all: unset;
-  font: 600 15px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 15px/21px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-link);
   cursor: pointer;
 }
@@ -814,7 +830,9 @@
 }
 #inspector .v31-case .study-connection p {
   margin: 0;
-  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif !important;
   color: var(--v31-soft) !important;
 }
 #inspector .v31-case .study-connection .text-button {
@@ -888,7 +906,7 @@
   background: none;
   box-shadow: none;
 }
-#inspector .v31-case > h2.v31-h[data-v31-h='sources'] {
+#inspector .v31-case > h3.v31-h[data-v31-h='sources'] {
   margin-bottom: 0;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--v31-line);
@@ -944,7 +962,9 @@
 }
 #inspector .v31-case .v31-notes .note-text p {
   margin: 0 0 10px;
-  font: 400 14px/22px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/22px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-soft);
 }
 #inspector .v31-case .authority-context > div,
@@ -1034,7 +1054,9 @@
 }
 #inspector .v31-case .v31-tl .v31-tl-q {
   margin: -8px 0 0;
-  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif !important;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif !important;
   color: var(--v31-muted) !important;
 }
 #inspector .v31-case .v31-tl,
@@ -1123,4 +1145,29 @@
 }
 #inspector .reader-body:not(.v31-case) a {
   color: var(--v31-link);
+}
+/* Below landscape-tablet width (not a target layout, but kept usable): no rail, one column. */
+@media (max-width: 1023px) {
+  #inspector .reader-body.v31-case {
+    padding: 24px 20px 80px;
+  }
+  .reader-body.v31-case > .v31-rail {
+    display: none;
+  }
+  #inspector .v31-case > .r6-connections {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .v31-route {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .v31-route-edge {
+    display: none;
+  }
+  .v31-tl-step {
+    grid-template-columns: 52px minmax(0, 1fr);
+  }
+  .v31-tl-turn {
+    grid-column: 2;
+  }
 }

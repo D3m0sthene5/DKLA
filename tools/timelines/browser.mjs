@@ -100,8 +100,10 @@ try {
     });
     const preview = page.locator('#inspector .dkla-timeline[data-r21="consideration"]');
     await preview.waitFor();
-    const sequence = preview.locator('.r31-preview-track');
-    await expect(sequence.locator('.r21-step').first()).toBeVisible();
+    // v3.1 preview: an axis of every entry, then this entry and its neighbours.
+    await expect(preview.locator('.v31-axis .v31-dot.v31-here')).toHaveCount(1);
+    const sequence = preview.locator('.v31-tl-rows');
+    await expect(sequence.locator('.v31-tl-step').first()).toBeVisible();
     await expect(sequence.locator('li')).toHaveCount(3);
     await expect(sequence.locator('[aria-current="step"]')).toContainText('Hamer');
     assert.equal(await sequence.evaluate((e) => e.scrollWidth > e.clientWidth + 1), false);

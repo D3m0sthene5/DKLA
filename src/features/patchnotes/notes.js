@@ -22,7 +22,9 @@ window.DKLAPatchNotes = {
           'Dictionary definitions read as a lead sentence, short paragraphs and a list of examples.',
           'The full timeline marks the case you came from.',
         ],
-        'Removed': ['The duplicate “Full brief” and “Sources” drawers, and the Georgia and system fonts in the reader.'],
+        'Removed': [
+          'The duplicate “Full brief” and “Sources” drawers, and the Georgia and system fonts in the reader.',
+        ],
       },
     },
     {

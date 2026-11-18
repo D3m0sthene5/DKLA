@@ -3,7 +3,38 @@
 Written at the end of a session so the next one can pick up cleanly.
 Update or replace this file when the state changes.
 
-## Latest (12 November 2026, v3.0)
+## Latest (18 November 2026, v3.1)
+
+Read this first; the sections below it are older.
+
+- **v3.1, "The Reading Room Update"** (served file `DKLA-v3.1.html`; `DKLA-v3.0.html` and every
+  older address redirect). Built from the owner-approved design audit (Design canvas "DKLA design
+  audit — before and after", 18 November 2026). What changed:
+  - **Design rules**: `src/features/v31/tokens.css` holds the five text styles, the colour roles
+    (blue = clickable, course colours = which course, movement colours = how a case moved the rule)
+    and the reader width (`--reader` widens to `clamp(560px, 100vw − 360px, 1180px)` at ≥1024 px;
+    the map already fits the selected entry into the space left: `readerWidth()` in studyCode.js).
+  - **Case page**: `reading.js` `caseOrder()` owns one order (rail, header, the rule, "Where this
+    case sits", the brief, connections, unknown blocks, sources drawers, study). It reorders only
+    when the order differs and at most 8 times a frame, so modules cannot fight over a block. The
+    old "timelines after the summary" rule was removed because it fought the new heading (that
+    loop froze the page in testing; `tools/verify/break.mjs` now re-creates it as a breakage).
+    Notes move into a "Case notes" drawer; the section links are hidden behind the rail. Styles:
+    the v3.1 sections at the end of `src/features/v25/reading.css`.
+  - **Timelines**: `timelines.js` `panelHTML()` draws an axis of every entry (position is 55% date,
+    45% order) and the neighbours with notes; the 12 moves map to 5 families (`FAMILY`). The full
+    view marks the open entry (`v31-here`). Styles at the end of `timelines.css`.
+  - **Flowcharts**: `flowcharts.js` `stepsCiting()`/`pathTo()` give each entry the steps that cite
+    it and the path to them; the case card is `chartStepsHTML()`. Charts open at a step with
+    `#flowchart=K-16&step=c&from=citoh`; the walkthrough has a path column, the decision and typed
+    sources, and "Back to" the case.
+  - **Dictionary**: `dklaR12Glossary.js` `defHTML()` splits a definition into a lead sentence,
+    paragraphs of up to two sentences and a list of its " - " examples, keeping every word.
+  - **Check**: `tools/v31/check-case.mjs` ("v3.1 case page" in `pnpm verify`).
+- **Still to do on the owner's PC**: `pnpm views:update` (the case, timeline, flowchart and
+  dictionary pictures all changed).
+
+## Earlier (12 November 2026, v3.0)
 
 Read this first; the sections below it are older.
 

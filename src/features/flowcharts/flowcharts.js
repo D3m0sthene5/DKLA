@@ -453,7 +453,7 @@
               .join('')}</ol>`
           : ''
       }
-      <div class="fc-detail-sources">${sourcesHTML(node)}</div>`;
+      <div class="fc-detail-sources">${sourcesHTML(node)}${relatedHTML(node.related)}${relatedHTML(active.chart.related)}</div>`;
     const side = dialog.querySelector('.fc-side');
     if (side)
       side.innerHTML = `${sourcesHTML(node)}${relatedHTML(node.related)}${relatedHTML(active.chart.related)}`;
@@ -468,7 +468,9 @@
             ? `<li aria-current="step"><span class="fc-trail-n">${at.number} · now</span><span class="fc-trail-q">${esc(at.label)}</span></li>`
             : `<li><button type="button" data-fc-trail="${i}"><span class="fc-trail-n">${at.number}</span><span class="fc-trail-q">${esc(at.label)}</span>${taken ? `<span class="fc-trail-a">→ ${esc(taken)}</span>` : ''}</button></li>`;
         })
-        .join('')}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'step' : 'one of steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
+        .join(
+          '',
+        )}</ol>${endings.length ? `<p class="fc-trail-next">Then ${endings.length === 1 ? 'step' : 'one of steps'} ${endings.map((n) => n.number).join(', ')}</p>` : ''}`;
     }
     dialog.querySelector('[data-flowcharts-back]').disabled = trail.length < 2;
     dialog.querySelector('[data-flowcharts-reset]').disabled =
@@ -717,12 +719,13 @@
     };
     return `<section class="v31-chart-steps" aria-label="Flowchart steps">${all.map(card).join('')}${all.length > 2 ? `<button type="button" class="v31-more" data-v31-more-charts>Show ${all.length - 2} more flowchart${all.length === 3 ? '' : 's'}</button>` : ''}</section>`;
   }
-  inspector?.addEventListener('click', (event) => {
-    const more = event.target.closest('[data-v31-more-charts]');
-    if (!more) return;
-    more.closest('.v31-chart-steps').classList.add('v31-all');
-    more.remove();
-  });
+  if (inspector?.addEventListener)
+    inspector.addEventListener('click', (event) => {
+      const more = event.target.closest('[data-v31-more-charts]');
+      if (!more) return;
+      more.closest('.v31-chart-steps').classList.add('v31-all');
+      more.remove();
+    });
 
   window.addEventListener('hashchange', syncRoute);
   syncRoute();

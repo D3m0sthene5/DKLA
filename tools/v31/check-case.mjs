@@ -65,7 +65,7 @@ const layout = await page.evaluate(() => {
         ? 'header'
         : el.matches('.takeaway')
           ? 'rule'
-          : el.matches('h2.v31-h')
+          : el.matches('h3.v31-h')
             ? 'h:' + el.dataset.v31H
             : el.matches('.v28-case-timelines')
               ? 'timeline'
@@ -92,10 +92,19 @@ const layout = await page.evaluate(() => {
     dots: body.querySelectorAll('.v31-tl .v31-dot').length,
     here: body.querySelectorAll('.v31-tl .v31-dot.v31-here').length,
     chartMeta: body.querySelector('.v31-chart .v31-meta')?.textContent,
-    fonts: [...new Set([...body.querySelectorAll('h2,h3,p,strong,button')].map((el) => getComputedStyle(el).fontFamily.split(',')[0].replace(/['"]/g, '')))],
+    fonts: [
+      ...new Set(
+        [...body.querySelectorAll('h2,h3,p,strong,button')].map((el) =>
+          getComputedStyle(el).fontFamily.split(',')[0].replace(/['"]/g, ''),
+        ),
+      ),
+    ],
   };
 });
-assert.ok(layout.width > 800 && layout.left >= 230, `wider reader with a map strip (${layout.width} at ${layout.left})`);
+assert.ok(
+  layout.width > 800 && layout.left >= 230,
+  `wider reader with a map strip (${layout.width} at ${layout.left})`,
+);
 assert.deepEqual(layout.order, [
   'rail',
   'header',
@@ -130,7 +139,10 @@ assert.deepEqual(layout.rail, [
 assert.equal(layout.dots, 6, 'all six timeline entries on the axis');
 assert.equal(layout.here, 1, 'this case marked on the axis');
 assert.match(layout.chartMeta, /K-16 · steps 3, 8 of 13/);
-assert.ok(!layout.fonts.some((f) => /Georgia|apple-system|system-ui/i.test(f)), `reader fonts: ${layout.fonts}`);
+assert.ok(
+  !layout.fonts.some((f) => /Georgia|apple-system|system-ui/i.test(f)),
+  `reader fonts: ${layout.fonts}`,
+);
 
 // The rail moves the page.
 const before = await page.evaluate(() => document.getElementById('inspector').scrollTop);
@@ -147,7 +159,9 @@ await page.locator('#r21Timelines[open]').waitFor({ state: 'detached' });
 // The flowchart opens at step 3 with the path walked and a way back.
 await body.locator('.v31-chart .v31-open').first().click();
 await page.locator('dialog#dklaFlowcharts[open]').waitFor();
-await page.locator('#flowchartDetail h3', { hasText: 'Did the offeror assent or did both sides perform?' }).waitFor();
+await page
+  .locator('#flowchartDetail h3', { hasText: 'Did the offeror assent or did both sides perform?' })
+  .waitFor();
 assert.equal(await page.locator('.fc-trail li').count(), 3, 'steps 1, 2 and 3 in the path');
 assert.equal(await page.locator('#flowchartDetail .fc-own').count(), 1, 'the branch Itoh takes is marked');
 assert.match(await page.locator('.fc-side .fc-sources').innerText(), /Case\s*C\. Itoh/);

@@ -53,6 +53,26 @@ class El {
     p.children.splice(p.children.indexOf(this) + 1, 0, c);
     c.parentElement = p;
   }
+  append(...nodes) {
+    nodes.forEach((n) => this.appendChild(n));
+  }
+  prepend(c) {
+    c.remove();
+    this.children.unshift(c);
+    c.parentElement = this;
+  }
+  replaceChildren(...nodes) {
+    this.children.forEach((c) => (c.parentElement = null));
+    this.children = [];
+    this.append(...nodes);
+  }
+  setAttribute(name, value) {
+    (this.attributes ||= {})[name] = String(value);
+  }
+  removeAttribute(name) {
+    if (this.attributes) delete this.attributes[name];
+  }
+  addEventListener() {}
   insertBefore(c, anchor) {
     c.remove();
     this.children.splice(this.children.indexOf(anchor), 0, c);
@@ -75,9 +95,10 @@ class El {
     const tag = s.match(/^[a-z][a-z0-9]*/i);
     if (tag && this.tagName !== tag[0].toUpperCase()) return false;
     for (const c of s.matchAll(/\.([\w-]+)/g)) if (!this.classes.has(c[1])) return false;
-    for (const a of s.matchAll(/\[data-([\w-]+)\]/g)) {
+    for (const a of s.matchAll(/\[data-([\w-]+)(?:="([^"]*)")?\]/g)) {
       const key = a[1].replace(/-([a-z])/g, (_, x) => x.toUpperCase());
       if (!(key in this.dataset)) return false;
+      if (a[2] !== undefined && this.dataset[key] !== a[2]) return false;
     }
     return true;
   }
@@ -208,7 +229,10 @@ assert.equal(body.querySelector('.v25-study-tools'), null);
 assert.equal(body.querySelector('.v25-term-details'), null);
 assert.equal(timeline.parentElement.className, 'v28-case-timelines');
 assert.equal(timeline.parentElement.parentElement, body);
-assert.equal(intro.nextElementSibling, timeline.parentElement);
+// v3.1: the summary, then the "Where this case sits" heading, then the timelines; the rail comes first.
+assert.equal(intro.nextElementSibling.dataset.v31H, 'where');
+assert.equal(intro.nextElementSibling.nextElementSibling, timeline.parentElement);
+assert.equal(body.children[0].className, 'v31-rail');
 assert.equal(secondTimeline.parentElement, timeline.parentElement);
 assert.deepEqual(timeline.parentElement.children, [timeline, secondTimeline]);
 assert.equal(track.children[0].textContent, 'Authored timeline step');

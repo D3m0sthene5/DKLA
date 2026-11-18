@@ -645,7 +645,9 @@
 }
 .v31-tl .v31-tl-q {
   margin: -6px 0 0;
-  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted);
 }
 .v31-axis {
@@ -767,11 +769,12 @@
 }
 div.v31-tl-step {
   cursor: default;
-  margin: 0 -14px;
-  width: calc(100% + 28px);
-  padding: 12px 14px;
-  border-radius: 10px;
+  border-radius: 2px;
   background: var(--v31-here-bg);
+  /* The tint reaches 14 px past the text on both sides without widening the list. */
+  box-shadow:
+    -14px 0 0 var(--v31-here-bg),
+    14px 0 0 var(--v31-here-bg);
 }
 button.v31-tl-step:hover strong {
   color: var(--v31-link-hover);
@@ -780,7 +783,9 @@ button.v31-tl-step:focus-visible {
   outline: 2px solid var(--v31-link);
 }
 .v31-tl-year {
-  font: 600 14px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 14px/21px var(--dkla-interface, Inter),
+    sans-serif;
   font-variant-numeric: tabular-nums;
   color: var(--v31-muted);
 }
@@ -800,7 +805,9 @@ div.v31-tl-step .v31-tl-year small {
   min-width: 0;
 }
 .v31-tl-main strong {
-  font: 600 15px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 15px/21px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-link);
 }
 div.v31-tl-step .v31-tl-main strong {
@@ -808,11 +815,15 @@ div.v31-tl-step .v31-tl-main strong {
 }
 .v31-tl-main strong small {
   margin-left: 6px;
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-here);
 }
 .v31-tl-note {
-  font: 400 14px/21px var(--dkla-interface, Inter), sans-serif;
+  font:
+    400 14px/21px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-muted);
 }
 div.v31-tl-step .v31-tl-note {
@@ -821,7 +832,9 @@ div.v31-tl-step .v31-tl-note {
 /* Movement families: shape + word + colour (preview turn labels and the full view's) */
 .v31-tl-turn,
 #r21Timelines .r21-turn[class*='v31-fam-'] {
-  font: 600 12px/18px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/18px var(--dkla-interface, Inter),
+    sans-serif;
   font-style: normal;
   color: var(--v31-steady);
   background: none;
@@ -905,7 +918,9 @@ div.v31-tl-step .v31-tl-turn {
 }
 #r21Timelines .v31-here-label {
   margin-left: 8px;
-  font: 600 12px/16px var(--dkla-interface, Inter), sans-serif;
+  font:
+    600 12px/16px var(--dkla-interface, Inter),
+    sans-serif;
   color: var(--v31-here);
 }
 #r21Timelines h2,

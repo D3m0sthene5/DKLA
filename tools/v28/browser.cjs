@@ -18,7 +18,12 @@ const timelinesFirst = async (page) => {
     const timelines = body.querySelector(':scope > .v28-case-timelines');
     const account = body.querySelector(':scope > .case-box');
     return {
-      immediatelyAfterSummary: !!summary && summary.nextElementSibling === timelines,
+      // v3.1: the short summary, then the "Where this case sits" heading, then the timelines.
+      immediatelyAfterSummary:
+        !!summary &&
+        (summary.nextElementSibling === timelines ||
+          (summary.nextElementSibling?.matches('h3.v31-h[data-v31-h="where"]') &&
+            summary.nextElementSibling.nextElementSibling === timelines)),
       beforeDetailedBrief:
         !!timelines && !!(timelines.compareDocumentPosition(account) & Node.DOCUMENT_POSITION_FOLLOWING),
       count: timelines?.querySelectorAll('.dkla-timeline').length || 0,
@@ -60,7 +65,7 @@ const timelinesFirst = async (page) => {
       for (const id of ['erie', 'erie-rules']) {
         const region = page.locator(`#inspector .dkla-timeline[data-r21="${id}"]`);
         assert.match(await region.locator('[aria-current="step"]').innerText(), /Walker/);
-        assert.ok((await region.locator('.r31-preview-track > li').count()) >= 2);
+        assert.ok((await region.locator('.v31-tl-rows > li').count()) >= 2);
       }
       console.log('OPEN source ' + viewport.width);
       await page.getByRole('button', { name: 'Original source', exact: true }).click();

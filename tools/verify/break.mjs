@@ -211,7 +211,7 @@ const breakages = [
     () =>
       edit(
         'src/features/v25/reading.js',
-        "    // caseOrder() places the timelines under \"Where this case sits\".\n",
+        '    // caseOrder() places the timelines under "Where this case sits".\n',
         "    if (group && body.querySelector(':scope > .takeaway')?.nextElementSibling !== group) body.querySelector(':scope > .takeaway')?.after(group);\n",
       ),
   ],

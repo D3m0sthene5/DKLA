@@ -177,9 +177,9 @@
      section links give way to the rail. Blocks this list does not know stay between connections
      and sources. The order is applied only when it differs, so the observers settle. */
   function heading(body, key, text) {
-    let h = body.querySelector(`:scope > h2.v31-h[data-v31-h="${key}"]`);
+    let h = body.querySelector(`:scope > h3.v31-h[data-v31-h="${key}"]`);
     if (!h) {
-      h = element('h2', 'v31-h', text);
+      h = element('h3', 'v31-h', text);
       h.dataset.v31H = key;
       h.tabIndex = -1;
     }
@@ -187,7 +187,9 @@
   }
   function notesDrawer(body) {
     let drawer = body.querySelector(':scope > .v31-notes');
-    const label = [...body.querySelectorAll(':scope > h3')].find((h) => /^Notes$/i.test(h.textContent.trim()));
+    const label = [...body.querySelectorAll(':scope > h3')].find((h) =>
+      /^Notes$/i.test(h.textContent.trim()),
+    );
     const text = label?.nextElementSibling?.classList.contains('note-text') ? label.nextElementSibling : null;
     if (!text) return drawer;
     drawer ||= element('details', 'v25-disclosure v31-notes');
@@ -236,7 +238,11 @@
     if (wanted.length !== now.length || wanted.some((node, i) => node !== now[i])) {
       // A guard against two modules fighting over one block: at most a few reorders per frame.
       if (++reorders > 8) return;
-      if (reorders === 1) requestAnimationFrame(() => (reorders = 0));
+      if (reorders === 1) {
+        const later = globalThis.requestAnimationFrame || globalThis.setTimeout;
+        if (later) later(() => (reorders = 0));
+        else reorders = 0;
+      }
       body.append(...wanted);
     }
     rail(body);
@@ -255,7 +261,7 @@
       add(`${i + 1} ${BRIEF_SHORT[text] || text}`, h);
     });
     add('Connections', body.querySelector(':scope > .r6-connections'));
-    add('Sources', body.querySelector(':scope > h2.v31-h[data-v31-h="sources"]'));
+    add('Sources', body.querySelector(':scope > h3.v31-h[data-v31-h="sources"]'));
     add('Study', body.querySelector(':scope > .r18-recall'));
     return list;
   }
@@ -299,15 +305,22 @@
       else button.removeAttribute('aria-current');
     });
   }
-  inspector?.addEventListener('scroll', markPlace, { passive: true });
-  inspector?.addEventListener('click', (event) => {
-    const button = event.target.closest('.v31-rail [data-v31-place]');
-    if (!button) return;
-    const target = button.closest('.v31-rail').v31Targets?.[Number(button.dataset.v31Place)];
-    if (!target?.isConnected) return;
-    const offset = (inspector.querySelector('.reader-top')?.offsetHeight || 0) + 16;
-    inspector.scrollTo({ top: inspector.scrollTop + target.getBoundingClientRect().top - inspector.getBoundingClientRect().top - offset });
-  });
+  if (inspector?.addEventListener) inspector.addEventListener('scroll', markPlace, { passive: true });
+  if (inspector?.addEventListener)
+    inspector.addEventListener('click', (event) => {
+      const button = event.target.closest('.v31-rail [data-v31-place]');
+      if (!button) return;
+      const target = button.closest('.v31-rail').v31Targets?.[Number(button.dataset.v31Place)];
+      if (!target?.isConnected) return;
+      const offset = (inspector.querySelector('.reader-top')?.offsetHeight || 0) + 16;
+      inspector.scrollTo({
+        top:
+          inspector.scrollTop +
+          target.getBoundingClientRect().top -
+          inspector.getBoundingClientRect().top -
+          offset,
+      });
+    });
   function supportingCase() {
     if (!supporting) return;
     const line = supporting.querySelector('.r19-line');

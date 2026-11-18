@@ -26,8 +26,8 @@ APPROVED = Path(__file__).with_name('data-blocks.json')
 BUILT = ROOT / 'work/build/DKLA-v3.1.html'
 # The first changelog entry of the current release; any other change to the release record is a data change.
 sys.path.insert(0, str(ROOT / 'tools/r19'))
-from assemble import CHANGELOG_V30
-RELEASE_ENTRY = CHANGELOG_V30
+from assemble import CHANGELOG_V31
+RELEASE_ENTRY = CHANGELOG_V31
 
 
 def executable(attributes: str) -> bool:

@@ -28,26 +28,37 @@
   ];
   /* v3.1: a definition reads as a lead sentence, then paragraphs, with its " - " examples as a list.
    Every word of the source text is kept; only the layout changes. */
-function defHTML(text) {
-  const clean = String(text || '').replace(/([a-z)])\.([A-Z])/g, '$1. $2');
-  const parts = clean.split(/(?<=[:;])\s+-\s+(?=\S)/);
-  const sentences = (value) => value.match(/[^.!?]+(?:[.!?]+(?=\s+[A-Z(“"]|$)|$)/g) || [value];
-  let intro = parts.shift();
-  let after = '';
-  if (parts.length) {
-    const last = parts.pop();
-    const [first, ...rest] = sentences(last);
-    parts.push(first.trim());
-    after = rest.join('').trim();
+  function defHTML(text) {
+    const clean = String(text || '').replace(/([a-z)])\.([A-Z])/g, '$1. $2');
+    const parts = clean.split(/(?<=[:;])\s+-\s+(?=\S)/);
+    const sentences = (value) => value.match(/[^.!?]+(?:[.!?]+(?=\s+[A-Z(“"]|$)|$)/g) || [value];
+    let intro = parts.shift();
+    let after = '';
+    if (parts.length) {
+      const last = parts.pop();
+      const [first, ...rest] = sentences(last);
+      parts.push(first.trim());
+      after = rest.join('').trim();
+    }
+    const lead = sentences(intro);
+    const head = lead.shift().trim();
+    // At most two sentences to a paragraph.
+    const paragraphs = [];
+    for (let i = 0; i < lead.length; i += 2)
+      paragraphs.push(
+        lead
+          .slice(i, i + 2)
+          .join('')
+          .trim(),
+      );
+    return `<p class="gl-def gl-lead">${E(head)}</p>${paragraphs
+      .filter(Boolean)
+      .map((p) => `<p class="gl-def">${E(p)}</p>`)
+      .join(
+        '',
+      )}${parts.length ? `<ul class="gl-examples">${parts.map((item) => `<li>${E(item.replace(/[;]\s*$/, ''))}</li>`).join('')}</ul>` : ''}${after ? `<p class="gl-def">${E(after)}</p>` : ''}`;
   }
-  const lead = sentences(intro);
-  const head = lead.shift().trim();
-  // At most two sentences to a paragraph.
-  const paragraphs = [];
-  for (let i = 0; i < lead.length; i += 2) paragraphs.push(lead.slice(i, i + 2).join('').trim());
-  return `<p class="gl-def gl-lead">${E(head)}</p>${paragraphs.filter(Boolean).map((p) => `<p class="gl-def">${E(p)}</p>`).join('')}${parts.length ? `<ul class="gl-examples">${parts.map((item) => `<li>${E(item.replace(/[;]\s*$/, ''))}</li>`).join('')}</ul>` : ''}${after ? `<p class="gl-def">${E(after)}</p>` : ''}`;
-}
-function usedByHTML(slug) {
+  function usedByHTML(slug) {
     const ids = usedBy.get(slug) || [];
     if (!ids.length) return '';
     const own = (G.titled || {})[slug] || [];

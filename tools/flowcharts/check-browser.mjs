@@ -114,7 +114,7 @@ try {
   await expect(activeHeading(page)).toHaveText('Is the transaction governed by Article 2?');
   await branch(page, 'b').click();
   await expect(activeHeading(page)).toHaveText('Do the writings establish an agreement?');
-  const dorton = page.locator('#flowchartDetail a[data-flowchart-source][href="#node=dorton"]');
+  const dorton = page.locator('dialog#dklaFlowcharts .fc-side a[data-flowchart-source][href="#node=dorton"]'); // v3.1: sources sit beside the step;
   await expect(dorton).toHaveText(/Dorton/);
   await dorton.click();
   await expect(page).toHaveURL(routeFor('#node=dorton'));
