@@ -56,6 +56,8 @@ export const tasks = [
   step('features', 'reading panel', node('tools/v25/reading_check.cjs')),
   step('features', 'geography module', node('tools/v25/geography_check.cjs')),
   step('features', 'ratings sync', test('tools/sync/sync.test.mjs')),
+  // The splash picker: 10,000 simulated clicks per list size (reads src/features/splash/splash.js only).
+  step('features', 'splash lines do not repeat', test('tools/splash/pick.test.mjs')),
   step('public', 'old addresses redirect', node('tools/verify/check_routes.mjs')),
   step('public', 'configuration files are valid', node('tools/verify/check_config.mjs')),
   // Code stays readable: run `pnpm format` if this fails.

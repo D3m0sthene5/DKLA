@@ -155,6 +155,20 @@ try {
     assert.ok(state.animations.includes('pop'), 'with a pop');
     assert.equal(JSON.parse(state.saved).last, state.lines.indexOf(state.line));
 
+    // Clicking on through 30 lines never brings one back (owner, 18 November 2026: a line just seen should
+    // not come up again for about 100 clicks), and the browser remembers them in order.
+    const run = [before, state.line];
+    for (let i = 0; i < 28; i++) {
+      await tap(page);
+      run.push((await look(page)).line);
+    }
+    const twice = run.filter((line, i) => run.indexOf(line) !== i);
+    assert.deepEqual(twice, [], `30 clicks through, no line came back: ${run.length} lines`);
+    state = await look(page);
+    const memory = JSON.parse(state.saved);
+    assert.deepEqual(memory.recent.slice(-run.length), run, 'the last lines shown are remembered by text');
+    for (const line of run) assert.ok(memory.seen[line] >= 1, `"${line}" counted`);
+
     // It follows the logo when the window changes size.
     await page.setViewportSize({ width: 1200, height: 820 });
     await expect.poll(async () => (await look(page)).logo.right).not.toBe(state.logo.right);
@@ -220,6 +234,28 @@ try {
     state = await look(page);
     assert.deepEqual(state.animations, [], 'no pop under reduced motion');
     assert.deepEqual(errors, []);
+    await context.close();
+  }
+
+  // Storage blocked (some private windows): the splash still shows and still never repeats a line.
+  {
+    const { context, page } = await open({ width: 1440, height: 900 });
+    await context.addInitScript(() => {
+      for (const name of ['getItem', 'setItem'])
+        Storage.prototype[name] = function () {
+          throw new DOMException('blocked', 'SecurityError');
+        };
+    });
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 90_000 });
+    await page.locator('html.dkla-boot-ready').waitFor({ timeout: 90_000 });
+    await shown(page);
+    const text = () => page.locator('.dkla-splash-text').textContent();
+    const run = [await text()];
+    for (let i = 0; i < 15; i++) {
+      await tap(page);
+      run.push(await text());
+    }
+    assert.equal(new Set(run).size, run.length, `storage blocked: 16 lines, none twice (${run.join(' | ')})`);
     await context.close();
   }
 
