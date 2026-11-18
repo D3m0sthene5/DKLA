@@ -50,6 +50,14 @@ const sample = audit
       .find(([, field, , to]) => !field.includes('.') && typeof to === 'string')
   : null;
 const ok = (message) => console.log('  ok  ' + message);
+// Background downloads may still be in flight when a context closes; their handlers then have nothing to answer.
+const quietly = (handler) => async (route) => {
+  try {
+    await handler(route);
+  } catch {
+    /* the context closed */
+  }
+};
 const errors = [];
 const browser = await chromium.launch();
 
@@ -228,12 +236,15 @@ try {
   console.log('4. background prefetch');
   const second = await context({ serviceWorkers: 'block' });
   const failed = new Set();
-  await second.route('**/assets/data/**', (route) => {
-    const url = route.request().url();
-    if (failed.has(url)) return route.continue();
-    failed.add(url);
-    return route.fulfill({ status: 503, body: 'not yet' });
-  });
+  await second.route(
+    '**/assets/data/**',
+    quietly((route) => {
+      const url = route.request().url();
+      if (failed.has(url)) return route.continue();
+      failed.add(url);
+      return route.fulfill({ status: 503, body: 'not yet' });
+    }),
+  );
   const b = await open(second);
   await allLoaded(b.page);
   const timing = await b.page.evaluate(() => ({
@@ -260,7 +271,10 @@ try {
   const third = await context({ serviceWorkers: 'block', acceptDownloads: true });
   const held = [];
   let hold = true;
-  await third.route('**/assets/data/**', (route) => (hold ? held.push(route) : route.continue()));
+  await third.route(
+    '**/assets/data/**',
+    quietly((route) => (hold ? held.push(route) : route.continue())),
+  );
   const c = await open(third);
   assert.equal(await c.page.evaluate((id) => DKLAData.isLazy(id), ids[0]), true, 'the block has not arrived');
   const saving = c.page.evaluate(async (ids) => {
@@ -295,12 +309,15 @@ try {
   // 6. A tampered file from the server.
   console.log('6. a tampered file');
   const fourth = await context({ serviceWorkers: 'block' });
-  await fourth.route('**/assets/data/**', async (route) => {
-    const response = await route.fetch();
-    const bytes = Buffer.from(await response.body());
-    bytes[bytes.length >> 1] ^= 1; // same size, one bit changed
-    return route.fulfill({ response, body: bytes });
-  });
+  await fourth.route(
+    '**/assets/data/**',
+    quietly(async (route) => {
+      const response = await route.fetch();
+      const bytes = Buffer.from(await response.body());
+      bytes[bytes.length >> 1] ^= 1; // same size, one bit changed
+      return route.fulfill({ response, body: bytes });
+    }),
+  );
   const d = await open(fourth);
   const refused = await d.page.evaluate(async (id) => {
     try {
