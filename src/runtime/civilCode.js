@@ -1,9 +1,44 @@
 /* Legal Atlas r7 — Civil Procedure source and course layer. All material is local. */
 'use strict';
-const CIV = JSON.parse($('civilArchive').textContent),
-  CIV_PAGES = Object.keys(CIV.pages)
-    .map(Number)
-    .sort((a, b) => a - b);
+// The casebook's page texts and the Mallory and syllabus page images (4 MB) are read when a Civil Procedure
+// source is first opened. The hosted page may fetch them after start-up (window.DKLAData,
+// src/features/performance/data-loader.js); the portable copy has them in the page.
+const civDataShim = {
+  isLazy: () => false,
+  loaded: () => true,
+  json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+  text: async (id) => document.getElementById(id)?.textContent || '',
+  whenLoaded: async () => {},
+};
+const civData = () => window.DKLAData || civDataShim;
+let CIV = null,
+  civLoading = null,
+  civFailed = false;
+const CIV_PAGES = [];
+function civUse(raw) {
+  CIV = JSON.parse(raw);
+  CIV_PAGES.splice(
+    0,
+    CIV_PAGES.length,
+    ...Object.keys(CIV.pages)
+      .map(Number)
+      .sort((a, b) => a - b),
+  );
+  return CIV;
+}
+// The archive, or null while it is on its way; then() runs once it has arrived or failed.
+function civArchive(then) {
+  if (CIV) return CIV;
+  if (!dklaBlockIsLazy('civilArchive')) return civUse($('civilArchive').textContent);
+  if (!civLoading && !civFailed)
+    civLoading = civData()
+      .text('civilArchive')
+      .then(civUse)
+      .catch(() => (civFailed = true))
+      .finally(() => (civLoading = null));
+  if (then && civLoading) civLoading.then(then);
+  return null;
+}
 const isCivilRegion = (r) =>
   !!r && (r.course === 'Civil Procedure' || r.id === 'civil-region' || r.id.startsWith('cp-'));
 const civilWeeks = (n) => n?.civilImport?.weeks || [];
@@ -210,6 +245,7 @@ civilDialog.setAttribute('aria-label', 'Civil Procedure original sources');
 document.body.appendChild(civilDialog);
 function civilPDF(mode) {
   if (civilPDFURLs[mode]) return civilPDFURLs[mode];
+  const CIV = civArchive();
   const b64 = CIV[mode === 'civ' ? 'casebookPDF' : mode === 'mallory' ? 'malloryPDF' : 'syllabusPDF'];
   if (/\.pdf$/i.test(b64)) {
     const originals = {
@@ -224,8 +260,32 @@ function civilPDF(mode) {
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
   return (civilPDFURLs[mode] = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' })));
 }
+let civilWaiting = null;
+// Opened before the archive has arrived: the reader shows that it is loading, then opens the page asked for,
+// unless it was closed or another page was asked for meanwhile.
+function civilWait(page, mode, tab) {
+  const request = (civilWaiting = { page, mode, tab });
+  civilDialog.innerHTML = `<header class="civil-source-header"><div><strong>Civil Procedure sources</strong></div><button id="closeCivilSource" aria-label="Close source reader">Close ×</button></header><main id="civilSourceBody" data-civil-loading>${civFailed ? '<p role="status"><strong>The Civil Procedure sources could not be loaded.</strong> Check the connection and try again.</p><p><button type="button" data-civil-retry>Retry</button></p>' : '<p role="status">Loading the Civil Procedure sources…</p>'}</main>`;
+  if (!civilDialog.open) civilDialog.showModal();
+  $('closeCivilSource').onclick = () => civilDialog.close();
+  civilDialog.querySelector('[data-civil-retry]')?.addEventListener('click', () => {
+    civFailed = false;
+    openCivil(page, mode, tab);
+  });
+  civArchive(() => {
+    if (civilWaiting !== request || !civilDialog.open) return;
+    civilWaiting = null;
+    if (!CIV) return civilWait(page, mode, tab);
+    openCivil(page, mode, tab);
+    // A page outside the source only shows a message: the loading reader then steps aside.
+    if (civilDialog.querySelector('[data-civil-loading]')) civilDialog.close();
+  });
+}
 function openCivil(page = 1, mode = 'civ', tab = null) {
   if (!['civ', 'mallory', 'syllabus'].includes(mode)) return;
+  const CIV = civArchive();
+  if (!CIV) return civilWait(page, mode, tab);
+  civilWaiting = null;
   const list =
     mode === 'civ'
       ? CIV_PAGES

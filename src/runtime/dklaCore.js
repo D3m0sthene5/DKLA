@@ -3,7 +3,44 @@
 (() => {
   const COURSE = 'Legislation and the Regulatory State';
   COLORS[COURSE] = '#83cbb4';
-  const LRS = $('lrsArchive') ? JSON.parse($('lrsArchive').textContent) : { sources: {} };
+  // The LRS page facsimiles and their OCR text (2.7 MB) are read when an LRS source or the coverage guide is
+  // first opened. The hosted page may fetch them after start-up (window.DKLAData,
+  // src/features/performance/data-loader.js); the portable copy has them in the page.
+  const DATA_SHIM = {
+    isLazy: () => false,
+    loaded: () => true,
+    json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+    text: async (id) => document.getElementById(id)?.textContent || '',
+    whenLoaded: async () => {},
+  };
+  const DKLAData = () => window.DKLAData || DATA_SHIM;
+  // Split from this page and not here yet. Before the loader runs, an emptied block (data-dkla-lazy) counts too.
+  const isLazy = (id) =>
+    window.DKLAData
+      ? window.DKLAData.isLazy(id)
+      : !!$(id)?.hasAttribute('data-dkla-lazy') && !$(id).textContent;
+  let LRS = null,
+    lrsLoading = null,
+    lrsFailed = false;
+  const lrsUse = (raw) => (LRS = JSON.parse(raw));
+  // The archive, or null while it is on its way; then() runs once a load under way has ended.
+  function lrsArchive(then) {
+    if (LRS) return LRS;
+    if (!$('lrsArchive')) return (LRS = { sources: {} });
+    if (!isLazy('lrsArchive')) return lrsUse($('lrsArchive').textContent);
+    if (!lrsLoading && !lrsFailed)
+      lrsLoading = DKLAData()
+        .text('lrsArchive')
+        .then(lrsUse)
+        .catch(() => (lrsFailed = true))
+        .finally(() => (lrsLoading = null));
+    if (then && lrsLoading) lrsLoading.then(then);
+    return null;
+  }
+  const lrsStatus = (what) =>
+    lrsFailed
+      ? `<p role="status" data-lrs-loading><strong>The LRS sources could not be loaded.</strong> Check the connection and try again.</p><p><button type="button" data-lrs-retry>Retry</button></p>`
+      : `<p role="status" data-lrs-loading>Loading ${what}…</p>`;
   const syllabusText = $('lrsSyllabusText') ? JSON.parse($('lrsSyllabusText').textContent) : '';
   let selectedTreatment = null,
     selectedTreatmentId = null,
@@ -146,8 +183,9 @@
     return `<div class="source-strip">${refs.map((r) => `<button data-lrs-source="${E(r.sourceId)}" data-lrs-page="${r.pdfStart}">${E(sourceLabel(r))}</button>`).join('')}</div>`;
   };
   function sourceLabel(r) {
-    const s = LRS.sources[r.sourceId];
-    return `${s?.id.startsWith('katzmann') ? 'Katzmann' : 'LRS packet'} · printed ${r.printedPages || 'label unavailable'} · PDF ${r.pdfStart}${r.pdfEnd !== r.pdfStart ? '–' + r.pdfEnd : ''}`;
+    // Drawn with every LRS entry, so it does not wait for the archive: its source ids are its keys.
+    const id = LRS ? LRS.sources[r.sourceId]?.id : r.sourceId;
+    return `${String(id || '').startsWith('katzmann') ? 'Katzmann' : 'LRS packet'} · printed ${r.printedPages || 'label unavailable'} · PDF ${r.pdfStart}${r.pdfEnd !== r.pdfStart ? '–' + r.pdfEnd : ''}`;
   }
   sourceCaution = function (n) {
     if (!n.lrsImport) return originalCaution(n);
@@ -266,7 +304,37 @@
   dialog.id = 'lrsSourceDialog';
   dialog.setAttribute('aria-label', 'LRS source reader');
   document.body.appendChild(dialog);
+  let lrsWaiting = null;
+  // Opened before the archive has arrived: the reader says it is loading, then opens the page asked for,
+  // unless it was closed or another page was asked for meanwhile.
+  function lrsWait(sourceId, page, tab) {
+    const request = (lrsWaiting = { sourceId, page, tab });
+    if (!dialog.open)
+      lrsReturn = {
+        scroll: $('inspector').scrollTop,
+        active: document.activeElement,
+        modalOpen: $('modal').open,
+      };
+    dialog.innerHTML = `<header class="lrs-source-header"><div><strong>LRS sources</strong></div><button id="closeLRS">← Back to entry</button></header><main id="lrsSourceBody">${lrsStatus('the LRS sources')}</main>`;
+    if (!dialog.open) dialog.showModal();
+    $('closeLRS').onclick = () => dialog.close();
+    dialog.querySelector('[data-lrs-retry]')?.addEventListener('click', () => {
+      lrsFailed = false;
+      openLRS(sourceId, page, tab);
+    });
+    lrsArchive(() => {
+      if (lrsWaiting !== request || !dialog.open) return;
+      lrsWaiting = null;
+      if (!LRS) return lrsWait(sourceId, page, tab);
+      openLRS(sourceId, page, tab);
+      // A source not in this copy only shows a message: the loading reader then steps aside.
+      if (dialog.querySelector('[data-lrs-loading]')) dialog.close();
+    });
+  }
   function openLRS(sourceId = 'lrs-september', page = 2, tab = null) {
+    const LRS = lrsArchive();
+    if (!LRS) return lrsWait(sourceId, page, tab);
+    lrsWaiting = null;
     const src = LRS.sources[sourceId];
     if (!src) {
       toast('This source is not included in this copy.');
@@ -385,6 +453,26 @@
   function lrsCoverage() {
     const c = data.lrsCorpus;
     if (!c) return;
+    const LRS = lrsArchive();
+    if (!LRS) {
+      // The guide counts and lists the source files: it waits for them, then opens if it is still showing.
+      modal(
+        'LRS · coverage and remaining gaps',
+        `<div class="modal-copy">${lrsStatus('the coverage guide')}</div>`,
+      );
+      $('modalBody')
+        .querySelector('[data-lrs-retry]')
+        ?.addEventListener('click', () => {
+          lrsFailed = false;
+          lrsCoverage();
+        });
+      const waiting = $('modalBody').querySelector('[data-lrs-loading]');
+      lrsArchive(() => {
+        if (!waiting.isConnected || !$('modal').open) return;
+        lrsCoverage();
+      });
+      return;
+    }
     modal(
       'LRS · coverage and remaining gaps',
       `<div class="modal-copy"><p>${c.accountIds.length} authored LRS accounts across ${c.classes.length} syllabus classes. ${Object.values(LRS.sources).reduce((n, s) => n + s.pages.length, 0)} physical source pages remain available, including overlaps and unnumbered pages.</p><p>Full briefs, note-only accounts, passing mentions, and missing readings are listed separately.</p><h3>Missing or incomplete assigned readings</h3>${c.assignments

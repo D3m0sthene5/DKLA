@@ -1244,7 +1244,41 @@
     });
   }
 
+  /* ---------- rows whose data arrives after start-up ---------- */
+  // The hosted page may fetch large data blocks after start-up (window.DKLAData,
+  // src/features/performance/data-loader.js). Search itself never waits for one: its index holds the map's entries,
+  // flowcharts, lectures, canons and classes, all in the page. The dictionary rows (dklaR12Glossary.js) join each
+  // list from the dictionary block, so the box asks for that block as soon as it is focused, and when the block
+  // arrives the open list is drawn again for the same words, with those rows in it. The source rows
+  // (dklaR11Sources.js) come from the source index, which stays in the page, and never from the source texts.
+  const LATE = ['dklaGlossary'];
+  function fetchLate() {
+    const api = window.DKLAData;
+    if (api) for (const id of LATE) if (api.isLazy(id)) api.text(id).catch(() => {});
+  }
+  // The modules that add rows to a list (dictionary, sources, briefs, timelines, authorities) each skip a list they
+  // have already seen for the box's words. Forgetting those marks lets them add their rows to the redrawn list.
+  function refreshSearch() {
+    const box = $('search'),
+      list = $('searchResults');
+    if (!box || !list || list.hidden || !box.value.trim()) return false;
+    // Someone moving through the results with the keyboard keeps their place: the rows join at the next keystroke.
+    if (list.contains(document.activeElement)) return false;
+    for (const key of Object.keys(list.dataset))
+      if (list.dataset[key] === box.value) delete list.dataset[key];
+    searchEntries();
+    return true;
+  }
+  $('search')?.addEventListener('focus', fetchLate);
+  $('search')?.addEventListener('input', fetchLate);
+  // Another module may parse the block a moment after it arrives, so the redraw waits a little.
+  document.addEventListener('dkla:data', (e) => {
+    if (LATE.includes(e.detail?.id)) setTimeout(refreshSearch, 80);
+  });
+
   window.DKLA = Object.assign(window.DKLA || {}, {
+    // Draw the open results again for the same words (for a module whose rows have just become available).
+    refreshSearch,
     searchIndex: () => ms,
     // The course, number and remaining words a query names, or null ("LRS Class 22").
     searchCourseIntent: (q) => courseIntent(q),

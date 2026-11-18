@@ -259,10 +259,55 @@ function edgeById(id) {
   return data.edges.find((e) => e.id === id);
 }
 // Contracts corpus view and embedded source-page reader. No remote resources.
-const BOOK = JSON.parse($('bookArchive').textContent);
-const BOOK_PAGES = Object.keys(BOOK)
-  .map(Number)
-  .sort((a, b) => a - b);
+// The casebook page archive (2.4 MB) and the textbook update (0.8 MB) may be split from the hosted page and
+// fetched when first needed (window.DKLAData, src/features/performance/data-loader.js). A copy that holds them
+// reads the archive at start-up, as before; a page without them fills BOOK and BOOK_PAGES in place when the
+// book reader is first opened (openBook in semesterCode.js waits for it).
+const bookDataShim = {
+  isLazy: () => false,
+  loaded: () => true,
+  json: async (id) => JSON.parse(document.getElementById(id)?.textContent || 'null'),
+  text: async (id) => document.getElementById(id)?.textContent || '',
+  whenLoaded: async () => {},
+};
+const bookData = () => window.DKLAData || bookDataShim;
+// Split from this page and not here yet. Before the loader runs, an emptied block (data-dkla-lazy) counts too.
+function dklaBlockIsLazy(id) {
+  if (window.DKLAData) return window.DKLAData.isLazy(id);
+  const el = $(id);
+  return !!el && el.hasAttribute('data-dkla-lazy') && !el.textContent;
+}
+const BOOK = {},
+  BOOK_PAGES = [];
+let bookReady = false,
+  bookLoading = null,
+  bookFailed = false;
+function bookUse(raw) {
+  Object.assign(BOOK, JSON.parse(raw));
+  BOOK_PAGES.splice(
+    0,
+    BOOK_PAGES.length,
+    ...Object.keys(BOOK)
+      .map(Number)
+      .sort((a, b) => a - b),
+  );
+  bookReady = true;
+  return BOOK;
+}
+// The archive, or null while it is on its way; then() runs once a load under way has ended (CIV and LRS work alike).
+function bookArchive(then) {
+  if (bookReady) return BOOK;
+  if (!dklaBlockIsLazy('bookArchive')) return bookUse($('bookArchive').textContent);
+  if (!bookLoading && !bookFailed)
+    bookLoading = bookData()
+      .text('bookArchive')
+      .then(bookUse)
+      .catch(() => (bookFailed = true))
+      .finally(() => (bookLoading = null));
+  if (then && bookLoading) bookLoading.then(then);
+  return null;
+}
+if (!dklaBlockIsLazy('bookArchive')) bookArchive();
 let assignment = '9',
   detailLevel = 'core',
   bookPage = 284,
@@ -367,6 +412,26 @@ function searchSources() {
       .join('');
 }
 function coverageDialog() {
+  if (!bookArchive()) {
+    // The guide counts the archive's pages: it waits for them, then opens if it is still showing.
+    modal(
+      'Scope, sources, and remaining gaps',
+      bookFailed
+        ? '<div class="modal-copy"><p role="status" data-book-loading><strong>The casebook pages could not be loaded.</strong> Check the connection and try again.</p><p><button type="button" data-book-retry>Retry</button></p></div>'
+        : '<div class="modal-copy"><p role="status" data-book-loading>Loading the casebook pages…</p></div>',
+    );
+    $('modalBody')
+      .querySelector('[data-book-retry]')
+      ?.addEventListener('click', () => {
+        bookFailed = false;
+        coverageDialog();
+      });
+    const waiting = $('modalBody').querySelector('[data-book-loading]');
+    bookArchive(() => {
+      if (waiting.isConnected && $('modal').open) coverageDialog();
+    });
+    return;
+  }
   const rows = Object.entries((data.corpus || base.corpus)?.assignedRanges || {})
     .map(
       ([c, rs]) =>
@@ -1425,12 +1490,39 @@ $('importFile').onchange = async (e) => {
     );
     $('backupImport').onclick = exportJSON;
     $('cancelImport').onclick = closeModal;
+    let textbookRaw = null;
     $('applyImport').onclick = () => {
+      // The textbook update is read only here; a page without it fetches it first, then applies the import.
+      if (
+        !isPatch &&
+        $('importMode').value === 'textbook' &&
+        textbookRaw === null &&
+        dklaBlockIsLazy('textbookUpdate')
+      ) {
+        $('importError').textContent = 'Loading the textbook update…';
+        $('applyImport').disabled = true;
+        bookData()
+          .text('textbookUpdate')
+          .then(
+            (raw) => {
+              textbookRaw = raw;
+              $('importError').textContent = '';
+              $('applyImport').disabled = false;
+              $('applyImport').click();
+            },
+            () => {
+              $('importError').textContent =
+                'The textbook update could not be loaded. Check the connection and try again.';
+              $('applyImport').disabled = false;
+            },
+          );
+        return;
+      }
       try {
         transact('Imported ' + file.name, () => {
           if (isPatch) data = applyPatch(data, imported);
           else if ($('importMode').value === 'textbook')
-            data = applyPatch(imported, JSON.parse($('textbookUpdate').textContent));
+            data = applyPatch(imported, JSON.parse(textbookRaw ?? $('textbookUpdate').textContent));
           else if ($('importMode').value === 'replace') data = clone(imported);
           else {
             const existingN = new Set(data.nodes.map((n) => n.id)),
