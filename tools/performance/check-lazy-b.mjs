@@ -24,6 +24,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
+import { unsplit } from './unsplit.mjs';
 
 const address = new URL(process.argv[2]);
 assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
@@ -37,12 +38,14 @@ const TXT = 'added-sources/opinions/lrs-i-benzene.txt';
 const tag = (id) =>
   new RegExp(`(<script id="${id}" type="application/(?:json|octet-stream)")([^>]*)>([\\s\\S]*?)</script>`);
 let shell = null;
+let whole = null;
+const wholePage = async () => (whole ??= await unsplit(await (await fetch(address.href)).text(), address));
 const raw = {};
 async function servedShell() {
   if (shell) return shell;
   const response = await fetch(address.href);
   assert.ok(response.ok, 'the page is served');
-  let html = await response.text();
+  let html = await unsplit(await response.text(), address);
   let portable = null;
   for (const id of LATE) {
     const m = tag(id).exec(html);
@@ -68,11 +71,12 @@ async function open({ late }) {
     const url = new URL(route.request().url());
     if (url.origin !== address.origin || url.pathname.startsWith('/api/'))
       return route.fulfill({ status: 204, body: '' });
-    if (late && url.pathname === address.pathname)
+    // The late run serves the page with this check's blocks emptied; the whole-page run serves every block filled in.
+    if (url.pathname === address.pathname)
       return route.fulfill({
         status: 200,
         contentType: 'text/html; charset=utf-8',
-        body: await servedShell(),
+        body: late ? await servedShell() : await wholePage(),
       });
     if (late && url.pathname.startsWith('/__late/')) {
       const id = url.pathname.slice(8);

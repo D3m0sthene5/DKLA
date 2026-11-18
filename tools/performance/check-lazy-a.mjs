@@ -21,6 +21,7 @@
    No page errors anywhere. Loopback only; /api/ and other origins answer 204. */
 import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
+import { unsplit } from './unsplit.mjs';
 
 const address = new URL(process.argv[2]);
 assert.ok(['127.0.0.1', 'localhost'].includes(address.hostname), 'local preview only');
@@ -28,7 +29,7 @@ const HELD = ['dklaColdCallData', 'dklaColdCallGlossary', 'dklaColdCallPlain', '
 const CASE = 'cp-garcia';
 
 // ---- the page, with the held blocks emptied (their text is served from /__lazy-a/<id>)
-const original = await (await fetch(address)).text();
+const original = await unsplit(await (await fetch(address)).text(), address);
 const raw = new Map();
 let html = original;
 const manifest = original.match(/<script\b[^>]*\bid="dklaDataManifest"[^>]*>([\s\S]*?)<\/script>/);
