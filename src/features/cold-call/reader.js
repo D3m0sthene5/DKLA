@@ -110,7 +110,7 @@
     returnTo = remember(trigger);
     current = null;
     delete dialog.dataset.course;
-    dialog.innerHTML = `<header class="cc-header"><div class="cc-heading"><span class="cc-kicker">Cold call</span><h2 id="ccTitle">Loading Cold Call…</h2></div><div class="cc-actions"><button type="button" id="ccClose" autofocus>← Back to case</button></div></header><p class="cc-loading" role="status">Loading Cold Call…</p>`;
+    dialog.innerHTML = `<header class="cc-header"><div class="cc-heading"><span class="cc-kicker">Cold call</span><h2 id="ccTitle">Cold Call</h2></div><div class="cc-actions"><button type="button" id="ccClose" autofocus>← Back to case</button></div></header><p class="cc-loading" role="status">Loading Cold Call…</p>`;
     $('ccClose').onclick = close;
     dialog.showModal();
     Promise.all([load(), gloss?.load?.()]).then(

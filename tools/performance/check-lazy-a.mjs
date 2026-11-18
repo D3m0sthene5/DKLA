@@ -230,7 +230,7 @@ const release = (page, ...ids) =>
   await page.evaluate((id) => window.DKLAColdCall.open(id), CASE);
   const reader = page.locator('#coldCallDialog[open]');
   await reader.locator('.cc-loading').waitFor();
-  assert.match(await reader.locator('#ccTitle').innerText(), /Loading Cold Call/);
+  assert.match(await reader.locator('.cc-loading').innerText(), /Loading Cold Call/);
   await release(page, 'dklaColdCallData');
   await page.waitForFunction(() => window.DKLAColdCall.loaded());
   await page.waitForTimeout(400);

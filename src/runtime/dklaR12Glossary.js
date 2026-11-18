@@ -186,7 +186,7 @@
     const status = failed
       ? 'The dictionary could not be loaded. Check the connection, then close this and try again.'
       : 'Loading the dictionary…';
-    dlg.innerHTML = `<header class="gl-header"><div><strong>Legal dictionary</strong><span>${status}</span></div><div class="gl-tools"><input id="glFind" type="search" placeholder="Find a term" value="${E(q)}" aria-label="Find a term"><button id="glClose">← Back</button></div></header>
+    dlg.innerHTML = `<header class="gl-header"><div><strong>Legal dictionary</strong></div><div class="gl-tools"><input id="glFind" type="search" placeholder="Find a term" value="${E(q)}" aria-label="Find a term"><button id="glClose">← Back</button></div></header>
  <div class="gl-body"><p class="gl-empty gl-loading" role="status">${status}</p></div>`;
     $('glClose').onclick = close;
     const f = $('glFind');
