@@ -101,6 +101,26 @@ const breakages = [
       ),
   ],
   [
+    'phone search: the Search button never appears in the top bar',
+    'src/runtime/dklaR13Search.js',
+    () => edit('src/runtime/dklaR13Search.js', '    box.before(opener);\n', '    void opener;\n'),
+  ],
+  [
+    'search: a course and class number ("LRS Class 22") no longer lists that session first',
+    'src/runtime/dklaR13Search.js',
+    () => edit('src/runtime/dklaR13Search.js', 'const intent = courseIntent(q);', 'const intent = null;'),
+  ],
+  [
+    'search: the flowcharts are no longer indexed',
+    'src/runtime/dklaR13Search.js',
+    () =>
+      edit(
+        'src/runtime/dklaR13Search.js',
+        "for (const chart of block('dklaFlowchartsData') || [])",
+        'for (const chart of [])',
+      ),
+  ],
+  [
     'Cold Call definitions: a click on the card closes it',
     'src/features/cold-call/glossary.js',
     () => edit('src/features/cold-call/glossary.js', '    card.tabIndex = -1;\n', '\n'),
